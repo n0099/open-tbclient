@@ -9,16 +9,16 @@ public class IntHashMap {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        int hZk;
-        a hZl;
+        int hZI;
+        a hZJ;
         int key;
         Object value;
 
         protected a(int i, int i2, Object obj, a aVar) {
-            this.hZk = i;
+            this.hZI = i;
             this.key = i2;
             this.value = obj;
-            this.hZl = aVar;
+            this.hZJ = aVar;
         }
     }
 
@@ -60,7 +60,7 @@ public class IntHashMap {
         while (true) {
             int i = length - 1;
             if (length > 0) {
-                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.hZl) {
+                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.hZJ) {
                     if (aVar.value.equals(obj)) {
                         return true;
                     }
@@ -78,8 +78,8 @@ public class IntHashMap {
 
     public boolean containsKey(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.hZl) {
-            if (aVar.hZk == i) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.hZJ) {
+            if (aVar.hZI == i) {
                 return true;
             }
         }
@@ -88,8 +88,8 @@ public class IntHashMap {
 
     public Object get(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.hZl) {
-            if (aVar.hZk == i) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.hZJ) {
+            if (aVar.hZI == i) {
                 return aVar.value;
             }
         }
@@ -108,9 +108,9 @@ public class IntHashMap {
             if (length > 0) {
                 a aVar = aVarArr[i2];
                 while (aVar != null) {
-                    a aVar2 = aVar.hZl;
-                    int i3 = (aVar.hZk & Integer.MAX_VALUE) % i;
-                    aVar.hZl = aVarArr2[i3];
+                    a aVar2 = aVar.hZJ;
+                    int i3 = (aVar.hZI & Integer.MAX_VALUE) % i;
+                    aVar.hZJ = aVarArr2[i3];
                     aVarArr2[i3] = aVar;
                     aVar = aVar2;
                 }
@@ -124,8 +124,8 @@ public class IntHashMap {
     public Object put(int i, Object obj) {
         a[] aVarArr = this.table;
         int length = (i & Integer.MAX_VALUE) % aVarArr.length;
-        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.hZl) {
-            if (aVar.hZk == i) {
+        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.hZJ) {
+            if (aVar.hZI == i) {
                 Object obj2 = aVar.value;
                 aVar.value = obj;
                 return obj2;
@@ -147,15 +147,15 @@ public class IntHashMap {
         a aVar = aVarArr[length];
         a aVar2 = null;
         while (aVar != null) {
-            if (aVar.hZk != i) {
+            if (aVar.hZI != i) {
                 a aVar3 = aVar;
-                aVar = aVar.hZl;
+                aVar = aVar.hZJ;
                 aVar2 = aVar3;
             } else {
                 if (aVar2 != null) {
-                    aVar2.hZl = aVar.hZl;
+                    aVar2.hZJ = aVar.hZJ;
                 } else {
-                    aVarArr[length] = aVar.hZl;
+                    aVarArr[length] = aVar.hZJ;
                 }
                 this.count--;
                 Object obj = aVar.value;

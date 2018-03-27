@@ -17,151 +17,151 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.base.c<MoreActivity> {
-    private MoreActivity gMY;
-    private c gMZ;
-    private AlertDialog gNa;
-    private View gNb;
-    private TbSettingTextTipView gNc;
-    private SettingTextImageView gNd;
-    private TbSettingTextTipView gNe;
-    private TbSettingTextTipView gNf;
-    private TbSettingTextTipView gNg;
-    private MsgSettingItemView gNh;
-    private TbSettingTextTipView gNi;
-    private TbSettingTextTipView gNj;
-    private SettingTextVersionView gNk;
-    private TbSettingTextTipView gNl;
-    private TbSettingTextTipView gNm;
-    private TbSettingTextNewDotView gNn;
-    private TextView gNo;
-    private RelativeLayout gNp;
-    private View gNq;
+    private SettingTextVersionView gNA;
+    private TbSettingTextTipView gNB;
+    private TbSettingTextTipView gNC;
+    private TbSettingTextNewDotView gND;
+    private TextView gNE;
+    private RelativeLayout gNF;
+    private View gNG;
+    private MoreActivity gNo;
+    private c gNp;
+    private AlertDialog gNq;
+    private View gNr;
+    private TbSettingTextTipView gNs;
+    private SettingTextImageView gNt;
+    private TbSettingTextTipView gNu;
+    private TbSettingTextTipView gNv;
+    private TbSettingTextTipView gNw;
+    private MsgSettingItemView gNx;
+    private TbSettingTextTipView gNy;
+    private TbSettingTextTipView gNz;
     private NavigationBar mNavigationBar;
 
     public d(MoreActivity moreActivity, c cVar) {
         super(moreActivity.getPageContext());
-        this.gMY = moreActivity;
-        this.gMZ = cVar;
-        this.gMY.setContentView(d.h.more_activity);
-        Ju();
+        this.gNo = moreActivity;
+        this.gNp = cVar;
+        this.gNo.setContentView(d.h.more_activity);
+        Jv();
     }
 
-    public void bqV() {
+    public void bqW() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            this.gNd.setVisibility(8);
+            this.gNt.setVisibility(8);
         } else {
-            this.gNd.setVisibility(0);
+            this.gNt.setVisibility(0);
         }
     }
 
     public void W(String str, boolean z) {
         if (str == null || str.length() <= 0) {
-            if (this.gNd != null) {
-                this.gNd.brV();
+            if (this.gNt != null) {
+                this.gNt.brW();
                 return;
             }
             return;
         }
-        this.gNd.brW();
-        this.gNd.X(str, z);
+        this.gNt.brX();
+        this.gNt.X(str, z);
     }
 
-    public void bqW() {
-        if (this.gNk != null) {
-            this.gNk.refresh();
+    public void bqX() {
+        if (this.gNA != null) {
+            this.gNA.refresh();
         }
-        if (this.gNn != null) {
-            this.gNn.refresh();
+        if (this.gND != null) {
+            this.gND.refresh();
         }
     }
 
-    public void bpX() {
-        this.gNd.recycle();
-        this.gNe.recycle();
-        this.gNf.recycle();
-        this.gNg.recycle();
-        this.gNi.recycle();
-        this.gNj.recycle();
-        this.gNk.recycle();
-        this.gNl.recycle();
-        this.gNm.recycle();
+    public void bpY() {
+        this.gNt.recycle();
+        this.gNu.recycle();
+        this.gNv.recycle();
+        this.gNw.recycle();
+        this.gNy.recycle();
+        this.gNz.recycle();
+        this.gNA.recycle();
+        this.gNB.recycle();
+        this.gNC.recycle();
     }
 
     public void onChangeSkinType(int i) {
         hr(i);
-        if (this.gNb != null) {
-            this.gMY.getLayoutMode().aQ(i == 1);
-            this.gMY.getLayoutMode().aM(this.gNb);
+        if (this.gNr != null) {
+            this.gNo.getLayoutMode().aQ(i == 1);
+            this.gNo.getLayoutMode().aM(this.gNr);
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: com.baidu.tieba.setting.more.MoreActivity */
     /* JADX WARN: Multi-variable type inference failed */
     public void hr(int i) {
-        aj.t(this.gNp, d.C0141d.cp_bg_line_d);
+        aj.t(this.gNF, d.C0141d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gNd.hr(i);
-        this.gMY.getLayoutMode().aQ(i == 1);
-        this.gMY.getLayoutMode().aM(this.gNp);
+        this.gNt.hr(i);
+        this.gNo.getLayoutMode().aQ(i == 1);
+        this.gNo.getLayoutMode().aM(this.gNF);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gNh.d(this.gMY.getPageContext(), i);
-        bqW();
+        this.gNx.d(this.gNo.getPageContext(), i);
+        bqX();
     }
 
-    private void Ju() {
+    private void Jv() {
         View.OnClickListener clickListener = getClickListener();
-        this.gNp = (RelativeLayout) this.gMY.findViewById(d.g.parent);
-        this.gMY.findViewById(d.g.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mNavigationBar = (NavigationBar) this.gMY.findViewById(d.g.view_navigation_bar);
-        this.gNq = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.gMY.getPageContext().getString(d.j.setup));
+        this.gNF = (RelativeLayout) this.gNo.findViewById(d.g.parent);
+        this.gNo.findViewById(d.g.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mNavigationBar = (NavigationBar) this.gNo.findViewById(d.g.view_navigation_bar);
+        this.gNG = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setCenterTextTitle(this.gNo.getPageContext().getString(d.j.setup));
         this.mNavigationBar.showBottomLine();
-        this.gNc = (TbSettingTextTipView) this.gMY.findViewById(d.g.accountSafeSetting);
-        this.gNd = (SettingTextImageView) this.gMY.findViewById(d.g.personInfo);
-        this.gNe = (TbSettingTextTipView) this.gMY.findViewById(d.g.interest_label_setting);
-        this.gNe.setTopLineVisibility(true);
-        this.gNf = (TbSettingTextTipView) this.gMY.findViewById(d.g.accountManager);
-        this.gNf.setTopLineVisibility(true);
-        this.gNg = (TbSettingTextTipView) this.gMY.findViewById(d.g.browseSetting);
-        this.gNg.setBottomLineVisibility(true);
-        this.gNi = (TbSettingTextTipView) this.gMY.findViewById(d.g.messageSetting);
-        this.gNi.setBottomLineVisibility(true);
-        this.gNg.setBottomLineVisibility(true);
-        this.gNj = (TbSettingTextTipView) this.gMY.findViewById(d.g.secretSetting);
-        this.gNj.setBottomLineVisibility(true);
-        this.gNk = (SettingTextVersionView) this.gMY.findViewById(d.g.versionInfo);
-        this.gNl = (TbSettingTextTipView) this.gMY.findViewById(d.g.feedBack);
-        this.gNl.setTopLineVisibility(true);
-        this.gNl.setBottomLineVisibility(true);
-        this.gNm = (TbSettingTextTipView) this.gMY.findViewById(d.g.recommend);
-        this.gNh = (MsgSettingItemView) this.gMY.findViewById(d.g.memberAdSetting);
-        bqX();
+        this.gNs = (TbSettingTextTipView) this.gNo.findViewById(d.g.accountSafeSetting);
+        this.gNt = (SettingTextImageView) this.gNo.findViewById(d.g.personInfo);
+        this.gNu = (TbSettingTextTipView) this.gNo.findViewById(d.g.interest_label_setting);
+        this.gNu.setTopLineVisibility(true);
+        this.gNv = (TbSettingTextTipView) this.gNo.findViewById(d.g.accountManager);
+        this.gNv.setTopLineVisibility(true);
+        this.gNw = (TbSettingTextTipView) this.gNo.findViewById(d.g.browseSetting);
+        this.gNw.setBottomLineVisibility(true);
+        this.gNy = (TbSettingTextTipView) this.gNo.findViewById(d.g.messageSetting);
+        this.gNy.setBottomLineVisibility(true);
+        this.gNw.setBottomLineVisibility(true);
+        this.gNz = (TbSettingTextTipView) this.gNo.findViewById(d.g.secretSetting);
+        this.gNz.setBottomLineVisibility(true);
+        this.gNA = (SettingTextVersionView) this.gNo.findViewById(d.g.versionInfo);
+        this.gNB = (TbSettingTextTipView) this.gNo.findViewById(d.g.feedBack);
+        this.gNB.setTopLineVisibility(true);
+        this.gNB.setBottomLineVisibility(true);
+        this.gNC = (TbSettingTextTipView) this.gNo.findViewById(d.g.recommend);
+        this.gNx = (MsgSettingItemView) this.gNo.findViewById(d.g.memberAdSetting);
+        bqY();
         if (!TbadkCoreApplication.getInst().getIsAppOn()) {
-            this.gNm.setVisibility(8);
-            this.gNm.setBottomLineVisibility(false);
+            this.gNC.setVisibility(8);
+            this.gNC.setBottomLineVisibility(false);
         } else {
-            this.gNm.setVisibility(0);
-            this.gNm.setBottomLineVisibility(true);
+            this.gNC.setVisibility(0);
+            this.gNC.setBottomLineVisibility(true);
         }
-        this.gNn = (TbSettingTextNewDotView) this.gMY.findViewById(d.g.systemhelpsetting);
-        this.gNo = (TextView) this.gMY.findViewById(d.g.quit);
+        this.gND = (TbSettingTextNewDotView) this.gNo.findViewById(d.g.systemhelpsetting);
+        this.gNE = (TextView) this.gNo.findViewById(d.g.quit);
+        bqX();
         bqW();
-        bqV();
-        this.gNd.brV();
+        this.gNt.brW();
         hr(TbadkCoreApplication.getInst().getSkinType());
         P(clickListener);
-        if (!bqt()) {
-            this.gNg.setTip(this.gMY.getResources().getString(d.j.browsing_settings_tip_no_night));
+        if (!bqu()) {
+            this.gNw.setTip(this.gNo.getResources().getString(d.j.browsing_settings_tip_no_night));
         }
     }
 
-    private void bqX() {
+    private void bqY() {
         int i;
         int i2 = 0;
-        this.gNh.setText(d.j.member_ad_setting_text);
-        this.gNh.setTipImageResource(d.f.label_red_svip);
-        this.gNh.setOnSwitchStateChangeListener(this.gMY);
+        this.gNx.setText(d.j.member_ad_setting_text);
+        this.gNx.setTipImageResource(d.f.label_red_svip);
+        this.gNx.setOnSwitchStateChangeListener(this.gNo);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             i = currentAccountObj.getMemberCloseAdIsOpen();
@@ -170,116 +170,116 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
             i = 0;
         }
         if (i == 0) {
-            this.gNh.setVisibility(8);
+            this.gNx.setVisibility(8);
         } else if (i2 == 0) {
-            this.gNh.rI();
+            this.gNx.rI();
         } else {
-            this.gNh.rH();
+            this.gNx.rH();
         }
     }
 
-    public void bqY() {
-        this.gNh.rI();
-    }
-
     public void bqZ() {
-        this.gNh.rH();
+        this.gNx.rI();
     }
 
-    private boolean bqt() {
+    public void bra() {
+        this.gNx.rH();
+    }
+
+    private boolean bqu() {
         return MessageManager.getInstance().runTask(2001281, Boolean.class) != null;
     }
 
-    private void bed() {
-        this.gNb = LayoutInflater.from(this.gMY.getPageContext().getPageActivity()).inflate(d.h.quit_dialog, (ViewGroup) null);
-        this.gMY.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.gMY.getLayoutMode().aM(this.gNb);
-        ((TextView) this.gNb.findViewById(d.g.id_close_tv)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.d.1
+    private void bee() {
+        this.gNr = LayoutInflater.from(this.gNo.getPageContext().getPageActivity()).inflate(d.h.quit_dialog, (ViewGroup) null);
+        this.gNo.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.gNo.getLayoutMode().aM(this.gNr);
+        ((TextView) this.gNr.findViewById(d.g.id_close_tv)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.abj();
-                d.this.gMZ.uQ(11);
+                d.this.abk();
+                d.this.gNp.uQ(11);
             }
         });
-        ((TextView) this.gNb.findViewById(d.g.id_quit_tv)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.d.2
+        ((TextView) this.gNr.findViewById(d.g.id_quit_tv)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.abj();
-                d.this.gMZ.uQ(12);
+                d.this.abk();
+                d.this.gNp.uQ(12);
             }
         });
-        this.gNa = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
-        this.gNa.setCanceledOnTouchOutside(true);
-        com.baidu.adp.lib.g.g.a(this.gNa, this.mContext.getPageActivity());
-        if (this.gNa.getWindow() != null) {
-            WindowManager.LayoutParams attributes = this.gNa.getWindow().getAttributes();
+        this.gNq = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
+        this.gNq.setCanceledOnTouchOutside(true);
+        com.baidu.adp.lib.g.g.a(this.gNq, this.mContext.getPageActivity());
+        if (this.gNq.getWindow() != null) {
+            WindowManager.LayoutParams attributes = this.gNq.getWindow().getAttributes();
             attributes.dimAmount = 0.7f;
-            this.gNa.getWindow().setAttributes(attributes);
-            this.gNa.getWindow().setContentView(this.gNb);
+            this.gNq.getWindow().setAttributes(attributes);
+            this.gNq.getWindow().setContentView(this.gNr);
         }
     }
 
     private void P(View.OnClickListener onClickListener) {
-        this.gNc.setOnClickListener(onClickListener);
-        this.gNq.setOnClickListener(onClickListener);
-        this.gNd.setOnClickListener(onClickListener);
-        this.gNe.setOnClickListener(onClickListener);
-        this.gNf.setOnClickListener(onClickListener);
-        this.gNg.setOnClickListener(onClickListener);
-        this.gNi.setOnClickListener(onClickListener);
-        this.gNj.setOnClickListener(onClickListener);
-        this.gNk.setOnClickListener(onClickListener);
-        this.gNl.setOnClickListener(onClickListener);
-        this.gNm.setOnClickListener(onClickListener);
-        this.gNn.setOnClickListener(onClickListener);
-        this.gNo.setOnClickListener(onClickListener);
+        this.gNs.setOnClickListener(onClickListener);
+        this.gNG.setOnClickListener(onClickListener);
+        this.gNt.setOnClickListener(onClickListener);
+        this.gNu.setOnClickListener(onClickListener);
+        this.gNv.setOnClickListener(onClickListener);
+        this.gNw.setOnClickListener(onClickListener);
+        this.gNy.setOnClickListener(onClickListener);
+        this.gNz.setOnClickListener(onClickListener);
+        this.gNA.setOnClickListener(onClickListener);
+        this.gNB.setOnClickListener(onClickListener);
+        this.gNC.setOnClickListener(onClickListener);
+        this.gND.setOnClickListener(onClickListener);
+        this.gNE.setOnClickListener(onClickListener);
     }
 
     private View.OnClickListener getClickListener() {
         return new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == d.this.gNq) {
-                    d.this.gMZ.uQ(0);
-                } else if (view == d.this.gNd) {
-                    d.this.gMZ.uQ(1);
-                } else if (view == d.this.gNe) {
-                    d.this.gMZ.uQ(15);
-                } else if (view == d.this.gNf) {
-                    d.this.gMZ.uQ(2);
-                } else if (view == d.this.gNg) {
-                    d.this.gMZ.uQ(3);
-                } else if (view == d.this.gNi) {
-                    d.this.gMZ.uQ(4);
-                } else if (view == d.this.gNj) {
-                    d.this.gMZ.uQ(9);
-                } else if (view == d.this.gNk) {
-                    d.this.gMZ.uQ(6);
-                } else if (view == d.this.gNl) {
-                    d.this.gMZ.uQ(7);
-                } else if (view == d.this.gNm) {
-                    d.this.gMZ.uQ(8);
-                } else if (view == d.this.gNn) {
-                    d.this.gMZ.uQ(5);
-                } else if (view == d.this.gNo) {
-                    d.this.gMZ.uQ(10);
-                } else if (view == d.this.gNc) {
-                    d.this.gMZ.uQ(13);
+                if (view == d.this.gNG) {
+                    d.this.gNp.uQ(0);
+                } else if (view == d.this.gNt) {
+                    d.this.gNp.uQ(1);
+                } else if (view == d.this.gNu) {
+                    d.this.gNp.uQ(15);
+                } else if (view == d.this.gNv) {
+                    d.this.gNp.uQ(2);
+                } else if (view == d.this.gNw) {
+                    d.this.gNp.uQ(3);
+                } else if (view == d.this.gNy) {
+                    d.this.gNp.uQ(4);
+                } else if (view == d.this.gNz) {
+                    d.this.gNp.uQ(9);
+                } else if (view == d.this.gNA) {
+                    d.this.gNp.uQ(6);
+                } else if (view == d.this.gNB) {
+                    d.this.gNp.uQ(7);
+                } else if (view == d.this.gNC) {
+                    d.this.gNp.uQ(8);
+                } else if (view == d.this.gND) {
+                    d.this.gNp.uQ(5);
+                } else if (view == d.this.gNE) {
+                    d.this.gNp.uQ(10);
+                } else if (view == d.this.gNs) {
+                    d.this.gNp.uQ(13);
                 }
             }
         };
     }
 
-    public void bra() {
-        if (this.gNa == null) {
-            bed();
+    public void brb() {
+        if (this.gNq == null) {
+            bee();
         }
-        com.baidu.adp.lib.g.g.a(this.gNa, this.gMY.getPageContext());
+        com.baidu.adp.lib.g.g.a(this.gNq, this.gNo.getPageContext());
     }
 
-    public void abj() {
-        if (this.gNa != null) {
-            com.baidu.adp.lib.g.g.b(this.gNa, this.gMY.getPageContext());
+    public void abk() {
+        if (this.gNq != null) {
+            com.baidu.adp.lib.g.g.b(this.gNq, this.gNo.getPageContext());
         }
     }
 }

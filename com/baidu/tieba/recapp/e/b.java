@@ -9,9 +9,9 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.s;
 /* loaded from: classes3.dex */
 public class b extends d {
-    private TextView beT;
-    private HeadImageView ecr;
-    private TextView gHt;
+    private TextView beW;
+    private HeadImageView ecH;
+    private TextView gHJ;
 
     public b(View view, String str) {
         super(view, str);
@@ -19,28 +19,28 @@ public class b extends d {
     }
 
     private void init() {
-        this.ecr = (HeadImageView) uy(d.g.user_portrait);
-        this.ecr.setDefaultResource(d.f.icon_default_avatar100);
-        this.ecr.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.ecr.setDefaultBgResource(d.C0141d.cp_bg_line_e);
-        this.ecr.setIsRound(true);
-        this.beT = (TextView) uy(d.g.user_name);
-        this.gHt = (TextView) uy(d.g.action);
+        this.ecH = (HeadImageView) uy(d.g.user_portrait);
+        this.ecH.setDefaultResource(d.f.icon_default_avatar100);
+        this.ecH.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.ecH.setDefaultBgResource(d.C0141d.cp_bg_line_e);
+        this.ecH.setIsRound(true);
+        this.beW = (TextView) uy(d.g.user_name);
+        this.gHJ = (TextView) uy(d.g.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.d
     public void a(final AdCard.e eVar) {
         super.a(eVar);
-        this.ecr.startLoad(eVar.gDb, 10, false);
-        this.beT.setText(eVar.userName);
-        this.gHt.setText(eVar.buttonText);
+        this.ecH.startLoad(eVar.gDr, 10, false);
+        this.beW.setText(eVar.userName);
+        this.gHJ.setText(eVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 s.ap(b.this.mRootView.getContext(), eVar.scheme);
-                if (b.this.gHz != null) {
-                    b.this.gHz.us(302);
-                    com.baidu.tieba.recapp.report.b.boW().a(b.this.gHz);
+                if (b.this.gHP != null) {
+                    b.this.gHP.us(302);
+                    com.baidu.tieba.recapp.report.b.boX().a(b.this.gHP);
                 }
             }
         });
@@ -51,8 +51,8 @@ public class b extends d {
     public void onChangeSkinType() {
         super.onChangeSkinType();
         aj.t(this.mRootView, d.C0141d.cp_cont_b_alpha80);
-        aj.e(this.beT, d.C0141d.cp_cont_i, 1);
-        aj.e(this.gHt, d.C0141d.cp_cont_i, 1);
-        aj.g(this.gHt, d.C0141d.cp_link_tip_a, 1);
+        aj.e(this.beW, d.C0141d.cp_cont_i, 1);
+        aj.e(this.gHJ, d.C0141d.cp_cont_i, 1);
+        aj.g(this.gHJ, d.C0141d.cp_link_tip_a, 1);
     }
 }

@@ -32,84 +32,84 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean eHR;
-        private boolean eHS;
-        private GroupData eKh;
-        private List<MemberData> eKi;
-        private List<PhotoUrlData> eKj;
-        private int eKk;
-        private int eKl;
-        private boolean eKm;
-        private boolean eKn;
-        private GroupActivityData eKo;
+        private boolean eIh;
+        private boolean eIi;
+        private int eKA;
+        private int eKB;
+        private boolean eKC;
+        private boolean eKD;
+        private GroupActivityData eKE;
+        private GroupData eKx;
+        private List<MemberData> eKy;
+        private List<PhotoUrlData> eKz;
         private boolean isMemGroup;
 
-        public GroupActivityData aKP() {
-            return this.eKo;
+        public GroupActivityData aKQ() {
+            return this.eKE;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.eKo = groupActivityData;
+            this.eKE = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.eKh;
+            return this.eKx;
         }
 
         public void setGroup(GroupData groupData) {
-            this.eKh = groupData;
+            this.eKx = groupData;
         }
 
-        public List<MemberData> aKQ() {
-            return this.eKi;
+        public List<MemberData> aKR() {
+            return this.eKy;
         }
 
         public void cn(List<MemberData> list) {
-            this.eKi = list;
+            this.eKy = list;
         }
 
-        public List<PhotoUrlData> aKR() {
-            return this.eKj;
+        public List<PhotoUrlData> aKS() {
+            return this.eKz;
         }
 
         public void co(List<PhotoUrlData> list) {
-            this.eKj = list;
-        }
-
-        public int aKS() {
-            return this.eKk;
-        }
-
-        public void qp(int i) {
-            this.eKk = i;
+            this.eKz = list;
         }
 
         public int aKT() {
-            return this.eKl;
+            return this.eKA;
         }
 
         public void qq(int i) {
-            this.eKl = i;
+            this.eKA = i;
         }
 
-        public boolean aKU() {
-            return this.eHR;
+        public int aKU() {
+            return this.eKB;
         }
 
-        public void hN(boolean z) {
-            this.eHR = z;
+        public void qr(int i) {
+            this.eKB = i;
         }
 
         public boolean aKV() {
-            return this.eHS;
+            return this.eIh;
         }
 
-        public void hO(boolean z) {
-            this.eHS = z;
+        public void hS(boolean z) {
+            this.eIh = z;
         }
 
-        public void hP(boolean z) {
-            this.eKm = z;
+        public boolean aKW() {
+            return this.eIi;
+        }
+
+        public void hT(boolean z) {
+            this.eIi = z;
+        }
+
+        public void hU(boolean z) {
+            this.eKC = z;
         }
 
         public boolean isMemGroup() {
@@ -120,12 +120,12 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean aKW() {
-            return this.eKn;
+        public boolean aKX() {
+            return this.eKD;
         }
 
-        public void hQ(boolean z) {
-            this.eKn = z;
+        public void hV(boolean z) {
+            this.eKD = z;
         }
     }
 
@@ -143,13 +143,13 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.qq(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.hO(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.hP(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.hN(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.qp(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.qr(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.hT(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.hU(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.hS(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.qq(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.hQ(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.hV(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);

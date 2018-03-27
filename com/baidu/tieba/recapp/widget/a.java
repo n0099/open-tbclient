@@ -16,11 +16,11 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends b {
-    private TbImageView.b gIW;
+    private TbImageView.b gJm;
 
     public a(Context context) {
         super(context);
-        this.gIW = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.a.1
+        this.gJm = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -30,7 +30,7 @@ public class a extends b {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.a.a gP = c.Mw().gP(com.baidu.adp.lib.f.c.nm().g(tbImageView.getUrl(), 17));
+                    com.baidu.adp.widget.a.a gP = c.Mx().gP(com.baidu.adp.lib.f.c.nm().g(tbImageView.getUrl(), 17));
                     if (gP != null) {
                         int width = gP.getWidth();
                         i = gP.getHeight();
@@ -64,7 +64,7 @@ public class a extends b {
                                 f3 = 0.0f;
                             }
                             imageMatrix.setScale(f2, f2);
-                            if (a.this.bIP && i > i2) {
+                            if (a.this.bIS && i > i2) {
                                 imageMatrix.postTranslate(f3, 0.0f);
                             } else {
                                 imageMatrix.postTranslate(f3, f);
@@ -84,7 +84,7 @@ public class a extends b {
     public void c(List<MediaData> list, int i, boolean z) {
         int D;
         super.c(list, i, z);
-        if (this.bIF != null && (D = v.D(list)) > 0) {
+        if (this.bII != null && (D = v.D(list)) > 0) {
             uF(D);
             int childCount = getChildCount();
             int i2 = 0;
@@ -115,7 +115,7 @@ public class a extends b {
                     }
                     tbImageView.setScaleType(ImageView.ScaleType.MATRIX);
                     tbImageView.setForegroundColor(0);
-                    tbImageView.setOnDrawListener(this.gIW);
+                    tbImageView.setOnDrawListener(this.gJm);
                     tbImageView.startLoad(thumbnails_url, 17, false);
                 }
                 i2++;
@@ -130,11 +130,11 @@ public class a extends b {
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
-                TbImageView nk = this.bIF.nk();
+                TbImageView nk = this.bII.nk();
                 nk.setContentDescription(getResources().getString(d.j.editor_image));
                 nk.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 nk.setDefaultBg(aj.getDrawable(d.C0141d.common_color_10220));
-                nk.setPageId(this.bIv);
+                nk.setPageId(this.bIy);
                 addView(nk);
             }
         }

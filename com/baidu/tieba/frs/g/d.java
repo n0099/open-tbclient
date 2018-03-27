@@ -14,34 +14,35 @@ import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.d;
-import com.baidu.tieba.tbadkCore.l;
+import com.baidu.tieba.tbadkCore.m;
 /* loaded from: classes2.dex */
 public class d implements com.baidu.tieba.frs.entelechy.b.d {
-    private com.baidu.tieba.frs.i dFD;
-    public com.baidu.tieba.write.c dQK;
-    private com.baidu.tieba.p.a dQT;
-    private NoPressedRelativeLayout dUF;
-    public boolean dUU = false;
-    public ImageView dUV;
+    private com.baidu.tieba.frs.i dFH;
+    public com.baidu.tieba.write.c dQP;
+    private com.baidu.tieba.p.a dQY;
+    private NoPressedRelativeLayout dUK;
+    public ImageView dVa;
+    public boolean dUZ = false;
+    private boolean dVb = false;
 
     public d(com.baidu.tieba.frs.i iVar, NoPressedRelativeLayout noPressedRelativeLayout) {
         if (iVar != null && noPressedRelativeLayout != null) {
-            this.dFD = iVar;
-            this.dUF = noPressedRelativeLayout;
-            this.dUV = (ImageView) this.dUF.findViewById(d.g.normal_write_icon);
-            aj.s(this.dUV, d.f.icon_tabbar_chaticon_n);
-            aj.c(this.dUV, d.f.icon_tabbar_add_n);
-            this.dQT = new com.baidu.tieba.p.a(iVar.getPageContext());
-            this.dUV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.d.1
+            this.dFH = iVar;
+            this.dUK = noPressedRelativeLayout;
+            this.dVa = (ImageView) this.dUK.findViewById(d.g.normal_write_icon);
+            aj.s(this.dVa, this.dVb ? d.f.icon_tabbar_chaticon_gray_n : d.f.icon_tabbar_chaticon_n);
+            aj.c(this.dVa, d.f.icon_tabbar_add_n);
+            this.dQY = new com.baidu.tieba.p.a(iVar.getPageContext());
+            this.dVa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (ay.ba(d.this.dFD.getPageContext().getPageActivity()) && !d.this.dQT.bAw() && !d.this.ayG()) {
-                        if (d.this.dQK == null) {
-                            d.this.dQK = new com.baidu.tieba.write.c(d.this.dFD.getPageContext(), d.this.dUF, "frs");
-                            d.this.dQK.uo("2");
+                    if (ay.ba(d.this.dFH.getPageContext().getPageActivity()) && !d.this.dQY.bAB() && !d.this.ayI()) {
+                        if (d.this.dQP == null) {
+                            d.this.dQP = new com.baidu.tieba.write.c(d.this.dFH.getPageContext(), d.this.dUK, "frs");
+                            d.this.dQP.uo("2");
                         }
-                        d.this.dQK.a(d.this.dFD.avn());
-                        d.this.dQK.nC(false);
+                        d.this.dQP.a(d.this.dFH.avo());
+                        d.this.dQP.nH(false);
                     }
                 }
             });
@@ -50,51 +51,51 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void fN(boolean z) {
-        if (this.dUV != null && z != this.dUU) {
-            this.dUU = z;
-            this.dUV.setVisibility(z ? 0 : 8);
+        if (this.dVa != null && z != this.dUZ) {
+            this.dUZ = z;
+            this.dVa.setVisibility(z ? 0 : 8);
         }
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.b.d
-    public void axA() {
-        if (this.dQK != null) {
-            this.dQK.onDestroy();
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.b.d
-    public void axB() {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void axC() {
+        if (this.dQP != null) {
+            this.dQP.onDestroy();
+        }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
-    public boolean avL() {
-        if (this.dQK == null || !this.dQK.isShowing()) {
+    public void axD() {
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.d
+    public void axE() {
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.d
+    public boolean avN() {
+        if (this.dQP == null || !this.dQP.isShowing()) {
             return false;
         }
-        this.dQK.bFI();
+        this.dQP.bFN();
         return true;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void onChangeSkinType(int i) {
-        if (this.dQK != null) {
-            this.dQK.onChangeSkinType();
+        if (this.dQP != null) {
+            this.dQP.onChangeSkinType();
         }
-        aj.s(this.dUV, d.f.icon_tabbar_chaticon_n);
-        aj.c(this.dUV, d.f.icon_tabbar_add_n);
+        aj.s(this.dVa, (i == 1 || !this.dVb) ? d.f.icon_tabbar_chaticon_n : d.f.icon_tabbar_chaticon_gray_n);
+        aj.c(this.dVa, d.f.icon_tabbar_add_n);
     }
 
-    public boolean ayG() {
-        l avk;
+    public boolean ayI() {
+        m avl;
         String fixedText;
-        if (this.dFD != null && (avk = this.dFD.avk()) != null) {
-            if (ay.ba(this.dFD.getPageContext().getPageActivity())) {
-                AntiData yn = avk.yn();
+        if (this.dFH != null && (avl = this.dFH.avl()) != null) {
+            if (ay.ba(this.dFH.getPageContext().getPageActivity())) {
+                AntiData yn = avl.yn();
                 if (yn != null) {
                     if (a(yn.getBlock_stat(), yn.mFrsForbidenDialogInfo)) {
                         return true;
@@ -104,9 +105,9 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
                         if (am.es(forbid_info) > 14) {
                             forbid_info = am.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
                         }
-                        BdToast b = BdToast.b(this.dFD.getPageContext().getPageActivity(), forbid_info, d.f.icon_toast_game_error);
+                        BdToast b = BdToast.b(this.dFH.getPageContext().getPageActivity(), forbid_info, d.f.icon_toast_game_error);
                         b.aa(1.25f);
-                        b.Bc();
+                        b.Bd();
                         return false;
                     }
                 }
@@ -121,16 +122,16 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
         if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
             return false;
         }
-        String string = StringUtils.isNull(blockPopInfoData.block_info) ? this.dFD.getResources().getString(d.j.frs_forbiden_dialog_msg) : blockPopInfoData.block_info;
+        String string = StringUtils.isNull(blockPopInfoData.block_info) ? this.dFH.getResources().getString(d.j.frs_forbiden_dialog_msg) : blockPopInfoData.block_info;
         if (i != 1 && i != 2) {
-            BdToast b = BdToast.b(this.dFD.getPageContext().getPageActivity(), string, d.f.icon_toast_game_error);
+            BdToast b = BdToast.b(this.dFH.getPageContext().getPageActivity(), string, d.f.icon_toast_game_error);
             b.aa(1.25f);
-            b.Bc();
+            b.Bd();
             return false;
         }
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dFD.getPageContext().getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dFH.getPageContext().getPageActivity());
         aVar.dk(am.getFixedText(string, 50, true));
-        aVar.b(am.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? this.dFD.getResources().getString(d.j.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.g.d.2
+        aVar.b(am.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? this.dFH.getResources().getString(d.j.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.g.d.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (aVar2 != null) {
@@ -144,22 +145,30 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aw.Dt().c(d.this.dFD.getPageContext(), new String[]{blockPopInfoData.ahead_url});
+                    aw.Du().c(d.this.dFH.getPageContext(), new String[]{blockPopInfoData.ahead_url});
                     if (aVar2 != null) {
                         aVar2.dismiss();
                     }
                 }
             });
         }
-        aVar.b(this.dFD.getPageContext()).AU();
+        aVar.b(this.dFH.getPageContext()).AV();
         return true;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
-    public boolean axD() {
-        if (this.dQK == null) {
+    public boolean axF() {
+        if (this.dQP == null) {
             return false;
         }
-        return this.dQK.isShowing();
+        return this.dQP.isShowing();
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.d
+    public void gf(boolean z) {
+        if (this.dVb != z) {
+            this.dVb = z;
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

@@ -18,16 +18,16 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class a extends View implements c {
-    private BdUniqueId aJJ;
-    private Rect bvR;
-    private Bitmap cOx;
-    private String[] dJc;
-    private boolean dJd;
-    private Bitmap dJe;
-    private Rect dJf;
-    private Rect dJg;
-    private Rect dJh;
-    private Runnable dJi;
+    private BdUniqueId aJK;
+    private Rect bvU;
+    private Bitmap cOA;
+    private String[] dJh;
+    private boolean dJi;
+    private Bitmap dJj;
+    private Rect dJk;
+    private Rect dJl;
+    private Rect dJm;
+    private Runnable dJn;
     private int frameCount;
     private int index;
     private long startShowTime;
@@ -35,22 +35,22 @@ public class a extends View implements c {
 
     public a(Context context) {
         super(context);
-        this.dJd = false;
+        this.dJi = false;
         this.index = 0;
-        this.dJf = new Rect();
-        this.dJg = new Rect();
-        this.bvR = new Rect();
-        this.dJh = new Rect();
+        this.dJk = new Rect();
+        this.dJl = new Rect();
+        this.bvU = new Rect();
+        this.dJm = new Rect();
         this.startShowTime = 0L;
         this.totalTime = 6000L;
         this.frameCount = 144;
-        this.dJi = new Runnable() { // from class: com.baidu.tieba.frs.ar.a.a.2
+        this.dJn = new Runnable() { // from class: com.baidu.tieba.frs.ar.a.a.2
             @Override // java.lang.Runnable
             public void run() {
                 int currentTimeMillis = (int) (((System.currentTimeMillis() - a.this.startShowTime) * a.this.frameCount) / a.this.totalTime);
                 if (currentTimeMillis > a.this.index) {
                     a.this.index = currentTimeMillis;
-                    if (a.this.index < a.this.dJc.length) {
+                    if (a.this.index < a.this.dJh.length) {
                         a.this.nextFrame();
                         return;
                     }
@@ -61,26 +61,26 @@ public class a extends View implements c {
                     }
                     return;
                 }
-                e.ns().postDelayed(a.this.dJi, 10L);
+                e.ns().postDelayed(a.this.dJn, 10L);
             }
         };
         init();
     }
 
     private void init() {
-        this.cOx = a(getResources(), d.f.frs_ar_bg_mask, 720, 1280);
-        this.dJf.set(0, 0, this.cOx.getWidth(), this.cOx.getHeight());
+        this.cOA = a(getResources(), d.f.frs_ar_bg_mask, 720, 1280);
+        this.dJk.set(0, 0, this.cOA.getWidth(), this.cOA.getHeight());
         int i = getResources().getDisplayMetrics().widthPixels;
-        this.dJg.set(0, 0, i, (this.cOx.getHeight() * i) / this.cOx.getWidth());
+        this.dJl.set(0, 0, i, (this.cOA.getHeight() * i) / this.cOA.getWidth());
         int i2 = this.frameCount;
-        this.dJc = new String[i2];
+        this.dJh = new String[i2];
         for (int i3 = 1; i3 < i2 + 1; i3++) {
             if (i3 < 10) {
-                this.dJc[i3 - 1] = "frsar/frs_ar_fullscreen_anim_00" + i3 + ".png";
+                this.dJh[i3 - 1] = "frsar/frs_ar_fullscreen_anim_00" + i3 + ".png";
             } else if (i3 >= 100) {
-                this.dJc[i3 - 1] = ("frsar/frs_ar_fullscreen_anim_" + i3 + ".png") + ".png";
+                this.dJh[i3 - 1] = ("frsar/frs_ar_fullscreen_anim_" + i3 + ".png") + ".png";
             } else {
-                this.dJc[i3 - 1] = "frsar/frs_ar_fullscreen_anim_0" + i3 + ".png";
+                this.dJh[i3 - 1] = "frsar/frs_ar_fullscreen_anim_0" + i3 + ".png";
             }
         }
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ar.a.a.1
@@ -97,23 +97,23 @@ public class a extends View implements c {
     public void startAnim() {
         this.index = 0;
         C0151a c0151a = new C0151a(this, 720, 1280);
-        c0151a.setTag(this.aJJ);
+        c0151a.setTag(this.aJK);
         c0151a.setKey("LoadImageAsyncTask");
-        c0151a.execute(this.dJc[this.index]);
+        c0151a.execute(this.dJh[this.index]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nextFrame() {
         C0151a c0151a = new C0151a(this, 720, 1280);
-        c0151a.setTag(this.aJJ);
+        c0151a.setTag(this.aJK);
         c0151a.setKey("LoadImageAsyncTask");
-        c0151a.execute(this.dJc[this.index]);
+        c0151a.execute(this.dJh[this.index]);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.dJg.set(0, getMeasuredHeight() - this.dJg.height(), this.dJg.width(), this.dJg.height());
+        this.dJl.set(0, getMeasuredHeight() - this.dJl.height(), this.dJl.width(), this.dJl.height());
     }
 
     @Override // com.baidu.tieba.frs.ar.a.c
@@ -122,17 +122,17 @@ public class a extends View implements c {
             this.startShowTime = System.currentTimeMillis();
         }
         if (bitmap != null) {
-            if (this.dJe != null) {
-                this.dJe.recycle();
+            if (this.dJj != null) {
+                this.dJj.recycle();
             }
-            this.dJe = bitmap;
-            this.bvR.set(0, 0, this.dJe.getWidth(), this.dJe.getHeight());
+            this.dJj = bitmap;
+            this.bvU.set(0, 0, this.dJj.getWidth(), this.dJj.getHeight());
             invalidate();
         } else {
             invalidate();
         }
         this.index++;
-        if (this.index >= this.dJc.length) {
+        if (this.index >= this.dJh.length) {
             stopAnim();
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);
@@ -143,7 +143,7 @@ public class a extends View implements c {
         int currentTimeMillis = (int) (((System.currentTimeMillis() - this.startShowTime) * this.frameCount) / this.totalTime);
         if (currentTimeMillis > this.index) {
             this.index = currentTimeMillis;
-            if (this.index >= this.dJc.length) {
+            if (this.index >= this.dJh.length) {
                 stopAnim();
                 if (getParent() instanceof ViewGroup) {
                     ((ViewGroup) getParent()).removeView(this);
@@ -154,29 +154,29 @@ public class a extends View implements c {
             nextFrame();
             return;
         }
-        e.ns().postDelayed(this.dJi, 10L);
+        e.ns().postDelayed(this.dJn, 10L);
     }
 
     public void stopAnim() {
-        BdAsyncTask.removeAllTask(this.aJJ, "FrsARAnimView");
+        BdAsyncTask.removeAllTask(this.aJK, "FrsARAnimView");
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.cOx != null) {
-            canvas.drawBitmap(this.cOx, this.bvR, this.dJh, (Paint) null);
+        if (this.cOA != null) {
+            canvas.drawBitmap(this.cOA, this.bvU, this.dJm, (Paint) null);
         }
-        if (this.dJe != null) {
+        if (this.dJj != null) {
             int i = getResources().getDisplayMetrics().widthPixels;
-            int height = (this.dJe.getHeight() * getMeasuredWidth()) / this.dJe.getWidth();
-            this.dJh.set(0, getMeasuredHeight() - height, i, height);
-            canvas.drawBitmap(this.dJe, this.bvR, this.dJh, (Paint) null);
+            int height = (this.dJj.getHeight() * getMeasuredWidth()) / this.dJj.getWidth();
+            this.dJm.set(0, getMeasuredHeight() - height, i, height);
+            canvas.drawBitmap(this.dJj, this.bvU, this.dJm, (Paint) null);
         }
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.aJJ = bdUniqueId;
+        this.aJK = bdUniqueId;
     }
 
     private static final Bitmap a(Resources resources, int i, int i2, int i3) {
@@ -272,14 +272,14 @@ public class a extends View implements c {
     /* renamed from: com.baidu.tieba.frs.ar.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0151a extends BdAsyncTask<String, Bitmap, Bitmap> {
-        private c dJk;
-        private int dJl;
-        private int dJm;
+        private c dJp;
+        private int dJq;
+        private int dJr;
 
         private C0151a(c cVar, int i, int i2) {
-            this.dJk = cVar;
-            this.dJl = i;
-            this.dJm = i2;
+            this.dJp = cVar;
+            this.dJq = i;
+            this.dJr = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -289,7 +289,7 @@ public class a extends View implements c {
             if (strArr == null || strArr[0] == null) {
                 return null;
             }
-            return a.k(strArr[0], this.dJl, this.dJm);
+            return a.k(strArr[0], this.dJq, this.dJr);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -297,8 +297,8 @@ public class a extends View implements c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((C0151a) bitmap);
-            if (this.dJk != null) {
-                this.dJk.o(bitmap);
+            if (this.dJp != null) {
+                this.dJp.o(bitmap);
             }
         }
     }

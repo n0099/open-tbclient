@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes3.dex */
 public class m extends BaseAdapter {
-    private GroupAddressEditActivity eAB;
-    private String[] eAz;
+    private String[] eAP;
+    private GroupAddressEditActivity eAR;
 
     public m(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.eAz = null;
-        this.eAB = null;
-        this.eAB = groupAddressEditActivity;
-        this.eAz = strArr;
+        this.eAP = null;
+        this.eAR = null;
+        this.eAR = groupAddressEditActivity;
+        this.eAP = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eAz != null) {
-            return this.eAz.length;
+        if (this.eAP != null) {
+            return this.eAP.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.eAz == null || i <= -1 || i >= this.eAz.length) ? "" : this.eAz[i];
+        return (this.eAP == null || i <= -1 || i >= this.eAP.length) ? "" : this.eAP[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,23 +38,23 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.eAB);
-            view = aVar.aiw();
+            aVar = new a(this.eAR);
+            view = aVar.aix();
         } else {
             aVar = (a) view.getTag();
         }
         aVar.mT(getItem(i).toString());
-        if (this.eAB.aHC() == i) {
-            aVar.hl(true);
+        if (this.eAR.aHD() == i) {
+            aVar.hq(true);
         } else {
-            aVar.hl(false);
+            aVar.hq(false);
         }
         bU(view);
         return view;
     }
 
     private void bU(View view) {
-        this.eAB.getLayoutMode().aQ(TbadkApplication.getInst().getSkinType() == 1);
-        this.eAB.getLayoutMode().aM(view);
+        this.eAR.getLayoutMode().aQ(TbadkApplication.getInst().getSkinType() == 1);
+        this.eAR.getLayoutMode().aM(view);
     }
 }

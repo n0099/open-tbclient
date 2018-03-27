@@ -14,18 +14,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g ezc;
+    private static g ezs;
 
     private g() {
     }
 
-    public static synchronized g aGu() {
+    public static synchronized g aGv() {
         g gVar;
         synchronized (g.class) {
-            if (ezc == null) {
-                ezc = new g();
+            if (ezs == null) {
+                ezs = new g();
             }
-            gVar = ezc;
+            gVar = ezs;
         }
         return gVar;
     }
@@ -36,7 +36,7 @@ public class g {
         }
     }
 
-    public long pN(int i) {
+    public long pO(int i) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + i, -1L);
     }
 

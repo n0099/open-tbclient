@@ -4,9 +4,9 @@ import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface c {
-    void Fb();
+    void Fc();
 
-    List<AccountData> Fc();
+    List<AccountData> Fd();
 
     void f(AccountData accountData);
 

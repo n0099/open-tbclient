@@ -50,6 +50,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     private boolean bFirstSetSpeaker;
     private Boolean bSpeaker;
     private Boolean bSpeakerphoneOn;
+    private boolean bUseMedaiPlayer;
     TbPageContext<?> context;
     private boolean isAddScreenView;
     private Handler mHandle;
@@ -60,7 +61,6 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     private View screenView;
     private WindowManager windowManager;
     private WindowManager.LayoutParams windowParams;
-    private static boolean bUseMedaiPlayer = false;
     private static boolean bInitConfig = false;
     private static boolean bVoiceUseSoftDecoder = false;
     private static float eym = 0.5f;
@@ -137,36 +137,46 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 String action = intent.getAction();
                 if (action.equals("com.baidu.isPlaying")) {
                     VoiceManager.this.setVolumeControlStream();
-                    if (intent.getBooleanExtra("com.baidu.msg.isPlaying", false) && VoiceManager.this.mCurPlayModel != null) {
-                        if (VoiceManager.this.mHandle != null) {
-                            VoiceManager.this.mHandle.removeCallbacks(VoiceManager.this.unRegistSensorRunnable);
-                        }
-                        try {
-                            VoiceManager.this.mCurPlayModel.voice_status = 3;
-                            b playView = VoiceManager.this.getPlayView();
-                            if (playView != null) {
-                                playView.b(VoiceManager.this.mCurPlayModel);
+                    if (intent.getBooleanExtra("com.baidu.msg.isPlaying", false)) {
+                        if (VoiceManager.this.mCurPlayModel != null) {
+                            if (VoiceManager.this.mHandle != null) {
+                                VoiceManager.this.mHandle.removeCallbacks(VoiceManager.this.unRegistSensorRunnable);
                             }
-                        } catch (Exception e) {
-                            j jVar = new j();
-                            if (VoiceManager.this.mCurPlayModel != null) {
-                                jVar.h("id", VoiceManager.this.mCurPlayModel.getId());
-                                jVar.h("from", VoiceManager.this.mCurPlayModel.from);
+                            try {
+                                VoiceManager.this.mCurPlayModel.voice_status = 3;
+                                b playView = VoiceManager.this.getPlayView();
+                                if (playView != null) {
+                                    playView.b(VoiceManager.this.mCurPlayModel);
+                                    return;
+                                }
+                                return;
+                            } catch (Exception e) {
+                                j jVar = new j();
+                                if (VoiceManager.this.mCurPlayModel != null) {
+                                    jVar.h("id", VoiceManager.this.mCurPlayModel.getId());
+                                    jVar.h("from", VoiceManager.this.mCurPlayModel.from);
+                                }
+                                TiebaStatic.voiceError(TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), jVar.toString());
+                                return;
                             }
-                            TiebaStatic.voiceError(TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), jVar.toString());
                         }
+                        return;
+                    }
+                    b playView2 = VoiceManager.this.getPlayView();
+                    if (playView2 != null) {
+                        playView2.b(VoiceManager.this.mCurPlayModel);
                     }
                 } else if (action.equals("com.baidu.playElapsedTime")) {
                     int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
-                    b playView2 = VoiceManager.this.getPlayView();
-                    if (playView2 != null) {
-                        playView2.dU(intExtra);
+                    b playView3 = VoiceManager.this.getPlayView();
+                    if (playView3 != null) {
+                        playView3.dU(intExtra);
                     }
                     if (VoiceManager.this.mCurPlayModel != null) {
                         VoiceManager.this.mCurPlayModel.elapse = intExtra;
                     }
                 } else if (action.equals("com.baidu.isStoped")) {
-                    b playView3 = VoiceManager.this.getPlayView();
+                    b playView4 = VoiceManager.this.getPlayView();
                     if (VoiceManager.this.mCurPlayModel != null) {
                         if (!VoiceManager.this.bStopAndReplay) {
                             VoiceManager.this.releaseWakeLock();
@@ -174,8 +184,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                             VoiceManager.this.sPlayView = null;
                         }
                         VoiceManager.this.mCurPlayModel = null;
-                        if (VoiceManager.this.bStopAndReplay && playView3 != null) {
-                            VoiceData.VoiceModel voiceModel = playView3.getVoiceModel();
+                        if (VoiceManager.this.bStopAndReplay && playView4 != null) {
+                            VoiceData.VoiceModel voiceModel = playView4.getVoiceModel();
                             if (voiceModel != null) {
                                 voiceModel.curr_time = intent.getIntExtra("com.baidu.msg.curr_time", 0);
                             }
@@ -197,21 +207,21 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                         if (longExtra > 900 && VoiceManager.this.mCurPlayModel != null) {
                             VoiceManager.this.mCurPlayModel.duration2 = (int) longExtra;
                         }
-                        b playView4 = VoiceManager.this.getPlayView();
-                        if (playView4 != null) {
-                            playView4.tt();
+                        b playView5 = VoiceManager.this.getPlayView();
+                        if (playView5 != null) {
+                            playView5.tt();
                         }
                         MediaService.startPlay(context);
                         return;
                     }
-                    b playView5 = VoiceManager.this.getPlayView();
-                    if (playView5 != null) {
+                    b playView6 = VoiceManager.this.getPlayView();
+                    if (playView6 != null) {
                         if (intExtra2 == 2) {
                             string = h.getString(d.j.voice_err_io);
                         } else {
                             string = h.getString(d.j.voice_err_play);
                         }
-                        playView5.onShowErr(5, string);
+                        playView6.onShowErr(5, string);
                     }
                     if (VoiceManager.this.mCurPlayModel != null) {
                         VoiceManager.this.setStatusWaiting(VoiceManager.this.mCurPlayModel);
@@ -266,7 +276,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public static void setVoiceUseSoftDecoder(boolean z) {
-        bVoiceUseSoftDecoder = true;
+        bVoiceUseSoftDecoder = z;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
     }
 
@@ -275,9 +285,10 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public VoiceManager() {
+        this.bUseMedaiPlayer = false;
         this.mRecorderManagerRespMsg = null;
         initConfig();
-        bUseMedaiPlayer = isVoiceUseSoftDecoder() ? false : true;
+        this.bUseMedaiPlayer = isVoiceUseSoftDecoder() ? false : true;
         this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, com.baidu.tieba.tbadkCore.voice.a.class);
     }
 
@@ -306,6 +317,10 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         return this.mCurPlayModel != null && isVoicePlaying(this.mCurPlayModel.voice_status.intValue());
     }
 
+    public boolean isPause() {
+        return this.mCurPlayModel != null && this.mCurPlayModel.voice_status.intValue() == 4;
+    }
+
     public boolean isPlayDoing(VoiceData.VoiceModel voiceModel) {
         return (this.mCurPlayModel == null || voiceModel == null || this.mCurPlayModel != voiceModel) ? false : true;
     }
@@ -324,7 +339,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setPlayWaiting(VoiceData.VoiceModel voiceModel) {
-        if (bUseMedaiPlayer) {
+        if (this.bUseMedaiPlayer) {
             if (isVoicePlaying(voiceModel.voice_status.intValue())) {
                 setStatusWaiting(voiceModel);
                 MediaService.stopPlay(this.context.getPageActivity());
@@ -450,7 +465,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new com.baidu.tbadk.core.util.b.a();
             }
-            this.mPermissionJudgePolicy.DH();
+            this.mPermissionJudgePolicy.DI();
             this.mPermissionJudgePolicy.c(this.context.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             this.mPermissionJudgePolicy.c(this.context.getPageActivity(), "android.permission.RECORD_AUDIO");
             if (!this.mPermissionJudgePolicy.v(this.context.getPageActivity())) {
@@ -593,7 +608,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 }
             }
             setVolumeControlStream();
-            if (bUseMedaiPlayer) {
+            if (this.bUseMedaiPlayer) {
                 MediaService.preparePlay(this.context.getPageActivity(), str, voiceModel.duration, voiceModel.curr_time);
                 voiceModel.curr_time = 0;
                 return;
@@ -658,6 +673,24 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         this.audioManager = null;
     }
 
+    public void startPlay() {
+        if (this.bUseMedaiPlayer) {
+            if (this.mCurPlayModel != null) {
+                this.mCurPlayModel.voice_status = 3;
+            }
+            MediaService.startPlay(this.context.getPageActivity());
+        }
+    }
+
+    public void pausePlay() {
+        if (this.bUseMedaiPlayer) {
+            if (this.mCurPlayModel != null) {
+                this.mCurPlayModel.voice_status = 4;
+            }
+            MediaService.pausePlay(this.context.getPageActivity());
+        }
+    }
+
     public void stopPlay() {
         if (this.mCurPlayModel != null) {
             setPlayWaiting(this.mCurPlayModel);
@@ -691,7 +724,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         this.mCurPlayModel = null;
         this.mNewClickModel = null;
         this.mPhoneSpeaker = isSpeakerphoneOn();
-        if (bUseMedaiPlayer) {
+        if (this.bUseMedaiPlayer) {
             MediaService.initBroadcastReceivers(tbPageContext.getPageActivity(), this.mVoicePlayerReceiver);
             try {
                 MediaService.startMy(tbPageContext.getPageActivity(), null);
@@ -725,7 +758,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void forceStop() {
         if (this.context != null) {
             unRegistPlugin(this.context.getPageActivity());
-            if (bUseMedaiPlayer) {
+            if (this.bUseMedaiPlayer) {
                 if (this.mCurPlayModel != null) {
                     setStatusWaiting(this.mCurPlayModel);
                     this.mCurPlayModel = null;
@@ -741,7 +774,6 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void onStop(TbPageContext<?> tbPageContext) {
-        forceStop();
         restoreVoiceMode();
     }
 
@@ -882,7 +914,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             b playView = getPlayView();
             if (!this.bStopAndReplay && this.mCurPlayModel != null && isVoicePlaying(this.mCurPlayModel.voice_status.intValue()) && playView != null) {
                 this.bStopAndReplay = true;
-                if (bUseMedaiPlayer) {
+                if (this.bUseMedaiPlayer) {
                     MediaService.stopPlay(this.context.getPageActivity());
                 } else {
                     stopPlay();
@@ -1007,7 +1039,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         private a() {
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1363=4, 1364=4] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1385=4, 1386=4] */
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Removed duplicated region for block: B:48:0x00b0 A[EXC_TOP_SPLITTER, SYNTHETIC] */

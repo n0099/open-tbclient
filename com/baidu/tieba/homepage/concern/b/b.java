@@ -6,34 +6,34 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.bd;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.data.b implements i {
-    public static final BdUniqueId egv = BdUniqueId.gen();
-    public static final BdUniqueId egw = BdUniqueId.gen();
-    public bd dxH;
-    public c egx;
-    public int egy;
+    public static final BdUniqueId egL = BdUniqueId.gen();
+    public static final BdUniqueId egM = BdUniqueId.gen();
+    public bd dxK;
+    public c egN;
+    public int egO;
     public boolean isLinkThread = false;
     public MetaData metaData;
 
-    public void aCp() {
+    public void aCq() {
         this.metaData = new MetaData();
-        this.metaData.setPortrait(this.egx.getPortrait());
-        this.metaData.setName_show(this.egx.getName());
-        this.metaData.setUserId(this.egx.getUserId());
-        this.metaData.setIsBigV(this.egx.isGod());
-        this.metaData.setIsLike(this.egx.getIsLike());
-        this.metaData.setFansNum(this.egx.getFansNum());
+        this.metaData.setPortrait(this.egN.getPortrait());
+        this.metaData.setName_show(this.egN.getName());
+        this.metaData.setUserId(this.egN.getUserId());
+        this.metaData.setIsBigV(this.egN.isGod());
+        this.metaData.setIsLike(this.egN.getIsLike());
+        this.metaData.setFansNum(this.egN.getFansNum());
     }
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return this.isLinkThread ? egw : egv;
+        return this.isLinkThread ? egM : egL;
     }
 
-    public int aCq() {
-        return this.egy;
+    public int aCr() {
+        return this.egO;
     }
 
-    public void ou(int i) {
-        this.egy = i;
+    public void ov(int i) {
+        this.egO = i;
     }
 }

@@ -9,23 +9,23 @@ import com.baidu.tieba.d;
 public class a extends r {
     public a(Context context) {
         super(context, (String) null, 8);
-        this.bta = false;
-        this.bsZ = 3;
-        this.bsj = new c(context);
-        this.btb = new int[]{20, 19};
+        this.btd = false;
+        this.btc = 3;
+        this.bsm = new c(context);
+        this.bte = new int[]{20, 19};
     }
 
     public a(Context context, boolean z) {
         super(context, (String) null, 8);
-        this.bta = false;
-        this.bsZ = 3;
-        this.bsj = new c(context);
+        this.btd = false;
+        this.btc = 3;
+        this.bsm = new c(context);
         p.a aVar = new p.a(-2, l.t(getContext(), d.e.ds48));
         aVar.leftMargin = l.t(getContext(), d.e.ds32);
         aVar.rightMargin = l.t(getContext(), d.e.ds32);
         aVar.bottomMargin = l.t(getContext(), d.e.ds21);
         aVar.topMargin = l.t(getContext(), d.e.ds21);
-        ((c) this.bsj).setLayoutParams(aVar);
-        this.btb = new int[]{20, 19};
+        ((c) this.bsm).setLayoutParams(aVar);
+        this.bte = new int[]{20, 19};
     }
 }

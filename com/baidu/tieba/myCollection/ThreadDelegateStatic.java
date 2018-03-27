@@ -17,18 +17,18 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c MT() {
+    public com.baidu.tbadk.mainTab.c MU() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.bxM = g.aXY();
+        cVar.bxP = g.aXZ();
         cVar.type = 1;
-        cVar.bxN = d.j.collect_thread;
+        cVar.bxQ = d.j.collect_thread;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.e bi(Context context) {
-        this.bxD = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        return this.bxD;
+        this.bxG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        return this.bxG;
     }
 
     static {
@@ -36,13 +36,13 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.tbadk.mainTab.c MU;
+                com.baidu.tbadk.mainTab.c MV;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.g.a)) {
                     com.baidu.tbadk.g.a aVar = (com.baidu.tbadk.g.a) customResponsedMessage.getData();
                     ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
                     aVar.a(threadDelegateStatic);
-                    if (aVar.getContext() != null && (MU = threadDelegateStatic.MU()) != null) {
-                        MU.bxM.setArguments(new Bundle());
+                    if (aVar.getContext() != null && (MV = threadDelegateStatic.MV()) != null) {
+                        MV.bxP.setArguments(new Bundle());
                     }
                 }
             }

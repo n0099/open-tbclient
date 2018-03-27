@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class al {
-    private static al aWX;
+    private static al aWZ;
 
-    public static synchronized al CX() {
+    public static synchronized al CY() {
         al alVar;
         synchronized (al.class) {
-            if (aWX == null) {
-                aWX = new al();
+            if (aWZ == null) {
+                aWZ = new al();
             }
-            alVar = aWX;
+            alVar = aWZ;
         }
         return alVar;
     }
@@ -86,12 +86,12 @@ public class al {
         }
     }
 
-    public void CY() {
+    public void CZ() {
         v(new File(k.alY + "/" + TbConfig.getTempDirName() + "/image"));
         v(new File(k.alY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void CZ() {
+    public void Da() {
         w(new File(k.alY + "/" + TbConfig.getTempDirName() + "/" + k.fA(3)));
     }
 

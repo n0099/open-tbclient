@@ -20,7 +20,7 @@ public class e extends o {
         return "TBHY_COMMON_IS_GAME_INSTALL";
     }
 
-    @p(BC = false, value = "isGameInstall")
+    @p(BD = false, value = "isGameInstall")
     private JSONObject isGameInstall(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;

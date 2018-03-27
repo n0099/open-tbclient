@@ -19,26 +19,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements a.InterfaceC0139a {
-    private static d dgn = null;
-    private a dgo;
-    private a dgp;
-    private ArrayList<TransmitForumData> dgq;
-    private ArrayList<TransmitForumData> dgs;
+    private static d dgq = null;
+    private a dgr;
+    private a dgs;
+    private ArrayList<TransmitForumData> dgt;
+    private ArrayList<TransmitForumData> dgv;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean dgr = false;
-    private boolean dgt = false;
+    private boolean dgu = false;
+    private boolean dgw = false;
     private boolean isLoading = false;
 
-    public static d ani() {
-        if (dgn == null) {
+    public static d anj() {
+        if (dgq == null) {
             synchronized (d.class) {
-                if (dgn == null) {
-                    dgn = new d();
+                if (dgq == null) {
+                    dgq = new d();
                 }
             }
         }
-        return dgn;
+        return dgq;
     }
 
     private d() {
@@ -46,43 +46,43 @@ public class d implements a.InterfaceC0139a {
     }
 
     private void init() {
+        anl();
         ank();
-        anj();
         this.isLoading = false;
     }
 
-    private void anj() {
+    private void ank() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), a.class);
         if (runTask != null) {
-            this.dgp = (a) runTask.getData();
+            this.dgs = (a) runTask.getData();
         }
-        if (this.dgp != null) {
-            this.dgp.a(this);
+        if (this.dgs != null) {
+            this.dgs.a(this);
         }
     }
 
-    private void ank() {
+    private void anl() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), a.class);
         if (runTask != null) {
-            this.dgo = (a) runTask.getData();
+            this.dgr = (a) runTask.getData();
         }
-        if (this.dgo != null) {
-            this.dgo.a(this);
+        if (this.dgr != null) {
+            this.dgr.a(this);
         }
     }
 
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !g.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.blp = ann();
+                shareDialogConfig.shareItem.bls = ano();
             }
             if (l.pa() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
                 this.isLoading = true;
-                if (this.dgo != null) {
-                    this.dgo.and();
+                if (this.dgr != null) {
+                    this.dgr.ane();
                 }
-                if (this.dgp != null) {
-                    this.dgp.and();
+                if (this.dgs != null) {
+                    this.dgs.ane();
                 }
             }
             shareDialogConfig.setIsShowTransmitShare(true);
@@ -96,28 +96,28 @@ public class d implements a.InterfaceC0139a {
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.dgs = arrayList;
+                this.dgv = arrayList;
             }
-            this.dgt = true;
+            this.dgw = true;
         } else if (i == 2) {
             if (z) {
-                this.dgq = arrayList;
+                this.dgt = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.dgr = true;
+            this.dgu = true;
         }
-        anl();
+        anm();
     }
 
-    private void anl() {
-        if (this.dgo == null || this.dgr) {
-            if (this.dgp == null || this.dgt) {
-                this.dgr = false;
-                this.dgt = false;
+    private void anm() {
+        if (this.dgr == null || this.dgu) {
+            if (this.dgs == null || this.dgw) {
+                this.dgu = false;
+                this.dgw = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!v.E(this.dgq)) {
-                    Iterator<TransmitForumData> it = this.dgq.iterator();
+                if (!v.E(this.dgt)) {
+                    Iterator<TransmitForumData> it = this.dgt.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
                         if (!bp(next.forumId)) {
@@ -125,8 +125,8 @@ public class d implements a.InterfaceC0139a {
                         }
                     }
                 }
-                if (!v.E(this.dgs)) {
-                    Iterator<TransmitForumData> it2 = this.dgs.iterator();
+                if (!v.E(this.dgv)) {
+                    Iterator<TransmitForumData> it2 = this.dgv.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
                         if (!bp(next2.forumId)) {
@@ -134,14 +134,14 @@ public class d implements a.InterfaceC0139a {
                         }
                     }
                 }
-                this.dgq = null;
-                this.dgs = null;
-                anm();
+                this.dgt = null;
+                this.dgv = null;
+                ann();
             }
         }
     }
 
-    private void anm() {
+    private void ann() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.mForumList));
     }
 
@@ -159,7 +159,7 @@ public class d implements a.InterfaceC0139a {
         return false;
     }
 
-    private Location ann() {
+    private Location ano() {
         if (ab.aS(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();

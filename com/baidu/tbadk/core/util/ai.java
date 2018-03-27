@@ -16,9 +16,9 @@ public class ai {
         try {
             if (!k.lk()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BS());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BT());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BS());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BT());
                 }
             } else {
                 File dI = k.dI("camera.jpg");
@@ -41,10 +41,10 @@ public class ai {
         try {
             if (!k.lk()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BS());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BT());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BS());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BT());
                     return;
                 } else {
                     return;

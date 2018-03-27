@@ -23,17 +23,17 @@ public class Static {
             public CustomResponsedMessage<?> run(CustomMessage<i> customMessage) {
                 a aVar = null;
                 boolean z = true;
-                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().avk() == null || customMessage.getData().avk().dJn == null) {
+                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().avl() == null || customMessage.getData().avl().dJs == null) {
                     return null;
                 }
-                ForumArIno forumArIno = customMessage.getData().avk().dJn;
+                ForumArIno forumArIno = customMessage.getData().avl().dJs;
                 if (forumArIno._switch.intValue() != 0) {
                     b bVar = new b(customMessage.getData().getPageContext().getPageActivity());
                     bVar.setForumArIno(forumArIno);
-                    if (customMessage.getData().avk().bar() != null) {
-                        bVar.setForumName(customMessage.getData().avk().bar().getName());
+                    if (customMessage.getData().avl().bas() != null) {
+                        bVar.setForumName(customMessage.getData().avl().bas().getName());
                     }
-                    bVar.awQ();
+                    bVar.awS();
                     long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_ar_big_anim_show_time", 0L);
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(j);
@@ -50,9 +50,9 @@ public class Static {
                         aVar.startAnim();
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("frs_ar_big_anim_show_time", calendar2.getTimeInMillis());
                     }
-                    ViewGroup aft = customMessage.getData().auS().aft();
-                    if (aft instanceof RelativeLayout) {
-                        RelativeLayout relativeLayout = (RelativeLayout) aft;
+                    ViewGroup afu = customMessage.getData().auT().afu();
+                    if (afu instanceof RelativeLayout) {
+                        RelativeLayout relativeLayout = (RelativeLayout) afu;
                         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                         layoutParams.addRule(11);
                         layoutParams.addRule(12);
@@ -62,8 +62,8 @@ public class Static {
                         if (z) {
                             relativeLayout.addView(aVar, new RelativeLayout.LayoutParams(-1, -1));
                         }
-                    } else if (aft instanceof FrameLayout) {
-                        FrameLayout frameLayout = (FrameLayout) aft;
+                    } else if (afu instanceof FrameLayout) {
+                        FrameLayout frameLayout = (FrameLayout) afu;
                         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
                         layoutParams2.gravity = 85;
                         layoutParams2.bottomMargin = 100;

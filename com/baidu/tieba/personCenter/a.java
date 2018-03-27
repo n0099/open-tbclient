@@ -22,28 +22,28 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.b.b;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private b giK;
+    private b gja;
     private long userId;
     private boolean isSelf = true;
     @Deprecated
     private boolean isBigV = false;
-    private boolean giJ = false;
-    private long fKI = 0;
-    private CustomMessageListener giL = new CustomMessageListener(2016560) { // from class: com.baidu.tieba.personCenter.a.1
+    private boolean giZ = false;
+    private long fKY = 0;
+    private CustomMessageListener gjb = new CustomMessageListener(2016560) { // from class: com.baidu.tieba.personCenter.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2016560) {
-                a.this.biE();
+                a.this.biF();
             }
         }
     };
-    private CustomMessageListener giM = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.personCenter.a.2
+    private CustomMessageListener gjc = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.personCenter.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && a.this.giK != null) {
-                a.this.giK.refreshView();
+            if (customResponsedMessage != null && a.this.gja != null) {
+                a.this.gja.refreshView();
             }
         }
     };
@@ -53,17 +53,17 @@ public class a extends BaseFragment {
         super.onAttach(context);
         this.mIsLogin = TbadkCoreApplication.isLogin();
         if (getArguments() != null) {
-            this.giJ = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
+            this.giZ = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
         }
-        biE();
-        MessageManager.getInstance().registerListener(this.giL);
-        MessageManager.getInstance().registerListener(this.giM);
+        biF();
+        MessageManager.getInstance().registerListener(this.gjb);
+        MessageManager.getInstance().registerListener(this.gjc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void biE() {
+    public void biF() {
         long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_feedback_tip", 0L);
-        if (TbadkCoreApplication.isLogin() && System.currentTimeMillis() - j > 4 * am.aXa) {
+        if (TbadkCoreApplication.isLogin() && System.currentTimeMillis() - j > 4 * am.aXc) {
             new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.personCenter.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -71,10 +71,10 @@ public class a extends BaseFragment {
                 public Void doInBackground(String... strArr) {
                     x xVar = new x(strArr[0]);
                     xVar.n("user_id", TbadkCoreApplication.getCurrentAccount());
-                    String Ca = xVar.Ca();
+                    String Cb = xVar.Cb();
                     com.baidu.tieba.personCenter.data.a aVar = new com.baidu.tieba.personCenter.data.a();
-                    aVar.qU(Ca);
-                    if (aVar.getErrorCode() == 0 && aVar.NG() > 0) {
+                    aVar.qU(Cb);
+                    if (aVar.getErrorCode() == 0 && aVar.NH() > 0) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016561, true));
                         return null;
                     }
@@ -89,14 +89,14 @@ public class a extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         F(bundle);
         View inflate = layoutInflater.inflate(d.h.fragment_my_tab_layout, (ViewGroup) null);
-        this.giK = new b(inflate, getPageContext(), getUniqueId());
-        this.giK.initView();
+        this.gja = new b(inflate, getPageContext(), getUniqueId());
+        this.gja.initView();
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
-        if (this.giJ) {
+        if (this.giZ) {
             return null;
         }
         return "a011";
@@ -106,34 +106,34 @@ public class a extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.giK.refreshView();
-            this.giK.biH();
+            this.gja.refreshView();
+            this.gja.biI();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_feedback_tip_tab_show", false);
         } else {
-            this.giK.biI();
+            this.gja.biJ();
         }
         if (isAdded()) {
-            com.baidu.tieba.m.a.bpl().bpr();
+            com.baidu.tieba.m.a.bpm().bps();
         }
-        com.baidu.tieba.m.a.bpl().mc(isPrimary());
+        com.baidu.tieba.m.a.bpm().mh(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (!this.isSelf && this.isBigV) {
-            this.fKI = System.currentTimeMillis();
+            this.fKY = System.currentTimeMillis();
         } else {
-            this.fKI = -1L;
+            this.fKY = -1L;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.fKI > 0) {
-            TiebaStatic.log(new ak("c12263").ab("obj_duration", String.valueOf((System.currentTimeMillis() - this.fKI) / 1000)).s("obj_type", 2));
-            this.fKI = 0L;
+        if (this.fKY > 0) {
+            TiebaStatic.log(new ak("c12263").ab("obj_duration", String.valueOf((System.currentTimeMillis() - this.fKY) / 1000)).s("obj_type", 2));
+            this.fKY = 0L;
         }
     }
 
@@ -153,15 +153,15 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.giK != null) {
-            this.giK.onDestroy();
+        if (this.gja != null) {
+            this.gja.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
-        MessageManager.getInstance().unRegisterListener(this.giL);
-        MessageManager.getInstance().unRegisterListener(this.giM);
+        MessageManager.getInstance().unRegisterListener(this.gjb);
+        MessageManager.getInstance().unRegisterListener(this.gjc);
         super.onDetach();
     }
 
@@ -178,8 +178,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.giK != null) {
-            this.giK.onChangeSkinType(i);
+        if (this.gja != null) {
+            this.gja.onChangeSkinType(i);
         }
     }
 }

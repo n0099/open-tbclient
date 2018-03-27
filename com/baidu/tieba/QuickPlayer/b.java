@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
     private String aoc;
-    private SurfaceTexture bPa;
+    private SurfaceTexture bPd;
     private Map<String, String> headers;
     private Uri uri;
 
@@ -31,10 +31,10 @@ public class b {
     }
 
     public SurfaceTexture getSurfaceTexture() {
-        return this.bPa;
+        return this.bPd;
     }
 
     public void setSurfaceTexture(SurfaceTexture surfaceTexture) {
-        this.bPa = surfaceTexture;
+        this.bPd = surfaceTexture;
     }
 }

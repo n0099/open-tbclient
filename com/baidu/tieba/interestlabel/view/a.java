@@ -17,9 +17,9 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends LinearLayout {
-    private boolean eXs;
-    private int eXt;
-    private int eXu;
+    private boolean eXG;
+    private int eXH;
+    private int eXI;
     private Paint mPaint;
 
     public a(Context context) {
@@ -34,17 +34,17 @@ public class a extends LinearLayout {
         this.mPaint.setStyle(Paint.Style.STROKE);
         this.mPaint.setColor(aj.getColor(d.C0141d.cp_bg_line_c));
         this.mPaint.setStrokeWidth(1.0f);
-        this.eXu = l.t(getContext(), d.e.ds46);
+        this.eXI = l.t(getContext(), d.e.ds46);
         for (int i = 0; i < 3; i++) {
-            addView(aOP());
+            addView(aOQ());
         }
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list, boolean z) {
         if (!v.E(list)) {
-            this.eXs = z;
-            this.eXt = Math.min(list.size(), 3);
-            for (int i = 0; i < this.eXt; i++) {
+            this.eXG = z;
+            this.eXH = Math.min(list.size(), 3);
+            for (int i = 0; i < this.eXH; i++) {
                 com.baidu.tieba.interestlabel.b.a aVar = list.get(i);
                 if (aVar != null && (getChildAt(i) instanceof TextView)) {
                     TextView textView = (TextView) getChildAt(i);
@@ -60,7 +60,7 @@ public class a extends LinearLayout {
                     textView.setTag(aVar);
                 }
             }
-            for (int i2 = this.eXt; i2 < getChildCount(); i2++) {
+            for (int i2 = this.eXH; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt != null) {
                     childAt.setVisibility(8);
@@ -69,7 +69,7 @@ public class a extends LinearLayout {
         }
     }
 
-    private TextView aOP() {
+    private TextView aOQ() {
         return (TextView) LayoutInflater.from(getContext()).inflate(d.h.label_recommend_column_item, (ViewGroup) this, false);
     }
 
@@ -93,13 +93,13 @@ public class a extends LinearLayout {
         int i = 1;
         while (true) {
             int i2 = i;
-            if (i2 >= this.eXt) {
+            if (i2 >= this.eXH) {
                 break;
             }
-            canvas.drawLine(width * i2, (height - this.eXu) / 2, (width * i2) + 1, (this.eXu + height) / 2, this.mPaint);
+            canvas.drawLine(width * i2, (height - this.eXI) / 2, (width * i2) + 1, (this.eXI + height) / 2, this.mPaint);
             i = i2 + 1;
         }
-        if (!this.eXs) {
+        if (!this.eXG) {
             canvas.drawLine(0.0f, height - 1, getWidth(), height, this.mPaint);
         }
     }

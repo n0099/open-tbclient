@@ -5,77 +5,77 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private b glj = null;
-    private PersonBarModel glk = null;
+    private b glz = null;
+    private PersonBarModel glA = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.gkj && this.requestCode != 23011) {
+        if (this.gkz && this.requestCode != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.glk = new PersonBarModel(getPageContext(), aLp());
-        this.glk.setSex(getSex());
-        this.glk.setId(getUid());
-        this.glk.setUniqueId(getUniqueId());
+        this.glA = new PersonBarModel(getPageContext(), aLq());
+        this.glA.setSex(getSex());
+        this.glA.setId(getUid());
+        this.glA.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public a a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.glj == null) {
-            this.glj = new b(this, aLp());
+        if (this.glz == null) {
+            this.glz = new b(this, aLq());
         }
-        return this.glj;
+        return this.glz;
     }
 
-    public PersonBarModel bji() {
-        return this.glk;
-    }
-
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String biP() {
-        return getPageContext().getString(d.j.person_bar_title);
+    public PersonBarModel bjj() {
+        return this.glA;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String biQ() {
-        return getPageContext().getString(d.j.attention_bar);
+        return getPageContext().getString(d.j.person_bar_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String biR() {
-        return getPageContext().getString(d.j.person_bar_no_common_title);
+        return getPageContext().getString(d.j.attention_bar);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String biS() {
-        return getPageContext().getString(d.j.person_bar_personal);
+        return getPageContext().getString(d.j.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String biT() {
+        return getPageContext().getString(d.j.person_bar_personal);
+    }
+
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
+    public String biU() {
         return getPageContext().getString(d.j.person_bar_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String biX() {
+    public String biY() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int biY() {
+    public int biZ() {
         return 2;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        e bjs;
+        e bjt;
         super.onPageSelected(i);
-        if (this.glj != null && this.glj.getItem(i) != null && (baseFragment = (BaseFragment) this.glj.getItem(i)) != null && (baseFragment instanceof d) && (bjs = ((d) baseFragment).bjs()) != null) {
-            bjs.cX(false);
-            bjs.notifyDataSetChanged();
+        if (this.glz != null && this.glz.getItem(i) != null && (baseFragment = (BaseFragment) this.glz.getItem(i)) != null && (baseFragment instanceof d) && (bjt = ((d) baseFragment).bjt()) != null) {
+            bjt.cX(false);
+            bjt.notifyDataSetChanged();
         }
     }
 

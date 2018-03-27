@@ -17,16 +17,16 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes.dex */
 public class c extends SurfaceView implements SurfaceHolder.Callback {
-    private static final j cUQ = new j();
-    private int cUC;
-    private int cUD;
-    private boolean cUE;
-    private i cUR;
-    private e cUS;
-    private f cUT;
-    private g cUU;
-    private k cUV;
-    private m cUx;
+    private static final j cUT = new j();
+    private m cUA;
+    private int cUF;
+    private int cUG;
+    private boolean cUH;
+    private i cUU;
+    private e cUV;
+    private f cUW;
+    private g cUX;
+    private k cUY;
     private boolean mDetached;
     private final WeakReference<c> mThisWeakRef;
 
@@ -65,8 +65,8 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
     protected void finalize() throws Throwable {
         try {
-            if (this.cUR != null) {
-                this.cUR.requestExitAndWait();
+            if (this.cUU != null) {
+                this.cUU.requestExitAndWait();
             }
         } finally {
             super.finalize();
@@ -74,54 +74,54 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void setGLWrapper(k kVar) {
-        this.cUV = kVar;
+        this.cUY = kVar;
     }
 
     public void setDebugFlags(int i2) {
-        this.cUC = i2;
+        this.cUF = i2;
     }
 
     public int getDebugFlags() {
-        return this.cUC;
+        return this.cUF;
     }
 
     public void setPreserveEGLContextOnPause(boolean z) {
-        this.cUE = z;
+        this.cUH = z;
     }
 
     public boolean getPreserveEGLContextOnPause() {
-        return this.cUE;
+        return this.cUH;
     }
 
     public void setRenderer(m mVar) {
-        akD();
-        if (this.cUS == null) {
-            this.cUS = new n(true);
+        akE();
+        if (this.cUV == null) {
+            this.cUV = new n(true);
         }
-        if (this.cUT == null) {
-            this.cUT = new C0135c();
+        if (this.cUW == null) {
+            this.cUW = new C0135c();
         }
-        if (this.cUU == null) {
-            this.cUU = new d();
+        if (this.cUX == null) {
+            this.cUX = new d();
         }
-        this.cUx = mVar;
-        this.cUR = new i(this.mThisWeakRef);
-        this.cUR.start();
+        this.cUA = mVar;
+        this.cUU = new i(this.mThisWeakRef);
+        this.cUU.start();
     }
 
     public void setEGLContextFactory(f fVar) {
-        akD();
-        this.cUT = fVar;
+        akE();
+        this.cUW = fVar;
     }
 
     public void setEGLWindowSurfaceFactory(g gVar) {
-        akD();
-        this.cUU = gVar;
+        akE();
+        this.cUX = gVar;
     }
 
     public void setEGLConfigChooser(e eVar) {
-        akD();
-        this.cUS = eVar;
+        akE();
+        this.cUV = eVar;
     }
 
     public void setEGLConfigChooser(boolean z) {
@@ -129,51 +129,51 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void setEGLContextClientVersion(int i2) {
-        akD();
-        this.cUD = i2;
+        akE();
+        this.cUG = i2;
     }
 
     public void setRenderMode(int i2) {
-        this.cUR.setRenderMode(i2);
+        this.cUU.setRenderMode(i2);
     }
 
     public int getRenderMode() {
-        return this.cUR.getRenderMode();
+        return this.cUU.getRenderMode();
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        this.cUR.surfaceCreated();
+        this.cUU.surfaceCreated();
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        this.cUR.surfaceDestroyed();
+        this.cUU.surfaceDestroyed();
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
-        this.cUR.onWindowResize(i3, i4);
+        this.cUU.onWindowResize(i3, i4);
     }
 
     @Override // android.view.SurfaceView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.mDetached && this.cUx != null) {
-            int renderMode = this.cUR != null ? this.cUR.getRenderMode() : 1;
-            this.cUR = new i(this.mThisWeakRef);
+        if (this.mDetached && this.cUA != null) {
+            int renderMode = this.cUU != null ? this.cUU.getRenderMode() : 1;
+            this.cUU = new i(this.mThisWeakRef);
             if (renderMode != 1) {
-                this.cUR.setRenderMode(renderMode);
+                this.cUU.setRenderMode(renderMode);
             }
-            this.cUR.start();
+            this.cUU.start();
         }
         this.mDetached = false;
     }
 
     @Override // android.view.SurfaceView, android.view.View
     protected void onDetachedFromWindow() {
-        if (this.cUR != null) {
-            this.cUR.requestExitAndWait();
+        if (this.cUU != null) {
+            this.cUU.requestExitAndWait();
         }
         this.mDetached = true;
         super.onDetachedFromWindow();
@@ -190,9 +190,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
         @Override // com.baidu.tieba.b.d.c.f
         public EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, c.this.cUD, 12344};
+            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, c.this.cUG, 12344};
             EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
-            if (c.this.cUD == 0) {
+            if (c.this.cUG == 0) {
                 iArr = null;
             }
             return egl10.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
@@ -260,7 +260,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         private int[] n(int[] iArr) {
-            if (c.this.cUD == 2) {
+            if (c.this.cUG == 2) {
                 int length = iArr.length;
                 int[] iArr2 = new int[length + 2];
                 System.arraycopy(iArr, 0, iArr2, 0, length - 1);
@@ -330,7 +330,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class h {
-        private WeakReference<c> cUX;
+        private WeakReference<c> cVa;
         EGL10 mEgl;
         EGLConfig mEglConfig;
         EGLContext mEglContext;
@@ -338,7 +338,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         EGLSurface mEglSurface;
 
         public h(WeakReference<c> weakReference) {
-            this.cUX = weakReference;
+            this.cVa = weakReference;
         }
 
         public void start() {
@@ -350,10 +350,10 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             if (!this.mEgl.eglInitialize(this.mEglDisplay, new int[2])) {
                 throw new RuntimeException("eglInitialize failed");
             }
-            c cVar = this.cUX.get();
+            c cVar = this.cVa.get();
             if (cVar != null) {
-                this.mEglConfig = cVar.cUS.chooseConfig(this.mEgl, this.mEglDisplay);
-                this.mEglContext = cVar.cUT.createContext(this.mEgl, this.mEglDisplay, this.mEglConfig);
+                this.mEglConfig = cVar.cUV.chooseConfig(this.mEgl, this.mEglDisplay);
+                this.mEglContext = cVar.cUW.createContext(this.mEgl, this.mEglDisplay, this.mEglConfig);
             } else {
                 this.mEglConfig = null;
                 this.mEglContext = null;
@@ -376,9 +376,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                 throw new RuntimeException("mEglConfig not initialized");
             }
             destroySurfaceImp();
-            c cVar = this.cUX.get();
+            c cVar = this.cVa.get();
             if (cVar != null) {
-                this.mEglSurface = cVar.cUU.createWindowSurface(this.mEgl, this.mEglDisplay, this.mEglConfig, cVar.getHolder());
+                this.mEglSurface = cVar.cUX.createWindowSurface(this.mEgl, this.mEglDisplay, this.mEglConfig, cVar.getHolder());
             } else {
                 this.mEglSurface = null;
             }
@@ -398,17 +398,17 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         GL createGL() {
             l lVar;
             GL gl = this.mEglContext.getGL();
-            c cVar = this.cUX.get();
+            c cVar = this.cVa.get();
             if (cVar != null) {
-                if (cVar.cUV != null) {
-                    gl = cVar.cUV.wrap(gl);
+                if (cVar.cUY != null) {
+                    gl = cVar.cUY.wrap(gl);
                 }
-                if ((cVar.cUC & 3) != 0) {
+                if ((cVar.cUF & 3) != 0) {
                     int i = 0;
-                    if ((cVar.cUC & 1) != 0) {
+                    if ((cVar.cUF & 1) != 0) {
                         i = 1;
                     }
-                    if ((cVar.cUC & 2) == 0) {
+                    if ((cVar.cUF & 2) == 0) {
                         lVar = null;
                     } else {
                         lVar = new l();
@@ -434,9 +434,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         private void destroySurfaceImp() {
             if (this.mEglSurface != null && this.mEglSurface != EGL10.EGL_NO_SURFACE) {
                 this.mEgl.eglMakeCurrent(this.mEglDisplay, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
-                c cVar = this.cUX.get();
+                c cVar = this.cVa.get();
                 if (cVar != null) {
-                    cVar.cUU.destroySurface(this.mEgl, this.mEglDisplay, this.mEglSurface);
+                    cVar.cUX.destroySurface(this.mEgl, this.mEglDisplay, this.mEglSurface);
                 }
                 this.mEglSurface = null;
             }
@@ -444,9 +444,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
         public void finish() {
             if (this.mEglContext != null) {
-                c cVar = this.cUX.get();
+                c cVar = this.cVa.get();
                 if (cVar != null) {
-                    cVar.cUT.destroyContext(this.mEgl, this.mEglDisplay, this.mEglContext);
+                    cVar.cUW.destroyContext(this.mEgl, this.mEglDisplay, this.mEglContext);
                 }
                 this.mEglContext = null;
             }
@@ -476,8 +476,8 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class i extends Thread {
-        private WeakReference<c> cUX;
-        private h cUY;
+        private WeakReference<c> cVa;
+        private h cVb;
         private boolean mExited;
         private boolean mFinishedCreatingEglSurface;
         private boolean mHasSurface;
@@ -498,7 +498,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         private int mRenderMode = 1;
 
         i(WeakReference<c> weakReference) {
-            this.cUX = weakReference;
+            this.cVa = weakReference;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -507,13 +507,13 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             try {
                 try {
                     guardedRun();
-                    c.cUQ.a(this);
+                    c.cUT.a(this);
                 } catch (Exception e) {
-                    af.CM().bl(false);
-                    c.cUQ.a(this);
+                    af.CN().bl(false);
+                    c.cUT.a(this);
                 }
             } catch (Throwable th) {
-                c.cUQ.a(this);
+                c.cUT.a(this);
                 throw th;
             }
         }
@@ -521,15 +521,15 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         private void stopEglSurfaceLocked() {
             if (this.mHaveEglSurface) {
                 this.mHaveEglSurface = false;
-                this.cUY.destroySurface();
+                this.cVb.destroySurface();
             }
         }
 
         private void stopEglContextLocked() {
             if (this.mHaveEglContext) {
-                this.cUY.finish();
+                this.cVb.finish();
                 this.mHaveEglContext = false;
-                c.cUQ.c(this);
+                c.cUT.c(this);
             }
         }
 
@@ -556,7 +556,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             boolean z14;
             int i3;
             int i4;
-            this.cUY = new h(this.cUX);
+            this.cVb = new h(this.cVa);
             this.mHaveEglContext = false;
             this.mHaveEglSurface = false;
             boolean z15 = false;
@@ -573,13 +573,13 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             boolean z22 = false;
             while (true) {
                 try {
-                    synchronized (c.cUQ) {
+                    synchronized (c.cUT) {
                         while (!this.mShouldExit) {
                             if (this.mEventQueue.isEmpty()) {
                                 if (this.mPaused != this.mRequestPaused) {
                                     boolean z23 = this.mRequestPaused;
                                     this.mPaused = this.mRequestPaused;
-                                    c.cUQ.notifyAll();
+                                    c.cUT.notifyAll();
                                     z9 = z23;
                                 } else {
                                     z9 = false;
@@ -599,13 +599,13 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                                     stopEglSurfaceLocked();
                                 }
                                 if (z9 && this.mHaveEglContext) {
-                                    c cVar = this.cUX.get();
-                                    if (!(cVar == null ? false : cVar.cUE) || c.cUQ.akF()) {
+                                    c cVar = this.cVa.get();
+                                    if (!(cVar == null ? false : cVar.cUH) || c.cUT.akG()) {
                                         stopEglContextLocked();
                                     }
                                 }
-                                if (z9 && c.cUQ.akG()) {
-                                    this.cUY.finish();
+                                if (z9 && c.cUT.akH()) {
+                                    this.cVb.finish();
                                 }
                                 if (!this.mHasSurface && !this.mWaitingForSurface) {
                                     if (this.mHaveEglSurface) {
@@ -613,30 +613,30 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                                     }
                                     this.mWaitingForSurface = true;
                                     this.mSurfaceIsBad = false;
-                                    c.cUQ.notifyAll();
+                                    c.cUT.notifyAll();
                                 }
                                 if (this.mHasSurface && this.mWaitingForSurface) {
                                     this.mWaitingForSurface = false;
-                                    c.cUQ.notifyAll();
+                                    c.cUT.notifyAll();
                                 }
                                 if (z22) {
                                     z17 = false;
                                     z22 = false;
                                     this.mRenderComplete = true;
-                                    c.cUQ.notifyAll();
+                                    c.cUT.notifyAll();
                                 }
                                 if (readyToDraw()) {
                                     if (!this.mHaveEglContext) {
                                         if (z16) {
                                             z16 = false;
-                                        } else if (c.cUQ.b(this)) {
+                                        } else if (c.cUT.b(this)) {
                                             try {
-                                                this.cUY.start();
+                                                this.cVb.start();
                                                 this.mHaveEglContext = true;
                                                 z15 = true;
-                                                c.cUQ.notifyAll();
+                                                c.cUT.notifyAll();
                                             } catch (RuntimeException e) {
-                                                c.cUQ.c(this);
+                                                c.cUT.c(this);
                                                 throw e;
                                             }
                                         }
@@ -667,7 +667,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                                             i4 = i7;
                                         }
                                         this.mRequestRender = false;
-                                        c.cUQ.notifyAll();
+                                        c.cUT.notifyAll();
                                         z3 = z11;
                                         z6 = z13;
                                         remove = runnable;
@@ -684,7 +684,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                                         z18 = z10;
                                     }
                                 }
-                                c.cUQ.wait();
+                                c.cUT.wait();
                             } else {
                                 z = z22;
                                 i = i6;
@@ -698,7 +698,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                                 i2 = i5;
                             }
                         }
-                        synchronized (c.cUQ) {
+                        synchronized (c.cUT) {
                             stopEglSurfaceLocked();
                             stopEglContextLocked();
                         }
@@ -720,17 +720,17 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                     } else {
                         if (!z2) {
                             z8 = z2;
-                        } else if (this.cUY.createSurface()) {
-                            synchronized (c.cUQ) {
+                        } else if (this.cVb.createSurface()) {
+                            synchronized (c.cUT) {
                                 this.mFinishedCreatingEglSurface = true;
-                                c.cUQ.notifyAll();
+                                c.cUT.notifyAll();
                             }
                             z8 = false;
                         } else {
-                            synchronized (c.cUQ) {
+                            synchronized (c.cUT) {
                                 this.mFinishedCreatingEglSurface = true;
                                 this.mSurfaceIsBad = true;
-                                c.cUQ.notifyAll();
+                                c.cUT.notifyAll();
                             }
                             i5 = i2;
                             z16 = z7;
@@ -745,32 +745,32 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                             z22 = z25;
                         }
                         if (z3) {
-                            GL10 gl103 = (GL10) this.cUY.createGL();
-                            c.cUQ.d(gl103);
+                            GL10 gl103 = (GL10) this.cVb.createGL();
+                            c.cUT.d(gl103);
                             z3 = false;
                             gl10 = gl103;
                         } else {
                             gl10 = gl102;
                         }
                         if (z15) {
-                            c cVar2 = this.cUX.get();
+                            c cVar2 = this.cVa.get();
                             if (cVar2 != null) {
-                                cVar2.cUx.onSurfaceCreated(gl10, this.cUY.mEglConfig);
+                                cVar2.cUA.onSurfaceCreated(gl10, this.cVb.mEglConfig);
                             }
                             z15 = false;
                         }
                         if (z5) {
-                            c cVar3 = this.cUX.get();
+                            c cVar3 = this.cVa.get();
                             if (cVar3 != null) {
-                                cVar3.cUx.onSurfaceChanged(gl10, i, i2);
+                                cVar3.cUA.onSurfaceChanged(gl10, i, i2);
                             }
                             z5 = false;
                         }
-                        c cVar4 = this.cUX.get();
+                        c cVar4 = this.cVa.get();
                         if (cVar4 != null) {
-                            cVar4.cUx.onDrawFrame(gl10);
+                            cVar4.cUA.onDrawFrame(gl10);
                         }
-                        int swap = this.cUY.swap();
+                        int swap = this.cVb.swap();
                         switch (swap) {
                             case 12288:
                                 break;
@@ -779,9 +779,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                                 break;
                             default:
                                 h.logEglErrorAsWarning("GLThread", "eglSwapBuffers", swap);
-                                synchronized (c.cUQ) {
+                                synchronized (c.cUT) {
                                     this.mSurfaceIsBad = true;
-                                    c.cUQ.notifyAll();
+                                    c.cUT.notifyAll();
                                     break;
                                 }
                         }
@@ -800,7 +800,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                         z16 = z27;
                     }
                 } catch (Throwable th) {
-                    synchronized (c.cUQ) {
+                    synchronized (c.cUT) {
                         stopEglSurfaceLocked();
                         stopEglContextLocked();
                         throw th;
@@ -819,9 +819,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
         public void setRenderMode(int i) {
             if (i >= 0 && i <= 1) {
-                synchronized (c.cUQ) {
+                synchronized (c.cUT) {
                     this.mRenderMode = i;
-                    c.cUQ.notifyAll();
+                    c.cUT.notifyAll();
                 }
                 return;
             }
@@ -830,20 +830,20 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
         public int getRenderMode() {
             int i;
-            synchronized (c.cUQ) {
+            synchronized (c.cUT) {
                 i = this.mRenderMode;
             }
             return i;
         }
 
         public void surfaceCreated() {
-            synchronized (c.cUQ) {
+            synchronized (c.cUT) {
                 this.mHasSurface = true;
                 this.mFinishedCreatingEglSurface = false;
-                c.cUQ.notifyAll();
+                c.cUT.notifyAll();
                 while (this.mWaitingForSurface && !this.mFinishedCreatingEglSurface && !this.mExited) {
                     try {
-                        c.cUQ.wait();
+                        c.cUT.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -852,12 +852,12 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         public void surfaceDestroyed() {
-            synchronized (c.cUQ) {
+            synchronized (c.cUT) {
                 this.mHasSurface = false;
-                c.cUQ.notifyAll();
+                c.cUT.notifyAll();
                 while (!this.mWaitingForSurface && !this.mExited) {
                     try {
-                        c.cUQ.wait();
+                        c.cUT.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -866,16 +866,16 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         public void onWindowResize(int i, int i2) {
-            synchronized (c.cUQ) {
+            synchronized (c.cUT) {
                 this.mWidth = i;
                 this.mHeight = i2;
                 this.mSizeChanged = true;
                 this.mRequestRender = true;
                 this.mRenderComplete = false;
-                c.cUQ.notifyAll();
+                c.cUT.notifyAll();
                 while (!this.mExited && !this.mPaused && !this.mRenderComplete && ableToDraw()) {
                     try {
-                        c.cUQ.wait();
+                        c.cUT.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -884,12 +884,12 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         public void requestExitAndWait() {
-            synchronized (c.cUQ) {
+            synchronized (c.cUT) {
                 this.mShouldExit = true;
-                c.cUQ.notifyAll();
+                c.cUT.notifyAll();
                 while (!this.mExited) {
                     try {
-                        c.cUQ.wait();
+                        c.cUT.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -899,7 +899,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
         public void requestReleaseEglContextLocked() {
             this.mShouldReleaseEglContext = true;
-            c.cUQ.notifyAll();
+            c.cUT.notifyAll();
         }
     }
 
@@ -941,8 +941,8 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
-    private void akD() {
-        if (this.cUR != null) {
+    private void akE() {
+        if (this.cUU != null) {
             throw new IllegalStateException("setRenderer has already been called for this instance.");
         }
     }
@@ -951,9 +951,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
     /* loaded from: classes.dex */
     public static class j {
         private static String TAG = "GLThreadManager";
-        private boolean cUI;
-        private boolean cUJ;
-        private i cUZ;
+        private boolean cUL;
+        private boolean cUM;
+        private i cVc;
         private int mGLESVersion;
         private boolean mGLESVersionCheckComplete;
         private boolean mMultipleGLESContextsAllowed;
@@ -963,15 +963,15 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
         public synchronized void a(i iVar) {
             iVar.mExited = true;
-            if (this.cUZ == iVar) {
-                this.cUZ = null;
+            if (this.cVc == iVar) {
+                this.cVc = null;
             }
             notifyAll();
         }
 
         public boolean b(i iVar) {
-            if (this.cUZ == iVar || this.cUZ == null) {
-                this.cUZ = iVar;
+            if (this.cVc == iVar || this.cVc == null) {
+                this.cVc = iVar;
                 notifyAll();
                 return true;
             }
@@ -979,39 +979,39 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             if (this.mMultipleGLESContextsAllowed) {
                 return true;
             }
-            if (this.cUZ != null) {
-                this.cUZ.requestReleaseEglContextLocked();
+            if (this.cVc != null) {
+                this.cVc.requestReleaseEglContextLocked();
             }
             return false;
         }
 
         public void c(i iVar) {
-            if (this.cUZ == iVar) {
-                this.cUZ = null;
+            if (this.cVc == iVar) {
+                this.cVc = null;
             }
             notifyAll();
         }
 
-        public synchronized boolean akF() {
-            return this.cUJ;
+        public synchronized boolean akG() {
+            return this.cUM;
         }
 
-        public synchronized boolean akG() {
+        public synchronized boolean akH() {
             checkGLESVersion();
             return !this.mMultipleGLESContextsAllowed;
         }
 
         public synchronized void d(GL10 gl10) {
             synchronized (this) {
-                if (!this.cUI) {
+                if (!this.cUL) {
                     checkGLESVersion();
                     String glGetString = gl10.glGetString(7937);
                     if (this.mGLESVersion < 131072) {
                         this.mMultipleGLESContextsAllowed = !glGetString.startsWith("Q3Dimension MSM7500 ");
                         notifyAll();
                     }
-                    this.cUJ = this.mMultipleGLESContextsAllowed ? false : true;
-                    this.cUI = true;
+                    this.cUM = this.mMultipleGLESContextsAllowed ? false : true;
+                    this.cUL = true;
                 }
             }
         }

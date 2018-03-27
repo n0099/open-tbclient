@@ -26,61 +26,61 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes2.dex */
 public class a {
-    private String cZI;
-    private i dFD;
-    private TextView dLm;
-    private List<z> dLn;
-    private com.baidu.tieba.frs.entelechy.c.a.a.a dLo;
-    private int dLp = -1;
-    private boolean dLq = false;
-    private View.OnClickListener dLr = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.1
+    private String cZL;
+    private i dFH;
+    private TextView dLr;
+    private List<z> dLs;
+    private com.baidu.tieba.frs.entelechy.c.a.a.a dLt;
+    private int dLu = -1;
+    private boolean dLv = false;
+    private View.OnClickListener dLw = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!j.ox()) {
-                a.this.dFD.showToast(d.j.neterror);
+                a.this.dFH.showToast(d.j.neterror);
                 return;
             }
-            if (a.this.dLo == null) {
-                a.this.dLo = new com.baidu.tieba.frs.entelechy.c.a.a.a(a.this.dFD, a.this.dLs);
+            if (a.this.dLt == null) {
+                a.this.dLt = new com.baidu.tieba.frs.entelechy.c.a.a.a(a.this.dFH, a.this.dLx);
             }
-            a.this.dLo.setData(a.this.dLn);
-            a.this.dLo.d(a.this.dFD.getPageContext()).AX();
+            a.this.dLt.setData(a.this.dLs);
+            a.this.dLt.d(a.this.dFH.getPageContext()).AY();
         }
     };
-    private b.InterfaceC0097b dLs = new b.InterfaceC0097b() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.2
+    private b.InterfaceC0097b dLx = new b.InterfaceC0097b() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.2
         @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0097b
         public void a(b bVar, int i, View view) {
             if (!j.ox()) {
-                a.this.dFD.showToast(d.j.neterror);
+                a.this.dFH.showToast(d.j.neterror);
                 bVar.dismiss();
                 return;
             }
-            z zVar = (z) v.f(a.this.dLo.axH(), i);
+            z zVar = (z) v.f(a.this.dLt.axJ(), i);
             if (zVar != null) {
-                if (a.this.dLp != zVar.dHb) {
-                    a.this.dLq = true;
-                    a.this.dLm.setText(zVar.name);
-                    if (a.this.dLp == 7) {
+                if (a.this.dLu != zVar.dHg) {
+                    a.this.dLv = true;
+                    a.this.dLr.setText(zVar.name);
+                    if (a.this.dLu == 7) {
                         ak akVar = new ak("c11437");
-                        akVar.s("obj_locate", zVar.dHb);
-                        akVar.ab(ImageViewerConfig.FORUM_ID, a.this.cZI);
+                        akVar.s("obj_locate", zVar.dHg);
+                        akVar.ab(ImageViewerConfig.FORUM_ID, a.this.cZL);
                         TiebaStatic.log(akVar);
                     }
-                    if (a.this.dFD.auN() != null) {
-                        a.this.dFD.auN().nI(a.this.dLp);
-                        a.this.dLp = zVar.dHb;
+                    if (a.this.dFH.auO() != null) {
+                        a.this.dFH.auO().nI(a.this.dLu);
+                        a.this.dLu = zVar.dHg;
                         bVar.dismiss();
-                        if (a.this.dLp != 7) {
-                            t.Pn();
-                            f.bxR();
+                        if (a.this.dLu != 7) {
+                            t.Po();
+                            f.bxW();
                         } else {
-                            f.bxQ();
+                            f.bxV();
                         }
-                        if (a.this.dFD.auN() != null && a.this.dFD.auS() != null) {
-                            a.this.dFD.auN().nH(zVar.dHb);
-                            a.this.dFD.auS().startPullRefresh();
-                            a.this.dFD.auN().go(true);
-                            com.baidu.tieba.frs.smartsort.d.azL().h(a.this.dFD.auN().getForumName(), zVar.dHb, zVar.name);
+                        if (a.this.dFH.auO() != null && a.this.dFH.auT() != null) {
+                            a.this.dFH.auO().nH(zVar.dHg);
+                            a.this.dFH.auT().startPullRefresh();
+                            a.this.dFH.auO().gq(true);
+                            com.baidu.tieba.frs.smartsort.d.azN().h(a.this.dFH.auO().getForumName(), zVar.dHg, zVar.name);
                             return;
                         }
                         return;
@@ -96,51 +96,51 @@ public class a {
     private ViewGroup mRootView;
 
     public void setFid(String str) {
-        this.cZI = str;
+        this.cZL = str;
     }
 
-    public TextView axE() {
-        return this.dLm;
+    public TextView axG() {
+        return this.dLr;
     }
 
     public void lQ(String str) {
-        this.dLm.setText(str);
+        this.dLr.setText(str);
     }
 
     public void nj(int i) {
-        this.dLp = i;
+        this.dLu = i;
     }
 
     public a(i iVar, RelativeLayout relativeLayout) {
         if (iVar != null && relativeLayout != null) {
-            this.dFD = iVar;
+            this.dFH = iVar;
             this.mRootView = relativeLayout;
-            this.dLm = new TextView(iVar.getActivity());
+            this.dLr = new TextView(iVar.getActivity());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, l.t(TbadkCoreApplication.getInst(), d.e.tbds104));
             layoutParams.addRule(15);
-            this.dLm.setPadding(l.t(iVar.getActivity(), d.e.tbds30), 0, l.t(iVar.getActivity(), d.e.tbds44), 0);
-            this.dLm.setGravity(17);
-            this.dLm.setTextSize(0, l.t(iVar.getActivity(), d.e.ds28));
-            this.dLm.setCompoundDrawablePadding(l.t(iVar.getActivity(), d.e.tbds20));
-            this.dLm.setOnClickListener(this.dLr);
-            this.mRootView.addView(this.dLm, layoutParams);
+            this.dLr.setPadding(l.t(iVar.getActivity(), d.e.tbds30), 0, l.t(iVar.getActivity(), d.e.tbds44), 0);
+            this.dLr.setGravity(17);
+            this.dLr.setTextSize(0, l.t(iVar.getActivity(), d.e.ds28));
+            this.dLr.setCompoundDrawablePadding(l.t(iVar.getActivity(), d.e.tbds20));
+            this.dLr.setOnClickListener(this.dLw);
+            this.mRootView.addView(this.dLr, layoutParams);
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.dLm != null) {
-            aj.r(this.dLm, d.C0141d.cp_cont_j);
-            aj.t(this.dLm, d.C0141d.transparent);
-            this.dLm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.f.icon_arrow_gray_down), (Drawable) null);
+        if (this.dLr != null) {
+            aj.r(this.dLr, d.C0141d.cp_cont_j);
+            aj.t(this.dLr, d.C0141d.transparent);
+            this.dLr.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.f.icon_arrow_gray_down), (Drawable) null);
         }
     }
 
     public void setData(List<FrsTabInfo> list, int i) {
         if (v.E(list)) {
-            axG();
-        } else if (this.dFD != null && this.dFD.auN() != null && this.dFD.auN().azr()) {
-            axF();
+            axI();
+        } else if (this.dFH != null && this.dFH.auO() != null && this.dFH.auO().azt()) {
+            axH();
             ArrayList arrayList = new ArrayList(list);
             Iterator<FrsTabInfo> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -150,26 +150,26 @@ public class a {
                 }
             }
             if (!bn(arrayList)) {
-                if (!this.dLq) {
+                if (!this.dLv) {
                     nk(i);
                     return;
                 }
                 return;
             }
-            this.dLn = new ArrayList();
+            this.dLs = new ArrayList();
             for (FrsTabInfo frsTabInfo : arrayList) {
                 if (frsTabInfo != null && frsTabInfo.tab_id != null && !StringUtils.isNull(frsTabInfo.tab_name)) {
                     z zVar = new z();
-                    zVar.dHb = frsTabInfo.tab_id.intValue();
+                    zVar.dHg = frsTabInfo.tab_id.intValue();
                     zVar.name = frsTabInfo.tab_name;
-                    this.dLn.add(zVar);
+                    this.dLs.add(zVar);
                 }
             }
-            if (!this.dLq) {
+            if (!this.dLv) {
                 nk(i);
             }
         } else {
-            axG();
+            axI();
         }
     }
 
@@ -178,24 +178,24 @@ public class a {
         boolean z;
         z zVar2 = null;
         if (i <= 0) {
-            z zVar3 = this.dLn.get(0);
+            z zVar3 = this.dLs.get(0);
             if (zVar3 != null) {
-                nj(zVar3.dHb);
+                nj(zVar3.dHg);
                 lQ(zVar3.name);
-                if (this.dFD != null && this.dFD.auN() != null) {
-                    this.dFD.auN().nH(zVar3.dHb);
+                if (this.dFH != null && this.dFH.auO() != null) {
+                    this.dFH.auO().nH(zVar3.dHg);
                     return;
                 }
                 return;
             }
             return;
         }
-        int size = this.dLn.size();
+        int size = this.dLs.size();
         int i2 = 0;
         while (true) {
             if (i2 < size) {
-                zVar2 = this.dLn.get(i2);
-                if (zVar2 == null || zVar2.dHb != i) {
+                zVar2 = this.dLs.get(i2);
+                if (zVar2 == null || zVar2.dHg != i) {
                     i2++;
                 } else {
                     zVar = zVar2;
@@ -213,47 +213,47 @@ public class a {
                 lQ(TbadkCoreApplication.getInst().getResources().getString(d.j.attention_users_thread));
                 return;
             }
-            z zVar4 = this.dLn.get(0);
+            z zVar4 = this.dLs.get(0);
             if (zVar4 != null) {
-                nj(zVar4.dHb);
+                nj(zVar4.dHg);
                 lQ(zVar4.name);
-                if (this.dFD != null && this.dFD.auN() != null) {
-                    this.dFD.auN().nH(zVar4.dHb);
+                if (this.dFH != null && this.dFH.auO() != null) {
+                    this.dFH.auO().nH(zVar4.dHg);
                 }
             }
         } else if (zVar != null) {
-            nj(zVar.dHb);
+            nj(zVar.dHg);
             lQ(zVar.name);
-            if (this.dFD != null && this.dFD.auN() != null) {
-                this.dFD.auN().nH(zVar.dHb);
+            if (this.dFH != null && this.dFH.auO() != null) {
+                this.dFH.auO().nH(zVar.dHg);
             }
         }
     }
 
     private boolean bn(List<FrsTabInfo> list) {
-        if (!v.E(this.dLn) && v.D(list) == v.D(this.dLn)) {
+        if (!v.E(this.dLs) && v.D(list) == v.D(this.dLs)) {
             int i = 0;
             while (i < list.size()) {
-                i = (list.get(i) != null && this.dLn.get(i) == null) ? i + 1 : i + 1;
+                i = (list.get(i) != null && this.dLs.get(i) == null) ? i + 1 : i + 1;
             }
             return false;
         }
         return true;
     }
 
-    public void axF() {
-        if (this.dLm != null) {
-            this.dLm.setVisibility(0);
+    public void axH() {
+        if (this.dLr != null) {
+            this.dLr.setVisibility(0);
         }
     }
 
-    public void axG() {
-        if (this.dLm != null) {
-            this.dLm.setVisibility(8);
+    public void axI() {
+        if (this.dLr != null) {
+            this.dLr.setVisibility(8);
         }
     }
 
     public void resetData() {
-        this.dLn = null;
+        this.dLs = null;
     }
 }

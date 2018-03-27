@@ -14,20 +14,20 @@ import com.baidu.tieba.d;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b> {
-    private TextView bel;
-    private TextView cIE;
-    private TextView fzc;
+    private TextView beo;
+    private TextView cIH;
+    private TextView fzs;
     private View mLine;
     private View mRootView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.fzc = (TextView) view.findViewById(d.g.title);
-        this.bel = (TextView) view.findViewById(d.g.content);
-        this.bel.setSingleLine();
-        this.bel.setEllipsize(TextUtils.TruncateAt.END);
-        this.cIE = (TextView) view.findViewById(d.g.time);
+        this.fzs = (TextView) view.findViewById(d.g.title);
+        this.beo = (TextView) view.findViewById(d.g.content);
+        this.beo.setSingleLine();
+        this.beo.setEllipsize(TextUtils.TruncateAt.END);
+        this.cIH = (TextView) view.findViewById(d.g.time);
         this.mLine = view.findViewById(d.g.line);
     }
 
@@ -37,48 +37,48 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void aI(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.aI(aVar);
         if (aVar != null) {
-            if (this.fzc != null) {
+            if (this.fzs != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.fzc.setText(String.format(getString(d.j.pb_history_user_name), aVar.getUserName()));
+                        this.fzs.setText(String.format(getString(d.j.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.fzc.setText(aVar.getDescription());
+                        this.fzs.setText(aVar.getDescription());
                     }
-                } else if (aVar.aYh() != null) {
+                } else if (aVar.aYi() != null) {
                     if (aVar.getThreadType() == 33) {
-                        this.fzc.setText(PhotoLiveCardData.getLiveIconTitle(aVar.aYh()));
+                        this.fzs.setText(PhotoLiveCardData.getLiveIconTitle(aVar.aYi()));
                     } else if (aVar.isShareThread()) {
-                        this.fzc.setText(String.format("%s%s", getString(d.j.pb_history_share_prefix), aVar.aYh()));
+                        this.fzs.setText(String.format("%s%s", getString(d.j.pb_history_share_prefix), aVar.aYi()));
                     } else {
-                        this.fzc.setText(aVar.aYh());
+                        this.fzs.setText(aVar.aYi());
                     }
                 }
             }
-            if (this.bel != null) {
+            if (this.beo != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.bel.setText(String.format(getString(d.j.pb_history_user_name), aVar.getUserName()));
+                    this.beo.setText(String.format(getString(d.j.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.bel.setText(aVar.getForumName());
+                    this.beo.setText(aVar.getForumName());
                 }
             }
-            if (this.cIE != null) {
+            if (this.cIH != null) {
                 String e = am.e(new Date(aVar.getTime()));
                 if (e == null) {
                     e = "";
                 }
-                this.cIE.setText(e);
+                this.cIH.setText(e);
             }
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.o
+    @Override // com.baidu.tieba.tbadkCore.p
     @SuppressLint({"ResourceAsColor"})
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         aj.s(this.mRootView, d.f.list_item_selector);
         aj.s(this.mLine, d.C0141d.cp_bg_line_b);
-        aj.e(this.fzc, d.C0141d.cp_cont_b, 1);
-        aj.e(this.bel, d.C0141d.cp_cont_d, 1);
-        aj.e(this.cIE, d.C0141d.cp_cont_d, 1);
+        aj.e(this.fzs, d.C0141d.cp_cont_b, 1);
+        aj.e(this.beo, d.C0141d.cp_cont_d, 1);
+        aj.e(this.cIH, d.C0141d.cp_cont_d, 1);
         return true;
     }
 }

@@ -20,9 +20,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes2.dex */
 public class a {
-    private static final String fXN = d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
-    private final PbActivity fMQ;
-    public final View.OnClickListener fXO = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.1
+    private static final String fYd = d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
+    private final PbActivity fNg;
+    public final View.OnClickListener fYe = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.1
         /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
@@ -50,55 +50,55 @@ public class a {
             }
             if (view.getTag(d.g.tag_nick_name_activity) != null && (view.getTag(d.g.tag_nick_name_activity) instanceof String)) {
                 String str4 = (String) view.getTag(d.g.tag_nick_name_activity);
-                if (!TextUtils.isEmpty(str4) && a.this.fMQ.checkUpIsLogin()) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.fMQ.getPageContext().getPageActivity(), null, str4, true)));
+                if (!TextUtils.isEmpty(str4) && a.this.fNg.checkUpIsLogin()) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.fNg.getPageContext().getPageActivity(), null, str4, true)));
                     return;
                 }
             }
             String str5 = view.getTag(d.g.tag_virtual_user_url) instanceof String ? (String) view.getTag(d.g.tag_virtual_user_url) : null;
             if (str5 != null) {
-                if (a.this.fMQ.checkUpIsLogin()) {
-                    aw.Dt().c(a.this.fMQ.getPageContext(), new String[]{str5});
+                if (a.this.fNg.checkUpIsLogin()) {
+                    aw.Du().c(a.this.fNg.getPageContext(), new String[]{str5});
                 }
-            } else if (str3 != null && a.this.fMQ.bbz() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.fMQ.getPageContext().getPageActivity(), str3, str2, a.this.fMQ.bbz().bdk(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+            } else if (str3 != null && a.this.fNg.bbA() != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.fNg.getPageContext().getPageActivity(), str3, str2, a.this.fNg.bbA().bdl(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     };
-    public final View.OnClickListener fXP = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.2
+    public final View.OnClickListener fYf = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag(d.g.tag_user_id) instanceof String) {
-                com.baidu.tbadk.browser.b.a(a.this.fMQ.getApplicationContext(), TbadkCoreApplication.getInst().getString(d.j.user_icon_web_view_title), a.fXN + "?user_id=" + ((String) view.getTag(d.g.tag_user_id)), true, true, true);
+                com.baidu.tbadk.browser.b.a(a.this.fNg.getApplicationContext(), TbadkCoreApplication.getInst().getString(d.j.user_icon_web_view_title), a.fYd + "?user_id=" + ((String) view.getTag(d.g.tag_user_id)), true, true, true);
                 TiebaStatic.log(new ak("c10134").s("obj_type", 2));
             }
         }
     };
-    public final View.OnClickListener fXQ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.3
+    public final View.OnClickListener fYg = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.3
         /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.fMQ.checkUpIsLogin()) {
+            if (a.this.fNg.checkUpIsLogin()) {
                 String str = null;
                 if (view.getTag() != null) {
                     str = (String) view.getTag();
                 }
-                if (ay.ba(a.this.fMQ.getActivity()) && str != null) {
-                    aw.Dt().c(a.this.fMQ.getPageContext(), new String[]{str});
+                if (ay.ba(a.this.fNg.getActivity()) && str != null) {
+                    aw.Du().c(a.this.fNg.getPageContext(), new String[]{str});
                 }
-                TiebaStatic.eventStat(a.this.fMQ.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
+                TiebaStatic.eventStat(a.this.fNg.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
             }
         }
     };
-    public final TbRichTextView.g fXR = new TbRichTextView.g() { // from class: com.baidu.tieba.pb.pb.main.a.a.4
+    public final TbRichTextView.g fYh = new TbRichTextView.g() { // from class: com.baidu.tieba.pb.pb.main.a.a.4
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.g
         public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-            a.this.fMQ.sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(a.this.fMQ.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
+            a.this.fNg.sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(a.this.fNg.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
         }
     };
 
     public a(PbActivity pbActivity) {
-        this.fMQ = pbActivity;
+        this.fNg = pbActivity;
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e {
     private String labelName = "";
-    private int bmU = 0;
-    private boolean bmV = false;
+    private int bmX = 0;
+    private boolean bmY = false;
     private String labelId = "";
-    private int bmW = 0;
-    private boolean bmX = false;
-    private int bmY = aj.getColor(d.C0141d.cp_cont_i);
-    private int bmZ = aj.getColor(d.C0141d.cp_link_tip_d);
+    private int bmZ = 0;
+    private boolean bna = false;
+    private int bnb = aj.getColor(d.C0141d.cp_cont_i);
+    private int bnc = aj.getColor(d.C0141d.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;
@@ -25,11 +25,11 @@ public class e {
     }
 
     public void ho(int i) {
-        this.bmU = i;
+        this.bmX = i;
     }
 
-    public int Jj() {
-        return this.bmU;
+    public int Jk() {
+        return this.bmX;
     }
 
     public void fL(String str) {
@@ -43,11 +43,11 @@ public class e {
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         if (com.baidu.adp.lib.g.b.c(str2, 0L) <= 0) {
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bmY), 0, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bnb), 0, str.length(), 33);
         } else {
             int indexOf = str.indexOf("(");
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bmY), 0, indexOf, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bmZ), indexOf, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bnb), 0, indexOf, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bnc), indexOf, str.length(), 33);
         }
         return spannableStringBuilder;
     }

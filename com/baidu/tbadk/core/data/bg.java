@@ -14,7 +14,7 @@ public class bg {
         return this.title;
     }
 
-    public String AH() {
+    public String AI() {
         return this.title_link;
     }
 

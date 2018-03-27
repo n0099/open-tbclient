@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes.dex */
 public @interface p {
-    boolean BC() default false;
+    boolean BD() default false;
 
     String value() default "";
 }

@@ -68,21 +68,21 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HJ() {
+    public void HK() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String HK() {
+    public String HL() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
     public void fs(String str) {
-        String HK = HK();
-        if (!TextUtils.equals(HK, str) || !isFileExist(HK)) {
-            ag(str, HK);
+        String HL = HL();
+        if (!TextUtils.equals(HL, str) || !isFileExist(HL)) {
+            ag(str, HL);
         }
     }
 
@@ -100,15 +100,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String bjK;
-        private final String bjL;
+        private final String bjN;
+        private final String bjO;
         private final String mFile;
         private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.bjK = str;
+            this.bjN = str;
             this.mFile = str2;
-            this.bjL = str3;
+            this.bjO = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,11 +117,11 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new x(this.bjK);
+                this.mNetWork = new x(this.bjN);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(k.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.bjK) && !this.bjK.equals(this.bjL)) {
-                        k.dU(ap.eu(this.bjL));
+                    if (!StringUtils.isNull(k.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.bjN) && !this.bjN.equals(this.bjO)) {
+                        k.dU(ap.eu(this.bjO));
                     }
                 } else {
                     k.dU(this.mFile + ".tmp");
@@ -137,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().HJ();
+                new b().HK();
             }
         }
     }

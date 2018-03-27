@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.tbadkCore.l;
+import com.baidu.tieba.tbadkCore.m;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
@@ -29,9 +29,9 @@ public class a {
         }
     }
 
-    public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, l lVar, List<com.baidu.adp.widget.ListView.i> list, int i) {
-        if (lVar != null) {
-            a(bVar, lVar.bar(), list, false, i);
+    public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, m mVar, List<com.baidu.adp.widget.ListView.i> list, int i) {
+        if (mVar != null) {
+            a(bVar, mVar.bas(), list, false, i);
         }
     }
 
@@ -39,7 +39,7 @@ public class a {
         int[] iArr;
         int indexOf;
         if (eVar != null && v.D(list) > 0 && v.D(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.had) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.haA) {
                 com.baidu.adp.widget.ListView.i iVar = (com.baidu.adp.widget.ListView.i) v.f(list, i);
                 if (iVar != null && (indexOf = list2.indexOf(iVar)) >= 0) {
                     eVar.cG(i, indexOf);

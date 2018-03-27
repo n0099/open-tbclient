@@ -11,11 +11,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class am {
-    private PbActivity fMQ;
-    private com.baidu.tieba.d.c fTh;
+    private PbActivity fNg;
+    private com.baidu.tieba.d.c fTx;
 
     public am(PbActivity pbActivity) {
-        this.fMQ = pbActivity;
+        this.fNg = pbActivity;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -24,24 +24,24 @@ public class am {
 
     public void a(View view, String str, String str2, String str3) {
         if (view != null && !StringUtils.isNull(str) && view.getVisibility() == 0 && view.getAlpha() >= 0.4d) {
-            if (this.fTh == null) {
-                this.fTh = new com.baidu.tieba.d.c(this.fMQ.getPageContext(), view);
-                this.fTh.lS(d.f.bg_tip_blue_up_left);
-                this.fTh.lR(16);
-                this.fTh.fa(true);
-                this.fTh.lV(57);
-                this.fTh.lW(-10);
+            if (this.fTx == null) {
+                this.fTx = new com.baidu.tieba.d.c(this.fNg.getPageContext(), view);
+                this.fTx.lS(d.f.bg_tip_blue_up_left);
+                this.fTx.lR(16);
+                this.fTx.fa(true);
+                this.fTx.lV(57);
+                this.fTx.lW(-10);
             }
-            this.fTh.lT(5000);
-            this.fTh.kG(str);
+            this.fTx.lT(5000);
+            this.fTx.kG(str);
             bH(str2, str3);
             TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12504"));
         }
     }
 
     public void destroy() {
-        if (this.fTh != null) {
-            this.fTh.ang();
+        if (this.fTx != null) {
+            this.fTx.anh();
         }
     }
 
@@ -50,7 +50,7 @@ public class am {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP);
             httpMessage.addParam("thread_user_id", str);
             httpMessage.addParam("thread_id", str2);
-            this.fMQ.sendMessage(httpMessage);
+            this.fNg.sendMessage(httpMessage);
         }
     }
 }

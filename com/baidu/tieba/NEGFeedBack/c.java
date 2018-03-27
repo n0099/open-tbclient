@@ -15,11 +15,11 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends ImageView {
-    private long bOG;
-    d bOH;
-    private View.OnClickListener bOI;
-    private int buY;
-    private int buZ;
+    private long bOJ;
+    d bOK;
+    private View.OnClickListener bOL;
+    private int bvb;
+    private int bvc;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -34,16 +34,16 @@ public class c extends ImageView {
     public c(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.bOG = 0L;
-        this.bOI = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
+        this.bOJ = 0L;
+        this.bOL = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.SZ();
+                c.this.Ta();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - c.this.bOG > 500) {
-                    c.this.SY();
+                if (currentTimeMillis - c.this.bOJ > 500) {
+                    c.this.SZ();
                 }
-                c.this.bOG = currentTimeMillis;
+                c.this.bOJ = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -51,46 +51,46 @@ public class c extends ImageView {
     }
 
     private void f(TbPageContext tbPageContext) {
-        this.bOH = new d(tbPageContext, this);
-        setOnClickListener(this.bOI);
+        this.bOK = new d(tbPageContext, this);
+        setOnClickListener(this.bOL);
         aj.c(this, d.f.icon_home_feedback_selector);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.bOH.setUniqueId(bdUniqueId);
+        this.bOK.setUniqueId(bdUniqueId);
     }
 
-    public void SX() {
+    public void SY() {
         onChangeSkinType();
     }
 
     public void setLeftPadding(int i) {
-        this.buY = i;
-        setPadding(i, 0, this.buZ, 0);
+        this.bvb = i;
+        setPadding(i, 0, this.bvc, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void SY() {
-        this.bOH.SY();
+    public void SZ() {
+        this.bOK.SZ();
     }
 
-    public void SZ() {
-        this.bOH.SZ();
+    public void Ta() {
+        this.bOK.Ta();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.bOH.onDetachedFromWindow();
+        this.bOK.onDetachedFromWindow();
     }
 
     public void setData(ah ahVar) {
-        this.bOH.setData(ahVar);
+        this.bOK.setData(ahVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.bOH.setFirstRowSingleColumn(z);
+        this.bOK.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -98,11 +98,11 @@ public class c extends ImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.bOH.setEventCallback(aVar);
+        this.bOK.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.bOH.setDefaultReasonArray(strArr);
+        this.bOK.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

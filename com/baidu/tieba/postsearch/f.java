@@ -28,13 +28,13 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f extends BaseAdapter {
-    private static final int gyv = TbadkCoreApplication.getInst().getListItemRule().FQ();
-    private TbPageContext<?> aRG;
-    private int cGN = -1;
+    private static final int gyL = TbadkCoreApplication.getInst().getListItemRule().FR();
+    private TbPageContext<?> aRI;
+    private int cGQ = -1;
     private List<b.a> mData = new ArrayList();
 
     public f(TbPageContext<?> tbPageContext) {
-        this.aRG = tbPageContext;
+        this.aRI = tbPageContext;
     }
 
     public int dj(List<b.a> list) {
@@ -42,11 +42,11 @@ public class f extends BaseAdapter {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= gyv) {
+        if (size <= gyL) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - gyv;
+        int i = size - gyL;
         ue(i);
         this.mData.addAll(list);
         return i;
@@ -96,13 +96,13 @@ public class f extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(this.aRG.getPageActivity()).inflate(d.h.post_search_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.aRI.getPageActivity()).inflate(d.h.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.gyy = (TextView) view.findViewById(d.g.title_text);
-            aVar.gyz = (TextView) view.findViewById(d.g.content_text);
-            aVar.gyA = (TextView) view.findViewById(d.g.label_text);
-            aVar.cHo = (TextView) view.findViewById(d.g.user_name);
-            aVar.gyB = (TextView) view.findViewById(d.g.time_text);
+            aVar.gyO = (TextView) view.findViewById(d.g.title_text);
+            aVar.gyP = (TextView) view.findViewById(d.g.content_text);
+            aVar.gyQ = (TextView) view.findViewById(d.g.label_text);
+            aVar.cHr = (TextView) view.findViewById(d.g.user_name);
+            aVar.gyR = (TextView) view.findViewById(d.g.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -114,62 +114,62 @@ public class f extends BaseAdapter {
             }
             Spanned fromHtml = Html.fromHtml(am.ac(aVar3.title, str));
             if (aVar3.thread_type == 33) {
-                aVar2.gyy.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
+                aVar2.gyO.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
             } else {
-                aVar2.gyy.setText(fromHtml);
+                aVar2.gyO.setText(fromHtml);
             }
-            aVar2.gyz.setText(Html.fromHtml(am.ac(aVar3.content, str)));
-            aVar2.cHo.setText(aVar3.name_show);
-            aVar2.gyB.setText(am.z(aVar3.time));
-            aVar2.gyA.setVisibility(0);
+            aVar2.gyP.setText(Html.fromHtml(am.ac(aVar3.content, str)));
+            aVar2.cHr.setText(aVar3.name_show);
+            aVar2.gyR.setText(am.z(aVar3.time));
+            aVar2.gyQ.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.gyA.setText(d.j.floor_text);
-            } else if (aVar3.gxW == 1) {
-                aVar2.gyA.setText(d.j.reply_post);
+                aVar2.gyQ.setText(d.j.floor_text);
+            } else if (aVar3.gym == 1) {
+                aVar2.gyQ.setText(d.j.reply_post);
             } else {
-                aVar2.gyA.setVisibility(8);
+                aVar2.gyQ.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (f.this.aRG != null) {
+                    if (f.this.aRI != null) {
                         f.this.a(aVar3);
                         if (aVar3.is_floor == 1) {
                             if (aVar3.thread_type == 33) {
-                                f.this.aRG.sendMessage(new CustomMessage(2002001, new PhotoLiveCommentActivityConfig(f.this.aRG.getPageActivity()).createPhotoLiveCommentActivityConfig(aVar3.tid + "", aVar3.pid + "", true)));
+                                f.this.aRI.sendMessage(new CustomMessage(2002001, new PhotoLiveCommentActivityConfig(f.this.aRI.getPageActivity()).createPhotoLiveCommentActivityConfig(aVar3.tid + "", aVar3.pid + "", true)));
                                 return;
                             }
-                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(f.this.aRG.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
+                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(f.this.aRI.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
                             createSubPbActivityConfig.setKeyPageStartFrom(8);
-                            f.this.aRG.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                            f.this.aRI.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                         } else if (aVar3.thread_type == 33) {
                             TiebaStatic.log("c10256");
-                            f.this.aRG.sendMessage(new CustomMessage(2002001, new PhotoLiveActivityConfig.a(f.this.aRG.getPageActivity(), String.valueOf(aVar3.tid)).cP(String.valueOf(aVar3.pid)).cQ("search_post").xD()));
+                            f.this.aRI.sendMessage(new CustomMessage(2002001, new PhotoLiveActivityConfig.a(f.this.aRI.getPageActivity(), String.valueOf(aVar3.tid)).cP(String.valueOf(aVar3.pid)).cQ("search_post").xD()));
                         } else {
-                            PbActivityConfig createNormalCfg = new PbActivityConfig(f.this.aRG.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
+                            PbActivityConfig createNormalCfg = new PbActivityConfig(f.this.aRI.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
                             createNormalCfg.setStartFrom(8);
-                            f.this.aRG.sendMessage(new CustomMessage(2004001, createNormalCfg));
+                            f.this.aRI.sendMessage(new CustomMessage(2004001, createNormalCfg));
                         }
                     }
                 }
             });
-            com.baidu.tbadk.n.a.a(this.aRG, view);
+            com.baidu.tbadk.n.a.a(this.aRI, view);
         }
         return view;
     }
 
     public void setTabType(int i) {
-        this.cGN = i;
+        this.cGQ = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
         ak ab = new ak("c12405").ab(ImageViewerConfig.FORUM_NAME, aVar.fname).ab("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.cGN > 0) {
-            ab.s(MyBookrackActivityConfig.TAB_ID, this.cGN);
+        if (this.cGQ > 0) {
+            ab.s(MyBookrackActivityConfig.TAB_ID, this.cGQ);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.gxW == 1) {
+            if (aVar.is_floor == 1 || aVar.gym == 1) {
                 ab.f(Info.kBaiduPIDKey, aVar.pid);
             } else {
                 ab.f("tid", aVar.tid);
@@ -180,11 +180,11 @@ public class f extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private static class a {
-        TextView cHo;
-        TextView gyA;
-        TextView gyB;
-        TextView gyy;
-        TextView gyz;
+        TextView cHr;
+        TextView gyO;
+        TextView gyP;
+        TextView gyQ;
+        TextView gyR;
 
         private a() {
         }

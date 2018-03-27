@@ -23,17 +23,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e extends BaseAdapter {
-    private s btB;
-    private com.baidu.tbadk.img.b btr;
-    private a hLS;
+    private s btE;
+    private com.baidu.tbadk.img.b btu;
+    private a hMq;
     private LayoutInflater kh;
     private Context mContext;
     private List<ImageFileInfo> mDataList = new ArrayList();
-    private boolean hES = false;
+    private boolean hFq = false;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bIZ();
+        void bJe();
 
         void xO(int i);
 
@@ -45,11 +45,11 @@ public class e extends BaseAdapter {
     }
 
     public e(Context context, com.baidu.tbadk.img.b bVar, s sVar, a aVar) {
-        this.btB = sVar;
+        this.btE = sVar;
         this.mContext = context;
         this.kh = LayoutInflater.from(this.mContext);
-        this.btr = bVar;
-        this.hLS = aVar;
+        this.btu = bVar;
+        this.hMq = aVar;
     }
 
     public void a(WriteImagesInfo writeImagesInfo) {
@@ -58,7 +58,7 @@ public class e extends BaseAdapter {
         if (writeImagesInfo != null && D > 0) {
             this.mDataList.addAll(writeImagesInfo.getChosedFiles());
         }
-        if (D < 10 && this.hES) {
+        if (D < 10 && this.hFq) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath("FLAG_ADD_ICON");
             this.mDataList.add(imageFileInfo);
@@ -111,8 +111,8 @@ public class e extends BaseAdapter {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (e.this.hLS != null) {
-                        e.this.hLS.bIZ();
+                    if (e.this.hMq != null) {
+                        e.this.hMq.bJe();
                     }
                 }
             });
@@ -137,7 +137,7 @@ public class e extends BaseAdapter {
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.aI(ao, ao));
             frameLayout.setForeground(aj.getDrawable(d.f.new_frame_add_photo_foreground_selector));
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
-            if (this.btr.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.e.2
+            if (this.btu.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.e.2
                 @Override // com.baidu.tbadk.imageManager.b
                 public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
                     TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);
@@ -164,11 +164,11 @@ public class e extends BaseAdapter {
                         l.s(e.this.mContext, d.j.editor_mutiiamge_image_error);
                         return;
                     }
-                    if (e.this.btB != null) {
-                        e.this.btB.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
+                    if (e.this.btE != null) {
+                        e.this.btE.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
                     }
-                    if (e.this.hLS != null) {
-                        e.this.hLS.xO(i);
+                    if (e.this.hMq != null) {
+                        e.this.hMq.xO(i);
                     }
                 }
             }
@@ -176,15 +176,15 @@ public class e extends BaseAdapter {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (e.this.hLS != null) {
-                    e.this.hLS.xz(i);
+                if (e.this.hMq != null) {
+                    e.this.hMq.xz(i);
                 }
             }
         });
         return view;
     }
 
-    public void nH(boolean z) {
-        this.hES = z;
+    public void nM(boolean z) {
+        this.hFq = z;
     }
 }

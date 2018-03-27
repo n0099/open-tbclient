@@ -16,52 +16,52 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class b extends FormItemBaseView {
-    private EditText gFu;
-    private f gFv;
-    private String gFw;
-    private String gFx;
+    private EditText gFK;
+    private f gFL;
+    private String gFM;
+    private String gFN;
 
     public b(Context context) {
         super(context);
-        this.gFu = null;
-        this.gFv = null;
-        this.gFw = "";
-        this.gFx = "";
+        this.gFK = null;
+        this.gFL = null;
+        this.gFM = "";
+        this.gFN = "";
         init();
     }
 
     private void init() {
-        boF();
         boG();
-    }
-
-    private void boF() {
-        this.gFu = new EditText(this.mContext);
-        this.gFu.setId(1);
-        this.gFu.setTextSize(0, this.gFX);
-        this.gFu.setTextColor(this.gFV);
-        this.gFu.setHintTextColor(this.gFW);
-        this.gFu.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
-        this.gFu.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.b.1
-            @Override // android.view.View.OnFocusChangeListener
-            public void onFocusChange(View view, boolean z) {
-                if (z || b.this.boE()) {
-                    b.this.a(b.this.gFu, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-                } else {
-                    b.this.a(b.this.gFu, FormItemBaseView.DrawableType.ERROR_FRAME);
-                }
-            }
-        });
-        a(this.gFu, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-        addView(this.gFu, new RelativeLayout.LayoutParams(-1, -2));
+        boH();
     }
 
     private void boG() {
-        this.gFv = new f(this.mContext);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.gFS);
-        layoutParams.topMargin = this.gFQ;
-        layoutParams.addRule(3, this.gFu.getId());
-        addView(this.gFv, layoutParams);
+        this.gFK = new EditText(this.mContext);
+        this.gFK.setId(1);
+        this.gFK.setTextSize(0, this.gGn);
+        this.gFK.setTextColor(this.gGl);
+        this.gFK.setHintTextColor(this.gGm);
+        this.gFK.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
+        this.gFK.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.b.1
+            @Override // android.view.View.OnFocusChangeListener
+            public void onFocusChange(View view, boolean z) {
+                if (z || b.this.boF()) {
+                    b.this.a(b.this.gFK, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+                } else {
+                    b.this.a(b.this.gFK, FormItemBaseView.DrawableType.ERROR_FRAME);
+                }
+            }
+        });
+        a(this.gFK, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+        addView(this.gFK, new RelativeLayout.LayoutParams(-1, -2));
+    }
+
+    private void boH() {
+        this.gFL = new f(this.mContext);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.gGi);
+        layoutParams.topMargin = this.gGg;
+        layoutParams.addRule(3, this.gFK.getId());
+        addView(this.gFL, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
@@ -69,39 +69,39 @@ public class b extends FormItemBaseView {
         int i;
         if (super.a(bVar)) {
             FormCard.d dVar = (FormCard.d) bVar;
-            this.gFu.setTextSize(0, this.gFX);
+            this.gFK.setTextSize(0, this.gGn);
             switch (dVar.type) {
                 case 3:
-                    int i2 = this.gFS;
-                    this.gFu.setInputType(1);
-                    this.gFu.setFilters(new InputFilter[]{new a(20)});
+                    int i2 = this.gGi;
+                    this.gFK.setInputType(1);
+                    this.gFK.setFilters(new InputFilter[]{new a(20)});
                     i = i2;
                     break;
                 case 4:
-                    int i3 = this.gFU;
-                    this.gFu.setInputType(131072);
-                    this.gFu.setFilters(new InputFilter[]{new a(100)});
-                    this.gFu.setSingleLine(false);
-                    this.gFu.setHorizontallyScrolling(false);
-                    this.gFu.setGravity(51);
-                    this.gFu.setPadding(this.gFP, this.gFP, this.gFP, this.gFP);
+                    int i3 = this.gGk;
+                    this.gFK.setInputType(131072);
+                    this.gFK.setFilters(new InputFilter[]{new a(100)});
+                    this.gFK.setSingleLine(false);
+                    this.gFK.setHorizontallyScrolling(false);
+                    this.gFK.setGravity(51);
+                    this.gFK.setPadding(this.gGf, this.gGf, this.gGf, this.gGf);
                     i = i3;
                     break;
                 case 5:
-                    i = this.gFS;
-                    this.gFu.setInputType(2);
-                    this.gFu.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
-                    if (dVar.gDg != null) {
-                        this.gFv.setVisibility(0);
-                        this.gFv.aD(this.gFK);
-                        this.gFv.a(dVar.gDg);
-                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gFv.getLayoutParams();
-                        marginLayoutParams.topMargin = this.gFQ;
-                        marginLayoutParams.height = this.gFS;
-                        this.gFv.setListener(new f.a() { // from class: com.baidu.tieba.recapp.lego.view.form.b.2
+                    i = this.gGi;
+                    this.gFK.setInputType(2);
+                    this.gFK.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
+                    if (dVar.gDw != null) {
+                        this.gFL.setVisibility(0);
+                        this.gFL.aD(this.gGa);
+                        this.gFL.a(dVar.gDw);
+                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gFL.getLayoutParams();
+                        marginLayoutParams.topMargin = this.gGg;
+                        marginLayoutParams.height = this.gGi;
+                        this.gFL.setListener(new f.a() { // from class: com.baidu.tieba.recapp.lego.view.form.b.2
                             @Override // com.baidu.tieba.recapp.lego.view.form.f.a
-                            public void boH() {
-                                b.this.gFv.setVerificationInfo(((Object) b.this.gFu.getText()) + "");
+                            public void boI() {
+                                b.this.gFL.setVerificationInfo(((Object) b.this.gFK.getText()) + "");
                             }
                         });
                         break;
@@ -110,16 +110,16 @@ public class b extends FormItemBaseView {
                 default:
                     return false;
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gFu.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gFK.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
             } else {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
                 layoutParams2.height = i;
-                this.gFu.setLayoutParams(layoutParams2);
+                this.gFK.setLayoutParams(layoutParams2);
             }
-            this.gFu.setHint(dVar.content);
-            this.gFw = dVar.gDf;
+            this.gFK.setHint(dVar.content);
+            this.gFM = dVar.gDv;
             return true;
         }
         return false;
@@ -127,47 +127,47 @@ public class b extends FormItemBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     protected void reset() {
-        this.gFu.setPadding(this.gFP, 0, 0, 0);
-        this.gFu.setText("");
-        this.gFu.setGravity(19);
-        this.gFu.setSingleLine(true);
-        this.gFu.setHorizontallyScrolling(true);
-        this.gFu.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
-        this.gFv.setVisibility(8);
+        this.gFK.setPadding(this.gGf, 0, 0, 0);
+        this.gFK.setText("");
+        this.gFK.setGravity(19);
+        this.gFK.setSingleLine(true);
+        this.gFK.setHorizontallyScrolling(true);
+        this.gFK.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+        this.gFL.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.c.a
-    public boolean boE() {
-        if (TextUtils.isEmpty(this.gFw)) {
+    public boolean boF() {
+        if (TextUtils.isEmpty(this.gFM)) {
             return true;
         }
-        Editable text = this.gFu.getText();
+        Editable text = this.gFK.getText();
         if (text != null) {
-            this.gFx = text.toString().trim();
+            this.gFN = text.toString().trim();
         }
-        return Pattern.matches(this.gFw, this.gFx);
+        return Pattern.matches(this.gFM, this.gFN);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.c.a
     public String getResult() {
-        return this.gFx;
+        return this.gFN;
     }
 
     /* loaded from: classes3.dex */
     private class a implements InputFilter {
-        int gFz;
+        int gFP;
         String regEx = "[\\u4e00-\\u9fa5]";
 
         public a(int i) {
-            this.gFz = i;
+            this.gFP = i;
         }
 
         @Override // android.text.InputFilter
         public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
             int length = spanned.toString().length() + rS(spanned.toString());
             int length2 = charSequence.toString().length() + rS(charSequence.toString());
-            if (length + length2 > this.gFz) {
-                int i5 = this.gFz - length;
+            if (length + length2 > this.gFP) {
+                int i5 = this.gFP - length;
                 String str = "";
                 int i6 = i5;
                 int i7 = 0;

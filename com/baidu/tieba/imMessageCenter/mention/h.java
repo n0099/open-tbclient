@@ -4,42 +4,42 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
-    private int eSC = 0;
-    private int eSD = 0;
-    private int eSE = 0;
+    private int eSR = 0;
+    private int eSS = 0;
+    private int eST = 0;
     private int fans = 0;
     private int chat = 0;
-    private int eSF = 0;
-
-    public int aNx() {
-        return this.eSC;
-    }
+    private int eSU = 0;
 
     public int aNy() {
-        return this.eSD;
+        return this.eSR;
     }
 
     public int aNz() {
-        return this.eSE;
+        return this.eSS;
     }
 
     public int aNA() {
-        return this.fans;
+        return this.eST;
     }
 
     public int aNB() {
-        return this.eSF;
+        return this.fans;
+    }
+
+    public int aNC() {
+        return this.eSU;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eSC = jSONObject.optInt("agreeme", 0);
-                this.eSD = jSONObject.optInt("replyme", 0);
-                this.eSE = jSONObject.optInt("atme", 0);
+                this.eSR = jSONObject.optInt("agreeme", 0);
+                this.eSS = jSONObject.optInt("replyme", 0);
+                this.eST = jSONObject.optInt("atme", 0);
                 this.fans = jSONObject.optInt("fans", 0);
                 this.chat = jSONObject.optInt("pletter", 0);
-                this.eSF = jSONObject.optInt("bookmark", 0);
+                this.eSU = jSONObject.optInt("bookmark", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

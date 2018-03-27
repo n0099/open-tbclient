@@ -10,14 +10,14 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView axF;
-    private View hyp;
-    private View hyq;
-    private View hyr;
-    private ObjectAnimator hys;
-    private ObjectAnimator hyt;
-    private ObjectAnimator hyu;
-    private ObjectAnimator hyv;
+    private TextView axG;
+    private View hyN;
+    private View hyO;
+    private View hyP;
+    private ObjectAnimator hyQ;
+    private ObjectAnimator hyR;
+    private ObjectAnimator hyS;
+    private ObjectAnimator hyT;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), d.h.layout_record_button, this);
-        this.hyp = findViewById(d.g.record_layer1);
-        this.hyq = findViewById(d.g.record_layer2);
-        this.hyr = findViewById(d.g.record_layer3);
-        this.axF = (TextView) findViewById(d.g.tv_tip);
-        this.hyr.setScaleX(0.766f);
-        this.hyr.setScaleY(0.766f);
+        this.hyN = findViewById(d.g.record_layer1);
+        this.hyO = findViewById(d.g.record_layer2);
+        this.hyP = findViewById(d.g.record_layer3);
+        this.axG = (TextView) findViewById(d.g.tv_tip);
+        this.hyP.setScaleX(0.766f);
+        this.hyP.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.hyr;
+        return this.hyP;
     }
 
     public View getLayer1() {
-        return this.hyp;
+        return this.hyN;
     }
 
     public View getLayer2() {
-        return this.hyq;
+        return this.hyO;
     }
 
     public TextView getTvTip() {
-        return this.axF;
+        return this.axG;
     }
 
-    public void bEn() {
-        if (this.hyv != null && this.hyv.isRunning()) {
-            this.hyu.cancel();
+    public void bEs() {
+        if (this.hyT != null && this.hyT.isRunning()) {
+            this.hyS.cancel();
         }
-        if (this.hyu == null) {
-            this.hyu = ObjectAnimator.ofPropertyValuesHolder(this.hyq, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.hyu.setDuration(200L);
+        if (this.hyS == null) {
+            this.hyS = ObjectAnimator.ofPropertyValuesHolder(this.hyO, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.hyS.setDuration(200L);
         }
-        this.hyu.start();
+        this.hyS.start();
     }
 
-    public void bEo() {
-        if (this.hyu != null && this.hyu.isRunning()) {
-            this.hyu.cancel();
+    public void bEt() {
+        if (this.hyS != null && this.hyS.isRunning()) {
+            this.hyS.cancel();
         }
-        if (this.hyq.getScaleX() != 1.0f) {
-            if (this.hyv == null) {
-                this.hyv = ObjectAnimator.ofPropertyValuesHolder(this.hyq, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.hyv.setDuration(200L);
+        if (this.hyO.getScaleX() != 1.0f) {
+            if (this.hyT == null) {
+                this.hyT = ObjectAnimator.ofPropertyValuesHolder(this.hyO, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.hyT.setDuration(200L);
             }
-            this.hyv.start();
+            this.hyT.start();
         }
     }
 
-    public void nu(boolean z) {
-        if (this.hyt != null && this.hyt.isRunning()) {
-            this.hyt.cancel();
+    public void nz(boolean z) {
+        if (this.hyR != null && this.hyR.isRunning()) {
+            this.hyR.cancel();
         }
-        if (this.hys == null) {
-            this.hys = ObjectAnimator.ofPropertyValuesHolder(this.hyr, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.hys.setRepeatCount(-1);
-            this.hys.setRepeatMode(2);
-            this.hys.setDuration(1000L);
+        if (this.hyQ == null) {
+            this.hyQ = ObjectAnimator.ofPropertyValuesHolder(this.hyP, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.hyQ.setRepeatCount(-1);
+            this.hyQ.setRepeatMode(2);
+            this.hyQ.setDuration(1000L);
         }
-        this.hyr.setVisibility(0);
+        this.hyP.setVisibility(0);
         if (z) {
-            this.hyp.setVisibility(8);
+            this.hyN.setVisibility(8);
         } else {
-            this.hyp.setBackgroundResource(d.f.red_square_bg);
+            this.hyN.setBackgroundResource(d.f.red_square_bg);
         }
-        this.axF.setVisibility(8);
-        this.hys.start();
+        this.axG.setVisibility(8);
+        this.hyQ.start();
     }
 
-    public void bEc() {
-        if (this.hys != null && this.hys.isRunning()) {
-            this.hys.cancel();
+    public void bEh() {
+        if (this.hyQ != null && this.hyQ.isRunning()) {
+            this.hyQ.cancel();
         }
-        if (this.hyt == null) {
-            this.hyt = ObjectAnimator.ofPropertyValuesHolder(this.hyr, PropertyValuesHolder.ofFloat("scaleX", this.hyr.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hyr.getScaleY(), 0.766f));
-            this.hyt.setDuration((500.0f * Math.abs(0.766f - this.hyr.getScaleX())) / 0.3f);
+        if (this.hyR == null) {
+            this.hyR = ObjectAnimator.ofPropertyValuesHolder(this.hyP, PropertyValuesHolder.ofFloat("scaleX", this.hyP.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hyP.getScaleY(), 0.766f));
+            this.hyR.setDuration((500.0f * Math.abs(0.766f - this.hyP.getScaleX())) / 0.3f);
         }
-        this.hyp.setVisibility(0);
-        this.hyp.setBackgroundResource(d.f.red_circle_bg);
-        this.hyt.start();
+        this.hyN.setVisibility(0);
+        this.hyN.setBackgroundResource(d.f.red_circle_bg);
+        this.hyR.start();
     }
 }

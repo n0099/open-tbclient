@@ -10,8 +10,8 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String hef;
-    private String heg;
+    private String heD;
+    private String heE;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
@@ -31,19 +31,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean byd() {
+    public boolean byi() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bye() {
+    public boolean byj() {
         return this.errorCode == 1990055;
     }
 
-    public boolean byf() {
+    public boolean byk() {
         return this.errorCode == 3250012;
     }
 
-    public boolean byg() {
+    public boolean byl() {
         return this.errorCode == 227001;
     }
 
@@ -59,7 +59,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData bbk() {
+    public AntiData bbl() {
         return this.antiData;
     }
 
@@ -103,20 +103,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String byh() {
-        return this.hef;
+    public String bym() {
+        return this.heD;
     }
 
     public void tb(String str) {
-        this.hef = str;
+        this.heD = str;
     }
 
-    public String byi() {
-        return this.heg;
+    public String byn() {
+        return this.heE;
     }
 
     public void tc(String str) {
-        this.heg = str;
+        this.heE = str;
     }
 
     public CustomDialogData getActivityDialog() {

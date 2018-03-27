@@ -23,16 +23,16 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends RelativeLayout implements View.OnClickListener {
-    private f bXa;
-    private NoNetworkView caX;
-    private NoNetworkView.a dbl;
-    private com.baidu.tbadk.core.dialog.a ddI;
-    private com.baidu.tieba.interestlabel.model.a eXN;
-    private View eXO;
-    private TextView eXP;
-    private GridLineView eXQ;
-    private com.baidu.tieba.interestlabel.a.b eXR;
-    private boolean eXS;
+    private f bXd;
+    private NoNetworkView cba;
+    private NoNetworkView.a dbo;
+    private com.baidu.tbadk.core.dialog.a ddL;
+    private com.baidu.tieba.interestlabel.model.a eYb;
+    private View eYc;
+    private TextView eYd;
+    private GridLineView eYe;
+    private com.baidu.tieba.interestlabel.a.b eYf;
+    private boolean eYg;
     private NavigationBar mNavigationBar;
     private TbPageContext<?> mPageContext;
     private g mRefreshView;
@@ -41,16 +41,16 @@ public class d extends RelativeLayout implements View.OnClickListener {
     public d(TbPageContext<?> tbPageContext, com.baidu.tieba.interestlabel.model.a aVar) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.dbl = new NoNetworkView.a() { // from class: com.baidu.tieba.interestlabel.view.d.1
+        this.dbo = new NoNetworkView.a() { // from class: com.baidu.tieba.interestlabel.view.d.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void bu(boolean z) {
-                if (z && d.this.eXR.getCount() == 0 && d.this.eXN != null) {
-                    d.this.eXN.aOG();
+                if (z && d.this.eYf.getCount() == 0 && d.this.eYb != null) {
+                    d.this.eYb.aOH();
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.eXN = aVar;
+        this.eYb = aVar;
         init(tbPageContext.getPageActivity());
         onChangeSkinType();
     }
@@ -58,51 +58,51 @@ public class d extends RelativeLayout implements View.OnClickListener {
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.activity_label_setting_layout, (ViewGroup) this, true);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.label_setting_navigation_bar_view);
-        this.caX = (NoNetworkView) findViewById(d.g.label_setting_no_network_view);
-        this.eXQ = (GridLineView) findViewById(d.g.label_setting_gridview);
+        this.cba = (NoNetworkView) findViewById(d.g.label_setting_no_network_view);
+        this.eYe = (GridLineView) findViewById(d.g.label_setting_gridview);
         this.mNavigationBar.setTitleText(context.getString(d.j.choose_interest_label));
-        this.eXO = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
-        this.eXP = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.item_label_setting_nav_complete, this);
-        this.caX.a(this.dbl);
-        this.ddI = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        this.ddI.dk(this.mPageContext.getString(d.j.confirm_give_up_label));
-        this.ddI.a(this.mPageContext.getString(d.j.alert_yes_button), new a.b() { // from class: com.baidu.tieba.interestlabel.view.d.2
+        this.eYc = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
+        this.eYd = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.item_label_setting_nav_complete, this);
+        this.cba.a(this.dbo);
+        this.ddL = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+        this.ddL.dk(this.mPageContext.getString(d.j.confirm_give_up_label));
+        this.ddL.a(this.mPageContext.getString(d.j.alert_yes_button), new a.b() { // from class: com.baidu.tieba.interestlabel.view.d.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
                 d.this.mPageContext.getPageActivity().finish();
             }
         });
-        this.ddI.b(this.mPageContext.getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.interestlabel.view.d.3
+        this.ddL.b(this.mPageContext.getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.interestlabel.view.d.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
             }
         });
-        this.ddI.b(this.mPageContext);
-        this.eXR = new com.baidu.tieba.interestlabel.a.b(this);
-        this.eXQ.setAdapter((ListAdapter) this.eXR);
+        this.ddL.b(this.mPageContext);
+        this.eYf = new com.baidu.tieba.interestlabel.a.b(this);
+        this.eYe.setAdapter((ListAdapter) this.eYf);
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.E(bVar.aOK())) {
-            this.eXQ.setVisibility(0);
-            this.eXR.setData(bVar);
-            this.eXR.notifyDataSetChanged();
+        if (bVar != null && !v.E(bVar.aOL())) {
+            this.eYe.setVisibility(0);
+            this.eYf.setData(bVar);
+            this.eYf.notifyDataSetChanged();
         }
     }
 
-    public void io(boolean z) {
-        this.eXS = z;
-        this.eXP.setSelected(z);
+    public void it(boolean z) {
+        this.eYg = z;
+        this.eYd.setSelected(z);
     }
 
-    public boolean aOW() {
-        return (this.eXR == null || v.b((List) this.eXR.aOH(), (List) this.eXR.aOI())) ? false : true;
+    public boolean aOX() {
+        return (this.eYf == null || v.b((List) this.eYf.aOI(), (List) this.eYf.aOJ())) ? false : true;
     }
 
     public void showDialog() {
-        this.ddI.AU();
+        this.ddL.AV();
     }
 
     public void onChangeSkinType() {
@@ -112,17 +112,17 @@ public class d extends RelativeLayout implements View.OnClickListener {
             if (this.mPageContext != null && this.mNavigationBar != null) {
                 this.mNavigationBar.onChangeSkinType(this.mPageContext, this.mSkinType);
             }
-            if (this.eXP != null) {
-                aj.r(this.eXP, d.f.color_nav_complete_selector);
+            if (this.eYd != null) {
+                aj.r(this.eYd, d.f.color_nav_complete_selector);
             }
-            if (this.mPageContext != null && this.caX != null) {
-                this.caX.onChangeSkinType(this.mPageContext, this.mSkinType);
+            if (this.mPageContext != null && this.cba != null) {
+                this.cba.onChangeSkinType(this.mPageContext, this.mSkinType);
             }
-            if (this.eXQ != null) {
-                this.eXQ.onChangeSkinType();
+            if (this.eYe != null) {
+                this.eYe.onChangeSkinType();
             }
-            if (this.bXa != null) {
-                this.bXa.onChangeSkinType();
+            if (this.bXd != null) {
+                this.bXd.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
@@ -132,71 +132,71 @@ public class d extends RelativeLayout implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eXO) {
-            if (aOW()) {
+        if (view == this.eYc) {
+            if (aOX()) {
                 showDialog();
             } else {
                 this.mPageContext.getPageActivity().finish();
             }
-        } else if (view == this.eXP && this.eXN != null && this.eXS) {
+        } else if (view == this.eYd && this.eYb != null && this.eYg) {
             TiebaStatic.log(new ak("c12237").ab("uid", TbadkCoreApplication.getCurrentAccount()));
-            this.eXN.cr(this.eXR.aOI());
+            this.eYb.cr(this.eYf.aOJ());
         }
     }
 
-    public void gU(boolean z) {
-        if (!aEt()) {
-            if (this.bXa == null) {
-                this.bXa = new f(getContext());
-                this.bXa.onChangeSkinType();
+    public void gZ(boolean z) {
+        if (!aEu()) {
+            if (this.bXd == null) {
+                this.bXd = new f(getContext());
+                this.bXd.onChangeSkinType();
             }
-            this.bXa.j(this, z);
+            this.bXd.j(this, z);
         }
     }
 
-    public void VU() {
-        if (this.bXa != null) {
-            this.bXa.bk(this);
-            this.bXa = null;
+    public void VV() {
+        if (this.bXd != null) {
+            this.bXd.bk(this);
+            this.bXd = null;
         }
     }
 
-    public boolean aEt() {
-        if (this.bXa != null) {
-            return this.bXa.MI();
+    public boolean aEu() {
+        if (this.bXd != null) {
+            return this.bXd.MJ();
         }
         return false;
     }
 
-    public void ip(boolean z) {
-        if (!aCf()) {
+    public void iu(boolean z) {
+        if (!aCg()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new g(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.interestlabel.view.d.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (j.ox() && d.this.eXN != null) {
-                            d.this.eXN.aOG();
+                        if (j.ox() && d.this.eYb != null) {
+                            d.this.eYb.aOH();
                         }
                     }
                 });
             }
             this.mRefreshView.ib(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds380));
             this.mRefreshView.j(this, z);
-            this.mRefreshView.MQ();
-            this.eXQ.setVisibility(8);
+            this.mRefreshView.MR();
+            this.eYe.setVisibility(8);
         }
     }
 
-    public void XM() {
+    public void XN() {
         if (this.mRefreshView != null) {
             this.mRefreshView.bk(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean aCf() {
+    public boolean aCg() {
         if (this.mRefreshView != null) {
-            return this.mRefreshView.MI();
+            return this.mRefreshView.MJ();
         }
         return false;
     }
@@ -208,11 +208,11 @@ public class d extends RelativeLayout implements View.OnClickListener {
     }
 
     public void destroy() {
-        if (this.caX != null) {
-            this.caX.b(this.dbl);
+        if (this.cba != null) {
+            this.cba.b(this.dbo);
         }
-        this.ddI.dismiss();
-        VU();
-        XM();
+        this.ddL.dismiss();
+        VV();
+        XN();
     }
 }

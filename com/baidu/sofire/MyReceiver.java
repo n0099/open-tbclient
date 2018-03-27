@@ -102,7 +102,7 @@ public class MyReceiver extends BroadcastReceiver {
                                                 if (apkInfo.intentFilters != null) {
                                                     for (int i2 = 0; i2 < apkInfo.intentFilters.size(); i2++) {
                                                         com.baidu.sofire.core.f fVar = apkInfo.intentFilters.get(i2);
-                                                        if (fVar.aGz.match(intent.getAction(), intent.getType(), intent.getScheme(), intent.getData(), intent.getCategories(), "PIF") >= 0) {
+                                                        if (fVar.aGA.match(intent.getAction(), intent.getType(), intent.getScheme(), intent.getData(), intent.getCategories(), "PIF") >= 0) {
                                                             new StringBuilder().append(apkInfo);
                                                             Class<?> loadClass = apkInfo.classLoader.loadClass(fVar.b);
                                                             loadClass.getDeclaredMethod(fVar.c, Context.class, Intent.class).invoke(loadClass.newInstance(), context.getApplicationContext(), intent);

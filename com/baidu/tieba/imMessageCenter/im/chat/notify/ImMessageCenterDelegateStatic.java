@@ -22,9 +22,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.imMessageCenter.mention.g;
 /* loaded from: classes2.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private TextView boz;
-    private CustomMessageListener ePs;
-    private com.baidu.adp.framework.listener.c ePt = new com.baidu.adp.framework.listener.c(104106) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.3
+    private TextView boC;
+    private CustomMessageListener ePH;
+    private com.baidu.adp.framework.listener.c ePI = new com.baidu.adp.framework.listener.c(104106) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -32,15 +32,15 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
             if ((socketResponsedMessage instanceof ResponseUpdateForumMask) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateForumMask)) {
                 RequestUpdateForumMask requestUpdateForumMask = (RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage();
                 boolean flag = requestUpdateForumMask != null ? requestUpdateForumMask.getFlag() : false;
-                int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.GI().getMsgChat();
-                int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.GI().getMsgReplyme();
-                int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.GI().getMsgAtme();
-                int GP = com.baidu.tbadk.coreExtra.messageCenter.a.GI().GP();
-                e He = com.baidu.tbadk.coreExtra.messageCenter.a.GI().He();
-                if (He != null && flag) {
-                    i = He.Iy();
+                int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.GJ().getMsgChat();
+                int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.GJ().getMsgReplyme();
+                int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.GJ().getMsgAtme();
+                int GQ = com.baidu.tbadk.coreExtra.messageCenter.a.GJ().GQ();
+                e Hf = com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hf();
+                if (Hf != null && flag) {
+                    i = Hf.Iz();
                 }
-                ImMessageCenterDelegateStatic.m(ImMessageCenterDelegateStatic.this.boz, (((msgChat - i) + msgReplyme) + msgAtme) - GP);
+                ImMessageCenterDelegateStatic.m(ImMessageCenterDelegateStatic.this.boC, (((msgChat - i) + msgReplyme) + msgAtme) - GQ);
             }
         }
     };
@@ -51,31 +51,31 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c MT() {
+    public com.baidu.tbadk.mainTab.c MU() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         g gVar = new g();
-        gVar.ij(true);
-        cVar.bxM = gVar;
+        gVar.io(true);
+        cVar.bxP = gVar;
         cVar.type = 3;
-        cVar.bxN = d.j.my_message;
-        cVar.bxO = d.f.s_tabbar_icon_three_bg;
-        cVar.bxU = com.baidu.tbadk.mainTab.c.bxR;
+        cVar.bxQ = d.j.my_message;
+        cVar.bxR = d.f.s_tabbar_icon_three_bg;
+        cVar.bxX = com.baidu.tbadk.mainTab.c.bxU;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.e bi(Context context) {
-        this.bxD = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.boz = (TextView) LayoutInflater.from(context).inflate(d.h.message_tip_item, (ViewGroup) null);
+        this.bxG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.boC = (TextView) LayoutInflater.from(context).inflate(d.h.message_tip_item, (ViewGroup) null);
         e.a aVar = new e.a();
-        aVar.byh = this.bxD;
+        aVar.byk = this.bxG;
         aVar.aiy = l.dip2px(context, 3.0f);
-        aVar.view = this.boz;
-        aVar.byf = d.f.icon_dot_orange;
-        aVar.byg = d.C0141d.common_color_10225;
-        this.boz.setVisibility(8);
-        this.bxD.a("msg", aVar);
-        return this.bxD;
+        aVar.view = this.boC;
+        aVar.byi = d.f.icon_dot_orange;
+        aVar.byj = d.C0141d.common_color_10225;
+        this.boC.setVisibility(8);
+        this.bxG.a("msg", aVar);
+        return this.bxG;
     }
 
     static {
@@ -91,32 +91,32 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void MS() {
-        this.ePs = new CustomMessageListener(2001120) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+    public void MT() {
+        this.ePH = new CustomMessageListener(2001120) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage)) {
                     NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
                     int a = c.a(newsNotifyMessage);
-                    if (ImMessageCenterDelegateStatic.this.boz != null) {
-                        if (!com.baidu.tbadk.coreExtra.messageCenter.c.Hp().HI()) {
+                    if (ImMessageCenterDelegateStatic.this.boC != null) {
+                        if (!com.baidu.tbadk.coreExtra.messageCenter.c.Hq().HJ()) {
                             a -= newsNotifyMessage.getMsgOfficialMerge();
                         }
-                        ImMessageCenterDelegateStatic.m(ImMessageCenterDelegateStatic.this.boz, a);
+                        ImMessageCenterDelegateStatic.m(ImMessageCenterDelegateStatic.this.boC, a);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.ePs);
-        MessageManager.getInstance().registerListener(this.ePt);
+        MessageManager.getInstance().registerListener(this.ePH);
+        MessageManager.getInstance().registerListener(this.ePI);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void kg() {
         super.kg();
-        MessageManager.getInstance().unRegisterListener(this.ePs);
-        MessageManager.getInstance().unRegisterListener(this.ePt);
+        MessageManager.getInstance().unRegisterListener(this.ePH);
+        MessageManager.getInstance().unRegisterListener(this.ePI);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

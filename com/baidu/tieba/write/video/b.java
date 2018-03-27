@@ -12,7 +12,7 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private List<VideoTitleData> hHz;
+    private List<VideoTitleData> hHX;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -22,17 +22,17 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.E(this.hHz)) {
+        if (v.E(this.hHX)) {
             return 0;
         }
-        return this.hHz.size();
+        return this.hHX.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: xx */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) v.f(this.hHz, i);
+        return (VideoTitleData) v.f(this.hHX, i);
     }
 
     @Override // android.widget.Adapter
@@ -63,7 +63,7 @@ public class b extends BaseAdapter {
     }
 
     public void dS(List<VideoTitleData> list) {
-        this.hHz = list;
+        this.hHX = list;
         notifyDataSetChanged();
     }
 }

@@ -21,13 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private com.baidu.tbadk.mvc.g.a cLd;
-    private boolean cam;
-    private BdTypeRecyclerView cdO;
-    private boolean eTb;
-    private MessageCenterActivity eUt;
-    private l eUu;
-    private OfficialNotificationTextItemAdapter eUv;
+    private com.baidu.tbadk.mvc.g.a cLg;
+    private boolean cap;
+    private BdTypeRecyclerView cdR;
+    private boolean eTq;
+    private MessageCenterActivity eUH;
+    private l eUI;
+    private OfficialNotificationTextItemAdapter eUJ;
     private h mNoDataView;
     private TbPageContext mPageContext;
     private ViewGroup mRootView;
@@ -37,33 +37,33 @@ public class b {
     public b(TbPageContext tbPageContext, l lVar, ViewGroup viewGroup) {
         if (tbPageContext != null) {
             this.mPageContext = tbPageContext;
-            this.eUt = (MessageCenterActivity) this.mPageContext.getPageActivity();
-            this.eUu = lVar;
-            this.mRootView = (ViewGroup) LayoutInflater.from(this.eUt).inflate(d.h.fragment_official_notification, viewGroup, false);
-            this.cdO = (BdTypeRecyclerView) this.mRootView.findViewById(d.g.rv_official_notification);
-            this.cdO.setLayoutManager(new LinearLayoutManager(this.eUt));
-            this.cdO.setFadingEdgeLength(0);
-            this.cdO.setOverScrollMode(2);
-            this.eUv = new OfficialNotificationTextItemAdapter(this.mPageContext, ChatMessage.TYPE_MSG_TEXT_OFFICAL_NOTIFICATION);
-            this.eUv.setOnClickListener(lVar);
-            this.mAdapters.add(this.eUv);
-            this.cdO.addAdapters(this.mAdapters);
-            this.cLd = new com.baidu.tbadk.mvc.g.a(this.eUt, this.cdO);
-            this.cLd.setHeight(com.baidu.adp.lib.util.l.t(this.eUt, d.e.tbds182));
-            this.cLd.st();
-            this.cdO.setNextPage(this.cLd);
-            this.cdO.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.b.1
+            this.eUH = (MessageCenterActivity) this.mPageContext.getPageActivity();
+            this.eUI = lVar;
+            this.mRootView = (ViewGroup) LayoutInflater.from(this.eUH).inflate(d.h.fragment_official_notification, viewGroup, false);
+            this.cdR = (BdTypeRecyclerView) this.mRootView.findViewById(d.g.rv_official_notification);
+            this.cdR.setLayoutManager(new LinearLayoutManager(this.eUH));
+            this.cdR.setFadingEdgeLength(0);
+            this.cdR.setOverScrollMode(2);
+            this.eUJ = new OfficialNotificationTextItemAdapter(this.mPageContext, ChatMessage.TYPE_MSG_TEXT_OFFICAL_NOTIFICATION);
+            this.eUJ.setOnClickListener(lVar);
+            this.mAdapters.add(this.eUJ);
+            this.cdR.addAdapters(this.mAdapters);
+            this.cLg = new com.baidu.tbadk.mvc.g.a(this.eUH, this.cdR);
+            this.cLg.setHeight(com.baidu.adp.lib.util.l.t(this.eUH, d.e.tbds182));
+            this.cLg.st();
+            this.cdR.setNextPage(this.cLg);
+            this.cdR.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.b.1
                 @Override // com.baidu.adp.widget.ListView.BdListView.e
                 public void onScrollToBottom() {
-                    b.this.cLd.th();
-                    if (!b.this.eUu.getHasMore() || b.this.cam) {
-                        b.this.cLd.ie(d.j.no_more_msg);
+                    b.this.cLg.th();
+                    if (!b.this.eUI.getHasMore() || b.this.cap) {
+                        b.this.cLg.ie(d.j.no_more_msg);
                         return;
                     }
-                    b.this.cLd.id(d.j.loading);
-                    if (b.this.eUu != null) {
-                        b.this.eUu.aix();
-                        b.this.cam = true;
+                    b.this.cLg.id(d.j.loading);
+                    if (b.this.eUI != null) {
+                        b.this.eUI.aiy();
+                        b.this.cap = true;
                     }
                 }
             });
@@ -76,23 +76,23 @@ public class b {
     }
 
     public void onChangeSkinType() {
-        if (this.eUv != null) {
-            this.eUv.notifyDataSetChanged();
+        if (this.eUJ != null) {
+            this.eUJ.notifyDataSetChanged();
         }
-        aj.t(this.cdO, d.C0141d.cp_bg_line_d);
+        aj.t(this.cdR, d.C0141d.cp_bg_line_d);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
             aj.t(this.mNoDataView, d.C0141d.cp_bg_line_d);
         }
-        if (this.cLd != null) {
-            this.cLd.b(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        if (this.cLg != null) {
+            this.cLg.b(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void a(MsgPageData msgPageData) {
-        if (this.cdO != null && msgPageData != null) {
+        if (this.cdR != null && msgPageData != null) {
             setData(msgPageData.getChatMessages());
-            this.cdO.getAdapter().notifyDataSetChanged();
+            this.cdR.getAdapter().notifyDataSetChanged();
         }
     }
 
@@ -116,14 +116,14 @@ public class b {
     }
 
     private void doRefresh(MsgPageData msgPageData, int i) {
-        if (this.cdO != null) {
-            this.cam = false;
+        if (this.cdR != null) {
+            this.cap = false;
             if (msgPageData != null) {
                 try {
                     setData(msgPageData.getChatMessages());
-                    this.cdO.getAdapter().notifyDataSetChanged();
+                    this.cdR.getAdapter().notifyDataSetChanged();
                     if (i >= 0) {
-                        this.cdO.setSelection(i);
+                        this.cdR.setSelection(i);
                     }
                 } catch (Exception e) {
                 }
@@ -154,7 +154,7 @@ public class b {
     }
 
     private boolean checkListAtNew(int i) {
-        return (this.cdO == null || this.mData == null || this.cdO.getFirstVisiblePosition() != 0) ? false : true;
+        return (this.cdR == null || this.mData == null || this.cdR.getFirstVisiblePosition() != 0) ? false : true;
     }
 
     private void removeMoreData(MsgPageData msgPageData) {
@@ -168,7 +168,7 @@ public class b {
     }
 
     public void setData(List<ChatMessage> list) {
-        if (this.cdO != null) {
+        if (this.cdR != null) {
             this.mData = list;
             ArrayList arrayList = new ArrayList();
             for (int size = list.size() - 1; size >= 0; size--) {
@@ -189,14 +189,14 @@ public class b {
             }
             if (arrayList2.isEmpty()) {
                 if (this.mNoDataView == null) {
-                    this.mNoDataView = NoDataViewFactory.a(this.eUt, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mPageContext.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.gp(d.j.official_notification_no_data), null);
+                    this.mNoDataView = NoDataViewFactory.a(this.eUH, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mPageContext.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.gp(d.j.official_notification_no_data), null);
                     this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                     aj.t(this.mNoDataView, d.C0141d.cp_bg_line_d);
                     this.mRootView.addView(this.mNoDataView);
                 }
-                if (!this.eTb) {
-                    this.eTb = true;
-                    this.cdO.setVisibility(8);
+                if (!this.eTq) {
+                    this.eTq = true;
+                    this.cdR.setVisibility(8);
                     this.mNoDataView.setVisibility(0);
                     this.mNoDataView.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
                     return;
@@ -206,9 +206,9 @@ public class b {
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(8);
             }
-            this.eTb = false;
-            this.cdO.setData(arrayList2);
-            this.cdO.setVisibility(0);
+            this.eTq = false;
+            this.cdR.setData(arrayList2);
+            this.cdR.setVisibility(0);
         }
     }
 }

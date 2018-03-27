@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class ScrollBridgeWebview extends f {
-    private a aTp;
-    private boolean aTq;
+    private a aTr;
+    private boolean aTs;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,36 +19,36 @@ public class ScrollBridgeWebview extends f {
 
     public ScrollBridgeWebview(Context context) {
         super(context);
-        this.aTq = false;
+        this.aTs = false;
     }
 
     public ScrollBridgeWebview(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aTq = false;
+        this.aTs = false;
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.aTp != null) {
+        if (this.aTr != null) {
             if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                this.aTp.l(i, i2, i3, i4);
+                this.aTr.l(i, i2, i3, i4);
             } else if (getScrollY() == 0) {
-                this.aTp.m(i, i2, i3, i4);
+                this.aTr.m(i, i2, i3, i4);
             } else {
-                this.aTp.onScrollChanged(i, i2, i3, i4);
+                this.aTr.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
 
     public void setOnScrollChangeListener(a aVar) {
-        this.aTp = aVar;
+        this.aTr = aVar;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
-        if (this.aTq) {
+        if (this.aTs) {
             if (motionEvent.getAction() == 0) {
                 requestDisallowInterceptTouchEvent(false);
             } else {
@@ -59,6 +59,6 @@ public class ScrollBridgeWebview extends f {
     }
 
     public void setNeedDisAllowParentInterceptTouchEvent(boolean z) {
-        this.aTq = z;
+        this.aTs = z;
     }
 }

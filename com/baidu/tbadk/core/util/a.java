@@ -3,18 +3,18 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class a implements com.baidu.adp.lib.stats.b {
-    private static a aUI = null;
+    private static a aUK = null;
 
     private a() {
     }
 
-    public static synchronized a BO() {
+    public static synchronized a BP() {
         a aVar;
         synchronized (a.class) {
-            if (aUI == null) {
-                aUI = new a();
+            if (aUK == null) {
+                aUK = new a();
             }
-            aVar = aUI;
+            aVar = aUK;
         }
         return aVar;
     }

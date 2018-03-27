@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class l extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bd bZf;
-    private ak daa;
-    private ak dab;
-    private ak dac;
+    public bd bZi;
     private ak dad;
+    private ak dae;
+    private ak daf;
+    private ak dag;
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
@@ -19,7 +19,7 @@ public class l extends c {
     }
 
     public l(bd bdVar) {
-        this.bZf = bdVar;
+        this.bZi = bdVar;
     }
 
     public static boolean M(bd bdVar) {
@@ -27,43 +27,43 @@ public class l extends c {
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bd WD() {
-        return this.bZf;
+    public bd WE() {
+        return this.bZi;
     }
 
-    public int alP() {
-        return (this.bZf == null || StringUtils.isNull(this.bZf.getPhotoLiveCover())) ? 0 : 1;
+    public int alQ() {
+        return (this.bZi == null || StringUtils.isNull(this.bZi.getPhotoLiveCover())) ? 0 : 1;
     }
 
     public void b(ak akVar) {
-        this.daa = akVar;
-    }
-
-    public void c(ak akVar) {
-        this.dab = akVar;
-    }
-
-    public void d(ak akVar) {
-        this.dac = akVar;
-    }
-
-    public void e(ak akVar) {
         this.dad = akVar;
     }
 
-    public ak alQ() {
-        return this.daa != null ? this.daa.ab("obj_param3", com.baidu.tieba.card.j.alf()) : this.daa;
+    public void c(ak akVar) {
+        this.dae = akVar;
+    }
+
+    public void d(ak akVar) {
+        this.daf = akVar;
+    }
+
+    public void e(ak akVar) {
+        this.dag = akVar;
     }
 
     public ak alR() {
-        return this.dab != null ? this.dab.ab("obj_param3", com.baidu.tieba.card.j.alf()) : this.dab;
+        return this.dad != null ? this.dad.ab("obj_param3", com.baidu.tieba.card.j.alg()) : this.dad;
     }
 
     public ak alS() {
-        return this.dad != null ? this.dad.ab("obj_param3", com.baidu.tieba.card.j.alf()) : this.dad;
+        return this.dae != null ? this.dae.ab("obj_param3", com.baidu.tieba.card.j.alg()) : this.dae;
     }
 
     public ak alT() {
-        return this.dac != null ? this.dac.ab("obj_param3", com.baidu.tieba.card.j.alf()) : this.dac;
+        return this.dag != null ? this.dag.ab("obj_param3", com.baidu.tieba.card.j.alg()) : this.dag;
+    }
+
+    public ak alU() {
+        return this.daf != null ? this.daf.ab("obj_param3", com.baidu.tieba.card.j.alg()) : this.daf;
     }
 }

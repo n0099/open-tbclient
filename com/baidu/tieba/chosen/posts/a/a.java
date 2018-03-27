@@ -19,21 +19,21 @@ import com.baidu.tieba.tbadkCore.util.e;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView cbJ;
-    private TextView deV;
-    private TextView deW;
-    private TextView deX;
-    private View deY;
+    private TbImageView cbM;
+    private TextView deY;
+    private TextView deZ;
+    private TextView dfa;
+    private View dfb;
     private TextView title;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.cbJ = (TbImageView) view.findViewById(d.g.chosen_image_text_img);
+        this.cbM = (TbImageView) view.findViewById(d.g.chosen_image_text_img);
         this.title = (TextView) view.findViewById(d.g.chosen_image_text_title);
-        this.deY = view.findViewById(d.g.chosen_image_text_divider);
-        this.deV = (TextView) view.findViewById(d.g.chosen_image_text_forum);
-        this.deW = (TextView) view.findViewById(d.g.chosen_image_text_praise);
-        this.deX = (TextView) view.findViewById(d.g.chosen_image_text_comment);
+        this.dfb = view.findViewById(d.g.chosen_image_text_divider);
+        this.deY = (TextView) view.findViewById(d.g.chosen_image_text_forum);
+        this.deZ = (TextView) view.findViewById(d.g.chosen_image_text_praise);
+        this.dfa = (TextView) view.findViewById(d.g.chosen_image_text_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,14 +46,14 @@ public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
             if (tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
                 str = tinfoVar.pics.get(0).small_pic;
             }
-            this.cbJ.startLoad(str, 10, false);
+            this.cbM.startLoad(str, 10, false);
             this.title.setText(tinfoVar.title);
             if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.deV.setVisibility(8);
+                this.deY.setVisibility(8);
             } else {
-                this.deV.setVisibility(0);
-                this.deV.setText(UtilHelper.getFixedText(getContext().getString(d.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.deV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
+                this.deY.setVisibility(0);
+                this.deY.setText(UtilHelper.getFixedText(getContext().getString(d.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+                this.deY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         String str2 = tinfoVar.forum_name;
@@ -65,12 +65,12 @@ public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 });
             }
             if (tinfoVar.zan_num != null) {
-                this.deW.setText(String.valueOf(tinfoVar.zan_num));
+                this.deZ.setText(String.valueOf(tinfoVar.zan_num));
             }
             if (tinfoVar.reply_num != null) {
-                this.deX.setText(String.valueOf(tinfoVar.reply_num));
+                this.dfa.setText(String.valueOf(tinfoVar.reply_num));
             }
-            this.deY.setVisibility(0);
+            this.dfb.setVisibility(0);
             e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.sW(String.valueOf(tinfoVar.forum_id))) {
                 aj.e(this.title, d.C0141d.cp_cont_d, 1);
@@ -80,7 +80,7 @@ public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.o
+    @Override // com.baidu.tieba.tbadkCore.p
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.n.a.a(tbPageContext, getRootView());
         return true;

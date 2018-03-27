@@ -13,7 +13,7 @@ public class e implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage != null && (customMessage instanceof RequestLocalPersonListMessage)) {
             RequestLocalPersonListMessage requestLocalPersonListMessage = (RequestLocalPersonListMessage) customMessage;
             boolean isFollow = requestLocalPersonListMessage.isFollow();
-            String str = com.baidu.tbadk.core.c.a.AQ().dh("tb.my_pages").get((isFollow ? "personal_followme" : "personal_myfollow") + "_" + requestLocalPersonListMessage.getUid());
+            String str = com.baidu.tbadk.core.c.a.AR().dh("tb.my_pages").get((isFollow ? "personal_followme" : "personal_myfollow") + "_" + requestLocalPersonListMessage.getUid());
             aq aqVar = new aq();
             if (str != null) {
                 aqVar.parserJson(str);

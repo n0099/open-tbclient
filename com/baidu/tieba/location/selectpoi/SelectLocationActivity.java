@@ -23,20 +23,20 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.tbadkCore.location.a;
 /* loaded from: classes3.dex */
 public class SelectLocationActivity extends NavigationBarActivity {
-    private BdListView deO;
-    private ImageView fgI;
-    private b fgJ;
-    private TextView fgK;
-    private AdapterView.OnItemClickListener esP = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.1
+    private BdListView deR;
+    private ImageView fgW;
+    private b fgX;
+    private TextView fgY;
+    private AdapterView.OnItemClickListener etg = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (SelectLocationActivity.this.fgJ != null) {
+            if (SelectLocationActivity.this.fgX != null) {
                 MessageManager messageManager = MessageManager.getInstance();
                 if (i != 0) {
-                    Object item = SelectLocationActivity.this.fgJ.getItem(i);
+                    Object item = SelectLocationActivity.this.fgX.getItem(i);
                     if (item instanceof a.C0238a) {
                         a.C0238a c0238a = (a.C0238a) item;
-                        messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0238a.getName(), c0238a.bxy(), c0238a.bxx()));
+                        messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0238a.getName(), c0238a.bxD(), c0238a.bxC()));
                         SelectLocationActivity.this.finish();
                         return;
                     }
@@ -47,7 +47,7 @@ public class SelectLocationActivity extends NavigationBarActivity {
             }
         }
     };
-    private CustomMessageListener fgL = new CustomMessageListener(2002013) { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.2
+    private CustomMessageListener fgZ = new CustomMessageListener(2002013) { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -62,24 +62,24 @@ public class SelectLocationActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.h.select_location_activity);
-        this.bVp.setCenterTextTitle(getPageContext().getString(d.j.select_position_title));
-        this.fgI = (ImageView) this.bVp.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fgI.getLayoutParams();
+        this.bVs.setCenterTextTitle(getPageContext().getString(d.j.select_position_title));
+        this.fgW = (ImageView) this.bVs.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fgW.getLayoutParams();
         layoutParams.setMargins(0, 0, l.t(getPageContext().getPageActivity(), d.e.ds10), 0);
-        this.fgI.setLayoutParams(layoutParams);
-        this.fgI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.3
+        this.fgW.setLayoutParams(layoutParams);
+        this.fgW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(SelectLocationActivity.this.getPageContext().getPageActivity(), 23009)));
             }
         });
-        this.deO = (BdListView) findViewById(d.g.select_position_list);
-        this.fgJ = new b(this);
-        this.deO.setAdapter((ListAdapter) this.fgJ);
-        this.deO.setOnItemClickListener(this.esP);
-        registerListener(this.fgL);
-        this.bVp.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
-        this.fgK = this.bVp.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(d.j.cancel), new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.4
+        this.deR = (BdListView) findViewById(d.g.select_position_list);
+        this.fgX = new b(this);
+        this.deR.setAdapter((ListAdapter) this.fgX);
+        this.deR.setOnItemClickListener(this.etg);
+        registerListener(this.fgZ);
+        this.bVs.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
+        this.fgY = this.bVs.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(d.j.cancel), new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SelectLocationActivity.this.finish();
@@ -91,9 +91,9 @@ public class SelectLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fgJ.notifyDataSetChanged();
-        aj.a(this.fgI, d.f.icon_search_bg_s, d.f.icon_search_bg);
-        aj.r(this.fgK, d.C0141d.navi_back_text_color);
+        this.fgX.notifyDataSetChanged();
+        aj.a(this.fgW, d.f.icon_search_bg_s, d.f.icon_search_bg);
+        aj.r(this.fgY, d.C0141d.navi_back_text_color);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends e {
-    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> hdf;
+    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> hdD;
 
     public c(int i) {
         super(i);
-        this.hdf = new HashMap<>();
+        this.hdD = new HashMap<>();
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
@@ -17,7 +17,7 @@ public class c extends e {
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {
-                this.hdf.put(valueOf, aVar);
+                this.hdD.put(valueOf, aVar);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -25,13 +25,13 @@ public class c extends e {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.e
-    public void bxO() {
+    public void bxT() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.hdj.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.hdH.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -44,11 +44,11 @@ public class c extends e {
                 l2 = l;
             }
             if (l2 != null) {
-                this.hdj.remove(l2);
-                this.hdf.remove(l2);
+                this.hdH.remove(l2);
+                this.hdD.remove(l2);
             } else {
-                this.hdj.clear();
-                this.hdf.clear();
+                this.hdH.clear();
+                this.hdD.clear();
             }
         }
     }

@@ -25,7 +25,7 @@ public class EditMarkStatic {
     private static int msgCount = 0;
 
     static {
-        aXN();
+        aXO();
         CustomMessageListener customMessageListener = new CustomMessageListener(2001120) { // from class: com.baidu.tieba.myCollection.EditMarkStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -34,8 +34,8 @@ public class EditMarkStatic {
                     if (customResponsedMessage instanceof NewsNotifyMessage) {
                         int unused = EditMarkStatic.msgCount = ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark();
                         if (EditMarkStatic.msgCount > 0) {
-                            b.aXH().aXK();
-                            b.aXH().jq(true);
+                            b.aXI().aXL();
+                            b.aXI().jv(true);
                             return;
                         }
                         return;
@@ -55,7 +55,7 @@ public class EditMarkStatic {
                 }
                 if (!list.isEmpty()) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("collect_update_time_key", new JSONArray((Collection) list).toString());
-                    b.aXH().aXL();
+                    b.aXI().aXM();
                 }
             }
         });
@@ -78,7 +78,7 @@ public class EditMarkStatic {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2902080));
     }
 
-    public static void aXN() {
+    public static void aXO() {
         Context context = TbadkCoreApplication.getInst().getContext();
         if (context != null && TbadkCoreApplication.getInst().isMainProcess(false)) {
             context.registerReceiver(new CollectUpdateReceiver(), new IntentFilter(CollectUpdateReceiver.ACTION_NAME));

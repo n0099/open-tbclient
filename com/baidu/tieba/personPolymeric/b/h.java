@@ -23,9 +23,9 @@ public class h {
     }
 
     public static void a(com.baidu.tbadk.data.i iVar, BdUniqueId bdUniqueId) {
-        if (iVar != null && !StringUtils.isNull(iVar.KE()) && v.E(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (iVar != null && !StringUtils.isNull(iVar.KF()) && v.E(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", iVar.KE());
+            httpMessage.addParam("pic_url", iVar.KF());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -33,13 +33,13 @@ public class h {
 
     public static void a(com.baidu.tbadk.data.i iVar, List<com.baidu.adp.widget.ListView.i> list) {
         com.baidu.tbadk.data.i iVar2;
-        if (iVar != null && !v.E(list) && !StringUtils.isNull(iVar.KE())) {
+        if (iVar != null && !v.E(list) && !StringUtils.isNull(iVar.KF())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.i iVar3 = list.get(i);
                 if ((iVar3 instanceof com.baidu.tbadk.data.i) && (iVar2 = (com.baidu.tbadk.data.i) iVar3) != iVar && !iVar2.isPortrait()) {
-                    jSONArray.put(iVar2.KE());
+                    jSONArray.put(iVar2.KF());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -65,7 +65,7 @@ public class h {
                 if (iVar instanceof com.baidu.tbadk.data.i) {
                     com.baidu.tbadk.data.i iVar2 = (com.baidu.tbadk.data.i) iVar;
                     if (!iVar2.isPortrait()) {
-                        jSONArray.put(iVar2.KE());
+                        jSONArray.put(iVar2.KF());
                     }
                 }
             }

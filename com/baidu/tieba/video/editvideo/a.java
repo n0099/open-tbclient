@@ -5,13 +5,13 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface a {
-    void bBf();
-
-    void bBi();
-
     void bBk();
 
-    void bhR();
+    void bBn();
+
+    void bBp();
+
+    void bhS();
 
     void dI(List<PendantData> list);
 

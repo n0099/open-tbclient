@@ -22,8 +22,8 @@ class a extends CustomMessageTask {
             com.baidu.tieba.lego.model.a b;
             if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c)) {
                 c data = customMessage.getData();
-                if (data.aCw() == null && (b = com.baidu.tieba.lego.d.b.aRe().b(data.aCv(), data.getUniqueId())) != null) {
-                    b.a(new b(data.aCx()));
+                if (data.aCx() == null && (b = com.baidu.tieba.lego.d.b.aRf().b(data.aCw(), data.getUniqueId())) != null) {
+                    b.a(new b(data.aCy()));
                     data.a(b);
                 }
             }

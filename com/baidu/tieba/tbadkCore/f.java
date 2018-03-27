@@ -5,11 +5,12 @@ import com.baidu.tbadk.core.data.bd;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId gXy = BdUniqueId.gen();
-    public List<bd> gXz;
+    public static final BdUniqueId gXQ = BdUniqueId.gen();
+    public List<bd> gXR;
+    public int gXS = -1;
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return gXy;
+        return gXQ;
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String dCP;
-    private h gxR;
-    private e gxS;
+    public String dCS;
+    private h gyh;
+    private e gyi;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -35,58 +35,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gxR = new h(this);
-        this.gxR.initView();
-        this.gxR.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.gxS = new e(this);
+        this.gyh = new h(this);
+        this.gyh.initView();
+        this.gyh.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.gyi = new e(this);
         initData();
     }
 
     public void rw(String str) {
-        this.dCP = str;
-        this.gxR.uf(1);
-        this.gxS.bnc();
-        this.gxR.VT();
+        this.dCS = str;
+        this.gyh.uf(1);
+        this.gyi.bnd();
+        this.gyh.VU();
     }
 
     public void rv(String str) {
-        this.gxR.rv(str);
+        this.gyh.rv(str);
     }
 
-    public void bmM() {
-        this.gxR.ar(this.gxS.gyq);
+    public void bmN() {
+        this.gyh.ar(this.gyi.gyG);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.aLJ())) {
-            this.gxR.VU();
-            this.gxR.bng();
+        if (i == 1 && (bVar == null || !bVar.aLK())) {
+            this.gyh.VV();
+            this.gyh.bnh();
             return;
         }
-        this.gxR.VU();
-        this.gxR.bmU();
-        this.gxR.a(i, bVar, z);
+        this.gyh.VV();
+        this.gyh.bmV();
+        this.gyh.a(i, bVar, z);
     }
 
-    public boolean bmN() {
-        return this.gxR.bmN();
+    public boolean bmO() {
+        return this.gyh.bmO();
     }
 
-    public void bmI() {
-        this.gxR.bmI();
+    public void bmJ() {
+        this.gyh.bmJ();
     }
 
-    public e bmO() {
-        return this.gxS;
+    public e bmP() {
+        return this.gyi;
     }
 
-    public h bmP() {
-        return this.gxR;
+    public h bmQ() {
+        return this.gyh;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.gxR.onChangeSkinType(i);
+        this.gyh.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -95,14 +95,14 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.gxS.bmZ();
+        this.gyi.bna();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.gxR != null) {
-            this.gxR.onDestroy();
+        if (this.gyh != null) {
+            this.gyh.onDestroy();
         }
         super.onDestroy();
     }

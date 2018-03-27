@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
-    private AlphaAnimation gcA;
+    private AlphaAnimation gcQ;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -35,16 +35,16 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void bz(boolean z) {
-        this.bfk = z;
+        this.bfn = z;
         if (z) {
             setVisibility(8);
             setClickable(false);
-            setText(this.bfi);
+            setText(this.bfl);
             setPadding(0, 0, 0, 0);
         } else {
             setVisibility(0);
             setClickable(true);
-            setText(this.bfj);
+            setText(this.bfm);
             setPadding(getResources().getDimensionPixelSize(d.e.tbds18), 0, getResources().getDimensionPixelSize(d.e.tbds12), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -58,14 +58,14 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void a(boolean z, int i, boolean z2) {
         if (z2) {
-            this.bfk = z;
+            this.bfn = z;
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.gcA == null) {
-                        this.gcA = new AlphaAnimation(1.0f, 0.0f);
-                        this.gcA.setDuration(500L);
-                        this.gcA.setFillAfter(true);
-                        this.gcA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.gcQ == null) {
+                        this.gcQ = new AlphaAnimation(1.0f, 0.0f);
+                        this.gcQ.setDuration(500L);
+                        this.gcQ.setFillAfter(true);
+                        this.gcQ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -81,10 +81,10 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                             }
                         });
                     } else {
-                        this.gcA.cancel();
+                        this.gcQ.cancel();
                     }
                     if (isShown()) {
-                        startAnimation(this.gcA);
+                        startAnimation(this.gcQ);
                         return;
                     } else {
                         setVisibility(8);
@@ -93,7 +93,7 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                 }
                 setVisibility(0);
                 setClickable(true);
-                setText(this.bfj);
+                setText(this.bfm);
                 setPadding(getResources().getDimensionPixelSize(d.e.tbds18), 0, getResources().getDimensionPixelSize(d.e.tbds12), 0);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return;
@@ -106,7 +106,7 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
         aj.e(this, d.C0141d.cp_cont_g, 1);
-        if (this.bfk) {
+        if (this.bfn) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             setBackgroundDrawable(null);
             return;

@@ -20,25 +20,25 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class d extends BaseFragment implements BdListView.e {
-    private int cGN;
-    private PbListView caY;
-    private PostSearchActivity gxO;
-    private BdListView gyd;
-    private f gye;
-    private b gyf;
-    private String gyg;
+    private int cGQ;
+    private PbListView cbb;
+    private PostSearchActivity gye;
+    private BdListView gyt;
+    private f gyu;
+    private b gyv;
+    private String gyw;
     private com.baidu.tbadk.core.view.h mNoDataView;
     private View mRootView;
 
     public d() {
-        this.cGN = -1;
-        this.gyg = "";
+        this.cGQ = -1;
+        this.gyw = "";
     }
 
     public d(int i) {
-        this.cGN = -1;
-        this.gyg = "";
-        this.cGN = i;
+        this.cGQ = -1;
+        this.gyw = "";
+        this.cGQ = i;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -51,147 +51,147 @@ public class d extends BaseFragment implements BdListView.e {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.gxO = (PostSearchActivity) getBaseFragmentActivity();
-        this.gye = new f(this.gxO.getPageContext());
-        this.gye.setTabType(this.cGN);
-        BdListViewHelper.a(this.gxO.getActivity(), this.gyd, BdListViewHelper.HeadType.HASTAB);
-        this.gyd.setAdapter((ListAdapter) this.gye);
-        this.caY = new PbListView(this.gxO.getPageContext().getPageActivity());
-        this.caY.st();
-        this.gyd.setOnSrollToBottomListener(this);
+        this.gye = (PostSearchActivity) getBaseFragmentActivity();
+        this.gyu = new f(this.gye.getPageContext());
+        this.gyu.setTabType(this.cGQ);
+        BdListViewHelper.a(this.gye.getActivity(), this.gyt, BdListViewHelper.HeadType.HASTAB);
+        this.gyt.setAdapter((ListAdapter) this.gyu);
+        this.cbb = new PbListView(this.gye.getPageContext().getPageActivity());
+        this.cbb.st();
+        this.gyt.setOnSrollToBottomListener(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.cGN == this.gxO.bmP().getCurrentTabType()) {
-            bmY();
-            lV(false);
+        if (this.cGQ == this.gye.bmQ().getCurrentTabType()) {
+            bmZ();
+            ma(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gxO != null) {
-            com.baidu.tbadk.n.a.a(this.gxO.getPageContext(), this.mRootView);
-        }
-        if (this.caY != null) {
-            this.caY.gx(i);
-        }
         if (this.gye != null) {
-            this.gye.notifyDataSetChanged();
+            com.baidu.tbadk.n.a.a(this.gye.getPageContext(), this.mRootView);
+        }
+        if (this.cbb != null) {
+            this.cbb.gx(i);
+        }
+        if (this.gyu != null) {
+            this.gyu.notifyDataSetChanged();
         }
     }
 
     public void a(b bVar, boolean z) {
         hideNoDataView();
         hideLoadingView(this.mRootView);
-        if (bVar == null || bVar.gxU == null || bVar.gxU.size() == 0) {
-            if (!z || this.gyf == null || this.gyf.gxU == null || this.gyf.gxU.size() == 0) {
-                XP();
+        if (bVar == null || bVar.gyk == null || bVar.gyk.size() == 0) {
+            if (!z || this.gyv == null || this.gyv.gyk == null || this.gyv.gyk.size() == 0) {
+                XQ();
                 showNoDataView();
-                this.gyd.setVisibility(8);
-                this.gyf = bVar;
+                this.gyt.setVisibility(8);
+                this.gyv = bVar;
                 return;
             }
-            if (this.gyf.gxV.yw() == 1) {
-                XN();
-                return;
-            } else {
+            if (this.gyv.gyl.yw() == 1) {
                 XO();
                 return;
+            } else {
+                XP();
+                return;
             }
         }
-        if (!z || this.gyf == null || this.gyf.gxU == null || this.gyf.gxU.size() == 0) {
-            this.gyf = bVar;
+        if (!z || this.gyv == null || this.gyv.gyk == null || this.gyv.gyk.size() == 0) {
+            this.gyv = bVar;
         } else {
-            this.gyf.gxV = bVar.gxV;
-            this.gyf.gxU.addAll(bVar.gxU);
+            this.gyv.gyl = bVar.gyl;
+            this.gyv.gyk.addAll(bVar.gyk);
         }
         if (z) {
-            bmY();
+            bmZ();
         }
-        if (this.gyf.gxV.yw() == 1) {
-            XN();
-        } else {
+        if (this.gyv.gyl.yw() == 1) {
             XO();
+        } else {
+            XP();
         }
-        this.gye.clear();
-        this.gye.dj(this.gyf.gxU);
-        this.gye.notifyDataSetChanged();
+        this.gyu.clear();
+        this.gyu.dj(this.gyv.gyk);
+        this.gyu.notifyDataSetChanged();
         if (!z) {
-            this.gyd.setSelection(0);
+            this.gyt.setSelection(0);
         }
-        this.gyd.setVisibility(0);
+        this.gyt.setVisibility(0);
     }
 
-    public void lV(boolean z) {
-        if (this.gxO != null) {
-            String str = this.gxO.dCP;
+    public void ma(boolean z) {
+        if (this.gye != null) {
+            String str = this.gye.dCS;
             if (!StringUtils.isNull(str)) {
-                boolean z2 = !str.equals(this.gyg) || z;
-                if (this.gyf == null || (this.gyf != null && !this.gyf.aLJ())) {
+                boolean z2 = !str.equals(this.gyw) || z;
+                if (this.gyv == null || (this.gyv != null && !this.gyv.aLK())) {
                     z2 = true;
                 }
                 if (z2) {
-                    showLoadingView(this.mRootView, false, this.gxO.getResources().getDimensionPixelSize(d.e.ds320));
-                    this.gxO.bmO().aC(str, this.cGN);
-                    this.gyg = str;
+                    showLoadingView(this.mRootView, false, this.gye.getResources().getDimensionPixelSize(d.e.ds320));
+                    this.gye.bmP().aC(str, this.cGQ);
+                    this.gyw = str;
                 }
             }
         }
     }
 
-    public void bmW() {
-        if (this.gyf != null && this.gyf.gxU != null) {
-            this.gyf.gxU.clear();
-            this.gye.clear();
-            this.gye.dj(this.gyf.gxU);
-            this.gye.notifyDataSetChanged();
+    public void bmX() {
+        if (this.gyv != null && this.gyv.gyk != null) {
+            this.gyv.gyk.clear();
+            this.gyu.clear();
+            this.gyu.dj(this.gyv.gyk);
+            this.gyu.notifyDataSetChanged();
         }
-        XP();
+        XQ();
         hideNoDataView();
     }
 
     private void initView() {
-        this.gyd = (BdListView) this.mRootView.findViewById(d.g.result_list);
+        this.gyt = (BdListView) this.mRootView.findViewById(d.g.result_list);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!StringUtils.isNull(this.gyg) && this.gyf != null && this.gyf.isHasMore() && this.gxO.bmO().aC(this.gyg, this.cGN)) {
-            bmX();
+        if (!StringUtils.isNull(this.gyw) && this.gyv != null && this.gyv.isHasMore() && this.gye.bmP().aC(this.gyw, this.cGQ)) {
+            bmY();
         }
     }
 
-    private void bmX() {
-        this.gyd.setNextPage(this.caY);
-        this.caY.Ef();
-    }
-
-    private void XN() {
-        this.gyd.setNextPage(this.caY);
-        this.caY.Eg();
-        this.caY.setText(this.gxO.getResources().getString(d.j.pb_load_more));
+    private void bmY() {
+        this.gyt.setNextPage(this.cbb);
+        this.cbb.Eg();
     }
 
     private void XO() {
-        this.gyd.setNextPage(this.caY);
-        this.caY.Eg();
-        this.caY.setText(this.gxO.getResources().getString(d.j.list_no_more));
+        this.gyt.setNextPage(this.cbb);
+        this.cbb.Eh();
+        this.cbb.setText(this.gye.getResources().getString(d.j.pb_load_more));
     }
 
     private void XP() {
-        if (this.gyd != null) {
-            this.gyd.setNextPage(null);
+        this.gyt.setNextPage(this.cbb);
+        this.cbb.Eh();
+        this.cbb.setText(this.gye.getResources().getString(d.j.list_no_more));
+    }
+
+    private void XQ() {
+        if (this.gyt != null) {
+            this.gyt.setNextPage(null);
         }
     }
 
     private void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.gxO.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.t(this.gxO.getActivity(), d.e.ds320)), NoDataViewFactory.d.gp(d.j.text_no_search_result), null);
-            this.mNoDataView.onChangeSkinType(this.gxO.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.mNoDataView = NoDataViewFactory.a(this.gye.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.t(this.gye.getActivity(), d.e.ds320)), NoDataViewFactory.d.gp(d.j.text_no_search_result), null);
+            this.mNoDataView.onChangeSkinType(this.gye.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);
     }
@@ -202,9 +202,9 @@ public class d extends BaseFragment implements BdListView.e {
         }
     }
 
-    private void bmY() {
-        if (this.gxO != null) {
-            TiebaStatic.log(new ak("c12406").ab(ImageViewerConfig.FORUM_ID, this.gxO.mForumId).ab(ImageViewerConfig.FORUM_NAME, this.gxO.mForumName).ab("uid", TbadkCoreApplication.getCurrentAccount()).s(MyBookrackActivityConfig.TAB_ID, this.cGN));
+    private void bmZ() {
+        if (this.gye != null) {
+            TiebaStatic.log(new ak("c12406").ab(ImageViewerConfig.FORUM_ID, this.gye.mForumId).ab(ImageViewerConfig.FORUM_NAME, this.gye.mForumName).ab("uid", TbadkCoreApplication.getCurrentAccount()).s(MyBookrackActivityConfig.TAB_ID, this.cGQ));
         }
     }
 }

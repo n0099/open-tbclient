@@ -19,11 +19,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends o {
-    private m aTC;
+    private m aTE;
 
     public c(m mVar) {
         super(mVar);
-        this.aTC = mVar;
+        this.aTE = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,7 +33,7 @@ public class c extends o {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @p(BC = false, value = "scanBigImages")
+    @p(BD = false, value = "scanBigImages")
     public void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
@@ -57,7 +57,7 @@ public class c extends o {
                     }
                 }
             }
-            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.aTC.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
+            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.aTE.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
         }
     }
 

@@ -14,21 +14,21 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BdPersonListView extends BdTypeListView {
-    private View auD;
-    private float auF;
+    private View auE;
     private float auG;
-    private boolean auI;
-    private float auJ;
+    private float auH;
+    private boolean auJ;
     private float auK;
-    private final int auL;
+    private float auL;
     private final int auM;
-    private final Scroller gis;
-    private View git;
-    private b giu;
-    private b giv;
-    public a giw;
-    private boolean gix;
-    private boolean giy;
+    private final int auN;
+    private final Scroller giI;
+    private View giJ;
+    private b giK;
+    private b giL;
+    public a giM;
+    private boolean giN;
+    private boolean giO;
     private final Context mContext;
     private final Scroller mScroller;
     public static int ExpandListView_expandDistance = 1;
@@ -45,86 +45,86 @@ public class BdPersonListView extends BdTypeListView {
 
     public BdPersonListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.auI = false;
-        this.gix = true;
-        this.giy = false;
+        this.auJ = false;
+        this.giN = true;
+        this.giO = false;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
-        this.gis = new Scroller(this.mContext);
-        this.auL = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.giI = new Scroller(this.mContext);
+        this.auM = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.ExpandListView);
-        this.auM = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
+        this.auN = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
         obtainStyledAttributes.recycle();
     }
 
     public void setExpandView(View view) {
-        this.auD = view;
+        this.auE = view;
     }
 
     public void setOuterExpandView(View view) {
-        this.git = view;
+        this.giJ = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.auD == null || !this.gix) {
+        if (this.auE == null || !this.giN) {
             return super.dispatchTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
         if (this.mScroller.isFinished()) {
-            this.auG = motionEvent.getY();
+            this.auH = motionEvent.getY();
             switch (action) {
                 case 0:
-                    int height = this.auD.getHeight();
-                    this.auF = this.auG;
-                    this.auJ = this.auK;
-                    this.giu = new b(0, height, 0, this.auM + height);
-                    int height2 = this.git.getHeight();
-                    this.giv = new b(0, height2, 0, this.auM + height2);
+                    int height = this.auE.getHeight();
+                    this.auG = this.auH;
+                    this.auK = this.auL;
+                    this.giK = new b(0, height, 0, this.auN + height);
+                    int height2 = this.giJ.getHeight();
+                    this.giL = new b(0, height2, 0, this.auN + height2);
                     break;
                 case 1:
                 case 3:
-                    if (this.auI) {
+                    if (this.auJ) {
                         sq();
-                        if (this.giy) {
+                        if (this.giO) {
                             return true;
                         }
                     } else {
-                        this.giw.ss();
+                        this.giM.ss();
                         break;
                     }
                     break;
                 case 2:
-                    float f = this.auK - this.auJ;
-                    float f2 = this.auG - this.auF;
-                    this.auJ = this.auK;
-                    if (this.auD.getParent() == this && this.giu != null && this.auD.isShown() && this.auD.getTop() >= 0 && Math.abs(f2) >= this.auL && Math.abs(f) < this.auL) {
-                        int Q = this.giu.Q(this.auG - this.auF);
-                        if (Q > this.giu.startY && Q <= this.giu.endY) {
-                            this.auI = true;
-                            this.auD.setLayoutParams(new AbsListView.LayoutParams(this.auD.getWidth(), Q));
-                            if (this.git != null) {
-                                int Q2 = this.giv.Q(this.auG - this.auF);
-                                ViewGroup.LayoutParams layoutParams = this.git.getLayoutParams();
+                    float f = this.auL - this.auK;
+                    float f2 = this.auH - this.auG;
+                    this.auK = this.auL;
+                    if (this.auE.getParent() == this && this.giK != null && this.auE.isShown() && this.auE.getTop() >= 0 && Math.abs(f2) >= this.auM && Math.abs(f) < this.auM) {
+                        int Q = this.giK.Q(this.auH - this.auG);
+                        if (Q > this.giK.startY && Q <= this.giK.endY) {
+                            this.auJ = true;
+                            this.auE.setLayoutParams(new AbsListView.LayoutParams(this.auE.getWidth(), Q));
+                            if (this.giJ != null) {
+                                int Q2 = this.giL.Q(this.auH - this.auG);
+                                ViewGroup.LayoutParams layoutParams = this.giJ.getLayoutParams();
                                 if (layoutParams != null) {
                                     layoutParams.height = Q2;
-                                    this.git.setLayoutParams(layoutParams);
+                                    this.giJ.setLayoutParams(layoutParams);
                                 }
                             }
-                            O(Q - this.giu.startY);
+                            O(Q - this.giK.startY);
                             break;
-                        } else if (Q <= this.giu.startY) {
-                            this.auI = false;
+                        } else if (Q <= this.giK.startY) {
+                            this.auJ = false;
                             break;
-                        } else if (Q > this.giu.endY) {
-                            this.auI = true;
+                        } else if (Q > this.giK.endY) {
+                            this.auJ = true;
                             break;
                         } else {
-                            this.auI = false;
+                            this.auJ = false;
                             break;
                         }
                     } else {
-                        this.auI = false;
+                        this.auJ = false;
                         break;
                     }
                     break;
@@ -136,7 +136,7 @@ public class BdPersonListView extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.auI) {
+        if (this.auJ) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -144,55 +144,55 @@ public class BdPersonListView extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.auI) {
+        if (this.auJ) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     private void sq() {
-        if (this.giu != null) {
-            if (this.auD.getHeight() >= this.giu.endY - (this.auM / 2)) {
+        if (this.giK != null) {
+            if (this.auE.getHeight() >= this.giK.endY - (this.auN / 2)) {
                 sr();
             } else {
-                this.giw.ss();
+                this.giM.ss();
             }
-            this.mScroller.startScroll(0, this.auD.getHeight(), 0, this.giu.startY - this.auD.getHeight(), 200);
-            this.gis.startScroll(0, this.git.getHeight(), 0, this.giv.startY - this.git.getHeight(), 200);
+            this.mScroller.startScroll(0, this.auE.getHeight(), 0, this.giK.startY - this.auE.getHeight(), 200);
+            this.giI.startScroll(0, this.giJ.getHeight(), 0, this.giL.startY - this.giJ.getHeight(), 200);
             invalidate();
-            this.auI = false;
+            this.auJ = false;
         }
     }
 
     public void sr() {
-        if (this.giw != null) {
-            this.giw.onRefresh();
+        if (this.giM != null) {
+            this.giM.onRefresh();
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
-        this.giw = aVar;
+        this.giM = aVar;
     }
 
     @Override // android.view.View
     public void computeScroll() {
         ViewGroup.LayoutParams layoutParams;
         if (this.mScroller.computeScrollOffset()) {
-            this.auD.setLayoutParams(new AbsListView.LayoutParams(this.auD.getWidth(), this.mScroller.getCurrY()));
+            this.auE.setLayoutParams(new AbsListView.LayoutParams(this.auE.getWidth(), this.mScroller.getCurrY()));
         } else {
             super.computeScroll();
         }
-        if (this.gis.computeScrollOffset()) {
-            int currY = this.gis.getCurrY();
-            if (this.git != null && (layoutParams = this.git.getLayoutParams()) != null) {
+        if (this.giI.computeScrollOffset()) {
+            int currY = this.giI.getCurrY();
+            if (this.giJ != null && (layoutParams = this.giJ.getLayoutParams()) != null) {
                 layoutParams.height = currY;
-                this.git.setLayoutParams(layoutParams);
+                this.giJ.setLayoutParams(layoutParams);
             }
         }
     }
 
     private void O(float f) {
-        this.giw.P(360.0f - ((f * 360.0f) / this.auM));
+        this.giM.P(360.0f - ((f * 360.0f) / this.auN));
     }
 
     /* loaded from: classes.dex */

@@ -24,10 +24,10 @@ public class WriteHelperStatic {
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), NewVcodeActivity.class);
                     bk bkVar = (bk) customResponsedMessage.getData();
-                    intent.putExtra("model", bkVar.aQG);
+                    intent.putExtra("model", bkVar.aQI);
                     intent.putExtra("is_ad", false);
-                    if (bkVar.aQH != null) {
-                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.h(bkVar.aQH.FW(), 0));
+                    if (bkVar.aQJ != null) {
+                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.h(bkVar.aQJ.FX(), 0));
                     }
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
@@ -41,7 +41,7 @@ public class WriteHelperStatic {
                     Intent intent = new Intent();
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), VcodeActivity.class);
-                    intent.putExtra("model", ((bk) customResponsedMessage.getData()).aQG);
+                    intent.putExtra("model", ((bk) customResponsedMessage.getData()).aQI);
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
             }
@@ -55,16 +55,16 @@ public class WriteHelperStatic {
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), AccountAccessActivity.class);
                     bk bkVar = (bk) customResponsedMessage.getData();
-                    intent.putExtra(AccountAccessActivityConfig.KEY_WRITE_DATA, bkVar.aQG);
-                    intent.putExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE, bkVar.aQI);
+                    intent.putExtra(AccountAccessActivityConfig.KEY_WRITE_DATA, bkVar.aQI);
+                    intent.putExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE, bkVar.aQK);
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
             }
         });
-        aBT();
+        aBU();
     }
 
-    public static void aBT() {
+    public static void aBU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.WriteHelperStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.d.a> run(CustomMessage<Object> customMessage) {

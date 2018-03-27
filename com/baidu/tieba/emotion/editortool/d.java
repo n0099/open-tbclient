@@ -4,31 +4,31 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
     private int column;
-    private EmotionGroupType dot;
-    private int dou;
-    private int dov;
-    private com.baidu.tbadk.editortools.emotiontool.c dow;
+    private int doA;
+    private int doB;
+    private EmotionGroupType dow;
     private int dox;
     private int doy;
+    private com.baidu.tbadk.editortools.emotiontool.c doz;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.dow = cVar;
+        this.doz = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c apU() {
-        return this.dow;
+    public com.baidu.tbadk.editortools.emotiontool.c apV() {
+        return this.doz;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.dot = emotionGroupType;
+        this.dow = emotionGroupType;
     }
 
-    public EmotionGroupType apV() {
-        return this.dot;
+    public EmotionGroupType apW() {
+        return this.dow;
     }
 
     public void hS(int i) {
@@ -43,39 +43,39 @@ public class d {
         this.column = i;
     }
 
-    public int apW() {
+    public int apX() {
         return this.column;
     }
 
     public void mf(int i) {
-        this.doy = i;
-    }
-
-    public int apX() {
-        return this.doy;
-    }
-
-    public void mg(int i) {
-        this.dox = i;
+        this.doB = i;
     }
 
     public int apY() {
-        return this.dox;
+        return this.doB;
     }
 
-    public void mh(int i) {
-        this.dou = i;
+    public void mg(int i) {
+        this.doA = i;
     }
 
     public int apZ() {
-        return this.dou;
+        return this.doA;
+    }
+
+    public void mh(int i) {
+        this.dox = i;
+    }
+
+    public int aqa() {
+        return this.dox;
     }
 
     public void mi(int i) {
         this.startIndex = i;
     }
 
-    public int aqa() {
+    public int aqb() {
         return this.startIndex;
     }
 
@@ -92,10 +92,10 @@ public class d {
     }
 
     public void mj(int i) {
-        this.dov = i;
+        this.doy = i;
     }
 
-    public int aqb() {
-        return this.dov;
+    public int aqc() {
+        return this.doy;
     }
 }

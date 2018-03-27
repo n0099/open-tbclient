@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class f extends LinearLayout {
-    private a bbe;
+    private a bbg;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,9 +17,9 @@ public class f extends LinearLayout {
 
     public f(Context context, View view, a aVar) {
         super(context);
-        this.bbe = null;
+        this.bbg = null;
         setFocusableInTouchMode(true);
-        this.bbe = aVar;
+        this.bbg = aVar;
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         addView(view);
     }
@@ -27,11 +27,11 @@ public class f extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
-            if (this.bbe != null) {
-                this.bbe.wK();
+            if (this.bbg != null) {
+                this.bbg.wK();
             }
-        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.bbe != null) {
-            this.bbe.wL();
+        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.bbg != null) {
+            this.bbg.wL();
         }
         return super.dispatchKeyEvent(keyEvent);
     }

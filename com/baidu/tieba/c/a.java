@@ -20,15 +20,15 @@ public class a {
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0136a {
-        void akM();
+        void akN();
     }
 
-    public static boolean akL() {
+    public static boolean akM() {
         return UtilHelper.isInstallApk(TbadkCoreApplication.getInst(), "com.baidu.tiebabz");
     }
 
     public static void a(e<?> eVar, String str, String str2, InterfaceC0136a interfaceC0136a) {
-        if (!akL() || !i(eVar.getPageActivity(), str, str2)) {
+        if (!akM() || !i(eVar.getPageActivity(), str, str2)) {
             if (j.oJ()) {
                 if (!j.oK()) {
                     a(eVar, interfaceC0136a);
@@ -177,12 +177,12 @@ public class a {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
                 if (InterfaceC0136a.this != null) {
-                    InterfaceC0136a.this.akM();
+                    InterfaceC0136a.this.akN();
                 }
                 TiebaStatic.log("c11574");
             }
         });
         aVar.b(eVar);
-        aVar.AU();
+        aVar.AV();
     }
 }

@@ -17,8 +17,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.m;
 /* loaded from: classes2.dex */
 public class d {
-    public TextView gbe;
-    public TextView gbf;
+    public TextView gbu;
+    public TextView gbv;
     public View mRootView;
     public TextView mTitleView;
 
@@ -26,8 +26,8 @@ public class d {
         if (view != null) {
             this.mRootView = view;
             this.mTitleView = (TextView) this.mRootView.findViewById(d.g.view_video_title);
-            this.gbe = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
-            this.gbf = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
+            this.gbu = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
+            this.gbv = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
         }
     }
 
@@ -55,15 +55,15 @@ public class d {
             this.mTitleView.setOnTouchListener(new m(spannableStringBuilder));
             this.mTitleView.setText(spannableStringBuilder);
             this.mTitleView.setLinkTextColor(aj.getColor(d.C0141d.cp_link_tip_c));
-            this.gbe.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_replay_num), am.F(bdVar.zf())));
-            this.gbf.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_play_count), am.F(bdVar.zF().play_count.intValue())));
-            Ja();
+            this.gbu.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_replay_num), am.F(bdVar.zf())));
+            this.gbv.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_play_count), am.F(bdVar.zF().play_count.intValue())));
+            Jb();
         }
     }
 
-    public void Ja() {
+    public void Jb() {
         aj.e(this.mTitleView, d.C0141d.cp_cont_b, 1);
-        aj.e(this.gbe, d.C0141d.cp_cont_f, 1);
-        aj.e(this.gbf, d.C0141d.cp_cont_f, 1);
+        aj.e(this.gbu, d.C0141d.cp_cont_f, 1);
+        aj.e(this.gbv, d.C0141d.cp_cont_f, 1);
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.adp.b.a;
 
 import android.graphics.Canvas;
+import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
@@ -26,6 +27,7 @@ public abstract class a {
     private float[] Bo = new float[9];
     private PointF ape = new PointF();
     protected RectF apf = new RectF();
+    private ColorFilter apg = null;
 
     public abstract void a(Canvas canvas, ImageView imageView);
 
@@ -107,15 +109,15 @@ public abstract class a {
         canvas.clipRect(scrollX + paddingLeft, scrollY + paddingTop, ((scrollX + imageView.getRight()) - imageView.getLeft()) - paddingRight, ((scrollY + imageView.getBottom()) - imageView.getTop()) - paddingBottom);
         canvas.translate(paddingLeft, paddingTop);
         int save2 = canvas.save();
-        if (this.mArgs.apo != null) {
-            canvas.concat(this.mArgs.apo);
+        if (this.mArgs.apq != null) {
+            canvas.concat(this.mArgs.apq);
         }
-        if (dVar.api != null && dVar.api.so()) {
-            if ((dVar.api.sh().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.api.sh().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.aoZ != null) {
+        if (dVar.apj != null && dVar.apj.so()) {
+            if ((dVar.apj.sh().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.apj.sh().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.aoZ != null) {
                 canvas.concat(this.aoZ);
             }
             this.apd.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            dVar.api.a(canvas, this.apd);
+            dVar.apj.a(canvas, this.apd);
         } else {
             b(canvas, dVar, imageView);
         }
@@ -161,10 +163,14 @@ public abstract class a {
 
     private void pZ() {
         this.mPaint.setAlpha((int) (255.0f * this.mArgs.mAlpha));
-        if (this.mArgs.CG) {
-            this.mPaint.setColorFilter(aoX);
+        if (this.apg == null) {
+            if (this.mArgs.CG) {
+                this.mPaint.setColorFilter(aoX);
+            } else {
+                this.mPaint.setColorFilter(null);
+            }
         } else {
-            this.mPaint.setColorFilter(null);
+            this.mPaint.setColorFilter(this.apg);
         }
         this.mBorderPaint.setColor(this.mArgs.mBorderColor);
         this.mBorderPaint.setStrokeWidth(this.mArgs.mBorderWidth);
@@ -189,5 +195,9 @@ public abstract class a {
         matrix.getValues(this.Bo);
         this.ape.set((int) ((this.Bo[0] * f) + (this.Bo[1] * f2) + this.Bo[2]), (int) ((this.Bo[3] * f) + (this.Bo[4] * f2) + this.Bo[5]));
         return this.ape;
+    }
+
+    public void setColorFilter(ColorFilter colorFilter) {
+        this.apg = colorFilter;
     }
 }

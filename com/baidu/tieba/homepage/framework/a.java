@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes2.dex */
 public class a {
-    private static a ehd = new a();
-    private long ehe = 0;
-    private SparseArray<Long> ehf = new SparseArray<>();
-    private SparseArray<Long> ehg = new SparseArray<>();
-    private SparseArray<Long> ehh = new SparseArray<>();
-    private SparseArray<Long> ehi = new SparseArray<>();
+    private static a eht = new a();
+    private long ehu = 0;
+    private SparseArray<Long> ehv = new SparseArray<>();
+    private SparseArray<Long> ehw = new SparseArray<>();
+    private SparseArray<Long> ehx = new SparseArray<>();
+    private SparseArray<Long> ehy = new SparseArray<>();
 
     private a() {
     }
 
-    public static a aCs() {
-        return ehd;
+    public static a aCt() {
+        return eht;
     }
 
     public long getCreateTime() {
-        return this.ehe;
+        return this.ehu;
     }
 
     public void setCreateTime(long j) {
-        this.ehe = j;
+        this.ehu = j;
     }
 
-    public long ov(int i) {
-        Long l = this.ehg.get(i);
+    public long ow(int i) {
+        Long l = this.ehw.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void e(long j, int i) {
-        this.ehg.put(i, Long.valueOf(j));
+        this.ehw.put(i, Long.valueOf(j));
     }
 
-    public long ow(int i) {
-        Long l = this.ehf.get(i);
+    public long ox(int i) {
+        Long l = this.ehv.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void f(long j, int i) {
-        this.ehf.put(i, Long.valueOf(j));
+        this.ehv.put(i, Long.valueOf(j));
     }
 
-    public long ox(int i) {
-        Long l = this.ehh.get(i);
+    public long oy(int i) {
+        Long l = this.ehx.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void g(long j, int i) {
-        this.ehh.put(i, Long.valueOf(j));
+        this.ehx.put(i, Long.valueOf(j));
     }
 
-    public long oy(int i) {
-        Long l = this.ehi.get(i);
+    public long oz(int i) {
+        Long l = this.ehy.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void h(long j, int i) {
-        this.ehi.put(i, Long.valueOf(j));
+        this.ehy.put(i, Long.valueOf(j));
     }
 }

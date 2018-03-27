@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a eMM;
-    private b eMN;
+    private a eNc;
+    private b eNd;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.eMM = new a(str, chatMessage);
-        this.eMM.execute(new Object[0]);
+        this.eNc = new a(str, chatMessage);
+        this.eNc.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.eMN = bVar;
+        this.eNd = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String eMO;
-        private ChatMessage eMP;
-        private com.baidu.tieba.im.sendmessage.b eMQ = new com.baidu.tieba.im.sendmessage.b();
+        private String eNe;
+        private ChatMessage eNf;
+        private com.baidu.tieba.im.sendmessage.b eNg = new com.baidu.tieba.im.sendmessage.b();
 
         public a(String str, ChatMessage chatMessage) {
-            this.eMO = str;
-            this.eMP = chatMessage;
+            this.eNe = str;
+            this.eNf = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: A */
         public String doInBackground(Object... objArr) {
             try {
-                return this.eMQ.nM(this.eMO);
+                return this.eNg.nM(this.eNe);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.eMN != null) {
-                VoiceSendModel.this.eMN.a(str, this.eMP);
+            if (VoiceSendModel.this.eNd != null) {
+                VoiceSendModel.this.eNd.a(str, this.eNf);
             }
         }
     }

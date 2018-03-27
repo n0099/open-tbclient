@@ -27,7 +27,7 @@ public class j {
         return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.sW(str)) ? false : true;
     }
 
-    public static String alf() {
+    public static String alg() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
@@ -64,49 +64,49 @@ public class j {
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aye;
-        public int cWM;
-        public String cWN;
-        public int cWO;
+        public int ayf;
         public int cWP;
+        public String cWQ;
+        public int cWR;
+        public int cWS;
 
         public a(int i, int i2, int i3) {
-            this.cWM = -1;
-            this.cWN = "";
-            this.aye = d.C0141d.cp_link_tip_c;
-            this.cWO = d.f.pic_dot_title;
-            this.cWP = 0;
-            this.cWM = i;
-            this.aye = i2;
-            this.cWO = i3;
+            this.cWP = -1;
+            this.cWQ = "";
+            this.ayf = d.C0141d.cp_link_tip_c;
+            this.cWR = d.f.pic_dot_title;
+            this.cWS = 0;
+            this.cWP = i;
+            this.ayf = i2;
+            this.cWR = i3;
         }
 
         public a(int i) {
-            this.cWM = -1;
-            this.cWN = "";
-            this.aye = d.C0141d.cp_link_tip_c;
-            this.cWO = d.f.pic_dot_title;
-            this.cWP = 0;
-            this.cWM = i;
+            this.cWP = -1;
+            this.cWQ = "";
+            this.ayf = d.C0141d.cp_link_tip_c;
+            this.cWR = d.f.pic_dot_title;
+            this.cWS = 0;
+            this.cWP = i;
         }
 
         public a(String str) {
-            this.cWM = -1;
-            this.cWN = "";
-            this.aye = d.C0141d.cp_link_tip_c;
-            this.cWO = d.f.pic_dot_title;
-            this.cWP = 0;
-            this.cWN = str;
+            this.cWP = -1;
+            this.cWQ = "";
+            this.ayf = d.C0141d.cp_link_tip_c;
+            this.cWR = d.f.pic_dot_title;
+            this.cWS = 0;
+            this.cWQ = str;
         }
 
         public a(String str, int i) {
-            this.cWM = -1;
-            this.cWN = "";
-            this.aye = d.C0141d.cp_link_tip_c;
-            this.cWO = d.f.pic_dot_title;
-            this.cWP = 0;
-            this.cWN = str;
-            this.cWO = i;
+            this.cWP = -1;
+            this.cWQ = "";
+            this.ayf = d.C0141d.cp_link_tip_c;
+            this.cWR = d.f.pic_dot_title;
+            this.cWS = 0;
+            this.cWQ = str;
+            this.cWR = i;
         }
     }
 
@@ -122,24 +122,24 @@ public class j {
         for (int i = 0; i != arrayList.size(); i++) {
             a aVar = arrayList.get(i);
             if (aVar != null) {
-                if (aVar.cWM > 0) {
-                    aVar.cWN = context.getString(aVar.cWM);
+                if (aVar.cWP > 0) {
+                    aVar.cWQ = context.getString(aVar.cWP);
                 }
-                if (!com.baidu.adp.lib.util.k.isEmpty(aVar.cWN)) {
+                if (!com.baidu.adp.lib.util.k.isEmpty(aVar.cWQ)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.cWN);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(aVar.aye)), length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.append((CharSequence) aVar.cWQ);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(aVar.ayf)), length, spannableStringBuilder.length(), 17);
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap fO = aj.fO(aVar.cWO);
+                    Bitmap fO = aj.fO(aVar.cWR);
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(fO);
                     if (fO != null) {
                         bitmapDrawable.setBounds(0, 0, fO.getWidth(), fO.getHeight());
                     }
                     com.baidu.tbadk.core.view.m mVar = new com.baidu.tbadk.core.view.m(bitmapDrawable);
-                    if (aVar.cWP != 0) {
-                        mVar.setOffset(aVar.cWP);
+                    if (aVar.cWS != 0) {
+                        mVar.setOffset(aVar.cWS);
                     }
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) " ");
@@ -167,7 +167,7 @@ public class j {
             return;
         }
         textView.setVisibility(0);
-        bdVar.aOy = 0;
+        bdVar.aOz = 0;
         bdVar.c(false, true, false);
         SpannableStringBuilder zN = bdVar.zN();
         textView.setOnTouchListener(new com.baidu.tieba.view.m(zN));
@@ -187,7 +187,7 @@ public class j {
             return;
         }
         textView.setVisibility(0);
-        bdVar.aOy = 0;
+        bdVar.aOz = 0;
         bdVar.h(false, true);
         SpannableStringBuilder zN = bdVar.zN();
         textView.setOnTouchListener(new com.baidu.tieba.view.m(zN));

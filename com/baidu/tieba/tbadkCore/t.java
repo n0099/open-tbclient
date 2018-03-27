@@ -1,153 +1,28 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bd;
 /* loaded from: classes.dex */
-public class t {
+public class t extends bd {
+    public static final BdUniqueId gZV = BdUniqueId.gen();
+    private String fortune_desc;
+    private boolean gZW;
+    private n gZX;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(WriteData writeData);
+    public boolean bws() {
+        return this.gZW;
     }
 
-    public static void a(String str, a aVar) {
-        if (am.isEmpty(str)) {
-            if (aVar != null) {
-                aVar.a(null);
-                return;
-            }
-            return;
-        }
-        new b(sI(str), aVar).execute(new String[0]);
+    public String bwt() {
+        return this.fortune_desc;
     }
 
-    public static void b(String str, a aVar) {
-        if (am.isEmpty(str)) {
-            if (aVar != null) {
-                aVar.a(null);
-                return;
-            }
-            return;
-        }
-        new b(sH(str), aVar).execute(new String[0]);
+    public n bwu() {
+        return this.gZX;
     }
 
-    public static void c(String str, a aVar) {
-        if (am.isEmpty(str)) {
-            if (aVar != null) {
-                aVar.a(null);
-                return;
-            }
-            return;
-        }
-        new b(sJ(str), aVar).execute(new String[0]);
-    }
-
-    public static void b(final String str, final WriteData writeData) {
-        if (!am.isEmpty(str)) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.tbadkCore.t.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> dh = com.baidu.tbadk.core.c.a.AQ().dh("tb.pb_editor");
-                    if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        dh.a(t.sJ(str), WriteData.this.toDraftString(), 604800000L);
-                        return null;
-                    }
-                    dh.remove(t.sJ(str));
-                    return null;
-                }
-            }.execute(new Void[0]);
-        }
-    }
-
-    public static void c(final String str, final WriteData writeData) {
-        if (!am.isEmpty(str)) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.tbadkCore.t.2
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> dh = com.baidu.tbadk.core.c.a.AQ().dh("tb.pb_editor");
-                    if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        dh.a(t.sI(str), WriteData.this.toDraftString(), 604800000L);
-                        return null;
-                    }
-                    dh.remove(t.sI(str));
-                    return null;
-                }
-            }.execute(new Void[0]);
-        }
-    }
-
-    public static void d(final String str, final WriteData writeData) {
-        if (!am.isEmpty(str)) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.tbadkCore.t.3
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> dh = com.baidu.tbadk.core.c.a.AQ().dh("tb.pb_editor");
-                    if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        dh.a(t.sH(str), WriteData.this.toDraftString(), 604800000L);
-                        return null;
-                    }
-                    dh.remove(t.sH(str));
-                    return null;
-                }
-            }.execute(new Void[0]);
-        }
-    }
-
-    protected static String sH(String str) {
-        return TbadkCoreApplication.getCurrentAccount() + "@subpb" + str;
-    }
-
-    protected static String sI(String str) {
-        return TbadkCoreApplication.getCurrentAccount() + "@pb" + str;
-    }
-
-    protected static String sJ(String str) {
-        return TbadkCoreApplication.getCurrentAccount() + "@frs";
-    }
-
-    /* loaded from: classes.dex */
-    private static class b extends BdAsyncTask<String, String, WriteData> {
-        private final String cacheKey;
-        private final a gZF;
-
-        public b(String str, a aVar) {
-            setPriority(3);
-            this.gZF = aVar;
-            this.cacheKey = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: B */
-        public WriteData doInBackground(String... strArr) {
-            String str;
-            try {
-                str = com.baidu.tbadk.core.c.a.AQ().dh("tb.pb_editor").get(this.cacheKey);
-            } catch (Exception e) {
-                str = null;
-            }
-            return WriteData.fromDraftString(str);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(WriteData writeData) {
-            super.onPostExecute(writeData);
-            if (this.gZF != null) {
-                this.gZF.a(writeData);
-            }
-        }
+    @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.i
+    public BdUniqueId getType() {
+        return gZV;
     }
 }

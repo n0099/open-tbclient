@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 class b {
-    private j huA;
-    private float huy;
-    private int huz;
+    private float huW;
+    private int huX;
+    private j huY;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(j jVar) {
-        this.huA = jVar;
+        this.huY = jVar;
     }
 
     public boolean s(MotionEvent motionEvent) {
-        if (this.huA == null || !this.huA.isRecording()) {
+        if (this.huY == null || !this.huY.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float z = z(motionEvent);
-                        int i = (int) ((z - this.huy) / 10.0f);
+                        int i = (int) ((z - this.huW) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.huz;
+                            int i2 = i + this.huX;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.huy = z;
+                            this.huW = z;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.huy = z(motionEvent);
+                    this.huW = z(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.huz = i;
+                this.huX = i;
             }
         }
     }

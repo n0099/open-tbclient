@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.coreExtra.c.e;
 import com.baidu.tieba.d;
-import com.baidu.tieba.tbadkCore.u;
+import com.baidu.tieba.tbadkCore.v;
 /* loaded from: classes3.dex */
 public class c implements View.OnClickListener {
-    private SparseArray<String> gPD;
-    private a gTq;
-    private LinearLayout hmS;
+    private SparseArray<String> gPT;
+    private a gTG;
+    private LinearLayout hnq;
     private Context mContext;
     private com.baidu.tbadk.coreExtra.c.d mShareItem;
 
@@ -35,21 +35,21 @@ public class c implements View.OnClickListener {
     }
 
     public void setShareItemClickListener(a aVar) {
-        this.gTq = aVar;
+        this.gTG = aVar;
     }
 
-    public LinearLayout bAt() {
-        if (this.hmS == null) {
+    public LinearLayout bAy() {
+        if (this.hnq == null) {
             initView();
         }
-        return this.hmS;
+        return this.hnq;
     }
 
     private void initView() {
-        this.hmS = new LinearLayout(this.mContext);
-        this.hmS.setOrientation(0);
+        this.hnq = new LinearLayout(this.mContext);
+        this.hnq.setOrientation(0);
         int t = l.t(this.mContext, d.e.ds18);
-        this.hmS.setPadding(t, l.t(this.mContext, d.e.ds30), t, l.t(this.mContext, d.e.ds26));
+        this.hnq.setPadding(t, l.t(this.mContext, d.e.ds30), t, l.t(this.mContext, d.e.ds26));
         al(d.f.icon_weixin_n, d.j.share_weixin, 4);
         al(d.f.icon_weixin_q_n, d.j.share_weixin_timeline, 3);
         al(d.f.icon_qq_zone_n, d.j.share_qzone, 5);
@@ -59,14 +59,14 @@ public class c implements View.OnClickListener {
     }
 
     private void al(int i, int i2, int i3) {
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(d.h.share_dialog_outer_item, (ViewGroup) this.hmS, false);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(d.h.share_dialog_outer_item, (ViewGroup) this.hnq, false);
         TextView textView = (TextView) viewGroup.findViewById(d.g.name);
         aj.c((ImageView) viewGroup.findViewById(d.g.photo), i);
         textView.setText(i2);
         aj.r(textView, d.C0141d.cp_cont_f);
         viewGroup.setTag(Integer.valueOf(i3));
         viewGroup.setOnClickListener(this);
-        this.hmS.addView(viewGroup);
+        this.hnq.addView(viewGroup);
     }
 
     public void setShareData(com.baidu.tbadk.coreExtra.c.d dVar) {
@@ -75,8 +75,8 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gTq != null) {
-            this.gTq.cN(view);
+        if (this.gTG != null) {
+            this.gTG.cN(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -98,13 +98,13 @@ public class c implements View.OnClickListener {
                 va(2);
                 b(dVar, 3);
                 if (dVar != null) {
-                    if (dVar.blf) {
+                    if (dVar.bli) {
                         dVar.content = "【" + dVar.title + "】 " + dVar.content;
                     }
                     eVar.c(dVar);
                 }
             } else if (num.intValue() == 5) {
-                if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
+                if (v.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     l("share_to_qzone", new Object[0]);
                     va(4);
                     b(dVar, 5);
@@ -114,9 +114,9 @@ public class c implements View.OnClickListener {
                     }
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).Bc();
+                BdToast.a(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).Bd();
             } else if (num.intValue() == 9) {
-                if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
+                if (v.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     l("share_to_qq_friend", new Object[0]);
                     va(8);
                     b(dVar, 9);
@@ -126,13 +126,13 @@ public class c implements View.OnClickListener {
                     }
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).Bc();
+                BdToast.a(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).Bd();
             } else if (num.intValue() == 7) {
                 l("share_to_sweibo", new Object[0]);
                 va(6);
                 b(dVar, 7);
                 if (dVar != null) {
-                    if (!dVar.ble) {
+                    if (!dVar.blh) {
                         dVar.content = j(dVar);
                     }
                     eVar.g(dVar);
@@ -143,8 +143,8 @@ public class c implements View.OnClickListener {
                 com.baidu.adp.lib.util.a.aE(dVar.linkUrl);
                 l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(d.j.copy_pb_url_success));
                 i(dVar);
-                if (dVar != null && dVar.ble) {
-                    af(8, dVar.blq);
+                if (dVar != null && dVar.blh) {
+                    af(8, dVar.blt);
                 }
             }
         }
@@ -152,15 +152,15 @@ public class c implements View.OnClickListener {
 
     private void b(com.baidu.tbadk.coreExtra.c.d dVar, int i) {
         if (dVar != null && dVar.extData != null) {
-            if (dVar.blf) {
+            if (dVar.bli) {
                 TiebaStatic.log(new ak("c10125").ab(ImageViewerConfig.FORUM_ID, dVar.extData).s("obj_type", i));
-            } else if (dVar.blg || dVar.blj) {
-                TiebaStatic.log(new ak("c10125").ab("tid", dVar.extData).s("obj_type", i).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.blt).s("obj_param1", dVar.blu).ab(ImageViewerConfig.FORUM_ID, dVar.fid));
-            } else if (dVar.blh) {
+            } else if (dVar.blj || dVar.blm) {
+                TiebaStatic.log(new ak("c10125").ab("tid", dVar.extData).s("obj_type", i).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.blw).s("obj_param1", dVar.blx).ab(ImageViewerConfig.FORUM_ID, dVar.fid));
+            } else if (dVar.blk) {
                 TiebaStatic.log(new ak("c10427").ab("tid", dVar.extData).s("obj_type", i));
-            } else if (dVar.ble) {
-                af(i, dVar.blq);
-            } else if (dVar.bli) {
+            } else if (dVar.blh) {
+                af(i, dVar.blt);
+            } else if (dVar.bll) {
                 TiebaStatic.log(new ak("c10125").s("obj_param1", 7).s("obj_type", i).ab(ImageViewerConfig.FORUM_ID, dVar.extData));
             }
         }
@@ -171,8 +171,8 @@ public class c implements View.OnClickListener {
     }
 
     private void va(int i) {
-        if (i <= 8 && i > 0 && this.gPD != null) {
-            String str = this.gPD.get(i);
+        if (i <= 8 && i > 0 && this.gPT != null) {
+            String str = this.gPT.get(i);
             if (!am.isEmpty(str)) {
                 l(str, new Object[0]);
             }
@@ -185,13 +185,13 @@ public class c implements View.OnClickListener {
 
     private void i(com.baidu.tbadk.coreExtra.c.d dVar) {
         ak s = new ak("share_success").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 7);
-        if (dVar.blu != 0) {
-            s.s("obj_param1", dVar.blu);
-            if (dVar.blu == 2) {
+        if (dVar.blx != 0) {
+            s.s("obj_param1", dVar.blx);
+            if (dVar.blx == 2) {
                 s.ab(ImageViewerConfig.FORUM_ID, dVar.fid);
-            } else if (dVar.blu == 3) {
-                if (dVar.blv != 0) {
-                    s.s("obj_type", dVar.blv);
+            } else if (dVar.blx == 3) {
+                if (dVar.bly != 0) {
+                    s.s("obj_type", dVar.bly);
                 }
                 s.ab("tid", dVar.tid).ab(ImageViewerConfig.FORUM_ID, dVar.fid);
             }

@@ -5,133 +5,133 @@ import android.os.Message;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a {
-    private static b axa;
-    private static String axb;
-    private static com.baidu.adp.lib.voice.g axc;
-    private static int awZ = 0;
-    private static long axd = 0;
+    private static b axb;
+    private static String axc;
+    private static com.baidu.adp.lib.voice.g axd;
+    private static int axa = 0;
+    private static long axe = 0;
     private static Handler mHandler = new Handler(new Handler.Callback() { // from class: com.baidu.audiorecorder.lib.voice.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    if (a.axc != null) {
-                        a.axc.l(a.axb, message.arg1);
-                        com.baidu.adp.lib.voice.g unused = a.axc = null;
+                    if (a.axd != null) {
+                        a.axd.l(a.axc, message.arg1);
+                        com.baidu.adp.lib.voice.g unused = a.axd = null;
                         break;
                     }
                     break;
                 case 1:
                 case 3:
-                    if (a.axc != null) {
+                    if (a.axd != null) {
                         if (com.baidu.adp.lib.util.f.ot()) {
-                            a.axc.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_create_file_fail));
+                            a.axd.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_create_file_fail));
                         } else {
-                            a.axc.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_sdcard_nospace));
+                            a.axd.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_sdcard_nospace));
                         }
-                        com.baidu.adp.lib.voice.g unused2 = a.axc = null;
+                        com.baidu.adp.lib.voice.g unused2 = a.axd = null;
                         break;
                     }
                     break;
                 case 2:
-                    if (a.axc != null) {
-                        a.axc.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_file_fail));
-                        com.baidu.adp.lib.voice.g unused3 = a.axc = null;
+                    if (a.axd != null) {
+                        a.axd.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_file_fail));
+                        com.baidu.adp.lib.voice.g unused3 = a.axd = null;
                         break;
                     }
                     break;
                 case 4:
-                    if (a.axc != null) {
-                        a.axc.du(message.arg1);
+                    if (a.axd != null) {
+                        a.axd.du(message.arg1);
                         break;
                     }
                     break;
                 case 5:
-                    if (a.axc != null) {
-                        a.axc.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_load_lib_fail));
-                        com.baidu.adp.lib.voice.g unused4 = a.axc = null;
+                    if (a.axd != null) {
+                        a.axd.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_load_lib_fail));
+                        com.baidu.adp.lib.voice.g unused4 = a.axd = null;
                         break;
                     }
                     break;
                 case 6:
-                    if (a.axc != null) {
-                        a.axc.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_init_fail));
-                        com.baidu.adp.lib.voice.g unused5 = a.axc = null;
+                    if (a.axd != null) {
+                        a.axd.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_init_fail));
+                        com.baidu.adp.lib.voice.g unused5 = a.axd = null;
                         break;
                     }
                     break;
                 case 7:
-                    if (a.axc != null) {
-                        a.axc.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_record_timeout_tip));
-                        com.baidu.adp.lib.voice.g unused6 = a.axc = null;
+                    if (a.axd != null) {
+                        a.axd.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_record_timeout_tip));
+                        com.baidu.adp.lib.voice.g unused6 = a.axd = null;
                         break;
                     }
                     break;
                 case 8:
-                    if (a.axc != null) {
-                        a.axc.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_record_short_tip));
-                        com.baidu.adp.lib.voice.g unused7 = a.axc = null;
+                    if (a.axd != null) {
+                        a.axd.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_record_short_tip));
+                        com.baidu.adp.lib.voice.g unused7 = a.axd = null;
                         break;
                     }
                     break;
                 case 9:
-                    if (a.axc != null) {
-                        a.axc.dv(message.arg1);
+                    if (a.axd != null) {
+                        a.axd.dv(message.arg1);
                         break;
                     }
                     break;
                 case 100:
-                    if (a.axc != null) {
-                        a.axc.pn();
+                    if (a.axd != null) {
+                        a.axd.pn();
                         break;
                     }
                     break;
                 default:
-                    if (a.axc != null) {
-                        a.axc.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_other));
-                        com.baidu.adp.lib.voice.g unused8 = a.axc = null;
+                    if (a.axd != null) {
+                        a.axd.error(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_other));
+                        com.baidu.adp.lib.voice.g unused8 = a.axd = null;
                         break;
                     }
                     break;
             }
-            int unused9 = a.awZ = 0;
+            int unused9 = a.axa = 0;
             return false;
         }
     });
 
     public static boolean a(String str, int i, com.baidu.adp.lib.voice.g gVar) {
-        if (System.currentTimeMillis() - axd < 1000) {
+        if (System.currentTimeMillis() - axe < 1000) {
             return false;
         }
-        axd = System.currentTimeMillis();
-        if (awZ == 0) {
-            if (axa == null) {
-                axa = new b(mHandler);
+        axe = System.currentTimeMillis();
+        if (axa == 0) {
+            if (axb == null) {
+                axb = new b(mHandler);
             }
-            axb = str;
-            axc = gVar;
-            if (axa.p(str, i)) {
-                awZ = 3;
-                new Thread(axa).start();
+            axc = str;
+            axd = gVar;
+            if (axb.p(str, i)) {
+                axa = 3;
+                new Thread(axb).start();
                 return true;
             }
-            axa = null;
+            axb = null;
             return false;
         }
         return false;
     }
 
     public static void stop() {
-        if (axa != null) {
-            axa.stop();
+        if (axb != null) {
+            axb.stop();
         }
-        awZ = 0;
+        axa = 0;
     }
 
     public static void cancel() {
-        if (axa != null) {
-            axa.cancel();
+        if (axb != null) {
+            axb.cancel();
         }
-        awZ = 0;
+        axa = 0;
     }
 }

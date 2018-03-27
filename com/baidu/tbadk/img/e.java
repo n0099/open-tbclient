@@ -8,21 +8,21 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class e {
-    private b bwX;
-    private d bwY = new d() { // from class: com.baidu.tbadk.img.e.1
+    private b bxa;
+    private d bxb = new d() { // from class: com.baidu.tbadk.img.e.1
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             String str = null;
             if (imageFileInfo != null) {
-                if (e.this.bwX == null) {
-                    e.this.bwX = new b();
+                if (e.this.bxa == null) {
+                    e.this.bxa = new b();
                 }
                 String filePath = imageFileInfo.getFilePath();
                 LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
                 imageFileInfo.setPageActionsList(null);
-                com.baidu.adp.widget.a.a a = e.this.bwX.a(imageFileInfo, true);
+                com.baidu.adp.widget.a.a a = e.this.bxa.a(imageFileInfo, true);
                 if (a == null) {
-                    Bitmap b = e.this.bwX.b(imageFileInfo, true);
+                    Bitmap b = e.this.bxa.b(imageFileInfo, true);
                     int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
                     if (readPictureDegree != 0 && b != null) {
                         b = BitmapHelper.rotateBitmapBydegree(b, readPictureDegree);
@@ -36,7 +36,7 @@ public class e {
             return str;
         }
     };
-    private d bwZ = new d() { // from class: com.baidu.tbadk.img.e.2
+    private d bxc = new d() { // from class: com.baidu.tbadk.img.e.2
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -45,8 +45,8 @@ public class e {
             return e.this.gR(imageFileInfo.getFilePath());
         }
     };
-    private d bxa = this.bwZ;
-    private d bxb = new d() { // from class: com.baidu.tbadk.img.e.3
+    private d bxd = this.bxc;
+    private d bxe = new d() { // from class: com.baidu.tbadk.img.e.3
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -64,14 +64,14 @@ public class e {
         boolean dN = k.dN(imageFileInfo.getFilePath());
         if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize())) {
             if (dN) {
-                dVar = this.bxa;
+                dVar = this.bxd;
             } else {
-                dVar = this.bwZ;
+                dVar = this.bxc;
             }
         } else if (dN) {
-            dVar = this.bxb;
+            dVar = this.bxe;
         } else {
-            dVar = this.bwY;
+            dVar = this.bxb;
         }
         return dVar.a(imageFileInfo);
     }

@@ -8,13 +8,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends c {
-    public static final String hOq = null;
+    public static final String hOO = null;
     private int adQ;
     private String content;
-    private String hOr;
-    private String hOs;
-    private String hOt;
-    private String hOu;
+    private String hOP;
+    private String hOQ;
+    private String hOR;
+    private String hOS;
     private String params;
     private int responseCode = -2;
 
@@ -67,7 +67,7 @@ public class b extends c {
     }
 
     public void setAppKey(String str) {
-        this.hOr = str;
+        this.hOP = str;
     }
 
     public void setContent(String str) {
@@ -75,11 +75,11 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hOv + ",taskID:" + this.hOw + ",appPackage:" + this.appPackage + ",appKey:" + this.hOr + ",appSecret:" + this.hOs + ",registerID:" + this.hOt + ",sdkVersion:" + this.hOu + ",command:" + this.adQ + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hOT + ",taskID:" + this.hOU + ",appPackage:" + this.appPackage + ",appKey:" + this.hOP + ",appSecret:" + this.hOQ + ",registerID:" + this.hOR + ",sdkVersion:" + this.hOS + ",command:" + this.adQ + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
     public void uW(String str) {
-        this.hOs = str;
+        this.hOQ = str;
     }
 
     public void xV(int i) {

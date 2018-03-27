@@ -10,26 +10,26 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.gamesubpb.a;
 /* loaded from: classes3.dex */
 public class c {
-    private a.InterfaceC0156a dPB;
-    private SpannableTextView dQs;
+    private a.InterfaceC0156a dPG;
+    private SpannableTextView dQx;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
     public c(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.game_sub_comment_view, (ViewGroup) null);
-        this.dQs = (SpannableTextView) this.mRootView.findViewById(d.g.sub_comment_tv);
-        aj.r(this.dQs, d.C0141d.cp_cont_f);
+        this.dQx = (SpannableTextView) this.mRootView.findViewById(d.g.sub_comment_tv);
+        aj.r(this.dQx, d.C0141d.cp_cont_f);
     }
 
     public void f(final com.baidu.tieba.frs.gamesubpb.model.d dVar) {
         if (dVar != null && dVar.userName != null) {
-            this.dQs.f(dVar);
-            this.dQs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.c.1
+            this.dQx.f(dVar);
+            this.dQx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.dPB != null) {
-                        c.this.dPB.c(dVar);
+                    if (c.this.dPG != null) {
+                        c.this.dPG.c(dVar);
                     }
                 }
             });
@@ -41,21 +41,21 @@ public class c {
     }
 
     public void setClickListener(a.InterfaceC0156a interfaceC0156a) {
-        this.dPB = interfaceC0156a;
-        this.dQs.setClickListener(interfaceC0156a);
+        this.dPG = interfaceC0156a;
+        this.dQx.setClickListener(interfaceC0156a);
     }
 
     /* loaded from: classes3.dex */
     public static class a extends r.a {
-        private c dQu;
+        private c dQz;
 
         public a(c cVar) {
             super(cVar.getRootView());
-            this.dQu = cVar;
+            this.dQz = cVar;
         }
 
         public void f(com.baidu.tieba.frs.gamesubpb.model.d dVar) {
-            this.dQu.f(dVar);
+            this.dQz.f(dVar);
         }
     }
 }

@@ -4,16 +4,16 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes2.dex */
 abstract class f implements org.aspectj.lang.c {
-    ClassLoader ilY = null;
-    int imj;
-    String imk;
-    Class iml;
-    a imm;
-    private String imn;
+    int imH;
+    String imI;
+    Class imJ;
+    a imK;
+    private String imL;
+    ClassLoader imx = null;
     String name;
-    private static boolean dmr = true;
+    private static boolean dmu = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] imo = new Class[0];
+    static Class[] imM = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.imj = -1;
-        this.imj = i;
+        this.imH = -1;
+        this.imH = i;
         this.name = str;
-        this.iml = cls;
+        this.imJ = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (dmr) {
-            if (this.imm == null) {
+        if (dmu) {
+            if (this.imK == null) {
                 try {
-                    this.imm = new b();
+                    this.imK = new b();
                 } catch (Throwable th) {
-                    dmr = false;
+                    dmu = false;
                 }
             } else {
-                str = this.imm.zy(hVar.imz);
+                str = this.imK.zy(hVar.imX);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (dmr) {
-            this.imm.ar(hVar.imz, str);
+        if (dmu) {
+            this.imK.ar(hVar.imX, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.imB);
+        return a(h.imZ);
     }
 
     public int getModifiers() {
-        if (this.imj == -1) {
-            this.imj = zv(0);
+        if (this.imH == -1) {
+            this.imH = zv(0);
         }
-        return this.imj;
+        return this.imH;
     }
 
     public String getName() {
@@ -74,43 +74,43 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class bRX() {
-        if (this.iml == null) {
-            this.iml = zw(2);
+    public Class bSc() {
+        if (this.imJ == null) {
+            this.imJ = zw(2);
         }
-        return this.iml;
+        return this.imJ;
     }
 
-    public String bRY() {
-        if (this.imk == null) {
-            this.imk = bRX().getName();
+    public String bSd() {
+        if (this.imI == null) {
+            this.imI = bSc().getName();
         }
-        return this.imk;
+        return this.imI;
     }
 
-    private ClassLoader bRZ() {
-        if (this.ilY == null) {
-            this.ilY = getClass().getClassLoader();
+    private ClassLoader bSe() {
+        if (this.imx == null) {
+            this.imx = getClass().getClassLoader();
         }
-        return this.ilY;
+        return this.imx;
     }
 
     String zu(int i) {
         int i2 = 0;
-        int indexOf = this.imn.indexOf(45);
+        int indexOf = this.imL.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.imn.indexOf(45, i2);
+            indexOf = this.imL.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.imn.length();
+            indexOf = this.imL.length();
         }
-        return this.imn.substring(i2, indexOf);
+        return this.imL.substring(i2, indexOf);
     }
 
     int zv(int i) {
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class zw(int i) {
-        return org.aspectj.a.b.b.b(zu(i), bRZ());
+        return org.aspectj.a.b.b.b(zu(i), bSe());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bRZ());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bSe());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static final class b implements a {
-        private SoftReference imp;
+        private SoftReference imN;
 
         public b() {
-            bSb();
+            bSg();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String zy(int i) {
-            String[] bSa = bSa();
-            if (bSa == null) {
+            String[] bSf = bSf();
+            if (bSf == null) {
                 return null;
             }
-            return bSa[i];
+            return bSf[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void ar(int i, String str) {
-            String[] bSa = bSa();
-            if (bSa == null) {
-                bSa = bSb();
+            String[] bSf = bSf();
+            if (bSf == null) {
+                bSf = bSg();
             }
-            bSa[i] = str;
+            bSf[i] = str;
         }
 
-        private String[] bSa() {
-            return (String[]) this.imp.get();
+        private String[] bSf() {
+            return (String[]) this.imN.get();
         }
 
-        private String[] bSb() {
+        private String[] bSg() {
             String[] strArr = new String[3];
-            this.imp = new SoftReference(strArr);
+            this.imN = new SoftReference(strArr);
             return strArr;
         }
     }

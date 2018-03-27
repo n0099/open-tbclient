@@ -11,37 +11,37 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class au {
     private TranslateAnimation mTipInAnimation;
-    private View dHy = null;
-    private int dHz = 2000;
+    private View dHD = null;
+    private int dHE = 2000;
     private Runnable mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.frs.au.1
         @Override // java.lang.Runnable
         public void run() {
             au.this.hideTip();
         }
     };
-    private ValueAnimator dHA = new ValueAnimator();
+    private ValueAnimator dHF = new ValueAnimator();
 
     public au() {
-        this.dHA.setFloatValues(1.0f, 0.0f);
-        this.dHA.setDuration(400L);
-        this.dHA.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.au.2
+        this.dHF.setFloatValues(1.0f, 0.0f);
+        this.dHF.setDuration(400L);
+        this.dHF.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.au.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (au.this.dHy != null && valueAnimator != null) {
-                    au.this.dHy.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (au.this.dHD != null && valueAnimator != null) {
+                    au.this.dHD.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.dHA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.au.3
+        this.dHF.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.au.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (au.this.dHy != null) {
-                    au.this.awu();
-                    au.this.dHy.setAlpha(1.0f);
+                if (au.this.dHD != null) {
+                    au.this.aww();
+                    au.this.dHD.setAlpha(1.0f);
                 }
             }
 
@@ -62,7 +62,7 @@ public class au {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.g.e.ns().postDelayed(au.this.mHideTipRunnable, au.this.dHz);
+                com.baidu.adp.lib.g.e.ns().postDelayed(au.this.mHideTipRunnable, au.this.dHE);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,47 +73,47 @@ public class au {
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.dHy = view;
-            awu();
-            viewGroup.addView(this.dHy, layoutParams);
-            this.dHy.setVisibility(0);
-            this.dHz = i;
+            this.dHD = view;
+            aww();
+            viewGroup.addView(this.dHD, layoutParams);
+            this.dHD.setVisibility(0);
+            this.dHE = i;
             com.baidu.adp.lib.g.e.ns().removeCallbacks(this.mHideTipRunnable);
-            com.baidu.adp.lib.g.e.ns().postDelayed(this.mHideTipRunnable, this.dHz);
+            com.baidu.adp.lib.g.e.ns().postDelayed(this.mHideTipRunnable, this.dHE);
         }
     }
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
-            this.dHy = view;
-            awu();
-            viewGroup.addView(this.dHy, layoutParams);
-            this.dHy.setVisibility(0);
+            this.dHD = view;
+            aww();
+            viewGroup.addView(this.dHD, layoutParams);
+            this.dHD.setVisibility(0);
         }
     }
 
     public void hideTip() {
         com.baidu.adp.lib.g.e.ns().removeCallbacks(this.mHideTipRunnable);
-        if (this.dHy != null && this.dHy.getParent() != null && this.dHy.getVisibility() == 0 && !this.dHA.isRunning()) {
-            this.dHA.start();
+        if (this.dHD != null && this.dHD.getParent() != null && this.dHD.getVisibility() == 0 && !this.dHF.isRunning()) {
+            this.dHF.start();
         }
     }
 
-    public void awu() {
+    public void aww() {
         com.baidu.adp.lib.g.e.ns().removeCallbacks(this.mHideTipRunnable);
-        if (this.dHy != null) {
-            if (this.dHA != null && this.dHA.isRunning()) {
-                this.dHA.cancel();
+        if (this.dHD != null) {
+            if (this.dHF != null && this.dHF.isRunning()) {
+                this.dHF.cancel();
             }
-            this.dHy.clearAnimation();
-            if (this.dHy.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.dHy.getParent()).removeView(this.dHy);
+            this.dHD.clearAnimation();
+            if (this.dHD.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.dHD.getParent()).removeView(this.dHD);
             }
-            this.dHy.setVisibility(8);
+            this.dHD.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        awu();
+        aww();
     }
 }

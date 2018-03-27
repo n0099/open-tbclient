@@ -11,38 +11,38 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.horizonalList.widget.f {
-    public TextView cVA;
-    public EntelechyUserLikeButton cVB;
-    private com.baidu.tieba.card.data.e cVC;
-    public BarImageView cVz;
+    public BarImageView cVC;
+    public TextView cVD;
+    public EntelechyUserLikeButton cVE;
+    private com.baidu.tieba.card.data.e cVF;
     private int mSkinType;
 
     public d(View view) {
         super(view);
-        this.cVz = null;
-        this.cVA = null;
-        this.cVB = null;
+        this.cVC = null;
+        this.cVD = null;
+        this.cVE = null;
         this.mSkinType = 3;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.f
     public void a(com.baidu.tieba.horizonalList.widget.d dVar) {
         if (dVar != null && (dVar instanceof com.baidu.tieba.card.data.e)) {
-            this.cVC = (com.baidu.tieba.card.data.e) dVar;
-            this.cVz.setTag(this.cVC.forumAvatar);
-            this.cVz.setTag(d.g.tag_forum_name, this.cVC.forumName);
-            this.cVz.startLoad(this.cVC.forumAvatar, 15, false);
-            this.cVA.setText(am.getFixedText(this.cVC.forumName, 4, true) + getView().getContext().getResources().getString(d.j.forum));
-            this.cVA.setTag(d.g.tag_forum_name, this.cVC.forumName);
-            this.cVB.setTag(d.g.tag_forum_id, Long.valueOf(this.cVC.forumId));
-            this.cVB.setTag(d.g.tag_forum_name, this.cVC.forumName);
-            getView().setTag(d.g.tag_forum_id, Long.valueOf(this.cVC.forumId));
-            getView().setTag(d.g.tag_forum_name, this.cVC.forumName);
-            a(this.cVB, this.cVC.isLiked);
-            this.cVz.setOnClickListener(this.blQ);
-            this.cVB.setOnClickListener(this.blQ);
-            this.cVA.setOnClickListener(this.blQ);
-            getView().setOnClickListener(this.blQ);
+            this.cVF = (com.baidu.tieba.card.data.e) dVar;
+            this.cVC.setTag(this.cVF.forumAvatar);
+            this.cVC.setTag(d.g.tag_forum_name, this.cVF.forumName);
+            this.cVC.startLoad(this.cVF.forumAvatar, 15, false);
+            this.cVD.setText(am.getFixedText(this.cVF.forumName, 4, true) + getView().getContext().getResources().getString(d.j.forum));
+            this.cVD.setTag(d.g.tag_forum_name, this.cVF.forumName);
+            this.cVE.setTag(d.g.tag_forum_id, Long.valueOf(this.cVF.forumId));
+            this.cVE.setTag(d.g.tag_forum_name, this.cVF.forumName);
+            getView().setTag(d.g.tag_forum_id, Long.valueOf(this.cVF.forumId));
+            getView().setTag(d.g.tag_forum_name, this.cVF.forumName);
+            a(this.cVE, this.cVF.isLiked);
+            this.cVC.setOnClickListener(this.blT);
+            this.cVE.setOnClickListener(this.blT);
+            this.cVD.setOnClickListener(this.blT);
+            getView().setOnClickListener(this.blT);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -50,11 +50,11 @@ public class d extends com.baidu.tieba.horizonalList.widget.f {
     @Override // com.baidu.tieba.horizonalList.widget.f
     public com.baidu.tieba.horizonalList.widget.f bz(View view) {
         d dVar = new d(view);
-        dVar.cVz = (BarImageView) view.findViewById(d.g.forum_avatar);
-        dVar.cVz.setGifIconSupport(false);
-        dVar.cVA = (TextView) view.findViewById(d.g.m_forum_name_textview);
-        dVar.cVB = (EntelechyUserLikeButton) view.findViewById(d.g.forum_add_love);
-        dVar.emJ = 16908308;
+        dVar.cVC = (BarImageView) view.findViewById(d.g.forum_avatar);
+        dVar.cVC.setGifIconSupport(false);
+        dVar.cVD = (TextView) view.findViewById(d.g.m_forum_name_textview);
+        dVar.cVE = (EntelechyUserLikeButton) view.findViewById(d.g.forum_add_love);
+        dVar.emZ = 16908308;
         return dVar;
     }
 
@@ -62,8 +62,8 @@ public class d extends com.baidu.tieba.horizonalList.widget.f {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             aj.t(getView(), d.C0141d.cp_bg_line_d);
-            aj.r(this.cVA, d.C0141d.cp_cont_b);
-            a(this.cVB, this.cVC.isLiked);
+            aj.r(this.cVD, d.C0141d.cp_cont_b);
+            a(this.cVE, this.cVF.isLiked);
         }
         this.mSkinType = i;
     }

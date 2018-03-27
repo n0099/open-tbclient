@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ae {
-    private String cZB;
-    private int cZC;
-    private String cZD;
     private String cZE;
+    private int cZF;
     private String cZG;
+    private String cZH;
+    private String cZJ;
     private String mSource;
     public String tid;
-    public int cZF = 0;
-    public SparseArray<String> aNg = null;
+    public int cZI = 0;
+    public SparseArray<String> aNh = null;
 
     public void setWeight(String str) {
-        this.cZB = str;
+        this.cZE = str;
     }
 
     public void setSource(String str) {
@@ -32,42 +32,42 @@ public abstract class c extends b implements ae {
     }
 
     public void lD(int i) {
-        this.cZC = i;
+        this.cZF = i;
     }
 
     public void kv(String str) {
-        this.cZD = str;
+        this.cZG = str;
     }
 
-    public int alA() {
-        return this.cZC;
+    public int alB() {
+        return this.cZF;
     }
 
-    public String alB() {
-        return this.mSource + "#" + this.cZC + "#" + this.cZD;
+    public String alC() {
+        return this.mSource + "#" + this.cZF + "#" + this.cZG;
     }
 
     public String getWeight() {
-        return this.cZB;
+        return this.cZE;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String alC() {
-        return this.cZD;
+    public String alD() {
+        return this.cZG;
     }
 
-    public String alD() {
-        return this.cZE;
+    public String alE() {
+        return this.cZH;
     }
 
     public void kw(String str) {
-        this.cZE = str;
+        this.cZH = str;
     }
 
-    public bd WD() {
+    public bd WE() {
         return null;
     }
 
@@ -76,11 +76,11 @@ public abstract class c extends b implements ae {
     }
 
     public void setExtra(String str) {
-        this.cZG = str;
+        this.cZJ = str;
     }
 
     public String getExtra() {
-        return this.cZG;
+        return this.cZJ;
     }
 
     public ak kx(String str) {
@@ -88,35 +88,35 @@ public abstract class c extends b implements ae {
     }
 
     public ak r(String str, boolean z) {
-        bd WD = WD();
-        if (WD == null) {
+        bd WE = WE();
+        if (WE == null) {
             return null;
         }
-        ak ab = new ak(str).ab(ImageViewerConfig.FORUM_ID, String.valueOf(WD.getFid())).ab("tid", String.valueOf(WD.getTid())).ab("obj_id", getExtra()).ab("obj_param1", getWeight()).s("obj_param2", 1).ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", alA()).ab("uid", TbadkCoreApplication.getCurrentAccount()).ab("obj_param3", com.baidu.tieba.card.j.alf());
+        ak ab = new ak(str).ab(ImageViewerConfig.FORUM_ID, String.valueOf(WE.getFid())).ab("tid", String.valueOf(WE.getTid())).ab("obj_id", getExtra()).ab("obj_param1", getWeight()).s("obj_param2", 1).ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", alB()).ab("uid", TbadkCoreApplication.getCurrentAccount()).ab("obj_param3", com.baidu.tieba.card.j.alg());
         if (!z) {
-            ab.s("obj_type", alE());
+            ab.s("obj_type", alF());
         } else {
-            if (WD.aQj > 0) {
+            if (WE.aQk > 0) {
                 ab.s("midpageflag", 1);
             } else {
                 ab.s("midpageflag", 0);
             }
-            ab.ab("ab_tag", alC());
+            ab.ab("ab_tag", alD());
         }
-        if (WD.AA() != null && WD.AA().bwW() != null && WD.AA().bwW().Rh() != null && WD.AA().bwW().Rh().size() > 0) {
-            ab.s("obj_to", WD.AA().hbg ? 2 : 1);
+        if (WE.AA() != null && WE.AA().bxb() != null && WE.AA().bxb().Ri() != null && WE.AA().bxb().Ri().size() > 0) {
+            ab.s("obj_to", WE.AA().hbE ? 2 : 1);
         }
         return ab;
     }
 
     public ak U(String str, int i) {
-        bd WD = WD();
-        if (WD == null) {
+        bd WE = WE();
+        if (WE == null) {
             return null;
         }
-        ak ab = new ak(str).ab(ImageViewerConfig.FORUM_ID, String.valueOf(WD.getFid())).ab("tid", String.valueOf(WD.getTid())).s("obj_id", L(WD)).s("obj_param2", 1).ab("obj_param1", getWeight()).ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", alA()).ab("obj_name", alC()).ab("uid", TbadkCoreApplication.getCurrentAccount()).ab("obj_param3", com.baidu.tieba.card.j.alf());
+        ak ab = new ak(str).ab(ImageViewerConfig.FORUM_ID, String.valueOf(WE.getFid())).ab("tid", String.valueOf(WE.getTid())).s("obj_id", L(WE)).s("obj_param2", 1).ab("obj_param1", getWeight()).ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", alB()).ab("obj_name", alD()).ab("uid", TbadkCoreApplication.getCurrentAccount()).ab("obj_param3", com.baidu.tieba.card.j.alg());
         if (i == 0) {
-            ab.s("obj_type", alE());
+            ab.s("obj_type", alF());
         } else {
             ab.s("obj_type", i);
         }
@@ -124,14 +124,14 @@ public abstract class c extends b implements ae {
         return ab;
     }
 
-    private int alE() {
+    private int alF() {
         int i;
         int i2 = 0;
-        bd WD = WD();
-        if (WD == null) {
+        bd WE = WE();
+        if (WE == null) {
             return 0;
         }
-        ArrayList<MediaData> zy = WD.zy();
+        ArrayList<MediaData> zy = WE.zy();
         if (zy == null) {
             i = 0;
         } else {
@@ -153,9 +153,9 @@ public abstract class c extends b implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bd WD = WD();
-        if (WD != null) {
-            return WD.getImages();
+        bd WE = WE();
+        if (WE != null) {
+            return WE.getImages();
         }
         return null;
     }

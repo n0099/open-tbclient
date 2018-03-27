@@ -20,8 +20,8 @@ public class Static {
                         aVar.setForumName(historyMessage.forumName);
                         aVar.pO(historyMessage.threadName);
                         aVar.pP(historyMessage.postID);
-                        aVar.jw(historyMessage.isHostOnly);
-                        aVar.jx(historyMessage.isSquence);
+                        aVar.jB(historyMessage.isHostOnly);
+                        aVar.jC(historyMessage.isSquence);
                         aVar.setThreadType(historyMessage.threadType);
                         aVar.setCartoonId(historyMessage.cartoonId);
                         aVar.setChapterId(historyMessage.chapterId);

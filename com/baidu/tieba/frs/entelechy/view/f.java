@@ -15,10 +15,10 @@ import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes2.dex */
 public class f extends i {
-    private FrsPicVoteLayout dLO;
-    private FrsPicVotePhotoFrame dLP;
-    private FrsPicVotePhotoFrame dLQ;
-    private FrsPicVotePhotoFrame dLR;
+    private FrsPicVoteLayout dLT;
+    private FrsPicVotePhotoFrame dLU;
+    private FrsPicVotePhotoFrame dLV;
+    private FrsPicVotePhotoFrame dLW;
 
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -32,27 +32,27 @@ public class f extends i {
             findViewById = ((ViewStub) this.mRootView.findViewById(d.g.pic_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.dLO = (FrsPicVoteLayout) findViewById;
+            this.dLT = (FrsPicVoteLayout) findViewById;
             int t = com.baidu.adp.lib.util.l.t(getContext(), d.e.ds20);
-            if (this.dLO.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.dLO.getLayoutParams()).topMargin = t;
+            if (this.dLT.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.dLT.getLayoutParams()).topMargin = t;
             }
-            if (this.dMi.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.dMi.getLayoutParams()).topMargin = t;
+            if (this.dMn.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.dMn.getLayoutParams()).topMargin = t;
             }
-            this.dLP = (FrsPicVotePhotoFrame) this.dLO.findViewById(d.g.frs_pic_vote_photoframe_1);
-            this.dLQ = (FrsPicVotePhotoFrame) this.dLO.findViewById(d.g.frs_pic_vote_photoframe_2);
-            this.dLR = (FrsPicVotePhotoFrame) this.dLO.findViewById(d.g.frs_pic_vote_photoframe_3);
-            this.dLP.setPageId(getTag());
-            this.dLQ.setPageId(getTag());
-            this.dLR.setPageId(getTag());
+            this.dLU = (FrsPicVotePhotoFrame) this.dLT.findViewById(d.g.frs_pic_vote_photoframe_1);
+            this.dLV = (FrsPicVotePhotoFrame) this.dLT.findViewById(d.g.frs_pic_vote_photoframe_2);
+            this.dLW = (FrsPicVotePhotoFrame) this.dLT.findViewById(d.g.frs_pic_vote_photoframe_3);
+            this.dLU.setPageId(getTag());
+            this.dLV.setPageId(getTag());
+            this.dLW.setPageId(getTag());
             int t2 = com.baidu.adp.lib.util.l.t(getContext(), d.e.ds64);
             int t3 = com.baidu.adp.lib.util.l.t(getContext(), d.e.ds32);
             int t4 = com.baidu.adp.lib.util.l.t(getContext(), d.e.ds4);
-            a(this.dLP, t2, t3, t4);
-            a(this.dLQ, t2, t3, t4);
-            a(this.dLR, t2, t3, t4);
-            axI();
+            a(this.dLU, t2, t3, t4);
+            a(this.dLV, t2, t3, t4);
+            a(this.dLW, t2, t3, t4);
+            axK();
         }
     }
 
@@ -66,16 +66,16 @@ public class f extends i {
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
     protected void nm(int i) {
-        axI();
-        this.dLP.onChangeSkinType(i);
-        this.dLQ.onChangeSkinType(i);
-        this.dLR.onChangeSkinType(i);
+        axK();
+        this.dLU.onChangeSkinType(i);
+        this.dLV.onChangeSkinType(i);
+        this.dLW.onChangeSkinType(i);
     }
 
-    private void axI() {
-        this.dLP.setGrade(aj.getDrawable(d.f.pic_grade_vote_num1));
-        this.dLQ.setGrade(aj.getDrawable(d.f.pic_grade_vote_num2));
-        this.dLR.setGrade(aj.getDrawable(d.f.pic_grade_vote_num3));
+    private void axK() {
+        this.dLU.setGrade(aj.getDrawable(d.f.pic_grade_vote_num1));
+        this.dLV.setGrade(aj.getDrawable(d.f.pic_grade_vote_num2));
+        this.dLW.setGrade(aj.getDrawable(d.f.pic_grade_vote_num3));
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
@@ -83,25 +83,25 @@ public class f extends i {
         if (bdVar != null && bdVar.yZ() != null) {
             List<PollOption> list = bdVar.yZ().options;
             if (!com.baidu.tbadk.core.i.xo().xu() || v.E(list)) {
-                this.dLO.setVisibility(8);
+                this.dLT.setVisibility(8);
                 return;
             }
-            this.dLO.setVisibility(0);
-            this.dLP.setVisibility(0);
-            this.dLQ.setVisibility(0);
+            this.dLT.setVisibility(0);
+            this.dLU.setVisibility(0);
+            this.dLV.setVisibility(0);
             int size = list.size() >= 3 ? 3 : list.size();
-            this.dLR.setVisibility(size == 3 ? 0 : 4);
+            this.dLW.setVisibility(size == 3 ? 0 : 4);
             if (size >= 1) {
                 PollOption pollOption = list.get(0);
-                this.dLP.a(1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), bdVar.yZ().total_poll.longValue());
+                this.dLU.a(1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), bdVar.yZ().total_poll.longValue());
             }
             if (size >= 2) {
                 PollOption pollOption2 = list.get(1);
-                this.dLQ.a(1, pollOption2.image, Boolean.valueOf(this.mIsFromCDN), pollOption2.text, pollOption2.num.longValue(), bdVar.yZ().total_poll.longValue());
+                this.dLV.a(1, pollOption2.image, Boolean.valueOf(this.mIsFromCDN), pollOption2.text, pollOption2.num.longValue(), bdVar.yZ().total_poll.longValue());
             }
             if (size >= 3) {
                 PollOption pollOption3 = list.get(2);
-                this.dLR.a(1, pollOption3.image, Boolean.valueOf(this.mIsFromCDN), pollOption3.text, pollOption3.num.longValue(), bdVar.yZ().total_poll.longValue());
+                this.dLW.a(1, pollOption3.image, Boolean.valueOf(this.mIsFromCDN), pollOption3.text, pollOption3.num.longValue(), bdVar.yZ().total_poll.longValue());
             }
         }
     }

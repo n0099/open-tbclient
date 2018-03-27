@@ -6,89 +6,89 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class h {
-    private PostSearchActivity gxO;
-    private a gyF;
-    private c gyG;
-    private g gyH;
+    private a gyV;
+    private c gyW;
+    private g gyX;
+    private PostSearchActivity gye;
     private View mRootView;
 
     public h(PostSearchActivity postSearchActivity) {
-        this.gxO = postSearchActivity;
+        this.gye = postSearchActivity;
     }
 
     public void initView() {
-        this.gxO.setContentView(d.h.post_search_activity);
-        this.mRootView = this.gxO.findViewById(d.g.search_rootview);
-        this.gyF = new a(this.gxO, this.mRootView);
-        this.gyG = new c(this.gxO, this.mRootView);
-        this.gyH = new g(this.gxO, this.mRootView);
+        this.gye.setContentView(d.h.post_search_activity);
+        this.mRootView = this.gye.findViewById(d.g.search_rootview);
+        this.gyV = new a(this.gye, this.mRootView);
+        this.gyW = new c(this.gye, this.mRootView);
+        this.gyX = new g(this.gye, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.gyH != null) {
-            this.gyH.setOnPageChangeListener(onPageChangeListener);
+        if (this.gyX != null) {
+            this.gyX.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void ar(ArrayList<String> arrayList) {
-        this.gyH.fh(false);
-        this.gyG.ar(arrayList);
+        this.gyX.fh(false);
+        this.gyW.ar(arrayList);
     }
 
     public void uf(int i) {
-        this.gyF.aAT();
-        bmI();
-        this.gyF.bmJ();
-        this.gyH.fh(true);
-        this.gyH.uf(i);
+        this.gyV.aAV();
+        bmJ();
+        this.gyV.bmK();
+        this.gyX.fh(true);
+        this.gyX.uf(i);
     }
 
     public void rv(String str) {
-        this.gyF.rv(str);
+        this.gyV.rv(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.gyH.a(i, bVar, z);
+        this.gyX.a(i, bVar, z);
     }
 
-    public boolean bmN() {
-        return this.gyG.bmV();
-    }
-
-    public void VT() {
-        this.gyG.VT();
+    public boolean bmO() {
+        return this.gyW.bmW();
     }
 
     public void VU() {
-        this.gyG.VU();
+        this.gyW.VU();
     }
 
-    public void bmU() {
-        this.gyG.bmU();
+    public void VV() {
+        this.gyW.VV();
     }
 
-    public void bmI() {
-        this.gyF.bmI();
+    public void bmV() {
+        this.gyW.bmV();
     }
 
-    public void bng() {
-        this.gyG.bmT();
+    public void bmJ() {
+        this.gyV.bmJ();
+    }
+
+    public void bnh() {
+        this.gyW.bmU();
     }
 
     public int getCurrentTabType() {
-        return this.gyH.getCurrentTabType();
+        return this.gyX.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.gyF.onChangeSkinType(i);
-        this.gyG.onChangeSkinType(i);
-        this.gyH.onChangeSkinType(i);
-        com.baidu.tbadk.n.a.a(this.gxO.getPageContext(), this.mRootView);
+        this.gyV.onChangeSkinType(i);
+        this.gyW.onChangeSkinType(i);
+        this.gyX.onChangeSkinType(i);
+        com.baidu.tbadk.n.a.a(this.gye.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.gyF != null) {
-            this.gyF.onDestroy();
+        if (this.gyV != null) {
+            this.gyV.onDestroy();
         }
     }
 }

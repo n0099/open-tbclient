@@ -80,7 +80,7 @@ public class a<T> {
         return this.subType;
     }
 
-    public T aMo() {
+    public T aMp() {
         return this.Mm;
     }
 }

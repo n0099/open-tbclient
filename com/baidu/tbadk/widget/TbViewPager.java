@@ -11,8 +11,8 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float bEQ;
-    private boolean bfv;
+    private float bET;
+    private boolean bfy;
     private int mDuration;
     private int mTouchSlop;
 
@@ -54,14 +54,14 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context) {
         super(context);
-        this.bfv = false;
+        this.bfy = false;
         this.mDuration = 600;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bfv = false;
+        this.bfy = false;
         this.mDuration = 600;
         init();
     }
@@ -72,7 +72,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.bfv = z;
+        this.bfy = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -81,7 +81,7 @@ public class TbViewPager extends ViewPager {
         if (x(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.bfv) {
+        if (motionEvent.getPointerCount() > 1 && this.bfy) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -109,15 +109,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 bB(true);
-                this.bEQ = motionEvent.getX();
+                this.bET = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 bB(false);
-                this.bEQ = 0.0f;
+                this.bET = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.bEQ;
+                float x = motionEvent.getX() - this.bET;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         bB(false);

@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel {
-    private BdUniqueId eSP;
-    private a eSQ;
+    private BdUniqueId eTe;
+    private a eTf;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,9 +24,9 @@ public class ReplyMeModel extends BdBaseModel {
 
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eSP = BdUniqueId.gen();
+        this.eTe = BdUniqueId.gen();
         this.mPageContext = tbPageContext;
-        aNG();
+        aNH();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -39,7 +39,7 @@ public class ReplyMeModel extends BdBaseModel {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aNG() {
+    public void aNH() {
         com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -64,7 +64,7 @@ public class ReplyMeModel extends BdBaseModel {
                 long repostId = checkPostResponseMessage.getRepostId();
                 String forumName = checkPostResponseMessage.getForumName();
                 if (postState == 1) {
-                    ReplyMeModel.this.eSQ.a(forumId, quoteId, repostId, forumName);
+                    ReplyMeModel.this.eTf.a(forumId, quoteId, repostId, forumName);
                 } else if (postState == 0) {
                     ReplyMeModel.this.mPageContext.showToast(d.j.thread_delete_tip);
                 } else if (postState == -1) {
@@ -88,6 +88,6 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.eSQ = aVar;
+        this.eTf = aVar;
     }
 }

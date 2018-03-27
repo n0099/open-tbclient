@@ -17,8 +17,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo fFe;
-    private a.C0236a fFf;
+    private SkinInfo fFu;
+    private a.C0236a fFv;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -46,16 +46,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.fFe != skinInfo && c0236a != null) {
-            this.fFf = c0236a;
-            this.fFf.em(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.fFf.ce("obj_id", skinInfo.obj_id);
-            this.fFf.ce("obj_url", skinInfo.url);
-            this.fFf.ce("obj_name", skinInfo.monitor_id);
-            this.fFf.ce(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.fFf.save();
+        if (this.fFu != skinInfo && c0236a != null) {
+            this.fFv = c0236a;
+            this.fFv.em(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.fFv.ce("obj_id", skinInfo.obj_id);
+            this.fFv.ce("obj_url", skinInfo.url);
+            this.fFv.ce("obj_name", skinInfo.monitor_id);
+            this.fFv.ce(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.fFv.save();
         }
-        this.fFe = skinInfo;
+        this.fFu = skinInfo;
         int ao = l.ao(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = ao;
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fFe != null && !StringUtils.isNull(this.fFe.url)) {
-            if (this.fFf != null) {
-                this.fFf.em(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.fFf.ce(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.fFf.save();
+        if (this.fFu != null && !StringUtils.isNull(this.fFu.url)) {
+            if (this.fFv != null) {
+                this.fFv.em(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.fFv.ce(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.fFv.save();
             }
-            aw.Dt().c(this.mTbPageContext, new String[]{this.fFe.url});
+            aw.Du().c(this.mTbPageContext, new String[]{this.fFu.url});
         }
     }
 }

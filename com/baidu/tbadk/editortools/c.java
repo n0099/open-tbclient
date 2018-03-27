@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ImageView implements l {
-    private boolean brT;
+    private boolean brW;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -19,7 +19,7 @@ public class c extends ImageView implements l {
     public c(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.brT = false;
+        this.brW = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -48,7 +48,7 @@ public class c extends ImageView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void hide() {
-        La();
+        Lb();
         setVisibility(8);
     }
 
@@ -83,7 +83,7 @@ public class c extends ImageView implements l {
         }
     }
 
-    public void La() {
+    public void Lb() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,7 +98,7 @@ public class c extends ImageView implements l {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                La();
+                Lb();
             } else if (aVar.data instanceof String) {
                 gi((String) aVar.data);
             }
@@ -120,11 +120,11 @@ public class c extends ImageView implements l {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.brT;
+        return this.brW;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.brT = z;
+        this.brW = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

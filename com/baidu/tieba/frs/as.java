@@ -14,7 +14,7 @@ class as implements ah {
 
     @Override // com.baidu.tieba.frs.ah
     public com.baidu.adp.widget.ListView.a<? extends bd, ? extends r.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        if (bdUniqueId == bd.aPE) {
+        if (bdUniqueId == bd.aPF) {
             return new com.baidu.tieba.frs.entelechy.a.j(tbPageContext, bdUniqueId, bdUniqueId2);
         }
         throw new IllegalArgumentException("Unsupported adapter type.");
@@ -22,10 +22,10 @@ class as implements ah {
 
     @Override // com.baidu.tieba.frs.ah
     public com.baidu.adp.widget.ListView.a<? extends bd, ? extends r.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        if (bdUniqueId == com.baidu.tieba.tbadkCore.s.gZy) {
+        if (bdUniqueId == com.baidu.tieba.tbadkCore.t.gZV) {
             return new com.baidu.tieba.frs.entelechy.a.e(tbPageContext, bdUniqueId, z);
         }
-        if (bdUniqueId == bd.aPx) {
+        if (bdUniqueId == bd.aPy) {
             return new com.baidu.tieba.frs.entelechy.a.m(tbPageContext, bdUniqueId, bdUniqueId2, z);
         }
         throw new IllegalArgumentException("Unsupported adapter type.");

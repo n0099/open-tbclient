@@ -11,10 +11,10 @@ import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 /* loaded from: classes.dex */
 public class SetPrivacyModel extends BdBaseModel {
     public static final BdUniqueId UNIQUE_ID_SET_PRIVACY_TASK = BdUniqueId.gen();
-    private static final String fvt = TbConfig.SERVER_ADDRESS + TbConfig.URL_SET_PRIVACY;
-    private CardPersonDynamicThreadData fvu;
-    private b fvv;
-    private a fvw;
+    private static final String fvJ = TbConfig.SERVER_ADDRESS + TbConfig.URL_SET_PRIVACY;
+    private CardPersonDynamicThreadData fvK;
+    private b fvL;
+    private a fvM;
     private boolean isRunning;
     private x mNetWork;
 
@@ -27,11 +27,11 @@ public class SetPrivacyModel extends BdBaseModel {
 
     public SetPrivacyModel(e eVar, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
         super(eVar);
-        this.fvu = cardPersonDynamicThreadData;
+        this.fvK = cardPersonDynamicThreadData;
     }
 
     public void a(a aVar) {
-        this.fvw = aVar;
+        this.fvM = aVar;
     }
 
     public boolean isRunning() {
@@ -40,19 +40,19 @@ public class SetPrivacyModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.fvv != null) {
+        if (this.fvL != null) {
             return false;
         }
-        this.fvv = new b();
-        this.fvv.setTag(UNIQUE_ID_SET_PRIVACY_TASK);
-        this.fvv.execute(this.fvu);
+        this.fvL = new b();
+        this.fvL.setTag(UNIQUE_ID_SET_PRIVACY_TASK);
+        this.fvL.execute(this.fvK);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.fvv != null) {
-            this.fvv.cancel();
+        if (this.fvL != null) {
+            this.fvL.cancel();
             return true;
         }
         return false;
@@ -82,15 +82,15 @@ public class SetPrivacyModel extends BdBaseModel {
             CardPersonDynamicThreadData cardPersonDynamicThreadData = cardPersonDynamicThreadDataArr[0];
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                SetPrivacyModel.this.mNetWork = new x(SetPrivacyModel.fvt);
-                SetPrivacyModel.this.mNetWork.Cy().Dv().mIsNeedTbs = true;
+                SetPrivacyModel.this.mNetWork = new x(SetPrivacyModel.fvJ);
+                SetPrivacyModel.this.mNetWork.Cz().Dw().mIsNeedTbs = true;
                 SetPrivacyModel.this.mNetWork.n("user_id", currentAccount);
                 SetPrivacyModel.this.mNetWork.n("forum_id", cardPersonDynamicThreadData.forumId);
                 SetPrivacyModel.this.mNetWork.n("thread_id", cardPersonDynamicThreadData.threadId);
                 SetPrivacyModel.this.mNetWork.n("post_id", cardPersonDynamicThreadData.postId);
                 SetPrivacyModel.this.mNetWork.n("is_hide", String.valueOf(cardPersonDynamicThreadData.isPrivacy ? 0 : 1));
-                SetPrivacyModel.this.mNetWork.Ca();
-                return Integer.valueOf(SetPrivacyModel.this.mNetWork.Cy().Dw().isRequestSuccess() ? 1 : 0);
+                SetPrivacyModel.this.mNetWork.Cb();
+                return Integer.valueOf(SetPrivacyModel.this.mNetWork.Cz().Dx().isRequestSuccess() ? 1 : 0);
             }
             return null;
         }
@@ -102,7 +102,7 @@ public class SetPrivacyModel extends BdBaseModel {
                 SetPrivacyModel.this.mNetWork.mS();
             }
             SetPrivacyModel.this.isRunning = false;
-            SetPrivacyModel.this.fvv = null;
+            SetPrivacyModel.this.fvL = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,12 +111,12 @@ public class SetPrivacyModel extends BdBaseModel {
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
             SetPrivacyModel.this.isRunning = false;
-            SetPrivacyModel.this.fvv = null;
-            if (SetPrivacyModel.this.fvw != null && SetPrivacyModel.this.mNetWork != null) {
+            SetPrivacyModel.this.fvL = null;
+            if (SetPrivacyModel.this.fvM != null && SetPrivacyModel.this.mNetWork != null) {
                 if (num.intValue() == 1) {
-                    SetPrivacyModel.this.fvw.onSuccess();
+                    SetPrivacyModel.this.fvM.onSuccess();
                 } else if (num.intValue() == 0) {
-                    SetPrivacyModel.this.fvw.onError(SetPrivacyModel.this.mNetWork.getErrorString());
+                    SetPrivacyModel.this.fvM.onError(SetPrivacyModel.this.mNetWork.getErrorString());
                 }
             }
         }

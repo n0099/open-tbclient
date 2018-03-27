@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.settingcache;
 /* loaded from: classes.dex */
 public class f {
-    private static volatile f eNf;
+    private static volatile f eNv;
     private boolean isAcceptNotify;
 
-    public static f aLX() {
-        if (eNf == null) {
+    public static f aLY() {
+        if (eNv == null) {
             synchronized (f.class) {
-                if (eNf == null) {
-                    eNf = new f();
+                if (eNv == null) {
+                    eNv = new f();
                 }
             }
         }
-        return eNf;
+        return eNv;
     }
 
     public boolean isAcceptNotify() {

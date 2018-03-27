@@ -52,65 +52,65 @@ import com.tencent.connect.common.Constants;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseFragment {
-    private NoNetworkView caX;
-    private RelativeLayout dAR;
-    private ShutDownValidateTipView ePB;
-    private b.InterfaceC0097b ePD;
-    private int ePE;
-    private com.baidu.tbadk.core.dialog.d eys;
+    private NoNetworkView cba;
+    private RelativeLayout dAU;
+    private ShutDownValidateTipView ePQ;
+    private b.InterfaceC0097b ePS;
+    private int ePT;
+    private com.baidu.tbadk.core.dialog.d eyI;
     private h mNoDataView;
-    private ImMessageCenterModel ePv = null;
-    private BdBaseFragmentActivity<BaseFragmentActivity> ePw = null;
-    private ImMessageCenterShowItemData ePx = null;
-    private BdListView ePy = null;
-    private ImMessageCenterListAdapter ePz = null;
-    private d ePA = null;
-    com.baidu.tbadk.core.dialog.b ePC = null;
-    private boolean ePF = true;
+    private ImMessageCenterModel ePK = null;
+    private BdBaseFragmentActivity<BaseFragmentActivity> ePL = null;
+    private ImMessageCenterShowItemData ePM = null;
+    private BdListView ePN = null;
+    private ImMessageCenterListAdapter ePO = null;
+    private d ePP = null;
+    com.baidu.tbadk.core.dialog.b ePR = null;
+    private boolean ePU = true;
     private final AdapterView.OnItemClickListener Qw = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.5
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             if (i >= 0) {
-                ImMessageCenterShowItemData pJ = b.this.ePz.getItem(i);
-                TiebaStatic.eventStat(b.this.ePw.getPageContext().getContext(), "list_to_chat", "chatlistclick", 1, new Object[0]);
-                if (pJ != null) {
-                    String ownerName = pJ.getOwnerName();
+                ImMessageCenterShowItemData pK = b.this.ePO.getItem(i);
+                TiebaStatic.eventStat(b.this.ePL.getPageContext().getContext(), "list_to_chat", "chatlistclick", 1, new Object[0]);
+                if (pK != null) {
+                    String ownerName = pK.getOwnerName();
                     if (TextUtils.isEmpty(ownerName)) {
-                        e(pJ);
+                        e(pK);
                     } else if (ownerName.equals("1")) {
-                        if (a.a((BaseFragmentActivity) b.this.ePw.getPageContext().getOrignalPage(), GroupChatActivityConfig.class)) {
-                            TiebaStatic.eventStat(b.this.ePw.getPageContext().getContext(), "chat_list_to_group", "click", 1, new Object[0]);
-                            b.this.sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(b.this.ePw.getPageContext().getPageActivity(), Integer.parseInt(pJ.getFriendId()), pJ.getFriendName(), 0L, "msg_lstb")));
+                        if (a.a((BaseFragmentActivity) b.this.ePL.getPageContext().getOrignalPage(), GroupChatActivityConfig.class)) {
+                            TiebaStatic.eventStat(b.this.ePL.getPageContext().getContext(), "chat_list_to_group", "click", 1, new Object[0]);
+                            b.this.sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(b.this.ePL.getPageContext().getPageActivity(), Integer.parseInt(pK.getFriendId()), pK.getFriendName(), 0L, "msg_lstb")));
                         }
-                    } else if (pJ.getOwnerName().equals("2")) {
-                        if (a.a((BaseFragmentActivity) b.this.ePw.getPageContext().getOrignalPage(), 2008021)) {
-                            d(pJ);
-                            if (com.baidu.tbadk.coreExtra.messageCenter.a.GI().He() != null) {
-                                com.baidu.tbadk.coreExtra.messageCenter.a.GI().He().ha(0);
+                    } else if (pK.getOwnerName().equals("2")) {
+                        if (a.a((BaseFragmentActivity) b.this.ePL.getPageContext().getOrignalPage(), 2008021)) {
+                            d(pK);
+                            if (com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hf() != null) {
+                                com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hf().ha(0);
                             }
-                            b.this.sendMessage(new CustomMessage(2008021, new ValidateActivityConfig(b.this.ePw.getPageContext().getPageActivity())));
+                            b.this.sendMessage(new CustomMessage(2008021, new ValidateActivityConfig(b.this.ePL.getPageContext().getPageActivity())));
                         }
-                    } else if (pJ.getOwnerName().equals("3")) {
-                        if (a.a((BaseFragmentActivity) b.this.ePw.getPageContext().getOrignalPage(), 2008013)) {
-                            d(pJ);
-                            if (com.baidu.tbadk.coreExtra.messageCenter.a.GI().He() != null) {
-                                com.baidu.tbadk.coreExtra.messageCenter.a.GI().He().gZ(0);
+                    } else if (pK.getOwnerName().equals("3")) {
+                        if (a.a((BaseFragmentActivity) b.this.ePL.getPageContext().getOrignalPage(), 2008013)) {
+                            d(pK);
+                            if (com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hf() != null) {
+                                com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hf().gZ(0);
                             }
-                            b.this.sendMessage(new CustomMessage(2008013, new UpdatesActivityConfig(b.this.ePw.getPageContext().getPageActivity())));
+                            b.this.sendMessage(new CustomMessage(2008013, new UpdatesActivityConfig(b.this.ePL.getPageContext().getPageActivity())));
                         }
                     } else if (ownerName.equals("5")) {
-                        if (a.a((BaseFragmentActivity) b.this.ePw.getPageContext().getOrignalPage(), 2008022)) {
-                            b.this.sendMessage(new CustomMessage(2008022, new OfficialBarTipActivityConfig(b.this.ePw.getPageContext().getPageActivity())));
+                        if (a.a((BaseFragmentActivity) b.this.ePL.getPageContext().getOrignalPage(), 2008022)) {
+                            b.this.sendMessage(new CustomMessage(2008022, new OfficialBarTipActivityConfig(b.this.ePL.getPageContext().getPageActivity())));
                         }
                     } else if (ownerName.equals(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO)) {
-                        if (a.a((BaseFragmentActivity) b.this.ePw.getPageContext().getOrignalPage(), 2002006)) {
-                            b.this.sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(b.this.ePw.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(pJ.getFriendId(), 0L), pJ.getFriendName(), pJ.getFriendPortrait(), 0, pJ.getUserType())));
+                        if (a.a((BaseFragmentActivity) b.this.ePL.getPageContext().getOrignalPage(), 2002006)) {
+                            b.this.sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(b.this.ePL.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(pK.getFriendId(), 0L), pK.getFriendName(), pK.getFriendPortrait(), 0, pK.getUserType())));
                         }
                     } else if (ownerName.equals("7")) {
                         TiebaStatic.log(new ak("c12614"));
-                        b.this.sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(b.this.ePw.getPageContext().getPageActivity())));
+                        b.this.sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(b.this.ePL.getPageContext().getPageActivity())));
                     } else {
-                        e(pJ);
+                        e(pK);
                     }
                 }
             }
@@ -123,15 +123,15 @@ public class b extends BaseFragment {
                     if (customMessage != null && imMessageCenterShowItemData != null) {
                         imMessageCenterShowItemData.setUnReadCount(0);
                         if (imMessageCenterShowItemData.getOwnerName().equals("2")) {
-                            com.baidu.tieba.im.db.d.aHZ().nh("apply_join_group");
+                            com.baidu.tieba.im.db.d.aIa().nh("apply_join_group");
                         } else if (imMessageCenterShowItemData.getOwnerName().equals("3")) {
-                            com.baidu.tieba.im.db.d.aHZ().nh("group_intro_change");
-                            com.baidu.tieba.im.db.d.aHZ().nh("group_name_change");
-                            com.baidu.tieba.im.db.d.aHZ().nh("group_notice_change");
-                            com.baidu.tieba.im.db.d.aHZ().nh("group_level_up");
-                            com.baidu.tieba.im.db.d.aHZ().nh("dismiss_group");
-                            com.baidu.tieba.im.db.d.aHZ().nh("kick_out");
-                            com.baidu.tieba.im.db.d.aHZ().nh("group_activitys_change");
+                            com.baidu.tieba.im.db.d.aIa().nh("group_intro_change");
+                            com.baidu.tieba.im.db.d.aIa().nh("group_name_change");
+                            com.baidu.tieba.im.db.d.aIa().nh("group_notice_change");
+                            com.baidu.tieba.im.db.d.aIa().nh("group_level_up");
+                            com.baidu.tieba.im.db.d.aIa().nh("dismiss_group");
+                            com.baidu.tieba.im.db.d.aIa().nh("kick_out");
+                            com.baidu.tieba.im.db.d.aIa().nh("group_activitys_change");
                         }
                     }
                     return null;
@@ -145,34 +145,34 @@ public class b extends BaseFragment {
 
         private void e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
             if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.GI().setMsgChat(com.baidu.tbadk.coreExtra.messageCenter.a.GI().getMsgChat() - imMessageCenterShowItemData.getUnReadCount());
+                com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgChat(com.baidu.tbadk.coreExtra.messageCenter.a.GJ().getMsgChat() - imMessageCenterShowItemData.getUnReadCount());
                 imMessageCenterShowItemData.setUnReadCount(0);
             }
             try {
                 long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
                 TiebaStatic.log("tab_msg_personal_chat_click");
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
-                b.this.sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(b.this.ePw.getPageContext().getPageActivity(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
+                b.this.sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(b.this.ePL.getPageContext().getPageActivity(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     };
-    private final AdapterView.OnItemLongClickListener ePG = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.6
+    private final AdapterView.OnItemLongClickListener ePV = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.6
         @Override // android.widget.AdapterView.OnItemLongClickListener
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
             if (i < 0) {
                 return false;
             }
-            b.this.ePx = b.this.ePz.getItem(i);
-            b.this.c(b.this.ePx);
-            if (b.this.ePC != null) {
-                b.this.ePC.AX();
+            b.this.ePM = b.this.ePO.getItem(i);
+            b.this.c(b.this.ePM);
+            if (b.this.ePR != null) {
+                b.this.ePR.AY();
             }
             return true;
         }
     };
-    private final j.b bVa = new j.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.8
+    private final j.b bVd = new j.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.8
         @Override // com.baidu.tbadk.core.view.j.b
         public void bw(boolean z) {
             if (!z) {
@@ -180,7 +180,7 @@ public class b extends BaseFragment {
             }
         }
     };
-    private final CustomMessageListener eyt = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.9
+    private final CustomMessageListener eyJ = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -192,46 +192,46 @@ public class b extends BaseFragment {
                 } else if (customResponsedMessage.getCmd() == 2016007) {
                     b.this.d(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016001) {
-                    b.this.ePv.setData(null, b.this.eyv);
+                    b.this.ePK.setData(null, b.this.eyL);
                 } else if (customResponsedMessage.getCmd() == 2016010) {
-                    if (b.this.ePz != null) {
-                        b.this.ePz.notifyDataSetChanged();
+                    if (b.this.ePO != null) {
+                        b.this.ePO.notifyDataSetChanged();
                     }
-                } else if (customResponsedMessage.getCmd() == 2016011 && b.this.ePz != null) {
-                    b.this.ePz.notifyDataSetChanged();
+                } else if (customResponsedMessage.getCmd() == 2016011 && b.this.ePO != null) {
+                    b.this.ePO.notifyDataSetChanged();
                 }
             }
         }
     };
-    private com.baidu.tieba.im.chat.a.a eyv = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.10
+    private com.baidu.tieba.im.chat.a.a eyL = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.10
         @Override // com.baidu.tieba.im.chat.a.a
-        public void aGc() {
-            b.this.aGr();
+        public void aGd() {
+            b.this.aGs();
         }
     };
-    private final com.baidu.tieba.im.chat.a.b eyw = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.2
+    private final com.baidu.tieba.im.chat.a.b eyM = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.2
         @Override // com.baidu.tieba.im.chat.a.b
         public void onPreExecute() {
-            b.this.aGq();
+            b.this.aGr();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onProgressUpdate(int i, String str, int i2) {
-            if (b.this.eys != null) {
-                b.this.eys.setPercent(i);
+            if (b.this.eyI != null) {
+                b.this.eyI.setPercent(i);
             }
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onPostExecute() {
-            b.this.abj();
+            b.this.abk();
             b.this.showToast(d.j.delete_success, false);
-            b.this.aGr();
+            b.this.aGs();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onCanceled() {
-            b.this.abj();
+            b.this.abk();
         }
     };
 
@@ -243,35 +243,35 @@ public class b extends BaseFragment {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.ePE = 3;
-        this.ePw = getBaseFragmentActivity();
+        this.ePT = 3;
+        this.ePL = getBaseFragmentActivity();
         View inflate = layoutInflater.inflate(d.h.chat_list_activity, viewGroup, false);
         bI(inflate);
-        TiebaStatic.eventStat(this.ePw.getPageContext().getContext(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
+        TiebaStatic.eventStat(this.ePL.getPageContext().getContext(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
         registerListener();
         return inflate;
     }
 
     private void registerListener() {
-        registerListener(2016004, this.eyt);
-        registerListener(2016001, this.eyt);
-        registerListener(2016010, this.eyt);
-        registerListener(2016007, this.eyt);
-        registerListener(2016011, this.eyt);
-        registerListener(2016002, this.eyt);
+        registerListener(2016004, this.eyJ);
+        registerListener(2016001, this.eyJ);
+        registerListener(2016010, this.eyJ);
+        registerListener(2016007, this.eyJ);
+        registerListener(2016011, this.eyJ);
+        registerListener(2016002, this.eyJ);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.ePz != null) {
-            this.ePz.notifyDataSetChanged();
+        if (this.ePO != null) {
+            this.ePO.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        abj();
+        abk();
         super.onDestroy();
     }
 
@@ -280,7 +280,7 @@ public class b extends BaseFragment {
         super.onPrimary();
         if (isPrimary()) {
             if (this.mNoDataView != null) {
-                this.mNoDataView.e(this.ePw.getPageContext());
+                this.mNoDataView.e(this.ePL.getPageContext());
             }
         } else if (this.mNoDataView != null) {
             this.mNoDataView.onActivityStop();
@@ -290,80 +290,80 @@ public class b extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        MessageManager.getInstance().unRegisterListener(this.eyt);
+        MessageManager.getInstance().unRegisterListener(this.eyJ);
     }
 
     private void initData() {
-        this.ePv = new ImMessageCenterModel();
-        ia(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_shut_down_validate", false) ? false : true);
+        this.ePK = new ImMessageCenterModel();
+        m15if(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_shut_down_validate", false) ? false : true);
     }
 
     private void bI(View view) {
-        this.dAR = (RelativeLayout) view.findViewById(d.g.chat_list);
-        this.ePB = (ShutDownValidateTipView) view.findViewById(d.g.view_no_validate);
-        this.ePB.setVisibility(8);
-        this.ePB.setShutDownClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.1
+        this.dAU = (RelativeLayout) view.findViewById(d.g.chat_list);
+        this.ePQ = (ShutDownValidateTipView) view.findViewById(d.g.view_no_validate);
+        this.ePQ.setVisibility(8);
+        this.ePQ.setShutDownClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("is_shut_down_validate", true);
-                b.this.ia(false);
-                b.this.hY(false);
+                b.this.m15if(false);
+                b.this.id(false);
             }
         });
-        this.ePy = (BdListView) view.findViewById(d.g.chat_list_content);
-        this.ePy.setDividerHeight(0);
-        this.ePA = new d(getPageContext());
-        this.ePA.a(this.bVa);
-        this.ePA.setTag(getUniqueId());
-        this.ePy.setPullRefresh(this.ePA);
-        this.ePz = new ImMessageCenterListAdapter(this.ePw.getPageContext().getPageActivity());
-        this.ePy.setAdapter((ListAdapter) this.ePz);
-        this.ePy.setOnItemClickListener(this.Qw);
-        this.ePy.setOnItemLongClickListener(this.ePG);
-        this.ePy.startPullRefresh();
-        this.caX = (NoNetworkView) this.dAR.findViewById(d.g.view_no_network);
+        this.ePN = (BdListView) view.findViewById(d.g.chat_list_content);
+        this.ePN.setDividerHeight(0);
+        this.ePP = new d(getPageContext());
+        this.ePP.a(this.bVd);
+        this.ePP.setTag(getUniqueId());
+        this.ePN.setPullRefresh(this.ePP);
+        this.ePO = new ImMessageCenterListAdapter(this.ePL.getPageContext().getPageActivity());
+        this.ePN.setAdapter((ListAdapter) this.ePO);
+        this.ePN.setOnItemClickListener(this.Qw);
+        this.ePN.setOnItemLongClickListener(this.ePV);
+        this.ePN.startPullRefresh();
+        this.cba = (NoNetworkView) this.dAU.findViewById(d.g.view_no_network);
         if (!this.mIsLogin) {
-            hZ(true);
+            ie(true);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (isAdded() && this.ePE != i) {
-            this.ePE = i;
+        if (isAdded() && this.ePT != i) {
+            this.ePT = i;
             if (this.mNoDataView != null) {
-                this.mNoDataView.onChangeSkinType(this.ePw.getPageContext(), i);
+                this.mNoDataView.onChangeSkinType(this.ePL.getPageContext(), i);
             }
-            if (this.ePB != null) {
-                this.ePB.onChangeSkinType(i);
+            if (this.ePQ != null) {
+                this.ePQ.onChangeSkinType(i);
             }
-            if (this.ePA != null) {
-                this.ePA.gx(i);
+            if (this.ePP != null) {
+                this.ePP.gx(i);
             }
-            if (this.ePz != null) {
-                this.ePz.notifyDataSetChanged();
+            if (this.ePO != null) {
+                this.ePO.notifyDataSetChanged();
             }
-            if (this.ePw != null && (this.ePw instanceof BaseFragmentActivity)) {
-                ((BaseFragmentActivity) this.ePw).getLayoutMode().aQ(i == 1);
-                ((BaseFragmentActivity) this.ePw).getLayoutMode().aM(this.dAR);
+            if (this.ePL != null && (this.ePL instanceof BaseFragmentActivity)) {
+                ((BaseFragmentActivity) this.ePL).getLayoutMode().aQ(i == 1);
+                ((BaseFragmentActivity) this.ePL).getLayoutMode().aM(this.dAU);
             }
-            if (this.caX != null) {
-                this.caX.onChangeSkinType(this.ePw.getPageContext(), i);
-            }
-        }
-    }
-
-    private void aMB() {
-        if (isAdded()) {
-            if (this.mIsLogin) {
-                aMC();
-            } else {
-                aMD();
+            if (this.cba != null) {
+                this.cba.onChangeSkinType(this.ePL.getPageContext(), i);
             }
         }
     }
 
     private void aMC() {
+        if (isAdded()) {
+            if (this.mIsLogin) {
+                aMD();
+            } else {
+                aME();
+            }
+        }
+    }
+
+    private void aMD() {
         NoDataViewFactory.b bVar = null;
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
             bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(getString(d.j.maintab_imcenter_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.3
@@ -375,23 +375,23 @@ public class b extends BaseFragment {
                 }
             }));
         }
-        this.mNoDataView = NoDataViewFactory.a(this.ePw.getPageContext().getPageActivity(), this.dAR, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.gp(d.j.no_recent_chat), bVar);
+        this.mNoDataView = NoDataViewFactory.a(this.ePL.getPageContext().getPageActivity(), this.dAU, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.gp(d.j.no_recent_chat), bVar);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void aMD() {
+    private void aME() {
         NoDataViewFactory.a aVar = new NoDataViewFactory.a(getString(d.j.maintab_imcenter_unlogin_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TiebaStatic.eventStat(b.this.ePw.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
-                ay.aZ(b.this.ePw.getPageContext().getPageActivity());
+                TiebaStatic.eventStat(b.this.ePL.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
+                ay.aZ(b.this.ePL.getPageContext().getPageActivity());
             }
         });
         int dimensionPixelSize = getResources().getDimensionPixelSize(d.e.ds100);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(d.e.ds480);
         int dimensionPixelSize3 = getResources().getDimensionPixelSize(d.e.ds360);
         int dimensionPixelSize4 = getResources().getDimensionPixelSize(d.e.ds60);
-        this.mNoDataView = NoDataViewFactory.a(this.ePw.getPageContext().getPageActivity(), this.dAR, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, d.f.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.aB(d.j.msg_center_unlogin_tip, dimensionPixelSize4), NoDataViewFactory.b.a(aVar, getResources().getDimensionPixelSize(d.e.ds20)));
+        this.mNoDataView = NoDataViewFactory.a(this.ePL.getPageContext().getPageActivity(), this.dAU, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, d.f.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.aB(d.j.msg_center_unlogin_tip, dimensionPixelSize4), NoDataViewFactory.b.a(aVar, getResources().getDimensionPixelSize(d.e.ds20)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -399,11 +399,11 @@ public class b extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        aMB();
+        aMC();
         if (!z) {
-            hZ(true);
+            ie(true);
         } else {
-            hZ(false);
+            ie(false);
         }
     }
 
@@ -419,40 +419,40 @@ public class b extends BaseFragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(final ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.ePD = new b.InterfaceC0097b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.7
+        this.ePS = new b.InterfaceC0097b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.b.7
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0097b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 bVar.dismiss();
                 switch (i) {
                     case 0:
-                        b.this.ePv.asyncDeleteItem(imMessageCenterShowItemData, b.this.eyw);
+                        b.this.ePK.asyncDeleteItem(imMessageCenterShowItemData, b.this.eyM);
                         return;
                     default:
                         return;
                 }
             }
         };
-        String string = this.ePw.getPageContext().getPageActivity().getString(d.j.delete_user_chat);
-        this.ePC = new com.baidu.tbadk.core.dialog.b(this.ePw.getPageContext().getPageActivity());
-        this.ePC.fe(d.j.operation);
-        this.ePC.a(new String[]{string}, this.ePD);
-        this.ePC.d(this.ePw.getPageContext());
+        String string = this.ePL.getPageContext().getPageActivity().getString(d.j.delete_user_chat);
+        this.ePR = new com.baidu.tbadk.core.dialog.b(this.ePL.getPageContext().getPageActivity());
+        this.ePR.fe(d.j.operation);
+        this.ePR.a(new String[]{string}, this.ePS);
+        this.ePR.d(this.ePL.getPageContext());
     }
 
-    public void hY(boolean z) {
+    public void id(boolean z) {
         if (z) {
-            if (aME() && this.ePB.getVisibility() != 0) {
-                this.ePB.setVisibility(0);
+            if (aMF() && this.ePQ.getVisibility() != 0) {
+                this.ePQ.setVisibility(0);
             }
-        } else if (this.ePB.getVisibility() != 8) {
-            this.ePB.setVisibility(8);
+        } else if (this.ePQ.getVisibility() != 8) {
+            this.ePQ.setVisibility(8);
         }
     }
 
-    public void hZ(boolean z) {
+    public void ie(boolean z) {
         if (z) {
             if (this.mNoDataView == null) {
-                aMB();
+                aMC();
             }
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(0);
@@ -464,12 +464,13 @@ public class b extends BaseFragment {
         }
     }
 
-    public boolean aME() {
-        return this.ePF;
+    public boolean aMF() {
+        return this.ePU;
     }
 
-    public void ia(boolean z) {
-        this.ePF = z;
+    /* renamed from: if  reason: not valid java name */
+    public void m15if(boolean z) {
+        this.ePU = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -485,11 +486,11 @@ public class b extends BaseFragment {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.ePv != null) {
-                    this.ePv.insertOrUpdate(data, this.eyv);
+                if (this.ePK != null) {
+                    this.ePK.insertOrUpdate(data, this.eyL);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.ePv != null) {
-                this.ePv.remove(data, this.eyv);
+            } else if (memoryChangedMessage.getType() == 2 && this.ePK != null) {
+                this.ePK.remove(data, this.eyL);
             }
         }
     }
@@ -499,35 +500,35 @@ public class b extends BaseFragment {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 1 && this.ePv != null) {
-                this.ePv.setData(data, this.eyv);
+            if (responsedMemoryListMessage.getType() == 1 && this.ePK != null) {
+                this.ePK.setData(data, this.eyL);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aGq() {
-        abj();
-        if (this.eys == null) {
-            this.eys = e.aIa().bL(getPageContext().getPageActivity());
-        }
-        this.eys.show();
-        this.eys.setPercent(0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void abj() {
-        if (this.eys != null && this.eys.isShowing()) {
-            this.eys.dismiss();
-            this.eys = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void aGr() {
-        if (this.ePy != null && this.ePv != null) {
-            this.ePy.completePullRefreshPostDelayed(2000L);
-            this.ePz.setData(this.ePv.getData());
+        abk();
+        if (this.eyI == null) {
+            this.eyI = e.aIb().bL(getPageContext().getPageActivity());
+        }
+        this.eyI.show();
+        this.eyI.setPercent(0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void abk() {
+        if (this.eyI != null && this.eyI.isShowing()) {
+            this.eyI.dismiss();
+            this.eyI = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aGs() {
+        if (this.ePN != null && this.ePK != null) {
+            this.ePN.completePullRefreshPostDelayed(2000L);
+            this.ePO.setData(this.ePK.getData());
         }
     }
 }

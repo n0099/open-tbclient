@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.k;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String EM() {
+    public static String EN() {
         return q.pk();
     }
 

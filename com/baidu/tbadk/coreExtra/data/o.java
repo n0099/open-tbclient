@@ -1,34 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class o {
-    private int bhE;
-    private int bhF;
-    private int bhG;
+    private int bhH;
+    private int bhI;
+    private int bhJ;
 
-    public int FQ() {
-        if (this.bhE == 0) {
+    public int FR() {
+        if (this.bhH == 0) {
             return Integer.MAX_VALUE;
         }
-        return this.bhE;
+        return this.bhH;
     }
 
     public void fj(String str) {
-        this.bhE = com.baidu.adp.lib.g.b.h(str, 0);
-    }
-
-    public int FR() {
-        return this.bhF;
-    }
-
-    public void fk(String str) {
-        this.bhF = com.baidu.adp.lib.g.b.h(str, 0);
+        this.bhH = com.baidu.adp.lib.g.b.h(str, 0);
     }
 
     public int FS() {
-        return this.bhG;
+        return this.bhI;
+    }
+
+    public void fk(String str) {
+        this.bhI = com.baidu.adp.lib.g.b.h(str, 0);
+    }
+
+    public int FT() {
+        return this.bhJ;
     }
 
     public void fl(String str) {
-        this.bhG = com.baidu.adp.lib.g.b.h(str, 0);
+        this.bhJ = com.baidu.adp.lib.g.b.h(str, 0);
     }
 }

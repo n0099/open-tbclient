@@ -40,7 +40,7 @@ class g {
         dVar.content = str2;
         dVar.linkUrl = str4;
         if (!am.isEmpty(str3)) {
-            dVar.blo = Uri.parse(str3);
+            dVar.blr = Uri.parse(str3);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), dVar, true)));
     }

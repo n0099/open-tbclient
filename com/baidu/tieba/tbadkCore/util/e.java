@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    protected volatile int hdi;
-    protected volatile HashMap<Long, Integer> hdj = new HashMap<>();
-    private volatile int hdh = 0;
+    protected volatile int hdG;
+    protected volatile HashMap<Long, Integer> hdH = new HashMap<>();
+    private volatile int hdF = 0;
 
     public e(int i) {
-        this.hdi = i;
+        this.hdG = i;
     }
 
     public void sV(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.hdj.size() >= this.hdi) {
-                    bxO();
+                if (this.hdH.size() >= this.hdG) {
+                    bxT();
                 }
-                this.hdh++;
-                this.hdj.put(valueOf, Integer.valueOf(this.hdh));
+                this.hdF++;
+                this.hdH.put(valueOf, Integer.valueOf(this.hdF));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void bxO() {
+    public void bxT() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.hdj.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.hdH.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,9 +47,9 @@ public class e {
                 l2 = l;
             }
             if (l2 != null) {
-                this.hdj.remove(l2);
+                this.hdH.remove(l2);
             } else {
-                this.hdj.clear();
+                this.hdH.clear();
             }
         }
     }
@@ -59,7 +59,7 @@ public class e {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.hdj.get(valueOf) != null;
+                z = this.hdH.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -70,16 +70,16 @@ public class e {
 
     public boolean sX(String str) {
         try {
-            return this.hdj.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.hdH.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void bxP() {
+    public void bxU() {
         synchronized (this) {
-            this.hdj.clear();
+            this.hdH.clear();
         }
     }
 }

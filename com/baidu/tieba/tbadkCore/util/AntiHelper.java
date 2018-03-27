@@ -95,7 +95,7 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar2.b(i.ak(context)).AU();
+            aVar2.b(i.ak(context)).AV();
             return aVar2;
         }
         return null;
@@ -103,7 +103,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!g(antiData)) {
-            bxG();
+            bxL();
         }
         if (d(antiData) || f(antiData)) {
             if (antiData.isHas_chance()) {
@@ -173,7 +173,7 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar.b(i.ak(context)).AU();
+            aVar.b(i.ak(context)).AV();
         }
     }
 
@@ -211,7 +211,7 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar.b(i.ak(context)).AU();
+            aVar.b(i.ak(context)).AV();
         }
     }
 
@@ -242,7 +242,7 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar.b(i.ak(context)).AU();
+            aVar.b(i.ak(context)).AV();
         }
     }
 
@@ -275,7 +275,7 @@ public class AntiHelper {
                 }
             });
             if (context instanceof Activity) {
-                aVar.b(i.ak(context)).AU();
+                aVar.b(i.ak(context)).AV();
             }
         }
     }
@@ -301,7 +301,7 @@ public class AntiHelper {
         }
     }
 
-    private static void bxG() {
+    private static void bxL() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("anti_vcode_no_longer_tip");
     }
 }

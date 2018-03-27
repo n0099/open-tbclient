@@ -10,10 +10,10 @@ import com.baidu.tieba.imMessageCenter.mention.g;
 /* loaded from: classes2.dex */
 public class ImMessageCenterFragmentStatic {
     static {
-        aMF();
+        aMG();
     }
 
-    private static void aMF() {
+    private static void aMG() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008002, new CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterFragmentStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Fragment> run(CustomMessage<InvokeNewImMessageCenterFragmentConfig> customMessage) {

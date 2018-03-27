@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes2.dex */
 public interface c {
-    boolean axx();
+    void axA();
 
-    void axy();
+    void axB();
 
-    void axz();
+    boolean axz();
 
     void ge(boolean z);
 

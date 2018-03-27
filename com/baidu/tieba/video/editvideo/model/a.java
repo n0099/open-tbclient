@@ -11,14 +11,14 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a hqe;
-    private HashMap<String, String> hqf;
-    private DownloadData hqg;
+    private static volatile a hqC;
+    private HashMap<String, String> hqD;
+    private DownloadData hqE;
 
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0242a {
-        void bAR();
+        void bAW();
 
         void cj(String str, String str2);
 
@@ -28,15 +28,15 @@ public class a {
     private a() {
     }
 
-    public static a bBD() {
-        if (hqe == null) {
+    public static a bBI() {
+        if (hqC == null) {
             synchronized (a.class) {
-                if (hqe == null) {
-                    hqe = new a();
+                if (hqC == null) {
+                    hqC = new a();
                 }
             }
         }
-        return hqe;
+        return hqC;
     }
 
     public String tN(String str) {
@@ -44,29 +44,29 @@ public class a {
         if (eu == null) {
             return null;
         }
-        if (this.hqf == null) {
-            this.hqf = new HashMap<>();
-            bBE();
-            if (this.hqf.size() > 0) {
-                return this.hqf.get(eu);
+        if (this.hqD == null) {
+            this.hqD = new HashMap<>();
+            bBJ();
+            if (this.hqD.size() > 0) {
+                return this.hqD.get(eu);
             }
             return null;
         }
-        return this.hqf.get(eu);
+        return this.hqD.get(eu);
     }
 
-    public void bBE() {
-        if (this.hqf == null) {
-            this.hqf = new HashMap<>();
+    public void bBJ() {
+        if (this.hqD == null) {
+            this.hqD = new HashMap<>();
         } else {
-            this.hqf.clear();
+            this.hqD.clear();
         }
-        File file = new File(com.baidu.tieba.video.b.hnB);
+        File file = new File(com.baidu.tieba.video.b.hnZ);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.hqf.put(file2.getName().substring(0, file2.getName().lastIndexOf(Constants.DOT)), file2.getAbsolutePath());
+                    this.hqD.put(file2.getName().substring(0, file2.getName().lastIndexOf(Constants.DOT)), file2.getAbsolutePath());
                 }
             }
         }
@@ -75,14 +75,14 @@ public class a {
     public void a(String str, final String str2, final InterfaceC0242a interfaceC0242a) {
         String eu;
         if (!TextUtils.isEmpty(str2) && (eu = ap.eu(str2)) != null) {
-            if (this.hqg != null) {
-                if (!str2.equals(this.hqg.getUrl())) {
-                    e.KT().n(this.hqg.getUrl(), true);
+            if (this.hqE != null) {
+                if (!str2.equals(this.hqE.getUrl())) {
+                    e.KU().n(this.hqE.getUrl(), true);
                 } else {
                     return;
                 }
             }
-            File file = new File(com.baidu.tieba.video.b.hnB);
+            File file = new File(com.baidu.tieba.video.b.hnZ);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -90,7 +90,7 @@ public class a {
             downloadData.setType(17);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(com.baidu.tieba.video.b.hnB + eu + (Constants.DOT + str2.substring(str2.lastIndexOf(Constants.DOT) + 1)));
+            downloadData.setPath(com.baidu.tieba.video.b.hnZ + eu + (Constants.DOT + str2.substring(str2.lastIndexOf(Constants.DOT) + 1)));
             downloadData.setCallback(new d() { // from class: com.baidu.tieba.video.editvideo.model.a.1
                 @Override // com.baidu.tbadk.download.d
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -99,11 +99,11 @@ public class a {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (a.this.hqg != null && downloadData2.getUrl().equals(a.this.hqg.getUrl())) {
-                            a.this.hqg = null;
+                        if (a.this.hqE != null && downloadData2.getUrl().equals(a.this.hqE.getUrl())) {
+                            a.this.hqE = null;
                         }
                         if (interfaceC0242a != null) {
-                            interfaceC0242a.bAR();
+                            interfaceC0242a.bAW();
                         }
                     }
                 }
@@ -121,11 +121,11 @@ public class a {
                 @Override // com.baidu.tbadk.download.d
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (a.this.hqg != null && downloadData2.getUrl().equals(a.this.hqg.getUrl())) {
-                            a.this.hqg = null;
+                        if (a.this.hqE != null && downloadData2.getUrl().equals(a.this.hqE.getUrl())) {
+                            a.this.hqE = null;
                         }
                         if (interfaceC0242a != null) {
-                            a.this.hqf.put(downloadData2.getPath().substring(com.baidu.tieba.video.b.hnB.length(), downloadData2.getPath().lastIndexOf(Constants.DOT)), downloadData2.getPath());
+                            a.this.hqD.put(downloadData2.getPath().substring(com.baidu.tieba.video.b.hnZ.length(), downloadData2.getPath().lastIndexOf(Constants.DOT)), downloadData2.getPath());
                             interfaceC0242a.cj(str2, downloadData2.getPath());
                         }
                     }
@@ -137,22 +137,22 @@ public class a {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (a.this.hqg != null && downloadData2.getUrl().equals(a.this.hqg.getUrl())) {
-                        a.this.hqg = null;
+                    if (a.this.hqE != null && downloadData2.getUrl().equals(a.this.hqE.getUrl())) {
+                        a.this.hqE = null;
                     }
                     if (interfaceC0242a != null) {
                         interfaceC0242a.tE(str3);
                     }
                 }
             });
-            this.hqg = downloadData;
-            e.KT().f(downloadData);
+            this.hqE = downloadData;
+            e.KU().f(downloadData);
         }
     }
 
-    public void bBF() {
-        if (this.hqg != null) {
-            e.KT().n(this.hqg.getUrl(), true);
+    public void bBK() {
+        if (this.hqE != null) {
+            e.KU().n(this.hqE.getUrl(), true);
         }
     }
 }

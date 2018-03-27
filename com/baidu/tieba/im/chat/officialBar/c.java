@@ -8,12 +8,12 @@ import com.baidu.tbadk.editortools.s;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class c extends LinearLayout implements s {
-    private com.baidu.tbadk.editortools.i axG;
-    private int axH;
+    private com.baidu.tbadk.editortools.i axH;
+    private int axI;
 
     public c(Context context) {
         super(context);
-        this.axH = 0;
+        this.axI = 0;
         inflate(context, d.h.official_bar_menu_toggle, this);
         setLayoutParams(new p.a(context.getResources().getDimensionPixelSize(d.e.ds100), -2));
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
@@ -30,24 +30,24 @@ public class c extends LinearLayout implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(com.baidu.tbadk.editortools.i iVar) {
-        this.axG = iVar;
+        this.axH = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.axG != null) {
-            this.axG.b(aVar);
+        if (this.axH != null) {
+            this.axH.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.axH = i;
+        this.axI = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.axH;
+        return this.axI;
     }
 
     @Override // com.baidu.tbadk.editortools.s

@@ -8,22 +8,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class s implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId dGN = BdUniqueId.gen();
-    private List<MetaData> dGK;
-    private int dGJ = 0;
-    private String dGL = "本吧都在关注";
-    private boolean dGM = false;
+    public static final BdUniqueId dGS = BdUniqueId.gen();
+    private List<MetaData> dGP;
+    private int dGO = 0;
+    private String dGQ = "本吧都在关注";
+    private boolean dGR = false;
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return dGN;
+        return dGS;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
         if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.v.E(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.dGJ = frsPageUserExtend.user_extend_storey.intValue();
-            this.dGK = new ArrayList(list.size());
+            this.dGO = frsPageUserExtend.user_extend_storey.intValue();
+            this.dGP = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -32,11 +32,11 @@ public class s implements com.baidu.adp.widget.ListView.i {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.dGK.add(metaData);
+                        this.dGP.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.dGL = frsPageUserExtend.tips;
+                    this.dGQ = frsPageUserExtend.tips;
                     return;
                 }
             }
@@ -44,22 +44,22 @@ public class s implements com.baidu.adp.widget.ListView.i {
     }
 
     public int Al() {
-        return this.dGJ;
+        return this.dGO;
     }
 
     public List<MetaData> getUserInfo() {
-        return this.dGK;
+        return this.dGP;
     }
 
-    public String awi() {
-        return this.dGL;
+    public String awk() {
+        return this.dGQ;
     }
 
-    public boolean awj() {
-        return this.dGM;
+    public boolean awl() {
+        return this.dGR;
     }
 
     public void fV(boolean z) {
-        this.dGM = z;
+        this.dGR = z;
     }
 }

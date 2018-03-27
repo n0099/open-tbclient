@@ -5,61 +5,61 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<i> bfC;
-    private List<i> bfD;
-    private boolean bfE;
-    private boolean bfF;
-    private int bfH;
-    private int bfG = 2;
-    private int bfI = 1;
+    private List<i> bfF;
+    private List<i> bfG;
+    private boolean bfH;
+    private boolean bfI;
+    private int bfK;
+    private int bfJ = 2;
+    private int bfL = 1;
 
     public d(List<i> list, boolean z, int i) {
-        this.bfH = 2;
-        this.bfC = list;
-        this.bfF = z;
-        this.bfH = i;
+        this.bfK = 2;
+        this.bfF = list;
+        this.bfI = z;
+        this.bfK = i;
         F(list);
     }
 
     public void F(List<i> list) {
-        if (list != null && list.size() >= this.bfG && list.size() <= this.bfH) {
-            this.bfE = true;
-        } else if (list.size() > this.bfH && this.bfF) {
-            this.bfE = true;
+        if (list != null && list.size() >= this.bfJ && list.size() <= this.bfK) {
+            this.bfH = true;
+        } else if (list.size() > this.bfK && this.bfI) {
+            this.bfH = true;
         } else {
-            this.bfE = false;
+            this.bfH = false;
         }
-        this.bfD = EH();
+        this.bfG = EI();
     }
 
-    private List<i> EH() {
+    private List<i> EI() {
         ArrayList arrayList = new ArrayList();
-        if (this.bfC != null) {
-            if (this.bfE) {
-                if (this.bfC.size() > this.bfH && this.bfC.size() >= this.bfI) {
-                    arrayList.addAll(this.bfC.subList(0, this.bfH));
-                    arrayList.addAll(0, this.bfC.subList(this.bfH - this.bfI, this.bfH));
-                    arrayList.addAll(this.bfC.subList(0, this.bfI));
+        if (this.bfF != null) {
+            if (this.bfH) {
+                if (this.bfF.size() > this.bfK && this.bfF.size() >= this.bfL) {
+                    arrayList.addAll(this.bfF.subList(0, this.bfK));
+                    arrayList.addAll(0, this.bfF.subList(this.bfK - this.bfL, this.bfK));
+                    arrayList.addAll(this.bfF.subList(0, this.bfL));
                 } else {
-                    arrayList.addAll(this.bfC);
-                    arrayList.addAll(0, this.bfC.subList(this.bfC.size() - this.bfI, this.bfC.size()));
-                    arrayList.addAll(this.bfC.subList(0, this.bfI));
+                    arrayList.addAll(this.bfF);
+                    arrayList.addAll(0, this.bfF.subList(this.bfF.size() - this.bfL, this.bfF.size()));
+                    arrayList.addAll(this.bfF.subList(0, this.bfL));
                 }
-            } else if (this.bfC != null && this.bfC.size() > 0 && this.bfC.size() >= this.bfI) {
-                arrayList.addAll(this.bfC.subList(0, this.bfI));
+            } else if (this.bfF != null && this.bfF.size() > 0 && this.bfF.size() >= this.bfL) {
+                arrayList.addAll(this.bfF.subList(0, this.bfL));
             }
         }
         return arrayList;
     }
 
     public int gG(int i) {
-        if (this.bfE) {
-            int size = this.bfD.size();
+        if (this.bfH) {
+            int size = this.bfG.size();
             if (i == 0) {
-                return (size - 1) - this.bfI;
+                return (size - 1) - this.bfL;
             }
-            if (i == size - this.bfI) {
-                return this.bfI;
+            if (i == size - this.bfL) {
+                return this.bfL;
             }
             return i;
         }
@@ -67,42 +67,42 @@ public class d {
     }
 
     public int gH(int i) {
-        if (this.bfE) {
-            return i - this.bfI;
+        if (this.bfH) {
+            return i - this.bfL;
         }
         return i;
     }
 
-    public int EI() {
-        if (this.bfC == null) {
+    public int EJ() {
+        if (this.bfF == null) {
             return 0;
         }
-        return this.bfC.size();
+        return this.bfF.size();
     }
 
-    public int EJ() {
-        if (this.bfE) {
-            return this.bfI;
+    public int EK() {
+        if (this.bfH) {
+            return this.bfL;
         }
         return 0;
     }
 
     public void gI(int i) {
-        this.bfH = i;
-        F(this.bfC);
+        this.bfK = i;
+        F(this.bfF);
     }
 
     public void gJ(int i) {
-        this.bfG = i;
-        F(this.bfC);
+        this.bfJ = i;
+        F(this.bfF);
     }
 
-    public List<i> EK() {
-        return this.bfD;
+    public List<i> EL() {
+        return this.bfG;
     }
 
     public void gK(int i) {
-        this.bfI = i;
-        F(this.bfC);
+        this.bfL = i;
+        F(this.bfF);
     }
 }

@@ -51,7 +51,7 @@ public final class p {
                     com.baidu.sofire.core.c aC = com.baidu.sofire.core.c.aC(context);
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                         d.a(optString, optString2);
-                        com.baidu.sofire.e eVar = aC.aGo;
+                        com.baidu.sofire.e eVar = aC.aGp;
                         eVar.c.putString("svi_n", optString + Constants.ACCEPT_TIME_SEPARATOR_SERVER + optString2);
                         eVar.c.commit();
                     }

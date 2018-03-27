@@ -6,9 +6,9 @@ import com.baidu.tbadk.editortools.r;
 public class b extends r {
     public b(Context context, int i) {
         super(context, (String) null, 11);
-        this.bta = true;
-        this.bsZ = 6;
-        this.bsj = c.x(context, i);
-        this.btb = new int[]{12, 13, 9};
+        this.btd = true;
+        this.btc = 6;
+        this.bsm = c.x(context, i);
+        this.bte = new int[]{12, 13, 9};
     }
 }

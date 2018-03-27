@@ -10,52 +10,52 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes2.dex */
 public class a {
-    private static a dpQ;
-    private WindowManager.LayoutParams dpN;
-    private ImageView dpO;
-    private boolean dpP;
-    private int dpR;
+    private static a dpT;
+    private WindowManager.LayoutParams dpQ;
+    private ImageView dpR;
     private boolean dpS;
+    private int dpU;
+    private boolean dpV;
     private int mHeight;
     private int mWidth;
     private WindowManager mWindowManager;
 
-    public static a aqI() {
-        if (dpQ == null) {
+    public static a aqJ() {
+        if (dpT == null) {
             synchronized (a.class) {
-                if (dpQ == null) {
-                    dpQ = new a();
+                if (dpT == null) {
+                    dpT = new a();
                 }
             }
         }
-        return dpQ;
+        return dpT;
     }
 
     private a() {
     }
 
     public void z(Context context, int i) {
-        this.dpS = true;
+        this.dpV = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
         this.mWindowManager = (WindowManager) context.getSystemService("window");
-        this.dpR = i;
+        this.dpU = i;
     }
 
     public void destroy() {
-        this.dpS = false;
-        dpQ = null;
+        this.dpV = false;
+        dpT = null;
     }
 
-    public boolean aqJ() {
-        return this.dpP;
+    public boolean aqK() {
+        return this.dpS;
     }
 
     public void a(Context context, View view, int i, int i2) {
         Bitmap createBitmap;
         if (view != null) {
-            this.dpP = true;
+            this.dpS = true;
             view.setPressed(true);
             view.setDrawingCacheEnabled(true);
             Bitmap drawingCache = view.getDrawingCache();
@@ -70,31 +70,31 @@ public class a {
     }
 
     public void bq(int i, int i2) {
-        aqK();
+        aqL();
         br(i, i2);
         if (this.mWindowManager != null) {
-            this.mWindowManager.updateViewLayout(this.dpO, this.dpN);
+            this.mWindowManager.updateViewLayout(this.dpR, this.dpQ);
         }
     }
 
-    private void aqK() {
-        if (!this.dpS) {
+    private void aqL() {
+        if (!this.dpV) {
             BdLog.e("should do init first!");
         }
     }
 
     private void a(Context context, Bitmap bitmap, int i, int i2) {
-        aqK();
+        aqL();
         if (bitmap != null) {
             br(i, i2);
-            this.dpO = new ImageView(context);
-            this.dpO.setImageBitmap(bitmap);
+            this.dpR = new ImageView(context);
+            this.dpR.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && aH(activity.getWindow().getDecorView())) {
                     try {
                         if (this.mWindowManager != null) {
-                            this.mWindowManager.addView(this.dpO, this.dpN);
+                            this.mWindowManager.addView(this.dpR, this.dpQ);
                         }
                     } catch (Exception e) {
                     }
@@ -118,31 +118,31 @@ public class a {
         return false;
     }
 
-    private void aqL() {
-        this.dpN = new WindowManager.LayoutParams();
-        this.dpN.format = -3;
-        this.dpN.gravity = 51;
-        this.dpN.alpha = 1.0f;
-        this.dpN.width = -2;
-        this.dpN.height = -2;
-        this.dpN.flags = 24;
+    private void aqM() {
+        this.dpQ = new WindowManager.LayoutParams();
+        this.dpQ.format = -3;
+        this.dpQ.gravity = 51;
+        this.dpQ.alpha = 1.0f;
+        this.dpQ.width = -2;
+        this.dpQ.height = -2;
+        this.dpQ.flags = 24;
     }
 
     private void br(int i, int i2) {
-        if (this.dpN == null) {
-            aqL();
+        if (this.dpQ == null) {
+            aqM();
         }
-        this.dpN.x = i - (this.mWidth / 2);
-        this.dpN.y = (i2 - (this.mHeight / 2)) - this.dpR;
+        this.dpQ.x = i - (this.mWidth / 2);
+        this.dpQ.y = (i2 - (this.mHeight / 2)) - this.dpU;
     }
 
-    public void aqM() {
-        if (this.dpO != null) {
+    public void aqN() {
+        if (this.dpR != null) {
             if (this.mWindowManager != null) {
-                this.mWindowManager.removeView(this.dpO);
+                this.mWindowManager.removeView(this.dpR);
             }
-            this.dpO = null;
+            this.dpR = null;
         }
-        this.dpP = false;
+        this.dpS = false;
     }
 }

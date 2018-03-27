@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends RelativeLayout implements l {
-    private String aUL;
-    private TextView brU;
-    private int brV;
+    private String aUN;
+    private TextView brX;
+    private int brY;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -24,20 +24,20 @@ public class e extends RelativeLayout implements l {
         if (i > 0 && i2 > 0) {
             setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(d.e.ds230)));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(d.e.ds144));
-            this.brU = new TextView(context);
+            this.brX = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.brU.setGravity(17);
-            this.brU.setTextSize(0, context.getResources().getDimensionPixelSize(d.e.fontsize24));
-            this.brV = context.getResources().getDimensionPixelSize(d.e.ds12);
-            addView(this.brU, layoutParams);
+            this.brX.setGravity(17);
+            this.brX.setTextSize(0, context.getResources().getDimensionPixelSize(d.e.fontsize24));
+            this.brY = context.getResources().getDimensionPixelSize(d.e.ds12);
+            addView(this.brX, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.brU.setText(str);
+        this.brX.setText(str);
     }
 
     public void setIcon(int i) {
@@ -59,8 +59,8 @@ public class e extends RelativeLayout implements l {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.brU.getRight() - (this.mTip.getMeasuredWidth() / 2);
-                int top = this.brU.getTop() - (this.mTip.getMeasuredHeight() / 2);
+                int right = this.brX.getRight() - (this.mTip.getMeasuredWidth() / 2);
+                int top = this.brX.getTop() - (this.mTip.getMeasuredHeight() / 2);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -75,7 +75,7 @@ public class e extends RelativeLayout implements l {
 
     private void gj(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.aUL = str;
+            this.aUN = str;
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
                 addView(this.mTip, new RelativeLayout.LayoutParams(-2, -2));
@@ -95,8 +95,8 @@ public class e extends RelativeLayout implements l {
         }
     }
 
-    public void La() {
-        this.aUL = null;
+    public void Lb() {
+        this.aUN = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -106,7 +106,7 @@ public class e extends RelativeLayout implements l {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                La();
+                Lb();
             } else if (aVar.data instanceof String) {
                 gi((String) aVar.data);
             }
@@ -126,13 +126,13 @@ public class e extends RelativeLayout implements l {
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
         aj.f(this, d.f.btn_editor_selector, i);
-        aj.b(this.brU, d.C0141d.cp_cont_f, 1, i);
-        if (TextUtils.isEmpty(this.brU.getText())) {
-            aj.f(this.brU, this.mIcon, i);
+        aj.b(this.brX, d.C0141d.cp_cont_f, 1, i);
+        if (TextUtils.isEmpty(this.brX.getText())) {
+            aj.f(this.brX, this.mIcon, i);
         } else {
             Drawable au = aj.au(i, this.mIcon);
             au.setBounds(0, 0, getResources().getDimensionPixelSize(d.e.ds70), getResources().getDimensionPixelSize(d.e.ds72));
-            this.brU.setCompoundDrawables(null, au, null, null);
+            this.brX.setCompoundDrawables(null, au, null, null);
         }
         if (this.mTip != null) {
             aj.b(this.mTip, d.C0141d.common_color_10225, 1, i);
@@ -146,6 +146,6 @@ public class e extends RelativeLayout implements l {
     }
 
     public String getText() {
-        return this.aUL;
+        return this.aUN;
     }
 }

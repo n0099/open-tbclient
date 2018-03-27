@@ -14,14 +14,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public List<a> gxU = new ArrayList();
-    public al gxV = new al();
+    public List<a> gyk = new ArrayList();
+    public al gyl = new al();
 
     /* loaded from: classes3.dex */
     public static class a {
         public String content;
         public String fname;
-        public int gxW;
+        public int gym;
         public int is_floor;
         public String name;
         public String name_show;
@@ -32,21 +32,21 @@ public class b {
         public String title;
     }
 
-    public boolean aLJ() {
-        return (this.gxU == null || this.gxU.size() == 0) ? false : true;
+    public boolean aLK() {
+        return (this.gyk == null || this.gyk.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.gxV != null && this.gxV.yw() == 1;
+        return this.gyl != null && this.gyl.yw() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gxV.parserJson(jSONObject.getJSONObject(WBPageConstants.ParamKey.PAGE));
+                this.gyl.parserJson(jSONObject.getJSONObject(WBPageConstants.ParamKey.PAGE));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.gxU.clear();
+                    this.gyk.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -71,11 +71,11 @@ public class b {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.gxW = optInt2;
+                                aVar.gym = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.gxU.add(aVar);
+                                this.gyk.add(aVar);
                             }
                         }
                     }

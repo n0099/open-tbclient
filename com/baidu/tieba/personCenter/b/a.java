@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c giD;
-    private d giR;
-    private com.baidu.tieba.personCenter.a.a giS;
-    private com.baidu.tieba.personCenter.a.b giT;
+    private com.baidu.tieba.personCenter.a.c giT;
+    private d gjh;
+    private com.baidu.tieba.personCenter.a.a gji;
+    private com.baidu.tieba.personCenter.a.b gjj;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -23,14 +23,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.giR = new d(tbPageContext, f.gjw);
-        this.giS = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.gjh);
-        this.giT = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.gji);
-        this.giD = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.gjv);
-        this.mAdapters.add(this.giR);
-        this.mAdapters.add(this.giS);
+        this.gjh = new d(tbPageContext, f.gjM);
+        this.gji = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.gjx);
+        this.gjj = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.gjy);
+        this.giT = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.gjL);
+        this.mAdapters.add(this.gjh);
+        this.mAdapters.add(this.gji);
+        this.mAdapters.add(this.gjj);
         this.mAdapters.add(this.giT);
-        this.mAdapters.add(this.giD);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -40,11 +40,11 @@ public class a {
         }
     }
 
-    public void biF() {
-        this.giS.biF();
+    public void biG() {
+        this.gji.biG();
     }
 
-    public void biG() {
-        this.giS.destroy();
+    public void biH() {
+        this.gji.destroy();
     }
 }

@@ -9,25 +9,25 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class c {
     private final Context context;
-    private final ViewGroup gHx;
+    private final ViewGroup gHN;
 
     public c(Context context, ViewGroup viewGroup) {
         this.context = context;
-        this.gHx = viewGroup;
+        this.gHN = viewGroup;
     }
 
     public d a(AdCard.e eVar, d dVar) {
         if (eVar != null && eVar.style != null) {
-            if (dVar == null || !bT(eVar.style, dVar.gHy)) {
-                if (this.gHx == null) {
+            if (dVar == null || !bT(eVar.style, dVar.gHO)) {
+                if (this.gHN == null) {
                     return null;
                 }
-                this.gHx.removeAllViews();
+                this.gHN.removeAllViews();
                 if (TbWebViewActivityConfig.PARAMS_KEY.equals(eVar.style)) {
-                    return new b(LayoutInflater.from(this.context).inflate(d.h.tail_frame_ad_jump, this.gHx, true), TbWebViewActivityConfig.PARAMS_KEY);
+                    return new b(LayoutInflater.from(this.context).inflate(d.h.tail_frame_ad_jump, this.gHN, true), TbWebViewActivityConfig.PARAMS_KEY);
                 }
                 if ("apk_download".equals(eVar.style)) {
-                    return new a(LayoutInflater.from(this.context).inflate(d.h.tail_frame_ad_download, this.gHx, true), "apk_download");
+                    return new a(LayoutInflater.from(this.context).inflate(d.h.tail_frame_ad_download, this.gHN, true), "apk_download");
                 }
                 return null;
             }

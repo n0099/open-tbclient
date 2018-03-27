@@ -52,7 +52,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     protected void aI(String str, int i) {
-        BdToast.b(getAppContext(), str, i).Bc();
+        BdToast.b(getAppContext(), str, i).Bd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -91,7 +91,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap bsj() {
+    public Bitmap bsk() {
         return BitmapHelper.getCashBitmap(d.f.icon);
     }
 

@@ -17,18 +17,18 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class a {
-    public static a aGc;
-    private C0089a aGa;
-    public SQLiteDatabase aGb;
+    public static a aGd;
+    private C0089a aGb;
+    public SQLiteDatabase aGc;
     private Context f;
     int a = 5;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
 
     private a(Context context) {
         this.f = context.getApplicationContext();
-        this.aGa = new C0089a(context.getApplicationContext());
+        this.aGb = new C0089a(context.getApplicationContext());
         try {
-            this.aGb = this.aGa.getWritableDatabase();
+            this.aGc = this.aGb.getWritableDatabase();
         } catch (Throwable th) {
             d.a(th);
         }
@@ -37,11 +37,11 @@ public final class a {
     public static synchronized a ay(Context context) {
         a aVar;
         synchronized (a.class) {
-            new StringBuilder("i=").append(aGc);
-            if (aGc == null) {
-                aGc = new a(context);
+            new StringBuilder("i=").append(aGd);
+            if (aGd == null) {
+                aGd = new a(context);
             }
-            aVar = aGc;
+            aVar = aGd;
         }
         return aVar;
     }
@@ -110,10 +110,10 @@ public final class a {
             }
             try {
                 if (b(apkInfo.key)) {
-                    j = this.aGb.update("pgn", contentValues, "k=" + apkInfo.key, null);
+                    j = this.aGc.update("pgn", contentValues, "k=" + apkInfo.key, null);
                 } else {
                     contentValues.put("k", Integer.valueOf(apkInfo.key));
-                    j = this.aGb.insert("pgn", null, contentValues);
+                    j = this.aGc.insert("pgn", null, contentValues);
                 }
             } catch (Throwable th) {
             }
@@ -125,7 +125,7 @@ public final class a {
         Cursor cursor;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.aGb.query("pgn", null, null, null, null, null, null);
+            cursor = this.aGc.query("pgn", null, null, null, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -178,7 +178,7 @@ public final class a {
         Cursor cursor;
         HashMap hashMap = new HashMap();
         try {
-            cursor = this.aGb.query("pgn", null, "n=1", null, null, null, null);
+            cursor = this.aGc.query("pgn", null, "n=1", null, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -222,7 +222,7 @@ public final class a {
         Cursor cursor;
         HashMap hashMap = new HashMap();
         try {
-            cursor = this.aGb.query("pgn", null, "n=1", null, null, null, null);
+            cursor = this.aGc.query("pgn", null, "n=1", null, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -274,7 +274,7 @@ public final class a {
         /*
             r10 = this;
             r8 = 0
-            android.database.sqlite.SQLiteDatabase r0 = r10.aGb     // Catch: java.lang.Throwable -> L19a
+            android.database.sqlite.SQLiteDatabase r0 = r10.aGc     // Catch: java.lang.Throwable -> L19a
             java.lang.String r1 = "pgn"
             r2 = 0
             java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L19a
@@ -497,7 +497,7 @@ public final class a {
         Cursor cursor;
         boolean z;
         try {
-            cursor = this.aGb.query("pgn", new String[]{"p"}, "k=" + i, null, null, null, null);
+            cursor = this.aGc.query("pgn", new String[]{"p"}, "k=" + i, null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.getCount() > 0) {
@@ -564,7 +564,7 @@ public final class a {
         Cursor cursor;
         int i2;
         try {
-            cursor = this.aGb.query("pgn", new String[]{"n"}, "k=" + i, null, null, null, null);
+            cursor = this.aGc.query("pgn", new String[]{"n"}, "k=" + i, null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
@@ -626,7 +626,7 @@ public final class a {
         new StringBuilder().append(str);
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.aGb.delete("pgn", "p=?", new String[]{str});
+                this.aGc.delete("pgn", "p=?", new String[]{str});
             } catch (Throwable th) {
                 d.a(th);
             }
@@ -646,7 +646,7 @@ public final class a {
                 if (vF != null) {
                     vF.b(apkInfo2.packageName);
                 }
-                new StringBuilder().append(apkInfo2.packageName).append(this.aGb.delete("pgn", "k=" + apkInfo2.key, null));
+                new StringBuilder().append(apkInfo2.packageName).append(this.aGc.delete("pgn", "k=" + apkInfo2.key, null));
                 d.b(this.f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
                 if (this.f != null) {
                     d.b(this.f.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
@@ -661,7 +661,7 @@ public final class a {
         Cursor cursor;
         boolean z = false;
         try {
-            Cursor cursor2 = this.aGb.query("pgn", new String[]{"u"}, "k=" + i, null, null, null, null);
+            Cursor cursor2 = this.aGc.query("pgn", new String[]{"u"}, "k=" + i, null, null, null, null);
             if (cursor2 != null) {
                 try {
                     if (cursor2.moveToFirst()) {
@@ -706,7 +706,7 @@ public final class a {
         Cursor cursor;
         boolean z = false;
         try {
-            Cursor cursor2 = this.aGb.query("pgn", new String[]{NotifyType.SOUND}, "k=" + i, null, null, null, null);
+            Cursor cursor2 = this.aGc.query("pgn", new String[]{NotifyType.SOUND}, "k=" + i, null, null, null, null);
             if (cursor2 != null) {
                 try {
                     if (cursor2.moveToFirst()) {
@@ -751,7 +751,7 @@ public final class a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("u", Integer.valueOf(i2));
-            return this.aGb.update("pgn", contentValues, "k=" + i, null);
+            return this.aGc.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
             return 0;
         }
@@ -761,7 +761,7 @@ public final class a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("n", (Integer) (-1));
-            this.aGb.update("pgn", contentValues, "k=" + i, null);
+            this.aGc.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -781,7 +781,7 @@ public final class a {
             r10 = 0
             r8 = 0
             r9 = 1
-            android.database.sqlite.SQLiteDatabase r0 = r11.aGb     // Catch: java.lang.Throwable -> L84
+            android.database.sqlite.SQLiteDatabase r0 = r11.aGc     // Catch: java.lang.Throwable -> L84
             java.lang.String r1 = "pgn"
             r2 = 3
             java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> L84
@@ -904,7 +904,7 @@ public final class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put("pdld", Integer.valueOf(i2));
         try {
-            this.aGb.update("pgn", contentValues, "k=" + i, null);
+            this.aGc.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -919,7 +919,7 @@ public final class a {
         Cursor cursor;
         int i2;
         try {
-            cursor = this.aGb.query("pgn", new String[]{"pdld"}, "k=" + i, null, null, null, null);
+            cursor = this.aGc.query("pgn", new String[]{"pdld"}, "k=" + i, null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
@@ -981,7 +981,7 @@ public final class a {
         new StringBuilder().append(i);
         if (i > 0) {
             try {
-                new StringBuilder().append(this.aGb.delete("pgn", "k=" + i, null));
+                new StringBuilder().append(this.aGc.delete("pgn", "k=" + i, null));
             } catch (Throwable th) {
                 d.a(th);
             }
@@ -992,7 +992,7 @@ public final class a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("pr", Integer.valueOf(i2));
-            this.aGb.update("pgn", contentValues, "k=" + i, null);
+            this.aGc.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -1017,7 +1017,7 @@ public final class a {
         L9:
             return r0
         La:
-            android.database.sqlite.SQLiteDatabase r0 = r11.aGb     // Catch: java.lang.Throwable -> L1a7
+            android.database.sqlite.SQLiteDatabase r0 = r11.aGc     // Catch: java.lang.Throwable -> L1a7
             java.lang.String r1 = "pgn"
             r2 = 0
             java.lang.String r3 = "p=?"

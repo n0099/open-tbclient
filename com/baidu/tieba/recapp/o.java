@@ -14,17 +14,17 @@ public interface o {
 
     void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
 
-    j bnY();
+    j bnZ();
 
-    l bnZ();
+    l boa();
 
-    com.baidu.tieba.n.a boa();
+    com.baidu.tieba.n.a bob();
 
-    h bob();
+    h boc();
 
-    List<AppData> boc();
+    List<AppData> bod();
 
-    void bod();
+    void boe();
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 

@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag extends Thread {
-    private String aWO;
-    private boolean aWP;
+    private String aWQ;
+    private boolean aWR;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -16,19 +16,19 @@ public class ag extends Thread {
     public ag(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.aWO = null;
+        this.aWQ = null;
         this.mObjTp = null;
-        this.aWP = false;
+        this.aWR = false;
         this.mType = str;
-        this.aWP = z;
+        this.aWR = z;
     }
 
     public ag(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.aWO = null;
+        this.aWQ = null;
         this.mObjTp = null;
-        this.aWP = false;
+        this.aWR = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -37,7 +37,7 @@ public class ag extends Thread {
     public void run() {
         String str;
         super.run();
-        if (this.aWP) {
+        if (this.aWR) {
             str = TbConfig.IN_PV_ADDRESS;
         } else {
             str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -47,18 +47,18 @@ public class ag extends Thread {
         if (this.mParam != null) {
             xVar.n("st_param", this.mParam);
         }
-        if (this.aWO != null) {
-            xVar.n("obj", this.aWO);
+        if (this.aWQ != null) {
+            xVar.n("obj", this.aWQ);
         }
         if (this.mObjTp != null) {
             xVar.n("obj_tp", this.mObjTp);
         }
-        String Ca = xVar.Ca();
+        String Cb = xVar.Cb();
         System.out.println("pv_test !!!");
-        if (Ca != null) {
-            Log.i("USEINTERVAL", Ca);
+        if (Cb != null) {
+            Log.i("USEINTERVAL", Cb);
             try {
-                JSONObject jSONObject = new JSONObject(Ca);
+                JSONObject jSONObject = new JSONObject(Cb);
                 if (jSONObject.has("use_duration")) {
                     long optLong = jSONObject.optLong("use_duration");
                     Log.i("USEINTERVAL", "duration " + optLong);

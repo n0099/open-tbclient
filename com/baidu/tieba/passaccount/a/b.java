@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b implements c {
-    private static b fEd;
+    private static b fEt;
 
     private b() {
     }
 
-    public static synchronized b aZD() {
+    public static synchronized b aZE() {
         b bVar;
         synchronized (b.class) {
-            if (fEd == null) {
-                fEd = new b();
+            if (fEt == null) {
+                fEt = new b();
             }
-            bVar = fEd;
+            bVar = fEt;
         }
         return bVar;
     }
@@ -40,7 +40,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void Fb() {
+    public void Fc() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {
@@ -68,7 +68,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public List<AccountData> Fc() {
+    public List<AccountData> Fd() {
         ArrayList arrayList = new ArrayList();
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();

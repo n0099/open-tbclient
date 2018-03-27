@@ -17,14 +17,14 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.write.write.e;
 /* loaded from: classes2.dex */
 public class f {
-    private TbPageContext<WriteActivity> aRG;
-    private WriteImageGridView hLU;
-    private e hLV;
+    private TbPageContext<WriteActivity> aRI;
+    private WriteImageGridView hMs;
+    private e hMt;
     private WriteImagesInfo mWriteImagesInfo;
-    private com.baidu.tbadk.img.b btr = new com.baidu.tbadk.img.b();
+    private com.baidu.tbadk.img.b btu = new com.baidu.tbadk.img.b();
     private String mFrom = AlbumActivityConfig.FROM_WRITE;
     private String mForumId = "";
-    private e.a hLW = new e.a() { // from class: com.baidu.tieba.write.write.f.1
+    private e.a hMu = new e.a() { // from class: com.baidu.tieba.write.write.f.1
         @Override // com.baidu.tieba.write.write.e.a
         public void xz(int i) {
             if (f.this.mWriteImagesInfo != null && f.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < f.this.mWriteImagesInfo.getChosedFiles().size()) {
@@ -32,10 +32,10 @@ public class f {
                 if (remove.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.ll().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                f.this.hLV.a(f.this.mWriteImagesInfo);
-                f.this.hLV.notifyDataSetChanged();
-                if (v.E(f.this.mWriteImagesInfo.getChosedFiles()) && f.this.aRG.getOrignalPage() != 0) {
-                    ((WriteActivity) f.this.aRG.getOrignalPage()).nR(false);
+                f.this.hMt.a(f.this.mWriteImagesInfo);
+                f.this.hMt.notifyDataSetChanged();
+                if (v.E(f.this.mWriteImagesInfo.getChosedFiles()) && f.this.aRI.getOrignalPage() != 0) {
+                    ((WriteActivity) f.this.aRI.getOrignalPage()).nW(false);
                 }
             }
         }
@@ -44,14 +44,14 @@ public class f {
         public void xO(int i) {
             int D;
             if (f.this.mWriteImagesInfo != null && (D = v.D(f.this.mWriteImagesInfo.getChosedFiles())) != 0 && i >= 0 && i < D) {
-                f.this.aRG.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(f.this.aRG.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, f.this.mWriteImagesInfo, i)));
+                f.this.aRI.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(f.this.aRI.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, f.this.mWriteImagesInfo, i)));
             }
         }
 
         @Override // com.baidu.tieba.write.write.e.a
-        public void bIZ() {
+        public void bJe() {
             if (f.this.mWriteImagesInfo != null) {
-                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) f.this.aRG.getPageActivity(), f.this.mWriteImagesInfo.toJsonString(), true, true);
+                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) f.this.aRI.getPageActivity(), f.this.mWriteImagesInfo.toJsonString(), true, true);
                 albumActivityConfig.getIntent().putExtra("forum_id", f.this.mForumId);
                 albumActivityConfig.getIntent().putExtra("from", f.this.mFrom);
                 albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
@@ -62,25 +62,25 @@ public class f {
     };
 
     public f(TbPageContext<WriteActivity> tbPageContext, View view) {
-        this.aRG = tbPageContext;
-        this.hLU = (WriteImageGridView) view.findViewById(d.g.write_image_grid_view);
-        this.hLV = new e(view.getContext(), this.btr, null, this.hLW);
-        this.hLU.setAdapter((ListAdapter) this.hLV);
+        this.aRI = tbPageContext;
+        this.hMs = (WriteImageGridView) view.findViewById(d.g.write_image_grid_view);
+        this.hMt = new e(view.getContext(), this.btu, null, this.hMu);
+        this.hMs.setAdapter((ListAdapter) this.hMt);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
         this.mFrom = str;
         this.mForumId = str2;
         this.mWriteImagesInfo = writeImagesInfo;
-        this.hLV.a(this.mWriteImagesInfo);
-        this.hLV.notifyDataSetChanged();
+        this.hMt.a(this.mWriteImagesInfo);
+        this.hMt.notifyDataSetChanged();
     }
 
     public void destroy() {
-        this.btr.MG();
+        this.btu.MH();
     }
 
-    public void nH(boolean z) {
-        this.hLV.nH(z);
+    public void nM(boolean z) {
+        this.hMt.nM(z);
     }
 }

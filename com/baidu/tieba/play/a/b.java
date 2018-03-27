@@ -13,10 +13,10 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b gvU = null;
-    private com.baidu.tieba.play.a.a gvT;
-    private InterfaceC0217b gvV = null;
-    private int gvW = 0;
+    private static b gwk = null;
+    private com.baidu.tieba.play.a.a gwj;
+    private InterfaceC0217b gwl = null;
+    private int gwm = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -27,41 +27,41 @@ public class b {
     private b() {
     }
 
-    public static b blX() {
-        if (gvU == null) {
+    public static b blY() {
+        if (gwk == null) {
             synchronized (b.class) {
-                if (gvU == null) {
-                    gvU = new b();
+                if (gwk == null) {
+                    gwk = new b();
                 }
             }
         }
-        return gvU;
+        return gwk;
     }
 
     public void a(InterfaceC0217b interfaceC0217b) {
-        this.gvV = interfaceC0217b;
+        this.gwl = interfaceC0217b;
     }
 
     public boolean rn(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (ro(str) && this.gvT.blW().size() > this.gvW) {
-            if (this.gvV != null) {
-                InterfaceC0217b interfaceC0217b = this.gvV;
-                List<String> blW = this.gvT.blW();
-                int i = this.gvW;
-                this.gvW = i + 1;
-                interfaceC0217b.bO(blW.get(i), str);
+        if (ro(str) && this.gwj.blX().size() > this.gwm) {
+            if (this.gwl != null) {
+                InterfaceC0217b interfaceC0217b = this.gwl;
+                List<String> blX = this.gwj.blX();
+                int i = this.gwm;
+                this.gwm = i + 1;
+                interfaceC0217b.bO(blX.get(i), str);
             }
             return true;
-        } else if (this.gvT != null && this.gvT.blW() != null && this.gvT.blW().size() <= this.gvW) {
-            this.gvW = 0;
-            this.gvT = null;
+        } else if (this.gwj != null && this.gwj.blX() != null && this.gwj.blX().size() <= this.gwm) {
+            this.gwm = 0;
+            this.gwj = null;
             return false;
         } else {
-            this.gvW = 0;
-            this.gvT = null;
+            this.gwm = 0;
+            this.gwj = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -70,7 +70,7 @@ public class b {
     }
 
     private boolean ro(String str) {
-        return (this.gvT == null || TextUtils.isEmpty(str) || !str.equals(this.gvT.getHost()) || v.E(this.gvT.blW()) || this.gvT.cL(System.currentTimeMillis()) || this.gvT.blW().size() <= this.gvW) ? false : true;
+        return (this.gwj == null || TextUtils.isEmpty(str) || !str.equals(this.gwj.getHost()) || v.E(this.gwj.blX()) || this.gwj.cL(System.currentTimeMillis()) || this.gwj.blX().size() <= this.gwm) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -259,14 +259,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.aoc)) {
-                b.this.gvT = aVarArr[0];
-                if (!v.E(aVarArr[0].blW()) && b.this.gvV != null) {
-                    b.this.gvV.bO(aVarArr[0].blW().get(0), aVarArr[0].getHost());
+                b.this.gwj = aVarArr[0];
+                if (!v.E(aVarArr[0].blX()) && b.this.gwl != null) {
+                    b.this.gwl.bO(aVarArr[0].blX().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.gvV != null) {
-                b.this.gvV.bO(null, null);
+            if (b.this.gwl != null) {
+                b.this.gwl.bO(null, null);
             }
         }
 

@@ -6,32 +6,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static b aHz = null;
-    private static a aHA = null;
-    private static boolean aHB = false;
-    private static String aHC = "";
-    private static transient List<String> aHD = new ArrayList(5);
+    private static b aHA = null;
+    private static a aHB = null;
+    private static boolean aHC = false;
+    private static String aHD = "";
+    private static transient List<String> aHE = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (aHA == null) {
+        if (aHB == null) {
             synchronized (a.class) {
-                if (aHA == null) {
-                    aHA = new a();
-                    aHz = b.c(baseFragmentActivity);
+                if (aHB == null) {
+                    aHB = new a();
+                    aHA = b.c(baseFragmentActivity);
                 }
             }
-        } else if (aHz != null) {
-            aHz.setContext(baseFragmentActivity.getPageContext());
+        } else if (aHA != null) {
+            aHA.setContext(baseFragmentActivity.getPageContext());
         }
-        if (aHB && aHz != null) {
-            aHz.wl();
-            aHz.wm();
-            aHB = false;
+        if (aHC && aHA != null) {
+            aHA.wl();
+            aHA.wm();
+            aHC = false;
         }
-        return aHA;
+        return aHB;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
@@ -48,66 +48,66 @@ public class a {
 
     public void wb() {
         wg();
-        if (aHz != null) {
-            aHz.wl();
-            aHB = false;
+        if (aHA != null) {
+            aHA.wl();
+            aHC = false;
         }
     }
 
     public void wc() {
         wg();
-        if (aHz != null) {
-            aHz.wm();
-            aHB = false;
+        if (aHA != null) {
+            aHA.wm();
+            aHC = false;
         }
     }
 
     public void aM(boolean z) {
         wg();
-        if (aHz != null) {
-            aHz.aM(z);
+        if (aHA != null) {
+            aHA.aM(z);
         }
     }
 
     public void a(b.a aVar) {
         wg();
-        if (aHz != null) {
-            aHz.c(aVar);
+        if (aHA != null) {
+            aHA.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
         wg();
-        if (aHz != null) {
-            if (aHz.wi()) {
-                aHz.c(aVar);
+        if (aHA != null) {
+            if (aHA.wi()) {
+                aHA.c(aVar);
             }
-            aHz.wk();
+            aHA.wk();
         }
     }
 
     public void a(int i, b.a aVar) {
         wg();
-        if (aHz != null) {
-            if (aHz.wi()) {
-                aHz.c(aVar);
+        if (aHA != null) {
+            if (aHA.wi()) {
+                aHA.c(aVar);
             }
-            aHz.ea(i);
+            aHA.ea(i);
         }
     }
 
     public void wd() {
         wg();
-        if (aHz != null) {
-            aHz.wd();
-            aHB = true;
+        if (aHA != null) {
+            aHA.wd();
+            aHC = true;
         }
     }
 
     public void we() {
         wg();
-        if (aHz != null) {
-            aHz.we();
+        if (aHA != null) {
+            aHA.we();
         }
     }
 
@@ -118,22 +118,22 @@ public class a {
     }
 
     private void wg() {
-        if (aHz == null) {
+        if (aHA == null) {
         }
     }
 
     public static void wh() {
         try {
-            if (aHz != null) {
-                if (aHA != null) {
-                    aHA.wf();
-                }
-                aHz.wj();
-                aHz.wn();
-                aHz = null;
-            }
             if (aHA != null) {
+                if (aHB != null) {
+                    aHB.wf();
+                }
+                aHA.wj();
+                aHA.wn();
                 aHA = null;
+            }
+            if (aHB != null) {
+                aHB = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

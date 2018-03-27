@@ -14,11 +14,11 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private ChannelFansActivity dbV;
+    private ChannelFansActivity dbY;
     private List<i> mData;
 
     public b(ChannelFansActivity channelFansActivity) {
-        this.dbV = channelFansActivity;
+        this.dbY = channelFansActivity;
     }
 
     public void setData(List<i> list) {
@@ -54,42 +54,42 @@ public class b extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.dbV.getPageContext().getPageActivity()).inflate(d.h.channel_fans_list_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.dbY.getPageContext().getPageActivity()).inflate(d.h.channel_fans_list_item_layout, viewGroup, false);
             a aVar2 = new a();
-            aVar2.dbW = (HeadImageView) view.findViewById(d.g.avatar);
-            aVar2.dbW.setAutoChangeStyle(true);
-            aVar2.dbW.setIsRound(true);
-            aVar2.dbW.setClickable(false);
-            aVar2.dbX = (TextView) view.findViewById(d.g.fans_name);
-            aVar2.dbY = (TextView) view.findViewById(d.g.fans_intro);
+            aVar2.dbZ = (HeadImageView) view.findViewById(d.g.avatar);
+            aVar2.dbZ.setAutoChangeStyle(true);
+            aVar2.dbZ.setIsRound(true);
+            aVar2.dbZ.setClickable(false);
+            aVar2.dca = (TextView) view.findViewById(d.g.fans_name);
+            aVar2.dcb = (TextView) view.findViewById(d.g.fans_intro);
             view.setTag(aVar2);
             aVar = aVar2;
         }
         i item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.getPortrait())) {
-                aVar.dbW.setTag(null);
-                aVar.dbW.setDefaultResource(d.f.img_default_100);
-                aVar.dbW.startLoad(item.getPortrait(), 12, false);
-                aVar.dbW.invalidate();
+                aVar.dbZ.setTag(null);
+                aVar.dbZ.setDefaultResource(d.f.img_default_100);
+                aVar.dbZ.startLoad(item.getPortrait(), 12, false);
+                aVar.dbZ.invalidate();
             }
             if (!TextUtils.isEmpty(item.getUser_name())) {
-                aVar.dbX.setText(item.getUser_name());
+                aVar.dca.setText(item.getUser_name());
             }
             if (!TextUtils.isEmpty(item.getIntro())) {
-                aVar.dbY.setText(item.getIntro());
+                aVar.dcb.setText(item.getIntro());
             }
         }
-        this.dbV.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.dbV.getLayoutMode().aM(view);
+        this.dbY.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.dbY.getLayoutMode().aM(view);
         return view;
     }
 
     /* loaded from: classes3.dex */
     private class a {
-        HeadImageView dbW;
-        TextView dbX;
-        TextView dbY;
+        HeadImageView dbZ;
+        TextView dca;
+        TextView dcb;
 
         private a() {
         }

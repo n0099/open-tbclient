@@ -22,9 +22,9 @@ import android.view.animation.Transformation;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
-    d awR;
-    b awS;
-    private c awT;
+    d awS;
+    b awT;
+    private c awU;
     private int mActivePointerId;
     private final Animation mAnimateToCorrectPosition;
     private final Animation mAnimateToStartPosition;
@@ -92,14 +92,14 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
     void reset() {
         finish();
-        this.awS.getView().setVisibility(8);
+        this.awT.getView().setVisibility(8);
         setColorViewAlpha(255);
         if (this.mScale) {
             setAnimationProgress(0.0f);
         } else {
             a(this.mOriginalOffsetTop - this.mCurrentTargetOffsetTop, true, "reset");
         }
-        this.mCurrentTargetOffsetTop = this.awS.getView().getTop();
+        this.mCurrentTargetOffsetTop = this.awT.getView().getTop();
     }
 
     @Override // android.view.View
@@ -118,8 +118,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
     @SuppressLint({"NewApi"})
     private void setColorViewAlpha(int i) {
-        if (this.awS != null && this.awS.getView() != null && this.awS.getView().getBackground() != null) {
-            this.awS.getView().getBackground().setAlpha(i);
+        if (this.awT != null && this.awT.getView() != null && this.awT.getView().getBackground() != null) {
+            this.awT.getView().getBackground().setAlpha(i);
         }
     }
 
@@ -132,14 +132,14 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     }
 
     public void setSize(int i) {
-        if ((i == 0 || i == 1) && (this.awS instanceof a)) {
+        if ((i == 0 || i == 1) && (this.awT instanceof a)) {
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             if (i == 0) {
                 this.mCircleDiameter = (int) (displayMetrics.density * 56.0f);
             } else {
                 this.mCircleDiameter = (int) (displayMetrics.density * 61.0f);
             }
-            ((a) this.awS).setSize(i);
+            ((a) this.awT).setSize(i);
         }
     }
 
@@ -170,7 +170,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
             public void onAnimationEnd(Animation animation) {
                 if (BdSwipeRefreshLayout.this.mRefreshing) {
                     BdSwipeRefreshLayout.this.sv();
-                    BdSwipeRefreshLayout.this.mCurrentTargetOffsetTop = BdSwipeRefreshLayout.this.awS.getView().getTop();
+                    BdSwipeRefreshLayout.this.mCurrentTargetOffsetTop = BdSwipeRefreshLayout.this.awT.getView().getTop();
                     return;
                 }
                 BdSwipeRefreshLayout.this.reset();
@@ -185,7 +185,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
                 } else {
                     i = BdSwipeRefreshLayout.this.mSpinnerOffsetEnd;
                 }
-                BdSwipeRefreshLayout.this.a((((int) ((i - BdSwipeRefreshLayout.this.mFrom) * f)) + BdSwipeRefreshLayout.this.mFrom) - BdSwipeRefreshLayout.this.awS.getView().getTop(), false, "AnimateToCorrectPosition");
+                BdSwipeRefreshLayout.this.a((((int) ((i - BdSwipeRefreshLayout.this.mFrom) * f)) + BdSwipeRefreshLayout.this.mFrom) - BdSwipeRefreshLayout.this.awT.getView().getTop(), false, "AnimateToCorrectPosition");
             }
         };
         this.mAnimateToStartPosition = new Animation() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.5
@@ -231,21 +231,21 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     }
 
     private void createProgressView() {
-        this.awS = new a(getContext());
-        addView(this.awS.getView());
+        this.awT = new a(getContext());
+        addView(this.awT.getView());
     }
 
     public void setProgressView(b bVar) {
-        if (bVar != null && bVar.getView() != null && bVar != this.awS && this.mState == 4) {
-            removeView(this.awS.getView());
-            this.awS = bVar;
-            this.awS.getView().setVisibility(8);
-            addView(this.awS.getView(), 0);
+        if (bVar != null && bVar.getView() != null && bVar != this.awT && this.mState == 4) {
+            removeView(this.awT.getView());
+            this.awT = bVar;
+            this.awT.getView().setVisibility(8);
+            addView(this.awT.getView(), 0);
         }
     }
 
     public void setOnRefreshListener(d dVar) {
-        this.awR = dVar;
+        this.awS = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -266,8 +266,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
             setColorViewAlpha((int) (255.0f * f));
             return;
         }
-        ViewCompat.setScaleX(this.awS.getView(), f);
-        ViewCompat.setScaleY(this.awS.getView(), f);
+        ViewCompat.setScaleX(this.awT.getView(), f);
+        ViewCompat.setScaleY(this.awT.getView(), f);
     }
 
     private void setRefreshing(boolean z, boolean z2) {
@@ -292,8 +292,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         };
         this.mScaleDownAnimation.setDuration(150L);
         this.mScaleDownAnimation.setAnimationListener(animationListener);
-        this.awS.getView().clearAnimation();
-        this.awS.getView().startAnimation(this.mScaleDownAnimation);
+        this.awT.getView().clearAnimation();
+        this.awT.getView().startAnimation(this.mScaleDownAnimation);
     }
 
     @Deprecated
@@ -306,8 +306,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     }
 
     public void setProgressBackgroundColorSchemeColor(int i) {
-        if (this.awS instanceof a) {
-            ((a) this.awS).dQ(i);
+        if (this.awT instanceof a) {
+            ((a) this.awT).dQ(i);
         }
     }
 
@@ -322,8 +322,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
     public void setColorSchemeColors(int... iArr) {
         ensureTarget();
-        if (this.awS instanceof a) {
-            ((a) this.awS).setColorSchemeColors(iArr);
+        if (this.awT instanceof a) {
+            ((a) this.awT).setColorSchemeColors(iArr);
         }
     }
 
@@ -335,7 +335,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         if (this.mTarget == null) {
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
-                if (!childAt.equals(this.awS.getView())) {
+                if (!childAt.equals(this.awT.getView())) {
                     this.mTarget = childAt;
                     return;
                 }
@@ -360,8 +360,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
                 int paddingLeft = getPaddingLeft();
                 int paddingTop = (getPaddingTop() + this.mCurrentTargetOffsetTop) - this.mOriginalOffsetTop;
                 view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
-                int measuredWidth2 = this.awS.getView().getMeasuredWidth();
-                this.awS.getView().layout((measuredWidth / 2) - (measuredWidth2 / 2), this.mCurrentTargetOffsetTop, (measuredWidth / 2) + (measuredWidth2 / 2), this.mCurrentTargetOffsetTop + this.awS.getView().getMeasuredHeight());
+                int measuredWidth2 = this.awT.getView().getMeasuredWidth();
+                this.awT.getView().layout((measuredWidth / 2) - (measuredWidth2 / 2), this.mCurrentTargetOffsetTop, (measuredWidth / 2) + (measuredWidth2 / 2), this.mCurrentTargetOffsetTop + this.awT.getView().getMeasuredHeight());
             }
         }
     }
@@ -374,10 +374,10 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         }
         if (this.mTarget != null) {
             this.mTarget.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
-            this.awS.getView().measure(View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
+            this.awT.getView().measure(View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
             this.mCircleViewIndex = -1;
             for (int i3 = 0; i3 < getChildCount(); i3++) {
-                if (getChildAt(i3) == this.awS.getView()) {
+                if (getChildAt(i3) == this.awT.getView()) {
                     this.mCircleViewIndex = i3;
                     return;
                 }
@@ -391,8 +391,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
     public boolean canChildScrollUp() {
         boolean z = false;
-        if (this.awT != null) {
-            return this.awT.a(this, this.mTarget);
+        if (this.awU != null) {
+            return this.awU.a(this, this.mTarget);
         }
         if (Build.VERSION.SDK_INT < 14) {
             if (this.mTarget instanceof AbsListView) {
@@ -408,7 +408,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     }
 
     public void setOnChildScrollUpCallback(c cVar) {
-        this.awT = cVar;
+        this.awU = cVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -493,7 +493,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
             a(this.mTotalUnconsumed, "onNestedPreScroll-2");
         }
         if (this.mUsingCustomStart && i2 > 0 && this.mTotalUnconsumed == 0.0f && Math.abs(i2 - iArr[1]) > 0) {
-            this.awS.getView().setVisibility(8);
+            this.awT.getView().setVisibility(8);
         }
         int[] iArr2 = this.mParentScrollConsumed;
         if (dispatchNestedPreScroll(i - iArr[0], i2 - iArr[1], iArr2, null)) {
@@ -537,7 +537,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
     public boolean onNestedPreFling(View view, float f, float f2) {
-        if (this.mState == 3 || this.mState == 2 || this.awS.getView() == null || this.awS.getView().getBottom() <= 0) {
+        if (this.mState == 3 || this.mState == 2 || this.awT.getView() == null || this.awT.getView().getBottom() <= 0) {
             return dispatchNestedPreFling(f, f2);
         }
         return true;
@@ -610,12 +610,12 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         float max2 = Math.max(0.0f, Math.min(abs, f2 * 2.0f) / f2);
         float pow = ((float) ((max2 / 4.0f) - Math.pow(max2 / 4.0f, 2.0d))) * 2.0f;
         int i = ((int) ((f2 * min) + (f2 * pow * 2.0f))) + this.mOriginalOffsetTop;
-        if (this.awS.getView().getVisibility() != 0) {
-            this.awS.getView().setVisibility(0);
+        if (this.awT.getView().getVisibility() != 0) {
+            this.awT.getView().setVisibility(0);
         }
         if (!this.mScale) {
-            ViewCompat.setScaleX(this.awS.getView(), 1.0f);
-            ViewCompat.setScaleY(this.awS.getView(), 1.0f);
+            ViewCompat.setScaleX(this.awT.getView(), 1.0f);
+            ViewCompat.setScaleY(this.awT.getView(), 1.0f);
         }
         if (this.mScale) {
             setAnimationProgress(Math.min(1.0f, f / this.mTotalDragDistance));
@@ -628,7 +628,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
             } else if (this.mCurrentTargetOffsetTop >= this.mOriginalOffsetTop + this.mSpinnerOffsetEnd && this.mState != 1) {
                 su();
             }
-            this.awS.k(max, pow);
+            this.awT.k(max, pow);
         }
         a(i - this.mCurrentTargetOffsetTop, true, "moveSpinner");
     }
@@ -737,11 +737,11 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         if (animationListener != null) {
             this.mAnimateToCorrectPosition.setAnimationListener(animationListener);
         }
-        if (this.awS.getView().getVisibility() != 0) {
-            this.awS.getView().setVisibility(0);
+        if (this.awT.getView().getVisibility() != 0) {
+            this.awT.getView().setVisibility(0);
         }
-        this.awS.getView().clearAnimation();
-        this.awS.getView().startAnimation(this.mAnimateToCorrectPosition);
+        this.awT.getView().clearAnimation();
+        this.awT.getView().startAnimation(this.mAnimateToCorrectPosition);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -757,18 +757,18 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         if (animationListener != null) {
             this.mAnimateToStartPosition.setAnimationListener(animationListener);
         }
-        this.awS.getView().clearAnimation();
-        this.awS.getView().startAnimation(this.mAnimateToStartPosition);
+        this.awT.getView().clearAnimation();
+        this.awT.getView().startAnimation(this.mAnimateToStartPosition);
     }
 
     void moveToStart(float f) {
-        a((this.mFrom + ((int) ((this.mOriginalOffsetTop - this.mFrom) * f))) - this.awS.getView().getTop(), false, "moveToStart");
+        a((this.mFrom + ((int) ((this.mOriginalOffsetTop - this.mFrom) * f))) - this.awT.getView().getTop(), false, "moveToStart");
     }
 
     @SuppressLint({"NewApi"})
     private void startScaleDownReturnToStartAnimation(int i, Animation.AnimationListener animationListener) {
         this.mFrom = i;
-        this.mStartingScale = ViewCompat.getScaleX(this.awS.getView());
+        this.mStartingScale = ViewCompat.getScaleX(this.awT.getView());
         this.mScaleDownToStartAnimation = new Animation() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.6
             @Override // android.view.animation.Animation
             public void applyTransformation(float f, Transformation transformation) {
@@ -780,17 +780,17 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         if (animationListener != null) {
             this.mScaleDownToStartAnimation.setAnimationListener(animationListener);
         }
-        this.awS.getView().clearAnimation();
-        this.awS.getView().startAnimation(this.mScaleDownToStartAnimation);
+        this.awT.getView().clearAnimation();
+        this.awT.getView().startAnimation(this.mScaleDownToStartAnimation);
     }
 
     void a(int i, boolean z, String str) {
-        this.awS.getView().bringToFront();
-        ViewCompat.offsetTopAndBottom(this.awS.getView(), i);
+        this.awT.getView().bringToFront();
+        ViewCompat.offsetTopAndBottom(this.awT.getView(), i);
         if (this.mTarget != null) {
             ViewCompat.offsetTopAndBottom(this.mTarget, i);
         }
-        this.mCurrentTargetOffsetTop = this.awS.getView().getTop();
+        this.mCurrentTargetOffsetTop = this.awT.getView().getTop();
         if (z && Build.VERSION.SDK_INT < 11) {
             invalidate();
         }
@@ -805,32 +805,32 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
     private void sU() {
         this.mState = 0;
-        this.awS.onPullToRefresh();
+        this.awT.onPullToRefresh();
     }
 
     private void su() {
         this.mState = 1;
-        this.awS.onReleaseToRefresh();
+        this.awT.onReleaseToRefresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sv() {
         this.mState = 2;
-        this.awS.onRefreshing();
-        if (this.mNotify && this.awR != null) {
-            this.awR.onRefresh();
+        this.awT.onRefreshing();
+        if (this.mNotify && this.awS != null) {
+            this.awS.onRefresh();
         }
     }
 
     private void sV() {
         this.mState = 3;
-        this.awS.sz();
+        this.awT.sz();
         postDelayed(new Runnable() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.7
             @Override // java.lang.Runnable
             public void run() {
                 BdSwipeRefreshLayout.this.animateOffsetToStartPosition(BdSwipeRefreshLayout.this.mCurrentTargetOffsetTop, BdSwipeRefreshLayout.this.mRefreshListener);
             }
-        }, this.awS.sA());
+        }, this.awT.sA());
     }
 
     public void sW() {
@@ -843,38 +843,38 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
         this.mState = 4;
-        this.awS.getView().clearAnimation();
-        this.awS.onFinish();
+        this.awT.getView().clearAnimation();
+        this.awT.onFinish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements b {
-        com.baidu.adp.widget.refresh.a awV;
-        com.baidu.adp.widget.refresh.b awW;
+        com.baidu.adp.widget.refresh.a awW;
+        com.baidu.adp.widget.refresh.b awX;
         private Animation mAlphaMaxAnimation;
         private Animation mAlphaStartAnimation;
 
         public a(Context context) {
-            this.awV = new com.baidu.adp.widget.refresh.a(BdSwipeRefreshLayout.this.getContext(), -328966);
-            this.awW = new com.baidu.adp.widget.refresh.b(context, this.awV);
-            this.awW.setBackgroundColor(-328966);
-            this.awV.setImageDrawable(this.awW);
-            this.awV.setVisibility(8);
+            this.awW = new com.baidu.adp.widget.refresh.a(BdSwipeRefreshLayout.this.getContext(), -328966);
+            this.awX = new com.baidu.adp.widget.refresh.b(context, this.awW);
+            this.awX.setBackgroundColor(-328966);
+            this.awW.setImageDrawable(this.awX);
+            this.awW.setVisibility(8);
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
         public void onPullToRefresh() {
-            this.awW.setAlpha(76);
-            this.awW.showArrow(true);
-            if (this.awW.getAlpha() > 76 && !BdSwipeRefreshLayout.this.isAnimationRunning(this.mAlphaStartAnimation)) {
+            this.awX.setAlpha(76);
+            this.awX.showArrow(true);
+            if (this.awX.getAlpha() > 76 && !BdSwipeRefreshLayout.this.isAnimationRunning(this.mAlphaStartAnimation)) {
                 startProgressAlphaStartAnimation();
             }
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
         public void onReleaseToRefresh() {
-            if (this.awW.getAlpha() < 255 && !BdSwipeRefreshLayout.this.isAnimationRunning(this.mAlphaMaxAnimation)) {
+            if (this.awX.getAlpha() < 255 && !BdSwipeRefreshLayout.this.isAnimationRunning(this.mAlphaMaxAnimation)) {
                 startProgressAlphaMaxAnimation();
             }
         }
@@ -882,11 +882,11 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
         public void onRefreshing() {
             if (Build.VERSION.SDK_INT >= 11) {
-                this.awW.setAlpha(255);
+                this.awX.setAlpha(255);
             }
-            this.awW.setArrowScale(0.0f);
-            this.awW.setAlpha(255);
-            this.awW.start();
+            this.awX.setArrowScale(0.0f);
+            this.awX.setAlpha(255);
+            this.awX.start();
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -895,15 +895,15 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
         public void onFinish() {
-            this.awW.setStartEndTrim(0.0f, 0.0f);
-            this.awW.stop();
+            this.awX.setStartEndTrim(0.0f, 0.0f);
+            this.awX.stop();
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
         public void k(float f, float f2) {
-            this.awW.setStartEndTrim(0.0f, Math.min(0.8f, f * 0.8f));
-            this.awW.setArrowScale(Math.min(1.0f, f));
-            this.awW.setProgressRotation(((-0.25f) + (0.4f * f) + (2.0f * f2)) * 0.5f);
+            this.awX.setStartEndTrim(0.0f, Math.min(0.8f, f * 0.8f));
+            this.awX.setArrowScale(Math.min(1.0f, f));
+            this.awX.setProgressRotation(((-0.25f) + (0.4f * f) + (2.0f * f2)) * 0.5f);
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -913,32 +913,32 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
         public View getView() {
-            return this.awV;
+            return this.awW;
         }
 
         public void setSize(int i) {
-            this.awV.setImageDrawable(null);
-            this.awW.updateSizes(i);
-            this.awV.setImageDrawable(this.awW);
+            this.awW.setImageDrawable(null);
+            this.awX.updateSizes(i);
+            this.awW.setImageDrawable(this.awX);
         }
 
         public void dQ(int i) {
-            this.awV.setBackgroundColor(i);
             this.awW.setBackgroundColor(i);
+            this.awX.setBackgroundColor(i);
         }
 
         public void setColorSchemeColors(int... iArr) {
-            this.awW.setColorSchemeColors(iArr);
+            this.awX.setColorSchemeColors(iArr);
         }
 
         @SuppressLint({"NewApi"})
         private void startProgressAlphaStartAnimation() {
-            this.mAlphaStartAnimation = startAlphaAnimation(this.awW.getAlpha(), 76);
+            this.mAlphaStartAnimation = startAlphaAnimation(this.awX.getAlpha(), 76);
         }
 
         @SuppressLint({"NewApi"})
         private void startProgressAlphaMaxAnimation() {
-            this.mAlphaMaxAnimation = startAlphaAnimation(this.awW.getAlpha(), 255);
+            this.mAlphaMaxAnimation = startAlphaAnimation(this.awX.getAlpha(), 255);
         }
 
         @SuppressLint({"NewApi"})
@@ -949,13 +949,13 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
             Animation animation = new Animation() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.a.1
                 @Override // android.view.animation.Animation
                 public void applyTransformation(float f, Transformation transformation) {
-                    a.this.awW.setAlpha((int) (i + ((i2 - i) * f)));
+                    a.this.awX.setAlpha((int) (i + ((i2 - i) * f)));
                 }
             };
             animation.setDuration(300L);
-            this.awV.setAnimationListener(null);
-            this.awV.clearAnimation();
-            this.awV.startAnimation(animation);
+            this.awW.setAnimationListener(null);
+            this.awW.clearAnimation();
+            this.awW.startAnimation(animation);
             return animation;
         }
     }

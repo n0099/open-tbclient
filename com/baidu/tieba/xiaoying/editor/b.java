@@ -20,11 +20,11 @@ import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b extends RelativeLayout implements s {
-    private i axG;
-    private int axH;
-    private ImageView hNC;
-    private ForeDrawableImageView hND;
-    private String hug;
+    private i axH;
+    private int axI;
+    private ImageView hOa;
+    private ForeDrawableImageView hOb;
+    private String huE;
     private int mVideoHeight;
     private int mVideoWidth;
     private String videoUrl;
@@ -36,24 +36,24 @@ public class b extends RelativeLayout implements s {
 
     private void initialize(Context context) {
         LayoutInflater.from(context).inflate(d.h.xiaoying_pannel, this);
-        this.hND = (ForeDrawableImageView) findViewById(d.g.video_pannel);
-        this.hND.setForegroundDrawable(d.f.icon_play_video);
-        this.hND.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xiaoying.editor.b.1
+        this.hOb = (ForeDrawableImageView) findViewById(d.g.video_pannel);
+        this.hOb.setForegroundDrawable(d.f.icon_play_video);
+        this.hOb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xiaoying.editor.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!StringUtils.isNull(b.this.videoUrl)) {
-                    XiaoyingUtil.startPlayXiaoyingVideo(b.this.getContext(), b.this.videoUrl, b.this.mVideoWidth, b.this.mVideoHeight, b.this.hug);
+                    XiaoyingUtil.startPlayXiaoyingVideo(b.this.getContext(), b.this.videoUrl, b.this.mVideoWidth, b.this.mVideoHeight, b.this.huE);
                 }
             }
         });
-        this.hNC = (ImageView) findViewById(d.g.video_cancel);
-        this.hNC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xiaoying.editor.b.2
+        this.hOa = (ImageView) findViewById(d.g.video_cancel);
+        this.hOa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xiaoying.editor.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.this.b(new com.baidu.tbadk.editortools.a(29, -1, null));
             }
         });
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hND.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hOb.getLayoutParams();
         int keyboardHeight = TbadkCoreApplication.getInst().getKeyboardHeight();
         int dimension = (int) getResources().getDimension(d.e.ds460);
         if (keyboardHeight <= 0) {
@@ -62,7 +62,7 @@ public class b extends RelativeLayout implements s {
         if (layoutParams != null) {
             layoutParams.height = keyboardHeight - (((int) getResources().getDimension(d.e.ds76)) * 2);
             layoutParams.width = layoutParams.height;
-            this.hND.setLayoutParams(layoutParams);
+            this.hOb.setLayoutParams(layoutParams);
         }
     }
 
@@ -79,12 +79,12 @@ public class b extends RelativeLayout implements s {
                         VideoInfo videoInfo = (VideoInfo) obj;
                         Bitmap sk = sk(videoInfo.getThumbPath());
                         if (sk != null) {
-                            this.hND.setImageBitmap(sk);
+                            this.hOb.setImageBitmap(sk);
                         }
                         this.videoUrl = videoInfo.getVideoPath();
                         this.mVideoWidth = videoInfo.getVideoWidth();
                         this.mVideoHeight = videoInfo.getVideoHeight();
-                        this.hug = videoInfo.getThumbPath();
+                        this.huE = videoInfo.getThumbPath();
                         return;
                     }
                     return;
@@ -111,24 +111,24 @@ public class b extends RelativeLayout implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.axG = iVar;
+        this.axH = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.axG != null) {
-            this.axG.b(aVar);
+        if (this.axH != null) {
+            this.axH.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.axH = i;
+        this.axI = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.axH;
+        return this.axI;
     }
 
     @Override // com.baidu.tbadk.editortools.s
@@ -147,9 +147,9 @@ public class b extends RelativeLayout implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        aj.c(this.hNC, d.f.btn_add_photo_close);
-        if (this.hND != null) {
-            this.hND.setForegroundDrawable(d.f.icon_play_video);
+        aj.c(this.hOa, d.f.btn_add_photo_close);
+        if (this.hOb != null) {
+            this.hOb.setForegroundDrawable(d.f.icon_play_video);
         }
     }
 }

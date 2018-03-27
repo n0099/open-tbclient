@@ -12,66 +12,66 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements View.OnClickListener {
-    private ImageView eXA;
-    private TextView eXB;
-    private int eXC;
-    private int eXD;
-    private int eXE;
-    private ViewGroup eXv;
-    private TextView eXw;
-    private TextView eXx;
-    private ImageView eXy;
-    private TextView eXz;
+    private ViewGroup eXJ;
+    private TextView eXK;
+    private TextView eXL;
+    private ImageView eXM;
+    private TextView eXN;
+    private ImageView eXO;
+    private TextView eXP;
+    private int eXQ;
+    private int eXR;
+    private int eXS;
 
     public b(Context context) {
-        this.eXv = (ViewGroup) LayoutInflater.from(context).inflate(d.h.label_recommend_header, (ViewGroup) null);
-        this.eXw = (TextView) this.eXv.findViewById(d.g.choose_like_label);
-        this.eXx = (TextView) this.eXv.findViewById(d.g.recommend_interest_thread);
-        this.eXy = (ImageView) this.eXv.findViewById(d.g.male_icon);
-        this.eXz = (TextView) this.eXv.findViewById(d.g.male_text);
-        this.eXA = (ImageView) this.eXv.findViewById(d.g.female_icon);
-        this.eXB = (TextView) this.eXv.findViewById(d.g.female_text);
-        this.eXy.setOnClickListener(this);
-        this.eXA.setOnClickListener(this);
+        this.eXJ = (ViewGroup) LayoutInflater.from(context).inflate(d.h.label_recommend_header, (ViewGroup) null);
+        this.eXK = (TextView) this.eXJ.findViewById(d.g.choose_like_label);
+        this.eXL = (TextView) this.eXJ.findViewById(d.g.recommend_interest_thread);
+        this.eXM = (ImageView) this.eXJ.findViewById(d.g.male_icon);
+        this.eXN = (TextView) this.eXJ.findViewById(d.g.male_text);
+        this.eXO = (ImageView) this.eXJ.findViewById(d.g.female_icon);
+        this.eXP = (TextView) this.eXJ.findViewById(d.g.female_text);
+        this.eXM.setOnClickListener(this);
+        this.eXO.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        aj.r(this.eXw, d.C0141d.cp_cont_b);
-        aj.r(this.eXx, d.C0141d.cp_cont_d);
-        aj.c(this.eXy, d.f.img_lable_boy_n);
-        aj.r(this.eXz, d.C0141d.cp_cont_d);
-        aj.c(this.eXA, d.f.img_lable_girl_n);
-        aj.r(this.eXB, d.C0141d.cp_cont_d);
+        aj.r(this.eXK, d.C0141d.cp_cont_b);
+        aj.r(this.eXL, d.C0141d.cp_cont_d);
+        aj.c(this.eXM, d.f.img_lable_boy_n);
+        aj.r(this.eXN, d.C0141d.cp_cont_d);
+        aj.c(this.eXO, d.f.img_lable_girl_n);
+        aj.r(this.eXP, d.C0141d.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
         if (v.D(list) == 2) {
-            this.eXC = list.get(0).labelId;
-            this.eXD = list.get(1).labelId;
+            this.eXQ = list.get(0).labelId;
+            this.eXR = list.get(1).labelId;
         }
     }
 
-    public ViewGroup aOQ() {
-        return this.eXv;
+    public ViewGroup aOR() {
+        return this.eXJ;
     }
 
-    public int aOR() {
-        return this.eXE;
+    public int aOS() {
+        return this.eXS;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (view == this.eXy) {
+        if (view == this.eXM) {
             z = true;
         } else {
-            z = view == this.eXA ? false : false;
+            z = view == this.eXO ? false : false;
         }
-        this.eXE = z ? this.eXC : this.eXD;
-        aj.c(this.eXy, z ? d.f.img_lable_boy_s : d.f.img_lable_boy_n);
-        aj.r(this.eXz, z ? d.C0141d.cp_link_tip_a : d.C0141d.cp_cont_d);
-        aj.c(this.eXA, z ? d.f.img_lable_girl_n : d.f.img_lable_girl_s);
-        aj.r(this.eXB, z ? d.C0141d.cp_cont_d : d.C0141d.cp_cont_h);
+        this.eXS = z ? this.eXQ : this.eXR;
+        aj.c(this.eXM, z ? d.f.img_lable_boy_s : d.f.img_lable_boy_n);
+        aj.r(this.eXN, z ? d.C0141d.cp_link_tip_a : d.C0141d.cp_cont_d);
+        aj.c(this.eXO, z ? d.f.img_lable_girl_n : d.f.img_lable_girl_s);
+        aj.r(this.eXP, z ? d.C0141d.cp_cont_d : d.C0141d.cp_cont_h);
     }
 }

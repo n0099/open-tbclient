@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class QQSSOLoginActivity extends BaseActivity {
-    private SapiWebView fDF;
-    private AuthorizationListener hmI = new AuthorizationListener() { // from class: com.baidu.tieba.thirdparty.QQSSOLoginActivity.1
+    private SapiWebView fDV;
+    private AuthorizationListener hng = new AuthorizationListener() { // from class: com.baidu.tieba.thirdparty.QQSSOLoginActivity.1
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onSuccess() {
             QQSSOLoginActivity.this.setResult(230013);
@@ -41,27 +41,27 @@ public class QQSSOLoginActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.sapi_navi);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(d.j.login));
-        this.fDF = (SapiWebView) findViewById(d.g.sapi_webview);
-        com.baidu.tbadk.core.a.d.addCustomView(this, this.fDF);
-        this.fDF.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.tieba.thirdparty.QQSSOLoginActivity.2
+        this.fDV = (SapiWebView) findViewById(d.g.sapi_webview);
+        com.baidu.tbadk.core.a.d.addCustomView(this, this.fDV);
+        this.fDV.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.tieba.thirdparty.QQSSOLoginActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
                 QQSSOLoginActivity.this.finish();
             }
         });
-        this.fDF.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.tieba.thirdparty.QQSSOLoginActivity.3
+        this.fDV.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.tieba.thirdparty.QQSSOLoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
                 QQSSOLoginActivity.this.finish();
             }
         });
-        this.fDF.setAuthorizationListener(this.hmI);
-        this.fDF.setQQSSOHandler(new SapiWebView.QQSSOHandler() { // from class: com.baidu.tieba.thirdparty.QQSSOLoginActivity.4
+        this.fDV.setAuthorizationListener(this.hng);
+        this.fDV.setQQSSOHandler(new SapiWebView.QQSSOHandler() { // from class: com.baidu.tieba.thirdparty.QQSSOLoginActivity.4
             @Override // com.baidu.sapi2.SapiWebView.QQSSOHandler
             public void handleQQSSOLoginFailure() {
             }
         });
-        this.fDF.loadQQSSOLogin();
+        this.fDV.loadQQSSOLogin();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -74,7 +74,7 @@ public class QQSSOLoginActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.fDF.onActivityResultData(i, i2, intent);
+        this.fDV.onActivityResultData(i, i2, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

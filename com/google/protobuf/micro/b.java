@@ -152,7 +152,7 @@ public final class b {
         }
     }
 
-    public a bMW() {
+    public a bNb() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
             return a.J(yJ(j));
@@ -162,7 +162,7 @@ public final class b {
         return l;
     }
 
-    public byte bMX() {
+    public byte bNc() {
         if (this.d == this.b) {
             a(true);
         }
@@ -248,31 +248,31 @@ public final class b {
     }
 
     public int j() {
-        byte bMX = bMX();
-        if (bMX >= 0) {
-            return bMX;
+        byte bNc = bNc();
+        if (bNc >= 0) {
+            return bNc;
         }
-        int i = bMX & Byte.MAX_VALUE;
-        byte bMX2 = bMX();
-        if (bMX2 >= 0) {
-            return i | (bMX2 << 7);
+        int i = bNc & Byte.MAX_VALUE;
+        byte bNc2 = bNc();
+        if (bNc2 >= 0) {
+            return i | (bNc2 << 7);
         }
-        int i2 = i | ((bMX2 & Byte.MAX_VALUE) << 7);
-        byte bMX3 = bMX();
-        if (bMX3 >= 0) {
-            return i2 | (bMX3 << 14);
+        int i2 = i | ((bNc2 & Byte.MAX_VALUE) << 7);
+        byte bNc3 = bNc();
+        if (bNc3 >= 0) {
+            return i2 | (bNc3 << 14);
         }
-        int i3 = i2 | ((bMX3 & Byte.MAX_VALUE) << 14);
-        byte bMX4 = bMX();
-        if (bMX4 >= 0) {
-            return i3 | (bMX4 << 21);
+        int i3 = i2 | ((bNc3 & Byte.MAX_VALUE) << 14);
+        byte bNc4 = bNc();
+        if (bNc4 >= 0) {
+            return i3 | (bNc4 << 21);
         }
-        int i4 = i3 | ((bMX4 & Byte.MAX_VALUE) << 21);
-        byte bMX5 = bMX();
-        int i5 = i4 | (bMX5 << 28);
-        if (bMX5 < 0) {
+        int i4 = i3 | ((bNc4 & Byte.MAX_VALUE) << 21);
+        byte bNc5 = bNc();
+        int i5 = i4 | (bNc5 << 28);
+        if (bNc5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bMX() >= 0) {
+                if (bNc() >= 0) {
                     return i5;
                 }
             }
@@ -284,9 +284,9 @@ public final class b {
     public long k() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bMX = bMX();
-            j |= (bMX & Byte.MAX_VALUE) << i;
-            if ((bMX & 128) == 0) {
+            byte bNc = bNc();
+            j |= (bNc & Byte.MAX_VALUE) << i;
+            if ((bNc & 128) == 0) {
                 return j;
             }
         }
@@ -294,13 +294,13 @@ public final class b {
     }
 
     public int l() {
-        return (bMX() & 255) | ((bMX() & 255) << 8) | ((bMX() & 255) << 16) | ((bMX() & 255) << 24);
+        return (bNc() & 255) | ((bNc() & 255) << 8) | ((bNc() & 255) << 16) | ((bNc() & 255) << 24);
     }
 
     public long m() {
-        byte bMX = bMX();
-        byte bMX2 = bMX();
-        return ((bMX2 & 255) << 8) | (bMX & 255) | ((bMX() & 255) << 16) | ((bMX() & 255) << 24) | ((bMX() & 255) << 32) | ((bMX() & 255) << 40) | ((bMX() & 255) << 48) | ((bMX() & 255) << 56);
+        byte bNc = bNc();
+        byte bNc2 = bNc();
+        return ((bNc2 & 255) << 8) | (bNc & 255) | ((bNc() & 255) << 16) | ((bNc() & 255) << 24) | ((bNc() & 255) << 32) | ((bNc() & 255) << 40) | ((bNc() & 255) << 48) | ((bNc() & 255) << 56);
     }
 
     public boolean n() {

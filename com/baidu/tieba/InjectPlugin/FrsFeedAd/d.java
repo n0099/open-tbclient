@@ -6,7 +6,7 @@ import com.baidu.adp.widget.ListView.r;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.InjectPlugin.a.c> {
-    List<Integer> Sp();
+    List<Integer> Sq();
 
     void W(List<Object> list);
 

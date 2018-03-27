@@ -27,16 +27,16 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 /* loaded from: classes2.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
-    private com.baidu.tieba.d.b dFJ;
-    private ImageView ekR;
-    private PagerSlidingTabStrip ekS;
-    private final CustomMessageListener ekT;
+    private com.baidu.tieba.d.b dFN;
+    private ImageView elh;
+    private PagerSlidingTabStrip eli;
+    private final CustomMessageListener elj;
     private int mSkinType;
 
     public HomeTabBarView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.ekT = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.1
+        this.elj = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -57,9 +57,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                     } catch (Exception e2) {
                         i = intValue;
                         z = false;
-                        HomeTabBarView.this.dFJ.j(z, i);
+                        HomeTabBarView.this.dFN.j(z, i);
                     }
-                    HomeTabBarView.this.dFJ.j(z, i);
+                    HomeTabBarView.this.dFN.j(z, i);
                 }
             }
         };
@@ -69,7 +69,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     public HomeTabBarView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.ekT = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.1
+        this.elj = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -90,9 +90,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                     } catch (Exception e2) {
                         i = intValue;
                         z = false;
-                        HomeTabBarView.this.dFJ.j(z, i);
+                        HomeTabBarView.this.dFN.j(z, i);
                     }
-                    HomeTabBarView.this.dFJ.j(z, i);
+                    HomeTabBarView.this.dFN.j(z, i);
                 }
             }
         };
@@ -102,7 +102,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     public HomeTabBarView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.ekT = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.1
+        this.elj = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -123,9 +123,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                     } catch (Exception e2) {
                         i2 = intValue;
                         z = false;
-                        HomeTabBarView.this.dFJ.j(z, i2);
+                        HomeTabBarView.this.dFN.j(z, i2);
                     }
-                    HomeTabBarView.this.dFJ.j(z, i2);
+                    HomeTabBarView.this.dFN.j(z, i2);
                 }
             }
         };
@@ -134,33 +134,33 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.home_tab_bar_view_layout, (ViewGroup) this, true);
-        this.ekR = (ImageView) findViewById(d.g.home_page_search_icon);
-        this.ekS = (PagerSlidingTabStrip) findViewById(d.g.home_page_tabstrip);
-        this.ekS.g(l.t(context, d.e.ds34), l.t(context, d.e.ds4), false);
-        this.ekR.setOnClickListener(this);
-        this.dFJ = new com.baidu.tieba.d.b(context);
+        this.elh = (ImageView) findViewById(d.g.home_page_search_icon);
+        this.eli = (PagerSlidingTabStrip) findViewById(d.g.home_page_tabstrip);
+        this.eli.g(l.t(context, d.e.ds34), l.t(context, d.e.ds4), false);
+        this.elh.setOnClickListener(this);
+        this.dFN = new com.baidu.tieba.d.b(context);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(15);
         layoutParams.addRule(11);
-        addView(this.dFJ.getView(), layoutParams);
-        this.dFJ.getView().setOnClickListener(this);
+        addView(this.dFN.getView(), layoutParams);
+        this.dFN.getView().setOnClickListener(this);
         setOnClickListener(this);
         onChangeSkinType();
     }
 
     public void setMessageListener(BdUniqueId bdUniqueId) {
-        if (this.ekT != null) {
-            this.ekT.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.ekT);
+        if (this.elj != null) {
+            this.elj.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.elj);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ekR) {
+        if (view == this.elh) {
             TiebaStatic.log(new ak("c10378").s("obj_type", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(getContext(), "", false)));
-        } else if (view == this.dFJ.getView() && ay.ba(getContext())) {
+        } else if (view == this.dFN.getView() && ay.ba(getContext())) {
             TiebaStatic.log(new ak("c12044").s("obj_locate", 1));
             TiebaStatic.log(new ak("c12924").s("obj_locate", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(getContext())));
@@ -168,32 +168,32 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.ekS.setOnPageChangeListener(onPageChangeListener);
+        this.eli.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.ekS != null) {
-            this.ekS.setShowConcernRedTip(z);
+        if (this.eli != null) {
+            this.eli.setShowConcernRedTip(z);
         }
     }
 
-    public boolean aCC() {
-        if (this.ekS != null) {
-            return this.ekS.aCC();
+    public boolean aCD() {
+        if (this.eli != null) {
+            return this.eli.aCD();
         }
         return false;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.ekS.setViewPager(viewPager);
+        this.eli.setViewPager(viewPager);
     }
 
     public void setTabItemClicked(boolean z) {
-        this.ekS.setTabItemClicked(z);
+        this.eli.setTabItemClicked(z);
     }
 
     public void notifyDataSetChanged() {
-        this.ekS.notifyDataSetChanged();
+        this.eli.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -201,9 +201,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             aj.t(this, d.C0141d.cp_bg_line_d);
-            an.Dc().c(this.ekR, d.f.icon_topbar_search_n_svg, d.f.select_topbar_icon_color_tint);
-            this.dFJ.onChangeSkinType(skinType);
-            this.ekS.onChangeSkinType();
+            an.Dd().c(this.elh, d.f.icon_topbar_search_n_svg, d.f.select_topbar_icon_color_tint);
+            this.dFN.onChangeSkinType(skinType);
+            this.eli.onChangeSkinType();
         }
     }
 }

@@ -11,50 +11,50 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tbadk.j.a {
-    private final String[] bxq;
-    private TextView bxr;
-    private final int bxs;
-    private Runnable bxt;
+    private final String[] bxt;
+    private TextView bxu;
+    private final int bxv;
+    private Runnable bxw;
     private int currentIndex;
-    private ImageView hul;
-    private TbImageView hum;
+    private ImageView huJ;
+    private TbImageView huK;
     private Context mContext;
 
     public a(Context context) {
         super(LayoutInflater.from(context).inflate(d.h.video_loading_layout, (ViewGroup) null));
         this.currentIndex = 0;
-        this.bxt = new Runnable() { // from class: com.baidu.tieba.video.player.a.a.1
+        this.bxw = new Runnable() { // from class: com.baidu.tieba.video.player.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bxr.setText(a.this.bxq[a.this.ML()]);
-                TbadkCoreApplication.getInst().handler.postDelayed(a.this.bxt, 200L);
+                a.this.bxu.setText(a.this.bxt[a.this.MM()]);
+                TbadkCoreApplication.getInst().handler.postDelayed(a.this.bxw, 200L);
             }
         };
         this.mContext = context;
-        this.bxr = (TextView) this.bxn.findViewById(d.g.video_player_loading_text);
-        this.hul = (ImageView) this.bxn.findViewById(d.g.video_player_loading_image);
-        this.bxq = context.getResources().getStringArray(d.b.video_loading_text);
-        this.bxs = this.bxq.length;
-        this.hum = (TbImageView) this.bxn.findViewById(d.g.video_player_thumbnail_pic);
-        this.hum.setDefaultResource(0);
-        this.hum.setDefaultErrorResource(0);
-        this.hum.setDefaultBgResource(0);
+        this.bxu = (TextView) this.bxq.findViewById(d.g.video_player_loading_text);
+        this.huJ = (ImageView) this.bxq.findViewById(d.g.video_player_loading_image);
+        this.bxt = context.getResources().getStringArray(d.b.video_loading_text);
+        this.bxv = this.bxt.length;
+        this.huK = (TbImageView) this.bxq.findViewById(d.g.video_player_thumbnail_pic);
+        this.huK.setDefaultResource(0);
+        this.huK.setDefaultErrorResource(0);
+        this.huK.setDefaultBgResource(0);
     }
 
     public void p(String str, int i, int i2) {
         int width = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getWidth();
-        ViewGroup.LayoutParams layoutParams = this.hum.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.huK.getLayoutParams();
         if (i > 0) {
             layoutParams.height = (int) (width * ((i2 * 1.0f) / i));
-            this.hum.setLayoutParams(layoutParams);
-            this.hum.startLoad(str, 13, false);
+            this.huK.setLayoutParams(layoutParams);
+            this.huK.startLoad(str, 13, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int ML() {
+    public int MM() {
         this.currentIndex++;
-        if (this.currentIndex >= this.bxs) {
+        if (this.currentIndex >= this.bxv) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -62,17 +62,17 @@ public class a extends com.baidu.tbadk.j.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.j.a
-    public void MJ() {
-        this.hul.setImageResource(d.f.btn_icon_video_n);
-        this.bxr.setText(this.bxq[0]);
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.bxt);
-        TbadkCoreApplication.getInst().handler.postDelayed(this.bxt, 200L);
+    public void MK() {
+        this.huJ.setImageResource(d.f.btn_icon_video_n);
+        this.bxu.setText(this.bxt[0]);
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.bxw);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.bxw, 200L);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.j.a
-    public void MK() {
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.bxt);
-        this.hul.setImageResource(0);
+    public void ML() {
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.bxw);
+        this.huJ.setImageResource(0);
     }
 }

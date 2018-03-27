@@ -21,24 +21,24 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     private View IS;
-    private TbPageContext<?> aRG;
-    private f bXa;
-    private PbListView caY;
-    private g eEV;
+    private TbPageContext<?> aRI;
+    private f bXd;
+    private PbListView cbb;
+    private g eFl;
     private BdTypeListView mListView;
     private k mPullView;
     private ViewGroup mRootView;
 
     public b(TbPageContext<?> tbPageContext, c cVar) {
-        this.aRG = tbPageContext;
+        this.aRI = tbPageContext;
         this.mRootView = new FrameLayout(tbPageContext.getPageActivity());
         this.mRootView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         this.mListView = new BdTypeListView(tbPageContext.getPageActivity());
         this.mListView.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
         this.mListView.setSelector(17170445);
         this.mListView.setDividerHeight(0);
-        this.mPullView = new k(this.aRG);
-        this.mPullView.setTag(this.aRG.getUniqueId());
+        this.mPullView = new k(this.aRI);
+        this.mPullView.setTag(this.aRI.getUniqueId());
         this.mPullView.a(cVar);
         this.mListView.setOnSrollToBottomListener(cVar);
         this.mListView.setPullRefresh(this.mPullView);
@@ -47,7 +47,7 @@ public class b {
         this.mRootView.addView(this.mListView);
     }
 
-    public void hE(boolean z) {
+    public void hJ(boolean z) {
         if (this.IS != null && this.mListView != null) {
             BdListViewHelper.a(this.IS, BdListViewHelper.HeadType.HASTAB, z);
         }
@@ -69,21 +69,21 @@ public class b {
         this.mListView.completePullRefreshPostDelayed(2000L);
     }
 
-    public void aBJ() {
-        aJn();
-        this.caY.Ef();
-    }
-
     public void aBK() {
-        aJn();
-        this.caY.setText(this.aRG.getResources().getString(d.j.network_ungeilivable));
-        this.caY.Eg();
+        aJo();
+        this.cbb.Eg();
     }
 
     public void aBL() {
-        aJn();
-        this.caY.setText(this.aRG.getResources().getString(d.j.list_no_more));
-        this.caY.Eg();
+        aJo();
+        this.cbb.setText(this.aRI.getResources().getString(d.j.network_ungeilivable));
+        this.cbb.Eh();
+    }
+
+    public void aBM() {
+        aJo();
+        this.cbb.setText(this.aRI.getResources().getString(d.j.list_no_more));
+        this.cbb.Eh();
     }
 
     public View getRootView() {
@@ -95,73 +95,73 @@ public class b {
         if (this.mPullView != null) {
             this.mPullView.gx(i);
         }
-        if (this.caY != null) {
-            this.caY.gw(d.C0141d.cp_bg_line_c);
-            this.caY.setTextColor(aj.getColor(d.C0141d.cp_cont_d));
-            this.caY.gx(i);
+        if (this.cbb != null) {
+            this.cbb.gw(d.C0141d.cp_bg_line_c);
+            this.cbb.setTextColor(aj.getColor(d.C0141d.cp_cont_d));
+            this.cbb.gx(i);
         }
-        if (this.eEV != null) {
-            this.eEV.onChangeSkinType();
+        if (this.eFl != null) {
+            this.eFl.onChangeSkinType();
         }
-        if (this.bXa != null) {
-            this.bXa.onChangeSkinType();
+        if (this.bXd != null) {
+            this.bXd.onChangeSkinType();
         }
     }
 
-    public void aJm() {
+    public void aJn() {
         if (this.mListView != null) {
             this.mListView.setNextPage(null);
-            this.caY = null;
+            this.cbb = null;
         }
     }
 
-    private void aJn() {
-        if (this.mListView != null && this.caY == null) {
-            this.caY = new PbListView(this.aRG.getPageActivity());
-            this.caY.st();
-            this.mListView.setNextPage(this.caY);
-        }
-    }
-
-    public void VT() {
-        if (this.bXa == null) {
-            this.bXa = new f(this.aRG.getPageActivity(), BdListViewHelper.bCJ);
-            this.bXa.onChangeSkinType();
-        }
-        if (!this.bXa.MI()) {
-            this.mListView.setVisibility(8);
-            this.bXa.j(this.mRootView, true);
+    private void aJo() {
+        if (this.mListView != null && this.cbb == null) {
+            this.cbb = new PbListView(this.aRI.getPageActivity());
+            this.cbb.st();
+            this.mListView.setNextPage(this.cbb);
         }
     }
 
     public void VU() {
-        if (this.bXa != null && this.bXa.MI()) {
+        if (this.bXd == null) {
+            this.bXd = new f(this.aRI.getPageActivity(), BdListViewHelper.bCM);
+            this.bXd.onChangeSkinType();
+        }
+        if (!this.bXd.MJ()) {
+            this.mListView.setVisibility(8);
+            this.bXd.j(this.mRootView, true);
+        }
+    }
+
+    public void VV() {
+        if (this.bXd != null && this.bXd.MJ()) {
             this.mListView.setVisibility(0);
-            this.bXa.bk(this.mRootView);
+            this.bXd.bk(this.mRootView);
         }
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        if (this.eEV == null) {
-            this.eEV = new g(this.aRG.getPageActivity(), onClickListener);
-            this.eEV.ib(BdListViewHelper.bCJ);
-            this.eEV.onChangeSkinType();
+        if (this.eFl == null) {
+            this.eFl = new g(this.aRI.getPageActivity(), onClickListener);
+            this.eFl.ib(BdListViewHelper.bCM);
+            this.eFl.onChangeSkinType();
         }
-        if (!this.eEV.MI()) {
+        if (!this.eFl.MJ()) {
             this.mListView.setVisibility(8);
             if (StringUtils.isNull(str)) {
-                str = this.aRG.getString(d.j.invite_friend_no_data_now);
+                str = this.aRI.getString(d.j.invite_friend_no_data_now);
             }
-            this.eEV.setTitle(str);
-            this.eEV.j(this.mRootView, true);
-            this.eEV.MQ();
+            this.eFl.setTitle(str);
+            this.eFl.j(this.mRootView, true);
+            this.eFl.MR();
         }
     }
 
-    public void XM() {
-        if (this.eEV != null && this.eEV.MI()) {
+    public void XN() {
+        if (this.eFl != null && this.eFl.MJ()) {
             this.mListView.setVisibility(0);
-            this.eEV.bk(this.mRootView);
+            this.eFl.bk(this.mRootView);
         }
     }
 }

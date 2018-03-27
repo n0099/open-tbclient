@@ -16,8 +16,8 @@ public class PraiseModel extends BdBaseModel {
     public static final int UN_LIKE = 0;
     private static final String dataUrl = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
     private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, dataUrl);
-    private final HttpMessageListener bVj;
-    private a gZG;
+    private final HttpMessageListener bVm;
+    private a had;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -33,36 +33,36 @@ public class PraiseModel extends BdBaseModel {
 
     public PraiseModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gZG = null;
-        this.bVj = new HttpMessageListener(CmdConfigHttp.COMMON_PRAISE_Y_OR_N) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
+        this.had = null;
+        this.bVm = new HttpMessageListener(CmdConfigHttp.COMMON_PRAISE_Y_OR_N) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                        if (PraiseModel.this.gZG != null) {
-                            PraiseModel.this.gZG.I(statusCode, null);
+                        if (PraiseModel.this.had != null) {
+                            PraiseModel.this.had.I(statusCode, null);
                             return;
                         }
                         return;
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.gZG.ir(praiseResponseMessage.getErrMsg());
-                    } else if (PraiseModel.this.gZG != null) {
-                        PraiseModel.this.gZG.I(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.had.ir(praiseResponseMessage.getErrMsg());
+                    } else if (PraiseModel.this.had != null) {
+                        PraiseModel.this.had.I(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }
                 }
             }
         };
-        this.gZG = aVar;
+        this.had = aVar;
     }
 
     public void registerListener() {
-        this.bVj.setSelfListener(true);
-        this.bVj.setTag(getUniqueId());
-        registerListener(this.bVj);
+        this.bVm.setSelfListener(true);
+        this.bVm.setTag(getUniqueId());
+        registerListener(this.bVm);
     }
 
     public void a(String str, String str2, int i, String str3) {

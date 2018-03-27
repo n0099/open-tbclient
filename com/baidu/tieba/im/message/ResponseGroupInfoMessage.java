@@ -44,13 +44,13 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.qq(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.hO(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.hP(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.hN(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.qp(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.qr(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.hT(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.hU(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.hS(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.qq(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.hQ(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.hV(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);
@@ -140,7 +140,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.AQ().dg("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.getGroup().getGroupId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.AR().dg("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.getGroup().getGroupId(), bArr);
         }
     }
 }

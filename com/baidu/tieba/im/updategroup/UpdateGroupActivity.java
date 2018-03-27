@@ -15,28 +15,28 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.model.UpdateGroupModel;
 /* loaded from: classes3.dex */
 public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
-    private UpdateGroupModel eNn;
-    private a eNm = null;
-    private int eNo = 1;
-    a.b eAI = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
+    private UpdateGroupModel eND;
+    private a eNC = null;
+    private int eNE = 1;
+    a.b eAY = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            UpdateGroupActivity.this.aMj();
+            UpdateGroupActivity.this.aMk();
         }
     };
-    a.b eAJ = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
+    a.b eAZ = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             UpdateGroupActivity.this.setResult(0);
             UpdateGroupActivity.this.finish();
         }
     };
-    private com.baidu.adp.framework.listener.c euP = new com.baidu.adp.framework.listener.c(103102) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
+    private com.baidu.adp.framework.listener.c evf = new com.baidu.adp.framework.listener.c(103102) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103102) {
-                UpdateGroupActivity.this.eNm.setIsLoading(false);
+                UpdateGroupActivity.this.eNC.setIsLoading(false);
                 if (!(socketResponsedMessage instanceof ResponseUpdateGroupMessage)) {
                     UpdateGroupActivity.this.showToast(d.j.group_update_fail);
                     return;
@@ -48,7 +48,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
                 }
                 UpdateGroupActivity.this.showToast(d.j.group_update_success);
                 Intent intent = UpdateGroupActivity.this.getIntent();
-                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.eNm.getText());
+                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.eNC.getText());
                 UpdateGroupActivity.this.setResult(-1, intent);
                 UpdateGroupActivity.this.finish();
             }
@@ -74,79 +74,79 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
         int intExtra2 = intent.getIntExtra("group_id", 0);
         String stringExtra = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
         cf(intExtra, intExtra2);
-        this.eNn = new UpdateGroupModel(getPageContext());
-        this.eNn.setUniqueId(getUniqueId());
-        this.eNm.nO(stringExtra);
-        this.eNm.a(this.eAJ);
-        this.eNm.b(this.eAI);
+        this.eND = new UpdateGroupModel(getPageContext());
+        this.eND.setUniqueId(getUniqueId());
+        this.eNC.nO(stringExtra);
+        this.eNC.a(this.eAZ);
+        this.eNC.b(this.eAY);
         initListener();
     }
 
     private void initListener() {
-        registerListener(this.euP);
+        registerListener(this.evf);
     }
 
     private void cf(int i, int i2) {
         if (i == 1) {
-            this.eNm = new c(this);
+            this.eNC = new c(this);
         } else if (i == 2) {
-            this.eNm = new b(this);
+            this.eNC = new b(this);
         }
-        this.eNo = i;
-        this.eNm.setGroupId(i2);
+        this.eNE = i;
+        this.eNC.setGroupId(i2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eNm.onChangeSkinType(i);
+        this.eNC.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eNm.aHD()) {
-            if (((d) this.eNm).aMk()) {
+        if (view == this.eNC.aHE()) {
+            if (((d) this.eNC).aMl()) {
                 finish();
-            } else if (this.eNm.aMh() && this.eNm.aHt()) {
-                aMj();
+            } else if (this.eNC.aMi() && this.eNC.aHu()) {
+                aMk();
             } else {
-                showToast(this.eNm.aMg());
+                showToast(this.eNC.aMh());
             }
-        } else if (view == this.eNm.aGQ()) {
-            this.eNm.clearText();
-        } else if (view == this.eNm.aMe() && !aMi()) {
+        } else if (view == this.eNC.aGR()) {
+            this.eNC.clearText();
+        } else if (view == this.eNC.aMf() && !aMj()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && aMi()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && aMj()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean aMi() {
-        if (TextUtils.isEmpty(this.eNm.getText()) || !this.eNm.aHt() || this.eNm.getText().equals(this.eNm.aMd())) {
+    private boolean aMj() {
+        if (TextUtils.isEmpty(this.eNC.getText()) || !this.eNC.aHu() || this.eNC.getText().equals(this.eNC.aMe())) {
             return false;
         }
-        this.eNm.showDialog();
+        this.eNC.showDialog();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aMj() {
-        this.eNm.setIsLoading(true);
-        this.eNn.setGroupId(this.eNm.getGroupId());
-        if (this.eNo == 1) {
-            this.eNn.setName(this.eNm.getText());
-            this.eNn.sendMessage(2);
-        } else if (this.eNo == 2) {
-            this.eNn.setIntro(this.eNm.getText());
-            this.eNn.sendMessage(1);
+    public void aMk() {
+        this.eNC.setIsLoading(true);
+        this.eND.setGroupId(this.eNC.getGroupId());
+        if (this.eNE == 1) {
+            this.eND.setName(this.eNC.getText());
+            this.eND.sendMessage(2);
+        } else if (this.eNE == 2) {
+            this.eND.setIntro(this.eNC.getText());
+            this.eND.sendMessage(1);
         }
     }
 
@@ -155,7 +155,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        this.eNn.cancelMessage();
-        this.eNm.release();
+        this.eND.cancelMessage();
+        this.eNC.release();
     }
 }

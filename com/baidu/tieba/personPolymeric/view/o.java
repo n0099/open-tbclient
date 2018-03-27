@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.o> {
-    private TbImageView grv;
-    private TextView grw;
+    private TbImageView grL;
+    private TextView grM;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mPageContext = tbPageContext;
         this.mRootView.setTag(this);
-        this.grv = (TbImageView) this.mRootView.findViewById(d.g.gift_pic);
-        this.grw = (TextView) this.mRootView.findViewById(d.g.gift_num_text);
+        this.grL = (TbImageView) this.mRootView.findViewById(d.g.gift_pic);
+        this.grM = (TextView) this.mRootView.findViewById(d.g.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         aj.t(this.mRootView, d.C0141d.cp_bg_line_d);
-        aj.s(this.grv, d.f.item_gift_selector);
-        aj.t(this.grw, d.C0141d.common_color_10294);
-        aj.r(this.grw, d.C0141d.cp_link_tip_a);
+        aj.s(this.grL, d.f.item_gift_selector);
+        aj.t(this.grM, d.C0141d.common_color_10294);
+        aj.r(this.grM, d.C0141d.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -44,19 +44,19 @@ public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        this.grv.startLoad(oVar.picUrl, 10, false);
+        this.grL.startLoad(oVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
-        if (oVar.gpO > 0) {
-            this.grw.setVisibility(0);
-            if (oVar.gpO > 99) {
-                this.grw.setText("99");
+        if (oVar.gqe > 0) {
+            this.grM.setVisibility(0);
+            if (oVar.gqe > 99) {
+                this.grM.setText("99");
                 return;
             } else {
-                this.grw.setText(String.valueOf(oVar.gpO));
+                this.grM.setText(String.valueOf(oVar.gqe));
                 return;
             }
         }
-        this.grw.setVisibility(8);
+        this.grM.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

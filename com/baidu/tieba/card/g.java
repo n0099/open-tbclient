@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.horizonalList.widget.f {
-    private TbPageContext aRG;
-    public ClickableHeaderImageView cVU;
-    public TextView cVV;
-    public EntelechyUserLikeButton cVW;
-    private com.baidu.tbadk.core.view.userLike.c cVX;
-    private com.baidu.tieba.card.data.i cVY;
-    public TextView cqi;
+    private TbPageContext aRI;
+    public ClickableHeaderImageView cVX;
+    public TextView cVY;
+    public EntelechyUserLikeButton cVZ;
+    private com.baidu.tbadk.core.view.userLike.c cWa;
+    private com.baidu.tieba.card.data.i cWb;
+    public TextView cql;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
     private BdUniqueId uniqueId;
@@ -34,22 +34,22 @@ public class g extends com.baidu.tieba.horizonalList.widget.f {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.card.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (g.this.cVY != null && g.this.cVY.aOF != null && !StringUtils.isNull(g.this.cVY.aOF.getName_show()) && !StringUtils.isNull(g.this.cVY.aOF.getUserId())) {
-                    if (g.this.blQ != null) {
-                        g.this.blQ.onClick(view2);
+                if (g.this.cWb != null && g.this.cWb.aOG != null && !StringUtils.isNull(g.this.cWb.aOG.getName_show()) && !StringUtils.isNull(g.this.cWb.aOG.getUserId())) {
+                    if (g.this.blT != null) {
+                        g.this.blT.onClick(view2);
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(g.this.aRG.getPageActivity(), g.this.cVY.aOF.getUserId(), g.this.cVY.aOF.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(g.this.aRI.getPageActivity(), g.this.cWb.aOG.getUserId(), g.this.cWb.aOG.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
-        this.aRG = tbPageContext;
-        this.cVU = (ClickableHeaderImageView) view.findViewById(d.g.rec_god_item_header);
-        this.cVU.setGodIconMargin(d.e.ds6);
-        this.cqi = (TextView) view.findViewById(d.g.rec_god_item_user_name);
-        this.cVV = (TextView) view.findViewById(d.g.rec_god_item_user_describe);
-        this.cVW = (EntelechyUserLikeButton) view.findViewById(d.g.rec_god_item_user_like_btn);
-        this.cVX = new com.baidu.tbadk.core.view.userLike.c(this.aRG, this.cVW);
-        this.cVX.setFromType("0");
+        this.aRI = tbPageContext;
+        this.cVX = (ClickableHeaderImageView) view.findViewById(d.g.rec_god_item_header);
+        this.cVX.setGodIconMargin(d.e.ds6);
+        this.cql = (TextView) view.findViewById(d.g.rec_god_item_user_name);
+        this.cVY = (TextView) view.findViewById(d.g.rec_god_item_user_describe);
+        this.cVZ = (EntelechyUserLikeButton) view.findViewById(d.g.rec_god_item_user_like_btn);
+        this.cWa = new com.baidu.tbadk.core.view.userLike.c(this.aRI, this.cVZ);
+        this.cWa.setFromType("0");
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -58,27 +58,27 @@ public class g extends com.baidu.tieba.horizonalList.widget.f {
 
     @Override // com.baidu.tieba.horizonalList.widget.f
     public com.baidu.tieba.horizonalList.widget.f bz(View view) {
-        g gVar = new g(view, this.aRG);
-        gVar.cVX.h(this.uniqueId);
+        g gVar = new g(view, this.aRI);
+        gVar.cWa.h(this.uniqueId);
         return gVar;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.f
     public void a(com.baidu.tieba.horizonalList.widget.d dVar) {
         if (dVar instanceof com.baidu.tieba.card.data.i) {
-            this.cVY = (com.baidu.tieba.card.data.i) dVar;
-            if (this.cVY.aOF != null) {
-                getView().setTag(d.g.rec_god_item_root, this.cVY.aOF.getUserId());
-                this.cVU.setTag(d.g.rec_god_item_root, this.cVY.aOF.getUserId());
-                this.cVW.setTag(this.cVY.aOF);
-                this.cVU.setData(this.cVY.aOF);
-                this.cVU.setAfterClickListener(this.blQ);
-                this.cqi.setText(am.t(this.cVY.aOF.getName_show(), 5));
+            this.cWb = (com.baidu.tieba.card.data.i) dVar;
+            if (this.cWb.aOG != null) {
+                getView().setTag(d.g.rec_god_item_root, this.cWb.aOG.getUserId());
+                this.cVX.setTag(d.g.rec_god_item_root, this.cWb.aOG.getUserId());
+                this.cVZ.setTag(this.cWb.aOG);
+                this.cVX.setData(this.cWb.aOG);
+                this.cVX.setAfterClickListener(this.blT);
+                this.cql.setText(am.t(this.cWb.aOG.getName_show(), 5));
                 getView().setOnClickListener(this.mOnClickListener);
-                if (this.cVY.aOF.getGodUserData() != null) {
-                    this.cVV.setText(am.t(this.cVY.aOF.getGodUserData().getIntro(), 6));
+                if (this.cWb.aOG.getGodUserData() != null) {
+                    this.cVY.setText(am.t(this.cWb.aOG.getGodUserData().getIntro(), 6));
                 }
-                this.cVX.a(this.cVY.aOF);
+                this.cWa.a(this.cWb.aOG);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }
@@ -87,10 +87,10 @@ public class g extends com.baidu.tieba.horizonalList.widget.f {
     @Override // com.baidu.tieba.horizonalList.widget.f
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.r(this.cqi, d.C0141d.cp_cont_b);
-            aj.r(this.cVV, d.C0141d.cp_cont_d);
-            if (this.cVW != null) {
-                this.cVW.onChangeSkinType(i);
+            aj.r(this.cql, d.C0141d.cp_cont_b);
+            aj.r(this.cVY, d.C0141d.cp_cont_d);
+            if (this.cVZ != null) {
+                this.cVZ.onChangeSkinType(i);
             }
         }
         this.mSkinType = i;

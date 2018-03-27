@@ -1,11 +1,11 @@
 package com.baidu.tbadk.util;
 /* loaded from: classes.dex */
 public class i {
-    public static boolean OY() {
-        return OZ();
+    public static boolean OZ() {
+        return Pa();
     }
 
-    public static boolean OZ() {
+    public static boolean Pa() {
         return com.baidu.tbadk.core.util.k.lk() && com.baidu.adp.gif.c.lj();
     }
 

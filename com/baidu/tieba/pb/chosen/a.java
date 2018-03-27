@@ -20,10 +20,10 @@ import com.baidu.tieba.pb.chosen.a.g;
 import java.text.MessageFormat;
 /* loaded from: classes3.dex */
 public class a {
-    private PbChosenActivity fFZ;
+    private PbChosenActivity fGp;
 
     public a(PbChosenActivity pbChosenActivity) {
-        this.fFZ = pbChosenActivity;
+        this.fGp = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -31,29 +31,29 @@ public class a {
             String str2 = aVar.getThreadInfo().forum.forum_name;
             String str3 = aVar.getThreadInfo().title;
             String str4 = aVar.getThreadInfo()._abstract;
-            Resources resources = this.fFZ.getPageContext().getPageActivity().getResources();
+            Resources resources = this.fGp.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(d.j.share_content_tpl), str3, str4);
             String string = resources.getString(d.j.chosen_pb_share_content, str3);
             final com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
             dVar.title = str3;
             dVar.content = format;
             dVar.linkUrl = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + aVar.getThreadInfo().excid;
-            dVar.bls = string;
-            dVar.blr = str4;
-            dVar.blq = Long.toString(aVar.getThreadInfo().excid.longValue());
+            dVar.blv = string;
+            dVar.blu = str4;
+            dVar.blt = Long.toString(aVar.getThreadInfo().excid.longValue());
             dVar.tid = Long.toString(aVar.getThreadInfo().thread_id.longValue());
-            dVar.ble = true;
+            dVar.blh = true;
             if (!StringUtils.isNull(str)) {
-                dVar.blo = Uri.parse(str);
+                dVar.blr = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.fFZ.getPageContext().getPageActivity(), dVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.fGp.getPageContext().getPageActivity(), dVar, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.addOutsideTextView(d.j.forum_friend, d.f.icon_unite_share_baf, new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.fFZ.sendMessage(new CustomMessage(2001277));
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(a.this.fFZ.getPageContext().getPageActivity(), 23007)));
-                    TiebaStatic.eventStat(a.this.fFZ.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+                    a.this.fGp.sendMessage(new CustomMessage(2001277));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(a.this.fGp.getPageContext().getPageActivity(), 23007)));
+                    TiebaStatic.eventStat(a.this.fGp.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
                 }
             });
             shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.2
@@ -61,10 +61,10 @@ public class a {
                 public void onClick(View view) {
                     dVar.linkUrl = e.ai(dVar.linkUrl, dVar.tid);
                     com.baidu.adp.lib.util.a.aE(dVar.linkUrl);
-                    l.showToast(a.this.fFZ.getPageContext().getPageActivity(), view.getResources().getString(d.j.copy_pb_url_success));
+                    l.showToast(a.this.fGp.getPageContext().getPageActivity(), view.getResources().getString(d.j.copy_pb_url_success));
                 }
             });
-            this.fFZ.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            this.fGp.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 
@@ -110,7 +110,7 @@ public class a {
                 }
             });
             aVar2.ba(false);
-            aVar2.b(pbChosenActivity.getPageContext()).AU();
+            aVar2.b(pbChosenActivity.getPageContext()).AV();
         }
     }
 
@@ -140,7 +140,7 @@ public class a {
                 }
             });
             aVar2.ba(false);
-            aVar2.b(pbChosenActivity.getPageContext()).AU();
+            aVar2.b(pbChosenActivity.getPageContext()).AV();
         }
     }
 }

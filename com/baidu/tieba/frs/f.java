@@ -6,18 +6,18 @@ import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 public class f {
     private static UserData mUserData;
 
-    public static UserData auF() {
+    public static UserData auG() {
         return mUserData;
     }
 
-    private static UserData a(com.baidu.tieba.tbadkCore.l lVar) {
-        mUserData = lVar != null ? lVar.getUserData() : null;
+    private static UserData a(com.baidu.tieba.tbadkCore.m mVar) {
+        mUserData = mVar != null ? mVar.getUserData() : null;
         return mUserData;
     }
 
-    public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, com.baidu.tieba.tbadkCore.l lVar) {
+    public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, com.baidu.tieba.tbadkCore.m mVar) {
         if (threadCommentAndPraiseInfoLayout != null) {
-            if (b(a(lVar))) {
+            if (b(a(mVar))) {
                 threadCommentAndPraiseInfoLayout.setManageVisible(true);
             } else {
                 threadCommentAndPraiseInfoLayout.setManageVisible(false);
@@ -38,12 +38,12 @@ public class f {
         }
     }
 
-    public static boolean auG() {
-        UserData auF = auF();
-        if (auF == null) {
+    public static boolean auH() {
+        UserData auG = auG();
+        if (auG == null) {
             return false;
         }
-        switch (auF.getIs_manager()) {
+        switch (auG.getIs_manager()) {
             case 1:
                 return true;
             default:

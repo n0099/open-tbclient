@@ -15,29 +15,29 @@ import com.baidu.tieba.video.player.a.b;
 import com.baidu.tieba.video.player.a.c;
 /* loaded from: classes3.dex */
 public class VideoPlayerActivity extends BaseActivity<VideoPlayerActivity> {
-    private String bQI;
-    private View hub;
-    private View huc;
-    private a hud;
-    private b hue;
-    private c huf;
-    private String hug;
+    private String bQL;
+    private View huA;
+    private a huB;
+    private b huC;
+    private c huD;
+    private String huE;
+    private View huz;
     private View mRootView;
     private int mVideoWidth = 0;
     private int mVideoHeight = 0;
-    private b.a huh = new b.a() { // from class: com.baidu.tieba.video.player.VideoPlayerActivity.1
+    private b.a huF = new b.a() { // from class: com.baidu.tieba.video.player.VideoPlayerActivity.1
         @Override // com.baidu.tieba.video.player.a.b.a
-        public void bCJ() {
+        public void bCO() {
             TbadkCoreApplication.getInst().handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.player.VideoPlayerActivity.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    VideoPlayerActivity.this.VU();
+                    VideoPlayerActivity.this.VV();
                 }
             }, 200L);
         }
 
         @Override // com.baidu.tieba.video.player.a.b.a
-        public void bCK() {
+        public void bCP() {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(VideoPlayerActivity.this.getPageContext().getPageActivity());
             aVar.dk(VideoPlayerActivity.this.getResources().getString(d.j.video_play_error));
             aVar.setAutoNight(false);
@@ -54,24 +54,24 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerActivity> {
                     VideoPlayerActivity.this.finish();
                 }
             });
-            aVar.b(VideoPlayerActivity.this.getPageContext()).AU();
+            aVar.b(VideoPlayerActivity.this.getPageContext()).AV();
         }
 
         @Override // com.baidu.tieba.video.player.a.b.a
-        public void bCL() {
-            VideoPlayerActivity.this.bCH();
+        public void bCQ() {
+            VideoPlayerActivity.this.bCM();
         }
     };
-    private c.a hui = new c.a() { // from class: com.baidu.tieba.video.player.VideoPlayerActivity.2
+    private c.a huG = new c.a() { // from class: com.baidu.tieba.video.player.VideoPlayerActivity.2
         @Override // com.baidu.tieba.video.player.a.c.a
-        public void bCM() {
-            VideoPlayerActivity.this.VT();
-            VideoPlayerActivity.this.bCI();
-            VideoPlayerActivity.this.hue.startPlay(VideoPlayerActivity.this.bQI);
+        public void bCR() {
+            VideoPlayerActivity.this.VU();
+            VideoPlayerActivity.this.bCN();
+            VideoPlayerActivity.this.huC.startPlay(VideoPlayerActivity.this.bQL);
         }
 
         @Override // com.baidu.tieba.video.player.a.c.a
-        public void bCN() {
+        public void bCS() {
             VideoPlayerActivity.this.finish();
         }
     };
@@ -82,23 +82,23 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerActivity> {
         super.onCreate(bundle);
         setContentView(d.h.video_player_layout);
         this.mRootView = findViewById(d.g.video_player_root);
-        this.hub = findViewById(d.g.video_player_back_view);
-        this.hub.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.player.VideoPlayerActivity.3
+        this.huz = findViewById(d.g.video_player_back_view);
+        this.huz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.player.VideoPlayerActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 VideoPlayerActivity.this.finish();
             }
         });
-        this.hue = new b(this.mRootView);
-        this.hue.a(this.huh);
-        this.bQI = getIntent().getStringExtra(XiaoyingPlayerConfig.EXTRA_URL);
+        this.huC = new b(this.mRootView);
+        this.huC.a(this.huF);
+        this.bQL = getIntent().getStringExtra(XiaoyingPlayerConfig.EXTRA_URL);
         this.mVideoWidth = getIntent().getIntExtra(XiaoyingPlayerConfig.EXTRA_VIDEO_WIDTH, 0);
         this.mVideoHeight = getIntent().getIntExtra(XiaoyingPlayerConfig.EXTRA_VIDEO_HEIGHT, 0);
-        this.hug = getIntent().getStringExtra(XiaoyingPlayerConfig.EXTRA_THUMBNAIL_URL);
-        this.hue.startPlay(this.bQI);
-        this.huc = findViewById(d.g.video_player_video_container);
-        this.hud = new com.baidu.tieba.video.player.a.a(getPageContext().getPageActivity());
-        this.hud.p(this.hug, this.mVideoWidth, this.mVideoHeight);
+        this.huE = getIntent().getStringExtra(XiaoyingPlayerConfig.EXTRA_THUMBNAIL_URL);
+        this.huC.startPlay(this.bQL);
+        this.huA = findViewById(d.g.video_player_video_container);
+        this.huB = new com.baidu.tieba.video.player.a.a(getPageContext().getPageActivity());
+        this.huB.p(this.huE, this.mVideoWidth, this.mVideoHeight);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             ay.e(this.mRootView, d.C0141d.common_color_10144, false);
         }
@@ -108,48 +108,48 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        VT();
-        this.hue.startPlay(this.bQI);
+        VU();
+        this.huC.startPlay(this.bQL);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        bCI();
-        VU();
-        if (this.hue != null) {
-            this.hue.release();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void VT() {
-        if (this.hud != null) {
-            this.hud.attachView(this.mRootView);
+        bCN();
+        VV();
+        if (this.huC != null) {
+            this.huC.release();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void VU() {
-        if (this.hud != null) {
-            this.hud.bk(this.mRootView);
+        if (this.huB != null) {
+            this.huB.attachView(this.mRootView);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCH() {
-        if (this.huf == null) {
-            this.huf = new c(getPageContext().getPageActivity());
-            this.huf.a(this.hui);
+    public void VV() {
+        if (this.huB != null) {
+            this.huB.bk(this.mRootView);
         }
-        this.huf.attachView(this.huc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCI() {
-        if (this.huf != null) {
-            this.huf.bk(this.huc);
+    public void bCM() {
+        if (this.huD == null) {
+            this.huD = new c(getPageContext().getPageActivity());
+            this.huD.a(this.huG);
+        }
+        this.huD.attachView(this.huA);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bCN() {
+        if (this.huD != null) {
+            this.huD.bk(this.huA);
         }
     }
 }

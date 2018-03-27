@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.g;
-import com.baidu.tieba.tbadkCore.v;
+import com.baidu.tieba.tbadkCore.w;
 /* loaded from: classes3.dex */
-public class d extends g<v, e> {
+public class d extends g<w, e> {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
     }
@@ -29,12 +29,12 @@ public class d extends g<v, e> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, v vVar, e eVar) {
-        super.onFillViewHolder(i, view, viewGroup, vVar, eVar);
-        if (vVar == null || eVar == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, w wVar, e eVar) {
+        super.onFillViewHolder(i, view, viewGroup, wVar, eVar);
+        if (wVar == null || eVar == null) {
             return null;
         }
-        eVar.a(vVar);
+        eVar.a(wVar);
         eVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return eVar.getView();
     }

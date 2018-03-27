@@ -28,13 +28,13 @@ public class ApplistRequest extends HttpMessage {
     }
 
     private String listToString() {
-        JSONObject akI;
+        JSONObject akJ;
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
             for (a aVar : getAppInfos()) {
-                if (aVar != null && (akI = aVar.akI()) != null) {
-                    jSONArray.put(akI);
+                if (aVar != null && (akJ = aVar.akJ()) != null) {
+                    jSONArray.put(akJ);
                 }
             }
             jSONObject.put("applist", jSONArray);

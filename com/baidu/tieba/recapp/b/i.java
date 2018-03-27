@@ -4,15 +4,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.tbadkCore.data.AppData;
+import com.baidu.tieba.tbadkCore.data.m;
 /* loaded from: classes3.dex */
-public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore.data.l, j> implements m {
-    protected BaseActivity<?> bSC;
+public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baidu.tieba.recapp.m {
+    protected BaseActivity<?> bSF;
 
     public i(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.bSC = baseActivity;
+        this.bSF = baseActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bH */
     public j onCreateViewHolder(ViewGroup viewGroup) {
-        View view = new View(this.bSC.getPageContext().getPageActivity());
+        View view = new View(this.bSF.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new j(view);
     }
@@ -29,15 +29,15 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.l lVar, j jVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, j jVar) {
         boolean z = false;
-        AppData bwI = lVar.bwI();
-        if (bwI != null) {
-            com.baidu.tbadk.core.data.b bVar = bwI.advertAppContext;
-            if (bwI.goods != null && bwI.goods.goods_style == -1001) {
+        AppData bwN = mVar.bwN();
+        if (bwN != null) {
+            com.baidu.tbadk.core.data.b bVar = bwN.advertAppContext;
+            if (bwN.goods != null && bwN.goods.goods_style == -1001) {
                 z = true;
             }
-            com.baidu.tbadk.core.data.b.b(bVar, lVar.getPosition(), z);
+            com.baidu.tbadk.core.data.b.b(bVar, mVar.getPosition(), z);
         }
         return jVar.getView();
     }

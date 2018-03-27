@@ -1,7 +1,7 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class at {
-    public static void OP() {
+    public static void OQ() {
         com.baidu.adp.lib.b.d.mA().f(t.class);
         com.baidu.adp.lib.b.d.mA().f(a.class);
         com.baidu.adp.lib.b.d.mA().f(b.class);

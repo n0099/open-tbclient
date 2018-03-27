@@ -13,14 +13,14 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.e.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.e.b coc;
-    private boolean dQG;
+    private com.baidu.tieba.e.b cof;
+    private boolean dQL;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean bDi = false;
-    private a.InterfaceC0143a cod = new a.InterfaceC0143a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int cKa = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
+    private boolean bDl = false;
+    private a.InterfaceC0143a cog = new a.InterfaceC0143a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        final int cKd = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
 
         @Override // com.baidu.tieba.e.a.InterfaceC0143a
         public void aY(int i, int i2) {
@@ -48,10 +48,10 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.dQG = z;
-        if (this.dQG) {
-            this.coc = new com.baidu.tieba.e.b(context);
-            this.coc.a(this.cod);
+        this.dQL = z;
+        if (this.dQL) {
+            this.cof = new com.baidu.tieba.e.b(context);
+            this.cof.a(this.cog);
         }
     }
 
@@ -68,15 +68,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.dQG = false;
+                    this.dQL = false;
                     break;
                 } else {
-                    this.dQG = true;
+                    this.dQL = true;
                     break;
                 }
         }
-        if (this.dQG && this.coc != null) {
-            this.coc.onTouchEvent(motionEvent);
+        if (this.dQL && this.cof != null) {
+            this.cof.onTouchEvent(motionEvent);
         }
     }
 
@@ -90,9 +90,9 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fW(boolean z) {
-        this.bDi = z;
-        if (this.dQG) {
-            p(!this.bDi, true);
+        this.bDl = z;
+        if (this.dQL) {
+            p(!this.bDl, true);
         }
     }
 

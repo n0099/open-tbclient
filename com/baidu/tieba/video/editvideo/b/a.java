@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a hpF;
-    private b hpG;
-    b.a hpH;
+    private com.baidu.tieba.video.editvideo.data.a hqd;
+    private b hqe;
+    b.a hqf;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.hpF = aVar;
+        this.hqd = aVar;
     }
 
-    public boolean bBm() {
-        return (this.hpF == null || "normal".equalsIgnoreCase(this.hpF.value)) ? false : true;
+    public boolean bBr() {
+        return (this.hqd == null || "normal".equalsIgnoreCase(this.hqd.value)) ? false : true;
     }
 
     public void tL(String str) {
-        if ((this.hpG == null || !this.hpG.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String bBp = bBp();
+        if ((this.hqe == null || !this.hqe.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String bBu = bBu();
             String str2 = "normal";
-            if (this.hpF != null) {
-                str2 = this.hpF.value;
+            if (this.hqd != null) {
+                str2 = this.hqd.value;
             }
-            this.hpG = new b(this.mContext, str, bBp, str2);
-            if (this.hpH != null) {
-                this.hpG.a(this.hpH);
+            this.hqe = new b(this.mContext, str, bBu, str2);
+            if (this.hqf != null) {
+                this.hqe.a(this.hqf);
             }
-            this.hpG.bBq();
+            this.hqe.bBv();
         }
     }
 
-    public boolean bBn() {
-        if (this.hpG != null) {
-            return this.hpG.isRunning();
+    public boolean bBs() {
+        if (this.hqe != null) {
+            return this.hqe.isRunning();
         }
         return false;
     }
 
-    public void bBo() {
-        if (this.hpG != null) {
-            this.hpG.bBr();
+    public void bBt() {
+        if (this.hqe != null) {
+            this.hqe.bBw();
         }
     }
 
     public void a(b.a aVar) {
-        this.hpH = aVar;
-        if (this.hpG != null) {
-            this.hpG.a(this.hpH);
+        this.hqf = aVar;
+        if (this.hqe != null) {
+            this.hqe.a(this.hqf);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String bBp() {
-        return com.baidu.tieba.video.b.hnD + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String bBu() {
+        return com.baidu.tieba.video.b.hob + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

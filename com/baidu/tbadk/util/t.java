@@ -9,14 +9,14 @@ public class t {
         mThreadId = str;
     }
 
-    public static String Pm() {
+    public static String Pn() {
         if (StringUtils.isNull(mThreadId)) {
             return null;
         }
         return mThreadId;
     }
 
-    public static void Pn() {
+    public static void Po() {
         if (mThreadId != null) {
             mThreadId = null;
         }

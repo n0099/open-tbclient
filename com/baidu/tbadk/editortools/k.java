@@ -6,9 +6,9 @@ public class k {
     public static l a(Context context, r rVar, int i) {
         switch (i) {
             case 1:
-                return new c(context, rVar.bsW, rVar.id);
+                return new c(context, rVar.bsZ, rVar.id);
             default:
-                return new e(context, rVar.bsW, rVar.name, rVar.id);
+                return new e(context, rVar.bsZ, rVar.name, rVar.id);
         }
     }
 }

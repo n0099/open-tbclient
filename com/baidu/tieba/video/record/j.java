@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class j {
-    private long axg;
-    private int hvS;
-    private ProgressView hvT;
-    protected List<a> hvU;
-    private boolean hvV;
-    private RecordVideoActivity hvh;
+    private long axh;
+    private RecordVideoActivity hvF;
+    private int hwq;
+    private ProgressView hwr;
+    protected List<a> hws;
+    private boolean hwt;
     private int mProgress;
     private int mStatus = 1;
 
@@ -24,13 +24,13 @@ public class j {
     }
 
     public j(RecordVideoActivity recordVideoActivity) {
-        this.hvh = recordVideoActivity;
-        if (this.hvh != null) {
-            ImageView imageView = (ImageView) this.hvh.findViewById(d.g.camera_switch);
-            ImageView imageView2 = (ImageView) this.hvh.findViewById(d.g.flash_switch);
-            this.hvT = (ProgressView) this.hvh.findViewById(d.g.video_progress_view);
-            this.hvT.setListener(new AnonymousClass1());
-            if (!com.baidu.tieba.video.record.a.np(true)) {
+        this.hvF = recordVideoActivity;
+        if (this.hvF != null) {
+            ImageView imageView = (ImageView) this.hvF.findViewById(d.g.camera_switch);
+            ImageView imageView2 = (ImageView) this.hvF.findViewById(d.g.flash_switch);
+            this.hwr = (ProgressView) this.hvF.findViewById(d.g.video_progress_view);
+            this.hwr.setListener(new AnonymousClass1());
+            if (!com.baidu.tieba.video.record.a.nu(true)) {
                 imageView2.setVisibility(4);
             }
             if (!com.baidu.tieba.video.record.a.c(recordVideoActivity.getPackageManager())) {
@@ -48,103 +48,103 @@ public class j {
         @Override // com.baidu.tieba.video.record.ProgressView.a
         public void wU(int i) {
             i iVar;
-            final h bDd;
+            final h bDi;
             j.this.mProgress = i;
-            if (i == 100 && j.this.hvh != null && (iVar = j.this.hvh.huJ) != null && (bDd = iVar.bDd()) != null) {
-                if (bDd instanceof g) {
-                    bDd.setOnEncoderStatusUpdateListener(new d.c() { // from class: com.baidu.tieba.video.record.j.1.1
+            if (i == 100 && j.this.hvF != null && (iVar = j.this.hvF.hvh) != null && (bDi = iVar.bDi()) != null) {
+                if (bDi instanceof g) {
+                    bDi.setOnEncoderStatusUpdateListener(new d.c() { // from class: com.baidu.tieba.video.record.j.1.1
                         @Override // com.faceunity.a.d.c
-                        public void bDA() {
+                        public void bDF() {
                         }
 
                         @Override // com.faceunity.a.d.c
-                        public void bDB() {
+                        public void bDG() {
                             com.baidu.adp.lib.g.e.ns().post(new Runnable() { // from class: com.baidu.tieba.video.record.j.1.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (j.this.hvh != null) {
-                                        j.this.hvh.bDG();
+                                    if (j.this.hvF != null) {
+                                        j.this.hvF.bDL();
                                     }
                                 }
                             });
-                            bDd.setOnEncoderStatusUpdateListener(null);
+                            bDi.setOnEncoderStatusUpdateListener(null);
                         }
                     });
                     j.this.stopRecord();
                     return;
                 }
                 j.this.stopRecord();
-                if (j.this.hvh != null) {
-                    j.this.hvh.bDG();
+                if (j.this.hvF != null) {
+                    j.this.hvF.bDL();
                 }
             }
         }
     }
 
     public int getVideoDuration() {
-        return this.hvS;
+        return this.hwq;
     }
 
     public void startRecord() {
-        if (!this.hvV) {
-            if (this.hvT != null) {
-                this.hvT.setVisibility(0);
-                this.hvT.setCurrentState(ProgressView.State.START);
+        if (!this.hwt) {
+            if (this.hwr != null) {
+                this.hwr.setVisibility(0);
+                this.hwr.setCurrentState(ProgressView.State.START);
             }
-            if (!this.hvV) {
-                this.hvV = true;
-                this.axg = System.currentTimeMillis();
+            if (!this.hwt) {
+                this.hwt = true;
+                this.axh = System.currentTimeMillis();
             }
-            if (this.hvh != null && this.hvh.huJ != null) {
-                this.hvh.huJ.startRecord();
-                if (this.hvh.hwK != null) {
-                    this.hvh.hwK.wW(this.hvS);
+            if (this.hvF != null && this.hvF.hvh != null) {
+                this.hvF.hvh.startRecord();
+                if (this.hvF.hxi != null) {
+                    this.hvF.hxi.wW(this.hwq);
                 }
             }
         }
     }
 
-    public boolean bDx() {
-        if (this.hvh.hwK != null) {
-            return this.hvh.hwK.bDx();
+    public boolean bDC() {
+        if (this.hvF.hxi != null) {
+            return this.hvF.hxi.bDC();
         }
         return false;
     }
 
     public void stopRecord() {
-        if (this.hvV) {
-            if (this.hvT != null) {
-                this.hvT.setCurrentState(ProgressView.State.PAUSE);
+        if (this.hwt) {
+            if (this.hwr != null) {
+                this.hwr.setCurrentState(ProgressView.State.PAUSE);
             }
-            this.hvV = false;
-            this.hvS = (int) (this.hvS + (System.currentTimeMillis() - this.axg));
-            if (this.hvT != null && this.hvT.getLastProgress() != this.hvS) {
-                this.hvT.wT(this.hvS);
+            this.hwt = false;
+            this.hwq = (int) (this.hwq + (System.currentTimeMillis() - this.axh));
+            if (this.hwr != null && this.hwr.getLastProgress() != this.hwq) {
+                this.hwr.wT(this.hwq);
             }
-            if (this.hvh != null && this.hvh.huJ != null) {
-                this.hvh.huJ.stopRecord();
+            if (this.hvF != null && this.hvF.hvh != null) {
+                this.hvF.hvh.stopRecord();
             }
         }
     }
 
-    public void bDy() {
-        if (!this.hvV && this.hvT != null) {
-            this.hvT.setCurrentState(ProgressView.State.ROLLBACK);
+    public void bDD() {
+        if (!this.hwt && this.hwr != null) {
+            this.hwr.setCurrentState(ProgressView.State.ROLLBACK);
         }
     }
 
-    public void bDz() {
-        if (this.hvT != null) {
-            this.hvT.setCurrentState(ProgressView.State.DELETE);
+    public void bDE() {
+        if (this.hwr != null) {
+            this.hwr.setCurrentState(ProgressView.State.DELETE);
         }
-        this.hvS = this.hvT.getLastProgress();
-        if (this.hvh.huJ != null) {
-            this.hvh.huJ.bDg();
+        this.hwq = this.hwr.getLastProgress();
+        if (this.hvF.hvh != null) {
+            this.hvF.hvh.bDl();
         }
     }
 
     public boolean onBackPressed() {
-        return this.hvT.bDw();
+        return this.hwr.bDB();
     }
 
     public int getStatus() {
@@ -155,10 +155,10 @@ public class j {
         File[] listFiles;
         this.mStatus = i;
         if (i == 1) {
-            this.hvT.setVisibility(4);
-            this.hvT.reset();
-            this.hvS = 0;
-            File file = new File(com.baidu.tieba.video.b.hnD);
+            this.hwr.setVisibility(4);
+            this.hwr.reset();
+            this.hwq = 0;
+            File file = new File(com.baidu.tieba.video.b.hob);
             if (file.exists() && file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
                     if (file2.getPath().startsWith("rec_tmp_")) {
@@ -167,8 +167,8 @@ public class j {
                 }
             }
         }
-        if (this.hvU != null) {
-            for (a aVar : this.hvU) {
+        if (this.hws != null) {
+            for (a aVar : this.hws) {
                 aVar.wV(this.mStatus);
             }
         }
@@ -183,15 +183,15 @@ public class j {
         return this.mProgress;
     }
 
-    public void UC() {
+    public void UD() {
         this.mProgress = 0;
-        this.hvT.reset();
+        this.hwr.reset();
     }
 
     public void a(a aVar) {
-        if (this.hvU == null) {
-            this.hvU = new ArrayList();
+        if (this.hws == null) {
+            this.hws = new ArrayList();
         }
-        this.hvU.add(aVar);
+        this.hws.add(aVar);
     }
 }

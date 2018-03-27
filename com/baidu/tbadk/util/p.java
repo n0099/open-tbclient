@@ -12,29 +12,29 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class p {
-    private static final byte[] bCZ = new byte[1];
-    private static p bDa = null;
+    private static final byte[] bDc = new byte[1];
+    private static p bDd = null;
     private CustomMessageListener mNetworkChangedListener;
 
-    public static p Pd() {
-        if (bDa == null) {
-            synchronized (bCZ) {
-                if (bDa == null) {
-                    bDa = new p();
+    public static p Pe() {
+        if (bDd == null) {
+            synchronized (bDc) {
+                if (bDd == null) {
+                    bDd = new p();
                 }
             }
         }
-        return bDa;
+        return bDd;
     }
 
     private p() {
         com.baidu.adp.lib.util.j.init();
     }
 
-    public void Pe() {
+    public void Pf() {
         try {
             if (this.mNetworkChangedListener == null) {
-                this.mNetworkChangedListener = Pf();
+                this.mNetworkChangedListener = Pg();
                 MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
             }
         } catch (Exception e) {
@@ -43,28 +43,28 @@ public class p {
         }
     }
 
-    private CustomMessageListener Pf() {
+    private CustomMessageListener Pg() {
         return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.p.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    p.this.Pg();
+                    p.this.Ph();
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pg() {
+    public void Ph() {
         try {
             boolean oJ = com.baidu.adp.lib.util.j.oJ();
             if (oJ) {
                 if (com.baidu.adp.lib.util.j.oK()) {
-                    ao.Dd().bn(true);
-                    com.baidu.tieba.recapp.d.a.boR().rU(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    ao.De().bn(true);
+                    com.baidu.tieba.recapp.d.a.boS().rU(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
                 } else if (com.baidu.adp.lib.util.j.oL()) {
-                    ao.Dd().bn(false);
+                    ao.De().bn(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(oJ);

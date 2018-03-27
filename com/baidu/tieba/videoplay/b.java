@@ -13,17 +13,17 @@ import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends FragmentStatePagerAdapter {
-    private boolean hze;
-    private com.baidu.tieba.videoplay.a.a hzf;
-    private long hzg;
+    private boolean hzC;
+    private com.baidu.tieba.videoplay.a.a hzD;
+    private long hzE;
     private Rect lQ;
     private List<VideoItemData> mDatas;
     public String mFrom;
 
     public b(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.hzg = -1L;
-        this.hzf = new com.baidu.tieba.videoplay.a.a();
+        this.hzE = -1L;
+        this.hzD = new com.baidu.tieba.videoplay.a.a();
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter
@@ -33,9 +33,9 @@ public class b extends FragmentStatePagerAdapter {
         bundle.putSerializable(VideoPlayActivityConfig.VIDEO_DATA, (Serializable) v.f(this.mDatas, i));
         bundle.putSerializable(VideoPlayActivityConfig.VIDEO_INDEX, Integer.valueOf(i));
         bundle.putSerializable(VideoPlayActivityConfig.PAGE_FROM, this.mFrom);
-        if (this.hze) {
+        if (this.hzC) {
             bundle.putParcelable(VideoPlayActivityConfig.VIDEO_COVER_RECT, this.lQ);
-            this.hze = false;
+            this.hzC = false;
         }
         aVar.setArguments(bundle);
         return aVar;
@@ -62,10 +62,10 @@ public class b extends FragmentStatePagerAdapter {
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.hzf.gw(true)) {
-            if (this.hzf.aAJ() < 0) {
-                this.hzf.xb(i);
-            } else if (this.hzf.aAJ() == i) {
+        if (this.hzD.gy(true)) {
+            if (this.hzD.aAL() < 0) {
+                this.hzD.xb(i);
+            } else if (this.hzD.aAL() == i) {
                 t((a) obj);
             }
         }
@@ -73,13 +73,13 @@ public class b extends FragmentStatePagerAdapter {
 
     private void t(a aVar) {
         if (aVar != null) {
-            this.hzg = aVar.bEx();
+            this.hzE = aVar.bEC();
         }
     }
 
     public void a(List<VideoItemData> list, Rect rect) {
         this.mDatas = list;
-        this.hze = true;
+        this.hzC = true;
         this.lQ = rect;
     }
 
@@ -87,10 +87,10 @@ public class b extends FragmentStatePagerAdapter {
         return (VideoItemData) v.f(this.mDatas, i);
     }
 
-    public void bEy() {
+    public void bED() {
         int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("nani_key_download_show_rate", 2);
-        if (this.hzg > 0 && i != 1) {
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_vertical_shown_time", this.hzg);
+        if (this.hzE > 0 && i != 1) {
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_vertical_shown_time", this.hzE);
         }
     }
 }

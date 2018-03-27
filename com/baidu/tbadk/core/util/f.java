@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class f {
     private static Toast amH;
     private static Handler mHandler = new Handler();
-    private static String aUL = null;
+    private static String aUN = null;
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.f.1
         @Override // java.lang.Runnable
         public void run() {
@@ -20,12 +20,12 @@ public class f {
         if (str != null && str.length() > 0) {
             mHandler.removeCallbacks(r);
             if (amH != null) {
-                if (!str.equals(aUL)) {
-                    aUL = str;
+                if (!str.equals(aUN)) {
+                    aUN = str;
                     amH.setText(str);
                 }
             } else {
-                aUL = str;
+                aUN = str;
                 amH = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
                 amH.setGravity(17, 0, com.baidu.adp.lib.util.l.dip2px(context, 100.0f));
             }

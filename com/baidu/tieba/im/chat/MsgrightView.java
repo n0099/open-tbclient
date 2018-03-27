@@ -15,54 +15,54 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgrightView extends g {
     private static final String TAG = MsgrightView.class.getName();
-    private HeadImageView dGC;
-    private TextView ewA;
-    private ImageButton ewx;
-    protected TextView ewy;
-    private TextView ewz;
+    private HeadImageView dGH;
+    private ImageButton ewN;
+    protected TextView ewO;
+    private TextView ewP;
+    private TextView ewQ;
     private ProgressBar mProgress;
 
     public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, d.h.msg_msgright_view);
         initView();
-        if (this.ewi != null && this.ewi.getImage() != null && (this.ewi.getImage() instanceof ChatClipImageItemView)) {
-            this.ewi.getImage().setLeft(false);
+        if (this.ewy != null && this.ewy.getImage() != null && (this.ewy.getImage() instanceof ChatClipImageItemView)) {
+            this.ewy.getImage().setLeft(false);
         }
-        this.ewy = (TextView) findViewById(d.g.img_msgitem_progressbar);
+        this.ewO = (TextView) findViewById(d.g.img_msgitem_progressbar);
         this.mProgress = (ProgressBar) findViewById(d.g.progress);
-        this.ewx = (ImageButton) findViewById(d.g.btn_msgitem_resend);
-        this.dGC = (HeadImageView) findViewById(d.g.img_msgitem_photo);
-        this.dGC.setAutoChangeStyle(false);
-        this.dGC.setDrawerType(1);
-        this.dGC.setRadius(l.dip2px(this.mContext.getContext(), 4.0f));
-        this.dGC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgrightView.1
+        this.ewN = (ImageButton) findViewById(d.g.btn_msgitem_resend);
+        this.dGH = (HeadImageView) findViewById(d.g.img_msgitem_photo);
+        this.dGH.setAutoChangeStyle(false);
+        this.dGH.setDrawerType(1);
+        this.dGH.setRadius(l.dip2px(this.mContext.getContext(), 4.0f));
+        this.dGH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgrightView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MsgrightView.this.evD.a(view, 6, MsgrightView.this.mPosition, 0L);
+                MsgrightView.this.evT.a(view, 6, MsgrightView.this.mPosition, 0L);
             }
         });
-        this.ewz = (TextView) findViewById(d.g.has_read);
-        this.ewA = (TextView) findViewById(d.g.has_sent);
-        this.ewf.setIsLeft(false);
-        this.ewg.setIsLeft(false);
+        this.ewP = (TextView) findViewById(d.g.has_read);
+        this.ewQ = (TextView) findViewById(d.g.has_sent);
+        this.ewv.setIsLeft(false);
+        this.eww.setIsLeft(false);
     }
 
     @Override // com.baidu.tieba.im.chat.g
     public void a(View view, ChatMessage chatMessage) {
         if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {
-            if (this.ewy.getVisibility() != 8) {
-                this.ewy.setVisibility(8);
-                this.ewi.getImage().setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            if (this.ewO.getVisibility() != 8) {
+                this.ewO.setVisibility(8);
+                this.ewy.getImage().setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
             }
         } else if (chatMessage.getProgressValue() >= 100 || !chatMessage.getIsUploading()) {
-            if (this.ewy.getVisibility() != 8) {
-                this.ewy.setVisibility(8);
-                this.ewi.getImage().setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            if (this.ewO.getVisibility() != 8) {
+                this.ewO.setVisibility(8);
+                this.ewy.getImage().setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
             }
         } else {
-            this.ewi.getImage().setColorFilter(TbadkCoreApplication.getInst().getApp().getResources().getColor(d.C0141d.common_color_10227), PorterDuff.Mode.SRC_ATOP);
-            this.ewy.setText(chatMessage.getProgressValue() + "%");
-            this.ewy.setVisibility(0);
+            this.ewy.getImage().setColorFilter(TbadkCoreApplication.getInst().getApp().getResources().getColor(d.C0141d.common_color_10227), PorterDuff.Mode.SRC_ATOP);
+            this.ewO.setText(chatMessage.getProgressValue() + "%");
+            this.ewO.setVisibility(0);
         }
     }
 
@@ -70,76 +70,76 @@ public class MsgrightView extends g {
     public void b(View view, ChatMessage chatMessage) {
         super.b(view, chatMessage);
         if (chatMessage == null) {
-            this.duR.setVisibility(8);
+            this.duU.setVisibility(8);
             this.mProgress.setVisibility(8);
+            this.ewN.setVisibility(8);
+            this.ewP.setVisibility(8);
+            this.ewQ.setVisibility(8);
+            this.ewr.setVisibility(0);
+            this.ewr.setText(null);
+            pJ(8);
+            this.ewy.getImage().setTag(null);
+            this.ews.setVisibility(8);
+            this.ews.setTag(null);
+            this.ewv.setVisibility(8);
+            this.eww.setVisibility(8);
             this.ewx.setVisibility(8);
-            this.ewz.setVisibility(8);
-            this.ewA.setVisibility(8);
-            this.ewb.setVisibility(0);
-            this.ewb.setText(null);
-            pI(8);
-            this.ewi.getImage().setTag(null);
-            this.ewc.setVisibility(8);
-            this.ewc.setTag(null);
-            this.ewf.setVisibility(8);
-            this.ewg.setVisibility(8);
-            this.ewh.setVisibility(8);
             return;
         }
         try {
             g(chatMessage);
-            this.dGC.setDefaultResource(d.f.photo);
+            this.dGH.setDefaultResource(d.f.photo);
             if (chatMessage.getUserInfo() != null) {
-                this.dGC.setUserId(chatMessage.getUserInfo().getUserId());
+                this.dGH.setUserId(chatMessage.getUserInfo().getUserId());
                 String currentPortrait = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentPortrait() : null;
                 if (currentPortrait != null && currentPortrait.length() > 0) {
-                    this.dGC.startLoad(currentPortrait, 12, false);
+                    this.dGH.startLoad(currentPortrait, 12, false);
                 }
             }
-            this.dGC.setContentDescription(chatMessage.getUserInfo().getName_show());
+            this.dGH.setContentDescription(chatMessage.getUserInfo().getName_show());
             this.mProgress.setVisibility(8);
-            this.ewx.setVisibility(8);
-            this.ewz.setVisibility(8);
-            this.ewA.setVisibility(8);
+            this.ewN.setVisibility(8);
+            this.ewP.setVisibility(8);
+            this.ewQ.setVisibility(8);
             if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null) {
                 switch (chatMessage.getLocalData().getStatus().shortValue()) {
                     case 1:
                         this.mProgress.setVisibility(0);
                         break;
                     case 2:
-                        this.ewx.setVisibility(0);
+                        this.ewN.setVisibility(0);
                         break;
                     case 3:
                         this.mProgress.setVisibility(8);
-                        if (this.ewk) {
+                        if (this.ewA) {
                             if (chatMessage.isHasRead()) {
-                                this.ewz.setVisibility(0);
-                                this.ewA.setVisibility(8);
+                                this.ewP.setVisibility(0);
+                                this.ewQ.setVisibility(8);
                                 break;
                             } else {
-                                this.ewz.setVisibility(8);
-                                this.ewA.setVisibility(0);
+                                this.ewP.setVisibility(8);
+                                this.ewQ.setVisibility(0);
                                 break;
                             }
                         }
                         break;
                 }
             }
-            if (this.ewx.getVisibility() == 0) {
-                this.ewx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgrightView.2
+            if (this.ewN.getVisibility() == 0) {
+                this.ewN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgrightView.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        MsgrightView.this.evD.a(view2, 1, MsgrightView.this.mPosition, 0L);
+                        MsgrightView.this.evT.a(view2, 1, MsgrightView.this.mPosition, 0L);
                     }
                 });
             }
-            this.ewb.setVisibility(8);
-            pI(8);
-            this.ewc.setVisibility(8);
-            this.ewd.setVisibility(8);
-            this.ewg.setVisibility(8);
-            this.ewf.setVisibility(8);
-            this.ewh.setVisibility(8);
+            this.ewr.setVisibility(8);
+            pJ(8);
+            this.ews.setVisibility(8);
+            this.ewt.setVisibility(8);
+            this.eww.setVisibility(8);
+            this.ewv.setVisibility(8);
+            this.ewx.setVisibility(8);
             switch (chatMessage.getMsgType()) {
                 case 1:
                     a(chatMessage, TAG);
@@ -149,7 +149,7 @@ public class MsgrightView extends g {
                     return;
                 case 3:
                     b(chatMessage, TAG);
-                    this.ewc.setVisibility(0);
+                    this.ews.setVisibility(0);
                     return;
                 case 4:
                     a(chatMessage, true);

@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class MessageRedDotView extends FrameLayout {
-    private ImageView bbo;
-    private TextView bbp;
-    private TextView bbq;
-    private RelativeLayout bbr;
-    private ImageView bbs;
-    private ImageView bbt;
+    private ImageView bbq;
+    private TextView bbr;
+    private TextView bbs;
+    private RelativeLayout bbt;
     private ImageView bbu;
     private ImageView bbv;
+    private ImageView bbw;
+    private ImageView bbx;
 
     public MessageRedDotView(Context context) {
         super(context);
@@ -43,60 +43,60 @@ public class MessageRedDotView extends FrameLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(d.h.message_red_dot_view, (ViewGroup) this, true);
-        this.bbo = (ImageView) findViewById(d.g.red_dot);
-        this.bbp = (TextView) findViewById(d.g.one_num_red_dot);
-        this.bbq = (TextView) findViewById(d.g.two_num_red_dot);
-        this.bbr = (RelativeLayout) findViewById(d.g.more_num_red_dot);
-        this.bbs = (ImageView) findViewById(d.g.more_num_red_dot_bg);
-        this.bbt = (ImageView) findViewById(d.g.more_num_white_dot_center);
-        this.bbu = (ImageView) findViewById(d.g.more_num_white_dot_left);
-        this.bbv = (ImageView) findViewById(d.g.more_num_white_dot_right);
+        this.bbq = (ImageView) findViewById(d.g.red_dot);
+        this.bbr = (TextView) findViewById(d.g.one_num_red_dot);
+        this.bbs = (TextView) findViewById(d.g.two_num_red_dot);
+        this.bbt = (RelativeLayout) findViewById(d.g.more_num_red_dot);
+        this.bbu = (ImageView) findViewById(d.g.more_num_red_dot_bg);
+        this.bbv = (ImageView) findViewById(d.g.more_num_white_dot_center);
+        this.bbw = (ImageView) findViewById(d.g.more_num_white_dot_left);
+        this.bbx = (ImageView) findViewById(d.g.more_num_white_dot_right);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        if (this.bbo != null) {
-            aj.c(this.bbo, d.f.icon_news_red_dot);
-        }
-        if (this.bbp != null) {
-            aj.e(this.bbp, d.C0141d.cp_cont_i, 1);
-            aj.s(this.bbp, d.f.icon_news_red_dot_one_number);
-        }
         if (this.bbq != null) {
-            aj.e(this.bbq, d.C0141d.cp_cont_i, 1);
-            aj.s(this.bbq, d.f.icon_news_red_dot_two_number);
+            aj.c(this.bbq, d.f.icon_news_red_dot);
         }
-        if (this.bbs != null && this.bbt != null && this.bbu != null && this.bbv != null) {
-            aj.c(this.bbs, d.f.icon_news_red_dot_two_number);
-            aj.c(this.bbt, d.f.icon_news_white_dot);
-            aj.c(this.bbu, d.f.icon_news_white_dot);
+        if (this.bbr != null) {
+            aj.e(this.bbr, d.C0141d.cp_cont_i, 1);
+            aj.s(this.bbr, d.f.icon_news_red_dot_one_number);
+        }
+        if (this.bbs != null) {
+            aj.e(this.bbs, d.C0141d.cp_cont_i, 1);
+            aj.s(this.bbs, d.f.icon_news_red_dot_two_number);
+        }
+        if (this.bbu != null && this.bbv != null && this.bbw != null && this.bbx != null) {
+            aj.c(this.bbu, d.f.icon_news_red_dot_two_number);
             aj.c(this.bbv, d.f.icon_news_white_dot);
+            aj.c(this.bbw, d.f.icon_news_white_dot);
+            aj.c(this.bbx, d.f.icon_news_white_dot);
         }
     }
 
     public void refresh(int i) {
         if (i <= 0) {
-            this.bbo.setVisibility(0);
-            this.bbp.setVisibility(8);
-            this.bbq.setVisibility(8);
-            this.bbr.setVisibility(8);
-        } else if (i < 10) {
-            this.bbp.setText(String.valueOf(i));
-            this.bbo.setVisibility(8);
-            this.bbp.setVisibility(0);
-            this.bbq.setVisibility(8);
-            this.bbr.setVisibility(8);
-        } else if (i < 100) {
-            this.bbq.setText(String.valueOf(i));
-            this.bbo.setVisibility(8);
-            this.bbp.setVisibility(8);
             this.bbq.setVisibility(0);
             this.bbr.setVisibility(8);
-        } else {
-            this.bbo.setVisibility(8);
-            this.bbp.setVisibility(8);
+            this.bbs.setVisibility(8);
+            this.bbt.setVisibility(8);
+        } else if (i < 10) {
+            this.bbr.setText(String.valueOf(i));
             this.bbq.setVisibility(8);
             this.bbr.setVisibility(0);
+            this.bbs.setVisibility(8);
+            this.bbt.setVisibility(8);
+        } else if (i < 100) {
+            this.bbs.setText(String.valueOf(i));
+            this.bbq.setVisibility(8);
+            this.bbr.setVisibility(8);
+            this.bbs.setVisibility(0);
+            this.bbt.setVisibility(8);
+        } else {
+            this.bbq.setVisibility(8);
+            this.bbr.setVisibility(8);
+            this.bbs.setVisibility(8);
+            this.bbt.setVisibility(0);
         }
         onChangeSkinType();
     }

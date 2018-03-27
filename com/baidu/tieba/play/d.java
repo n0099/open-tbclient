@@ -1,9 +1,7 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String bld();
-
-    boolean ble();
+    String ble();
 
     boolean blf();
 
@@ -11,13 +9,15 @@ public interface d {
 
     boolean blh();
 
-    int bli();
+    boolean bli();
 
-    void blj();
+    int blj();
 
-    j blk();
+    void blk();
 
-    void bll();
+    j bll();
+
+    void blm();
 
     void cK(long j);
 

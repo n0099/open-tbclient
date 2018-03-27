@@ -14,12 +14,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public i gnr;
-    public j gxM;
-    private b gxN;
+    public i gnH;
+    public j gyc;
+    private b gyd;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private ArrayList<com.baidu.adp.widget.ListView.i> crv = new ArrayList<>();
+    private ArrayList<com.baidu.adp.widget.ListView.i> cry = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
@@ -27,20 +27,20 @@ public class a {
     }
 
     private void o(TbPageContext<?> tbPageContext) {
-        this.gnr = new i(tbPageContext);
-        this.gxM = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gpI);
-        this.gxN = new com.baidu.tieba.personExtra.i(tbPageContext, this, tbPageContext.getUniqueId());
-        this.gxM.a(this.gxN);
-        this.mAdapters.add(this.gnr);
-        this.mAdapters.add(this.gxM);
+        this.gnH = new i(tbPageContext);
+        this.gyc = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gpY);
+        this.gyd = new com.baidu.tieba.personExtra.i(tbPageContext, this, tbPageContext.getUniqueId());
+        this.gyc.a(this.gyd);
+        this.mAdapters.add(this.gnH);
+        this.mAdapters.add(this.gyc);
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void A(ArrayList<com.baidu.adp.widget.ListView.i> arrayList) {
         if (arrayList != null && this.mListView != null) {
-            this.crv.clear();
-            this.crv.addAll(arrayList);
-            this.mListView.setData(this.crv);
+            this.cry.clear();
+            this.cry.addAll(arrayList);
+            this.mListView.setData(this.cry);
         }
     }
 
@@ -61,10 +61,10 @@ public class a {
         if (am.isEmpty(str)) {
             return false;
         }
-        if (this.mListView == null || this.crv == null) {
+        if (this.mListView == null || this.cry == null) {
             return false;
         }
-        Iterator<com.baidu.adp.widget.ListView.i> it = this.crv.iterator();
+        Iterator<com.baidu.adp.widget.ListView.i> it = this.cry.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -78,8 +78,8 @@ public class a {
             }
         }
         if (z) {
-            this.crv = PersonPostModel.mergeDynamicThreadByTime(this.crv);
-            this.mListView.setData(this.crv);
+            this.cry = PersonPostModel.mergeDynamicThreadByTime(this.cry);
+            this.mListView.setData(this.cry);
             notifyDataSetChanged();
             return z;
         }

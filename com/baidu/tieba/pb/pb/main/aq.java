@@ -28,13 +28,13 @@ public class aq {
     }
 
     public static boolean k(PostData postData) {
-        if (postData == null || postData.bxd() == null) {
+        if (postData == null || postData.bxi() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h bxd = postData.bxd();
-        if (bxd.haj) {
-            int bwB = bxd.bwB();
-            return bwB == 2 || bwB == 1 || bwB == 3;
+        com.baidu.tieba.tbadkCore.data.h bxi = postData.bxi();
+        if (bxi.haG) {
+            int bwG = bxi.bwG();
+            return bwG == 2 || bwG == 1 || bwG == 3;
         }
         return false;
     }
@@ -63,7 +63,7 @@ public class aq {
             });
             aVar.aO(inflate);
             aVar.aZ(false);
-            aVar.b(tbPageContext).AU();
+            aVar.b(tbPageContext).AV();
         }
     }
 }

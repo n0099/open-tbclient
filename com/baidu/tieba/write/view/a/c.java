@@ -11,10 +11,10 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class c extends a {
     private static int mPadding;
-    private TextView hIm;
-    private TextView hIn;
-    private TextView hIo;
-    private TextView hIp;
+    private TextView hIK;
+    private TextView hIL;
+    private TextView hIM;
+    private TextView hIN;
 
     public c(e eVar) {
         super(eVar);
@@ -26,37 +26,37 @@ public class c extends a {
     }
 
     public void r(View.OnClickListener onClickListener) {
-        this.hIm.setTag(0);
-        this.hIn.setTag(1);
-        this.hIo.setTag(2);
-        this.hIp.setTag(3);
-        this.hIm.setOnClickListener(onClickListener);
-        this.hIn.setOnClickListener(onClickListener);
-        this.hIo.setOnClickListener(onClickListener);
-        this.hIp.setOnClickListener(onClickListener);
+        this.hIK.setTag(0);
+        this.hIL.setTag(1);
+        this.hIM.setTag(2);
+        this.hIN.setTag(3);
+        this.hIK.setOnClickListener(onClickListener);
+        this.hIL.setOnClickListener(onClickListener);
+        this.hIM.setOnClickListener(onClickListener);
+        this.hIN.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(d.h.pic_rorate_view, (ViewGroup) null);
-        this.hIm = (TextView) this.mRootView.findViewById(d.g.rotate_left);
-        this.hIn = (TextView) this.mRootView.findViewById(d.g.rotate_right);
-        this.hIo = (TextView) this.mRootView.findViewById(d.g.rotate_left_right);
-        this.hIp = (TextView) this.mRootView.findViewById(d.g.rotate_up_down);
+        this.hIK = (TextView) this.mRootView.findViewById(d.g.rotate_left);
+        this.hIL = (TextView) this.mRootView.findViewById(d.g.rotate_right);
+        this.hIM = (TextView) this.mRootView.findViewById(d.g.rotate_left_right);
+        this.hIN = (TextView) this.mRootView.findViewById(d.g.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        aj.r(this.hIm, d.C0141d.cp_cont_j);
-        aj.r(this.hIn, d.C0141d.cp_cont_j);
-        aj.r(this.hIo, d.C0141d.cp_cont_j);
-        aj.r(this.hIp, d.C0141d.cp_cont_j);
-        this.hIm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.hIn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.hIp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.hIo.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.hIm.setCompoundDrawablePadding(mPadding);
-        this.hIn.setCompoundDrawablePadding(mPadding);
-        this.hIp.setCompoundDrawablePadding(mPadding);
-        this.hIo.setCompoundDrawablePadding(mPadding);
+        aj.r(this.hIK, d.C0141d.cp_cont_j);
+        aj.r(this.hIL, d.C0141d.cp_cont_j);
+        aj.r(this.hIM, d.C0141d.cp_cont_j);
+        aj.r(this.hIN, d.C0141d.cp_cont_j);
+        this.hIK.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.hIL.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.hIN.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.hIM.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.hIK.setCompoundDrawablePadding(mPadding);
+        this.hIL.setCompoundDrawablePadding(mPadding);
+        this.hIN.setCompoundDrawablePadding(mPadding);
+        this.hIM.setCompoundDrawablePadding(mPadding);
     }
 }

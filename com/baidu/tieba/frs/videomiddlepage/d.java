@@ -16,32 +16,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d implements d.a {
-    private String aMq;
-    private TbPageContext aRG;
-    private boolean dIz;
-    private c dWG;
-    private a.InterfaceC0159a dWd;
+    private String aMr;
+    private TbPageContext aRI;
+    private boolean dIE;
+    private c dWM;
+    private a.InterfaceC0159a dWj;
     private String mFrom;
     private BdTypeListView mListView;
     private List<i> mDatas = new ArrayList();
     private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private int dIA = -1;
-    private int dWH = -1;
+    private int dIF = -1;
+    private int dWN = -1;
 
     public d(TbPageContext tbPageContext, BdTypeListView bdTypeListView, a.InterfaceC0159a interfaceC0159a, boolean z, String str, String str2) {
-        this.dIz = false;
-        this.aRG = tbPageContext;
+        this.dIE = false;
+        this.aRI = tbPageContext;
         this.mListView = bdTypeListView;
-        this.dIz = z;
-        this.dWd = interfaceC0159a;
+        this.dIE = z;
+        this.dWj = interfaceC0159a;
         this.mFrom = str;
-        this.aMq = str2;
+        this.aMr = str2;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dWG = new c(this.aRG, this, this.dWd, this.dIz, this.mFrom, this.aMq);
-        this.mAdapters.add(this.dWG);
+        this.dWM = new c(this.aRI, this, this.dWj, this.dIE, this.mFrom, this.aMr);
+        this.mAdapters.add(this.dWM);
         this.mListView.addAdapters(this.mAdapters);
     }
 
@@ -49,8 +49,8 @@ public class d implements d.a {
         if (list != null) {
             this.mDatas.addAll(list);
             this.mListView.setData(this.mDatas);
-            if (list.size() > 0 && this.dIz && z) {
-                awL();
+            if (list.size() > 0 && this.dIE && z) {
+                awN();
                 list.get(0).autoPlay = true;
                 if (j.oL()) {
                     list.get(0).waitConfirm = true;
@@ -58,14 +58,14 @@ public class d implements d.a {
                     list.get(0).waitConfirm = false;
                 }
             }
-            if (this.mDatas.size() > this.dWH && !z && this.dWH != -1 && (this.mDatas.get(this.dWH) instanceof com.baidu.tieba.frs.aggregation.f)) {
+            if (this.mDatas.size() > this.dWN && !z && this.dWN != -1 && (this.mDatas.get(this.dWN) instanceof com.baidu.tieba.frs.aggregation.f)) {
                 if (j.oK()) {
-                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dWH)).autoPlay = true;
-                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dWH)).waitConfirm = false;
+                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dWN)).autoPlay = true;
+                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dWN)).waitConfirm = false;
                     return;
                 }
-                ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dWH)).autoPlay = false;
-                ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dWH)).waitConfirm = true;
+                ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dWN)).autoPlay = false;
+                ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dWN)).waitConfirm = true;
             }
         }
     }
@@ -73,8 +73,8 @@ public class d implements d.a {
     public void F(String str, boolean z) {
         if (!TextUtils.isEmpty(str)) {
             for (i iVar : this.mDatas) {
-                if (iVar != null && (iVar instanceof com.baidu.tieba.frs.aggregation.f) && ((com.baidu.tieba.frs.aggregation.f) iVar).dIE != null && str.equals(((com.baidu.tieba.frs.aggregation.f) iVar).dIE.userId)) {
-                    ((com.baidu.tieba.frs.aggregation.f) iVar).dIE.hasFocus = z;
+                if (iVar != null && (iVar instanceof com.baidu.tieba.frs.aggregation.f) && ((com.baidu.tieba.frs.aggregation.f) iVar).dIJ != null && str.equals(((com.baidu.tieba.frs.aggregation.f) iVar).dIJ.userId)) {
+                    ((com.baidu.tieba.frs.aggregation.f) iVar).dIJ.hasFocus = z;
                 }
             }
         }
@@ -87,31 +87,31 @@ public class d implements d.a {
     }
 
     public void onDestroy() {
-        this.dWG.onDestroy();
+        this.dWM.onDestroy();
     }
 
-    public boolean awG() {
-        return this.dWG.awG();
+    public boolean awI() {
+        return this.dWM.awI();
     }
 
-    public void gu(boolean z) {
-        this.dWG.gu(z);
+    public void gw(boolean z) {
+        this.dWM.gw(z);
     }
 
-    public void awH() {
-        this.dWG.awH();
+    public void awJ() {
+        this.dWM.awJ();
     }
 
-    public void awI() {
-        this.dWG.awI();
+    public void awK() {
+        this.dWM.awK();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.dWG.onConfigurationChanged(configuration);
+        this.dWM.onConfigurationChanged(configuration);
     }
 
     public boolean nc(int i) {
-        return this.dWG.nc(i);
+        return this.dWM.nc(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.d.a
@@ -119,11 +119,11 @@ public class d implements d.a {
         oa(i);
     }
 
-    public int awJ() {
-        return this.dIA;
+    public int awL() {
+        return this.dIF;
     }
 
-    public void awK() {
+    public void awM() {
         if (!v.E(this.mDatas)) {
             for (i iVar : this.mDatas) {
                 ((com.baidu.tieba.frs.aggregation.f) iVar).autoPlay = false;
@@ -134,19 +134,19 @@ public class d implements d.a {
 
     @Override // com.baidu.tieba.frs.aggregation.d.a
     public void cancel() {
-        awL();
+        awN();
     }
 
-    private void awL() {
-        awK();
-        this.dIA = 0;
-        this.dWH = -1;
-        awH();
+    private void awN() {
+        awM();
+        this.dIF = 0;
+        this.dWN = -1;
+        awJ();
     }
 
     public void oa(final int i) {
-        this.dIA = i;
-        this.dWH = i;
+        this.dIF = i;
+        this.dWN = i;
         if (!v.E(this.mDatas) && this.mListView != null) {
             for (i iVar : this.mDatas) {
                 if (iVar instanceof com.baidu.tieba.frs.aggregation.f) {
@@ -154,41 +154,41 @@ public class d implements d.a {
                     ((com.baidu.tieba.frs.aggregation.f) iVar).waitConfirm = false;
                 }
             }
-            if (this.dIA < this.mDatas.size() - 1) {
+            if (this.dIF < this.mDatas.size() - 1) {
                 List<i> list = this.mDatas;
-                int i2 = this.dIA + 1;
-                this.dIA = i2;
+                int i2 = this.dIF + 1;
+                this.dIF = i2;
                 if (list.get(i2) instanceof com.baidu.tieba.frs.aggregation.f) {
                     if (j.oK()) {
-                        ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).autoPlay = true;
-                        ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).waitConfirm = false;
+                        ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).autoPlay = true;
+                        ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).waitConfirm = false;
                     } else {
-                        ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).autoPlay = false;
-                        ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).waitConfirm = true;
+                        ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).autoPlay = false;
+                        ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).waitConfirm = true;
                     }
                     this.mListView.post(new Runnable() { // from class: com.baidu.tieba.frs.videomiddlepage.d.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            d.this.mListView.smoothScrollToPositionFromTop(i + d.this.mListView.getHeaderViewsCount() + 1, l.t(d.this.aRG.getPageActivity(), d.e.ds88) + l.t(d.this.aRG.getPageActivity(), d.e.tbds42));
+                            d.this.mListView.smoothScrollToPositionFromTop(i + d.this.mListView.getHeaderViewsCount() + 1, l.t(d.this.aRI.getPageActivity(), d.e.ds88) + l.t(d.this.aRI.getPageActivity(), d.e.tbds42));
                         }
                     });
                     notifyDataSetChanged();
                 }
-            } else if (this.dIA == this.mDatas.size() - 1 && (this.mDatas.get(this.dIA) instanceof com.baidu.tieba.frs.aggregation.f)) {
+            } else if (this.dIF == this.mDatas.size() - 1 && (this.mDatas.get(this.dIF) instanceof com.baidu.tieba.frs.aggregation.f)) {
                 if (j.oK()) {
-                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).autoPlay = true;
-                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).waitConfirm = false;
+                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).autoPlay = true;
+                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).waitConfirm = false;
                     return;
                 }
-                ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).autoPlay = false;
-                ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).waitConfirm = true;
+                ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).autoPlay = false;
+                ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).waitConfirm = true;
             }
         }
     }
 
     public void ob(int i) {
-        this.dIA = i;
-        this.dWH = i;
+        this.dIF = i;
+        this.dWN = i;
         if (!v.E(this.mDatas) && this.mListView != null) {
             for (i iVar : this.mDatas) {
                 if (iVar instanceof com.baidu.tieba.frs.aggregation.f) {
@@ -196,13 +196,13 @@ public class d implements d.a {
                     ((com.baidu.tieba.frs.aggregation.f) iVar).waitConfirm = false;
                 }
             }
-            if (this.dIA <= this.mDatas.size() - 1 && (this.mDatas.get(this.dIA) instanceof com.baidu.tieba.frs.aggregation.f)) {
+            if (this.dIF <= this.mDatas.size() - 1 && (this.mDatas.get(this.dIF) instanceof com.baidu.tieba.frs.aggregation.f)) {
                 if (j.oK()) {
-                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).autoPlay = true;
-                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).waitConfirm = false;
+                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).autoPlay = true;
+                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).waitConfirm = false;
                 } else {
-                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).autoPlay = false;
-                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIA)).waitConfirm = true;
+                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).autoPlay = false;
+                    ((com.baidu.tieba.frs.aggregation.f) this.mDatas.get(this.dIF)).waitConfirm = true;
                 }
                 notifyDataSetChanged();
             }

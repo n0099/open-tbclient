@@ -60,14 +60,14 @@ public class F implements FI {
                     vF.a(new f(str, intentFilter, str2, str3));
                     new StringBuilder().append(intentFilter.hasAction("android.intent.action.BOOT_COMPLETED"));
                     if (intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")) {
-                        a aVar = a.aGc;
+                        a aVar = a.aGd;
                         new StringBuilder("d=").append(aVar);
                         if (aVar != null) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("r", (Integer) 1);
                             contentValues.put("b", str2);
                             contentValues.put(Info.kBaiduTimeKey, str3);
-                            aVar.aGb.update("pgn", contentValues, "p=?", new String[]{str});
+                            aVar.aGc.update("pgn", contentValues, "p=?", new String[]{str});
                         }
                     }
                 }
@@ -305,12 +305,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void s(int i, boolean z) {
         try {
-            a aVar = a.aGc;
+            a aVar = a.aGd;
             if (aVar != null) {
                 int i2 = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(NotifyType.SOUND, Integer.valueOf(i2));
-                aVar.aGb.update("pgn", contentValues, "k=" + i + " and n=1", null);
+                aVar.aGc.update("pgn", contentValues, "k=" + i + " and n=1", null);
             }
         } catch (Throwable th) {
             d.a(th);
@@ -320,12 +320,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void sp(String str, boolean z) {
         try {
-            a aVar = a.aGc;
+            a aVar = a.aGd;
             if (aVar != null) {
                 int i = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(NotifyType.SOUND, Integer.valueOf(i));
-                aVar.aGb.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                aVar.aGc.update("pgn", contentValues, "p=? and n=1", new String[]{str});
             }
         } catch (Throwable th) {
             d.a(th);

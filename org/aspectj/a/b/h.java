@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 class h {
-    static h imA = new h();
-    static h imB;
-    static h imC;
-    boolean imr = true;
-    boolean ims = true;
-    boolean imt = false;
-    boolean imu = false;
-    boolean imv = false;
-    boolean imw = true;
-    boolean imx = true;
-    boolean imy = true;
-    int imz;
+    static h imY = new h();
+    static h imZ;
+    static h ina;
+    boolean imP = true;
+    boolean imQ = true;
+    boolean imR = false;
+    boolean imS = false;
+    boolean imT = false;
+    boolean imU = true;
+    boolean imV = true;
+    boolean imW = true;
+    int imX;
 
     h() {
     }
 
     static {
-        imA.imr = true;
-        imA.ims = false;
-        imA.imt = false;
-        imA.imu = false;
-        imA.imv = true;
-        imA.imw = false;
-        imA.imx = false;
-        imA.imz = 0;
-        imB = new h();
-        imB.imr = true;
-        imB.ims = true;
-        imB.imt = false;
-        imB.imu = false;
-        imB.imv = false;
-        imA.imz = 1;
-        imC = new h();
-        imC.imr = false;
-        imC.ims = true;
-        imC.imt = false;
-        imC.imu = true;
-        imC.imv = false;
-        imC.imy = false;
-        imC.imz = 2;
+        imY.imP = true;
+        imY.imQ = false;
+        imY.imR = false;
+        imY.imS = false;
+        imY.imT = true;
+        imY.imU = false;
+        imY.imV = false;
+        imY.imX = 0;
+        imZ = new h();
+        imZ.imP = true;
+        imZ.imQ = true;
+        imZ.imR = false;
+        imZ.imS = false;
+        imZ.imT = false;
+        imY.imX = 1;
+        ina = new h();
+        ina.imP = false;
+        ina.imQ = true;
+        ina.imR = false;
+        ina.imS = true;
+        ina.imT = false;
+        ina.imW = false;
+        ina.imX = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String zz(int i) {
-        if (this.imu) {
+        if (this.imS) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String o(Class cls) {
-        return b(cls, cls.getName(), this.imr);
+        return b(cls, cls.getName(), this.imP);
     }
 
     public String e(Class cls, String str) {
-        return b(cls, str, this.imv);
+        return b(cls, str, this.imT);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.ims) {
+            if (!this.imQ) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.imt && clsArr != null && clsArr.length != 0) {
+        if (this.imR && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

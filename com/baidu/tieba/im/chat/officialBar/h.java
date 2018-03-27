@@ -13,8 +13,8 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class h extends BaseAdapter {
-    BaseActivity bSC;
-    private View.OnClickListener exV = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.h.1
+    BaseActivity bSF;
+    private View.OnClickListener eyl = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue = ((Integer) view.getTag()).intValue();
@@ -32,7 +32,7 @@ public class h extends BaseAdapter {
 
     public h(BaseActivity baseActivity, Context context) {
         this.mContext = context;
-        this.bSC = baseActivity;
+        this.bSF = baseActivity;
     }
 
     @Override // android.widget.Adapter
@@ -120,14 +120,14 @@ public class h extends BaseAdapter {
                     chatMessage2.setMsgType(aVar.type);
                     com.baidu.tieba.im.chat.j.a(this.mContext, aVar4, aVar5.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     aVar5.getImageView().setTag(Integer.valueOf(i));
-                    aVar5.getImageView().setOnClickListener(this.exV);
+                    aVar5.getImageView().setOnClickListener(this.eyl);
                     return aVar4;
                 case 2:
                     View aVar6 = view == null ? new a(this.mContext) : view;
                     MultiContentView multiContentView = new MultiContentView(this.mContext);
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.time);
-                    multiContentView.a(this.bSC.getPageContext(), g.a(aVar.content, "", 0L), viewGroup);
+                    multiContentView.a(this.bSF.getPageContext(), g.a(aVar.content, "", 0L), viewGroup);
                     ((a) aVar6).bZ(multiContentView);
                     return aVar6;
                 default:

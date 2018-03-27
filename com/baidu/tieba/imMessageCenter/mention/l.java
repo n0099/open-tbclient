@@ -25,9 +25,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.imMessageCenter.mention.officialNotification.OfficialNotificationListModel;
 /* loaded from: classes2.dex */
 public class l extends BaseFragment implements View.OnClickListener, NoNetworkView.a {
-    private com.baidu.tieba.imMessageCenter.mention.officialNotification.b eSM;
-    private OfficialNotificationListModel eSN;
-    private CustomMessageListener ewO = new CustomMessageListener(2001332) { // from class: com.baidu.tieba.imMessageCenter.mention.l.1
+    private com.baidu.tieba.imMessageCenter.mention.officialNotification.b eTb;
+    private OfficialNotificationListModel eTc;
+    private CustomMessageListener exe = new CustomMessageListener(2001332) { // from class: com.baidu.tieba.imMessageCenter.mention.l.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,19 +37,19 @@ public class l extends BaseFragment implements View.OnClickListener, NoNetworkVi
             }
         }
     };
-    protected com.baidu.adp.base.d ewP = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.imMessageCenter.mention.l.3
+    protected com.baidu.adp.base.d exf = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.imMessageCenter.mention.l.3
         @Override // com.baidu.adp.base.d
         public void ak(Object obj) {
-            if (l.this.eSN != null && l.this.eSM != null && !am.isEmpty(l.this.mUid) && l.this.eSN.getUser() != null && am.equals(l.this.mUid, l.this.eSN.getUser().getUserId())) {
-                switch (l.this.eSN.getLoadDataMode()) {
+            if (l.this.eTc != null && l.this.eTb != null && !am.isEmpty(l.this.mUid) && l.this.eTc.getUser() != null && am.equals(l.this.mUid, l.this.eTc.getUser().getUserId())) {
+                switch (l.this.eTc.getLoadDataMode()) {
                     case 1:
-                        l.this.eSM.refreshGo2New(l.this.eSN.getData());
+                        l.this.eTb.refreshGo2New(l.this.eTc.getData());
                         return;
                     case 2:
-                        l.this.eSM.refreshPrepage(l.this.eSN.getData());
+                        l.this.eTb.refreshPrepage(l.this.eTc.getData());
                         return;
                     case 3:
-                        l.this.eSM.refreshCheckNew(l.this.eSN.getData());
+                        l.this.eTb.refreshCheckNew(l.this.eTc.getData());
                         return;
                     default:
                         return;
@@ -69,23 +69,23 @@ public class l extends BaseFragment implements View.OnClickListener, NoNetworkVi
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.eSM = new com.baidu.tieba.imMessageCenter.mention.officialNotification.b(this.mPageContext, this, viewGroup);
-        if (this.eSN != null) {
-            this.eSM.a(this.eSN.getData());
-            this.eSN.loadFirst(null);
+        this.eTb = new com.baidu.tieba.imMessageCenter.mention.officialNotification.b(this.mPageContext, this, viewGroup);
+        if (this.eTc != null) {
+            this.eTb.a(this.eTc.getData());
+            this.eTc.loadFirst(null);
         }
-        return this.eSM.getView();
+        return this.eTb.getView();
     }
 
     protected boolean q(Bundle bundle) {
-        this.mUid = com.baidu.tbadk.coreExtra.messageCenter.a.GI().Hk();
-        this.eSN = new OfficialNotificationListModel(this.mPageContext);
-        this.eSN.setLoadDataCallBack(this.ewP);
+        this.mUid = com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hl();
+        this.eTc = new OfficialNotificationListModel(this.mPageContext);
+        this.eTc.setLoadDataCallBack(this.exf);
         if (bundle != null) {
             r(bundle);
             return true;
         }
-        aFn();
+        aFo();
         return true;
     }
 
@@ -94,16 +94,16 @@ public class l extends BaseFragment implements View.OnClickListener, NoNetworkVi
     }
 
     protected void r(Bundle bundle) {
-        if (this.eSN != null) {
-            this.eSN.setIsAcceptNotify(true);
+        if (this.eTc != null) {
+            this.eTc.setIsAcceptNotify(true);
             s(bundle);
         }
     }
 
-    protected void aFn() {
-        if (this.eSN != null) {
-            this.eSN.setIsAcceptNotify(true);
-            aNF();
+    protected void aFo() {
+        if (this.eTc != null) {
+            this.eTc.setIsAcceptNotify(true);
+            aNG();
         }
     }
 
@@ -111,15 +111,15 @@ public class l extends BaseFragment implements View.OnClickListener, NoNetworkVi
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             c(userData);
-            this.eSN.setUser(userData);
+            this.eTc.setUser(userData);
         }
     }
 
-    protected void aNF() {
-        if (!am.isEmpty(this.mUid) && this.mPageContext != null && this.eSN != null) {
+    protected void aNG() {
+        if (!am.isEmpty(this.mUid) && this.mPageContext != null && this.eTc != null) {
             UserData userData = new UserData(Long.parseLong(this.mUid), this.mPageContext.getString(d.j.system_message), null, 0);
             c(userData);
-            this.eSN.setUser(userData);
+            this.eTc.setUser(userData);
         }
     }
 
@@ -127,9 +127,9 @@ public class l extends BaseFragment implements View.OnClickListener, NoNetworkVi
         v.b(new u<Void>() { // from class: com.baidu.tieba.imMessageCenter.mention.l.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: UO */
+            /* renamed from: UP */
             public Void doInBackground() {
-                com.baidu.tieba.im.settingcache.d.aLV().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), userData);
+                com.baidu.tieba.im.settingcache.d.aLW().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), userData);
                 return null;
             }
         }, null);
@@ -138,19 +138,19 @@ public class l extends BaseFragment implements View.OnClickListener, NoNetworkVi
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        registerListener(this.ewO);
+        registerListener(this.exe);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.ewO);
+        MessageManager.getInstance().unRegisterListener(this.exe);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.eSN.onDestroy();
+        this.eTc.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
@@ -163,24 +163,24 @@ public class l extends BaseFragment implements View.OnClickListener, NoNetworkVi
         }
     }
 
-    public void aix() {
-        if (this.eSN != null) {
-            this.eSN.loadPrepage();
+    public void aiy() {
+        if (this.eTc != null) {
+            this.eTc.loadPrepage();
         }
     }
 
     public boolean getHasMore() {
-        if (this.eSN == null || this.eSN.getData() == null) {
+        if (this.eTc == null || this.eTc.getData() == null) {
             return true;
         }
-        return this.eSN.getData().getIsNewAdd();
+        return this.eTc.getData().getIsNewAdd();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eSM != null) {
-            this.eSM.onChangeSkinType();
+        if (this.eTb != null) {
+            this.eTb.onChangeSkinType();
         }
     }
 }

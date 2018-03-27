@@ -151,7 +151,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mView.cF(this.mUrlTitle);
         }
         if (!this.mView.wD() && UtilHelper.canUseStyleImmersiveSticky()) {
-            ay.e(this.mView.aHS, d.C0141d.cp_link_tip_b, false);
+            ay.e(this.mView.aHT, d.C0141d.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -428,7 +428,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             }
             String findSubString2 = findSubString(SHARE_IMG_START, SHARE_END);
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.blo = Uri.parse(findSubString2);
+                dVar.blr = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString(SHARE_URL_START, SHARE_END);
             if (!StringUtils.isNull(findSubString3, true)) {
@@ -445,7 +445,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             dVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.blo = Uri.parse(str4);
+            dVar.blr = Uri.parse(str4);
         }
         return dVar;
     }
@@ -607,9 +607,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (cL.aky != null) {
                 str3 = cL.aky;
             }
-            if (cL.aJC != null) {
+            if (cL.aJD != null) {
                 str = str3;
-                str2 = cL.aJC;
+                str2 = cL.aJD;
                 z.a aVar = new z.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

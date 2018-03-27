@@ -20,31 +20,31 @@ import com.baidu.tieba.tbadkCore.data.h;
 import com.baidu.tieba.tbadkCore.data.i;
 /* loaded from: classes3.dex */
 public class PbNewChudianCommonView extends RelativeLayout implements View.OnClickListener {
-    private BdBaseActivity<?> geT;
-    private TextView geU;
-    private TextView geV;
-    private ImageView geW;
-    private TextView geX;
-    private TextView geY;
-    private TextView geZ;
-    private h gfa;
-    private a.InterfaceC0204a gfb;
+    private BdBaseActivity<?> gfj;
+    private TextView gfk;
+    private TextView gfl;
+    private ImageView gfm;
+    private TextView gfn;
+    private TextView gfo;
+    private TextView gfp;
+    private h gfq;
+    private a.InterfaceC0204a gfr;
     private Context mContext;
     private View mRootView;
 
     public PbNewChudianCommonView(Context context) {
         super(context);
         this.mContext = null;
-        this.geT = null;
+        this.gfj = null;
         this.mRootView = null;
-        this.geU = null;
-        this.geV = null;
-        this.geW = null;
-        this.geX = null;
-        this.geY = null;
-        this.geZ = null;
-        this.gfa = null;
-        this.gfb = null;
+        this.gfk = null;
+        this.gfl = null;
+        this.gfm = null;
+        this.gfn = null;
+        this.gfo = null;
+        this.gfp = null;
+        this.gfq = null;
+        this.gfr = null;
         this.mContext = context;
         init();
     }
@@ -52,16 +52,16 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     public PbNewChudianCommonView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.geT = null;
+        this.gfj = null;
         this.mRootView = null;
-        this.geU = null;
-        this.geV = null;
-        this.geW = null;
-        this.geX = null;
-        this.geY = null;
-        this.geZ = null;
-        this.gfa = null;
-        this.gfb = null;
+        this.gfk = null;
+        this.gfl = null;
+        this.gfm = null;
+        this.gfn = null;
+        this.gfo = null;
+        this.gfp = null;
+        this.gfq = null;
+        this.gfr = null;
         this.mContext = context;
         init();
     }
@@ -69,36 +69,36 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     protected void init() {
         if (this.mContext != null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.pb_newchudian_common, (ViewGroup) this, true);
-            this.geU = (TextView) this.mRootView.findViewById(d.g.service_first);
-            this.geU.setOnClickListener(this);
-            this.geV = (TextView) this.mRootView.findViewById(d.g.service_second);
-            this.geV.setOnClickListener(this);
-            this.geX = (TextView) this.mRootView.findViewById(d.g.land_mark_text);
-            this.geW = (ImageView) this.mRootView.findViewById(d.g.land_mark_icon);
-            this.geY = (TextView) this.mRootView.findViewById(d.g.check_detail_up);
-            this.geY.setOnClickListener(this);
-            this.geZ = (TextView) this.mRootView.findViewById(d.g.check_detail_down);
-            this.geZ.setOnClickListener(this);
+            this.gfk = (TextView) this.mRootView.findViewById(d.g.service_first);
+            this.gfk.setOnClickListener(this);
+            this.gfl = (TextView) this.mRootView.findViewById(d.g.service_second);
+            this.gfl.setOnClickListener(this);
+            this.gfn = (TextView) this.mRootView.findViewById(d.g.land_mark_text);
+            this.gfm = (ImageView) this.mRootView.findViewById(d.g.land_mark_icon);
+            this.gfo = (TextView) this.mRootView.findViewById(d.g.check_detail_up);
+            this.gfo.setOnClickListener(this);
+            this.gfp = (TextView) this.mRootView.findViewById(d.g.check_detail_down);
+            this.gfp.setOnClickListener(this);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gfa != null) {
-            if (view == this.geU) {
-                if (this.gfa.bwy() != null) {
-                    a(this.gfa.bwy().get(0));
+        if (this.gfq != null) {
+            if (view == this.gfk) {
+                if (this.gfq.bwD() != null) {
+                    a(this.gfq.bwD().get(0));
                 }
-            } else if (view == this.geV) {
-                if (this.gfa.bwy() != null) {
-                    a(this.gfa.bwy().get(1));
+            } else if (view == this.gfl) {
+                if (this.gfq.bwD() != null) {
+                    a(this.gfq.bwD().get(1));
                 }
-            } else if (view == this.geY || view == this.geZ) {
-                i bwA = this.gfa.bwA();
-                if (!am.isEmpty(bwA.getUrl())) {
-                    b.R(this.mContext, bwA.getUrl());
-                    if (this.gfb != null) {
-                        this.gfb.d(bwA.getUrl(), "BUTTON", "CLICK", null, null);
+            } else if (view == this.gfo || view == this.gfp) {
+                i bwF = this.gfq.bwF();
+                if (!am.isEmpty(bwF.getUrl())) {
+                    b.R(this.mContext, bwF.getUrl());
+                    if (this.gfr != null) {
+                        this.gfr.d(bwF.getUrl(), "BUTTON", "CLICK", null, null);
                     }
                 }
             }
@@ -108,38 +108,38 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     private void a(g gVar) {
         if (gVar != null) {
             final String trim = gVar.getUrl().trim();
-            if (this.gfb != null) {
-                this.gfb.d(trim, "BTN_PHONE", "CLICK", null, null);
+            if (this.gfr != null) {
+                this.gfr.d(trim, "BTN_PHONE", "CLICK", null, null);
             }
             if (!am.isEmpty(trim)) {
                 int type = gVar.getType();
                 if (type == 1) {
                     b.R(this.mContext, trim);
                 } else if (type == 2) {
-                    com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.geT.getActivity());
+                    com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.gfj.getActivity());
                     aVar.dk(trim);
-                    aVar.a(this.geT.getResources().getString(d.j.phone_call), new a.b() { // from class: com.baidu.tieba.pbextra.chudian.view.PbNewChudianCommonView.1
+                    aVar.a(this.gfj.getResources().getString(d.j.phone_call), new a.b() { // from class: com.baidu.tieba.pbextra.chudian.view.PbNewChudianCommonView.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
                             UtilHelper.callPhone(PbNewChudianCommonView.this.mContext, trim);
-                            if (PbNewChudianCommonView.this.gfb != null) {
-                                PbNewChudianCommonView.this.gfb.d(trim, "BTN_CALL", "CLICK_FEEDBACK", null, null);
+                            if (PbNewChudianCommonView.this.gfr != null) {
+                                PbNewChudianCommonView.this.gfr.d(trim, "BTN_CALL", "CLICK_FEEDBACK", null, null);
                             }
                         }
                     });
-                    aVar.b(this.geT.getResources().getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.pbextra.chudian.view.PbNewChudianCommonView.2
+                    aVar.b(this.gfj.getResources().getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.pbextra.chudian.view.PbNewChudianCommonView.2
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
-                            if (PbNewChudianCommonView.this.gfb != null) {
-                                PbNewChudianCommonView.this.gfb.d(trim, "BTN_CANCEL", "CLICK_FEEDBACK", null, null);
+                            if (PbNewChudianCommonView.this.gfr != null) {
+                                PbNewChudianCommonView.this.gfr.d(trim, "BTN_CANCEL", "CLICK_FEEDBACK", null, null);
                             }
                         }
                     });
                     aVar.ba(false);
-                    aVar.b(this.geT.getPageContext());
-                    aVar.AU();
+                    aVar.b(this.gfj.getPageContext());
+                    aVar.AV();
                 }
             }
         }

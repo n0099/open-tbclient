@@ -7,7 +7,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes2.dex */
 public class m implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int eSW;
+    private int eTl;
     private String ids;
     private int mPn = 1;
 
@@ -19,21 +19,21 @@ public class m implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.eSW = 4;
+        this.eTl = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.eSW = 1;
+        this.eTl = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.eSW;
+        return this.eTl;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Na() {
+    public HashMap<String, Object> Nb() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
@@ -41,7 +41,7 @@ public class m implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.ao(TbadkCoreApplication.getInst().getApp())));
-        if (this.eSW == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.eTl == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
@@ -74,12 +74,12 @@ public class m implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String MX() {
+    public String MY() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean MY() {
+    public boolean MZ() {
         return true;
     }
 

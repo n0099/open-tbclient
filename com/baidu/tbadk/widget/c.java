@@ -8,15 +8,15 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class c extends ImageSpan {
-    private WeakReference<Drawable> asT;
-    private int bED;
-    private int bEE;
+    private WeakReference<Drawable> asU;
+    private int bEG;
+    private int bEH;
 
     public c(Drawable drawable, int i) {
         super(drawable);
-        this.bED = 0;
-        this.bEE = 1;
-        this.bEE = i;
+        this.bEG = 0;
+        this.bEH = 1;
+        this.bEH = i;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -45,7 +45,7 @@ public class c extends ImageSpan {
         Drawable rM;
         float f2;
         if (rM() != null) {
-            switch (this.bEE) {
+            switch (this.bEH) {
                 case 0:
                     f2 = 0.1f;
                     break;
@@ -59,7 +59,7 @@ public class c extends ImageSpan {
                     f2 = 0.0f;
                     break;
             }
-            float height = f2 != 0.0f ? ((i4 - i5) + (f2 * rM.getBounds().height())) - this.bED : 0.0f;
+            float height = f2 != 0.0f ? ((i4 - i5) + (f2 * rM.getBounds().height())) - this.bEG : 0.0f;
             canvas.save();
             canvas.translate(rM.getBounds().width() * 0.15f, height);
             super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
@@ -68,14 +68,14 @@ public class c extends ImageSpan {
     }
 
     private Drawable rM() {
-        WeakReference<Drawable> weakReference = this.asT;
+        WeakReference<Drawable> weakReference = this.asU;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.asT = new WeakReference<>(drawable2);
+            this.asU = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

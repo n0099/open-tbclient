@@ -3,6 +3,6 @@ package com.baidu.tieba.video;
 import android.os.Environment;
 /* loaded from: classes2.dex */
 public class d {
-    public static final String hnH = Environment.getExternalStorageDirectory().toString();
-    public static final String hnI = b.hnD;
+    public static final String hof = Environment.getExternalStorageDirectory().toString();
+    public static final String hog = b.hob;
 }

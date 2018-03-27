@@ -11,90 +11,90 @@ import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.view.form.FormItemBaseView;
 /* loaded from: classes3.dex */
 public class f extends FormItemBaseView {
-    private EditText gGp;
-    private Button gGq;
-    private a gGr;
+    private EditText gGF;
+    private Button gGG;
+    private a gGH;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void boH();
+        void boI();
     }
 
     public f(Context context) {
         super(context);
-        this.gGp = null;
-        this.gGq = null;
-        this.gGr = null;
+        this.gGF = null;
+        this.gGG = null;
+        this.gGH = null;
         init();
     }
 
     private void init() {
-        boP();
         boQ();
-    }
-
-    private void boP() {
-        this.gGq = new Button(this.mContext);
-        this.gGq.setId(1);
-        this.gGq.setTextColor(this.gGa);
-        this.gGq.setTextSize(0, this.gFX);
-        this.gGq.setBackgroundColor(this.gGc);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.gFS);
-        layoutParams.addRule(11);
-        layoutParams.addRule(15);
-        addView(this.gGq, layoutParams);
-        this.gGq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.f.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (f.this.gGr != null) {
-                    f.this.gGr.boH();
-                }
-            }
-        });
+        boR();
     }
 
     private void boQ() {
-        this.gGp = new EditText(this.mContext);
-        this.gGp.setTextColor(this.gFV);
-        this.gGp.setHintTextColor(this.gFW);
-        this.gGp.setTextSize(0, this.gFX);
-        this.gGp.setGravity(19);
-        int paddingBottom = this.gGp.getPaddingBottom();
-        this.gGp.setPadding(this.gFP, this.gGp.getPaddingTop(), this.gGp.getPaddingRight(), paddingBottom);
-        this.gGp.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.f.2
-            @Override // android.view.View.OnFocusChangeListener
-            public void onFocusChange(View view, boolean z) {
-                if (z || f.this.boE()) {
-                    f.this.a(f.this.gGp, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-                } else {
-                    f.this.a(f.this.gGp, FormItemBaseView.DrawableType.ERROR_FRAME);
+        this.gGG = new Button(this.mContext);
+        this.gGG.setId(1);
+        this.gGG.setTextColor(this.gGq);
+        this.gGG.setTextSize(0, this.gGn);
+        this.gGG.setBackgroundColor(this.gGs);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.gGi);
+        layoutParams.addRule(11);
+        layoutParams.addRule(15);
+        addView(this.gGG, layoutParams);
+        this.gGG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.f.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (f.this.gGH != null) {
+                    f.this.gGH.boI();
                 }
             }
         });
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.gFS);
-        layoutParams.addRule(0, this.gGq.getId());
+    }
+
+    private void boR() {
+        this.gGF = new EditText(this.mContext);
+        this.gGF.setTextColor(this.gGl);
+        this.gGF.setHintTextColor(this.gGm);
+        this.gGF.setTextSize(0, this.gGn);
+        this.gGF.setGravity(19);
+        int paddingBottom = this.gGF.getPaddingBottom();
+        this.gGF.setPadding(this.gGf, this.gGF.getPaddingTop(), this.gGF.getPaddingRight(), paddingBottom);
+        this.gGF.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.f.2
+            @Override // android.view.View.OnFocusChangeListener
+            public void onFocusChange(View view, boolean z) {
+                if (z || f.this.boF()) {
+                    f.this.a(f.this.gGF, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+                } else {
+                    f.this.a(f.this.gGF, FormItemBaseView.DrawableType.ERROR_FRAME);
+                }
+            }
+        });
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.gGi);
+        layoutParams.addRule(0, this.gGG.getId());
         layoutParams.addRule(15);
-        a(this.gGp, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-        addView(this.gGp, layoutParams);
+        a(this.gGF, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+        addView(this.gGF, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public boolean a(FormCard.b bVar) {
         if (super.a(bVar)) {
             FormCard.h hVar = (FormCard.h) bVar;
-            if (!TextUtils.isEmpty(hVar.gDi)) {
-                this.gGq.setText(hVar.gDi);
-                this.gGq.setTextSize(0, this.gFX);
-                this.gGq.getLayoutParams().height = this.gFS;
-                this.gGq.setPadding(this.gFP, 0, this.gFP, 0);
+            if (!TextUtils.isEmpty(hVar.gDy)) {
+                this.gGG.setText(hVar.gDy);
+                this.gGG.setTextSize(0, this.gGn);
+                this.gGG.getLayoutParams().height = this.gGi;
+                this.gGG.setPadding(this.gGf, 0, this.gGf, 0);
             }
             if (!TextUtils.isEmpty(hVar.content)) {
-                this.gGp.setHint(hVar.content);
-                this.gGp.setTextSize(0, this.gFX);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gGp.getLayoutParams();
-                marginLayoutParams.height = this.gFS;
-                marginLayoutParams.rightMargin = this.gFP;
-                this.gGp.setPadding(this.gFP, 0, 0, 0);
+                this.gGF.setHint(hVar.content);
+                this.gGF.setTextSize(0, this.gGn);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gGF.getLayoutParams();
+                marginLayoutParams.height = this.gGi;
+                marginLayoutParams.rightMargin = this.gGf;
+                this.gGF.setPadding(this.gGf, 0, 0, 0);
             }
             return true;
         }
@@ -103,18 +103,18 @@ public class f extends FormItemBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     protected void reset() {
-        this.gGp.setText("");
+        this.gGF.setText("");
     }
 
     public void setListener(a aVar) {
-        this.gGr = aVar;
+        this.gGH = aVar;
     }
 
     public void setVerificationInfo(String str) {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.c.a
-    public boolean boE() {
+    public boolean boF() {
         return true;
     }
 

@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ScrollHorizontalTabView extends com.baidu.tbadk.widget.horizonalScrollListView.b {
-    private final a dOe;
-    private b dOf;
+    private final a dOj;
+    private b dOk;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private final int mIndicatorHeight;
@@ -56,7 +56,7 @@ public class ScrollHorizontalTabView extends com.baidu.tbadk.widget.horizonalScr
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.dOe = new a();
+        this.dOj = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -93,7 +93,7 @@ public class ScrollHorizontalTabView extends com.baidu.tbadk.widget.horizonalScr
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.dOe = new a();
+        this.dOj = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -130,7 +130,7 @@ public class ScrollHorizontalTabView extends com.baidu.tbadk.widget.horizonalScr
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.dOe = new a();
+        this.dOj = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -228,12 +228,12 @@ public class ScrollHorizontalTabView extends com.baidu.tbadk.widget.horizonalScr
     public void setViewPager(ViewPager viewPager) {
         this.mPager = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.dOe);
+            viewPager.setOnPageChangeListener(this.dOj);
         }
     }
 
     public void setScrollTabPageListener(b bVar) {
-        this.dOf = bVar;
+        this.dOk = bVar;
     }
 
     public int getCurrentIndex() {
@@ -363,9 +363,9 @@ public class ScrollHorizontalTabView extends com.baidu.tbadk.widget.horizonalScr
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             f fVar = (f) v.f(ScrollHorizontalTabView.this.mTabDataList, i);
-            if (ScrollHorizontalTabView.this.dOf == null || ScrollHorizontalTabView.this.dOf.a(i, fVar)) {
-                if (ScrollHorizontalTabView.this.dOf != null) {
-                    ScrollHorizontalTabView.this.dOf.b(i, fVar);
+            if (ScrollHorizontalTabView.this.dOk == null || ScrollHorizontalTabView.this.dOk.a(i, fVar)) {
+                if (ScrollHorizontalTabView.this.dOk != null) {
+                    ScrollHorizontalTabView.this.dOk.b(i, fVar);
                 }
                 if (ScrollHorizontalTabView.this.mIsClicked) {
                     if (ScrollHorizontalTabView.this.mCurrentTabIndex != i) {

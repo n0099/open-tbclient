@@ -16,7 +16,7 @@ import com.baidu.tieba.frs.ak;
 import com.baidu.tieba.frs.an;
 import com.baidu.tieba.frs.aq;
 import com.baidu.tieba.frs.at;
-import com.baidu.tieba.tbadkCore.r;
+import com.baidu.tieba.tbadkCore.s;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetMemberInfo.ManagerApplyInfo;
@@ -25,17 +25,17 @@ import tbclient.MemberGroupInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class e implements ak {
-    private BdUniqueId bIv;
-    private an dBk;
+    private BdUniqueId bIy;
+    private an dBn;
     private String forumId;
     private String forumName;
     private ManagerApplyInfo mManagerApplyInfo;
     private MemberGodInfo mMemberGodInfo;
     private List<MemberGroupInfo> mMemberGroupInfoList;
-    private r mUserInfo;
-    private boolean dyu = true;
-    private at dBm = new at();
-    private com.baidu.adp.framework.listener.a dfr = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FRS_MEMBER_TAB_CMD, 301004) { // from class: com.baidu.tieba.forumMember.member.e.1
+    private s mUserInfo;
+    private boolean dyx = true;
+    private at dBp = new at();
+    private com.baidu.adp.framework.listener.a dfu = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FRS_MEMBER_TAB_CMD, 301004) { // from class: com.baidu.tieba.forumMember.member.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -55,24 +55,24 @@ public class e implements ak {
                             e.this.mManagerApplyInfo = forumMemberSocketResponseMessage.getManagerApplyInfo();
                         }
                     }
-                    e.this.dyu = false;
-                    e.this.dBm.errCode = responsedMessage.getError();
-                    e.this.dBm.errMsg = responsedMessage.getErrorString();
-                    e.this.dBm.hasMore = false;
-                    e.this.dBm.dHx = false;
-                    e.this.dBm.dHw = false;
-                    e.this.dBm.forumId = e.this.forumId;
-                    e.this.dBm.forumName = e.this.forumName;
-                    e.this.dBm.pn = 1;
-                    if (e.this.dBk != null) {
-                        e.this.dBk.a(3, 0, e.this.dBm, e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo));
+                    e.this.dyx = false;
+                    e.this.dBp.errCode = responsedMessage.getError();
+                    e.this.dBp.errMsg = responsedMessage.getErrorString();
+                    e.this.dBp.hasMore = false;
+                    e.this.dBp.dHC = false;
+                    e.this.dBp.dHB = false;
+                    e.this.dBp.forumId = e.this.forumId;
+                    e.this.dBp.forumName = e.this.forumName;
+                    e.this.dBp.pn = 1;
+                    if (e.this.dBn != null) {
+                        e.this.dBn.a(3, 0, e.this.dBp, e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo));
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001352, e.this.mUserInfo));
                 }
             }
         }
     };
-    private CustomMessageListener dAH = new CustomMessageListener(2003009) { // from class: com.baidu.tieba.forumMember.member.e.2
+    private CustomMessageListener dAK = new CustomMessageListener(2003009) { // from class: com.baidu.tieba.forumMember.member.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -84,56 +84,56 @@ public class e implements ak {
                     e.this.mMemberGodInfo = forumMemberReadCacheResponseMessage.getMemberGodInfo();
                     e.this.mManagerApplyInfo = forumMemberReadCacheResponseMessage.getManagerApplyInfo();
                 }
-                e.this.dBm.errCode = customResponsedMessage.getError();
-                e.this.dBm.errMsg = customResponsedMessage.getErrorString();
-                e.this.dBm.hasMore = false;
-                e.this.dBm.dHx = false;
-                e.this.dBm.dHw = false;
-                e.this.dBm.forumId = e.this.forumId;
-                e.this.dBm.forumName = e.this.forumName;
-                e.this.dBm.pn = 1;
-                if (e.this.dBk != null) {
+                e.this.dBp.errCode = customResponsedMessage.getError();
+                e.this.dBp.errMsg = customResponsedMessage.getErrorString();
+                e.this.dBp.hasMore = false;
+                e.this.dBp.dHC = false;
+                e.this.dBp.dHB = false;
+                e.this.dBp.forumId = e.this.forumId;
+                e.this.dBp.forumName = e.this.forumName;
+                e.this.dBp.pn = 1;
+                if (e.this.dBn != null) {
                     ArrayList<com.baidu.adp.widget.ListView.i> a = e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo);
                     if (a == null || a.size() <= 0) {
-                        if (!e.this.dyu) {
-                            e.this.dBk.a(3, 0, e.this.dBm, a);
+                        if (!e.this.dyx) {
+                            e.this.dBn.a(3, 0, e.this.dBp, a);
                         }
                     } else {
-                        e.this.dBk.a(3, 0, e.this.dBm, a);
+                        e.this.dBn.a(3, 0, e.this.dBp, a);
                     }
                 }
-                if (e.this.dyu) {
+                if (e.this.dyx) {
                     e.this.c(com.baidu.adp.lib.g.b.c(e.this.forumId, 0L), e.this.forumName);
                 }
             }
         }
     };
-    private CustomMessageListener dBn = new CustomMessageListener(2001266) { // from class: com.baidu.tieba.forumMember.member.e.3
+    private CustomMessageListener dBq = new CustomMessageListener(2001266) { // from class: com.baidu.tieba.forumMember.member.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof r)) {
-                e.this.dBm.errCode = customResponsedMessage.getError();
-                e.this.dBm.errMsg = customResponsedMessage.getErrorString();
-                e.this.dBm.hasMore = false;
-                e.this.dBm.dHx = false;
-                e.this.dBm.dHw = false;
-                e.this.dBm.forumId = e.this.forumId;
-                e.this.dBm.forumName = e.this.forumName;
-                e.this.dBm.pn = 1;
-                r rVar = (r) customResponsedMessage.getData();
-                if (rVar != null && rVar.isLike() == 0 && e.this.mUserInfo != null) {
-                    rVar.setCurScore(e.this.mUserInfo.getCurScore());
-                    rVar.setLevelupScore(e.this.mUserInfo.getLevelupScore());
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof s)) {
+                e.this.dBp.errCode = customResponsedMessage.getError();
+                e.this.dBp.errMsg = customResponsedMessage.getErrorString();
+                e.this.dBp.hasMore = false;
+                e.this.dBp.dHC = false;
+                e.this.dBp.dHB = false;
+                e.this.dBp.forumId = e.this.forumId;
+                e.this.dBp.forumName = e.this.forumName;
+                e.this.dBp.pn = 1;
+                s sVar = (s) customResponsedMessage.getData();
+                if (sVar != null && sVar.isLike() == 0 && e.this.mUserInfo != null) {
+                    sVar.setCurScore(e.this.mUserInfo.getCurScore());
+                    sVar.setLevelupScore(e.this.mUserInfo.getLevelupScore());
                 }
-                e.this.mUserInfo = rVar;
-                if (e.this.dBk != null) {
-                    e.this.dBk.a(3, 0, e.this.dBm, e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo));
+                e.this.mUserInfo = sVar;
+                if (e.this.dBn != null) {
+                    e.this.dBn.a(3, 0, e.this.dBp, e.this.a(e.this.mUserInfo, e.this.mMemberGroupInfoList, e.this.mMemberGodInfo, e.this.mManagerApplyInfo));
                 }
             }
         }
     };
-    private CustomMessageListener dBo = new CustomMessageListener(2001222) { // from class: com.baidu.tieba.forumMember.member.e.4
+    private CustomMessageListener dBr = new CustomMessageListener(2001222) { // from class: com.baidu.tieba.forumMember.member.e.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -145,8 +145,8 @@ public class e implements ak {
 
     public void ly(String str) {
         ForumMemberReadCacheRequestMessage forumMemberReadCacheRequestMessage = new ForumMemberReadCacheRequestMessage();
-        if (this.bIv != null) {
-            forumMemberReadCacheRequestMessage.setTag(this.bIv);
+        if (this.bIy != null) {
+            forumMemberReadCacheRequestMessage.setTag(this.bIy);
         }
         forumMemberReadCacheRequestMessage.setForumName(str);
         MessageManager.getInstance().sendMessage(forumMemberReadCacheRequestMessage);
@@ -155,8 +155,8 @@ public class e implements ak {
     public void c(long j, String str) {
         if (j > 0 && !StringUtils.isNull(str)) {
             ForumMemberRequestMessage forumMemberRequestMessage = new ForumMemberRequestMessage();
-            if (this.bIv != null) {
-                forumMemberRequestMessage.setTag(this.bIv);
+            if (this.bIy != null) {
+                forumMemberRequestMessage.setTag(this.bIy);
             }
             forumMemberRequestMessage.setForumId(j);
             forumMemberRequestMessage.setForumName(str);
@@ -165,31 +165,31 @@ public class e implements ak {
     }
 
     private void refreshData() {
-        this.dBm.errCode = 0;
-        this.dBm.hasMore = false;
-        this.dBm.dHx = false;
-        this.dBm.dHw = false;
-        this.dBm.forumId = this.forumId;
-        this.dBm.forumName = this.forumName;
-        this.dBm.pn = 1;
-        if (this.dBk != null) {
-            this.dBk.a(3, 0, this.dBm, a(this.mUserInfo, this.mMemberGroupInfoList, this.mMemberGodInfo, this.mManagerApplyInfo));
+        this.dBp.errCode = 0;
+        this.dBp.hasMore = false;
+        this.dBp.dHC = false;
+        this.dBp.dHB = false;
+        this.dBp.forumId = this.forumId;
+        this.dBp.forumName = this.forumName;
+        this.dBp.pn = 1;
+        if (this.dBn != null) {
+            this.dBn.a(3, 0, this.dBp, a(this.mUserInfo, this.mMemberGroupInfoList, this.mMemberGodInfo, this.mManagerApplyInfo));
         }
     }
 
-    public void HP() {
+    public void HQ() {
         com.baidu.tieba.tbadkCore.a.a.a(301004, ForumMemberSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
         com.baidu.tieba.tbadkCore.a.a.b(2003009, f.class);
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.i> a(r rVar, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo) {
-        if (rVar == null) {
+    public ArrayList<com.baidu.adp.widget.ListView.i> a(s sVar, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo) {
+        if (sVar == null) {
             return null;
         }
         ArrayList<com.baidu.adp.widget.ListView.i> arrayList = new ArrayList<>();
         j jVar = new j();
-        jVar.a(rVar);
+        jVar.a(sVar);
         jVar.setForumId(this.forumId);
         jVar.setForumName(this.forumName);
         arrayList.add(jVar);
@@ -221,12 +221,12 @@ public class e implements ak {
         }
         arrayList.add(pVar);
         b bVar = new b();
-        bVar.dBf = d.j.complaint_bar_lord;
+        bVar.dBi = d.j.complaint_bar_lord;
         bVar.mUrl = "https://tieba.baidu.com/n/interact/complainManager/" + this.forumId;
         arrayList.add(bVar);
-        com.baidu.adp.widget.ListView.i atS = atS();
-        if (atS != null) {
-            arrayList.add(atS);
+        com.baidu.adp.widget.ListView.i atT = atT();
+        if (atT != null) {
+            arrayList.add(atT);
         }
         return arrayList;
     }
@@ -257,7 +257,7 @@ public class e implements ak {
         }
     }
 
-    private com.baidu.tieba.frs.h atS() {
+    private com.baidu.tieba.frs.h atT() {
         int t;
         if (this.mMemberGroupInfoList == null || this.mMemberGroupInfoList.size() <= 0) {
             return null;
@@ -280,7 +280,7 @@ public class e implements ak {
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.bIv = bdUniqueId;
+            this.bIy = bdUniqueId;
         }
     }
 
@@ -289,7 +289,7 @@ public class e implements ak {
         if (i == 3 && aqVar != null) {
             this.forumId = aqVar.forumId;
             this.forumName = aqVar.forumName;
-            if (this.dyu) {
+            if (this.dyx) {
                 ly(aqVar.forumName);
             } else if (aqVar.pn == -1) {
                 c(com.baidu.adp.lib.g.b.c(aqVar.forumId, 0L), aqVar.forumName);
@@ -301,34 +301,34 @@ public class e implements ak {
 
     @Override // com.baidu.tieba.frs.ak
     public void a(an anVar) {
-        this.dBk = anVar;
+        this.dBn = anVar;
     }
 
     @Override // com.baidu.tieba.frs.ak
     public void init() {
-        HP();
-        if (this.bIv != null) {
-            this.dAH.setTag(this.bIv);
-            this.dfr.setTag(this.bIv);
-            this.dAH.setSelfListener(true);
-            if (this.dfr.getHttpMessageListener() != null) {
-                this.dfr.getHttpMessageListener().setSelfListener(true);
+        HQ();
+        if (this.bIy != null) {
+            this.dAK.setTag(this.bIy);
+            this.dfu.setTag(this.bIy);
+            this.dAK.setSelfListener(true);
+            if (this.dfu.getHttpMessageListener() != null) {
+                this.dfu.getHttpMessageListener().setSelfListener(true);
             }
-            if (this.dfr.getSocketMessageListener() != null) {
-                this.dfr.getSocketMessageListener().setSelfListener(true);
+            if (this.dfu.getSocketMessageListener() != null) {
+                this.dfu.getSocketMessageListener().setSelfListener(true);
             }
         }
-        MessageManager.getInstance().registerListener(this.dAH);
-        MessageManager.getInstance().registerListener(this.dfr);
-        MessageManager.getInstance().registerListener(this.dBn);
-        MessageManager.getInstance().registerListener(this.dBo);
+        MessageManager.getInstance().registerListener(this.dAK);
+        MessageManager.getInstance().registerListener(this.dfu);
+        MessageManager.getInstance().registerListener(this.dBq);
+        MessageManager.getInstance().registerListener(this.dBr);
     }
 
     @Override // com.baidu.tieba.frs.ak
-    public void YZ() {
-        MessageManager.getInstance().unRegisterListener(this.dfr);
-        MessageManager.getInstance().unRegisterListener(this.dAH);
-        MessageManager.getInstance().unRegisterListener(this.dBn);
-        MessageManager.getInstance().unRegisterListener(this.dBo);
+    public void Za() {
+        MessageManager.getInstance().unRegisterListener(this.dfu);
+        MessageManager.getInstance().unRegisterListener(this.dAK);
+        MessageManager.getInstance().unRegisterListener(this.dBq);
+        MessageManager.getInstance().unRegisterListener(this.dBr);
     }
 }

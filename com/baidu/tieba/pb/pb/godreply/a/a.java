@@ -12,99 +12,99 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a {
-    private ViewGroup aHH;
-    private View.OnClickListener blQ;
-    private b fKm;
-    private int bfz = 3;
-    private final int[] fKl = new int[2];
-    private int fKn = Integer.MIN_VALUE;
-    private int fKo = Integer.MIN_VALUE;
-    private boolean fKp = false;
+    private ViewGroup aHI;
+    private View.OnClickListener blT;
+    private b fKC;
+    private int bfC = 3;
+    private final int[] fKB = new int[2];
+    private int fKD = Integer.MIN_VALUE;
+    private int fKE = Integer.MIN_VALUE;
+    private boolean fKF = false;
 
     public void F(View.OnClickListener onClickListener) {
-        this.blQ = onClickListener;
+        this.blT = onClickListener;
     }
 
     public void showTip(View view) {
         Context context;
         if (view != null && (context = view.getContext()) != null && (context instanceof Activity)) {
-            if (this.aHH == null) {
-                this.aHH = (RelativeLayout) ((Activity) context).findViewById(d.g.pb_layout);
+            if (this.aHI == null) {
+                this.aHI = (RelativeLayout) ((Activity) context).findViewById(d.g.pb_layout);
             }
-            if (this.aHH != null) {
-                view.getLocationOnScreen(this.fKl);
+            if (this.aHI != null) {
+                view.getLocationOnScreen(this.fKB);
                 int dip2px = l.dip2px(context, 160.0f);
                 int dip2px2 = l.dip2px(context, 36.0f);
-                if (this.fKm == null) {
-                    this.fKm = new b(context);
+                if (this.fKC == null) {
+                    this.fKC = new b(context);
                 }
-                this.fKm.animate().cancel();
-                this.fKm.setAlpha(0.0f);
-                this.fKm.animate().alpha(1.0f).setListener(null).start();
-                this.fKm.setOnClickListener(this.blQ);
-                this.fKm.onChangeSkinType(this.bfz);
-                if (this.fKm.getParent() != null && this.fKm.getParent() != this.aHH) {
-                    ((ViewGroup) this.fKm.getParent()).removeView(this.fKm);
+                this.fKC.animate().cancel();
+                this.fKC.setAlpha(0.0f);
+                this.fKC.animate().alpha(1.0f).setListener(null).start();
+                this.fKC.setOnClickListener(this.blT);
+                this.fKC.onChangeSkinType(this.bfC);
+                if (this.fKC.getParent() != null && this.fKC.getParent() != this.aHI) {
+                    ((ViewGroup) this.fKC.getParent()).removeView(this.fKC);
                 }
-                if (this.fKm.getParent() == null) {
+                if (this.fKC.getParent() == null) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dip2px, dip2px2);
                     layoutParams.rightMargin = ca(context);
-                    layoutParams.topMargin = this.fKl[1] + view.getHeight() + bZ(context);
+                    layoutParams.topMargin = this.fKB[1] + view.getHeight() + bZ(context);
                     layoutParams.addRule(11);
-                    int childCount = this.aHH.getChildCount();
+                    int childCount = this.aHI.getChildCount();
                     int i = -1;
                     for (int i2 = 0; i2 < childCount; i2++) {
-                        View childAt = this.aHH.getChildAt(i2);
+                        View childAt = this.aHI.getChildAt(i2);
                         if (childAt != null && childAt.getId() == d.g.new_pb_list) {
                             i = i2 + 1;
                         }
                     }
-                    if (i > -1 && i <= this.aHH.getChildCount()) {
-                        this.aHH.addView(this.fKm, i, layoutParams);
+                    if (i > -1 && i <= this.aHI.getChildCount()) {
+                        this.aHI.addView(this.fKC, i, layoutParams);
                     }
                 }
-                this.fKm.setVisibility(0);
+                this.fKC.setVisibility(0);
             }
         }
     }
 
     public void hideTip() {
-        if (this.fKm != null) {
-            this.fKm.animate().cancel();
-            this.fKm.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.1
+        if (this.fKC != null) {
+            this.fKC.animate().cancel();
+            this.fKC.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    a.this.bbI();
+                    a.this.bbJ();
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    a.this.bbI();
+                    a.this.bbJ();
                 }
             }).start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbI() {
-        if (this.fKm != null && this.fKm.getParent() != null && this.fKm.getParent() == this.aHH) {
-            this.fKm.setVisibility(4);
+    public void bbJ() {
+        if (this.fKC != null && this.fKC.getParent() != null && this.fKC.getParent() == this.aHI) {
+            this.fKC.setVisibility(4);
         }
     }
 
     public void co(View view) {
-        if (bbJ()) {
+        if (bbK()) {
             Context context = view.getContext();
-            view.getLocationOnScreen(this.fKl);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fKm.getLayoutParams();
+            view.getLocationOnScreen(this.fKB);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fKC.getLayoutParams();
             layoutParams.rightMargin = ca(context);
-            layoutParams.topMargin = this.fKl[1] + view.getHeight() + bZ(context);
+            layoutParams.topMargin = this.fKB[1] + view.getHeight() + bZ(context);
             layoutParams.addRule(11);
-            this.fKm.setLayoutParams(layoutParams);
-            if (layoutParams.topMargin + this.fKm.getHeight() < l.as(context)[1] && !this.fKp) {
+            this.fKC.setLayoutParams(layoutParams);
+            if (layoutParams.topMargin + this.fKC.getHeight() < l.as(context)[1] && !this.fKF) {
                 c.v(context, true);
-                this.fKp = true;
-                this.fKm.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.2
+                this.fKF = true;
+                this.fKC.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.2
                     @Override // java.lang.Runnable
                     public void run() {
                         a.this.hideTip();
@@ -114,28 +114,28 @@ public class a {
         }
     }
 
-    public boolean bbJ() {
-        return this.fKm != null && this.fKm.getParent() != null && this.fKm.getParent() == this.aHH && this.fKm.getVisibility() == 0;
+    public boolean bbK() {
+        return this.fKC != null && this.fKC.getParent() != null && this.fKC.getParent() == this.aHI && this.fKC.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
-        this.bfz = i;
-        if (this.fKm != null) {
-            this.fKm.onChangeSkinType(i);
+        this.bfC = i;
+        if (this.fKC != null) {
+            this.fKC.onChangeSkinType(i);
         }
     }
 
     private int bZ(Context context) {
-        if (this.fKn == Integer.MIN_VALUE) {
-            this.fKn = -l.dip2px(context, 5.0f);
+        if (this.fKD == Integer.MIN_VALUE) {
+            this.fKD = -l.dip2px(context, 5.0f);
         }
-        return this.fKn;
+        return this.fKD;
     }
 
     private int ca(Context context) {
-        if (this.fKo == Integer.MIN_VALUE) {
-            this.fKo = l.dip2px(context, 17.0f);
+        if (this.fKE == Integer.MIN_VALUE) {
+            this.fKE = l.dip2px(context, 17.0f);
         }
-        return this.fKo;
+        return this.fKE;
     }
 }

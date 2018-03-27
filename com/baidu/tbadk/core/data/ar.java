@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class ar extends bd {
-    public static final BdUniqueId aNF = BdUniqueId.gen();
-    private List<PhotoLiveCardData> aNG;
-    private int aNH = 0;
+    public static final BdUniqueId aNG = BdUniqueId.gen();
+    private List<PhotoLiveCardData> aNH;
+    private int aNI = 0;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
     public void B(List<PhotoLiveCardData> list) {
-        this.aNG = list;
+        this.aNH = list;
     }
 
     public void a(bd bdVar, int i) {
@@ -35,11 +35,11 @@ public class ar extends bd {
             setShowExpressionViewIndexList(bdVar.zH());
             setId(bdVar.getId());
             a(bdVar.yo());
-            this.aPP = bdVar.zK();
-            this.aPQ = bdVar.zL();
-            this.aPR = bdVar.zM();
+            this.aPQ = bdVar.zK();
+            this.aPR = bdVar.zL();
+            this.aPS = bdVar.zM();
             if (getShowStyle() < 0) {
-                this.aNH = getRandom(3, i);
+                this.aNI = getRandom(3, i);
             }
         }
     }
@@ -90,11 +90,11 @@ public class ar extends bd {
     }
 
     public int getShowStyle() {
-        return this.aNH;
+        return this.aNI;
     }
 
     @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return aNF;
+        return aNG;
     }
 }
