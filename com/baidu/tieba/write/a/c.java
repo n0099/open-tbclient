@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private final ArrayList<MetaData> hGI = new ArrayList<>();
+    private final ArrayList<MetaData> hdn = new ArrayList<>();
 
     public void a(JSONObject jSONObject, b bVar) {
         String str;
-        HashMap<String, String> bGN = bVar.bGN();
+        HashMap<String, String> bCa = bVar.bCa();
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
             int i = 0;
@@ -22,10 +22,10 @@ public class c {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i2));
                     metaData.setName_show(metaData.getUserName());
-                    if (bGN != null && (str = bGN.get(metaData.getUserName())) != null) {
+                    if (bCa != null && (str = bCa.get(metaData.getUserName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.hGI.add(metaData);
+                    this.hdn.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -44,13 +44,13 @@ public class c {
         }
     }
 
-    public void n(HashMap<String, String> hashMap) {
+    public void o(HashMap<String, String> hashMap) {
         if (hashMap != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.hGI.size()) {
-                    MetaData metaData = this.hGI.get(i2);
+                if (i2 < this.hdn.size()) {
+                    MetaData metaData = this.hdn.get(i2);
                     metaData.setPortrait(hashMap.get(metaData.getUserName()));
                     i = i2 + 1;
                 } else {
@@ -60,7 +60,7 @@ public class c {
         }
     }
 
-    public ArrayList<MetaData> bGO() {
-        return this.hGI;
+    public ArrayList<MetaData> bCb() {
+        return this.hdn;
     }
 }

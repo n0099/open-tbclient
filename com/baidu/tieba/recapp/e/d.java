@@ -1,57 +1,51 @@
 package com.baidu.tieba.recapp.e;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class d {
-    public TbPageContext aRI;
-    protected final String gHO;
-    protected com.baidu.tieba.recapp.report.a gHP;
-    protected AdvertAppInfo gHQ;
-    protected final View mRootView;
+    private final Context context;
+    private final ViewGroup gcN;
+    public int page = 0;
 
-    public d(View view, String str) {
-        this.mRootView = view;
-        this.gHO = str;
+    public d(Context context, ViewGroup viewGroup) {
+        this.context = context;
+        this.gcN = viewGroup;
     }
 
-    public void a(AdCard.e eVar) {
-    }
-
-    public void onChangeSkinType() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T uy(int i) {
-        return (T) this.mRootView.findViewById(i);
-    }
-
-    public void bpc() {
-        this.mRootView.setVisibility(0);
-        if (this.gHP != null) {
-            this.gHP.us(303);
-            com.baidu.tieba.recapp.report.b.boX().a(this.gHP);
+    public e a(AdCard.f fVar, e eVar) {
+        if (fVar != null && fVar.style != null) {
+            if (eVar == null || !bS(fVar.style, eVar.gcO)) {
+                if (this.gcN == null) {
+                    return null;
+                }
+                this.gcN.removeAllViews();
+                if ("jump".equals(fVar.style)) {
+                    if (this.page == 1) {
+                        return new c(LayoutInflater.from(this.context).inflate(d.i.videolist_tail_frame_ad_jump, this.gcN, true), "jump");
+                    }
+                    return new b(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_jump, this.gcN, true), "jump");
+                } else if ("apk_download".equals(fVar.style)) {
+                    return new a(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_download, this.gcN, true), "apk_download");
+                } else {
+                    return null;
+                }
+            }
+            return eVar;
         }
+        return eVar;
     }
 
-    public void bpd() {
-        this.mRootView.setVisibility(8);
-    }
-
-    public void e(com.baidu.tieba.recapp.report.a aVar) {
-        this.gHP = aVar;
-    }
-
-    public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.gHQ = advertAppInfo;
-    }
-
-    public void setPageContext(TbPageContext<?> tbPageContext) {
-        this.aRI = tbPageContext;
-    }
-
-    public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
+    private boolean bS(String str, String str2) {
+        if ("apk_download".equals(str)) {
+            return "apk_download".equals(str2);
+        }
+        if ("jump".equals(str)) {
+            return "jump".equals(str2);
+        }
+        return false;
     }
 }

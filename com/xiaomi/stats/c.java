@@ -1,7 +1,7 @@
 package com.xiaomi.stats;
 
 import com.xiaomi.push.service.ak;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 /* synthetic */ class c {
     static final /* synthetic */ int[] a = new int[ak.c.values().length];
 

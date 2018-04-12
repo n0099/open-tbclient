@@ -3,7 +3,7 @@ package org.apache.thrift.meta_data;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements Serializable {
     private static Map<Class<? extends org.apache.thrift.a>, Map<?, b>> d = new HashMap();
     public final String a;

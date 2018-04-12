@@ -8,7 +8,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.util.EntityUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class HttpResponseHandler extends Handler {
     protected static final String DEFAULT_CHARSET = "UTF-8";
     protected static final int FAILURE_MESSAGE = 1;

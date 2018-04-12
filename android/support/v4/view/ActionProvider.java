@@ -8,11 +8,12 @@ import android.view.SubMenu;
 import android.view.View;
 /* loaded from: classes2.dex */
 public abstract class ActionProvider {
+    private static final String TAG = "ActionProvider(support)";
     private final Context mContext;
     private SubUiVisibilityListener mSubUiVisibilityListener;
     private VisibilityListener mVisibilityListener;
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public interface SubUiVisibilityListener {
         void onSubUiVisibilityChanged(boolean z);
@@ -62,26 +63,26 @@ public abstract class ActionProvider {
     public void onPrepareSubMenu(SubMenu subMenu) {
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void subUiVisibilityChanged(boolean z) {
         if (this.mSubUiVisibilityListener != null) {
             this.mSubUiVisibilityListener.onSubUiVisibilityChanged(z);
         }
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setSubUiVisibilityListener(SubUiVisibilityListener subUiVisibilityListener) {
         this.mSubUiVisibilityListener = subUiVisibilityListener;
     }
 
     public void setVisibilityListener(VisibilityListener visibilityListener) {
         if (this.mVisibilityListener != null && visibilityListener != null) {
-            Log.w("ActionProvider(support)", "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
+            Log.w(TAG, "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
         }
         this.mVisibilityListener = visibilityListener;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void reset() {
         this.mVisibilityListener = null;
         this.mSubUiVisibilityListener = null;

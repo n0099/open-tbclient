@@ -7,6 +7,9 @@ import java.net.Socket;
 import java.net.SocketException;
 /* loaded from: classes2.dex */
 class TrafficStatsCompatIcs {
+    TrafficStatsCompatIcs() {
+    }
+
     public static void clearThreadStatsTag() {
         TrafficStats.clearThreadStatsTag();
     }

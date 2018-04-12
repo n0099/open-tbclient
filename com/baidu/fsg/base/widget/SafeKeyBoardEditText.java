@@ -35,7 +35,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
 
     /* loaded from: classes2.dex */
     public interface OnMyFocusChangeListener {
-        void onMyFocusChange(View view, boolean z);
+        void onMyFocusChange(View view2, boolean z);
     }
 
     /* loaded from: classes2.dex */
@@ -88,9 +88,9 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     @Override // com.baidu.fsg.base.widget.PluginEditText, android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         super.setShowSystemMethodFlag(this.o);
-        super.onTouch(view, motionEvent);
+        super.onTouch(view2, motionEvent);
         int action = motionEvent.getAction();
         Layout layout = getLayout();
         switch (action) {
@@ -116,12 +116,12 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
         }
     }
 
-    public void initSafeKeyBoardParams(ViewGroup viewGroup, SafeScrollView safeScrollView, View view, boolean z) {
+    public void initSafeKeyBoardParams(ViewGroup viewGroup, SafeScrollView safeScrollView, View view2, boolean z) {
         this.c = viewGroup;
         this.d = safeScrollView;
-        this.e = view;
+        this.e = view2;
         if (z) {
-            safeScrollView.showKeyBoard(viewGroup, this, view);
+            safeScrollView.showKeyBoard(viewGroup, this, view2);
         }
     }
 

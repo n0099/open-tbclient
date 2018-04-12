@@ -25,6 +25,9 @@ public final class GestureDetectorCompat {
 
     /* loaded from: classes2.dex */
     static class GestureDetectorCompatImplBase implements GestureDetectorCompatImpl {
+        private static final int LONG_PRESS = 2;
+        private static final int SHOW_PRESS = 1;
+        private static final int TAP = 3;
         private boolean mAlwaysInBiggerTapRegion;
         private boolean mAlwaysInTapRegion;
         MotionEvent mCurrentDownEvent;

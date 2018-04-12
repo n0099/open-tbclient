@@ -1,76 +1,78 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.ak;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes.dex */
-public class r {
-    private static r cYL;
-    private List<ak> bXi;
+import com.baidu.tbadk.core.view.ThreadLinkView;
+import com.baidu.tieba.d;
+/* loaded from: classes2.dex */
+public class r extends c {
+    private View bam;
+    private TextView cpw;
+    private ThreadLinkView cpx;
 
-    public static r alt() {
-        if (cYL == null) {
-            synchronized (r.class) {
-                if (cYL == null) {
-                    cYL = new r();
-                }
-            }
-        }
-        return cYL;
+    public r(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
     }
 
-    public void a(ak akVar) {
-        if (akVar != null) {
-            if (this.bXi == null) {
-                this.bXi = new ArrayList();
-            }
-            if (this.bXi != null) {
-                this.bXi.add(akVar);
-            }
-        }
+    @Override // com.baidu.tieba.card.a
+    public int getLayout() {
+        return d.i.card_home_page_link_thread;
     }
 
-    public void dk(boolean z) {
-        if (com.baidu.tbadk.core.util.v.D(this.bXi) != 0) {
-            for (ak akVar : this.bXi) {
-                if (akVar != null) {
-                    int i = 0;
-                    if (z) {
-                        i = 1;
-                    }
-                    akVar.s("obj_param2", i);
-                    TiebaStatic.log(akVar);
-                }
+    @Override // com.baidu.tieba.card.c
+    protected void ac(View view2) {
+        if (view2 != null) {
+            this.cpx = (ThreadLinkView) view2.findViewById(d.g.link_thread_root);
+            this.cpx.setTag(getTag());
+            this.cpw = (TextView) view2.findViewById(d.g.card_home_page_normal_thread_title);
+            this.bam = view2.findViewById(d.g.divider_line);
+            if (this.bwk != null) {
+                this.bwk.setShareReportFrom(3);
+                this.bwk.setFrom(1);
             }
-            this.bXi.clear();
+            if (this.bwZ != null) {
+                this.bwZ.setShareReportFrom(3);
+                this.bwZ.setFrom(1);
+            }
         }
     }
 
-    public void eO(boolean z) {
-        if (com.baidu.tbadk.core.util.v.D(this.bXi) != 0) {
-            for (ak akVar : this.bXi) {
-                if (akVar != null) {
-                    int i = 0;
-                    if (z) {
-                        i = 1;
-                    }
-                    akVar.s("obj_type", i);
-                    TiebaStatic.log(akVar);
+    @Override // com.baidu.tieba.card.c
+    protected void b(com.baidu.tieba.card.data.k kVar) {
+        if (kVar != null && kVar.Pe() != null) {
+            bd Pe = kVar.Pe();
+            o.b(Pe, this.cpw);
+            if ((StringUtils.isNull(Pe.getTitle()) && (Pe.rO() == null || Pe.rO().size() == 0)) || Pe.sf() == 1) {
+                Pe.e(false, true);
+                if (Pe.so() == null || StringUtils.isNull(Pe.so().toString())) {
+                    this.cpw.setVisibility(8);
+                } else {
+                    this.cpw.setVisibility(0);
+                    this.cpw.setText(Pe.so());
                 }
+            } else {
+                this.cpw.setVisibility(0);
             }
-            this.bXi.clear();
+            this.cpx.setData(Pe);
         }
     }
 
-    public void VX() {
-        if (com.baidu.tbadk.core.util.v.D(this.bXi) != 0) {
-            for (ak akVar : this.bXi) {
-                if (akVar != null) {
-                    TiebaStatic.log(akVar);
-                }
-            }
-            this.bXi.clear();
-        }
+    @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.a
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        super.d(tbPageContext, i);
+        this.cpx.onChangeSkinType();
+        ak.j(this.bam, d.C0126d.cp_bg_line_e);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.card.c
+    public void afe() {
+        super.afe();
+        o.a(this.cpw, this.cmc.Pe().getId(), d.C0126d.cp_cont_b, d.C0126d.cp_cont_d);
+        this.cpx.eO(this.cmc.Pe().getId());
     }
 }

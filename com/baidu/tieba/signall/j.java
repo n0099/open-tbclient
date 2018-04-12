@@ -1,249 +1,181 @@
 package com.baidu.tieba.signall;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.Handler;
+import android.annotation.SuppressLint;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.Scroller;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.MemberPrivilegeActivityConfig;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.e;
 import com.baidu.tieba.d;
-import java.util.Random;
+import java.util.ArrayList;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
-public class j extends FrameLayout {
-    private TextView dup;
-    private int duration;
-    private boolean gRm;
-    private int gSZ;
-    private TextView gTa;
-    private TextView gTb;
-    private TbImageView gTc;
-    private RelativeLayout gTd;
-    private Runnable gTe;
-    private Runnable gTf;
-    private Runnable gTg;
-    private ImageView jt;
-    private Context mContext;
-    private ProgressBar mProgress;
-    private Scroller mScroller;
+public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
+    public static int gos;
+    private c gmY;
+    private TextView goA;
+    private LinearLayout goB;
+    private TextView goC;
+    private SignAllForumActivity got;
+    private ViewGroup gou;
+    private SignAllForumProgressView gov;
+    private BdListView gow;
+    private g gox;
+    private RelativeLayout goy;
+    private TextView goz;
+    private NavigationBar mNavigationBar;
+    private ProgressBar mProgressBar;
+    private com.baidu.tbadk.core.view.f mPullView;
 
-    public j(Context context) {
-        super(context);
-        this.gSZ = 0;
-        this.duration = 2000;
-        this.gTe = new Runnable() { // from class: com.baidu.tieba.signall.j.1
-            @Override // java.lang.Runnable
-            public void run() {
-                if (j.this.mScroller.computeScrollOffset()) {
-                    int currX = j.this.mScroller.getCurrX();
-                    if (currX < (j.this.mProgress.getMax() * 9) / 10 || j.this.gSZ == 2) {
-                        j.this.mProgress.setProgress(currX);
-                        j.this.postDelayed(j.this.gTe, 16L);
-                        return;
-                    }
-                    j.this.mScroller.forceFinished(true);
-                    j.this.postDelayed(j.this.gTf, 2000L);
-                    return;
-                }
-                int progress = j.this.mProgress.getProgress();
-                int max = (j.this.mProgress.getMax() * 9) / 10;
-                if (progress < max) {
-                    j.this.mScroller.startScroll(progress, 0, max - progress, 0, 5000);
-                    j.this.post(this);
-                }
+    public j(SignAllForumActivity signAllForumActivity) {
+        super(signAllForumActivity.getPageContext());
+        this.mPullView = null;
+        this.got = signAllForumActivity;
+        this.got.setContentView(d.i.signallforum_view);
+        this.gou = (ViewGroup) this.got.findViewById(d.g.sign_all_forum_parent);
+        this.mNavigationBar = (NavigationBar) this.got.findViewById(d.g.view_navigation_bar);
+        this.mNavigationBar.setCenterTextTitle(this.got.getPageContext().getString(d.k.signallforum));
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.signall.j.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                j.this.got.finish();
             }
-        };
-        this.gTf = new Runnable() { // from class: com.baidu.tieba.signall.j.2
-            @Override // java.lang.Runnable
-            public void run() {
-                j.this.postDelayed(this, 2000L);
-            }
-        };
-        this.gTg = new Runnable() { // from class: com.baidu.tieba.signall.j.3
-            @Override // java.lang.Runnable
-            public void run() {
-                int dip2px = com.baidu.adp.lib.util.l.dip2px(j.this.mContext, 6.0f);
-                int dip2px2 = com.baidu.adp.lib.util.l.dip2px(j.this.mContext, 100.0f);
-                int i = dip2px2 - (dip2px * 2);
-                int i2 = (dip2px2 - i) / 2;
-                j.this.mProgress.getProgressDrawable().setBounds(i2, i2, i2 + i, i + i2);
-            }
-        };
-        init();
+        });
+        this.mNavigationBar.showBottomLine();
+        this.gow = (BdListView) this.got.findViewById(d.g.signallforum_list);
+        this.gow.setOnItemClickListener(signAllForumActivity);
+        this.mPullView = new com.baidu.tbadk.core.view.f(signAllForumActivity.getPageContext());
+        this.gow.setPullRefresh(this.mPullView);
+        this.goC = (TextView) LayoutInflater.from(this.got.getPageContext().getPageActivity()).inflate(d.i.signallforum_maxcount_warning, (ViewGroup) null);
+        this.gow.addFooterView(this.goC);
+        this.gov = new SignAllForumProgressView(this.got.getPageContext().getPageActivity());
+        this.mProgressBar = this.gov.getProgressBar();
+        this.mProgressBar.setOnClickListener(this.got);
+        this.gow.addHeaderView(this.gov);
+        this.gov.setVisibility(8);
+        this.goy = (RelativeLayout) this.gov.findViewById(d.g.guidecontainer);
+        this.goB = (LinearLayout) this.gov.findViewById(d.g.guideopenbtn);
+        this.goz = (TextView) this.gov.findViewById(d.g.guidetip);
+        this.goA = (TextView) this.gov.findViewById(d.g.guideopen);
+        this.goB.setOnClickListener(this.got);
+        this.gox = new g(this.got, null);
+        this.gow.setAdapter((ListAdapter) this.gox);
+        this.gow.setOnScrollListener(this.gox);
     }
 
-    private void init() {
-        this.mContext = getContext();
-        LayoutInflater.from(this.mContext).inflate(d.h.signallforum_progress_view, this);
-        this.mProgress = (ProgressBar) findViewById(d.g.signallforum_progress);
-        this.jt = (ImageView) findViewById(d.g.signallforum_icon);
-        this.dup = (TextView) findViewById(d.g.signallforun_status);
-        this.gTa = (TextView) findViewById(d.g.signallforun_message1);
-        this.gTb = (TextView) findViewById(d.g.signallforun_message2);
-        this.gTc = (TbImageView) findViewById(d.g.signallforum_banner_image);
-        this.gTd = (RelativeLayout) findViewById(d.g.signallforum_banner_layout);
-        Ea();
-        this.mScroller = new Scroller(this.mContext, new DecelerateInterpolator());
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), d.f.bg_all_sign));
-        bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
-        setBackgroundDrawable(bitmapDrawable);
+    public void onChangeSkinType(int i) {
+        this.got.getLayoutMode().setNightMode(i == 1);
+        this.got.getLayoutMode().u(this.gou);
+        this.got.getLayoutMode().u(this.goC);
+        this.got.getLayoutMode().u(this.gov);
+        ak.j(this.gou, d.C0126d.common_color_10163);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        this.mPullView.dw(i);
+        this.gox.notifyDataSetChanged();
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchSetPressed(boolean z) {
-    }
-
-    public void Ea() {
-        removeCallbacks(this.gTe);
-        removeCallbacks(this.gTf);
-        if (this.gRm) {
-            this.mProgress.setProgressDrawable(getResources().getDrawable(d.f.vip_singnallforum_progress));
-        } else {
-            this.mProgress.setProgressDrawable(getResources().getDrawable(d.f.singnallforum_progress));
-        }
-        switch (this.gSZ) {
-            case 0:
-                this.mProgress.setClickable(true);
-                this.mProgress.setProgress(0);
-                this.mProgress.setSecondaryProgress(0);
-                if (this.gRm) {
-                    aj.s(this.mProgress, d.f.btn_vip_all_sign);
-                    aj.c(this.jt, d.f.icon_vip_sign);
-                } else {
-                    aj.s(this.mProgress, d.f.btn_all_sign);
-                    aj.c(this.jt, d.f.icon_all_sign);
-                }
-                this.dup.setText(d.j.signallforum_begin);
+    public void a(c cVar, boolean z) {
+        if (cVar != null) {
+            this.gmY = cVar;
+            boY();
+            ArrayList<d> bom = cVar.bom();
+            this.gox.c(this.gmY);
+            if (bom.size() == gos) {
+                this.goC.setVisibility(0);
+                this.goC.setText(cVar.boj());
+            } else {
+                this.goC.setVisibility(8);
+            }
+            String bod = this.gmY.bod();
+            if (!StringUtils.isNull(bod)) {
+                this.gov.a(this.got, bod, this.gmY.boe());
                 return;
-            case 1:
-                post(this.gTg);
-                this.mProgress.setClickable(false);
-                aj.s(this.mProgress, d.f.bg_all_sign_conduct);
-                if (this.gRm) {
-                    aj.c(this.jt, d.f.icon_vip_sign);
-                } else {
-                    aj.c(this.jt, d.f.icon_all_sign);
-                }
-                this.dup.setText(d.j.signallforum_ing);
-                int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.mProgress.getMax()) / 100;
-                if (nextInt - this.mProgress.getProgress() < 0) {
-                    this.mScroller.startScroll(nextInt, 0, this.mProgress.getProgress() - nextInt, 0, this.duration);
-                } else {
-                    this.mScroller.startScroll(this.mProgress.getProgress(), 0, nextInt - this.mProgress.getProgress(), 0, this.duration);
-                }
-                post(this.gTe);
-                return;
-            case 2:
-                this.mProgress.setClickable(true);
-                if (this.gRm) {
-                    aj.s(this.mProgress, d.f.bg_vip_sign_ok_d);
-                    aj.c(this.jt, d.f.icon_vip_sign_ok);
-                } else {
-                    aj.s(this.mProgress, d.f.bg_all_sign_ok_d);
-                    aj.c(this.jt, d.f.icon_all_sign_ok);
-                }
-                this.mProgress.setProgress(0);
-                this.dup.setText(d.j.signallforum_success);
-                return;
-            case 3:
-                this.mProgress.setClickable(false);
-                if (this.gRm) {
-                    aj.c(this.jt, d.f.icon_vip_sign);
-                } else {
-                    aj.c(this.jt, d.f.icon_all_sign);
-                }
-                aj.s(this.mProgress, d.f.bg_all_sign_conduct);
-                this.dup.setText(d.j.can_not_sign);
-                return;
-            default:
-                return;
+            }
+            this.gov.boW();
         }
     }
 
-    public int getCurrentStatus() {
-        return this.gSZ;
-    }
-
-    public void setSigning(int i) {
-        if (this.gSZ != 1 && this.gSZ == 0) {
-            this.mProgress.setProgress(i);
-            this.gSZ = 1;
-            Ea();
-        }
-    }
-
-    public void btN() {
-        if (this.gSZ != 2) {
-            this.gSZ = 2;
-            Ea();
-        }
-    }
-
-    public void a(final BaseActivity<?> baseActivity, final String str, final String str2) {
-        new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.signall.j.4
-            @Override // java.lang.Runnable
-            public void run() {
-                if (j.this.gTd.getVisibility() != 0) {
-                    TiebaStatic.log("c11822");
-                }
-                j.this.gTd.setVisibility(0);
-                j.this.gTc.startLoad(str, 10, true);
-                if (!StringUtils.isNull(str2)) {
-                    j.this.gTd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.j.4.1
-                        @Override // android.view.View.OnClickListener
-                        public void onClick(View view) {
-                            if (!aw.Du().a(baseActivity.getPageContext(), "", new String[]{str2}, false, null, true) && !aw.Du().eC(str2)) {
-                                baseActivity.showToast(d.j.pluginstatus_tip_unknown);
-                            } else {
-                                TiebaStatic.log("c11758");
-                            }
-                        }
-                    });
-                }
+    private void boY() {
+        if (this.gmY != null) {
+            this.gov.setHasPrivilege(this.gmY.boq());
+            this.gov.setmCurrentStatus(this.gmY.bos());
+            TextView message1 = this.gov.getMessage1();
+            SpannableString spannableString = new SpannableString(this.gmY.bog() + this.gmY.bcj() + this.gmY.boh());
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(TbadkApplication.getInst().getResources().getColor(d.C0126d.common_color_10191));
+            int length = this.gmY.bog().length();
+            spannableString.setSpan(foregroundColorSpan, length, this.gmY.bcj().length() + length, 33);
+            message1.setText(spannableString);
+            this.gov.getMessage2().setText(this.gmY.boi());
+            this.goz.setText(this.gmY.getContent());
+            if (TextUtils.isEmpty(this.gmY.bor())) {
+                this.goA.setText(d.k.member_buy_open);
+            } else {
+                this.goA.setText(this.gmY.bor());
             }
-        }, 3000L);
+            this.gov.setVisibility(0);
+            if (this.gmY.boq() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
+                this.goy.setVisibility(8);
+            } else {
+                this.goy.setVisibility(0);
+            }
+        }
     }
 
-    public void btO() {
-        this.gTd.setVisibility(8);
+    public void startPullRefresh() {
+        this.gow.startPullRefresh();
+    }
+
+    public void lh() {
+        this.gow.completePullRefreshPostDelayed(2000L);
+    }
+
+    public void a(e.b bVar) {
+        this.mPullView.a(bVar);
+    }
+
+    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+        this.gow.setOnItemClickListener(onItemClickListener);
+    }
+
+    public SignAllForumProgressView boZ() {
+        return this.gov;
     }
 
     public ProgressBar getProgressBar() {
-        return this.mProgress;
+        return this.mProgressBar;
     }
 
-    public TextView getMessage1() {
-        return this.gTa;
+    public BdListView bpa() {
+        return this.gow;
     }
 
-    public TextView getMessage2() {
-        return this.gTb;
+    public c bpb() {
+        return this.gmY;
     }
 
-    public void setDuration(int i) {
-        this.duration = i;
+    public g bpc() {
+        return this.gox;
     }
 
-    public void setmCurrentStatus(int i) {
-        this.gSZ = i;
-        Ea();
+    public LinearLayout bpd() {
+        return this.goB;
     }
 
-    public void setHasPrivilege(boolean z) {
-        this.gRm = z;
-        Ea();
+    public void setListViewSelection(int i) {
+        this.gow.setSelection(i);
     }
 }

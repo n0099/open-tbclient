@@ -2,11 +2,12 @@ package com.baidu.tieba.frs.tab;
 
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
-public class TabData extends LinkedList<b> {
+public class TabData extends LinkedList<d> {
     public static final int TYPE_CUSTOM = 12;
     public static final int TYPE_H5 = 1;
     public static final int TYPE_NATIVE = 0;
     public static final int TYPE_NEWPAGE = 11;
     public static final int TYPE_TAB_ALA_LIVE = 49;
+    public static final int TYPE_TAB_DYNAMIC = 89;
     private static final long serialVersionUID = -5491033066240609561L;
 }

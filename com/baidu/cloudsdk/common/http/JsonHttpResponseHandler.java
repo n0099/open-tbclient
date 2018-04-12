@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class JsonHttpResponseHandler extends HttpResponseHandler {
     protected static final int SUCCESS_JSON_MESSAGE = 100;
 

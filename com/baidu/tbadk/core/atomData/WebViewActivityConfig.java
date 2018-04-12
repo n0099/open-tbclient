@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
@@ -66,7 +66,7 @@ public class WebViewActivityConfig extends IntentConfig {
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-            l.showToast(getContext(), getContext().getString(d.j.web_view_corrupted));
+            l.showToast(getContext(), getContext().getString(d.k.web_view_corrupted));
             return false;
         }
         return true;
@@ -79,9 +79,9 @@ public class WebViewActivityConfig extends IntentConfig {
     }
 
     public static String addTiebaParams(String str) {
-        if (!am.isEmpty(str)) {
+        if (!an.isEmpty(str)) {
             if (str.indexOf("_client_version=") < 0) {
-                if (am.isEmpty(Uri.parse(str).getQuery())) {
+                if (an.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();

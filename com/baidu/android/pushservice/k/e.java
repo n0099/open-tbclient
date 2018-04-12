@@ -46,7 +46,7 @@ import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class e {
     private static final String a;
     private static b e;
@@ -55,7 +55,7 @@ public final class e {
     private PublicKey d;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public ApplicationInfo a;
         public int b;
@@ -70,7 +70,7 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public String a;
         public String b;
@@ -122,7 +122,7 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         @SuppressLint({"NewApi"})
         static boolean a(String str, int i) {
@@ -227,7 +227,7 @@ public final class e {
         return str;
     }
 
-    private static String a(byte[] bArr) {
+    private static String a(byte[] bArr) throws IllegalArgumentException {
         if (bArr == null) {
             throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
         }
@@ -444,7 +444,11 @@ public final class e {
     private String[] a(Signature[] signatureArr) {
         String[] strArr = new String[signatureArr.length];
         for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = a(h.a(signatureArr[i].toByteArray()));
+            try {
+                strArr[i] = a(h.a(signatureArr[i].toByteArray()));
+            } catch (Exception e2) {
+                return strArr;
+            }
         }
         return strArr;
     }

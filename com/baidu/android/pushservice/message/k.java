@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.message;
 
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k implements Serializable {
     private String a;
     private String b;

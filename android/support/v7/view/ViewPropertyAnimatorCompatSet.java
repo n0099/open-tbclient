@@ -8,40 +8,40 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import java.util.ArrayList;
 import java.util.Iterator;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class ViewPropertyAnimatorCompatSet {
-    ViewPropertyAnimatorListener Hg;
     private Interpolator mInterpolator;
     private boolean mIsStarted;
+    ViewPropertyAnimatorListener mListener;
     private long mDuration = -1;
-    private final ViewPropertyAnimatorListenerAdapter Hh = new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.view.ViewPropertyAnimatorCompatSet.1
-        private boolean Hi = false;
-        private int Hj = 0;
+    private final ViewPropertyAnimatorListenerAdapter mProxyListener = new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.view.ViewPropertyAnimatorCompatSet.1
+        private boolean mProxyStarted = false;
+        private int mProxyEndCount = 0;
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationStart(View view) {
-            if (!this.Hi) {
-                this.Hi = true;
-                if (ViewPropertyAnimatorCompatSet.this.Hg != null) {
-                    ViewPropertyAnimatorCompatSet.this.Hg.onAnimationStart(null);
+        public void onAnimationStart(View view2) {
+            if (!this.mProxyStarted) {
+                this.mProxyStarted = true;
+                if (ViewPropertyAnimatorCompatSet.this.mListener != null) {
+                    ViewPropertyAnimatorCompatSet.this.mListener.onAnimationStart(null);
                 }
             }
         }
 
         void onEnd() {
-            this.Hj = 0;
-            this.Hi = false;
-            ViewPropertyAnimatorCompatSet.this.eL();
+            this.mProxyEndCount = 0;
+            this.mProxyStarted = false;
+            ViewPropertyAnimatorCompatSet.this.onAnimationsEnded();
         }
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationEnd(View view) {
-            int i = this.Hj + 1;
-            this.Hj = i;
+        public void onAnimationEnd(View view2) {
+            int i = this.mProxyEndCount + 1;
+            this.mProxyEndCount = i;
             if (i == ViewPropertyAnimatorCompatSet.this.mAnimators.size()) {
-                if (ViewPropertyAnimatorCompatSet.this.Hg != null) {
-                    ViewPropertyAnimatorCompatSet.this.Hg.onAnimationEnd(null);
+                if (ViewPropertyAnimatorCompatSet.this.mListener != null) {
+                    ViewPropertyAnimatorCompatSet.this.mListener.onAnimationEnd(null);
                 }
                 onEnd();
             }
@@ -74,8 +74,8 @@ public class ViewPropertyAnimatorCompatSet {
                 if (this.mInterpolator != null) {
                     next.setInterpolator(this.mInterpolator);
                 }
-                if (this.Hg != null) {
-                    next.setListener(this.Hh);
+                if (this.mListener != null) {
+                    next.setListener(this.mProxyListener);
                 }
                 next.start();
             }
@@ -83,7 +83,7 @@ public class ViewPropertyAnimatorCompatSet {
         }
     }
 
-    void eL() {
+    void onAnimationsEnded() {
         this.mIsStarted = false;
     }
 
@@ -113,7 +113,7 @@ public class ViewPropertyAnimatorCompatSet {
 
     public ViewPropertyAnimatorCompatSet setListener(ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
         if (!this.mIsStarted) {
-            this.Hg = viewPropertyAnimatorListener;
+            this.mListener = viewPropertyAnimatorListener;
         }
         return this;
     }

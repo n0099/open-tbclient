@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class SocialLoginActivity extends BaseActivity<SocialLoginActivity> {
-    private NavigationBar bVs;
+    private NavigationBar bfy;
     private SocialType socialType;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,7 +21,7 @@ public class SocialLoginActivity extends BaseActivity<SocialLoginActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         MessageManager.getInstance().runTask(2921332, (Class) null);
-        setContentView(d.h.layout_sapi_webview);
+        setContentView(d.i.layout_sapi_webview);
         setSwipeBackEnabled(false);
         this.socialType = (SocialType) getIntent().getSerializableExtra(SocialLoginActivityConfig.SOCIAL_TYPE);
         if (this.socialType == null) {
@@ -37,9 +37,9 @@ public class SocialLoginActivity extends BaseActivity<SocialLoginActivity> {
 
     protected void setupViews() {
         final SapiWebView sapiWebView = (SapiWebView) findViewById(d.g.sapi_webview);
-        this.bVs = (NavigationBar) findViewById(d.g.sapi_navi);
-        this.bVs.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bVs.setTitleText(getPageContext().getString(d.j.login));
+        this.bfy = (NavigationBar) findViewById(d.g.sapi_navi);
+        this.bfy.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bfy.setTitleText(getPageContext().getString(d.k.login));
         com.baidu.tbadk.core.a.d.addCustomView(getPageContext().getPageActivity(), sapiWebView);
         sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.tieba.thirdparty.SocialLoginActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
@@ -80,8 +80,8 @@ public class SocialLoginActivity extends BaseActivity<SocialLoginActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.bVs != null) {
-            this.bVs.onChangeSkinType(getPageContext(), i);
+        if (this.bfy != null) {
+            this.bfy.onChangeSkinType(getPageContext(), i);
         }
     }
 }

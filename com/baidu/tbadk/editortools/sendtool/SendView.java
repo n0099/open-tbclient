@@ -4,37 +4,37 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.editortools.i;
-import com.baidu.tbadk.editortools.s;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class SendView extends TextView implements s {
-    private i axH;
-    private int axI;
-    private int bfC;
-    private boolean[] buv;
-    private int[] buw;
+public class SendView extends TextView implements l {
+    private EditorTools JS;
+    private int JT;
+    private boolean[] aET;
+    private int[] aEU;
+    private int aqQ;
     private int mType;
-    public static int bux = 1;
+    public static int aEV = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.buv = new boolean[]{false, false, false, false, false};
-        this.buw = new int[]{0, 0};
-        this.bfC = 0;
+        this.aET = new boolean[]{false, false, false, false, false};
+        this.aEU = new int[]{0, 0};
+        this.aqQ = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(d.e.ds17), context.getResources().getDimensionPixelSize(d.e.ds28), context.getResources().getDimensionPixelSize(d.e.ds10), context.getResources().getDimensionPixelSize(d.e.ds28));
         setGravity(17);
         setIncludeFontPadding(false);
         setEnabled(false);
         setTextSize(0, context.getResources().getDimensionPixelSize(d.e.fontsize28));
-        setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_e));
-        setText(d.j.send_post);
+        setTextColor(getContext().getResources().getColor(d.C0126d.cp_cont_e));
+        setText(d.k.send_post);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.sendtool.SendView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 SendView.this.b(new com.baidu.tbadk.editortools.a(8, -1, null));
             }
         });
@@ -46,114 +46,114 @@ public class SendView extends TextView implements s {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.buv[0] = false;
+                        this.aET[0] = false;
                         break;
                     } else {
-                        this.buv[0] = true;
+                        this.aET[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.buv[0] = false;
-                    this.buv[1] = false;
-                    this.buv[2] = false;
-                    this.buv[3] = false;
-                    this.buv[4] = false;
-                    this.buw[0] = 0;
-                    this.buw[1] = 0;
+                    this.aET[0] = false;
+                    this.aET[1] = false;
+                    this.aET[2] = false;
+                    this.aET[3] = false;
+                    this.aET[4] = false;
+                    this.aEU[0] = 0;
+                    this.aEU[1] = 0;
                     break;
                 case 10:
-                    this.buv[2] = true;
+                    this.aET[2] = true;
                     break;
                 case 11:
-                    this.buv[2] = false;
+                    this.aET[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.btl != null) {
-                            if (aVar2.btl.getChosedFiles() != null) {
-                                this.buw[0] = aVar2.btl.getChosedFiles().size();
+                        if (aVar2.aDL != null) {
+                            if (aVar2.aDL.getChosedFiles() != null) {
+                                this.aEU[0] = aVar2.aDL.getChosedFiles().size();
                             } else {
-                                this.buw[0] = 0;
+                                this.aEU[0] = 0;
                             }
                         }
-                        if (this.buw[0] > 0) {
-                            this.buv[1] = true;
+                        if (this.aEU[0] > 0) {
+                            this.aET[1] = true;
                             break;
                         } else {
-                            this.buv[1] = false;
+                            this.aET[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.buw;
+                    int[] iArr = this.aEU;
                     iArr[0] = iArr[0] - 1;
-                    if (this.buw[0] > 0) {
-                        this.buv[1] = true;
+                    if (this.aEU[0] > 0) {
+                        this.aET[1] = true;
                         break;
                     } else {
-                        this.buv[1] = false;
+                        this.aET[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.buv[3] = true;
+                    this.aET[3] = true;
                     break;
                 case 29:
-                    this.buv[3] = false;
+                    this.aET[3] = false;
                     break;
             }
-            hQ(this.mType);
+            eQ(this.mType);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.s
-    public void setEditorTools(i iVar) {
-        this.axH = iVar;
+    @Override // com.baidu.tbadk.editortools.l
+    public void setEditorTools(EditorTools editorTools) {
+        this.JS = editorTools;
     }
 
-    @Override // com.baidu.tbadk.editortools.s
+    @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.axH != null) {
-            this.axH.b(aVar);
+        if (this.JS != null) {
+            this.JS.b(aVar);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.s
+    @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.axI = i;
+        this.JT = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.s
+    @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.axI;
+        return this.JT;
     }
 
-    @Override // com.baidu.tbadk.editortools.s
+    @Override // com.baidu.tbadk.editortools.l
     public void init() {
         setClickable(false);
     }
 
-    @Override // com.baidu.tbadk.editortools.s
-    public void th() {
+    @Override // com.baidu.tbadk.editortools.l
+    public void lN() {
         setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.editortools.s
+    @Override // com.baidu.tbadk.editortools.l
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // com.baidu.tbadk.editortools.s
+    @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        this.bfC = i;
+        this.aqQ = i;
         if (isEnabled()) {
-            aj.b(this, d.C0141d.cp_link_tip_a, 1, i);
+            ak.b(this, d.C0126d.cp_link_tip_a, 1, i);
         } else {
-            aj.e(this, d.C0141d.cp_cont_e, 1);
+            ak.c(this, d.C0126d.cp_cont_e, 1);
         }
     }
 
@@ -161,23 +161,23 @@ public class SendView extends TextView implements s {
         this.mType = i;
     }
 
-    public void hQ(int i) {
+    public void eQ(int i) {
         if (i == ALL) {
-            if (this.buv[0] || this.buv[1] || this.buv[2] || this.buv[3] || this.buv[4]) {
+            if (this.aET[0] || this.aET[1] || this.aET[2] || this.aET[3] || this.aET[4]) {
                 setEnabled(true);
-                aj.b(this, d.C0141d.cp_link_tip_a, 1, this.bfC);
+                ak.b(this, d.C0126d.cp_link_tip_a, 1, this.aqQ);
                 return;
             }
             setEnabled(false);
-            aj.e(this, d.C0141d.cp_cont_e, 1);
-        } else if (i == bux) {
-            if (this.buv[1]) {
+            ak.c(this, d.C0126d.cp_cont_e, 1);
+        } else if (i == aEV) {
+            if (this.aET[1]) {
                 setEnabled(true);
-                aj.b(this, d.C0141d.cp_link_tip_a, 1, this.bfC);
+                ak.b(this, d.C0126d.cp_link_tip_a, 1, this.aqQ);
                 return;
             }
             setEnabled(false);
-            aj.e(this, d.C0141d.cp_cont_e, 1);
+            ak.c(this, d.C0126d.cp_cont_e, 1);
         }
     }
 }

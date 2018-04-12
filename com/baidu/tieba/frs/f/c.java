@@ -5,8 +5,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.frs.k;
-import com.baidu.tieba.tbadkCore.m;
+import com.baidu.tieba.tbadkCore.l;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,24 +14,24 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class c {
-    public static void u(k kVar) {
-        HashMap<Integer, bd> axo;
-        if (kVar != null && kVar.avX() != null && (axo = kVar.avX().axo()) != null) {
+    public static void v(com.baidu.tieba.frs.i iVar) {
+        HashMap<Integer, bd> arM;
+        if (iVar != null && iVar.aqt() != null && (arM = iVar.aqt().arM()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bd> entry : axo.entrySet()) {
+            for (Map.Entry<Integer, bd> entry : arM.entrySet()) {
                 bd value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.d.bol().p(arrayList);
+            com.baidu.tieba.recapp.download.d.bjr().o(arrayList);
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, final k kVar, m mVar) {
+    public static void a(ResponsedMessage<?> responsedMessage, final com.baidu.tieba.frs.i iVar, l lVar) {
         List<DownloadData> data;
         boolean z;
-        if (mVar != null && kVar != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
+        if (lVar != null && iVar != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
             Iterator<DownloadData> it = data.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -44,10 +43,10 @@ public class c {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.g.e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
+                com.baidu.adp.lib.g.e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        k.this.avO();
+                        com.baidu.tieba.frs.i.this.aqk();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bc implements ServiceConnection {
     final /* synthetic */ XMPushService a;
 

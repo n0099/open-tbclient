@@ -9,22 +9,25 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.graphics.drawable.DrawableWrapper;
 import android.util.Log;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.lang.reflect.Field;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class DrawableUtils {
     public static final Rect INSETS_NONE = new Rect();
-    private static Class<?> OC;
+    private static final String TAG = "DrawableUtils";
+    private static final String VECTOR_DRAWABLE_CLAZZ_NAME = "android.graphics.drawable.VectorDrawable";
+    private static Class<?> sInsetsClazz;
 
     static {
         if (Build.VERSION.SDK_INT >= 18) {
             try {
-                OC = Class.forName("android.graphics.Insets");
+                sInsetsClazz = Class.forName("android.graphics.Insets");
             } catch (ClassNotFoundException e) {
             }
         }
@@ -35,13 +38,13 @@ public class DrawableUtils {
 
     public static Rect getOpticalBounds(Drawable drawable) {
         Field[] fields;
-        if (OC != null) {
+        if (sInsetsClazz != null) {
             try {
                 Drawable unwrap = DrawableCompat.unwrap(drawable);
                 Object invoke = unwrap.getClass().getMethod("getOpticalInsets", new Class[0]).invoke(unwrap, new Object[0]);
                 if (invoke != null) {
                     Rect rect = new Rect();
-                    for (Field field : OC.getFields()) {
+                    for (Field field : sInsetsClazz.getFields()) {
                         String name = field.getName();
                         char c = 65535;
                         switch (name.hashCode()) {
@@ -88,20 +91,20 @@ public class DrawableUtils {
                     return rect;
                 }
             } catch (Exception e) {
-                Log.e("DrawableUtils", "Couldn't obtain the optical insets. Ignoring.");
+                Log.e(TAG, "Couldn't obtain the optical insets. Ignoring.");
             }
         }
         return INSETS_NONE;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void g(Drawable drawable) {
-        if (Build.VERSION.SDK_INT == 21 && "android.graphics.drawable.VectorDrawable".equals(drawable.getClass().getName())) {
-            h(drawable);
+    public static void fixDrawable(@NonNull Drawable drawable) {
+        if (Build.VERSION.SDK_INT == 21 && VECTOR_DRAWABLE_CLAZZ_NAME.equals(drawable.getClass().getName())) {
+            fixVectorDrawableTinting(drawable);
         }
     }
 
-    public static boolean canSafelyMutateDrawable(Drawable drawable) {
+    public static boolean canSafelyMutateDrawable(@NonNull Drawable drawable) {
         if (Build.VERSION.SDK_INT >= 15 || !(drawable instanceof InsetDrawable)) {
             if (Build.VERSION.SDK_INT >= 15 || !(drawable instanceof GradientDrawable)) {
                 if (Build.VERSION.SDK_INT >= 17 || !(drawable instanceof LayerDrawable)) {
@@ -134,18 +137,18 @@ public class DrawableUtils {
         return false;
     }
 
-    private static void h(Drawable drawable) {
+    private static void fixVectorDrawableTinting(Drawable drawable) {
         int[] state = drawable.getState();
         if (state == null || state.length == 0) {
-            drawable.setState(s.jn);
+            drawable.setState(ThemeUtils.CHECKED_STATE_SET);
         } else {
-            drawable.setState(s.EMPTY_STATE_SET);
+            drawable.setState(ThemeUtils.EMPTY_STATE_SET);
         }
         drawable.setState(state);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static PorterDuff.Mode a(int i, PorterDuff.Mode mode) {
+    public static PorterDuff.Mode parseTintMode(int i, PorterDuff.Mode mode) {
         switch (i) {
             case 3:
                 return PorterDuff.Mode.SRC_OVER;

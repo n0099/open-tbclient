@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private final ArrayList<MetaData> hGG = new ArrayList<>();
-    private HashMap<String, String> hGH = null;
+    private final ArrayList<MetaData> hdl = new ArrayList<>();
+    private HashMap<String, String> hdm = null;
 
     public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.hGH == null) {
-                        this.hGH = new HashMap<>();
+                    if (this.hdm == null) {
+                        this.hdm = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.hGG.add(metaData);
+                        this.hdl.add(metaData);
                         if (z) {
-                            this.hGH.put(metaData.getName_show(), metaData.getPortrait());
+                            this.hdm.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,7 +40,7 @@ public class b {
         }
     }
 
-    public void uu(String str) {
+    public void uK(String str) {
         try {
             d(new JSONObject(str), true);
         } catch (Exception e) {
@@ -48,11 +48,11 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> bGM() {
-        return this.hGG;
+    public ArrayList<MetaData> bBZ() {
+        return this.hdl;
     }
 
-    public HashMap<String, String> bGN() {
-        return this.hGH;
+    public HashMap<String, String> bCa() {
+        return this.hdm;
     }
 }

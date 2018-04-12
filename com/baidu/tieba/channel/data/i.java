@@ -4,13 +4,13 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class i {
-    private long dcY;
+    private long cuR;
     private String intro;
     private String portrait;
     private long user_id;
     private String user_name;
 
-    public long amr() {
+    public long agr() {
         return this.user_id;
     }
 
@@ -30,7 +30,7 @@ public class i {
         this.user_id = jSONObject.optLong("user_id");
         this.user_name = jSONObject.optString("user_name");
         this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
-        this.dcY = jSONObject.optLong("channel_avatar");
+        this.cuR = jSONObject.optLong("channel_avatar");
         this.intro = jSONObject.optString("intro");
     }
 }

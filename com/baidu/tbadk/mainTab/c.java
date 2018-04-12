@@ -3,14 +3,14 @@ package com.baidu.tbadk.mainTab;
 import android.support.v4.app.Fragment;
 /* loaded from: classes.dex */
 public class c {
-    public static int bxU = 1;
-    public static int bxV = 2;
-    public static int bxW = 3;
-    public Fragment bxP;
-    public int bxQ;
-    public int bxR;
-    public int bxS;
-    public int bxT;
-    public int bxX = bxU;
+    public static int aIr = 1;
+    public static int aIs = 2;
+    public static int aIt = 3;
+    public Fragment aIm;
+    public int aIn;
+    public int aIo;
+    public int aIp;
+    public int aIq;
+    public int aIu = aIr;
     public int type;
 }

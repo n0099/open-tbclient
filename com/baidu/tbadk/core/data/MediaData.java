@@ -8,6 +8,7 @@ import tbclient.Media;
 /* loaded from: classes.dex */
 public class MediaData extends OrmObject implements Serializable {
     public static final int EXT_TYPE_XIAOYING = 12;
+    public String origin_pic;
     private long postId;
     public String small_pic_url;
     private int e_type = -1;
@@ -133,6 +134,7 @@ public class MediaData extends OrmObject implements Serializable {
                 this.isLongPic = jSONObject.optInt("is_long_pic", 0) == 1;
                 this.showOriginBtn = jSONObject.optInt("show_original_btn", 1) == 1;
                 this.small_pic_url = jSONObject.optString("small_pic");
+                this.origin_pic = jSONObject.optString("origin_pic");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -158,6 +160,7 @@ public class MediaData extends OrmObject implements Serializable {
             this.isLongPic = media.is_long_pic.intValue() == 1;
             this.showOriginBtn = media.show_original_btn.intValue() == 1;
             this.small_pic_url = media.small_pic;
+            this.origin_pic = media.origin_pic;
         }
     }
 }

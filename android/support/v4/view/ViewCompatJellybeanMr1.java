@@ -5,47 +5,50 @@ import android.view.Display;
 import android.view.View;
 /* loaded from: classes2.dex */
 class ViewCompatJellybeanMr1 {
-    public static int getLabelFor(View view) {
-        return view.getLabelFor();
+    ViewCompatJellybeanMr1() {
     }
 
-    public static void setLabelFor(View view, int i) {
-        view.setLabelFor(i);
+    public static int getLabelFor(View view2) {
+        return view2.getLabelFor();
     }
 
-    public static void setLayerPaint(View view, Paint paint) {
-        view.setLayerPaint(paint);
+    public static void setLabelFor(View view2, int i) {
+        view2.setLabelFor(i);
     }
 
-    public static int getLayoutDirection(View view) {
-        return view.getLayoutDirection();
+    public static void setLayerPaint(View view2, Paint paint) {
+        view2.setLayerPaint(paint);
     }
 
-    public static void setLayoutDirection(View view, int i) {
-        view.setLayoutDirection(i);
+    public static int getLayoutDirection(View view2) {
+        return view2.getLayoutDirection();
     }
 
-    public static int getPaddingStart(View view) {
-        return view.getPaddingStart();
+    public static void setLayoutDirection(View view2, int i) {
+        view2.setLayoutDirection(i);
     }
 
-    public static int getPaddingEnd(View view) {
-        return view.getPaddingEnd();
+    public static int getPaddingStart(View view2) {
+        return view2.getPaddingStart();
     }
 
-    public static void setPaddingRelative(View view, int i, int i2, int i3, int i4) {
-        view.setPaddingRelative(i, i2, i3, i4);
+    public static int getPaddingEnd(View view2) {
+        return view2.getPaddingEnd();
     }
 
-    public static int getWindowSystemUiVisibility(View view) {
-        return view.getWindowSystemUiVisibility();
+    public static void setPaddingRelative(View view2, int i, int i2, int i3, int i4) {
+        view2.setPaddingRelative(i, i2, i3, i4);
     }
 
-    public static boolean isPaddingRelative(View view) {
-        return view.isPaddingRelative();
+    public static int getWindowSystemUiVisibility(View view2) {
+        return view2.getWindowSystemUiVisibility();
     }
 
-    public static Display getDisplay(View view) {
-        return view.getDisplay();
+    public static boolean isPaddingRelative(View view2) {
+        return view2.isPaddingRelative();
+    }
+
+    public static Display getDisplay(View view2) {
+        return view2.getDisplay();
     }
 }

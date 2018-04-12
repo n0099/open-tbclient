@@ -12,7 +12,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.i;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlaWriteShareInBarActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -20,93 +20,93 @@ import com.baidu.tbadk.core.atomData.TransmitPostEditActivityConfig;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.forumsearch.controller.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b implements View.OnClickListener {
-    private final c dCP;
-    private final d dCQ;
-    private final a dCR;
-    private String dCS;
-    private OriginalThreadInfo dCT;
-    private View.OnClickListener dCU = new View.OnClickListener() { // from class: com.baidu.tieba.forumsearch.controller.b.1
+    private ArrayList<h> cGa;
+    private final c cVK;
+    private final d cVL;
+    private final a cVM;
+    private String cVN;
+    private OriginalThreadInfo cVO;
+    private View.OnClickListener cVP = new View.OnClickListener() { // from class: com.baidu.tieba.forumsearch.controller.b.1
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (view.getTag() instanceof com.baidu.tieba.forumsearch.b.b) {
+        public void onClick(View view2) {
+            if (view2.getTag() instanceof com.baidu.tieba.forumsearch.b.b) {
                 b.this.mPageContext.getPageActivity().setResult(-1, new Intent());
-                com.baidu.tieba.forumsearch.b.b bVar = (com.baidu.tieba.forumsearch.b.b) view.getTag();
+                com.baidu.tieba.forumsearch.b.b bVar = (com.baidu.tieba.forumsearch.b.b) view2.getTag();
                 if (b.this.mFrom == 1) {
-                    b.this.d(bVar.getForumId(), bVar.getForumName());
+                    b.this.e(bVar.getForumId(), bVar.getForumName());
                 } else if (b.this.mFrom == 2) {
-                    b.this.aT(String.valueOf(bVar.getForumId()), bVar.getForumName());
-                    TiebaStatic.log(new ak("c12609").f(ImageViewerConfig.FORUM_ID, bVar.getForumId()));
+                    b.this.aS(String.valueOf(bVar.getForumId()), bVar.getForumName());
+                    TiebaStatic.log(new al("c12609").f(ImageViewerConfig.FORUM_ID, bVar.getForumId()));
                 }
             }
         }
     };
-    private Runnable dCV = new Runnable() { // from class: com.baidu.tieba.forumsearch.controller.b.2
+    private Runnable cVQ = new Runnable() { // from class: com.baidu.tieba.forumsearch.controller.b.2
         @Override // java.lang.Runnable
         public void run() {
-            l.b(b.this.mPageContext.getPageActivity(), b.this.dCP.dDb);
+            l.c(b.this.mPageContext.getPageActivity(), b.this.cVK.cVW);
         }
     };
-    private CustomMessageListener dCW = new CustomMessageListener(2921021) { // from class: com.baidu.tieba.forumsearch.controller.b.3
+    private CustomMessageListener cVR = new CustomMessageListener(2921021) { // from class: com.baidu.tieba.forumsearch.controller.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                b.this.dCP.dDb.setText(str);
-                b.this.dCP.dDb.setSelection(str.length());
-                b.this.auk();
+                b.this.cVK.cVW.setText(str);
+                b.this.cVK.cVW.setSelection(str.length());
+                b.this.aoz();
             }
         }
     };
-    private CustomMessageListener dCX = new CustomMessageListener(2921020) { // from class: com.baidu.tieba.forumsearch.controller.b.4
+    private CustomMessageListener cVS = new CustomMessageListener(2921020) { // from class: com.baidu.tieba.forumsearch.controller.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                b.this.aul();
+                b.this.aoA();
             }
         }
     };
-    private d.a dCY = new d.a() { // from class: com.baidu.tieba.forumsearch.controller.b.5
+    private d.a cVT = new d.a() { // from class: com.baidu.tieba.forumsearch.controller.b.5
         @Override // com.baidu.tieba.forumsearch.controller.d.a
         public void a(boolean z, com.baidu.tieba.forumsearch.b.c cVar) {
-            if (!z || cVar == null || v.E(cVar.aut())) {
-                if (StringUtils.isNull(b.this.dCS)) {
-                    b.this.aul();
+            if (!z || cVar == null || v.w(cVar.aoI())) {
+                if (StringUtils.isNull(b.this.cVN)) {
+                    b.this.aoA();
                     return;
                 } else {
-                    b.this.aui();
+                    b.this.aox();
                     return;
                 }
             }
-            b.this.dnU = cVar.aut();
-            b.this.setDatas(b.this.dnU);
+            b.this.cGa = cVar.aoI();
+            b.this.setDatas(b.this.cGa);
         }
     };
-    private ArrayList<i> dnU;
     private int mFrom;
     private long mLiveId;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.dCP = new c(tbPageContext);
-        auj();
-        this.dCQ = new d(tbPageContext, tbPageContext.getUniqueId());
-        this.dCQ.a(this.dCY);
-        this.dnU = new ArrayList<>();
-        this.dCR = new a(tbPageContext, this.dCP.mListView);
-        this.dCR.k(this.dCU);
-        aul();
-        tbPageContext.registerListener(this.dCX);
-        tbPageContext.registerListener(this.dCW);
-        com.baidu.adp.lib.g.e.ns().postDelayed(this.dCV, 500L);
+        this.cVK = new c(tbPageContext);
+        aoy();
+        this.cVL = new d(tbPageContext, tbPageContext.getUniqueId());
+        this.cVL.a(this.cVT);
+        this.cGa = new ArrayList<>();
+        this.cVM = new a(tbPageContext, this.cVK.mListView);
+        this.cVM.m(this.cVP);
+        aoA();
+        tbPageContext.registerListener(this.cVS);
+        tbPageContext.registerListener(this.cVR);
+        com.baidu.adp.lib.g.e.fw().postDelayed(this.cVQ, 500L);
     }
 
     public void setFrom(int i) {
@@ -118,11 +118,11 @@ public class b implements View.OnClickListener {
     }
 
     public void setOriginalThread(OriginalThreadInfo originalThreadInfo) {
-        this.dCT = originalThreadInfo;
+        this.cVO = originalThreadInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(long j, String str) {
+    public void e(long j, String str) {
         TransmitForumData transmitForumData = new TransmitForumData(j, str, true, 0);
         ArrayList arrayList = new ArrayList();
         arrayList.add(transmitForumData);
@@ -131,44 +131,44 @@ public class b implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aT(String str, String str2) {
-        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.mPageContext.getPageActivity(), 9, str, str2, null, null, 13011, null, null, null, this.dCT);
+    public void aS(String str, String str2) {
+        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.mPageContext.getPageActivity(), 9, str, str2, null, null, 13011, null, null, null, this.cVO);
         transmitPostEditActivityConfig.setCallFrom("2");
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, transmitPostEditActivityConfig));
         this.mPageContext.getPageActivity().finish();
     }
 
-    public c auh() {
-        return this.dCP;
+    public c aow() {
+        return this.cVK;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aui() {
-        this.dnU.clear();
+    public void aox() {
+        this.cGa.clear();
         com.baidu.tieba.forumsearch.b.a aVar = new com.baidu.tieba.forumsearch.b.a();
-        aVar.setType(com.baidu.tieba.forumsearch.b.a.dDh);
-        this.dnU.add(aVar);
-        setDatas(this.dnU);
+        aVar.setType(com.baidu.tieba.forumsearch.b.a.cWc);
+        this.cGa.add(aVar);
+        setDatas(this.cGa);
     }
 
-    public void setDatas(ArrayList<i> arrayList) {
-        this.dnU = arrayList;
-        this.dCP.mListView.setData(arrayList);
+    public void setDatas(ArrayList<h> arrayList) {
+        this.cGa = arrayList;
+        this.cVK.mListView.setData(arrayList);
     }
 
-    private void auj() {
-        this.dCP.aHT.setOnClickListener(this);
-        this.dCP.dDb.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.forumsearch.controller.b.6
+    private void aoy() {
+        this.cVK.Tl.setOnClickListener(this);
+        this.cVK.cVW.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.forumsearch.controller.b.6
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    b.this.auk();
+                    b.this.aoz();
                     return true;
                 }
                 return false;
             }
         });
-        this.dCP.dDb.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.forumsearch.controller.b.7
+        this.cVK.cVW.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.forumsearch.controller.b.7
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -179,76 +179,76 @@ public class b implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                b.this.auk();
+                b.this.aoz();
             }
         });
-        this.dCP.dDb.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.forumsearch.controller.b.8
+        this.cVK.cVW.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.forumsearch.controller.b.8
             @Override // android.view.View.OnFocusChangeListener
-            public void onFocusChange(View view, boolean z) {
+            public void onFocusChange(View view2, boolean z) {
                 if (!z) {
-                    l.a(b.this.mPageContext.getPageActivity(), view);
+                    l.b(b.this.mPageContext.getPageActivity(), view2);
                 } else {
-                    b.this.auk();
+                    b.this.aoz();
                 }
             }
         });
-        this.dCP.dDb.setOnClickListener(this);
-        this.dCP.dDc.setOnClickListener(this);
-        this.dCP.cyv.setOnClickListener(this);
+        this.cVK.cVW.setOnClickListener(this);
+        this.cVK.cVX.setOnClickListener(this);
+        this.cVK.bOG.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auk() {
-        if (this.dCP.dDb.getText() == null || StringUtils.isNull(this.dCP.dDb.getText().toString())) {
-            this.dCP.dDc.setVisibility(8);
-            this.dCS = null;
-            aul();
+    public void aoz() {
+        if (this.cVK.cVW.getText() == null || StringUtils.isNull(this.cVK.cVW.getText().toString())) {
+            this.cVK.cVX.setVisibility(8);
+            this.cVN = null;
+            aoA();
             return;
         }
-        i iVar = (i) v.f(this.dnU, 0);
-        if (iVar != null && iVar.getType() == com.baidu.tieba.forumsearch.b.a.dDg) {
-            this.dnU.clear();
-            setDatas(this.dnU);
+        h hVar = (h) v.c(this.cGa, 0);
+        if (hVar != null && hVar.getType() == com.baidu.tieba.forumsearch.b.a.cWb) {
+            this.cGa.clear();
+            setDatas(this.cGa);
         }
-        this.dCP.dDc.setVisibility(0);
-        this.dCS = this.dCP.dDb.getText().toString();
-        this.dCQ.lD(this.dCS);
+        this.cVK.cVX.setVisibility(0);
+        this.cVN = this.cVK.cVW.getText().toString();
+        this.cVL.lG(this.cVN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aul() {
-        this.dCQ.cancelMessage();
-        this.dnU.clear();
-        ArrayList<String> aun = e.aun();
-        if (!v.E(aun)) {
+    public void aoA() {
+        this.cVL.cancelMessage();
+        this.cGa.clear();
+        ArrayList<String> aoC = e.aoC();
+        if (!v.w(aoC)) {
             com.baidu.tieba.forumsearch.b.a aVar = new com.baidu.tieba.forumsearch.b.a();
-            aVar.setType(com.baidu.tieba.forumsearch.b.a.dDg);
-            this.dnU.add(aVar);
-            this.dnU.add(new com.baidu.tieba.forumsearch.b.a(aun));
-            setDatas(this.dnU);
+            aVar.setType(com.baidu.tieba.forumsearch.b.a.cWb);
+            this.cGa.add(aVar);
+            this.cGa.add(new com.baidu.tieba.forumsearch.b.a(aoC));
+            setDatas(this.cGa);
             return;
         }
-        this.dnU.clear();
-        setDatas(this.dnU);
+        this.cGa.clear();
+        setDatas(this.cGa);
     }
 
     public void onDestory() {
-        com.baidu.adp.lib.g.e.ns().removeCallbacks(this.dCV);
-        MessageManager.getInstance().unRegisterListener(this.dCX);
-        MessageManager.getInstance().unRegisterListener(this.dCW);
+        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.cVQ);
+        MessageManager.getInstance().unRegisterListener(this.cVS);
+        MessageManager.getInstance().unRegisterListener(this.cVR);
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.dCP.dDb) {
-            auk();
-        } else if (view == this.dCP.cyv) {
-            l.a(this.mPageContext.getPageActivity(), this.dCP.dDb);
+    public void onClick(View view2) {
+        if (view2 == this.cVK.cVW) {
+            aoz();
+        } else if (view2 == this.cVK.bOG) {
+            l.b(this.mPageContext.getPageActivity(), this.cVK.cVW);
             this.mPageContext.getPageActivity().finish();
-        } else if (view == this.dCP.dDc) {
-            this.dCP.dDb.setText("");
-        } else if (view == this.dCP.aHT) {
-            setDatas(this.dnU);
+        } else if (view2 == this.cVK.cVX) {
+            this.cVK.cVW.setText("");
+        } else if (view2 == this.cVK.Tl) {
+            setDatas(this.cGa);
         }
     }
 }

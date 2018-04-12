@@ -14,7 +14,7 @@ class ActivityCompatApi21 {
 
     /* loaded from: classes2.dex */
     public static abstract class SharedElementCallback21 {
-        public abstract Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF);
+        public abstract Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF);
 
         public abstract View onCreateSnapshotView(Context context, Parcelable parcelable);
 
@@ -25,6 +25,9 @@ class ActivityCompatApi21 {
         public abstract void onSharedElementEnd(List<String> list, List<View> list2, List<View> list3);
 
         public abstract void onSharedElementStart(List<String> list, List<View> list2, List<View> list3);
+    }
+
+    ActivityCompatApi21() {
     }
 
     public static void setMediaController(Activity activity, Object obj) {
@@ -88,8 +91,8 @@ class ActivityCompatApi21 {
         }
 
         @Override // android.app.SharedElementCallback
-        public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
-            return this.mCallback.onCaptureSharedElementSnapshot(view, matrix, rectF);
+        public Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF) {
+            return this.mCallback.onCaptureSharedElementSnapshot(view2, matrix, rectF);
         }
 
         @Override // android.app.SharedElementCallback

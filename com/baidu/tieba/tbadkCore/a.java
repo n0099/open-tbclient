@@ -12,9 +12,9 @@ public class a {
         }
     }
 
-    public static final void a(TbPageContextSupport tbPageContextSupport, View view, Animation animation, Animation.AnimationListener animationListener) {
+    public static final void a(TbPageContextSupport tbPageContextSupport, View view2, Animation animation, Animation.AnimationListener animationListener) {
         if (tbPageContextSupport != null) {
-            tbPageContextSupport.getPageContext().startAnimation(view, animation, animationListener);
+            tbPageContextSupport.getPageContext().startAnimation(view2, animation, animationListener);
         }
     }
 }

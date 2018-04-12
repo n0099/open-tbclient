@@ -15,9 +15,11 @@ public class ProfileRequestMessage extends NetMessage {
     private boolean from_db;
     private Integer has_plist;
     private boolean isSelf;
+    private Integer is_from_usercenter;
     private Integer is_guest;
     private b mPersonCenterData;
     private Integer need_post_count;
+    private Integer page;
     private Integer pn;
     private Integer rn;
     private String st_type;
@@ -111,6 +113,22 @@ public class ProfileRequestMessage extends NetMessage {
         this.has_plist = num;
     }
 
+    public Integer is_from_usercenter() {
+        return this.is_from_usercenter;
+    }
+
+    public void setIs_from_usercenter(Integer num) {
+        this.is_from_usercenter = num;
+    }
+
+    public Integer getPage() {
+        return this.page;
+    }
+
+    public void setPage(Integer num) {
+        this.page = num;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -123,13 +141,15 @@ public class ProfileRequestMessage extends NetMessage {
             builder.pn = get_pn();
             builder.rn = get_rn();
             builder.has_plist = get_has_plist();
-            double ar = l.ar(TbadkCoreApplication.getInst().getApp());
-            int ao = l.ao(TbadkCoreApplication.getInst().getApp());
-            int aq = l.aq(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = i.xo().getViewImageQuality();
-            builder.scr_w = Integer.valueOf(ao);
-            builder.scr_h = Integer.valueOf(aq);
-            builder.scr_dip = Double.valueOf(ar);
+            builder.is_from_usercenter = is_from_usercenter();
+            builder.page = getPage();
+            double ai = l.ai(TbadkCoreApplication.getInst().getApp());
+            int af = l.af(TbadkCoreApplication.getInst().getApp());
+            int ah = l.ah(TbadkCoreApplication.getInst().getApp());
+            int viewImageQuality = i.pY().getViewImageQuality();
+            builder.scr_w = Integer.valueOf(af);
+            builder.scr_h = Integer.valueOf(ah);
+            builder.scr_dip = Double.valueOf(ai);
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
                 o.bindCommonParamsToProtobufData(builder, true);

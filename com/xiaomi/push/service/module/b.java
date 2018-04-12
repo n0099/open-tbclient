@@ -1,5 +1,5 @@
 package com.xiaomi.push.service.module;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     private String a;
     private String b;

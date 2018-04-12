@@ -5,7 +5,7 @@ import com.xiaomi.xmpush.thrift.ae;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class m implements Runnable {
     @Override // java.lang.Runnable
     public void run() {

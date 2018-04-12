@@ -13,7 +13,7 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
     private int createTime;
     private int flag;
     private int forumId;
-    private int groupId;
+    private long groupId;
     private int groupType;
     private String intro;
     private String lat;
@@ -42,12 +42,12 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         this.forumId = i;
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public String getName() {

@@ -2,7 +2,7 @@ package com.xiaomi.smack.packet;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends d {
     private String c;
     private String d;

@@ -8,7 +8,7 @@ public interface IMediaController {
 
     boolean isShowing();
 
-    void setAnchorView(View view);
+    void setAnchorView(View view2);
 
     void setEnabled(boolean z);
 
@@ -18,5 +18,5 @@ public interface IMediaController {
 
     void show(int i);
 
-    void showOnce(View view);
+    void showOnce(View view2);
 }

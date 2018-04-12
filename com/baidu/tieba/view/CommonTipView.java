@@ -1,6 +1,7 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -9,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
@@ -21,6 +22,52 @@ public class CommonTipView extends TextView {
 
     public CommonTipView(Context context) {
         super(context);
+        this.mDuration = 4000;
+        this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
+        this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
+            @Override // java.lang.Runnable
+            public void run() {
+                CommonTipView.this.hideTip();
+            }
+        };
+        this.mRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.2
+            @Override // java.lang.Runnable
+            public void run() {
+                ViewGroup viewGroup = (ViewGroup) CommonTipView.this.getParent();
+                if (viewGroup != null) {
+                    viewGroup.removeView(CommonTipView.this);
+                }
+            }
+        };
+        init();
+    }
+
+    public CommonTipView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mDuration = 4000;
+        this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
+        this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
+            @Override // java.lang.Runnable
+            public void run() {
+                CommonTipView.this.hideTip();
+            }
+        };
+        this.mRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.2
+            @Override // java.lang.Runnable
+            public void run() {
+                ViewGroup viewGroup = (ViewGroup) CommonTipView.this.getParent();
+                if (viewGroup != null) {
+                    viewGroup.removeView(CommonTipView.this);
+                }
+            }
+        };
+        init();
+    }
+
+    public CommonTipView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         this.mDuration = 4000;
         this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
         this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
@@ -54,7 +101,7 @@ public class CommonTipView extends TextView {
             public void onAnimationEnd(Animation animation) {
                 CommonTipView.this.onDestroy();
                 CommonTipView.this.setVisibility(8);
-                com.baidu.adp.lib.g.e.ns().postDelayed(CommonTipView.this.mRunnable, 600L);
+                com.baidu.adp.lib.g.e.fw().postDelayed(CommonTipView.this.mRunnable, 600L);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -113,12 +160,12 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        aj.f(this, d.C0141d.common_color_10260, i);
-        aj.b(this, d.C0141d.cp_cont_g, 1, i);
+        ak.d(this, d.C0126d.common_color_10260, i);
+        ak.b(this, d.C0126d.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {
         removeCallbacks(this.mHideTipRunnable);
-        com.baidu.adp.lib.g.e.ns().removeCallbacks(this.mRunnable);
+        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.mRunnable);
     }
 }

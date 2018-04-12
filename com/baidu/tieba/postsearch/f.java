@@ -1,192 +1,146 @@
 package com.baidu.tieba.postsearch;
 
-import android.text.Html;
-import android.text.Spanned;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.TbPageContext;
+import android.view.ViewStub;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveCommentActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.d;
-import com.baidu.tieba.postsearch.b;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class f extends BaseAdapter {
-    private static final int gyL = TbadkCoreApplication.getInst().getListItemRule().FR();
-    private TbPageContext<?> aRI;
-    private int cGQ = -1;
-    private List<b.a> mData = new ArrayList();
+public class f {
+    private FragmentTabHost bgN;
+    private PostSearchActivity fSQ;
+    private PostSearchListFragment fTF;
+    private PostSearchListFragment fTG;
+    private PostSearchListFragment fTH;
+    private ViewPager.OnPageChangeListener mOnPageChangeListener;
+    private View mRootView;
 
-    public f(TbPageContext<?> tbPageContext) {
-        this.aRI = tbPageContext;
+    public f(PostSearchActivity postSearchActivity, View view2) {
+        this.fSQ = postSearchActivity;
+        this.mRootView = view2;
     }
 
-    public int dj(List<b.a> list) {
-        if (list == null) {
-            return 0;
-        }
-        int size = this.mData.size() + list.size();
-        if (size <= gyL) {
-            this.mData.addAll(list);
-            return 0;
-        }
-        int i = size - gyL;
-        ue(i);
-        this.mData.addAll(list);
-        return i;
+    public int getCurrentTabType() {
+        return this.bgN.getCurrentTabType();
     }
 
-    public void clear() {
-        this.mData.clear();
-    }
-
-    private void ue(int i) {
-        if (this.mData.size() <= i) {
-            this.mData.clear();
+    public void rD(int i) {
+        if (this.bgN == null) {
+            rE(1);
+            return;
         }
-        int i2 = 0;
-        Iterator<b.a> it = this.mData.iterator();
-        while (it.hasNext()) {
-            it.next();
-            it.remove();
-            i2++;
-            if (i2 >= i) {
+        bim();
+        if (this.bgN.getCurrentTabType() == i) {
+            PostSearchListFragment rG = rG(i);
+            if (rG != null) {
+                rG.lA(true);
                 return;
             }
+            return;
         }
+        this.bgN.setCurrentTabByType(i);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.mData == null) {
-            return 0;
-        }
-        return this.mData.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.mData == null || this.mData.isEmpty() || i < 0 || i >= this.mData.size()) {
-            return null;
-        }
-        return this.mData.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        if (view == null) {
-            view = LayoutInflater.from(this.aRI.getPageActivity()).inflate(d.h.post_search_list_item, (ViewGroup) null);
-            a aVar = new a();
-            aVar.gyO = (TextView) view.findViewById(d.g.title_text);
-            aVar.gyP = (TextView) view.findViewById(d.g.content_text);
-            aVar.gyQ = (TextView) view.findViewById(d.g.label_text);
-            aVar.cHr = (TextView) view.findViewById(d.g.user_name);
-            aVar.gyR = (TextView) view.findViewById(d.g.time_text);
-            view.setTag(aVar);
-        }
-        a aVar2 = (a) view.getTag();
-        final b.a aVar3 = this.mData.get(i);
-        if (aVar3 != null) {
-            String str = "#e53917";
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                str = "#99260f";
-            }
-            Spanned fromHtml = Html.fromHtml(am.ac(aVar3.title, str));
-            if (aVar3.thread_type == 33) {
-                aVar2.gyO.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
+    public void eM(boolean z) {
+        if (this.bgN != null) {
+            if (z) {
+                this.bgN.setVisibility(0);
             } else {
-                aVar2.gyO.setText(fromHtml);
-            }
-            aVar2.gyP.setText(Html.fromHtml(am.ac(aVar3.content, str)));
-            aVar2.cHr.setText(aVar3.name_show);
-            aVar2.gyR.setText(am.z(aVar3.time));
-            aVar2.gyQ.setVisibility(0);
-            if (aVar3.is_floor == 1) {
-                aVar2.gyQ.setText(d.j.floor_text);
-            } else if (aVar3.gym == 1) {
-                aVar2.gyQ.setText(d.j.reply_post);
-            } else {
-                aVar2.gyQ.setVisibility(8);
-            }
-            view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.f.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    if (f.this.aRI != null) {
-                        f.this.a(aVar3);
-                        if (aVar3.is_floor == 1) {
-                            if (aVar3.thread_type == 33) {
-                                f.this.aRI.sendMessage(new CustomMessage(2002001, new PhotoLiveCommentActivityConfig(f.this.aRI.getPageActivity()).createPhotoLiveCommentActivityConfig(aVar3.tid + "", aVar3.pid + "", true)));
-                                return;
-                            }
-                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(f.this.aRI.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
-                            createSubPbActivityConfig.setKeyPageStartFrom(8);
-                            f.this.aRI.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                        } else if (aVar3.thread_type == 33) {
-                            TiebaStatic.log("c10256");
-                            f.this.aRI.sendMessage(new CustomMessage(2002001, new PhotoLiveActivityConfig.a(f.this.aRI.getPageActivity(), String.valueOf(aVar3.tid)).cP(String.valueOf(aVar3.pid)).cQ("search_post").xD()));
-                        } else {
-                            PbActivityConfig createNormalCfg = new PbActivityConfig(f.this.aRI.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
-                            createNormalCfg.setStartFrom(8);
-                            f.this.aRI.sendMessage(new CustomMessage(2004001, createNormalCfg));
-                        }
-                    }
-                }
-            });
-            com.baidu.tbadk.n.a.a(this.aRI, view);
-        }
-        return view;
-    }
-
-    public void setTabType(int i) {
-        this.cGQ = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(b.a aVar) {
-        ak ab = new ak("c12405").ab(ImageViewerConfig.FORUM_NAME, aVar.fname).ab("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.cGQ > 0) {
-            ab.s(MyBookrackActivityConfig.TAB_ID, this.cGQ);
-        }
-        if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.gym == 1) {
-                ab.f(Info.kBaiduPIDKey, aVar.pid);
-            } else {
-                ab.f("tid", aVar.tid);
+                this.bgN.setVisibility(8);
             }
         }
-        TiebaStatic.log(ab);
     }
 
-    /* loaded from: classes3.dex */
-    private static class a {
-        TextView cHr;
-        TextView gyO;
-        TextView gyP;
-        TextView gyQ;
-        TextView gyR;
-
-        private a() {
+    public void a(int i, b bVar, boolean z) {
+        eM(true);
+        PostSearchListFragment rG = rG(i);
+        if (rG != null) {
+            rG.a(bVar, z);
         }
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.bgN != null) {
+            this.bgN.onChangeSkinType(i);
+        }
+    }
+
+    private void rE(int i) {
+        View inflate = ((ViewStub) this.mRootView.findViewById(d.g.search_tab_host_viewstub)).inflate();
+        inflate.setVisibility(0);
+        this.bgN = (FragmentTabHost) inflate.findViewById(d.g.post_search_tab_host);
+        this.bgN.setup(this.fSQ.getSupportFragmentManager());
+        this.bgN.setTabWidgetViewHeight((int) this.fSQ.getResources().getDimension(d.e.ds80));
+        this.bgN.setShouldDrawIndicatorLine(true);
+        bil();
+        this.bgN.cv(3);
+        this.bgN.setCurrentTabByType(i);
+        this.bgN.setNeedShowThemeStyle(false);
+        this.bgN.getFragmentTabWidget().setBackGroundDrawableResId(0);
+        this.bgN.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.bgN.setOnPageChangeListener(this.mOnPageChangeListener);
+    }
+
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
+        this.mOnPageChangeListener = onPageChangeListener;
+        if (this.bgN != null) {
+            this.bgN.setOnPageChangeListener(this.mOnPageChangeListener);
+        }
+    }
+
+    private void bil() {
+        FragmentTabHost.b bVar = new FragmentTabHost.b();
+        this.fTF = new PostSearchListFragment(1);
+        bVar.afJ = this.fTF;
+        bVar.afI = rF(d.k.searching_time_tab);
+        bVar.mType = 1;
+        this.bgN.a(bVar);
+        FragmentTabHost.b bVar2 = new FragmentTabHost.b();
+        this.fTG = new PostSearchListFragment(2);
+        bVar2.afJ = this.fTG;
+        bVar2.afI = rF(d.k.searching_relative_tab);
+        bVar2.mType = 2;
+        this.bgN.a(bVar2);
+        FragmentTabHost.b bVar3 = new FragmentTabHost.b();
+        this.fTH = new PostSearchListFragment(3);
+        bVar3.afJ = this.fTH;
+        bVar3.afI = rF(d.k.searching_only_thread_tab);
+        bVar3.mType = 3;
+        this.bgN.a(bVar3);
+    }
+
+    private FragmentTabIndicator rF(int i) {
+        int af = (l.af(this.fSQ.getPageContext().getContext()) - (this.fSQ.getResources().getDimensionPixelSize(d.e.ds34) * 2)) / 3;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.fSQ.getPageContext().getPageActivity()).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
+        fragmentTabIndicator.setText(i);
+        fragmentTabIndicator.setTextSize(0, this.fSQ.getResources().getDimensionPixelSize(d.e.ds32));
+        fragmentTabIndicator.aIf = d.C0126d.s_actionbar_text_color;
+        fragmentTabIndicator.setContentTvTopMargin(this.fSQ.getResources().getDimensionPixelSize(d.e.ds4));
+        fragmentTabIndicator.setWidth(af);
+        return fragmentTabIndicator;
+    }
+
+    private PostSearchListFragment rG(int i) {
+        switch (i) {
+            case 1:
+                return this.fTF;
+            case 2:
+                return this.fTG;
+            case 3:
+                return this.fTH;
+            default:
+                return null;
+        }
+    }
+
+    private void bim() {
+        this.fTF.bid();
+        this.fTG.bid();
+        this.fTH.bid();
     }
 }

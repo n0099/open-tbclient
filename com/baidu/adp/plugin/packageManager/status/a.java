@@ -13,29 +13,29 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a asp;
-    private final LinkedHashMap<String, PluginStatus> asq = new LinkedHashMap<>(10);
+    private static a CU;
+    private final LinkedHashMap<String, PluginStatus> CV = new LinkedHashMap<>(10);
 
     private a() {
     }
 
-    public static a rB() {
-        if (asp == null) {
+    public static a jG() {
+        if (CU == null) {
             synchronized (a.class) {
-                if (asp == null) {
-                    asp = new a();
+                if (CU == null) {
+                    CU = new a();
                 }
             }
         }
-        return asp;
+        return CU;
     }
 
-    public void bL(String str) {
-        PluginStatus bM = rB().bM(str);
-        if (bM != null) {
-            bM.asm = PluginPackageManager.PluginStatus.NROMAL;
+    public void bI(String str) {
+        PluginStatus bJ = jG().bJ(str);
+        if (bJ != null) {
+            bJ.CP = PluginPackageManager.PluginStatus.NROMAL;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bM));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bJ));
     }
 
     public void h(String str, String str2, String str3) {
@@ -76,37 +76,37 @@ public class a {
         } else {
             return;
         }
-        PluginStatus bM = bM(str);
-        if (bM == null) {
-            bM = new PluginStatus();
+        PluginStatus bJ = bJ(str);
+        if (bJ == null) {
+            bJ = new PluginStatus();
         }
-        bM.asm = PluginPackageManager.PluginStatus.ERROR;
-        bM.errorMsg = string;
-        bM.asn = string2;
-        bM.errorCode = i;
-        bM.aso = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bM));
+        bJ.CP = PluginPackageManager.PluginStatus.ERROR;
+        bJ.errorMsg = string;
+        bJ.CQ = string2;
+        bJ.errorCode = i;
+        bJ.CT = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bJ));
     }
 
     public void onLoadFailed(String str) {
-        PluginStatus bM = bM(str);
-        if (bM == null) {
-            bM = new PluginStatus();
+        PluginStatus bJ = bJ(str);
+        if (bJ == null) {
+            bJ = new PluginStatus();
         }
-        bM.asm = PluginPackageManager.PluginStatus.ERROR;
-        bM.errorCode = 100;
-        bM.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        bM.asn = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bM));
+        bJ.CP = PluginPackageManager.PluginStatus.ERROR;
+        bJ.errorCode = 100;
+        bJ.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+        bJ.CQ = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bJ));
     }
 
-    public List<PluginStatus> rC() {
+    public List<PluginStatus> jH() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.asq) {
-            arrayList = new ArrayList(this.asq.size());
-            for (Map.Entry<String, PluginStatus> entry : this.asq.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.asm == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.CV) {
+            arrayList = new ArrayList(this.CV.size());
+            for (Map.Entry<String, PluginStatus> entry : this.CV.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.CP == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -114,17 +114,17 @@ public class a {
         return arrayList;
     }
 
-    public PluginStatus bM(String str) {
+    public PluginStatus bJ(String str) {
         PluginStatus pluginStatus;
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.asq) {
-            pluginStatus = this.asq.get(str);
+        synchronized (this.CV) {
+            pluginStatus = this.CV.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
-                pluginStatus.apI = str;
-                this.asq.put(str, pluginStatus);
+                pluginStatus.Ak = str;
+                this.CV.put(str, pluginStatus);
             }
         }
         return pluginStatus;

@@ -1,21 +1,22 @@
 package com.baidu.tbadk.widget.pulltorefresh.library;
 
 import android.graphics.drawable.Drawable;
+import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
 import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b implements a {
-    private final HashSet<com.baidu.tbadk.widget.pulltorefresh.library.a.b> bJl = new HashSet<>();
+    private final HashSet<LoadingLayout> aUd = new HashSet<>();
 
-    public void a(com.baidu.tbadk.widget.pulltorefresh.library.a.b bVar) {
-        if (bVar != null) {
-            this.bJl.add(bVar);
+    public void a(LoadingLayout loadingLayout) {
+        if (loadingLayout != null) {
+            this.aUd.add(loadingLayout);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setLastUpdatedLabel(CharSequence charSequence) {
-        Iterator<com.baidu.tbadk.widget.pulltorefresh.library.a.b> it = this.bJl.iterator();
+        Iterator<LoadingLayout> it = this.aUd.iterator();
         while (it.hasNext()) {
             it.next().setLastUpdatedLabel(charSequence);
         }
@@ -23,7 +24,7 @@ public class b implements a {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setLoadingDrawable(Drawable drawable) {
-        Iterator<com.baidu.tbadk.widget.pulltorefresh.library.a.b> it = this.bJl.iterator();
+        Iterator<LoadingLayout> it = this.aUd.iterator();
         while (it.hasNext()) {
             it.next().setLoadingDrawable(drawable);
         }
@@ -31,7 +32,7 @@ public class b implements a {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setRefreshingLabel(CharSequence charSequence) {
-        Iterator<com.baidu.tbadk.widget.pulltorefresh.library.a.b> it = this.bJl.iterator();
+        Iterator<LoadingLayout> it = this.aUd.iterator();
         while (it.hasNext()) {
             it.next().setRefreshingLabel(charSequence);
         }
@@ -39,7 +40,7 @@ public class b implements a {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setPullLabel(CharSequence charSequence) {
-        Iterator<com.baidu.tbadk.widget.pulltorefresh.library.a.b> it = this.bJl.iterator();
+        Iterator<LoadingLayout> it = this.aUd.iterator();
         while (it.hasNext()) {
             it.next().setPullLabel(charSequence);
         }
@@ -47,7 +48,7 @@ public class b implements a {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setReleaseLabel(CharSequence charSequence) {
-        Iterator<com.baidu.tbadk.widget.pulltorefresh.library.a.b> it = this.bJl.iterator();
+        Iterator<LoadingLayout> it = this.aUd.iterator();
         while (it.hasNext()) {
             it.next().setReleaseLabel(charSequence);
         }

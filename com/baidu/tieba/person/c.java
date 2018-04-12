@@ -2,6 +2,7 @@ package com.baidu.tieba.person;
 
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import java.util.List;
+import tbclient.Anti;
 import tbclient.DynamicInfo;
 import tbclient.ForumDynamic;
 import tbclient.PostInfoList;
@@ -14,6 +15,8 @@ import tbclient.User;
 import tbclient.UserManChannelInfo;
 /* loaded from: classes.dex */
 public interface c {
+    Anti GetAntiStat();
+
     List<PostInfoList> GetPostList();
 
     User GetUser();

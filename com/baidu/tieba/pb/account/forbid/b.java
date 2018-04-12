@@ -5,50 +5,50 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class b {
-    private static final String fFM = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+    private static final String fas = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0207b {
+    public interface InterfaceC0189b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0207b interfaceC0207b) {
-        new a(str, str2, interfaceC0207b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0189b interfaceC0189b) {
+        new a(str, str2, interfaceC0189b).execute(new String[0]);
     }
 
     /* loaded from: classes2.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private WeakReference<InterfaceC0207b> fFL;
-        private String fFN;
-        private String fFO;
+        private WeakReference<InterfaceC0189b> far;
+        private String fat;
+        private String fau;
 
-        public a(String str, String str2, InterfaceC0207b interfaceC0207b) {
-            this.fFN = str;
-            this.fFO = str2;
-            this.fFL = new WeakReference<>(interfaceC0207b);
+        public a(String str, String str2, InterfaceC0189b interfaceC0189b) {
+            this.fat = str;
+            this.fau = str2;
+            this.far = new WeakReference<>(interfaceC0189b);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: w */
+        /* renamed from: y */
         public ForbidTplData doInBackground(String... strArr) {
-            x xVar = new x(b.fFM);
-            xVar.n("forum_id", this.fFN);
-            xVar.n("user_id", this.fFO);
-            String Cb = xVar.Cb();
-            if (xVar.Cz().Dx().isRequestSuccess()) {
+            x xVar = new x(b.fas);
+            xVar.n("forum_id", this.fat);
+            xVar.n("user_id", this.fau);
+            String uL = xVar.uL();
+            if (xVar.vj().wj().isRequestSuccess()) {
                 try {
-                    return (ForbidTplData) OrmObject.objectWithJsonStr(Cb, ForbidTplData.class);
+                    return (ForbidTplData) OrmObject.objectWithJsonStr(uL, ForbidTplData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidTplData forbidTplData = new ForbidTplData();
@@ -57,7 +57,7 @@ public class b {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = xVar.CD();
+            forbidTplData2.error.errno = xVar.vn();
             forbidTplData2.error.errMsg = xVar.getErrorString();
             return forbidTplData2;
         }
@@ -68,12 +68,12 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            InterfaceC0207b interfaceC0207b = this.fFL.get();
-            if (interfaceC0207b != null) {
-                if (forbidTplData.error.errno == 0 && am.isEmpty(forbidTplData.error.errMsg)) {
-                    interfaceC0207b.a(forbidTplData);
+            InterfaceC0189b interfaceC0189b = this.far.get();
+            if (interfaceC0189b != null) {
+                if (forbidTplData.error.errno == 0 && an.isEmpty(forbidTplData.error.errMsg)) {
+                    interfaceC0189b.a(forbidTplData);
                 } else {
-                    interfaceC0207b.b(forbidTplData);
+                    interfaceC0189b.b(forbidTplData);
                 }
             }
         }

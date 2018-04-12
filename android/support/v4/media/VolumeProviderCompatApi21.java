@@ -11,7 +11,10 @@ class VolumeProviderCompatApi21 {
         void onSetVolumeTo(int i);
     }
 
-    public static Object a(int i, int i2, int i3, final Delegate delegate) {
+    VolumeProviderCompatApi21() {
+    }
+
+    public static Object createVolumeProvider(int i, int i2, int i3, final Delegate delegate) {
         return new VolumeProvider(i, i2, i3) { // from class: android.support.v4.media.VolumeProviderCompatApi21.1
             @Override // android.media.VolumeProvider
             public void onSetVolumeTo(int i4) {
@@ -25,7 +28,7 @@ class VolumeProviderCompatApi21 {
         };
     }
 
-    public static void c(Object obj, int i) {
+    public static void setCurrentVolume(Object obj, int i) {
         ((VolumeProvider) obj).setCurrentVolume(i);
     }
 }

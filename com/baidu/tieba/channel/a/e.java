@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.r;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.channel.data.h;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.widget.ListView.a<h, a> {
-    private com.baidu.tieba.channel.view.b dcf;
+    private com.baidu.tieba.channel.view.b ctY;
     private boolean mIsHost;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,61 +27,61 @@ public class e extends com.baidu.adp.widget.ListView.a<h, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: af */
+    /* renamed from: ac */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        return new a(LayoutInflater.from(this.mContext).inflate(d.h.channel_home_common_video_item, viewGroup, false));
+        return new a(LayoutInflater.from(this.mContext).inflate(d.i.channel_home_common_video_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, h hVar, a aVar) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h hVar, a aVar) {
         if (hVar != null && aVar != null) {
             a(aVar, hVar, i);
             a(aVar, hVar);
         }
-        return view;
+        return view2;
     }
 
     private void a(a aVar, final h hVar, final int i) {
-        aVar.dcj.setText(hVar.getTitle());
-        aVar.dci.startLoad(hVar.getThumbnailUrl(), 10, false);
-        aVar.dcl.setText(this.mContext.getResources().getString(d.j.channel_home_play_count, am.C(hVar.amp())));
-        aVar.dcm.setText(com.baidu.tieba.channel.c.c.bl(hVar.getCreateTime()));
-        aVar.dcn.setText(am.fR(hVar.getVideoDuration() * 1000));
+        aVar.cuc.setText(hVar.getTitle());
+        aVar.cub.startLoad(hVar.getThumbnailUrl(), 10, false);
+        aVar.cue.setText(this.mContext.getResources().getString(d.k.channel_home_play_count, an.v(hVar.agp())));
+        aVar.cuf.setText(com.baidu.tieba.channel.c.c.bj(hVar.getCreateTime()));
+        aVar.cug.setText(an.cR(hVar.getVideoDuration() * 1000));
         if (this.mIsHost) {
-            aVar.dcw.setVisibility(0);
-            aVar.dcw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.e.1
+            aVar.cuo.setVisibility(0);
+            aVar.cuo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.e.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (e.this.dcf != null) {
-                        e.this.dcf.a(9, view, hVar, i);
+                public void onClick(View view2) {
+                    if (e.this.ctY != null) {
+                        e.this.ctY.a(9, view2, hVar, i);
                     }
                 }
             });
         } else {
-            aVar.dcw.setVisibility(8);
+            aVar.cuo.setVisibility(8);
         }
         aVar.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.e.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (e.this.dcf != null) {
-                    e.this.dcf.a(2, view, hVar, i);
+            public void onClick(View view2) {
+                if (e.this.ctY != null) {
+                    e.this.ctY.a(2, view2, hVar, i);
                 }
             }
         });
     }
 
     private void a(a aVar, h hVar) {
-        aj.r(aVar.dcj, d.C0141d.cp_cont_b);
-        aj.r(aVar.dcl, d.C0141d.cp_cont_c);
-        aj.r(aVar.dcn, d.C0141d.cp_cont_g);
-        aj.r(aVar.dcm, d.C0141d.cp_cont_c);
+        ak.h(aVar.cuc, d.C0126d.cp_cont_b);
+        ak.h(aVar.cue, d.C0126d.cp_cont_c);
+        ak.h(aVar.cug, d.C0126d.cp_cont_g);
+        ak.h(aVar.cuf, d.C0126d.cp_cont_c);
     }
 
     public void a(com.baidu.tieba.channel.view.b bVar) {
-        this.dcf = bVar;
+        this.ctY = bVar;
     }
 
     public void setIsHost(boolean z) {
@@ -89,46 +89,46 @@ public class e extends com.baidu.adp.widget.ListView.a<h, a> {
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends r.a {
-        public TbImageView dci;
-        public TextView dcj;
-        public TextView dcl;
-        public TextView dcm;
-        public TextView dcn;
-        public ImageView dcw;
+    public static class a extends q.a {
+        public TbImageView cub;
+        public TextView cuc;
+        public TextView cue;
+        public TextView cuf;
+        public TextView cug;
+        public ImageView cuo;
         public View mRootView;
 
-        public a(View view) {
-            super(view);
-            bD(view);
+        public a(View view2) {
+            super(view2);
+            ai(view2);
         }
 
-        private void bD(View view) {
-            if (view != null) {
-                this.mRootView = view;
+        private void ai(View view2) {
+            if (view2 != null) {
+                this.mRootView = view2;
                 this.mRootView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.channel.a.e.a.1
                     @Override // android.view.View.OnTouchListener
-                    public boolean onTouch(View view2, MotionEvent motionEvent) {
+                    public boolean onTouch(View view3, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == 0) {
-                            aj.t(a.this.mRootView, d.C0141d.cp_bg_line_c);
+                            ak.j(a.this.mRootView, d.C0126d.cp_bg_line_c);
                             return false;
                         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                            a.this.mRootView.setBackgroundResource(d.C0141d.transparent);
+                            a.this.mRootView.setBackgroundResource(d.C0126d.transparent);
                             return false;
                         } else {
                             return false;
                         }
                     }
                 });
-                this.dci = (TbImageView) view.findViewById(d.g.channel_home_video_cover);
-                this.dcj = (TextView) view.findViewById(d.g.channel_home_video_title);
-                this.dcl = (TextView) view.findViewById(d.g.channel_home_big_video_count);
-                this.dcm = (TextView) view.findViewById(d.g.channel_home_big_video_time);
-                this.dcn = (TextView) view.findViewById(d.g.channel_home_big_video_duration);
-                this.dcw = (ImageView) view.findViewById(d.g.channel_host_common_video_more_btn);
-                this.dci.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.dci.setDefaultResource(d.f.pic_bg_video_frs);
-                this.dci.setDefaultErrorResource(d.f.pic_bg_video_frs);
+                this.cub = (TbImageView) view2.findViewById(d.g.channel_home_video_cover);
+                this.cuc = (TextView) view2.findViewById(d.g.channel_home_video_title);
+                this.cue = (TextView) view2.findViewById(d.g.channel_home_big_video_count);
+                this.cuf = (TextView) view2.findViewById(d.g.channel_home_big_video_time);
+                this.cug = (TextView) view2.findViewById(d.g.channel_home_big_video_duration);
+                this.cuo = (ImageView) view2.findViewById(d.g.channel_host_common_video_more_btn);
+                this.cub.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.cub.setDefaultResource(d.f.pic_bg_video_frs);
+                this.cub.setDefaultErrorResource(d.f.pic_bg_video_frs);
             }
         }
     }

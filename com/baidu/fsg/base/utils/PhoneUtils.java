@@ -23,6 +23,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.provider.ContactsContract;
+import android.support.v7.widget.ActivityChooserView;
 import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
@@ -490,7 +491,7 @@ public final class PhoneUtils {
             if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (wifiManager.isWifiEnabled()) {
-                    int i5 = Integer.MAX_VALUE;
+                    int i5 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                     int i6 = -1;
                     while (i4 < wifiManager.getScanResults().size()) {
                         ScanResult scanResult = wifiManager.getScanResults().get(i4);

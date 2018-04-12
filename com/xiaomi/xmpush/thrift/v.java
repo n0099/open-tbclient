@@ -8,7 +8,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class v implements Serializable, Cloneable, org.apache.thrift.a<v, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> d;
     private static final org.apache.thrift.protocol.j e = new org.apache.thrift.protocol.j("Wifi");
@@ -20,7 +20,7 @@ public class v implements Serializable, Cloneable, org.apache.thrift.a<v, a> {
     public String c;
     private BitSet i = new BitSet(1);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         MAC_ADDRESS(1, "macAddress"),
         SIGNAL_STRENGTH(2, "signalStrength"),

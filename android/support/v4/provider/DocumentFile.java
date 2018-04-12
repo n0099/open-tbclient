@@ -6,7 +6,8 @@ import android.os.Build;
 import java.io.File;
 /* loaded from: classes2.dex */
 public abstract class DocumentFile {
-    private final DocumentFile AJ;
+    static final String TAG = "DocumentFile";
+    private final DocumentFile mParent;
 
     public abstract boolean canRead();
 
@@ -40,36 +41,36 @@ public abstract class DocumentFile {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public DocumentFile(DocumentFile documentFile) {
-        this.AJ = documentFile;
+        this.mParent = documentFile;
     }
 
     public static DocumentFile fromFile(File file) {
-        return new c(null, file);
+        return new RawDocumentFile(null, file);
     }
 
     public static DocumentFile fromSingleUri(Context context, Uri uri) {
         if (Build.VERSION.SDK_INT >= 19) {
-            return new d(null, context, uri);
+            return new SingleDocumentFile(null, context, uri);
         }
         return null;
     }
 
     public static DocumentFile fromTreeUri(Context context, Uri uri) {
         if (Build.VERSION.SDK_INT >= 21) {
-            return new e(null, context, b.e(uri));
+            return new TreeDocumentFile(null, context, DocumentsContractApi21.prepareTreeUri(uri));
         }
         return null;
     }
 
     public static boolean isDocumentUri(Context context, Uri uri) {
         if (Build.VERSION.SDK_INT >= 19) {
-            return a.isDocumentUri(context, uri);
+            return DocumentsContractApi19.isDocumentUri(context, uri);
         }
         return false;
     }
 
     public DocumentFile getParentFile() {
-        return this.AJ;
+        return this.mParent;
     }
 
     public DocumentFile findFile(String str) {

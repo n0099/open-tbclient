@@ -1,121 +1,30 @@
 package com.baidu.tieba.frs;
 
-import android.content.res.Resources;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.r;
-import com.baidu.adp.widget.ListView.r.a;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public abstract class g<T, V extends r.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int dDP;
-    protected static final int dDQ;
-    protected static final int dDR;
-    protected com.baidu.tieba.tbadkCore.m dDS;
-    protected b dDT;
-    protected com.baidu.adp.widget.ListView.k dDU;
-    protected int dDV;
-    protected e dDW;
-    private boolean dDX;
-    private boolean dDY;
-    protected boolean mIsFromCDN;
-    protected TbPageContext<?> mPageContext;
-    protected int mSkinType;
+public class g implements com.baidu.adp.widget.ListView.h {
+    public static final BdUniqueId cWV = BdUniqueId.gen();
+    private int height = 0;
+    private int cWW = 0;
 
-    static {
-        Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        dDP = resources.getDimensionPixelSize(d.e.ds8);
-        dDQ = resources.getDimensionPixelSize(d.e.ds16);
-        dDR = resources.getDimensionPixelSize(d.e.ds1);
+    @Override // com.baidu.adp.widget.ListView.h
+    public BdUniqueId getType() {
+        return cWV;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.mIsFromCDN = false;
-        this.dDY = false;
-        a(tbPageContext, bdUniqueId2);
+    public int getHeight() {
+        return this.height;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
-        this.mIsFromCDN = false;
-        this.dDY = false;
-        a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
+    public void setHeight(int i) {
+        this.height = i;
     }
 
-    public void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        if (tbPageContext != null) {
-            this.mContext = tbPageContext.getPageActivity();
-            this.mPageContext = tbPageContext;
-            this.mPageId = bdUniqueId;
-        }
+    public int apc() {
+        return this.cWW;
     }
 
-    public void release() {
-        this.mContext = null;
-        this.mPageContext = null;
-        this.dDT = null;
-        this.mAdapterItemClickListener = null;
-        this.mAdapterItemLongClickListener = null;
-        if (this.dDW != null) {
-            this.dDW.destory();
-            this.dDW = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.dDU = (com.baidu.adp.widget.ListView.k) viewGroup;
-        return null;
-    }
-
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
-    }
-
-    public void b(com.baidu.tieba.tbadkCore.m mVar) {
-        this.dDS = mVar;
-    }
-
-    public void a(b bVar) {
-        this.dDT = bVar;
-    }
-
-    public void mM(int i) {
-        this.dDV = i;
-    }
-
-    public void a(e eVar) {
-        this.dDW = eVar;
-    }
-
-    public boolean auI() {
-        return this.dDX;
-    }
-
-    public View i(ViewGroup viewGroup, int i) {
-        if (viewGroup == null) {
-            return null;
-        }
-        if (viewGroup instanceof ListView) {
-            ListView listView = (ListView) viewGroup;
-            return listView.getChildAt(i - (listView.getFirstVisiblePosition() - listView.getHeaderViewsCount()));
-        } else if (viewGroup instanceof com.baidu.adp.widget.ListView.h) {
-            com.baidu.adp.widget.ListView.h hVar = (com.baidu.adp.widget.ListView.h) viewGroup;
-            return hVar.findViewHolderForAdapterPosition(i - (hVar.getFirstVisiblePosition() - hVar.getHeaderViewsCount())).itemView;
-        } else if (!(viewGroup instanceof RecyclerView)) {
-            return null;
-        } else {
-            return ((RecyclerView) viewGroup).findViewHolderForAdapterPosition(i).itemView;
-        }
+    public void ka(int i) {
+        this.cWW = i;
     }
 }

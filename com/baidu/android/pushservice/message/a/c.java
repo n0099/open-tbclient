@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class c {
     protected Context a;
 

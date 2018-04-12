@@ -25,6 +25,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_FROM_MAINTAB = "from_maintab";
     public static final String KEY_FROM_MARK = "from_mark";
     public static final String KEY_FROM_NEWS = "game_news";
+    public static final String KEY_FROM_PERSONALIZE = "from_personalize";
     public static final String KEY_FROM_SMART_FRS = "from_smart_frs";
     public static final String KEY_FROM_TIEBA_KUANG = "from_tieba_kuang";
     public static final String KEY_GOD_REPLY_ID = "god_reply_id";
@@ -149,6 +150,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("thread_id", str);
             intent.putExtra("praise_data", i);
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             addMoreIntentExtraParam();
         }
         return this;
@@ -254,6 +256,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("is_good", i);
         intent.putExtra("is_top", z3);
         intent.putExtra("is_from_my_god_config", true);
+        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         return createHistoryCfg(str, str2, z, z2, str3);
     }
 
@@ -274,12 +277,12 @@ public class PbActivityConfig extends IntentConfig {
         if (bdVar != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", bdVar.getTid());
-            if (bdVar.AA() != null && !StringUtils.isNull(bdVar.AA().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, bdVar.AA().getId());
+            if (bdVar.tc() != null && !StringUtils.isNull(bdVar.tc().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, bdVar.tc().getId());
             }
-            intent.putExtra("is_good", bdVar.zj());
-            intent.putExtra("is_top", bdVar.zi());
-            intent.putExtra("thread_time", bdVar.zh());
+            intent.putExtra("is_good", bdVar.rM());
+            intent.putExtra("is_top", bdVar.rL());
+            intent.putExtra("thread_time", bdVar.rK());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -289,10 +292,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bdVar.zc() == null ? 0L : bdVar.zc().getNum()));
-            if (bdVar.zn() != null && bdVar.zn().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bdVar.zn().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bdVar.zn().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bdVar.rF() == null ? 0L : bdVar.rF().getNum()));
+            if (bdVar.rQ() != null && bdVar.rQ().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bdVar.rQ().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bdVar.rQ().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -492,5 +495,13 @@ public class PbActivityConfig extends IntentConfig {
         if (intent != null) {
             intent.putExtra(KEY_PRE_LOAD, str);
         }
+    }
+
+    public PbActivityConfig setSquence(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("squence", z);
+        }
+        return this;
     }
 }

@@ -6,60 +6,60 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a hcf;
-    private final int hcg = 10;
-    private final int hch = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
-    public String hci = null;
-    public boolean aYC = false;
+    private com.baidu.adp.lib.stats.a gxC;
+    private final int gxD = 10;
+    private final int gxE = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+    public String gxF = null;
+    public boolean akf = false;
 
     public b(String str) {
-        Z(str, false);
+        U(str, false);
     }
 
-    public void Z(String str, boolean z) {
-        this.hci = str;
-        this.aYC = z;
-        this.hcf = new com.baidu.adp.lib.stats.a("dbg");
-        c.j(str, getNetType(), z);
+    public void U(String str, boolean z) {
+        this.gxF = str;
+        this.akf = z;
+        this.gxC = new com.baidu.adp.lib.stats.a("dbg");
+        c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.hcf.nw();
+        this.gxC.fA();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bxq;
-        if (this.hcf != null && (bxq = bxq()) != null) {
+        e bsq;
+        if (this.gxC != null && (bsq = bsq()) != null) {
             if (z) {
-                if (bxq.hcn != null) {
-                    bxq.hcn.num++;
+                if (bsq.gxK != null) {
+                    bsq.gxK.num++;
                     if (z2) {
-                        bxq.hcn.hck += j2;
-                        bxq.hcn.size += j;
+                        bsq.gxK.gxH += j2;
+                        bsq.gxK.size += j;
                     } else {
-                        bxq.hcn.hcl++;
+                        bsq.gxK.gxI++;
                     }
                 } else {
                     return;
                 }
-            } else if (bxq.hco != null) {
-                bxq.hco.num++;
+            } else if (bsq.gxL != null) {
+                bsq.gxL.num++;
                 if (z2) {
-                    bxq.hco.hck += j3;
-                    bxq.hco.size += j;
+                    bsq.gxL.gxH += j3;
+                    bsq.gxL.size += j;
                     j2 = j3;
                 } else {
-                    bxq.hco.hcl++;
+                    bsq.gxL.gxI++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.hcf = null;
+            this.gxC = null;
             if (z2) {
-                c.a(bxq, 10);
+                c.a(bsq, 10);
             }
-            if (this.hci == "frsStat") {
+            if (this.gxF == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append(SocialConstants.PARAM_ACT, "frs");
@@ -76,34 +76,34 @@ public class b {
     }
 
     public void destory() {
-        e bxq;
-        if (this.hcf != null && (bxq = bxq()) != null && bxq.hcp != null) {
-            long nx = this.hcf.nx();
-            if (nx > 3000) {
-                d dVar = bxq.hcp;
-                dVar.hck = nx + dVar.hck;
-                bxq.hcp.num++;
-                c.a(bxq, 10);
+        e bsq;
+        if (this.gxC != null && (bsq = bsq()) != null && bsq.gxM != null) {
+            long fB = this.gxC.fB();
+            if (fB > 3000) {
+                d dVar = bsq.gxM;
+                dVar.gxH = fB + dVar.gxH;
+                bsq.gxM.num++;
+                c.a(bsq, 10);
             }
         }
     }
 
-    private e bxq() {
-        return c.k(this.hci, getNetType(), this.aYC);
+    private e bsq() {
+        return c.l(this.gxF, getNetType(), this.akf);
     }
 
     private String getNetType() {
-        int oP = j.oP();
-        if (oP == 0) {
+        int gV = j.gV();
+        if (gV == 0) {
             return "N";
         }
-        if (oP == 1) {
+        if (gV == 1) {
             return "WIFI";
         }
-        if (oP == 3) {
+        if (gV == 3) {
             return "3G";
         }
-        if (oP != 2) {
+        if (gV != 2) {
             return "N";
         }
         return "2G";

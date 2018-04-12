@@ -4,6 +4,9 @@ import android.graphics.Rect;
 import android.view.WindowInsets;
 /* loaded from: classes2.dex */
 class WindowInsetsCompatApi21 {
+    WindowInsetsCompatApi21() {
+    }
+
     public static Object consumeStableInsets(Object obj) {
         return ((WindowInsets) obj).consumeStableInsets();
     }

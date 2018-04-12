@@ -18,7 +18,7 @@ public final class ServiceCompat {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface StopForegroundFlags {
     }

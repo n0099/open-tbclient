@@ -10,7 +10,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static void a(Context context) {
         a(context, (ArrayList) com.baidu.android.pushservice.b.b.a(context).a.clone());

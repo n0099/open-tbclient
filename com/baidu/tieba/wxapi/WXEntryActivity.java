@@ -26,61 +26,61 @@ import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
-    private FrameLayout dRn;
-    private SapiWebView fDV;
-    private IWXAPI hNV;
-    private boolean hNW;
-    private Intent hNX;
+    private FrameLayout dlz;
+    private SapiWebView eYG;
+    private IWXAPI hjI;
+    private boolean hjJ;
+    private Intent hjK;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         MessageManager.getInstance().runTask(2921332, (Class) null);
-        setContentView(d.h.layout_sapi_webview_login);
+        setContentView(d.i.layout_sapi_webview_login);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.sapi_login_navi);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getResources().getString(d.j.login));
-        this.dRn = (FrameLayout) findViewById(d.g.webview_container);
-        this.fDV = new SapiWebView(getPageContext().getPageActivity());
-        this.dRn.removeAllViews();
-        this.dRn.addView(this.fDV);
-        com.baidu.tbadk.core.a.d.addCustomView(getPageContext().getPageActivity(), this.fDV);
-        this.fDV.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.1
+        this.mNavigationBar.setTitleText(getResources().getString(d.k.login));
+        this.dlz = (FrameLayout) findViewById(d.g.webview_container);
+        this.eYG = new SapiWebView(getPageContext().getPageActivity());
+        this.dlz.removeAllViews();
+        this.dlz.addView(this.eYG);
+        com.baidu.tbadk.core.a.d.addCustomView(getPageContext().getPageActivity(), this.eYG);
+        this.eYG.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
                 WXEntryActivity.this.closeActivity();
             }
         });
-        this.fDV.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.2
+        this.eYG.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
                 WXEntryActivity.this.closeActivity();
             }
         });
-        this.fDV.setWeixinHandler(new SapiWebView.WeixinHandler() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.3
+        this.eYG.setWeixinHandler(new SapiWebView.WeixinHandler() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.3
             @Override // com.baidu.sapi2.SapiWebView.WeixinHandler
             public void handleNotInstall() {
-                WXEntryActivity.this.showToast(d.j.wxentry_not_install);
+                WXEntryActivity.this.showToast(d.k.wxentry_not_install);
                 WXEntryActivity.this.closeActivity();
             }
 
             @Override // com.baidu.sapi2.SapiWebView.WeixinHandler
             public void handleServerError(String str) {
                 if (TextUtils.isEmpty(str)) {
-                    str = WXEntryActivity.this.getString(d.j.error_system);
+                    str = WXEntryActivity.this.getString(d.k.error_system);
                 }
                 WXEntryActivity.this.showToast(str);
                 WXEntryActivity.this.closeActivity();
             }
         });
-        this.fDV.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.4
+        this.eYG.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.4
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onSuccess() {
                 bc bcVar = new bc();
-                bcVar.aOi = 0;
+                bcVar.ZF = 0;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001338, bcVar));
                 WXEntryActivity.this.closeActivity();
             }
@@ -88,17 +88,17 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onFailed(int i, String str) {
                 bc bcVar = new bc();
-                bcVar.aOi = 2;
+                bcVar.ZF = 2;
                 bcVar.errorCode = i;
                 bcVar.errorMsg = str;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001338, bcVar));
                 WXEntryActivity.this.closeActivity();
             }
         });
-        this.hNV = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
-        this.hNX = getIntent();
-        if (this.hNX != null) {
-            this.hNV.handleIntent(getIntent(), this);
+        this.hjI = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
+        this.hjK = getIntent();
+        if (this.hjK != null) {
+            this.hjI.handleIntent(getIntent(), this);
         }
     }
 
@@ -106,8 +106,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!this.hNW) {
-            this.fDV.loadWeixinSSOLogin();
+        if (!this.hjJ) {
+            this.eYG.loadWeixinSSOLogin();
         }
     }
 
@@ -115,9 +115,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.hNX = intent;
-        if (this.hNX != null) {
-            this.hNV.handleIntent(intent, this);
+        this.hjK = intent;
+        if (this.hjK != null) {
+            this.hjI.handleIntent(intent, this);
         }
     }
 
@@ -137,8 +137,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
-        if (this.hNX != null && this.hNV != null) {
-            this.hNV.handleIntent(this.hNX, this);
+        if (this.hjK != null && this.hjI != null) {
+            this.hjI.handleIntent(this.hjK, this);
         }
         closeActivity();
     }
@@ -147,13 +147,13 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     public void onResp(BaseResp baseResp) {
         if (baseResp != null) {
             if (1 == baseResp.getType()) {
-                this.hNW = true;
+                this.hjJ = true;
                 if (baseResp.errCode == 0) {
                     if (baseResp instanceof SendAuth.Resp) {
                         String str = ((SendAuth.Resp) baseResp).state;
                         String str2 = ((SendAuth.Resp) baseResp).code;
-                        if (this.fDV != null) {
-                            this.fDV.weixinSSOLogin(str2, str);
+                        if (this.eYG != null) {
+                            this.eYG.weixinSSOLogin(str2, str);
                             return;
                         }
                         return;
@@ -182,7 +182,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                 } else {
                     intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);
                 }
-                this.hNW = true;
+                this.hjJ = true;
                 BdBaseApplication.getInst().sendBroadcast(intent);
                 closeActivity();
             }
@@ -192,31 +192,31 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.dRn != null) {
-            this.dRn.removeAllViews();
+        if (this.dlz != null) {
+            this.dlz.removeAllViews();
         }
-        if (this.fDV != null) {
-            this.fDV.setAuthorizationListener(null);
-            this.fDV.setSocialLoginHandler(null);
-            this.fDV.setWeixinHandler(null);
-            this.fDV.setOnBackCallback(null);
-            this.fDV.setOnFinishCallback(null);
-            this.fDV.getSettings().setBuiltInZoomControls(true);
-            this.fDV.setVisibility(8);
-            e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.5
+        if (this.eYG != null) {
+            this.eYG.setAuthorizationListener(null);
+            this.eYG.setSocialLoginHandler(null);
+            this.eYG.setWeixinHandler(null);
+            this.eYG.setOnBackCallback(null);
+            this.eYG.setOnFinishCallback(null);
+            this.eYG.getSettings().setBuiltInZoomControls(true);
+            this.eYG.setVisibility(8);
+            e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.5
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (WXEntryActivity.this.fDV != null) {
-                            WXEntryActivity.this.fDV.destroy();
-                            WXEntryActivity.this.fDV = null;
+                        if (WXEntryActivity.this.eYG != null) {
+                            WXEntryActivity.this.eYG.destroy();
+                            WXEntryActivity.this.eYG = null;
                         }
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
                 }
             }, ViewConfiguration.getZoomControlsTimeout() + 1000);
-            e.ns().removeCallbacksAndMessages(null);
+            e.fw().removeCallbacksAndMessages(null);
         }
         super.onDestroy();
     }

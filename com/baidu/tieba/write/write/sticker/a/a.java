@@ -1,11 +1,13 @@
 package com.baidu.tieba.write.write.sticker.a;
-/* loaded from: classes2.dex */
+
+import com.baidu.tieba.write.write.sticker.view.StickerView;
+/* loaded from: classes3.dex */
 public interface a {
-    void a(com.baidu.tieba.write.write.sticker.view.a aVar);
+    void a(StickerView stickerView);
 
-    void a(com.baidu.tieba.write.write.sticker.view.a aVar, boolean z);
+    void a(StickerView stickerView, boolean z);
 
-    void b(com.baidu.tieba.write.write.sticker.view.a aVar);
+    void b(StickerView stickerView);
 
-    void bJI();
+    void bEv();
 }

@@ -1,13 +1,14 @@
 package com.baidu.tbadk.editortools;
+
+import android.content.Context;
 /* loaded from: classes.dex */
-public abstract class f {
-    private i brZ;
-
-    public f(i iVar) {
-        this.brZ = iVar;
-    }
-
-    public i Lc() {
-        return this.brZ;
+public class f {
+    public static g a(Context context, k kVar, int i) {
+        switch (i) {
+            case 1:
+                return new BLauncher(context, kVar.aDz, kVar.id);
+            default:
+                return new DLauncher(context, kVar.aDz, kVar.name, kVar.id);
+        }
     }
 }

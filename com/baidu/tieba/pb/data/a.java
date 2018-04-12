@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import tbclient.PbPage.GodCard;
 /* loaded from: classes2.dex */
 public class a extends PostData {
-    public static final BdUniqueId fHf = BdUniqueId.gen();
-    private String aKW;
+    public static final BdUniqueId fbK = BdUniqueId.gen();
+    private String Wq;
     private String buttonText;
-    private String fHg;
-    private int fHh;
+    private String fbL;
+    private int fbM;
     private String picUrl;
     private String portrait;
     private String text;
@@ -19,12 +19,12 @@ public class a extends PostData {
         if (godCard != null) {
             this.userName = godCard.user_name;
             this.portrait = godCard.portrait;
-            this.fHg = godCard.time_ex;
+            this.fbL = godCard.time_ex;
             this.text = godCard.text;
             this.picUrl = godCard.pic_url;
             this.buttonText = godCard.button_text;
-            this.aKW = godCard.button_url;
-            this.fHh = godCard.show_floor.intValue();
+            this.Wq = godCard.button_url;
+            this.fbM = godCard.show_floor.intValue();
         }
     }
 
@@ -37,8 +37,8 @@ public class a extends PostData {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData
-    public String bam() {
-        return this.fHg;
+    public String aVl() {
+        return this.fbL;
     }
 
     public String getText() {
@@ -49,20 +49,20 @@ public class a extends PostData {
         return this.picUrl;
     }
 
-    public String ban() {
+    public String aVm() {
         return this.buttonText;
     }
 
-    public String bao() {
-        return this.aKW;
+    public String aVn() {
+        return this.Wq;
     }
 
-    public int bap() {
-        return this.fHh;
+    public int aVo() {
+        return this.fbM;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return fHf;
+        return fbK;
     }
 }

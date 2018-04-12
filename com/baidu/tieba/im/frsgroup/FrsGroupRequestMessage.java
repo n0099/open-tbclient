@@ -32,7 +32,7 @@ public class FrsGroupRequestMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     protected Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.forumId = Integer.valueOf(com.baidu.adp.lib.g.b.h(getForumId(), 0));
+        builder.forumId = Integer.valueOf(com.baidu.adp.lib.g.b.g(getForumId(), 0));
         builder.offset = Integer.valueOf(this.offset);
         builder.rn = Integer.valueOf(this.rn);
         builder.type = Integer.valueOf(this.type);

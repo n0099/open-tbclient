@@ -10,21 +10,24 @@ import android.view.WindowInsets;
 class DrawerLayoutCompatApi21 {
     private static final int[] THEME_ATTRS = {16843828};
 
-    public static void configureApplyInsets(View view) {
-        if (view instanceof DrawerLayoutImpl) {
-            view.setOnApplyWindowInsetsListener(new InsetsListener());
-            view.setSystemUiVisibility(1280);
+    DrawerLayoutCompatApi21() {
+    }
+
+    public static void configureApplyInsets(View view2) {
+        if (view2 instanceof DrawerLayoutImpl) {
+            view2.setOnApplyWindowInsetsListener(new InsetsListener());
+            view2.setSystemUiVisibility(1280);
         }
     }
 
-    public static void dispatchChildInsets(View view, Object obj, int i) {
+    public static void dispatchChildInsets(View view2, Object obj, int i) {
         WindowInsets windowInsets = (WindowInsets) obj;
         if (i == 3) {
             windowInsets = windowInsets.replaceSystemWindowInsets(windowInsets.getSystemWindowInsetLeft(), windowInsets.getSystemWindowInsetTop(), 0, windowInsets.getSystemWindowInsetBottom());
         } else if (i == 5) {
             windowInsets = windowInsets.replaceSystemWindowInsets(0, windowInsets.getSystemWindowInsetTop(), windowInsets.getSystemWindowInsetRight(), windowInsets.getSystemWindowInsetBottom());
         }
-        view.dispatchApplyWindowInsets(windowInsets);
+        view2.dispatchApplyWindowInsets(windowInsets);
     }
 
     public static void applyMarginInsets(ViewGroup.MarginLayoutParams marginLayoutParams, Object obj, int i) {
@@ -62,8 +65,8 @@ class DrawerLayoutCompatApi21 {
         }
 
         @Override // android.view.View.OnApplyWindowInsetsListener
-        public WindowInsets onApplyWindowInsets(View view, WindowInsets windowInsets) {
-            ((DrawerLayoutImpl) view).setChildInsets(windowInsets, windowInsets.getSystemWindowInsetTop() > 0);
+        public WindowInsets onApplyWindowInsets(View view2, WindowInsets windowInsets) {
+            ((DrawerLayoutImpl) view2).setChildInsets(windowInsets, windowInsets.getSystemWindowInsetTop() > 0);
             return windowInsets.consumeSystemWindowInsets();
         }
     }

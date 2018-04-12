@@ -1,9 +1,27 @@
 package com.baidu.tbadk.core.hybrid;
 
-import org.json.JSONObject;
+import android.content.Context;
+import android.webkit.WebView;
 /* loaded from: classes.dex */
-public interface l {
-    void a(n nVar, JSONObject jSONObject);
+public abstract class l {
+    protected final WebView aeE;
+    protected final b aeF;
 
-    void b(int i, Throwable th);
+    public abstract void a(m mVar);
+
+    public abstract void a(String str, d dVar);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public l(WebView webView, b bVar) {
+        this.aeE = webView;
+        this.aeF = bVar;
+    }
+
+    public final Context getContext() {
+        return this.aeE.getContext();
+    }
+
+    public final void a(n nVar) {
+        a(nVar.pg(), nVar);
+    }
 }

@@ -8,18 +8,19 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
-    private boolean auh;
-    private int aui;
-    private float auj;
-    private final f auk;
+    private boolean ET;
+    private int EU;
+    private float EV;
+    private final f EW;
     private int mCount;
+    private Drawable mDrawable;
     private float mPosition;
     private Drawable mSelector;
-    private Drawable wy;
 
     public IndicatorView(Context context) {
         this(context, null, 0);
@@ -31,43 +32,43 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.auk = new a();
+        this.EW = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
-        this.aui = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
+        this.EU = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.mCount = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
-        this.wy = obtainStyledAttributes.getDrawable(R.styleable.IndicatorView_drawable);
-        if (this.wy != null) {
-            this.wy.setBounds(0, 0, this.wy.getIntrinsicWidth(), this.wy.getIntrinsicHeight());
+        this.mDrawable = obtainStyledAttributes.getDrawable(R.styleable.IndicatorView_drawable);
+        if (this.mDrawable != null) {
+            this.mDrawable.setBounds(0, 0, this.mDrawable.getIntrinsicWidth(), this.mDrawable.getIntrinsicHeight());
         }
         this.mSelector = obtainStyledAttributes.getDrawable(R.styleable.IndicatorView_selector);
         if (this.mSelector != null) {
             this.mSelector.setBounds(0, 0, this.mSelector.getIntrinsicWidth(), this.mSelector.getIntrinsicHeight());
         }
-        this.auh = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
+        this.ET = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.auk.measure(i, i2);
+        this.EW.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.auk.draw(canvas);
+        this.EW.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
-        this.auh = z;
+        this.ET = z;
     }
 
     public void setDrawable(Drawable drawable) {
-        this.wy = drawable;
+        this.mDrawable = drawable;
         requestLayout();
         invalidate();
     }
 
     public Drawable getDrawable() {
-        return this.wy;
+        return this.mDrawable;
     }
 
     public void setSelector(Drawable drawable) {
@@ -81,13 +82,13 @@ public class IndicatorView extends View {
     }
 
     public void setSpacing(int i) {
-        this.aui = i;
+        this.EU = i;
         requestLayout();
         invalidate();
     }
 
     public int getSpacing() {
-        return this.aui;
+        return this.EU;
     }
 
     public int getCount() {
@@ -112,69 +113,69 @@ public class IndicatorView extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements f {
-        private final int aul;
-        private long aum;
-        private long aun;
-        private int auo;
-        private float aup;
-        private boolean auq;
-        private final HandlerC0026a aur = new HandlerC0026a();
+        private final int EX;
+        private long EY;
+        private long EZ;
+        private int Fa;
+        private float Fb;
+        private boolean Fc;
+        private final HandlerC0016a Fd = new HandlerC0016a();
 
         a() {
-            this.aul = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+            this.EX = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
         @Override // com.baidu.adp.widget.f
         public void measure(int i, int i2) {
-            if (IndicatorView.this.wy == null || IndicatorView.this.mSelector == null || IndicatorView.this.mCount == 0) {
+            if (IndicatorView.this.mDrawable == null || IndicatorView.this.mSelector == null || IndicatorView.this.mCount == 0) {
                 IndicatorView.this.setWillNotDraw(true);
                 IndicatorView.this.setMeasuredDimension(0, 0);
                 return;
             }
             IndicatorView.this.setWillNotDraw(false);
-            IndicatorView.this.setMeasuredDimension(dD(i), dE(i2));
+            IndicatorView.this.setMeasuredDimension(aE(i), aF(i2));
         }
 
-        private int dD(int i) {
+        private int aE(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
-            int max = (IndicatorView.this.aui * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.wy.getIntrinsicWidth(), IndicatorView.this.mSelector.getIntrinsicWidth()) * IndicatorView.this.mCount);
+            int max = (IndicatorView.this.EU * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.mDrawable.getIntrinsicWidth(), IndicatorView.this.mSelector.getIntrinsicWidth()) * IndicatorView.this.mCount);
             switch (i2) {
                 case Integer.MIN_VALUE:
                     int min = Math.min(i3, max);
-                    IndicatorView.this.wy.setBounds(0, 0, IndicatorView.this.wy.getIntrinsicWidth(), IndicatorView.this.wy.getBounds().height());
+                    IndicatorView.this.mDrawable.setBounds(0, 0, IndicatorView.this.mDrawable.getIntrinsicWidth(), IndicatorView.this.mDrawable.getBounds().height());
                     IndicatorView.this.mSelector.setBounds(0, 0, IndicatorView.this.mSelector.getIntrinsicWidth(), IndicatorView.this.mSelector.getBounds().height());
                     return min;
                 case 0:
-                    IndicatorView.this.wy.setBounds(0, 0, IndicatorView.this.wy.getIntrinsicWidth(), 0);
+                    IndicatorView.this.mDrawable.setBounds(0, 0, IndicatorView.this.mDrawable.getIntrinsicWidth(), 0);
                     IndicatorView.this.mSelector.setBounds(0, 0, IndicatorView.this.mSelector.getIntrinsicWidth(), 0);
                     return max;
                 case 1073741824:
-                    int i4 = (int) ((i3 - (IndicatorView.this.aui * (IndicatorView.this.mCount - 1))) / IndicatorView.this.mCount);
+                    int i4 = (int) ((i3 - (IndicatorView.this.EU * (IndicatorView.this.mCount - 1))) / IndicatorView.this.mCount);
                     IndicatorView.this.mSelector.setBounds(0, 0, i4, IndicatorView.this.mSelector.getBounds().height());
-                    IndicatorView.this.wy.setBounds(0, 0, i4, IndicatorView.this.wy.getBounds().height());
+                    IndicatorView.this.mDrawable.setBounds(0, 0, i4, IndicatorView.this.mDrawable.getBounds().height());
                     return i3;
                 default:
                     return i3;
             }
         }
 
-        private int dE(int i) {
+        private int aF(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
-            int max = Math.max(IndicatorView.this.wy.getIntrinsicHeight(), IndicatorView.this.mSelector.getIntrinsicHeight());
+            int max = Math.max(IndicatorView.this.mDrawable.getIntrinsicHeight(), IndicatorView.this.mSelector.getIntrinsicHeight());
             switch (i2) {
                 case Integer.MIN_VALUE:
                     int min = Math.min(i3, max);
-                    IndicatorView.this.wy.setBounds(0, 0, IndicatorView.this.wy.getBounds().width(), min);
+                    IndicatorView.this.mDrawable.setBounds(0, 0, IndicatorView.this.mDrawable.getBounds().width(), min);
                     IndicatorView.this.mSelector.setBounds(0, 0, IndicatorView.this.mSelector.getBounds().width(), min);
                     return min;
                 case 0:
-                    IndicatorView.this.wy.setBounds(0, 0, IndicatorView.this.wy.getBounds().width(), max);
+                    IndicatorView.this.mDrawable.setBounds(0, 0, IndicatorView.this.mDrawable.getBounds().width(), max);
                     IndicatorView.this.mSelector.setBounds(0, 0, IndicatorView.this.mSelector.getBounds().width(), max);
                     return max;
                 case 1073741824:
-                    IndicatorView.this.wy.setBounds(0, 0, IndicatorView.this.wy.getBounds().width(), i3);
+                    IndicatorView.this.mDrawable.setBounds(0, 0, IndicatorView.this.mDrawable.getBounds().width(), i3);
                     IndicatorView.this.mSelector.setBounds(0, 0, IndicatorView.this.mSelector.getBounds().width(), i3);
                     return i3;
                 default:
@@ -187,39 +188,72 @@ public class IndicatorView extends View {
             int save = canvas.save();
             for (int i = 0; i < IndicatorView.this.mCount; i++) {
                 if (i != 0) {
-                    canvas.translate(IndicatorView.this.wy.getBounds().width() + IndicatorView.this.aui, 0.0f);
+                    canvas.translate(IndicatorView.this.mDrawable.getBounds().width() + IndicatorView.this.EU, 0.0f);
                 }
-                IndicatorView.this.wy.draw(canvas);
+                IndicatorView.this.mDrawable.draw(canvas);
             }
             canvas.restoreToCount(save);
             int save2 = canvas.save();
-            canvas.translate((IndicatorView.this.mSelector.getBounds().width() + IndicatorView.this.aui) * IndicatorView.this.mPosition, 0.0f);
+            canvas.translate((IndicatorView.this.mSelector.getBounds().width() + IndicatorView.this.EU) * IndicatorView.this.mPosition, 0.0f);
             IndicatorView.this.mSelector.draw(canvas);
             canvas.restoreToCount(save2);
+        }
+
+        @Override // com.baidu.adp.widget.f
+        public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+            return false;
+        }
+
+        @Override // com.baidu.adp.widget.f
+        public boolean k(MotionEvent motionEvent) {
+            return false;
+        }
+
+        @Override // com.baidu.adp.widget.f
+        public boolean l(MotionEvent motionEvent) {
+            return false;
+        }
+
+        @Override // com.baidu.adp.widget.f
+        public void aG(int i) {
+            if (IndicatorView.this.EV <= IndicatorView.this.mPosition) {
+                if (IndicatorView.this.EV < IndicatorView.this.mPosition) {
+                    this.Fa = -this.EX;
+                } else {
+                    return;
+                }
+            } else {
+                this.Fa = this.EX;
+            }
+            this.Fb = IndicatorView.this.mPosition;
+            this.EY = SystemClock.uptimeMillis();
+            this.EZ = this.EY + 16;
+            this.Fd.removeMessages(1000);
+            this.Fd.sendEmptyMessageAtTime(1000, this.EZ);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void compute() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.aup = ((((float) (uptimeMillis - this.aum)) / 1000.0f) * this.auo) + this.aup;
-            this.aum = uptimeMillis;
-            this.aun = this.aum + 16;
-            if (this.auo < 0) {
-                if (this.aup < IndicatorView.this.auj) {
-                    IndicatorView.this.mPosition = IndicatorView.this.auj;
-                    this.auq = false;
+            this.Fb = ((((float) (uptimeMillis - this.EY)) / 1000.0f) * this.Fa) + this.Fb;
+            this.EY = uptimeMillis;
+            this.EZ = this.EY + 16;
+            if (this.Fa < 0) {
+                if (this.Fb < IndicatorView.this.EV) {
+                    IndicatorView.this.mPosition = IndicatorView.this.EV;
+                    this.Fc = false;
                 } else {
-                    IndicatorView.this.mPosition = this.aup;
-                    this.aur.removeMessages(1000);
-                    this.aur.sendEmptyMessageAtTime(1000, this.aun);
+                    IndicatorView.this.mPosition = this.Fb;
+                    this.Fd.removeMessages(1000);
+                    this.Fd.sendEmptyMessageAtTime(1000, this.EZ);
                 }
-            } else if (this.aup > IndicatorView.this.auj) {
-                IndicatorView.this.mPosition = IndicatorView.this.auj;
-                this.auq = false;
+            } else if (this.Fb > IndicatorView.this.EV) {
+                IndicatorView.this.mPosition = IndicatorView.this.EV;
+                this.Fc = false;
             } else {
-                IndicatorView.this.mPosition = this.aup;
-                this.aur.removeMessages(1000);
-                this.aur.sendEmptyMessageAtTime(1000, this.aun);
+                IndicatorView.this.mPosition = this.Fb;
+                this.Fd.removeMessages(1000);
+                this.Fd.sendEmptyMessageAtTime(1000, this.EZ);
             }
             IndicatorView.this.invalidate();
         }
@@ -227,8 +261,8 @@ public class IndicatorView extends View {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.adp.widget.IndicatorView$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class HandlerC0026a extends Handler {
-            private HandlerC0026a() {
+        public class HandlerC0016a extends Handler {
+            private HandlerC0016a() {
             }
 
             @Override // android.os.Handler

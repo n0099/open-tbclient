@@ -26,20 +26,20 @@ import com.baidu.tieba.mainentrance.searchSuggestList.SearchListSocketResMessage
 import java.util.List;
 /* loaded from: classes3.dex */
 public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivity> implements HotForumModel.a {
-    private HotForumModel fhs;
-    private com.baidu.tieba.mainentrance.a.e fhv;
-    private HotSearchInfoData fhy;
+    private HotForumModel eBX;
+    private com.baidu.tieba.mainentrance.a.e eCa;
+    private HotSearchInfoData eCd;
     private HotSearchInfoData mHotSearchInfo;
-    private boolean fht = false;
-    private boolean fhu = false;
-    private com.baidu.adp.framework.listener.a fhw = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_LIST, 309438) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.1
+    private boolean eBY = false;
+    private boolean eBZ = false;
+    private com.baidu.adp.framework.listener.a eCb = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_LIST, 309438) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if ((responsedMessage instanceof SearchListHttpResMessage) || (responsedMessage instanceof SearchListSocketResMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (!NewSquareSearchActivity.this.fht) {
-                        NewSquareSearchActivity.this.showToast(NewSquareSearchActivity.this.getActivity().getString(d.j.neterror));
-                        NewSquareSearchActivity.this.fht = true;
+                    if (!NewSquareSearchActivity.this.eBY) {
+                        NewSquareSearchActivity.this.showToast(NewSquareSearchActivity.this.getActivity().getString(d.k.neterror));
+                        NewSquareSearchActivity.this.eBY = true;
                         return;
                     }
                     return;
@@ -50,16 +50,16 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 } else if (responsedMessage instanceof SearchListSocketResMessage) {
                     list = ((SearchListSocketResMessage) responsedMessage).suggests;
                 }
-                NewSquareSearchActivity.this.fhv.cA(list);
+                NewSquareSearchActivity.this.eCa.ct(list);
             }
         }
     };
-    private CustomMessageListener fhx = new CustomMessageListener(2001608) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.2
+    private CustomMessageListener eCc = new CustomMessageListener(2001608) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                NewSquareSearchActivity.this.oF(customResponsedMessage.getData().toString());
+                NewSquareSearchActivity.this.oK(customResponsedMessage.getData().toString());
             }
         }
     };
@@ -70,17 +70,17 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         super.onCreate(bundle);
         initData();
         getWindow().setSoftInputMode(4);
-        registerListener(this.fhw);
-        registerListener(this.fhx);
-        this.fhv = new com.baidu.tieba.mainentrance.a.e(this);
-        this.fhs = new HotForumModel(getPageContext(), this);
-        this.fhs.aRr();
-        aRu();
+        registerListener(this.eCb);
+        registerListener(this.eCc);
+        this.eCa = new com.baidu.tieba.mainentrance.a.e(this);
+        this.eBX = new HotForumModel(getPageContext(), this);
+        this.eBX.aMn();
+        aMq();
     }
 
     private void initData() {
         if (getIntent() != null) {
-            this.fhu = getIntent().getBooleanExtra(SquareSearchActivityConfig.IS_FROM_ENTER_FROUM, false);
+            this.eBZ = getIntent().getBooleanExtra(SquareSearchActivityConfig.IS_FROM_ENTER_FROUM, false);
         }
     }
 
@@ -88,30 +88,30 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fhv != null) {
-            this.fhv.onDestroy();
+        if (this.eCa != null) {
+            this.eCa.onDestroy();
         }
     }
 
-    private void aRu() {
-        this.fhy = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("hot_search_info", ""), HotSearchInfoData.class);
-        if (this.fhy != null) {
-            this.mHotSearchInfo = this.fhy;
+    private void aMq() {
+        this.eCd = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("hot_search_info", ""), HotSearchInfoData.class);
+        if (this.eCd != null) {
+            this.mHotSearchInfo = this.eCd;
         }
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
-    public void oD(String str) {
+    public void oI(String str) {
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
     public void a(List<b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         a(hotSearchInfoData);
-        this.fhv.b(this.mHotSearchInfo);
+        this.eCa.b(this.mHotSearchInfo);
     }
 
     private void a(HotSearchInfoData hotSearchInfoData) {
-        if (!this.fhu && hotSearchInfoData != null) {
+        if (!this.eBZ && hotSearchInfoData != null) {
             this.mHotSearchInfo = hotSearchInfoData;
         }
     }
@@ -119,15 +119,15 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.fhv.onChangeSkinType(i);
+        this.eCa.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            BaseWebView aSm = this.fhv.aSm();
-            if (i == 4 && aSm != null && aSm.canGoBack()) {
-                aSm.goBack();
+            BaseWebView aNi = this.eCa.aNi();
+            if (i == 4 && aNi != null && aNi.canGoBack()) {
+                aNi.goBack();
                 return true;
             }
             closeActivity();
@@ -145,9 +145,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            com.baidu.tbadk.core.e.b.v(getPageContext().getPageActivity(), 1);
+            com.baidu.tbadk.core.e.b.g(getPageContext().getPageActivity(), 1);
         } else {
-            com.baidu.tbadk.core.e.b.v(getPageContext().getPageActivity(), 2);
+            com.baidu.tbadk.core.e.b.g(getPageContext().getPageActivity(), 2);
         }
     }
 
@@ -157,12 +157,12 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oF(String str) {
-        if (!j.oJ()) {
-            showToast(d.j.neterror);
+    public void oK(String str) {
+        if (!j.gP()) {
+            showToast(d.k.neterror);
         } else if (!StringUtils.isNull(str)) {
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig((Context) getPageContext().getPageActivity(), getPageContext().getString(d.j.login_to_use), true, (int) IEventCenterService.EventId.EventMode.SAPIWEBVIEW_BIND_WIDGET)));
+                TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig((Context) getPageContext().getPageActivity(), getPageContext().getString(d.k.login_to_use), true, (int) IEventCenterService.EventId.EventMode.SAPIWEBVIEW_BIND_WIDGET)));
             } else {
                 sendMessage(new CustomMessage(2002001, new CreateBarGuideActivityConfig(getPageContext().getPageActivity(), str)));
             }

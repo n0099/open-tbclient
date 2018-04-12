@@ -4,6 +4,9 @@ import android.content.Context;
 import java.io.File;
 /* loaded from: classes2.dex */
 class ContextCompatKitKat {
+    ContextCompatKitKat() {
+    }
+
     public static File[] getExternalCacheDirs(Context context) {
         return context.getExternalCacheDirs();
     }

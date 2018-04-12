@@ -1,6 +1,8 @@
 package android.support.v4.widget;
 
 import android.graphics.Rect;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.media.TransportMediator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,7 +22,10 @@ class FocusStrategy {
         int size(T t);
     }
 
-    public static <L, T> T findNextFocusInRelativeDirection(L l, CollectionAdapter<L, T> collectionAdapter, BoundsAdapter<T> boundsAdapter, T t, int i, boolean z, boolean z2) {
+    FocusStrategy() {
+    }
+
+    public static <L, T> T findNextFocusInRelativeDirection(@NonNull L l, @NonNull CollectionAdapter<L, T> collectionAdapter, @NonNull BoundsAdapter<T> boundsAdapter, @Nullable T t, int i, boolean z, boolean z2) {
         int size = collectionAdapter.size(l);
         ArrayList arrayList = new ArrayList(size);
         for (int i2 = 0; i2 < size; i2++) {
@@ -106,7 +111,7 @@ class FocusStrategy {
         }
     }
 
-    public static <L, T> T findNextFocusInAbsoluteDirection(L l, CollectionAdapter<L, T> collectionAdapter, BoundsAdapter<T> boundsAdapter, T t, Rect rect, int i) {
+    public static <L, T> T findNextFocusInAbsoluteDirection(@NonNull L l, @NonNull CollectionAdapter<L, T> collectionAdapter, @NonNull BoundsAdapter<T> boundsAdapter, @Nullable T t, @NonNull Rect rect, int i) {
         Rect rect2 = new Rect(rect);
         switch (i) {
             case 17:
@@ -140,7 +145,7 @@ class FocusStrategy {
         return t2;
     }
 
-    private static boolean isBetterCandidate(int i, Rect rect, Rect rect2, Rect rect3) {
+    private static boolean isBetterCandidate(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
         if (isCandidate(rect, rect2, i)) {
             if (!isCandidate(rect, rect3, i) || beamBeats(i, rect, rect2, rect3)) {
                 return true;
@@ -150,7 +155,7 @@ class FocusStrategy {
         return false;
     }
 
-    private static boolean beamBeats(int i, Rect rect, Rect rect2, Rect rect3) {
+    private static boolean beamBeats(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
         boolean beamsOverlap = beamsOverlap(i, rect, rect2);
         if (beamsOverlap(i, rect, rect3) || !beamsOverlap) {
             return false;
@@ -162,7 +167,7 @@ class FocusStrategy {
         return (i * 13 * i) + (i2 * i2);
     }
 
-    private static boolean isCandidate(Rect rect, Rect rect2, int i) {
+    private static boolean isCandidate(@NonNull Rect rect, @NonNull Rect rect2, int i) {
         switch (i) {
             case 17:
                 return (rect.right > rect2.right || rect.left >= rect2.right) && rect.left > rect2.left;
@@ -177,7 +182,7 @@ class FocusStrategy {
         }
     }
 
-    private static boolean beamsOverlap(int i, Rect rect, Rect rect2) {
+    private static boolean beamsOverlap(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         switch (i) {
             case 17:
             case 66:
@@ -190,7 +195,7 @@ class FocusStrategy {
         }
     }
 
-    private static boolean isToDirectionOf(int i, Rect rect, Rect rect2) {
+    private static boolean isToDirectionOf(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         switch (i) {
             case 17:
                 return rect.left >= rect2.right;
@@ -205,11 +210,11 @@ class FocusStrategy {
         }
     }
 
-    private static int majorAxisDistance(int i, Rect rect, Rect rect2) {
+    private static int majorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         return Math.max(0, majorAxisDistanceRaw(i, rect, rect2));
     }
 
-    private static int majorAxisDistanceRaw(int i, Rect rect, Rect rect2) {
+    private static int majorAxisDistanceRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         switch (i) {
             case 17:
                 return rect.left - rect2.right;
@@ -224,11 +229,11 @@ class FocusStrategy {
         }
     }
 
-    private static int majorAxisDistanceToFarEdge(int i, Rect rect, Rect rect2) {
+    private static int majorAxisDistanceToFarEdge(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         return Math.max(1, majorAxisDistanceToFarEdgeRaw(i, rect, rect2));
     }
 
-    private static int majorAxisDistanceToFarEdgeRaw(int i, Rect rect, Rect rect2) {
+    private static int majorAxisDistanceToFarEdgeRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         switch (i) {
             case 17:
                 return rect.left - rect2.left;
@@ -243,7 +248,7 @@ class FocusStrategy {
         }
     }
 
-    private static int minorAxisDistance(int i, Rect rect, Rect rect2) {
+    private static int minorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         switch (i) {
             case 17:
             case 66:

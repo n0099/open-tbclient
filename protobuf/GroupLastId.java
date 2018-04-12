@@ -8,11 +8,11 @@ import java.util.List;
 public final class GroupLastId extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 3, type = Message.Datatype.INT64)
     public final List<Long> excludeMid;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long lastMsgId;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Long DEFAULT_LASTMSGID = 0L;
     public static final List<Long> DEFAULT_EXCLUDEMID = Collections.emptyList();
 
@@ -45,7 +45,7 @@ public final class GroupLastId extends Message {
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<GroupLastId> {
         public List<Long> excludeMid;
-        public Integer groupId;
+        public Long groupId;
         public Long lastMsgId;
 
         public Builder() {

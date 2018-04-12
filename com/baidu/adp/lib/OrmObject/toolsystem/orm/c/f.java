@@ -3,47 +3,47 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class f implements h {
-    private Double agm;
+    private Double qI;
 
     public f(double d) {
-        this.agm = Double.valueOf(d);
+        this.qI = Double.valueOf(d);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Class<?> lL = cVar.lL();
-        if (lL == Byte.class || lL == Byte.TYPE) {
-            return Byte.valueOf(this.agm.byteValue());
+        Class<?> dP = cVar.dP();
+        if (dP == Byte.class || dP == Byte.TYPE) {
+            return Byte.valueOf(this.qI.byteValue());
         }
-        if (lL == Short.class || lL == Short.TYPE) {
-            return Short.valueOf(this.agm.shortValue());
+        if (dP == Short.class || dP == Short.TYPE) {
+            return Short.valueOf(this.qI.shortValue());
         }
-        if (lL == Integer.class || lL == Integer.TYPE) {
-            return Integer.valueOf(this.agm.intValue());
+        if (dP == Integer.class || dP == Integer.TYPE) {
+            return Integer.valueOf(this.qI.intValue());
         }
-        if (lL == Long.class || lL == Long.TYPE) {
-            return Long.valueOf(this.agm.longValue());
+        if (dP == Long.class || dP == Long.TYPE) {
+            return Long.valueOf(this.qI.longValue());
         }
-        if (lL == Float.class || lL == Float.TYPE) {
-            return Float.valueOf(this.agm.floatValue());
+        if (dP == Float.class || dP == Float.TYPE) {
+            return Float.valueOf(this.qI.floatValue());
         }
-        if (lL == Double.class || lL == Double.TYPE) {
-            return Double.valueOf(this.agm.doubleValue());
+        if (dP == Double.class || dP == Double.TYPE) {
+            return Double.valueOf(this.qI.doubleValue());
         }
-        if (lL == Character.class || lL == Character.TYPE) {
-            return Character.valueOf((char) this.agm.intValue());
+        if (dP == Character.class || dP == Character.TYPE) {
+            return Character.valueOf((char) this.qI.intValue());
         }
-        if (lL == Boolean.class || lL == Boolean.TYPE) {
-            return Boolean.valueOf(this.agm.byteValue() == 0);
-        } else if (lL == String.class) {
-            return String.valueOf(this.agm);
+        if (dP == Boolean.class || dP == Boolean.TYPE) {
+            return Boolean.valueOf(this.qI.byteValue() == 0);
+        } else if (dP == String.class) {
+            return String.valueOf(this.qI);
         } else {
-            if (lL == char[].class) {
-                return String.valueOf(this.agm).toCharArray();
+            if (dP == char[].class) {
+                return String.valueOf(this.qI).toCharArray();
             }
-            if (lL == byte[].class) {
+            if (dP == byte[].class) {
                 try {
-                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.agm), 0);
+                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.qI), 0);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

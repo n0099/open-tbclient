@@ -1,5 +1,5 @@
 package com.xiaomi.channel.commonutils.network;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements c {
     private final String a;
     private final String b;

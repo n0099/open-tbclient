@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.channel.commonutils.misc.f;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends f.a {
     private XMPushService a;
 

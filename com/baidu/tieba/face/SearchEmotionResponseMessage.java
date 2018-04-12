@@ -27,7 +27,7 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
                 this.mData.setPage(optJSONObject.optInt("current_pn"));
                 this.mData.setHasMore(optJSONObject.optInt("has_more"));
             }
-            this.mData.aW(parseImageData(jSONObject.optJSONArray("list")));
+            this.mData.aR(parseImageData(jSONObject.optJSONArray("list")));
         }
     }
 

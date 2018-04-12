@@ -1,6 +1,6 @@
 package com.xiaomi.push.service;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bb implements com.xiaomi.smack.filter.a {
     final /* synthetic */ XMPushService a;
 

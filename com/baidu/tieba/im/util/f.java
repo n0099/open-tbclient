@@ -16,27 +16,27 @@ public class f {
         if (editable == null) {
             return 0;
         }
-        return hs(editable.toString());
+        return hk(editable.toString());
     }
 
-    public static int e(char c) {
-        if (f(c)) {
+    public static int d(char c) {
+        if (e(c)) {
             return 1;
         }
         return 2;
     }
 
-    public static boolean f(char c) {
+    public static boolean e(char c) {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int hs(String str) {
+    public static int hk(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
-            if (f(str.charAt(i2))) {
+            if (e(str.charAt(i2))) {
                 i++;
             } else {
                 i += 2;
@@ -60,7 +60,7 @@ public class f {
         }
         int i = 0;
         for (int i2 = 0; i2 < trim.length(); i2++) {
-            if (f(trim.charAt(i2))) {
+            if (e(trim.charAt(i2))) {
                 i++;
             } else {
                 i += 2;

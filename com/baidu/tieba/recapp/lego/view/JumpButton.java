@@ -1,9 +1,10 @@
 package com.baidu.tieba.recapp.lego.view;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class JumpButton extends TextView {
@@ -12,14 +13,24 @@ public class JumpButton extends TextView {
         init();
     }
 
+    public JumpButton(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        init();
+    }
+
+    public JumpButton(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        init();
+    }
+
     private void init() {
-        aj.s(this, d.f.btn_focus_border_bg);
-        aj.e(this, d.C0141d.btn_forum_focus_color, 1);
-        int t = l.t(getContext(), d.e.ds144);
-        int t2 = l.t(getContext(), d.e.ds50);
-        setWidth(t);
-        setHeight(t2);
+        ak.i(this, d.f.btn_focus_border_bg);
+        ak.c(this, d.C0126d.btn_forum_focus_color, 1);
+        int e = l.e(getContext(), d.e.ds144);
+        int e2 = l.e(getContext(), d.e.ds50);
+        setWidth(e);
+        setHeight(e2);
         setGravity(17);
-        setTextSize(0, l.t(getContext(), d.e.fontsize24));
+        setTextSize(0, l.e(getContext(), d.e.fontsize24));
     }
 }

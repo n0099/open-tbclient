@@ -3,6 +3,9 @@ package android.support.v4.view.accessibility;
 import android.view.accessibility.AccessibilityEvent;
 /* loaded from: classes2.dex */
 class AccessibilityEventCompatJellyBean {
+    AccessibilityEventCompatJellyBean() {
+    }
+
     public static void setMovementGranularity(AccessibilityEvent accessibilityEvent, int i) {
         accessibilityEvent.setMovementGranularity(i);
     }

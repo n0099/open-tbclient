@@ -6,7 +6,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.protocol.HttpContext;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AsyncHttpRequest implements Runnable {
     private AbstractHttpClient mHttpClient;
     private HttpContext mHttpContext;

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.xmpush.thrift.ae;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aa extends f.a {
     private Context a;
 

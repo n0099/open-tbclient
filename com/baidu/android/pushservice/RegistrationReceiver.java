@@ -4,10 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.o;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.j.l;
+import com.baidu.android.pushservice.j.m;
 import com.baidu.ar.util.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RegistrationReceiver extends BroadcastReceiver {
     static void a(Context context, com.baidu.android.pushservice.b.f fVar) {
         Intent intent = new Intent();
@@ -16,7 +16,7 @@ public class RegistrationReceiver extends BroadcastReceiver {
         intent.putExtra("package_name", fVar.c());
         intent.putExtra(Constants.HTTP_APP_ID, fVar.a());
         intent.putExtra("user_id", fVar.f);
-        o.a(context, intent);
+        l.a(context, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,17 +73,17 @@ public class RegistrationReceiver extends BroadcastReceiver {
                     });
                     return;
                 } else {
-                    o.b(context, intent);
+                    l.b(context, intent);
                     return;
                 }
             }
             try {
-                String u = p.u(context);
+                String u = m.u(context);
                 if (TextUtils.isEmpty(u) || context.getPackageName().equals(u)) {
                     String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
                     boolean booleanExtra = intent.getBooleanExtra("android.intent.extra.REPLACING", false);
                     if (!booleanExtra) {
-                        PushSettings.c(context, schemeSpecificPart);
+                        PushSettings.b(context, schemeSpecificPart);
                     }
                     com.baidu.android.pushservice.b.f c = com.baidu.android.pushservice.b.b.a(context).c(schemeSpecificPart);
                     if (booleanExtra || c == null || context.getPackageName().equals(c.c())) {

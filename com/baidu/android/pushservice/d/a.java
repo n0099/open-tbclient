@@ -12,24 +12,23 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.pushservice.h.k;
-import com.baidu.android.pushservice.h.n;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.h.l;
+import com.baidu.android.pushservice.j.m;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static e a = null;
     private static d b = null;
     private static final Object c = new Object();
-    private static int d = 100;
+    private static int d = 200;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public enum EnumC0031a {
+    /* loaded from: classes3.dex */
+    public enum EnumC0020a {
         alarmMsgInfoId,
         msgId,
         sendtime,
@@ -40,7 +39,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         appInfoId,
         appid,
@@ -54,7 +53,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum c {
         actionId,
         actionName,
@@ -74,7 +73,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d implements DatabaseErrorHandler {
         private d() {
         }
@@ -144,12 +143,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class e extends SQLiteOpenHelper {
         private static final String a = "CREATE TABLE StatisticsInfo (" + j.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + j.packageName.name() + " TEXT NOT NULL, " + j.open_type.name() + " TEXT NOT NULL, " + j.msgid.name() + " TEXT, " + j.app_open_time.name() + " TEXT NOT NULL, " + j.app_close_time.name() + " TEXT NOT NULL, " + j.use_duration.name() + " TEXT NOT NULL, " + j.extra.name() + " TEXT);";
         private static final String b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
         private static final String c = "CREATE TABLE MsgArriveApp (" + h.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + h.msgId.name() + " TEXT NOT NULL, " + h.timeStamp.name() + " LONG NOT NULL);";
-        private static final String d = "CREATE TABLE AlarmMsgInfo (" + EnumC0031a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0031a.msgId.name() + " TEXT NOT NULL, " + EnumC0031a.sendtime.name() + " LONG NOT NULL, " + EnumC0031a.showtime.name() + " LONG NOT NULL, " + EnumC0031a.expiretime.name() + " LONG NOT NULL, " + EnumC0031a.msgEnable.name() + " INTEGER, " + EnumC0031a.isAlarm.name() + " INTEGER);";
+        private static final String d = "CREATE TABLE AlarmMsgInfo (" + EnumC0020a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0020a.msgId.name() + " TEXT NOT NULL, " + EnumC0020a.sendtime.name() + " LONG NOT NULL, " + EnumC0020a.showtime.name() + " LONG NOT NULL, " + EnumC0020a.expiretime.name() + " LONG NOT NULL, " + EnumC0020a.msgEnable.name() + " INTEGER, " + EnumC0020a.isAlarm.name() + " INTEGER);";
         private static final String e = "CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT, " + b.appType.name() + " INTEGER, " + b.packageName.name() + " TEXT UNIQUE, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);";
         private static final String f = "CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);";
         private static final String g = "CREATE TABLE NoDisturb (" + i.pkgName.name() + " TEXT NOT NULL, " + i.startHour.name() + " INTEGER, " + i.startMinute.name() + " INTEGER, " + i.endHour.name() + " INTEGER, " + i.endMinute.name() + " INTEGER);";
@@ -196,7 +195,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     enum f {
         belongTo,
         downloadUrl,
@@ -210,7 +209,7 @@ public class a {
         timeStamp
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class g {
         public String a;
         public String b;
@@ -225,7 +224,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum h {
         MsgInfoId,
         msgId,
@@ -233,7 +232,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum i {
         pkgName,
         startHour,
@@ -242,7 +241,7 @@ public class a {
         endMinute
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     enum j {
         info_id,
         packageName,
@@ -296,7 +295,7 @@ public class a {
                 return -1;
             }
             try {
-                cursor = e2.query("AlarmMsgInfo", null, EnumC0031a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                cursor = e2.query("AlarmMsgInfo", null, EnumC0020a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
             } catch (Exception e3) {
                 cursor2 = null;
             } catch (Throwable th) {
@@ -307,44 +306,32 @@ public class a {
                 if (cursor != null) {
                     cursor.close();
                 }
-                if (e2 != null) {
-                    e2.close();
-                }
+                e2.close();
                 return -2;
             }
             try {
                 if (cursor.getCount() > 0) {
-                    e2.execSQL("UPDATE AlarmMsgInfo SET " + EnumC0031a.msgEnable.name() + " = " + i2 + " WHERE " + EnumC0031a.msgId + " = " + str);
+                    e2.execSQL("UPDATE AlarmMsgInfo SET " + EnumC0020a.msgEnable.name() + " = " + i2 + " WHERE " + EnumC0020a.msgId + " = " + str);
                 }
                 if (cursor != null) {
                     cursor.close();
                 }
-                if (e2 != null) {
-                    e2.close();
-                    i3 = 0;
-                } else {
-                    i3 = 0;
-                }
+                e2.close();
+                i3 = 0;
             } catch (Exception e4) {
                 cursor2 = cursor;
                 if (cursor2 != null) {
                     cursor2.close();
                 }
-                if (e2 != null) {
-                    e2.close();
-                    i3 = -3;
-                } else {
-                    i3 = -3;
-                }
+                e2.close();
+                i3 = -3;
                 return i3;
             } catch (Throwable th2) {
                 th = th2;
                 if (cursor != null) {
                     cursor.close();
                 }
-                if (e2 != null) {
-                    e2.close();
-                }
+                e2.close();
                 throw th;
             }
             return i3;
@@ -379,24 +366,24 @@ public class a {
         return i2;
     }
 
-    private static int a(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.j jVar) {
+    private static int a(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
         if (sQLiteDatabase == null) {
             return 0;
         }
-        String[] strArr = {jVar.b()};
+        String[] strArr = {iVar.b()};
         ContentValues contentValues = new ContentValues();
-        contentValues.put(b.packageName.name(), jVar.b());
-        if (!TextUtils.isEmpty(jVar.a())) {
-            contentValues.put(b.appid.name(), jVar.a());
+        contentValues.put(b.packageName.name(), iVar.b());
+        if (!TextUtils.isEmpty(iVar.a())) {
+            contentValues.put(b.appid.name(), iVar.a());
         }
-        contentValues.put(b.appType.name(), Integer.valueOf(jVar.h()));
-        contentValues.put(b.appName.name(), jVar.c());
-        if (!TextUtils.isEmpty(jVar.d())) {
-            contentValues.put(b.cFrom.name(), jVar.d());
+        contentValues.put(b.appType.name(), Integer.valueOf(iVar.h()));
+        contentValues.put(b.appName.name(), iVar.c());
+        if (!TextUtils.isEmpty(iVar.d())) {
+            contentValues.put(b.cFrom.name(), iVar.d());
         }
-        contentValues.put(b.versionCode.name(), Integer.valueOf(jVar.e()));
-        contentValues.put(b.versionName.name(), jVar.f());
-        contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(jVar.g()));
+        contentValues.put(b.versionCode.name(), Integer.valueOf(iVar.e()));
+        contentValues.put(b.versionName.name(), iVar.f());
+        contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(iVar.g()));
         try {
             return sQLiteDatabase.update("AppInfo", contentValues, b.packageName.name() + " =?", strArr);
         } catch (Exception e2) {
@@ -439,15 +426,15 @@ public class a {
             SQLiteDatabase e2 = e(context);
             if (e2 != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(EnumC0031a.msgId.name(), aVar.a);
-                contentValues.put(EnumC0031a.sendtime.name(), Long.valueOf(aVar.b));
-                contentValues.put(EnumC0031a.showtime.name(), Long.valueOf(aVar.c));
-                contentValues.put(EnumC0031a.expiretime.name(), Long.valueOf(aVar.d));
-                contentValues.put(EnumC0031a.isAlarm.name(), Integer.valueOf(aVar.e));
-                contentValues.put(EnumC0031a.msgEnable.name(), Integer.valueOf(aVar.f));
+                contentValues.put(EnumC0020a.msgId.name(), aVar.a);
+                contentValues.put(EnumC0020a.sendtime.name(), Long.valueOf(aVar.b));
+                contentValues.put(EnumC0020a.showtime.name(), Long.valueOf(aVar.c));
+                contentValues.put(EnumC0020a.expiretime.name(), Long.valueOf(aVar.d));
+                contentValues.put(EnumC0020a.isAlarm.name(), Integer.valueOf(aVar.e));
+                contentValues.put(EnumC0020a.msgEnable.name(), Integer.valueOf(aVar.f));
                 try {
                     j2 = e2.insert("AlarmMsgInfo", null, contentValues);
-                    p.b("AlarmMsgInfoEnum:  insert into database", context);
+                    m.b("AlarmMsgInfoEnum:  insert into database", context);
                 } catch (Exception e3) {
                 }
                 e2.close();
@@ -510,7 +497,7 @@ public class a {
         return j2;
     }
 
-    public static long a(Context context, com.baidu.android.pushservice.h.i iVar) {
+    public static long a(Context context, com.baidu.android.pushservice.h.h hVar) {
         long j2;
         synchronized (c) {
             SQLiteDatabase e2 = e(context);
@@ -518,15 +505,15 @@ public class a {
                 j2 = -1;
             } else {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(c.actionName.name(), iVar.d);
-                contentValues.put(c.timeStamp.name(), Long.valueOf(iVar.e));
-                contentValues.put(c.networkStatus.name(), iVar.f);
-                contentValues.put(c.errorMsg.name(), iVar.i);
-                contentValues.put(c.stableHeartInterval.name(), Integer.valueOf(iVar.a));
-                contentValues.put(c.errorCode.name(), Integer.valueOf(iVar.g));
-                contentValues.put(c.appid.name(), iVar.h);
-                contentValues.put(c.msgId.name(), iVar.b);
-                contentValues.put(c.openByPackageName.name(), iVar.c);
+                contentValues.put(c.actionName.name(), hVar.d);
+                contentValues.put(c.timeStamp.name(), Long.valueOf(hVar.e));
+                contentValues.put(c.networkStatus.name(), hVar.f);
+                contentValues.put(c.errorMsg.name(), hVar.i);
+                contentValues.put(c.stableHeartInterval.name(), Integer.valueOf(hVar.a));
+                contentValues.put(c.errorCode.name(), Integer.valueOf(hVar.g));
+                contentValues.put(c.appid.name(), hVar.h);
+                contentValues.put(c.msgId.name(), hVar.b);
+                contentValues.put(c.openByPackageName.name(), hVar.c);
                 j2 = 0;
                 try {
                     j2 = e2.insert("PushBehavior", null, contentValues);
@@ -538,24 +525,24 @@ public class a {
         return j2;
     }
 
-    public static long a(Context context, com.baidu.android.pushservice.h.j jVar) {
+    public static long a(Context context, com.baidu.android.pushservice.h.i iVar) {
         long j2 = 0;
         synchronized (c) {
             SQLiteDatabase e2 = e(context);
             if (e2 == null) {
                 j2 = -1;
-            } else if (b(e2, jVar)) {
+            } else if (b(e2, iVar)) {
                 e2.close();
             } else {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(b.appid.name(), jVar.a());
-                contentValues.put(b.appType.name(), Integer.valueOf(jVar.h()));
-                contentValues.put(b.packageName.name(), jVar.b());
-                contentValues.put(b.appName.name(), jVar.c());
-                contentValues.put(b.cFrom.name(), jVar.d());
-                contentValues.put(b.versionCode.name(), Integer.valueOf(jVar.e()));
-                contentValues.put(b.versionName.name(), jVar.f());
-                contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(jVar.g()));
+                contentValues.put(b.appid.name(), iVar.a());
+                contentValues.put(b.appType.name(), Integer.valueOf(iVar.h()));
+                contentValues.put(b.packageName.name(), iVar.b());
+                contentValues.put(b.appName.name(), iVar.c());
+                contentValues.put(b.cFrom.name(), iVar.d());
+                contentValues.put(b.versionCode.name(), Integer.valueOf(iVar.e()));
+                contentValues.put(b.versionName.name(), iVar.f());
+                contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(iVar.g()));
                 try {
                     j2 = e2.insert("AppInfo", null, contentValues);
                 } catch (Exception e3) {
@@ -566,29 +553,29 @@ public class a {
         return j2;
     }
 
-    public static long a(Context context, k kVar) {
+    public static long a(Context context, com.baidu.android.pushservice.h.j jVar) {
         long j2 = -1;
         synchronized (c) {
             SQLiteDatabase e2 = e(context);
             if (e2 != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(c.actionName.name(), kVar.d);
-                contentValues.put(c.timeStamp.name(), Long.valueOf(kVar.e));
-                contentValues.put(c.networkStatus.name(), kVar.f);
-                if (kVar.h != null) {
-                    contentValues.put(c.appid.name(), kVar.h);
+                contentValues.put(c.actionName.name(), jVar.d);
+                contentValues.put(c.timeStamp.name(), Long.valueOf(jVar.e));
+                contentValues.put(c.networkStatus.name(), jVar.f);
+                if (jVar.h != null) {
+                    contentValues.put(c.appid.name(), jVar.h);
                 }
-                contentValues.put(c.msgType.name(), Integer.valueOf(kVar.c));
-                contentValues.put(c.msgId.name(), kVar.a);
-                contentValues.put(c.msgLen.name(), Integer.valueOf(kVar.b));
-                contentValues.put(c.errorCode.name(), Integer.valueOf(kVar.g));
-                if (kVar.k != null) {
-                    contentValues.put(c.openByPackageName.name(), kVar.k);
+                contentValues.put(c.msgType.name(), Integer.valueOf(jVar.c));
+                contentValues.put(c.msgId.name(), jVar.a);
+                contentValues.put(c.msgLen.name(), Integer.valueOf(jVar.b));
+                contentValues.put(c.errorCode.name(), Integer.valueOf(jVar.g));
+                if (jVar.k != null) {
+                    contentValues.put(c.openByPackageName.name(), jVar.k);
                 }
-                if (TextUtils.isEmpty(kVar.j)) {
+                if (TextUtils.isEmpty(jVar.j)) {
                     e2.close();
                 } else {
-                    contentValues.put(c.packageName.name(), kVar.j);
+                    contentValues.put(c.packageName.name(), jVar.j);
                     try {
                         j2 = e2.insert("PushBehavior", null, contentValues);
                     } catch (Exception e3) {
@@ -626,15 +613,13 @@ public class a {
                     if (cursor != null) {
                         cursor.close();
                     }
+                    e2.close();
+                    j2 = j3;
                 } catch (Exception e3) {
                     if (cursor != null) {
                         cursor.close();
                     }
-                    if (e2 != null) {
-                        e2.close();
-                        j2 = j3;
-                        return j2;
-                    }
+                    e2.close();
                     j2 = j3;
                     return j2;
                 } catch (Throwable th) {
@@ -643,9 +628,7 @@ public class a {
                     if (cursor2 != null) {
                         cursor2.close();
                     }
-                    if (e2 != null) {
-                        e2.close();
-                    }
+                    e2.close();
                     throw th;
                 }
             } catch (Exception e4) {
@@ -653,12 +636,6 @@ public class a {
             } catch (Throwable th2) {
                 th = th2;
             }
-            if (e2 != null) {
-                e2.close();
-                j2 = j3;
-                return j2;
-            }
-            j2 = j3;
             return j2;
         }
     }
@@ -730,7 +707,7 @@ public class a {
         }
     }
 
-    public static List<com.baidu.android.pushservice.h.j> a(Context context) {
+    public static List<com.baidu.android.pushservice.h.i> a(Context context) {
         Cursor cursor;
         Throwable th;
         Cursor cursor2 = null;
@@ -745,16 +722,16 @@ public class a {
                     Cursor rawQuery = e2.rawQuery("SELECT * FROM AppInfo;", null);
                     while (rawQuery.moveToNext()) {
                         try {
-                            com.baidu.android.pushservice.h.j jVar = new com.baidu.android.pushservice.h.j();
-                            jVar.a(rawQuery.getString(rawQuery.getColumnIndex(b.appid.name())));
-                            jVar.c(rawQuery.getInt(rawQuery.getColumnIndex(b.appType.name())));
-                            jVar.b(rawQuery.getString(rawQuery.getColumnIndex(b.packageName.name())));
-                            jVar.c(rawQuery.getString(rawQuery.getColumnIndex(b.appName.name())));
-                            jVar.d(rawQuery.getString(rawQuery.getColumnIndex(b.cFrom.name())));
-                            jVar.a(rawQuery.getInt(rawQuery.getColumnIndex(b.versionCode.name())));
-                            jVar.e(rawQuery.getString(rawQuery.getColumnIndex(b.versionName.name())));
-                            jVar.b(rawQuery.getInt(rawQuery.getColumnIndex(b.intergratedPushVersion.name())));
-                            arrayList.add(jVar);
+                            com.baidu.android.pushservice.h.i iVar = new com.baidu.android.pushservice.h.i();
+                            iVar.a(rawQuery.getString(rawQuery.getColumnIndex(b.appid.name())));
+                            iVar.c(rawQuery.getInt(rawQuery.getColumnIndex(b.appType.name())));
+                            iVar.b(rawQuery.getString(rawQuery.getColumnIndex(b.packageName.name())));
+                            iVar.c(rawQuery.getString(rawQuery.getColumnIndex(b.appName.name())));
+                            iVar.d(rawQuery.getString(rawQuery.getColumnIndex(b.cFrom.name())));
+                            iVar.a(rawQuery.getInt(rawQuery.getColumnIndex(b.versionCode.name())));
+                            iVar.e(rawQuery.getString(rawQuery.getColumnIndex(b.versionName.name())));
+                            iVar.b(rawQuery.getInt(rawQuery.getColumnIndex(b.intergratedPushVersion.name())));
+                            arrayList.add(iVar);
                         } catch (Throwable th2) {
                             cursor = rawQuery;
                             th = th2;
@@ -858,7 +835,7 @@ public class a {
 
     private static void a(final String str, Context context) {
         File[] listFiles;
-        File parentFile = context.getDatabasePath("pushstat_6.0.0.db").getParentFile();
+        File parentFile = context.getDatabasePath("pushstat_6.1.1.db").getParentFile();
         if (parentFile == null || !parentFile.isDirectory() || (listFiles = parentFile.listFiles(new FileFilter() { // from class: com.baidu.android.pushservice.d.a.1
             @Override // java.io.FileFilter
             public boolean accept(File file) {
@@ -878,7 +855,7 @@ public class a {
         }
     }
 
-    private static boolean a(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
+    private static boolean a(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.h hVar) {
         Cursor cursor;
         Cursor rawQuery;
         boolean z;
@@ -888,14 +865,14 @@ public class a {
         }
         try {
             try {
-                rawQuery = sQLiteDatabase.rawQuery("SELECT * FROM PushBehavior WHERE " + c.actionName.name() + " = '" + iVar.d + "' AND " + c.errorCode.name() + " = " + iVar.g + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null);
+                rawQuery = sQLiteDatabase.rawQuery("SELECT * FROM PushBehavior WHERE " + c.actionName.name() + " = '" + hVar.d + "' AND " + c.errorCode.name() + " = " + hVar.g + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null);
             } catch (Exception e2) {
                 cursor = null;
             }
             try {
                 if (rawQuery.moveToNext()) {
-                    iVar.a = rawQuery.getInt(rawQuery.getColumnIndex(c.stableHeartInterval.name()));
-                    b(sQLiteDatabase, iVar);
+                    hVar.a = rawQuery.getInt(rawQuery.getColumnIndex(c.stableHeartInterval.name()));
+                    b(sQLiteDatabase, hVar);
                     z = true;
                 } else {
                     z = false;
@@ -942,45 +919,45 @@ public class a {
         return i2;
     }
 
-    private static int b(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
+    private static int b(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.h hVar) {
         if (sQLiteDatabase == null) {
             return 0;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put(c.actionName.name(), iVar.d);
-        contentValues.put(c.timeStamp.name(), Long.valueOf(iVar.e));
-        contentValues.put(c.networkStatus.name(), iVar.f);
-        contentValues.put(c.stableHeartInterval.name(), Integer.valueOf(iVar.a + 1));
-        contentValues.put(c.errorCode.name(), Integer.valueOf(iVar.g));
-        contentValues.put(c.appid.name(), iVar.h);
+        contentValues.put(c.actionName.name(), hVar.d);
+        contentValues.put(c.timeStamp.name(), Long.valueOf(hVar.e));
+        contentValues.put(c.networkStatus.name(), hVar.f);
+        contentValues.put(c.stableHeartInterval.name(), Integer.valueOf(hVar.a + 1));
+        contentValues.put(c.errorCode.name(), Integer.valueOf(hVar.g));
+        contentValues.put(c.appid.name(), hVar.h);
         try {
-            sQLiteDatabase.update("PushBehavior", contentValues, c.actionName.name() + " = '" + iVar.d + "' AND " + c.errorCode.name() + " = " + iVar.g + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null);
+            sQLiteDatabase.update("PushBehavior", contentValues, c.actionName.name() + " = '" + hVar.d + "' AND " + c.errorCode.name() + " = " + hVar.g + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null);
             return -1;
         } catch (Exception e2) {
             return -1;
         }
     }
 
-    public static long b(Context context, com.baidu.android.pushservice.h.i iVar) {
+    public static long b(Context context, com.baidu.android.pushservice.h.h hVar) {
         long j2 = 0;
         synchronized (c) {
             SQLiteDatabase e2 = e(context);
             if (e2 == null) {
                 j2 = -1;
-            } else if (!a(e2, iVar)) {
+            } else if (a(e2, hVar)) {
+                e2.close();
+            } else {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(c.actionName.name(), iVar.d);
-                contentValues.put(c.timeStamp.name(), Long.valueOf(iVar.e));
-                contentValues.put(c.networkStatus.name(), iVar.f);
+                contentValues.put(c.actionName.name(), hVar.d);
+                contentValues.put(c.timeStamp.name(), Long.valueOf(hVar.e));
+                contentValues.put(c.networkStatus.name(), hVar.f);
                 contentValues.put(c.stableHeartInterval.name(), (Integer) 1);
-                contentValues.put(c.errorCode.name(), Integer.valueOf(iVar.g));
-                contentValues.put(c.appid.name(), iVar.h);
+                contentValues.put(c.errorCode.name(), Integer.valueOf(hVar.g));
+                contentValues.put(c.appid.name(), hVar.h);
                 try {
                     j2 = e2.insert("PushBehavior", null, contentValues);
                 } catch (Exception e3) {
                 }
-                e2.close();
-            } else if (e2 != null) {
                 e2.close();
             }
         }
@@ -1053,7 +1030,7 @@ public class a {
                     while (rawQuery.moveToNext()) {
                         try {
                             String string = rawQuery.getString(0);
-                            if (!TextUtils.isEmpty(string) && !string.startsWith(n.t)) {
+                            if (!TextUtils.isEmpty(string) && !string.startsWith(l.t)) {
                                 z2 = true;
                             }
                         } catch (Exception e3) {
@@ -1086,14 +1063,14 @@ public class a {
         return z2;
     }
 
-    private static boolean b(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.j jVar) {
+    private static boolean b(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
         Cursor cursor;
         Cursor cursor2 = null;
         if (sQLiteDatabase == null) {
             return false;
         }
         try {
-            cursor = sQLiteDatabase.query("AppInfo", null, b.packageName.name() + " =?", new String[]{jVar.b()}, null, null, null);
+            cursor = sQLiteDatabase.query("AppInfo", null, b.packageName.name() + " =?", new String[]{iVar.b()}, null, null, null);
             try {
             } catch (Exception e2) {
                 if (cursor != null) {
@@ -1119,8 +1096,8 @@ public class a {
             }
             return false;
         }
-        if (!TextUtils.equals(jVar.d(), cursor.getString(cursor.getColumnIndex(b.cFrom.name()))) || !TextUtils.equals(jVar.e() + "", cursor.getInt(cursor.getColumnIndex(b.versionCode.name())) + "") || !TextUtils.equals(jVar.g() + "", cursor.getString(cursor.getColumnIndex(b.intergratedPushVersion.name())))) {
-            a(sQLiteDatabase, jVar);
+        if (!TextUtils.equals(iVar.d(), cursor.getString(cursor.getColumnIndex(b.cFrom.name()))) || !TextUtils.equals(iVar.e() + "", cursor.getInt(cursor.getColumnIndex(b.versionCode.name())) + "") || !TextUtils.equals(iVar.g() + "", cursor.getString(cursor.getColumnIndex(b.intergratedPushVersion.name())))) {
+            a(sQLiteDatabase, iVar);
         }
         if (cursor != null) {
             cursor.close();
@@ -1138,7 +1115,7 @@ public class a {
             }
             com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
             try {
-                query = e2.query("AlarmMsgInfo", null, EnumC0031a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                query = e2.query("AlarmMsgInfo", null, EnumC0020a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
             } catch (Exception e3) {
             } catch (Throwable th) {
                 th = th;
@@ -1153,11 +1130,11 @@ public class a {
             try {
                 if (query.getCount() > 0) {
                     query.moveToFirst();
-                    aVar.b = query.getLong(query.getColumnIndex(EnumC0031a.sendtime.name()));
-                    aVar.c = query.getLong(query.getColumnIndex(EnumC0031a.showtime.name()));
-                    aVar.d = query.getLong(query.getColumnIndex(EnumC0031a.expiretime.name()));
-                    aVar.e = query.getInt(query.getColumnIndex(EnumC0031a.isAlarm.name()));
-                    aVar.f = query.getInt(query.getColumnIndex(EnumC0031a.msgEnable.name()));
+                    aVar.b = query.getLong(query.getColumnIndex(EnumC0020a.sendtime.name()));
+                    aVar.c = query.getLong(query.getColumnIndex(EnumC0020a.showtime.name()));
+                    aVar.d = query.getLong(query.getColumnIndex(EnumC0020a.expiretime.name()));
+                    aVar.e = query.getInt(query.getColumnIndex(EnumC0020a.isAlarm.name()));
+                    aVar.f = query.getInt(query.getColumnIndex(EnumC0020a.msgEnable.name()));
                 }
                 if (query != null) {
                     query.close();
@@ -1198,12 +1175,12 @@ public class a {
                     while (rawQuery.moveToNext()) {
                         try {
                             com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
-                            aVar.a = rawQuery.getString(rawQuery.getColumnIndex(EnumC0031a.msgId.name()));
-                            aVar.b = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0031a.sendtime.name()));
-                            aVar.c = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0031a.showtime.name()));
-                            aVar.d = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0031a.expiretime.name()));
-                            aVar.e = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0031a.isAlarm.name()));
-                            aVar.f = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0031a.msgEnable.name()));
+                            aVar.a = rawQuery.getString(rawQuery.getColumnIndex(EnumC0020a.msgId.name()));
+                            aVar.b = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0020a.sendtime.name()));
+                            aVar.c = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0020a.showtime.name()));
+                            aVar.d = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0020a.expiretime.name()));
+                            aVar.e = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0020a.isAlarm.name()));
+                            aVar.f = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0020a.msgEnable.name()));
                             if (aVar.f == 0 || aVar.d < System.currentTimeMillis()) {
                                 d(context, aVar.a);
                             }
@@ -1213,29 +1190,23 @@ public class a {
                             if (cursor != null) {
                                 cursor.close();
                             }
-                            if (e2 != null) {
-                                e2.close();
-                            }
+                            e2.close();
                             throw th;
                         }
                     }
                     if (rawQuery != null) {
                         rawQuery.close();
                     }
-                    if (e2 != null) {
-                        e2.close();
-                    }
-                } catch (Exception e3) {
-                    if (0 != 0) {
-                        cursor2.close();
-                    }
-                    if (e2 != null) {
-                        e2.close();
-                    }
+                    e2.close();
+                } catch (Throwable th3) {
+                    cursor = null;
+                    th = th3;
                 }
-            } catch (Throwable th3) {
-                cursor = null;
-                th = th3;
+            } catch (Exception e3) {
+                if (0 != 0) {
+                    cursor2.close();
+                }
+                e2.close();
             }
         }
     }
@@ -1268,46 +1239,33 @@ public class a {
                 return;
             }
             try {
-                cursor = e2.query("AlarmMsgInfo", null, EnumC0031a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
-            } catch (Exception e3) {
-                cursor = null;
-            } catch (Throwable th) {
-                th = th;
-            }
-            if (cursor == null) {
+                cursor = e2.query("AlarmMsgInfo", null, EnumC0020a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                if (cursor != null) {
+                    try {
+                        e2.delete("AlarmMsgInfo", EnumC0020a.msgId.name() + "= ?", new String[]{str});
+                    } catch (Exception e3) {
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        e2.close();
+                    } catch (Throwable th) {
+                        cursor2 = cursor;
+                        th = th;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        e2.close();
+                        throw th;
+                    }
+                }
                 if (cursor != null) {
                     cursor.close();
                 }
-                if (e2 != null) {
-                    e2.close();
-                }
-                return;
-            }
-            try {
-                e2.delete("AlarmMsgInfo", EnumC0031a.msgId.name() + "= ?", new String[]{str});
-                if (cursor != null) {
-                    cursor.close();
-                }
-                if (e2 != null) {
-                    e2.close();
-                }
+                e2.close();
             } catch (Exception e4) {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                if (e2 != null) {
-                    e2.close();
-                }
+                cursor = null;
             } catch (Throwable th2) {
-                cursor2 = cursor;
                 th = th2;
-                if (cursor2 != null) {
-                    cursor2.close();
-                }
-                if (e2 != null) {
-                    e2.close();
-                }
-                throw th;
             }
         }
     }
@@ -1324,63 +1282,74 @@ public class a {
         }
     }
 
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0101: MOVE  (r10 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:61:0x0101 */
     public static boolean e(Context context, String str) {
         Cursor cursor;
-        Cursor cursor2 = null;
+        Throwable th;
+        Cursor cursor2;
+        Cursor cursor3 = null;
         synchronized (c) {
             SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return true;
-            }
             try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.clear();
-                contentValues.put(h.msgId.name(), str);
-                contentValues.put(h.timeStamp.name(), Long.valueOf(System.currentTimeMillis()));
-                String str2 = h.msgId.name() + " =? ";
-                cursor = e2.query("MsgArriveApp", null, str2, new String[]{str}, null, null, null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.getCount() > 0) {
-                            String str3 = "UPDATE MsgArriveApp SET " + h.timeStamp.name() + " = " + System.currentTimeMillis() + " WHERE " + h.msgId + " = " + str;
-                            e2.update("MsgArriveApp", contentValues, str2, new String[]{str});
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
+                if (e2 == null) {
+                    return true;
+                }
+                try {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.clear();
+                    contentValues.put(h.msgId.name(), str);
+                    contentValues.put(h.timeStamp.name(), Long.valueOf(System.currentTimeMillis()));
+                    String str2 = h.msgId.name() + " =? ";
+                    cursor2 = e2.query("MsgArriveApp", new String[]{h.msgId.name()}, str2, new String[]{str}, null, null, null);
+                    if (cursor2 != null) {
+                        try {
+                            if (cursor2.getCount() > 0) {
+                                e2.update("MsgArriveApp", contentValues, str2, new String[]{str});
+                                if (cursor2 != null && !cursor2.isClosed()) {
+                                    cursor2.close();
+                                }
+                                e2.close();
+                                return false;
+                            }
+                        } catch (Exception e3) {
+                            if (com.baidu.android.pushservice.a.d(context)) {
+                                if (cursor2 != null && !cursor2.isClosed()) {
+                                    cursor2.close();
+                                }
+                                e2.close();
+                                return false;
+                            }
+                            if (cursor2 != null && !cursor2.isClosed()) {
+                                cursor2.close();
                             }
                             e2.close();
-                            return false;
+                            return true;
                         }
-                    } catch (Exception e3) {
-                        if (cursor != null && !cursor.isClosed()) {
-                            cursor.close();
-                        }
-                        e2.close();
-                        return true;
-                    } catch (Throwable th) {
-                        cursor2 = cursor;
-                        th = th;
-                        if (cursor2 != null && !cursor2.isClosed()) {
-                            cursor2.close();
-                        }
-                        e2.close();
-                        throw th;
                     }
+                    Cursor rawQuery = e2.rawQuery("SELECT COUNT(*) FROM MsgArriveApp;", null);
+                    rawQuery.moveToFirst();
+                    if (rawQuery.getInt(0) > d) {
+                        e2.delete("MsgArriveApp", null, null);
+                    }
+                    e2.insert("MsgArriveApp", null, contentValues);
+                    if (rawQuery != null && !rawQuery.isClosed()) {
+                        rawQuery.close();
+                    }
+                    e2.close();
+                    return true;
+                } catch (Exception e4) {
+                    cursor2 = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (cursor3 != null && !cursor3.isClosed()) {
+                        cursor3.close();
+                    }
+                    e2.close();
+                    throw th;
                 }
-                Cursor rawQuery = e2.rawQuery("SELECT COUNT(*) FROM MsgArriveApp;", null);
-                rawQuery.moveToFirst();
-                if (rawQuery.getInt(0) > d) {
-                    e2.delete("MsgArriveApp", null, null);
-                }
-                e2.insert("MsgArriveApp", null, contentValues);
-                if (rawQuery != null && !rawQuery.isClosed()) {
-                    rawQuery.close();
-                }
-                e2.close();
-                return true;
-            } catch (Exception e4) {
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                cursor3 = cursor;
+                th = th3;
             }
         }
     }
@@ -1388,8 +1357,8 @@ public class a {
     private static e f(Context context) {
         synchronized (c) {
             if (a == null) {
-                String path = context.getDatabasePath("pushstat_6.0.0.db").getPath();
-                a("pushstat_6.0.0.db", context);
+                String path = context.getDatabasePath("pushstat_6.1.1.db").getPath();
+                a("pushstat_6.1.1.db", context);
                 if (Build.VERSION.SDK_INT >= 11) {
                     b = new d();
                     a = new e(context, path, 2, b);

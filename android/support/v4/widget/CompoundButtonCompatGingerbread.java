@@ -8,8 +8,12 @@ import android.widget.CompoundButton;
 import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 class CompoundButtonCompatGingerbread {
+    private static final String TAG = "CompoundButtonCompatGingerbread";
     private static Field sButtonDrawableField;
     private static boolean sButtonDrawableFieldFetched;
+
+    CompoundButtonCompatGingerbread() {
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void setButtonTintList(CompoundButton compoundButton, ColorStateList colorStateList) {
@@ -48,7 +52,7 @@ class CompoundButtonCompatGingerbread {
                 sButtonDrawableField = CompoundButton.class.getDeclaredField("mButtonDrawable");
                 sButtonDrawableField.setAccessible(true);
             } catch (NoSuchFieldException e) {
-                Log.i("CompoundButtonCompatGingerbread", "Failed to retrieve mButtonDrawable field", e);
+                Log.i(TAG, "Failed to retrieve mButtonDrawable field", e);
             }
             sButtonDrawableFieldFetched = true;
         }
@@ -56,7 +60,7 @@ class CompoundButtonCompatGingerbread {
             try {
                 return (Drawable) sButtonDrawableField.get(compoundButton);
             } catch (IllegalAccessException e2) {
-                Log.i("CompoundButtonCompatGingerbread", "Failed to get button drawable via reflection", e2);
+                Log.i(TAG, "Failed to get button drawable via reflection", e2);
                 sButtonDrawableField = null;
             }
         }

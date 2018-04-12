@@ -25,7 +25,7 @@ public class PersonChangeActivityConfig extends IntentConfig {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(d.j.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(d.k.live_error_system_not_support));
         return false;
     }
 }

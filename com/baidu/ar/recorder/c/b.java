@@ -7,8 +7,10 @@ import android.opengl.EGLContext;
 import android.opengl.EGLDisplay;
 import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.Surface;
+@RequiresApi(api = 18)
 /* loaded from: classes3.dex */
 public final class b {
     private static final String a = b.class.getSimpleName();

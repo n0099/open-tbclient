@@ -15,13 +15,14 @@ import android.view.SubMenu;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class ShareActionProvider extends ActionProvider {
+    private static final int DEFAULT_INITIAL_ACTIVITY_COUNT = 4;
     public static final String DEFAULT_SHARE_HISTORY_FILE_NAME = "share_history.xml";
-    private int Ve;
-    private final b Vf;
-    String Vg;
-    OnShareTargetSelectedListener Vh;
-    private ActivityChooserModel.OnChooseActivityListener Vi;
     final Context mContext;
+    private int mMaxShownActivityCount;
+    private ActivityChooserModel.OnChooseActivityListener mOnChooseActivityListener;
+    private final ShareMenuItemOnMenuItemClickListener mOnMenuItemClickListener;
+    OnShareTargetSelectedListener mOnShareTargetSelectedListener;
+    String mShareHistoryFileName;
 
     /* loaded from: classes2.dex */
     public interface OnShareTargetSelectedListener {
@@ -30,22 +31,22 @@ public class ShareActionProvider extends ActionProvider {
 
     public ShareActionProvider(Context context) {
         super(context);
-        this.Ve = 4;
-        this.Vf = new b();
-        this.Vg = DEFAULT_SHARE_HISTORY_FILE_NAME;
+        this.mMaxShownActivityCount = 4;
+        this.mOnMenuItemClickListener = new ShareMenuItemOnMenuItemClickListener();
+        this.mShareHistoryFileName = DEFAULT_SHARE_HISTORY_FILE_NAME;
         this.mContext = context;
     }
 
     public void setOnShareTargetSelectedListener(OnShareTargetSelectedListener onShareTargetSelectedListener) {
-        this.Vh = onShareTargetSelectedListener;
-        hP();
+        this.mOnShareTargetSelectedListener = onShareTargetSelectedListener;
+        setActivityChooserPolicyIfNeeded();
     }
 
     @Override // android.support.v4.view.ActionProvider
     public View onCreateActionView() {
         ActivityChooserView activityChooserView = new ActivityChooserView(this.mContext);
         if (!activityChooserView.isInEditMode()) {
-            activityChooserView.setActivityChooserModel(ActivityChooserModel.H(this.mContext, this.Vg));
+            activityChooserView.setActivityChooserModel(ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName));
         }
         TypedValue typedValue = new TypedValue();
         this.mContext.getTheme().resolveAttribute(R.attr.actionModeShareDrawable, typedValue, true);
@@ -64,84 +65,84 @@ public class ShareActionProvider extends ActionProvider {
     @Override // android.support.v4.view.ActionProvider
     public void onPrepareSubMenu(SubMenu subMenu) {
         subMenu.clear();
-        ActivityChooserModel H = ActivityChooserModel.H(this.mContext, this.Vg);
+        ActivityChooserModel activityChooserModel = ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName);
         PackageManager packageManager = this.mContext.getPackageManager();
-        int fn = H.fn();
-        int min = Math.min(fn, this.Ve);
+        int activityCount = activityChooserModel.getActivityCount();
+        int min = Math.min(activityCount, this.mMaxShownActivityCount);
         for (int i = 0; i < min; i++) {
-            ResolveInfo aU = H.aU(i);
-            subMenu.add(0, i, i, aU.loadLabel(packageManager)).setIcon(aU.loadIcon(packageManager)).setOnMenuItemClickListener(this.Vf);
+            ResolveInfo activity = activityChooserModel.getActivity(i);
+            subMenu.add(0, i, i, activity.loadLabel(packageManager)).setIcon(activity.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);
         }
-        if (min < fn) {
+        if (min < activityCount) {
             SubMenu addSubMenu = subMenu.addSubMenu(0, min, min, this.mContext.getString(R.string.abc_activity_chooser_view_see_all));
-            for (int i2 = 0; i2 < fn; i2++) {
-                ResolveInfo aU2 = H.aU(i2);
-                addSubMenu.add(0, i2, i2, aU2.loadLabel(packageManager)).setIcon(aU2.loadIcon(packageManager)).setOnMenuItemClickListener(this.Vf);
+            for (int i2 = 0; i2 < activityCount; i2++) {
+                ResolveInfo activity2 = activityChooserModel.getActivity(i2);
+                addSubMenu.add(0, i2, i2, activity2.loadLabel(packageManager)).setIcon(activity2.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);
             }
         }
     }
 
     public void setShareHistoryFileName(String str) {
-        this.Vg = str;
-        hP();
+        this.mShareHistoryFileName = str;
+        setActivityChooserPolicyIfNeeded();
     }
 
     public void setShareIntent(Intent intent) {
         if (intent != null) {
             String action = intent.getAction();
             if ("android.intent.action.SEND".equals(action) || "android.intent.action.SEND_MULTIPLE".equals(action)) {
-                A(intent);
+                updateIntent(intent);
             }
         }
-        ActivityChooserModel.H(this.mContext, this.Vg).setIntent(intent);
+        ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setIntent(intent);
     }
 
     /* loaded from: classes2.dex */
-    private class b implements MenuItem.OnMenuItemClickListener {
-        b() {
+    private class ShareMenuItemOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
+        ShareMenuItemOnMenuItemClickListener() {
         }
 
         @Override // android.view.MenuItem.OnMenuItemClickListener
         public boolean onMenuItemClick(MenuItem menuItem) {
-            Intent aV = ActivityChooserModel.H(ShareActionProvider.this.mContext, ShareActionProvider.this.Vg).aV(menuItem.getItemId());
-            if (aV != null) {
-                String action = aV.getAction();
+            Intent chooseActivity = ActivityChooserModel.get(ShareActionProvider.this.mContext, ShareActionProvider.this.mShareHistoryFileName).chooseActivity(menuItem.getItemId());
+            if (chooseActivity != null) {
+                String action = chooseActivity.getAction();
                 if ("android.intent.action.SEND".equals(action) || "android.intent.action.SEND_MULTIPLE".equals(action)) {
-                    ShareActionProvider.this.A(aV);
+                    ShareActionProvider.this.updateIntent(chooseActivity);
                 }
-                ShareActionProvider.this.mContext.startActivity(aV);
+                ShareActionProvider.this.mContext.startActivity(chooseActivity);
                 return true;
             }
             return true;
         }
     }
 
-    private void hP() {
-        if (this.Vh != null) {
-            if (this.Vi == null) {
-                this.Vi = new a();
+    private void setActivityChooserPolicyIfNeeded() {
+        if (this.mOnShareTargetSelectedListener != null) {
+            if (this.mOnChooseActivityListener == null) {
+                this.mOnChooseActivityListener = new ShareActivityChooserModelPolicy();
             }
-            ActivityChooserModel.H(this.mContext, this.Vg).a(this.Vi);
+            ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setOnChooseActivityListener(this.mOnChooseActivityListener);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class a implements ActivityChooserModel.OnChooseActivityListener {
-        a() {
+    public class ShareActivityChooserModelPolicy implements ActivityChooserModel.OnChooseActivityListener {
+        ShareActivityChooserModelPolicy() {
         }
 
         @Override // android.support.v7.widget.ActivityChooserModel.OnChooseActivityListener
         public boolean onChooseActivity(ActivityChooserModel activityChooserModel, Intent intent) {
-            if (ShareActionProvider.this.Vh != null) {
-                ShareActionProvider.this.Vh.onShareTargetSelected(ShareActionProvider.this, intent);
+            if (ShareActionProvider.this.mOnShareTargetSelectedListener != null) {
+                ShareActionProvider.this.mOnShareTargetSelectedListener.onShareTargetSelected(ShareActionProvider.this, intent);
                 return false;
             }
             return false;
         }
     }
 
-    void A(Intent intent) {
+    void updateIntent(Intent intent) {
         if (Build.VERSION.SDK_INT >= 21) {
             intent.addFlags(134742016);
         } else {

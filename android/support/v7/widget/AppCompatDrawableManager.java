@@ -9,7 +9,13 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
+import android.support.annotation.ColorInt;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.ColorUtils;
 import android.support.v4.graphics.drawable.DrawableCompat;
@@ -27,133 +33,137 @@ import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public final class AppCompatDrawableManager {
-    private static AppCompatDrawableManager ME;
-    private WeakHashMap<Context, SparseArray<ColorStateList>> MN;
-    private ArrayMap<String, c> MO;
-    private SparseArray<String> MP;
-    private final Object MQ = new Object();
-    private final WeakHashMap<Context, LongSparseArray<WeakReference<Drawable.ConstantState>>> MR = new WeakHashMap<>(0);
-    private TypedValue MS;
-    private boolean MT;
-    private static final PorterDuff.Mode MD = PorterDuff.Mode.SRC_IN;
-    private static final b MF = new b(6);
-    private static final int[] MG = {R.drawable.abc_textfield_search_default_mtrl_alpha, R.drawable.abc_textfield_default_mtrl_alpha, R.drawable.abc_ab_share_pack_mtrl_alpha};
-    private static final int[] MH = {R.drawable.abc_ic_commit_search_api_mtrl_alpha, R.drawable.abc_seekbar_tick_mark_material, R.drawable.abc_ic_menu_share_mtrl_alpha, R.drawable.abc_ic_menu_copy_mtrl_am_alpha, R.drawable.abc_ic_menu_cut_mtrl_alpha, R.drawable.abc_ic_menu_selectall_mtrl_alpha, R.drawable.abc_ic_menu_paste_mtrl_am_alpha};
-    private static final int[] MI = {R.drawable.abc_textfield_activated_mtrl_alpha, R.drawable.abc_textfield_search_activated_mtrl_alpha, R.drawable.abc_cab_background_top_mtrl_alpha, R.drawable.abc_text_cursor_material, R.drawable.abc_text_select_handle_left_mtrl_dark, R.drawable.abc_text_select_handle_middle_mtrl_dark, R.drawable.abc_text_select_handle_right_mtrl_dark, R.drawable.abc_text_select_handle_left_mtrl_light, R.drawable.abc_text_select_handle_middle_mtrl_light, R.drawable.abc_text_select_handle_right_mtrl_light};
-    private static final int[] MJ = {R.drawable.abc_popup_background_mtrl_mult, R.drawable.abc_cab_background_internal_bg, R.drawable.abc_menu_hardkey_panel_mtrl_mult};
-    private static final int[] MK = {R.drawable.abc_tab_indicator_material, R.drawable.abc_textfield_search_material};
-    private static final int[] MM = {R.drawable.abc_btn_check_material, R.drawable.abc_btn_radio_material};
+    private static final boolean DEBUG = false;
+    private static AppCompatDrawableManager INSTANCE = null;
+    private static final String PLATFORM_VD_CLAZZ = "android.graphics.drawable.VectorDrawable";
+    private static final String SKIP_DRAWABLE_TAG = "appcompat_skip_skip";
+    private static final String TAG = "AppCompatDrawableManager";
+    private ArrayMap<String, InflateDelegate> mDelegates;
+    private final Object mDrawableCacheLock = new Object();
+    private final WeakHashMap<Context, LongSparseArray<WeakReference<Drawable.ConstantState>>> mDrawableCaches = new WeakHashMap<>(0);
+    private boolean mHasCheckedVectorDrawableSetup;
+    private SparseArray<String> mKnownDrawableIdTags;
+    private WeakHashMap<Context, SparseArray<ColorStateList>> mTintLists;
+    private TypedValue mTypedValue;
+    private static final PorterDuff.Mode DEFAULT_MODE = PorterDuff.Mode.SRC_IN;
+    private static final ColorFilterLruCache COLOR_FILTER_CACHE = new ColorFilterLruCache(6);
+    private static final int[] COLORFILTER_TINT_COLOR_CONTROL_NORMAL = {R.drawable.abc_textfield_search_default_mtrl_alpha, R.drawable.abc_textfield_default_mtrl_alpha, R.drawable.abc_ab_share_pack_mtrl_alpha};
+    private static final int[] TINT_COLOR_CONTROL_NORMAL = {R.drawable.abc_ic_commit_search_api_mtrl_alpha, R.drawable.abc_seekbar_tick_mark_material, R.drawable.abc_ic_menu_share_mtrl_alpha, R.drawable.abc_ic_menu_copy_mtrl_am_alpha, R.drawable.abc_ic_menu_cut_mtrl_alpha, R.drawable.abc_ic_menu_selectall_mtrl_alpha, R.drawable.abc_ic_menu_paste_mtrl_am_alpha};
+    private static final int[] COLORFILTER_COLOR_CONTROL_ACTIVATED = {R.drawable.abc_textfield_activated_mtrl_alpha, R.drawable.abc_textfield_search_activated_mtrl_alpha, R.drawable.abc_cab_background_top_mtrl_alpha, R.drawable.abc_text_cursor_material, R.drawable.abc_text_select_handle_left_mtrl_dark, R.drawable.abc_text_select_handle_middle_mtrl_dark, R.drawable.abc_text_select_handle_right_mtrl_dark, R.drawable.abc_text_select_handle_left_mtrl_light, R.drawable.abc_text_select_handle_middle_mtrl_light, R.drawable.abc_text_select_handle_right_mtrl_light};
+    private static final int[] COLORFILTER_COLOR_BACKGROUND_MULTIPLY = {R.drawable.abc_popup_background_mtrl_mult, R.drawable.abc_cab_background_internal_bg, R.drawable.abc_menu_hardkey_panel_mtrl_mult};
+    private static final int[] TINT_COLOR_CONTROL_STATE_LIST = {R.drawable.abc_tab_indicator_material, R.drawable.abc_textfield_search_material};
+    private static final int[] TINT_CHECKABLE_BUTTON_LIST = {R.drawable.abc_btn_check_material, R.drawable.abc_btn_radio_material};
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public interface c {
-        Drawable a(Context context, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme);
+    public interface InflateDelegate {
+        Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme);
     }
 
     public static AppCompatDrawableManager get() {
-        if (ME == null) {
-            ME = new AppCompatDrawableManager();
-            a(ME);
+        if (INSTANCE == null) {
+            INSTANCE = new AppCompatDrawableManager();
+            installDefaultInflateDelegates(INSTANCE);
         }
-        return ME;
+        return INSTANCE;
     }
 
-    private static void a(AppCompatDrawableManager appCompatDrawableManager) {
+    private static void installDefaultInflateDelegates(@NonNull AppCompatDrawableManager appCompatDrawableManager) {
         int i = Build.VERSION.SDK_INT;
         if (i < 24) {
-            appCompatDrawableManager.a("vector", new d());
+            appCompatDrawableManager.addDelegate("vector", new VdcInflateDelegate());
             if (i >= 11) {
-                appCompatDrawableManager.a("animated-vector", new a());
+                appCompatDrawableManager.addDelegate("animated-vector", new AvdcInflateDelegate());
             }
         }
     }
 
-    public Drawable getDrawable(Context context, int i) {
-        return b(context, i, false);
+    public Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
+        return getDrawable(context, i, false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable b(Context context, int i, boolean z) {
-        X(context);
-        Drawable j = j(context, i);
-        if (j == null) {
-            j = i(context, i);
+    public Drawable getDrawable(@NonNull Context context, @DrawableRes int i, boolean z) {
+        checkVectorDrawableSetup(context);
+        Drawable loadDrawableFromDelegates = loadDrawableFromDelegates(context, i);
+        if (loadDrawableFromDelegates == null) {
+            loadDrawableFromDelegates = createDrawableIfNeeded(context, i);
         }
-        if (j == null) {
-            j = ContextCompat.getDrawable(context, i);
+        if (loadDrawableFromDelegates == null) {
+            loadDrawableFromDelegates = ContextCompat.getDrawable(context, i);
         }
-        if (j != null) {
-            j = a(context, i, z, j);
+        if (loadDrawableFromDelegates != null) {
+            loadDrawableFromDelegates = tintDrawable(context, i, z, loadDrawableFromDelegates);
         }
-        if (j != null) {
-            DrawableUtils.g(j);
+        if (loadDrawableFromDelegates != null) {
+            DrawableUtils.fixDrawable(loadDrawableFromDelegates);
         }
-        return j;
+        return loadDrawableFromDelegates;
     }
 
-    public void onConfigurationChanged(Context context) {
-        synchronized (this.MQ) {
-            LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.MR.get(context);
+    public void onConfigurationChanged(@NonNull Context context) {
+        synchronized (this.mDrawableCacheLock) {
+            LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.mDrawableCaches.get(context);
             if (longSparseArray != null) {
                 longSparseArray.clear();
             }
         }
     }
 
-    private static long a(TypedValue typedValue) {
+    private static long createCacheKey(TypedValue typedValue) {
         return (typedValue.assetCookie << 32) | typedValue.data;
     }
 
-    private Drawable i(Context context, int i) {
-        if (this.MS == null) {
-            this.MS = new TypedValue();
+    private Drawable createDrawableIfNeeded(@NonNull Context context, @DrawableRes int i) {
+        if (this.mTypedValue == null) {
+            this.mTypedValue = new TypedValue();
         }
-        TypedValue typedValue = this.MS;
+        TypedValue typedValue = this.mTypedValue;
         context.getResources().getValue(i, typedValue, true);
-        long a2 = a(typedValue);
-        Drawable e = e(context, a2);
-        if (e == null) {
+        long createCacheKey = createCacheKey(typedValue);
+        Drawable cachedDrawable = getCachedDrawable(context, createCacheKey);
+        if (cachedDrawable == null) {
             if (i == R.drawable.abc_cab_background_top_material) {
-                e = new LayerDrawable(new Drawable[]{getDrawable(context, R.drawable.abc_cab_background_internal_bg), getDrawable(context, R.drawable.abc_cab_background_top_mtrl_alpha)});
+                cachedDrawable = new LayerDrawable(new Drawable[]{getDrawable(context, R.drawable.abc_cab_background_internal_bg), getDrawable(context, R.drawable.abc_cab_background_top_mtrl_alpha)});
             }
-            if (e != null) {
-                e.setChangingConfigurations(typedValue.changingConfigurations);
-                a(context, a2, e);
+            if (cachedDrawable != null) {
+                cachedDrawable.setChangingConfigurations(typedValue.changingConfigurations);
+                addDrawableToCache(context, createCacheKey, cachedDrawable);
             }
         }
-        return e;
+        return cachedDrawable;
     }
 
-    private Drawable a(Context context, int i, boolean z, Drawable drawable) {
-        ColorStateList k = k(context, i);
-        if (k != null) {
+    private Drawable tintDrawable(@NonNull Context context, @DrawableRes int i, boolean z, @NonNull Drawable drawable) {
+        ColorStateList tintList = getTintList(context, i);
+        if (tintList != null) {
             if (DrawableUtils.canSafelyMutateDrawable(drawable)) {
                 drawable = drawable.mutate();
             }
             Drawable wrap = DrawableCompat.wrap(drawable);
-            DrawableCompat.setTintList(wrap, k);
-            PorterDuff.Mode bg = bg(i);
-            if (bg != null) {
-                DrawableCompat.setTintMode(wrap, bg);
+            DrawableCompat.setTintList(wrap, tintList);
+            PorterDuff.Mode tintMode = getTintMode(i);
+            if (tintMode != null) {
+                DrawableCompat.setTintMode(wrap, tintMode);
                 return wrap;
             }
             return wrap;
         } else if (i == R.drawable.abc_seekbar_track_material) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
-            a(layerDrawable.findDrawableByLayerId(16908288), s.n(context, R.attr.colorControlNormal), MD);
-            a(layerDrawable.findDrawableByLayerId(16908303), s.n(context, R.attr.colorControlNormal), MD);
-            a(layerDrawable.findDrawableByLayerId(16908301), s.n(context, R.attr.colorControlActivated), MD);
+            setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908288), ThemeUtils.getThemeAttrColor(context, R.attr.colorControlNormal), DEFAULT_MODE);
+            setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R.attr.colorControlNormal), DEFAULT_MODE);
+            setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R.attr.colorControlActivated), DEFAULT_MODE);
             return drawable;
         } else if (i == R.drawable.abc_ratingbar_material || i == R.drawable.abc_ratingbar_indicator_material || i == R.drawable.abc_ratingbar_small_material) {
             LayerDrawable layerDrawable2 = (LayerDrawable) drawable;
-            a(layerDrawable2.findDrawableByLayerId(16908288), s.p(context, R.attr.colorControlNormal), MD);
-            a(layerDrawable2.findDrawableByLayerId(16908303), s.n(context, R.attr.colorControlActivated), MD);
-            a(layerDrawable2.findDrawableByLayerId(16908301), s.n(context, R.attr.colorControlActivated), MD);
+            setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908288), ThemeUtils.getDisabledThemeAttrColor(context, R.attr.colorControlNormal), DEFAULT_MODE);
+            setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R.attr.colorControlActivated), DEFAULT_MODE);
+            setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R.attr.colorControlActivated), DEFAULT_MODE);
             return drawable;
-        } else if (!a(context, i, drawable) && z) {
+        } else if (!tintDrawableUsingColorFilter(context, i, drawable) && z) {
             return null;
         } else {
             return drawable;
@@ -165,32 +175,32 @@ public final class AppCompatDrawableManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Drawable j(Context context, int i) {
+    private Drawable loadDrawableFromDelegates(@NonNull Context context, @DrawableRes int i) {
         Drawable drawable;
         XmlResourceParser xml;
         AttributeSet asAttributeSet;
         int next;
-        if (this.MO == null || this.MO.isEmpty()) {
+        if (this.mDelegates == null || this.mDelegates.isEmpty()) {
             return null;
         }
-        if (this.MP != null) {
-            String str = this.MP.get(i);
-            if ("appcompat_skip_skip".equals(str) || (str != null && this.MO.get(str) == null)) {
+        if (this.mKnownDrawableIdTags != null) {
+            String str = this.mKnownDrawableIdTags.get(i);
+            if (SKIP_DRAWABLE_TAG.equals(str) || (str != null && this.mDelegates.get(str) == null)) {
                 return null;
             }
         } else {
-            this.MP = new SparseArray<>();
+            this.mKnownDrawableIdTags = new SparseArray<>();
         }
-        if (this.MS == null) {
-            this.MS = new TypedValue();
+        if (this.mTypedValue == null) {
+            this.mTypedValue = new TypedValue();
         }
-        TypedValue typedValue = this.MS;
+        TypedValue typedValue = this.mTypedValue;
         Resources resources = context.getResources();
         resources.getValue(i, typedValue, true);
-        long a2 = a(typedValue);
-        Drawable e = e(context, a2);
-        if (e != null) {
-            return e;
+        long createCacheKey = createCacheKey(typedValue);
+        Drawable cachedDrawable = getCachedDrawable(context, createCacheKey);
+        if (cachedDrawable != null) {
+            return cachedDrawable;
         }
         if (typedValue.string != null && typedValue.string.toString().endsWith(".xml")) {
             try {
@@ -202,38 +212,38 @@ public final class AppCompatDrawableManager {
                         break;
                     }
                 } while (next != 1);
-            } catch (Exception e2) {
-                Log.e("AppCompatDrawableManager", "Exception while inflating drawable", e2);
+            } catch (Exception e) {
+                Log.e(TAG, "Exception while inflating drawable", e);
             }
             if (next != 2) {
                 throw new XmlPullParserException("No start tag found");
             }
             String name = xml.getName();
-            this.MP.append(i, name);
-            c cVar = this.MO.get(name);
-            if (cVar != null) {
-                e = cVar.a(context, xml, asAttributeSet, context.getTheme());
+            this.mKnownDrawableIdTags.append(i, name);
+            InflateDelegate inflateDelegate = this.mDelegates.get(name);
+            if (inflateDelegate != null) {
+                cachedDrawable = inflateDelegate.createFromXmlInner(context, xml, asAttributeSet, context.getTheme());
             }
-            if (e != null) {
-                e.setChangingConfigurations(typedValue.changingConfigurations);
-                if (a(context, a2, e)) {
+            if (cachedDrawable != null) {
+                cachedDrawable.setChangingConfigurations(typedValue.changingConfigurations);
+                if (addDrawableToCache(context, createCacheKey, cachedDrawable)) {
                 }
             }
-            drawable = e;
+            drawable = cachedDrawable;
             if (drawable != null) {
-                this.MP.append(i, "appcompat_skip_skip");
+                this.mKnownDrawableIdTags.append(i, SKIP_DRAWABLE_TAG);
                 return drawable;
             }
             return drawable;
         }
-        drawable = e;
+        drawable = cachedDrawable;
         if (drawable != null) {
         }
     }
 
-    private Drawable e(Context context, long j) {
-        synchronized (this.MQ) {
-            LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.MR.get(context);
+    private Drawable getCachedDrawable(@NonNull Context context, long j) {
+        synchronized (this.mDrawableCacheLock) {
+            LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.mDrawableCaches.get(context);
             if (longSparseArray == null) {
                 return null;
             }
@@ -249,14 +259,14 @@ public final class AppCompatDrawableManager {
         }
     }
 
-    private boolean a(Context context, long j, Drawable drawable) {
+    private boolean addDrawableToCache(@NonNull Context context, long j, @NonNull Drawable drawable) {
         Drawable.ConstantState constantState = drawable.getConstantState();
         if (constantState != null) {
-            synchronized (this.MQ) {
-                LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.MR.get(context);
+            synchronized (this.mDrawableCacheLock) {
+                LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.mDrawableCaches.get(context);
                 if (longSparseArray == null) {
                     longSparseArray = new LongSparseArray<>();
-                    this.MR.put(context, longSparseArray);
+                    this.mDrawableCaches.put(context, longSparseArray);
                 }
                 longSparseArray.put(j, new WeakReference<>(constantState));
             }
@@ -266,35 +276,35 @@ public final class AppCompatDrawableManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable a(Context context, VectorEnabledTintResources vectorEnabledTintResources, int i) {
-        Drawable j = j(context, i);
-        if (j == null) {
-            j = vectorEnabledTintResources.ci(i);
+    public Drawable onDrawableLoadedFromResources(@NonNull Context context, @NonNull VectorEnabledTintResources vectorEnabledTintResources, @DrawableRes int i) {
+        Drawable loadDrawableFromDelegates = loadDrawableFromDelegates(context, i);
+        if (loadDrawableFromDelegates == null) {
+            loadDrawableFromDelegates = vectorEnabledTintResources.superGetDrawable(i);
         }
-        if (j != null) {
-            return a(context, i, false, j);
+        if (loadDrawableFromDelegates != null) {
+            return tintDrawable(context, i, false, loadDrawableFromDelegates);
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean a(Context context, int i, Drawable drawable) {
+    public static boolean tintDrawableUsingColorFilter(@NonNull Context context, @DrawableRes int i, @NonNull Drawable drawable) {
         int i2;
         int i3;
         PorterDuff.Mode mode;
         boolean z;
-        PorterDuff.Mode mode2 = MD;
-        if (b(MG, i)) {
+        PorterDuff.Mode mode2 = DEFAULT_MODE;
+        if (arrayContains(COLORFILTER_TINT_COLOR_CONTROL_NORMAL, i)) {
             i3 = R.attr.colorControlNormal;
             mode = mode2;
             z = true;
             i2 = -1;
-        } else if (b(MI, i)) {
+        } else if (arrayContains(COLORFILTER_COLOR_CONTROL_ACTIVATED, i)) {
             i3 = R.attr.colorControlActivated;
             mode = mode2;
             z = true;
             i2 = -1;
-        } else if (b(MJ, i)) {
+        } else if (arrayContains(COLORFILTER_COLOR_BACKGROUND_MULTIPLY, i)) {
             z = true;
             mode = PorterDuff.Mode.MULTIPLY;
             i3 = 16842801;
@@ -319,7 +329,7 @@ public final class AppCompatDrawableManager {
             if (DrawableUtils.canSafelyMutateDrawable(drawable)) {
                 drawable = drawable.mutate();
             }
-            drawable.setColorFilter(getPorterDuffColorFilter(s.n(context, i3), mode));
+            drawable.setColorFilter(getPorterDuffColorFilter(ThemeUtils.getThemeAttrColor(context, i3), mode));
             if (i2 != -1) {
                 drawable.setAlpha(i2);
                 return true;
@@ -329,14 +339,20 @@ public final class AppCompatDrawableManager {
         return false;
     }
 
-    private void a(String str, c cVar) {
-        if (this.MO == null) {
-            this.MO = new ArrayMap<>();
+    private void addDelegate(@NonNull String str, @NonNull InflateDelegate inflateDelegate) {
+        if (this.mDelegates == null) {
+            this.mDelegates = new ArrayMap<>();
         }
-        this.MO.put(str, cVar);
+        this.mDelegates.put(str, inflateDelegate);
     }
 
-    private static boolean b(int[] iArr, int i) {
+    private void removeDelegate(@NonNull String str, @NonNull InflateDelegate inflateDelegate) {
+        if (this.mDelegates != null && this.mDelegates.get(str) == inflateDelegate) {
+            this.mDelegates.remove(str);
+        }
+    }
+
+    private static boolean arrayContains(int[] iArr, int i) {
         for (int i2 : iArr) {
             if (i2 == i) {
                 return true;
@@ -345,7 +361,7 @@ public final class AppCompatDrawableManager {
         return false;
     }
 
-    static PorterDuff.Mode bg(int i) {
+    static PorterDuff.Mode getTintMode(int i) {
         if (i != R.drawable.abc_switch_thumb_material) {
             return null;
         }
@@ -353,92 +369,92 @@ public final class AppCompatDrawableManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList k(Context context, int i) {
-        return b(context, i, (ColorStateList) null);
+    public ColorStateList getTintList(@NonNull Context context, @DrawableRes int i) {
+        return getTintList(context, i, null);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList b(Context context, int i, ColorStateList colorStateList) {
+    public ColorStateList getTintList(@NonNull Context context, @DrawableRes int i, @Nullable ColorStateList colorStateList) {
         boolean z = colorStateList == null;
-        ColorStateList l = z ? l(context, i) : null;
-        if (l == null) {
+        ColorStateList tintListFromCache = z ? getTintListFromCache(context, i) : null;
+        if (tintListFromCache == null) {
             if (i == R.drawable.abc_edit_text_material) {
-                l = AppCompatResources.getColorStateList(context, R.color.abc_tint_edittext);
+                tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_edittext);
             } else if (i == R.drawable.abc_switch_track_mtrl_alpha) {
-                l = AppCompatResources.getColorStateList(context, R.color.abc_tint_switch_track);
+                tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_switch_track);
             } else if (i == R.drawable.abc_switch_thumb_material) {
-                l = AppCompatResources.getColorStateList(context, R.color.abc_tint_switch_thumb);
+                tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_switch_thumb);
             } else if (i == R.drawable.abc_btn_default_mtrl_shape) {
-                l = a(context, colorStateList);
+                tintListFromCache = createDefaultButtonColorStateList(context, colorStateList);
             } else if (i == R.drawable.abc_btn_borderless_material) {
-                l = b(context, colorStateList);
+                tintListFromCache = createBorderlessButtonColorStateList(context, colorStateList);
             } else if (i == R.drawable.abc_btn_colored_material) {
-                l = c(context, colorStateList);
+                tintListFromCache = createColoredButtonColorStateList(context, colorStateList);
             } else if (i == R.drawable.abc_spinner_mtrl_am_alpha || i == R.drawable.abc_spinner_textfield_background_material) {
-                l = AppCompatResources.getColorStateList(context, R.color.abc_tint_spinner);
-            } else if (b(MH, i)) {
-                l = s.o(context, R.attr.colorControlNormal);
-            } else if (b(MK, i)) {
-                l = AppCompatResources.getColorStateList(context, R.color.abc_tint_default);
-            } else if (b(MM, i)) {
-                l = AppCompatResources.getColorStateList(context, R.color.abc_tint_btn_checkable);
+                tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_spinner);
+            } else if (arrayContains(TINT_COLOR_CONTROL_NORMAL, i)) {
+                tintListFromCache = ThemeUtils.getThemeAttrColorStateList(context, R.attr.colorControlNormal);
+            } else if (arrayContains(TINT_COLOR_CONTROL_STATE_LIST, i)) {
+                tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_default);
+            } else if (arrayContains(TINT_CHECKABLE_BUTTON_LIST, i)) {
+                tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_btn_checkable);
             } else if (i == R.drawable.abc_seekbar_thumb_material) {
-                l = AppCompatResources.getColorStateList(context, R.color.abc_tint_seek_thumb);
+                tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_seek_thumb);
             }
-            if (z && l != null) {
-                c(context, i, l);
+            if (z && tintListFromCache != null) {
+                addTintListToCache(context, i, tintListFromCache);
             }
         }
-        return l;
+        return tintListFromCache;
     }
 
-    private ColorStateList l(Context context, int i) {
+    private ColorStateList getTintListFromCache(@NonNull Context context, @DrawableRes int i) {
         SparseArray<ColorStateList> sparseArray;
-        if (this.MN != null && (sparseArray = this.MN.get(context)) != null) {
+        if (this.mTintLists != null && (sparseArray = this.mTintLists.get(context)) != null) {
             return sparseArray.get(i);
         }
         return null;
     }
 
-    private void c(Context context, int i, ColorStateList colorStateList) {
-        if (this.MN == null) {
-            this.MN = new WeakHashMap<>();
+    private void addTintListToCache(@NonNull Context context, @DrawableRes int i, @NonNull ColorStateList colorStateList) {
+        if (this.mTintLists == null) {
+            this.mTintLists = new WeakHashMap<>();
         }
-        SparseArray<ColorStateList> sparseArray = this.MN.get(context);
+        SparseArray<ColorStateList> sparseArray = this.mTintLists.get(context);
         if (sparseArray == null) {
             sparseArray = new SparseArray<>();
-            this.MN.put(context, sparseArray);
+            this.mTintLists.put(context, sparseArray);
         }
         sparseArray.append(i, colorStateList);
     }
 
-    private ColorStateList a(Context context, ColorStateList colorStateList) {
-        return d(context, s.n(context, R.attr.colorButtonNormal), colorStateList);
+    private ColorStateList createDefaultButtonColorStateList(@NonNull Context context, @Nullable ColorStateList colorStateList) {
+        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorButtonNormal), colorStateList);
     }
 
-    private ColorStateList b(Context context, ColorStateList colorStateList) {
-        return d(context, 0, null);
+    private ColorStateList createBorderlessButtonColorStateList(@NonNull Context context, @Nullable ColorStateList colorStateList) {
+        return createButtonColorStateList(context, 0, null);
     }
 
-    private ColorStateList c(Context context, ColorStateList colorStateList) {
-        return d(context, s.n(context, R.attr.colorAccent), colorStateList);
+    private ColorStateList createColoredButtonColorStateList(@NonNull Context context, @Nullable ColorStateList colorStateList) {
+        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorAccent), colorStateList);
     }
 
-    private ColorStateList d(Context context, int i, ColorStateList colorStateList) {
+    private ColorStateList createButtonColorStateList(@NonNull Context context, @ColorInt int i, @Nullable ColorStateList colorStateList) {
         int[][] iArr = new int[4];
         int[] iArr2 = new int[4];
-        int n = s.n(context, R.attr.colorControlHighlight);
-        int p = s.p(context, R.attr.colorButtonNormal);
-        iArr[0] = s.lg;
+        int themeAttrColor = ThemeUtils.getThemeAttrColor(context, R.attr.colorControlHighlight);
+        int disabledThemeAttrColor = ThemeUtils.getDisabledThemeAttrColor(context, R.attr.colorButtonNormal);
+        iArr[0] = ThemeUtils.DISABLED_STATE_SET;
         if (colorStateList != null) {
-            p = colorStateList.getColorForState(iArr[0], 0);
+            disabledThemeAttrColor = colorStateList.getColorForState(iArr[0], 0);
         }
-        iArr2[0] = p;
-        iArr[1] = s.PRESSED_STATE_SET;
-        iArr2[1] = ColorUtils.compositeColors(n, colorStateList == null ? i : colorStateList.getColorForState(iArr[1], 0));
-        iArr[2] = s.FOCUSED_STATE_SET;
-        iArr2[2] = ColorUtils.compositeColors(n, colorStateList == null ? i : colorStateList.getColorForState(iArr[2], 0));
-        iArr[3] = s.EMPTY_STATE_SET;
+        iArr2[0] = disabledThemeAttrColor;
+        iArr[1] = ThemeUtils.PRESSED_STATE_SET;
+        iArr2[1] = ColorUtils.compositeColors(themeAttrColor, colorStateList == null ? i : colorStateList.getColorForState(iArr[1], 0));
+        iArr[2] = ThemeUtils.FOCUSED_STATE_SET;
+        iArr2[2] = ColorUtils.compositeColors(themeAttrColor, colorStateList == null ? i : colorStateList.getColorForState(iArr[2], 0));
+        iArr[3] = ThemeUtils.EMPTY_STATE_SET;
         if (colorStateList != null) {
             i = colorStateList.getColorForState(iArr[3], 0);
         }
@@ -448,32 +464,32 @@ public final class AppCompatDrawableManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class b extends LruCache<Integer, PorterDuffColorFilter> {
-        public b(int i) {
+    public static class ColorFilterLruCache extends LruCache<Integer, PorterDuffColorFilter> {
+        public ColorFilterLruCache(int i) {
             super(i);
         }
 
-        PorterDuffColorFilter c(int i, PorterDuff.Mode mode) {
-            return get(Integer.valueOf(d(i, mode)));
+        PorterDuffColorFilter get(int i, PorterDuff.Mode mode) {
+            return get(Integer.valueOf(generateCacheKey(i, mode)));
         }
 
-        PorterDuffColorFilter a(int i, PorterDuff.Mode mode, PorterDuffColorFilter porterDuffColorFilter) {
-            return put(Integer.valueOf(d(i, mode)), porterDuffColorFilter);
+        PorterDuffColorFilter put(int i, PorterDuff.Mode mode, PorterDuffColorFilter porterDuffColorFilter) {
+            return put(Integer.valueOf(generateCacheKey(i, mode)), porterDuffColorFilter);
         }
 
-        private static int d(int i, PorterDuff.Mode mode) {
+        private static int generateCacheKey(int i, PorterDuff.Mode mode) {
             return ((i + 31) * 31) + mode.hashCode();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(Drawable drawable, t tVar, int[] iArr) {
+    public static void tintDrawable(Drawable drawable, TintInfo tintInfo, int[] iArr) {
         if (DrawableUtils.canSafelyMutateDrawable(drawable) && drawable.mutate() != drawable) {
-            Log.d("AppCompatDrawableManager", "Mutated drawable is not the same instance as the input.");
+            Log.d(TAG, "Mutated drawable is not the same instance as the input.");
             return;
         }
-        if (tVar.Xe || tVar.Xd) {
-            drawable.setColorFilter(a(tVar.Xe ? tVar.Xc : null, tVar.Xd ? tVar.uo : MD, iArr));
+        if (tintInfo.mHasTintList || tintInfo.mHasTintMode) {
+            drawable.setColorFilter(createTintFilter(tintInfo.mHasTintList ? tintInfo.mTintList : null, tintInfo.mHasTintMode ? tintInfo.mTintMode : DEFAULT_MODE, iArr));
         } else {
             drawable.clearColorFilter();
         }
@@ -482,7 +498,7 @@ public final class AppCompatDrawableManager {
         }
     }
 
-    private static PorterDuffColorFilter a(ColorStateList colorStateList, PorterDuff.Mode mode, int[] iArr) {
+    private static PorterDuffColorFilter createTintFilter(ColorStateList colorStateList, PorterDuff.Mode mode, int[] iArr) {
         if (colorStateList == null || mode == null) {
             return null;
         }
@@ -490,50 +506,50 @@ public final class AppCompatDrawableManager {
     }
 
     public static PorterDuffColorFilter getPorterDuffColorFilter(int i, PorterDuff.Mode mode) {
-        PorterDuffColorFilter c2 = MF.c(i, mode);
-        if (c2 == null) {
-            PorterDuffColorFilter porterDuffColorFilter = new PorterDuffColorFilter(i, mode);
-            MF.a(i, mode, porterDuffColorFilter);
-            return porterDuffColorFilter;
+        PorterDuffColorFilter porterDuffColorFilter = COLOR_FILTER_CACHE.get(i, mode);
+        if (porterDuffColorFilter == null) {
+            PorterDuffColorFilter porterDuffColorFilter2 = new PorterDuffColorFilter(i, mode);
+            COLOR_FILTER_CACHE.put(i, mode, porterDuffColorFilter2);
+            return porterDuffColorFilter2;
         }
-        return c2;
+        return porterDuffColorFilter;
     }
 
-    private static void a(Drawable drawable, int i, PorterDuff.Mode mode) {
+    private static void setPorterDuffColorFilter(Drawable drawable, int i, PorterDuff.Mode mode) {
         if (DrawableUtils.canSafelyMutateDrawable(drawable)) {
             drawable = drawable.mutate();
         }
         if (mode == null) {
-            mode = MD;
+            mode = DEFAULT_MODE;
         }
         drawable.setColorFilter(getPorterDuffColorFilter(i, mode));
     }
 
-    private void X(Context context) {
-        if (!this.MT) {
-            this.MT = true;
+    private void checkVectorDrawableSetup(@NonNull Context context) {
+        if (!this.mHasCheckedVectorDrawableSetup) {
+            this.mHasCheckedVectorDrawableSetup = true;
             Drawable drawable = getDrawable(context, R.drawable.abc_vector_test);
-            if (drawable == null || !e(drawable)) {
-                this.MT = false;
+            if (drawable == null || !isVectorDrawable(drawable)) {
+                this.mHasCheckedVectorDrawableSetup = false;
                 throw new IllegalStateException("This app has been built with an incorrect configuration. Please configure your build for VectorDrawableCompat.");
             }
         }
     }
 
-    private static boolean e(Drawable drawable) {
-        return (drawable instanceof android.support.a.a.f) || "android.graphics.drawable.VectorDrawable".equals(drawable.getClass().getName());
+    private static boolean isVectorDrawable(@NonNull Drawable drawable) {
+        return (drawable instanceof VectorDrawableCompat) || PLATFORM_VD_CLAZZ.equals(drawable.getClass().getName());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class d implements c {
-        d() {
+    public static class VdcInflateDelegate implements InflateDelegate {
+        VdcInflateDelegate() {
         }
 
-        @Override // android.support.v7.widget.AppCompatDrawableManager.c
-        public Drawable a(Context context, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) {
+        @Override // android.support.v7.widget.AppCompatDrawableManager.InflateDelegate
+        public Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) {
             try {
-                return android.support.a.a.f.a(context.getResources(), xmlPullParser, attributeSet, theme);
+                return VectorDrawableCompat.createFromXmlInner(context.getResources(), xmlPullParser, attributeSet, theme);
             } catch (Exception e) {
                 Log.e("VdcInflateDelegate", "Exception while inflating <vector>", e);
                 return null;
@@ -543,14 +559,14 @@ public final class AppCompatDrawableManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class a implements c {
-        a() {
+    public static class AvdcInflateDelegate implements InflateDelegate {
+        AvdcInflateDelegate() {
         }
 
-        @Override // android.support.v7.widget.AppCompatDrawableManager.c
-        public Drawable a(Context context, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) {
+        @Override // android.support.v7.widget.AppCompatDrawableManager.InflateDelegate
+        public Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) {
             try {
-                return android.support.a.a.b.a(context, context.getResources(), xmlPullParser, attributeSet, theme);
+                return AnimatedVectorDrawableCompat.createFromXmlInner(context, context.getResources(), xmlPullParser, attributeSet, theme);
             } catch (Exception e) {
                 Log.e("AvdcInflateDelegate", "Exception while inflating <animated-vector>", e);
                 return null;

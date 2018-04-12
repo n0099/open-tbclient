@@ -5,11 +5,9 @@ import android.view.View;
 public interface a {
     View getHeaderView();
 
-    void gp(boolean z);
-
-    void hB(String str);
-
     void hideTitle();
+
+    void hu(String str);
 
     void onChangeSkinType(int i);
 

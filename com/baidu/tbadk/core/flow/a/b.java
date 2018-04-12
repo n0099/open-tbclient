@@ -8,28 +8,28 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class b implements com.baidu.tbadk.core.flow.b {
-    @Override // com.baidu.tbadk.core.flow.b
-    public c Bg() {
+public class b implements com.baidu.tbadk.core.flow.a {
+    @Override // com.baidu.tbadk.core.flow.a
+    public c tO() {
         c cVar = new c();
-        cVar.fs(d.f.icon_banner_n);
-        cVar.ft(d.f.icon_banner_s);
+        cVar.cr(d.f.icon_banner_n);
+        cVar.cs(d.f.icon_banner_s);
         cVar.setSpacing(d.e.ds22);
         cVar.setGravity(81);
-        cVar.fu(d.e.ds22);
+        cVar.ct(d.e.ds22);
         return cVar;
     }
 
-    @Override // com.baidu.tbadk.core.flow.b
-    public TbImageView aI(Context context) {
+    @Override // com.baidu.tbadk.core.flow.a
+    public TbImageView as(Context context) {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
         tbImageView.setGifIconSupport(false);
         return tbImageView;
     }
 
-    @Override // com.baidu.tbadk.core.flow.b
-    public e Bh() {
+    @Override // com.baidu.tbadk.core.flow.a
+    public e tP() {
         e eVar = new e();
         Resources resources = TbadkCoreApplication.getInst().getResources();
         if (resources != null) {
@@ -38,8 +38,8 @@ public class b implements com.baidu.tbadk.core.flow.b {
         return eVar;
     }
 
-    @Override // com.baidu.tbadk.core.flow.b
-    public View Bi() {
+    @Override // com.baidu.tbadk.core.flow.a
+    public View tQ() {
         return null;
     }
 }

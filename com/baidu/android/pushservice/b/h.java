@@ -3,13 +3,13 @@ package com.baidu.android.pushservice.b;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends e {
     private static volatile h d;
     private static String e = "SDKClientManager";
@@ -23,7 +23,7 @@ public class h extends e {
         Iterator<a> it = arrayList.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (!TextUtils.isEmpty(next.a()) && next.a().equals(str) && p.c(this.b, next.c()) && (0 == 0 || aVar.d() < next.d())) {
+            if (!TextUtils.isEmpty(next.a()) && next.a().equals(str) && m.c(this.b, next.c()) && (0 == 0 || aVar.d() < next.d())) {
                 g gVar = (g) next;
                 this.a.add(gVar);
                 return gVar;
@@ -64,7 +64,7 @@ public class h extends e {
             if (z) {
                 try {
                     String a = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a(this.a), 0), "utf-8");
-                    com.baidu.android.pushservice.j.b.a(this.b, "com.baidu.push.sdkr", a);
+                    com.baidu.android.pushservice.j.a.a(this.b, "com.baidu.push.sdkr", a);
                     return a;
                 } catch (Exception e2) {
                 } catch (UnsatisfiedLinkError e3) {
@@ -133,7 +133,7 @@ public class h extends e {
         g a = a(str, this.a);
         if (a == null) {
             try {
-                String a2 = com.baidu.android.pushservice.j.b.a(this.b, "com.baidu.push.sdkr");
+                String a2 = com.baidu.android.pushservice.j.a.a(this.b, "com.baidu.push.sdkr");
                 if (TextUtils.isEmpty(a2)) {
                     return a;
                 }

@@ -10,8 +10,8 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-import com.meizu.cloud.pushsdk.util.d;
-/* loaded from: classes2.dex */
+import com.meizu.cloud.pushsdk.util.c;
+/* loaded from: classes3.dex */
 public abstract class MzPushMessageReceiver extends WorkReceiver {
     public static final String TAG = "MzPushMessageReceiver";
 
@@ -39,13 +39,12 @@ public abstract class MzPushMessageReceiver extends WorkReceiver {
             super.onReceive(context, intent);
         } catch (Exception e) {
             com.meizu.cloud.a.a.e(TAG, "Event core error " + e.getMessage());
-            d.a(context, context.getPackageName(), (String) null, (String) null, PushManager.TAG, "MzPushMessageReceiver " + e.getMessage(), (int) PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
+            c.a(context, context.getPackageName(), (String) null, (String) null, PushManager.TAG, "MzPushMessageReceiver " + e.getMessage(), (int) PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
         }
     }
 
     @Override // com.meizu.cloud.pushsdk.common.base.WorkReceiver
     public void onHandleIntent(Context context, Intent intent) {
-        com.meizu.cloud.a.a.i(TAG, "receive action " + intent.getAction());
         a.a(context).a(TAG, new com.meizu.cloud.pushsdk.handler.a() { // from class: com.meizu.cloud.pushsdk.MzPushMessageReceiver.1
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, String str) {

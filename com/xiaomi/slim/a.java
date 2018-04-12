@@ -5,7 +5,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.protobuf.b;
 import com.xiaomi.push.service.ak;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class a {
     public static void a(ak.b bVar, String str, com.xiaomi.smack.a aVar) {
         String a;

@@ -2,7 +2,7 @@ package org.apache.thrift.protocol;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends e {
     private static final j f = new j();
     protected boolean a;
@@ -19,21 +19,21 @@ public class a extends e {
     private byte[] n;
 
     /* renamed from: org.apache.thrift.protocol.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0295a implements g {
+    /* loaded from: classes3.dex */
+    public static class C0277a implements g {
         protected boolean a;
         protected boolean b;
         protected int c;
 
-        public C0295a() {
+        public C0277a() {
             this(false, true);
         }
 
-        public C0295a(boolean z, boolean z2) {
+        public C0277a(boolean z, boolean z2) {
             this(z, z2, 0);
         }
 
-        public C0295a(boolean z, boolean z2, int i) {
+        public C0277a(boolean z, boolean z2, int i) {
             this.a = false;
             this.b = true;
             this.a = z;

@@ -6,7 +6,7 @@ import com.baidu.sofire.b.d;
 import com.baidu.sofire.b.e;
 /* loaded from: classes.dex */
 public class Report {
-    private static Report aGE;
+    private static Report a;
     private Context b;
 
     private Report(Context context) {
@@ -16,10 +16,10 @@ public class Report {
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (aGE == null) {
-                aGE = new Report(context);
+            if (a == null) {
+                a = new Report(context);
             }
-            report = aGE;
+            report = a;
         }
         return report;
     }
@@ -42,11 +42,11 @@ public class Report {
 
     public void sr(String str) {
         try {
-            e aB = e.aB(this.b);
+            e a2 = e.a(this.b);
             Message message = new Message();
             message.what = 11;
             message.obj = str;
-            aB.aGk.aGI.sendMessage(message);
+            a2.a.a.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -54,7 +54,7 @@ public class Report {
 
     public void r(boolean z) {
         try {
-            e.aB(this.b).a();
+            e.a(this.b).a();
         } catch (Throwable th) {
             d.a(th);
         }
@@ -70,10 +70,10 @@ public class Report {
 
     public void n() {
         try {
-            e aB = e.aB(this.b);
+            e a2 = e.a(this.b);
             Message message = new Message();
             message.what = 6;
-            aB.aGk.aGI.sendMessage(message);
+            a2.a.a.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -81,10 +81,10 @@ public class Report {
 
     public void fr() {
         try {
-            e aB = e.aB(this.b);
+            e a2 = e.a(this.b);
             Message message = new Message();
             message.what = 9;
-            aB.aGk.aGI.sendMessage(message);
+            a2.a.a.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }

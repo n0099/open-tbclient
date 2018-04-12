@@ -67,9 +67,9 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.sug_count = Integer.valueOf(this.suggestCount);
         builder.tag_code = 0;
-        builder.scr_w = Integer.valueOf(l.ao(TbadkCoreApplication.getInst()));
-        builder.scr_h = Integer.valueOf(l.aq(TbadkCoreApplication.getInst()));
-        builder.scr_dip = Double.valueOf(l.ar(TbadkCoreApplication.getInst()));
+        builder.scr_w = Integer.valueOf(l.af(TbadkCoreApplication.getInst()));
+        builder.scr_h = Integer.valueOf(l.ah(TbadkCoreApplication.getInst()));
+        builder.scr_dip = Double.valueOf(l.ai(TbadkCoreApplication.getInst()));
         builder.q_type = 1;
         if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_requested_new_user_guide", false)) {
             i = 0;
@@ -79,7 +79,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.sex_tag = "";
         builder.age_tag = "";
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
-        builder.new_net_type = Integer.valueOf(j.oP());
+        builder.new_net_type = Integer.valueOf(j.gV());
         setNetType(NetMessage.NetType.HTTP);
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -46,7 +46,7 @@ public final class PointerIconCompat {
         this.mPointerIcon = obj;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public Object getPointerIcon() {
         return this.mPointerIcon;
     }

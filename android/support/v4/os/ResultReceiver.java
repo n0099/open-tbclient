@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import android.os.RemoteException;
 import android.support.annotation.RestrictTo;
 import android.support.v4.os.IResultReceiver;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class ResultReceiver implements Parcelable {
     public static final Parcelable.Creator<ResultReceiver> CREATOR = new Parcelable.Creator<ResultReceiver>() { // from class: android.support.v4.os.ResultReceiver.1

@@ -1,18 +1,18 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.i;
-/* loaded from: classes.dex */
-public class c implements i {
-    public static final BdUniqueId gir = BdUniqueId.gen();
-    private int gis = 0;
+import com.baidu.adp.widget.ListView.h;
+/* loaded from: classes2.dex */
+public class c implements h {
+    public static final BdUniqueId fCO = BdUniqueId.gen();
+    private int fCP = 0;
 
-    public int biB() {
-        return this.gis;
+    public int bdC() {
+        return this.fCP;
     }
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gir;
+        return fCO;
     }
 }

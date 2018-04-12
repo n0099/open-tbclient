@@ -1,185 +1,256 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.l;
+import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.n;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
+import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
-import java.util.ArrayList;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.tbadkCore.d.a;
+import com.baidu.tieba.tbadkCore.g;
+import com.baidu.tieba.view.j;
+import java.util.HashSet;
 import java.util.List;
-import tbclient.FrsPage.StarRank;
-import tbclient.FrsPage.StarTaskInfo;
 /* loaded from: classes2.dex */
-public class f {
-    private AlertDialog aRe;
-    private TbImageView ceW;
-    private TextView dYN;
-    private View dZl;
-    private ListView dZm;
-    private a dZn;
-    private TextView dZo;
-    private StarRank dZp;
-    private View dZq;
-    private View dZr;
-    private TextView dZs;
-    private TextView dZt;
+public class f extends BaseAdapter implements com.baidu.tieba.frs.e.c {
+    private FrsFragment cYF;
+    private n duB;
+    public boolean duD;
+    private o duE;
     private Context mContext;
-
-    public void a(Context context, StarRank starRank, boolean z) {
-        this.mContext = context;
-        if (this.mContext instanceof Activity) {
-            this.dZp = starRank;
-            if (starRank != null && !v.E(this.dZp.user_task_info)) {
-                this.dZl = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(d.h.frs_star_bottom_dialog_view, (ViewGroup) null);
-                this.dZq = this.dZl.findViewById(d.g.outer_bg);
-                this.dZr = this.dZl.findViewById(d.g.divider_line);
-                this.dZs = (TextView) this.dZl.findViewById(d.g.jump_title);
-                this.dZt = (TextView) this.dZl.findViewById(d.g.task_title);
-                this.ceW = (TbImageView) this.dZl.findViewById(d.g.pic_show);
-                this.ceW.changeGrayScaleMode(z);
-                this.dYN = (TextView) this.dZl.findViewById(d.g.know_view);
-                this.dZm = (ListView) this.dZl.findViewById(d.g.rank_listview);
-                this.dZo = (TextView) this.dZl.findViewById(d.g.know_view);
-                this.dZo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.f.1
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        f.this.aAW();
+    private List<h> mData;
+    private boolean duC = false;
+    protected HashSet<String> dtA = new HashSet<>();
+    protected final View.OnClickListener dtI = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.f.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            g gVar;
+            if ((f.this.mContext == null || az.aK(f.this.mContext)) && view2 != null) {
+                if ((view2.getTag() instanceof g) || (view2.getTag() instanceof a)) {
+                    if (view2.getTag() instanceof g) {
+                        gVar = (g) view2.getTag();
+                    } else {
+                        if (view2.getTag() instanceof a) {
+                            a aVar = (a) view2.getTag();
+                            if (aVar.dmm != null && (aVar.dmm.getTag() instanceof g)) {
+                                gVar = (g) aVar.dmm.getTag();
+                            }
+                        }
+                        gVar = null;
                     }
-                });
-                this.dZn = new a(this.mContext);
-                this.dZn.setData(this.dZp.user_task_info, z);
-                this.dZm.setAdapter((ListAdapter) this.dZn);
-                this.dZs.setText(this.dZp.user_current_score_notice);
-                aAW();
-                this.aRe = new AlertDialog.Builder(this.mContext).create();
-                this.aRe.setCanceledOnTouchOutside(true);
-                com.baidu.adp.lib.g.g.a(this.aRe, (Activity) this.mContext);
-                Window window = this.aRe.getWindow();
-                window.setWindowAnimations(d.k.share_dialog_style);
-                window.setGravity(80);
-                window.setLayout(-1, -2);
-                window.setContentView(this.dZl);
-                gE(z);
+                    if (gVar != null && !StringUtils.isNull(gVar.getUrl())) {
+                        String url = gVar.getUrl();
+                        if ((url.contains("nohead:url") || url.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+                            l.showToast(f.this.mContext, d.k.book_plugin_not_install_tip);
+                            return;
+                        }
+                        ax.wg().c(f.this.cYF.aeY(), new String[]{url});
+                        a.C0217a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.bpU(), f.this.cYF.getForumId(), f.this.cYF.getForumName(), null);
+                        b.cd("obj_url", gVar.getUrl());
+                        b.save();
+                    }
+                }
             }
         }
-    }
-
-    public void aAW() {
-        if (this.aRe != null && this.aRe.isShowing()) {
-            this.aRe.dismiss();
-        }
-    }
-
-    public void gE(boolean z) {
-        aj.c(this.ceW, d.f.pic_frs_idol_mission);
-        aj.s(this.dZq, d.C0141d.cp_bg_line_d);
-        aj.t(this.dZr, d.C0141d.cp_bg_line_e);
-        aj.s(this.dYN, z ? d.f.frs_attention_btn_bg_gray_n : d.f.frs_star_btn_selector);
-        aj.e(this.dYN, d.C0141d.cp_cont_i, 1);
-        aj.e(this.dZs, d.C0141d.cp_cont_b, 1);
-        aj.e(this.dZt, d.C0141d.cp_cont_d, 1);
-        this.dZn.notifyDataSetChanged();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static class a extends BaseAdapter {
-        private boolean aQq = false;
-        private final List<StarTaskInfo> data = new ArrayList();
-        private Context mContext;
-
-        a(Context context) {
-            this.mContext = context;
-        }
-
-        void setData(List<StarTaskInfo> list, boolean z) {
-            if (!v.E(list)) {
-                this.aQq = z;
-                this.data.clear();
-                this.data.addAll(list);
-                notifyDataSetChanged();
+    };
+    private View.OnClickListener bMw = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.f.2
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            a aVar;
+            bd bdVar;
+            view2.setPressed(false);
+            if (f.this.duB != null && (view2.getTag() instanceof a) && (aVar = (a) view2.getTag()) != null) {
+                h hVar = (h) v.c(f.this.mData, aVar.position);
+                if ((hVar instanceof bd) && (bdVar = (bd) hVar) != null) {
+                    com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                    if (readThreadHistory != null) {
+                        readThreadHistory.tc(bdVar.getId());
+                        ak.h(aVar.dmm, d.C0126d.cp_cont_c);
+                    }
+                    f.this.duB.a(view2, bdVar, BdUniqueId.gen(), null, f.this.duD ? aVar.position + 1 : aVar.position, 0L);
+                }
             }
         }
-
-        @Override // android.widget.Adapter
-        public int getCount() {
-            if (v.E(this.data)) {
-                return 0;
+    };
+    private View.OnLongClickListener cGZ = new View.OnLongClickListener() { // from class: com.baidu.tieba.frs.view.f.3
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view2) {
+            if (f.this.duE == null || !(view2.getTag() instanceof a)) {
+                return false;
             }
-            return this.data.size();
+            a aVar = (a) view2.getTag();
+            return f.this.duE.b(view2, (h) v.c(f.this.mData, aVar.position), BdUniqueId.gen(), null, aVar.position, 0L);
         }
+    };
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        /* renamed from: og */
-        public StarTaskInfo getItem(int i) {
-            return (StarTaskInfo) v.f(this.data, i);
+    public f(FrsFragment frsFragment) {
+        this.cYF = frsFragment;
+        this.mContext = frsFragment.getPageContext().getPageActivity();
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return v.v(this.mData);
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return v.c(this.mData, i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        a aVar;
+        if (view2 == null) {
+            aVar = new a();
+            view2 = LayoutInflater.from(this.mContext).inflate(d.i.frs_header_top_item, (ViewGroup) null, false);
+            aVar.root = view2;
+            aVar.duG = (TextView) view2.findViewById(d.g.top_item_type);
+            aVar.dmm = (TextView) view2.findViewById(d.g.top_item_title);
+            aVar.duH = (TextView) view2.findViewById(d.g.top_item_rank);
+            aVar.divider = view2.findViewById(d.g.top_item_divider);
+            view2.setTag(aVar);
+        } else {
+            aVar = (a) view2.getTag();
         }
-
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            return i;
+        h hVar = (h) v.c(this.mData, i);
+        if (hVar instanceof bd) {
+            bd bdVar = (bd) hVar;
+            if (bdVar != null) {
+                a(aVar, bdVar, i);
+            }
+            aVar.position = i;
+            com.baidu.tieba.frs.e.b.auH().a(doy, bdVar);
+        } else if (hVar instanceof g) {
+            a(aVar, (g) hVar);
         }
+        if (v.c(this.mData, i + 1) == null) {
+            aVar.divider.setVisibility(8);
+        } else {
+            aVar.divider.setVisibility(0);
+        }
+        return view2;
+    }
 
-        @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            b bVar;
-            if (view == null) {
-                view = LayoutInflater.from(this.mContext).inflate(d.h.frs_item_bottom_view, viewGroup, false);
-                b bVar2 = new b();
-                bVar2.dZv = (TextView) view.findViewById(d.g.task_name);
-                bVar2.bMr = (TextView) view.findViewById(d.g.desc);
-                bVar2.dZw = (TextView) view.findViewById(d.g.score_desc);
-                bVar2.dZx = (TextView) view.findViewById(d.g.status_text);
-                bVar2.divider = view.findViewById(d.g.bottom_divider_line);
-                view.setTag(bVar2);
-                bVar = bVar2;
+    private void a(a aVar, boolean z) {
+        if (aVar != null) {
+            ak.h(aVar.duG, d.C0126d.cp_link_tip_c);
+            if (z) {
+                ak.h(aVar.dmm, d.C0126d.cp_cont_j);
             } else {
-                bVar = (b) view.getTag();
+                ak.h(aVar.dmm, d.C0126d.cp_cont_b);
             }
-            StarTaskInfo item = getItem(i);
-            if (item == null) {
-                return null;
+            ak.i(aVar.root, d.f.home_thread_card_item_bg);
+            if (aVar.divider != null) {
+                aVar.divider.setBackgroundColor(ak.getColor(d.C0126d.cp_bg_line_c));
             }
-            bVar.dZv.setText(item.task_title);
-            bVar.bMr.setText(item.task_desc);
-            bVar.dZw.setText(item.task_score_desc);
-            if (item.task_status.intValue() == 1) {
-                bVar.dZx.setText(d.j.task_done);
-                aj.r(bVar.dZx, d.C0141d.cp_cont_d);
-            } else {
-                bVar.dZx.setText(d.j.task_not_done);
-                aj.r(bVar.dZx, d.C0141d.cp_cont_b);
-            }
-            bVar.divider.setVisibility(i == getCount() + (-1) ? 8 : 0);
-            aj.r(bVar.dZv, d.C0141d.cp_cont_b);
-            aj.r(bVar.bMr, d.C0141d.cp_cont_d);
-            aj.r(bVar.dZw, this.aQq ? d.C0141d.cp_cont_f : d.C0141d.cp_cont_h);
-            aj.t(bVar.divider, d.C0141d.cp_bg_line_c);
-            return view;
         }
     }
 
+    public void c(n nVar) {
+        this.duB = nVar;
+    }
+
+    public void setData(List<h> list) {
+        this.mData = list;
+    }
+
     /* loaded from: classes2.dex */
-    private static class b {
-        TextView bMr;
-        TextView dZv;
-        TextView dZw;
-        TextView dZx;
+    public class a {
         View divider;
+        TextView dmm;
+        TextView duG;
+        TextView duH;
+        int position;
+        View root;
 
-        private b() {
+        public a() {
         }
+    }
+
+    private void a(a aVar, bd bdVar, int i) {
+        if (aVar != null && bdVar != null) {
+            aVar.duG.setText(TbadkCoreApplication.getInst().getString(d.k.top));
+            bdVar.sy();
+            SpannableStringBuilder so = bdVar.so();
+            aVar.dmm.setOnTouchListener(new j(so));
+            aVar.dmm.setText(so);
+            aVar.root.setOnClickListener(this.bMw);
+            aVar.root.setOnLongClickListener(this.cGZ);
+            com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            a(aVar, readThreadHistory != null && readThreadHistory.td(bdVar.getId()));
+        }
+    }
+
+    private void a(a aVar, g gVar) {
+        String a2 = a(gVar);
+        aVar.dmm.setText(gVar.getTitle());
+        aVar.duG.setText(a2);
+        if (gVar.bpT() != 0) {
+            aVar.duH.setVisibility(0);
+            if (gVar.bpT() == -1) {
+                aVar.duH.setText(this.mContext.getString(d.k.no_rank));
+            } else if (gVar.bpT() > 999) {
+                aVar.duH.setText(this.mContext.getString(d.k.rang_orer_thousand));
+            } else {
+                aVar.duH.setText(this.mContext.getString(d.k.rang_identify) + String.valueOf(gVar.bpT()));
+            }
+            if (!StringUtils.isNull(gVar.getTitle())) {
+                aVar.dmm.setText(an.e(gVar.getTitle(), 22, "..."));
+            }
+        } else {
+            aVar.duH.setVisibility(8);
+        }
+        ak.h(aVar.duG, d.C0126d.cp_link_tip_c);
+        ak.h(aVar.duH, d.C0126d.cp_link_tip_c);
+        ak.i(aVar.root, d.f.home_thread_card_item_bg);
+        ak.j(aVar.divider, d.C0126d.cp_bg_line_c);
+        ak.h(aVar.dmm, d.C0126d.cp_cont_b);
+        aVar.dmm.setTag(gVar);
+        if (this.dtI != null) {
+            aVar.root.setOnClickListener(this.dtI);
+        }
+        if (this.dtA != null && this.dtA.add(gVar.bpU())) {
+            a.C0217a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", gVar.bpU(), this.cYF.getForumId(), this.cYF.getForumName(), null);
+            b.cd("obj_url", gVar.getUrl());
+            b.save();
+        }
+    }
+
+    private String a(g gVar) {
+        if (gVar.bpS() == 1) {
+            return TbadkCoreApplication.getInst().getString(d.k.thread_recruit);
+        }
+        if (TextUtils.isEmpty(gVar.aOQ()) || gVar.aOQ().trim().length() == 0) {
+            return TbadkCoreApplication.getInst().getString(d.k.top_announcement);
+        }
+        return gVar.aOQ();
+    }
+
+    public void a(HashSet<String> hashSet) {
+        this.dtA = hashSet;
     }
 }

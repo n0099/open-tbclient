@@ -4,90 +4,92 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class BdTypeRecyclerView extends h implements n<BdTypeRecyclerView> {
-    q avx;
+public class BdTypeRecyclerView extends BdRecyclerView implements m<BdTypeRecyclerView> {
+    p Gk;
 
     public BdTypeRecyclerView(Context context) {
         super(context);
-        this.avx = null;
+        this.Gk = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.avx = null;
+        this.Gk = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.avx = null;
+        this.Gk = null;
         init();
     }
 
     private void init() {
-        if (this.avx == null) {
-            this.avx = new q();
+        if (this.Gk == null) {
+            this.Gk = new p();
         }
-        super.setOnItemClickListener(new h.a() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.1
-            @Override // com.baidu.adp.widget.ListView.h.a
-            public void a(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.avx != null) {
-                    BdTypeRecyclerView.this.avx.a(viewGroup, view, i, j);
+        super.setOnItemClickListener(new BdRecyclerView.a() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.1
+            @Override // com.baidu.adp.widget.ListView.BdRecyclerView.a
+            public void a(ViewGroup viewGroup, View view2, Object obj, int i, long j) {
+                if (BdTypeRecyclerView.this.Gk != null) {
+                    BdTypeRecyclerView.this.Gk.a(viewGroup, view2, i, j);
                 }
             }
         });
-        super.setOnItemLongClickListener(new h.b() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.2
-            @Override // com.baidu.adp.widget.ListView.h.b
-            public boolean b(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.avx != null) {
-                    return BdTypeRecyclerView.this.avx.b(viewGroup, view, i, j);
+        super.setOnItemLongClickListener(new BdRecyclerView.b() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.2
+            @Override // com.baidu.adp.widget.ListView.BdRecyclerView.b
+            public boolean b(ViewGroup viewGroup, View view2, Object obj, int i, long j) {
+                if (BdTypeRecyclerView.this.Gk != null) {
+                    return BdTypeRecyclerView.this.Gk.b(viewGroup, view2, i, j);
                 }
                 return false;
             }
         });
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.BdRecyclerView
     @Deprecated
-    public void setOnItemClickListener(h.a aVar) {
+    public void setOnItemClickListener(BdRecyclerView.a aVar) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.h
-    public void setOnItemLongClickListener(h.b bVar) {
+    @Override // com.baidu.adp.widget.ListView.BdRecyclerView
+    public void setOnItemLongClickListener(BdRecyclerView.b bVar) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.widget.ListView.h, com.baidu.adp.widget.ListView.k
-    public BdTypeRecyclerView getListView() {
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeRecyclerView' to match base method */
+    @Override // com.baidu.adp.widget.ListView.BdRecyclerView, com.baidu.adp.widget.ListView.j
+    /* renamed from: getListView */
+    public BdRecyclerView getListView2() {
         return this;
     }
 
-    @Override // com.baidu.adp.widget.ListView.n
+    @Override // com.baidu.adp.widget.ListView.m
     public void addAdapters(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.avx.addAdapter(it.next());
+            this.Gk.addAdapter(it.next());
         }
-        setAdapter(this.avx);
+        setAdapter(this.Gk);
     }
 
-    @Override // com.baidu.adp.widget.ListView.n
-    public void setData(List<i> list) {
-        this.avx.setData(list);
+    @Override // com.baidu.adp.widget.ListView.m
+    public void setData(List<h> list) {
+        this.Gk.setData(list);
     }
 
-    @Override // com.baidu.adp.widget.ListView.n
-    public List<i> getData() {
-        return this.avx.getData();
+    @Override // com.baidu.adp.widget.ListView.m
+    public List<h> getData() {
+        return this.Gk.getData();
     }
 
-    public i getItem(int i) {
-        return this.avx.getItem(i);
+    public h getItem(int i) {
+        return this.Gk.getItem(i);
     }
 }

@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.d;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class d extends a {
     public d(Context context) {
@@ -17,9 +16,9 @@ public class d extends a {
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
         String str;
         if (shareEntity == null || TextUtils.isEmpty(shareEntity.getContent())) {
-            l.showToast(getAppContext(), d.j.share_empty_tip);
+            l.showToast(getAppContext(), d.k.share_empty_tip);
             if (bVar != null) {
-                bVar.cA(0, 2);
+                bVar.bC(0, 2);
                 return;
             }
             return;
@@ -32,13 +31,13 @@ public class d extends a {
         Intent intent = new Intent();
         intent.setAction("android.intent.action.SEND");
         intent.putExtra("android.intent.extra.TEXT", str);
-        intent.setType(HTTP.PLAIN_TEXT_TYPE);
-        if (com.baidu.tieba.sharesdk.c.a.h(this.context, Intent.createChooser(intent, this.context.getString(d.j.share_to)))) {
+        intent.setType("text/plain");
+        if (com.baidu.tieba.sharesdk.c.a.h(this.context, Intent.createChooser(intent, this.context.getString(d.k.share_to)))) {
             if (bVar != null) {
-                bVar.cA(0, 1);
+                bVar.bC(0, 1);
             }
         } else if (bVar != null) {
-            bVar.cA(0, 2);
+            bVar.bC(0, 2);
         }
     }
 }

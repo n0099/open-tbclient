@@ -3,6 +3,7 @@ package android.support.v4.view.accessibility;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompatApi21;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompatKitKat;
 import android.view.View;
@@ -59,9 +60,9 @@ public class AccessibilityNodeInfoCompat {
 
         void addAction(Object obj, Object obj2);
 
-        void addChild(Object obj, View view);
+        void addChild(Object obj, View view2);
 
-        void addChild(Object obj, View view, int i);
+        void addChild(Object obj, View view2, int i);
 
         boolean canOpenPopup(Object obj);
 
@@ -215,9 +216,9 @@ public class AccessibilityNodeInfoCompat {
 
         Object obtain();
 
-        Object obtain(View view);
+        Object obtain(View view2);
 
-        Object obtain(View view, int i);
+        Object obtain(View view2, int i);
 
         Object obtain(Object obj);
 
@@ -241,9 +242,9 @@ public class AccessibilityNodeInfoCompat {
 
         boolean removeAction(Object obj, Object obj2);
 
-        boolean removeChild(Object obj, View view);
+        boolean removeChild(Object obj, View view2);
 
-        boolean removeChild(Object obj, View view, int i);
+        boolean removeChild(Object obj, View view2, int i);
 
         void setAccessibilityFocused(Object obj, boolean z);
 
@@ -289,13 +290,13 @@ public class AccessibilityNodeInfoCompat {
 
         void setInputType(Object obj, int i);
 
-        void setLabelFor(Object obj, View view);
+        void setLabelFor(Object obj, View view2);
 
-        void setLabelFor(Object obj, View view, int i);
+        void setLabelFor(Object obj, View view2, int i);
 
-        void setLabeledBy(Object obj, View view);
+        void setLabeledBy(Object obj, View view2);
 
-        void setLabeledBy(Object obj, View view, int i);
+        void setLabeledBy(Object obj, View view2, int i);
 
         void setLiveRegion(Object obj, int i);
 
@@ -309,9 +310,9 @@ public class AccessibilityNodeInfoCompat {
 
         void setPackageName(Object obj, CharSequence charSequence);
 
-        void setParent(Object obj, View view);
+        void setParent(Object obj, View view2);
 
-        void setParent(Object obj, View view, int i);
+        void setParent(Object obj, View view2, int i);
 
         void setPassword(Object obj, boolean z);
 
@@ -323,21 +324,21 @@ public class AccessibilityNodeInfoCompat {
 
         void setSelected(Object obj, boolean z);
 
-        void setSource(Object obj, View view);
+        void setSource(Object obj, View view2);
 
-        void setSource(Object obj, View view, int i);
+        void setSource(Object obj, View view2, int i);
 
         void setText(Object obj, CharSequence charSequence);
 
         void setTextSelection(Object obj, int i, int i2);
 
-        void setTraversalAfter(Object obj, View view);
+        void setTraversalAfter(Object obj, View view2);
 
-        void setTraversalAfter(Object obj, View view, int i);
+        void setTraversalAfter(Object obj, View view2, int i);
 
-        void setTraversalBefore(Object obj, View view);
+        void setTraversalBefore(Object obj, View view2);
 
-        void setTraversalBefore(Object obj, View view, int i);
+        void setTraversalBefore(Object obj, View view2, int i);
 
         void setViewIdResourceName(Object obj, String str);
 
@@ -520,12 +521,12 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public Object obtain(View view) {
+        public Object obtain(View view2) {
             return null;
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public Object obtain(View view, int i) {
+        public Object obtain(View view2, int i) {
             return null;
         }
 
@@ -558,20 +559,20 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void addChild(Object obj, View view) {
+        public void addChild(Object obj, View view2) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void addChild(Object obj, View view, int i) {
+        public void addChild(Object obj, View view2, int i) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public boolean removeChild(Object obj, View view) {
+        public boolean removeChild(Object obj, View view2) {
             return false;
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public boolean removeChild(Object obj, View view, int i) {
+        public boolean removeChild(Object obj, View view2, int i) {
             return false;
         }
 
@@ -769,7 +770,7 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setParent(Object obj, View view) {
+        public void setParent(Object obj, View view2) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -785,11 +786,11 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setSource(Object obj, View view) {
+        public void setSource(Object obj, View view2) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setSource(Object obj, View view, int i) {
+        public void setSource(Object obj, View view2, int i) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -811,7 +812,7 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setParent(Object obj, View view, int i) {
+        public void setParent(Object obj, View view2, int i) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -940,11 +941,11 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setTraversalBefore(Object obj, View view) {
+        public void setTraversalBefore(Object obj, View view2) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setTraversalBefore(Object obj, View view, int i) {
+        public void setTraversalBefore(Object obj, View view2, int i) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -953,11 +954,11 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setTraversalAfter(Object obj, View view) {
+        public void setTraversalAfter(Object obj, View view2) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setTraversalAfter(Object obj, View view, int i) {
+        public void setTraversalAfter(Object obj, View view2, int i) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -979,11 +980,11 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setLabelFor(Object obj, View view) {
+        public void setLabelFor(Object obj, View view2) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setLabelFor(Object obj, View view, int i) {
+        public void setLabelFor(Object obj, View view2, int i) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -992,11 +993,11 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setLabeledBy(Object obj, View view) {
+        public void setLabeledBy(Object obj, View view2) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setLabeledBy(Object obj, View view, int i) {
+        public void setLabeledBy(Object obj, View view2, int i) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1185,8 +1186,8 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public Object obtain(View view) {
-            return AccessibilityNodeInfoCompatIcs.obtain(view);
+        public Object obtain(View view2) {
+            return AccessibilityNodeInfoCompatIcs.obtain(view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1200,8 +1201,8 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void addChild(Object obj, View view) {
-            AccessibilityNodeInfoCompatIcs.addChild(obj, view);
+        public void addChild(Object obj, View view2) {
+            AccessibilityNodeInfoCompatIcs.addChild(obj, view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1380,8 +1381,8 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setParent(Object obj, View view) {
-            AccessibilityNodeInfoCompatIcs.setParent(obj, view);
+        public void setParent(Object obj, View view2) {
+            AccessibilityNodeInfoCompatIcs.setParent(obj, view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1400,8 +1401,8 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setSource(Object obj, View view) {
-            AccessibilityNodeInfoCompatIcs.setSource(obj, view);
+        public void setSource(Object obj, View view2) {
+            AccessibilityNodeInfoCompatIcs.setSource(obj, view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1421,8 +1422,8 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public Object obtain(View view, int i) {
-            return AccessibilityNodeInfoCompatJellyBean.obtain(view, i);
+        public Object obtain(View view2, int i) {
+            return AccessibilityNodeInfoCompatJellyBean.obtain(view2, i);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1436,13 +1437,13 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void addChild(Object obj, View view, int i) {
-            AccessibilityNodeInfoCompatJellyBean.addChild(obj, view, i);
+        public void addChild(Object obj, View view2, int i) {
+            AccessibilityNodeInfoCompatJellyBean.addChild(obj, view2, i);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setSource(Object obj, View view, int i) {
-            AccessibilityNodeInfoCompatJellyBean.setSource(obj, view, i);
+        public void setSource(Object obj, View view2, int i) {
+            AccessibilityNodeInfoCompatJellyBean.setSource(obj, view2, i);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1481,8 +1482,8 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setParent(Object obj, View view, int i) {
-            AccessibilityNodeInfoCompatJellyBean.setParent(obj, view, i);
+        public void setParent(Object obj, View view2, int i) {
+            AccessibilityNodeInfoCompatJellyBean.setParent(obj, view2, i);
         }
     }
 
@@ -1492,13 +1493,13 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setLabelFor(Object obj, View view) {
-            AccessibilityNodeInfoCompatJellybeanMr1.setLabelFor(obj, view);
+        public void setLabelFor(Object obj, View view2) {
+            AccessibilityNodeInfoCompatJellybeanMr1.setLabelFor(obj, view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setLabelFor(Object obj, View view, int i) {
-            AccessibilityNodeInfoCompatJellybeanMr1.setLabelFor(obj, view, i);
+        public void setLabelFor(Object obj, View view2, int i) {
+            AccessibilityNodeInfoCompatJellybeanMr1.setLabelFor(obj, view2, i);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1507,13 +1508,13 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setLabeledBy(Object obj, View view) {
-            AccessibilityNodeInfoCompatJellybeanMr1.setLabeledBy(obj, view);
+        public void setLabeledBy(Object obj, View view2) {
+            AccessibilityNodeInfoCompatJellybeanMr1.setLabeledBy(obj, view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setLabeledBy(Object obj, View view, int i) {
-            AccessibilityNodeInfoCompatJellybeanMr1.setLabeledBy(obj, view, i);
+        public void setLabeledBy(Object obj, View view2, int i) {
+            AccessibilityNodeInfoCompatJellybeanMr1.setLabeledBy(obj, view2, i);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1825,13 +1826,13 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public boolean removeChild(Object obj, View view) {
-            return AccessibilityNodeInfoCompatApi21.removeChild(obj, view);
+        public boolean removeChild(Object obj, View view2) {
+            return AccessibilityNodeInfoCompatApi21.removeChild(obj, view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public boolean removeChild(Object obj, View view, int i) {
-            return AccessibilityNodeInfoCompatApi21.removeChild(obj, view, i);
+        public boolean removeChild(Object obj, View view2, int i) {
+            return AccessibilityNodeInfoCompatApi21.removeChild(obj, view2, i);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1851,13 +1852,13 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setTraversalBefore(Object obj, View view) {
-            AccessibilityNodeInfoCompatApi22.setTraversalBefore(obj, view);
+        public void setTraversalBefore(Object obj, View view2) {
+            AccessibilityNodeInfoCompatApi22.setTraversalBefore(obj, view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setTraversalBefore(Object obj, View view, int i) {
-            AccessibilityNodeInfoCompatApi22.setTraversalBefore(obj, view, i);
+        public void setTraversalBefore(Object obj, View view2, int i) {
+            AccessibilityNodeInfoCompatApi22.setTraversalBefore(obj, view2, i);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
@@ -1866,13 +1867,13 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setTraversalAfter(Object obj, View view) {
-            AccessibilityNodeInfoCompatApi22.setTraversalAfter(obj, view);
+        public void setTraversalAfter(Object obj, View view2) {
+            AccessibilityNodeInfoCompatApi22.setTraversalAfter(obj, view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
-        public void setTraversalAfter(Object obj, View view, int i) {
-            AccessibilityNodeInfoCompatApi22.setTraversalAfter(obj, view, i);
+        public void setTraversalAfter(Object obj, View view2, int i) {
+            AccessibilityNodeInfoCompatApi22.setTraversalAfter(obj, view2, i);
         }
     }
 
@@ -1998,12 +1999,12 @@ public class AccessibilityNodeInfoCompat {
         return this.mInfo;
     }
 
-    public static AccessibilityNodeInfoCompat obtain(View view) {
-        return wrapNonNullInstance(IMPL.obtain(view));
+    public static AccessibilityNodeInfoCompat obtain(View view2) {
+        return wrapNonNullInstance(IMPL.obtain(view2));
     }
 
-    public static AccessibilityNodeInfoCompat obtain(View view, int i) {
-        return wrapNonNullInstance(IMPL.obtain(view, i));
+    public static AccessibilityNodeInfoCompat obtain(View view2, int i) {
+        return wrapNonNullInstance(IMPL.obtain(view2, i));
     }
 
     public static AccessibilityNodeInfoCompat obtain() {
@@ -2014,12 +2015,12 @@ public class AccessibilityNodeInfoCompat {
         return wrapNonNullInstance(IMPL.obtain(accessibilityNodeInfoCompat.mInfo));
     }
 
-    public void setSource(View view) {
-        IMPL.setSource(this.mInfo, view);
+    public void setSource(View view2) {
+        IMPL.setSource(this.mInfo, view2);
     }
 
-    public void setSource(View view, int i) {
-        IMPL.setSource(this.mInfo, view, i);
+    public void setSource(View view2, int i) {
+        IMPL.setSource(this.mInfo, view2, i);
     }
 
     public AccessibilityNodeInfoCompat findFocus(int i) {
@@ -2042,20 +2043,20 @@ public class AccessibilityNodeInfoCompat {
         return wrapNonNullInstance(IMPL.getChild(this.mInfo, i));
     }
 
-    public void addChild(View view) {
-        IMPL.addChild(this.mInfo, view);
+    public void addChild(View view2) {
+        IMPL.addChild(this.mInfo, view2);
     }
 
-    public void addChild(View view, int i) {
-        IMPL.addChild(this.mInfo, view, i);
+    public void addChild(View view2, int i) {
+        IMPL.addChild(this.mInfo, view2, i);
     }
 
-    public boolean removeChild(View view) {
-        return IMPL.removeChild(this.mInfo, view);
+    public boolean removeChild(View view2) {
+        return IMPL.removeChild(this.mInfo, view2);
     }
 
-    public boolean removeChild(View view, int i) {
-        return IMPL.removeChild(this.mInfo, view, i);
+    public boolean removeChild(View view2, int i) {
+        return IMPL.removeChild(this.mInfo, view2, i);
     }
 
     public int getActions() {
@@ -2104,12 +2105,12 @@ public class AccessibilityNodeInfoCompat {
         return wrapNonNullInstance(IMPL.getParent(this.mInfo));
     }
 
-    public void setParent(View view) {
-        IMPL.setParent(this.mInfo, view);
+    public void setParent(View view2) {
+        IMPL.setParent(this.mInfo, view2);
     }
 
-    public void setParent(View view, int i) {
-        IMPL.setParent(this.mInfo, view, i);
+    public void setParent(View view2, int i) {
+        IMPL.setParent(this.mInfo, view2, i);
     }
 
     public void getBoundsInParent(Rect rect) {
@@ -2365,24 +2366,24 @@ public class AccessibilityNodeInfoCompat {
         return IMPL.getError(this.mInfo);
     }
 
-    public void setLabelFor(View view) {
-        IMPL.setLabelFor(this.mInfo, view);
+    public void setLabelFor(View view2) {
+        IMPL.setLabelFor(this.mInfo, view2);
     }
 
-    public void setLabelFor(View view, int i) {
-        IMPL.setLabelFor(this.mInfo, view, i);
+    public void setLabelFor(View view2, int i) {
+        IMPL.setLabelFor(this.mInfo, view2, i);
     }
 
     public AccessibilityNodeInfoCompat getLabelFor() {
         return wrapNonNullInstance(IMPL.getLabelFor(this.mInfo));
     }
 
-    public void setLabeledBy(View view) {
-        IMPL.setLabeledBy(this.mInfo, view);
+    public void setLabeledBy(View view2) {
+        IMPL.setLabeledBy(this.mInfo, view2);
     }
 
-    public void setLabeledBy(View view, int i) {
-        IMPL.setLabeledBy(this.mInfo, view, i);
+    public void setLabeledBy(View view2, int i) {
+        IMPL.setLabeledBy(this.mInfo, view2, i);
     }
 
     public AccessibilityNodeInfoCompat getLabeledBy() {
@@ -2445,24 +2446,24 @@ public class AccessibilityNodeInfoCompat {
         return wrapNonNullInstance(IMPL.getTraversalBefore(this.mInfo));
     }
 
-    public void setTraversalBefore(View view) {
-        IMPL.setTraversalBefore(this.mInfo, view);
+    public void setTraversalBefore(View view2) {
+        IMPL.setTraversalBefore(this.mInfo, view2);
     }
 
-    public void setTraversalBefore(View view, int i) {
-        IMPL.setTraversalBefore(this.mInfo, view, i);
+    public void setTraversalBefore(View view2, int i) {
+        IMPL.setTraversalBefore(this.mInfo, view2, i);
     }
 
     public AccessibilityNodeInfoCompat getTraversalAfter() {
         return wrapNonNullInstance(IMPL.getTraversalAfter(this.mInfo));
     }
 
-    public void setTraversalAfter(View view) {
-        IMPL.setTraversalAfter(this.mInfo, view);
+    public void setTraversalAfter(View view2) {
+        IMPL.setTraversalAfter(this.mInfo, view2);
     }
 
-    public void setTraversalAfter(View view, int i) {
-        IMPL.setTraversalAfter(this.mInfo, view, i);
+    public void setTraversalAfter(View view2, int i) {
+        IMPL.setTraversalAfter(this.mInfo, view2, i);
     }
 
     public AccessibilityWindowInfoCompat getWindow() {
@@ -2497,11 +2498,12 @@ public class AccessibilityNodeInfoCompat {
         return IMPL.refresh(this.mInfo);
     }
 
+    @Nullable
     public CharSequence getRoleDescription() {
         return IMPL.getRoleDescription(this.mInfo);
     }
 
-    public void setRoleDescription(CharSequence charSequence) {
+    public void setRoleDescription(@Nullable CharSequence charSequence) {
         IMPL.setRoleDescription(this.mInfo, charSequence);
     }
 

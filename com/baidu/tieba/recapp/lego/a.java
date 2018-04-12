@@ -5,45 +5,55 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.e;
-import com.baidu.tieba.lego.card.e.k;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.card.view.BaseLegoCardView;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.lego.model.AdPost;
 import com.baidu.tieba.recapp.lego.model.AdPostPbData;
 import com.baidu.tieba.recapp.lego.model.CriusAdCard;
 import com.baidu.tieba.recapp.lego.model.DistributeVrVideoCard;
 import com.baidu.tieba.recapp.lego.model.FormCard;
+import com.baidu.tieba.recapp.lego.model.VideoMiddlePageAdCard;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
-import com.baidu.tieba.recapp.lego.view.a.b;
-import com.baidu.tieba.recapp.lego.view.d;
-import com.baidu.tieba.recapp.lego.view.f;
-import com.baidu.tieba.recapp.lego.view.form.c;
-import com.baidu.tieba.recapp.lego.view.g;
-import com.baidu.tieba.recapp.lego.view.i;
+import com.baidu.tieba.recapp.lego.view.AdCardLoopPicView;
+import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
+import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
+import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
+import com.baidu.tieba.recapp.lego.view.AdCardVrPicView;
+import com.baidu.tieba.recapp.lego.view.AdCardVrVideoView;
+import com.baidu.tieba.recapp.lego.view.CriusAdCardView;
+import com.baidu.tieba.recapp.lego.view.DistributeVrVideoCardView;
+import com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView;
+import com.baidu.tieba.recapp.lego.view.form.FormCardView;
+import com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView;
+import com.baidu.tieba.recapp.lego.view.postad.AdPostImageView;
+import com.baidu.tieba.recapp.lego.view.postad.AdPostPbView;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void aPA() {
-        faI.put(17, faI.size() + 1);
-        faI.put(26, faI.size() + 1);
-        faI.put(25, faI.size() + 1);
-        faI.put(27, faI.size() + 1);
-        faI.put(31, faI.size() + 1);
-        faI.put(32, faI.size() + 1);
-        faI.put(99, faI.size() + 1);
-        faJ.put(17, BdUniqueId.gen());
-        faJ.put(26, BdUniqueId.gen());
-        faJ.put(25, BdUniqueId.gen());
-        faJ.put(27, BdUniqueId.gen());
-        faJ.put(31, BdUniqueId.gen());
-        faJ.put(32, BdUniqueId.gen());
-        faJ.put(99, BdUniqueId.gen());
+    protected void aKB() {
+        evq.put(17, evq.size() + 1);
+        evq.put(26, evq.size() + 1);
+        evq.put(25, evq.size() + 1);
+        evq.put(27, evq.size() + 1);
+        evq.put(31, evq.size() + 1);
+        evq.put(32, evq.size() + 1);
+        evq.put(33, evq.size() + 1);
+        evq.put(99, evq.size() + 1);
+        evr.put(17, BdUniqueId.gen());
+        evr.put(26, BdUniqueId.gen());
+        evr.put(25, BdUniqueId.gen());
+        evr.put(27, BdUniqueId.gen());
+        evr.put(31, BdUniqueId.gen());
+        evr.put(32, BdUniqueId.gen());
+        evr.put(99, BdUniqueId.gen());
+        evr.put(33, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    public String vG() {
+    public String key() {
         return "lego_for_RecApp";
     }
 
@@ -65,6 +75,8 @@ class a extends e {
                 return new AdPost(jSONObject);
             case 32:
                 return new AdPostPbData(jSONObject);
+            case 33:
+                return new VideoMiddlePageAdCard(jSONObject);
             case 99:
                 return new CriusAdCard(jSONObject);
             default:
@@ -73,35 +85,37 @@ class a extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    public <T> k a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+    public <T> com.baidu.tieba.lego.card.view.e a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         switch (iCardInfo == null ? -1 : iCardInfo.getCardType()) {
             case 17:
             case 26:
                 return e(tbPageContext, iCardInfo, i);
             case 25:
                 if (MessageManager.getInstance().findTask(2016481) != null) {
-                    return new com.baidu.tieba.recapp.lego.view.k(tbPageContext);
+                    return new DistributeVrVideoCardView(tbPageContext);
                 }
                 return null;
             case 27:
-                return new c(tbPageContext);
+                return new FormCardView(tbPageContext);
             case 31:
                 return d(tbPageContext, iCardInfo, i);
             case 32:
-                return new com.baidu.tieba.recapp.lego.view.a.c(tbPageContext);
+                return new AdPostPbView(tbPageContext);
+            case 33:
+                return new VideoMiddlePageAdView(tbPageContext);
             case 99:
-                return new i(tbPageContext);
+                return new CriusAdCardView(tbPageContext);
             default:
                 return null;
         }
     }
 
-    private com.baidu.tieba.recapp.lego.view.a.a d(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
+    private AdPostBaseView d(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
         if (iCardInfo instanceof AdPost) {
             AdPost adPost = (AdPost) iCardInfo;
             if (adPost.getCardType() == 31) {
                 if (PostAdBaseData.STYLE_ONE_IMAGE.equals(adPost.feedData.style) || PostAdBaseData.STYLE_MULTI_IMAGE.equals(adPost.feedData.style)) {
-                    return new b(tbPageContext);
+                    return new AdPostImageView(tbPageContext);
                 }
                 return null;
             }
@@ -110,7 +124,7 @@ class a extends e {
         return null;
     }
 
-    private com.baidu.tieba.lego.card.e.b e(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
+    private BaseLegoCardView e(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
         if (iCardInfo instanceof AdCard) {
             AdCard adCard = (AdCard) iCardInfo;
             int cardType = adCard.getCardType();
@@ -118,23 +132,23 @@ class a extends e {
                 switch (adCard.goodsStyle) {
                     case 2:
                     case 8:
-                        return new d(tbPageContext);
+                        return new AdCardSinglePicView(tbPageContext);
                     case 3:
                     case 4:
                     case 5:
                     default:
                         return null;
                     case 6:
-                        return new com.baidu.tieba.recapp.lego.view.c(tbPageContext);
+                        return new AdCardMultiPicView(tbPageContext);
                     case 7:
-                        return new com.baidu.tieba.recapp.lego.view.e(tbPageContext);
+                        return new AdCardVideoView(tbPageContext);
                     case 9:
-                        return new g(tbPageContext);
+                        return new AdCardVrVideoView(tbPageContext);
                     case 10:
-                        return new f(tbPageContext);
+                        return new AdCardVrPicView(tbPageContext);
                 }
             } else if (cardType == 26) {
-                return new com.baidu.tieba.recapp.lego.view.b(tbPageContext);
+                return new AdCardLoopPicView(tbPageContext);
             } else {
                 BdLog.e("RecAppLegoFactory: specifyAdCardView got wrong card type!");
                 return null;

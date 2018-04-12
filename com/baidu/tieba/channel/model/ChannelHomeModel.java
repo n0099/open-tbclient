@@ -17,15 +17,15 @@ import com.baidu.tieba.channel.message.ChannelVideoUnSetTopHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.a.a;
 /* loaded from: classes3.dex */
 public class ChannelHomeModel extends BdBaseModel<ChannelHomeActivity> {
-    private boolean ddf;
+    private boolean cuY;
 
     public ChannelHomeModel(ChannelHomeActivity channelHomeActivity) {
         super(channelHomeActivity.getPageContext());
-        this.ddf = false;
-        HQ();
+        this.cuY = false;
+        AE();
     }
 
-    private void HQ() {
+    private void AE() {
         a.a(309437, ChannelInfoGetSocketResponseMessage.class, false, false);
         a.a(309437, CmdConfigHttp.CMD_CHANNEL_GET_INFO, TbConfig.CMD_CHANNEL_GET_INFO, ChannelInfoGetHttpResponseMessage.class, false, false, true, true);
         c.a(CmdConfigHttp.CMD_CHANNEL_VIDEO_SET_TOP, TbConfig.CMD_VIDEO_SET_TOP, ChannelVideoSetTopHttpResponseMessage.class);
@@ -44,16 +44,16 @@ public class ChannelHomeModel extends BdBaseModel<ChannelHomeActivity> {
     }
 
     public void a(long j, int i, int i2) {
-        this.ddf = true;
+        this.cuY = true;
         sendMessage(new ChannelInfoGetMessage(j, i, i2));
     }
 
-    public void eU(boolean z) {
-        this.ddf = z;
+    public void ez(boolean z) {
+        this.cuY = z;
     }
 
-    public boolean amu() {
-        return this.ddf;
+    public boolean agu() {
+        return this.cuY;
     }
 
     public void a(long j, h hVar) {
@@ -67,7 +67,7 @@ public class ChannelHomeModel extends BdBaseModel<ChannelHomeActivity> {
     }
 
     public void b(long j, h hVar) {
-        if (hVar != null && hVar.zO()) {
+        if (hVar != null && hVar.sp()) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANNEL_VIDEO_UNSET_TOP);
             httpMessage.addParam("channel_id", j);
             httpMessage.addParam("thread_id", hVar.getThreadId());

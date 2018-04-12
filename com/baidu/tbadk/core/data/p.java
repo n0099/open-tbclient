@@ -1,49 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.ForumBookInfo;
+import java.util.ArrayList;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class p {
-    private String aLL;
-    private String aLM;
-    private String aLN;
-    private String aLO;
-    private String aLP;
-    private String aLQ;
-    private String aLR;
-    private long aLS;
-    private long aLT;
-    private long aLU;
-    private long aLV;
-    private long aLW;
-    private long aLX;
-    private int aLz;
-    private String author;
+    private String Xd;
+    private int Xe;
+    private ArrayList<r> Xf = new ArrayList<>();
+    private int height;
+    private String obj_id;
+    private int width;
 
-    public String xT() {
-        return this.aLL;
+    public ArrayList<r> qz() {
+        return this.Xf;
     }
 
-    public int xU() {
-        return this.aLz;
+    public void f(ArrayList<r> arrayList) {
+        this.Xf = arrayList;
     }
 
-    public void a(ForumBookInfo forumBookInfo) {
-        if (forumBookInfo != null) {
-            this.aLL = forumBookInfo.book_id;
-            this.aLz = forumBookInfo.book_type.intValue();
-            this.aLM = forumBookInfo.book_title;
-            this.aLN = forumBookInfo.book_cover;
-            this.author = forumBookInfo.author;
-            this.aLO = forumBookInfo.forum_pic;
-            this.aLP = forumBookInfo.show_chapter_id;
-            this.aLQ = forumBookInfo.show_chapter_no;
-            this.aLR = forumBookInfo.show_chapter_title;
-            this.aLS = forumBookInfo.history_page_id.longValue();
-            this.aLT = forumBookInfo.history_paragraph_id.longValue();
-            this.aLU = forumBookInfo.history_word_id.longValue();
-            this.aLV = forumBookInfo.history_percent.longValue();
-            this.aLW = forumBookInfo.show_page_id.longValue();
-            this.aLX = forumBookInfo.show_paragraph_id.longValue();
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
+            this.Xe = activityHead.activity_type.intValue();
+            this.Xd = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            this.obj_id = activityHead.obj_id;
+            for (HeadImgs headImgs : activityHead.head_imgs) {
+                r rVar = new r();
+                rVar.a(headImgs);
+                this.Xf.add(rVar);
+            }
         }
     }
 }

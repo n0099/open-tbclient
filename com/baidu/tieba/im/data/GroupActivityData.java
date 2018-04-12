@@ -10,7 +10,7 @@ public class GroupActivityData implements Serializable {
     private String gActivityContent;
     private long gActivityTime;
     private String gActivityTitle;
-    private int groupId;
+    private long groupId;
     private String groupName;
     private int isEnd;
     private long userId;
@@ -48,12 +48,12 @@ public class GroupActivityData implements Serializable {
         this.isEnd = i;
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public String getGroupName() {

@@ -1,7 +1,9 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-/* loaded from: classes.dex */
+import android.widget.AbsListView;
+/* loaded from: classes2.dex */
 public interface i {
-    void a(View view, com.baidu.tieba.f.a aVar);
+    void onScroll(AbsListView absListView, int i, int i2, int i3);
+
+    void onScrollStateChanged(AbsListView absListView, int i);
 }

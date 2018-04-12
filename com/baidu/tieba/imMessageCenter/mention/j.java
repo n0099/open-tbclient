@@ -1,102 +1,78 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.util.v;
+import com.sina.weibo.sdk.constant.WBPageConstants;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ReplyMe.DataRes;
+import tbclient.ReplyMe.ReplyList;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes2.dex */
-public class j {
-    private static j eSV = null;
-    private final HttpMessageListener cJl = new HttpMessageListener(CmdConfigHttp.MSG_REMINDER_CMD) { // from class: com.baidu.tieba.imMessageCenter.mention.j.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
-                h msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
-                if (!com.baidu.tbadk.coreExtra.messageCenter.a.GL() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Hs()) {
-                    if (msgData.aNC() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgBookmark(msgData.aNC());
-                    }
-                    if (msgData.aNA() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgAtme(msgData.aNA());
-                    }
-                    if (msgData.aNz() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgReplyme(msgData.aNz());
-                    }
-                    if (msgData.aNB() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Hw()) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgFans(msgData.aNB());
-                    }
-                    if (msgData.aNy() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.GJ().gU(msgData.aNy());
+public class j implements com.baidu.tbadk.mvc.b.j {
+    protected boolean Aj;
+    protected ArrayList<FeedData> enz = new ArrayList<>();
+    protected am enA = new am();
+    protected h enB = new h();
+
+    public ArrayList<FeedData> aIH() {
+        return this.enz;
+    }
+
+    public am rg() {
+        return this.enA;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.j
+    public void r(JSONObject jSONObject) {
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
+            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
+            if (optJSONArray2 != null) {
+                for (int i = 0; i < optJSONArray2.length(); i++) {
+                    FeedData feedData = new FeedData();
+                    feedData.parserJson(optJSONArray2.optJSONObject(i));
+                    this.enz.add(feedData);
+                    if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.v(feedData.getPraiseList()) == 0) {
+                        this.enz.remove(feedData);
                     }
                 }
             }
+            this.enB.parserJson(jSONObject.optJSONObject("message"));
+            this.enA.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
+            this.Aj = true;
+        } catch (Exception e) {
+            this.Aj = false;
+            BdLog.e(e.getMessage());
         }
-    };
-    private long eSW = 0;
-    private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.imMessageCenter.mention.j.2
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            if (message.what == 1) {
-                j.this.eSW = System.currentTimeMillis();
-                if ((!MessageManager.getInstance().getSocketClient().isValid()) && com.baidu.adp.lib.util.j.oJ()) {
-                    j.this.aNE();
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.j
+    public void a(Message message) {
+        if (message instanceof ReplyMeResIdl) {
+            DataRes dataRes = ((ReplyMeResIdl) message).data;
+            try {
+                List<ReplyList> list = dataRes.reply_list;
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserProtoBuf(list.get(i));
+                        this.enz.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.v(feedData.getPraiseList()) == 0) {
+                            this.enz.remove(feedData);
+                        }
+                    }
                 }
-                j.this.mHandler.sendMessageDelayed(j.this.mHandler.obtainMessage(1), 600000L);
+                this.enA.a(dataRes.page);
+                this.Aj = true;
+            } catch (Exception e) {
+                this.Aj = false;
+                BdLog.e(e.getMessage());
             }
         }
-    };
-
-    static {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
-        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-    }
-
-    public static synchronized j aND() {
-        j jVar;
-        synchronized (j.class) {
-            if (eSV == null) {
-                eSV = new j();
-            }
-            jVar = eSV;
-        }
-        return jVar;
-    }
-
-    public j() {
-        MessageManager.getInstance().registerListener(this.cJl);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aNE() {
-        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
-    }
-
-    public void restart() {
-        this.eSW = 0L;
-        destroy();
-        start();
-    }
-
-    public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.eSW;
-        long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
-        if (j >= 600000) {
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
-        } else {
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
-        }
-        this.eSW = System.currentTimeMillis();
-    }
-
-    public void destroy() {
-        this.mHandler.removeMessages(1);
     }
 }

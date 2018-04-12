@@ -10,7 +10,7 @@ import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import junit.framework.Assert;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class a {
     private Context a;
     private String b;

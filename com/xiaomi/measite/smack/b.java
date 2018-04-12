@@ -3,7 +3,7 @@ package com.xiaomi.measite.smack;
 import com.xiaomi.smack.d;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements d {
     final /* synthetic */ a a;
 

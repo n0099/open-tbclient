@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes3.dex */
 public class m extends BaseAdapter {
-    private String[] eAP;
-    private GroupAddressEditActivity eAR;
+    private GroupAddressLocateActivity dVF;
+    private String[] dVt;
 
-    public m(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.eAP = null;
-        this.eAR = null;
-        this.eAR = groupAddressEditActivity;
-        this.eAP = strArr;
+    public m(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
+        this.dVt = null;
+        this.dVF = null;
+        this.dVF = groupAddressLocateActivity;
+        this.dVt = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eAP != null) {
-            return this.eAP.length;
+        if (this.dVt != null) {
+            return this.dVt.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.eAP == null || i <= -1 || i >= this.eAP.length) ? "" : this.eAP[i];
+        return (this.dVt == null || i <= -1 || i >= this.dVt.length) ? "" : this.dVt[i];
     }
 
     @Override // android.widget.Adapter
@@ -35,26 +35,33 @@ public class m extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         a aVar;
-        if (view == null) {
-            aVar = new a(this.eAR);
-            view = aVar.aix();
+        if (view2 == null) {
+            aVar = new a(this.dVF);
+            view2 = aVar.acD();
         } else {
-            aVar = (a) view.getTag();
+            aVar = (a) view2.getTag();
         }
-        aVar.mT(getItem(i).toString());
-        if (this.eAR.aHD() == i) {
-            aVar.hq(true);
+        if (aVar.aBx() != null) {
+            if (i + 1 == getCount()) {
+                aVar.aBx().setVisibility(8);
+            } else {
+                aVar.aBx().setVisibility(0);
+            }
+        }
+        aVar.mX(getItem(i).toString());
+        if (this.dVF.getSelectedPosition() == i) {
+            aVar.gQ(true);
         } else {
-            aVar.hq(false);
+            aVar.gQ(false);
         }
-        bU(view);
-        return view;
+        aA(view2);
+        return view2;
     }
 
-    private void bU(View view) {
-        this.eAR.getLayoutMode().aQ(TbadkApplication.getInst().getSkinType() == 1);
-        this.eAR.getLayoutMode().aM(view);
+    private void aA(View view2) {
+        this.dVF.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.dVF.getLayoutMode().u(view2);
     }
 }

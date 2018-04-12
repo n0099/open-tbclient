@@ -14,7 +14,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
     private static final String TAG = "BaiduYunPush";
@@ -54,7 +54,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     */
     public void onMessage(Context context, String str, String str2) {
         String str3;
-        int h;
+        int g;
         JSONObject jSONObject;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -72,13 +72,13 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                                 str4 = jSONObject.getString("task_id");
                             }
                         }
-                        h = com.baidu.adp.lib.g.b.h(str4, TbConfig.NOTIFY_YUN_PUSH);
-                        if (h < 2500) {
-                            h += TbConfig.NOTIFY_YUN_PUSH;
+                        g = com.baidu.adp.lib.g.b.g(str4, TbConfig.NOTIFY_YUN_PUSH);
+                        if (g < 2500) {
+                            g += TbConfig.NOTIFY_YUN_PUSH;
                         }
                         Intent parseUri = Intent.parseUri(str3, 1);
                         parseUri.setFlags(276824064);
-                        NotificationHelper.showNotification(context, h, string, string2, string2, PendingIntent.getActivity(context, h, parseUri, 134217728), false);
+                        NotificationHelper.showNotification(context, g, string, string2, string2, PendingIntent.getActivity(context, g, parseUri, 134217728), false);
                     }
                 }
                 str3 = null;
@@ -88,12 +88,12 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     if (!jSONObject.isNull("task_id")) {
                     }
                 }
-                h = com.baidu.adp.lib.g.b.h(str42, TbConfig.NOTIFY_YUN_PUSH);
-                if (h < 2500) {
+                g = com.baidu.adp.lib.g.b.g(str42, TbConfig.NOTIFY_YUN_PUSH);
+                if (g < 2500) {
                 }
                 Intent parseUri2 = Intent.parseUri(str3, 1);
                 parseUri2.setFlags(276824064);
-                NotificationHelper.showNotification(context, h, string, string2, string2, PendingIntent.getActivity(context, h, parseUri2, 134217728), false);
+                NotificationHelper.showNotification(context, g, string, string2, string2, PendingIntent.getActivity(context, g, parseUri2, 134217728), false);
             } catch (Exception e) {
             }
         }

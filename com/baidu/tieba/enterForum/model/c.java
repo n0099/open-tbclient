@@ -4,38 +4,38 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.d;
-import com.baidu.tieba.enterForum.b.e;
 import com.baidu.tieba.enterForum.data.f;
+import com.baidu.tieba.enterForum.view.ForumEditView;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private TbPageContext<?> aRI;
-    private ViewEventCenter doM;
-    private SoftReference<com.baidu.tieba.enterForum.b.d> dqg;
-    private com.baidu.tieba.enterForum.a.b dqh;
+    private TbPageContext<?> adf;
+    private ViewEventCenter cGR;
+    private SoftReference<ForumEditView> cII;
+    private com.baidu.tieba.enterForum.a.b cIJ;
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        this.aRI = tbPageContext;
-        this.doM = viewEventCenter;
+        this.adf = tbPageContext;
+        this.cGR = viewEventCenter;
     }
 
-    public com.baidu.tieba.enterForum.b.d aqV() {
-        if (this.dqg == null) {
+    public ForumEditView alj() {
+        if (this.cII == null) {
             return null;
         }
-        return this.dqg.get();
+        return this.cII.get();
     }
 
     public void createView() {
-        com.baidu.tieba.enterForum.b.d dVar = new com.baidu.tieba.enterForum.b.d(this.aRI.getPageActivity());
-        dVar.setEventCenter(this.doM);
-        this.dqg = new SoftReference<>(dVar);
+        ForumEditView forumEditView = new ForumEditView(this.adf.getPageActivity());
+        forumEditView.setEventCenter(this.cGR);
+        this.cII = new SoftReference<>(forumEditView);
     }
 
     public List<f> getDataList() {
-        return TbadkCoreApplication.getInst().getSkinType() != 2 ? g(this.dqh.getDataList(), false) : this.dqh.getDataList();
+        return TbadkCoreApplication.getInst().getSkinType() != 2 ? f(this.cIJ.getDataList(), false) : this.cIJ.getDataList();
     }
 
     public void b(f fVar) {
@@ -43,22 +43,22 @@ public class c {
         if (dataList != null) {
             dataList.remove(fVar);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.dqh.N(g(dataList, true));
+                this.cIJ.F(f(dataList, true));
             } else {
-                this.dqh.N(dataList);
+                this.cIJ.F(dataList);
             }
         }
     }
 
-    public void aR(List<f> list) {
-        com.baidu.tieba.enterForum.b.d dVar;
-        if (this.dqg != null && list != null && (dVar = this.dqg.get()) != null) {
-            dVar.arh();
-            aS(list);
+    public void aM(List<f> list) {
+        ForumEditView forumEditView;
+        if (this.cII != null && list != null && (forumEditView = this.cII.get()) != null) {
+            forumEditView.setColumnTypeAndRefeshView();
+            aN(list);
         }
     }
 
-    private List<f> g(List<f> list, boolean z) {
+    private List<f> f(List<f> list, boolean z) {
         ArrayList arrayList = new ArrayList();
         if (list == null) {
             return null;
@@ -79,34 +79,34 @@ public class c {
         return arrayList;
     }
 
-    public void aS(List<f> list) {
-        com.baidu.tieba.enterForum.b.d dVar = this.dqg.get();
-        if (dVar != null) {
-            if (this.dqh == null) {
-                aqW();
+    public void aN(List<f> list) {
+        ForumEditView forumEditView = this.cII.get();
+        if (forumEditView != null) {
+            if (this.cIJ == null) {
+                alk();
             }
-            dVar.setGridAdapterIfNeeded(this.dqh);
+            forumEditView.setGridAdapterIfNeeded(this.cIJ);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.dqh.N(g(list, true));
+                this.cIJ.F(f(list, true));
             } else {
-                this.dqh.N(list);
+                this.cIJ.F(list);
             }
-            this.dqh.b(this.aRI, TbadkCoreApplication.getInst().getSkinType());
+            this.cIJ.b(this.adf, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void aqW() {
-        this.dqh = new com.baidu.tieba.enterForum.a.b(this.aRI, e.class, d.h.home_like_item_in_edit_grid, this.doM);
-        this.dqh.cx(false);
+    private void alk() {
+        this.cIJ = new com.baidu.tieba.enterForum.a.b(this.adf, com.baidu.tieba.enterForum.view.c.class, d.i.home_like_item_in_edit_grid, this.cGR);
+        this.cIJ.bP(false);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.dqg.get() != null) {
-                this.dqg.get().onChangeSkinType(tbPageContext);
+            if (this.cII.get() != null) {
+                this.cII.get().onChangeSkinType(tbPageContext);
             }
-            if (this.dqh != null) {
-                this.dqh.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+            if (this.cIJ != null) {
+                this.cIJ.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

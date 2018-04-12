@@ -17,15 +17,15 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextItem extends OrmObject {
-    private TbRichTextMemeInfo bLa;
+    private TbRichTextMemeInfo aVP;
     private int mType = 0;
-    private TbRichTextCommInfo bLs = null;
-    private TbRichTextImageInfo bKT = null;
-    private TbRichTextVoiceInfo bec = null;
-    private TbRichTextEmotionInfo bKW = null;
-    private f bKX = null;
-    private TbRichTextLinkButtonInfo bKZ = null;
-    private TbRichTextLinkImageInfo bKY = null;
+    private TbRichTextCommInfo aWg = null;
+    private TbRichTextImageInfo aVI = null;
+    private TbRichTextVoiceInfo apt = null;
+    private TbRichTextEmotionInfo aVL = null;
+    private f aVM = null;
+    private TbRichTextLinkButtonInfo aVO = null;
+    private TbRichTextLinkImageInfo aVN = null;
 
     public int getType() {
         return this.mType;
@@ -33,84 +33,99 @@ public class TbRichTextItem extends OrmObject {
 
     public void a(int i, TbRichTextCommInfo tbRichTextCommInfo, TbRichTextImageInfo tbRichTextImageInfo, TbRichTextVoiceInfo tbRichTextVoiceInfo, TbRichTextEmotionInfo tbRichTextEmotionInfo, TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo, TbRichTextLinkImageInfo tbRichTextLinkImageInfo) {
         this.mType = i;
-        this.bLs = tbRichTextCommInfo;
-        this.bKT = tbRichTextImageInfo;
-        this.bec = tbRichTextVoiceInfo;
-        this.bKW = tbRichTextEmotionInfo;
-        this.bKZ = tbRichTextLinkButtonInfo;
-        this.bKY = tbRichTextLinkImageInfo;
+        this.aWg = tbRichTextCommInfo;
+        this.aVI = tbRichTextImageInfo;
+        this.apt = tbRichTextVoiceInfo;
+        this.aVL = tbRichTextEmotionInfo;
+        this.aVO = tbRichTextLinkButtonInfo;
+        this.aVN = tbRichTextLinkImageInfo;
     }
 
-    public TbRichTextLinkImageInfo Rw() {
+    public TbRichTextLinkImageInfo JX() {
         if (this.mType == 1280) {
-            return this.bKY;
+            return this.aVN;
         }
         return null;
     }
 
-    public TbRichTextLinkButtonInfo Rx() {
+    public TbRichTextLinkButtonInfo JY() {
         if (this.mType == 1024) {
-            return this.bKZ;
+            return this.aVO;
         }
         return null;
     }
 
-    public TbRichTextImageInfo Ro() {
+    public TbRichTextImageInfo JP() {
         if (this.mType == 8) {
-            return this.bKT;
+            return this.aVI;
         }
         return null;
     }
 
-    public f Rs() {
+    public f JT() {
         if (this.mType != 32) {
             return null;
         }
-        return this.bKX;
+        return this.aVM;
     }
 
-    public TbRichTextVoiceInfo Rq() {
+    public TbRichTextVoiceInfo JR() {
         if (this.mType == 512 || this.mType == 768) {
-            return this.bec;
+            return this.apt;
         }
         return null;
     }
 
-    public TbRichTextEmotionInfo Rt() {
+    public TbRichTextEmotionInfo JU() {
         if (this.mType == 17) {
-            return this.bKW;
+            return this.aVL;
         }
         return null;
     }
 
-    public TbRichTextMemeInfo Ru() {
+    public TbRichTextMemeInfo JV() {
         if (this.mType == 20) {
-            return this.bLa;
+            return this.aVP;
         }
         return null;
     }
 
-    private SpannableString RI() {
-        if (this.mType != 1 || this.bLs == null) {
+    private SpannableString Ki() {
+        if (this.mType != 1 || this.aWg == null) {
             return null;
         }
-        return new SpannableString(this.bLs.getText());
+        return new SpannableString(this.aWg.getText());
+    }
+
+    private CharSequence t(ArrayList<b> arrayList) {
+        SpannableString b;
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (this.mType == 32 && this.aWg != null) {
+            spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(d.k.video_text));
+            CharSequence v = v(arrayList);
+            if (v != null) {
+                spannableStringBuilder.append(v);
+            }
+            if (this.aWg.JK() == 1) {
+                b = b(this.mType, this.aWg.getText(), this.aWg.JL(), 0);
+            } else {
+                b = b(this.mType, this.aWg.getText(), this.aWg.getText(), 0);
+            }
+            if (b != null) {
+                spannableStringBuilder.append((CharSequence) b);
+            }
+        }
+        return spannableStringBuilder;
     }
 
     private CharSequence u(ArrayList<b> arrayList) {
-        SpannableString b;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.mType == 32 && this.bLs != null) {
-            spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(d.j.video_text));
-            CharSequence w = w(arrayList);
-            if (w != null) {
-                spannableStringBuilder.append(w);
+        if (this.mType == 128 && this.aWg != null) {
+            CharSequence v = v(arrayList);
+            if (v != null) {
+                spannableStringBuilder.append(v);
             }
-            if (this.bLs.Rj() == 1) {
-                b = b(this.mType, this.bLs.getText(), this.bLs.Rk(), 0);
-            } else {
-                b = b(this.mType, this.bLs.getText(), this.bLs.getText(), 0);
-            }
+            SpannableString b = b(this.mType, this.aWg.getLink(), this.aWg.getLink(), 0);
             if (b != null) {
                 spannableStringBuilder.append((CharSequence) b);
             }
@@ -119,51 +134,36 @@ public class TbRichTextItem extends OrmObject {
     }
 
     private CharSequence v(ArrayList<b> arrayList) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.mType == 128 && this.bLs != null) {
-            CharSequence w = w(arrayList);
-            if (w != null) {
-                spannableStringBuilder.append(w);
-            }
-            SpannableString b = b(this.mType, this.bLs.getLink(), this.bLs.getLink(), 0);
-            if (b != null) {
-                spannableStringBuilder.append((CharSequence) b);
-            }
-        }
-        return spannableStringBuilder;
-    }
-
-    private CharSequence w(ArrayList<b> arrayList) {
         TbRichTextItem tbRichTextItem = new TbRichTextItem();
         tbRichTextItem.a(4, new TbRichTextCommInfo("video_icon", " "), null, null, null, null, null);
-        return tbRichTextItem.y(arrayList);
+        return tbRichTextItem.x(arrayList);
     }
 
     public String getVideoUrl() {
-        if (this.mType != 32 || this.bLs == null) {
+        if (this.mType != 32 || this.aWg == null) {
             return null;
         }
-        if (this.bLs.Rj() == 1) {
-            return this.bLs.Rk();
+        if (this.aWg.JK() == 1) {
+            return this.aWg.JL();
         }
-        return this.bLs.getText();
+        return this.aWg.getText();
     }
 
-    private SpannableString RJ() {
-        if ((this.mType != 2 && this.mType != 18) || this.bLs == null) {
+    private SpannableString Kj() {
+        if ((this.mType != 2 && this.mType != 18) || this.aWg == null) {
             return null;
         }
-        if (this.bLs.Rj() == 1) {
-            return b(this.mType, this.bLs.getText(), this.bLs.Rk(), 0);
+        if (this.aWg.JK() == 1) {
+            return b(this.mType, this.aWg.getText(), this.aWg.JL(), 0);
         }
-        return b(this.mType, this.bLs.getText(), this.bLs.getLink(), this.bLs.Rl());
+        return b(this.mType, this.aWg.getText(), this.aWg.getLink(), this.aWg.JM());
     }
 
-    private SpannableString RK() {
-        if (this.mType != 256 || this.bLs == null) {
+    private SpannableString Kk() {
+        if (this.mType != 256 || this.aWg == null) {
             return null;
         }
-        String text = this.bLs.getText();
+        String text = this.aWg.getText();
         if (text == null) {
             return null;
         }
@@ -172,37 +172,37 @@ public class TbRichTextItem extends OrmObject {
         }
         SpannableString spannableString = new SpannableString(text);
         c cVar = new c(this.mType, text);
-        cVar.hA(this.bLs.getLink());
+        cVar.ht(this.aWg.getLink());
         spannableString.setSpan(cVar, 0, text.length() - 1, 33);
         return spannableString;
     }
 
-    private SpannableString RL() {
-        if (this.mType != 16 || this.bLs == null) {
+    private SpannableString Kl() {
+        if (this.mType != 16 || this.aWg == null) {
             return null;
         }
-        return b(this.mType, this.bLs.getText(), this.bLs.getLink(), 0);
+        return b(this.mType, this.aWg.getText(), this.aWg.getLink(), 0);
     }
 
-    private SpannableString x(ArrayList<b> arrayList) {
+    private SpannableString w(ArrayList<b> arrayList) {
         String text;
-        int gk;
-        a.C0109a gK;
+        int gb;
+        a.C0098a gB;
         SpannableString spannableString = null;
-        if (this.mType == 4 && this.bLs != null && this.bLs.getText() != null && this.bLs.getLink() != null && (gk = TbFaceManager.Mw().gk((text = this.bLs.getText()))) != 0) {
-            String str = "#(" + TbFaceManager.Mw().gm(text) + ")";
+        if (this.mType == 4 && this.aWg != null && this.aWg.getText() != null && this.aWg.getLink() != null && (gb = TbFaceManager.EZ().gb((text = this.aWg.getText()))) != 0) {
+            String str = "#(" + TbFaceManager.EZ().gd(text) + ")";
             spannableString = new SpannableString(str + " ");
-            b bVar = new b(TbadkCoreApplication.getInst().getContext(), gk);
+            b bVar = new b(TbadkCoreApplication.getInst().getContext(), gb);
             if (arrayList != null) {
                 arrayList.add(bVar);
             }
-            if (TbFaceManager.Mw().gK(text) != null) {
-                int width = (int) (0.5d * gK.getWidth());
+            if (TbFaceManager.EZ().gB(text) != null) {
+                int width = (int) (0.5d * gB.getWidth());
                 bVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 bVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            spannableString.setSpan(new com.baidu.tbadk.widget.c(bVar, 1), 0, str.length(), 33);
+            spannableString.setSpan(new com.baidu.tbadk.widget.a(bVar, 1), 0, str.length(), 33);
         }
         return spannableString;
     }
@@ -215,9 +215,9 @@ public class TbRichTextItem extends OrmObject {
             }
             spannableString = new SpannableString(str);
             c cVar = new c(i, str2);
-            cVar.iW(i2);
+            cVar.fX(i2);
             if (i2 == 1) {
-                cVar.setTextColor(d.C0141d.cp_cont_d);
+                cVar.setTextColor(d.C0126d.cp_cont_d);
             } else {
                 cVar.setTextColor(-1);
             }
@@ -226,49 +226,49 @@ public class TbRichTextItem extends OrmObject {
         return spannableString;
     }
 
-    private SpannableString RM() {
-        if (this.mType != 1024 || this.bKZ == null) {
+    private SpannableString Km() {
+        if (this.mType != 1024 || this.aVO == null) {
             return null;
         }
         SpannableString spannableString = new SpannableString("a");
-        Drawable iY = d.iY(this.bKZ.btn_type);
-        iY.setBounds(0, 0, iY.getIntrinsicWidth(), iY.getIntrinsicHeight());
-        com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(iY);
-        fVar.setVerticalOffset(l.t(TbadkCoreApplication.getInst().getContext(), d.e.ds4));
-        spannableString.setSpan(fVar, 0, 1, 33);
-        spannableString.setSpan(new c(1024, this.bKZ.link), spannableString.length() - 1, "a".length(), 33);
+        Drawable fZ = d.fZ(this.aVO.btn_type);
+        fZ.setBounds(0, 0, fZ.getIntrinsicWidth(), fZ.getIntrinsicHeight());
+        com.baidu.tbadk.widget.c cVar = new com.baidu.tbadk.widget.c(fZ);
+        cVar.setVerticalOffset(l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds4));
+        spannableString.setSpan(cVar, 0, 1, 33);
+        spannableString.setSpan(new c(1024, this.aVO.link), spannableString.length() - 1, "a".length(), 33);
         return spannableString;
     }
 
-    public CharSequence y(ArrayList<b> arrayList) {
+    public CharSequence x(ArrayList<b> arrayList) {
         switch (this.mType) {
             case 1:
-                return RI();
+                return Ki();
             case 2:
-                return RJ();
+                return Kj();
             case 4:
-                return x(arrayList);
+                return w(arrayList);
             case 8:
             case 17:
             default:
                 return null;
             case 16:
-                return RL();
+                return Kl();
             case 18:
-                return RJ();
+                return Kj();
             case 32:
-                return u(arrayList);
+                return t(arrayList);
             case 128:
-                return v(arrayList);
+                return u(arrayList);
             case 256:
-                return RK();
+                return Kk();
             case 1024:
-                return RM();
+                return Km();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x002b, code lost:
-        if (r7.bKX.RW() != false) goto L9;
+        if (r7.aVM.Kw() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -277,75 +277,75 @@ public class TbRichTextItem extends OrmObject {
         String str;
         int i = 0;
         try {
-            this.mType = iX(pbContent.type.intValue());
+            this.mType = fY(pbContent.type.intValue());
             switch (this.mType) {
                 case 8:
-                    this.bKT = new TbRichTextImageInfo(pbContent);
+                    this.aVI = new TbRichTextImageInfo(pbContent);
                     break;
                 case 16:
-                    this.bLs = new TbRichTextCommInfo(pbContent.text, String.valueOf(pbContent.uid));
+                    this.aWg = new TbRichTextCommInfo(pbContent.text, String.valueOf(pbContent.uid));
                     break;
                 case 17:
-                    this.bKW = new TbRichTextEmotionInfo();
-                    this.bKW.mGifInfo.mSharpText = String.format("#(%s)", pbContent.c);
-                    this.bKW.mGifInfo.mDynamicUrl = pbContent.dynamic;
-                    this.bKW.mGifInfo.mStaticUrl = pbContent._static;
-                    this.bKW.mType = this.mType;
-                    this.bKW.mGifInfo.mGifWidth = pbContent.width.intValue();
-                    this.bKW.mGifInfo.mGifHeight = pbContent.height.intValue();
-                    this.bKW.mGifInfo.mPackageName = pbContent.packet_name;
-                    this.bKW.mGifInfo.mIcon = pbContent._static;
-                    String[] split = this.bKW.mGifInfo.mDynamicUrl.split("/");
+                    this.aVL = new TbRichTextEmotionInfo();
+                    this.aVL.mGifInfo.mSharpText = String.format("#(%s)", pbContent.c);
+                    this.aVL.mGifInfo.mDynamicUrl = pbContent.dynamic;
+                    this.aVL.mGifInfo.mStaticUrl = pbContent._static;
+                    this.aVL.mType = this.mType;
+                    this.aVL.mGifInfo.mGifWidth = pbContent.width.intValue();
+                    this.aVL.mGifInfo.mGifHeight = pbContent.height.intValue();
+                    this.aVL.mGifInfo.mPackageName = pbContent.packet_name;
+                    this.aVL.mGifInfo.mIcon = pbContent._static;
+                    String[] split = this.aVL.mGifInfo.mDynamicUrl.split("/");
                     for (String str2 : split) {
                         i++;
                         if (str2.equals("faceshop")) {
-                            this.bKW.mGifInfo.mGid = split[i].split("_")[0];
+                            this.aVL.mGifInfo.mGid = split[i].split("_")[0];
                             break;
                         }
                     }
-                    this.bKW.mGifInfo.mGid = split[i].split("_")[0];
+                    this.aVL.mGifInfo.mGid = split[i].split("_")[0];
                 case 20:
-                    this.bLa = new TbRichTextMemeInfo();
-                    this.bLa.memeInfo = pbContent.meme_info;
+                    this.aVP = new TbRichTextMemeInfo();
+                    this.aVP.memeInfo = pbContent.meme_info;
                     break;
                 case 512:
-                    this.bec = new TbRichTextVoiceInfo(pbContent);
+                    this.apt = new TbRichTextVoiceInfo(pbContent);
                     break;
                 case 1024:
-                    this.bKZ = new TbRichTextLinkButtonInfo(pbContent);
+                    this.aVO = new TbRichTextLinkButtonInfo(pbContent);
                     break;
                 case 1280:
-                    this.bKY = new TbRichTextLinkImageInfo(pbContent);
+                    this.aVN = new TbRichTextLinkImageInfo(pbContent);
                     break;
                 default:
                     if (this.mType == 32) {
-                        this.bKX = new f();
-                        this.bKX.b(pbContent);
+                        this.aVM = new f();
+                        this.aVM.b(pbContent);
                         break;
                     }
-                    this.bLs = new TbRichTextCommInfo(pbContent);
+                    this.aWg = new TbRichTextCommInfo(pbContent);
                     if (this.mType == 4) {
-                        if (TbFaceManager.Mw().gk(this.bLs.getText()) <= 0) {
+                        if (TbFaceManager.EZ().gb(this.aWg.getText()) <= 0) {
                             this.mType = 1;
                             if (StringUtils.isNull(pbContent.c)) {
-                                str = "[" + TbadkCoreApplication.getInst().getString(d.j.editor_express) + "]";
+                                str = "[" + TbadkCoreApplication.getInst().getString(d.k.editor_express) + "]";
                             } else {
                                 str = "[" + pbContent.c + "]";
                             }
-                            this.bLs.setText(str);
+                            this.aWg.setText(str);
                             break;
                         } else {
-                            this.bLs.setLink("[" + pbContent.c + "]");
+                            this.aWg.setLink("[" + pbContent.c + "]");
                             break;
                         }
                     } else if (this.mType == 256) {
-                        this.bLs.setLink(pbContent.phonetype);
+                        this.aWg.setLink(pbContent.phonetype);
                         break;
                     }
                     break;
             }
-            if (this.mType != 1 && this.bLs != null) {
-                this.bLs.Rm();
+            if (this.mType != 1 && this.aWg != null) {
+                this.aWg.JN();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -356,60 +356,60 @@ public class TbRichTextItem extends OrmObject {
         String str;
         int i = 0;
         try {
-            this.mType = iX(jSONObject.optInt("type", 0));
+            this.mType = fY(jSONObject.optInt("type", 0));
             if (this.mType == 8) {
-                this.bKT = new TbRichTextImageInfo(jSONObject);
+                this.aVI = new TbRichTextImageInfo(jSONObject);
             } else if (this.mType == 512) {
-                this.bec = new TbRichTextVoiceInfo(jSONObject);
+                this.apt = new TbRichTextVoiceInfo(jSONObject);
             } else if (this.mType == 16) {
-                this.bLs = new TbRichTextCommInfo(jSONObject.optString("text"), jSONObject.optString("uid"));
+                this.aWg = new TbRichTextCommInfo(jSONObject.optString("text"), jSONObject.optString("uid"));
             } else if (this.mType == 17) {
-                this.bKW = new TbRichTextEmotionInfo();
-                this.bKW.mGifInfo.mSharpText = String.format("#(%s)", jSONObject.optString("c"));
-                this.bKW.mGifInfo.mDynamicUrl = jSONObject.optString("dynamic");
-                this.bKW.mGifInfo.mStaticUrl = jSONObject.optString("static");
-                this.bKW.mType = this.mType;
-                this.bKW.mGifInfo.mGifWidth = jSONObject.optInt("width", 200);
-                this.bKW.mGifInfo.mGifHeight = jSONObject.optInt("height", 200);
-                this.bKW.mGifInfo.mPackageName = jSONObject.optString("packet_name", "");
-                this.bKW.mGifInfo.mIcon = jSONObject.optString("icon");
-                String[] split = this.bKW.mGifInfo.mDynamicUrl.split("/");
+                this.aVL = new TbRichTextEmotionInfo();
+                this.aVL.mGifInfo.mSharpText = String.format("#(%s)", jSONObject.optString("c"));
+                this.aVL.mGifInfo.mDynamicUrl = jSONObject.optString("dynamic");
+                this.aVL.mGifInfo.mStaticUrl = jSONObject.optString("static");
+                this.aVL.mType = this.mType;
+                this.aVL.mGifInfo.mGifWidth = jSONObject.optInt("width", 200);
+                this.aVL.mGifInfo.mGifHeight = jSONObject.optInt("height", 200);
+                this.aVL.mGifInfo.mPackageName = jSONObject.optString("packet_name", "");
+                this.aVL.mGifInfo.mIcon = jSONObject.optString("icon");
+                String[] split = this.aVL.mGifInfo.mDynamicUrl.split("/");
                 for (String str2 : split) {
                     i++;
                     if (str2.equals("faceshop")) {
                         break;
                     }
                 }
-                this.bKW.mGifInfo.mGid = split[i].split("_")[0];
+                this.aVL.mGifInfo.mGid = split[i].split("_")[0];
             } else {
-                this.bLs = new TbRichTextCommInfo(jSONObject);
+                this.aWg = new TbRichTextCommInfo(jSONObject);
                 if (this.mType == 4) {
-                    int gk = TbFaceManager.Mw().gk(this.bLs.getText());
+                    int gb = TbFaceManager.EZ().gb(this.aWg.getText());
                     String optString = jSONObject.optString("c");
-                    if (gk <= 0) {
+                    if (gb <= 0) {
                         this.mType = 1;
                         if (StringUtils.isNull(optString)) {
-                            str = "[" + TbadkCoreApplication.getInst().getString(d.j.editor_express) + "]";
+                            str = "[" + TbadkCoreApplication.getInst().getString(d.k.editor_express) + "]";
                         } else {
                             str = "[" + optString + "]";
                         }
-                        this.bLs.setText(str);
+                        this.aWg.setText(str);
                     } else {
-                        this.bLs.setLink("[" + optString + "]");
+                        this.aWg.setLink("[" + optString + "]");
                     }
                 } else if (this.mType == 256) {
-                    this.bLs.setLink(jSONObject.optString("phonetype"));
+                    this.aWg.setLink(jSONObject.optString("phonetype"));
                 }
             }
-            if (this.mType != 1 && this.bLs != null) {
-                this.bLs.Rm();
+            if (this.mType != 1 && this.aWg != null) {
+                this.aWg.JN();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    private int iX(int i) {
+    private int fY(int i) {
         switch (i) {
             case 0:
                 return 1;

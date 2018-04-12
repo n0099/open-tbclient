@@ -1,7 +1,7 @@
 package org.apache.thrift;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends ByteArrayOutputStream {
     public d() {
     }

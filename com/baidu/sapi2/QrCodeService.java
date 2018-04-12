@@ -1,7 +1,6 @@
 package com.baidu.sapi2;
 
 import android.os.Looper;
-import android.support.v4.app.NotificationCompat;
 import com.baidu.ar.util.Constants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
@@ -188,7 +187,7 @@ public class QrCodeService extends AbstractService {
                         switch (parseInt) {
                             case 0:
                                 JSONObject jSONObject2 = new JSONObject(jSONObject.optString("channel_v"));
-                                int optInt = jSONObject2.optInt(NotificationCompat.CATEGORY_STATUS);
+                                int optInt = jSONObject2.optInt("status");
                                 qrLoginStatusCheckResult.status = optInt;
                                 if (optInt == 1) {
                                     qrLoginStatusCheckCallback.onScanQrCodeDone(qrLoginStatusCheckResult);

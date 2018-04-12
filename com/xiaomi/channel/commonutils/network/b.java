@@ -2,7 +2,7 @@ package com.xiaomi.channel.commonutils.network;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public int a;
     public Map<String, String> b = new HashMap();

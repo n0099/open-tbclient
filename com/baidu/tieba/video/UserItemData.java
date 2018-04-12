@@ -8,24 +8,24 @@ public class UserItemData implements Parcelable {
     public static final Parcelable.Creator<UserItemData> CREATOR = new Parcelable.Creator<UserItemData>() { // from class: com.baidu.tieba.video.UserItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: I */
+        /* renamed from: t */
         public UserItemData createFromParcel(Parcel parcel) {
             return new UserItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: wE */
+        /* renamed from: uh */
         public UserItemData[] newArray(int i) {
             return new UserItemData[i];
         }
     };
     public String agree_num;
     public String fans_num;
-    public String hop;
-    public String hoq;
-    public String hor;
-    public String hos;
+    public String gJX;
+    public String gJY;
+    public String gJZ;
+    public String gKa;
     public String intro;
     public String is_follow;
     public String name_show;
@@ -34,7 +34,7 @@ public class UserItemData implements Parcelable {
     public String user_name;
     public String video_num;
 
-    public String bAR() {
+    public String bvS() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 
@@ -49,14 +49,14 @@ public class UserItemData implements Parcelable {
         parcel.writeString(this.user_name);
         parcel.writeString(this.name_show);
         parcel.writeString(this.portrait);
-        parcel.writeString(this.hop);
-        parcel.writeString(this.hoq);
+        parcel.writeString(this.gJX);
+        parcel.writeString(this.gJY);
         parcel.writeString(this.fans_num);
         parcel.writeString(this.video_num);
         parcel.writeString(this.agree_num);
         parcel.writeString(this.intro);
-        parcel.writeString(this.hor);
-        parcel.writeString(this.hos);
+        parcel.writeString(this.gJZ);
+        parcel.writeString(this.gKa);
         parcel.writeString(this.is_follow);
     }
 
@@ -68,14 +68,14 @@ public class UserItemData implements Parcelable {
         this.user_name = parcel.readString();
         this.name_show = parcel.readString();
         this.portrait = parcel.readString();
-        this.hop = parcel.readString();
-        this.hoq = parcel.readString();
+        this.gJX = parcel.readString();
+        this.gJY = parcel.readString();
         this.fans_num = parcel.readString();
         this.video_num = parcel.readString();
         this.agree_num = parcel.readString();
         this.intro = parcel.readString();
-        this.hor = parcel.readString();
-        this.hos = parcel.readString();
+        this.gJZ = parcel.readString();
+        this.gKa = parcel.readString();
         this.is_follow = parcel.readString();
     }
 }

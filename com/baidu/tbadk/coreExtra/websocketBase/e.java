@@ -8,17 +8,17 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class e {
-    private boolean bql = false;
-    private int bqm = 0;
+    private boolean aAK = false;
+    private int aAL = 0;
 
-    public void fU(String str) {
+    public void fL(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.bql = false;
-        this.bqm = 0;
+        this.aAK = false;
+        this.aAL = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -45,11 +45,11 @@ public class e {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.h(String.valueOf(str3), 8000)), getTimeout());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.g(String.valueOf(str3), 8000)), getTimeout());
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.bql = true;
+                                this.aAK = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -80,23 +80,23 @@ public class e {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.bql && i4 > 0) {
-                    this.bqm = i3 / i4;
+                if (this.aAK && i4 > 0) {
+                    this.aAL = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.bql;
+        return this.aAK;
     }
 
-    public int Kj() {
-        return this.bqm;
+    public int CP() {
+        return this.aAL;
     }
 
     private int getTimeout() {
-        switch (j.oP()) {
+        switch (j.gV()) {
             case 1:
                 return PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
             case 2:

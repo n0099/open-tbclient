@@ -5,27 +5,27 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public interface q {
-    ArrayList<BasicNameValuePair> Ca();
-
-    String Cb();
-
-    byte[] Cc();
-
-    String Cd();
-
-    String Ce();
-
     void a(BasicNameValuePair basicNameValuePair);
 
     boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
     void d(String str, byte[] bArr);
 
-    void m(ArrayList<BasicNameValuePair> arrayList);
+    void eW();
 
-    void mS();
+    void eY();
 
-    void mV();
+    void l(ArrayList<BasicNameValuePair> arrayList);
 
     void n(String str, String str2);
+
+    ArrayList<BasicNameValuePair> uK();
+
+    String uL();
+
+    byte[] uM();
+
+    String uN();
+
+    String uO();
 }

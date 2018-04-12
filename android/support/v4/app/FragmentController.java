@@ -3,6 +3,7 @@ package android.support.v4.app;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.support.v4.util.SimpleArrayMap;
 import android.util.AttributeSet;
 import android.view.Menu;
@@ -33,6 +34,7 @@ public class FragmentController {
         return this.mHost.getLoaderManagerImpl();
     }
 
+    @Nullable
     public Fragment findFragmentByWho(String str) {
         return this.mHost.mFragmentManager.findFragmentByWho(str);
     }
@@ -60,8 +62,8 @@ public class FragmentController {
         this.mHost.mFragmentManager.attachController(this.mHost, this.mHost, fragment);
     }
 
-    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.mHost.mFragmentManager.onCreateView(view, str, context, attributeSet);
+    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+        return this.mHost.mFragmentManager.onCreateView(view2, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {

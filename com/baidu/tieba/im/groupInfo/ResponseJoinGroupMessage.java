@@ -5,13 +5,13 @@ import com.squareup.wire.Wire;
 import protobuf.ApplyJoinGroup.ApplyJoinGroupResIdl;
 /* loaded from: classes3.dex */
 public class ResponseJoinGroupMessage extends SocketResponsedMessage {
-    private int groupId;
+    private long groupId;
 
     public ResponseJoinGroupMessage() {
         super(103110);
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
@@ -22,7 +22,7 @@ public class ResponseJoinGroupMessage extends SocketResponsedMessage {
         setError(applyJoinGroupResIdl.error.errorno.intValue());
         setErrorString(applyJoinGroupResIdl.error.usermsg);
         if (getError() == 0) {
-            this.groupId = applyJoinGroupResIdl.data.groupId.intValue();
+            this.groupId = applyJoinGroupResIdl.data.groupId.longValue();
         }
     }
 }

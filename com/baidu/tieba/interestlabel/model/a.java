@@ -6,7 +6,7 @@ import java.util.List;
 public interface a {
     void a(LabelRequestEnum labelRequestEnum, b bVar, int i);
 
-    void aOH();
+    void aJJ();
 
-    void cr(List<Integer> list);
+    void ck(List<Integer> list);
 }

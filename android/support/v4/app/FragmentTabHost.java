@@ -5,6 +5,8 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -26,12 +28,15 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class TabInfo {
+        @Nullable
         final Bundle args;
+        @NonNull
         final Class<?> clss;
         Fragment fragment;
+        @NonNull
         final String tag;
 
-        TabInfo(String str, Class<?> cls, Bundle bundle) {
+        TabInfo(@NonNull String str, @NonNull Class<?> cls, @Nullable Bundle bundle) {
             this.tag = str;
             this.clss = cls;
             this.args = bundle;
@@ -48,10 +53,10 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
         @Override // android.widget.TabHost.TabContentFactory
         public View createTabContent(String str) {
-            View view = new View(this.mContext);
-            view.setMinimumWidth(0);
-            view.setMinimumHeight(0);
-            return view;
+            View view2 = new View(this.mContext);
+            view2.setMinimumWidth(0);
+            view2.setMinimumHeight(0);
+            return view2;
         }
     }
 
@@ -174,7 +179,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         this.mOnTabChangeListener = onTabChangeListener;
     }
 
-    public void addTab(TabHost.TabSpec tabSpec, Class<?> cls, Bundle bundle) {
+    public void addTab(@NonNull TabHost.TabSpec tabSpec, @NonNull Class<?> cls, @Nullable Bundle bundle) {
         tabSpec.setContent(new DummyTabFactory(this.mContext));
         String tag = tabSpec.getTag();
         TabInfo tabInfo = new TabInfo(tag, cls, bundle);
@@ -253,7 +258,8 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         }
     }
 
-    private FragmentTransaction doTabChanged(String str, FragmentTransaction fragmentTransaction) {
+    @Nullable
+    private FragmentTransaction doTabChanged(@Nullable String str, @Nullable FragmentTransaction fragmentTransaction) {
         TabInfo tabInfoForTag = getTabInfoForTag(str);
         if (this.mLastTab != tabInfoForTag) {
             if (fragmentTransaction == null) {
@@ -275,6 +281,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         return fragmentTransaction;
     }
 
+    @Nullable
     private TabInfo getTabInfoForTag(String str) {
         int size = this.mTabs.size();
         for (int i = 0; i < size; i++) {

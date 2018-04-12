@@ -9,16 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public abstract class BaseMenuPresenter implements MenuPresenter {
-    private int HE;
-    private int HF;
-    private MenuPresenter.Callback kf;
+    private MenuPresenter.Callback mCallback;
     protected Context mContext;
     private int mId;
     protected LayoutInflater mInflater;
+    private int mItemLayoutRes;
     protected MenuBuilder mMenu;
+    private int mMenuLayoutRes;
     protected MenuView mMenuView;
     protected Context mSystemContext;
     protected LayoutInflater mSystemInflater;
@@ -28,8 +28,8 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
     public BaseMenuPresenter(Context context, int i, int i2) {
         this.mSystemContext = context;
         this.mSystemInflater = LayoutInflater.from(context);
-        this.HE = i;
-        this.HF = i2;
+        this.mMenuLayoutRes = i;
+        this.mItemLayoutRes = i2;
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
@@ -42,7 +42,7 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
     @Override // android.support.v7.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
         if (this.mMenuView == null) {
-            this.mMenuView = (MenuView) this.mSystemInflater.inflate(this.HE, viewGroup, false);
+            this.mMenuView = (MenuView) this.mSystemInflater.inflate(this.mMenuLayoutRes, viewGroup, false);
             this.mMenuView.initialize(this.mMenu);
             updateMenuView(true);
         }
@@ -92,12 +92,12 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         }
     }
 
-    protected void addItemView(View view, int i) {
-        ViewGroup viewGroup = (ViewGroup) view.getParent();
+    protected void addItemView(View view2, int i) {
+        ViewGroup viewGroup = (ViewGroup) view2.getParent();
         if (viewGroup != null) {
-            viewGroup.removeView(view);
+            viewGroup.removeView(view2);
         }
-        ((ViewGroup) this.mMenuView).addView(view, i);
+        ((ViewGroup) this.mMenuView).addView(view2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -108,21 +108,21 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public void setCallback(MenuPresenter.Callback callback) {
-        this.kf = callback;
+        this.mCallback = callback;
     }
 
     public MenuPresenter.Callback getCallback() {
-        return this.kf;
+        return this.mCallback;
     }
 
     public MenuView.ItemView createItemView(ViewGroup viewGroup) {
-        return (MenuView.ItemView) this.mSystemInflater.inflate(this.HF, viewGroup, false);
+        return (MenuView.ItemView) this.mSystemInflater.inflate(this.mItemLayoutRes, viewGroup, false);
     }
 
-    public View getItemView(MenuItemImpl menuItemImpl, View view, ViewGroup viewGroup) {
+    public View getItemView(MenuItemImpl menuItemImpl, View view2, ViewGroup viewGroup) {
         MenuView.ItemView createItemView;
-        if (view instanceof MenuView.ItemView) {
-            createItemView = (MenuView.ItemView) view;
+        if (view2 instanceof MenuView.ItemView) {
+            createItemView = (MenuView.ItemView) view2;
         } else {
             createItemView = createItemView(viewGroup);
         }
@@ -136,15 +136,15 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
-        if (this.kf != null) {
-            this.kf.onCloseMenu(menuBuilder, z);
+        if (this.mCallback != null) {
+            this.mCallback.onCloseMenu(menuBuilder, z);
         }
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public boolean onSubMenuSelected(SubMenuBuilder subMenuBuilder) {
-        if (this.kf != null) {
-            return this.kf.onOpenSubMenu(subMenuBuilder);
+        if (this.mCallback != null) {
+            return this.mCallback.onOpenSubMenu(subMenuBuilder);
         }
         return false;
     }

@@ -5,7 +5,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuItemImpl;
 import android.view.SubMenu;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class NavigationMenu extends MenuBuilder {
     public NavigationMenu(Context context) {

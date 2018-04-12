@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.xiaomi.channel.commonutils.network.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkStatusChangeReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

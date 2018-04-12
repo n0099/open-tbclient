@@ -6,46 +6,46 @@ import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d adY = null;
-    private SecretKey adZ = null;
-    private byte[] aea = null;
+    private static d ov = null;
+    private SecretKey ow = null;
+    private byte[] ox = null;
 
-    public static d kO() {
-        if (adY == null) {
+    public static d cS() {
+        if (ov == null) {
             synchronized (d.class) {
-                if (adY == null) {
-                    adY = new d();
+                if (ov == null) {
+                    ov = new d();
                 }
             }
         }
-        return adY;
+        return ov;
     }
 
-    public void f(byte[] bArr) {
+    public void i(byte[] bArr) {
         try {
-            PublicKey m = u.m(bArr);
-            String dq = u.dq(32);
-            byte[] bArr2 = new byte[dq.length()];
-            for (int i = 0; i < dq.length(); i++) {
-                bArr2[i] = (byte) dq.charAt(i);
+            PublicKey o = u.o(bArr);
+            String aq = u.aq(32);
+            byte[] bArr2 = new byte[aq.length()];
+            for (int i = 0; i < aq.length(); i++) {
+                bArr2[i] = (byte) aq.charAt(i);
             }
-            this.adZ = u.bb(dq);
-            this.aea = u.b(m, bArr2);
+            this.ow = u.aY(aq);
+            this.ox = u.b(o, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.adZ = null;
-            this.aea = new byte[0];
+            this.ow = null;
+            this.ox = new byte[0];
         }
     }
 
     private d() {
     }
 
-    public byte[] kP() {
-        return this.aea;
+    public byte[] cT() {
+        return this.ox;
     }
 
     public SecretKey getSecretKey() {
-        return this.adZ;
+        return this.ow;
     }
 }

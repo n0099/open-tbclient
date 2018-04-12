@@ -31,7 +31,7 @@ import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class XMPushService extends Service implements com.xiaomi.smack.d {
     public static int b;
     private static final int g = Process.myPid();
@@ -48,7 +48,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
     final BroadcastReceiver a = new bg(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends h {
         ak.b b;
 
@@ -88,7 +88,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends h {
         private final ak.b b;
 
@@ -119,7 +119,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class c extends h {
         private com.xiaomi.slim.b c;
 
@@ -140,7 +140,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends h {
         /* JADX INFO: Access modifiers changed from: package-private */
         public d() {
@@ -163,7 +163,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e extends BroadcastReceiver {
         e() {
         }
@@ -174,7 +174,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f extends h {
         public int b;
         public Exception c;
@@ -198,7 +198,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g extends h {
         private Intent c;
 
@@ -219,7 +219,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class h extends i.b {
         public h(int i) {
             super(i);
@@ -238,7 +238,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class i extends h {
         public i() {
             super(5);
@@ -255,13 +255,13 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class j extends Binder {
         public j() {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class k extends h {
         private com.xiaomi.smack.packet.d c;
 
@@ -283,7 +283,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class l extends h {
         boolean b;
 
@@ -314,7 +314,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class m extends h {
         ak.b b;
 
@@ -344,7 +344,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class n extends h {
         n() {
             super(3);
@@ -365,7 +365,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class o extends h {
         ak.b b;
         int c;

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p {
     private static p a = null;
     private Context b;

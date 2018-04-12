@@ -1,11 +1,14 @@
 package com.baidu.tbadk.core.hybrid;
-/* loaded from: classes.dex */
-public abstract class o extends d {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract String ww();
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public o(m mVar) {
-        super(mVar);
-    }
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+/* loaded from: classes.dex */
+public @interface o {
+    boolean ul() default false;
+
+    String value() default "";
 }

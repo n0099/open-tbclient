@@ -1,73 +1,93 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.d.a;
-import com.baidu.tieba.enterForum.data.f;
-import com.baidu.tieba.enterForum.model.EnterForumModel;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
+import com.baidu.adp.lib.g.g;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.data.VisitedForumData;
+import com.baidu.tieba.d;
+import java.util.LinkedList;
 /* loaded from: classes2.dex */
-public class c implements com.baidu.tieba.d.a {
-    private a.InterfaceC0139a dpN;
-    private EnterForumModel dpw;
-    private final EnterForumModel.b dpH = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.c.1
-        @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
-        public void a(EnterForumModel.a aVar) {
-            if (c.this.dpN != null) {
-                if (aVar == null || !aVar.dqe || aVar.dqf == null || aVar.dqf.aqk() == null) {
-                    c.this.dpN.a(null, false, 1, 0);
-                    return;
+public class c {
+    private PopupWindow cIo;
+    private TbPageContext<?> mPageContext;
+    private View mRootView;
+    private Handler mHandler = new Handler();
+    private Runnable cIp = new Runnable() { // from class: com.baidu.tieba.enterForum.home.c.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (c.this.cIo != null) {
+                g.a(c.this.cIo);
+            }
+        }
+    };
+
+    public c(TbPageContext<?> tbPageContext) {
+        this.mPageContext = tbPageContext;
+    }
+
+    public void d(LinkedList<VisitedForumData> linkedList, final int i) {
+        if (linkedList == null || linkedList.size() < 1) {
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_enter_forum_ufan_recent_visit_tip_show", true);
+            return;
+        }
+        final int n = n(linkedList);
+        if (n < 0) {
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_enter_forum_ufan_recent_visit_tip_show", true);
+        } else if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("key_enter_forum_ufan_recent_visit_tip_show", false)) {
+            this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.home.c.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    c.this.at(i, n);
                 }
-                ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<f> aqp = aVar.dqf.aqk().aqp();
-                if (v.D(aqp) > 0) {
-                    Iterator<f> it = aqp.iterator();
-                    while (it.hasNext()) {
-                        f next = it.next();
-                        if (next != null && !StringUtils.isNull(next.getId()) && !StringUtils.isNull(next.getName())) {
-                            arrayList.add(new TransmitForumData(Long.valueOf(next.getId()).longValue(), next.getName(), false, 1, next.getAvatar()));
-                        }
+            }, 100L);
+        }
+    }
+
+    private int n(LinkedList<VisitedForumData> linkedList) {
+        int size = linkedList.size();
+        for (int i = 0; i < 3 && i < size; i++) {
+            VisitedForumData visitedForumData = linkedList.get(i);
+            if (visitedForumData != null && visitedForumData.Dn()) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void at(int i, int i2) {
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_enter_forum_ufan_recent_visit_tip_show", true);
+        if (this.cIo == null || !this.cIo.isShowing()) {
+            if (this.mRootView == null) {
+                this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.i.enter_forum_ufan_item_tip, (ViewGroup) null);
+                this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.c.3
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view2) {
+                        c.this.akW();
                     }
-                }
-                c.this.dpN.a(arrayList, true, 1, 0);
+                });
             }
-        }
-    };
-    private com.baidu.adp.framework.listener.a dpO = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.c.2
-        @Override // com.baidu.adp.framework.listener.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && c.this.dpw.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
-                if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    c.this.dpw.a((forumRecommendSocketResponseMessage) responsedMessage);
-                }
-                if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    c.this.dpw.a((forumRecommendHttpResponseMessage) responsedMessage);
-                }
+            if (this.cIo == null) {
+                this.cIo = new PopupWindow(this.mRootView, -2, -2);
+                this.cIo.setOutsideTouchable(true);
             }
-        }
-    };
-
-    public c() {
-        this.dpw = null;
-        this.dpw = new EnterForumModel(null);
-        this.dpw.a(this.dpH);
-        MessageManager.getInstance().registerListener(this.dpO);
-    }
-
-    @Override // com.baidu.tieba.d.a
-    public void ane() {
-        if (this.dpN != null && this.dpw != null) {
-            this.dpw.fw(true);
+            g.showPopupWindowAtLocation(this.cIo, this.mPageContext.getPageActivity().getWindow().getDecorView(), 51, this.mPageContext.getResources().getDimensionPixelSize(d.e.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(d.e.tbds292) * i2), i);
+            this.mHandler.postDelayed(this.cIp, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 
-    @Override // com.baidu.tieba.d.a
-    public void a(a.InterfaceC0139a interfaceC0139a) {
-        this.dpN = interfaceC0139a;
+    public void akW() {
+        if (this.cIo != null) {
+            g.a(this.cIo);
+        }
+    }
+
+    public void onDestroy() {
+        this.mHandler.removeCallbacksAndMessages(null);
     }
 }

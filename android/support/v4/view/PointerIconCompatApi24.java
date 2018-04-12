@@ -6,6 +6,9 @@ import android.graphics.Bitmap;
 import android.view.PointerIcon;
 /* loaded from: classes2.dex */
 class PointerIconCompatApi24 {
+    PointerIconCompatApi24() {
+    }
+
     public static Object getSystemIcon(Context context, int i) {
         return PointerIcon.getSystemIcon(context, i);
     }

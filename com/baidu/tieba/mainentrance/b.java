@@ -3,9 +3,9 @@ package com.baidu.tieba.mainentrance;
 import tbclient.HotForum.ForumInfo;
 /* loaded from: classes3.dex */
 public class b {
-    private long fhm;
-    private long fhn;
-    private long fho;
+    private long eBR;
+    private long eBS;
+    private long eBT;
     private String forumAvatar;
     private long forumId;
     private String forumName;
@@ -15,9 +15,9 @@ public class b {
             this.forumAvatar = forumInfo.avatar;
             this.forumId = forumInfo.forum_id.longValue();
             this.forumName = forumInfo.forum_name;
-            this.fhm = forumInfo.time_out.longValue();
-            this.fhn = forumInfo.member_count.longValue();
-            this.fho = forumInfo.thread_count.longValue();
+            this.eBR = forumInfo.time_out.longValue();
+            this.eBS = forumInfo.member_count.longValue();
+            this.eBT = forumInfo.thread_count.longValue();
         }
     }
 }

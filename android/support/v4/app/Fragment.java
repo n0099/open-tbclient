@@ -10,7 +10,11 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.CallSuper;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StringRes;
 import android.support.v4.util.DebugUtils;
 import android.support.v4.util.SimpleArrayMap;
 import android.support.v4.view.LayoutInflaterCompat;
@@ -141,7 +145,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return instantiate(context, str, null);
     }
 
-    public static Fragment instantiate(Context context, String str, Bundle bundle) {
+    public static Fragment instantiate(Context context, String str, @Nullable Bundle bundle) {
         try {
             Class<?> cls = sClassMap.get(str);
             if (cls == null) {
@@ -299,15 +303,15 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return this.mHost.getContext().getResources();
     }
 
-    public final CharSequence getText(int i) {
+    public final CharSequence getText(@StringRes int i) {
         return getResources().getText(i);
     }
 
-    public final String getString(int i) {
+    public final String getString(@StringRes int i) {
         return getResources().getString(i);
     }
 
-    public final String getString(int i, Object... objArr) {
+    public final String getString(@StringRes int i, Object... objArr) {
         return getResources().getString(i, objArr);
     }
 
@@ -363,12 +367,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return this.mHidden;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public final boolean hasOptionsMenu() {
         return this.mHasMenu;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public final boolean isMenuVisible() {
         return this.mMenuVisible;
     }
@@ -430,7 +434,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         startActivity(intent, null);
     }
 
-    public void startActivity(Intent intent, Bundle bundle) {
+    public void startActivity(Intent intent, @Nullable Bundle bundle) {
         if (this.mHost == null) {
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
         }
@@ -441,14 +445,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         startActivityForResult(intent, i, null);
     }
 
-    public void startActivityForResult(Intent intent, int i, Bundle bundle) {
+    public void startActivityForResult(Intent intent, int i, @Nullable Bundle bundle) {
         if (this.mHost == null) {
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
         }
         this.mHost.onStartActivityFromFragment(this, intent, i, bundle);
     }
 
-    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
         if (this.mHost == null) {
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
         }
@@ -458,24 +462,24 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void onActivityResult(int i, int i2, Intent intent) {
     }
 
-    public final void requestPermissions(String[] strArr, int i) {
+    public final void requestPermissions(@NonNull String[] strArr, int i) {
         if (this.mHost == null) {
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
         }
         this.mHost.onRequestPermissionsFromFragment(this, strArr, i);
     }
 
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
     }
 
-    public boolean shouldShowRequestPermissionRationale(String str) {
+    public boolean shouldShowRequestPermissionRationale(@NonNull String str) {
         if (this.mHost != null) {
             return this.mHost.onShouldShowRequestPermissionRationale(str);
         }
         return false;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public LayoutInflater getLayoutInflater(Bundle bundle) {
         LayoutInflater onGetLayoutInflater = this.mHost.onGetLayoutInflater();
         getChildFragmentManager();
@@ -483,6 +487,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return onGetLayoutInflater;
     }
 
+    @CallSuper
     public void onInflate(Context context, AttributeSet attributeSet, Bundle bundle) {
         this.mCalled = true;
         Activity activity = this.mHost == null ? null : this.mHost.getActivity();
@@ -492,6 +497,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
+    @CallSuper
     @Deprecated
     public void onInflate(Activity activity, AttributeSet attributeSet, Bundle bundle) {
         this.mCalled = true;
@@ -500,6 +506,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void onAttachFragment(Fragment fragment) {
     }
 
+    @CallSuper
     public void onAttach(Context context) {
         this.mCalled = true;
         Activity activity = this.mHost == null ? null : this.mHost.getActivity();
@@ -509,6 +516,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
+    @CallSuper
     @Deprecated
     public void onAttach(Activity activity) {
         this.mCalled = true;
@@ -518,7 +526,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return null;
     }
 
-    public void onCreate(Bundle bundle) {
+    @CallSuper
+    public void onCreate(@Nullable Bundle bundle) {
         this.mCalled = true;
         restoreChildFragmentState(bundle);
         if (this.mChildFragmentManager != null && !this.mChildFragmentManager.isStateAtLeast(1)) {
@@ -527,7 +536,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void restoreChildFragmentState(Bundle bundle) {
+    public void restoreChildFragmentState(@Nullable Bundle bundle) {
         Parcelable parcelable;
         if (bundle != null && (parcelable = bundle.getParcelable("android:support:fragments")) != null) {
             if (this.mChildFragmentManager == null) {
@@ -539,25 +548,30 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @Nullable
+    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         return null;
     }
 
-    public void onViewCreated(View view, Bundle bundle) {
+    public void onViewCreated(View view2, @Nullable Bundle bundle) {
     }
 
+    @Nullable
     public View getView() {
         return this.mView;
     }
 
-    public void onActivityCreated(Bundle bundle) {
+    @CallSuper
+    public void onActivityCreated(@Nullable Bundle bundle) {
         this.mCalled = true;
     }
 
-    public void onViewStateRestored(Bundle bundle) {
+    @CallSuper
+    public void onViewStateRestored(@Nullable Bundle bundle) {
         this.mCalled = true;
     }
 
+    @CallSuper
     public void onStart() {
         this.mCalled = true;
         if (!this.mLoadersStarted) {
@@ -572,6 +586,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
+    @CallSuper
     public void onResume() {
         this.mCalled = true;
     }
@@ -586,27 +601,33 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     @Override // android.content.ComponentCallbacks
+    @CallSuper
     public void onConfigurationChanged(Configuration configuration) {
         this.mCalled = true;
     }
 
+    @CallSuper
     public void onPause() {
         this.mCalled = true;
     }
 
+    @CallSuper
     public void onStop() {
         this.mCalled = true;
     }
 
     @Override // android.content.ComponentCallbacks
+    @CallSuper
     public void onLowMemory() {
         this.mCalled = true;
     }
 
+    @CallSuper
     public void onDestroyView() {
         this.mCalled = true;
     }
 
+    @CallSuper
     public void onDestroy() {
         this.mCalled = true;
         if (!this.mCheckedForLoaderManager) {
@@ -642,6 +663,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mCheckedForLoaderManager = false;
     }
 
+    @CallSuper
     public void onDetach() {
         this.mCalled = true;
     }
@@ -663,16 +685,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     @Override // android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        getActivity().onCreateContextMenu(contextMenu, view, contextMenuInfo);
+    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        getActivity().onCreateContextMenu(contextMenu, view2, contextMenuInfo);
     }
 
-    public void registerForContextMenu(View view) {
-        view.setOnCreateContextMenuListener(this);
+    public void registerForContextMenu(View view2) {
+        view2.setOnCreateContextMenuListener(this);
     }
 
-    public void unregisterForContextMenu(View view) {
-        view.setOnCreateContextMenuListener(null);
+    public void unregisterForContextMenu(View view2) {
+        view2.setOnCreateContextMenuListener(null);
     }
 
     public boolean onContextItemSelected(MenuItem menuItem) {
@@ -891,6 +913,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mChildFragmentManager = new FragmentManagerImpl();
         this.mChildFragmentManager.attachController(this.mHost, new FragmentContainer() { // from class: android.support.v4.app.Fragment.1
             @Override // android.support.v4.app.FragmentContainer
+            @Nullable
             public View onFindViewById(int i) {
                 if (Fragment.this.mView == null) {
                     throw new IllegalStateException("Fragment does not have a view");

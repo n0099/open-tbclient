@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
@@ -16,16 +17,16 @@ import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
 public class q implements com.baidu.b.a.b.c {
     @Override // com.baidu.b.a.b.c
-    public View N(Context context, String str) {
+    public View I(Context context, String str) {
         if ("image".equalsIgnoreCase(str)) {
-            com.baidu.tbadk.widget.b bVar = new com.baidu.tbadk.widget.b(context);
-            bVar.setScaleType(ImageView.ScaleType.FIT_XY);
-            bVar.setDrawerType(1);
-            bVar.setDefaultResource(17170445);
-            bVar.setDefaultBgResource(d.C0141d.cp_bg_line_e);
-            return bVar;
+            TbClipImageView tbClipImageView = new TbClipImageView(context);
+            tbClipImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            tbClipImageView.setDrawerType(1);
+            tbClipImageView.setDefaultResource(17170445);
+            tbClipImageView.setDefaultBgResource(d.C0126d.cp_bg_line_e);
+            return tbClipImageView;
         } else if ("video".equalsIgnoreCase(str)) {
-            View inflate = LayoutInflater.from(context).inflate(d.h.ad_card_video_view, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(d.i.ad_card_video_view, (ViewGroup) null);
             DistributeVideoView distributeVideoView = (DistributeVideoView) inflate.findViewById(d.g.advert_video);
             if (distributeVideoView != null) {
                 distributeVideoView.setHolderView(inflate);
@@ -37,67 +38,67 @@ public class q implements com.baidu.b.a.b.c {
     }
 
     @Override // com.baidu.b.a.b.c
-    public boolean a(String str, View view, com.baidu.b.a.a.a aVar) {
+    public boolean a(String str, View view2, com.baidu.b.a.a.a aVar) {
         DistributeVideoView distributeVideoView;
-        if (aVar == null || view == null) {
+        if (aVar == null || view2 == null) {
             return false;
         }
-        if (view instanceof com.baidu.tbadk.widget.b) {
-            if (aVar.azk > 0.0f) {
-                ((com.baidu.tbadk.widget.b) view).setRadius((int) (aVar.azk * view.getResources().getDisplayMetrics().density));
+        if (view2 instanceof TbClipImageView) {
+            if (aVar.Lw > 0.0f) {
+                ((TbClipImageView) view2).setRadius((int) (aVar.Lw * view2.getResources().getDisplayMetrics().density));
             } else {
-                ((com.baidu.tbadk.widget.b) view).setRadius(0);
+                ((TbClipImageView) view2).setRadius(0);
             }
-            ((com.baidu.tbadk.widget.b) view).startLoad(aVar.src, 30, false);
+            ((TbClipImageView) view2).startLoad(aVar.src, 30, false);
             return true;
-        } else if (!"video".equalsIgnoreCase(str) || (distributeVideoView = (DistributeVideoView) view.findViewById(d.g.advert_video)) == null) {
+        } else if (!"video".equalsIgnoreCase(str) || (distributeVideoView = (DistributeVideoView) view2.findViewById(d.g.advert_video)) == null) {
             return false;
         } else {
-            int dimension = (int) view.getContext().getResources().getDimension(d.e.ds278);
+            int dimension = (int) view2.getContext().getResources().getDimension(d.e.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
-            builder.thumbnail_url = aVar.azj;
+            builder.thumbnail_url = aVar.Lv;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);
-            distributeVideoView.setData(builder.build(true), (int) (com.baidu.adp.lib.util.l.ao(view.getContext()) - (view.getContext().getResources().getDimension(d.e.ds44) * 2.0f)), dimension, (int) view.getContext().getResources().getDimension(d.e.ds640));
+            distributeVideoView.setData(builder.build(true), (int) (com.baidu.adp.lib.util.l.af(view2.getContext()) - (view2.getContext().getResources().getDimension(d.e.ds44) * 2.0f)), dimension, (int) view2.getContext().getResources().getDimension(d.e.ds640));
             return true;
         }
     }
 
     @Override // com.baidu.b.a.b.c
-    public boolean a(String str, final View view, final String str2, String str3) {
-        if (view == null || TextUtils.isEmpty(str2)) {
+    public boolean a(String str, final View view2, final String str2, String str3) {
+        if (view2 == null || TextUtils.isEmpty(str2)) {
             return false;
         }
         if (str2.startsWith(SkiaImageDecoder.FILE_PREFIX) && str2.length() > 7) {
-            int identifier = com.baidu.adp.base.g.jL().getResources().getIdentifier(str2.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+            int identifier = com.baidu.adp.base.g.bP().getResources().getIdentifier(str2.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
             if (!TextUtils.isEmpty(str3) && str3.startsWith(SkiaImageDecoder.FILE_PREFIX) && str3.length() > 7) {
-                int identifier2 = com.baidu.adp.base.g.jL().getResources().getIdentifier(str3.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+                int identifier2 = com.baidu.adp.base.g.bP().getResources().getIdentifier(str3.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
                 if (identifier2 <= 0 || identifier <= 0) {
                     return true;
                 }
                 StateListDrawable stateListDrawable = new StateListDrawable();
-                Drawable drawable = view.getResources().getDrawable(identifier2);
-                Drawable drawable2 = view.getResources().getDrawable(identifier);
+                Drawable drawable = view2.getResources().getDrawable(identifier2);
+                Drawable drawable2 = view2.getResources().getDrawable(identifier);
                 stateListDrawable.addState(new int[]{16842919}, drawable);
                 stateListDrawable.addState(new int[]{-16842919}, drawable2);
-                view.setBackgroundDrawable(stateListDrawable);
+                view2.setBackgroundDrawable(stateListDrawable);
                 return true;
             } else if (identifier > 0) {
-                view.setBackgroundResource(identifier);
+                view2.setBackgroundResource(identifier);
                 return true;
             } else {
                 return true;
             }
         }
-        com.baidu.adp.lib.f.c.nm().a(str2, 17, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.recapp.q.1
+        com.baidu.adp.lib.f.c.fp().a(str2, 17, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.q.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
-            public void onLoaded(com.baidu.adp.widget.a.a aVar, String str4, int i) {
+            public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str4, int i) {
                 if (str2.equalsIgnoreCase(str4)) {
-                    view.setBackgroundDrawable(aVar.sj());
+                    view2.setBackgroundDrawable(aVar.ko());
                 }
             }
         }, null);

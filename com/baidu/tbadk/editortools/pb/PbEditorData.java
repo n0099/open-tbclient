@@ -76,10 +76,12 @@ public class PbEditorData implements Serializable {
         private long authorId;
         private String authorName;
         private String authorNameShow;
+        private String firstDir;
         private String forumId;
         private String forumName;
         private String mThreadId;
         private String postId;
+        private String secondDir;
 
         public String getAuthorName() {
             return this.authorName;
@@ -135,6 +137,22 @@ public class PbEditorData implements Serializable {
 
         public void setThreadId(String str) {
             this.mThreadId = str;
+        }
+
+        public String getFirstDir() {
+            return this.firstDir;
+        }
+
+        public void setFirstDir(String str) {
+            this.firstDir = str;
+        }
+
+        public String getSecondDir() {
+            return this.secondDir;
+        }
+
+        public void setSecondDir(String str) {
+            this.secondDir = str;
         }
     }
 }

@@ -9,7 +9,7 @@ import android.support.v4.content.res.ConfigurationHelper;
 import android.support.v4.view.ViewConfigurationCompat;
 import android.support.v7.appcompat.R;
 import android.view.ViewConfiguration;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class ActionBarPolicy {
     private Context mContext;

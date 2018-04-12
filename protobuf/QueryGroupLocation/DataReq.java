@@ -4,13 +4,13 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes3.dex */
 public final class DataReq extends Message {
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 3, type = Message.Datatype.DOUBLE)
     public final Double lat;
     @ProtoField(tag = 2, type = Message.Datatype.DOUBLE)
     public final Double lng;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Double DEFAULT_LNG = Double.valueOf(0.0d);
     public static final Double DEFAULT_LAT = Double.valueOf(0.0d);
 
@@ -42,7 +42,7 @@ public final class DataReq extends Message {
 
     /* loaded from: classes3.dex */
     public static final class Builder extends Message.Builder<DataReq> {
-        public Integer groupId;
+        public Long groupId;
         public Double lat;
         public Double lng;
 

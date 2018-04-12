@@ -1,115 +1,49 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.xiaomi.mipush.sdk.Constants;
-import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
-public class q implements com.baidu.tbadk.core.flow.a.a {
-    private String aLY;
-    private String aLZ;
-    private String aMa;
-    private String aMb;
-    private boolean aMc;
-    private String mTitle;
-    private String tagNameUrl;
-    private float tagRatio;
+public class q {
+    private int WU;
+    private String Xg;
+    private String Xh;
+    private String Xi;
+    private String Xj;
+    private String Xk;
+    private String Xl;
+    private String Xm;
+    private long Xn;
+    private long Xo;
+    private long Xp;
+    private long Xq;
+    private long Xr;
+    private long Xs;
+    private String author;
 
-    public q(String str, String str2, String str3) {
-        this.aLY = str;
-        this.aLZ = str2;
-        this.mTitle = str3;
+    public String qA() {
+        return this.Xg;
     }
 
-    public q() {
+    public int getBookType() {
+        return this.WU;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.aLY;
-    }
-
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String xV() {
-        return this.aLZ;
-    }
-
-    public String getImageUrl() {
-        return this.aLY;
-    }
-
-    public void setImageUrl(String str) {
-        this.aLY = str;
-    }
-
-    public String getLinkUrl() {
-        return this.aLZ;
-    }
-
-    public void setLinkUrl(String str) {
-        this.aLZ = str;
-    }
-
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    public String xW() {
-        return this.tagNameUrl;
-    }
-
-    public float xX() {
-        return this.tagRatio;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: xY */
-    public q clone() {
-        q qVar = new q();
-        qVar.aLY = this.aLY;
-        qVar.aLZ = this.aLZ;
-        qVar.mTitle = this.mTitle;
-        qVar.aMa = this.aMa;
-        qVar.aMb = this.aMb;
-        qVar.tagNameUrl = this.tagNameUrl;
-        qVar.tagRatio = this.tagRatio;
-        return qVar;
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            this.aLY = headImgs.img_url;
-            this.aLZ = headImgs.pc_url;
-            this.tagNameUrl = headImgs.tag_name_url;
-            String str = headImgs.tag_name_wh;
-            if (str != null) {
-                try {
-                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    int h = com.baidu.adp.lib.g.b.h(split[0], 1);
-                    int h2 = com.baidu.adp.lib.g.b.h(split[1], 1);
-                    if (h2 != 0) {
-                        this.tagRatio = h / h2;
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (headImgs.title != null) {
-                this.mTitle = headImgs.title.trim();
-            }
-            if (headImgs.subtitle != null) {
-                this.aMa = headImgs.subtitle.trim();
-            }
-            if (headImgs.btn_text != null) {
-                this.aMb = headImgs.btn_text.trim();
-            }
+    public void a(ForumBookInfo forumBookInfo) {
+        if (forumBookInfo != null) {
+            this.Xg = forumBookInfo.book_id;
+            this.WU = forumBookInfo.book_type.intValue();
+            this.Xh = forumBookInfo.book_title;
+            this.Xi = forumBookInfo.book_cover;
+            this.author = forumBookInfo.author;
+            this.Xj = forumBookInfo.forum_pic;
+            this.Xk = forumBookInfo.show_chapter_id;
+            this.Xl = forumBookInfo.show_chapter_no;
+            this.Xm = forumBookInfo.show_chapter_title;
+            this.Xn = forumBookInfo.history_page_id.longValue();
+            this.Xo = forumBookInfo.history_paragraph_id.longValue();
+            this.Xp = forumBookInfo.history_word_id.longValue();
+            this.Xq = forumBookInfo.history_percent.longValue();
+            this.Xr = forumBookInfo.show_page_id.longValue();
+            this.Xs = forumBookInfo.show_paragraph_id.longValue();
         }
-    }
-
-    public boolean xZ() {
-        return this.aMc;
-    }
-
-    public void aV(boolean z) {
-        this.aMc = z;
     }
 }

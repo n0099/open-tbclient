@@ -44,18 +44,18 @@ public class MyService extends Service {
                         MyService.a(MyService.this, MyService.this.getClassLoader(), intent);
                         MyService.a(MyService.this);
                     } else {
-                        com.baidu.sofire.core.e vF = com.baidu.sofire.core.e.vF();
-                        if (vF == null) {
+                        com.baidu.sofire.core.e a = com.baidu.sofire.core.e.a();
+                        if (a == null) {
                             MyService.a(MyService.this);
                             return;
                         }
-                        ApkInfo cm = vF.cm(stringExtra2);
-                        new StringBuilder("i=").append(cm);
-                        if (cm == null) {
+                        ApkInfo d = a.d(stringExtra2);
+                        new StringBuilder("i=").append(d);
+                        if (d == null) {
                             MyService.a(MyService.this);
                             return;
                         }
-                        MyService.a(MyService.this, cm.classLoader, intent);
+                        MyService.a(MyService.this, d.classLoader, intent);
                         MyService.a(MyService.this);
                     }
                 } catch (Throwable th2) {

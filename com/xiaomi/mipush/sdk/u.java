@@ -16,7 +16,7 @@ import com.xiaomi.xmpush.thrift.af;
 import com.xiaomi.xmpush.thrift.aq;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u {
     private static u b;
     private static final ArrayList<a> e = new ArrayList<>();
@@ -28,7 +28,7 @@ public class u {
     private String d = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a<T extends org.apache.thrift.a<T, ?>> {
         T a;
         com.xiaomi.xmpush.thrift.a b;

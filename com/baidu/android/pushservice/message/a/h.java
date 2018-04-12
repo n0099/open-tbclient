@@ -6,20 +6,19 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.ar.util.Constants;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends c {
     public h(Context context) {
         super(context);
     }
 
     public static String[] a(Context context, int i, String str, String str2, byte[] bArr, byte[] bArr2) {
-        if (p.a(context, bArr, str, str2, bArr2)) {
+        if (com.baidu.android.pushservice.j.m.a(context, bArr, str, str2, bArr2)) {
             String[] strArr = new String[2];
             if (i == l.MSG_TYPE_SINGLE_PRIVATE.a() || i == l.MSG_TYPE_MULTI_PRIVATE.a()) {
                 strArr[0] = new String(bArr2);
@@ -46,7 +45,7 @@ public class h extends c {
         int i3 = 0;
         com.baidu.android.pushservice.b.d a = com.baidu.android.pushservice.b.d.a(this.a, e);
         String str2 = null;
-        if (!TextUtils.isEmpty(f) && p.c(this.a, f)) {
+        if (!TextUtils.isEmpty(f) && com.baidu.android.pushservice.j.m.c(this.a, f)) {
             str2 = f;
         } else if (a.a() == com.baidu.android.pushservice.b.c.PUSH_CLIENT) {
             str2 = a.a.c();
@@ -55,7 +54,7 @@ public class h extends c {
         }
         switch (a.a()) {
             case PUSH_CLIENT:
-                byte[] a2 = p.a(this.a, h, bArr, j, str2);
+                byte[] a2 = com.baidu.android.pushservice.j.m.a(this.a, h, bArr, j, str2);
                 try {
                     this.a.getPackageManager().getPackageInfo(str2, 128);
                     PublicMsg a3 = j.a(this.a, h, e, bArr);
@@ -96,18 +95,18 @@ public class h extends c {
                         if (com.baidu.android.pushservice.a.b() > 0) {
                             intent.putExtra("bd.message.rate.REDIRECTION", System.currentTimeMillis());
                         }
-                        i = p.a(this.a, intent, str, str2);
-                        p.b(">>> Deliver message to client: " + str2 + " msg: " + a3.mDescription + " result: " + i, this.a);
+                        i = com.baidu.android.pushservice.j.m.a(this.a, intent, str, str2);
+                        com.baidu.android.pushservice.j.m.b(">>> Deliver message to client: " + str2 + " msg: " + a3.mDescription + " result: " + i, this.a);
                         break;
                     }
                 } catch (PackageManager.NameNotFoundException e3) {
                     i = 8;
                     f.a(this.a, e);
-                    p.b(">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.", this.a);
+                    com.baidu.android.pushservice.j.m.b(">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.", this.a);
                     break;
                 }
             case SDK_CLIENT:
-                byte[] a5 = p.a(this.a, h, bArr, j, str2);
+                byte[] a5 = com.baidu.android.pushservice.j.m.a(this.a, h, bArr, j, str2);
                 try {
                     String optString = new JSONObject(new String(bArr)).optString("description");
                     if (TextUtils.isEmpty(optString)) {
@@ -124,7 +123,7 @@ public class h extends c {
                             intent2.putExtra("baidu_message_secur_info", a5);
                             intent2.putExtra("message_id", h);
                             intent2.putExtra("baidu_message_type", i2);
-                            p.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", str2);
+                            com.baidu.android.pushservice.j.m.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", str2);
                         } catch (PackageManager.NameNotFoundException e4) {
                             String str3 = ">>> NOT deliver to app: " + a.b.c() + ", package has been uninstalled.";
                             com.baidu.android.pushservice.b.h.a(this.a).a((com.baidu.android.pushservice.b.a) a.b, false);
@@ -143,7 +142,7 @@ public class h extends c {
                 if (Build.VERSION.SDK_INT < 24) {
                     f.a(this.a, e);
                 }
-                p.b(str4, this.a);
+                com.baidu.android.pushservice.j.m.b(str4, this.a);
                 break;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

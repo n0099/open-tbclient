@@ -8,12 +8,20 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Process;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.os.BuildCompat;
 import android.util.Log;
 import android.util.TypedValue;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class ContextCompat {
+    private static final String DIR_ANDROID = "Android";
+    private static final String DIR_OBB = "obb";
+    private static final String TAG = "ContextCompat";
     private static final Object sLock = new Object();
     private static TypedValue sTempValue;
 
@@ -34,7 +42,7 @@ public class ContextCompat {
         }
     }
 
-    public static void startActivity(Context context, Intent intent, Bundle bundle) {
+    public static void startActivity(Context context, Intent intent, @Nullable Bundle bundle) {
         if (Build.VERSION.SDK_INT >= 16) {
             ContextCompatJellybean.startActivity(context, intent, bundle);
         } else {
@@ -62,7 +70,7 @@ public class ContextCompat {
         if (i >= 11) {
             buildPath = ContextCompatHoneycomb.getObbDir(context);
         } else {
-            buildPath = buildPath(Environment.getExternalStorageDirectory(), "Android", "obb", context.getPackageName());
+            buildPath = buildPath(Environment.getExternalStorageDirectory(), DIR_ANDROID, DIR_OBB, context.getPackageName());
         }
         return new File[]{buildPath};
     }
@@ -93,7 +101,7 @@ public class ContextCompat {
         return file3;
     }
 
-    public static final Drawable getDrawable(Context context, int i) {
+    public static final Drawable getDrawable(Context context, @DrawableRes int i) {
         int i2;
         int i3 = Build.VERSION.SDK_INT;
         if (i3 >= 21) {
@@ -112,15 +120,16 @@ public class ContextCompat {
         return context.getResources().getDrawable(i2);
     }
 
-    public static final ColorStateList getColorStateList(Context context, int i) {
+    public static final ColorStateList getColorStateList(Context context, @ColorRes int i) {
         return Build.VERSION.SDK_INT >= 23 ? ContextCompatApi23.getColorStateList(context, i) : context.getResources().getColorStateList(i);
     }
 
-    public static final int getColor(Context context, int i) {
+    @ColorInt
+    public static final int getColor(Context context, @ColorRes int i) {
         return Build.VERSION.SDK_INT >= 23 ? ContextCompatApi23.getColor(context, i) : context.getResources().getColor(i);
     }
 
-    public static int checkSelfPermission(Context context, String str) {
+    public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
         if (str == null) {
             throw new IllegalArgumentException("permission is null");
         }
@@ -144,7 +153,7 @@ public class ContextCompat {
     private static synchronized File createFilesDir(File file) {
         synchronized (ContextCompat.class) {
             if (!file.exists() && !file.mkdirs() && !file.exists()) {
-                Log.w("ContextCompat", "Unable to create files subdir " + file.getPath());
+                Log.w(TAG, "Unable to create files subdir " + file.getPath());
                 file = null;
             }
         }

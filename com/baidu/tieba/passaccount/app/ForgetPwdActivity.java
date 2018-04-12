@@ -18,7 +18,7 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
         super.onCreate(bundle);
         MessageManager.getInstance().runTask(2921332, (Class) null);
         setSwipeBackEnabled(false);
-        setContentView(d.h.layout_sapi_webview_forget_pwd);
+        setContentView(d.i.layout_sapi_webview_forget_pwd);
         setupViews();
     }
 
@@ -26,7 +26,7 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 if (ForgetPwdActivity.this.sapiWebView.canGoBack()) {
                     ForgetPwdActivity.this.sapiWebView.goBack();
                 } else {
@@ -34,7 +34,7 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
                 }
             }
         });
-        this.mNavigationBar.setTitleText(getPageContext().getString(d.j.sapi_forget_password_title));
+        this.mNavigationBar.setTitleText(getPageContext().getString(d.k.sapi_forget_password_title));
         this.sapiWebView = (SapiWebView) findViewById(d.g.sapi_webview);
         com.baidu.tbadk.core.a.d.addCustomView(getPageContext().getPageActivity(), this.sapiWebView);
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.2

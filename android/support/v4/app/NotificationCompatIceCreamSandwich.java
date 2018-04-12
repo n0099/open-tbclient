@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.widget.RemoteViews;
 /* loaded from: classes2.dex */
 class NotificationCompatIceCreamSandwich {
+    NotificationCompatIceCreamSandwich() {
+    }
 
     /* loaded from: classes2.dex */
     public static class Builder implements NotificationBuilderWithBuilderAccessor {

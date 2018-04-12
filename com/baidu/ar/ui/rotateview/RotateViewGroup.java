@@ -124,20 +124,20 @@ public class RotateViewGroup extends ViewGroup {
             rectF2.round(this.e);
             this.j = false;
         }
-        View view = getView();
-        if (view != null) {
-            view.layout(this.e.left, this.e.top, this.e.right, this.e.bottom);
+        View view2 = getView();
+        if (view2 != null) {
+            view2.layout(this.e.left, this.e.top, this.e.right, this.e.bottom);
         }
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        View view = getView();
-        if (view == null) {
+        View view2 = getView();
+        if (view2 == null) {
             super.onMeasure(i, i2);
             return;
         }
-        LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+        LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
         this.b = layoutParams.b;
         if (this.c) {
             if (this.a != layoutParams.a) {
@@ -149,12 +149,12 @@ public class RotateViewGroup extends ViewGroup {
             this.j = true;
         }
         if (Math.abs(this.a % SubsamplingScaleImageView.ORIENTATION_180) == 90) {
-            measureChild(view, i2, i);
-            setMeasuredDimension(resolveSize(view.getMeasuredHeight(), i), resolveSize(view.getMeasuredWidth(), i2));
+            measureChild(view2, i2, i);
+            setMeasuredDimension(resolveSize(view2.getMeasuredHeight(), i), resolveSize(view2.getMeasuredWidth(), i2));
             return;
         }
-        measureChild(view, i, i2);
-        setMeasuredDimension(resolveSize(view.getMeasuredWidth(), i), resolveSize(view.getMeasuredHeight(), i2));
+        measureChild(view2, i, i2);
+        setMeasuredDimension(resolveSize(view2.getMeasuredWidth(), i), resolveSize(view2.getMeasuredHeight(), i2));
     }
 
     public void setAngle(int i) {

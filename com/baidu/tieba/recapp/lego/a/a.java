@@ -6,20 +6,20 @@ import android.os.Build;
 import com.baidu.ar.util.Constants;
 /* loaded from: classes3.dex */
 public class a {
-    public static boolean B(Activity activity) {
+    public static boolean D(Activity activity) {
         Resources resources;
         int identifier;
-        if (!aPR() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", Constants.OS_TYPE_VALUE)) <= 0) {
+        if (!aKS() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", Constants.OS_TYPE_VALUE)) <= 0) {
             return false;
         }
         return resources.getBoolean(identifier);
     }
 
-    public static boolean aPR() {
-        return aPS() >= 14;
+    public static boolean aKS() {
+        return aKT() >= 14;
     }
 
-    public static int aPS() {
+    public static int aKT() {
         try {
             return Integer.valueOf(Build.VERSION.SDK).intValue();
         } catch (NumberFormatException e) {

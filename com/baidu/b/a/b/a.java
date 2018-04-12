@@ -5,37 +5,37 @@ import android.text.TextUtils;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class a implements b {
-    private static volatile a azn = null;
-    private b azo;
+    private static volatile a Lz = null;
+    private b LA;
 
-    public static a tw() {
-        if (azn == null) {
+    public static a mc() {
+        if (Lz == null) {
             synchronized (a.class) {
-                if (azn == null) {
-                    azn = new a();
+                if (Lz == null) {
+                    Lz = new a();
                 }
             }
         }
-        return azn;
+        return Lz;
     }
 
     public void b(b bVar) {
-        this.azo = bVar;
+        this.LA = bVar;
     }
 
     @Override // com.baidu.b.a.b.b
-    public View M(Context context, String str) {
-        if (this.azo == null || str == null || TextUtils.isEmpty(str)) {
+    public View H(Context context, String str) {
+        if (this.LA == null || str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.azo.M(context, str);
+        return this.LA.H(context, str);
     }
 
     @Override // com.baidu.b.a.b.b
-    public boolean a(String str, View view, com.baidu.b.a.a.a aVar, boolean z) {
-        if (this.azo == null || view == null || aVar == null) {
+    public boolean a(String str, View view2, com.baidu.b.a.a.a aVar, boolean z) {
+        if (this.LA == null || view2 == null || aVar == null) {
             return false;
         }
-        return this.azo.a(str, view, aVar, z);
+        return this.LA.a(str, view2, aVar, z);
     }
 }

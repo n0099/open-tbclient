@@ -11,15 +11,15 @@ import java.lang.annotation.RetentionPolicy;
 public final class RatingCompat implements Parcelable {
     public static final Parcelable.Creator<RatingCompat> CREATOR = new Parcelable.Creator<RatingCompat>() { // from class: android.support.v4.media.RatingCompat.1
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: h */
         public RatingCompat createFromParcel(Parcel parcel) {
             return new RatingCompat(parcel.readInt(), parcel.readFloat());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ah */
         public RatingCompat[] newArray(int i) {
             return new RatingCompat[i];
         }
@@ -29,42 +29,44 @@ public final class RatingCompat implements Parcelable {
     public static final int RATING_5_STARS = 5;
     public static final int RATING_HEART = 1;
     public static final int RATING_NONE = 0;
+    private static final float RATING_NOT_RATED = -1.0f;
     public static final int RATING_PERCENTAGE = 6;
     public static final int RATING_THUMB_UP_DOWN = 2;
-    private final int ys;
-    private final float yt;
-    private Object yu;
+    private static final String TAG = "Rating";
+    private Object mRatingObj;
+    private final int mRatingStyle;
+    private final float mRatingValue;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface StarStyle {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface Style {
     }
 
     RatingCompat(int i, float f) {
-        this.ys = i;
-        this.yt = f;
+        this.mRatingStyle = i;
+        this.mRatingValue = f;
     }
 
     public String toString() {
-        return "Rating:style=" + this.ys + " rating=" + (this.yt < 0.0f ? "unrated" : String.valueOf(this.yt));
+        return "Rating:style=" + this.mRatingStyle + " rating=" + (this.mRatingValue < 0.0f ? "unrated" : String.valueOf(this.mRatingValue));
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return this.ys;
+        return this.mRatingStyle;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.ys);
-        parcel.writeFloat(this.yt);
+        parcel.writeInt(this.mRatingStyle);
+        parcel.writeFloat(this.mRatingValue);
     }
 
     public static RatingCompat newUnratedRating(int i) {
@@ -75,7 +77,7 @@ public final class RatingCompat implements Parcelable {
             case 4:
             case 5:
             case 6:
-                return new RatingCompat(i, -1.0f);
+                return new RatingCompat(i, RATING_NOT_RATED);
             default:
                 return null;
         }
@@ -102,11 +104,11 @@ public final class RatingCompat implements Parcelable {
                 f2 = 5.0f;
                 break;
             default:
-                Log.e("Rating", "Invalid rating style (" + i + ") for a star rating");
+                Log.e(TAG, "Invalid rating style (" + i + ") for a star rating");
                 return null;
         }
         if (f < 0.0f || f > f2) {
-            Log.e("Rating", "Trying to set out of range star-based rating");
+            Log.e(TAG, "Trying to set out of range star-based rating");
             return null;
         }
         return new RatingCompat(i, f);
@@ -114,106 +116,103 @@ public final class RatingCompat implements Parcelable {
 
     public static RatingCompat newPercentageRating(float f) {
         if (f < 0.0f || f > 100.0f) {
-            Log.e("Rating", "Invalid percentage-based rating value");
+            Log.e(TAG, "Invalid percentage-based rating value");
             return null;
         }
         return new RatingCompat(6, f);
     }
 
     public boolean isRated() {
-        return this.yt >= 0.0f;
+        return this.mRatingValue >= 0.0f;
     }
 
     public int getRatingStyle() {
-        return this.ys;
+        return this.mRatingStyle;
     }
 
     public boolean hasHeart() {
-        if (this.ys != 1) {
+        if (this.mRatingStyle != 1) {
             return false;
         }
-        return this.yt == 1.0f;
+        return this.mRatingValue == 1.0f;
     }
 
     public boolean isThumbUp() {
-        return this.ys == 2 && this.yt == 1.0f;
+        return this.mRatingStyle == 2 && this.mRatingValue == 1.0f;
     }
 
     public float getStarRating() {
-        switch (this.ys) {
+        switch (this.mRatingStyle) {
             case 3:
             case 4:
             case 5:
                 if (isRated()) {
-                    return this.yt;
+                    return this.mRatingValue;
                 }
                 break;
         }
-        return -1.0f;
+        return RATING_NOT_RATED;
     }
 
     public float getPercentRating() {
-        if (this.ys == 6 && isRated()) {
-            return this.yt;
-        }
-        return -1.0f;
+        return (this.mRatingStyle == 6 && isRated()) ? this.mRatingValue : RATING_NOT_RATED;
     }
 
     public static RatingCompat fromRating(Object obj) {
         RatingCompat ratingCompat = null;
         if (obj != null && Build.VERSION.SDK_INT >= 19) {
-            int B = f.B(obj);
-            if (f.A(obj)) {
-                switch (B) {
+            int ratingStyle = RatingCompatKitkat.getRatingStyle(obj);
+            if (RatingCompatKitkat.isRated(obj)) {
+                switch (ratingStyle) {
                     case 1:
-                        ratingCompat = newHeartRating(f.C(obj));
+                        ratingCompat = newHeartRating(RatingCompatKitkat.hasHeart(obj));
                         break;
                     case 2:
-                        ratingCompat = newThumbRating(f.D(obj));
+                        ratingCompat = newThumbRating(RatingCompatKitkat.isThumbUp(obj));
                         break;
                     case 3:
                     case 4:
                     case 5:
-                        ratingCompat = newStarRating(B, f.E(obj));
+                        ratingCompat = newStarRating(ratingStyle, RatingCompatKitkat.getStarRating(obj));
                         break;
                     case 6:
-                        ratingCompat = newPercentageRating(f.F(obj));
+                        ratingCompat = newPercentageRating(RatingCompatKitkat.getPercentRating(obj));
                         break;
                 }
             } else {
-                ratingCompat = newUnratedRating(B);
+                ratingCompat = newUnratedRating(ratingStyle);
             }
-            ratingCompat.yu = obj;
+            ratingCompat.mRatingObj = obj;
         }
         return ratingCompat;
     }
 
     public Object getRating() {
-        if (this.yu != null || Build.VERSION.SDK_INT < 19) {
-            return this.yu;
+        if (this.mRatingObj != null || Build.VERSION.SDK_INT < 19) {
+            return this.mRatingObj;
         }
         if (isRated()) {
-            switch (this.ys) {
+            switch (this.mRatingStyle) {
                 case 1:
-                    this.yu = f.v(hasHeart());
+                    this.mRatingObj = RatingCompatKitkat.newHeartRating(hasHeart());
                     break;
                 case 2:
-                    this.yu = f.w(isThumbUp());
+                    this.mRatingObj = RatingCompatKitkat.newThumbRating(isThumbUp());
                     break;
                 case 3:
                 case 4:
                 case 5:
-                    this.yu = f.e(this.ys, getStarRating());
+                    this.mRatingObj = RatingCompatKitkat.newStarRating(this.mRatingStyle, getStarRating());
                     break;
                 case 6:
-                    this.yu = f.r(getPercentRating());
+                    this.mRatingObj = RatingCompatKitkat.newPercentageRating(getPercentRating());
                     return null;
                 default:
                     return null;
             }
         } else {
-            this.yu = f.ai(this.ys);
+            this.mRatingObj = RatingCompatKitkat.newUnratedRating(this.mRatingStyle);
         }
-        return this.yu;
+        return this.mRatingObj;
     }
 }

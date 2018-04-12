@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice;
 
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PushConstants {
     public static final String ACTION_MESSAGE = "com.baidu.android.pushservice.action.MESSAGE";
     public static final String ACTION_METHOD = "com.baidu.android.pushservice.action.METHOD";

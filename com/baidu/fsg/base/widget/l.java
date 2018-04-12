@@ -13,8 +13,8 @@ public class l implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        View view;
         View view2;
+        View view3;
         int i;
         int i2;
         SafeKeyBoardEditText safeKeyBoardEditText;
@@ -24,12 +24,12 @@ public class l implements Runnable {
         SafeScrollView safeScrollView2;
         int i5;
         int[] iArr = new int[2];
-        view = this.a.f;
-        view.getLocationOnScreen(iArr);
+        view2 = this.a.f;
+        view2.getLocationOnScreen(iArr);
         SafeKeyBoardUtil safeKeyBoardUtil = this.a;
         int i6 = iArr[1];
-        view2 = this.a.f;
-        int height = i6 + view2.getHeight();
+        view3 = this.a.f;
+        int height = i6 + view3.getHeight();
         i = this.a.g;
         i2 = this.a.j;
         int i7 = height - (i - i2);

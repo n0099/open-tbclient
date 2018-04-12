@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import com.baidu.ar.recorder.demo.a;
 import com.baidu.ar.recorder.encoder.EncoderParams;
 /* loaded from: classes3.dex */
-public class CameraSurfaceView extends GLSurfaceView implements a.InterfaceC0045a {
+public class CameraSurfaceView extends GLSurfaceView implements a.InterfaceC0034a {
     private static final String a = CameraSurfaceView.class.getSimpleName();
     private a b;
     private volatile boolean c;
@@ -24,7 +24,7 @@ public class CameraSurfaceView extends GLSurfaceView implements a.InterfaceC0045
         setRenderMode(0);
     }
 
-    @Override // com.baidu.ar.recorder.demo.a.InterfaceC0045a
+    @Override // com.baidu.ar.recorder.demo.a.InterfaceC0034a
     public void a() {
         requestRender();
     }

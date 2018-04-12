@@ -7,7 +7,11 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 class ActionBarDrawerToggleJellybeanMR2 {
+    private static final String TAG = "ActionBarDrawerToggleImplJellybeanMR2";
     private static final int[] THEME_ATTRS = {16843531};
+
+    ActionBarDrawerToggleJellybeanMR2() {
+    }
 
     public static Object setActionBarUpIndicator(Object obj, Activity activity, Drawable drawable, int i) {
         ActionBar actionBar = activity.getActionBar();

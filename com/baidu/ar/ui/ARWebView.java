@@ -166,8 +166,8 @@ public class ARWebView extends RelativeLayout implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int id = view.getId();
+    public void onClick(View view2) {
+        int id = view2.getId();
         if (id == Res.id("ar_error_button_back")) {
             if (this.e != null) {
                 this.e.b();

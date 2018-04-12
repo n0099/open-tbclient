@@ -70,7 +70,7 @@ public final class l {
                         }
                         messageDigest.update(bArr, 0, read);
                     }
-                    str = t(messageDigest.digest());
+                    str = d(messageDigest.digest());
                     try {
                         fileInputStream.close();
                     } catch (IOException e) {
@@ -99,7 +99,7 @@ public final class l {
         return str;
     }
 
-    private static String t(byte[] bArr) {
+    private static String d(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         char[] cArr2 = new char[bArr.length * 2];
         for (int i = 0; i < bArr.length; i++) {

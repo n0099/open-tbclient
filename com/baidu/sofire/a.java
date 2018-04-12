@@ -22,7 +22,7 @@ public final class a {
 
         @Override // java.lang.Thread, java.lang.Runnable
         public final void run() {
-            ApkInfo cm;
+            ApkInfo d;
             int i = 0;
             try {
                 String[] e = com.baidu.sofire.b.d.e(this.a);
@@ -40,9 +40,9 @@ public final class a {
                         new StringBuilder().append(hashMap.toString());
                         break;
                     }
-                    com.baidu.sofire.core.e vF = com.baidu.sofire.core.e.vF();
-                    if (vF != null && (cm = vF.cm("com.baidu.techain.x24")) != null) {
-                        new StringBuilder().append(cm.toString());
+                    com.baidu.sofire.core.e a = com.baidu.sofire.core.e.a();
+                    if (a != null && (d = a.d("com.baidu.techain.x24")) != null) {
+                        new StringBuilder().append(d.toString());
                         break;
                     }
                 }

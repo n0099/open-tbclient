@@ -11,7 +11,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> x;
     public String a;
@@ -63,7 +63,7 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
     private BitSet W = new BitSet(4);
     public boolean v = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         DEBUG(1, BuildConfig.BUILD_TYPE),
         TARGET(2, BaiduRimConstants.ACTION_TARGET),

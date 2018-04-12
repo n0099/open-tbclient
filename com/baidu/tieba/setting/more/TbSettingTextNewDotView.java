@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.more;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
@@ -17,11 +17,11 @@ public class TbSettingTextNewDotView extends TbSettingTextTipView {
     }
 
     public void refresh() {
-        if (PluginPackageManager.qS().rf()) {
-            this.boC.setVisibility(0);
-            aj.s(this.boC, d.f.icon_news_head_new);
+        if (PluginPackageManager.iX().jk()) {
+            this.azb.setVisibility(0);
+            ak.i(this.azb, d.f.icon_news_head_new);
             return;
         }
-        this.boC.setVisibility(4);
+        this.azb.setVisibility(4);
     }
 }

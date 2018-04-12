@@ -2,53 +2,53 @@ package com.baidu.tieba.tbadkCore.videoupload;
 
 import com.baidu.adp.lib.b.d;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.i.h;
+import com.baidu.tieba.j.h;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 524288;
-    private static int hdJ = 6144000;
-    private static int hdK = 524288;
-    private h hca;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b hdL;
+    private static int gzd = 6144000;
+    private static int gze = 524288;
+    private h gxw;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b gzf;
 
     public a(h hVar) {
-        this.hca = hVar;
+        this.gxw = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
-            if (d.mA().an("is_video_batch") == 1) {
-                this.hdL = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, hdK, this.hca);
+            if (d.eE().ak("is_video_batch") == 1) {
+                this.gzf = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gze, this.gxw);
             } else {
-                this.hdL = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, hdJ, this.hca);
+                this.gzf = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gzd, this.gxw);
             }
-            this.hdL.a(eVar);
-            return this.hdL.aK(str2, i);
+            this.gzf.a(eVar);
+            return this.gzf.aL(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.hca != null) {
-                this.hca.h(306, -4399, com.baidu.tieba.i.a.i(e));
+            if (this.gxw != null) {
+                this.gxw.e(306, -4399, com.baidu.tieba.j.a.g(e));
             }
             return null;
         }
     }
 
-    public void bxY() {
-        if (this.hdL != null) {
-            this.hdL.cancel();
+    public void bsY() {
+        if (this.gzf != null) {
+            this.gzf.cancel();
         }
     }
 
-    public static void vW(int i) {
+    public static void tz(int i) {
         if (i <= 0) {
-            hdK = 524288;
+            gze = 524288;
         } else {
-            hdK = i;
+            gze = i;
         }
     }
 
-    public static void vX(int i) {
+    public static void tA(int i) {
         if (i <= 0) {
             chunkLength = 524288;
         } else {
@@ -56,11 +56,11 @@ public class a {
         }
     }
 
-    public static void vY(int i) {
+    public static void tB(int i) {
         if (i <= 0) {
-            hdJ = 6144000;
+            gzd = 6144000;
         } else {
-            hdJ = i;
+            gzd = i;
         }
     }
 }

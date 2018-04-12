@@ -18,15 +18,15 @@ public final class StatusBarUtil {
     boolean transparentStatusBar;
     Window window;
 
-    private StatusBarUtil(Window window, boolean z, boolean z2, View view) {
+    private StatusBarUtil(Window window, boolean z, boolean z2, View view2) {
         this.lightStatusBar = z;
         this.transparentStatusBar = z2;
         this.window = window;
-        this.actionBarView = view;
+        this.actionBarView = view2;
     }
 
-    /* synthetic */ StatusBarUtil(Window window, boolean z, boolean z2, View view, StatusBarUtil statusBarUtil) {
-        this(window, z, z2, view);
+    /* synthetic */ StatusBarUtil(Window window, boolean z, boolean z2, View view2, StatusBarUtil statusBarUtil) {
+        this(window, z, z2, view2);
     }
 
     public static boolean isKitkat() {
@@ -65,13 +65,13 @@ public final class StatusBarUtil {
         return 0;
     }
 
-    public void processActionBar(final View view) {
-        if (view != null && this.transparentStatusBar && !isLessKitkat()) {
-            view.post(new Runnable() { // from class: com.baidu.tieba.compatible.StatusBarUtil.1
+    public void processActionBar(final View view2) {
+        if (view2 != null && this.transparentStatusBar && !isLessKitkat()) {
+            view2.post(new Runnable() { // from class: com.baidu.tieba.compatible.StatusBarUtil.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    view.setPadding(view.getPaddingLeft(), view.getPaddingTop() + StatusBarUtil.getStatusBarOffsetPx(view.getContext()), view.getPaddingRight(), view.getPaddingBottom());
-                    view.getLayoutParams().height += StatusBarUtil.getStatusBarOffsetPx(view.getContext());
+                    view2.setPadding(view2.getPaddingLeft(), view2.getPaddingTop() + StatusBarUtil.getStatusBarOffsetPx(view2.getContext()), view2.getPaddingRight(), view2.getPaddingBottom());
+                    view2.getLayoutParams().height += StatusBarUtil.getStatusBarOffsetPx(view2.getContext());
                 }
             });
         }
@@ -164,8 +164,8 @@ public final class StatusBarUtil {
         private boolean transparentStatusbar = false;
         private Window window;
 
-        public Builder setActionbarView(View view) {
-            this.actionBarView = view;
+        public Builder setActionbarView(View view2) {
+            this.actionBarView = view2;
             return this;
         }
 

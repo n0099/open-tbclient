@@ -4,12 +4,12 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes3.dex */
 public final class DataReq extends Message {
-    @ProtoField(tag = 2, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 2, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer unread_msg;
     public static final Integer DEFAULT_UNREAD_MSG = 0;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
 
     private DataReq(Builder builder, boolean z) {
         super(builder);
@@ -33,7 +33,7 @@ public final class DataReq extends Message {
 
     /* loaded from: classes3.dex */
     public static final class Builder extends Message.Builder<DataReq> {
-        public Integer groupId;
+        public Long groupId;
         public Integer unread_msg;
 
         public Builder() {

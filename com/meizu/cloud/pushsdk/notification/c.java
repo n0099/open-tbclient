@@ -5,7 +5,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-/* loaded from: classes2.dex */
+import com.meizu.cloud.pushsdk.util.MinSdkChecker;
+/* loaded from: classes3.dex */
 public class c extends f {
     public c(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
@@ -13,7 +14,7 @@ public class c extends f {
 
     @Override // com.meizu.cloud.pushsdk.notification.a
     protected void b(Notification notification, MessageV3 messageV3) {
-        if (com.meizu.cloud.pushsdk.util.b.a()) {
+        if (MinSdkChecker.isSupportNotificationBuild()) {
             RemoteViews remoteViews = new RemoteViews(this.a.getPackageName(), com.meizu.cloud.pushsdk.notification.b.b.b(this.a));
             remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.b.b.d(this.a), messageV3.getTitle());
             remoteViews.setLong(com.meizu.cloud.pushsdk.notification.b.b.f(this.a), "setTime", System.currentTimeMillis());

@@ -12,66 +12,66 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
-public class i implements p {
-    private int avb;
-    HeadImageView eAb;
-    ImageView eAc;
-    TextView eAd;
-    private com.baidu.adp.widget.a.a eAe = null;
-    private a eAf = null;
-    CreateGroupStepActivity ezB;
-    private int ezF;
+public class i implements o {
+    private int FN;
+    HeadImageView dUF;
+    ImageView dUG;
+    TextView dUH;
+    private com.baidu.adp.widget.ImageView.a dUI = null;
+    private a dUJ = null;
+    CreateGroupStepActivity dUf;
+    private int dUj;
     private int mIndex;
     View mView;
 
     public i(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.ezB = null;
+        this.dUf = null;
         this.mView = null;
-        this.eAb = null;
-        this.eAc = null;
-        this.eAd = null;
-        this.ezB = createGroupStepActivity;
-        this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(d.h.create_group_step3_view, (ViewGroup) null);
-        this.eAc = (ImageView) this.mView.findViewById(d.g.step3_img_bg);
-        this.eAb = (HeadImageView) this.mView.findViewById(d.g.step3_img_scr);
-        this.eAd = (TextView) this.mView.findViewById(d.g.create_group3);
+        this.dUF = null;
+        this.dUG = null;
+        this.dUH = null;
+        this.dUf = createGroupStepActivity;
+        this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(d.i.create_group_step3_view, (ViewGroup) null);
+        this.dUG = (ImageView) this.mView.findViewById(d.g.step3_img_bg);
+        this.dUF = (HeadImageView) this.mView.findViewById(d.g.step3_img_scr);
+        this.dUH = (TextView) this.mView.findViewById(d.g.create_group3);
         this.mIndex = i;
-        this.avb = i2;
-        this.ezF = i3;
+        this.FN = i2;
+        this.dUj = i3;
     }
 
-    public void aGT() {
-        if (this.eAf != null) {
-            this.eAf.cancel();
+    public void aBT() {
+        if (this.dUJ != null) {
+            this.dUJ.cancel();
         }
-        this.eAe = null;
-        this.eAf = new a();
-        this.eAf.execute(new Object[0]);
+        this.dUI = null;
+        this.dUJ = new a();
+        this.dUJ.execute(new Object[0]);
     }
 
-    public ImageView aGU() {
-        return this.eAc;
+    public ImageView aBU() {
+        return this.dUG;
     }
 
-    public TextView aGV() {
-        return this.eAd;
+    public TextView aBV() {
+        return this.dUH;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.p
+    @Override // com.baidu.tieba.im.creategroup.o
     public View getView() {
         return this.mView;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.p
-    public void aGE() {
-        this.eAc.setBackgroundDrawable(null);
+    @Override // com.baidu.tieba.im.creategroup.o
+    public void aBE() {
+        this.dUG.setBackgroundDrawable(null);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.p
-    public void aGF() {
-        this.ezB.getLayoutMode().aQ(TbadkApplication.getInst().getSkinType() == 1);
-        this.ezB.getLayoutMode().aM(this.mView);
-        this.eAb.refresh();
+    @Override // com.baidu.tieba.im.creategroup.o
+    public void aBF() {
+        this.dUf.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.dUf.getLayoutMode().u(this.mView);
+        this.dUF.refresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -89,9 +89,9 @@ public class i implements p {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: q */
+        /* renamed from: o */
         public Bitmap doInBackground(Object... objArr) {
-            return com.baidu.tbadk.core.util.k.X(null, TbConfig.GROUP_HEAD_FILE);
+            return com.baidu.tbadk.core.util.k.Y(null, TbConfig.GROUP_HEAD_FILE);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -111,43 +111,43 @@ public class i implements p {
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
             if (bitmap != null) {
-                i.this.eAb.setVisibility(0);
-                i.this.eAe = new com.baidu.adp.widget.a.a(bitmap, false, (String) null);
-                i.this.eAe.a(i.this.eAb);
+                i.this.dUF.setVisibility(0);
+                i.this.dUI = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
+                i.this.dUI.a(i.this.dUF);
             }
         }
     }
 
-    @Override // com.baidu.tieba.im.creategroup.p
+    @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.ezB.getPageContext().getString(d.j.group_create_step_photo), Integer.valueOf(this.avb));
+        return String.format(this.dUf.getPageContext().getString(d.k.group_create_step_photo), Integer.valueOf(this.FN));
     }
 
-    @Override // com.baidu.tieba.im.creategroup.p
-    public String aGH() {
-        if (this.mIndex != this.ezF) {
-            return this.ezB.getPageContext().getString(d.j.next_step);
+    @Override // com.baidu.tieba.im.creategroup.o
+    public String aBH() {
+        if (this.mIndex != this.dUj) {
+            return this.dUf.getPageContext().getString(d.k.next_step);
         }
-        return this.ezB.getPageContext().getString(d.j.group_create_step_done_tip);
+        return this.dUf.getPageContext().getString(d.k.group_create_step_done_tip);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.p
-    public boolean aGI() {
+    @Override // com.baidu.tieba.im.creategroup.o
+    public boolean aBI() {
         return true;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.p
-    public int aGy() {
+    @Override // com.baidu.tieba.im.creategroup.o
+    public int aBy() {
         return this.mIndex;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.p
+    @Override // com.baidu.tieba.im.creategroup.o
     public String getErrMsg() {
         return null;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.p
-    public boolean aGJ() {
+    @Override // com.baidu.tieba.im.creategroup.o
+    public boolean aBJ() {
         return true;
     }
 }

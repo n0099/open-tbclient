@@ -1,5 +1,7 @@
 package tv.danmaku.ijk.media.player;
 
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.UUID;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 /* loaded from: classes2.dex */
@@ -14,6 +16,7 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     private IMediaPlayer.OnSpeedWhenInvokingErrorListener mOnSpeedWhenInvokingErrorListener;
     private IMediaPlayer.OnSubErrorInfoListener mOnSubErrorInfoListener;
     private IMediaPlayer.OnVideoSizeChangedListener mOnVideoSizeChangedListener;
+    private String uuid;
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public final void setOnPreparedListener(IMediaPlayer.OnPreparedListener onPreparedListener) {
@@ -151,5 +154,13 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         if (this.mOnSpeedWhenInvokingErrorListener != null) {
             this.mOnSpeedWhenInvokingErrorListener.onSpeed(j);
         }
+    }
+
+    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    public String generateMediaID() {
+        if (StringUtils.isNull(this.uuid)) {
+            this.uuid = UUID.randomUUID().toString();
+        }
+        return this.uuid;
     }
 }

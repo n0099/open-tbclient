@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.tencent.tauth.AuthActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     private static volatile g a;
     private f b;

@@ -2,7 +2,7 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void cQ(int i) {
+    protected void Q(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -11,22 +11,22 @@ public class w extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ms() {
+    protected int ew() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mt() {
+    protected int ex() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] mr() {
+    protected String[] ev() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mu() {
+    protected int ey() {
         return 10;
     }
 }

@@ -5,32 +5,33 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.officialBar.g;
+import com.baidu.tieba.im.chat.g;
+import com.baidu.tieba.im.chat.officialBar.c;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.g {
-    private MultiContentView exA;
+public class MsgMultiImageTextView extends g {
+    private MultiContentView dSf;
 
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, d.h.msg_multi_pictext_view);
+        super(tbPageContext, d.i.msg_multi_pictext_view);
         init();
     }
 
     private void init() {
-        this.duU = (TextView) findViewById(d.g.tex_msgitem_time);
-        this.exA = (MultiContentView) findViewById(d.g.msg_content);
+        this.cNI = (TextView) findViewById(d.g.tex_msgitem_time);
+        this.dSf = (MultiContentView) findViewById(d.g.msg_content);
     }
 
-    public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
+    public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view2) {
         if (chatMessage != null) {
             g(chatMessage);
-            List<g.a> a = g.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId());
-            this.exA.setPosition(this.mPosition);
-            this.exA.setOnItemViewLongClickListener(this.evU);
-            this.exA.setNeedNightMode(false);
-            this.exA.setType(1);
-            this.exA.a(tbPageContext, a, view);
+            List<c.a> a = c.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId());
+            this.dSf.setPosition(this.mPosition);
+            this.dSf.setOnItemViewLongClickListener(this.dQA);
+            this.dSf.setNeedNightMode(false);
+            this.dSf.setType(1);
+            this.dSf.setData(tbPageContext, a, view2);
         }
     }
 }

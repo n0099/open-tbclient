@@ -7,7 +7,7 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     private static volatile f a;
     private ScheduledThreadPoolExecutor b = new ScheduledThreadPoolExecutor(1);
@@ -15,13 +15,13 @@ public class f {
     private Object d = new Object();
     private SharedPreferences e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a implements Runnable {
         public abstract int a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
         a c;
 

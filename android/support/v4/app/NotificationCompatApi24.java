@@ -13,6 +13,23 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 class NotificationCompatApi24 {
+    public static final String CATEGORY_ALARM = "alarm";
+    public static final String CATEGORY_CALL = "call";
+    public static final String CATEGORY_EMAIL = "email";
+    public static final String CATEGORY_ERROR = "err";
+    public static final String CATEGORY_EVENT = "event";
+    public static final String CATEGORY_MESSAGE = "msg";
+    public static final String CATEGORY_PROGRESS = "progress";
+    public static final String CATEGORY_PROMO = "promo";
+    public static final String CATEGORY_RECOMMENDATION = "recommendation";
+    public static final String CATEGORY_SERVICE = "service";
+    public static final String CATEGORY_SOCIAL = "social";
+    public static final String CATEGORY_STATUS = "status";
+    public static final String CATEGORY_SYSTEM = "sys";
+    public static final String CATEGORY_TRANSPORT = "transport";
+
+    NotificationCompatApi24() {
+    }
 
     /* loaded from: classes2.dex */
     public static class Builder implements NotificationBuilderWithActions, NotificationBuilderWithBuilderAccessor {

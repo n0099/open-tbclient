@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> htq = new ArrayList<>();
-    private boolean htr = false;
+    private ArrayList<d> gOW = new ArrayList<>();
+    private boolean gOX = false;
     private Context mContext;
 
     public a(Context context) {
@@ -21,25 +21,25 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.htr = true;
-        this.htq.clear();
+        this.gOX = true;
+        this.gOW.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.htq.addAll(list);
+            this.gOW.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void tT(String str) {
-        if (this.htq != null && !TextUtils.isEmpty(str)) {
+    public void ua(String str) {
+        if (this.gOW != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.htq.size()) {
-                    d dVar = this.htq.get(i2);
+                if (i2 < this.gOW.size()) {
+                    d dVar = this.gOW.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.htq.remove(i2);
+                        this.gOW.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.E(this.htq)) {
+        if (v.w(this.gOW)) {
             return 0;
         }
-        return this.htq.size();
+        return this.gOW.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wO */
+    /* renamed from: ur */
     public d getItem(int i) {
-        if (this.htq == null || this.htq.isEmpty() || i < 0 || i >= this.htq.size()) {
+        if (this.gOW == null || this.gOW.isEmpty() || i < 0 || i >= this.gOW.size()) {
             return null;
         }
-        return this.htq.get(i);
+        return this.gOW.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -74,32 +74,32 @@ public class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         LocalVideoInfoView localVideoInfoView;
-        View view2;
-        if (view == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(d.h.local_video_item_layout, (ViewGroup) null);
+        View view3;
+        if (view2 == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(d.i.local_video_item_layout, (ViewGroup) null);
             LocalVideoInfoView localVideoInfoView2 = (LocalVideoInfoView) inflate.findViewById(d.g.local_video_info_view);
             inflate.setTag(localVideoInfoView2);
             localVideoInfoView = localVideoInfoView2;
-            view2 = inflate;
-        } else if (view.getTag() instanceof LocalVideoInfoView) {
-            localVideoInfoView = (LocalVideoInfoView) view.getTag();
-            view2 = view;
+            view3 = inflate;
+        } else if (view2.getTag() instanceof LocalVideoInfoView) {
+            localVideoInfoView = (LocalVideoInfoView) view2.getTag();
+            view3 = view2;
         } else {
             localVideoInfoView = null;
-            view2 = view;
+            view3 = view2;
         }
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.htq != null && this.htq.size() > i) {
-            localVideoInfoView.a(this.htq.get(i));
-        } else if (i == 0 && this.htr) {
-            localVideoInfoView.ns(true);
+        if (this.gOW != null && this.gOW.size() > i) {
+            localVideoInfoView.a(this.gOW.get(i));
+        } else if (i == 0 && this.gOX) {
+            localVideoInfoView.mU(true);
         } else {
-            localVideoInfoView.ns(false);
+            localVideoInfoView.mU(false);
         }
-        return view2;
+        return view3;
     }
 }

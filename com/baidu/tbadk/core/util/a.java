@@ -3,33 +3,33 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class a implements com.baidu.adp.lib.stats.b {
-    private static a aUK = null;
+    private static a agd = null;
 
     private a() {
     }
 
-    public static synchronized a BP() {
+    public static synchronized a uz() {
         a aVar;
         synchronized (a.class) {
-            if (aUK == null) {
-                aUK = new a();
+            if (agd == null) {
+                agd = new a();
             }
-            aVar = aUK;
+            aVar = agd;
         }
         return aVar;
     }
 
     @Override // com.baidu.adp.lib.stats.b
     public void d(String str, long j) {
-        TbadkSettings.getInst().saveLong(du(str), j);
+        TbadkSettings.getInst().saveLong(dm(str), j);
     }
 
     @Override // com.baidu.adp.lib.stats.b
-    public long av(String str) {
-        return TbadkSettings.getInst().loadLong(du(str), 0L);
+    public long as(String str) {
+        return TbadkSettings.getInst().loadLong(dm(str), 0L);
     }
 
-    private String du(String str) {
+    private String dm(String str) {
         return "new_log_upload_time_" + str;
     }
 }

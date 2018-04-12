@@ -3,9 +3,9 @@ package com.baidu.location.a;
 import android.location.Location;
 /* loaded from: classes.dex */
 public class h {
+    private static com.baidu.location.f.a NF;
+    private static Location Oc;
     private static long a;
-    private static Location aBL;
-    private static com.baidu.location.f.a aBq;
     private static String d;
 
     public static String a() {
@@ -24,19 +24,19 @@ public class h {
         return a;
     }
 
-    public static void c(Location location) {
-        aBL = location;
+    public static void b(Location location) {
+        Oc = location;
     }
 
     public static void c(com.baidu.location.f.a aVar) {
-        aBq = aVar;
+        NF = aVar;
     }
 
-    public static com.baidu.location.f.a uv() {
-        return aBq;
+    public static com.baidu.location.f.a nb() {
+        return NF;
     }
 
-    public static Location uw() {
-        return aBL;
+    public static Location nc() {
+        return Oc;
     }
 }

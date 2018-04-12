@@ -3,6 +3,9 @@ package android.support.v4.view;
 import android.view.WindowInsets;
 /* loaded from: classes2.dex */
 class WindowInsetsCompatApi20 {
+    WindowInsetsCompatApi20() {
+    }
+
     public static Object consumeSystemWindowInsets(Object obj) {
         return ((WindowInsets) obj).consumeSystemWindowInsets();
     }

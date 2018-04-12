@@ -3,6 +3,9 @@ package android.support.v4.view.accessibility;
 import android.view.accessibility.AccessibilityNodeInfo;
 /* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatApi24 {
+    AccessibilityNodeInfoCompatApi24() {
+    }
+
     public static Object getActionSetProgress() {
         return AccessibilityNodeInfo.AccessibilityAction.ACTION_SET_PROGRESS;
     }

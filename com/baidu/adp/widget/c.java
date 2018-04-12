@@ -12,12 +12,12 @@ import android.text.style.DynamicDrawableSpan;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends DynamicDrawableSpan {
-    private Uri avD;
-    private int avE;
-    private a avF;
-    private Rect lQ;
+    private Uri GF;
+    private int GG;
+    private a GH;
     private Context mContext;
-    private Drawable wy;
+    private Drawable mDrawable;
+    private Rect mRect;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -25,44 +25,44 @@ public class c extends DynamicDrawableSpan {
     }
 
     public void setDrawable(Drawable drawable) {
-        this.wy = drawable;
+        this.mDrawable = drawable;
     }
 
     public c(a aVar, int i, int i2) {
         super(i2);
-        this.lQ = new Rect();
-        this.avE = i;
-        this.avF = aVar;
+        this.mRect = new Rect();
+        this.GG = i;
+        this.GH = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.wy != null || this.avF == null) {
+        if (this.mDrawable != null || this.GH == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
-            fontMetricsInt.ascent = -this.lQ.bottom;
+            fontMetricsInt.ascent = -this.mRect.bottom;
             fontMetricsInt.descent = 0;
             fontMetricsInt.top = fontMetricsInt.ascent;
             fontMetricsInt.bottom = 0;
         }
-        return this.lQ.right;
+        return this.mRect.right;
     }
 
     @Override // android.text.style.DynamicDrawableSpan
     public Drawable getDrawable() {
         Drawable drawable = null;
-        if (this.wy != null) {
-            drawable = this.wy;
-        } else if (this.avF != null) {
-            drawable = this.avF.a(this);
+        if (this.mDrawable != null) {
+            drawable = this.mDrawable;
+        } else if (this.GH != null) {
+            drawable = this.GH.a(this);
         }
         if (drawable != null) {
             return drawable;
         }
-        if (this.avD != null) {
+        if (this.GF != null) {
             try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.avD);
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.GF);
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
@@ -76,7 +76,7 @@ public class c extends DynamicDrawableSpan {
             }
         }
         try {
-            Drawable drawable2 = this.mContext.getResources().getDrawable(this.avE);
+            Drawable drawable2 = this.mContext.getResources().getDrawable(this.GG);
             try {
                 drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
                 return drawable2;
@@ -103,7 +103,7 @@ public class c extends DynamicDrawableSpan {
         }
     }
 
-    public void k(int i, int i2, int i3, int i4) {
-        this.lQ.set(i, i2, i3, i4);
+    public void d(int i, int i2, int i3, int i4) {
+        this.mRect.set(i, i2, i3, i4);
     }
 }

@@ -1,19 +1,20 @@
 package com.baidu.tieba.i;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.io.File;
+import com.baidu.adp.framework.a.j;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-public interface c {
+public class c extends j {
+    public c() {
+        super(0);
+    }
 
-    /* loaded from: classes.dex */
-    public interface a {
-        public static final String fvO = File.separator;
-        public static final String bRt = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-        public static final String fvP = bRt + fvO + ".tieba_video_monitor";
-        public static final String fvQ = fvP + fvO + "v1";
-        public static final String fvR = fvQ + fvO;
-        public static final String fvS = bRt + fvO + ".tieba_video_monitor_log";
-        public static final String fvT = fvS + fvO + "v1";
-        public static final String fvU = fvT + fvO;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getError() == 1990055 && !a.lU(socketResponsedMessage.getCmd())) {
+            a.awJ();
+        }
+        return socketResponsedMessage;
     }
 }

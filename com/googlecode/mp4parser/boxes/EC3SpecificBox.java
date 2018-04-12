@@ -13,15 +13,15 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class EC3SpecificBox extends AbstractBox {
     public static final String TYPE = "dec3";
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_8 = null;
     int dataRate;
     List<Entry> entries;
     int numIndSub;
@@ -133,7 +133,7 @@ public class EC3SpecificBox extends AbstractBox {
     }
 
     public void setDataRate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.wl(i)));
         this.dataRate = i;
     }
 
@@ -143,7 +143,7 @@ public class EC3SpecificBox extends AbstractBox {
     }
 
     public void setNumIndSub(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.wl(i)));
         this.numIndSub = i;
     }
 

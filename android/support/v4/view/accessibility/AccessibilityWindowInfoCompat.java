@@ -10,6 +10,7 @@ public class AccessibilityWindowInfoCompat {
     public static final int TYPE_INPUT_METHOD = 2;
     public static final int TYPE_SPLIT_SCREEN_DIVIDER = 5;
     public static final int TYPE_SYSTEM = 3;
+    private static final int UNDEFINED = -1;
     private Object mInfo;
 
     /* JADX INFO: Access modifiers changed from: private */

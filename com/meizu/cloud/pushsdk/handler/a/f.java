@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends a<Boolean> {
     public f(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

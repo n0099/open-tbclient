@@ -1,5 +1,6 @@
 package com.google.zxing.datamatrix.encoder;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
 /* loaded from: classes3.dex */
@@ -145,7 +146,7 @@ public final class HighLevelEncoder {
             if (i3 >= 4) {
                 int[] iArr = new int[6];
                 byte[] bArr = new byte[6];
-                findMinimums(fArr, iArr, Integer.MAX_VALUE, bArr);
+                findMinimums(fArr, iArr, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, bArr);
                 int minimumCount = getMinimumCount(bArr);
                 if (iArr[0] < iArr[5] && iArr[0] < iArr[1] && iArr[0] < iArr[2] && iArr[0] < iArr[3] && iArr[0] < iArr[4]) {
                     return 0;
@@ -188,7 +189,7 @@ public final class HighLevelEncoder {
         }
         byte[] bArr2 = new byte[6];
         int[] iArr2 = new int[6];
-        int findMinimums = findMinimums(fArr, iArr2, Integer.MAX_VALUE, bArr2);
+        int findMinimums = findMinimums(fArr, iArr2, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, bArr2);
         int minimumCount2 = getMinimumCount(bArr2);
         if (iArr2[0] != findMinimums) {
             if (minimumCount2 == 1 && bArr2[5] > 0) {

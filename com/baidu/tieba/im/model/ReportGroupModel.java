@@ -5,7 +5,7 @@ import com.baidu.tieba.im.chat.GroupSettingActivity;
 import com.baidu.tieba.im.message.RequestReportGroupMessage;
 /* loaded from: classes3.dex */
 public class ReportGroupModel extends BdBaseModel<GroupSettingActivity> {
-    private int mGroupId;
+    private long mGroupId;
     private int mReportType;
     private RequestReportGroupMessage sentMsg;
 
@@ -13,8 +13,8 @@ public class ReportGroupModel extends BdBaseModel<GroupSettingActivity> {
         super(groupSettingActivity.getPageContext());
     }
 
-    public void setGroupId(int i) {
-        this.mGroupId = i;
+    public void setGroupId(long j) {
+        this.mGroupId = j;
     }
 
     public void setReportType(int i) {

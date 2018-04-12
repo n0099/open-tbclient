@@ -1,11 +1,11 @@
 package com.baidu.tieba.qrcode.activity;
 /* loaded from: classes3.dex */
 public interface a {
-    void bni();
+    void bio();
 
-    void bnj();
+    void bip();
 
-    void bnk();
+    void biq();
 
-    void bnl();
+    void bir();
 }

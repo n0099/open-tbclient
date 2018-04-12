@@ -102,7 +102,7 @@ public final class f {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static Field c(Class<?> cls, String str) throws NoSuchFieldException {
+    private static Field b(Class<?> cls, String str) throws NoSuchFieldException {
         Field declaredField;
         try {
             declaredField = cls.getField(str);
@@ -125,9 +125,9 @@ public final class f {
         throw new NoSuchFieldException();
     }
 
-    public static Field d(Class<?> cls, String str) {
+    public static Field a(Class<?> cls, String str) {
         try {
-            return c(cls, str);
+            return b(cls, str);
         } catch (NoSuchFieldException e) {
             com.baidu.sofire.b.d.a(e);
             return null;

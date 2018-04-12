@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -13,14 +13,14 @@ public class ContriInfo implements Serializable {
         if (jSONObject != null) {
             this.colorMsg = jSONObject.optString("color_msg");
             this.afterMsg = jSONObject.optString("after_msg");
-            if (!am.isEmpty(this.afterMsg) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
+            if (!an.isEmpty(this.afterMsg) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
                 this.afterMsg = this.afterMsg.substring(0, indexOf) + "\n" + this.afterMsg.substring(indexOf + 1, this.afterMsg.length());
             }
         }
     }
 
     public boolean isShowToast() {
-        return (am.isEmpty(this.colorMsg) || am.isEmpty(this.afterMsg)) ? false : true;
+        return (an.isEmpty(this.colorMsg) || an.isEmpty(this.afterMsg)) ? false : true;
     }
 
     public String getColorMsg() {

@@ -39,7 +39,7 @@ public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
             getLevelInfoRequestMessage = (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
         }
         if (getLevelInfoRequestMessage != null) {
-            new a().l(getLevelInfoRequestMessage.getForumId() + "", bArr);
+            new a().k(getLevelInfoRequestMessage.getForumId() + "", bArr);
         }
     }
 }

@@ -22,6 +22,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_FROM_LIKE = "tb_forumlist";
     public static final String FRS_FROM_MANGA_COVER = "form_manga_cover";
     public static final String FRS_FROM_PB = "tb_pb";
+    public static final String FRS_FROM_RECENTLY_VISITED = "from_recently_visited";
     public static final String FRS_FROM_RECOMMEND = "dimension_door";
     public static final String FRS_FROM_SEARCH = "tb_searchlist";
     public static final String FRS_FROM_SQUARE = "from_square";

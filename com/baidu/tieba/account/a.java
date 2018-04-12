@@ -15,14 +15,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener bbO;
+    private View.OnClickListener ani;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean bSk = false;
+    private boolean bco = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.bbO = onClickListener;
+        this.ani = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -62,99 +62,99 @@ public class a extends BaseAdapter {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        View view2;
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         View view3;
-        Exception exc;
         View view4;
-        C0123a c0123a;
+        Exception exc;
         View view5;
+        C0111a c0111a;
+        View view6;
         try {
             try {
-                if (view != null) {
-                    c0123a = (C0123a) view.getTag();
-                    view5 = view;
+                if (view2 != null) {
+                    c0111a = (C0111a) view2.getTag();
+                    view6 = view2;
                 } else if (getItemViewType(i) == 0) {
-                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.h.account_item, viewGroup, false);
-                    c0123a = new C0123a();
-                    c0123a.bSl = (TextView) view5.findViewById(d.g.account);
-                    c0123a.bSn = (ImageView) view5.findViewById(d.g.active);
-                    c0123a.bSo = (TextView) view5.findViewById(d.g.delete);
-                    c0123a.mLine = view5.findViewById(d.g.account_item_line);
-                    c0123a.bSo.setOnClickListener(this.bbO);
-                    view5.setTag(c0123a);
+                    view6 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.i.account_item, viewGroup, false);
+                    c0111a = new C0111a();
+                    c0111a.bcp = (TextView) view6.findViewById(d.g.account);
+                    c0111a.bcr = (ImageView) view6.findViewById(d.g.active);
+                    c0111a.bcs = (TextView) view6.findViewById(d.g.delete);
+                    c0111a.mLine = view6.findViewById(d.g.account_item_line);
+                    c0111a.bcs.setOnClickListener(this.ani);
+                    view6.setTag(c0111a);
                 } else {
-                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.h.account_add_item, viewGroup, false);
-                    c0123a = new C0123a();
-                    c0123a.bSm = (TextView) view5.findViewById(d.g.add_text);
-                    view5.setTag(c0123a);
+                    view6 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.i.account_add_item, viewGroup, false);
+                    c0111a = new C0111a();
+                    c0111a.bcq = (TextView) view6.findViewById(d.g.add_text);
+                    view6.setTag(c0111a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0123a.bSn.setVisibility(8);
-                    c0123a.bSo.setVisibility(8);
-                    c0123a.bSo.setTag(accountData);
+                    c0111a.bcr.setVisibility(8);
+                    c0111a.bcs.setVisibility(8);
+                    c0111a.bcs.setTag(accountData);
                     if (accountData != null) {
-                        c0123a.bSl.setText(accountData.getAccountNameShow());
+                        c0111a.bcp.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0123a.bSn.setVisibility(0);
+                            c0111a.bcr.setVisibility(0);
                         }
-                        if (this.bSk) {
-                            c0123a.bSo.setVisibility(0);
+                        if (this.bco) {
+                            c0111a.bcs.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
-                        c0123a.mLine.setVisibility(8);
+                        c0111a.mLine.setVisibility(8);
                     } else {
-                        c0123a.mLine.setVisibility(0);
+                        c0111a.mLine.setVisibility(0);
                     }
                 }
-                this.mContext.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.mContext.getLayoutMode().aM(view5);
-                return view5;
+                this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.mContext.getLayoutMode().u(view6);
+                return view6;
             } catch (Exception e) {
                 exc = e;
-                view3 = view;
+                view4 = view2;
                 try {
                     BdLog.detailException(exc);
-                    this.mContext.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.mContext.getLayoutMode().aM(view3);
-                    return view3;
+                    this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.mContext.getLayoutMode().u(view4);
+                    return view4;
                 } catch (Throwable th) {
-                    view4 = view3;
+                    view5 = view4;
                     th = th;
-                    this.mContext.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.mContext.getLayoutMode().aM(view4);
+                    this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.mContext.getLayoutMode().u(view5);
                     throw th;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                view4 = view;
-                this.mContext.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.mContext.getLayoutMode().aM(view4);
+                view5 = view2;
+                this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.mContext.getLayoutMode().u(view5);
                 throw th;
             }
         } catch (Exception e2) {
-            view3 = view2;
+            view4 = view3;
             exc = e2;
             BdLog.detailException(exc);
-            this.mContext.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.mContext.getLayoutMode().aM(view3);
-            return view3;
+            this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.mContext.getLayoutMode().u(view4);
+            return view4;
         } catch (Throwable th3) {
             th = th3;
-            this.mContext.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.mContext.getLayoutMode().aM(view4);
+            this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.mContext.getLayoutMode().u(view5);
             throw th;
         }
     }
 
-    public void cX(boolean z) {
-        this.bSk = z;
+    public void co(boolean z) {
+        this.bco = z;
     }
 
-    public boolean Uo() {
-        return this.bSk;
+    public boolean MP() {
+        return this.bco;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -172,14 +172,14 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0123a {
-        TextView bSl;
-        TextView bSm;
-        ImageView bSn;
-        TextView bSo;
+    private class C0111a {
+        TextView bcp;
+        TextView bcq;
+        ImageView bcr;
+        TextView bcs;
         View mLine;
 
-        private C0123a() {
+        private C0111a() {
         }
     }
 }

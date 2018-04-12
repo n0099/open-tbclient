@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends a {
     public String f = "";
     protected boolean g = false;

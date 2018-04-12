@@ -10,25 +10,26 @@ import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class ButtonBarLayout extends LinearLayout {
-    private boolean NG;
-    private int NH;
+    private static final int ALLOW_STACKING_MIN_HEIGHT_DP = 320;
+    private boolean mAllowStacking;
+    private int mLastWidthSize;
 
     public ButtonBarLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.NH = -1;
-        boolean z = ConfigurationHelper.getScreenHeightDp(getResources()) >= 320;
+        this.mLastWidthSize = -1;
+        boolean z = ConfigurationHelper.getScreenHeightDp(getResources()) >= ALLOW_STACKING_MIN_HEIGHT_DP;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ButtonBarLayout);
-        this.NG = obtainStyledAttributes.getBoolean(R.styleable.ButtonBarLayout_allowStacking, z);
+        this.mAllowStacking = obtainStyledAttributes.getBoolean(R.styleable.ButtonBarLayout_allowStacking, z);
         obtainStyledAttributes.recycle();
     }
 
     public void setAllowStacking(boolean z) {
-        if (this.NG != z) {
-            this.NG = z;
-            if (!this.NG && getOrientation() == 1) {
+        if (this.mAllowStacking != z) {
+            this.mAllowStacking = z;
+            if (!this.mAllowStacking && getOrientation() == 1) {
                 setStacked(false);
             }
             requestLayout();
@@ -41,13 +42,13 @@ public class ButtonBarLayout extends LinearLayout {
         boolean z;
         boolean z2 = false;
         int size = View.MeasureSpec.getSize(i);
-        if (this.NG) {
-            if (size > this.NH && fR()) {
+        if (this.mAllowStacking) {
+            if (size > this.mLastWidthSize && isStacked()) {
                 setStacked(false);
             }
-            this.NH = size;
+            this.mLastWidthSize = size;
         }
-        if (fR() || View.MeasureSpec.getMode(i) != 1073741824) {
+        if (isStacked() || View.MeasureSpec.getMode(i) != 1073741824) {
             i3 = i;
             z = false;
         } else {
@@ -55,7 +56,7 @@ public class ButtonBarLayout extends LinearLayout {
             z = true;
         }
         super.onMeasure(i3, i2);
-        if (this.NG && !fR()) {
+        if (this.mAllowStacking && !isStacked()) {
             if (Build.VERSION.SDK_INT >= 11) {
                 if ((ViewCompat.getMeasuredWidthAndState(this) & ViewCompat.MEASURED_STATE_MASK) == 16777216) {
                     z2 = true;
@@ -92,7 +93,7 @@ public class ButtonBarLayout extends LinearLayout {
         }
     }
 
-    private boolean fR() {
+    private boolean isStacked() {
         return getOrientation() == 1;
     }
 }

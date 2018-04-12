@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.a;
 
-import android.util.SparseArray;
+import android.support.v4.util.LongSparseArray;
 import com.baidu.adp.framework.a.k;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
@@ -19,7 +19,7 @@ public class c extends k {
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         StringBuilder sb = new StringBuilder(200);
         if (socketMessage instanceof MessageSyncMessage) {
-            SparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();
+            LongSparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();
             for (int i = 0; i < groupMids.size(); i++) {
                 sb.append(groupMids.keyAt(i));
                 sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);

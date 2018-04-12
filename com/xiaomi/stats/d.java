@@ -2,10 +2,10 @@ package com.xiaomi.stats;
 
 import com.xiaomi.smack.l;
 import java.net.UnknownHostException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 final class d {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     static class a {
         com.xiaomi.push.thrift.a a;
         String b;

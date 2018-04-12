@@ -12,102 +12,82 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
-    private g hKt;
-    private boolean hMw = true;
-    private h hMx;
+    private h hge;
+    private i hin;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int i;
-        int i2 = 1;
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        this.hMw = false;
-        this.hKt = new g(getPageContext(), this.hMw, new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
+        this.hge = new h(getPageContext(), new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void bIg() {
-                WriteMultiImgsActivity.this.hMx.bJf();
-                WriteMultiImgsActivity.this.hMx.ob(true);
+            public void bCS() {
+                WriteMultiImgsActivity.this.hin.bDT();
+                WriteMultiImgsActivity.this.hin.nA(true);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void bIh() {
-                WriteMultiImgsActivity.this.hMx.bJg();
-                WriteMultiImgsActivity.this.hMx.ob(false);
+            public void bCT() {
+                WriteMultiImgsActivity.this.hin.bDY();
+                WriteMultiImgsActivity.this.hin.nA(false);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public boolean D(Bitmap bitmap) {
-                return WriteMultiImgsActivity.this.hMx.F(bitmap);
+            public boolean H(Bitmap bitmap) {
+                return WriteMultiImgsActivity.this.hin.J(bitmap);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void bIi() {
-                WriteMultiImgsActivity.this.hMx.bIi();
+            public void bCU() {
+                WriteMultiImgsActivity.this.hin.bCU();
             }
         });
-        setContentView(this.hKt.dsA);
-        this.hMx = new h(getPageContext(), this.hKt, bundle);
-        if (this.hMw) {
-            if (this.hMx.bJl() != null) {
-                i = this.hMx.bJl().size();
-                i2 = this.hMx.bJl().size();
-            } else {
-                i = 1;
-            }
-            TbadkCoreApplication.getInst().sendImagePv(i, i2, "motu_pic");
-        }
-        if (this.hMx.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            TbadkCoreApplication.getInst().setSkinType(this.hMx.mSkinType);
+        setContentView(this.hge.cLr);
+        this.hin = new i(getPageContext(), this.hge, bundle);
+        if (this.hin.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
+            TbadkCoreApplication.getInst().setSkinType(this.hin.mSkinType);
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        if (this.hMx != null && this.hMx.hMJ != null) {
-            bundle.putInt("OutState_Current_Index", this.hMx.hMJ.getCurrentIndex());
-            bundle.putInt("OutState_Write_Entrance", this.hMx.bJj());
-            bundle.putSerializable("OutState_Write_Info_Data", this.hMx.avo());
-            this.hMx.hMJ.nS(true);
-            if (this.hMx.bJl() != null) {
-                bundle.putString("OutState_Write_Img_Info", this.hMx.bJl().toJsonString());
+        if (this.hin != null && this.hin.hix != null) {
+            bundle.putInt("OutState_Current_Index", this.hin.hix.getCurrentIndex());
+            bundle.putInt("OutState_Write_Entrance", this.hin.bDW());
+            bundle.putSerializable("OutState_Write_Info_Data", this.hin.apH());
+            this.hin.hix.nu(true);
+            if (this.hin.bDZ() != null) {
+                bundle.putString("OutState_Write_Img_Info", this.hin.bDZ().toJsonString());
             }
         }
         super.onSaveInstanceState(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bJf() {
-        if (this.hMx != null) {
-            this.hMx.bJf();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void bJg() {
-        if (this.hMx != null) {
-            this.hMx.bJg();
+    public void bDT() {
+        if (this.hin != null) {
+            this.hin.bDT();
         }
     }
 
     public void a(boolean z, WriteImagesInfo writeImagesInfo) {
-        if (this.hMx != null) {
-            if (1 == this.hMx.bJj()) {
-                ForumWriteData avo = this.hMx.avo();
-                if (avo != null) {
-                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this, 10, avo.forumId, avo.forumName, null, null, 0, avo.antiData, 13003, false, false, null, false, false, null, null, avo.prefixData, 0);
-                    writeActivityConfig.getIntent().putExtra("from", avo.mFrom);
-                    writeActivityConfig.setCallFrom(avo.writeCallFrom);
-                    writeActivityConfig.setForumLevel(avo.forumLevel);
-                    writeActivityConfig.setForumAvatar(avo.avatar);
-                    writeActivityConfig.setPrivateThread(avo.privateThread);
+        if (this.hin != null) {
+            if (1 == this.hin.bDW()) {
+                ForumWriteData apH = this.hin.apH();
+                if (apH != null) {
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this, 10, apH.forumId, apH.forumName, null, null, 0, apH.antiData, 13003, false, false, null, false, false, null, null, apH.prefixData, 0);
+                    writeActivityConfig.getIntent().putExtra("from", apH.mFrom);
+                    writeActivityConfig.setCallFrom(apH.writeCallFrom);
+                    writeActivityConfig.setForumLevel(apH.forumLevel);
+                    writeActivityConfig.setForumAvatar(apH.avatar);
+                    writeActivityConfig.setPrivateThread(apH.privateThread);
                     writeActivityConfig.setWriteImagesInfo(writeImagesInfo);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
                 }
-            } else if (2 == this.hMx.bJj()) {
+            } else if (2 == this.hin.bDW()) {
                 Intent intent = new Intent(this, WriteActivity.class);
                 intent.putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
                 intent.setFlags(536870912);
@@ -121,7 +101,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             if (writeImagesInfo != null) {
                 Intent intent2 = new Intent();
                 intent2.putExtra(AlbumActivityConfig.ALBUM_RESULT, writeImagesInfo.toJsonString());
-                if (!v.E(writeImagesInfo.getChosedFiles()) && writeImagesInfo.getChosedFiles().get(0) != null) {
+                if (!v.w(writeImagesInfo.getChosedFiles()) && writeImagesInfo.getChosedFiles().get(0) != null) {
                     intent2.putExtra("file_name", writeImagesInfo.getChosedFiles().get(0).extra);
                 }
                 setResult(-1, intent2);
@@ -145,8 +125,21 @@ public class WriteMultiImgsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.hKt != null) {
-            this.hKt.xP(i);
+        if (this.hge != null) {
+            this.hge.vm(i);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        if (this.hin != null) {
+            this.hin.destroy();
+        }
+        TbadkCoreApplication.getInst().delRemoteActivity(this);
+        if (this.hge != null) {
+            this.hge.onDestroy();
+        }
+        super.onDestroy();
     }
 }

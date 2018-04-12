@@ -1,9 +1,9 @@
 package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 public interface e {
-    void du(int i);
+    void au(int i);
 
     void error(int i, String str);
 
-    void l(String str, int i);
+    void k(String str, int i);
 }

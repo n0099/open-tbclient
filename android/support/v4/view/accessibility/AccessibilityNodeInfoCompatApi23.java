@@ -3,6 +3,9 @@ package android.support.v4.view.accessibility;
 import android.view.accessibility.AccessibilityNodeInfo;
 /* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatApi23 {
+    AccessibilityNodeInfoCompatApi23() {
+    }
+
     public static Object getActionScrollToPosition() {
         return AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_TO_POSITION;
     }

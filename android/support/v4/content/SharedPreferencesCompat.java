@@ -1,6 +1,7 @@
 package android.support.v4.content;
 
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 /* loaded from: classes2.dex */
 public final class SharedPreferencesCompat {
 
@@ -14,7 +15,7 @@ public final class SharedPreferencesCompat {
             Helper() {
             }
 
-            public void apply(SharedPreferences.Editor editor) {
+            public void apply(@NonNull SharedPreferences.Editor editor) {
                 try {
                     editor.apply();
                 } catch (AbstractMethodError e) {
@@ -33,7 +34,7 @@ public final class SharedPreferencesCompat {
             return sInstance;
         }
 
-        public void apply(SharedPreferences.Editor editor) {
+        public void apply(@NonNull SharedPreferences.Editor editor) {
             this.mHelper.apply(editor);
         }
     }

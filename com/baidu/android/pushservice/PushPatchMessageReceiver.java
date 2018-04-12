@@ -2,12 +2,12 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.j.m;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageReceiver {
     public static final int MSG_ARRIVED = 2;
     public static final int MSG_CLICKED = 3;
@@ -25,7 +25,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
             Intent intent = new Intent(XIAOMI_PUSH_MSG);
             intent.putExtra(PUSH_MSG, miPushMessage);
             intent.putExtra(PUSH_MSG_TYPE, i);
-            p.a(intent, context.getApplicationContext());
+            m.a(intent, context.getApplicationContext());
         } catch (Exception e) {
         }
     }
@@ -60,7 +60,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                     Intent intent = new Intent(XIAOMI_REGISTER);
                     intent.putExtra(REGID, str);
                     intent.putExtra(REGISTER_ERRORCODE, miPushCommandMessage.getResultCode());
-                    p.a(intent, context.getApplicationContext());
+                    m.a(intent, context.getApplicationContext());
                 }
             } catch (Exception e) {
             }

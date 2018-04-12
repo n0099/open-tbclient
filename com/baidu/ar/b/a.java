@@ -56,21 +56,21 @@ public final class a {
 
     /* renamed from: com.baidu.ar.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0037a {
+    public interface InterfaceC0026a {
         void a(Exception exc);
 
         void a(boolean z);
     }
 
     /* loaded from: classes3.dex */
-    class b implements InterfaceC0037a {
-        InterfaceC0037a a;
+    class b implements InterfaceC0026a {
+        InterfaceC0026a a;
 
-        b(InterfaceC0037a interfaceC0037a) {
-            this.a = interfaceC0037a;
+        b(InterfaceC0026a interfaceC0026a) {
+            this.a = interfaceC0026a;
         }
 
-        @Override // com.baidu.ar.b.a.InterfaceC0037a
+        @Override // com.baidu.ar.b.a.InterfaceC0026a
         public void a(final Exception exc) {
             if (this.a == null) {
                 return;
@@ -83,7 +83,7 @@ public final class a {
             });
         }
 
-        @Override // com.baidu.ar.b.a.InterfaceC0037a
+        @Override // com.baidu.ar.b.a.InterfaceC0026a
         public void a(final boolean z) {
             if (this.a == null) {
                 return;
@@ -186,14 +186,14 @@ public final class a {
         return aVar;
     }
 
-    private void a(InterfaceC0037a interfaceC0037a, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener, int i2) {
+    private void a(InterfaceC0026a interfaceC0026a, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener, int i2) {
         try {
             MediaPlayer a2 = a(str, onCompletionListener, onErrorListener);
             if (a2 != null) {
                 a(a2, str2, assetFileDescriptor, onCompletionListener, i2);
             }
-            if (interfaceC0037a != null) {
-                interfaceC0037a.a(true);
+            if (interfaceC0026a != null) {
+                interfaceC0026a.a(true);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -204,8 +204,8 @@ public final class a {
                     a3.release();
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    if (interfaceC0037a != null) {
-                        interfaceC0037a.a(e2);
+                    if (interfaceC0026a != null) {
+                        interfaceC0026a.a(e2);
                         return;
                     }
                     return;
@@ -216,13 +216,13 @@ public final class a {
                 if (a4 != null) {
                     a(a4, str2, assetFileDescriptor, onCompletionListener, i2);
                 }
-                if (interfaceC0037a != null) {
-                    interfaceC0037a.a(true);
+                if (interfaceC0026a != null) {
+                    interfaceC0026a.a(true);
                 }
             } catch (Exception e3) {
                 e3.printStackTrace();
-                if (interfaceC0037a != null) {
-                    interfaceC0037a.a(e3);
+                if (interfaceC0026a != null) {
+                    interfaceC0026a.a(e3);
                 }
             }
         }
@@ -235,7 +235,7 @@ public final class a {
         }
     }
 
-    private void c(InterfaceC0037a interfaceC0037a, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2) {
+    private void c(InterfaceC0026a interfaceC0026a, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2) {
         MediaPlayer a2 = a(str);
         b(str);
         if (a2 != null) {
@@ -243,8 +243,8 @@ public final class a {
                 a2.release();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (interfaceC0037a != null) {
-                    interfaceC0037a.a(e);
+                if (interfaceC0026a != null) {
+                    interfaceC0026a.a(e);
                     return;
                 }
                 return;
@@ -255,13 +255,13 @@ public final class a {
             if (a3 != null) {
                 a(a3, str2, (AssetFileDescriptor) null, onCompletionListener, i2);
             }
-            if (interfaceC0037a != null) {
-                interfaceC0037a.a(true);
+            if (interfaceC0026a != null) {
+                interfaceC0026a.a(true);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
-            if (interfaceC0037a != null) {
-                interfaceC0037a.a(e2);
+            if (interfaceC0026a != null) {
+                interfaceC0026a.a(e2);
             }
         }
     }
@@ -293,30 +293,30 @@ public final class a {
 
     public void a(Message message) {
         Object[] objArr = (Object[]) message.obj;
-        a((InterfaceC0037a) objArr[0], (String) objArr[1], (String) objArr[2], null, (MediaPlayer.OnCompletionListener) objArr[3], null, ((Integer) objArr[4]).intValue());
+        a((InterfaceC0026a) objArr[0], (String) objArr[1], (String) objArr[2], null, (MediaPlayer.OnCompletionListener) objArr[3], null, ((Integer) objArr[4]).intValue());
     }
 
-    public void a(InterfaceC0037a interfaceC0037a) {
+    public void a(InterfaceC0026a interfaceC0026a) {
         Message obtainMessage = this.g.obtainMessage(3008);
-        obtainMessage.obj = new Object[]{new b(interfaceC0037a)};
+        obtainMessage.obj = new Object[]{new b(interfaceC0026a)};
         obtainMessage.sendToTarget();
     }
 
-    public void a(InterfaceC0037a interfaceC0037a, String str) {
+    public void a(InterfaceC0026a interfaceC0026a, String str) {
         Message obtainMessage = this.g.obtainMessage(3006);
-        obtainMessage.obj = new Object[]{new b(interfaceC0037a), str};
+        obtainMessage.obj = new Object[]{new b(interfaceC0026a), str};
         obtainMessage.sendToTarget();
     }
 
-    public void a(InterfaceC0037a interfaceC0037a, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2) {
+    public void a(InterfaceC0026a interfaceC0026a, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2) {
         Message obtainMessage = this.g.obtainMessage(3004);
-        obtainMessage.obj = new Object[]{new b(interfaceC0037a), str, str2, onCompletionListener, Integer.valueOf(i2)};
+        obtainMessage.obj = new Object[]{new b(interfaceC0026a), str, str2, onCompletionListener, Integer.valueOf(i2)};
         obtainMessage.sendToTarget();
     }
 
     public void b(Message message) {
         Object[] objArr = (Object[]) message.obj;
-        InterfaceC0037a interfaceC0037a = (InterfaceC0037a) objArr[0];
+        InterfaceC0026a interfaceC0026a = (InterfaceC0026a) objArr[0];
         String str = (String) objArr[1];
         MediaPlayer a2 = a(str);
         if (a2 != null) {
@@ -328,27 +328,27 @@ public final class a {
                 b(str);
             } catch (Exception e) {
                 e.printStackTrace();
-                if (interfaceC0037a != null) {
-                    interfaceC0037a.a(e);
+                if (interfaceC0026a != null) {
+                    interfaceC0026a.a(e);
                     return;
                 }
                 return;
             }
         }
-        if (interfaceC0037a != null) {
-            interfaceC0037a.a(true);
+        if (interfaceC0026a != null) {
+            interfaceC0026a.a(true);
         }
     }
 
-    public void b(InterfaceC0037a interfaceC0037a, String str) {
+    public void b(InterfaceC0026a interfaceC0026a, String str) {
         Message obtainMessage = this.g.obtainMessage(3005);
-        obtainMessage.obj = new Object[]{new b(interfaceC0037a), str};
+        obtainMessage.obj = new Object[]{new b(interfaceC0026a), str};
         obtainMessage.sendToTarget();
     }
 
-    public void b(InterfaceC0037a interfaceC0037a, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2) {
+    public void b(InterfaceC0026a interfaceC0026a, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2) {
         Message obtainMessage = this.g.obtainMessage(3007);
-        obtainMessage.obj = new Object[]{new b(interfaceC0037a), str, str2, onCompletionListener, Integer.valueOf(i2)};
+        obtainMessage.obj = new Object[]{new b(interfaceC0026a), str, str2, onCompletionListener, Integer.valueOf(i2)};
         obtainMessage.sendToTarget();
     }
 
@@ -361,26 +361,26 @@ public final class a {
 
     public void c(Message message) {
         Object[] objArr = (Object[]) message.obj;
-        InterfaceC0037a interfaceC0037a = (InterfaceC0037a) objArr[0];
+        InterfaceC0026a interfaceC0026a = (InterfaceC0026a) objArr[0];
         try {
             MediaPlayer a2 = a((String) objArr[1]);
             if (a2 != null && a2.isPlaying()) {
                 a2.pause();
             }
-            if (interfaceC0037a != null) {
-                interfaceC0037a.a(true);
+            if (interfaceC0026a != null) {
+                interfaceC0026a.a(true);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            if (interfaceC0037a != null) {
-                interfaceC0037a.a(e);
+            if (interfaceC0026a != null) {
+                interfaceC0026a.a(e);
             }
         }
     }
 
     public void d(Message message) {
         Object[] objArr = (Object[]) message.obj;
-        InterfaceC0037a interfaceC0037a = (InterfaceC0037a) objArr[0];
+        InterfaceC0026a interfaceC0026a = (InterfaceC0026a) objArr[0];
         String str = (String) objArr[1];
         String str2 = (String) objArr[2];
         MediaPlayer.OnCompletionListener onCompletionListener = (MediaPlayer.OnCompletionListener) objArr[3];
@@ -390,18 +390,18 @@ public final class a {
             if (a2 != null && !a2.isPlaying()) {
                 a2.start();
             }
-            if (interfaceC0037a != null) {
-                interfaceC0037a.a(true);
+            if (interfaceC0026a != null) {
+                interfaceC0026a.a(true);
             }
         } catch (Exception e) {
             e.printStackTrace();
             com.baidu.ar.util.b.d("c exception, recreate player to play");
-            c(interfaceC0037a, str, str2, onCompletionListener, intValue);
+            c(interfaceC0026a, str, str2, onCompletionListener, intValue);
         }
     }
 
     public void e(Message message) {
-        InterfaceC0037a interfaceC0037a = (InterfaceC0037a) ((Object[]) message.obj)[0];
+        InterfaceC0026a interfaceC0026a = (InterfaceC0026a) ((Object[]) message.obj)[0];
         this.d = false;
         this.c = 0;
         try {
@@ -428,8 +428,8 @@ public final class a {
             this.e.clear();
             this.e = null;
         }
-        if (interfaceC0037a != null) {
-            interfaceC0037a.a(true);
+        if (interfaceC0026a != null) {
+            interfaceC0026a.a(true);
         }
     }
 }

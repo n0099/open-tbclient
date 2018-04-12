@@ -3,25 +3,31 @@ package com.baidu.tbadk.core.view;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
-public class i extends ImageSpan {
-    private int paddingLeft;
-    private int paddingRight;
+public class i extends g {
+    private int apJ;
+    private int apK;
+    private int apL;
 
-    public i(Drawable drawable, int i) {
+    public i(Drawable drawable, int i, int i2, int i3) {
         super(drawable, i);
-        this.paddingLeft = 0;
-        this.paddingRight = 2;
+        this.apJ = 0;
+        this.apK = 0;
+        this.apL = 0;
+        this.apJ = i2;
+        this.apK = i3;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    @Override // com.baidu.tbadk.core.view.g, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.paddingLeft + this.paddingRight;
+        return (this.apJ == 0 && this.apK == 0) ? super.getSize(paint, charSequence, i, i2, fontMetricsInt) : getDrawable().getBounds().width() + this.apJ + this.apK;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    @Override // com.baidu.tbadk.core.view.g, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        super.draw(canvas, charSequence, i, i2, f + this.paddingLeft, i3, i4, i5, paint);
+        canvas.save();
+        canvas.translate(0.0f, this.apL);
+        super.draw(canvas, charSequence, i, i2, f + this.apJ, i3, i4, i5, paint);
+        canvas.restore();
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.tieba.personCenter.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.i;
-/* loaded from: classes.dex */
-public class c extends com.baidu.tieba.card.data.b implements i {
-    public static BdUniqueId gjy = BdUniqueId.gen();
+import com.baidu.adp.widget.ListView.h;
+/* loaded from: classes2.dex */
+public class c extends com.baidu.tieba.card.data.b implements h {
+    public static BdUniqueId fDU = BdUniqueId.gen();
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gjy;
+        return fDU;
     }
 }

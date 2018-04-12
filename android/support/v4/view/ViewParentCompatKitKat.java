@@ -4,7 +4,10 @@ import android.view.View;
 import android.view.ViewParent;
 /* loaded from: classes2.dex */
 class ViewParentCompatKitKat {
-    public static void notifySubtreeAccessibilityStateChanged(ViewParent viewParent, View view, View view2, int i) {
-        viewParent.notifySubtreeAccessibilityStateChanged(view, view2, i);
+    ViewParentCompatKitKat() {
+    }
+
+    public static void notifySubtreeAccessibilityStateChanged(ViewParent viewParent, View view2, View view3, int i) {
+        viewParent.notifySubtreeAccessibilityStateChanged(view2, view3, i);
     }
 }

@@ -14,6 +14,7 @@ public final class MenuItemCompat {
     public static final int SHOW_AS_ACTION_IF_ROOM = 1;
     public static final int SHOW_AS_ACTION_NEVER = 0;
     public static final int SHOW_AS_ACTION_WITH_TEXT = 4;
+    private static final String TAG = "MenuItemCompat";
 
     /* loaded from: classes2.dex */
     interface MenuVersionImpl {
@@ -27,7 +28,7 @@ public final class MenuItemCompat {
 
         MenuItem setActionView(MenuItem menuItem, int i);
 
-        MenuItem setActionView(MenuItem menuItem, View view);
+        MenuItem setActionView(MenuItem menuItem, View view2);
 
         MenuItem setOnActionExpandListener(MenuItem menuItem, OnActionExpandListener onActionExpandListener);
 
@@ -51,7 +52,7 @@ public final class MenuItemCompat {
         }
 
         @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public MenuItem setActionView(MenuItem menuItem, View view) {
+        public MenuItem setActionView(MenuItem menuItem, View view2) {
             return menuItem;
         }
 
@@ -97,8 +98,8 @@ public final class MenuItemCompat {
         }
 
         @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public MenuItem setActionView(MenuItem menuItem, View view) {
-            return MenuItemCompatHoneycomb.setActionView(menuItem, view);
+        public MenuItem setActionView(MenuItem menuItem, View view2) {
+            return MenuItemCompatHoneycomb.setActionView(menuItem, view2);
         }
 
         @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
@@ -187,8 +188,8 @@ public final class MenuItemCompat {
         }
     }
 
-    public static MenuItem setActionView(MenuItem menuItem, View view) {
-        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).setActionView(view) : IMPL.setActionView(menuItem, view);
+    public static MenuItem setActionView(MenuItem menuItem, View view2) {
+        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).setActionView(view2) : IMPL.setActionView(menuItem, view2);
     }
 
     public static MenuItem setActionView(MenuItem menuItem, int i) {
@@ -203,7 +204,7 @@ public final class MenuItemCompat {
         if (menuItem instanceof SupportMenuItem) {
             return ((SupportMenuItem) menuItem).setSupportActionProvider(actionProvider);
         }
-        Log.w("MenuItemCompat", "setActionProvider: item does not implement SupportMenuItem; ignoring");
+        Log.w(TAG, "setActionProvider: item does not implement SupportMenuItem; ignoring");
         return menuItem;
     }
 
@@ -211,7 +212,7 @@ public final class MenuItemCompat {
         if (menuItem instanceof SupportMenuItem) {
             return ((SupportMenuItem) menuItem).getSupportActionProvider();
         }
-        Log.w("MenuItemCompat", "getActionProvider: item does not implement SupportMenuItem; returning null");
+        Log.w(TAG, "getActionProvider: item does not implement SupportMenuItem; returning null");
         return null;
     }
 

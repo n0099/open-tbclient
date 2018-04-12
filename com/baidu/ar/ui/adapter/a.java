@@ -4,7 +4,7 @@ public interface a {
 
     /* renamed from: com.baidu.ar.ui.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0051a {
+    public interface InterfaceC0040a {
         void a(a aVar, String str);
     }
 }

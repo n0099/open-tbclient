@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     private XmlPullParser a;
 

@@ -1,18 +1,18 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.j;
+import com.baidu.tieba.card.o;
 /* loaded from: classes2.dex */
 public class d extends b {
-    public static final BdUniqueId ekB = BdUniqueId.gen();
+    public static final BdUniqueId dFg = BdUniqueId.gen();
 
-    @Override // com.baidu.tieba.card.data.g, com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.tieba.card.data.g, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return ekB;
+        return dFg;
     }
 
     public d() {
-        setStType(j.zd());
+        setStType(o.rG());
         setYuelaouLocate("percard#");
     }
 }

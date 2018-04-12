@@ -1,44 +1,48 @@
 package com.baidu.tieba.play;
-
-import android.content.Context;
-import android.database.ContentObserver;
-import android.os.Handler;
-import android.provider.Settings;
 /* loaded from: classes.dex */
-public class q extends ContentObserver {
-    private a gvk;
-    private Context mContext;
+public class q {
+    private boolean fPY;
+    private boolean fPZ;
+    private Runnable fQa = new Runnable() { // from class: com.baidu.tieba.play.q.1
+        @Override // java.lang.Runnable
+        public void run() {
+            q.this.fPY = false;
+        }
+    };
+    private Runnable fQb = new Runnable() { // from class: com.baidu.tieba.play.q.2
+        @Override // java.lang.Runnable
+        public void run() {
+            q.this.fPZ = false;
+        }
+    };
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void onChange(boolean z);
+    public void onPrepared() {
+        this.fPZ = true;
+        com.baidu.adp.lib.g.e.fw().postDelayed(this.fQb, 500L);
     }
 
-    public q(Context context, Handler handler) {
-        super(handler);
-        this.mContext = context;
+    public void bgK() {
+        this.fPY = true;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        blD();
+    public void bgL() {
+        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fQa);
+        com.baidu.adp.lib.g.e.fw().postDelayed(this.fQa, 500L);
     }
 
-    private void blD() {
-        if (this.mContext != null) {
-            try {
-                int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
-                if (this.gvk != null) {
-                    this.gvk.onChange(i == 1);
-                }
-            } catch (Settings.SettingNotFoundException e) {
-                e.printStackTrace();
-            }
+    public void a(int i, int i2, com.baidu.tieba.j.i iVar) {
+        if ((i == 701 || i2 == 701) && iVar != null && !this.fPY && !this.fPZ) {
+            iVar.aRP();
+        } else if ((i == 702 || i2 == 702) && iVar != null && !this.fPY && !this.fPZ) {
+            iVar.aRQ();
+            this.fPY = false;
+            this.fPZ = false;
+            bgM();
         }
     }
 
-    public void a(a aVar) {
-        this.gvk = aVar;
-        blD();
+    public void bgM() {
+        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fQa);
+        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fQb);
     }
 }

@@ -8,7 +8,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class r implements Serializable, Cloneable, org.apache.thrift.a<r, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> m;
     private static final org.apache.thrift.protocol.j n = new org.apache.thrift.protocol.j("PushMetaInfo");
@@ -38,7 +38,7 @@ public class r implements Serializable, Cloneable, org.apache.thrift.a<r, a> {
     public Map<String, String> k;
     public boolean l;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         ID(1, "id"),
         MESSAGE_TS(2, "messageTs"),

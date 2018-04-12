@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.pushservice.j.p;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.j.n;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class e {
     protected ArrayList<a> a = new ArrayList<>();
     protected Context b;
@@ -31,10 +31,10 @@ public abstract class e {
         ArrayList<a> a;
         boolean z;
         String str2 = this.b.getPackageName() + ".push_sync";
-        for (ResolveInfo resolveInfo : p.F(this.b) ? p.o(this.b) : p.n(this.b)) {
+        for (ResolveInfo resolveInfo : m.F(this.b) ? m.o(this.b) : m.n(this.b)) {
             try {
-                String e = "com.baidu.push.sdkr".equals(str) ? com.baidu.android.pushservice.d.d.e(this.b, resolveInfo.activityInfo.packageName) : null;
-                if (!TextUtils.isEmpty(e) && (a = a(c(e))) != null) {
+                String d = "com.baidu.push.sdkr".equals(str) ? com.baidu.android.pushservice.d.d.d(this.b, resolveInfo.activityInfo.packageName) : null;
+                if (!TextUtils.isEmpty(d) && (a = a(c(d))) != null) {
                     Iterator<a> it = a.iterator();
                     while (it.hasNext()) {
                         a next = it.next();
@@ -54,16 +54,16 @@ public abstract class e {
                         }
                     }
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
             }
         }
         if (arrayList.size() > 0) {
-            String d = d(a(arrayList));
+            String d2 = d(a(arrayList));
             if ("com.baidu.push.sdkr".equals(str)) {
-                com.baidu.android.pushservice.d.c.c(this.b, d);
+                com.baidu.android.pushservice.d.c.b(this.b, d2);
             }
-            if (p.E(this.b)) {
-                q.a(this.b, str2, str, d);
+            if (m.E(this.b)) {
+                n.a(this.b, str2, str, d2);
             }
         }
     }
@@ -146,7 +146,7 @@ public abstract class e {
             }
             try {
                 String a2 = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a, 0), "utf-8");
-                com.baidu.android.pushservice.j.b.a(this.b, str, a2);
+                com.baidu.android.pushservice.j.a.a(this.b, str, a2);
                 return a2;
             } catch (Exception | UnsatisfiedLinkError e) {
                 return "";
@@ -207,9 +207,9 @@ public abstract class e {
                 str = "";
                 break;
         }
-        String a = p.E(this.b) ? com.baidu.android.pushservice.j.b.a(this.b, str) : null;
+        String a = m.E(this.b) ? com.baidu.android.pushservice.j.a.a(this.b, str) : null;
         if (TextUtils.isEmpty(a) && "com.baidu.push.sdkr".equals(str)) {
-            a = com.baidu.android.pushservice.d.c.e(this.b);
+            a = com.baidu.android.pushservice.d.c.d(this.b);
         }
         if (TextUtils.isEmpty(a)) {
             return;
@@ -251,10 +251,10 @@ public abstract class e {
             try {
                 String d = d(a(this.a));
                 if ("com.baidu.push.sdkr".equals(str)) {
-                    com.baidu.android.pushservice.d.c.c(this.b, d);
+                    com.baidu.android.pushservice.d.c.b(this.b, d);
                 }
-                if (p.E(this.b)) {
-                    q.a(this.b, this.b.getPackageName() + ".push_sync", str, d);
+                if (m.E(this.b)) {
+                    n.a(this.b, this.b.getPackageName() + ".push_sync", str, d);
                 }
             } catch (Exception e) {
             }

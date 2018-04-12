@@ -8,7 +8,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements Serializable, Cloneable, org.apache.thrift.a<b, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> c;
     private static final org.apache.thrift.protocol.j d = new org.apache.thrift.protocol.j("Cellular");
@@ -18,7 +18,7 @@ public class b implements Serializable, Cloneable, org.apache.thrift.a<b, a> {
     public int b;
     private BitSet g = new BitSet(2);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         ID(1, "id"),
         SIGNAL_STRENGTH(2, "signalStrength");

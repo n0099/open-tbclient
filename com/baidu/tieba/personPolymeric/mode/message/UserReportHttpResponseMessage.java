@@ -14,7 +14,7 @@ public class UserReportHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject == null) {
             setError(-1);
-            setErrorString(TbadkCoreApplication.getInst().getApp().getString(d.j.error_unkown_try_again));
+            setErrorString(TbadkCoreApplication.getInst().getApp().getString(d.k.error_unkown_try_again));
         }
     }
 }

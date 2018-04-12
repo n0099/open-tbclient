@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.a;
 
-import android.util.SparseArray;
+import android.support.v4.util.LongSparseArray;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.a.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -40,7 +40,7 @@ public class d extends j {
                 }
             }
             if (!a(responsePullMessage)) {
-                b.aLe().aLl();
+                b.aGb().aGi();
                 return socketResponsedMessage;
             }
             return socketResponsedMessage;
@@ -65,29 +65,29 @@ public class d extends j {
             if (messageSyncMessage.getGroupMids() == null || messageSyncMessage.getGroupMids().size() == 0) {
                 return false;
             }
-            SparseArray<Long> sparseArray = new SparseArray<>();
-            SparseArray<Long> aKM = com.baidu.tieba.im.memorycache.b.aKB().aKM();
+            LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
+            LongSparseArray<Long> aFJ = com.baidu.tieba.im.memorycache.b.aFy().aFJ();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                    if (com.baidu.tieba.im.memorycache.c.qo(groupMsgData.getGroupInfo().getCustomType())) {
-                        Long l2 = aKM.get((int) groupMsgData.getGroupInfo().getGroupId());
-                        if (l2 != null && (l = messageSyncMessage.getGroupMids().get((int) groupMsgData.getGroupInfo().getGroupId())) != null) {
+                    if (com.baidu.tieba.im.memorycache.c.nM(groupMsgData.getGroupInfo().getCustomType())) {
+                        Long l2 = aFJ.get(groupMsgData.getGroupInfo().getGroupId());
+                        if (l2 != null && (l = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
                             if (l2.longValue() > l.longValue()) {
                                 z = true;
                             }
                             if (groupMsgData.hasMore()) {
-                                sparseArray.put((int) groupMsgData.getGroupInfo().getGroupId(), l2);
+                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l2);
                             }
                         }
                     }
                     z = z;
                 }
             }
-            if (!z || sparseArray.size() <= 0) {
+            if (!z || longSparseArray.size() <= 0) {
                 return false;
             }
-            b.aLe().b(sparseArray);
+            b.aGb().a(longSparseArray);
             return true;
         }
         return false;

@@ -34,7 +34,7 @@ public interface ISocketService extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ISocketService)) {
                 return (ISocketService) queryLocalInterface;
             }
-            return new a(iBinder);
+            return new Proxy(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -97,16 +97,20 @@ public interface ISocketService extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        private static class a implements ISocketService {
+        private static class Proxy implements ISocketService {
             private IBinder mRemote;
 
-            a(IBinder iBinder) {
+            Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 return this.mRemote;
+            }
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
             }
 
             @Override // com.baidu.sofire.push.remote.ISocketService

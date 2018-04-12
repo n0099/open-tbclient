@@ -12,7 +12,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ae implements Serializable, Cloneable, org.apache.thrift.a<ae, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> l;
     private static final org.apache.thrift.protocol.j m = new org.apache.thrift.protocol.j("XmPushActionNotification");
@@ -40,7 +40,7 @@ public class ae implements Serializable, Cloneable, org.apache.thrift.a<ae, a> {
     public ByteBuffer k;
     private BitSet y;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         DEBUG(1, BuildConfig.BUILD_TYPE),
         TARGET(2, BaiduRimConstants.ACTION_TARGET),

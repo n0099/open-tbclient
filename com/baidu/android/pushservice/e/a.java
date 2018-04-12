@@ -9,27 +9,27 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends com.baidu.android.pushservice.i.c {
     protected Context a;
     protected l b;
     protected String c = com.baidu.android.pushservice.h.e();
-    private C0033a d = new C0033a();
+    private C0022a d = new C0022a();
 
     /* renamed from: com.baidu.android.pushservice.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0033a {
-        public C0033a() {
+    /* loaded from: classes3.dex */
+    public class C0022a {
+        public C0022a() {
         }
 
         public void a(Boolean bool) {
-            com.baidu.android.pushservice.j.p.b("RequetChannelListener#isGetChannelToken#isSucceed=" + bool, a.this.a);
+            com.baidu.android.pushservice.j.m.b("RequetChannelListener#isGetChannelToken#isSucceed=" + bool, a.this.a);
             if (bool.booleanValue()) {
                 com.baidu.android.pushservice.g.a.c("AbstractProcessor", "netWorkConnect connectResult: " + a.this.c(), a.this.a);
-            } else if (com.baidu.android.pushservice.j.a(a.this.a).c()) {
+            } else if (com.baidu.android.pushservice.j.a(a.this.a).e()) {
             } else {
                 a.this.a(10002);
-                com.baidu.android.pushservice.j.p.b("RequetChannelListener#isGetChannelToken#isSucceed=false, errorcode=10002", a.this.a);
+                com.baidu.android.pushservice.j.m.b("RequetChannelListener#isGetChannelToken#isSucceed=false, errorcode=10002", a.this.a);
             }
         }
     }
@@ -46,17 +46,17 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
             @Override // com.baidu.android.pushservice.i.c
             public void a() {
                 try {
-                    com.baidu.android.pushservice.h.i iVar = new com.baidu.android.pushservice.h.i();
-                    iVar.d = str;
-                    iVar.e = System.currentTimeMillis();
-                    iVar.f = com.baidu.android.pushservice.h.a.b.b(a.this.a);
-                    iVar.g = i;
+                    com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
+                    hVar.d = str;
+                    hVar.e = System.currentTimeMillis();
+                    hVar.f = com.baidu.android.pushservice.h.a.b.b(a.this.a);
+                    hVar.g = i;
                     if (str.equals("030403")) {
-                        iVar.i = com.baidu.android.pushservice.j.p.w(a.this.a);
+                        hVar.i = com.baidu.android.pushservice.j.m.w(a.this.a);
                     } else if (str.equals("030401")) {
-                        iVar.i = com.baidu.android.pushservice.j.p.x(a.this.a);
+                        hVar.i = com.baidu.android.pushservice.j.m.x(a.this.a);
                     }
-                    com.baidu.android.pushservice.h.q.b(a.this.a, iVar);
+                    com.baidu.android.pushservice.h.o.b(a.this.a, hVar);
                 } catch (Exception e) {
                 }
             }
@@ -128,7 +128,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                         z = z2;
                         com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error : " + e.getMessage(), this.a);
                         if (z) {
-                            com.baidu.android.pushservice.j.p.b("tryConnect failed setResult UnKnown " + e.getMessage(), this.a);
+                            com.baidu.android.pushservice.j.m.b("tryConnect failed setResult UnKnown " + e.getMessage(), this.a);
                             a(IjkMediaPlayer.FFP_PROP_INT64_SELECTED_VIDEO_STREAM);
                         } else {
                             a(IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE);
@@ -220,9 +220,9 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                 intent.putExtra("secret_key", this.b.i);
                 intent.putExtra("real_bind", "real_bind");
                 bVar.d = "020101";
-                com.baidu.android.pushservice.h.j jVar = new com.baidu.android.pushservice.h.j();
-                jVar.b(this.b.e);
-                com.baidu.android.pushservice.h.j a = com.baidu.android.pushservice.j.p.a(jVar, this.a, this.b.e);
+                com.baidu.android.pushservice.h.i iVar = new com.baidu.android.pushservice.h.i();
+                iVar.b(this.b.e);
+                com.baidu.android.pushservice.h.i a = com.baidu.android.pushservice.j.m.a(iVar, this.a, this.b.e);
                 try {
                     JSONObject jSONObject = new JSONObject(new String(bArr));
                     bVar.b = jSONObject.getString("request_id");
@@ -235,22 +235,22 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                 } catch (JSONException e) {
                 }
                 try {
-                    com.baidu.android.pushservice.h.q.a(this.a, bVar);
-                    com.baidu.android.pushservice.h.q.a(this.a, a);
+                    com.baidu.android.pushservice.h.o.a(this.a, bVar);
+                    com.baidu.android.pushservice.h.o.a(this.a, a);
                 } catch (Exception e2) {
                     com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error " + e2.getMessage(), this.a);
                 }
                 if (com.baidu.android.pushservice.a.b() > 0) {
-                    com.baidu.android.pushservice.h.i iVar = new com.baidu.android.pushservice.h.i();
-                    iVar.j = this.b.e;
-                    iVar.e = System.currentTimeMillis();
-                    iVar.f = com.baidu.android.pushservice.h.a.b.b(this.a);
-                    iVar.d = "039904";
-                    iVar.g = i;
+                    com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
+                    hVar.j = this.b.e;
+                    hVar.e = System.currentTimeMillis();
+                    hVar.f = com.baidu.android.pushservice.h.a.b.b(this.a);
+                    hVar.d = "039904";
+                    hVar.g = i;
                     if (bArr.length > 0) {
-                        iVar.i = new String(bArr);
+                        hVar.i = new String(bArr);
                     }
-                    com.baidu.android.pushservice.h.q.a(this.a, iVar);
+                    com.baidu.android.pushservice.h.o.a(this.a, hVar);
                 }
             } else if (bArr != null && (this.b.a.equals("method_unbind") || this.b.a.equals("com.baidu.android.pushservice.action.UNBINDAPP"))) {
                 if (this.b.a.equals("method_unbind")) {
@@ -265,7 +265,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                     bVar.a = new String(bArr);
                 }
                 try {
-                    com.baidu.android.pushservice.h.q.a(this.a, bVar);
+                    com.baidu.android.pushservice.h.o.a(this.a, bVar);
                 } catch (Exception e4) {
                     com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error " + e4.getMessage(), this.a);
                 }
@@ -274,11 +274,11 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                 if (!d(this.b.a)) {
                     intent.setPackage(this.b.e);
                 }
-                com.baidu.android.pushservice.j.p.b("> sendResult to " + this.b.i + ", method:" + this.b.a + ", errorCode : " + i + ", content : " + new String(bArr), this.a);
+                com.baidu.android.pushservice.j.m.b("> sendResult to " + this.b.i + ", method:" + this.b.a + ", errorCode : " + i + ", content : " + new String(bArr), this.a);
                 if (this.b.a.equals("com.baidu.android.pushservice.action.UNBINDAPP") || !TextUtils.isEmpty(this.b.j)) {
                     return;
                 }
-                com.baidu.android.pushservice.j.p.b(this.a, intent, intent.getAction(), this.b.e);
+                com.baidu.android.pushservice.j.m.b(this.a, intent, intent.getAction(), this.b.e);
             }
         }
     }
@@ -348,26 +348,26 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
 
     protected void b() {
         if (this.b == null || TextUtils.isEmpty(this.b.a)) {
-            com.baidu.android.pushservice.j.p.b("AbstractProcessor#execute#mEvent = null or mEvent.method = null", this.a);
+            com.baidu.android.pushservice.j.m.b("AbstractProcessor#execute#mEvent = null or mEvent.method = null", this.a);
         } else if (!this.b.a.equals("com.baidu.android.pushservice.action.UNBIND") && !this.b.a.equals("method_sdk_unbind") && !this.b.a.equals("method_del_lapp_tags") && !this.b.a.equals("method_list_lapp_tags") && TextUtils.isEmpty(this.b.e) && !this.b.a.equals("com.baidu.android.pushservice.action.UNBINDAPP")) {
-            com.baidu.android.pushservice.j.p.b("AbstractProcessor#execute#Unknown method", this.a);
-        } else if (!com.baidu.android.pushservice.j.k.e(this.a)) {
+            com.baidu.android.pushservice.j.m.b("AbstractProcessor#execute#Unknown method", this.a);
+        } else if (!com.baidu.android.pushservice.j.h.e(this.a)) {
             com.baidu.android.pushservice.g.a.b("AbstractProcessor", "Network is not useful!", this.a);
-            com.baidu.android.pushservice.j.p.b("AbstractProcessor#execute#Network is unuseful!", this.a);
+            com.baidu.android.pushservice.j.m.b("AbstractProcessor#execute#Network is unuseful!", this.a);
             if (com.baidu.android.pushservice.a.b() > 0) {
-                com.baidu.android.pushservice.h.q.a(this.a, "039912");
+                com.baidu.android.pushservice.h.o.a(this.a, "039912");
             }
             a(10001);
-            com.baidu.android.pushservice.j.o.a(this.a, new Intent());
+            com.baidu.android.pushservice.j.l.a(this.a, new Intent());
         } else {
             if (com.baidu.android.pushservice.a.b() > 0) {
-                com.baidu.android.pushservice.h.q.a(this.a, "039914");
+                com.baidu.android.pushservice.h.o.a(this.a, "039914");
             }
             com.baidu.android.pushservice.j a = com.baidu.android.pushservice.j.a(this.a);
             synchronized (a) {
-                if (a.d() || !a.c()) {
+                if (a.f() || !a.e()) {
                     a.a(this.a, false, this.d);
-                    com.baidu.android.pushservice.j.p.b("AbstractProcessor#requestToken#" + this.b.toString(), this.a);
+                    com.baidu.android.pushservice.j.m.b("AbstractProcessor#requestToken#" + this.b.toString(), this.a);
                 } else {
                     com.baidu.android.pushservice.g.a.c("AbstractProcessor", "netWorkConnect connectResult: " + c(), this.a);
                 }

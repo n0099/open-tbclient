@@ -1,246 +1,176 @@
 package com.baidu.tieba.postsearch;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
+import android.text.Html;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.appsearchlib.Info;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
+import com.baidu.tieba.postsearch.b;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class e {
-    public String dCS;
-    public ArrayList<String> gyG;
-    private PostSearchActivity gye;
-    private String gyx;
-    public int gyy = 0;
-    public int gyz = 0;
-    public int gyA = 1;
-    public int gyB = 1;
-    public int gyC = 1;
-    public boolean gyD = false;
-    public boolean gyE = false;
-    public boolean gyF = false;
-    private int gyH = 0;
-    private final HttpMessageListener gyI = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.e.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            int statusCode = httpResponsedMessage.getStatusCode();
-            int error = httpResponsedMessage.getError();
-            if ((httpResponsedMessage instanceof PostSearchHttpResponseMessage) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
-                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-                int intValue = httpMessage.getExtra() instanceof Integer ? ((Integer) httpMessage.getExtra()).intValue() : 0;
-                e.this.ud(intValue);
-                boolean z = e.this.uc(intValue) > 1;
-                PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
-                if (statusCode == 200 && error == 0) {
-                    e.this.gye.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
-                    e.this.ub(intValue);
-                    e.this.bnb();
-                    e.this.bne();
-                    return;
+public class e extends BaseAdapter {
+    private static final int fTy = TbadkCoreApplication.getInst().getListItemRule().yE();
+    private TbPageContext<?> adf;
+    private int bWY = -1;
+    private List<b.a> mData = new ArrayList();
+
+    public e(TbPageContext<?> tbPageContext) {
+        this.adf = tbPageContext;
+    }
+
+    public int db(List<b.a> list) {
+        if (list == null) {
+            return 0;
+        }
+        int size = this.mData.size() + list.size();
+        if (size <= fTy) {
+            this.mData.addAll(list);
+            return 0;
+        }
+        int i = size - fTy;
+        rC(i);
+        this.mData.addAll(list);
+        return i;
+    }
+
+    public void clear() {
+        this.mData.clear();
+    }
+
+    private void rC(int i) {
+        if (this.mData.size() <= i) {
+            this.mData.clear();
+        }
+        int i2 = 0;
+        Iterator<b.a> it = this.mData.iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+            i2++;
+            if (i2 >= i) {
+                return;
+            }
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.mData == null) {
+            return 0;
+        }
+        return this.mData.size();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.mData == null || this.mData.isEmpty() || i < 0 || i >= this.mData.size()) {
+            return null;
+        }
+        return this.mData.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        if (view2 == null) {
+            view2 = LayoutInflater.from(this.adf.getPageActivity()).inflate(d.i.post_search_list_item, (ViewGroup) null);
+            a aVar = new a();
+            aVar.fTB = (TextView) view2.findViewById(d.g.title_text);
+            aVar.fTC = (TextView) view2.findViewById(d.g.content_text);
+            aVar.fTD = (TextView) view2.findViewById(d.g.label_text);
+            aVar.bXz = (TextView) view2.findViewById(d.g.user_name);
+            aVar.fTE = (TextView) view2.findViewById(d.g.time_text);
+            view2.setTag(aVar);
+        }
+        a aVar2 = (a) view2.getTag();
+        final b.a aVar3 = this.mData.get(i);
+        if (aVar3 != null) {
+            String str = "#e53917";
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                str = "#99260f";
+            }
+            aVar2.fTB.setText(Html.fromHtml(an.ad(aVar3.title, str)));
+            aVar2.fTC.setText(Html.fromHtml(an.ad(aVar3.content, str)));
+            aVar2.bXz.setText(aVar3.name_show);
+            aVar2.fTE.setText(an.s(aVar3.time));
+            aVar2.fTD.setVisibility(0);
+            if (aVar3.is_floor == 1) {
+                aVar2.fTD.setText(d.k.floor_text);
+            } else if (aVar3.fSZ == 1) {
+                aVar2.fTD.setText(d.k.reply_post);
+            } else {
+                aVar2.fTD.setVisibility(8);
+            }
+            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view3) {
+                    if (e.this.adf != null) {
+                        e.this.a(aVar3);
+                        if (aVar3.is_floor == 1) {
+                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.adf.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
+                            createSubPbActivityConfig.setKeyPageStartFrom(8);
+                            e.this.adf.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                            return;
+                        }
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(e.this.adf.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
+                        createNormalCfg.setStartFrom(8);
+                        e.this.adf.sendMessage(new CustomMessage(2004001, createNormalCfg));
+                    }
                 }
-                String errorString = postSearchHttpResponseMessage.getErrorString();
-                if (TextUtils.isEmpty(errorString)) {
-                    errorString = e.this.gye.getResources().getString(d.j.neterror);
-                }
-                e.this.gye.showToast(errorString);
-                e.this.gye.a(intValue, null, z);
+            });
+            com.baidu.tbadk.n.a.a(this.adf, view2);
+        }
+        return view2;
+    }
+
+    public void setTabType(int i) {
+        this.bWY = i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(b.a aVar) {
+        al ac = new al("c12405").ac(ImageViewerConfig.FORUM_NAME, aVar.fname).ac("uid", TbadkCoreApplication.getCurrentAccount());
+        if (this.bWY > 0) {
+            ac.r(MyBookrackActivityConfig.TAB_ID, this.bWY);
+        }
+        if (aVar != null) {
+            if (aVar.is_floor == 1 || aVar.fSZ == 1) {
+                ac.f(Info.kBaiduPIDKey, aVar.pid);
+            } else {
+                ac.f("tid", aVar.tid);
             }
         }
-    };
-    private CustomMessageListener gyJ = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.e.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Object data;
-            if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                e.this.gyG = (ArrayList) data;
-                e.this.gye.bmN();
-            }
-        }
-    };
-
-    public e(PostSearchActivity postSearchActivity) {
-        this.gye = postSearchActivity;
-        this.gye.registerListener(this.gyJ);
-        this.gye.registerListener(this.gyI);
+        TiebaStatic.log(ac);
     }
 
-    public boolean aC(String str, int i) {
-        if (StringUtils.isNull(str)) {
-            return false;
-        }
-        if (!str.equals(this.dCS)) {
-            bnd();
-        }
-        switch (i) {
-            case 1:
-                return rx(str);
-            case 2:
-                return ry(str);
-            case 3:
-                return rz(str);
-            default:
-                return false;
-        }
-    }
+    /* loaded from: classes3.dex */
+    private static class a {
+        TextView bXz;
+        TextView fTB;
+        TextView fTC;
+        TextView fTD;
+        TextView fTE;
 
-    public boolean rx(String str) {
-        if (this.gyD) {
-            return false;
-        }
-        this.dCS = str;
-        this.gyH = 1;
-        this.gye.sendMessage(ua(this.gyH));
-        this.gyD = true;
-        return true;
-    }
-
-    public boolean ry(String str) {
-        if (this.gyE) {
-            return false;
-        }
-        this.dCS = str;
-        this.gyH = 2;
-        this.gye.sendMessage(ua(this.gyH));
-        this.gyE = true;
-        return true;
-    }
-
-    public boolean rz(String str) {
-        if (this.gyF) {
-            return false;
-        }
-        this.dCS = str;
-        this.gyH = 3;
-        this.gye.sendMessage(ua(this.gyH));
-        this.gyF = true;
-        return true;
-    }
-
-    public void bna() {
-        this.gye.sendMessage(new CustomMessage(2009001));
-    }
-
-    public void bnb() {
-        if (!StringUtils.isNull(this.dCS) && !this.dCS.equals(this.gyx)) {
-            this.gye.sendMessage(new CustomMessage(2009003, this.dCS));
-            this.gyx = this.dCS;
-        }
-    }
-
-    public void bnc() {
-        if (this.gyG != null) {
-            this.gyG.clear();
-        }
-        this.gye.sendMessage(new CustomMessage(2009004));
-    }
-
-    public void bnd() {
-        this.gyA = 1;
-        this.gyB = 1;
-        this.gyC = 1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bne() {
-        if (this.gyG == null) {
-            this.gyG = new ArrayList<>();
-        }
-        this.gyG.remove(this.dCS);
-        this.gyG.add(0, this.dCS);
-        di(this.gyG);
-    }
-
-    private void di(List<String> list) {
-        int size;
-        if (list != null && list.size() - 5 > 0) {
-            int size2 = list.size();
-            for (int i = 0; i < size; i++) {
-                list.remove((size2 - i) - 1);
-            }
-        }
-    }
-
-    private HttpMessage ua(int i) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.dCS);
-        httpMessage.addParam(LegoListActivityConfig.RN, 30);
-        httpMessage.addParam("kw", this.gye.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.gyH));
-        switch (i) {
-            case 1:
-                httpMessage.addParam("sm", 1);
-                httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.gyA);
-                break;
-            case 2:
-                httpMessage.addParam("sm", 2);
-                httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.gyB);
-                break;
-            case 3:
-                httpMessage.addParam("sm", 2);
-                httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam("pn", this.gyC);
-                break;
-        }
-        return httpMessage;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ub(int i) {
-        switch (i) {
-            case 1:
-                this.gyA++;
-                return;
-            case 2:
-                this.gyB++;
-                return;
-            case 3:
-                this.gyC++;
-                return;
-            default:
-                return;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int uc(int i) {
-        switch (i) {
-            case 1:
-                return this.gyA;
-            case 2:
-                return this.gyB;
-            case 3:
-                return this.gyC;
-            default:
-                return 0;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ud(int i) {
-        switch (i) {
-            case 1:
-                this.gyD = false;
-                return;
-            case 2:
-                this.gyE = false;
-                return;
-            case 3:
-                this.gyF = false;
-                return;
-            default:
-                return;
+        private a() {
         }
     }
 }

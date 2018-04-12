@@ -10,38 +10,38 @@ import com.baidu.tieba.d;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class b {
-    private BaseActivity bSF;
-    private LinearLayout bSK;
-    private TbSettingTextTipView bSL;
-    private TbSettingTextTipView bSM;
+    private BaseActivity bcJ;
+    private LinearLayout bcO;
+    private TbSettingTextTipView bcP;
+    private TbSettingTextTipView bcQ;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
 
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.bSF = baseActivity;
+        this.bcJ = baseActivity;
         this.mOnClickListener = onClickListener;
-        Jv();
+        Cb();
     }
 
-    private void Jv() {
-        this.mRootLayout = (LinearLayout) LayoutInflater.from(this.bSF).inflate(d.h.account_safe_activity, (ViewGroup) null);
-        this.bSK = (LinearLayout) this.mRootLayout.findViewById(d.g.content_container);
-        this.bSL = (TbSettingTextTipView) this.mRootLayout.findViewById(d.g.bar_record);
-        this.bSM = (TbSettingTextTipView) this.mRootLayout.findViewById(d.g.account_status);
-        this.bSL.Jx();
-        this.bSM.Jx();
-        this.bSL.setOnClickListener(this.mOnClickListener);
-        this.bSM.setOnClickListener(this.mOnClickListener);
+    private void Cb() {
+        this.mRootLayout = (LinearLayout) LayoutInflater.from(this.bcJ).inflate(d.i.account_safe_activity, (ViewGroup) null);
+        this.bcO = (LinearLayout) this.mRootLayout.findViewById(d.g.content_container);
+        this.bcP = (TbSettingTextTipView) this.mRootLayout.findViewById(d.g.bar_record);
+        this.bcQ = (TbSettingTextTipView) this.mRootLayout.findViewById(d.g.account_status);
+        this.bcP.Cd();
+        this.bcQ.Cd();
+        this.bcP.setOnClickListener(this.mOnClickListener);
+        this.bcQ.setOnClickListener(this.mOnClickListener);
     }
 
-    public void hr(int i) {
-        this.bSF.getLayoutMode().aQ(i == 1);
-        this.bSF.getLayoutMode().aM(this.mRootLayout);
+    public void eq(int i) {
+        this.bcJ.getLayoutMode().setNightMode(i == 1);
+        this.bcJ.getLayoutMode().u(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.bSM.setTip(simpleUser.block_msg);
+            this.bcQ.setTip(simpleUser.block_msg);
         }
     }
 
@@ -51,6 +51,6 @@ public class b {
 
     public void release() {
         this.mRootLayout.removeAllViews();
-        this.bSF = null;
+        this.bcJ = null;
     }
 }

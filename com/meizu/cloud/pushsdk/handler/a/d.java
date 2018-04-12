@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends a<String> {
     public d(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -16,7 +16,7 @@ public class d extends a<String> {
     /* renamed from: j */
     public String c(Intent intent) {
         String stringExtra = intent.getStringExtra("registration_id");
-        com.meizu.cloud.pushsdk.util.c.a(c(), stringExtra);
+        com.meizu.cloud.pushsdk.util.b.a(c(), stringExtra);
         return stringExtra;
     }
 

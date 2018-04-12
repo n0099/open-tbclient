@@ -3,7 +3,7 @@ package com.xiaomi.channel.commonutils.android;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static Account a(Context context) {
         Account[] accountsByType;

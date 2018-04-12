@@ -9,42 +9,43 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.tbadk.browser.b;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.a;
 import com.baidu.tieba.tbadkCore.data.g;
 import com.baidu.tieba.tbadkCore.data.h;
 import com.baidu.tieba.tbadkCore.data.i;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PbNewChudianCommonView extends RelativeLayout implements View.OnClickListener {
-    private BdBaseActivity<?> gfj;
-    private TextView gfk;
-    private TextView gfl;
-    private ImageView gfm;
-    private TextView gfn;
-    private TextView gfo;
-    private TextView gfp;
-    private h gfq;
-    private a.InterfaceC0204a gfr;
+    private BdBaseActivity<?> fzE;
+    private TextView fzF;
+    private TextView fzG;
+    private ImageView fzH;
+    private TextView fzI;
+    private TextView fzJ;
+    private TextView fzK;
+    private h fzL;
+    private a.InterfaceC0186a fzM;
     private Context mContext;
     private View mRootView;
 
     public PbNewChudianCommonView(Context context) {
         super(context);
         this.mContext = null;
-        this.gfj = null;
+        this.fzE = null;
         this.mRootView = null;
-        this.gfk = null;
-        this.gfl = null;
-        this.gfm = null;
-        this.gfn = null;
-        this.gfo = null;
-        this.gfp = null;
-        this.gfq = null;
-        this.gfr = null;
+        this.fzF = null;
+        this.fzG = null;
+        this.fzH = null;
+        this.fzI = null;
+        this.fzJ = null;
+        this.fzK = null;
+        this.fzL = null;
+        this.fzM = null;
         this.mContext = context;
         init();
     }
@@ -52,53 +53,100 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     public PbNewChudianCommonView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.gfj = null;
+        this.fzE = null;
         this.mRootView = null;
-        this.gfk = null;
-        this.gfl = null;
-        this.gfm = null;
-        this.gfn = null;
-        this.gfo = null;
-        this.gfp = null;
-        this.gfq = null;
-        this.gfr = null;
+        this.fzF = null;
+        this.fzG = null;
+        this.fzH = null;
+        this.fzI = null;
+        this.fzJ = null;
+        this.fzK = null;
+        this.fzL = null;
+        this.fzM = null;
         this.mContext = context;
         init();
     }
 
     protected void init() {
         if (this.mContext != null) {
-            this.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.pb_newchudian_common, (ViewGroup) this, true);
-            this.gfk = (TextView) this.mRootView.findViewById(d.g.service_first);
-            this.gfk.setOnClickListener(this);
-            this.gfl = (TextView) this.mRootView.findViewById(d.g.service_second);
-            this.gfl.setOnClickListener(this);
-            this.gfn = (TextView) this.mRootView.findViewById(d.g.land_mark_text);
-            this.gfm = (ImageView) this.mRootView.findViewById(d.g.land_mark_icon);
-            this.gfo = (TextView) this.mRootView.findViewById(d.g.check_detail_up);
-            this.gfo.setOnClickListener(this);
-            this.gfp = (TextView) this.mRootView.findViewById(d.g.check_detail_down);
-            this.gfp.setOnClickListener(this);
+            this.mRootView = LayoutInflater.from(this.mContext).inflate(d.i.pb_newchudian_common, (ViewGroup) this, true);
+            this.fzF = (TextView) this.mRootView.findViewById(d.g.service_first);
+            this.fzF.setOnClickListener(this);
+            this.fzG = (TextView) this.mRootView.findViewById(d.g.service_second);
+            this.fzG.setOnClickListener(this);
+            this.fzI = (TextView) this.mRootView.findViewById(d.g.land_mark_text);
+            this.fzH = (ImageView) this.mRootView.findViewById(d.g.land_mark_icon);
+            this.fzJ = (TextView) this.mRootView.findViewById(d.g.check_detail_up);
+            this.fzJ.setOnClickListener(this);
+            this.fzK = (TextView) this.mRootView.findViewById(d.g.check_detail_down);
+            this.fzK.setOnClickListener(this);
+        }
+    }
+
+    public void setData(h hVar, BdBaseActivity<?> bdBaseActivity, a.InterfaceC0186a interfaceC0186a) {
+        g gVar;
+        g gVar2;
+        if (hVar != null && bdBaseActivity != null) {
+            this.fzL = hVar;
+            this.fzE = bdBaseActivity;
+            this.fzM = interfaceC0186a;
+            ArrayList<g> brF = this.fzL.brF();
+            if (brF != null && brF.size() > 0 && (gVar = brF.get(0)) != null && !an.isEmpty(gVar.getText())) {
+                ak.c(this.fzF, d.C0126d.cp_other_c, 1);
+                ak.d(this.fzF, d.f.label_bg_green, 1);
+                this.fzF.setText(gVar.getText());
+                this.fzF.setVisibility(0);
+                if (brF.size() > 1 && (gVar2 = brF.get(1)) != null && !an.isEmpty(gVar2.getText())) {
+                    ak.c(this.fzG, d.C0126d.cp_other_c, 1);
+                    ak.d(this.fzG, d.f.label_bg_green, 1);
+                    this.fzG.setText(gVar2.getText());
+                    this.fzG.setVisibility(0);
+                }
+            }
+            if (!an.isEmpty(this.fzL.getPosition())) {
+                this.fzI.setText(this.fzL.getPosition());
+                ak.c(this.fzI, d.C0126d.cp_cont_c, 1);
+                this.fzI.setVisibility(0);
+                ak.c(this.fzH, d.f.icon_pic_place);
+                this.fzH.setVisibility(0);
+            }
+            i brH = this.fzL.brH();
+            if (brH != null && !an.isEmpty(brH.getText())) {
+                if (this.fzF.getVisibility() != 0 && this.fzG.getVisibility() != 0) {
+                    ak.c(this.fzK, d.C0126d.cp_link_tip_a, 1);
+                    ak.d(this.fzK, d.f.label_bg_blue, 1);
+                    this.fzK.setText(brH.getText());
+                    this.fzK.setVisibility(0);
+                } else {
+                    ak.c(this.fzJ, d.C0126d.cp_link_tip_a, 1);
+                    ak.d(this.fzJ, d.f.label_bg_blue, 1);
+                    this.fzJ.setText(brH.getText());
+                    this.fzJ.setVisibility(0);
+                }
+            }
+            if (this.fzF.getVisibility() != 0 && this.fzG.getVisibility() != 0 && this.fzI.getVisibility() != 0 && this.fzK.getVisibility() != 0) {
+                this.mRootView.setVisibility(8);
+            }
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.gfq != null) {
-            if (view == this.gfk) {
-                if (this.gfq.bwD() != null) {
-                    a(this.gfq.bwD().get(0));
+    public void onClick(View view2) {
+        if (this.fzL != null) {
+            if (view2 == this.fzF) {
+                if (this.fzL.brF() != null) {
+                    a(this.fzL.brF().get(0));
                 }
-            } else if (view == this.gfl) {
-                if (this.gfq.bwD() != null) {
-                    a(this.gfq.bwD().get(1));
+            } else if (view2 == this.fzG) {
+                if (this.fzL.brF() != null) {
+                    a(this.fzL.brF().get(1));
                 }
-            } else if (view == this.gfo || view == this.gfp) {
-                i bwF = this.gfq.bwF();
-                if (!am.isEmpty(bwF.getUrl())) {
-                    b.R(this.mContext, bwF.getUrl());
-                    if (this.gfr != null) {
-                        this.gfr.d(bwF.getUrl(), "BUTTON", "CLICK", null, null);
+            } else if (view2 == this.fzJ || view2 == this.fzK) {
+                i brH = this.fzL.brH();
+                if (!an.isEmpty(brH.getUrl())) {
+                    com.baidu.tbadk.browser.a.M(this.mContext, brH.getUrl());
+                    if (this.fzM != null) {
+                        this.fzM.d(brH.getUrl(), "BUTTON", "CLICK", null, null);
                     }
                 }
             }
@@ -108,38 +156,38 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     private void a(g gVar) {
         if (gVar != null) {
             final String trim = gVar.getUrl().trim();
-            if (this.gfr != null) {
-                this.gfr.d(trim, "BTN_PHONE", "CLICK", null, null);
+            if (this.fzM != null) {
+                this.fzM.d(trim, "BTN_PHONE", "CLICK", null, null);
             }
-            if (!am.isEmpty(trim)) {
+            if (!an.isEmpty(trim)) {
                 int type = gVar.getType();
                 if (type == 1) {
-                    b.R(this.mContext, trim);
+                    com.baidu.tbadk.browser.a.M(this.mContext, trim);
                 } else if (type == 2) {
-                    com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.gfj.getActivity());
-                    aVar.dk(trim);
-                    aVar.a(this.gfj.getResources().getString(d.j.phone_call), new a.b() { // from class: com.baidu.tieba.pbextra.chudian.view.PbNewChudianCommonView.1
+                    com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.fzE.getActivity());
+                    aVar.dc(trim);
+                    aVar.a(this.fzE.getResources().getString(d.k.phone_call), new a.b() { // from class: com.baidu.tieba.pbextra.chudian.view.PbNewChudianCommonView.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
                             UtilHelper.callPhone(PbNewChudianCommonView.this.mContext, trim);
-                            if (PbNewChudianCommonView.this.gfr != null) {
-                                PbNewChudianCommonView.this.gfr.d(trim, "BTN_CALL", "CLICK_FEEDBACK", null, null);
+                            if (PbNewChudianCommonView.this.fzM != null) {
+                                PbNewChudianCommonView.this.fzM.d(trim, "BTN_CALL", "CLICK_FEEDBACK", null, null);
                             }
                         }
                     });
-                    aVar.b(this.gfj.getResources().getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.pbextra.chudian.view.PbNewChudianCommonView.2
+                    aVar.b(this.fzE.getResources().getString(d.k.cancel), new a.b() { // from class: com.baidu.tieba.pbextra.chudian.view.PbNewChudianCommonView.2
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
-                            if (PbNewChudianCommonView.this.gfr != null) {
-                                PbNewChudianCommonView.this.gfr.d(trim, "BTN_CANCEL", "CLICK_FEEDBACK", null, null);
+                            if (PbNewChudianCommonView.this.fzM != null) {
+                                PbNewChudianCommonView.this.fzM.d(trim, "BTN_CANCEL", "CLICK_FEEDBACK", null, null);
                             }
                         }
                     });
-                    aVar.ba(false);
-                    aVar.b(this.gfj.getPageContext());
-                    aVar.AV();
+                    aVar.as(false);
+                    aVar.b(this.fzE.getPageContext());
+                    aVar.tD();
                 }
             }
         }

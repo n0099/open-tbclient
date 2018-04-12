@@ -18,7 +18,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaViewActivity extends Activity {
     public WebView a;
     private RelativeLayout b;
@@ -32,7 +32,7 @@ public class MediaViewActivity extends Activity {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
+        public void onShowCustomView(View view2, WebChromeClient.CustomViewCallback customViewCallback) {
         }
     };
     private WebViewClient d = new WebViewClient() { // from class: com.baidu.android.pushservice.richmedia.MediaViewActivity.2

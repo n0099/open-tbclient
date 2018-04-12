@@ -5,13 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 /* loaded from: classes2.dex */
 public class a extends k<b, c> {
-    public View.OnClickListener bML;
+    public View.OnClickListener bfI;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -20,32 +20,32 @@ public class a extends k<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bw */
+    /* renamed from: bu */
     public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(LayoutInflater.from(this.mContext).inflate(d.h.pb_god_reply_look_more_item, viewGroup, false));
+        return new c(LayoutInflater.from(this.mContext).inflate(d.i.pb_god_reply_look_more_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
-        super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.cXo != null) {
-            if (this.bML != null) {
-                cVar.cXo.setOnClickListener(this.bML);
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b bVar, c cVar) {
+        super.onFillViewHolder(i, view2, viewGroup, bVar, cVar);
+        if (cVar != null && cVar.cpe != null) {
+            if (this.bfI != null) {
+                cVar.cpe.setOnClickListener(this.bfI);
             }
-            if (cVar.bfC != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.bfC = TbadkCoreApplication.getInst().getSkinType();
-                aj.r(cVar.cXo, d.C0141d.cp_cont_f);
-                aj.s(cVar.cXo, d.f.more_all);
-                aj.s(cVar.bQi, d.C0141d.cp_bg_line_c);
+            if (cVar.aqQ != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.aqQ = TbadkCoreApplication.getInst().getSkinType();
+                ak.h(cVar.cpe, d.C0126d.cp_cont_f);
+                ak.i(cVar.cpe, d.f.more_all);
+                ak.i(cVar.bae, d.C0126d.cp_bg_line_c);
             }
         }
-        return view;
+        return view2;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bML = onClickListener;
+        this.bfI = onClickListener;
     }
 }

@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -297,44 +298,44 @@ public abstract class c extends d implements com.baidu.ar.recorder.b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class View$OnTouchListenerC0038c implements View.OnTouchListener {
+    public static class View$OnTouchListenerC0027c implements View.OnTouchListener {
         float a;
         float b;
 
-        private View$OnTouchListenerC0038c() {
+        private View$OnTouchListenerC0027c() {
         }
 
         @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
             float rawX = motionEvent.getRawX();
             float rawY = motionEvent.getRawY();
-            CaptureState captureState = (CaptureState) view.getTag();
+            CaptureState captureState = (CaptureState) view2.getTag();
             switch (motionEvent.getAction()) {
                 case 0:
                     if (captureState == CaptureState.VIDEO_UNSTART) {
-                        ((RotateImageView) view).setImageDrawable(Res.getDrawable("bdar_drawable_icon_video_recording"));
+                        ((RotateImageView) view2).setImageDrawable(Res.getDrawable("bdar_drawable_icon_video_recording"));
                     } else if (captureState == CaptureState.VIDEO_CAPTUREING) {
-                        ((RotateImageView) view).setImageDrawable(Res.getDrawable("bdar_drawable_icon_video_capture_normal"));
+                        ((RotateImageView) view2).setImageDrawable(Res.getDrawable("bdar_drawable_icon_video_capture_normal"));
                     }
                     this.a = rawX;
                     this.b = rawY;
                     break;
                 case 1:
                     int[] iArr = new int[2];
-                    view.getLocationOnScreen(iArr);
-                    int width = view.getWidth();
-                    int height = view.getHeight();
+                    view2.getLocationOnScreen(iArr);
+                    int width = view2.getWidth();
+                    int height = view2.getHeight();
                     boolean z = rawX > ((float) iArr[0]) && rawX < ((float) (iArr[0] + width)) && rawY > ((float) iArr[1]) && rawY < ((float) (iArr[1] + height));
                     if (this.a <= iArr[0] || this.a >= width + iArr[0] || this.b <= iArr[1] || this.b < iArr[1] + height) {
                     }
                     if (!z) {
                         if (captureState != CaptureState.VIDEO_UNSTART) {
                             if (captureState == CaptureState.VIDEO_CAPTUREING) {
-                                ((RotateImageView) view).setImageDrawable(Res.getDrawable("bdar_drawable_icon_video_recording"));
+                                ((RotateImageView) view2).setImageDrawable(Res.getDrawable("bdar_drawable_icon_video_recording"));
                                 break;
                             }
                         } else {
-                            ((RotateImageView) view).setImageDrawable(Res.getDrawable("bdar_drawable_icon_video_capture_normal"));
+                            ((RotateImageView) view2).setImageDrawable(Res.getDrawable("bdar_drawable_icon_video_capture_normal"));
                             break;
                         }
                     }
@@ -344,8 +345,8 @@ public abstract class c extends d implements com.baidu.ar.recorder.b {
         }
     }
 
-    public c(BaseFragment baseFragment, a.C0035a c0035a) {
-        super(baseFragment, c0035a);
+    public c(BaseFragment baseFragment, a.C0024a c0024a) {
+        super(baseFragment, c0024a);
         this.b = 0;
         this.at = false;
         this.au = true;
@@ -554,6 +555,7 @@ public abstract class c extends d implements com.baidu.ar.recorder.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @RequiresApi(api = 23)
     public boolean ao() {
         if (!com.baidu.ar.util.a.b() || this.af == null || this.af.get() == null) {
             return true;
@@ -571,24 +573,24 @@ public abstract class c extends d implements com.baidu.ar.recorder.b {
     }
 
     private void aq() {
-        a.C0050a c0050a = new a.C0050a(this.af.get());
-        c0050a.a((CharSequence) Res.getString("plugin_bdar_audio_permission_dialog_title"));
-        c0050a.a(l.e(this.af.get()) + Res.getString("plugin_bdar_audio_permission_dialog_context"));
-        c0050a.a(Res.getString("bdar_ok"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.c.6
+        a.C0039a c0039a = new a.C0039a(this.af.get());
+        c0039a.a((CharSequence) Res.getString("plugin_bdar_audio_permission_dialog_title"));
+        c0039a.a(l.e(this.af.get()) + Res.getString("plugin_bdar_audio_permission_dialog_context"));
+        c0039a.a(Res.getString("bdar_ok"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.c.6
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 c.this.g(101);
                 com.baidu.ar.h.a.a().a("audio_dialog_yes");
             }
         });
-        c0050a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.c.7
+        c0039a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.c.7
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 c.this.ar();
                 com.baidu.ar.h.a.a().a("audio_dialog_no");
             }
         });
-        com.baidu.ar.ui.a a2 = c0050a.a();
+        com.baidu.ar.ui.a a2 = c0039a.a();
         a2.setCanceledOnTouchOutside(false);
         a2.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.ar.c.8
             @Override // android.content.DialogInterface.OnKeyListener
@@ -1078,9 +1080,9 @@ public abstract class c extends d implements com.baidu.ar.recorder.b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(View view, int i) {
-        if (view != null) {
-            view.setVisibility(i);
+    public void a(View view2, int i) {
+        if (view2 != null) {
+            view2.setVisibility(i);
         }
     }
 
@@ -1320,8 +1322,8 @@ public abstract class c extends d implements com.baidu.ar.recorder.b {
             this.k.setVisibility(0);
             this.l = (CategoryView) this.i.findViewById(Res.id("bdar_capture_category"));
             this.l.setVisibility(0);
-            this.l.setCategoryListener(new a.InterfaceC0051a() { // from class: com.baidu.ar.c.5
-                @Override // com.baidu.ar.ui.adapter.a.InterfaceC0051a
+            this.l.setCategoryListener(new a.InterfaceC0040a() { // from class: com.baidu.ar.c.5
+                @Override // com.baidu.ar.ui.adapter.a.InterfaceC0040a
                 public void a(com.baidu.ar.ui.adapter.a aVar, String str) {
                     c.this.m = str;
                     if (str.equals(m.b)) {
@@ -1343,7 +1345,7 @@ public abstract class c extends d implements com.baidu.ar.recorder.b {
             this.m = m.b;
             this.l.setCurrentItem(this.m);
             this.j.setTag(CaptureState.PICTURE);
-            this.j.setOnTouchListener(new View$OnTouchListenerC0038c());
+            this.j.setOnTouchListener(new View$OnTouchListenerC0027c());
             this.l.setItemChangeListener(this.ac);
         } else {
             this.i.removeAllViews();
@@ -1686,13 +1688,13 @@ public abstract class c extends d implements com.baidu.ar.recorder.b {
     }
 
     protected void p() {
-        com.baidu.ar.b.a.a().a(new a.InterfaceC0037a() { // from class: com.baidu.ar.c.19
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+        com.baidu.ar.b.a.a().a(new a.InterfaceC0026a() { // from class: com.baidu.ar.c.19
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(Exception exc) {
                 com.baidu.ar.b.a.b();
             }
 
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(boolean z) {
                 com.baidu.ar.b.a.b();
             }

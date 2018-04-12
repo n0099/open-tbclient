@@ -5,6 +5,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -12,6 +15,14 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes2.dex */
 public class PagerTabStrip extends PagerTitleStrip {
+    private static final int FULL_UNDERLINE_HEIGHT = 1;
+    private static final int INDICATOR_HEIGHT = 3;
+    private static final int MIN_PADDING_BOTTOM = 6;
+    private static final int MIN_STRIP_HEIGHT = 32;
+    private static final int MIN_TEXT_SPACING = 64;
+    private static final int TAB_PADDING = 16;
+    private static final int TAB_SPACING = 32;
+    private static final String TAG = "PagerTabStrip";
     private boolean mDrawFullUnderline;
     private boolean mDrawFullUnderlineSet;
     private int mFullUnderlineHeight;
@@ -56,14 +67,14 @@ public class PagerTabStrip extends PagerTitleStrip {
         this.mPrevText.setFocusable(true);
         this.mPrevText.setOnClickListener(new View.OnClickListener() { // from class: android.support.v4.view.PagerTabStrip.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 PagerTabStrip.this.mPager.setCurrentItem(PagerTabStrip.this.mPager.getCurrentItem() - 1);
             }
         });
         this.mNextText.setFocusable(true);
         this.mNextText.setOnClickListener(new View.OnClickListener() { // from class: android.support.v4.view.PagerTabStrip.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 PagerTabStrip.this.mPager.setCurrentItem(PagerTabStrip.this.mPager.getCurrentItem() + 1);
             }
         });
@@ -72,16 +83,17 @@ public class PagerTabStrip extends PagerTitleStrip {
         }
     }
 
-    public void setTabIndicatorColor(int i) {
+    public void setTabIndicatorColor(@ColorInt int i) {
         this.mIndicatorColor = i;
         this.mTabPaint.setColor(this.mIndicatorColor);
         invalidate();
     }
 
-    public void setTabIndicatorColorResource(int i) {
+    public void setTabIndicatorColorResource(@ColorRes int i) {
         setTabIndicatorColor(ContextCompat.getColor(getContext(), i));
     }
 
+    @ColorInt
     public int getTabIndicatorColor() {
         return this.mIndicatorColor;
     }
@@ -111,7 +123,7 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i) {
+    public void setBackgroundColor(@ColorInt int i) {
         super.setBackgroundColor(i);
         if (!this.mDrawFullUnderlineSet) {
             this.mDrawFullUnderline = ((-16777216) & i) == 0;
@@ -119,7 +131,7 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         super.setBackgroundResource(i);
         if (!this.mDrawFullUnderlineSet) {
             this.mDrawFullUnderline = i == 0;

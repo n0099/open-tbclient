@@ -4,6 +4,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.ActionMode;
@@ -12,14 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public class AppCompatDialog extends Dialog implements AppCompatCallback {
-    private AppCompatDelegate Cf;
+    private AppCompatDelegate mDelegate;
 
     public AppCompatDialog(Context context) {
         this(context, 0);
     }
 
     public AppCompatDialog(Context context, int i) {
-        super(context, c(context, i));
+        super(context, getThemeResId(context, i));
         getDelegate().onCreate(null);
         getDelegate().applyDayNight();
     }
@@ -42,22 +45,23 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public void setContentView(int i) {
+    public void setContentView(@LayoutRes int i) {
         getDelegate().setContentView(i);
     }
 
     @Override // android.app.Dialog
-    public void setContentView(View view) {
-        getDelegate().setContentView(view);
+    public void setContentView(View view2) {
+        getDelegate().setContentView(view2);
     }
 
     @Override // android.app.Dialog
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        getDelegate().setContentView(view, layoutParams);
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        getDelegate().setContentView(view2, layoutParams);
     }
 
     @Override // android.app.Dialog
-    public View findViewById(int i) {
+    @Nullable
+    public View findViewById(@IdRes int i) {
         return getDelegate().findViewById(i);
     }
 
@@ -74,8 +78,8 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        getDelegate().addContentView(view, layoutParams);
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        getDelegate().addContentView(view2, layoutParams);
     }
 
     @Override // android.app.Dialog
@@ -89,19 +93,19 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void invalidateOptionsMenu() {
         getDelegate().invalidateOptionsMenu();
     }
 
     public AppCompatDelegate getDelegate() {
-        if (this.Cf == null) {
-            this.Cf = AppCompatDelegate.create(this, this);
+        if (this.mDelegate == null) {
+            this.mDelegate = AppCompatDelegate.create(this, this);
         }
-        return this.Cf;
+        return this.mDelegate;
     }
 
-    private static int c(Context context, int i) {
+    private static int getThemeResId(Context context, int i) {
         if (i == 0) {
             TypedValue typedValue = new TypedValue();
             context.getTheme().resolveAttribute(R.attr.dialogTheme, typedValue, true);
@@ -119,6 +123,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.support.v7.app.AppCompatCallback
+    @Nullable
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         return null;
     }

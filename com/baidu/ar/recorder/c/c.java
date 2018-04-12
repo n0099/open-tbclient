@@ -2,7 +2,9 @@ package com.baidu.ar.recorder.c;
 
 import android.opengl.EGL14;
 import android.opengl.EGLSurface;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
+@RequiresApi(api = 18)
 /* loaded from: classes3.dex */
 public class c {
     protected static final String a = c.class.getSimpleName();

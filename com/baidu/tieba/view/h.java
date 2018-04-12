@@ -1,21 +1,18 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.NavigationBar;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
 /* loaded from: classes.dex */
-public interface h {
-    void Q(int i, boolean z);
+public abstract class h extends ClickableSpan {
+    private boolean gXC;
 
-    void a(Context context, NavigationBar navigationBar);
+    public abstract void a(TextPaint textPaint, boolean z);
 
-    void bjN();
-
-    void c(float f, boolean z);
-
-    void e(UserData userData);
-
-    void onChangeSkinType(int i);
-
-    void setOnViewResponseListener(i iVar);
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        super.updateDrawState(textPaint);
+        a(textPaint, this.gXC);
+        textPaint.setUnderlineText(false);
+        textPaint.clearShadowLayer();
+    }
 }

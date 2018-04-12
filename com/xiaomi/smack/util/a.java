@@ -1,6 +1,5 @@
 package com.xiaomi.smack.util;
 
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.sina.weibo.sdk.exception.WeiboAuthException;
@@ -18,7 +17,7 @@ import org.apache.commons.logging.LogFactory;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static XmlPullParser a = null;
 
@@ -174,7 +173,7 @@ public class a {
         } catch (Exception e4) {
         }
         try {
-            String attributeValue10 = xmlPullParser.getAttributeValue("", NotificationCompat.CATEGORY_STATUS);
+            String attributeValue10 = xmlPullParser.getAttributeValue("", "status");
             if (!TextUtils.isEmpty(attributeValue10)) {
                 cVar2.e(attributeValue10);
             }
@@ -264,7 +263,7 @@ public class a {
             if (next == 2) {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
-                if (name.equals(NotificationCompat.CATEGORY_STATUS)) {
+                if (name.equals("status")) {
                     fVar.a(xmlPullParser.nextText());
                 } else if (name.equals(LogFactory.PRIORITY_KEY)) {
                     try {

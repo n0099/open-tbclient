@@ -17,10 +17,11 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class AbsActionBarView extends ViewGroup {
-    private boolean JK;
-    private boolean JL;
+    private static final int FADE_DURATION = 200;
     protected ActionMenuPresenter mActionMenuPresenter;
     protected int mContentHeight;
+    private boolean mEatingHover;
+    private boolean mEatingTouch;
     protected ActionMenuView mMenuView;
     protected final Context mPopupContext;
     protected final VisibilityAnimListener mVisAnimListener;
@@ -61,16 +62,16 @@ public abstract class AbsActionBarView extends ViewGroup {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
         if (actionMasked == 0) {
-            this.JK = false;
+            this.mEatingTouch = false;
         }
-        if (!this.JK) {
+        if (!this.mEatingTouch) {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
             if (actionMasked == 0 && !onTouchEvent) {
-                this.JK = true;
+                this.mEatingTouch = true;
             }
         }
         if (actionMasked == 1 || actionMasked == 3) {
-            this.JK = false;
+            this.mEatingTouch = false;
         }
         return true;
     }
@@ -79,16 +80,16 @@ public abstract class AbsActionBarView extends ViewGroup {
     public boolean onHoverEvent(MotionEvent motionEvent) {
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
         if (actionMasked == 9) {
-            this.JL = false;
+            this.mEatingHover = false;
         }
-        if (!this.JL) {
+        if (!this.mEatingHover) {
             boolean onHoverEvent = super.onHoverEvent(motionEvent);
             if (actionMasked == 9 && !onHoverEvent) {
-                this.JL = true;
+                this.mEatingHover = true;
             }
         }
         if (actionMasked == 10 || actionMasked == 3) {
-            this.JL = false;
+            this.mEatingHover = false;
         }
         return true;
     }
@@ -103,7 +104,7 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     public int getAnimatedVisibility() {
-        return this.mVisibilityAnim != null ? this.mVisAnimListener.JN : getVisibility();
+        return this.mVisibilityAnim != null ? this.mVisAnimListener.mFinalVisibility : getVisibility();
     }
 
     public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i, long j) {
@@ -186,14 +187,14 @@ public abstract class AbsActionBarView extends ViewGroup {
 
     public void dismissPopupMenus() {
         if (this.mActionMenuPresenter != null) {
-            this.mActionMenuPresenter.fl();
+            this.mActionMenuPresenter.dismissPopupMenus();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int measureChildView(View view, int i, int i2, int i3) {
-        view.measure(View.MeasureSpec.makeMeasureSpec(i, Integer.MIN_VALUE), i2);
-        return Math.max(0, (i - view.getMeasuredWidth()) - i3);
+    public int measureChildView(View view2, int i, int i2, int i3) {
+        view2.measure(View.MeasureSpec.makeMeasureSpec(i, Integer.MIN_VALUE), i2);
+        return Math.max(0, (i - view2.getMeasuredWidth()) - i3);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -202,14 +203,14 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int positionChild(View view, int i, int i2, int i3, boolean z) {
-        int measuredWidth = view.getMeasuredWidth();
-        int measuredHeight = view.getMeasuredHeight();
+    public int positionChild(View view2, int i, int i2, int i3, boolean z) {
+        int measuredWidth = view2.getMeasuredWidth();
+        int measuredHeight = view2.getMeasuredHeight();
         int i4 = ((i3 - measuredHeight) / 2) + i2;
         if (z) {
-            view.layout(i - measuredWidth, i4, i, measuredHeight + i4);
+            view2.layout(i - measuredWidth, i4, i, measuredHeight + i4);
         } else {
-            view.layout(i, i4, i + measuredWidth, measuredHeight + i4);
+            view2.layout(i, i4, i + measuredWidth, measuredHeight + i4);
         }
         return z ? -measuredWidth : measuredWidth;
     }
@@ -217,34 +218,34 @@ public abstract class AbsActionBarView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
     public class VisibilityAnimListener implements ViewPropertyAnimatorListener {
-        int JN;
         private boolean mCanceled = false;
+        int mFinalVisibility;
 
         protected VisibilityAnimListener() {
         }
 
         public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, int i) {
             AbsActionBarView.this.mVisibilityAnim = viewPropertyAnimatorCompat;
-            this.JN = i;
+            this.mFinalVisibility = i;
             return this;
         }
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationStart(View view) {
+        public void onAnimationStart(View view2) {
             AbsActionBarView.super.setVisibility(0);
             this.mCanceled = false;
         }
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationEnd(View view) {
+        public void onAnimationEnd(View view2) {
             if (!this.mCanceled) {
                 AbsActionBarView.this.mVisibilityAnim = null;
-                AbsActionBarView.super.setVisibility(this.JN);
+                AbsActionBarView.super.setVisibility(this.mFinalVisibility);
             }
         }
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationCancel(View view) {
+        public void onAnimationCancel(View view2) {
             this.mCanceled = true;
         }
     }

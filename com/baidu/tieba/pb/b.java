@@ -10,11 +10,11 @@ public class b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static String fFr = "c12585";
-        public static String fFs = "c12586";
+        public static String eZX = "c12585";
+        public static String eZY = "c12586";
     }
 
-    public static CustomDialogData Q(JSONObject jSONObject) {
+    public static CustomDialogData T(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("tb_hudong")) == null || TextUtils.isEmpty(optJSONObject.optString("content"))) {
             return null;

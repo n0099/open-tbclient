@@ -6,69 +6,69 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import java.io.File;
 /* loaded from: classes.dex */
-public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
+public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.f.e
-    public boolean np() {
+    public boolean ft() {
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
-    public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gP = com.baidu.tbadk.imageManager.c.Mx().gP(eP(str));
-        if (gP == null || gP.sh() == null) {
+    public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
+        com.baidu.adp.widget.ImageView.a gG = com.baidu.tbadk.imageManager.c.Fa().gG(eH(str));
+        if (gG == null || gG.km() == null) {
             return null;
         }
-        return gP;
+        return gG;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
-    public com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return eQ(str);
+        return eI(str);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
-        if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.Mx().c(eP(str), (com.baidu.adp.widget.a.a) obj);
+        if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
+            com.baidu.tbadk.imageManager.c.Fa().c(eH(str), (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
-    public com.baidu.adp.widget.a.a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel nq() {
+    public BdAsyncTaskParallel fu() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int nr() {
+    public int fv() {
         return 1;
     }
 
-    public com.baidu.adp.widget.a.a eQ(String str) {
+    public com.baidu.adp.widget.ImageView.a eI(String str) {
         try {
             File file = new File(str);
             if (file != null && file.exists()) {
-                return new com.baidu.adp.widget.a.a(ThumbnailUtils.createVideoThumbnail(str, 1), false, str);
+                return new com.baidu.adp.widget.ImageView.a(ThumbnailUtils.createVideoThumbnail(str, 1), false, str);
             }
         } catch (OutOfMemoryError e) {
         }
         return null;
     }
 
-    public String eP(String str) {
+    public String eH(String str) {
         return "videoThumb_" + str;
     }
 }

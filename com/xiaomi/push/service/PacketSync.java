@@ -9,11 +9,11 @@ import com.xiaomi.network.HostManager;
 import com.xiaomi.push.protobuf.b;
 import com.xiaomi.push.service.ak;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PacketSync {
     private XMPushService a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PacketReceiveHandler extends Parcelable {
     }
 
@@ -141,7 +141,7 @@ public class PacketSync {
                     }
                     return;
                 } else if ("CONF".equals(bVar.b())) {
-                    at.a().a(b.C0291b.b(bVar.k()));
+                    at.a().a(b.C0273b.b(bVar.k()));
                     return;
                 } else if (TextUtils.equals("U", bVar.b())) {
                     b.k b3 = b.k.b(bVar.k());

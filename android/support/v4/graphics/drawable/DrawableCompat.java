@@ -6,17 +6,20 @@ import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes2.dex */
 public final class DrawableCompat {
-    static final b wq;
+    static final DrawableImpl IMPL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public interface b {
+    public interface DrawableImpl {
         void applyTheme(Drawable drawable, Resources.Theme theme);
 
         boolean canApplyTheme(Drawable drawable);
@@ -53,120 +56,120 @@ public final class DrawableCompat {
     }
 
     /* loaded from: classes2.dex */
-    static class a implements b {
-        a() {
+    static class BaseDrawableImpl implements DrawableImpl {
+        BaseDrawableImpl() {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void jumpToCurrentState(Drawable drawable) {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setAutoMirrored(Drawable drawable, boolean z) {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public boolean isAutoMirrored(Drawable drawable) {
             return false;
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setHotspot(Drawable drawable, float f, float f2) {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setHotspotBounds(Drawable drawable, int i, int i2, int i3, int i4) {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setTint(Drawable drawable, int i) {
-            android.support.v4.graphics.drawable.b.setTint(drawable, i);
+            DrawableCompatBase.setTint(drawable, i);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setTintList(Drawable drawable, ColorStateList colorStateList) {
-            android.support.v4.graphics.drawable.b.setTintList(drawable, colorStateList);
+            DrawableCompatBase.setTintList(drawable, colorStateList);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setTintMode(Drawable drawable, PorterDuff.Mode mode) {
-            android.support.v4.graphics.drawable.b.setTintMode(drawable, mode);
+            DrawableCompatBase.setTintMode(drawable, mode);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public Drawable wrap(Drawable drawable) {
-            return android.support.v4.graphics.drawable.b.b(drawable);
+            return DrawableCompatBase.wrapForTinting(drawable);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public boolean setLayoutDirection(Drawable drawable, int i) {
             return false;
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public int getLayoutDirection(Drawable drawable) {
             return 0;
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public int getAlpha(Drawable drawable) {
             return 0;
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void applyTheme(Drawable drawable, Resources.Theme theme) {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public boolean canApplyTheme(Drawable drawable) {
             return false;
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public ColorFilter getColorFilter(Drawable drawable) {
             return null;
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void clearColorFilter(Drawable drawable) {
             drawable.clearColorFilter();
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void inflate(Drawable drawable, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws IOException, XmlPullParserException {
-            android.support.v4.graphics.drawable.b.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
+            DrawableCompatBase.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
         }
     }
 
     /* loaded from: classes2.dex */
-    static class c extends a {
-        c() {
+    static class HoneycombDrawableImpl extends BaseDrawableImpl {
+        HoneycombDrawableImpl() {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void jumpToCurrentState(Drawable drawable) {
-            android.support.v4.graphics.drawable.c.jumpToCurrentState(drawable);
+            DrawableCompatHoneycomb.jumpToCurrentState(drawable);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public Drawable wrap(Drawable drawable) {
-            return android.support.v4.graphics.drawable.c.b(drawable);
+            return DrawableCompatHoneycomb.wrapForTinting(drawable);
         }
     }
 
     /* loaded from: classes2.dex */
-    static class d extends c {
-        d() {
+    static class JellybeanMr1DrawableImpl extends HoneycombDrawableImpl {
+        JellybeanMr1DrawableImpl() {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public boolean setLayoutDirection(Drawable drawable, int i) {
-            return android.support.v4.graphics.drawable.d.setLayoutDirection(drawable, i);
+            return DrawableCompatJellybeanMr1.setLayoutDirection(drawable, i);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public int getLayoutDirection(Drawable drawable) {
-            int layoutDirection = android.support.v4.graphics.drawable.d.getLayoutDirection(drawable);
+            int layoutDirection = DrawableCompatJellybeanMr1.getLayoutDirection(drawable);
             if (layoutDirection >= 0) {
                 return layoutDirection;
             }
@@ -175,113 +178,113 @@ public final class DrawableCompat {
     }
 
     /* loaded from: classes2.dex */
-    static class e extends d {
-        e() {
+    static class KitKatDrawableImpl extends JellybeanMr1DrawableImpl {
+        KitKatDrawableImpl() {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setAutoMirrored(Drawable drawable, boolean z) {
-            android.support.v4.graphics.drawable.e.setAutoMirrored(drawable, z);
+            DrawableCompatKitKat.setAutoMirrored(drawable, z);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public boolean isAutoMirrored(Drawable drawable) {
-            return android.support.v4.graphics.drawable.e.isAutoMirrored(drawable);
+            return DrawableCompatKitKat.isAutoMirrored(drawable);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.c, android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.HoneycombDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public Drawable wrap(Drawable drawable) {
-            return android.support.v4.graphics.drawable.e.b(drawable);
+            return DrawableCompatKitKat.wrapForTinting(drawable);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public int getAlpha(Drawable drawable) {
-            return android.support.v4.graphics.drawable.e.getAlpha(drawable);
+            return DrawableCompatKitKat.getAlpha(drawable);
         }
     }
 
     /* loaded from: classes2.dex */
-    static class f extends e {
-        f() {
+    static class LollipopDrawableImpl extends KitKatDrawableImpl {
+        LollipopDrawableImpl() {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setHotspot(Drawable drawable, float f, float f2) {
-            android.support.v4.graphics.drawable.f.setHotspot(drawable, f, f2);
+            DrawableCompatLollipop.setHotspot(drawable, f, f2);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setHotspotBounds(Drawable drawable, int i, int i2, int i3, int i4) {
-            android.support.v4.graphics.drawable.f.setHotspotBounds(drawable, i, i2, i3, i4);
+            DrawableCompatLollipop.setHotspotBounds(drawable, i, i2, i3, i4);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setTint(Drawable drawable, int i) {
-            android.support.v4.graphics.drawable.f.setTint(drawable, i);
+            DrawableCompatLollipop.setTint(drawable, i);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setTintList(Drawable drawable, ColorStateList colorStateList) {
-            android.support.v4.graphics.drawable.f.setTintList(drawable, colorStateList);
+            DrawableCompatLollipop.setTintList(drawable, colorStateList);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void setTintMode(Drawable drawable, PorterDuff.Mode mode) {
-            android.support.v4.graphics.drawable.f.setTintMode(drawable, mode);
+            DrawableCompatLollipop.setTintMode(drawable, mode);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.e, android.support.v4.graphics.drawable.DrawableCompat.c, android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.KitKatDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.HoneycombDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public Drawable wrap(Drawable drawable) {
-            return android.support.v4.graphics.drawable.f.b(drawable);
+            return DrawableCompatLollipop.wrapForTinting(drawable);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void applyTheme(Drawable drawable, Resources.Theme theme) {
-            android.support.v4.graphics.drawable.f.applyTheme(drawable, theme);
+            DrawableCompatLollipop.applyTheme(drawable, theme);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public boolean canApplyTheme(Drawable drawable) {
-            return android.support.v4.graphics.drawable.f.canApplyTheme(drawable);
+            return DrawableCompatLollipop.canApplyTheme(drawable);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public ColorFilter getColorFilter(Drawable drawable) {
-            return android.support.v4.graphics.drawable.f.getColorFilter(drawable);
+            return DrawableCompatLollipop.getColorFilter(drawable);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void clearColorFilter(Drawable drawable) {
-            android.support.v4.graphics.drawable.f.clearColorFilter(drawable);
+            DrawableCompatLollipop.clearColorFilter(drawable);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void inflate(Drawable drawable, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws IOException, XmlPullParserException {
-            android.support.v4.graphics.drawable.f.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
+            DrawableCompatLollipop.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
         }
     }
 
     /* loaded from: classes2.dex */
-    static class g extends f {
-        g() {
+    static class MDrawableImpl extends LollipopDrawableImpl {
+        MDrawableImpl() {
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.d, android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.JellybeanMr1DrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public boolean setLayoutDirection(Drawable drawable, int i) {
-            return android.support.v4.graphics.drawable.a.setLayoutDirection(drawable, i);
+            return DrawableCompatApi23.setLayoutDirection(drawable, i);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.d, android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.JellybeanMr1DrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public int getLayoutDirection(Drawable drawable) {
-            return android.support.v4.graphics.drawable.a.getLayoutDirection(drawable);
+            return DrawableCompatApi23.getLayoutDirection(drawable);
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.f, android.support.v4.graphics.drawable.DrawableCompat.e, android.support.v4.graphics.drawable.DrawableCompat.c, android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.LollipopDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.KitKatDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.HoneycombDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public Drawable wrap(Drawable drawable) {
             return drawable;
         }
 
-        @Override // android.support.v4.graphics.drawable.DrawableCompat.f, android.support.v4.graphics.drawable.DrawableCompat.a, android.support.v4.graphics.drawable.DrawableCompat.b
+        @Override // android.support.v4.graphics.drawable.DrawableCompat.LollipopDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.BaseDrawableImpl, android.support.v4.graphics.drawable.DrawableCompat.DrawableImpl
         public void clearColorFilter(Drawable drawable) {
             drawable.clearColorFilter();
         }
@@ -290,95 +293,95 @@ public final class DrawableCompat {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 23) {
-            wq = new g();
+            IMPL = new MDrawableImpl();
         } else if (i >= 21) {
-            wq = new f();
+            IMPL = new LollipopDrawableImpl();
         } else if (i >= 19) {
-            wq = new e();
+            IMPL = new KitKatDrawableImpl();
         } else if (i >= 17) {
-            wq = new d();
+            IMPL = new JellybeanMr1DrawableImpl();
         } else if (i >= 11) {
-            wq = new c();
+            IMPL = new HoneycombDrawableImpl();
         } else {
-            wq = new a();
+            IMPL = new BaseDrawableImpl();
         }
     }
 
-    public static void jumpToCurrentState(Drawable drawable) {
-        wq.jumpToCurrentState(drawable);
+    public static void jumpToCurrentState(@NonNull Drawable drawable) {
+        IMPL.jumpToCurrentState(drawable);
     }
 
-    public static void setAutoMirrored(Drawable drawable, boolean z) {
-        wq.setAutoMirrored(drawable, z);
+    public static void setAutoMirrored(@NonNull Drawable drawable, boolean z) {
+        IMPL.setAutoMirrored(drawable, z);
     }
 
-    public static boolean isAutoMirrored(Drawable drawable) {
-        return wq.isAutoMirrored(drawable);
+    public static boolean isAutoMirrored(@NonNull Drawable drawable) {
+        return IMPL.isAutoMirrored(drawable);
     }
 
-    public static void setHotspot(Drawable drawable, float f2, float f3) {
-        wq.setHotspot(drawable, f2, f3);
+    public static void setHotspot(@NonNull Drawable drawable, float f, float f2) {
+        IMPL.setHotspot(drawable, f, f2);
     }
 
-    public static void setHotspotBounds(Drawable drawable, int i, int i2, int i3, int i4) {
-        wq.setHotspotBounds(drawable, i, i2, i3, i4);
+    public static void setHotspotBounds(@NonNull Drawable drawable, int i, int i2, int i3, int i4) {
+        IMPL.setHotspotBounds(drawable, i, i2, i3, i4);
     }
 
-    public static void setTint(Drawable drawable, int i) {
-        wq.setTint(drawable, i);
+    public static void setTint(@NonNull Drawable drawable, @ColorInt int i) {
+        IMPL.setTint(drawable, i);
     }
 
-    public static void setTintList(Drawable drawable, ColorStateList colorStateList) {
-        wq.setTintList(drawable, colorStateList);
+    public static void setTintList(@NonNull Drawable drawable, @Nullable ColorStateList colorStateList) {
+        IMPL.setTintList(drawable, colorStateList);
     }
 
-    public static void setTintMode(Drawable drawable, PorterDuff.Mode mode) {
-        wq.setTintMode(drawable, mode);
+    public static void setTintMode(@NonNull Drawable drawable, @Nullable PorterDuff.Mode mode) {
+        IMPL.setTintMode(drawable, mode);
     }
 
-    public static int getAlpha(Drawable drawable) {
-        return wq.getAlpha(drawable);
+    public static int getAlpha(@NonNull Drawable drawable) {
+        return IMPL.getAlpha(drawable);
     }
 
-    public static void applyTheme(Drawable drawable, Resources.Theme theme) {
-        wq.applyTheme(drawable, theme);
+    public static void applyTheme(@NonNull Drawable drawable, @NonNull Resources.Theme theme) {
+        IMPL.applyTheme(drawable, theme);
     }
 
-    public static boolean canApplyTheme(Drawable drawable) {
-        return wq.canApplyTheme(drawable);
+    public static boolean canApplyTheme(@NonNull Drawable drawable) {
+        return IMPL.canApplyTheme(drawable);
     }
 
-    public static ColorFilter getColorFilter(Drawable drawable) {
-        return wq.getColorFilter(drawable);
+    public static ColorFilter getColorFilter(@NonNull Drawable drawable) {
+        return IMPL.getColorFilter(drawable);
     }
 
-    public static void clearColorFilter(Drawable drawable) {
-        wq.clearColorFilter(drawable);
+    public static void clearColorFilter(@NonNull Drawable drawable) {
+        IMPL.clearColorFilter(drawable);
     }
 
-    public static void inflate(Drawable drawable, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
-        wq.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
+    public static void inflate(@NonNull Drawable drawable, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
+        IMPL.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
     }
 
-    public static Drawable wrap(Drawable drawable) {
-        return wq.wrap(drawable);
+    public static Drawable wrap(@NonNull Drawable drawable) {
+        return IMPL.wrap(drawable);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: android.graphics.drawable.Drawable */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T extends Drawable> T unwrap(Drawable drawable) {
+    public static <T extends Drawable> T unwrap(@NonNull Drawable drawable) {
         if (drawable instanceof DrawableWrapper) {
             return (T) ((DrawableWrapper) drawable).getWrappedDrawable();
         }
         return drawable;
     }
 
-    public static boolean setLayoutDirection(Drawable drawable, int i) {
-        return wq.setLayoutDirection(drawable, i);
+    public static boolean setLayoutDirection(@NonNull Drawable drawable, int i) {
+        return IMPL.setLayoutDirection(drawable, i);
     }
 
-    public static int getLayoutDirection(Drawable drawable) {
-        return wq.getLayoutDirection(drawable);
+    public static int getLayoutDirection(@NonNull Drawable drawable) {
+        return IMPL.getLayoutDirection(drawable);
     }
 
     private DrawableCompat() {

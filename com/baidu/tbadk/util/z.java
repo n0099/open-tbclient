@@ -7,6 +7,8 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -65,7 +67,7 @@ public class z {
         return str3;
     }
 
-    public static Bundle hv(String str) {
+    public static Bundle hn(String str) {
         URL url;
         String query;
         String[] split;
@@ -95,17 +97,17 @@ public class z {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String bDv;
+        public String aNS;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.bDv = "";
+            this.aNS = "";
             this.BDUSS = str;
-            this.bDv = str2;
+            this.aNS = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bDv != null ? this.bDv.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aNS != null ? this.aNS.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -121,7 +123,7 @@ public class z {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.bDv == null ? aVar.bDv == null : this.bDv.equals(aVar.bDv);
+                return this.aNS == null ? aVar.aNS == null : this.aNS.equals(aVar.aNS);
             }
             return false;
         }
@@ -143,5 +145,21 @@ public class z {
                 MessageManager.getInstance().registerListener(customMessageListener);
             }
         }
+    }
+
+    public static String ho(String str) {
+        if (!an.isEmpty(str) && !str.contains("page_type")) {
+            StringBuilder sb = new StringBuilder(str);
+            if (str.contains("?")) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            sb.append("page_type");
+            sb.append("=");
+            sb.append(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            return sb.toString();
+        }
+        return str;
     }
 }

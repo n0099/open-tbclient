@@ -16,36 +16,36 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class TrackHeaderBox extends AbstractFullBox {
     public static final String TYPE = "tkhd";
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_20 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_21 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_22 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_23 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_24 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_25 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_26 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_27 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_28 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_29 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_20 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_21 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_22 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_23 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_24 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_25 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_26 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_27 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_28 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_29 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_9 = null;
     private int alternateGroup;
     private Date creationTime;
     private long duration;
@@ -254,12 +254,12 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.dV(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.dE(j)));
         this.trackId = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.dV(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.dE(j)));
         this.duration = j;
         if (j >= IjkMediaMeta.AV_CH_WIDE_RIGHT) {
             setFlags(1);
@@ -267,17 +267,17 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setLayer(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.wl(i)));
         this.layer = i;
     }
 
     public void setAlternateGroup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.wl(i)));
         this.alternateGroup = i;
     }
 
     public void setVolume(float f) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.aI(f)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.ax(f)));
         this.volume = f;
     }
 
@@ -287,12 +287,12 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setWidth(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.q(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.r(d)));
         this.width = d;
     }
 
     public void setHeight(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.q(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.r(d)));
         this.height = d;
     }
 
@@ -317,7 +317,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setEnabled(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.oA(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.nV(z)));
         if (z) {
             setFlags(getFlags() | 1);
         } else {
@@ -326,7 +326,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInMovie(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.oA(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.nV(z)));
         if (z) {
             setFlags(getFlags() | 2);
         } else {
@@ -335,7 +335,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInPreview(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.oA(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.nV(z)));
         if (z) {
             setFlags(getFlags() | 4);
         } else {
@@ -344,7 +344,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInPoster(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.oA(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.nV(z)));
         if (z) {
             setFlags(getFlags() | 8);
         } else {

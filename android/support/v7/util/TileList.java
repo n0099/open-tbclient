@@ -4,77 +4,77 @@ import android.util.SparseArray;
 import java.lang.reflect.Array;
 /* loaded from: classes2.dex */
 class TileList<T> {
-    final int EZ;
-    private final SparseArray<Tile<T>> Gs = new SparseArray<>(10);
-    Tile<T> Gt;
+    Tile<T> mLastAccessedTile;
+    final int mTileSize;
+    private final SparseArray<Tile<T>> mTiles = new SparseArray<>(10);
 
     public TileList(int i) {
-        this.EZ = i;
+        this.mTileSize = i;
     }
 
-    public T aK(int i) {
-        if (this.Gt == null || !this.Gt.aN(i)) {
-            int indexOfKey = this.Gs.indexOfKey(i - (i % this.EZ));
+    public T getItemAt(int i) {
+        if (this.mLastAccessedTile == null || !this.mLastAccessedTile.containsPosition(i)) {
+            int indexOfKey = this.mTiles.indexOfKey(i - (i % this.mTileSize));
             if (indexOfKey < 0) {
                 return null;
             }
-            this.Gt = this.Gs.valueAt(indexOfKey);
+            this.mLastAccessedTile = this.mTiles.valueAt(indexOfKey);
         }
-        return this.Gt.aO(i);
+        return this.mLastAccessedTile.getByPosition(i);
     }
 
     public int size() {
-        return this.Gs.size();
+        return this.mTiles.size();
     }
 
     public void clear() {
-        this.Gs.clear();
+        this.mTiles.clear();
     }
 
-    public Tile<T> aL(int i) {
-        return this.Gs.valueAt(i);
+    public Tile<T> getAtIndex(int i) {
+        return this.mTiles.valueAt(i);
     }
 
-    public Tile<T> b(Tile<T> tile) {
-        int indexOfKey = this.Gs.indexOfKey(tile.mStartPosition);
+    public Tile<T> addOrReplace(Tile<T> tile) {
+        int indexOfKey = this.mTiles.indexOfKey(tile.mStartPosition);
         if (indexOfKey < 0) {
-            this.Gs.put(tile.mStartPosition, tile);
+            this.mTiles.put(tile.mStartPosition, tile);
             return null;
         }
-        Tile<T> valueAt = this.Gs.valueAt(indexOfKey);
-        this.Gs.setValueAt(indexOfKey, tile);
-        if (this.Gt == valueAt) {
-            this.Gt = tile;
+        Tile<T> valueAt = this.mTiles.valueAt(indexOfKey);
+        this.mTiles.setValueAt(indexOfKey, tile);
+        if (this.mLastAccessedTile == valueAt) {
+            this.mLastAccessedTile = tile;
             return valueAt;
         }
         return valueAt;
     }
 
-    public Tile<T> aM(int i) {
-        Tile<T> tile = this.Gs.get(i);
-        if (this.Gt == tile) {
-            this.Gt = null;
+    public Tile<T> removeAtPos(int i) {
+        Tile<T> tile = this.mTiles.get(i);
+        if (this.mLastAccessedTile == tile) {
+            this.mLastAccessedTile = null;
         }
-        this.Gs.delete(i);
+        this.mTiles.delete(i);
         return tile;
     }
 
     /* loaded from: classes2.dex */
     public static class Tile<T> {
-        Tile<T> Gu;
         public int mItemCount;
         public final T[] mItems;
+        Tile<T> mNext;
         public int mStartPosition;
 
         public Tile(Class<T> cls, int i) {
             this.mItems = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, i));
         }
 
-        boolean aN(int i) {
+        boolean containsPosition(int i) {
             return this.mStartPosition <= i && i < this.mStartPosition + this.mItemCount;
         }
 
-        T aO(int i) {
+        T getByPosition(int i) {
             return this.mItems[i - this.mStartPosition];
         }
     }

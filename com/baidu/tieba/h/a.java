@@ -1,54 +1,62 @@
 package com.baidu.tieba.h;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.x;
-import java.net.URLEncoder;
+import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean ou(int i) {
-        switch (i) {
-            case 202001:
-            case 205001:
-            case 309456:
-            case CmdConfigHttp.CMD_CHECK_REAL_NAME /* 1003325 */:
-                return true;
-            default:
-                return false;
+    private String bcG;
+    private String duR;
+    private String duS;
+    private String duT;
+    private String duU;
+    private String duV;
+    private String mTitle;
+
+    public void a(EsportRank esportRank) {
+        if (esportRank != null) {
+            this.mTitle = esportRank.title;
+            this.duR = String.valueOf(esportRank.rank);
+            this.duS = esportRank.text;
+            this.bcG = esportRank.url;
+            if (esportRank.user != null) {
+                this.duT = esportRank.user.steam_name;
+                this.duU = esportRank.user.steam_portrait;
+            }
         }
     }
 
-    public static boolean a(x xVar) {
-        if (xVar == null) {
-            return false;
-        }
-        if ((xVar.CC() ? xVar.CD() : xVar.CE()) == 1990055) {
-            aBN();
-            return true;
-        }
-        return false;
+    public String avU() {
+        return this.mTitle;
     }
 
-    public static void aBN() {
-        if (!l.oZ()) {
-            TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.h.a.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    a.aBO();
-                }
-            });
-        } else {
-            aBO();
-        }
+    public String avV() {
+        return this.duR;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void aBO() {
-        Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-        StringBuilder sb = new StringBuilder("https://wappass.baidu.com/passport/realnamewidget?tpl=tieba&adapter=3&nomenu=1");
-        sb.append("&u=").append(URLEncoder.encode("http://tieba.baidu.com/?jump=finish_this_page"));
-        com.baidu.tbadk.browser.b.a(applicationContext, "", sb.toString(), true, true, true, true, true, false);
+    public String avW() {
+        return this.duS;
+    }
+
+    public String avX() {
+        return this.duT;
+    }
+
+    public String avY() {
+        return this.duU;
+    }
+
+    public String avZ() {
+        return this.duV;
+    }
+
+    public void mw(String str) {
+        this.duV = str;
+    }
+
+    public String awa() {
+        return this.bcG;
+    }
+
+    public void mx(String str) {
+        this.bcG = str;
     }
 }

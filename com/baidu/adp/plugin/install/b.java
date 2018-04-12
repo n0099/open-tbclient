@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.install;
 /* loaded from: classes.dex */
 public interface b {
-    void bi(String str);
+    void bf(String str);
 
-    void y(String str, String str2);
+    void z(String str, String str2);
 }

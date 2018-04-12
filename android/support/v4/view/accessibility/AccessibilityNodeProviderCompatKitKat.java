@@ -18,6 +18,9 @@ class AccessibilityNodeProviderCompatKitKat {
         boolean performAction(int i, int i2, Bundle bundle);
     }
 
+    AccessibilityNodeProviderCompatKitKat() {
+    }
+
     public static Object newAccessibilityNodeProviderBridge(final AccessibilityNodeInfoBridge accessibilityNodeInfoBridge) {
         return new AccessibilityNodeProvider() { // from class: android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat.1
             @Override // android.view.accessibility.AccessibilityNodeProvider

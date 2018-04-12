@@ -22,7 +22,7 @@ public class ResponsedPersonalMsgReadMessage extends TbSocketReponsedMessage {
         setErrorString(commitReceivedPmsgResIdl.error.usermsg);
         if (getError() == 0) {
             this.hasSentMsgId = commitReceivedPmsgResIdl.data.readMsgId.longValue();
-            this.groupId = commitReceivedPmsgResIdl.data.groupId.intValue();
+            this.groupId = commitReceivedPmsgResIdl.data.groupId.longValue();
             this.toUid = commitReceivedPmsgResIdl.data.toUid.longValue();
             this.toUserType = commitReceivedPmsgResIdl.data.toUserType.intValue();
         }

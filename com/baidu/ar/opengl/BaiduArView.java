@@ -966,7 +966,7 @@ public class BaiduArView extends GLSurfaceView {
         setRenderer(this.v);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.opengl.BaiduArView.8
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
             }
         });
         this.e = new GestureDetector(getContext(), this.L);

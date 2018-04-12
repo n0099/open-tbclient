@@ -12,6 +12,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 /* loaded from: classes2.dex */
 public abstract class AsyncTaskLoader<D> extends Loader<D> {
+    static final boolean DEBUG = false;
+    static final String TAG = "AsyncTaskLoader";
     volatile AsyncTaskLoader<D>.LoadTask mCancellingTask;
     private final Executor mExecutor;
     Handler mHandler;
@@ -181,7 +183,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         return this.mCancellingTask != null;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void waitForLoader() {
         AsyncTaskLoader<D>.LoadTask loadTask = this.mTask;
         if (loadTask != null) {

@@ -1,5 +1,5 @@
 package org.apache.http.entity.mime;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public enum HttpMultipartMode {
     STRICT,
     BROWSER_COMPATIBLE

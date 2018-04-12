@@ -8,6 +8,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.FloatRange;
 import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.appcompat.R;
@@ -19,22 +21,22 @@ public class DrawerArrowDrawable extends Drawable {
     public static final int ARROW_DIRECTION_LEFT = 0;
     public static final int ARROW_DIRECTION_RIGHT = 1;
     public static final int ARROW_DIRECTION_START = 2;
-    private static final float EQ = (float) Math.toRadians(45.0d);
-    private float ER;
-    private float ES;
-    private float ET;
-    private float EU;
-    private boolean EV;
-    private float EX;
+    private static final float ARROW_HEAD_ANGLE = (float) Math.toRadians(45.0d);
+    private float mArrowHeadLength;
+    private float mArrowShaftLength;
+    private float mBarGap;
+    private float mBarLength;
+    private float mMaxCutForBarSize;
     private float mProgress;
     private final int mSize;
+    private boolean mSpin;
     private final Paint mPaint = new Paint();
     private final Path mPath = new Path();
-    private boolean EW = false;
+    private boolean mVerticalMirror = false;
     private int mDirection = 2;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface ArrowDirection {
     }
@@ -50,52 +52,53 @@ public class DrawerArrowDrawable extends Drawable {
         setSpinEnabled(obtainStyledAttributes.getBoolean(R.styleable.DrawerArrowToggle_spinBars, true));
         setGapSize(Math.round(obtainStyledAttributes.getDimension(R.styleable.DrawerArrowToggle_gapBetweenBars, 0.0f)));
         this.mSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.DrawerArrowToggle_drawableSize, 0);
-        this.ES = Math.round(obtainStyledAttributes.getDimension(R.styleable.DrawerArrowToggle_barLength, 0.0f));
-        this.ER = Math.round(obtainStyledAttributes.getDimension(R.styleable.DrawerArrowToggle_arrowHeadLength, 0.0f));
-        this.ET = obtainStyledAttributes.getDimension(R.styleable.DrawerArrowToggle_arrowShaftLength, 0.0f);
+        this.mBarLength = Math.round(obtainStyledAttributes.getDimension(R.styleable.DrawerArrowToggle_barLength, 0.0f));
+        this.mArrowHeadLength = Math.round(obtainStyledAttributes.getDimension(R.styleable.DrawerArrowToggle_arrowHeadLength, 0.0f));
+        this.mArrowShaftLength = obtainStyledAttributes.getDimension(R.styleable.DrawerArrowToggle_arrowShaftLength, 0.0f);
         obtainStyledAttributes.recycle();
     }
 
     public void setArrowHeadLength(float f) {
-        if (this.ER != f) {
-            this.ER = f;
+        if (this.mArrowHeadLength != f) {
+            this.mArrowHeadLength = f;
             invalidateSelf();
         }
     }
 
     public float getArrowHeadLength() {
-        return this.ER;
+        return this.mArrowHeadLength;
     }
 
     public void setArrowShaftLength(float f) {
-        if (this.ET != f) {
-            this.ET = f;
+        if (this.mArrowShaftLength != f) {
+            this.mArrowShaftLength = f;
             invalidateSelf();
         }
     }
 
     public float getArrowShaftLength() {
-        return this.ET;
+        return this.mArrowShaftLength;
     }
 
     public float getBarLength() {
-        return this.ES;
+        return this.mBarLength;
     }
 
     public void setBarLength(float f) {
-        if (this.ES != f) {
-            this.ES = f;
+        if (this.mBarLength != f) {
+            this.mBarLength = f;
             invalidateSelf();
         }
     }
 
-    public void setColor(int i) {
+    public void setColor(@ColorInt int i) {
         if (i != this.mPaint.getColor()) {
             this.mPaint.setColor(i);
             invalidateSelf();
         }
     }
 
+    @ColorInt
     public int getColor() {
         return this.mPaint.getColor();
     }
@@ -103,7 +106,7 @@ public class DrawerArrowDrawable extends Drawable {
     public void setBarThickness(float f) {
         if (this.mPaint.getStrokeWidth() != f) {
             this.mPaint.setStrokeWidth(f);
-            this.EX = (float) ((f / 2.0f) * Math.cos(EQ));
+            this.mMaxCutForBarSize = (float) ((f / 2.0f) * Math.cos(ARROW_HEAD_ANGLE));
             invalidateSelf();
         }
     }
@@ -113,12 +116,12 @@ public class DrawerArrowDrawable extends Drawable {
     }
 
     public float getGapSize() {
-        return this.EU;
+        return this.mBarGap;
     }
 
     public void setGapSize(float f) {
-        if (f != this.EU) {
-            this.EU = f;
+        if (f != this.mBarGap) {
+            this.mBarGap = f;
             invalidateSelf();
         }
     }
@@ -131,12 +134,12 @@ public class DrawerArrowDrawable extends Drawable {
     }
 
     public boolean isSpinEnabled() {
-        return this.EV;
+        return this.mSpin;
     }
 
     public void setSpinEnabled(boolean z) {
-        if (this.EV != z) {
-            this.EV = z;
+        if (this.mSpin != z) {
+            this.mSpin = z;
             invalidateSelf();
         }
     }
@@ -146,8 +149,8 @@ public class DrawerArrowDrawable extends Drawable {
     }
 
     public void setVerticalMirror(boolean z) {
-        if (this.EW != z) {
-            this.EW = z;
+        if (this.mVerticalMirror != z) {
+            this.mVerticalMirror = z;
             invalidateSelf();
         }
     }
@@ -182,27 +185,27 @@ public class DrawerArrowDrawable extends Drawable {
                     break;
                 }
         }
-        float b = b(this.ES, (float) Math.sqrt(this.ER * this.ER * 2.0f), this.mProgress);
-        float b2 = b(this.ES, this.ET, this.mProgress);
-        float round = Math.round(b(0.0f, this.EX, this.mProgress));
-        float b3 = b(0.0f, EQ, this.mProgress);
-        float b4 = b(z ? 0.0f : -180.0f, z ? 180.0f : 0.0f, this.mProgress);
-        float round2 = (float) Math.round(b * Math.cos(b3));
-        float round3 = (float) Math.round(b * Math.sin(b3));
+        float lerp = lerp(this.mBarLength, (float) Math.sqrt(this.mArrowHeadLength * this.mArrowHeadLength * 2.0f), this.mProgress);
+        float lerp2 = lerp(this.mBarLength, this.mArrowShaftLength, this.mProgress);
+        float round = Math.round(lerp(0.0f, this.mMaxCutForBarSize, this.mProgress));
+        float lerp3 = lerp(0.0f, ARROW_HEAD_ANGLE, this.mProgress);
+        float lerp4 = lerp(z ? 0.0f : -180.0f, z ? 180.0f : 0.0f, this.mProgress);
+        float round2 = (float) Math.round(lerp * Math.cos(lerp3));
+        float round3 = (float) Math.round(lerp * Math.sin(lerp3));
         this.mPath.rewind();
-        float b5 = b(this.EU + this.mPaint.getStrokeWidth(), -this.EX, this.mProgress);
-        float f = (-b2) / 2.0f;
+        float lerp5 = lerp(this.mBarGap + this.mPaint.getStrokeWidth(), -this.mMaxCutForBarSize, this.mProgress);
+        float f = (-lerp2) / 2.0f;
         this.mPath.moveTo(f + round, 0.0f);
-        this.mPath.rLineTo(b2 - (round * 2.0f), 0.0f);
-        this.mPath.moveTo(f, b5);
+        this.mPath.rLineTo(lerp2 - (round * 2.0f), 0.0f);
+        this.mPath.moveTo(f, lerp5);
         this.mPath.rLineTo(round2, round3);
-        this.mPath.moveTo(f, -b5);
+        this.mPath.moveTo(f, -lerp5);
         this.mPath.rLineTo(round2, -round3);
         this.mPath.close();
         canvas.save();
-        canvas.translate(bounds.centerX(), (float) (((((int) ((bounds.height() - (3.0f * strokeWidth)) - (this.EU * 2.0f))) / 4) * 2) + (this.mPaint.getStrokeWidth() * 1.5d) + this.EU));
-        if (this.EV) {
-            canvas.rotate((z ^ this.EW ? -1 : 1) * b4);
+        canvas.translate(bounds.centerX(), (float) (((((int) ((bounds.height() - (3.0f * strokeWidth)) - (this.mBarGap * 2.0f))) / 4) * 2) + (this.mPaint.getStrokeWidth() * 1.5d) + this.mBarGap));
+        if (this.mSpin) {
+            canvas.rotate((z ^ this.mVerticalMirror ? -1 : 1) * lerp4);
         } else if (z) {
             canvas.rotate(180.0f);
         }
@@ -239,11 +242,12 @@ public class DrawerArrowDrawable extends Drawable {
         return -3;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getProgress() {
         return this.mProgress;
     }
 
-    public void setProgress(float f) {
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         if (this.mProgress != f) {
             this.mProgress = f;
             invalidateSelf();
@@ -254,7 +258,7 @@ public class DrawerArrowDrawable extends Drawable {
         return this.mPaint;
     }
 
-    private static float b(float f, float f2, float f3) {
+    private static float lerp(float f, float f2, float f3) {
         return ((f2 - f) * f3) + f;
     }
 }

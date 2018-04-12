@@ -5,13 +5,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final Map<Class<?>, Class<?>> a = new HashMap();
 
     /* renamed from: com.xiaomi.channel.commonutils.reflect.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0284a<T> {
+    /* loaded from: classes3.dex */
+    public static class C0266a<T> {
         public final Class<? extends T> a;
         public final T b;
     }
@@ -160,10 +160,10 @@ public class a {
                 return clsArr;
             }
             Object obj = objArr[i2];
-            if (obj == null || !(obj instanceof C0284a)) {
+            if (obj == null || !(obj instanceof C0266a)) {
                 clsArr[i2] = obj == null ? null : obj.getClass();
             } else {
-                clsArr[i2] = ((C0284a) obj).a;
+                clsArr[i2] = ((C0266a) obj).a;
             }
             i = i2 + 1;
         }
@@ -185,10 +185,10 @@ public class a {
                 return objArr2;
             }
             Object obj = objArr[i2];
-            if (obj == null || !(obj instanceof C0284a)) {
+            if (obj == null || !(obj instanceof C0266a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((C0284a) obj).b;
+                objArr2[i2] = ((C0266a) obj).b;
             }
             i = i2 + 1;
         }

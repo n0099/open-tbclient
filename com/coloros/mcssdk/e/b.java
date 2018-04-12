@@ -6,15 +6,15 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends c {
-    public static final String hOO = null;
-    private int adQ;
+    public static final String hmm = null;
     private String content;
-    private String hOP;
-    private String hOQ;
-    private String hOR;
-    private String hOS;
+    private String hmn;
+    private String hmo;
+    private String hmp;
+    private String hmq;
+    private int oj;
     private String params;
     private int responseCode = -2;
 
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.va(jSONObject.getString(str3));
+                    eVar.vD(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -49,6 +49,10 @@ public class b extends c {
         return arrayList;
     }
 
+    public int cM() {
+        return this.oj;
+    }
+
     public String getContent() {
         return this.content;
     }
@@ -62,12 +66,8 @@ public class b extends c {
         return 4105;
     }
 
-    public int kI() {
-        return this.adQ;
-    }
-
     public void setAppKey(String str) {
-        this.hOP = str;
+        this.hmn = str;
     }
 
     public void setContent(String str) {
@@ -75,18 +75,18 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hOT + ",taskID:" + this.hOU + ",appPackage:" + this.appPackage + ",appKey:" + this.hOP + ",appSecret:" + this.hOQ + ",registerID:" + this.hOR + ",sdkVersion:" + this.hOS + ",command:" + this.adQ + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hmr + ",taskID:" + this.hms + ",appPackage:" + this.appPackage + ",appKey:" + this.hmn + ",appSecret:" + this.hmo + ",registerID:" + this.hmp + ",sdkVersion:" + this.hmq + ",command:" + this.oj + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
-    public void uW(String str) {
-        this.hOQ = str;
+    public void vw(int i) {
+        this.oj = i;
     }
 
-    public void xV(int i) {
-        this.adQ = i;
-    }
-
-    public void xW(int i) {
+    public void vx(int i) {
         this.responseCode = i;
+    }
+
+    public void vz(String str) {
+        this.hmo = str;
     }
 }

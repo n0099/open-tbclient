@@ -29,7 +29,7 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
         for (int i2 = 0; i2 < size; i2++) {
             PusherMsg pusherMsg = pushNotifyResIdl.multiMsg.get(i2);
             PushNotifyMessage pushNotifyMessage = new PushNotifyMessage();
-            pushNotifyMessage.setGroupId(pusherMsg.data.groupId.intValue());
+            pushNotifyMessage.setGroupId(pusherMsg.data.groupId.longValue());
             pushNotifyMessage.setNewestMsgId(pusherMsg.data.msgId.longValue());
             pushNotifyMessage.setPushTime(pusherMsg.data.pushTime.longValue());
             pushNotifyMessage.setType(pusherMsg.data.type.intValue());

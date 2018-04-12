@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.DelGroup.DelGroupResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponseDismissGroupMessage extends SocketResponsedMessage {
     private long groupId;
 
@@ -22,7 +22,7 @@ public class ResponseDismissGroupMessage extends SocketResponsedMessage {
         setError(delGroupResIdl.error.errorno.intValue());
         setErrorString(delGroupResIdl.error.usermsg);
         if (getError() == 0) {
-            this.groupId = delGroupResIdl.data.groupId.intValue();
+            this.groupId = delGroupResIdl.data.groupId.longValue();
         }
     }
 }

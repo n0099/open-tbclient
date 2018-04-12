@@ -1,65 +1,72 @@
 package com.baidu.tieba.frs;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.MetaData;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPageUserExtend;
-import tbclient.User;
-/* loaded from: classes.dex */
-public class s implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId dGS = BdUniqueId.gen();
-    private List<MetaData> dGP;
-    private int dGO = 0;
-    private String dGQ = "本吧都在关注";
-    private boolean dGR = false;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
+import java.util.LinkedList;
+/* loaded from: classes2.dex */
+public class s extends f<t, u> {
+    private final LinkedList<com.baidu.tbadk.j.f> cZV;
+    private final LinkedList<RelativeLayout> cZW;
+    private int mItemHeight;
 
-    @Override // com.baidu.adp.widget.ListView.i
-    public BdUniqueId getType() {
-        return dGS;
+    public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        this.cZV = new LinkedList<>();
+        this.cZW = new LinkedList<>();
+        this.mItemHeight = (com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
-    public void a(FrsPageUserExtend frsPageUserExtend) {
-        if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.v.E(frsPageUserExtend.data)) {
-            List<User> list = frsPageUserExtend.data;
-            this.dGO = frsPageUserExtend.user_extend_storey.intValue();
-            this.dGP = new ArrayList(list.size());
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aq */
+    public u onCreateViewHolder(ViewGroup viewGroup) {
+        RelativeLayout relativeLayout = new RelativeLayout(this.mContext);
+        ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
+        generateLayoutParamsByParent.width = -1;
+        generateLayoutParamsByParent.height = this.mItemHeight;
+        relativeLayout.setLayoutParams(generateLayoutParamsByParent);
+        relativeLayout.setGravity(17);
+        com.baidu.tbadk.j.f fVar = new com.baidu.tbadk.j.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(d.e.ds140));
+        fVar.attachView(relativeLayout);
+        this.cZV.add(fVar);
+        this.cZW.add(relativeLayout);
+        u uVar = new u(relativeLayout);
+        uVar.cZY = fVar;
+        return uVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t tVar, u uVar) {
+        if (uVar != null && uVar.cZY != null) {
+            uVar.cZY.onChangeSkinType();
+        }
+        return view2;
+    }
+
+    @Override // com.baidu.tieba.frs.f
+    public void release() {
+        super.release();
+        if (this.cZV.size() != 0 && this.cZW.size() == this.cZV.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < list.size()) {
-                    User user = list.get(i2);
-                    if (user != null && user.id.longValue() != 0) {
-                        MetaData metaData = new MetaData();
-                        metaData.parserProtobuf(list.get(i2));
-                        this.dGP.add(metaData);
-                    }
-                    i = i2 + 1;
-                } else {
-                    this.dGQ = frsPageUserExtend.tips;
-                    return;
+                if (i2 >= this.cZV.size()) {
+                    break;
                 }
+                this.cZV.get(i2).P(this.cZW.get(i2));
+                i = i2 + 1;
             }
         }
-    }
-
-    public int Al() {
-        return this.dGO;
-    }
-
-    public List<MetaData> getUserInfo() {
-        return this.dGP;
-    }
-
-    public String awk() {
-        return this.dGQ;
-    }
-
-    public boolean awl() {
-        return this.dGR;
-    }
-
-    public void fV(boolean z) {
-        this.dGR = z;
+        this.cZV.clear();
+        this.cZW.clear();
     }
 }

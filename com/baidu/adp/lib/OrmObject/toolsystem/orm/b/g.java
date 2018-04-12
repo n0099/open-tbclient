@@ -8,34 +8,34 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Set<String> agf;
-    private Message agi;
+    private Set<String> qB;
+    private Message qE;
 
     public g(Message message) {
-        this.agi = message;
+        this.qE = message;
         List<Field> e = com.baidu.adp.lib.OrmObject.a.a.e(message.getClass());
-        this.agf = new HashSet();
+        this.qB = new HashSet();
         if (e != null && e.size() > 0) {
             for (Field field : e) {
                 if (field != null) {
-                    this.agf.add(field.getName());
+                    this.qB.add(field.getName());
                 }
             }
         }
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public Set<String> lJ() {
-        return this.agf;
+    public Set<String> dN() {
+        return this.qB;
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.OrmObject.a.a.g(this.agi, str);
+        return com.baidu.adp.lib.OrmObject.a.a.c(this.qE, str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void d(String str, Object obj) {
-        com.baidu.adp.lib.OrmObject.a.a.d(this.agi, str, obj);
+        com.baidu.adp.lib.OrmObject.a.a.a(this.qE, str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
@@ -43,9 +43,9 @@ public class g implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h aq = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.aq(object);
-            if (aq != null) {
-                return aq.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h l = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.l(object);
+            if (l != null) {
+                return l.g(cVar);
             }
             return object;
         }

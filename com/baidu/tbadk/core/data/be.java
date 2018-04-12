@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class be extends com.baidu.tieba.card.data.b {
-    public int aQt;
-    public int aQu;
-    public int aQv;
+    public int abT;
+    public int abU;
+    public int abV;
     public String stType;
     public bd threadData;
 
@@ -13,7 +13,7 @@ public class be extends com.baidu.tieba.card.data.b {
         this.threadData = bdVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
         return null;
     }

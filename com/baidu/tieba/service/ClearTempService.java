@@ -47,12 +47,14 @@ public class ClearTempService extends BdBaseService {
                     public void run() {
                         super.run();
                         try {
-                            File file = new File(k.alY + "/" + TbConfig.getTempDirName() + "/image");
-                            File file2 = new File(k.alY + "/" + TbConfig.getTempDirName() + "/share");
-                            File file3 = new File(k.alY + "/" + TbConfig.getTempDirName() + "/voice");
+                            File file = new File(k.wB + "/" + TbConfig.getTempDirName() + "/image");
+                            File file2 = new File(k.wB + "/" + TbConfig.getTempDirName() + "/share");
+                            File file3 = new File(k.wB + "/" + TbConfig.getTempDirName() + "/voice");
+                            File file4 = new File(k.wB + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
                             ClearTempService.this.deleteCache(file, false);
                             ClearTempService.this.deleteDir(file2);
                             ClearTempService.this.deleteDir(file3);
+                            ClearTempService.this.deleteDir(file4);
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
                         }
@@ -96,7 +98,7 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = k.alY + "/" + TbConfig.getTempDirName() + "/image";
+        String str = k.wB + "/" + TbConfig.getTempDirName() + "/image";
         for (int i = 0; i < 20; i++) {
             File file = new File(str + "/" + i);
             if (file.exists() && file.isDirectory()) {

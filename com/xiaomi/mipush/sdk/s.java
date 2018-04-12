@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.TimeZone;
 import org.apache.http.HttpHost;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class s {
     private static Queue<String> c;
     private Context b;

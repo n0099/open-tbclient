@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a aTF = null;
+    private static a aeZ = null;
 
-    public static void v(Context context, int i) {
-        if (aTF != null) {
-            aTF.v(context, i);
+    public static void g(Context context, int i) {
+        if (aeZ != null) {
+            aeZ.g(context, i);
         }
     }
 
-    public static void d(Context context, int i, boolean z) {
-        if (aTF != null) {
-            aTF.d(context, i, z);
+    public static void b(Context context, int i, boolean z) {
+        if (aeZ != null) {
+            aeZ.b(context, i, z);
         }
     }
 
-    public static void aO(Context context) {
-        if (aTF != null) {
-            aTF.aO(context);
+    public static void ay(Context context) {
+        if (aeZ != null) {
+            aeZ.ay(context);
         }
     }
 
-    public static void e(Context context, int i, boolean z) {
-        if (aTF != null) {
-            aTF.e(context, i, z);
+    public static void c(Context context, int i, boolean z) {
+        if (aeZ != null) {
+            aeZ.c(context, i, z);
         }
     }
 
-    public static Class<?> BI() {
-        if (aTF == null) {
+    public static Class<?> uq() {
+        if (aeZ == null) {
             return null;
         }
-        return aTF.BI();
+        return aeZ.uq();
     }
 
-    public static String BJ() {
-        if (aTF == null) {
+    public static String ur() {
+        if (aeZ == null) {
             return null;
         }
-        return aTF.BJ();
+        return aeZ.ur();
     }
 
     public static void a(a aVar) {
-        aTF = aVar;
+        aeZ = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (aTF == null) {
+        if (aeZ == null) {
             return -1;
         }
-        return aTF.getCurrentTabType();
+        return aeZ.getCurrentTabType();
     }
 }

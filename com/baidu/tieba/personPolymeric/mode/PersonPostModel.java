@@ -11,16 +11,16 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.personPolymeric.c.i;
@@ -48,14 +48,14 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     private b mOnResult;
     private HttpMessageListener pageHttpListener;
     private c pageSocketListener;
-    public final ArrayList<com.baidu.adp.widget.ListView.i> postList;
-    public final ArrayList<com.baidu.adp.widget.ListView.i> threadList;
+    public final ArrayList<h> postList;
+    public final ArrayList<h> threadList;
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int gqu = 0;
-    private static int gqv = 1;
-    private static String gqw = "";
+    private static int fKV = 0;
+    private static int fKW = 1;
+    private static String fKX = "";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        gqv = 1;
+        fKW = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(gqw)) {
-                gqu = 1;
-                gqw = str;
+            if (z || !str.equals(fKX)) {
+                fKV = 1;
+                fKX = str;
             } else {
-                gqu++;
+                fKV++;
             }
         } else {
-            if (z || !str.equals(gqw)) {
+            if (z || !str.equals(fKX)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    gqv = 1;
+                    fKW = 1;
                 } else {
-                    gqv = 0;
+                    fKW = 0;
                 }
-                gqw = str;
+                fKX = str;
             }
-            gqv++;
+            fKW++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(gqw);
+        userPostPageRequestMessage.setUid(fKX);
         if (z3) {
-            userPostPageRequestMessage.setPn(gqu);
+            userPostPageRequestMessage.setPn(fKV);
         } else {
-            userPostPageRequestMessage.setPn(gqv);
+            userPostPageRequestMessage.setPn(fKW);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -219,12 +219,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
         userPostPageRequestMessage.setFrom(this.mFrom);
-        int ao = l.ao(TbadkCoreApplication.getInst().getApp());
-        int aq = l.aq(TbadkCoreApplication.getInst().getApp());
+        int af = l.af(TbadkCoreApplication.getInst().getApp());
+        int ah = l.ah(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = ao.De().Dg() ? 2 : 1;
-        userPostPageRequestMessage.set_scr_w(ao);
-        userPostPageRequestMessage.set_scr_h(aq);
+        int i2 = ap.vQ().vS() ? 2 : 1;
+        userPostPageRequestMessage.set_scr_w(af);
+        userPostPageRequestMessage.set_scr_h(ah);
         userPostPageRequestMessage.set_scr_dip(f);
         userPostPageRequestMessage.set_q_type(i2);
         userPostPageRequestMessage.setCallback(aVar);
@@ -246,7 +246,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             } else {
                 z = true;
             }
-            if (v.E(dataRes.post_list) && z) {
+            if (v.w(dataRes.post_list) && z) {
                 this.mCardNullPolymericData = new i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
@@ -264,10 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.daB != 33) {
-                    this.threadList.add(cardPersonDynamicThreadData);
-                    this.postList.add(postInfoList2);
-                } else if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                if (cardPersonDynamicThreadData.csu != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -317,7 +314,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes3.dex */
-    public static class PostInfoList extends OrmObject implements com.baidu.adp.widget.ListView.i, ae, Serializable {
+    public static class PostInfoList extends OrmObject implements h, ae, Serializable {
         public static final BdUniqueId POST_INFO = BdUniqueId.gen();
         public boolean isDeal;
         public boolean isShareThread;
@@ -417,7 +414,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return arrayList;
         }
 
-        @Override // com.baidu.adp.widget.ListView.i
+        @Override // com.baidu.adp.widget.ListView.h
         public BdUniqueId getType() {
             return POST_INFO;
         }
@@ -486,7 +483,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 if (labelInfoArr[i] != null) {
                     int random = getRandom(3, -1);
                     if (random == i2 || random == i3) {
-                        random = s(length, i2, i3);
+                        random = w(length, i2, i3);
                     }
                     if (i == 0) {
                         i2 = random;
@@ -502,49 +499,49 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    public static ArrayList<com.baidu.adp.widget.ListView.i> mergeDynamicThreadByTime(ArrayList<com.baidu.adp.widget.ListView.i> arrayList) {
+    public static ArrayList<h> mergeDynamicThreadByTime(ArrayList<h> arrayList) {
         String str;
         String str2;
         String str3;
-        String S = am.S(System.currentTimeMillis());
+        String K = an.K(System.currentTimeMillis());
         String str4 = "";
         String str5 = "";
-        Iterator<com.baidu.adp.widget.ListView.i> it = arrayList.iterator();
+        Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
-            com.baidu.adp.widget.ListView.i next = it.next();
+            h next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).daO = true;
-                ((CardPersonDynamicThreadData) next).daN = true;
-                long j = ((CardPersonDynamicThreadData) next).daz * 1000;
-                String S2 = am.S(j);
-                String V = am.V(j);
-                String U = am.U(j);
-                if (am.equals(S2, S)) {
-                    ((CardPersonDynamicThreadData) next).daO = false;
+                ((CardPersonDynamicThreadData) next).csG = true;
+                ((CardPersonDynamicThreadData) next).csF = true;
+                long j = ((CardPersonDynamicThreadData) next).css * 1000;
+                String K2 = an.K(j);
+                String N = an.N(j);
+                String M = an.M(j);
+                if (an.equals(K2, K)) {
+                    ((CardPersonDynamicThreadData) next).csG = false;
                 }
-                if (am.equals(U, str5) && am.equals(V, str4) && am.equals(S2, S)) {
-                    ((CardPersonDynamicThreadData) next).daN = false;
+                if (an.equals(M, str5) && an.equals(N, str4) && an.equals(K2, K)) {
+                    ((CardPersonDynamicThreadData) next).csF = false;
                     str = str5;
                     str2 = str4;
-                    str3 = S;
+                    str3 = K;
                 } else {
-                    str = U;
-                    str2 = V;
-                    str3 = S2;
+                    str = M;
+                    str2 = N;
+                    str3 = K2;
                 }
             } else {
                 str = str5;
                 str2 = str4;
-                str3 = S;
+                str3 = K;
             }
             str4 = str2;
-            S = str3;
+            K = str3;
             str5 = str;
         }
         return arrayList;
     }
 
-    private static int s(int i, int i2, int i3) {
+    private static int w(int i, int i2, int i3) {
         for (int i4 = 0; i4 < i && i4 < 3; i4++) {
             if (i4 != i2 && i4 != i3) {
                 return i4;
@@ -690,7 +687,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         public String author_name = "";
         public int listeners = 0;
         public int likers = 0;
-        public int group_id = 0;
+        public long group_id = 0;
         public String intro = "";
         public String publisherPortrait = "";
         public String publisherName = "";
@@ -701,7 +698,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 this.portrait = anchorInfo.portrait;
                 this.author_id = anchorInfo.author_id.longValue();
                 this.author_name = anchorInfo.author_name;
-                this.group_id = anchorInfo.group_id.intValue();
+                this.group_id = anchorInfo.group_id.longValue();
                 this.intro = anchorInfo.intro;
                 this.likers = anchorInfo.likers.intValue();
                 this.listeners = anchorInfo.listeners.intValue();

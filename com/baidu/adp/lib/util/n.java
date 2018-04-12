@@ -61,7 +61,7 @@ public class n {
         }
     }
 
-    public static void i(Cursor cursor) {
+    public static void e(Cursor cursor) {
         if (cursor != null) {
             try {
                 cursor.close();
@@ -71,7 +71,7 @@ public class n {
         }
     }
 
-    public static void i(SQLiteDatabase sQLiteDatabase) {
+    public static void l(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.close();

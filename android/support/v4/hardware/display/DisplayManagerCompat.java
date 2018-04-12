@@ -8,7 +8,7 @@ import java.util.WeakHashMap;
 /* loaded from: classes2.dex */
 public abstract class DisplayManagerCompat {
     public static final String DISPLAY_CATEGORY_PRESENTATION = "android.hardware.display.category.PRESENTATION";
-    private static final WeakHashMap<Context, DisplayManagerCompat> wF = new WeakHashMap<>();
+    private static final WeakHashMap<Context, DisplayManagerCompat> sInstances = new WeakHashMap<>();
 
     public abstract Display getDisplay(int i);
 
@@ -21,25 +21,25 @@ public abstract class DisplayManagerCompat {
 
     public static DisplayManagerCompat getInstance(Context context) {
         DisplayManagerCompat displayManagerCompat;
-        synchronized (wF) {
-            displayManagerCompat = wF.get(context);
+        synchronized (sInstances) {
+            displayManagerCompat = sInstances.get(context);
             if (displayManagerCompat == null) {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    displayManagerCompat = new a(context);
+                    displayManagerCompat = new JellybeanMr1Impl(context);
                 } else {
-                    displayManagerCompat = new b(context);
+                    displayManagerCompat = new LegacyImpl(context);
                 }
-                wF.put(context, displayManagerCompat);
+                sInstances.put(context, displayManagerCompat);
             }
         }
         return displayManagerCompat;
     }
 
     /* loaded from: classes2.dex */
-    private static class b extends DisplayManagerCompat {
+    private static class LegacyImpl extends DisplayManagerCompat {
         private final WindowManager mWindowManager;
 
-        public b(Context context) {
+        public LegacyImpl(Context context) {
             this.mWindowManager = (WindowManager) context.getSystemService("window");
         }
 
@@ -64,26 +64,26 @@ public abstract class DisplayManagerCompat {
     }
 
     /* loaded from: classes2.dex */
-    private static class a extends DisplayManagerCompat {
-        private final Object wG;
+    private static class JellybeanMr1Impl extends DisplayManagerCompat {
+        private final Object mDisplayManagerObj;
 
-        public a(Context context) {
-            this.wG = android.support.v4.hardware.display.a.S(context);
+        public JellybeanMr1Impl(Context context) {
+            this.mDisplayManagerObj = DisplayManagerJellybeanMr1.getDisplayManager(context);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display getDisplay(int i) {
-            return android.support.v4.hardware.display.a.a(this.wG, i);
+            return DisplayManagerJellybeanMr1.getDisplay(this.mDisplayManagerObj, i);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays() {
-            return android.support.v4.hardware.display.a.j(this.wG);
+            return DisplayManagerJellybeanMr1.getDisplays(this.mDisplayManagerObj);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays(String str) {
-            return android.support.v4.hardware.display.a.c(this.wG, str);
+            return DisplayManagerJellybeanMr1.getDisplays(this.mDisplayManagerObj, str);
         }
     }
 }

@@ -6,21 +6,21 @@ import java.math.BigDecimal;
 /* loaded from: classes.dex */
 public class d {
     private static int mFps = 0;
-    private static String abL = null;
-    private static String abM = null;
-    private static int abN = 0;
-    private static int abO = 0;
-    private static String abP = null;
-    private static e.a abQ = null;
-    private static e.a abR = null;
+    private static String lY = null;
+    private static String lZ = null;
+    private static int ma = 0;
+    private static int mb = 0;
+    private static String mc = null;
+    private static e.a md = null;
+    private static e.a mf = null;
     public static Handler mHandler = null;
     @Deprecated
-    public static int abS = 0;
-    public static boolean abT = false;
-    public static boolean abU = false;
-    public static boolean abV = false;
+    public static int mg = 0;
+    public static boolean mh = false;
+    public static boolean mi = false;
+    public static boolean mj = false;
 
-    public static void cy(int i) {
+    public static void y(int i) {
         mFps = i;
         try {
             if (mHandler != null) {
@@ -32,7 +32,7 @@ public class d {
     }
 
     public static void a(e.a aVar) {
-        abQ = aVar;
+        md = aVar;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(6);
@@ -42,11 +42,11 @@ public class d {
         }
     }
 
-    public static e.a jR() {
-        return abR;
+    public static e.a bV() {
+        return mf;
     }
 
-    public static double d(double d) {
+    public static double e(double d) {
         return new BigDecimal(d).setScale(2, 4).doubleValue();
     }
 }

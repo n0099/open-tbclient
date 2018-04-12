@@ -10,7 +10,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class c {
-    private static Certificate[] b(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
+    private static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
         try {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
             do {
@@ -32,7 +32,7 @@ public final class c {
         }
     }
 
-    public static PublicKey cj(String str) {
+    public static PublicKey a(String str) {
         boolean z;
         try {
             if (TextUtils.isEmpty(str)) {
@@ -45,18 +45,18 @@ public final class c {
             while (entries.hasMoreElements()) {
                 JarEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
-                    Certificate[] b = b(jarFile, nextElement, bArr);
-                    if (b == null) {
+                    Certificate[] a = a(jarFile, nextElement, bArr);
+                    if (a == null) {
                         jarFile.close();
                         return null;
                     } else if (certificateArr == null) {
-                        certificateArr = b;
+                        certificateArr = a;
                     } else {
                         for (int i = 0; i < certificateArr.length; i++) {
                             int i2 = 0;
                             while (true) {
-                                if (i2 < b.length) {
-                                    if (certificateArr[i] == null || !certificateArr[i].equals(b[i2])) {
+                                if (i2 < a.length) {
+                                    if (certificateArr[i] == null || !certificateArr[i].equals(a[i2])) {
                                         i2++;
                                     } else {
                                         z = true;
@@ -67,7 +67,7 @@ public final class c {
                                     break;
                                 }
                             }
-                            if (!z || certificateArr.length != b.length) {
+                            if (!z || certificateArr.length != a.length) {
                                 jarFile.close();
                                 return null;
                             }

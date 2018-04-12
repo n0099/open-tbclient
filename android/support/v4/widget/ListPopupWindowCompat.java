@@ -8,7 +8,7 @@ public final class ListPopupWindowCompat {
 
     /* loaded from: classes2.dex */
     interface ListPopupWindowImpl {
-        View.OnTouchListener createDragToOpenListener(Object obj, View view);
+        View.OnTouchListener createDragToOpenListener(Object obj, View view2);
     }
 
     /* loaded from: classes2.dex */
@@ -17,7 +17,7 @@ public final class ListPopupWindowCompat {
         }
 
         @Override // android.support.v4.widget.ListPopupWindowCompat.ListPopupWindowImpl
-        public View.OnTouchListener createDragToOpenListener(Object obj, View view) {
+        public View.OnTouchListener createDragToOpenListener(Object obj, View view2) {
             return null;
         }
     }
@@ -28,8 +28,8 @@ public final class ListPopupWindowCompat {
         }
 
         @Override // android.support.v4.widget.ListPopupWindowCompat.BaseListPopupWindowImpl, android.support.v4.widget.ListPopupWindowCompat.ListPopupWindowImpl
-        public View.OnTouchListener createDragToOpenListener(Object obj, View view) {
-            return ListPopupWindowCompatKitKat.createDragToOpenListener(obj, view);
+        public View.OnTouchListener createDragToOpenListener(Object obj, View view2) {
+            return ListPopupWindowCompatKitKat.createDragToOpenListener(obj, view2);
         }
     }
 
@@ -44,7 +44,7 @@ public final class ListPopupWindowCompat {
     private ListPopupWindowCompat() {
     }
 
-    public static View.OnTouchListener createDragToOpenListener(Object obj, View view) {
-        return IMPL.createDragToOpenListener(obj, view);
+    public static View.OnTouchListener createDragToOpenListener(Object obj, View view2) {
+        return IMPL.createDragToOpenListener(obj, view2);
     }
 }

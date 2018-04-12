@@ -4,7 +4,7 @@ import GetSticker.GetStickerResIdl;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ResponseSocketGetStickerMessage extends SocketResponsedMessage {
     private List<String> mUrlList;
 

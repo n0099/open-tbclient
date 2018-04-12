@@ -5,7 +5,14 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.MenuRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StringRes;
+import android.support.annotation.StyleRes;
 import android.support.v4.os.ParcelableCompat;
 import android.support.v4.os.ParcelableCompatCreatorCallbacks;
 import android.support.v4.view.AbsSavedState;
@@ -42,47 +49,48 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class Toolbar extends ViewGroup {
-    private boolean JK;
-    private boolean JL;
-    private int Lg;
-    private MenuPresenter.Callback Li;
-    private MenuBuilder.Callback Lj;
-    private CharSequence XA;
-    private CharSequence XB;
-    private int XC;
-    private int XD;
-    private final ArrayList<View> XE;
-    private final ArrayList<View> XF;
-    private final int[] XG;
-    OnMenuItemClickListener XH;
-    private final ActionMenuView.OnMenuItemClickListener XI;
-    private ToolbarWidgetWrapper XJ;
-    private ActionMenuPresenter XK;
-    private a XL;
-    private final Runnable XM;
-    private TextView Xh;
-    private TextView Xi;
-    private ImageButton Xj;
-    private ImageView Xk;
-    private Drawable Xl;
-    private CharSequence Xm;
-    ImageButton Xn;
-    View Xo;
-    private int Xp;
-    private int Xq;
-    int Xr;
-    private int Xs;
-    private int Xt;
-    private int Xu;
-    private int Xv;
-    private int Xw;
-    private p Xx;
-    private int Xy;
-    private int Xz;
-    private boolean kL;
+    private static final String TAG = "Toolbar";
+    private MenuPresenter.Callback mActionMenuPresenterCallback;
+    int mButtonGravity;
+    ImageButton mCollapseButtonView;
+    private CharSequence mCollapseDescription;
+    private Drawable mCollapseIcon;
+    private boolean mCollapsible;
+    private int mContentInsetEndWithActions;
+    private int mContentInsetStartWithNavigation;
+    private RtlSpacingHelper mContentInsets;
+    private boolean mEatingHover;
+    private boolean mEatingTouch;
+    View mExpandedActionView;
+    private ExpandedActionViewMenuPresenter mExpandedMenuPresenter;
     private int mGravity;
+    private final ArrayList<View> mHiddenViews;
+    private ImageView mLogoView;
+    private int mMaxButtonHeight;
+    private MenuBuilder.Callback mMenuBuilderCallback;
     private ActionMenuView mMenuView;
+    private final ActionMenuView.OnMenuItemClickListener mMenuViewItemClickListener;
+    private ImageButton mNavButtonView;
+    OnMenuItemClickListener mOnMenuItemClickListener;
+    private ActionMenuPresenter mOuterActionMenuPresenter;
     private Context mPopupContext;
+    private int mPopupTheme;
+    private final Runnable mShowOverflowMenuRunnable;
+    private CharSequence mSubtitleText;
+    private int mSubtitleTextAppearance;
+    private int mSubtitleTextColor;
+    private TextView mSubtitleTextView;
+    private final int[] mTempMargins;
+    private final ArrayList<View> mTempViews;
+    private int mTitleMarginBottom;
+    private int mTitleMarginEnd;
+    private int mTitleMarginStart;
+    private int mTitleMarginTop;
+    private CharSequence mTitleText;
+    private int mTitleTextAppearance;
+    private int mTitleTextColor;
+    private TextView mTitleTextView;
+    private ToolbarWidgetWrapper mWrapper;
 
     /* loaded from: classes2.dex */
     public interface OnMenuItemClickListener {
@@ -93,72 +101,72 @@ public class Toolbar extends ViewGroup {
         this(context, null);
     }
 
-    public Toolbar(Context context, AttributeSet attributeSet) {
+    public Toolbar(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.toolbarStyle);
     }
 
-    public Toolbar(Context context, AttributeSet attributeSet, int i) {
+    public Toolbar(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mGravity = 8388627;
-        this.XE = new ArrayList<>();
-        this.XF = new ArrayList<>();
-        this.XG = new int[2];
-        this.XI = new ActionMenuView.OnMenuItemClickListener() { // from class: android.support.v7.widget.Toolbar.1
+        this.mTempViews = new ArrayList<>();
+        this.mHiddenViews = new ArrayList<>();
+        this.mTempMargins = new int[2];
+        this.mMenuViewItemClickListener = new ActionMenuView.OnMenuItemClickListener() { // from class: android.support.v7.widget.Toolbar.1
             @Override // android.support.v7.widget.ActionMenuView.OnMenuItemClickListener
             public boolean onMenuItemClick(MenuItem menuItem) {
-                if (Toolbar.this.XH != null) {
-                    return Toolbar.this.XH.onMenuItemClick(menuItem);
+                if (Toolbar.this.mOnMenuItemClickListener != null) {
+                    return Toolbar.this.mOnMenuItemClickListener.onMenuItemClick(menuItem);
                 }
                 return false;
             }
         };
-        this.XM = new Runnable() { // from class: android.support.v7.widget.Toolbar.2
+        this.mShowOverflowMenuRunnable = new Runnable() { // from class: android.support.v7.widget.Toolbar.2
             @Override // java.lang.Runnable
             public void run() {
                 Toolbar.this.showOverflowMenu();
             }
         };
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R.styleable.Toolbar, i, 0);
-        this.Xp = obtainStyledAttributes.getResourceId(R.styleable.Toolbar_titleTextAppearance, 0);
-        this.Xq = obtainStyledAttributes.getResourceId(R.styleable.Toolbar_subtitleTextAppearance, 0);
+        this.mTitleTextAppearance = obtainStyledAttributes.getResourceId(R.styleable.Toolbar_titleTextAppearance, 0);
+        this.mSubtitleTextAppearance = obtainStyledAttributes.getResourceId(R.styleable.Toolbar_subtitleTextAppearance, 0);
         this.mGravity = obtainStyledAttributes.getInteger(R.styleable.Toolbar_android_gravity, this.mGravity);
-        this.Xr = obtainStyledAttributes.getInteger(R.styleable.Toolbar_buttonGravity, 48);
+        this.mButtonGravity = obtainStyledAttributes.getInteger(R.styleable.Toolbar_buttonGravity, 48);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_titleMargin, 0);
         dimensionPixelOffset = obtainStyledAttributes.hasValue(R.styleable.Toolbar_titleMargins) ? obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_titleMargins, dimensionPixelOffset) : dimensionPixelOffset;
-        this.Xw = dimensionPixelOffset;
-        this.Xv = dimensionPixelOffset;
-        this.Xu = dimensionPixelOffset;
-        this.Xt = dimensionPixelOffset;
+        this.mTitleMarginBottom = dimensionPixelOffset;
+        this.mTitleMarginTop = dimensionPixelOffset;
+        this.mTitleMarginEnd = dimensionPixelOffset;
+        this.mTitleMarginStart = dimensionPixelOffset;
         int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_titleMarginStart, -1);
         if (dimensionPixelOffset2 >= 0) {
-            this.Xt = dimensionPixelOffset2;
+            this.mTitleMarginStart = dimensionPixelOffset2;
         }
         int dimensionPixelOffset3 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_titleMarginEnd, -1);
         if (dimensionPixelOffset3 >= 0) {
-            this.Xu = dimensionPixelOffset3;
+            this.mTitleMarginEnd = dimensionPixelOffset3;
         }
         int dimensionPixelOffset4 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_titleMarginTop, -1);
         if (dimensionPixelOffset4 >= 0) {
-            this.Xv = dimensionPixelOffset4;
+            this.mTitleMarginTop = dimensionPixelOffset4;
         }
         int dimensionPixelOffset5 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_titleMarginBottom, -1);
         if (dimensionPixelOffset5 >= 0) {
-            this.Xw = dimensionPixelOffset5;
+            this.mTitleMarginBottom = dimensionPixelOffset5;
         }
-        this.Xs = obtainStyledAttributes.getDimensionPixelSize(R.styleable.Toolbar_maxButtonHeight, -1);
+        this.mMaxButtonHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.Toolbar_maxButtonHeight, -1);
         int dimensionPixelOffset6 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_contentInsetStart, Integer.MIN_VALUE);
         int dimensionPixelOffset7 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_contentInsetEnd, Integer.MIN_VALUE);
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.Toolbar_contentInsetLeft, 0);
         int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(R.styleable.Toolbar_contentInsetRight, 0);
-        ix();
-        this.Xx.ad(dimensionPixelSize, dimensionPixelSize2);
+        ensureContentInsets();
+        this.mContentInsets.setAbsolute(dimensionPixelSize, dimensionPixelSize2);
         if (dimensionPixelOffset6 != Integer.MIN_VALUE || dimensionPixelOffset7 != Integer.MIN_VALUE) {
-            this.Xx.ac(dimensionPixelOffset6, dimensionPixelOffset7);
+            this.mContentInsets.setRelative(dimensionPixelOffset6, dimensionPixelOffset7);
         }
-        this.Xy = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_contentInsetStartWithNavigation, Integer.MIN_VALUE);
-        this.Xz = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_contentInsetEndWithActions, Integer.MIN_VALUE);
-        this.Xl = obtainStyledAttributes.getDrawable(R.styleable.Toolbar_collapseIcon);
-        this.Xm = obtainStyledAttributes.getText(R.styleable.Toolbar_collapseContentDescription);
+        this.mContentInsetStartWithNavigation = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_contentInsetStartWithNavigation, Integer.MIN_VALUE);
+        this.mContentInsetEndWithActions = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.Toolbar_contentInsetEndWithActions, Integer.MIN_VALUE);
+        this.mCollapseIcon = obtainStyledAttributes.getDrawable(R.styleable.Toolbar_collapseIcon);
+        this.mCollapseDescription = obtainStyledAttributes.getText(R.styleable.Toolbar_collapseContentDescription);
         CharSequence text = obtainStyledAttributes.getText(R.styleable.Toolbar_title);
         if (!TextUtils.isEmpty(text)) {
             setTitle(text);
@@ -194,9 +202,9 @@ public class Toolbar extends ViewGroup {
         obtainStyledAttributes.recycle();
     }
 
-    public void setPopupTheme(int i) {
-        if (this.Lg != i) {
-            this.Lg = i;
+    public void setPopupTheme(@StyleRes int i) {
+        if (this.mPopupTheme != i) {
+            this.mPopupTheme = i;
             if (i == 0) {
                 this.mPopupContext = getContext();
             } else {
@@ -206,50 +214,50 @@ public class Toolbar extends ViewGroup {
     }
 
     public int getPopupTheme() {
-        return this.Lg;
+        return this.mPopupTheme;
     }
 
     public void setTitleMargin(int i, int i2, int i3, int i4) {
-        this.Xt = i;
-        this.Xv = i2;
-        this.Xu = i3;
-        this.Xw = i4;
+        this.mTitleMarginStart = i;
+        this.mTitleMarginTop = i2;
+        this.mTitleMarginEnd = i3;
+        this.mTitleMarginBottom = i4;
         requestLayout();
     }
 
     public int getTitleMarginStart() {
-        return this.Xt;
+        return this.mTitleMarginStart;
     }
 
     public void setTitleMarginStart(int i) {
-        this.Xt = i;
+        this.mTitleMarginStart = i;
         requestLayout();
     }
 
     public int getTitleMarginTop() {
-        return this.Xv;
+        return this.mTitleMarginTop;
     }
 
     public void setTitleMarginTop(int i) {
-        this.Xv = i;
+        this.mTitleMarginTop = i;
         requestLayout();
     }
 
     public int getTitleMarginEnd() {
-        return this.Xu;
+        return this.mTitleMarginEnd;
     }
 
     public void setTitleMarginEnd(int i) {
-        this.Xu = i;
+        this.mTitleMarginEnd = i;
         requestLayout();
     }
 
     public int getTitleMarginBottom() {
-        return this.Xw;
+        return this.mTitleMarginBottom;
     }
 
     public void setTitleMarginBottom(int i) {
-        this.Xw = i;
+        this.mTitleMarginBottom = i;
         requestLayout();
     }
 
@@ -258,15 +266,15 @@ public class Toolbar extends ViewGroup {
         if (Build.VERSION.SDK_INT >= 17) {
             super.onRtlPropertiesChanged(i);
         }
-        ix();
-        this.Xx.K(i == 1);
+        ensureContentInsets();
+        this.mContentInsets.setDirection(i == 1);
     }
 
-    public void setLogo(int i) {
+    public void setLogo(@DrawableRes int i) {
         setLogo(AppCompatResources.getDrawable(getContext(), i));
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean canShowOverflowMenu() {
         return getVisibility() == 0 && this.mMenuView != null && this.mMenuView.isOverflowReserved();
     }
@@ -275,7 +283,7 @@ public class Toolbar extends ViewGroup {
         return this.mMenuView != null && this.mMenuView.isOverflowMenuShowing();
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean isOverflowMenuShowPending() {
         return this.mMenuView != null && this.mMenuView.isOverflowMenuShowPending();
     }
@@ -288,32 +296,32 @@ public class Toolbar extends ViewGroup {
         return this.mMenuView != null && this.mMenuView.hideOverflowMenu();
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setMenu(MenuBuilder menuBuilder, ActionMenuPresenter actionMenuPresenter) {
         if (menuBuilder != null || this.mMenuView != null) {
-            ir();
+            ensureMenuView();
             MenuBuilder peekMenu = this.mMenuView.peekMenu();
             if (peekMenu != menuBuilder) {
                 if (peekMenu != null) {
-                    peekMenu.removeMenuPresenter(this.XK);
-                    peekMenu.removeMenuPresenter(this.XL);
+                    peekMenu.removeMenuPresenter(this.mOuterActionMenuPresenter);
+                    peekMenu.removeMenuPresenter(this.mExpandedMenuPresenter);
                 }
-                if (this.XL == null) {
-                    this.XL = new a();
+                if (this.mExpandedMenuPresenter == null) {
+                    this.mExpandedMenuPresenter = new ExpandedActionViewMenuPresenter();
                 }
                 actionMenuPresenter.setExpandedActionViewsExclusive(true);
                 if (menuBuilder != null) {
                     menuBuilder.addMenuPresenter(actionMenuPresenter, this.mPopupContext);
-                    menuBuilder.addMenuPresenter(this.XL, this.mPopupContext);
+                    menuBuilder.addMenuPresenter(this.mExpandedMenuPresenter, this.mPopupContext);
                 } else {
                     actionMenuPresenter.initForMenu(this.mPopupContext, null);
-                    this.XL.initForMenu(this.mPopupContext, null);
+                    this.mExpandedMenuPresenter.initForMenu(this.mPopupContext, null);
                     actionMenuPresenter.updateMenuView(true);
-                    this.XL.updateMenuView(true);
+                    this.mExpandedMenuPresenter.updateMenuView(true);
                 }
-                this.mMenuView.setPopupTheme(this.Lg);
+                this.mMenuView.setPopupTheme(this.mPopupTheme);
                 this.mMenuView.setPresenter(actionMenuPresenter);
-                this.XK = actionMenuPresenter;
+                this.mOuterActionMenuPresenter = actionMenuPresenter;
             }
         }
     }
@@ -324,10 +332,10 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean isTitleTruncated() {
         Layout layout;
-        if (this.Xh == null || (layout = this.Xh.getLayout()) == null) {
+        if (this.mTitleTextView == null || (layout = this.mTitleTextView.getLayout()) == null) {
             return false;
         }
         int lineCount = layout.getLineCount();
@@ -341,249 +349,252 @@ public class Toolbar extends ViewGroup {
 
     public void setLogo(Drawable drawable) {
         if (drawable != null) {
-            ip();
-            if (!aE(this.Xk)) {
-                h(this.Xk, true);
+            ensureLogoView();
+            if (!isChildOrHidden(this.mLogoView)) {
+                addSystemView(this.mLogoView, true);
             }
-        } else if (this.Xk != null && aE(this.Xk)) {
-            removeView(this.Xk);
-            this.XF.remove(this.Xk);
+        } else if (this.mLogoView != null && isChildOrHidden(this.mLogoView)) {
+            removeView(this.mLogoView);
+            this.mHiddenViews.remove(this.mLogoView);
         }
-        if (this.Xk != null) {
-            this.Xk.setImageDrawable(drawable);
+        if (this.mLogoView != null) {
+            this.mLogoView.setImageDrawable(drawable);
         }
     }
 
     public Drawable getLogo() {
-        if (this.Xk != null) {
-            return this.Xk.getDrawable();
+        if (this.mLogoView != null) {
+            return this.mLogoView.getDrawable();
         }
         return null;
     }
 
-    public void setLogoDescription(int i) {
+    public void setLogoDescription(@StringRes int i) {
         setLogoDescription(getContext().getText(i));
     }
 
     public void setLogoDescription(CharSequence charSequence) {
         if (!TextUtils.isEmpty(charSequence)) {
-            ip();
+            ensureLogoView();
         }
-        if (this.Xk != null) {
-            this.Xk.setContentDescription(charSequence);
+        if (this.mLogoView != null) {
+            this.mLogoView.setContentDescription(charSequence);
         }
     }
 
     public CharSequence getLogoDescription() {
-        if (this.Xk != null) {
-            return this.Xk.getContentDescription();
+        if (this.mLogoView != null) {
+            return this.mLogoView.getContentDescription();
         }
         return null;
     }
 
-    private void ip() {
-        if (this.Xk == null) {
-            this.Xk = new AppCompatImageView(getContext());
+    private void ensureLogoView() {
+        if (this.mLogoView == null) {
+            this.mLogoView = new AppCompatImageView(getContext());
         }
     }
 
     public boolean hasExpandedActionView() {
-        return (this.XL == null || this.XL.XO == null) ? false : true;
+        return (this.mExpandedMenuPresenter == null || this.mExpandedMenuPresenter.mCurrentExpandedItem == null) ? false : true;
     }
 
     public void collapseActionView() {
-        MenuItemImpl menuItemImpl = this.XL == null ? null : this.XL.XO;
+        MenuItemImpl menuItemImpl = this.mExpandedMenuPresenter == null ? null : this.mExpandedMenuPresenter.mCurrentExpandedItem;
         if (menuItemImpl != null) {
             menuItemImpl.collapseActionView();
         }
     }
 
     public CharSequence getTitle() {
-        return this.XA;
+        return this.mTitleText;
     }
 
-    public void setTitle(int i) {
+    public void setTitle(@StringRes int i) {
         setTitle(getContext().getText(i));
     }
 
     public void setTitle(CharSequence charSequence) {
         if (!TextUtils.isEmpty(charSequence)) {
-            if (this.Xh == null) {
+            if (this.mTitleTextView == null) {
                 Context context = getContext();
-                this.Xh = new AppCompatTextView(context);
-                this.Xh.setSingleLine();
-                this.Xh.setEllipsize(TextUtils.TruncateAt.END);
-                if (this.Xp != 0) {
-                    this.Xh.setTextAppearance(context, this.Xp);
+                this.mTitleTextView = new AppCompatTextView(context);
+                this.mTitleTextView.setSingleLine();
+                this.mTitleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                if (this.mTitleTextAppearance != 0) {
+                    this.mTitleTextView.setTextAppearance(context, this.mTitleTextAppearance);
                 }
-                if (this.XC != 0) {
-                    this.Xh.setTextColor(this.XC);
+                if (this.mTitleTextColor != 0) {
+                    this.mTitleTextView.setTextColor(this.mTitleTextColor);
                 }
             }
-            if (!aE(this.Xh)) {
-                h(this.Xh, true);
+            if (!isChildOrHidden(this.mTitleTextView)) {
+                addSystemView(this.mTitleTextView, true);
             }
-        } else if (this.Xh != null && aE(this.Xh)) {
-            removeView(this.Xh);
-            this.XF.remove(this.Xh);
+        } else if (this.mTitleTextView != null && isChildOrHidden(this.mTitleTextView)) {
+            removeView(this.mTitleTextView);
+            this.mHiddenViews.remove(this.mTitleTextView);
         }
-        if (this.Xh != null) {
-            this.Xh.setText(charSequence);
+        if (this.mTitleTextView != null) {
+            this.mTitleTextView.setText(charSequence);
         }
-        this.XA = charSequence;
+        this.mTitleText = charSequence;
     }
 
     public CharSequence getSubtitle() {
-        return this.XB;
+        return this.mSubtitleText;
     }
 
-    public void setSubtitle(int i) {
+    public void setSubtitle(@StringRes int i) {
         setSubtitle(getContext().getText(i));
     }
 
     public void setSubtitle(CharSequence charSequence) {
         if (!TextUtils.isEmpty(charSequence)) {
-            if (this.Xi == null) {
+            if (this.mSubtitleTextView == null) {
                 Context context = getContext();
-                this.Xi = new AppCompatTextView(context);
-                this.Xi.setSingleLine();
-                this.Xi.setEllipsize(TextUtils.TruncateAt.END);
-                if (this.Xq != 0) {
-                    this.Xi.setTextAppearance(context, this.Xq);
+                this.mSubtitleTextView = new AppCompatTextView(context);
+                this.mSubtitleTextView.setSingleLine();
+                this.mSubtitleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                if (this.mSubtitleTextAppearance != 0) {
+                    this.mSubtitleTextView.setTextAppearance(context, this.mSubtitleTextAppearance);
                 }
-                if (this.XD != 0) {
-                    this.Xi.setTextColor(this.XD);
+                if (this.mSubtitleTextColor != 0) {
+                    this.mSubtitleTextView.setTextColor(this.mSubtitleTextColor);
                 }
             }
-            if (!aE(this.Xi)) {
-                h(this.Xi, true);
+            if (!isChildOrHidden(this.mSubtitleTextView)) {
+                addSystemView(this.mSubtitleTextView, true);
             }
-        } else if (this.Xi != null && aE(this.Xi)) {
-            removeView(this.Xi);
-            this.XF.remove(this.Xi);
+        } else if (this.mSubtitleTextView != null && isChildOrHidden(this.mSubtitleTextView)) {
+            removeView(this.mSubtitleTextView);
+            this.mHiddenViews.remove(this.mSubtitleTextView);
         }
-        if (this.Xi != null) {
-            this.Xi.setText(charSequence);
+        if (this.mSubtitleTextView != null) {
+            this.mSubtitleTextView.setText(charSequence);
         }
-        this.XB = charSequence;
+        this.mSubtitleText = charSequence;
     }
 
-    public void setTitleTextAppearance(Context context, int i) {
-        this.Xp = i;
-        if (this.Xh != null) {
-            this.Xh.setTextAppearance(context, i);
-        }
-    }
-
-    public void setSubtitleTextAppearance(Context context, int i) {
-        this.Xq = i;
-        if (this.Xi != null) {
-            this.Xi.setTextAppearance(context, i);
+    public void setTitleTextAppearance(Context context, @StyleRes int i) {
+        this.mTitleTextAppearance = i;
+        if (this.mTitleTextView != null) {
+            this.mTitleTextView.setTextAppearance(context, i);
         }
     }
 
-    public void setTitleTextColor(int i) {
-        this.XC = i;
-        if (this.Xh != null) {
-            this.Xh.setTextColor(i);
+    public void setSubtitleTextAppearance(Context context, @StyleRes int i) {
+        this.mSubtitleTextAppearance = i;
+        if (this.mSubtitleTextView != null) {
+            this.mSubtitleTextView.setTextAppearance(context, i);
         }
     }
 
-    public void setSubtitleTextColor(int i) {
-        this.XD = i;
-        if (this.Xi != null) {
-            this.Xi.setTextColor(i);
+    public void setTitleTextColor(@ColorInt int i) {
+        this.mTitleTextColor = i;
+        if (this.mTitleTextView != null) {
+            this.mTitleTextView.setTextColor(i);
         }
     }
 
+    public void setSubtitleTextColor(@ColorInt int i) {
+        this.mSubtitleTextColor = i;
+        if (this.mSubtitleTextView != null) {
+            this.mSubtitleTextView.setTextColor(i);
+        }
+    }
+
+    @Nullable
     public CharSequence getNavigationContentDescription() {
-        if (this.Xj != null) {
-            return this.Xj.getContentDescription();
+        if (this.mNavButtonView != null) {
+            return this.mNavButtonView.getContentDescription();
         }
         return null;
     }
 
-    public void setNavigationContentDescription(int i) {
+    public void setNavigationContentDescription(@StringRes int i) {
         setNavigationContentDescription(i != 0 ? getContext().getText(i) : null);
     }
 
-    public void setNavigationContentDescription(CharSequence charSequence) {
+    public void setNavigationContentDescription(@Nullable CharSequence charSequence) {
         if (!TextUtils.isEmpty(charSequence)) {
-            is();
+            ensureNavButtonView();
         }
-        if (this.Xj != null) {
-            this.Xj.setContentDescription(charSequence);
+        if (this.mNavButtonView != null) {
+            this.mNavButtonView.setContentDescription(charSequence);
         }
     }
 
-    public void setNavigationIcon(int i) {
+    public void setNavigationIcon(@DrawableRes int i) {
         setNavigationIcon(AppCompatResources.getDrawable(getContext(), i));
     }
 
-    public void setNavigationIcon(Drawable drawable) {
+    public void setNavigationIcon(@Nullable Drawable drawable) {
         if (drawable != null) {
-            is();
-            if (!aE(this.Xj)) {
-                h(this.Xj, true);
+            ensureNavButtonView();
+            if (!isChildOrHidden(this.mNavButtonView)) {
+                addSystemView(this.mNavButtonView, true);
             }
-        } else if (this.Xj != null && aE(this.Xj)) {
-            removeView(this.Xj);
-            this.XF.remove(this.Xj);
+        } else if (this.mNavButtonView != null && isChildOrHidden(this.mNavButtonView)) {
+            removeView(this.mNavButtonView);
+            this.mHiddenViews.remove(this.mNavButtonView);
         }
-        if (this.Xj != null) {
-            this.Xj.setImageDrawable(drawable);
+        if (this.mNavButtonView != null) {
+            this.mNavButtonView.setImageDrawable(drawable);
         }
     }
 
+    @Nullable
     public Drawable getNavigationIcon() {
-        if (this.Xj != null) {
-            return this.Xj.getDrawable();
+        if (this.mNavButtonView != null) {
+            return this.mNavButtonView.getDrawable();
         }
         return null;
     }
 
     public void setNavigationOnClickListener(View.OnClickListener onClickListener) {
-        is();
-        this.Xj.setOnClickListener(onClickListener);
+        ensureNavButtonView();
+        this.mNavButtonView.setOnClickListener(onClickListener);
     }
 
     public Menu getMenu() {
-        iq();
+        ensureMenu();
         return this.mMenuView.getMenu();
     }
 
-    public void setOverflowIcon(Drawable drawable) {
-        iq();
+    public void setOverflowIcon(@Nullable Drawable drawable) {
+        ensureMenu();
         this.mMenuView.setOverflowIcon(drawable);
     }
 
+    @Nullable
     public Drawable getOverflowIcon() {
-        iq();
+        ensureMenu();
         return this.mMenuView.getOverflowIcon();
     }
 
-    private void iq() {
-        ir();
+    private void ensureMenu() {
+        ensureMenuView();
         if (this.mMenuView.peekMenu() == null) {
             MenuBuilder menuBuilder = (MenuBuilder) this.mMenuView.getMenu();
-            if (this.XL == null) {
-                this.XL = new a();
+            if (this.mExpandedMenuPresenter == null) {
+                this.mExpandedMenuPresenter = new ExpandedActionViewMenuPresenter();
             }
             this.mMenuView.setExpandedActionViewsExclusive(true);
-            menuBuilder.addMenuPresenter(this.XL, this.mPopupContext);
+            menuBuilder.addMenuPresenter(this.mExpandedMenuPresenter, this.mPopupContext);
         }
     }
 
-    private void ir() {
+    private void ensureMenuView() {
         if (this.mMenuView == null) {
             this.mMenuView = new ActionMenuView(getContext());
-            this.mMenuView.setPopupTheme(this.Lg);
-            this.mMenuView.setOnMenuItemClickListener(this.XI);
-            this.mMenuView.setMenuCallbacks(this.Li, this.Lj);
+            this.mMenuView.setPopupTheme(this.mPopupTheme);
+            this.mMenuView.setOnMenuItemClickListener(this.mMenuViewItemClickListener);
+            this.mMenuView.setMenuCallbacks(this.mActionMenuPresenterCallback, this.mMenuBuilderCallback);
             LayoutParams generateDefaultLayoutParams = generateDefaultLayoutParams();
-            generateDefaultLayoutParams.gravity = 8388613 | (this.Xr & 112);
+            generateDefaultLayoutParams.gravity = 8388613 | (this.mButtonGravity & 112);
             this.mMenuView.setLayoutParams(generateDefaultLayoutParams);
-            h(this.mMenuView, false);
+            addSystemView(this.mMenuView, false);
         }
     }
 
@@ -591,62 +602,62 @@ public class Toolbar extends ViewGroup {
         return new SupportMenuInflater(getContext());
     }
 
-    public void inflateMenu(int i) {
+    public void inflateMenu(@MenuRes int i) {
         getMenuInflater().inflate(i, getMenu());
     }
 
     public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener) {
-        this.XH = onMenuItemClickListener;
+        this.mOnMenuItemClickListener = onMenuItemClickListener;
     }
 
     public void setContentInsetsRelative(int i, int i2) {
-        ix();
-        this.Xx.ac(i, i2);
+        ensureContentInsets();
+        this.mContentInsets.setRelative(i, i2);
     }
 
     public int getContentInsetStart() {
-        if (this.Xx != null) {
-            return this.Xx.getStart();
+        if (this.mContentInsets != null) {
+            return this.mContentInsets.getStart();
         }
         return 0;
     }
 
     public int getContentInsetEnd() {
-        if (this.Xx != null) {
-            return this.Xx.getEnd();
+        if (this.mContentInsets != null) {
+            return this.mContentInsets.getEnd();
         }
         return 0;
     }
 
     public void setContentInsetsAbsolute(int i, int i2) {
-        ix();
-        this.Xx.ad(i, i2);
+        ensureContentInsets();
+        this.mContentInsets.setAbsolute(i, i2);
     }
 
     public int getContentInsetLeft() {
-        if (this.Xx != null) {
-            return this.Xx.getLeft();
+        if (this.mContentInsets != null) {
+            return this.mContentInsets.getLeft();
         }
         return 0;
     }
 
     public int getContentInsetRight() {
-        if (this.Xx != null) {
-            return this.Xx.getRight();
+        if (this.mContentInsets != null) {
+            return this.mContentInsets.getRight();
         }
         return 0;
     }
 
     public int getContentInsetStartWithNavigation() {
-        return this.Xy != Integer.MIN_VALUE ? this.Xy : getContentInsetStart();
+        return this.mContentInsetStartWithNavigation != Integer.MIN_VALUE ? this.mContentInsetStartWithNavigation : getContentInsetStart();
     }
 
     public void setContentInsetStartWithNavigation(int i) {
         if (i < 0) {
             i = Integer.MIN_VALUE;
         }
-        if (i != this.Xy) {
-            this.Xy = i;
+        if (i != this.mContentInsetStartWithNavigation) {
+            this.mContentInsetStartWithNavigation = i;
             if (getNavigationIcon() != null) {
                 requestLayout();
             }
@@ -654,15 +665,15 @@ public class Toolbar extends ViewGroup {
     }
 
     public int getContentInsetEndWithActions() {
-        return this.Xz != Integer.MIN_VALUE ? this.Xz : getContentInsetEnd();
+        return this.mContentInsetEndWithActions != Integer.MIN_VALUE ? this.mContentInsetEndWithActions : getContentInsetEnd();
     }
 
     public void setContentInsetEndWithActions(int i) {
         if (i < 0) {
             i = Integer.MIN_VALUE;
         }
-        if (i != this.Xz) {
-            this.Xz = i;
+        if (i != this.mContentInsetEndWithActions) {
+            this.mContentInsetEndWithActions = i;
             if (getNavigationIcon() != null) {
                 requestLayout();
             }
@@ -670,7 +681,7 @@ public class Toolbar extends ViewGroup {
     }
 
     public int getCurrentContentInsetStart() {
-        return getNavigationIcon() != null ? Math.max(getContentInsetStart(), Math.max(this.Xy, 0)) : getContentInsetStart();
+        return getNavigationIcon() != null ? Math.max(getContentInsetStart(), Math.max(this.mContentInsetStartWithNavigation, 0)) : getContentInsetStart();
     }
 
     public int getCurrentContentInsetEnd() {
@@ -682,7 +693,7 @@ public class Toolbar extends ViewGroup {
             z = false;
         }
         if (z) {
-            return Math.max(getContentInsetEnd(), Math.max(this.Xz, 0));
+            return Math.max(getContentInsetEnd(), Math.max(this.mContentInsetEndWithActions, 0));
         }
         return getContentInsetEnd();
     }
@@ -695,36 +706,36 @@ public class Toolbar extends ViewGroup {
         return ViewCompat.getLayoutDirection(this) == 1 ? getCurrentContentInsetStart() : getCurrentContentInsetEnd();
     }
 
-    private void is() {
-        if (this.Xj == null) {
-            this.Xj = new AppCompatImageButton(getContext(), null, R.attr.toolbarNavigationButtonStyle);
+    private void ensureNavButtonView() {
+        if (this.mNavButtonView == null) {
+            this.mNavButtonView = new AppCompatImageButton(getContext(), null, R.attr.toolbarNavigationButtonStyle);
             LayoutParams generateDefaultLayoutParams = generateDefaultLayoutParams();
-            generateDefaultLayoutParams.gravity = 8388611 | (this.Xr & 112);
-            this.Xj.setLayoutParams(generateDefaultLayoutParams);
+            generateDefaultLayoutParams.gravity = 8388611 | (this.mButtonGravity & 112);
+            this.mNavButtonView.setLayoutParams(generateDefaultLayoutParams);
         }
     }
 
-    void it() {
-        if (this.Xn == null) {
-            this.Xn = new AppCompatImageButton(getContext(), null, R.attr.toolbarNavigationButtonStyle);
-            this.Xn.setImageDrawable(this.Xl);
-            this.Xn.setContentDescription(this.Xm);
+    void ensureCollapseButtonView() {
+        if (this.mCollapseButtonView == null) {
+            this.mCollapseButtonView = new AppCompatImageButton(getContext(), null, R.attr.toolbarNavigationButtonStyle);
+            this.mCollapseButtonView.setImageDrawable(this.mCollapseIcon);
+            this.mCollapseButtonView.setContentDescription(this.mCollapseDescription);
             LayoutParams generateDefaultLayoutParams = generateDefaultLayoutParams();
-            generateDefaultLayoutParams.gravity = 8388611 | (this.Xr & 112);
-            generateDefaultLayoutParams.XP = 2;
-            this.Xn.setLayoutParams(generateDefaultLayoutParams);
-            this.Xn.setOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.Toolbar.3
+            generateDefaultLayoutParams.gravity = 8388611 | (this.mButtonGravity & 112);
+            generateDefaultLayoutParams.mViewType = 2;
+            this.mCollapseButtonView.setLayoutParams(generateDefaultLayoutParams);
+            this.mCollapseButtonView.setOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.Toolbar.3
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Toolbar.this.collapseActionView();
                 }
             });
         }
     }
 
-    private void h(View view, boolean z) {
+    private void addSystemView(View view2, boolean z) {
         LayoutParams layoutParams;
-        ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
         if (layoutParams2 == null) {
             layoutParams = generateDefaultLayoutParams();
         } else if (!checkLayoutParams(layoutParams2)) {
@@ -732,22 +743,22 @@ public class Toolbar extends ViewGroup {
         } else {
             layoutParams = (LayoutParams) layoutParams2;
         }
-        layoutParams.XP = 1;
-        if (z && this.Xo != null) {
-            view.setLayoutParams(layoutParams);
-            this.XF.add(view);
+        layoutParams.mViewType = 1;
+        if (z && this.mExpandedActionView != null) {
+            view2.setLayoutParams(layoutParams);
+            this.mHiddenViews.add(view2);
             return;
         }
-        addView(view, layoutParams);
+        addView(view2, layoutParams);
     }
 
     @Override // android.view.View
     protected Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        if (this.XL != null && this.XL.XO != null) {
-            savedState.XQ = this.XL.XO.getItemId();
+        if (this.mExpandedMenuPresenter != null && this.mExpandedMenuPresenter.mCurrentExpandedItem != null) {
+            savedState.expandedMenuItemId = this.mExpandedMenuPresenter.mCurrentExpandedItem.getItemId();
         }
-        savedState.XR = isOverflowMenuShowing();
+        savedState.isOverflowOpen = isOverflowMenuShowing();
         return savedState;
     }
 
@@ -761,39 +772,39 @@ public class Toolbar extends ViewGroup {
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
         MenuBuilder peekMenu = this.mMenuView != null ? this.mMenuView.peekMenu() : null;
-        if (savedState.XQ != 0 && this.XL != null && peekMenu != null && (findItem = peekMenu.findItem(savedState.XQ)) != null) {
+        if (savedState.expandedMenuItemId != 0 && this.mExpandedMenuPresenter != null && peekMenu != null && (findItem = peekMenu.findItem(savedState.expandedMenuItemId)) != null) {
             MenuItemCompat.expandActionView(findItem);
         }
-        if (savedState.XR) {
+        if (savedState.isOverflowOpen) {
             postShowOverflowMenu();
         }
     }
 
     private void postShowOverflowMenu() {
-        removeCallbacks(this.XM);
-        post(this.XM);
+        removeCallbacks(this.mShowOverflowMenuRunnable);
+        post(this.mShowOverflowMenuRunnable);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.XM);
+        removeCallbacks(this.mShowOverflowMenuRunnable);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
         if (actionMasked == 0) {
-            this.JK = false;
+            this.mEatingTouch = false;
         }
-        if (!this.JK) {
+        if (!this.mEatingTouch) {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
             if (actionMasked == 0 && !onTouchEvent) {
-                this.JK = true;
+                this.mEatingTouch = true;
             }
         }
         if (actionMasked == 1 || actionMasked == 3) {
-            this.JK = false;
+            this.mEatingTouch = false;
         }
         return true;
     }
@@ -802,22 +813,22 @@ public class Toolbar extends ViewGroup {
     public boolean onHoverEvent(MotionEvent motionEvent) {
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
         if (actionMasked == 9) {
-            this.JL = false;
+            this.mEatingHover = false;
         }
-        if (!this.JL) {
+        if (!this.mEatingHover) {
             boolean onHoverEvent = super.onHoverEvent(motionEvent);
             if (actionMasked == 9 && !onHoverEvent) {
-                this.JL = true;
+                this.mEatingHover = true;
             }
         }
         if (actionMasked == 10 || actionMasked == 3) {
-            this.JL = false;
+            this.mEatingHover = false;
         }
         return true;
     }
 
-    private void b(View view, int i, int i2, int i3, int i4, int i5) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+    private void measureChildConstrained(View view2, int i, int i2, int i3, int i4, int i5) {
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
         int childMeasureSpec = getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin + i2, marginLayoutParams.width);
         int childMeasureSpec2 = getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, marginLayoutParams.height);
         int mode = View.MeasureSpec.getMode(childMeasureSpec2);
@@ -827,26 +838,26 @@ public class Toolbar extends ViewGroup {
             }
             childMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(i5, 1073741824);
         }
-        view.measure(childMeasureSpec, childMeasureSpec2);
+        view2.measure(childMeasureSpec, childMeasureSpec2);
     }
 
-    private int a(View view, int i, int i2, int i3, int i4, int[] iArr) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+    private int measureChildCollapseMargins(View view2, int i, int i2, int i3, int i4, int[] iArr) {
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
         int i5 = marginLayoutParams.leftMargin - iArr[0];
         int i6 = marginLayoutParams.rightMargin - iArr[1];
         int max = Math.max(0, i5) + Math.max(0, i6);
         iArr[0] = Math.max(0, -i5);
         iArr[1] = Math.max(0, -i6);
-        view.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + max + i2, marginLayoutParams.width), getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, marginLayoutParams.height));
-        return view.getMeasuredWidth() + max;
+        view2.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + max + i2, marginLayoutParams.width), getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, marginLayoutParams.height));
+        return view2.getMeasuredWidth() + max;
     }
 
-    private boolean iu() {
-        if (this.kL) {
+    private boolean shouldCollapse() {
+        if (this.mCollapsible) {
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = getChildAt(i);
-                if (aB(childAt) && childAt.getMeasuredWidth() > 0 && childAt.getMeasuredHeight() > 0) {
+                if (shouldLayout(childAt) && childAt.getMeasuredWidth() > 0 && childAt.getMeasuredHeight() > 0) {
                     return false;
                 }
             }
@@ -863,7 +874,7 @@ public class Toolbar extends ViewGroup {
         int i4;
         int i5 = 0;
         int i6 = 0;
-        int[] iArr = this.XG;
+        int[] iArr = this.mTempMargins;
         if (ViewUtils.isLayoutRtl(this)) {
             c = 0;
             c2 = 1;
@@ -872,41 +883,41 @@ public class Toolbar extends ViewGroup {
             c2 = 0;
         }
         int i7 = 0;
-        if (aB(this.Xj)) {
-            b(this.Xj, i, 0, i2, 0, this.Xs);
-            i7 = this.Xj.getMeasuredWidth() + aC(this.Xj);
-            int max = Math.max(0, this.Xj.getMeasuredHeight() + aD(this.Xj));
-            i6 = ViewUtils.combineMeasuredStates(0, ViewCompat.getMeasuredState(this.Xj));
+        if (shouldLayout(this.mNavButtonView)) {
+            measureChildConstrained(this.mNavButtonView, i, 0, i2, 0, this.mMaxButtonHeight);
+            i7 = this.mNavButtonView.getMeasuredWidth() + getHorizontalMargins(this.mNavButtonView);
+            int max = Math.max(0, this.mNavButtonView.getMeasuredHeight() + getVerticalMargins(this.mNavButtonView));
+            i6 = ViewUtils.combineMeasuredStates(0, ViewCompat.getMeasuredState(this.mNavButtonView));
             i5 = max;
         }
-        if (aB(this.Xn)) {
-            b(this.Xn, i, 0, i2, 0, this.Xs);
-            i7 = this.Xn.getMeasuredWidth() + aC(this.Xn);
-            i5 = Math.max(i5, this.Xn.getMeasuredHeight() + aD(this.Xn));
-            i6 = ViewUtils.combineMeasuredStates(i6, ViewCompat.getMeasuredState(this.Xn));
+        if (shouldLayout(this.mCollapseButtonView)) {
+            measureChildConstrained(this.mCollapseButtonView, i, 0, i2, 0, this.mMaxButtonHeight);
+            i7 = this.mCollapseButtonView.getMeasuredWidth() + getHorizontalMargins(this.mCollapseButtonView);
+            i5 = Math.max(i5, this.mCollapseButtonView.getMeasuredHeight() + getVerticalMargins(this.mCollapseButtonView));
+            i6 = ViewUtils.combineMeasuredStates(i6, ViewCompat.getMeasuredState(this.mCollapseButtonView));
         }
         int currentContentInsetStart = getCurrentContentInsetStart();
         int max2 = 0 + Math.max(currentContentInsetStart, i7);
         iArr[c2] = Math.max(0, currentContentInsetStart - i7);
         int i8 = 0;
-        if (aB(this.mMenuView)) {
-            b(this.mMenuView, i, max2, i2, 0, this.Xs);
-            i8 = this.mMenuView.getMeasuredWidth() + aC(this.mMenuView);
-            i5 = Math.max(i5, this.mMenuView.getMeasuredHeight() + aD(this.mMenuView));
+        if (shouldLayout(this.mMenuView)) {
+            measureChildConstrained(this.mMenuView, i, max2, i2, 0, this.mMaxButtonHeight);
+            i8 = this.mMenuView.getMeasuredWidth() + getHorizontalMargins(this.mMenuView);
+            i5 = Math.max(i5, this.mMenuView.getMeasuredHeight() + getVerticalMargins(this.mMenuView));
             i6 = ViewUtils.combineMeasuredStates(i6, ViewCompat.getMeasuredState(this.mMenuView));
         }
         int currentContentInsetEnd = getCurrentContentInsetEnd();
         int max3 = max2 + Math.max(currentContentInsetEnd, i8);
         iArr[c] = Math.max(0, currentContentInsetEnd - i8);
-        if (aB(this.Xo)) {
-            max3 += a(this.Xo, i, max3, i2, 0, iArr);
-            i5 = Math.max(i5, this.Xo.getMeasuredHeight() + aD(this.Xo));
-            i6 = ViewUtils.combineMeasuredStates(i6, ViewCompat.getMeasuredState(this.Xo));
+        if (shouldLayout(this.mExpandedActionView)) {
+            max3 += measureChildCollapseMargins(this.mExpandedActionView, i, max3, i2, 0, iArr);
+            i5 = Math.max(i5, this.mExpandedActionView.getMeasuredHeight() + getVerticalMargins(this.mExpandedActionView));
+            i6 = ViewUtils.combineMeasuredStates(i6, ViewCompat.getMeasuredState(this.mExpandedActionView));
         }
-        if (aB(this.Xk)) {
-            max3 += a(this.Xk, i, max3, i2, 0, iArr);
-            i5 = Math.max(i5, this.Xk.getMeasuredHeight() + aD(this.Xk));
-            i6 = ViewUtils.combineMeasuredStates(i6, ViewCompat.getMeasuredState(this.Xk));
+        if (shouldLayout(this.mLogoView)) {
+            max3 += measureChildCollapseMargins(this.mLogoView, i, max3, i2, 0, iArr);
+            i5 = Math.max(i5, this.mLogoView.getMeasuredHeight() + getVerticalMargins(this.mLogoView));
+            i6 = ViewUtils.combineMeasuredStates(i6, ViewCompat.getMeasuredState(this.mLogoView));
         }
         int childCount = getChildCount();
         int i9 = 0;
@@ -914,12 +925,12 @@ public class Toolbar extends ViewGroup {
         int i11 = i6;
         while (i9 < childCount) {
             View childAt = getChildAt(i9);
-            if (((LayoutParams) childAt.getLayoutParams()).XP != 0) {
+            if (((LayoutParams) childAt.getLayoutParams()).mViewType != 0) {
                 i3 = i11;
                 i4 = i10;
-            } else if (aB(childAt)) {
-                max3 += a(childAt, i, max3, i2, 0, iArr);
-                int max4 = Math.max(i10, childAt.getMeasuredHeight() + aD(childAt));
+            } else if (shouldLayout(childAt)) {
+                max3 += measureChildCollapseMargins(childAt, i, max3, i2, 0, iArr);
+                int max4 = Math.max(i10, childAt.getMeasuredHeight() + getVerticalMargins(childAt));
                 i3 = ViewUtils.combineMeasuredStates(i11, ViewCompat.getMeasuredState(childAt));
                 i4 = max4;
             } else {
@@ -932,25 +943,25 @@ public class Toolbar extends ViewGroup {
         }
         int i12 = 0;
         int i13 = 0;
-        int i14 = this.Xv + this.Xw;
-        int i15 = this.Xt + this.Xu;
-        if (aB(this.Xh)) {
-            a(this.Xh, i, max3 + i15, i2, i14, iArr);
-            i12 = aC(this.Xh) + this.Xh.getMeasuredWidth();
-            i13 = this.Xh.getMeasuredHeight() + aD(this.Xh);
-            i11 = ViewUtils.combineMeasuredStates(i11, ViewCompat.getMeasuredState(this.Xh));
+        int i14 = this.mTitleMarginTop + this.mTitleMarginBottom;
+        int i15 = this.mTitleMarginStart + this.mTitleMarginEnd;
+        if (shouldLayout(this.mTitleTextView)) {
+            measureChildCollapseMargins(this.mTitleTextView, i, max3 + i15, i2, i14, iArr);
+            i12 = getHorizontalMargins(this.mTitleTextView) + this.mTitleTextView.getMeasuredWidth();
+            i13 = this.mTitleTextView.getMeasuredHeight() + getVerticalMargins(this.mTitleTextView);
+            i11 = ViewUtils.combineMeasuredStates(i11, ViewCompat.getMeasuredState(this.mTitleTextView));
         }
-        if (aB(this.Xi)) {
-            i12 = Math.max(i12, a(this.Xi, i, max3 + i15, i2, i14 + i13, iArr));
-            i13 += this.Xi.getMeasuredHeight() + aD(this.Xi);
-            i11 = ViewUtils.combineMeasuredStates(i11, ViewCompat.getMeasuredState(this.Xi));
+        if (shouldLayout(this.mSubtitleTextView)) {
+            i12 = Math.max(i12, measureChildCollapseMargins(this.mSubtitleTextView, i, max3 + i15, i2, i14 + i13, iArr));
+            i13 += this.mSubtitleTextView.getMeasuredHeight() + getVerticalMargins(this.mSubtitleTextView);
+            i11 = ViewUtils.combineMeasuredStates(i11, ViewCompat.getMeasuredState(this.mSubtitleTextView));
         }
         int max5 = Math.max(i10, i13);
         int paddingLeft = i12 + max3 + getPaddingLeft() + getPaddingRight();
         int paddingTop = max5 + getPaddingTop() + getPaddingBottom();
         int resolveSizeAndState = ViewCompat.resolveSizeAndState(Math.max(paddingLeft, getSuggestedMinimumWidth()), i, (-16777216) & i11);
         int resolveSizeAndState2 = ViewCompat.resolveSizeAndState(Math.max(paddingTop, getSuggestedMinimumHeight()), i2, i11 << 16);
-        if (iu()) {
+        if (shouldCollapse()) {
             resolveSizeAndState2 = 0;
         }
         setMeasuredDimension(resolveSizeAndState, resolveSizeAndState2);
@@ -978,33 +989,33 @@ public class Toolbar extends ViewGroup {
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
         int i16 = width - paddingRight;
-        int[] iArr = this.XG;
+        int[] iArr = this.mTempMargins;
         iArr[1] = 0;
         iArr[0] = 0;
         int minimumHeight = ViewCompat.getMinimumHeight(this);
         int min = minimumHeight >= 0 ? Math.min(minimumHeight, i4 - i2) : 0;
-        if (!aB(this.Xj)) {
+        if (!shouldLayout(this.mNavButtonView)) {
             i5 = i16;
             i6 = paddingLeft;
         } else if (z2) {
-            i5 = b(this.Xj, i16, iArr, min);
+            i5 = layoutChildRight(this.mNavButtonView, i16, iArr, min);
             i6 = paddingLeft;
         } else {
-            i6 = a(this.Xj, paddingLeft, iArr, min);
+            i6 = layoutChildLeft(this.mNavButtonView, paddingLeft, iArr, min);
             i5 = i16;
         }
-        if (aB(this.Xn)) {
+        if (shouldLayout(this.mCollapseButtonView)) {
             if (z2) {
-                i5 = b(this.Xn, i5, iArr, min);
+                i5 = layoutChildRight(this.mCollapseButtonView, i5, iArr, min);
             } else {
-                i6 = a(this.Xn, i6, iArr, min);
+                i6 = layoutChildLeft(this.mCollapseButtonView, i6, iArr, min);
             }
         }
-        if (aB(this.mMenuView)) {
+        if (shouldLayout(this.mMenuView)) {
             if (z2) {
-                i6 = a(this.mMenuView, i6, iArr, min);
+                i6 = layoutChildLeft(this.mMenuView, i6, iArr, min);
             } else {
-                i5 = b(this.mMenuView, i5, iArr, min);
+                i5 = layoutChildRight(this.mMenuView, i5, iArr, min);
             }
         }
         int currentContentInsetLeft = getCurrentContentInsetLeft();
@@ -1013,108 +1024,108 @@ public class Toolbar extends ViewGroup {
         iArr[1] = Math.max(0, currentContentInsetRight - ((width - paddingRight) - i5));
         int max2 = Math.max(i6, currentContentInsetLeft);
         int min2 = Math.min(i5, (width - paddingRight) - currentContentInsetRight);
-        if (aB(this.Xo)) {
+        if (shouldLayout(this.mExpandedActionView)) {
             if (z2) {
-                min2 = b(this.Xo, min2, iArr, min);
+                min2 = layoutChildRight(this.mExpandedActionView, min2, iArr, min);
             } else {
-                max2 = a(this.Xo, max2, iArr, min);
+                max2 = layoutChildLeft(this.mExpandedActionView, max2, iArr, min);
             }
         }
-        if (!aB(this.Xk)) {
+        if (!shouldLayout(this.mLogoView)) {
             i7 = min2;
             i8 = max2;
         } else if (z2) {
-            i7 = b(this.Xk, min2, iArr, min);
+            i7 = layoutChildRight(this.mLogoView, min2, iArr, min);
             i8 = max2;
         } else {
             i7 = min2;
-            i8 = a(this.Xk, max2, iArr, min);
+            i8 = layoutChildLeft(this.mLogoView, max2, iArr, min);
         }
-        boolean aB = aB(this.Xh);
-        boolean aB2 = aB(this.Xi);
+        boolean shouldLayout = shouldLayout(this.mTitleTextView);
+        boolean shouldLayout2 = shouldLayout(this.mSubtitleTextView);
         int i17 = 0;
-        if (aB) {
-            LayoutParams layoutParams = (LayoutParams) this.Xh.getLayoutParams();
-            i17 = 0 + layoutParams.bottomMargin + layoutParams.topMargin + this.Xh.getMeasuredHeight();
+        if (shouldLayout) {
+            LayoutParams layoutParams = (LayoutParams) this.mTitleTextView.getLayoutParams();
+            i17 = 0 + layoutParams.bottomMargin + layoutParams.topMargin + this.mTitleTextView.getMeasuredHeight();
         }
-        if (aB2) {
-            LayoutParams layoutParams2 = (LayoutParams) this.Xi.getLayoutParams();
-            i9 = layoutParams2.bottomMargin + layoutParams2.topMargin + this.Xi.getMeasuredHeight() + i17;
+        if (shouldLayout2) {
+            LayoutParams layoutParams2 = (LayoutParams) this.mSubtitleTextView.getLayoutParams();
+            i9 = layoutParams2.bottomMargin + layoutParams2.topMargin + this.mSubtitleTextView.getMeasuredHeight() + i17;
         } else {
             i9 = i17;
         }
-        if (aB || aB2) {
-            TextView textView = aB ? this.Xh : this.Xi;
-            TextView textView2 = aB2 ? this.Xi : this.Xh;
+        if (shouldLayout || shouldLayout2) {
+            TextView textView = shouldLayout ? this.mTitleTextView : this.mSubtitleTextView;
+            TextView textView2 = shouldLayout2 ? this.mSubtitleTextView : this.mTitleTextView;
             LayoutParams layoutParams3 = (LayoutParams) textView.getLayoutParams();
             LayoutParams layoutParams4 = (LayoutParams) textView2.getLayoutParams();
-            boolean z3 = (aB && this.Xh.getMeasuredWidth() > 0) || (aB2 && this.Xi.getMeasuredWidth() > 0);
+            boolean z3 = (shouldLayout && this.mTitleTextView.getMeasuredWidth() > 0) || (shouldLayout2 && this.mSubtitleTextView.getMeasuredWidth() > 0);
             switch (this.mGravity & 112) {
                 case 48:
-                    i10 = layoutParams3.topMargin + getPaddingTop() + this.Xv;
+                    i10 = layoutParams3.topMargin + getPaddingTop() + this.mTitleMarginTop;
                     break;
                 case 80:
-                    i10 = (((height - paddingBottom) - layoutParams4.bottomMargin) - this.Xw) - i9;
+                    i10 = (((height - paddingBottom) - layoutParams4.bottomMargin) - this.mTitleMarginBottom) - i9;
                     break;
                 default:
                     int i18 = (((height - paddingTop) - paddingBottom) - i9) / 2;
-                    if (i18 < layoutParams3.topMargin + this.Xv) {
-                        max = layoutParams3.topMargin + this.Xv;
+                    if (i18 < layoutParams3.topMargin + this.mTitleMarginTop) {
+                        max = layoutParams3.topMargin + this.mTitleMarginTop;
                     } else {
                         int i19 = (((height - paddingBottom) - i9) - i18) - paddingTop;
-                        max = i19 < layoutParams3.bottomMargin + this.Xw ? Math.max(0, i18 - ((layoutParams4.bottomMargin + this.Xw) - i19)) : i18;
+                        max = i19 < layoutParams3.bottomMargin + this.mTitleMarginBottom ? Math.max(0, i18 - ((layoutParams4.bottomMargin + this.mTitleMarginBottom) - i19)) : i18;
                     }
                     i10 = paddingTop + max;
                     break;
             }
             if (z2) {
-                int i20 = (z3 ? this.Xt : 0) - iArr[1];
+                int i20 = (z3 ? this.mTitleMarginStart : 0) - iArr[1];
                 int max3 = i7 - Math.max(0, i20);
                 iArr[1] = Math.max(0, -i20);
-                if (aB) {
-                    int measuredWidth = max3 - this.Xh.getMeasuredWidth();
-                    int measuredHeight = this.Xh.getMeasuredHeight() + i10;
-                    this.Xh.layout(measuredWidth, i10, max3, measuredHeight);
-                    int i21 = measuredWidth - this.Xu;
-                    i10 = measuredHeight + ((LayoutParams) this.Xh.getLayoutParams()).bottomMargin;
+                if (shouldLayout) {
+                    int measuredWidth = max3 - this.mTitleTextView.getMeasuredWidth();
+                    int measuredHeight = this.mTitleTextView.getMeasuredHeight() + i10;
+                    this.mTitleTextView.layout(measuredWidth, i10, max3, measuredHeight);
+                    int i21 = measuredWidth - this.mTitleMarginEnd;
+                    i10 = measuredHeight + ((LayoutParams) this.mTitleTextView.getLayoutParams()).bottomMargin;
                     i14 = i21;
                 } else {
                     i14 = max3;
                 }
-                if (aB2) {
-                    LayoutParams layoutParams5 = (LayoutParams) this.Xi.getLayoutParams();
+                if (shouldLayout2) {
+                    LayoutParams layoutParams5 = (LayoutParams) this.mSubtitleTextView.getLayoutParams();
                     int i22 = layoutParams5.topMargin + i10;
-                    int measuredHeight2 = this.Xi.getMeasuredHeight() + i22;
-                    this.Xi.layout(max3 - this.Xi.getMeasuredWidth(), i22, max3, measuredHeight2);
+                    int measuredHeight2 = this.mSubtitleTextView.getMeasuredHeight() + i22;
+                    this.mSubtitleTextView.layout(max3 - this.mSubtitleTextView.getMeasuredWidth(), i22, max3, measuredHeight2);
                     int i23 = layoutParams5.bottomMargin + measuredHeight2;
-                    i15 = max3 - this.Xu;
+                    i15 = max3 - this.mTitleMarginEnd;
                 } else {
                     i15 = max3;
                 }
                 i7 = z3 ? Math.min(i14, i15) : max3;
             } else {
-                int i24 = (z3 ? this.Xt : 0) - iArr[0];
+                int i24 = (z3 ? this.mTitleMarginStart : 0) - iArr[0];
                 i8 += Math.max(0, i24);
                 iArr[0] = Math.max(0, -i24);
-                if (aB) {
-                    int measuredWidth2 = this.Xh.getMeasuredWidth() + i8;
-                    int measuredHeight3 = this.Xh.getMeasuredHeight() + i10;
-                    this.Xh.layout(i8, i10, measuredWidth2, measuredHeight3);
-                    int i25 = ((LayoutParams) this.Xh.getLayoutParams()).bottomMargin + measuredHeight3;
-                    i11 = measuredWidth2 + this.Xu;
+                if (shouldLayout) {
+                    int measuredWidth2 = this.mTitleTextView.getMeasuredWidth() + i8;
+                    int measuredHeight3 = this.mTitleTextView.getMeasuredHeight() + i10;
+                    this.mTitleTextView.layout(i8, i10, measuredWidth2, measuredHeight3);
+                    int i25 = ((LayoutParams) this.mTitleTextView.getLayoutParams()).bottomMargin + measuredHeight3;
+                    i11 = measuredWidth2 + this.mTitleMarginEnd;
                     i12 = i25;
                 } else {
                     i11 = i8;
                     i12 = i10;
                 }
-                if (aB2) {
-                    LayoutParams layoutParams6 = (LayoutParams) this.Xi.getLayoutParams();
+                if (shouldLayout2) {
+                    LayoutParams layoutParams6 = (LayoutParams) this.mSubtitleTextView.getLayoutParams();
                     int i26 = i12 + layoutParams6.topMargin;
-                    int measuredWidth3 = this.Xi.getMeasuredWidth() + i8;
-                    int measuredHeight4 = this.Xi.getMeasuredHeight() + i26;
-                    this.Xi.layout(i8, i26, measuredWidth3, measuredHeight4);
+                    int measuredWidth3 = this.mSubtitleTextView.getMeasuredWidth() + i8;
+                    int measuredHeight4 = this.mSubtitleTextView.getMeasuredHeight() + i26;
+                    this.mSubtitleTextView.layout(i8, i26, measuredWidth3, measuredHeight4);
                     int i27 = layoutParams6.bottomMargin + measuredHeight4;
-                    i13 = this.Xu + measuredWidth3;
+                    i13 = this.mTitleMarginEnd + measuredWidth3;
                 } else {
                     i13 = i8;
                 }
@@ -1123,35 +1134,35 @@ public class Toolbar extends ViewGroup {
                 }
             }
         }
-        d(this.XE, 3);
-        int size = this.XE.size();
+        addCustomViewsWithGravity(this.mTempViews, 3);
+        int size = this.mTempViews.size();
         int i28 = i8;
         for (int i29 = 0; i29 < size; i29++) {
-            i28 = a(this.XE.get(i29), i28, iArr, min);
+            i28 = layoutChildLeft(this.mTempViews.get(i29), i28, iArr, min);
         }
-        d(this.XE, 5);
-        int size2 = this.XE.size();
+        addCustomViewsWithGravity(this.mTempViews, 5);
+        int size2 = this.mTempViews.size();
         for (int i30 = 0; i30 < size2; i30++) {
-            i7 = b(this.XE.get(i30), i7, iArr, min);
+            i7 = layoutChildRight(this.mTempViews.get(i30), i7, iArr, min);
         }
-        d(this.XE, 1);
-        int a2 = a(this.XE, iArr);
-        int i31 = ((((width - paddingLeft) - paddingRight) / 2) + paddingLeft) - (a2 / 2);
-        int i32 = a2 + i31;
+        addCustomViewsWithGravity(this.mTempViews, 1);
+        int viewListMeasuredWidth = getViewListMeasuredWidth(this.mTempViews, iArr);
+        int i31 = ((((width - paddingLeft) - paddingRight) / 2) + paddingLeft) - (viewListMeasuredWidth / 2);
+        int i32 = viewListMeasuredWidth + i31;
         if (i31 < i28) {
             i31 = i28;
         } else if (i32 > i7) {
             i31 -= i32 - i7;
         }
-        int size3 = this.XE.size();
+        int size3 = this.mTempViews.size();
         int i33 = i31;
         for (int i34 = 0; i34 < size3; i34++) {
-            i33 = a(this.XE.get(i34), i33, iArr, min);
+            i33 = layoutChildLeft(this.mTempViews.get(i34), i33, iArr, min);
         }
-        this.XE.clear();
+        this.mTempViews.clear();
     }
 
-    private int a(List<View> list, int[] iArr) {
+    private int getViewListMeasuredWidth(List<View> list, int[] iArr) {
         int i = iArr[0];
         int i2 = iArr[1];
         int size = list.size();
@@ -1160,8 +1171,8 @@ public class Toolbar extends ViewGroup {
         int i5 = i2;
         int i6 = i;
         while (i3 < size) {
-            View view = list.get(i3);
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+            View view2 = list.get(i3);
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             int i7 = layoutParams.leftMargin - i6;
             int i8 = layoutParams.rightMargin - i5;
             int max = Math.max(0, i7);
@@ -1169,39 +1180,39 @@ public class Toolbar extends ViewGroup {
             i6 = Math.max(0, -i7);
             i5 = Math.max(0, -i8);
             i3++;
-            i4 += view.getMeasuredWidth() + max + max2;
+            i4 += view2.getMeasuredWidth() + max + max2;
         }
         return i4;
     }
 
-    private int a(View view, int i, int[] iArr, int i2) {
-        LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+    private int layoutChildLeft(View view2, int i, int[] iArr, int i2) {
+        LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
         int i3 = layoutParams.leftMargin - iArr[0];
         int max = Math.max(0, i3) + i;
         iArr[0] = Math.max(0, -i3);
-        int k = k(view, i2);
-        int measuredWidth = view.getMeasuredWidth();
-        view.layout(max, k, max + measuredWidth, view.getMeasuredHeight() + k);
+        int childTop = getChildTop(view2, i2);
+        int measuredWidth = view2.getMeasuredWidth();
+        view2.layout(max, childTop, max + measuredWidth, view2.getMeasuredHeight() + childTop);
         return layoutParams.rightMargin + measuredWidth + max;
     }
 
-    private int b(View view, int i, int[] iArr, int i2) {
-        LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+    private int layoutChildRight(View view2, int i, int[] iArr, int i2) {
+        LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
         int i3 = layoutParams.rightMargin - iArr[1];
         int max = i - Math.max(0, i3);
         iArr[1] = Math.max(0, -i3);
-        int k = k(view, i2);
-        int measuredWidth = view.getMeasuredWidth();
-        view.layout(max - measuredWidth, k, max, view.getMeasuredHeight() + k);
+        int childTop = getChildTop(view2, i2);
+        int measuredWidth = view2.getMeasuredWidth();
+        view2.layout(max - measuredWidth, childTop, max, view2.getMeasuredHeight() + childTop);
         return max - (layoutParams.leftMargin + measuredWidth);
     }
 
-    private int k(View view, int i) {
+    private int getChildTop(View view2, int i) {
         int max;
-        LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-        int measuredHeight = view.getMeasuredHeight();
+        LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
+        int measuredHeight = view2.getMeasuredHeight();
         int i2 = i > 0 ? (measuredHeight - i) / 2 : 0;
-        switch (cf(layoutParams.gravity)) {
+        switch (getChildVerticalGravity(layoutParams.gravity)) {
             case 48:
                 return getPaddingTop() - i2;
             case 80:
@@ -1221,7 +1232,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    private int cf(int i) {
+    private int getChildVerticalGravity(int i) {
         int i2 = i & 112;
         switch (i2) {
             case 16:
@@ -1233,7 +1244,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    private void d(List<View> list, int i) {
+    private void addCustomViewsWithGravity(List<View> list, int i) {
         boolean z = ViewCompat.getLayoutDirection(this) == 1;
         int childCount = getChildCount();
         int absoluteGravity = GravityCompat.getAbsoluteGravity(i, ViewCompat.getLayoutDirection(this));
@@ -1242,7 +1253,7 @@ public class Toolbar extends ViewGroup {
             for (int i2 = childCount - 1; i2 >= 0; i2--) {
                 View childAt = getChildAt(i2);
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                if (layoutParams.XP == 0 && aB(childAt) && cg(layoutParams.gravity) == absoluteGravity) {
+                if (layoutParams.mViewType == 0 && shouldLayout(childAt) && getChildHorizontalGravity(layoutParams.gravity) == absoluteGravity) {
                     list.add(childAt);
                 }
             }
@@ -1251,13 +1262,13 @@ public class Toolbar extends ViewGroup {
         for (int i3 = 0; i3 < childCount; i3++) {
             View childAt2 = getChildAt(i3);
             LayoutParams layoutParams2 = (LayoutParams) childAt2.getLayoutParams();
-            if (layoutParams2.XP == 0 && aB(childAt2) && cg(layoutParams2.gravity) == absoluteGravity) {
+            if (layoutParams2.mViewType == 0 && shouldLayout(childAt2) && getChildHorizontalGravity(layoutParams2.gravity) == absoluteGravity) {
                 list.add(childAt2);
             }
         }
     }
 
-    private int cg(int i) {
+    private int getChildHorizontalGravity(int i) {
         int layoutDirection = ViewCompat.getLayoutDirection(this);
         int absoluteGravity = GravityCompat.getAbsoluteGravity(i, layoutDirection) & 7;
         switch (absoluteGravity) {
@@ -1272,17 +1283,17 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    private boolean aB(View view) {
-        return (view == null || view.getParent() != this || view.getVisibility() == 8) ? false : true;
+    private boolean shouldLayout(View view2) {
+        return (view2 == null || view2.getParent() != this || view2.getVisibility() == 8) ? false : true;
     }
 
-    private int aC(View view) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+    private int getHorizontalMargins(View view2) {
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
         return MarginLayoutParamsCompat.getMarginEnd(marginLayoutParams) + MarginLayoutParamsCompat.getMarginStart(marginLayoutParams);
     }
 
-    private int aD(View view) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+    private int getVerticalMargins(View view2) {
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
         return marginLayoutParams.bottomMargin + marginLayoutParams.topMargin;
     }
 
@@ -1320,74 +1331,81 @@ public class Toolbar extends ViewGroup {
         return super.checkLayoutParams(layoutParams) && (layoutParams instanceof LayoutParams);
     }
 
-    @RestrictTo
-    public DecorToolbar getWrapper() {
-        if (this.XJ == null) {
-            this.XJ = new ToolbarWidgetWrapper(this, true);
-        }
-        return this.XJ;
+    private static boolean isCustomView(View view2) {
+        return ((LayoutParams) view2.getLayoutParams()).mViewType == 0;
     }
 
-    void iv() {
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    public DecorToolbar getWrapper() {
+        if (this.mWrapper == null) {
+            this.mWrapper = new ToolbarWidgetWrapper(this, true);
+        }
+        return this.mWrapper;
+    }
+
+    void removeChildrenForExpandedActionView() {
         for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
             View childAt = getChildAt(childCount);
-            if (((LayoutParams) childAt.getLayoutParams()).XP != 2 && childAt != this.mMenuView) {
+            if (((LayoutParams) childAt.getLayoutParams()).mViewType != 2 && childAt != this.mMenuView) {
                 removeViewAt(childCount);
-                this.XF.add(childAt);
+                this.mHiddenViews.add(childAt);
             }
         }
     }
 
-    void iw() {
-        for (int size = this.XF.size() - 1; size >= 0; size--) {
-            addView(this.XF.get(size));
+    void addChildrenForExpandedActionView() {
+        for (int size = this.mHiddenViews.size() - 1; size >= 0; size--) {
+            addView(this.mHiddenViews.get(size));
         }
-        this.XF.clear();
+        this.mHiddenViews.clear();
     }
 
-    private boolean aE(View view) {
-        return view.getParent() == this || this.XF.contains(view);
+    private boolean isChildOrHidden(View view2) {
+        return view2.getParent() == this || this.mHiddenViews.contains(view2);
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setCollapsible(boolean z) {
-        this.kL = z;
+        this.mCollapsible = z;
         requestLayout();
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setMenuCallbacks(MenuPresenter.Callback callback, MenuBuilder.Callback callback2) {
-        this.Li = callback;
-        this.Lj = callback2;
+        this.mActionMenuPresenterCallback = callback;
+        this.mMenuBuilderCallback = callback2;
         if (this.mMenuView != null) {
             this.mMenuView.setMenuCallbacks(callback, callback2);
         }
     }
 
-    private void ix() {
-        if (this.Xx == null) {
-            this.Xx = new p();
+    private void ensureContentInsets() {
+        if (this.mContentInsets == null) {
+            this.mContentInsets = new RtlSpacingHelper();
         }
     }
 
     /* loaded from: classes2.dex */
     public static class LayoutParams extends ActionBar.LayoutParams {
-        int XP;
+        static final int CUSTOM = 0;
+        static final int EXPANDED = 2;
+        static final int SYSTEM = 1;
+        int mViewType;
 
-        public LayoutParams(Context context, AttributeSet attributeSet) {
+        public LayoutParams(@NonNull Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.XP = 0;
+            this.mViewType = 0;
         }
 
         public LayoutParams(int i, int i2) {
             super(i, i2);
-            this.XP = 0;
+            this.mViewType = 0;
             this.gravity = 8388627;
         }
 
         public LayoutParams(int i, int i2, int i3) {
             super(i, i2);
-            this.XP = 0;
+            this.mViewType = 0;
             this.gravity = i3;
         }
 
@@ -1397,27 +1415,27 @@ public class Toolbar extends ViewGroup {
 
         public LayoutParams(LayoutParams layoutParams) {
             super((ActionBar.LayoutParams) layoutParams);
-            this.XP = 0;
-            this.XP = layoutParams.XP;
+            this.mViewType = 0;
+            this.mViewType = layoutParams.mViewType;
         }
 
         public LayoutParams(ActionBar.LayoutParams layoutParams) {
             super(layoutParams);
-            this.XP = 0;
+            this.mViewType = 0;
         }
 
         public LayoutParams(ViewGroup.MarginLayoutParams marginLayoutParams) {
             super(marginLayoutParams);
-            this.XP = 0;
-            a(marginLayoutParams);
+            this.mViewType = 0;
+            copyMarginsFromCompat(marginLayoutParams);
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.XP = 0;
+            this.mViewType = 0;
         }
 
-        void a(ViewGroup.MarginLayoutParams marginLayoutParams) {
+        void copyMarginsFromCompat(ViewGroup.MarginLayoutParams marginLayoutParams) {
             this.leftMargin = marginLayoutParams.leftMargin;
             this.topMargin = marginLayoutParams.topMargin;
             this.rightMargin = marginLayoutParams.rightMargin;
@@ -1429,21 +1447,21 @@ public class Toolbar extends ViewGroup {
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() { // from class: android.support.v7.widget.Toolbar.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
-            /* renamed from: k */
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
-            /* renamed from: ch */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         });
-        int XQ;
-        boolean XR;
+        int expandedMenuItemId;
+        boolean isOverflowOpen;
 
         public SavedState(Parcel parcel) {
             this(parcel, null);
@@ -1451,8 +1469,8 @@ public class Toolbar extends ViewGroup {
 
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
-            this.XQ = parcel.readInt();
-            this.XR = parcel.readInt() != 0;
+            this.expandedMenuItemId = parcel.readInt();
+            this.isOverflowOpen = parcel.readInt() != 0;
         }
 
         public SavedState(Parcelable parcelable) {
@@ -1462,24 +1480,24 @@ public class Toolbar extends ViewGroup {
         @Override // android.support.v4.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeInt(this.XQ);
-            parcel.writeInt(this.XR ? 1 : 0);
+            parcel.writeInt(this.expandedMenuItemId);
+            parcel.writeInt(this.isOverflowOpen ? 1 : 0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class a implements MenuPresenter {
-        MenuItemImpl XO;
+    public class ExpandedActionViewMenuPresenter implements MenuPresenter {
+        MenuItemImpl mCurrentExpandedItem;
         MenuBuilder mMenu;
 
-        a() {
+        ExpandedActionViewMenuPresenter() {
         }
 
         @Override // android.support.v7.view.menu.MenuPresenter
         public void initForMenu(Context context, MenuBuilder menuBuilder) {
-            if (this.mMenu != null && this.XO != null) {
-                this.mMenu.collapseItemActionView(this.XO);
+            if (this.mMenu != null && this.mCurrentExpandedItem != null) {
+                this.mMenu.collapseItemActionView(this.mCurrentExpandedItem);
             }
             this.mMenu = menuBuilder;
         }
@@ -1492,14 +1510,14 @@ public class Toolbar extends ViewGroup {
         @Override // android.support.v7.view.menu.MenuPresenter
         public void updateMenuView(boolean z) {
             boolean z2 = false;
-            if (this.XO != null) {
+            if (this.mCurrentExpandedItem != null) {
                 if (this.mMenu != null) {
                     int size = this.mMenu.size();
                     int i = 0;
                     while (true) {
                         if (i >= size) {
                             break;
-                        } else if (this.mMenu.getItem(i) != this.XO) {
+                        } else if (this.mMenu.getItem(i) != this.mCurrentExpandedItem) {
                             i++;
                         } else {
                             z2 = true;
@@ -1508,7 +1526,7 @@ public class Toolbar extends ViewGroup {
                     }
                 }
                 if (!z2) {
-                    collapseItemActionView(this.mMenu, this.XO);
+                    collapseItemActionView(this.mMenu, this.mCurrentExpandedItem);
                 }
             }
         }
@@ -1533,38 +1551,38 @@ public class Toolbar extends ViewGroup {
 
         @Override // android.support.v7.view.menu.MenuPresenter
         public boolean expandItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
-            Toolbar.this.it();
-            if (Toolbar.this.Xn.getParent() != Toolbar.this) {
-                Toolbar.this.addView(Toolbar.this.Xn);
+            Toolbar.this.ensureCollapseButtonView();
+            if (Toolbar.this.mCollapseButtonView.getParent() != Toolbar.this) {
+                Toolbar.this.addView(Toolbar.this.mCollapseButtonView);
             }
-            Toolbar.this.Xo = menuItemImpl.getActionView();
-            this.XO = menuItemImpl;
-            if (Toolbar.this.Xo.getParent() != Toolbar.this) {
+            Toolbar.this.mExpandedActionView = menuItemImpl.getActionView();
+            this.mCurrentExpandedItem = menuItemImpl;
+            if (Toolbar.this.mExpandedActionView.getParent() != Toolbar.this) {
                 LayoutParams generateDefaultLayoutParams = Toolbar.this.generateDefaultLayoutParams();
-                generateDefaultLayoutParams.gravity = 8388611 | (Toolbar.this.Xr & 112);
-                generateDefaultLayoutParams.XP = 2;
-                Toolbar.this.Xo.setLayoutParams(generateDefaultLayoutParams);
-                Toolbar.this.addView(Toolbar.this.Xo);
+                generateDefaultLayoutParams.gravity = 8388611 | (Toolbar.this.mButtonGravity & 112);
+                generateDefaultLayoutParams.mViewType = 2;
+                Toolbar.this.mExpandedActionView.setLayoutParams(generateDefaultLayoutParams);
+                Toolbar.this.addView(Toolbar.this.mExpandedActionView);
             }
-            Toolbar.this.iv();
+            Toolbar.this.removeChildrenForExpandedActionView();
             Toolbar.this.requestLayout();
             menuItemImpl.setActionViewExpanded(true);
-            if (Toolbar.this.Xo instanceof CollapsibleActionView) {
-                ((CollapsibleActionView) Toolbar.this.Xo).onActionViewExpanded();
+            if (Toolbar.this.mExpandedActionView instanceof CollapsibleActionView) {
+                ((CollapsibleActionView) Toolbar.this.mExpandedActionView).onActionViewExpanded();
             }
             return true;
         }
 
         @Override // android.support.v7.view.menu.MenuPresenter
         public boolean collapseItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
-            if (Toolbar.this.Xo instanceof CollapsibleActionView) {
-                ((CollapsibleActionView) Toolbar.this.Xo).onActionViewCollapsed();
+            if (Toolbar.this.mExpandedActionView instanceof CollapsibleActionView) {
+                ((CollapsibleActionView) Toolbar.this.mExpandedActionView).onActionViewCollapsed();
             }
-            Toolbar.this.removeView(Toolbar.this.Xo);
-            Toolbar.this.removeView(Toolbar.this.Xn);
-            Toolbar.this.Xo = null;
-            Toolbar.this.iw();
-            this.XO = null;
+            Toolbar.this.removeView(Toolbar.this.mExpandedActionView);
+            Toolbar.this.removeView(Toolbar.this.mCollapseButtonView);
+            Toolbar.this.mExpandedActionView = null;
+            Toolbar.this.addChildrenForExpandedActionView();
+            this.mCurrentExpandedItem = null;
             Toolbar.this.requestLayout();
             menuItemImpl.setActionViewExpanded(false);
             return true;

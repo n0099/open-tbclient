@@ -12,7 +12,7 @@ public class DiscoverFragmentStatic {
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<BaseFragment> run(CustomMessage<BaseFragment> customMessage) {
-                return new CustomResponsedMessage<>(2921010, new a());
+                return new CustomResponsedMessage<>(2921010, new DiscoverFragment());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

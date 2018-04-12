@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n implements Serializable, Cloneable, org.apache.thrift.a<n, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> d;
     private static final org.apache.thrift.protocol.j e = new org.apache.thrift.protocol.j("NormalConfig");
@@ -22,7 +22,7 @@ public class n implements Serializable, Cloneable, org.apache.thrift.a<n, a> {
     public f c;
     private BitSet i = new BitSet(1);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         VERSION(1, "version"),
         CONFIG_ITEMS(2, "configItems"),

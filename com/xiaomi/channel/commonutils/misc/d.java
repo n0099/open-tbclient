@@ -1,5 +1,5 @@
 package com.xiaomi.channel.commonutils.misc;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     static final char[] a = "0123456789ABCDEF".toCharArray();
 

@@ -22,7 +22,7 @@ public class RequestGroupLevelMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.groupId = Integer.valueOf((int) this.groupId);
+        builder.groupId = Long.valueOf(this.groupId);
         QueryGroupGradeReqIdl.Builder builder2 = new QueryGroupGradeReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

@@ -1,10 +1,10 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class al extends j {
-    private static al bCp = new al();
+    private static al aMP = new al();
 
-    public static boolean OO() {
-        return bCp.nv();
+    public static boolean Hr() {
+        return aMP.fz();
     }
 
     @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
@@ -14,7 +14,7 @@ public class al extends j {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
-    public int ms() {
-        return super.ms();
+    public int ew() {
+        return super.ew();
     }
 }

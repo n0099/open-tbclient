@@ -4,104 +4,104 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.tencent.tauth.AuthActivity;
 /* loaded from: classes.dex */
 public class m extends o {
-    public static int bAK = 100;
-    public static int bAL = 10;
+    public static int aLj = 100;
+    public static int aLk = 10;
 
-    public static void Ou() {
-        if (p.Ow().Ox()) {
-            if (b.bAP > bAL) {
-                b.Oo();
+    public static void GY() {
+        if (p.Ha().Hb()) {
+            if (b.aLo > aLk) {
+                b.GQ();
             }
-            if (a.bAM > bAL) {
-                a.Oo();
+            if (a.aLl > aLk) {
+                a.GQ();
             }
         }
     }
 
-    public static void e(boolean z, boolean z2, boolean z3) {
-        a.bAM++;
+    public static void d(boolean z, boolean z2, boolean z3) {
+        a.aLl++;
         if (z2) {
-            a.bAN++;
+            a.aLm++;
         } else if (z3) {
-            a.bAO++;
+            a.aLn++;
         }
-        if (a.bAM > bAK) {
-            a.Oo();
+        if (a.aLl > aLj) {
+            a.GQ();
         }
     }
 
     public void c(i iVar) {
-        if (p.Ow().Ox()) {
-            if (b.bAP < bAK) {
-                b.bAQ += iVar.aiR;
-                b.bAR += iVar.bAk;
-                b.bAS += iVar.bAl;
-                b.bAT += iVar.bAm;
-                b.bAV += iVar.auf;
-                b.bAU += iVar.bAb;
-                b.bAP++;
+        if (p.Ha().Hb()) {
+            if (b.aLo < aLj) {
+                b.aLp += iVar.tq;
+                b.aLq += iVar.aKG;
+                b.aLr += iVar.aKH;
+                b.aLs += iVar.aKI;
+                b.aLu += iVar.EI;
+                b.aLt += iVar.aKx;
+                b.aLo++;
                 return;
             }
-            b.Oo();
+            b.GQ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int bAM;
-        public static int bAN;
-        public static int bAO;
+        public static int aLl;
+        public static int aLm;
+        public static int aLn;
 
-        public static void Oo() {
-            com.baidu.adp.lib.stats.a nn = o.nn();
-            nn.append(AuthActivity.ACTION_KEY, "imbusy");
-            nn.append("totalNum", String.valueOf(bAM));
-            nn.append("tfailNum", String.valueOf(bAN));
-            nn.append("qfailNum", String.valueOf(bAO));
-            BdStatisticsManager.getInstance().performance("im", nn);
+        public static void GQ() {
+            com.baidu.adp.lib.stats.a fq = o.fq();
+            fq.append(AuthActivity.ACTION_KEY, "imbusy");
+            fq.append("totalNum", String.valueOf(aLl));
+            fq.append("tfailNum", String.valueOf(aLm));
+            fq.append("qfailNum", String.valueOf(aLn));
+            BdStatisticsManager.getInstance().performance("im", fq);
             resetData();
         }
 
         public static void resetData() {
-            bAM = 0;
-            bAN = 0;
-            bAO = 0;
+            aLl = 0;
+            aLm = 0;
+            aLn = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int bAP;
-        public static long bAQ;
-        public static long bAR;
-        public static long bAS;
-        public static int bAT;
-        public static int bAU;
-        public static long bAV;
+        public static int aLo;
+        public static long aLp;
+        public static long aLq;
+        public static long aLr;
+        public static int aLs;
+        public static int aLt;
+        public static long aLu;
 
-        public static void Oo() {
-            com.baidu.adp.lib.stats.a nn = o.nn();
-            nn.append(AuthActivity.ACTION_KEY, "imcost");
-            nn.append("dect", String.valueOf(bAQ));
-            nn.append("dlsize", String.valueOf(bAR));
-            nn.append("dbt", String.valueOf(bAS));
-            nn.append("pnum", String.valueOf(bAT));
-            nn.append("reqcost", String.valueOf(bAV));
-            nn.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(bAU));
-            nn.append("totalNum", String.valueOf(bAP));
-            BdStatisticsManager.getInstance().performance("im", nn);
-            Ov();
+        public static void GQ() {
+            com.baidu.adp.lib.stats.a fq = o.fq();
+            fq.append(AuthActivity.ACTION_KEY, "imcost");
+            fq.append("dect", String.valueOf(aLp));
+            fq.append("dlsize", String.valueOf(aLq));
+            fq.append("dbt", String.valueOf(aLr));
+            fq.append("pnum", String.valueOf(aLs));
+            fq.append("reqcost", String.valueOf(aLu));
+            fq.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(aLt));
+            fq.append("totalNum", String.valueOf(aLo));
+            BdStatisticsManager.getInstance().performance("im", fq);
+            GZ();
         }
 
-        public static void Ov() {
-            bAP = 0;
-            bAQ = 0L;
-            bAR = 0L;
-            bAS = 0L;
-            bAT = 0;
-            bAU = 0;
+        public static void GZ() {
+            aLo = 0;
+            aLp = 0L;
+            aLq = 0L;
+            aLr = 0L;
+            aLs = 0;
+            aLt = 0;
         }
     }
 }

@@ -62,6 +62,8 @@ public interface IMediaPlayer {
         void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i, int i2, int i3, int i4);
     }
 
+    String generateMediaID();
+
     int getAudioSessionId();
 
     long getCurrentPosition();

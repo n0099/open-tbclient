@@ -9,7 +9,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p implements Serializable, Cloneable, org.apache.thrift.a<p, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> h;
     private static final org.apache.thrift.protocol.j i = new org.apache.thrift.protocol.j("OnlineConfigItem");
@@ -29,7 +29,7 @@ public class p implements Serializable, Cloneable, org.apache.thrift.a<p, a> {
     public boolean g;
     private BitSet q = new BitSet(6);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         KEY(1, RimArmor.KEY),
         TYPE(2, "type"),

@@ -10,7 +10,7 @@ public final class a {
     public String d;
     public String e;
 
-    public static String b(a aVar) {
+    public static String a(a aVar) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("0", aVar.a);
@@ -24,7 +24,7 @@ public final class a {
         return jSONObject.toString();
     }
 
-    public static a cn(String str) {
+    public static a a(String str) {
         a aVar = new a();
         try {
             JSONObject jSONObject = new JSONObject(str);

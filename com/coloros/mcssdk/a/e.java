@@ -2,28 +2,28 @@ package com.coloros.mcssdk.a;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class e extends c {
     @Override // com.coloros.mcssdk.a.d
     public final com.coloros.mcssdk.e.c a(Context context, int i, Intent intent) {
         if (4103 == i) {
-            com.coloros.mcssdk.e.c am = am(intent);
-            com.coloros.mcssdk.a.a(context, (com.coloros.mcssdk.e.d) am, "push_transmit");
-            return am;
+            com.coloros.mcssdk.e.c ak = ak(intent);
+            com.coloros.mcssdk.a.a(context, (com.coloros.mcssdk.e.d) ak, "push_transmit");
+            return ak;
         }
         return null;
     }
 
-    public final com.coloros.mcssdk.e.c am(Intent intent) {
+    public final com.coloros.mcssdk.e.c ak(Intent intent) {
         try {
             com.coloros.mcssdk.e.d dVar = new com.coloros.mcssdk.e.d();
-            dVar.xX(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
-            dVar.uX(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
+            dVar.vy(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
+            dVar.vA(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
             dVar.setAppPackage(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             dVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
             dVar.setDescription(com.coloros.mcssdk.c.a.a(intent.getStringExtra("description")));
-            dVar.uZ(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
-            dVar.uY(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
+            dVar.vC(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
+            dVar.vB(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + dVar.toString());
             return dVar;
         } catch (Exception e) {

@@ -1,14 +1,14 @@
 package com.baidu.tieba.frs.game.strategy.view;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.i;
-import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private b dOI;
+    private b dho;
     private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
     private com.baidu.adp.base.e mPageContext;
@@ -20,21 +20,21 @@ public class c {
     }
 
     private void initAdapters() {
-        this.dOI = new b((TbPageContext) this.mPageContext, com.baidu.tieba.frs.game.strategy.data.b.dNQ);
-        this.mAdapters.add(this.dOI);
+        this.dho = new b((TbPageContext) this.mPageContext, com.baidu.tieba.frs.game.strategy.data.b.dgw);
+        this.mAdapters.add(this.dho);
         this.mListView.addAdapters(this.mAdapters);
     }
 
-    public void setData(List<i> list) {
+    public void setData(List<h> list) {
         if (this.mListView != null) {
             this.mListView.setData(list);
         }
     }
 
-    public void b(o oVar) {
+    public void b(n nVar) {
         for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
             if (aVar != null) {
-                aVar.setOnAdapterItemClickListener(oVar);
+                aVar.setOnAdapterItemClickListener(nVar);
             }
         }
     }

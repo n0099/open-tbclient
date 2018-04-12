@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.TintableBackgroundView;
 import android.support.v7.appcompat.R;
@@ -13,8 +15,8 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 /* loaded from: classes2.dex */
 public class AppCompatButton extends Button implements TintableBackgroundView {
-    private final d Mo;
-    private final i Mp;
+    private final AppCompatBackgroundHelper mBackgroundTintHelper;
+    private final AppCompatTextHelper mTextHelper;
 
     public AppCompatButton(Context context) {
         this(context, null);
@@ -26,59 +28,61 @@ public class AppCompatButton extends Button implements TintableBackgroundView {
 
     public AppCompatButton(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
-        this.Mo = new d(this);
-        this.Mo.loadFromAttributes(attributeSet, i);
-        this.Mp = i.d(this);
-        this.Mp.loadFromAttributes(attributeSet, i);
-        this.Mp.fQ();
+        this.mBackgroundTintHelper = new AppCompatBackgroundHelper(this);
+        this.mBackgroundTintHelper.loadFromAttributes(attributeSet, i);
+        this.mTextHelper = AppCompatTextHelper.create(this);
+        this.mTextHelper.loadFromAttributes(attributeSet, i);
+        this.mTextHelper.applyCompoundDrawablesTints();
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         super.setBackgroundResource(i);
-        if (this.Mo != null) {
-            this.Mo.be(i);
+        if (this.mBackgroundTintHelper != null) {
+            this.mBackgroundTintHelper.onSetBackgroundResource(i);
         }
     }
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
         super.setBackgroundDrawable(drawable);
-        if (this.Mo != null) {
-            this.Mo.c(drawable);
+        if (this.mBackgroundTintHelper != null) {
+            this.mBackgroundTintHelper.onSetBackgroundDrawable(drawable);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
-    @RestrictTo
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
-        if (this.Mo != null) {
-            this.Mo.setSupportBackgroundTintList(colorStateList);
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
+        if (this.mBackgroundTintHelper != null) {
+            this.mBackgroundTintHelper.setSupportBackgroundTintList(colorStateList);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
-    @RestrictTo
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public ColorStateList getSupportBackgroundTintList() {
-        if (this.Mo != null) {
-            return this.Mo.getSupportBackgroundTintList();
+        if (this.mBackgroundTintHelper != null) {
+            return this.mBackgroundTintHelper.getSupportBackgroundTintList();
         }
         return null;
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
-    @RestrictTo
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
-        if (this.Mo != null) {
-            this.Mo.setSupportBackgroundTintMode(mode);
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
+        if (this.mBackgroundTintHelper != null) {
+            this.mBackgroundTintHelper.setSupportBackgroundTintMode(mode);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
-    @RestrictTo
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
-        if (this.Mo != null) {
-            return this.Mo.getSupportBackgroundTintMode();
+        if (this.mBackgroundTintHelper != null) {
+            return this.mBackgroundTintHelper.getSupportBackgroundTintMode();
         }
         return null;
     }
@@ -86,19 +90,19 @@ public class AppCompatButton extends Button implements TintableBackgroundView {
     @Override // android.widget.TextView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.Mo != null) {
-            this.Mo.fI();
+        if (this.mBackgroundTintHelper != null) {
+            this.mBackgroundTintHelper.applySupportBackgroundTint();
         }
-        if (this.Mp != null) {
-            this.Mp.fQ();
+        if (this.mTextHelper != null) {
+            this.mTextHelper.applyCompoundDrawablesTints();
         }
     }
 
     @Override // android.widget.TextView
     public void setTextAppearance(Context context, int i) {
         super.setTextAppearance(context, i);
-        if (this.Mp != null) {
-            this.Mp.m(context, i);
+        if (this.mTextHelper != null) {
+            this.mTextHelper.onSetTextAppearance(context, i);
         }
     }
 
@@ -115,8 +119,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView {
     }
 
     public void setSupportAllCaps(boolean z) {
-        if (this.Mp != null) {
-            this.Mp.setAllCaps(z);
+        if (this.mTextHelper != null) {
+            this.mTextHelper.setAllCaps(z);
         }
     }
 }

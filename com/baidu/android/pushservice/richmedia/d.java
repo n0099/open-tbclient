@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.richmedia;
 
 import com.baidu.android.pushservice.richmedia.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static c a(c.a aVar, String str) {
         c cVar = new c();

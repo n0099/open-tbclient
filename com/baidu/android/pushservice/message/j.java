@@ -2,13 +2,13 @@ package com.baidu.android.pushservice.message;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.j.m;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.apache.http.HttpStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j extends c {
     private Context b;
 
@@ -46,22 +46,22 @@ public class j extends c {
             return gVar2;
         }
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-        com.baidu.android.pushservice.j.h hVar = new com.baidu.android.pushservice.j.h(byteArrayInputStream);
+        com.baidu.android.pushservice.j.e eVar2 = new com.baidu.android.pushservice.j.e(byteArrayInputStream);
         try {
             k kVar = new k();
             byte[] bArr2 = new byte[128];
-            hVar.a(bArr2);
+            eVar2.a(bArr2);
             kVar.a(a(bArr2));
-            kVar.d(hVar.d());
-            short c = hVar.c();
+            kVar.d(eVar2.d());
+            short c = eVar2.c();
             kVar.a((int) c);
-            int c2 = hVar.c();
+            int c2 = eVar2.c();
             byte[] bArr3 = new byte[64];
-            hVar.a(bArr3);
+            eVar2.a(bArr3);
             kVar.a(bArr3);
             if (c2 > 0) {
                 byte[] bArr4 = new byte[c2];
-                hVar.a(bArr4);
+                eVar2.a(bArr4);
                 try {
                     JSONObject jSONObject = new JSONObject(new String(bArr4));
                     if (!jSONObject.isNull("package_name")) {
@@ -105,7 +105,7 @@ public class j extends c {
                 kVar.a(false);
             }
             byteArrayInputStream.close();
-            hVar.a();
+            eVar2.a();
             eVar.a(kVar);
             if (c2 <= 0) {
                 c2 = 0;
@@ -117,10 +117,10 @@ public class j extends c {
             }
             byte[] bArr5 = new byte[length];
             System.arraycopy(bArr, i, bArr5, 0, length);
-            p.b("New MSG: " + kVar.toString(), this.a);
+            m.b("New MSG: " + kVar.toString(), this.a);
             if (com.baidu.android.pushservice.d.c.c(this.a, kVar.g())) {
                 com.baidu.android.pushservice.g.a.a("PushMessageHandler", "Message ID(" + kVar.h() + ") received duplicated, ack success to server directly.", this.b);
-                com.baidu.android.pushservice.h.l.a(this.a, kVar.e(), kVar.h(), kVar.i(), bArr5, 4, com.baidu.android.pushservice.h.j.a);
+                com.baidu.android.pushservice.h.k.a(this.a, kVar.e(), kVar.h(), kVar.i(), bArr5, 4, com.baidu.android.pushservice.h.i.a);
                 gVar2.a(4);
                 return gVar2;
             }
@@ -137,9 +137,9 @@ public class j extends c {
             } else {
                 com.baidu.android.pushservice.d.c.a(this.a, kVar.e(), kVar.i(), kVar.g(), null, null, 0L, gVar.a());
             }
-            if (p.F(this.a)) {
+            if (m.F(this.a)) {
             }
-            com.baidu.android.pushservice.h.l.a(this.a, kVar.e(), kVar.h(), kVar.i(), bArr5, gVar.a(), com.baidu.android.pushservice.h.j.a);
+            com.baidu.android.pushservice.h.k.a(this.a, kVar.e(), kVar.h(), kVar.i(), bArr5, gVar.a(), com.baidu.android.pushservice.h.i.a);
             return gVar;
         } catch (IOException e2) {
             return gVar2;

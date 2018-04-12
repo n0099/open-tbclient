@@ -4,28 +4,28 @@ import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.hybrid.m;
+import com.baidu.tbadk.core.hybrid.l;
+import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
-import com.baidu.tbadk.core.hybrid.p;
 import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d extends o {
-    private m aTE;
+public class d extends n {
+    private l aeY;
 
-    public d(m mVar) {
-        super(mVar);
-        this.aTE = mVar;
+    public d(l lVar) {
+        super(lVar);
+        this.aeY = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.o
-    public String ww() {
+    @Override // com.baidu.tbadk.core.hybrid.n
+    public String pg() {
         return "TBHY_COMMON_SHOW_SHARE_DIALOG";
     }
 
-    @p(BD = false, value = "showShareDialog")
+    @o(ul = false, value = "showShareDialog")
     protected void showShareDialog(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             String optString = jSONObject.optString("title");
@@ -36,12 +36,12 @@ public class d extends o {
             dVar.title = optString;
             dVar.content = optString2;
             if (optString3 == null) {
-                dVar.blr = null;
+                dVar.awV = null;
             } else {
-                dVar.blr = Uri.parse(optString3);
+                dVar.awV = Uri.parse(optString3);
             }
             dVar.linkUrl = optString4;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.aTE.getContext(), dVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.aeY.getContext(), dVar, true);
             shareDialogConfig.setIsSupportNightMode(true);
             shareDialogConfig.setIsCopyLink(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));

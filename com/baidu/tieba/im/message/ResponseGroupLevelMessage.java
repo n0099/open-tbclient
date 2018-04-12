@@ -31,7 +31,7 @@ public class ResponseGroupLevelMessage extends SocketResponsedMessage {
         setErrorString(queryGroupGradeResIdl.error.usermsg);
         if (getError() == 0) {
             this.groupLevelInfo = new GroupLevelInfo();
-            getGroupLevelInfo().setGroupId(queryGroupGradeResIdl.data.groupInfo.groupId.intValue());
+            getGroupLevelInfo().setGroupId(queryGroupGradeResIdl.data.groupInfo.groupId.longValue());
             getGroupLevelInfo().setName(queryGroupGradeResIdl.data.groupInfo.name);
             getGroupLevelInfo().setGrade(queryGroupGradeResIdl.data.groupInfo.grade.intValue());
             getGroupLevelInfo().setActiveDay(queryGroupGradeResIdl.data.groupInfo.activeDay.intValue());

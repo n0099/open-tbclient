@@ -7,51 +7,51 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class d implements a {
-    private SQLiteDatabase abC = null;
-    private a.InterfaceC0014a abF;
-    private int abH;
-    private final String abI;
+    private SQLiteDatabase lP = null;
+    private a.InterfaceC0003a lS;
+    private int lU;
+    private final String lV;
 
-    public abstract void d(SQLiteDatabase sQLiteDatabase);
+    public abstract void g(SQLiteDatabase sQLiteDatabase);
 
-    public abstract void e(SQLiteDatabase sQLiteDatabase);
+    public abstract void h(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
-    public void a(a.InterfaceC0014a interfaceC0014a) {
-        this.abF = interfaceC0014a;
+    public void a(a.InterfaceC0003a interfaceC0003a) {
+        this.lS = interfaceC0003a;
     }
 
     public d(String str, int i) {
-        this.abH = 1;
-        this.abH = i;
-        this.abI = str;
+        this.lU = 1;
+        this.lU = i;
+        this.lV = str;
     }
 
     @Override // com.baidu.adp.base.a.a
     public SQLiteDatabase getWritableDatabase() {
-        File file = new File(this.abI);
+        File file = new File(this.lV);
         if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
             boolean exists = file.exists();
-            this.abC = SQLiteDatabase.openOrCreateDatabase(this.abI, (SQLiteDatabase.CursorFactory) null);
-            if (this.abC != null) {
+            this.lP = SQLiteDatabase.openOrCreateDatabase(this.lV, (SQLiteDatabase.CursorFactory) null);
+            if (this.lP != null) {
                 if (!exists) {
-                    g(this.abC);
-                    this.abC.setVersion(this.abH);
+                    j(this.lP);
+                    this.lP.setVersion(this.lU);
                 } else {
-                    int version = this.abC.getVersion();
-                    if (version != this.abH) {
-                        a(this.abC, version, this.abH);
-                        this.abC.setVersion(this.abH);
+                    int version = this.lP.getVersion();
+                    if (version != this.lU) {
+                        a(this.lP, version, this.lU);
+                        this.lP.setVersion(this.lU);
                     }
                 }
             }
         }
-        return this.abC;
+        return this.lP;
     }
 
-    private void g(SQLiteDatabase sQLiteDatabase) {
+    private void j(SQLiteDatabase sQLiteDatabase) {
         onCreate(sQLiteDatabase);
-        f(sQLiteDatabase);
+        i(sQLiteDatabase);
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
@@ -60,18 +60,18 @@ public abstract class d implements a {
         } else {
             onDowngrade(sQLiteDatabase, i, i2);
         }
-        f(sQLiteDatabase);
+        i(sQLiteDatabase);
     }
 
-    private void f(SQLiteDatabase sQLiteDatabase) {
-        if (this.abF != null) {
-            this.abF.c(sQLiteDatabase);
+    private void i(SQLiteDatabase sQLiteDatabase) {
+        if (this.lS != null) {
+            this.lS.f(sQLiteDatabase);
         }
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean al(Context context) {
-        File file = new File(this.abI);
+    public boolean ac(Context context) {
+        File file = new File(this.lV);
         if (file.exists()) {
             return file.delete();
         }
@@ -89,11 +89,11 @@ public abstract class d implements a {
     }
 
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        d(sQLiteDatabase);
+        g(sQLiteDatabase);
     }
 
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        e(sQLiteDatabase);
-        d(sQLiteDatabase);
+        h(sQLiteDatabase);
+        g(sQLiteDatabase);
     }
 }

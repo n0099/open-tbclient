@@ -3,11 +3,10 @@ package com.baidu.android.pushservice.message.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.p;
 import com.tencent.tauth.AuthActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends c {
     private Context b;
 
@@ -47,7 +46,7 @@ public class b extends c {
                 }
                 intent = new Intent("com.baidu.pushservice.action.supper.MESSAGE");
                 intent.putExtra("message", bArr);
-                p.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
+                com.baidu.android.pushservice.j.m.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
                 if (intent == null) {
                 }
                 return gVar;
@@ -59,7 +58,7 @@ public class b extends c {
         if (z || TextUtils.isEmpty(str)) {
             intent = new Intent("com.baidu.pushservice.action.supper.MESSAGE");
             intent.putExtra("message", bArr);
-            p.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
+            com.baidu.android.pushservice.j.m.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
         } else if (str.equalsIgnoreCase("push.NOTIFICATION")) {
             try {
                 f.a(this.a, !jSONObject2.isNull("title") ? jSONObject2.getString("title") : null, jSONObject2.getString("description"), !jSONObject2.isNull("iconUrl") ? jSONObject2.getString("iconUrl") : null, !jSONObject2.isNull("url") ? jSONObject2.getString("url") : null, h);

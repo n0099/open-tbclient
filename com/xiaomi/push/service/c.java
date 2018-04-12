@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements com.xiaomi.smack.provider.b {
     public static com.xiaomi.smack.packet.a a(XmlPullParser xmlPullParser) {
         String str;

@@ -19,4 +19,10 @@ public class HotTopicActivityConfig extends IntentConfig {
         intent.putExtra("from", str3);
         return this;
     }
+
+    public void setExtra(long j, String str, String str2) {
+        getIntent().putExtra(IntentConfig.TOPIC_FID, j);
+        getIntent().putExtra(IntentConfig.TOPIC_FIRST_DIR, str);
+        getIntent().putExtra(IntentConfig.TOPIC_SECOND_DIR, str2);
+    }
 }

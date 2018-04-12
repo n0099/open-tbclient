@@ -2,6 +2,9 @@ package android.support.design.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.R;
 import android.support.design.internal.BottomNavigationMenu;
 import android.support.design.internal.BottomNavigationMenuView;
@@ -18,17 +21,17 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class BottomNavigationView extends FrameLayout {
-    private static final int[] jn = {16842912};
-    private static final int[] lg = {-16842910};
-    private final BottomNavigationPresenter jJ;
-    private final BottomNavigationMenuView jL;
-    private MenuInflater lh;
-    private OnNavigationItemSelectedListener li;
+    private static final int[] CHECKED_STATE_SET = {16842912};
+    private static final int[] DISABLED_STATE_SET = {-16842910};
+    private OnNavigationItemSelectedListener mListener;
     private final MenuBuilder mMenu;
+    private MenuInflater mMenuInflater;
+    private final BottomNavigationMenuView mMenuView;
+    private final BottomNavigationPresenter mPresenter;
 
     /* loaded from: classes2.dex */
     public interface OnNavigationItemSelectedListener {
-        boolean onNavigationItemSelected(MenuItem menuItem);
+        boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
 
     public BottomNavigationView(Context context) {
@@ -41,37 +44,37 @@ public class BottomNavigationView extends FrameLayout {
 
     public BottomNavigationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jJ = new BottomNavigationPresenter();
-        r.R(context);
+        this.mPresenter = new BottomNavigationPresenter();
+        ThemeUtils.checkAppCompatTheme(context);
         this.mMenu = new BottomNavigationMenu(context);
-        this.jL = new BottomNavigationMenuView(context);
+        this.mMenuView = new BottomNavigationMenuView(context);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        this.jL.setLayoutParams(layoutParams);
-        this.jJ.setBottomNavigationMenuView(this.jL);
-        this.jL.setPresenter(this.jJ);
-        this.mMenu.addMenuPresenter(this.jJ);
+        this.mMenuView.setLayoutParams(layoutParams);
+        this.mPresenter.setBottomNavigationMenuView(this.mMenuView);
+        this.mMenuView.setPresenter(this.mPresenter);
+        this.mMenu.addMenuPresenter(this.mPresenter);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.BottomNavigationView, i, R.style.Widget_Design_BottomNavigationView);
         if (obtainStyledAttributes.hasValue(R.styleable.BottomNavigationView_itemIconTint)) {
-            this.jL.setIconTintList(obtainStyledAttributes.getColorStateList(R.styleable.BottomNavigationView_itemIconTint));
+            this.mMenuView.setIconTintList(obtainStyledAttributes.getColorStateList(R.styleable.BottomNavigationView_itemIconTint));
         } else {
-            this.jL.setIconTintList(n(16842808));
+            this.mMenuView.setIconTintList(createDefaultColorStateList(16842808));
         }
         if (obtainStyledAttributes.hasValue(R.styleable.BottomNavigationView_itemTextColor)) {
-            this.jL.setItemTextColor(obtainStyledAttributes.getColorStateList(R.styleable.BottomNavigationView_itemTextColor));
+            this.mMenuView.setItemTextColor(obtainStyledAttributes.getColorStateList(R.styleable.BottomNavigationView_itemTextColor));
         } else {
-            this.jL.setItemTextColor(n(16842808));
+            this.mMenuView.setItemTextColor(createDefaultColorStateList(16842808));
         }
-        this.jL.setItemBackgroundRes(obtainStyledAttributes.getResourceId(R.styleable.BottomNavigationView_itemBackground, 0));
+        this.mMenuView.setItemBackgroundRes(obtainStyledAttributes.getResourceId(R.styleable.BottomNavigationView_itemBackground, 0));
         if (obtainStyledAttributes.hasValue(R.styleable.BottomNavigationView_menu)) {
             inflateMenu(obtainStyledAttributes.getResourceId(R.styleable.BottomNavigationView_menu, 0));
         }
         obtainStyledAttributes.recycle();
-        addView(this.jL, layoutParams);
+        addView(this.mMenuView, layoutParams);
         this.mMenu.setCallback(new MenuBuilder.Callback() { // from class: android.support.design.widget.BottomNavigationView.1
             @Override // android.support.v7.view.menu.MenuBuilder.Callback
             public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
-                return BottomNavigationView.this.li != null && BottomNavigationView.this.li.onNavigationItemSelected(menuItem);
+                return BottomNavigationView.this.mListener != null && BottomNavigationView.this.mListener.onNavigationItemSelected(menuItem);
             }
 
             @Override // android.support.v7.view.menu.MenuBuilder.Callback
@@ -80,65 +83,69 @@ public class BottomNavigationView extends FrameLayout {
         });
     }
 
-    public void setOnNavigationItemSelectedListener(OnNavigationItemSelectedListener onNavigationItemSelectedListener) {
-        this.li = onNavigationItemSelectedListener;
+    public void setOnNavigationItemSelectedListener(@Nullable OnNavigationItemSelectedListener onNavigationItemSelectedListener) {
+        this.mListener = onNavigationItemSelectedListener;
     }
 
+    @NonNull
     public Menu getMenu() {
         return this.mMenu;
     }
 
     public void inflateMenu(int i) {
-        this.jJ.setUpdateSuspended(true);
+        this.mPresenter.setUpdateSuspended(true);
         getMenuInflater().inflate(i, this.mMenu);
-        this.jJ.initForMenu(getContext(), this.mMenu);
-        this.jJ.setUpdateSuspended(false);
-        this.jJ.updateMenuView(true);
+        this.mPresenter.initForMenu(getContext(), this.mMenu);
+        this.mPresenter.setUpdateSuspended(false);
+        this.mPresenter.updateMenuView(true);
     }
 
     public int getMaxItemCount() {
         return 5;
     }
 
+    @Nullable
     public ColorStateList getItemIconTintList() {
-        return this.jL.getIconTintList();
+        return this.mMenuView.getIconTintList();
     }
 
-    public void setItemIconTintList(ColorStateList colorStateList) {
-        this.jL.setIconTintList(colorStateList);
+    public void setItemIconTintList(@Nullable ColorStateList colorStateList) {
+        this.mMenuView.setIconTintList(colorStateList);
     }
 
+    @Nullable
     public ColorStateList getItemTextColor() {
-        return this.jL.getItemTextColor();
+        return this.mMenuView.getItemTextColor();
     }
 
-    public void setItemTextColor(ColorStateList colorStateList) {
-        this.jL.setItemTextColor(colorStateList);
+    public void setItemTextColor(@Nullable ColorStateList colorStateList) {
+        this.mMenuView.setItemTextColor(colorStateList);
     }
 
+    @DrawableRes
     public int getItemBackgroundResource() {
-        return this.jL.getItemBackgroundRes();
+        return this.mMenuView.getItemBackgroundRes();
     }
 
-    public void setItemBackgroundResource(int i) {
-        this.jL.setItemBackgroundRes(i);
+    public void setItemBackgroundResource(@DrawableRes int i) {
+        this.mMenuView.setItemBackgroundRes(i);
     }
 
     private MenuInflater getMenuInflater() {
-        if (this.lh == null) {
-            this.lh = new SupportMenuInflater(getContext());
+        if (this.mMenuInflater == null) {
+            this.mMenuInflater = new SupportMenuInflater(getContext());
         }
-        return this.lh;
+        return this.mMenuInflater;
     }
 
-    private ColorStateList n(int i) {
+    private ColorStateList createDefaultColorStateList(int i) {
         TypedValue typedValue = new TypedValue();
         if (getContext().getTheme().resolveAttribute(i, typedValue, true)) {
             ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
             if (getContext().getTheme().resolveAttribute(android.support.v7.appcompat.R.attr.colorPrimary, typedValue, true)) {
                 int i2 = typedValue.data;
                 int defaultColor = colorStateList.getDefaultColor();
-                return new ColorStateList(new int[][]{lg, jn, EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(lg, defaultColor), i2, defaultColor});
+                return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i2, defaultColor});
             }
             return null;
         }

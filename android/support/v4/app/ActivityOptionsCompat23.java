@@ -16,16 +16,16 @@ class ActivityOptionsCompat23 {
         return new ActivityOptionsCompat23(ActivityOptions.makeCustomAnimation(context, i, i2));
     }
 
-    public static ActivityOptionsCompat23 makeScaleUpAnimation(View view, int i, int i2, int i3, int i4) {
-        return new ActivityOptionsCompat23(ActivityOptions.makeScaleUpAnimation(view, i, i2, i3, i4));
+    public static ActivityOptionsCompat23 makeScaleUpAnimation(View view2, int i, int i2, int i3, int i4) {
+        return new ActivityOptionsCompat23(ActivityOptions.makeScaleUpAnimation(view2, i, i2, i3, i4));
     }
 
-    public static ActivityOptionsCompat23 makeThumbnailScaleUpAnimation(View view, Bitmap bitmap, int i, int i2) {
-        return new ActivityOptionsCompat23(ActivityOptions.makeThumbnailScaleUpAnimation(view, bitmap, i, i2));
+    public static ActivityOptionsCompat23 makeThumbnailScaleUpAnimation(View view2, Bitmap bitmap, int i, int i2) {
+        return new ActivityOptionsCompat23(ActivityOptions.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
     }
 
-    public static ActivityOptionsCompat23 makeSceneTransitionAnimation(Activity activity, View view, String str) {
-        return new ActivityOptionsCompat23(ActivityOptions.makeSceneTransitionAnimation(activity, view, str));
+    public static ActivityOptionsCompat23 makeSceneTransitionAnimation(Activity activity, View view2, String str) {
+        return new ActivityOptionsCompat23(ActivityOptions.makeSceneTransitionAnimation(activity, view2, str));
     }
 
     public static ActivityOptionsCompat23 makeSceneTransitionAnimation(Activity activity, View[] viewArr, String[] strArr) {
@@ -40,8 +40,8 @@ class ActivityOptionsCompat23 {
         return new ActivityOptionsCompat23(ActivityOptions.makeSceneTransitionAnimation(activity, pairArr));
     }
 
-    public static ActivityOptionsCompat23 makeClipRevealAnimation(View view, int i, int i2, int i3, int i4) {
-        return new ActivityOptionsCompat23(ActivityOptions.makeClipRevealAnimation(view, i, i2, i3, i4));
+    public static ActivityOptionsCompat23 makeClipRevealAnimation(View view2, int i, int i2, int i3, int i4) {
+        return new ActivityOptionsCompat23(ActivityOptions.makeClipRevealAnimation(view2, i, i2, i3, i4));
     }
 
     public static ActivityOptionsCompat23 makeTaskLaunchBehind() {

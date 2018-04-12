@@ -20,7 +20,7 @@ public final class PopupWindowCompat {
 
         void setWindowLayoutType(PopupWindow popupWindow, int i);
 
-        void showAsDropDown(PopupWindow popupWindow, View view, int i, int i2, int i3);
+        void showAsDropDown(PopupWindow popupWindow, View view2, int i, int i2, int i3);
     }
 
     /* loaded from: classes2.dex */
@@ -34,11 +34,11 @@ public final class PopupWindowCompat {
         }
 
         @Override // android.support.v4.widget.PopupWindowCompat.PopupWindowImpl
-        public void showAsDropDown(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-            if ((GravityCompat.getAbsoluteGravity(i3, ViewCompat.getLayoutDirection(view)) & 7) == 5) {
-                i -= popupWindow.getWidth() - view.getWidth();
+        public void showAsDropDown(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
+            if ((GravityCompat.getAbsoluteGravity(i3, ViewCompat.getLayoutDirection(view2)) & 7) == 5) {
+                i -= popupWindow.getWidth() - view2.getWidth();
             }
-            popupWindow.showAsDropDown(view, i, i2);
+            popupWindow.showAsDropDown(view2, i, i2);
         }
 
         @Override // android.support.v4.widget.PopupWindowCompat.PopupWindowImpl
@@ -94,8 +94,8 @@ public final class PopupWindowCompat {
         }
 
         @Override // android.support.v4.widget.PopupWindowCompat.BasePopupWindowImpl, android.support.v4.widget.PopupWindowCompat.PopupWindowImpl
-        public void showAsDropDown(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-            PopupWindowCompatKitKat.showAsDropDown(popupWindow, view, i, i2, i3);
+        public void showAsDropDown(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
+            PopupWindowCompatKitKat.showAsDropDown(popupWindow, view2, i, i2, i3);
         }
     }
 
@@ -157,8 +157,8 @@ public final class PopupWindowCompat {
     private PopupWindowCompat() {
     }
 
-    public static void showAsDropDown(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        IMPL.showAsDropDown(popupWindow, view, i, i2, i3);
+    public static void showAsDropDown(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
+        IMPL.showAsDropDown(popupWindow, view2, i, i2, i3);
     }
 
     public static void setOverlapAnchor(PopupWindow popupWindow, boolean z) {

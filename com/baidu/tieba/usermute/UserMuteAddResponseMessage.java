@@ -10,7 +10,7 @@ public class UserMuteAddResponseMessage extends JsonHttpResponsedMessage {
     private String muteMsg;
 
     public int getMuteErrorCode() {
-        return b.h(this.errorNo, -1);
+        return b.g(this.errorNo, -1);
     }
 
     public String getMuteMessage() {

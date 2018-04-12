@@ -1,19 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
+
+import java.util.ArrayList;
+/* loaded from: classes2.dex */
 public interface aj {
-    void En();
-
-    void Xp();
-
-    void Xq();
-
-    void Xr();
-
-    void setHeaderViewHeight(int i);
-
-    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.s sVar);
-
-    void setVideoThreadId(String str);
-
-    void showFloatingView();
+    void a(int i, int i2, ap apVar, ArrayList<com.baidu.adp.widget.ListView.h> arrayList);
 }

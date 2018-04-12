@@ -21,9 +21,9 @@ public final class p {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 64);
             if (packageInfo != null) {
-                PublicKey cj = c.cj(packageInfo.applicationInfo.sourceDir);
-                if (cj != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
-                    publicKey = cj;
+                PublicKey a = c.a(packageInfo.applicationInfo.sourceDir);
+                if (a != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
+                    publicKey = a;
                 } else {
                     publicKey = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                 }
@@ -41,17 +41,17 @@ public final class p {
                 jSONObject.put("sign", "");
                 jSONObject.put("app", "");
             }
-            String a = g.a(context, d.a() + "plugin/v1/auth", jSONObject.toString(), false, false, "");
-            new StringBuilder().append(a);
-            JSONObject jSONObject2 = new JSONObject(a);
+            String a2 = g.a(context, d.a() + "plugin/v1/auth", jSONObject.toString(), false, false, "");
+            new StringBuilder().append(a2);
+            JSONObject jSONObject2 = new JSONObject(a2);
             if (jSONObject2.optInt("code") == 200) {
                 String optString = jSONObject2.optString("ak");
                 String optString2 = jSONObject2.optString("sk");
                 if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                    com.baidu.sofire.core.c aC = com.baidu.sofire.core.c.aC(context);
+                    com.baidu.sofire.core.c a3 = com.baidu.sofire.core.c.a(context);
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                         d.a(optString, optString2);
-                        com.baidu.sofire.e eVar = aC.aGp;
+                        com.baidu.sofire.e eVar = a3.a;
                         eVar.c.putString("svi_n", optString + Constants.ACCEPT_TIME_SEPARATOR_SERVER + optString2);
                         eVar.c.commit();
                     }

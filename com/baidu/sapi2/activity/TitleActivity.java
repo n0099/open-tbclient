@@ -79,10 +79,10 @@ public abstract class TitleActivity extends BaseActivity implements View.OnClick
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.mLeftBtnIv || view == this.mLeftBtnTv) {
+    public void onClick(View view2) {
+        if (view2 == this.mLeftBtnIv || view2 == this.mLeftBtnTv) {
             onLeftBtnClick();
-        } else if (view == this.mRightBtn) {
+        } else if (view2 == this.mRightBtn) {
             onRightBtnClick();
         }
     }

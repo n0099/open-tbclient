@@ -6,10 +6,10 @@ import android.support.annotation.RestrictTo;
 import android.support.v7.widget.FitWindowsViewGroup;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class FitWindowsLinearLayout extends LinearLayout implements FitWindowsViewGroup {
-    private FitWindowsViewGroup.OnFitSystemWindowsListener OI;
+    private FitWindowsViewGroup.OnFitSystemWindowsListener mListener;
 
     public FitWindowsLinearLayout(Context context) {
         super(context);
@@ -21,13 +21,13 @@ public class FitWindowsLinearLayout extends LinearLayout implements FitWindowsVi
 
     @Override // android.support.v7.widget.FitWindowsViewGroup
     public void setOnFitSystemWindowsListener(FitWindowsViewGroup.OnFitSystemWindowsListener onFitSystemWindowsListener) {
-        this.OI = onFitSystemWindowsListener;
+        this.mListener = onFitSystemWindowsListener;
     }
 
     @Override // android.view.View
     protected boolean fitSystemWindows(Rect rect) {
-        if (this.OI != null) {
-            this.OI.onFitSystemWindows(rect);
+        if (this.mListener != null) {
+            this.mListener.onFitSystemWindows(rect);
         }
         return super.fitSystemWindows(rect);
     }

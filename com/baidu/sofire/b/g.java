@@ -32,7 +32,7 @@ public final class g {
         } else {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(str2.getBytes());
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            i.e(byteArrayInputStream, byteArrayOutputStream);
+            i.a(byteArrayInputStream, byteArrayOutputStream);
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.flush();
             byteArrayOutputStream.close();
@@ -55,7 +55,7 @@ public final class g {
             if (z2) {
                 str4 = new k(context).a(str + "?" + str7);
             } else {
-                str4 = new k(context).g(str + "?" + str7, bytes);
+                str4 = new k(context).a(str + "?" + str7, bytes);
             }
         } catch (Throwable th) {
             d.a(th);

@@ -1,34 +1,33 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class o {
-    private int bhH;
-    private int bhI;
-    private int bhJ;
+    private int atn;
+    private int ato;
+    private int atp;
 
-    public int FR() {
-        if (this.bhH == 0) {
-            return Integer.MAX_VALUE;
-        }
-        return this.bhH;
+    public int yE() {
+        return this.atn == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.atn;
     }
 
-    public void fj(String str) {
-        this.bhH = com.baidu.adp.lib.g.b.h(str, 0);
+    public void fb(String str) {
+        this.atn = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public int FS() {
-        return this.bhI;
+    public int yF() {
+        return this.ato;
     }
 
-    public void fk(String str) {
-        this.bhI = com.baidu.adp.lib.g.b.h(str, 0);
+    public void fc(String str) {
+        this.ato = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public int FT() {
-        return this.bhJ;
+    public int yG() {
+        return this.atp;
     }
 
-    public void fl(String str) {
-        this.bhJ = com.baidu.adp.lib.g.b.h(str, 0);
+    public void fd(String str) {
+        this.atp = com.baidu.adp.lib.g.b.g(str, 0);
     }
 }

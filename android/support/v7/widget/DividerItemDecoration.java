@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,9 +14,9 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private static final int[] ATTRS = {16843284};
     public static final int HORIZONTAL = 0;
     public static final int VERTICAL = 1;
-    private int An;
-    private final Rect OB = new Rect();
+    private final Rect mBounds = new Rect();
     private Drawable mDivider;
+    private int mOrientation;
 
     public DividerItemDecoration(Context context, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(ATTRS);
@@ -28,10 +29,10 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         if (i != 0 && i != 1) {
             throw new IllegalArgumentException("Invalid orientation. It should be either HORIZONTAL or VERTICAL");
         }
-        this.An = i;
+        this.mOrientation = i;
     }
 
-    public void setDrawable(Drawable drawable) {
+    public void setDrawable(@NonNull Drawable drawable) {
         if (drawable == null) {
             throw new IllegalArgumentException("Drawable cannot be null.");
         }
@@ -41,15 +42,15 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
     public void onDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.State state) {
         if (recyclerView.getLayoutManager() != null) {
-            if (this.An == 1) {
-                a(canvas, recyclerView);
+            if (this.mOrientation == 1) {
+                drawVertical(canvas, recyclerView);
             } else {
-                b(canvas, recyclerView);
+                drawHorizontal(canvas, recyclerView);
             }
         }
     }
 
-    private void a(Canvas canvas, RecyclerView recyclerView) {
+    private void drawVertical(Canvas canvas, RecyclerView recyclerView) {
         int width;
         int i;
         canvas.save();
@@ -64,15 +65,15 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         int childCount = recyclerView.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = recyclerView.getChildAt(i2);
-            recyclerView.getDecoratedBoundsWithMargins(childAt, this.OB);
-            int round = Math.round(ViewCompat.getTranslationY(childAt)) + this.OB.bottom;
+            recyclerView.getDecoratedBoundsWithMargins(childAt, this.mBounds);
+            int round = Math.round(ViewCompat.getTranslationY(childAt)) + this.mBounds.bottom;
             this.mDivider.setBounds(i, round - this.mDivider.getIntrinsicHeight(), width, round);
             this.mDivider.draw(canvas);
         }
         canvas.restore();
     }
 
-    private void b(Canvas canvas, RecyclerView recyclerView) {
+    private void drawHorizontal(Canvas canvas, RecyclerView recyclerView) {
         int height;
         int i;
         canvas.save();
@@ -87,8 +88,8 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         int childCount = recyclerView.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = recyclerView.getChildAt(i2);
-            recyclerView.getLayoutManager().getDecoratedBoundsWithMargins(childAt, this.OB);
-            int round = Math.round(ViewCompat.getTranslationX(childAt)) + this.OB.right;
+            recyclerView.getLayoutManager().getDecoratedBoundsWithMargins(childAt, this.mBounds);
+            int round = Math.round(ViewCompat.getTranslationX(childAt)) + this.mBounds.right;
             this.mDivider.setBounds(round - this.mDivider.getIntrinsicWidth(), i, round, height);
             this.mDivider.draw(canvas);
         }
@@ -96,8 +97,8 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-        if (this.An == 1) {
+    public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
+        if (this.mOrientation == 1) {
             rect.set(0, 0, 0, this.mDivider.getIntrinsicHeight());
         } else {
             rect.set(0, 0, this.mDivider.getIntrinsicWidth(), 0);

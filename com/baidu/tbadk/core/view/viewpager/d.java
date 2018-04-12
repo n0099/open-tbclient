@@ -1,108 +1,108 @@
 package com.baidu.tbadk.core.view.viewpager;
 
-import com.baidu.adp.widget.ListView.i;
+import com.baidu.adp.widget.ListView.h;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<i> bfF;
-    private List<i> bfG;
-    private boolean bfH;
-    private boolean bfI;
-    private int bfK;
-    private int bfJ = 2;
-    private int bfL = 1;
+    private int ard;
+    private List<h> arl;
+    private List<h> arm;
+    private boolean arn;
+    private boolean aro;
+    private int arp = 2;
+    private int arq = 1;
 
-    public d(List<i> list, boolean z, int i) {
-        this.bfK = 2;
-        this.bfF = list;
-        this.bfI = z;
-        this.bfK = i;
-        F(list);
+    public d(List<h> list, boolean z, int i) {
+        this.ard = 2;
+        this.arl = list;
+        this.aro = z;
+        this.ard = i;
+        x(list);
     }
 
-    public void F(List<i> list) {
-        if (list != null && list.size() >= this.bfJ && list.size() <= this.bfK) {
-            this.bfH = true;
-        } else if (list.size() > this.bfK && this.bfI) {
-            this.bfH = true;
+    public void x(List<h> list) {
+        if (list != null && list.size() >= this.arp && list.size() <= this.ard) {
+            this.arn = true;
+        } else if (list.size() > this.ard && this.aro) {
+            this.arn = true;
         } else {
-            this.bfH = false;
+            this.arn = false;
         }
-        this.bfG = EI();
+        this.arm = xv();
     }
 
-    private List<i> EI() {
+    private List<h> xv() {
         ArrayList arrayList = new ArrayList();
-        if (this.bfF != null) {
-            if (this.bfH) {
-                if (this.bfF.size() > this.bfK && this.bfF.size() >= this.bfL) {
-                    arrayList.addAll(this.bfF.subList(0, this.bfK));
-                    arrayList.addAll(0, this.bfF.subList(this.bfK - this.bfL, this.bfK));
-                    arrayList.addAll(this.bfF.subList(0, this.bfL));
+        if (this.arl != null) {
+            if (this.arn) {
+                if (this.arl.size() > this.ard && this.arl.size() >= this.arq) {
+                    arrayList.addAll(this.arl.subList(0, this.ard));
+                    arrayList.addAll(0, this.arl.subList(this.ard - this.arq, this.ard));
+                    arrayList.addAll(this.arl.subList(0, this.arq));
                 } else {
-                    arrayList.addAll(this.bfF);
-                    arrayList.addAll(0, this.bfF.subList(this.bfF.size() - this.bfL, this.bfF.size()));
-                    arrayList.addAll(this.bfF.subList(0, this.bfL));
+                    arrayList.addAll(this.arl);
+                    arrayList.addAll(0, this.arl.subList(this.arl.size() - this.arq, this.arl.size()));
+                    arrayList.addAll(this.arl.subList(0, this.arq));
                 }
-            } else if (this.bfF != null && this.bfF.size() > 0 && this.bfF.size() >= this.bfL) {
-                arrayList.addAll(this.bfF.subList(0, this.bfL));
+            } else if (this.arl != null && this.arl.size() > 0 && this.arl.size() >= this.arq) {
+                arrayList.addAll(this.arl.subList(0, this.arq));
             }
         }
         return arrayList;
     }
 
-    public int gG(int i) {
-        if (this.bfH) {
-            int size = this.bfG.size();
+    public int dF(int i) {
+        if (this.arn) {
+            int size = this.arm.size();
             if (i == 0) {
-                return (size - 1) - this.bfL;
+                return (size - 1) - this.arq;
             }
-            if (i == size - this.bfL) {
-                return this.bfL;
+            if (i == size - this.arq) {
+                return this.arq;
             }
             return i;
         }
         return i;
     }
 
-    public int gH(int i) {
-        if (this.bfH) {
-            return i - this.bfL;
+    public int dG(int i) {
+        if (this.arn) {
+            return i - this.arq;
         }
         return i;
     }
 
-    public int EJ() {
-        if (this.bfF == null) {
+    public int xw() {
+        if (this.arl == null) {
             return 0;
         }
-        return this.bfF.size();
+        return this.arl.size();
     }
 
-    public int EK() {
-        if (this.bfH) {
-            return this.bfL;
+    public int xx() {
+        if (this.arn) {
+            return this.arq;
         }
         return 0;
     }
 
-    public void gI(int i) {
-        this.bfK = i;
-        F(this.bfF);
+    public void dH(int i) {
+        this.ard = i;
+        x(this.arl);
     }
 
-    public void gJ(int i) {
-        this.bfJ = i;
-        F(this.bfF);
+    public void dI(int i) {
+        this.arp = i;
+        x(this.arl);
     }
 
-    public List<i> EL() {
-        return this.bfG;
+    public List<h> xy() {
+        return this.arm;
     }
 
-    public void gK(int i) {
-        this.bfL = i;
-        F(this.bfF);
+    public void dJ(int i) {
+        this.arq = i;
+        x(this.arl);
     }
 }

@@ -2,13 +2,13 @@ package protobuf.AddGroupUsers;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_USERIDS = "";
     @ProtoField(tag = 5, type = Message.Datatype.INT32)
     public final Integer decision;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 6, type = Message.Datatype.INT64)
     public final Long inviteUserId;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
@@ -19,7 +19,7 @@ public final class DataReq extends Message {
     public final Integer sysMsgId;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String userIds;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_SYSMSGID = 0;
     public static final Integer DEFAULT_SYSGROUPID = 0;
     public static final Integer DEFAULT_DECISION = 0;
@@ -76,10 +76,10 @@ public final class DataReq extends Message {
         this.joinType = builder.joinType;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer decision;
-        public Integer groupId;
+        public Long groupId;
         public Long inviteUserId;
         public Integer joinType;
         public Integer sysGroupId;

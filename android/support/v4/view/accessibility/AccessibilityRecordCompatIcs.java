@@ -6,6 +6,9 @@ import android.view.accessibility.AccessibilityRecord;
 import java.util.List;
 /* loaded from: classes2.dex */
 class AccessibilityRecordCompatIcs {
+    AccessibilityRecordCompatIcs() {
+    }
+
     public static Object obtain() {
         return AccessibilityRecord.obtain();
     }
@@ -162,8 +165,8 @@ class AccessibilityRecordCompatIcs {
         ((AccessibilityRecord) obj).setScrollable(z);
     }
 
-    public static void setSource(Object obj, View view) {
-        ((AccessibilityRecord) obj).setSource(view);
+    public static void setSource(Object obj, View view2) {
+        ((AccessibilityRecord) obj).setSource(view2);
     }
 
     public static void setToIndex(Object obj, int i) {

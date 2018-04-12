@@ -13,10 +13,10 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class e {
-    private static WeakReference<byte[]> asz;
+    private static WeakReference<byte[]> De;
     private static Object mSync = new Object();
 
-    public static Signature[] bN(String str) throws CertificateEncodingException, IOException {
+    public static Signature[] bK(String str) throws CertificateEncodingException, IOException {
         byte[] bArr;
         byte[] bArr2;
         WeakReference<byte[]> weakReference;
@@ -26,9 +26,9 @@ public final class e {
             return null;
         }
         synchronized (mSync) {
-            WeakReference<byte[]> weakReference2 = asz;
+            WeakReference<byte[]> weakReference2 = De;
             if (weakReference2 != null) {
-                asz = null;
+                De = null;
                 bArr = weakReference2.get();
             } else {
                 bArr = null;
@@ -49,20 +49,20 @@ public final class e {
             while (entries.hasMoreElements()) {
                 JarEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
-                    Certificate[] a = a(jarFile, nextElement, bArr2);
-                    if (a == null) {
+                    Certificate[] b = b(jarFile, nextElement, bArr2);
+                    if (b == null) {
                         BdLog.e("Package " + str + " has no certificates at entry " + nextElement.getName() + "; ignoring!");
                         jarFile.close();
                         return null;
                     }
                     if (certificateArr2 == null) {
-                        certificateArr = a;
+                        certificateArr = b;
                     } else {
                         for (int i = 0; i < certificateArr2.length; i++) {
                             int i2 = 0;
                             while (true) {
-                                if (i2 < a.length) {
-                                    if (certificateArr2[i] == null || !certificateArr2[i].equals(a[i2])) {
+                                if (i2 < b.length) {
+                                    if (certificateArr2[i] == null || !certificateArr2[i].equals(b[i2])) {
                                         i2++;
                                     } else {
                                         z = true;
@@ -73,7 +73,7 @@ public final class e {
                                     break;
                                 }
                             }
-                            if (!z || certificateArr2.length != a.length) {
+                            if (!z || certificateArr2.length != b.length) {
                                 jarFile.close();
                                 return null;
                             }
@@ -85,7 +85,7 @@ public final class e {
             }
             jarFile.close();
             synchronized (mSync) {
-                asz = weakReference;
+                De = weakReference;
             }
             if (certificateArr2 != null && certificateArr2.length > 0) {
                 int length = certificateArr2.length;
@@ -109,7 +109,7 @@ public final class e {
         }
     }
 
-    private static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr) throws IOException {
+    private static Certificate[] b(JarFile jarFile, JarEntry jarEntry, byte[] bArr) throws IOException {
         Throwable th;
         RuntimeException e;
         IOException e2;

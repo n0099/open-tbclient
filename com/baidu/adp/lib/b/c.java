@@ -6,85 +6,85 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String ahQ = "_crashtime";
-    public static String ahR = "_crashtype";
-    private int ahS;
-    private int ahT;
-    private b ahU;
+    public static String sj = "_crashtime";
+    public static String sk = "_crashtype";
+    private int sl;
+    private int sm;
+    private b so;
 
     public c(b bVar) {
-        this.ahS = 0;
-        this.ahT = 0;
-        this.ahU = null;
+        this.sl = 0;
+        this.sm = 0;
+        this.so = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.ahU = bVar;
-        if (this.ahU.mu() > 0 && this.ahU.mx() != null) {
-            this.ahS = mz();
-            if (this.ahS == -1) {
+        this.so = bVar;
+        if (this.so.ey() > 0 && this.so.eB() != null) {
+            this.sl = eD();
+            if (this.sl == -1) {
                 reset();
             }
         }
-        this.ahT = my();
-        this.ahU.q(this.ahT, true);
+        this.sm = eC();
+        this.so.f(this.sm, true);
     }
 
     public String getName() {
-        return this.ahU.getName();
+        return this.so.getName();
     }
 
-    public int ms() {
-        return this.ahU.ms();
+    public int ew() {
+        return this.so.ew();
     }
 
     public int getType() {
-        return this.ahT;
+        return this.sm;
     }
 
-    public boolean cR(int i) {
-        if (this.ahU.mu() >= 0 && this.ahS >= this.ahU.mu() + 2) {
-            i = this.ahU.mt();
+    public boolean R(int i) {
+        if (this.so.ey() >= 0 && this.sl >= this.so.ey() + 2) {
+            i = this.so.ex();
         }
-        if (i == this.ahT) {
+        if (i == this.sm) {
             return false;
         }
-        this.ahT = i;
-        this.ahU.q(this.ahT, false);
-        cS(i);
+        this.sm = i;
+        this.so.f(this.sm, false);
+        S(i);
         return true;
     }
 
-    public boolean am(String str) {
-        String[] mv;
-        String[] mx;
-        if (str == null || this.ahU.mu() <= 0) {
+    public boolean aj(String str) {
+        String[] ez;
+        String[] eB;
+        if (str == null || this.so.ey() <= 0) {
             return false;
         }
-        if (this.ahU.mx() != null) {
-            for (String str2 : this.ahU.mx()) {
+        if (this.so.eB() != null) {
+            for (String str2 : this.so.eB()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.ahS++;
-                    cT(this.ahS);
-                    if (this.ahS >= this.ahU.mu()) {
-                        cS(this.ahU.mt());
-                        this.ahT = this.ahU.mt();
-                        this.ahU.q(this.ahU.mt(), false);
+                    this.sl++;
+                    T(this.sl);
+                    if (this.sl >= this.so.ey()) {
+                        S(this.so.ex());
+                        this.sm = this.so.ex();
+                        this.so.f(this.so.ex(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.ahU.mv() != null) {
-            for (String str3 : this.ahU.mv()) {
+        if (this.so.ez() != null) {
+            for (String str3 : this.so.ez()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.ahS++;
-                    cT(this.ahS);
-                    if (this.ahS >= this.ahU.mu()) {
-                        cS(this.ahU.mt());
-                        this.ahT = this.ahU.mt();
-                        this.ahU.q(this.ahU.mt(), false);
+                    this.sl++;
+                    T(this.sl);
+                    if (this.sl >= this.so.ey()) {
+                        S(this.so.ex());
+                        this.sm = this.so.ex();
+                        this.so.f(this.so.ex(), false);
                         return true;
                     }
                     return true;
@@ -94,31 +94,31 @@ public class c {
         return false;
     }
 
-    private void cS(int i) {
+    private void S(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.ahU.getName() + ahR, i);
+        edit.putInt(this.so.getName() + sk, i);
         edit.commit();
     }
 
-    private int my() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ahU.getName() + ahR, this.ahU.ms());
+    private int eC() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.so.getName() + sk, this.so.ew());
     }
 
-    private int mz() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ahU.getName() + ahQ, -1);
+    private int eD() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.so.getName() + sj, -1);
     }
 
-    private void cT(int i) {
+    private void T(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.ahU.getName() + ahQ, i);
+        edit.putInt(this.so.getName() + sj, i);
         edit.commit();
     }
 
     public void reset() {
-        this.ahS = 0;
+        this.sl = 0;
     }
 
-    public void cU(int i) {
-        this.ahS = i;
+    public void U(int i) {
+        this.sl = i;
     }
 }

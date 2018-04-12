@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MessageHandleService extends IntentService {
     private static ConcurrentLinkedQueue<a> a = new ConcurrentLinkedQueue<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private PushMessageReceiver a;
         private Intent b;

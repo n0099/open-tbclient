@@ -8,72 +8,72 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class SubMenuBuilder extends MenuBuilder implements SubMenu {
-    private MenuBuilder JI;
-    private MenuItemImpl JJ;
+    private MenuItemImpl mItem;
+    private MenuBuilder mParentMenu;
 
     public SubMenuBuilder(Context context, MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
         super(context);
-        this.JI = menuBuilder;
-        this.JJ = menuItemImpl;
+        this.mParentMenu = menuBuilder;
+        this.mItem = menuItemImpl;
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder, android.view.Menu
     public void setQwertyMode(boolean z) {
-        this.JI.setQwertyMode(z);
+        this.mParentMenu.setQwertyMode(z);
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder
     public boolean isQwertyMode() {
-        return this.JI.isQwertyMode();
+        return this.mParentMenu.isQwertyMode();
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder
     public void setShortcutsVisible(boolean z) {
-        this.JI.setShortcutsVisible(z);
+        this.mParentMenu.setShortcutsVisible(z);
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder
     public boolean isShortcutsVisible() {
-        return this.JI.isShortcutsVisible();
+        return this.mParentMenu.isShortcutsVisible();
     }
 
     public Menu getParentMenu() {
-        return this.JI;
+        return this.mParentMenu;
     }
 
     @Override // android.view.SubMenu
     public MenuItem getItem() {
-        return this.JJ;
+        return this.mItem;
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder
     public void setCallback(MenuBuilder.Callback callback) {
-        this.JI.setCallback(callback);
+        this.mParentMenu.setCallback(callback);
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder
     public MenuBuilder getRootMenu() {
-        return this.JI.getRootMenu();
+        return this.mParentMenu.getRootMenu();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.v7.view.menu.MenuBuilder
-    public boolean a(MenuBuilder menuBuilder, MenuItem menuItem) {
-        return super.a(menuBuilder, menuItem) || this.JI.a(menuBuilder, menuItem);
+    public boolean dispatchMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+        return super.dispatchMenuItemSelected(menuBuilder, menuItem) || this.mParentMenu.dispatchMenuItemSelected(menuBuilder, menuItem);
     }
 
     @Override // android.view.SubMenu
     public SubMenu setIcon(Drawable drawable) {
-        this.JJ.setIcon(drawable);
+        this.mItem.setIcon(drawable);
         return this;
     }
 
     @Override // android.view.SubMenu
     public SubMenu setIcon(int i) {
-        this.JJ.setIcon(i);
+        this.mItem.setIcon(i);
         return this;
     }
 
@@ -98,23 +98,23 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderView(View view) {
-        return (SubMenu) super.setHeaderViewInt(view);
+    public SubMenu setHeaderView(View view2) {
+        return (SubMenu) super.setHeaderViewInt(view2);
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder
     public boolean expandItemActionView(MenuItemImpl menuItemImpl) {
-        return this.JI.expandItemActionView(menuItemImpl);
+        return this.mParentMenu.expandItemActionView(menuItemImpl);
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder
     public boolean collapseItemActionView(MenuItemImpl menuItemImpl) {
-        return this.JI.collapseItemActionView(menuItemImpl);
+        return this.mParentMenu.collapseItemActionView(menuItemImpl);
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder
     public String getActionViewStatesKey() {
-        int itemId = this.JJ != null ? this.JJ.getItemId() : 0;
+        int itemId = this.mItem != null ? this.mItem.getItemId() : 0;
         if (itemId == 0) {
             return null;
         }

@@ -3,10 +3,9 @@ package com.baidu.android.pushservice.message.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.p;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n extends c {
     public n(Context context) {
         super(context);
@@ -24,7 +23,7 @@ public class n extends c {
         intent.putExtra("bd.cross.request.COMMAND_TYPE", "bd.cross.command.ULTRON_DELIVER");
         intent.putExtra("bd.cross.request.SOURCE_SERVICE", "com.baidu.android.pushservice.PushService");
         intent.putExtra("bd.cross.request.SOURCE_PACKAGE", this.a.getPackageName());
-        return new com.baidu.android.pushservice.j.e(this.a, intent).b();
+        return new com.baidu.android.pushservice.j.d(this.a, intent).b();
     }
 
     @Override // com.baidu.android.pushservice.message.a.c
@@ -47,7 +46,7 @@ public class n extends c {
                 str = null;
                 i = 0;
             } else {
-                if (TextUtils.isEmpty(f) || !p.c(this.a, f)) {
+                if (TextUtils.isEmpty(f) || !com.baidu.android.pushservice.j.m.c(this.a, f)) {
                     f = null;
                 }
                 com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(this.a).d(e);
@@ -58,7 +57,7 @@ public class n extends c {
                     }
                     i = 0;
                     str = f;
-                } else if (p.c(this.a, d.c())) {
+                } else if (com.baidu.android.pushservice.j.m.c(this.a, d.c())) {
                     if (TextUtils.isEmpty(f)) {
                         f = d.c();
                     }

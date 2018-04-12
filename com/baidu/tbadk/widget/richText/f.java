@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String bLt;
-    private int bLu;
-    private String bLv;
-    private int bLw;
-    private int bLx;
+    private String aWh;
+    private int aWi;
+    private String aWj;
+    private int aWk;
+    private int aWl;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.bLt = pbContent.src;
+            this.aWh = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.bLu = pbContent.e_type.intValue();
-            this.bLv = pbContent.text;
+            this.aWi = pbContent.e_type.intValue();
+            this.aWj = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.bLw = pbContent.count.intValue();
-            this.bLx = pbContent.origin_size.intValue();
+            this.aWk = pbContent.count.intValue();
+            this.aWl = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.bLt;
+        return this.aWh;
     }
 
     public int getWidth() {
@@ -44,12 +44,12 @@ public class f {
         return this.height;
     }
 
-    public String RV() {
-        return this.bLv;
+    public String Kv() {
+        return this.aWj;
     }
 
-    public boolean RW() {
-        return this.bLu == 15;
+    public boolean Kw() {
+        return this.aWi == 15;
     }
 
     public boolean isAvaliable() {

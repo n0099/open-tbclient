@@ -12,7 +12,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestParams {
     protected static final String ENCODING = "UTF-8";
     protected HashMap<String, String> mParams;

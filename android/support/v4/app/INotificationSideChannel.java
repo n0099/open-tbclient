@@ -86,6 +86,10 @@ public interface INotificationSideChannel extends IInterface {
                 return this.mRemote;
             }
 
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
+            }
+
             @Override // android.support.v4.app.INotificationSideChannel
             public void notify(String str, int i, String str2, Notification notification) throws RemoteException {
                 Parcel obtain = Parcel.obtain();

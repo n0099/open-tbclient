@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import android.util.SparseArray;
+import android.support.v4.util.LongSparseArray;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.im.push.c;
@@ -13,7 +13,7 @@ import protobuf.NewpushRepair;
 public class MessageSyncMessage extends TbSocketMessage {
     private int height;
     private boolean isForTimer;
-    private SparseArray<Long> mMids;
+    private LongSparseArray<Long> mMids;
     private NewpushRepair newpushRepire;
     private String notifyMaxTime;
     private String notifyMinTime;
@@ -109,11 +109,11 @@ public class MessageSyncMessage extends TbSocketMessage {
         this.pushTimes = str;
     }
 
-    public void setGroupMids(SparseArray<Long> sparseArray) {
-        this.mMids = sparseArray;
+    public void setGroupMids(LongSparseArray<Long> longSparseArray) {
+        this.mMids = longSparseArray;
     }
 
-    public SparseArray<Long> getGroupMids() {
+    public LongSparseArray<Long> getGroupMids() {
         return this.mMids;
     }
 
@@ -132,27 +132,27 @@ public class MessageSyncMessage extends TbSocketMessage {
         if (builder.groupMids == null) {
             builder.groupMids = new ArrayList();
         }
-        int gid = c.aLy().getGid();
+        long gid = c.aGv().getGid();
         boolean z = false;
         for (int i = 0; i < this.mMids.size(); i++) {
-            int keyAt = this.mMids.keyAt(i);
+            long keyAt = this.mMids.keyAt(i);
             Long valueAt = this.mMids.valueAt(i);
             if (valueAt != null) {
                 GroupLastId.Builder builder2 = new GroupLastId.Builder();
-                builder2.groupId = Integer.valueOf(keyAt);
+                builder2.groupId = Long.valueOf(keyAt);
                 builder2.lastMsgId = valueAt;
                 if (gid == keyAt) {
                     z = true;
-                    builder2.excludeMid = c.aLy().aLA();
+                    builder2.excludeMid = c.aGv().aGx();
                 }
                 builder.groupMids.add(builder2.build(false));
             }
         }
-        if (!z && c.aLy().aLC()) {
+        if (!z && c.aGv().aGz()) {
             GroupLastId.Builder builder3 = new GroupLastId.Builder();
-            builder3.groupId = Integer.valueOf(gid);
-            builder3.lastMsgId = c.aLy().aLz();
-            builder3.excludeMid = c.aLy().aLA();
+            builder3.groupId = Long.valueOf(gid);
+            builder3.lastMsgId = c.aGv().aGw();
+            builder3.excludeMid = c.aGv().aGx();
             builder.groupMids.add(builder3.build(false));
         }
         builder.newpushRepire = getNewpushRepire();

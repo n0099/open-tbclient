@@ -83,7 +83,7 @@ public class AttentionComponentView extends FrameLayout {
         this.flButton.addView(this.pbLoading);
         this.flButton.setOnClickListener(new View.OnClickListener() { // from class: com.sina.weibo.sdk.component.view.AttentionComponentView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 AttentionComponentView.this.execAttented();
             }
         });

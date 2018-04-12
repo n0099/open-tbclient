@@ -8,19 +8,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.a.f;
 import com.baidu.tbadk.data.h;
-import com.baidu.tieba.m.b;
+import com.baidu.tieba.n.b;
 import com.baidu.tieba.personCenter.data.d;
 import com.baidu.tieba.personCenter.model.PersonCenterModel;
 import com.baidu.tieba.personCenter.view.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b implements c.a {
-    private PersonCenterModel gjk;
-    private com.baidu.tieba.personCenter.view.c gjl;
-    PersonCenterModel.a gjm = new PersonCenterModel.a() { // from class: com.baidu.tieba.personCenter.b.b.1
+    private PersonCenterModel fDG;
+    private com.baidu.tieba.personCenter.view.c fDH;
+    PersonCenterModel.a fDI = new PersonCenterModel.a() { // from class: com.baidu.tieba.personCenter.b.b.1
         @Override // com.baidu.tieba.personCenter.model.PersonCenterModel.a
         public void a(d dVar) {
-            b.this.gjl.XN();
-            b.this.gjl.b(dVar);
+            b.this.fDH.Qn();
+            b.this.fDH.b(dVar);
             if (dVar != null && dVar.getUserData() != null) {
                 f.a(dVar.getUserData().getPersonPrivate());
             }
@@ -28,69 +28,69 @@ public class b implements c.a {
 
         @Override // com.baidu.tieba.personCenter.model.PersonCenterModel.a
         public void onFail(int i, String str) {
-            if (i != -1 || b.this.gjk.mIsDataLoaded) {
-                b.this.gjl.ac(i, str);
+            if (i != -1 || b.this.fDG.mIsDataLoaded) {
+                b.this.fDH.B(i, str);
             } else {
-                b.this.gjl.XM();
+                b.this.fDH.Qm();
             }
         }
     };
-    private CustomMessageListener gjn = new CustomMessageListener(2001435) { // from class: com.baidu.tieba.personCenter.b.b.2
+    private CustomMessageListener fDJ = new CustomMessageListener(2001435) { // from class: com.baidu.tieba.personCenter.b.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.m.b)) {
-                com.baidu.tieba.m.b bVar = (com.baidu.tieba.m.b) customResponsedMessage.getData();
-                if (bVar.gJU != null && bVar.gJU.size() > 0) {
-                    b.a aVar = bVar.gJU.get(2);
-                    b.a aVar2 = bVar.gJU.get(3);
-                    b.a aVar3 = bVar.gJU.get(9);
-                    b.a aVar4 = bVar.gJU.get(10);
-                    if (b.this.gjk.biM() != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.n.b)) {
+                com.baidu.tieba.n.b bVar = (com.baidu.tieba.n.b) customResponsedMessage.getData();
+                if (bVar.geU != null && bVar.geU.size() > 0) {
+                    b.a aVar = bVar.geU.get(2);
+                    b.a aVar2 = bVar.geU.get(3);
+                    b.a aVar3 = bVar.geU.get(9);
+                    b.a aVar4 = bVar.geU.get(10);
+                    if (b.this.fDG.bdN() != null) {
                         if (aVar2 != null) {
-                            b.this.gjk.biM().lv(aVar2.fgi);
+                            b.this.fDG.bdN().kU(aVar2.eAN);
                         }
                         if (aVar != null) {
-                            b.this.gjk.biM().ly(aVar.fgi);
+                            b.this.fDG.bdN().kX(aVar.eAN);
                         }
                         if (aVar3 != null) {
-                            b.this.gjk.biM().lx(aVar3.fgi);
+                            b.this.fDG.bdN().kW(aVar3.eAN);
                         }
                         if (aVar4 != null) {
-                            b.this.gjk.biM().lw(aVar4.fgi);
+                            b.this.fDG.bdN().kV(aVar4.eAN);
                         }
                     }
-                    b.a aVar5 = bVar.gJU.get(5);
+                    b.a aVar5 = bVar.geU.get(5);
                     if (aVar5 != null) {
-                        b.this.gjl.Q(5, aVar5.fgi);
+                        b.this.fDH.C(5, aVar5.eAN);
                     }
-                    b.a aVar6 = bVar.gJU.get(6);
+                    b.a aVar6 = bVar.geU.get(6);
                     if (aVar6 != null) {
-                        b.this.gjl.Q(6, aVar6.fgi);
+                        b.this.fDH.C(6, aVar6.eAN);
                     }
-                    b.this.gjl.notifyDataSetChanged();
+                    b.this.fDH.notifyDataSetChanged();
                 }
             }
         }
     };
-    private CustomMessageListener bSc = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.personCenter.b.b.3
+    private CustomMessageListener bcg = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.personCenter.b.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                com.baidu.tieba.m.a.bpm().mh(false);
+                com.baidu.tieba.n.a.bkt().lI(false);
             }
         }
     };
-    private CustomMessageListener gjo = new CustomMessageListener(2016485) { // from class: com.baidu.tieba.personCenter.b.b.4
+    private CustomMessageListener fDK = new CustomMessageListener(2016485) { // from class: com.baidu.tieba.personCenter.b.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             h hVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof h) && (hVar = (h) customResponsedMessage.getData()) != null) {
-                if (b.this.gjk.biM() != null) {
-                    b.this.gjk.biM().setUserPendantData(hVar);
-                    b.this.gjl.notifyDataSetChanged();
+                if (b.this.fDG.bdN() != null) {
+                    b.this.fDG.bdN().b(hVar);
+                    b.this.fDH.notifyDataSetChanged();
                     return;
                 }
                 b.this.refreshView();
@@ -98,47 +98,51 @@ public class b implements c.a {
         }
     };
 
-    public b(View view, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.gjl = new com.baidu.tieba.personCenter.view.c(view, tbPageContext, bdUniqueId);
-        this.gjl.a(this);
-        this.gjk = new PersonCenterModel(tbPageContext, bdUniqueId);
-        this.gjk.a(this.gjm);
-        com.baidu.tieba.m.a.bpm();
-        this.gjn.setTag(bdUniqueId);
-        this.bSc.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.gjn);
-        MessageManager.getInstance().registerListener(this.bSc);
-        this.gjo.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.gjo);
+    public b(View view2, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        this.fDH = new com.baidu.tieba.personCenter.view.c(view2, tbPageContext, bdUniqueId);
+        this.fDH.a(this);
+        this.fDG = new PersonCenterModel(tbPageContext, bdUniqueId);
+        this.fDG.a(this.fDI);
+        com.baidu.tieba.n.a.bkt();
+        this.fDJ.setTag(bdUniqueId);
+        this.bcg.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.fDJ);
+        MessageManager.getInstance().registerListener(this.bcg);
+        this.fDK.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.fDK);
     }
 
     public void refreshView() {
-        this.gjk.LoadData();
+        this.fDG.LoadData();
     }
 
     public void initView() {
-        this.gjl.initView();
-        this.gjk.LoadData();
+        this.fDH.initView();
+        this.fDG.LoadData();
+    }
+
+    public void kT(boolean z) {
+        this.fDG.kT(z);
     }
 
     public void onDestroy() {
-        this.gjl.onDestroy();
+        this.fDH.onDestroy();
     }
 
     public void onChangeSkinType(int i) {
-        this.gjl.onChangeSkinType(i);
+        this.fDH.onChangeSkinType(i);
     }
 
-    public void biI() {
-        this.gjl.biG();
+    public void bdJ() {
+        this.fDH.bdH();
     }
 
-    public void biJ() {
-        this.gjl.biH();
+    public void bdK() {
+        this.fDH.bdI();
     }
 
     @Override // com.baidu.tieba.personCenter.view.c.a
-    public void cG(View view) {
-        this.gjk.LoadData();
+    public void bm(View view2) {
+        this.fDG.LoadData();
     }
 }

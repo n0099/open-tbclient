@@ -8,53 +8,53 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
-import com.baidu.tieba.qrcode.lib.a.e;
+import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 /* loaded from: classes3.dex */
-public class b implements e.a {
-    private final com.baidu.tieba.qrcode.activity.a gzf;
-    private a gzg;
+public class b implements QRCodeView.a {
+    private final com.baidu.tieba.qrcode.activity.a fTS;
+    private a fTT;
     private final TbPageContext mTbPageContext;
 
     public b(com.baidu.tieba.qrcode.activity.a aVar, TbPageContext tbPageContext) {
-        this.gzf = aVar;
+        this.fTS = aVar;
         this.mTbPageContext = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.qrcode.lib.a.e.a
-    public void rA(String str) {
-        this.gzf.bnk();
+    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
+    public void rG(String str) {
+        this.fTS.biq();
         if (StringUtils.isNull(str)) {
-            this.gzf.bni();
+            this.fTS.bio();
         } else if (SapiUtils.isQrLoginSchema(str)) {
             if (SapiUtils.QR_LOGIN_LP_PC.equals(SapiUtils.parseQrLoginSchema(str).get(SapiUtils.KEY_QR_LOGIN_LP))) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, str));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921339, str));
                 this.mTbPageContext.getPageActivity().finish();
             }
         } else {
-            this.gzf.bnl();
+            this.fTS.bir();
         }
     }
 
-    @Override // com.baidu.tieba.qrcode.lib.a.e.a
-    public void bnm() {
-        l.showToast(this.mTbPageContext.getPageActivity(), d.j.disallow_camera_permission);
+    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
+    public void bis() {
+        l.showToast(this.mTbPageContext.getPageActivity(), d.k.disallow_camera_permission);
         this.mTbPageContext.getPageActivity().finish();
     }
 
-    public void rB(String str) {
+    public void rH(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.gzg != null) {
-                this.gzg.cancel();
+            if (this.fTT != null) {
+                this.fTT.cancel();
             }
-            this.gzg = new a();
-            this.gzg.execute(str);
+            this.fTT = new a();
+            this.fTT.execute(str);
         }
     }
 
     public void onDestroy() {
-        if (this.gzg != null) {
-            this.gzg.cancel();
-            this.gzg = null;
+        if (this.fTT != null) {
+            this.fTT.cancel();
+            this.fTT = null;
         }
     }
 
@@ -67,7 +67,7 @@ public class b implements e.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.gzf.bnj();
+            b.this.fTS.bip();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class b implements e.a {
             if (strArr == null || strArr.length <= 0) {
                 return null;
             }
-            return com.baidu.tieba.qrcode.lib.zxing.a.rC(strArr[0]);
+            return com.baidu.tieba.qrcode.lib.zxing.a.rI(strArr[0]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,8 +86,8 @@ public class b implements e.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            b.this.gzf.bnk();
-            b.this.rA(str);
+            b.this.fTS.biq();
+            b.this.rG(str);
         }
     }
 }

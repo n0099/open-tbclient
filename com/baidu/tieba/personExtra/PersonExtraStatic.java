@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.EditNickNameActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonMoreActivityConfig;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.im.message.ResponseGetLivableForumList;
 import com.baidu.tieba.person.data.PersonFriendActivityConfig;
 import com.baidu.tieba.person.data.PersonImageActivityConfig;
@@ -25,17 +25,17 @@ public class PersonExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonImageActivityConfig.class, PersonImageActivity.class);
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(107129);
         bVar.setResponsedClass(ResponseGetLivableForumList.class);
-        bVar.W(false);
+        bVar.o(false);
         bVar.setParallel(TiebaIMConfig.getParallel());
         MessageManager.getInstance().registerTask(bVar);
         TbadkCoreApplication.getInst().RegisterIntent(PersonChangeActivityConfig.class, PersonChangeActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(EditNickNameActivityConfig.class, EditNickNameActivity.class);
-        Wo();
+        OP();
     }
 
-    private static void Wo() {
-        aw.Du().a(new aw.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.1
-            @Override // com.baidu.tbadk.core.util.aw.a
+    private static void OP() {
+        ax.wg().a(new ax.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.1
+            @Override // com.baidu.tbadk.core.util.ax.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {
                     return 3;

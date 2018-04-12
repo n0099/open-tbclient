@@ -18,23 +18,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    public static boolean mR(String str) {
+    public static boolean mV(String str) {
         return !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str);
     }
 
-    public static boolean mS(String str) {
+    public static boolean mW(String str) {
         return !TextUtils.isEmpty(str) && str.equals("apply_join_group");
     }
 
     public static void a(GroupMsgData groupMsgData) {
         GroupNewsPojo groupNewsPojo;
-        LinkedList<GroupNewsPojo> m = m(groupMsgData.getListMessage());
-        if (m != null && !m.isEmpty()) {
+        LinkedList<GroupNewsPojo> p = p(groupMsgData.getListMessage());
+        if (p != null && !p.isEmpty()) {
             long j = 0;
             GroupNewsPojo groupNewsPojo2 = null;
             GroupNewsPojo groupNewsPojo3 = null;
             LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            Iterator<GroupNewsPojo> it = m.iterator();
+            Iterator<GroupNewsPojo> it = p.iterator();
             while (it.hasNext()) {
                 GroupNewsPojo next = it.next();
                 if (!TextUtils.isEmpty(next.getNotice_id())) {
@@ -43,7 +43,7 @@ public class f {
                         j = parseLong;
                     }
                     if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().a(next)) {
-                        if (mR(next.getCmd())) {
+                        if (mV(next.getCmd())) {
                             linkedList.add(next);
                             if (groupNewsPojo2 == null) {
                                 GroupNewsPojo groupNewsPojo4 = groupNewsPojo3;
@@ -61,7 +61,7 @@ public class f {
                             groupNewsPojo2 = groupNewsPojo;
                             groupNewsPojo3 = next;
                         } else {
-                            if (mS(next.getCmd())) {
+                            if (mW(next.getCmd())) {
                                 linkedList.add(next);
                                 if (groupNewsPojo3 == null) {
                                     groupNewsPojo = groupNewsPojo2;
@@ -79,13 +79,13 @@ public class f {
                     }
                 }
             }
-            com.baidu.tieba.im.db.d.aIa().o(linkedList);
+            com.baidu.tieba.im.db.d.aCZ().r(linkedList);
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
             imMessageCenterPojo.setIs_hidden(1);
             imMessageCenterPojo.setCustomGroupType(-2);
             imMessageCenterPojo.setPulled_msgId(j);
-            j.aIk().f(imMessageCenterPojo);
+            j.aDi().f(imMessageCenterPojo);
             if (groupNewsPojo2 != null) {
                 ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                 imMessageCenterPojo2.setGid(String.valueOf("-1002"));
@@ -95,7 +95,7 @@ public class f {
                 imMessageCenterPojo2.setLast_content_time(groupNewsPojo2.getTime());
                 imMessageCenterPojo2.setLast_content(groupNewsPojo2.getContent());
                 imMessageCenterPojo2.setIs_hidden(0);
-                j.aIk().a(imMessageCenterPojo2, 2);
+                j.aDi().a(imMessageCenterPojo2, 2);
             }
             if (groupNewsPojo3 != null) {
                 ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
@@ -106,9 +106,9 @@ public class f {
                 imMessageCenterPojo3.setLast_content_time(groupNewsPojo3.getTime());
                 imMessageCenterPojo3.setLast_content(groupNewsPojo3.getContent());
                 imMessageCenterPojo3.setIs_hidden(0);
-                j.aIk().a(imMessageCenterPojo3, 2);
+                j.aDi().a(imMessageCenterPojo3, 2);
             }
-            Iterator<GroupNewsPojo> it2 = m.iterator();
+            Iterator<GroupNewsPojo> it2 = p.iterator();
             while (it2.hasNext()) {
                 GroupNewsPojo next2 = it2.next();
                 if (next2 != null && (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().a(next2))) {
@@ -121,7 +121,7 @@ public class f {
         }
     }
 
-    private static LinkedList<GroupNewsPojo> m(LinkedList<ChatMessage> linkedList) {
+    private static LinkedList<GroupNewsPojo> p(LinkedList<ChatMessage> linkedList) {
         if (linkedList == null || linkedList.size() == 0) {
             return null;
         }
@@ -161,7 +161,7 @@ public class f {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.f.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean mQ(String str) {
+            public boolean mU(String str) {
                 return true;
             }
         }, false);
@@ -192,14 +192,14 @@ public class f {
                 str4 = jSONObject.optString("userName");
                 str5 = jSONObject.optString("groupName");
             }
-            ImMessageCenterPojo an = com.baidu.tieba.im.memorycache.b.aKB().an(str3, 1);
-            if (an != null) {
-                str5 = an.getGroup_name();
+            ImMessageCenterPojo ap = com.baidu.tieba.im.memorycache.b.aFy().ap(str3, 1);
+            if (ap != null) {
+                str5 = ap.getGroup_name();
             }
             if (TextUtils.isEmpty(str5) || TextUtils.isEmpty(str4)) {
                 return "";
             }
-            return str4 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(d.j.validate_im_apply_prefix1) + str5;
+            return str4 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(d.k.validate_im_apply_prefix1) + str5;
         } catch (Exception e) {
             BdLog.detailException(e);
             return "";

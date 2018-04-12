@@ -91,7 +91,7 @@ public class AlbumActivityConfig extends IntentConfig {
 
     public void setFromWrite(boolean z) {
         if (getIntent() != null) {
-            getIntent().putExtra("from_write", z);
+            getIntent().putExtra(IntentConfig.KEY_FROM_WRITEACTIVITY, z);
         }
     }
 

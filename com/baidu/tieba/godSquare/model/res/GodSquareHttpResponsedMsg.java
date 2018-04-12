@@ -44,7 +44,7 @@ public class GodSquareHttpResponsedMsg extends HttpResponsedMessage {
         if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof GodSquareRequestMsg)) {
             GodSquareRequestMsg godSquareRequestMsg = (GodSquareRequestMsg) getOrginalMessage().getExtra();
             if (godSquareRequestMsg.pn == 1) {
-                new a().l(godSquareRequestMsg.pn + "", bArr);
+                new a().k(godSquareRequestMsg.pn + "", bArr);
             }
         }
     }

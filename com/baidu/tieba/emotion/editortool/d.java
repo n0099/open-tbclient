@@ -1,101 +1,61 @@
 package com.baidu.tieba.emotion.editortool;
 
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.editortools.emotiontool.a;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class d {
-    private int column;
-    private int doA;
-    private int doB;
-    private EmotionGroupType dow;
-    private int dox;
-    private int doy;
-    private com.baidu.tbadk.editortools.emotiontool.c doz;
-    private int endIndex;
-    private int index;
-    private int row;
-    private int startIndex;
+public class d extends com.baidu.tbadk.editortools.emotiontool.a {
+    private static d cGH = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> cGI;
 
-    public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.doz = cVar;
-    }
-
-    public com.baidu.tbadk.editortools.emotiontool.c apV() {
-        return this.doz;
-    }
-
-    public void b(EmotionGroupType emotionGroupType) {
-        this.dow = emotionGroupType;
-    }
-
-    public EmotionGroupType apW() {
-        return this.dow;
-    }
-
-    public void hS(int i) {
-        this.row = i;
-    }
-
-    public int getRow() {
-        return this.row;
-    }
-
-    public void hR(int i) {
-        this.column = i;
-    }
-
-    public int apX() {
-        return this.column;
-    }
-
-    public void mf(int i) {
-        this.doB = i;
-    }
-
-    public int apY() {
-        return this.doB;
-    }
-
-    public void mg(int i) {
-        this.doA = i;
-    }
-
-    public int apZ() {
-        return this.doA;
-    }
-
-    public void mh(int i) {
-        this.dox = i;
-    }
-
-    public int aqa() {
-        return this.dox;
-    }
-
-    public void mi(int i) {
-        this.startIndex = i;
-    }
-
-    public int aqb() {
-        return this.startIndex;
-    }
-
-    public void setEndIndex(int i) {
-        this.endIndex = i;
-    }
-
-    public void setIndex(int i) {
-        this.index = i;
-    }
-
+    @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
-        return this.index;
+        return 1;
     }
 
-    public void mj(int i) {
-        this.doy = i;
+    public static synchronized d akl() {
+        d dVar;
+        synchronized (d.class) {
+            dVar = cGH;
+        }
+        return dVar;
     }
 
-    public int aqc() {
-        return this.doy;
+    public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
+        return this.cGI;
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.a
+    public void a(a.InterfaceC0095a interfaceC0095a) {
+        if (this.cGI == null || this.cGI.isEmpty()) {
+            this.cGI = new LinkedList<>();
+            if (TbFaceManager.EZ().DS() > 0) {
+                c cVar = new c();
+                this.cGI.add(cVar);
+                if (interfaceC0095a != null) {
+                    interfaceC0095a.a(cVar);
+                    return;
+                }
+                return;
+            }
+            return;
+        }
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.cGI.iterator();
+        while (it.hasNext()) {
+            com.baidu.tbadk.editortools.emotiontool.c next = it.next();
+            if (interfaceC0095a != null) {
+                interfaceC0095a.a(next);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.a
+    public void register() {
+    }
+
+    public boolean isEmpty() {
+        return this.cGI == null || this.cGI.size() == 0;
     }
 }

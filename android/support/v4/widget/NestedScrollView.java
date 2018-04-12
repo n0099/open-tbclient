@@ -39,8 +39,10 @@ import android.widget.ScrollView;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NestedScrollView extends FrameLayout implements NestedScrollingChild, NestedScrollingParent, ScrollingView {
-    private static final AccessibilityDelegate ACCESSIBILITY_DELEGATE = new AccessibilityDelegate();
-    private static final int[] SCROLLVIEW_STYLEABLE = {16843130};
+    static final int ANIMATED_SCROLL_GAP = 250;
+    private static final int INVALID_POINTER = -1;
+    static final float MAX_SCROLL_FACTOR = 0.5f;
+    private static final String TAG = "NestedScrollView";
     private int mActivePointerId;
     private final NestedScrollingChildHelper mChildHelper;
     private View mChildToScrollTo;
@@ -66,6 +68,8 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
     private float mVerticalScrollFactor;
+    private static final AccessibilityDelegate ACCESSIBILITY_DELEGATE = new AccessibilityDelegate();
+    private static final int[] SCROLLVIEW_STYLEABLE = {16843130};
 
     /* loaded from: classes2.dex */
     public interface OnScrollChangeListener {
@@ -147,24 +151,24 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i) {
+    public boolean onStartNestedScroll(View view2, View view3, int i) {
         return (i & 2) != 0;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i) {
-        this.mParentHelper.onNestedScrollAccepted(view, view2, i);
+    public void onNestedScrollAccepted(View view2, View view3, int i) {
+        this.mParentHelper.onNestedScrollAccepted(view2, view3, i);
         startNestedScroll(2);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onStopNestedScroll(View view) {
-        this.mParentHelper.onStopNestedScroll(view);
+    public void onStopNestedScroll(View view2) {
+        this.mParentHelper.onStopNestedScroll(view2);
         stopNestedScroll();
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4) {
         int scrollY = getScrollY();
         scrollBy(0, i4);
         int scrollY2 = getScrollY() - scrollY;
@@ -172,12 +176,12 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
+    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr) {
         dispatchNestedPreScroll(i, i2, iArr, null);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public boolean onNestedFling(View view, float f, float f2, boolean z) {
+    public boolean onNestedFling(View view2, float f, float f2, boolean z) {
         if (z) {
             return false;
         }
@@ -186,7 +190,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view, float f, float f2) {
+    public boolean onNestedPreFling(View view2, float f, float f2) {
         return dispatchNestedPreFling(f, f2);
     }
 
@@ -242,35 +246,35 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view) {
+    public void addView(View view2) {
         if (getChildCount() > 0) {
             throw new IllegalStateException("ScrollView can host only one direct child");
         }
-        super.addView(view);
+        super.addView(view2);
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i) {
+    public void addView(View view2, int i) {
         if (getChildCount() > 0) {
             throw new IllegalStateException("ScrollView can host only one direct child");
         }
-        super.addView(view, i);
+        super.addView(view2, i);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
-    public void addView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, ViewGroup.LayoutParams layoutParams) {
         if (getChildCount() > 0) {
             throw new IllegalStateException("ScrollView can host only one direct child");
         }
-        super.addView(view, layoutParams);
+        super.addView(view2, layoutParams);
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
         if (getChildCount() > 0) {
             throw new IllegalStateException("ScrollView can host only one direct child");
         }
-        super.addView(view, i, layoutParams);
+        super.addView(view2, i, layoutParams);
     }
 
     public void setOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener) {
@@ -440,7 +444,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
                 if (i != -1) {
                     int findPointerIndex = motionEvent.findPointerIndex(i);
                     if (findPointerIndex == -1) {
-                        Log.e("NestedScrollView", "Invalid pointerId=" + i + " in onInterceptTouchEvent");
+                        Log.e(TAG, "Invalid pointerId=" + i + " in onInterceptTouchEvent");
                         break;
                     } else {
                         int y2 = (int) motionEvent.getY(findPointerIndex);
@@ -511,7 +515,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
             case 2:
                 int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
                 if (findPointerIndex == -1) {
-                    Log.e("NestedScrollView", "Invalid pointerId=" + this.mActivePointerId + " in onTouchEvent");
+                    Log.e(TAG, "Invalid pointerId=" + this.mActivePointerId + " in onTouchEvent");
                     break;
                 } else {
                     int y = (int) motionEvent.getY(findPointerIndex);
@@ -712,48 +716,48 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
 
     private View findFocusableViewInBounds(boolean z, int i, int i2) {
         boolean z2;
-        View view;
+        View view2;
         ArrayList focusables = getFocusables(2);
-        View view2 = null;
+        View view3 = null;
         boolean z3 = false;
         int size = focusables.size();
         int i3 = 0;
         while (i3 < size) {
-            View view3 = (View) focusables.get(i3);
-            int top = view3.getTop();
-            int bottom = view3.getBottom();
+            View view4 = (View) focusables.get(i3);
+            int top = view4.getTop();
+            int bottom = view4.getBottom();
             if (i < bottom && top < i2) {
                 boolean z4 = i < top && bottom < i2;
-                if (view2 == null) {
+                if (view3 == null) {
                     boolean z5 = z4;
-                    view = view3;
+                    view2 = view4;
                     z2 = z5;
                 } else {
-                    boolean z6 = (z && top < view2.getTop()) || (!z && bottom > view2.getBottom());
+                    boolean z6 = (z && top < view3.getTop()) || (!z && bottom > view3.getBottom());
                     if (z3) {
                         if (z4 && z6) {
-                            view = view3;
+                            view2 = view4;
                             z2 = z3;
                         }
                     } else if (z4) {
-                        view = view3;
+                        view2 = view4;
                         z2 = true;
                     } else if (z6) {
-                        view = view3;
+                        view2 = view4;
                         z2 = z3;
                     }
                 }
                 i3++;
-                view2 = view;
+                view3 = view2;
                 z3 = z2;
             }
             z2 = z3;
-            view = view2;
+            view2 = view3;
             i3++;
-            view2 = view;
+            view3 = view2;
             z3 = z2;
         }
-        return view2;
+        return view3;
     }
 
     public boolean pageScroll(int i) {
@@ -850,13 +854,13 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         return true;
     }
 
-    private boolean isOffScreen(View view) {
-        return !isWithinDeltaOfScreen(view, 0, getHeight());
+    private boolean isOffScreen(View view2) {
+        return !isWithinDeltaOfScreen(view2, 0, getHeight());
     }
 
-    private boolean isWithinDeltaOfScreen(View view, int i, int i2) {
-        view.getDrawingRect(this.mTempRect);
-        offsetDescendantRectToMyCoords(view, this.mTempRect);
+    private boolean isWithinDeltaOfScreen(View view2, int i, int i2) {
+        view2.getDrawingRect(this.mTempRect);
+        offsetDescendantRectToMyCoords(view2, this.mTempRect);
         return this.mTempRect.bottom + i >= getScrollY() && this.mTempRect.top - i <= getScrollY() + i2;
     }
 
@@ -892,7 +896,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     @Override // android.view.View, android.support.v4.view.ScrollingView
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public int computeVerticalScrollRange() {
         int childCount = getChildCount();
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
@@ -912,44 +916,44 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     @Override // android.view.View, android.support.v4.view.ScrollingView
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public int computeVerticalScrollOffset() {
         return Math.max(0, super.computeVerticalScrollOffset());
     }
 
     @Override // android.view.View, android.support.v4.view.ScrollingView
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public int computeVerticalScrollExtent() {
         return super.computeVerticalScrollExtent();
     }
 
     @Override // android.view.View, android.support.v4.view.ScrollingView
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public int computeHorizontalScrollRange() {
         return super.computeHorizontalScrollRange();
     }
 
     @Override // android.view.View, android.support.v4.view.ScrollingView
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public int computeHorizontalScrollOffset() {
         return super.computeHorizontalScrollOffset();
     }
 
     @Override // android.view.View, android.support.v4.view.ScrollingView
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public int computeHorizontalScrollExtent() {
         return super.computeHorizontalScrollExtent();
     }
 
     @Override // android.view.ViewGroup
-    protected void measureChild(View view, int i, int i2) {
-        view.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), view.getLayoutParams().width), View.MeasureSpec.makeMeasureSpec(0, 0));
+    protected void measureChild(View view2, int i, int i2) {
+        view2.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), view2.getLayoutParams().width), View.MeasureSpec.makeMeasureSpec(0, 0));
     }
 
     @Override // android.view.ViewGroup
-    protected void measureChildWithMargins(View view, int i, int i2, int i3, int i4) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-        view.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin + i2, marginLayoutParams.width), View.MeasureSpec.makeMeasureSpec(marginLayoutParams.bottomMargin + marginLayoutParams.topMargin, 0));
+    protected void measureChildWithMargins(View view2, int i, int i2, int i3, int i4) {
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+        view2.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin + i2, marginLayoutParams.width), View.MeasureSpec.makeMeasureSpec(marginLayoutParams.bottomMargin + marginLayoutParams.topMargin, 0));
     }
 
     @Override // android.view.View
@@ -976,9 +980,9 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         }
     }
 
-    private void scrollToChild(View view) {
-        view.getDrawingRect(this.mTempRect);
-        offsetDescendantRectToMyCoords(view, this.mTempRect);
+    private void scrollToChild(View view2) {
+        view2.getDrawingRect(this.mTempRect);
+        offsetDescendantRectToMyCoords(view2, this.mTempRect);
         int computeScrollDeltaToGetChildRectOnScreen = computeScrollDeltaToGetChildRectOnScreen(this.mTempRect);
         if (computeScrollDeltaToGetChildRectOnScreen != 0) {
             scrollBy(0, computeScrollDeltaToGetChildRectOnScreen);
@@ -1036,13 +1040,13 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestChildFocus(View view, View view2) {
+    public void requestChildFocus(View view2, View view3) {
         if (!this.mIsLayoutDirty) {
-            scrollToChild(view2);
+            scrollToChild(view3);
         } else {
-            this.mChildToScrollTo = view2;
+            this.mChildToScrollTo = view3;
         }
-        super.requestChildFocus(view, view2);
+        super.requestChildFocus(view2, view3);
     }
 
     @Override // android.view.ViewGroup
@@ -1065,8 +1069,8 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z) {
-        rect.offset(view.getLeft() - view.getScrollX(), view.getTop() - view.getScrollY());
+    public boolean requestChildRectangleOnScreen(View view2, Rect rect, boolean z) {
+        rect.offset(view2.getLeft() - view2.getScrollX(), view2.getTop() - view2.getScrollY());
         return scrollToChildRect(rect, z);
     }
 
@@ -1117,12 +1121,12 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         }
     }
 
-    private static boolean isViewDescendantOf(View view, View view2) {
-        if (view == view2) {
+    private static boolean isViewDescendantOf(View view2, View view3) {
+        if (view2 == view3) {
             return true;
         }
-        ViewParent parent = view.getParent();
-        return (parent instanceof ViewGroup) && isViewDescendantOf((View) parent, view2);
+        ViewParent parent = view2.getParent();
+        return (parent instanceof ViewGroup) && isViewDescendantOf((View) parent, view3);
     }
 
     public void fling(int i) {
@@ -1285,11 +1289,11 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         }
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat
-        public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
-            if (super.performAccessibilityAction(view, i, bundle)) {
+        public boolean performAccessibilityAction(View view2, int i, Bundle bundle) {
+            if (super.performAccessibilityAction(view2, i, bundle)) {
                 return true;
             }
-            NestedScrollView nestedScrollView = (NestedScrollView) view;
+            NestedScrollView nestedScrollView = (NestedScrollView) view2;
             if (nestedScrollView.isEnabled()) {
                 switch (i) {
                     case 4096:
@@ -1314,10 +1318,10 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         }
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             int scrollRange;
-            super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
-            NestedScrollView nestedScrollView = (NestedScrollView) view;
+            super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
+            NestedScrollView nestedScrollView = (NestedScrollView) view2;
             accessibilityNodeInfoCompat.setClassName(ScrollView.class.getName());
             if (nestedScrollView.isEnabled() && (scrollRange = nestedScrollView.getScrollRange()) > 0) {
                 accessibilityNodeInfoCompat.setScrollable(true);
@@ -1331,9 +1335,9 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         }
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
-            super.onInitializeAccessibilityEvent(view, accessibilityEvent);
-            NestedScrollView nestedScrollView = (NestedScrollView) view;
+        public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+            super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
+            NestedScrollView nestedScrollView = (NestedScrollView) view2;
             accessibilityEvent.setClassName(ScrollView.class.getName());
             AccessibilityRecordCompat asRecord = AccessibilityEventCompat.asRecord(accessibilityEvent);
             asRecord.setScrollable(nestedScrollView.getScrollRange() > 0);

@@ -4,13 +4,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v4.app.NotificationCompat;
 /* loaded from: classes.dex */
 public class b {
-    private static b aCf = null;
+    private static b Ow = null;
     private boolean a = false;
     private String b = null;
-    private a aCe = null;
+    private a Ov = null;
     private int e = -1;
 
     /* loaded from: classes.dex */
@@ -23,7 +22,7 @@ public class b {
             try {
                 if (intent.getAction().equals("android.intent.action.BATTERY_CHANGED")) {
                     b.this.a = false;
-                    int intExtra = intent.getIntExtra(NotificationCompat.CATEGORY_STATUS, 0);
+                    int intExtra = intent.getIntExtra("status", 0);
                     int intExtra2 = intent.getIntExtra("plugged", 0);
                     int intExtra3 = intent.getIntExtra("level", -1);
                     int intExtra4 = intent.getIntExtra("scale", -1);
@@ -66,30 +65,30 @@ public class b {
     private b() {
     }
 
-    public static synchronized b uD() {
+    public static synchronized b nj() {
         b bVar;
         synchronized (b.class) {
-            if (aCf == null) {
-                aCf = new b();
+            if (Ow == null) {
+                Ow = new b();
             }
-            bVar = aCf;
+            bVar = Ow;
         }
         return bVar;
     }
 
     public void b() {
-        this.aCe = new a();
-        com.baidu.location.f.getServiceContext().registerReceiver(this.aCe, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        this.Ov = new a();
+        com.baidu.location.f.getServiceContext().registerReceiver(this.Ov, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public void c() {
-        if (this.aCe != null) {
+        if (this.Ov != null) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.aCe);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Ov);
             } catch (Exception e) {
             }
         }
-        this.aCe = null;
+        this.Ov = null;
     }
 
     public String d() {

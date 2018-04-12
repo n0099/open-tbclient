@@ -7,7 +7,7 @@ import com.xiaomi.xmpush.thrift.aq;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     private static volatile f a;
     private final String b = "GeoFenceRegMessageProcessor.";

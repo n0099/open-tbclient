@@ -20,10 +20,12 @@ public class AlaInfoData implements Serializable {
     public int duration;
     public long group_id;
     public String hls_url;
+    public c label;
     public String label_name;
     public long live_id;
     public int live_status;
     public int live_type;
+    public AlaChallengeInfoData mChallengeInfoData;
     public String media_id;
     public String media_pic;
     public String media_subtitle;
@@ -70,6 +72,11 @@ public class AlaInfoData implements Serializable {
                 this.distance = jSONObject.optDouble("distance");
                 this.appId = jSONObject.optString("third_app_id");
                 this.thread_id = jSONObject.optLong("thread_id");
+                JSONObject optJSONObject = jSONObject.optJSONObject("label");
+                if (optJSONObject != null) {
+                    this.label = new c();
+                    this.label.parserJson(optJSONObject);
+                }
                 JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
                 if (optJSONArray != null) {
                     if (this.dislikeInfo == null) {
@@ -81,6 +88,11 @@ public class AlaInfoData implements Serializable {
                             this.dislikeInfo.put(jSONObject.optInt("dislike_id"), jSONObject.optString("dislike_reason"));
                         }
                     }
+                }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("challenge_info");
+                if (optJSONObject2 != null) {
+                    this.mChallengeInfoData = new AlaChallengeInfoData();
+                    this.mChallengeInfoData.parserJson(optJSONObject2);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -120,20 +132,15 @@ public class AlaInfoData implements Serializable {
                         this.dislikeInfo = new SparseArray<>();
                     }
                     this.dislikeInfo.clear();
-                    int i = 0;
-                    while (true) {
-                        int i2 = i;
-                        if (i2 < alaLiveInfo.stage_dislike_info.size()) {
-                            AlaStageDislikeInfo alaStageDislikeInfo = alaLiveInfo.stage_dislike_info.get(i2);
-                            if (alaStageDislikeInfo != null) {
-                                this.dislikeInfo.put(alaStageDislikeInfo.dislike_id.intValue(), alaStageDislikeInfo.dislike_reason);
-                            }
-                            i = i2 + 1;
-                        } else {
-                            return;
+                    for (int i = 0; i < alaLiveInfo.stage_dislike_info.size(); i++) {
+                        AlaStageDislikeInfo alaStageDislikeInfo = alaLiveInfo.stage_dislike_info.get(i);
+                        if (alaStageDislikeInfo != null) {
+                            this.dislikeInfo.put(alaStageDislikeInfo.dislike_id.intValue(), alaStageDislikeInfo.dislike_reason);
                         }
                     }
                 }
+                this.mChallengeInfoData = new AlaChallengeInfoData();
+                this.mChallengeInfoData.parserProtobuf(alaLiveInfo.challenge_info);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

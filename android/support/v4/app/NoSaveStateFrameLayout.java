@@ -9,14 +9,14 @@ import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 class NoSaveStateFrameLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ViewGroup wrap(View view) {
-        NoSaveStateFrameLayout noSaveStateFrameLayout = new NoSaveStateFrameLayout(view.getContext());
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+    public static ViewGroup wrap(View view2) {
+        NoSaveStateFrameLayout noSaveStateFrameLayout = new NoSaveStateFrameLayout(view2.getContext());
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
         if (layoutParams != null) {
             noSaveStateFrameLayout.setLayoutParams(layoutParams);
         }
-        view.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        noSaveStateFrameLayout.addView(view);
+        view2.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        noSaveStateFrameLayout.addView(view2);
         return noSaveStateFrameLayout;
     }
 

@@ -5,12 +5,15 @@ import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
 /* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatJellyBean {
-    public static void addChild(Object obj, View view, int i) {
-        ((AccessibilityNodeInfo) obj).addChild(view, i);
+    AccessibilityNodeInfoCompatJellyBean() {
     }
 
-    public static void setSource(Object obj, View view, int i) {
-        ((AccessibilityNodeInfo) obj).setSource(view, i);
+    public static void addChild(Object obj, View view2, int i) {
+        ((AccessibilityNodeInfo) obj).addChild(view2, i);
+    }
+
+    public static void setSource(Object obj, View view2, int i) {
+        ((AccessibilityNodeInfo) obj).setSource(view2, i);
     }
 
     public static boolean isVisibleToUser(Object obj) {
@@ -33,8 +36,8 @@ class AccessibilityNodeInfoCompatJellyBean {
         return ((AccessibilityNodeInfo) obj).getMovementGranularities();
     }
 
-    public static Object obtain(View view, int i) {
-        return AccessibilityNodeInfo.obtain(view, i);
+    public static Object obtain(View view2, int i) {
+        return AccessibilityNodeInfo.obtain(view2, i);
     }
 
     public static Object findFocus(Object obj, int i) {
@@ -45,8 +48,8 @@ class AccessibilityNodeInfoCompatJellyBean {
         return ((AccessibilityNodeInfo) obj).focusSearch(i);
     }
 
-    public static void setParent(Object obj, View view, int i) {
-        ((AccessibilityNodeInfo) obj).setParent(view, i);
+    public static void setParent(Object obj, View view2, int i) {
+        ((AccessibilityNodeInfo) obj).setParent(view2, i);
     }
 
     public static boolean isAccessibilityFocused(Object obj) {

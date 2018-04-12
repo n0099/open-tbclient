@@ -1,7 +1,7 @@
 package com.xiaomi.smack;
 
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements Cloneable {
     public static String b = "wcc-ml-test10.bj";
     public static final String c = com.xiaomi.channel.commonutils.misc.c.b;

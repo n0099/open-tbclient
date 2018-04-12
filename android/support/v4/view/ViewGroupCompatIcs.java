@@ -5,7 +5,10 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 /* loaded from: classes2.dex */
 class ViewGroupCompatIcs {
-    public static boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
-        return viewGroup.onRequestSendAccessibilityEvent(view, accessibilityEvent);
+    ViewGroupCompatIcs() {
+    }
+
+    public static boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
+        return viewGroup.onRequestSendAccessibilityEvent(view2, accessibilityEvent);
     }
 }

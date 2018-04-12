@@ -6,17 +6,17 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class d {
-    public static c bl(View view) {
-        if (view == null) {
+    public static c Q(View view2) {
+        if (view2 == null) {
             return null;
         }
-        if (view instanceof LinearLayout) {
+        if (view2 instanceof LinearLayout) {
             return new e();
         }
-        if (view instanceof RelativeLayout) {
+        if (view2 instanceof RelativeLayout) {
             return new h();
         }
-        if (view instanceof FrameLayout) {
+        if (view2 instanceof FrameLayout) {
             return new b();
         }
         return null;

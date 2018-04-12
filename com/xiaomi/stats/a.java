@@ -4,7 +4,7 @@ import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ak;
 import com.xiaomi.stats.d;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements ak.b.a {
     private XMPushService a;
     private ak.b b;

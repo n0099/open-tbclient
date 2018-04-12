@@ -2,9 +2,10 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class GroupImageView extends com.baidu.tbadk.widget.b {
+public class GroupImageView extends TbClipImageView {
     private int mDefaultBgId;
     private int mDefaultId;
 
@@ -19,7 +20,7 @@ public class GroupImageView extends com.baidu.tbadk.widget.b {
     public GroupImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDefaultId = d.f.transparent_bg;
-        this.mDefaultBgId = d.C0141d.cp_bg_line_e;
+        this.mDefaultBgId = d.C0126d.cp_bg_line_e;
         init();
     }
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import org.apache.thrift.protocol.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     private String a;
     private int c;
@@ -19,22 +19,22 @@ public class f {
     private com.xiaomi.channel.commonutils.stats.a f = com.xiaomi.channel.commonutils.stats.a.a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         static final f a = new f();
     }
 
-    private com.xiaomi.push.thrift.b a(a.C0285a c0285a) {
-        if (c0285a.a == 0) {
-            if (c0285a.c instanceof com.xiaomi.push.thrift.b) {
-                return (com.xiaomi.push.thrift.b) c0285a.c;
+    private com.xiaomi.push.thrift.b a(a.C0267a c0267a) {
+        if (c0267a.a == 0) {
+            if (c0267a.c instanceof com.xiaomi.push.thrift.b) {
+                return (com.xiaomi.push.thrift.b) c0267a.c;
             }
             return null;
         }
         com.xiaomi.push.thrift.b f = f();
         f.a(com.xiaomi.push.thrift.a.CHANNEL_STATS_COUNTER.a());
-        f.c(c0285a.a);
-        f.c(c0285a.b);
+        f.c(c0267a.a);
+        f.c(c0267a.b);
         return f;
     }
 
@@ -54,7 +54,7 @@ public class f {
             cVar.b(a2);
         } catch (org.apache.thrift.f e) {
         }
-        LinkedList<a.C0285a> c = this.f.c();
+        LinkedList<a.C0267a> c = this.f.c();
         while (c.size() > 0) {
             try {
                 com.xiaomi.push.thrift.b a3 = a(c.getLast());

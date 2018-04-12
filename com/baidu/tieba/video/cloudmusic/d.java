@@ -6,19 +6,33 @@ public interface d {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void awQ();
+        void a(CloudMusicData.MusicTagList.MusicList musicList, int i);
 
-        void bAY();
+        void arg();
+
+        void bij();
+
+        void c(CloudMusicData.MusicTagList musicTagList);
+
+        void um(int i);
     }
 
     /* loaded from: classes2.dex */
     public interface b {
         void a(a aVar);
 
-        void a(CloudMusicData cloudMusicData);
+        void b(CloudMusicData.MusicTagList musicTagList);
 
-        void nn(boolean z);
+        void bwa();
 
-        void no(boolean z);
+        void mQ(boolean z);
+
+        void mR(boolean z);
+
+        void uj(int i);
+
+        void uk(int i);
+
+        void ul(int i);
     }
 }

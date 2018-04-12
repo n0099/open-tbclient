@@ -3,6 +3,9 @@ package android.support.v4.view;
 import android.view.KeyEvent;
 /* loaded from: classes2.dex */
 class KeyEventCompatHoneycomb {
+    KeyEventCompatHoneycomb() {
+    }
+
     public static int normalizeMetaState(int i) {
         return KeyEvent.normalizeMetaState(i);
     }

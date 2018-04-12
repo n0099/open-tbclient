@@ -12,6 +12,8 @@ import android.widget.RemoteViews;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 class NotificationCompatApi20 {
+    NotificationCompatApi20() {
+    }
 
     /* loaded from: classes2.dex */
     public static class Builder implements NotificationBuilderWithActions, NotificationBuilderWithBuilderAccessor {

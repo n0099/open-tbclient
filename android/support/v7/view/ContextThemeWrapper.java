@@ -4,18 +4,19 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Resources;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StyleRes;
 import android.support.v7.appcompat.R;
 import android.view.LayoutInflater;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class ContextThemeWrapper extends ContextWrapper {
-    private int Gw;
     private LayoutInflater mInflater;
     private Resources.Theme mTheme;
+    private int mThemeResource;
 
-    public ContextThemeWrapper(Context context, int i) {
+    public ContextThemeWrapper(Context context, @StyleRes int i) {
         super(context);
-        this.Gw = i;
+        this.mThemeResource = i;
     }
 
     public ContextThemeWrapper(Context context, Resources.Theme theme) {
@@ -25,14 +26,14 @@ public class ContextThemeWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
-        if (this.Gw != i) {
-            this.Gw = i;
-            eF();
+        if (this.mThemeResource != i) {
+            this.mThemeResource = i;
+            initializeTheme();
         }
     }
 
     public int getThemeResId() {
-        return this.Gw;
+        return this.mThemeResource;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -40,10 +41,10 @@ public class ContextThemeWrapper extends ContextWrapper {
         if (this.mTheme != null) {
             return this.mTheme;
         }
-        if (this.Gw == 0) {
-            this.Gw = R.style.Theme_AppCompat_Light;
+        if (this.mThemeResource == 0) {
+            this.mThemeResource = R.style.Theme_AppCompat_Light;
         }
-        eF();
+        initializeTheme();
         return this.mTheme;
     }
 
@@ -62,7 +63,7 @@ public class ContextThemeWrapper extends ContextWrapper {
         theme.applyStyle(i, true);
     }
 
-    private void eF() {
+    private void initializeTheme() {
         boolean z = this.mTheme == null;
         if (z) {
             this.mTheme = getResources().newTheme();
@@ -71,6 +72,6 @@ public class ContextThemeWrapper extends ContextWrapper {
                 this.mTheme.setTo(theme);
             }
         }
-        onApplyThemeResource(this.mTheme, this.Gw, z);
+        onApplyThemeResource(this.mTheme, this.mThemeResource, z);
     }
 }

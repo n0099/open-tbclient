@@ -1,7 +1,7 @@
 package com.xiaomi.smack;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class i extends XMPushService.h {
     final /* synthetic */ long b;
     final /* synthetic */ h c;

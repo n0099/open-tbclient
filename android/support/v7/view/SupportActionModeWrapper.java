@@ -15,155 +15,155 @@ import android.view.MenuItem;
 import android.view.View;
 import java.util.ArrayList;
 @TargetApi(11)
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class SupportActionModeWrapper extends android.view.ActionMode {
-    final ActionMode Gx;
     final Context mContext;
+    final ActionMode mWrappedObject;
 
     public SupportActionModeWrapper(Context context, ActionMode actionMode) {
         this.mContext = context;
-        this.Gx = actionMode;
+        this.mWrappedObject = actionMode;
     }
 
     @Override // android.view.ActionMode
     public Object getTag() {
-        return this.Gx.getTag();
+        return this.mWrappedObject.getTag();
     }
 
     @Override // android.view.ActionMode
     public void setTag(Object obj) {
-        this.Gx.setTag(obj);
+        this.mWrappedObject.setTag(obj);
     }
 
     @Override // android.view.ActionMode
     public void setTitle(CharSequence charSequence) {
-        this.Gx.setTitle(charSequence);
+        this.mWrappedObject.setTitle(charSequence);
     }
 
     @Override // android.view.ActionMode
     public void setSubtitle(CharSequence charSequence) {
-        this.Gx.setSubtitle(charSequence);
+        this.mWrappedObject.setSubtitle(charSequence);
     }
 
     @Override // android.view.ActionMode
     public void invalidate() {
-        this.Gx.invalidate();
+        this.mWrappedObject.invalidate();
     }
 
     @Override // android.view.ActionMode
     public void finish() {
-        this.Gx.finish();
+        this.mWrappedObject.finish();
     }
 
     @Override // android.view.ActionMode
     public Menu getMenu() {
-        return MenuWrapperFactory.wrapSupportMenu(this.mContext, (SupportMenu) this.Gx.getMenu());
+        return MenuWrapperFactory.wrapSupportMenu(this.mContext, (SupportMenu) this.mWrappedObject.getMenu());
     }
 
     @Override // android.view.ActionMode
     public CharSequence getTitle() {
-        return this.Gx.getTitle();
+        return this.mWrappedObject.getTitle();
     }
 
     @Override // android.view.ActionMode
     public void setTitle(int i) {
-        this.Gx.setTitle(i);
+        this.mWrappedObject.setTitle(i);
     }
 
     @Override // android.view.ActionMode
     public CharSequence getSubtitle() {
-        return this.Gx.getSubtitle();
+        return this.mWrappedObject.getSubtitle();
     }
 
     @Override // android.view.ActionMode
     public void setSubtitle(int i) {
-        this.Gx.setSubtitle(i);
+        this.mWrappedObject.setSubtitle(i);
     }
 
     @Override // android.view.ActionMode
     public View getCustomView() {
-        return this.Gx.getCustomView();
+        return this.mWrappedObject.getCustomView();
     }
 
     @Override // android.view.ActionMode
-    public void setCustomView(View view) {
-        this.Gx.setCustomView(view);
+    public void setCustomView(View view2) {
+        this.mWrappedObject.setCustomView(view2);
     }
 
     @Override // android.view.ActionMode
     public MenuInflater getMenuInflater() {
-        return this.Gx.getMenuInflater();
+        return this.mWrappedObject.getMenuInflater();
     }
 
     @Override // android.view.ActionMode
     public boolean getTitleOptionalHint() {
-        return this.Gx.getTitleOptionalHint();
+        return this.mWrappedObject.getTitleOptionalHint();
     }
 
     @Override // android.view.ActionMode
     public void setTitleOptionalHint(boolean z) {
-        this.Gx.setTitleOptionalHint(z);
+        this.mWrappedObject.setTitleOptionalHint(z);
     }
 
     @Override // android.view.ActionMode
     public boolean isTitleOptional() {
-        return this.Gx.isTitleOptional();
+        return this.mWrappedObject.isTitleOptional();
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public static class CallbackWrapper implements ActionMode.Callback {
-        final ActionMode.Callback Gy;
         final Context mContext;
-        final ArrayList<SupportActionModeWrapper> Gz = new ArrayList<>();
-        final SimpleArrayMap<Menu, Menu> GA = new SimpleArrayMap<>();
+        final ActionMode.Callback mWrappedCallback;
+        final ArrayList<SupportActionModeWrapper> mActionModes = new ArrayList<>();
+        final SimpleArrayMap<Menu, Menu> mMenus = new SimpleArrayMap<>();
 
         public CallbackWrapper(Context context, ActionMode.Callback callback) {
             this.mContext = context;
-            this.Gy = callback;
+            this.mWrappedCallback = callback;
         }
 
         @Override // android.support.v7.view.ActionMode.Callback
         public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-            return this.Gy.onCreateActionMode(getActionModeWrapper(actionMode), d(menu));
+            return this.mWrappedCallback.onCreateActionMode(getActionModeWrapper(actionMode), getMenuWrapper(menu));
         }
 
         @Override // android.support.v7.view.ActionMode.Callback
         public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-            return this.Gy.onPrepareActionMode(getActionModeWrapper(actionMode), d(menu));
+            return this.mWrappedCallback.onPrepareActionMode(getActionModeWrapper(actionMode), getMenuWrapper(menu));
         }
 
         @Override // android.support.v7.view.ActionMode.Callback
         public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-            return this.Gy.onActionItemClicked(getActionModeWrapper(actionMode), MenuWrapperFactory.wrapSupportMenuItem(this.mContext, (SupportMenuItem) menuItem));
+            return this.mWrappedCallback.onActionItemClicked(getActionModeWrapper(actionMode), MenuWrapperFactory.wrapSupportMenuItem(this.mContext, (SupportMenuItem) menuItem));
         }
 
         @Override // android.support.v7.view.ActionMode.Callback
         public void onDestroyActionMode(ActionMode actionMode) {
-            this.Gy.onDestroyActionMode(getActionModeWrapper(actionMode));
+            this.mWrappedCallback.onDestroyActionMode(getActionModeWrapper(actionMode));
         }
 
-        private Menu d(Menu menu) {
-            Menu menu2 = this.GA.get(menu);
+        private Menu getMenuWrapper(Menu menu) {
+            Menu menu2 = this.mMenus.get(menu);
             if (menu2 == null) {
                 Menu wrapSupportMenu = MenuWrapperFactory.wrapSupportMenu(this.mContext, (SupportMenu) menu);
-                this.GA.put(menu, wrapSupportMenu);
+                this.mMenus.put(menu, wrapSupportMenu);
                 return wrapSupportMenu;
             }
             return menu2;
         }
 
         public android.view.ActionMode getActionModeWrapper(ActionMode actionMode) {
-            int size = this.Gz.size();
+            int size = this.mActionModes.size();
             for (int i = 0; i < size; i++) {
-                SupportActionModeWrapper supportActionModeWrapper = this.Gz.get(i);
-                if (supportActionModeWrapper != null && supportActionModeWrapper.Gx == actionMode) {
+                SupportActionModeWrapper supportActionModeWrapper = this.mActionModes.get(i);
+                if (supportActionModeWrapper != null && supportActionModeWrapper.mWrappedObject == actionMode) {
                     return supportActionModeWrapper;
                 }
             }
             SupportActionModeWrapper supportActionModeWrapper2 = new SupportActionModeWrapper(this.mContext, actionMode);
-            this.Gz.add(supportActionModeWrapper2);
+            this.mActionModes.add(supportActionModeWrapper2);
             return supportActionModeWrapper2;
         }
     }

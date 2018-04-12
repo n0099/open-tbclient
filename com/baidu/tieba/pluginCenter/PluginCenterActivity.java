@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.h;
 import com.baidu.tbadk.mvc.c.a;
 import com.baidu.tbadk.mvc.c.b;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
@@ -35,14 +35,14 @@ import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> implements AdapterView.OnItemClickListener, a {
-    private d ary = new d() { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.4
+    private d Cc = new d() { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.4
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            PluginConfigWrapper rr;
-            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && bdFileDownloadData.getStatus() != 2 && (rr = PluginCenterActivity.this.rr(bdFileDownloadData.getId())) != null) {
-                rr.setDownLoadPercent((float) (bdFileDownloadData.getLength() / bdFileDownloadData.getSize()));
-                rr.setDownLoadStatus(3);
-                PluginCenterActivity.this.gwD.aH(rr);
+            PluginConfigWrapper rx;
+            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && bdFileDownloadData.getStatus() != 2 && (rx = PluginCenterActivity.this.rx(bdFileDownloadData.getId())) != null) {
+                rx.setDownLoadPercent((float) (bdFileDownloadData.getLength() / bdFileDownloadData.getSize()));
+                rx.setDownLoadStatus(3);
+                PluginCenterActivity.this.fRp.C(rx);
             }
         }
 
@@ -52,71 +52,71 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            PluginConfigWrapper rr;
-            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (rr = PluginCenterActivity.this.rr(bdFileDownloadData.getId())) != null) {
-                PluginCenterActivity.this.showToast(d.j.download_fail_tip);
-                rr.setDownLoadStatus(0);
-                PluginCenterActivity.this.gwD.aH(rr);
+            PluginConfigWrapper rx;
+            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (rx = PluginCenterActivity.this.rx(bdFileDownloadData.getId())) != null) {
+                PluginCenterActivity.this.showToast(d.k.download_fail_tip);
+                rx.setDownLoadStatus(0);
+                PluginCenterActivity.this.fRp.C(rx);
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            PluginConfigWrapper rr;
-            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (rr = PluginCenterActivity.this.rr(bdFileDownloadData.getId())) != null) {
+            PluginConfigWrapper rx;
+            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (rx = PluginCenterActivity.this.rx(bdFileDownloadData.getId())) != null) {
                 if (i == 0) {
-                    PluginCenterActivity.this.showToast(d.j.plugin_installation_finished);
-                    PluginCenterActivity.this.doM.dispatchMvcEvent(new b(1, rr, null, null));
+                    PluginCenterActivity.this.showToast(d.k.plugin_installation_finished);
+                    PluginCenterActivity.this.cGR.dispatchMvcEvent(new b(1, rx, null, null));
                     return;
                 }
-                PluginCenterActivity.this.showToast(PluginCenterActivity.this.getPageContext().getString(d.j.plugin_installation_failed) + str);
-                rr.setDownLoadStatus(0);
-                PluginCenterActivity.this.gwD.aH(rr);
+                PluginCenterActivity.this.showToast(PluginCenterActivity.this.getPageContext().getString(d.k.plugin_installation_failed) + str);
+                rx.setDownLoadStatus(0);
+                PluginCenterActivity.this.fRp.C(rx);
             }
         }
     };
-    private BdListView auZ;
-    private int chH;
-    private ViewEventCenter doM;
-    private com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>> gwD;
-    private List<Object> gwE;
+    private BdListView FL;
+    private int brS;
+    private ViewEventCenter cGR;
+    private com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>> fRp;
+    private List<Object> fRq;
     private NavigationBar mNavigationBar;
-    private h mNoDataView;
+    private NoDataView mNoDataView;
     private View mRootView;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.plugin_center_activity);
-        this.doM = new ViewEventCenter();
-        this.doM.addEventDelegate(this);
-        awO();
-        Xm();
+        setContentView(d.i.plugin_center_activity);
+        this.cGR = new ViewEventCenter();
+        this.cGR.addEventDelegate(this);
+        are();
+        PM();
     }
 
-    private void awO() {
+    private void are() {
         if (getIntent() != null) {
-            this.chH = getIntent().getIntExtra(PluginCenterActivityConfig.KEY_FROM_TYPE, 0);
+            this.brS = getIntent().getIntExtra(PluginCenterActivityConfig.KEY_FROM_TYPE, 0);
         }
         this.mNavigationBar = (NavigationBar) findViewById(d.g.navigation_bar);
-        this.mNavigationBar.setTitleText(d.j.plugin_center);
+        this.mNavigationBar.setTitleText(d.k.plugin_center);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
-    private void Xm() {
+    private void PM() {
         this.mRootView = findViewById(d.g.parent);
-        this.auZ = (BdListView) findViewById(d.g.list);
-        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(d.g.list_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.t(getActivity(), d.e.ds220)), NoDataViewFactory.d.gp(d.j.plugin_no_plugins), null);
-        this.auZ.setEmptyView(this.mNoDataView);
-        this.gwD = new com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>>(getPageContext(), new Class[]{com.baidu.tieba.pluginCenter.a.a.class, com.baidu.tieba.pluginCenter.a.b.class}, new int[]{d.h.plugin_center_list_function_item, d.h.plugin_center_list_desc_item}, this.doM) { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.1
+        this.FL = (BdListView) findViewById(d.g.list);
+        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(d.g.list_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(getActivity(), d.e.ds220)), NoDataViewFactory.d.dp(d.k.plugin_no_plugins), null);
+        this.FL.setEmptyView(this.mNoDataView);
+        this.fRp = new com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>>(getPageContext(), new Class[]{com.baidu.tieba.pluginCenter.a.a.class, com.baidu.tieba.pluginCenter.a.b.class}, new int[]{d.i.plugin_center_list_function_item, d.i.plugin_center_list_desc_item}, this.cGR) { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.1
             @Override // com.baidu.tbadk.mvc.f.b
-            public int ic(int i) {
+            public int fc(int i) {
                 return getItem(i) instanceof String ? 1 : 0;
             }
         };
-        this.auZ.setAdapter((ListAdapter) this.gwD);
-        this.auZ.setOnItemClickListener(this);
+        this.FL.setAdapter((ListAdapter) this.fRp);
+        this.FL.setOnItemClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -129,16 +129,16 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        PluginNetConfigInfos rp = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ro().rp();
-        if (rp != null && rp.getConfigs() != null && rp.getConfigs().size() > 0) {
-            this.gwE = dh(rp.getConfigs());
-            this.gwD.N(this.gwE);
-            PluginPackageManager.qS().rg();
+        PluginNetConfigInfos ju = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jt().ju();
+        if (ju != null && ju.getConfigs() != null && ju.getConfigs().size() > 0) {
+            this.fRq = cZ(ju.getConfigs());
+            this.fRp.F(this.fRq);
+            PluginPackageManager.iX().jl();
         }
-        if (this.gwE != null && !this.gwE.isEmpty()) {
-            aj.t(this.mRootView, d.C0141d.cp_bg_line_c);
+        if (this.fRq != null && !this.fRq.isEmpty()) {
+            ak.j(this.mRootView, d.C0126d.cp_bg_line_c);
         } else {
-            aj.t(this.mRootView, d.C0141d.cp_bg_line_d);
+            ak.j(this.mRootView, d.C0126d.cp_bg_line_d);
         }
     }
 
@@ -147,18 +147,18 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gwD.notifyDataSetChanged();
-        getLayoutMode().aM(findViewById(16908290));
+        this.fRp.notifyDataSetChanged();
+        getLayoutMode().u(findViewById(16908290));
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        Object item = this.gwD.getItem(i);
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        Object item = this.fRp.getItem(i);
         if ((item instanceof PluginNetConfigInfos.PluginConfig) && !(item instanceof PluginConfigWrapper)) {
-            sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(getPageContext().getPageActivity(), ((PluginNetConfigInfos.PluginConfig) this.gwD.getItem(i)).package_name)));
+            sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(getPageContext().getPageActivity(), ((PluginNetConfigInfos.PluginConfig) this.fRp.getItem(i)).package_name)));
         }
     }
 
@@ -167,44 +167,44 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         if (pluginConfigWrapper != null && pluginConfigWrapper.newest != null) {
             boolean z = pluginConfigWrapper.getDownLoadStatus() == 4;
             if (z) {
-                format = String.format(TbadkApplication.getInst().getString(d.j.plugin_update_size_prompt), Float.valueOf(pluginConfigWrapper.newest.size / 1048576.0f));
+                format = String.format(TbadkApplication.getInst().getString(d.k.plugin_update_size_prompt), Float.valueOf(pluginConfigWrapper.newest.size / 1048576.0f));
             } else {
-                format = String.format(TbadkApplication.getInst().getString(d.j.plugin_download_size_prompt), Float.valueOf(pluginConfigWrapper.newest.size / 1048576.0f));
+                format = String.format(TbadkApplication.getInst().getString(d.k.plugin_download_size_prompt), Float.valueOf(pluginConfigWrapper.newest.size / 1048576.0f));
             }
-            String string = z ? TbadkCoreApplication.getInst().getString(d.j.download_update) : TbadkCoreApplication.getInst().getString(d.j.download);
+            String string = z ? TbadkCoreApplication.getInst().getString(d.k.download_update) : TbadkCoreApplication.getInst().getString(d.k.download);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-            aVar.dk(format);
+            aVar.dc(format);
             aVar.a(string, new a.b() { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    if (l.pa()) {
-                        PluginPackageManager.qS().a(pluginConfigWrapper, PluginCenterActivity.this.ary);
+                    if (l.hg()) {
+                        PluginPackageManager.iX().a(pluginConfigWrapper, PluginCenterActivity.this.Cc);
                         pluginConfigWrapper.setDownLoadPercent(0.0f);
                         pluginConfigWrapper.setDownLoadStatus(3);
-                        PluginCenterActivity.this.gwD.aH(pluginConfigWrapper);
+                        PluginCenterActivity.this.fRp.C(pluginConfigWrapper);
                     } else {
-                        PluginCenterActivity.this.showToast(d.j.neterror);
+                        PluginCenterActivity.this.showToast(d.k.neterror);
                     }
                     aVar2.dismiss();
                 }
             });
-            aVar.b(TbadkCoreApplication.getInst().getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.3
+            aVar.b(TbadkCoreApplication.getInst().getString(d.k.cancel), new a.b() { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
                 }
             });
             aVar.b(getPageContext());
-            aVar.AV();
+            aVar.tD();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PluginConfigWrapper rr(String str) {
+    public PluginConfigWrapper rx(String str) {
         if (str == null) {
             return null;
         }
-        List<Object> dataList = this.gwD.getDataList();
+        List<Object> dataList = this.fRp.getDataList();
         if (dataList == null || dataList.isEmpty()) {
             return null;
         }
@@ -219,7 +219,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         return null;
     }
 
-    private List<Object> dh(List<PluginNetConfigInfos.PluginConfig> list) {
+    private List<Object> cZ(List<PluginNetConfigInfos.PluginConfig> list) {
         PluginSetting findPluginSetting;
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
@@ -227,16 +227,16 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             return arrayList;
         }
         for (PluginNetConfigInfos.PluginConfig pluginConfig : list) {
-            if (pluginConfig != null && !TextUtils.isEmpty(pluginConfig.display_name) && pluginConfig.forbidden != 1 && ((findPluginSetting = c.ru().findPluginSetting(pluginConfig.package_name)) == null || pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code)) {
-                if (TextUtils.isEmpty(pluginConfig.package_name) || !PluginCenter.NAME_MOTUSDK.equals(pluginConfig.package_name) || com.baidu.adp.lib.b.d.mA().an("motu_sdk") != 1) {
-                    if (this.chH == 0) {
+            if (pluginConfig != null && !TextUtils.isEmpty(pluginConfig.display_name) && pluginConfig.forbidden != 1 && ((findPluginSetting = c.jz().findPluginSetting(pluginConfig.package_name)) == null || pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code)) {
+                if (TextUtils.isEmpty(pluginConfig.package_name) || !PluginCenter.NAME_MOTUSDK.equals(pluginConfig.package_name) || com.baidu.adp.lib.b.d.eE().ak("motu_sdk") != 1) {
+                    if (this.brS == 0) {
                         arrayList2.add(pluginConfig);
                     }
                 }
             }
         }
         if (!arrayList2.isEmpty()) {
-            arrayList.add(TbadkApplication.getInst().getString(d.j.plugin_function));
+            arrayList.add(TbadkApplication.getInst().getString(d.k.plugin_function));
             arrayList.addAll(arrayList2);
         }
         return arrayList;
@@ -244,30 +244,30 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
 
     @Override // com.baidu.tbadk.mvc.c.a
     public boolean a(b bVar) {
-        int Nd = bVar.Nd();
-        com.baidu.tbadk.mvc.b.a Ne = bVar.Ne();
-        switch (Nd) {
+        int FF = bVar.FF();
+        com.baidu.tbadk.mvc.b.a FG = bVar.FG();
+        switch (FF) {
             case 0:
-                if (Ne instanceof PluginConfigWrapper) {
-                    PluginConfigWrapper pluginConfigWrapper = (PluginConfigWrapper) Ne;
-                    PluginPackageManager.qS().bt(pluginConfigWrapper.package_name);
+                if (FG instanceof PluginConfigWrapper) {
+                    PluginConfigWrapper pluginConfigWrapper = (PluginConfigWrapper) FG;
+                    PluginPackageManager.iX().bq(pluginConfigWrapper.package_name);
                     pluginConfigWrapper.setDownLoadStatus(1);
-                    this.gwD.aH(pluginConfigWrapper);
+                    this.fRp.C(pluginConfigWrapper);
                     return true;
                 }
                 break;
             case 1:
-                if (Ne instanceof PluginConfigWrapper) {
-                    PluginConfigWrapper pluginConfigWrapper2 = (PluginConfigWrapper) Ne;
-                    PluginPackageManager.qS().bu(pluginConfigWrapper2.package_name);
+                if (FG instanceof PluginConfigWrapper) {
+                    PluginConfigWrapper pluginConfigWrapper2 = (PluginConfigWrapper) FG;
+                    PluginPackageManager.iX().br(pluginConfigWrapper2.package_name);
                     pluginConfigWrapper2.setDownLoadStatus(2);
-                    this.gwD.aH(pluginConfigWrapper2);
+                    this.fRp.C(pluginConfigWrapper2);
                     return true;
                 }
                 break;
             case 2:
-                if (Ne instanceof PluginConfigWrapper) {
-                    a((PluginConfigWrapper) Ne);
+                if (FG instanceof PluginConfigWrapper) {
+                    a((PluginConfigWrapper) FG);
                     return true;
                 }
                 break;
@@ -276,7 +276,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean Nc() {
+    public boolean FE() {
         return false;
     }
 }

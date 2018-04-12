@@ -7,28 +7,28 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
-import com.baidu.tieba.im.chat.officialBar.g;
+import com.baidu.tieba.im.chat.officialBar.c;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MultiContentView extends LinearLayout {
-    private LinearLayout bct;
-    private View ceA;
-    private com.baidu.adp.lib.c.b evU;
-    private com.baidu.adp.lib.e.b<e> exC;
-    private com.baidu.adp.lib.e.b<d> exD;
-    private com.baidu.adp.lib.e.b<k> exE;
-    private boolean exF;
+    private LinearLayout anM;
+    private com.baidu.adp.lib.c.b dQA;
+    private com.baidu.adp.lib.e.b<MultiImageTextTopView> dSh;
+    private com.baidu.adp.lib.e.b<MultiImageTextBottomView> dSi;
+    private com.baidu.adp.lib.e.b<SingleImageTextView> dSj;
+    private boolean dSk;
     private Context mContext;
     private int mPosition;
     private String mTime;
     private int mType;
+    private View root;
 
     public MultiContentView(Context context) {
         super(context);
-        this.evU = null;
-        this.exF = true;
+        this.dQA = null;
+        this.dSk = true;
         this.mType = 2;
         this.mContext = context;
         initView();
@@ -36,200 +36,200 @@ public class MultiContentView extends LinearLayout {
 
     public MultiContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.evU = null;
-        this.exF = true;
+        this.dQA = null;
+        this.dSk = true;
         this.mType = 2;
         this.mContext = context;
         initView();
     }
 
     private void initView() {
-        this.ceA = View.inflate(this.mContext, d.h.msg_multi_pic_text_content_view, this);
-        this.bct = (LinearLayout) this.ceA.findViewById(d.g.view_container);
-        f fVar = new f();
-        this.exC = fVar.bI(this.mContext);
-        this.exD = fVar.bJ(this.mContext);
-        this.exE = fVar.bK(this.mContext);
-        this.bct.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiContentView.1
+        this.root = View.inflate(this.mContext, d.i.msg_multi_pic_text_content_view, this);
+        this.anM = (LinearLayout) this.root.findViewById(d.g.view_container);
+        b bVar = new b();
+        this.dSh = bVar.bw(this.mContext);
+        this.dSi = bVar.bx(this.mContext);
+        this.dSj = bVar.by(this.mContext);
+        this.anM.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiContentView.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewRemoved(View view, View view2) {
-                if (view2 instanceof e) {
-                    MultiContentView.this.exC.ar((e) view2);
-                } else if (view2 instanceof d) {
-                    MultiContentView.this.exD.ar((d) view2);
-                } else if (view2 instanceof k) {
-                    MultiContentView.this.exE.ar((k) view2);
+            public void onChildViewRemoved(View view2, View view3) {
+                if (view3 instanceof MultiImageTextTopView) {
+                    MultiContentView.this.dSh.m((MultiImageTextTopView) view3);
+                } else if (view3 instanceof MultiImageTextBottomView) {
+                    MultiContentView.this.dSi.m((MultiImageTextBottomView) view3);
+                } else if (view3 instanceof SingleImageTextView) {
+                    MultiContentView.this.dSj.m((SingleImageTextView) view3);
                 }
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewAdded(View view, View view2) {
+            public void onChildViewAdded(View view2, View view3) {
             }
         });
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view) {
-        this.bct.addView(view);
+    public void addView(View view2) {
+        this.anM.addView(view2);
     }
 
-    public void a(TbPageContext<?> tbPageContext, List<g.a> list, View view) {
-        this.bct.removeAllViews();
+    public void setData(TbPageContext<?> tbPageContext, List<c.a> list, View view2) {
+        this.anM.removeAllViews();
         if (list != null && list.size() != 0) {
             int size = list.size();
             String str = "";
             if (size == 1) {
-                a(tbPageContext, list.get(0), getSingleView(), view);
+                a(tbPageContext, list.get(0), getSingleView(), view2);
                 return;
             }
             for (int i = 0; i < size; i++) {
                 if (i == 0) {
                     if (list.get(i) != null) {
-                        str = list.get(i).exJ;
+                        str = list.get(i).dSo;
                     }
-                    a(tbPageContext, list.get(i), getTopView(), view);
+                    a(tbPageContext, list.get(i), getTopView(), view2);
                 } else if (i == size - 1) {
-                    d bottomView = getBottomView();
+                    MultiImageTextBottomView bottomView = getBottomView();
                     if (bottomView != null) {
                         bottomView.setStPosition(i);
                         bottomView.setTaskInfo(str);
                     }
-                    a(tbPageContext, list.get(i), bottomView, view);
+                    a(tbPageContext, list.get(i), bottomView, view2);
                 } else {
-                    d midView = getMidView();
+                    MultiImageTextBottomView midView = getMidView();
                     if (midView != null) {
                         midView.setStPosition(i);
                         midView.setTaskInfo(str);
                     }
-                    a(tbPageContext, list.get(i), midView, view);
+                    a(tbPageContext, list.get(i), midView, view2);
                 }
             }
         }
     }
 
-    private e getTopView() {
-        e eVar = null;
-        if (this.exC != null) {
-            eVar = this.exC.nk();
+    private MultiImageTextTopView getTopView() {
+        MultiImageTextTopView multiImageTextTopView = null;
+        if (this.dSh != null) {
+            multiImageTextTopView = this.dSh.fn();
         }
-        if (eVar == null || eVar.getParent() != null) {
-            eVar = new e(this.mContext);
+        if (multiImageTextTopView == null || multiImageTextTopView.getParent() != null) {
+            multiImageTextTopView = new MultiImageTextTopView(this.mContext);
         }
-        eVar.setOnItemViewLongClickListener(this.evU);
-        eVar.setPosition(this.mPosition);
+        multiImageTextTopView.setOnItemViewLongClickListener(this.dQA);
+        multiImageTextTopView.setPosition(this.mPosition);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 1 && !this.exF) {
+        if (skinType == 1 && !this.dSk) {
             skinType = 0;
         }
         if (this.mType == 2) {
-            aj.f(eVar, d.f.selector_history_multi_top_bg, skinType);
+            ak.d(multiImageTextTopView, d.f.selector_history_multi_top_bg, skinType);
         } else if (this.mType == 1) {
-            aj.f(eVar, d.f.selector_history_multi_top_bg, skinType);
+            ak.d(multiImageTextTopView, d.f.selector_history_multi_top_bg, skinType);
         }
-        eVar.hl(this.exF);
-        return eVar;
+        multiImageTextTopView.gL(this.dSk);
+        return multiImageTextTopView;
     }
 
-    private void a(TbPageContext<?> tbPageContext, g.a aVar, e eVar, View view) {
-        if (aVar != null && eVar != null) {
-            eVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            eVar.setTime(this.mTime);
-            eVar.a(tbPageContext, aVar, view, this.mType);
-            this.bct.addView(eVar);
+    private void a(TbPageContext<?> tbPageContext, c.a aVar, MultiImageTextTopView multiImageTextTopView, View view2) {
+        if (aVar != null && multiImageTextTopView != null) {
+            multiImageTextTopView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            multiImageTextTopView.setTime(this.mTime);
+            multiImageTextTopView.setData(tbPageContext, aVar, view2, this.mType);
+            this.anM.addView(multiImageTextTopView);
         }
     }
 
-    private d getCommonBottomView() {
-        d dVar = null;
-        if (this.exD != null) {
-            dVar = this.exD.nk();
+    private MultiImageTextBottomView getCommonBottomView() {
+        MultiImageTextBottomView multiImageTextBottomView = null;
+        if (this.dSi != null) {
+            multiImageTextBottomView = this.dSi.fn();
         }
-        if (dVar == null || dVar.getParent() != null) {
-            dVar = new d(this.mContext);
+        if (multiImageTextBottomView == null || multiImageTextBottomView.getParent() != null) {
+            multiImageTextBottomView = new MultiImageTextBottomView(this.mContext);
         }
-        dVar.setOnItemViewLongClickListener(this.evU);
-        dVar.setPosition(this.mPosition);
-        return dVar;
+        multiImageTextBottomView.setOnItemViewLongClickListener(this.dQA);
+        multiImageTextBottomView.setPosition(this.mPosition);
+        return multiImageTextBottomView;
     }
 
-    private d getMidView() {
-        d commonBottomView = getCommonBottomView();
+    private MultiImageTextBottomView getMidView() {
+        MultiImageTextBottomView commonBottomView = getCommonBottomView();
         if (commonBottomView == null) {
             return null;
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 1 && !this.exF) {
+        if (skinType == 1 && !this.dSk) {
             skinType = 0;
         }
         if (this.mType == 2) {
-            aj.f(commonBottomView, d.f.selector_history_multi_mid_bg, skinType);
+            ak.d(commonBottomView, d.f.selector_history_multi_mid_bg, skinType);
         } else if (this.mType == 1) {
-            aj.f(commonBottomView, d.f.selector_history_multi_mid_bg, skinType);
+            ak.d(commonBottomView, d.f.selector_history_multi_mid_bg, skinType);
         }
-        commonBottomView.hl(this.exF);
+        commonBottomView.gL(this.dSk);
         return commonBottomView;
     }
 
-    private d getBottomView() {
-        d commonBottomView = getCommonBottomView();
+    private MultiImageTextBottomView getBottomView() {
+        MultiImageTextBottomView commonBottomView = getCommonBottomView();
         if (commonBottomView == null) {
             return null;
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 1 && !this.exF) {
+        if (skinType == 1 && !this.dSk) {
             skinType = 0;
         }
         if (this.mType == 2) {
-            aj.f(commonBottomView, d.f.selector_history_multi_bottom_bg, skinType);
+            ak.d(commonBottomView, d.f.selector_history_multi_bottom_bg, skinType);
         } else if (this.mType == 1) {
-            aj.f(commonBottomView, d.f.selector_history_multi_bottom_bg, skinType);
+            ak.d(commonBottomView, d.f.selector_history_multi_bottom_bg, skinType);
         }
-        commonBottomView.hl(this.exF);
+        commonBottomView.gL(this.dSk);
         return commonBottomView;
     }
 
-    private void a(TbPageContext<?> tbPageContext, g.a aVar, d dVar, View view) {
-        if (aVar != null && dVar != null) {
-            dVar.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(d.e.ds132)));
-            dVar.a(tbPageContext, aVar, view, this.mType);
-            this.bct.addView(dVar);
+    private void a(TbPageContext<?> tbPageContext, c.a aVar, MultiImageTextBottomView multiImageTextBottomView, View view2) {
+        if (aVar != null && multiImageTextBottomView != null) {
+            multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(d.e.ds132)));
+            multiImageTextBottomView.setData(tbPageContext, aVar, view2, this.mType);
+            this.anM.addView(multiImageTextBottomView);
         }
     }
 
-    private k getSingleView() {
-        k kVar = null;
-        if (this.exE != null) {
-            kVar = this.exE.nk();
+    private SingleImageTextView getSingleView() {
+        SingleImageTextView singleImageTextView = null;
+        if (this.dSj != null) {
+            singleImageTextView = this.dSj.fn();
         }
-        if (kVar == null || kVar.getParent() == null) {
-            kVar = new k(this.mContext);
+        if (singleImageTextView == null || singleImageTextView.getParent() == null) {
+            singleImageTextView = new SingleImageTextView(this.mContext);
         }
-        kVar.setOnItemViewLongClickListener(this.evU);
-        kVar.setPosition(this.mPosition);
+        singleImageTextView.setOnItemViewLongClickListener(this.dQA);
+        singleImageTextView.setPosition(this.mPosition);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 1 && !this.exF) {
+        if (skinType == 1 && !this.dSk) {
             skinType = 0;
         }
         if (this.mType == 2) {
-            aj.f(kVar, d.f.selector_history_multi_single_bg, skinType);
+            ak.d(singleImageTextView, d.f.selector_history_multi_single_bg, skinType);
         } else if (this.mType == 1) {
-            aj.f(kVar, d.f.selector_history_multi_single_bg, skinType);
+            ak.d(singleImageTextView, d.f.selector_history_multi_single_bg, skinType);
         }
-        kVar.hl(this.exF);
-        return kVar;
+        singleImageTextView.gL(this.dSk);
+        return singleImageTextView;
     }
 
-    private void a(TbPageContext<?> tbPageContext, g.a aVar, k kVar, View view) {
-        if (aVar != null && kVar != null) {
-            kVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            kVar.setTime(this.mTime);
-            kVar.a(tbPageContext, aVar, view, this.mType);
-            this.bct.addView(kVar);
+    private void a(TbPageContext<?> tbPageContext, c.a aVar, SingleImageTextView singleImageTextView, View view2) {
+        if (aVar != null && singleImageTextView != null) {
+            singleImageTextView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            singleImageTextView.setTime(this.mTime);
+            singleImageTextView.setData(tbPageContext, aVar, view2, this.mType);
+            this.anM.addView(singleImageTextView);
         }
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.evU = bVar;
+        this.dQA = bVar;
     }
 
     public void setPosition(int i) {
@@ -237,7 +237,7 @@ public class MultiContentView extends LinearLayout {
     }
 
     public void setNeedNightMode(boolean z) {
-        this.exF = z;
+        this.dSk = z;
     }
 
     public void setTime(String str) {

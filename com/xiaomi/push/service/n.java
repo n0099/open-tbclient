@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.service.ak;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
     public final String a;
     public final String b;

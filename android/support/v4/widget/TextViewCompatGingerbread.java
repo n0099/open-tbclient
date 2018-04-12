@@ -1,11 +1,14 @@
 package android.support.v4.widget;
 
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.TextView;
 import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 class TextViewCompatGingerbread {
+    private static final int LINES = 1;
+    private static final String LOG_TAG = "TextViewCompatGingerbread";
     private static Field sMaxModeField;
     private static boolean sMaxModeFieldFetched;
     private static Field sMaximumField;
@@ -14,6 +17,9 @@ class TextViewCompatGingerbread {
     private static boolean sMinModeFieldFetched;
     private static Field sMinimumField;
     private static boolean sMinimumFieldFetched;
+
+    TextViewCompatGingerbread() {
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int getMaxLines(TextView textView) {
@@ -58,7 +64,7 @@ class TextViewCompatGingerbread {
             field.setAccessible(true);
             return field;
         } catch (NoSuchFieldException e) {
-            Log.e("TextViewCompatGingerbread", "Could not retrieve " + str + " field.");
+            Log.e(LOG_TAG, "Could not retrieve " + str + " field.");
             return field;
         }
     }
@@ -67,7 +73,7 @@ class TextViewCompatGingerbread {
         try {
             return field.getInt(textView);
         } catch (IllegalAccessException e) {
-            Log.d("TextViewCompatGingerbread", "Could not retrieve value of " + field.getName() + " field.");
+            Log.d(LOG_TAG, "Could not retrieve value of " + field.getName() + " field.");
             return -1;
         }
     }
@@ -78,7 +84,7 @@ class TextViewCompatGingerbread {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Drawable[] getCompoundDrawablesRelative(TextView textView) {
+    public static Drawable[] getCompoundDrawablesRelative(@NonNull TextView textView) {
         return textView.getCompoundDrawables();
     }
 }

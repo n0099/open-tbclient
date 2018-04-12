@@ -1,13 +1,13 @@
 package org.apache.thrift;
 
 import org.apache.thrift.protocol.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     private final org.apache.thrift.protocol.e a;
     private final org.apache.thrift.transport.c b;
 
     public e() {
-        this(new a.C0295a());
+        this(new a.C0277a());
     }
 
     public e(org.apache.thrift.protocol.g gVar) {

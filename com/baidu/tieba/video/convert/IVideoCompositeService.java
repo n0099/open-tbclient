@@ -36,7 +36,7 @@ public interface IVideoCompositeService extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof IVideoCompositeService)) {
                 return (IVideoCompositeService) queryLocalInterface;
             }
-            return new a(iBinder);
+            return new Proxy(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -78,16 +78,20 @@ public interface IVideoCompositeService extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        private static class a implements IVideoCompositeService {
+        private static class Proxy implements IVideoCompositeService {
             private IBinder mRemote;
 
-            a(IBinder iBinder) {
+            Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 return this.mRemote;
+            }
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
             }
 
             @Override // com.baidu.tieba.video.convert.IVideoCompositeService

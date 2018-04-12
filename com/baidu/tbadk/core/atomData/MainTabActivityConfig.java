@@ -13,7 +13,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public static boolean IS_BACK_CLOSE_ALL_ACTIVITY = false;
     public static boolean IS_INDICATOR_BOTTOM = true;
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
-    public static boolean IMMESSAGE_CENTER_DELEGATE_AVAIBLE = false;
+    public static boolean IMMESSAGE_CENTER_DELEGATE_AVAIBLE = true;
     public static boolean PERSON_TAB_AVAIBLE = true;
     public static boolean MEMBER_CENTER_TAB_AVAILABLE = true;
 

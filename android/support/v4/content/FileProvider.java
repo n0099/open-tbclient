@@ -17,14 +17,22 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.cookie.ClientCookie;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes2.dex */
 public class FileProvider extends ContentProvider {
+    private static final String ATTR_NAME = "name";
+    private static final String ATTR_PATH = "path";
+    private static final String META_DATA_FILE_PROVIDER_PATHS = "android.support.FILE_PROVIDER_PATHS";
+    private static final String TAG_CACHE_PATH = "cache-path";
+    private static final String TAG_EXTERNAL = "external-path";
+    private static final String TAG_EXTERNAL_CACHE = "external-cache-path";
+    private static final String TAG_EXTERNAL_FILES = "external-files-path";
+    private static final String TAG_FILES_PATH = "files-path";
+    private static final String TAG_ROOT_PATH = "root-path";
+    private PathStrategy mStrategy;
     private static final String[] COLUMNS = {"_display_name", "_size"};
     private static final File DEVICE_ROOT = new File("/");
     private static HashMap<String, PathStrategy> sCache = new HashMap<>();
-    private PathStrategy mStrategy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -146,7 +154,7 @@ public class FileProvider extends ContentProvider {
     private static PathStrategy parsePathStrategy(Context context, String str) throws IOException, XmlPullParserException {
         File file;
         SimplePathStrategy simplePathStrategy = new SimplePathStrategy(str);
-        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
+        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), META_DATA_FILE_PROVIDER_PATHS);
         if (loadXmlMetaData == null) {
             throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
         }
@@ -156,23 +164,23 @@ public class FileProvider extends ContentProvider {
                 if (next == 2) {
                     String name = loadXmlMetaData.getName();
                     String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
-                    String attributeValue2 = loadXmlMetaData.getAttributeValue(null, ClientCookie.PATH_ATTR);
-                    if ("root-path".equals(name)) {
+                    String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
+                    if (TAG_ROOT_PATH.equals(name)) {
                         file = DEVICE_ROOT;
-                    } else if ("files-path".equals(name)) {
+                    } else if (TAG_FILES_PATH.equals(name)) {
                         file = context.getFilesDir();
-                    } else if ("cache-path".equals(name)) {
+                    } else if (TAG_CACHE_PATH.equals(name)) {
                         file = context.getCacheDir();
-                    } else if ("external-path".equals(name)) {
+                    } else if (TAG_EXTERNAL.equals(name)) {
                         file = Environment.getExternalStorageDirectory();
-                    } else if ("external-files-path".equals(name)) {
+                    } else if (TAG_EXTERNAL_FILES.equals(name)) {
                         File[] externalFilesDirs = ContextCompat.getExternalFilesDirs(context, null);
                         if (externalFilesDirs.length > 0) {
                             file = externalFilesDirs[0];
                         }
                         file = null;
                     } else {
-                        if ("external-cache-path".equals(name)) {
+                        if (TAG_EXTERNAL_CACHE.equals(name)) {
                             File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
                             if (externalCacheDirs.length > 0) {
                                 file = externalCacheDirs[0];

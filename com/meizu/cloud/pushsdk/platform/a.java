@@ -1,77 +1,37 @@
 package com.meizu.cloud.pushsdk.platform;
 
-import java.security.KeyManagementException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-/* loaded from: classes2.dex */
-public final class a {
-    public static SSLSocketFactory a() {
-        SSLContext sSLContext;
-        NoSuchAlgorithmException e;
-        KeyManagementException e2;
-        try {
-            sSLContext = SSLContext.getInstance("TLS");
-        } catch (KeyManagementException e3) {
-            sSLContext = null;
-            e2 = e3;
-        } catch (NoSuchAlgorithmException e4) {
-            sSLContext = null;
-            e = e4;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+/* loaded from: classes3.dex */
+public class a {
+    public static String a(Map<String, String> map, String str) {
+        Set<Map.Entry> entrySet = new TreeMap(map).entrySet();
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry entry : entrySet) {
+            sb.append((String) entry.getKey()).append("=").append((String) entry.getValue());
         }
+        sb.append(str);
+        return a(sb.toString());
+    }
+
+    public static String a(String str) {
         try {
-            sSLContext.init(null, new TrustManager[]{new b()}, new SecureRandom());
-        } catch (KeyManagementException e5) {
-            e2 = e5;
-            e2.printStackTrace();
-            return sSLContext.getSocketFactory();
-        } catch (NoSuchAlgorithmException e6) {
-            e = e6;
+            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+            StringBuffer stringBuffer = new StringBuffer();
+            for (byte b : digest) {
+                int i = b & 255;
+                if (i < 16) {
+                    stringBuffer.append(0);
+                }
+                stringBuffer.append(Integer.toHexString(i));
+            }
+            return stringBuffer.toString();
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
-            return sSLContext.getSocketFactory();
-        }
-        return sSLContext.getSocketFactory();
-    }
-
-    public static HostnameVerifier b() {
-        return new C0271a();
-    }
-
-    /* loaded from: classes2.dex */
-    private static class b implements X509TrustManager {
-        private b() {
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public X509Certificate[] getAcceptedIssuers() {
-            return new X509Certificate[0];
-        }
-    }
-
-    /* renamed from: com.meizu.cloud.pushsdk.platform.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static class C0271a implements HostnameVerifier {
-        private C0271a() {
-        }
-
-        @Override // javax.net.ssl.HostnameVerifier
-        public boolean verify(String str, SSLSession sSLSession) {
-            return true;
+            return null;
         }
     }
 }

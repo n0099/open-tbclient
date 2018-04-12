@@ -8,25 +8,25 @@ import android.support.v7.appcompat.R;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class AppCompatImageHelper {
-    private final ImageView MU;
+    private final ImageView mView;
 
     public AppCompatImageHelper(ImageView imageView) {
-        this.MU = imageView;
+        this.mView = imageView;
     }
 
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         int resourceId;
         TintTypedArray tintTypedArray = null;
         try {
-            Drawable drawable = this.MU.getDrawable();
-            if (drawable == null && (resourceId = (tintTypedArray = TintTypedArray.obtainStyledAttributes(this.MU.getContext(), attributeSet, R.styleable.AppCompatImageView, i, 0)).getResourceId(R.styleable.AppCompatImageView_srcCompat, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.MU.getContext(), resourceId)) != null) {
-                this.MU.setImageDrawable(drawable);
+            Drawable drawable = this.mView.getDrawable();
+            if (drawable == null && (resourceId = (tintTypedArray = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatImageView, i, 0)).getResourceId(R.styleable.AppCompatImageView_srcCompat, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.mView.getContext(), resourceId)) != null) {
+                this.mView.setImageDrawable(drawable);
             }
             if (drawable != null) {
-                DrawableUtils.g(drawable);
+                DrawableUtils.fixDrawable(drawable);
             }
         } finally {
             if (tintTypedArray != null) {
@@ -37,18 +37,18 @@ public class AppCompatImageHelper {
 
     public void setImageResource(int i) {
         if (i != 0) {
-            Drawable drawable = AppCompatResources.getDrawable(this.MU.getContext(), i);
+            Drawable drawable = AppCompatResources.getDrawable(this.mView.getContext(), i);
             if (drawable != null) {
-                DrawableUtils.g(drawable);
+                DrawableUtils.fixDrawable(drawable);
             }
-            this.MU.setImageDrawable(drawable);
+            this.mView.setImageDrawable(drawable);
             return;
         }
-        this.MU.setImageDrawable(null);
+        this.mView.setImageDrawable(null);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean hasOverlappingRendering() {
-        return Build.VERSION.SDK_INT < 21 || !(this.MU.getBackground() instanceof RippleDrawable);
+        return Build.VERSION.SDK_INT < 21 || !(this.mView.getBackground() instanceof RippleDrawable);
     }
 }

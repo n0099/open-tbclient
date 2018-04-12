@@ -1,9 +1,9 @@
 package com.baidu.tieba.model;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    void Wt();
+    void OT();
 
-    void i(boolean z, boolean z2, boolean z3);
+    void h(boolean z, boolean z2, boolean z3);
 
     void refreshData();
 

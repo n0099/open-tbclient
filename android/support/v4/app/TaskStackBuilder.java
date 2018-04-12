@@ -15,6 +15,7 @@ import java.util.Iterator;
 /* loaded from: classes2.dex */
 public final class TaskStackBuilder implements Iterable<Intent> {
     private static final TaskStackBuilderImpl IMPL;
+    private static final String TAG = "TaskStackBuilder";
     private final ArrayList<Intent> mIntents = new ArrayList<>();
     private final Context mSourceContext;
 
@@ -51,6 +52,18 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         public PendingIntent getPendingIntent(Context context, Intent[] intentArr, int i, int i2, Bundle bundle) {
             intentArr[0] = new Intent(intentArr[0]).addFlags(268484608);
             return TaskStackBuilderHoneycomb.getActivitiesPendingIntent(context, i, intentArr, i2);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static class TaskStackBuilderImplJellybean implements TaskStackBuilderImpl {
+        TaskStackBuilderImplJellybean() {
+        }
+
+        @Override // android.support.v4.app.TaskStackBuilder.TaskStackBuilderImpl
+        public PendingIntent getPendingIntent(Context context, Intent[] intentArr, int i, int i2, Bundle bundle) {
+            intentArr[0] = new Intent(intentArr[0]).addFlags(268484608);
+            return TaskStackBuilderJellybean.getActivitiesPendingIntent(context, i, intentArr, i2, bundle);
         }
     }
 
@@ -123,7 +136,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
             }
             return this;
         } catch (PackageManager.NameNotFoundException e) {
-            Log.e("TaskStackBuilder", "Bad ComponentName while traversing activity parent metadata");
+            Log.e(TAG, "Bad ComponentName while traversing activity parent metadata");
             throw new IllegalArgumentException(e);
         }
     }

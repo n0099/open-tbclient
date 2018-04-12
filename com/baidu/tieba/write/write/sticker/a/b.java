@@ -7,34 +7,34 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.MotionEvent;
 import com.baidu.tbadk.core.util.BitmapHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private Bitmap hNE;
-    private Rect lQ = new Rect();
+    private Bitmap hjs;
     private Context mContext;
+    private Rect mRect = new Rect();
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    public void xQ(int i) {
-        this.hNE = BitmapHelper.getResBitmap(this.mContext, i);
+    public void vn(int i) {
+        this.hjs = BitmapHelper.getResBitmap(this.mContext, i);
     }
 
     public void draw(Canvas canvas, float f, float f2) {
-        if (this.hNE != null) {
-            this.lQ.left = (int) (f - (this.hNE.getWidth() / 2));
-            this.lQ.right = (int) ((this.hNE.getWidth() / 2) + f);
-            this.lQ.top = (int) (f2 - (this.hNE.getHeight() / 2));
-            this.lQ.bottom = (int) ((this.hNE.getHeight() / 2) + f2);
-            canvas.drawBitmap(this.hNE, (Rect) null, this.lQ, (Paint) null);
+        if (this.hjs != null) {
+            this.mRect.left = (int) (f - (this.hjs.getWidth() / 2));
+            this.mRect.right = (int) ((this.hjs.getWidth() / 2) + f);
+            this.mRect.top = (int) (f2 - (this.hjs.getHeight() / 2));
+            this.mRect.bottom = (int) ((this.hjs.getHeight() / 2) + f2);
+            canvas.drawBitmap(this.hjs, (Rect) null, this.mRect, (Paint) null);
         }
     }
 
-    public boolean V(MotionEvent motionEvent) {
+    public boolean Q(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return false;
         }
-        return motionEvent.getX(0) >= ((float) this.lQ.left) && motionEvent.getX(0) <= ((float) this.lQ.right) && motionEvent.getY(0) >= ((float) this.lQ.top) && motionEvent.getY(0) <= ((float) this.lQ.bottom);
+        return motionEvent.getX(0) >= ((float) this.mRect.left) && motionEvent.getX(0) <= ((float) this.mRect.right) && motionEvent.getY(0) >= ((float) this.mRect.top) && motionEvent.getY(0) <= ((float) this.mRect.bottom);
     }
 }

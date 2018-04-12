@@ -1,53 +1,106 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.Page;
 /* loaded from: classes.dex */
 public class am {
-    private int aNo;
-    private ArrayList<a> aNp;
+    private int YL = 0;
+    private int total_num = 0;
+    private int current_page = 0;
+    private int YN = 0;
+    private int has_more = 0;
+    private int YO = 0;
+    private int total_count = 0;
+    private int YM = 0;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public int giftId;
-        public String giftName;
-        public int num;
-        public String thumbnailUrl;
+    public int qX() {
+        return this.YL;
     }
 
-    public void a(PbPresent pbPresent) {
-        if (pbPresent != null) {
-            this.aNo = pbPresent.total.intValue();
-            if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.aNp = new ArrayList<>();
-                for (PbPresentList pbPresentList : pbPresent.list) {
-                    if (pbPresentList != null) {
-                        a aVar = new a();
-                        aVar.giftId = pbPresentList.gift_id.intValue();
-                        aVar.giftName = pbPresentList.gift_name;
-                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
-                        aVar.num = pbPresentList.num.intValue();
-                        this.aNp.add(aVar);
-                    }
-                }
-            }
+    public void bD(int i) {
+        this.YL = i;
+    }
+
+    public int qq() {
+        return this.total_num;
+    }
+
+    public void bE(int i) {
+        this.total_num = i;
+    }
+
+    public int qY() {
+        return this.total_count;
+    }
+
+    public int qZ() {
+        return this.YM;
+    }
+
+    public void bF(int i) {
+        this.YM = i;
+    }
+
+    public int ra() {
+        return this.current_page;
+    }
+
+    public void bG(int i) {
+        this.current_page = i;
+    }
+
+    public int rb() {
+        return this.YN;
+    }
+
+    public void bH(int i) {
+        this.YN = i;
+    }
+
+    public void bI(int i) {
+        this.has_more = i;
+    }
+
+    public int rc() {
+        return this.has_more;
+    }
+
+    public void bJ(int i) {
+        this.YO = i;
+    }
+
+    public int rd() {
+        return this.YO;
+    }
+
+    public void a(Page page) {
+        if (page != null) {
+            this.YL = page.total_page.intValue();
+            this.total_num = page.total_num.intValue();
+            this.total_count = page.total_count.intValue();
+            this.current_page = page.current_page.intValue();
+            this.YN = page.page_size.intValue();
+            this.has_more = page.has_more.intValue();
+            this.YO = page.has_prev.intValue();
+            this.YM = page.lz_total_floor.intValue();
         }
     }
 
-    public int yy() {
-        return this.aNo;
-    }
-
-    public void eL(int i) {
-        this.aNo = i;
-    }
-
-    public ArrayList<a> yz() {
-        return this.aNp;
-    }
-
-    public void h(ArrayList<a> arrayList) {
-        this.aNp = arrayList;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.YL = jSONObject.optInt("total_page", 0);
+                this.total_num = jSONObject.optInt("total_num", 0);
+                this.total_count = jSONObject.optInt("total_count", 0);
+                this.current_page = jSONObject.optInt("current_page", 0);
+                this.YN = jSONObject.optInt("page_size", 0);
+                this.has_more = jSONObject.optInt("has_more", 0);
+                this.YO = jSONObject.optInt("has_prev", 0);
+                this.YM = jSONObject.optInt("lz_total_floor", 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

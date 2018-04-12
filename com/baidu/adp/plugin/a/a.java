@@ -38,7 +38,7 @@ public interface a {
 
     PluginBaseActivity getTarget();
 
-    void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams);
+    void proxyAddContentView(View view2, ViewGroup.LayoutParams layoutParams);
 
     boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i);
 
@@ -136,13 +136,13 @@ public interface a {
 
     void proxyOnCreate(Bundle bundle);
 
-    void proxyOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo);
+    void proxyOnCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo);
 
     boolean proxyOnCreatePanelMenu(int i, Menu menu);
 
     boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas);
 
-    View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet);
+    View proxyOnCreateView(View view2, String str, Context context, AttributeSet attributeSet);
 
     View proxyOnCreateView(String str, Context context, AttributeSet attributeSet);
 
@@ -180,7 +180,7 @@ public interface a {
 
     boolean proxyOnPrepareOptionsMenu(Menu menu);
 
-    boolean proxyOnPreparePanel(int i, View view, Menu menu);
+    boolean proxyOnPreparePanel(int i, View view2, Menu menu);
 
     void proxyOnRestart();
 
@@ -210,19 +210,19 @@ public interface a {
 
     void proxyOnWindowFocusChanged(boolean z);
 
-    void proxyOpenContextMenu(View view);
+    void proxyOpenContextMenu(View view2);
 
     void proxyOpenOptionsMenu();
 
     void proxyOverridePendingTransition(int i, int i2);
 
-    void proxyRegisterForContextMenu(View view);
+    void proxyRegisterForContextMenu(View view2);
 
     void proxySetContentView(int i);
 
-    void proxySetContentView(View view);
+    void proxySetContentView(View view2);
 
-    void proxySetContentView(View view, ViewGroup.LayoutParams layoutParams);
+    void proxySetContentView(View view2, ViewGroup.LayoutParams layoutParams);
 
     void proxySetIntent(Intent intent);
 
@@ -262,7 +262,7 @@ public interface a {
 
     void proxyTakeKeyEvents(boolean z);
 
-    void proxyUnregisterForContextMenu(View view);
+    void proxyUnregisterForContextMenu(View view2);
 
     Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter);
 

@@ -10,7 +10,7 @@ import com.baidu.android.pushservice.PushManager;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MzNotifyActivity extends Activity {
     private String a;
     private String b;

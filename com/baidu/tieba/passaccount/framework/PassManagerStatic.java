@@ -33,12 +33,11 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.QALoginActivityConfig;
 import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.coreExtra.a.a;
 import com.baidu.tbadk.coreExtra.a.c;
 import com.baidu.tbadk.k.q;
@@ -46,39 +45,37 @@ import com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity;
 import com.baidu.tieba.d;
 import com.baidu.tieba.passaccount.a.b;
 import com.baidu.tieba.passaccount.app.LoginActivity;
-import com.baidu.tieba.passaccount.app.QALoginActivity;
 import com.baidu.tieba.passaccount.app.SapiFastRegActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
 public class PassManagerStatic {
-    private static boolean fEm = false;
+    private static boolean eYU = false;
 
     static {
-        Un();
-        HQ();
+        MO();
+        AE();
         registerListener();
-        aZy();
-        aZz();
+        aUx();
+        aUy();
         TbadkCoreApplication.getInst().RegisterIntent(ChangeSystemPhotoActivityConfig.class, ChangeSystemPhotoActivity.class);
-        aZC();
+        aUB();
     }
 
-    private static void Un() {
+    private static void MO() {
         a.checkPassV6Switch();
-        if (!a.Fb()) {
+        if (!a.xO()) {
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(RegisterActivityConfig.class, SapiFastRegActivity.class);
         }
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
-        TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QALoginActivityConfig.class, QALoginActivity.class);
     }
 
-    private static void HQ() {
+    private static void AE() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001268, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<c> run(CustomMessage<Activity> customMessage) {
-                return new CustomResponsedMessage<>(2001268, b.aZE());
+                return new CustomResponsedMessage<>(2001268, b.aUD());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -86,7 +83,7 @@ public class PassManagerStatic {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2001293, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tbadk.core.a.a> run(CustomMessage<Activity> customMessage) {
-                return new CustomResponsedMessage<>(2001293, com.baidu.tieba.passaccount.a.a.aZD());
+                return new CustomResponsedMessage<>(2001293, com.baidu.tieba.passaccount.a.a.aUC());
             }
         });
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -103,7 +100,7 @@ public class PassManagerStatic {
                 }
             }
         });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2921333) { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.5
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2921339) { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -116,8 +113,8 @@ public class PassManagerStatic {
                 }
             }
         });
-        aw.Du().a(new aw.a() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.6
-            @Override // com.baidu.tbadk.core.util.aw.a
+        ax.wg().a(new ax.a() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.6
+            @Override // com.baidu.tbadk.core.util.ax.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
@@ -132,12 +129,12 @@ public class PassManagerStatic {
         });
     }
 
-    private static void aZy() {
+    private static void aUx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921328, new CustomMessageTask.CustomRunnable<Application>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Application> customMessage) {
                 if (customMessage != null) {
-                    PassManagerStatic.bU(customMessage.getData());
+                    PassManagerStatic.bI(customMessage.getData());
                 }
                 return null;
             }
@@ -146,12 +143,12 @@ public class PassManagerStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aZz() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(com.baidu.tbadk.core.frameworkData.a.aSG, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.8
+    private static void aUy() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(com.baidu.tbadk.core.frameworkData.a.aec, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.8
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {
                 if (customMessage != null && (customMessage.getData() instanceof Context)) {
-                    PassManagerStatic.bV(customMessage.getData());
+                    PassManagerStatic.bJ(customMessage.getData());
                 }
                 return null;
             }
@@ -161,7 +158,7 @@ public class PassManagerStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bU(Context context) {
+    public static void bI(Context context) {
         String str;
         long currentTimeMillis = System.currentTimeMillis();
         SapiAccountManager.registerSilentShareListener(new SapiAccountManager.SilentShareListener() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.9
@@ -175,20 +172,20 @@ public class PassManagerStatic {
             str = "";
         } else {
             try {
-                str = resources.getString(d.j.register_tip);
+                str = resources.getString(d.k.register_tip);
             } catch (Exception e) {
                 str = "";
             }
         }
         SapiConfiguration.Builder builder = new SapiConfiguration.Builder(context);
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_domain_qa", false)) {
-            com.baidu.tbadk.coreExtra.a.b.bgE = Domain.DOMAIN_QA;
+            com.baidu.tbadk.coreExtra.a.b.asj = Domain.DOMAIN_QA;
             builder.setRuntimeEnvironment(Domain.DOMAIN_QA);
         } else {
-            builder.setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.bgE);
+            builder.setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.asj);
         }
-        builder.setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).sofireSdkConfig("200033", "ea737e4f435b53786043369d2e5ace4f", 1).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin("file:///android_asset/sapi_theme/style.css").fastRegConfirm(aZB()).fastRegConfirmMsg(str).fastLoginSupport(aZA()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).biometricTypeSupport(BiometricType.LIVENESS_RECOG).qqAppID("101462192");
-        if (com.baidu.tbadk.coreExtra.a.b.bgE == Domain.DOMAIN_QA) {
+        builder.setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).sofireSdkConfig("200033", "ea737e4f435b53786043369d2e5ace4f", 1).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin("file:///android_asset/sapi_theme/style.css").fastRegConfirm(aUA()).fastRegConfirmMsg(str).fastLoginSupport(aUz()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).biometricTypeSupport(BiometricType.LIVENESS_RECOG).qqAppID("101462192");
+        if (com.baidu.tbadk.coreExtra.a.b.asj == Domain.DOMAIN_QA) {
             builder.setRuntimeEnvironment(Domain.DOMAIN_QA.forceHttps(true));
             builder.debug(true);
         }
@@ -197,10 +194,10 @@ public class PassManagerStatic {
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        q.OB().ah(System.currentTimeMillis() - currentTimeMillis);
+        q.Hf().Z(System.currentTimeMillis() - currentTimeMillis);
     }
 
-    private static FastLoginFeature[] aZA() {
+    private static FastLoginFeature[] aUz() {
         ArrayList arrayList = new ArrayList();
         if (Build.VERSION.SDK_INT > 10) {
             arrayList.add(FastLoginFeature.TX_QQ_SSO);
@@ -212,7 +209,7 @@ public class PassManagerStatic {
         return fastLoginFeatureArr;
     }
 
-    private static boolean aZB() {
+    private static boolean aUA() {
         String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
         boolean z = systemProperty != null && "V5".equals(systemProperty);
         String from = TbadkCoreApplication.getFrom();
@@ -220,7 +217,7 @@ public class PassManagerStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bV(final Context context) {
+    public static void bJ(final Context context) {
         MessageManager.getInstance().runTask(2921332, (Class) null);
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null && !TextUtils.isEmpty(session.bduss)) {
@@ -256,17 +253,17 @@ public class PassManagerStatic {
         }
     }
 
-    private static void aZC() {
+    private static void aUB() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921332, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                if (!PassManagerStatic.fEm) {
+                if (!PassManagerStatic.eYU) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put(BaiduRimConstants.RIM_ID_KEY, "2100020001");
                     hashMap.put("tpl", "1200020868");
                     hashMap.put("appkey", "ef4b7e008deab5c6fd206d180c5967039bfa8120");
                     BaiduRIM.getInstance().initRIM(TbadkApplication.getInst().getContext(), hashMap);
-                    boolean unused = PassManagerStatic.fEm = true;
+                    boolean unused = PassManagerStatic.eYU = true;
                 }
                 return null;
             }

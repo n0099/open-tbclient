@@ -15,21 +15,21 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class SearchEditView extends RelativeLayout {
-    private EditText drT;
-    private ImageView drU;
-    private ImageView drV;
-    private LinearLayout drW;
-    private a drX;
+    private EditText cKK;
+    private ImageView cKL;
+    private ImageView cKM;
+    private LinearLayout cKN;
+    private a cKO;
 
     /* loaded from: classes.dex */
     public interface a {
-        void kU(String str);
+        void kX(String str);
 
-        void kV(String str);
+        void kY(String str);
     }
 
     public SearchEditView(Context context) {
@@ -48,15 +48,15 @@ public class SearchEditView extends RelativeLayout {
     }
 
     private void init() {
-        LayoutInflater.from(getContext()).inflate(d.h.emotion_search_edit, (ViewGroup) this, true);
-        this.drT = (EditText) findViewById(d.g.edit_search);
-        this.drU = (ImageView) findViewById(d.g.iv_search);
-        this.drV = (ImageView) findViewById(d.g.iv_del_all);
-        this.drW = (LinearLayout) findViewById(d.g.iv_del_all_layout);
-        aj.c(this.drU, d.f.icon_emotion_search);
-        aj.c(this.drV, d.f.del_search_btn);
-        aj.r(this.drT, d.C0141d.cp_cont_b);
-        this.drT.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
+        LayoutInflater.from(getContext()).inflate(d.i.emotion_search_edit, (ViewGroup) this, true);
+        this.cKK = (EditText) findViewById(d.g.edit_search);
+        this.cKL = (ImageView) findViewById(d.g.iv_search);
+        this.cKM = (ImageView) findViewById(d.g.iv_del_all);
+        this.cKN = (LinearLayout) findViewById(d.g.iv_del_all_layout);
+        ak.c(this.cKL, d.f.icon_emotion_search);
+        ak.c(this.cKM, d.f.del_search_btn);
+        ak.h(this.cKK, d.C0126d.cp_cont_b);
+        this.cKK.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -67,64 +67,64 @@ public class SearchEditView extends RelativeLayout {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (SearchEditView.this.drX != null) {
-                    SearchEditView.this.drX.kV(editable.toString().trim());
+                if (SearchEditView.this.cKO != null) {
+                    SearchEditView.this.cKO.kY(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
-                    SearchEditView.this.drW.setVisibility(4);
+                    SearchEditView.this.cKN.setVisibility(4);
                 } else {
-                    SearchEditView.this.drW.setVisibility(0);
+                    SearchEditView.this.cKN.setVisibility(0);
                 }
             }
         });
-        this.drT.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
+        this.cKK.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    String trim = SearchEditView.this.drT.getText().toString().trim();
-                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.drX != null) {
-                        SearchEditView.this.drX.kU(trim);
+                    String trim = SearchEditView.this.cKK.getText().toString().trim();
+                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.cKO != null) {
+                        SearchEditView.this.cKO.kX(trim);
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.drW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
+        this.cKN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                SearchEditView.this.drT.setText("");
+            public void onClick(View view2) {
+                SearchEditView.this.cKK.setText("");
             }
         });
-        gB(TbadkCoreApplication.getInst().getSkinType());
+        dA(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void gB(int i) {
+    public void dA(int i) {
         if (i == 0) {
-            this.drT.setHintTextColor(getResources().getColor(d.C0141d.cp_cont_d));
+            this.cKK.setHintTextColor(getResources().getColor(d.C0126d.cp_cont_d));
         } else {
-            this.drT.setHintTextColor(getResources().getColor(d.C0141d.cp_cont_d_1));
+            this.cKK.setHintTextColor(getResources().getColor(d.C0126d.cp_cont_d_1));
         }
     }
 
     public void setCallback(a aVar) {
-        this.drX = aVar;
+        this.cKO = aVar;
     }
 
     public void setText(String str) {
         if (str != null) {
-            this.drT.setText(str);
-            this.drT.setSelection(str.length());
+            this.cKK.setText(str);
+            this.cKK.setSelection(str.length());
         }
     }
 
     public void setSelection(int i) {
-        if (i <= this.drT.getText().length()) {
-            this.drT.setSelection(i);
+        if (i <= this.cKK.getText().length()) {
+            this.cKK.setSelection(i);
         }
     }
 
-    public boolean arr() {
-        return this.drT.requestFocus();
+    public boolean alH() {
+        return this.cKK.requestFocus();
     }
 }

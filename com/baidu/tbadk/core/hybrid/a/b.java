@@ -2,25 +2,25 @@ package com.baidu.tbadk.core.hybrid.a;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.hybrid.m;
+import com.baidu.tbadk.core.hybrid.l;
+import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
-import com.baidu.tbadk.core.hybrid.p;
 import com.baidu.tbadk.data.g;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b extends o {
-    public b(m mVar) {
-        super(mVar);
+public class b extends n {
+    public b(l lVar) {
+        super(lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.o
-    public String ww() {
+    @Override // com.baidu.tbadk.core.hybrid.n
+    public String pg() {
         return "TBHY_EXT_FocusFeed";
     }
 
-    @p("appointNotice")
+    @o("appointNotice")
     protected void appointNotice(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             int optInt = jSONObject.optInt("activityId");
@@ -28,8 +28,8 @@ public class b extends o {
             String optString = jSONObject.optString("curNum");
             g gVar = new g();
             gVar.setActivityId(optInt);
-            gVar.hy(optInt2);
-            gVar.fY(optString);
+            gVar.ex(optInt2);
+            gVar.fP(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, gVar));
         }
     }

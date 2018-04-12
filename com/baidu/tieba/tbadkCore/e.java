@@ -1,33 +1,16 @@
 package com.baidu.tieba.tbadkCore;
 
-import tbclient.FrsPage.ActivityConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bd;
+import java.util.List;
 /* loaded from: classes.dex */
-public class e {
-    private long gXP;
-    private String gXL = "";
-    private String gXM = "";
-    private String gXN = "";
-    private String gXO = "";
-    private int type = 1;
+public class e extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.h {
+    public static final BdUniqueId gtp = BdUniqueId.gen();
+    public List<bd> gtq;
+    public int gtr = -1;
 
-    public void a(ActivityConfig activityConfig) {
-        this.gXL = activityConfig.agree_icon;
-        this.gXN = activityConfig.agreed_icon;
-        this.gXM = activityConfig.night_agree_icon;
-        this.gXO = activityConfig.night_agreed_icon;
-        this.gXP = activityConfig.activity_id.longValue();
-        this.type = activityConfig.type.intValue();
-    }
-
-    public long buJ() {
-        return this.gXP;
-    }
-
-    public int getType() {
-        return this.type;
-    }
-
-    public void setType(int i) {
-        this.type = i;
+    @Override // com.baidu.adp.widget.ListView.h
+    public BdUniqueId getType() {
+        return gtp;
     }
 }

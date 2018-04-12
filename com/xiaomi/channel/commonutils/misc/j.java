@@ -1,7 +1,7 @@
 package com.xiaomi.channel.commonutils.misc;
 
 import com.xiaomi.channel.commonutils.misc.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class j implements Runnable {
     final /* synthetic */ h.b a;
     final /* synthetic */ h b;

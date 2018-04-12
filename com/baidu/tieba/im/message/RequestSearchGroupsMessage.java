@@ -5,25 +5,25 @@ import protobuf.SearchGroup.DataReq;
 import protobuf.SearchGroup.SearchGroupReqIdl;
 /* loaded from: classes3.dex */
 public class RequestSearchGroupsMessage extends TbSocketMessage {
-    private int groupId;
+    private long groupId;
 
     public RequestSearchGroupsMessage() {
         super(103007);
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.groupId = Integer.valueOf(getGroupId());
+            builder.groupId = Long.valueOf(getGroupId());
             SearchGroupReqIdl.Builder builder2 = new SearchGroupReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

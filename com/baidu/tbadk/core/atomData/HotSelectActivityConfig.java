@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -14,5 +15,12 @@ public class HotSelectActivityConfig extends IntentConfig {
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
         getIntent().putExtra("from", i2);
+    }
+
+    public void setForumExtra(long j, String str, String str2) {
+        Intent intent = getIntent();
+        intent.putExtra("forum_id", j);
+        intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
+        intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
     }
 }

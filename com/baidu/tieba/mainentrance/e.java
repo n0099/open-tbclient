@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e implements CustomMessageTask.CustomRunnable<Object> {
-    public static final List<String> cz(List<l.b<String>> list) {
+    public static final List<String> cs(List<l.b<String>> list) {
         LinkedList linkedList = new LinkedList();
         if (list != null) {
             for (l.b<String> bVar : list) {
@@ -33,9 +33,9 @@ public class e implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        List<String> cz = cz(r.b(com.baidu.tbadk.core.c.a.AR().N("tb.searchperson_history", currentAccount)));
+        List<String> cs = cs(r.b(com.baidu.tbadk.core.c.a.tz().O("tb.searchperson_history", currentAccount)));
         ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-        responseSearchPersonHistoryReadMessage.datas.addAll(cz);
+        responseSearchPersonHistoryReadMessage.datas.addAll(cs);
         return responseSearchPersonHistoryReadMessage;
     }
 }

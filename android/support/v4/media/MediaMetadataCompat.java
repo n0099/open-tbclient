@@ -17,6 +17,7 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public final class MediaMetadataCompat implements Parcelable {
     public static final Parcelable.Creator<MediaMetadataCompat> CREATOR;
+    static final ArrayMap<String, Integer> METADATA_KEYS_TYPE = new ArrayMap<>();
     public static final String METADATA_KEY_ALBUM = "android.media.metadata.ALBUM";
     public static final String METADATA_KEY_ALBUM_ART = "android.media.metadata.ALBUM_ART";
     public static final String METADATA_KEY_ALBUM_ARTIST = "android.media.metadata.ALBUM_ARTIST";
@@ -46,82 +47,86 @@ public final class MediaMetadataCompat implements Parcelable {
     public static final String METADATA_KEY_USER_RATING = "android.media.metadata.USER_RATING";
     public static final String METADATA_KEY_WRITER = "android.media.metadata.WRITER";
     public static final String METADATA_KEY_YEAR = "android.media.metadata.YEAR";
-    static final ArrayMap<String, Integer> ym = new ArrayMap<>();
-    private static final String[] yn;
-    private static final String[] yo;
-    private static final String[] yp;
-    private MediaDescriptionCompat xs;
-    final Bundle yq;
-    private Object yr;
+    static final int METADATA_TYPE_BITMAP = 2;
+    static final int METADATA_TYPE_LONG = 0;
+    static final int METADATA_TYPE_RATING = 3;
+    static final int METADATA_TYPE_TEXT = 1;
+    private static final String[] PREFERRED_BITMAP_ORDER;
+    private static final String[] PREFERRED_DESCRIPTION_ORDER;
+    private static final String[] PREFERRED_URI_ORDER;
+    private static final String TAG = "MediaMetadata";
+    final Bundle mBundle;
+    private MediaDescriptionCompat mDescription;
+    private Object mMetadataObj;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface BitmapKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface LongKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface RatingKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface TextKey {
     }
 
     static {
-        ym.put(METADATA_KEY_TITLE, 1);
-        ym.put(METADATA_KEY_ARTIST, 1);
-        ym.put(METADATA_KEY_DURATION, 0);
-        ym.put(METADATA_KEY_ALBUM, 1);
-        ym.put(METADATA_KEY_AUTHOR, 1);
-        ym.put(METADATA_KEY_WRITER, 1);
-        ym.put(METADATA_KEY_COMPOSER, 1);
-        ym.put(METADATA_KEY_COMPILATION, 1);
-        ym.put(METADATA_KEY_DATE, 1);
-        ym.put(METADATA_KEY_YEAR, 0);
-        ym.put(METADATA_KEY_GENRE, 1);
-        ym.put(METADATA_KEY_TRACK_NUMBER, 0);
-        ym.put(METADATA_KEY_NUM_TRACKS, 0);
-        ym.put(METADATA_KEY_DISC_NUMBER, 0);
-        ym.put(METADATA_KEY_ALBUM_ARTIST, 1);
-        ym.put(METADATA_KEY_ART, 2);
-        ym.put(METADATA_KEY_ART_URI, 1);
-        ym.put(METADATA_KEY_ALBUM_ART, 2);
-        ym.put(METADATA_KEY_ALBUM_ART_URI, 1);
-        ym.put(METADATA_KEY_USER_RATING, 3);
-        ym.put(METADATA_KEY_RATING, 3);
-        ym.put(METADATA_KEY_DISPLAY_TITLE, 1);
-        ym.put(METADATA_KEY_DISPLAY_SUBTITLE, 1);
-        ym.put(METADATA_KEY_DISPLAY_DESCRIPTION, 1);
-        ym.put(METADATA_KEY_DISPLAY_ICON, 2);
-        ym.put(METADATA_KEY_DISPLAY_ICON_URI, 1);
-        ym.put(METADATA_KEY_MEDIA_ID, 1);
-        ym.put(METADATA_KEY_BT_FOLDER_TYPE, 0);
-        ym.put(METADATA_KEY_MEDIA_URI, 1);
-        yn = new String[]{METADATA_KEY_TITLE, METADATA_KEY_ARTIST, METADATA_KEY_ALBUM, METADATA_KEY_ALBUM_ARTIST, METADATA_KEY_WRITER, METADATA_KEY_AUTHOR, METADATA_KEY_COMPOSER};
-        yo = new String[]{METADATA_KEY_DISPLAY_ICON, METADATA_KEY_ART, METADATA_KEY_ALBUM_ART};
-        yp = new String[]{METADATA_KEY_DISPLAY_ICON_URI, METADATA_KEY_ART_URI, METADATA_KEY_ALBUM_ART_URI};
+        METADATA_KEYS_TYPE.put(METADATA_KEY_TITLE, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_ARTIST, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_DURATION, 0);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_ALBUM, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_AUTHOR, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_WRITER, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_COMPOSER, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_COMPILATION, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_DATE, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_YEAR, 0);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_GENRE, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_TRACK_NUMBER, 0);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_NUM_TRACKS, 0);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_DISC_NUMBER, 0);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_ALBUM_ARTIST, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_ART, 2);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_ART_URI, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_ALBUM_ART, 2);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_ALBUM_ART_URI, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_USER_RATING, 3);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_RATING, 3);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_TITLE, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_SUBTITLE, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_DESCRIPTION, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_ICON, 2);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_DISPLAY_ICON_URI, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_MEDIA_ID, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_BT_FOLDER_TYPE, 0);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_MEDIA_URI, 1);
+        PREFERRED_DESCRIPTION_ORDER = new String[]{METADATA_KEY_TITLE, METADATA_KEY_ARTIST, METADATA_KEY_ALBUM, METADATA_KEY_ALBUM_ARTIST, METADATA_KEY_WRITER, METADATA_KEY_AUTHOR, METADATA_KEY_COMPOSER};
+        PREFERRED_BITMAP_ORDER = new String[]{METADATA_KEY_DISPLAY_ICON, METADATA_KEY_ART, METADATA_KEY_ALBUM_ART};
+        PREFERRED_URI_ORDER = new String[]{METADATA_KEY_DISPLAY_ICON_URI, METADATA_KEY_ART_URI, METADATA_KEY_ALBUM_ART_URI};
         CREATOR = new Parcelable.Creator<MediaMetadataCompat>() { // from class: android.support.v4.media.MediaMetadataCompat.1
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: g */
             public MediaMetadataCompat createFromParcel(Parcel parcel) {
                 return new MediaMetadataCompat(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: ag */
             public MediaMetadataCompat[] newArray(int i) {
                 return new MediaMetadataCompat[i];
             }
@@ -129,23 +134,23 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     MediaMetadataCompat(Bundle bundle) {
-        this.yq = new Bundle(bundle);
+        this.mBundle = new Bundle(bundle);
     }
 
     MediaMetadataCompat(Parcel parcel) {
-        this.yq = parcel.readBundle();
+        this.mBundle = parcel.readBundle();
     }
 
     public boolean containsKey(String str) {
-        return this.yq.containsKey(str);
+        return this.mBundle.containsKey(str);
     }
 
     public CharSequence getText(String str) {
-        return this.yq.getCharSequence(str);
+        return this.mBundle.getCharSequence(str);
     }
 
     public String getString(String str) {
-        CharSequence charSequence = this.yq.getCharSequence(str);
+        CharSequence charSequence = this.mBundle.getCharSequence(str);
         if (charSequence != null) {
             return charSequence.toString();
         }
@@ -153,29 +158,29 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     public long getLong(String str) {
-        return this.yq.getLong(str, 0L);
+        return this.mBundle.getLong(str, 0L);
     }
 
     public RatingCompat getRating(String str) {
         RatingCompat ratingCompat;
         try {
             if (Build.VERSION.SDK_INT >= 19) {
-                ratingCompat = RatingCompat.fromRating(this.yq.getParcelable(str));
+                ratingCompat = RatingCompat.fromRating(this.mBundle.getParcelable(str));
             } else {
-                ratingCompat = (RatingCompat) this.yq.getParcelable(str);
+                ratingCompat = (RatingCompat) this.mBundle.getParcelable(str);
             }
             return ratingCompat;
         } catch (Exception e) {
-            Log.w("MediaMetadata", "Failed to retrieve a key as Rating.", e);
+            Log.w(TAG, "Failed to retrieve a key as Rating.", e);
             return null;
         }
     }
 
     public Bitmap getBitmap(String str) {
         try {
-            return (Bitmap) this.yq.getParcelable(str);
+            return (Bitmap) this.mBundle.getParcelable(str);
         } catch (Exception e) {
-            Log.w("MediaMetadata", "Failed to retrieve a key as Bitmap.", e);
+            Log.w(TAG, "Failed to retrieve a key as Bitmap.", e);
             return null;
         }
     }
@@ -184,8 +189,8 @@ public final class MediaMetadataCompat implements Parcelable {
         int i;
         Bitmap bitmap;
         Uri uri;
-        if (this.xs != null) {
-            return this.xs;
+        if (this.mDescription != null) {
+            return this.mDescription;
         }
         String string = getString(METADATA_KEY_MEDIA_ID);
         CharSequence[] charSequenceArr = new CharSequence[3];
@@ -197,9 +202,9 @@ public final class MediaMetadataCompat implements Parcelable {
         } else {
             int i2 = 0;
             int i3 = 0;
-            while (i3 < charSequenceArr.length && i2 < yn.length) {
+            while (i3 < charSequenceArr.length && i2 < PREFERRED_DESCRIPTION_ORDER.length) {
                 int i4 = i2 + 1;
-                CharSequence text2 = getText(yn[i2]);
+                CharSequence text2 = getText(PREFERRED_DESCRIPTION_ORDER[i2]);
                 if (TextUtils.isEmpty(text2)) {
                     i = i3;
                 } else {
@@ -212,11 +217,11 @@ public final class MediaMetadataCompat implements Parcelable {
         }
         int i5 = 0;
         while (true) {
-            if (i5 >= yo.length) {
+            if (i5 >= PREFERRED_BITMAP_ORDER.length) {
                 bitmap = null;
                 break;
             }
-            Bitmap bitmap2 = getBitmap(yo[i5]);
+            Bitmap bitmap2 = getBitmap(PREFERRED_BITMAP_ORDER[i5]);
             if (bitmap2 != null) {
                 bitmap = bitmap2;
                 break;
@@ -225,11 +230,11 @@ public final class MediaMetadataCompat implements Parcelable {
         }
         int i6 = 0;
         while (true) {
-            if (i6 >= yp.length) {
+            if (i6 >= PREFERRED_URI_ORDER.length) {
                 uri = null;
                 break;
             }
-            String string2 = getString(yp[i6]);
+            String string2 = getString(PREFERRED_URI_ORDER[i6]);
             if (TextUtils.isEmpty(string2)) {
                 i6++;
             } else {
@@ -247,13 +252,13 @@ public final class MediaMetadataCompat implements Parcelable {
         builder.setIconBitmap(bitmap);
         builder.setIconUri(uri);
         builder.setMediaUri(parse);
-        if (this.yq.containsKey(METADATA_KEY_BT_FOLDER_TYPE)) {
+        if (this.mBundle.containsKey(METADATA_KEY_BT_FOLDER_TYPE)) {
             Bundle bundle = new Bundle();
             bundle.putLong(MediaDescriptionCompat.EXTRA_BT_FOLDER_TYPE, getLong(METADATA_KEY_BT_FOLDER_TYPE));
             builder.setExtras(bundle);
         }
-        this.xs = builder.build();
-        return this.xs;
+        this.mDescription = builder.build();
+        return this.mDescription;
     }
 
     @Override // android.os.Parcelable
@@ -263,19 +268,19 @@ public final class MediaMetadataCompat implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeBundle(this.yq);
+        parcel.writeBundle(this.mBundle);
     }
 
     public int size() {
-        return this.yq.size();
+        return this.mBundle.size();
     }
 
     public Set<String> keySet() {
-        return this.yq.keySet();
+        return this.mBundle.keySet();
     }
 
     public Bundle getBundle() {
-        return this.yq;
+        return this.mBundle;
     }
 
     public static MediaMetadataCompat fromMediaMetadata(Object obj) {
@@ -283,47 +288,47 @@ public final class MediaMetadataCompat implements Parcelable {
             return null;
         }
         Parcel obtain = Parcel.obtain();
-        MediaMetadataCompatApi21.a(obj, obtain, 0);
+        MediaMetadataCompatApi21.writeToParcel(obj, obtain, 0);
         obtain.setDataPosition(0);
         MediaMetadataCompat createFromParcel = CREATOR.createFromParcel(obtain);
         obtain.recycle();
-        createFromParcel.yr = obj;
+        createFromParcel.mMetadataObj = obj;
         return createFromParcel;
     }
 
     public Object getMediaMetadata() {
-        if (this.yr != null || Build.VERSION.SDK_INT < 21) {
-            return this.yr;
+        if (this.mMetadataObj != null || Build.VERSION.SDK_INT < 21) {
+            return this.mMetadataObj;
         }
         Parcel obtain = Parcel.obtain();
         writeToParcel(obtain, 0);
         obtain.setDataPosition(0);
-        this.yr = MediaMetadataCompatApi21.createFromParcel(obtain);
+        this.mMetadataObj = MediaMetadataCompatApi21.createFromParcel(obtain);
         obtain.recycle();
-        return this.yr;
+        return this.mMetadataObj;
     }
 
     /* loaded from: classes2.dex */
     public static final class Builder {
-        private final Bundle yq;
+        private final Bundle mBundle;
 
         public Builder() {
-            this.yq = new Bundle();
+            this.mBundle = new Bundle();
         }
 
         public Builder(MediaMetadataCompat mediaMetadataCompat) {
-            this.yq = new Bundle(mediaMetadataCompat.yq);
+            this.mBundle = new Bundle(mediaMetadataCompat.mBundle);
         }
 
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public Builder(MediaMetadataCompat mediaMetadataCompat, int i) {
             this(mediaMetadataCompat);
-            for (String str : this.yq.keySet()) {
-                Object obj = this.yq.get(str);
+            for (String str : this.mBundle.keySet()) {
+                Object obj = this.mBundle.get(str);
                 if (obj != null && (obj instanceof Bitmap)) {
                     Bitmap bitmap = (Bitmap) obj;
                     if (bitmap.getHeight() > i || bitmap.getWidth() > i) {
-                        putBitmap(str, b(bitmap, i));
+                        putBitmap(str, scaleBitmap(bitmap, i));
                     } else if (Build.VERSION.SDK_INT >= 14 && (str.equals(MediaMetadataCompat.METADATA_KEY_ART) || str.equals(MediaMetadataCompat.METADATA_KEY_ALBUM_ART))) {
                         putBitmap(str, bitmap.copy(bitmap.getConfig(), false));
                     }
@@ -332,54 +337,54 @@ public final class MediaMetadataCompat implements Parcelable {
         }
 
         public Builder putText(String str, CharSequence charSequence) {
-            if (MediaMetadataCompat.ym.containsKey(str) && MediaMetadataCompat.ym.get(str).intValue() != 1) {
+            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
                 throw new IllegalArgumentException("The " + str + " key cannot be used to put a CharSequence");
             }
-            this.yq.putCharSequence(str, charSequence);
+            this.mBundle.putCharSequence(str, charSequence);
             return this;
         }
 
         public Builder putString(String str, String str2) {
-            if (MediaMetadataCompat.ym.containsKey(str) && MediaMetadataCompat.ym.get(str).intValue() != 1) {
+            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
                 throw new IllegalArgumentException("The " + str + " key cannot be used to put a String");
             }
-            this.yq.putCharSequence(str, str2);
+            this.mBundle.putCharSequence(str, str2);
             return this;
         }
 
         public Builder putLong(String str, long j) {
-            if (MediaMetadataCompat.ym.containsKey(str) && MediaMetadataCompat.ym.get(str).intValue() != 0) {
+            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
                 throw new IllegalArgumentException("The " + str + " key cannot be used to put a long");
             }
-            this.yq.putLong(str, j);
+            this.mBundle.putLong(str, j);
             return this;
         }
 
         public Builder putRating(String str, RatingCompat ratingCompat) {
-            if (MediaMetadataCompat.ym.containsKey(str) && MediaMetadataCompat.ym.get(str).intValue() != 3) {
+            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 3) {
                 throw new IllegalArgumentException("The " + str + " key cannot be used to put a Rating");
             }
             if (Build.VERSION.SDK_INT >= 19) {
-                this.yq.putParcelable(str, (Parcelable) ratingCompat.getRating());
+                this.mBundle.putParcelable(str, (Parcelable) ratingCompat.getRating());
             } else {
-                this.yq.putParcelable(str, ratingCompat);
+                this.mBundle.putParcelable(str, ratingCompat);
             }
             return this;
         }
 
         public Builder putBitmap(String str, Bitmap bitmap) {
-            if (MediaMetadataCompat.ym.containsKey(str) && MediaMetadataCompat.ym.get(str).intValue() != 2) {
+            if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 2) {
                 throw new IllegalArgumentException("The " + str + " key cannot be used to put a Bitmap");
             }
-            this.yq.putParcelable(str, bitmap);
+            this.mBundle.putParcelable(str, bitmap);
             return this;
         }
 
         public MediaMetadataCompat build() {
-            return new MediaMetadataCompat(this.yq);
+            return new MediaMetadataCompat(this.mBundle);
         }
 
-        private Bitmap b(Bitmap bitmap, int i) {
+        private Bitmap scaleBitmap(Bitmap bitmap, int i) {
             float f = i;
             float min = Math.min(f / bitmap.getWidth(), f / bitmap.getHeight());
             return Bitmap.createScaledBitmap(bitmap, (int) (min * bitmap.getWidth()), (int) (bitmap.getHeight() * min), true);

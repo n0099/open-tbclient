@@ -2,45 +2,50 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.widget.SpinnerAdapter;
 /* loaded from: classes2.dex */
 public interface ThemedSpinnerAdapter extends SpinnerAdapter {
+    @Nullable
     Resources.Theme getDropDownViewTheme();
 
-    void setDropDownViewTheme(Resources.Theme theme);
+    void setDropDownViewTheme(@Nullable Resources.Theme theme);
 
     /* loaded from: classes2.dex */
     public static final class Helper {
-        private LayoutInflater WZ;
         private final Context mContext;
+        private LayoutInflater mDropDownInflater;
         private final LayoutInflater mInflater;
 
-        public Helper(Context context) {
+        public Helper(@NonNull Context context) {
             this.mContext = context;
             this.mInflater = LayoutInflater.from(context);
         }
 
-        public void setDropDownViewTheme(Resources.Theme theme) {
+        public void setDropDownViewTheme(@Nullable Resources.Theme theme) {
             if (theme == null) {
-                this.WZ = null;
+                this.mDropDownInflater = null;
             } else if (theme == this.mContext.getTheme()) {
-                this.WZ = this.mInflater;
+                this.mDropDownInflater = this.mInflater;
             } else {
-                this.WZ = LayoutInflater.from(new ContextThemeWrapper(this.mContext, theme));
+                this.mDropDownInflater = LayoutInflater.from(new ContextThemeWrapper(this.mContext, theme));
             }
         }
 
+        @Nullable
         public Resources.Theme getDropDownViewTheme() {
-            if (this.WZ == null) {
+            if (this.mDropDownInflater == null) {
                 return null;
             }
-            return this.WZ.getContext().getTheme();
+            return this.mDropDownInflater.getContext().getTheme();
         }
 
+        @NonNull
         public LayoutInflater getDropDownViewInflater() {
-            return this.WZ != null ? this.WZ : this.mInflater;
+            return this.mDropDownInflater != null ? this.mDropDownInflater : this.mInflater;
         }
     }
 }

@@ -3,7 +3,7 @@ package com.coloros.mcssdk.c;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static String a() {
         byte[] c = c("com.nearme.mcs");

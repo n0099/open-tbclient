@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
 import android.view.ViewGroup;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public interface MenuPresenter {
 

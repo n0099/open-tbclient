@@ -2,7 +2,7 @@ package android.support.v7.view.menu;
 
 import android.graphics.drawable.Drawable;
 import android.support.annotation.RestrictTo;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public interface MenuView {
 

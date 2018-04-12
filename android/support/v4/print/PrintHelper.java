@@ -14,7 +14,7 @@ public final class PrintHelper {
     public static final int ORIENTATION_PORTRAIT = 2;
     public static final int SCALE_MODE_FILL = 2;
     public static final int SCALE_MODE_FIT = 1;
-    g Ai;
+    PrintHelperVersionImpl mImpl;
 
     /* loaded from: classes2.dex */
     public interface OnPrintFinishCallback {
@@ -22,7 +22,7 @@ public final class PrintHelper {
     }
 
     /* loaded from: classes2.dex */
-    interface g {
+    interface PrintHelperVersionImpl {
         int getColorMode();
 
         int getOrientation();
@@ -45,207 +45,207 @@ public final class PrintHelper {
     }
 
     /* loaded from: classes2.dex */
-    private static final class f implements g {
-        int Am;
-        int An;
+    private static final class PrintHelperStubImpl implements PrintHelperVersionImpl {
+        int mColorMode;
+        int mOrientation;
         int mScaleMode;
 
-        private f() {
+        private PrintHelperStubImpl() {
             this.mScaleMode = 2;
-            this.Am = 2;
-            this.An = 1;
+            this.mColorMode = 2;
+            this.mOrientation = 1;
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void setScaleMode(int i) {
             this.mScaleMode = i;
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public int getColorMode() {
-            return this.Am;
+            return this.mColorMode;
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void setColorMode(int i) {
-            this.Am = i;
+            this.mColorMode = i;
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void setOrientation(int i) {
-            this.An = i;
+            this.mOrientation = i;
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public int getOrientation() {
-            return this.An;
+            return this.mOrientation;
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public int getScaleMode() {
             return this.mScaleMode;
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void printBitmap(String str, Bitmap bitmap, OnPrintFinishCallback onPrintFinishCallback) {
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void printBitmap(String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback) {
         }
     }
 
     /* loaded from: classes2.dex */
-    private static class d<RealHelper extends PrintHelperKitkat> implements g {
-        private final RealHelper Aj;
+    private static class PrintHelperImpl<RealHelper extends PrintHelperKitkat> implements PrintHelperVersionImpl {
+        private final RealHelper mPrintHelper;
 
-        protected d(RealHelper realhelper) {
-            this.Aj = realhelper;
+        protected PrintHelperImpl(RealHelper realhelper) {
+            this.mPrintHelper = realhelper;
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void setScaleMode(int i) {
-            this.Aj.setScaleMode(i);
+            this.mPrintHelper.setScaleMode(i);
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public int getScaleMode() {
-            return this.Aj.getScaleMode();
+            return this.mPrintHelper.getScaleMode();
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void setColorMode(int i) {
-            this.Aj.setColorMode(i);
+            this.mPrintHelper.setColorMode(i);
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public int getColorMode() {
-            return this.Aj.getColorMode();
+            return this.mPrintHelper.getColorMode();
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void setOrientation(int i) {
-            this.Aj.setOrientation(i);
+            this.mPrintHelper.setOrientation(i);
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public int getOrientation() {
-            return this.Aj.getOrientation();
+            return this.mPrintHelper.getOrientation();
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void printBitmap(String str, Bitmap bitmap, final OnPrintFinishCallback onPrintFinishCallback) {
             PrintHelperKitkat.OnPrintFinishCallback onPrintFinishCallback2 = null;
             if (onPrintFinishCallback != null) {
-                onPrintFinishCallback2 = new PrintHelperKitkat.OnPrintFinishCallback() { // from class: android.support.v4.print.PrintHelper.d.1
+                onPrintFinishCallback2 = new PrintHelperKitkat.OnPrintFinishCallback() { // from class: android.support.v4.print.PrintHelper.PrintHelperImpl.1
                     @Override // android.support.v4.print.PrintHelperKitkat.OnPrintFinishCallback
                     public void onFinish() {
                         onPrintFinishCallback.onFinish();
                     }
                 };
             }
-            this.Aj.a(str, bitmap, onPrintFinishCallback2);
+            this.mPrintHelper.printBitmap(str, bitmap, onPrintFinishCallback2);
         }
 
-        @Override // android.support.v4.print.PrintHelper.g
+        @Override // android.support.v4.print.PrintHelper.PrintHelperVersionImpl
         public void printBitmap(String str, Uri uri, final OnPrintFinishCallback onPrintFinishCallback) throws FileNotFoundException {
             PrintHelperKitkat.OnPrintFinishCallback onPrintFinishCallback2 = null;
             if (onPrintFinishCallback != null) {
-                onPrintFinishCallback2 = new PrintHelperKitkat.OnPrintFinishCallback() { // from class: android.support.v4.print.PrintHelper.d.2
+                onPrintFinishCallback2 = new PrintHelperKitkat.OnPrintFinishCallback() { // from class: android.support.v4.print.PrintHelper.PrintHelperImpl.2
                     @Override // android.support.v4.print.PrintHelperKitkat.OnPrintFinishCallback
                     public void onFinish() {
                         onPrintFinishCallback.onFinish();
                     }
                 };
             }
-            this.Aj.a(str, uri, onPrintFinishCallback2);
+            this.mPrintHelper.printBitmap(str, uri, onPrintFinishCallback2);
         }
     }
 
     /* loaded from: classes2.dex */
-    private static final class e extends d<PrintHelperKitkat> {
-        e(Context context) {
+    private static final class PrintHelperKitkatImpl extends PrintHelperImpl<PrintHelperKitkat> {
+        PrintHelperKitkatImpl(Context context) {
             super(new PrintHelperKitkat(context));
         }
     }
 
     /* loaded from: classes2.dex */
-    private static final class a extends d<android.support.v4.print.a> {
-        a(Context context) {
-            super(new android.support.v4.print.a(context));
+    private static final class PrintHelperApi20Impl extends PrintHelperImpl<PrintHelperApi20> {
+        PrintHelperApi20Impl(Context context) {
+            super(new PrintHelperApi20(context));
         }
     }
 
     /* loaded from: classes2.dex */
-    private static final class b extends d<android.support.v4.print.b> {
-        b(Context context) {
-            super(new android.support.v4.print.b(context));
+    private static final class PrintHelperApi23Impl extends PrintHelperImpl<PrintHelperApi23> {
+        PrintHelperApi23Impl(Context context) {
+            super(new PrintHelperApi23(context));
         }
     }
 
     /* loaded from: classes2.dex */
-    private static final class c extends d<android.support.v4.print.c> {
-        c(Context context) {
-            super(new android.support.v4.print.c(context));
+    private static final class PrintHelperApi24Impl extends PrintHelperImpl<PrintHelperApi24> {
+        PrintHelperApi24Impl(Context context) {
+            super(new PrintHelperApi24(context));
         }
     }
 
     public PrintHelper(Context context) {
         if (systemSupportsPrint()) {
             if (Build.VERSION.SDK_INT >= 24) {
-                this.Ai = new c(context);
+                this.mImpl = new PrintHelperApi24Impl(context);
                 return;
             } else if (Build.VERSION.SDK_INT >= 23) {
-                this.Ai = new b(context);
+                this.mImpl = new PrintHelperApi23Impl(context);
                 return;
             } else if (Build.VERSION.SDK_INT >= 20) {
-                this.Ai = new a(context);
+                this.mImpl = new PrintHelperApi20Impl(context);
                 return;
             } else {
-                this.Ai = new e(context);
+                this.mImpl = new PrintHelperKitkatImpl(context);
                 return;
             }
         }
-        this.Ai = new f();
+        this.mImpl = new PrintHelperStubImpl();
     }
 
     public void setScaleMode(int i) {
-        this.Ai.setScaleMode(i);
+        this.mImpl.setScaleMode(i);
     }
 
     public int getScaleMode() {
-        return this.Ai.getScaleMode();
+        return this.mImpl.getScaleMode();
     }
 
     public void setColorMode(int i) {
-        this.Ai.setColorMode(i);
+        this.mImpl.setColorMode(i);
     }
 
     public int getColorMode() {
-        return this.Ai.getColorMode();
+        return this.mImpl.getColorMode();
     }
 
     public void setOrientation(int i) {
-        this.Ai.setOrientation(i);
+        this.mImpl.setOrientation(i);
     }
 
     public int getOrientation() {
-        return this.Ai.getOrientation();
+        return this.mImpl.getOrientation();
     }
 
     public void printBitmap(String str, Bitmap bitmap) {
-        this.Ai.printBitmap(str, bitmap, (OnPrintFinishCallback) null);
+        this.mImpl.printBitmap(str, bitmap, (OnPrintFinishCallback) null);
     }
 
     public void printBitmap(String str, Bitmap bitmap, OnPrintFinishCallback onPrintFinishCallback) {
-        this.Ai.printBitmap(str, bitmap, onPrintFinishCallback);
+        this.mImpl.printBitmap(str, bitmap, onPrintFinishCallback);
     }
 
     public void printBitmap(String str, Uri uri) throws FileNotFoundException {
-        this.Ai.printBitmap(str, uri, (OnPrintFinishCallback) null);
+        this.mImpl.printBitmap(str, uri, (OnPrintFinishCallback) null);
     }
 
     public void printBitmap(String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback) throws FileNotFoundException {
-        this.Ai.printBitmap(str, uri, onPrintFinishCallback);
+        this.mImpl.printBitmap(str, uri, onPrintFinishCallback);
     }
 }

@@ -1,5 +1,5 @@
 package com.xiaomi.xmpush.thrift;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum f {
     MISC_CONFIG(1),
     PLUGIN_CONFIG(2);

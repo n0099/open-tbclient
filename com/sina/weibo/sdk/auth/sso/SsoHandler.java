@@ -10,6 +10,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.sina.sso.RemoteSSO;
@@ -198,7 +199,7 @@ public class SsoHandler {
     }
 
     public static ComponentName isServiceExisted(Context context, String str) {
-        for (ActivityManager.RunningServiceInfo runningServiceInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningServices(Integer.MAX_VALUE)) {
+        for (ActivityManager.RunningServiceInfo runningServiceInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningServices(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED)) {
             ComponentName componentName = runningServiceInfo.service;
             if (componentName.getPackageName().equals(str) && componentName.getClassName().equals(String.valueOf(str) + ".business.RemoteSSOService")) {
                 return componentName;

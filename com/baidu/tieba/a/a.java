@@ -1,35 +1,44 @@
 package com.baidu.tieba.a;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.util.an;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class a extends d<com.baidu.tbadk.data.b, com.baidu.tbadk.i.b> {
-    public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.mPageContext = tbPageContext;
+public class a {
+    private ArrayList<Integer> bbP;
+    private c bbQ;
+    private HashMap<String, b> mData = new HashMap<>();
+
+    public a(c cVar, ArrayList<Integer> arrayList) {
+        this.bbP = arrayList;
+        this.bbQ = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: m */
-    public com.baidu.tbadk.i.b onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.i.b(LayoutInflater.from(this.mContext).inflate(d.h.ala_follow_lives_layout, viewGroup, false), this.mPageContext);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.b bVar, com.baidu.tbadk.i.b bVar2) {
-        if (bVar != null && bVar2 != null) {
-            bVar2.Mv();
-            bVar2.a(bVar);
+    public int L(String str, int i) {
+        if (this.mData == null || an.isEmpty(str) || this.bbP == null || !this.bbP.contains(Integer.valueOf(i))) {
+            return 0;
         }
-        return view;
+        if (!this.mData.containsKey(str)) {
+            hW(str);
+        }
+        b bVar = this.mData.get(str);
+        if (bVar == null) {
+            return 0;
+        }
+        return bVar.gn(i);
+    }
+
+    public void hW(String str) {
+        if (this.mData != null && !an.isEmpty(str) && this.bbQ != null) {
+            if (this.mData.containsKey(str)) {
+                b bVar = this.mData.get(str);
+                this.bbQ.a(this.bbP, bVar);
+                this.mData.put(str, bVar);
+                return;
+            }
+            b bVar2 = new b();
+            this.bbQ.a(this.bbP, bVar2);
+            this.mData.put(str, bVar2);
+        }
     }
 }

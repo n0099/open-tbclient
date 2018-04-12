@@ -7,7 +7,7 @@ import com.xiaomi.push.service.ah;
 import com.xiaomi.push.service.ai;
 import com.xiaomi.xmpush.thrift.ae;
 import com.xiaomi.xmpush.thrift.aq;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class o extends f.a {
     private Context a;
 

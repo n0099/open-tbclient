@@ -44,13 +44,13 @@ public class a implements ArBridge.MessageHandler {
             this.e.put(aVar.a(), Integer.valueOf(aVar.b()));
         }
         a(1002, hashMap);
-        com.baidu.ar.b.a.a().a(new a.InterfaceC0037a() { // from class: com.baidu.ar.c.a.1
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+        com.baidu.ar.b.a.a().a(new a.InterfaceC0026a() { // from class: com.baidu.ar.c.a.1
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(Exception exc) {
                 a.this.a(1010, hashMap);
             }
 
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(boolean z) {
             }
         }, aVar.a(), aVar.c(), new MediaPlayer.OnCompletionListener() { // from class: com.baidu.ar.c.a.5
@@ -185,13 +185,13 @@ public class a implements ArBridge.MessageHandler {
 
     private void b(com.baidu.ar.bean.a aVar, final HashMap<String, Object> hashMap) {
         a(1004, hashMap);
-        com.baidu.ar.b.a.a().a(new a.InterfaceC0037a() { // from class: com.baidu.ar.c.a.6
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+        com.baidu.ar.b.a.a().a(new a.InterfaceC0026a() { // from class: com.baidu.ar.c.a.6
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(Exception exc) {
                 a.this.a(1010, hashMap);
             }
 
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(boolean z) {
             }
         }, aVar.a());
@@ -257,13 +257,13 @@ public class a implements ArBridge.MessageHandler {
 
     private void c(final com.baidu.ar.bean.a aVar, final HashMap<String, Object> hashMap) {
         a(1006, hashMap);
-        com.baidu.ar.b.a.a().b(new a.InterfaceC0037a() { // from class: com.baidu.ar.c.a.7
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+        com.baidu.ar.b.a.a().b(new a.InterfaceC0026a() { // from class: com.baidu.ar.c.a.7
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(Exception exc) {
                 a.this.a(1010, hashMap);
             }
 
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(boolean z) {
             }
         }, aVar.a(), aVar.c(), new MediaPlayer.OnCompletionListener() { // from class: com.baidu.ar.c.a.8
@@ -302,13 +302,13 @@ public class a implements ArBridge.MessageHandler {
 
     private void d(com.baidu.ar.bean.a aVar, final HashMap<String, Object> hashMap) {
         a(1008, hashMap);
-        com.baidu.ar.b.a.a().b(new a.InterfaceC0037a() { // from class: com.baidu.ar.c.a.9
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+        com.baidu.ar.b.a.a().b(new a.InterfaceC0026a() { // from class: com.baidu.ar.c.a.9
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(Exception exc) {
                 a.this.a(1010, hashMap);
             }
 
-            @Override // com.baidu.ar.b.a.InterfaceC0037a
+            @Override // com.baidu.ar.b.a.InterfaceC0026a
             public void a(boolean z) {
             }
         }, aVar.a());

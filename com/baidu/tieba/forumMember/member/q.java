@@ -4,30 +4,30 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
-public class q extends r.a {
-    public View aRs;
-    public TextView dCi;
-    public TextView dCj;
-    public TextView dCk;
-    public TextView dCl;
-    public RelativeLayout dCm;
-    public RelativeLayout dCn;
+public class q extends q.a {
+    public View acO;
+    public TextView cUU;
+    public TextView cUV;
+    public TextView cUW;
+    public TextView cUX;
+    public RelativeLayout cUY;
+    public RelativeLayout cUZ;
     public LinearLayout mRootLayout;
     public int mSkinType;
 
-    public q(View view) {
-        super(view);
+    public q(View view2) {
+        super(view2);
         this.mSkinType = 3;
-        this.mRootLayout = (LinearLayout) view.findViewById(d.g.root_member_manager_apply);
-        this.aRs = view.findViewById(d.g.manager_apply_line);
-        this.dCi = (TextView) view.findViewById(d.g.manager_apply_tip);
-        this.dCj = (TextView) view.findViewById(d.g.assist_apply_tip);
-        this.dCk = (TextView) view.findViewById(d.g.manager_left_tv);
-        this.dCl = (TextView) view.findViewById(d.g.assist_left_tv);
-        this.dCm = (RelativeLayout) view.findViewById(d.g.manager_apply_layout);
-        this.dCn = (RelativeLayout) view.findViewById(d.g.assist_apply_layout);
+        this.mRootLayout = (LinearLayout) view2.findViewById(d.g.root_member_manager_apply);
+        this.acO = view2.findViewById(d.g.manager_apply_line);
+        this.cUU = (TextView) view2.findViewById(d.g.manager_apply_tip);
+        this.cUV = (TextView) view2.findViewById(d.g.assist_apply_tip);
+        this.cUW = (TextView) view2.findViewById(d.g.manager_left_tv);
+        this.cUX = (TextView) view2.findViewById(d.g.assist_left_tv);
+        this.cUY = (RelativeLayout) view2.findViewById(d.g.manager_apply_layout);
+        this.cUZ = (RelativeLayout) view2.findViewById(d.g.assist_apply_layout);
     }
 }

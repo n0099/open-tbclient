@@ -5,11 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.interestlabel.view.LabelItemView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tieba.interestlabel.b.a> eXw = new ArrayList();
+    private List<com.baidu.tieba.interestlabel.b.a> ese = new ArrayList();
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -18,8 +19,8 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
-        if (!v.E(list)) {
-            this.eXw = list;
+        if (!v.w(list)) {
+            this.ese = list;
             notifyDataSetChanged();
         }
     }
@@ -30,7 +31,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        int size = this.eXw.size();
+        int size = this.ese.size();
         if (size % 3 == 0) {
             return size / 3;
         }
@@ -48,16 +49,16 @@ public class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        com.baidu.tieba.interestlabel.view.a aVar;
-        if (view == null) {
-            aVar = new com.baidu.tieba.interestlabel.view.a(this.mContext);
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        LabelItemView labelItemView;
+        if (view2 == null) {
+            labelItemView = new LabelItemView(this.mContext);
         } else {
-            aVar = (com.baidu.tieba.interestlabel.view.a) view;
+            labelItemView = (LabelItemView) view2;
         }
         int i2 = i * 3;
-        aVar.setData(this.eXw.subList(i2, Math.min(this.eXw.size(), i2 + 3)), i == getCount() + (-1));
-        aVar.setOnClickListener(this.mOnClickListener);
-        return aVar;
+        labelItemView.setData(this.ese.subList(i2, Math.min(this.ese.size(), i2 + 3)), i == getCount() + (-1));
+        labelItemView.setOnClickListener(this.mOnClickListener);
+        return labelItemView;
     }
 }

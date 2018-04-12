@@ -35,7 +35,7 @@ public interface IVideoConvertListener extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof IVideoConvertListener)) {
                 return (IVideoConvertListener) queryLocalInterface;
             }
-            return new a(iBinder);
+            return new Proxy(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -75,16 +75,20 @@ public interface IVideoConvertListener extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        private static class a implements IVideoConvertListener {
+        private static class Proxy implements IVideoConvertListener {
             private IBinder mRemote;
 
-            a(IBinder iBinder) {
+            Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 return this.mRemote;
+            }
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
             }
 
             @Override // com.baidu.tieba.video.convert.IVideoConvertListener

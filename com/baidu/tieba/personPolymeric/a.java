@@ -9,95 +9,96 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
-import com.baidu.tieba.view.h;
-import com.baidu.tieba.view.i;
+import com.baidu.tieba.personPolymeric.event.b;
+import com.baidu.tieba.view.f;
+import com.baidu.tieba.view.g;
 /* loaded from: classes3.dex */
-public class a implements h {
-    private ImageView gnr;
-    private ImageView gns;
+public class a implements f {
+    private ImageView fHO;
+    private ImageView fHP;
     private NavigationBar mNavigationBar;
     private UserData mUserData;
 
-    @Override // com.baidu.tieba.view.h
+    @Override // com.baidu.tieba.view.f
     public void a(Context context, NavigationBar navigationBar) {
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
-        this.gns = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gns.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gns.getLayoutParams();
+        this.fHP = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.view_topbar_icon, (View.OnClickListener) null);
+        if (this.fHP.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fHP.getLayoutParams();
             layoutParams.rightMargin = context.getResources().getDimensionPixelSize(d.e.ds4);
-            this.gns.setLayoutParams(layoutParams);
+            this.fHP.setLayoutParams(layoutParams);
         }
-        this.gnr = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gnr.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gnr.getLayoutParams();
+        this.fHO = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.view_topbar_icon, (View.OnClickListener) null);
+        if (this.fHO.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.fHO.getLayoutParams();
             layoutParams2.rightMargin = context.getResources().getDimensionPixelSize(d.e.ds14);
-            this.gnr.setLayoutParams(layoutParams2);
+            this.fHO.setLayoutParams(layoutParams2);
         }
         if (TbadkCoreApplication.isLogin()) {
-            this.gnr.setVisibility(0);
+            this.fHO.setVisibility(0);
             return;
         }
-        this.gnr.setVisibility(8);
-        if (this.gns.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gns.getLayoutParams();
+        this.fHO.setVisibility(8);
+        if (this.fHP.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.fHP.getLayoutParams();
             layoutParams3.rightMargin = context.getResources().getDimensionPixelSize(d.e.ds14);
-            this.gns.setLayoutParams(layoutParams3);
+            this.fHP.setLayoutParams(layoutParams3);
         }
     }
 
-    @Override // com.baidu.tieba.view.h
-    public void setOnViewResponseListener(final i iVar) {
-        if (this.gnr != null) {
-            this.gnr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
+    @Override // com.baidu.tieba.view.f
+    public void setOnViewResponseListener(final g gVar) {
+        if (this.fHO != null) {
+            this.fHO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (j.oJ()) {
-                        TiebaStatic.log(new ak("c12503").ab("obj_locate", "2"));
-                        com.baidu.tieba.personPolymeric.event.b bVar = new com.baidu.tieba.personPolymeric.event.b();
-                        bVar.dro = 9;
-                        iVar.a(view, bVar);
+                public void onClick(View view2) {
+                    if (j.gP()) {
+                        TiebaStatic.log(new al("c12503").ac("obj_locate", "2"));
+                        b bVar = new b();
+                        bVar.cKf = 9;
+                        gVar.a(view2, bVar);
                     }
                 }
             });
         }
-        if (this.gns != null) {
-            this.gns.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
+        if (this.fHP != null) {
+            this.fHP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    TiebaStatic.log(new ak("c12503").ab("obj_locate", "1"));
-                    com.baidu.tieba.personPolymeric.event.b bVar = new com.baidu.tieba.personPolymeric.event.b();
-                    bVar.dro = 42;
-                    bVar.drp = new Bundle();
-                    bVar.drp.putSerializable(UserData.TYPE_USER, a.this.mUserData);
-                    iVar.a(view, bVar);
+                public void onClick(View view2) {
+                    TiebaStatic.log(new al("c12503").ac("obj_locate", "1"));
+                    b bVar = new b();
+                    bVar.cKf = 42;
+                    bVar.cKg = new Bundle();
+                    bVar.cKg.putSerializable(UserData.TYPE_USER, a.this.mUserData);
+                    gVar.a(view2, bVar);
                 }
             });
         }
     }
 
-    @Override // com.baidu.tieba.view.h
-    public void bjN() {
+    @Override // com.baidu.tieba.view.f
+    public void beP() {
     }
 
-    @Override // com.baidu.tieba.view.h
-    public void Q(int i, boolean z) {
+    @Override // com.baidu.tieba.view.f
+    public void C(int i, boolean z) {
     }
 
-    @Override // com.baidu.tieba.view.h
+    @Override // com.baidu.tieba.view.f
     public void c(float f, boolean z) {
         float f2;
-        if (this.gnr != null) {
+        if (this.fHO != null) {
             if (z) {
-                aj.c(this.gnr, d.f.selector_topbar_more_black);
-                aj.c(this.gns, d.f.selector_topbar_chat_black);
+                ak.c(this.fHO, d.f.selector_topbar_more_black);
+                ak.c(this.fHP, d.f.selector_topbar_chat_black);
             } else {
-                aj.c(this.gnr, d.f.selector_topbar_more_white);
-                aj.c(this.gns, d.f.selector_topbar_chat_white);
+                ak.c(this.fHO, d.f.selector_topbar_more_white);
+                ak.c(this.fHP, d.f.selector_topbar_chat_white);
             }
             if (f < 0.5f) {
                 f2 = 1.0f - (f * 2.0f);
@@ -105,26 +106,26 @@ public class a implements h {
                 f2 = (f * 2.0f) - 1.0f;
             }
             if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.gnr.setAlpha(f2);
-                this.gns.setAlpha(f2);
+                this.fHO.setAlpha(f2);
+                this.fHP.setAlpha(f2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.view.h
+    @Override // com.baidu.tieba.view.f
     public void onChangeSkinType(int i) {
-        if (this.gnr != null) {
+        if (this.fHO != null) {
             if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                aj.c(this.gnr, d.f.selector_topbar_more_white);
-                aj.c(this.gns, d.f.selector_topbar_chat_white);
+                ak.c(this.fHO, d.f.selector_topbar_more_white);
+                ak.c(this.fHP, d.f.selector_topbar_chat_white);
                 return;
             }
-            aj.c(this.gnr, d.f.selector_topbar_more_black);
-            aj.c(this.gns, d.f.selector_topbar_chat_black);
+            ak.c(this.fHO, d.f.selector_topbar_more_black);
+            ak.c(this.fHP, d.f.selector_topbar_chat_black);
         }
     }
 
-    @Override // com.baidu.tieba.view.h
+    @Override // com.baidu.tieba.view.f
     public void e(UserData userData) {
         this.mUserData = userData;
     }

@@ -1,94 +1,66 @@
 package com.baidu.android.pushservice.j;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import java.util.HashMap;
-/* loaded from: classes2.dex */
+import android.content.SharedPreferences;
+/* loaded from: classes3.dex */
 public class k {
-    private static ConnectivityManager a = null;
-
-    public static boolean a(Context context) {
-        NetworkInfo c = c(context);
-        if (c != null) {
-            return c.isConnectedOrConnecting();
-        }
-        return false;
+    public static String a(Context context) {
+        return context.getSharedPreferences("push_client_self_info", 4).getString("bd_use_huawei_token", null);
     }
 
-    public static boolean b(Context context) {
-        NetworkInfo c = c(context);
-        return c != null && c.getType() == 1;
-    }
-
-    public static NetworkInfo c(Context context) {
-        NetworkInfo networkInfo = null;
-        try {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext == null) {
-            }
-            ConnectivityManager f = f(applicationContext);
-            if (f != null) {
-                networkInfo = f.getActiveNetworkInfo();
-                if (networkInfo == null) {
+    public static synchronized void a(Context context, int i, String str) {
+        SharedPreferences.Editor edit;
+        synchronized (k.class) {
+            int i2 = 5;
+            try {
+                SharedPreferences sharedPreferences = context.getSharedPreferences("push_client_self_info", 4);
+                do {
+                    edit = sharedPreferences.edit();
+                    i2--;
+                    if (edit != null) {
+                        break;
+                    }
+                } while (i2 > 0);
+                if (edit != null) {
+                    switch (i) {
+                        case 5:
+                            edit.putString("bd_use_huawei_token", str).commit();
+                            break;
+                        case 6:
+                            edit.putString("bd_use_xiaomi_regid", str).commit();
+                            break;
+                        case 7:
+                            edit.putString("bd_use_meizu_pushid", str).commit();
+                            break;
+                    }
                 }
+            } catch (Exception e) {
             }
+        }
+    }
+
+    public static void a(Context context, String str, boolean z) {
+        SharedPreferences.Editor edit;
+        int i = 20;
+        try {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("push_client_self_info", 4);
+            do {
+                edit = sharedPreferences.edit();
+                i--;
+                if (edit != null) {
+                    break;
+                }
+            } while (i > 0);
+            edit.putBoolean(str, z).commit();
         } catch (Exception e) {
         }
-        return networkInfo;
     }
 
-    public static String d(Context context) {
-        if (a(context)) {
-            NetworkInfo c = c(context);
-            switch (c != null ? c.getType() : -1) {
-                case 0:
-                    return "mobile";
-                case 1:
-                    return "wifi";
-                case 2:
-                    return "mobile_mms";
-                case 3:
-                    return "mobile_supl";
-                case 4:
-                    return "mobile_dun";
-                case 5:
-                    return "mobile_hipri";
-                case 6:
-                    return "wimax";
-                default:
-                    return "connectionless";
-            }
-        }
-        return "connectionless";
+    public static String b(Context context) {
+        return context.getSharedPreferences("push_client_self_info", 4).getString("bd_use_xiaomi_regid", null);
     }
 
-    public static boolean e(Context context) {
-        boolean a2 = a(context);
-        if (a2 || !p.u(context, "android.permission.INTERNET")) {
-            return a2;
-        }
-        try {
-            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(com.baidu.android.pushservice.h.a(), "GET", (HashMap<String, String>) null);
-            if (a3.b() != 0) {
-                if (a3.a() != null) {
-                    return true;
-                }
-                return a2;
-            }
-            return a2;
-        } catch (Exception e) {
-            return a2;
-        }
-    }
-
-    private static ConnectivityManager f(Context context) {
-        if (context == null) {
-            return a;
-        }
-        if (a == null) {
-            a = (ConnectivityManager) context.getSystemService("connectivity");
-        }
-        return a;
+    public static String c(Context context) {
+        return context.getSharedPreferences("push_client_self_info", 4).getString("bd_use_meizu_pushid", null);
     }
 }

@@ -9,13 +9,13 @@ public final class DataReq extends Message {
     public final String content;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
     public final Integer duration;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer msgType;
     @ProtoField(tag = 5, type = Message.Datatype.INT64)
     public final Long recordId;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_MSGTYPE = 0;
     public static final Integer DEFAULT_DURATION = 0;
     public static final Long DEFAULT_RECORDID = 0L;
@@ -62,7 +62,7 @@ public final class DataReq extends Message {
     public static final class Builder extends Message.Builder<DataReq> {
         public String content;
         public Integer duration;
-        public Integer groupId;
+        public Long groupId;
         public Integer msgType;
         public Long recordId;
 

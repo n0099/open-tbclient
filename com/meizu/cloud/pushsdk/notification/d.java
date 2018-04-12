@@ -6,7 +6,8 @@ import android.graphics.Bitmap;
 import android.widget.RemoteViews;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.styleenum.InnerStyleLayout;
-/* loaded from: classes2.dex */
+import com.meizu.cloud.pushsdk.util.MinSdkChecker;
+/* loaded from: classes3.dex */
 public class d extends f {
     public d(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
@@ -14,7 +15,7 @@ public class d extends f {
 
     @Override // com.meizu.cloud.pushsdk.notification.a
     protected void b(Notification notification, MessageV3 messageV3) {
-        if (com.meizu.cloud.pushsdk.util.b.a()) {
+        if (MinSdkChecker.isSupportNotificationBuild()) {
             Bitmap a = a(messageV3.getmNotificationStyle().getBannerImageUrl());
             if (!a() && a != null) {
                 RemoteViews remoteViews = new RemoteViews(this.a.getPackageName(), com.meizu.cloud.pushsdk.notification.b.b.c(this.a));

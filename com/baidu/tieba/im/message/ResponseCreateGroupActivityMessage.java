@@ -29,7 +29,7 @@ public class ResponseCreateGroupActivityMessage extends SocketResponsedMessage {
             groupActivityData.setgActivityArea(dataRes.gActivityArea);
             groupActivityData.setgActivityTime(dataRes.gActivityTime.longValue());
             groupActivityData.setgActivityTitle(dataRes.gActivityTitle);
-            groupActivityData.setGroupId(dataRes.groupId.intValue());
+            groupActivityData.setGroupId(dataRes.groupId.longValue());
             groupActivityData.setGroupName(dataRes.groupName);
             this.activityData = groupActivityData;
         }

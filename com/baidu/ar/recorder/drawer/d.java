@@ -1,7 +1,9 @@
 package com.baidu.ar.recorder.drawer;
 
 import android.content.Context;
+import android.support.annotation.RequiresApi;
 import com.baidu.ar.recorder.filter.FilterManager;
+@RequiresApi(api = 18)
 /* loaded from: classes3.dex */
 public class d {
     private com.baidu.ar.recorder.c.b a;

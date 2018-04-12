@@ -1,16 +1,16 @@
 package com.baidu.tieba.screenlocknotify;
 
 import tbclient.GetMoreMsg.MsgContent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public String content;
     public int customGroupType;
-    public long dTV;
+    public long dok;
+    public boolean fJN;
     public int followStatus;
-    public int gKD;
-    public String gKE = "";
-    public long gKF;
-    public boolean gpl;
+    public int gfD;
+    public String gfE = "";
+    public long gfF;
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;
@@ -35,10 +35,10 @@ public class e {
     }
 
     private static void e(e eVar) {
-        eVar.gKD = 0;
+        eVar.gfD = 0;
         eVar.msgType = 4;
         eVar.customGroupType = 4;
-        eVar.dTV = System.currentTimeMillis();
+        eVar.dok = System.currentTimeMillis();
         eVar.isAcceptNotify = true;
     }
 }

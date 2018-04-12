@@ -33,20 +33,20 @@ public class PbFullScreenEditorInputView extends EditText {
     }
 
     public void b(com.baidu.tbadk.coreExtra.data.n nVar) {
-        if (com.baidu.tieba.face.a.kT(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.BR().showToast(d.j.too_many_face);
+        if (com.baidu.tieba.face.a.kW(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.uB().showToast(d.k.too_many_face);
         } else {
             com.baidu.tieba.face.b.b(getContext(), nVar, this);
         }
     }
 
-    public void gq(String str) {
+    public void gh(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
-    public void al(ArrayList<String> arrayList) {
+    public void am(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
@@ -70,7 +70,7 @@ public class PbFullScreenEditorInputView extends EditText {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.face.b.a(getContext(), str, new b.a() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorInputView.1
                 @Override // com.baidu.tieba.face.b.a
-                public void b(SpannableStringBuilder spannableStringBuilder) {
+                public void a(SpannableStringBuilder spannableStringBuilder) {
                     PbFullScreenEditorInputView.this.setText(spannableStringBuilder);
                     PbFullScreenEditorInputView.this.setSelection(PbFullScreenEditorInputView.this.getText().length());
                 }

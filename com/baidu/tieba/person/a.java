@@ -4,30 +4,30 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.k;
 import com.baidu.tbadk.img.ImageUploadResult;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(int i, String str, ImageUploadResult imageUploadResult);
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0215a c0215a = new C0215a();
-            c0215a.ghR = str;
-            c0215a.ghS = bVar;
-            c0215a.execute("");
+            C0197a c0197a = new C0197a();
+            c0197a.fCn = str;
+            c0197a.fCo = bVar;
+            c0197a.execute("");
         }
     }
 
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    private static class C0215a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String ghR;
-        public b ghS;
+    /* loaded from: classes2.dex */
+    private static class C0197a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String fCn;
+        public b fCo;
 
-        private C0215a() {
+        private C0197a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: p */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.f("user_pics").o(k.dB(this.ghR), false);
+            return new com.baidu.tbadk.img.f("user_pics").m(k.dt(this.fCn), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,14 +44,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.ghS != null) {
+            if (this.fCo != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.ghS.a(i, str, imageUploadResult);
+                this.fCo.a(i, str, imageUploadResult);
             }
         }
     }

@@ -43,6 +43,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private String title;
     private int type;
     private MetaData replyer = new MetaData();
+    private MetaData threadAuthor = new MetaData();
     private MetaData quote_user = new MetaData();
     private int mPraiseNum = 0;
     private List<LikeData> mPraiseList = null;
@@ -93,6 +94,10 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
 
     public MetaData getReplyer() {
         return this.replyer;
+    }
+
+    public MetaData getThreadAuthor() {
+        return this.threadAuthor;
     }
 
     public boolean getIsFloor() {
@@ -173,16 +178,22 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             jSONObject2.put("gender", this.replyer.getGender());
             jSONObject.put("replyer", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("id", this.quote_user.getUserId());
-            jSONObject3.put("name", this.quote_user.getUserName());
-            jSONObject3.put(IntentConfig.PORTRAIT, this.quote_user.getPortrait());
-            jSONObject3.put("gender", this.quote_user.getGender());
-            jSONObject.put("quote_user", jSONObject3);
+            jSONObject2.put("id", this.threadAuthor.getUserId());
+            jSONObject2.put("name", this.threadAuthor.getUserName());
+            jSONObject2.put(IntentConfig.PORTRAIT, this.threadAuthor.getPortrait());
+            jSONObject2.put("gender", this.threadAuthor.getGender());
+            jSONObject.put("thread_author_user", jSONObject3);
+            JSONObject jSONObject4 = new JSONObject();
+            jSONObject4.put("id", this.quote_user.getUserId());
+            jSONObject4.put("name", this.quote_user.getUserName());
+            jSONObject4.put(IntentConfig.PORTRAIT, this.quote_user.getPortrait());
+            jSONObject4.put("gender", this.quote_user.getGender());
+            jSONObject.put("quote_user", jSONObject4);
             jSONObject.put("is_share_thread", this.mIsShareThread ? 1 : 0);
             if (this.mOriginalThreadInfo != null) {
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("title", this.mOriginalThreadInfo.title);
-                jSONObject.put("origin_thread_info", jSONObject4);
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("title", this.mOriginalThreadInfo.title);
+                jSONObject.put("origin_thread_info", jSONObject5);
             }
             jSONArray.put(jSONObject);
         } catch (JSONException e) {
@@ -229,6 +240,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                     }
                 }
                 this.replyer.parserJson(jSONObject.optJSONObject("replyer"));
+                this.threadAuthor.parserJson(jSONObject.optJSONObject("thread_author_user"));
                 this.quote_user.parserJson(jSONObject.optJSONObject("quote_user"));
                 this.thread_type = jSONObject.optInt("thread_type");
                 this.threadImgUrl = jSONObject.optString("thread_img_url");
@@ -269,6 +281,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 }
             }
             this.replyer.parserProtobuf(replyList.replyer);
+            this.threadAuthor.parserProtobuf(replyList.thread_author_user);
             this.quote_user.parserProtobuf(replyList.quote_user);
             this.thread_type = replyList.thread_type.intValue();
             this.mIsStory = replyList.is_story.intValue() == 1;

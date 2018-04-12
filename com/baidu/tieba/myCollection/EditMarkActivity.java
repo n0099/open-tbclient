@@ -14,60 +14,60 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.j;
+import com.baidu.tbadk.core.view.e;
 import java.util.ArrayList;
 @Deprecated
 /* loaded from: classes3.dex */
-public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements BdListView.e, j.b {
-    private com.baidu.tieba.myCollection.baseEditMark.a fyp = null;
-    private c fyq = null;
-    private int fyr = -1;
-    private ArrayList<MarkData> fys = null;
+public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements BdListView.e, e.b {
+    private com.baidu.tieba.myCollection.baseEditMark.a eTa = null;
+    private c eTb = null;
+    private int eTc = -1;
+    private ArrayList<MarkData> eTd = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fyp = new com.baidu.tieba.myCollection.baseEditMark.a();
-        this.fyp.a(new d() { // from class: com.baidu.tieba.myCollection.EditMarkActivity.1
+        this.eTa = new com.baidu.tieba.myCollection.baseEditMark.a();
+        this.eTa.a(new d() { // from class: com.baidu.tieba.myCollection.EditMarkActivity.1
             @Override // com.baidu.tieba.myCollection.d
             public void callback(Object... objArr) {
                 try {
                     if (((Integer) objArr[0]).intValue() == 0) {
-                        EditMarkActivity.this.fyq.completePullRefresh();
+                        EditMarkActivity.this.eTb.completePullRefresh();
                         if (objArr[1] != null && (objArr[1] instanceof String)) {
                             r1 = (String) objArr[1];
                         }
-                        EditMarkActivity.this.fyq.a(r1, EditMarkActivity.this.fyp, ((Boolean) objArr[2]).booleanValue());
-                        EditMarkActivity.this.fys = EditMarkActivity.this.fyp.aYd();
+                        EditMarkActivity.this.eTb.a(r1, EditMarkActivity.this.eTa, ((Boolean) objArr[2]).booleanValue());
+                        EditMarkActivity.this.eTd = EditMarkActivity.this.eTa.aSY();
                     } else if (((Integer) objArr[0]).intValue() == 3) {
-                        EditMarkActivity.this.fyq.completePullRefresh();
+                        EditMarkActivity.this.eTb.completePullRefresh();
                         if (objArr[1] != null && (objArr[1] instanceof String)) {
                             r1 = (String) objArr[1];
                         }
-                        EditMarkActivity.this.fyq.a(r1, (com.baidu.tieba.myCollection.baseEditMark.a) null, false);
+                        EditMarkActivity.this.eTb.a(r1, (com.baidu.tieba.myCollection.baseEditMark.a) null, false);
                     } else if (((Integer) objArr[0]).intValue() == 1) {
                         boolean booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
-                        EditMarkActivity.this.fyq.a(booleanValue, objArr[2] != null ? (String) objArr[2] : null, objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false);
+                        EditMarkActivity.this.eTb.a(booleanValue, objArr[2] != null ? (String) objArr[2] : null, objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false);
                         if (booleanValue) {
-                            EditMarkActivity.this.fyq.startRefresh(EditMarkActivity.this.fyp.getOffset());
-                            EditMarkActivity.this.fyp.d(true);
+                            EditMarkActivity.this.eTb.startRefresh(EditMarkActivity.this.eTa.getOffset());
+                            EditMarkActivity.this.eTa.d(true);
                         }
                     } else if (((Integer) objArr[0]).intValue() == 2) {
-                        EditMarkActivity.this.fyq.a(objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false, objArr[2] != null ? (String) objArr[2] : null, EditMarkActivity.this.fyp);
+                        EditMarkActivity.this.eTb.a(objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false, objArr[2] != null ? (String) objArr[2] : null, EditMarkActivity.this.eTa);
                     }
                 } catch (Exception e) {
                     BdLog.d(e.getMessage());
                 }
             }
         });
-        this.fyq = new c(this);
-        this.fyq.c(new a.b() { // from class: com.baidu.tieba.myCollection.EditMarkActivity.2
+        this.eTb = new c(this);
+        this.eTb.c(new a.b() { // from class: com.baidu.tieba.myCollection.EditMarkActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
-                EditMarkActivity.this.fyq.startRefresh(EditMarkActivity.this.fyp.getOffset());
-                EditMarkActivity.this.fyp.d(true);
+                EditMarkActivity.this.eTb.startRefresh(EditMarkActivity.this.eTa.getOffset());
+                EditMarkActivity.this.eTa.d(true);
             }
         });
         refresh();
@@ -77,59 +77,59 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fyq.onChangeSkinType(i);
+        this.eTb.onChangeSkinType(i);
     }
 
     private void refresh() {
-        if (this.fyp.getCount() == 0 || this.fyp.aYg() < 0) {
-            this.fyp.d(true);
+        if (this.eTa.getCount() == 0 || this.eTa.aTb() < 0) {
+            this.eTa.d(true);
             return;
         }
-        this.fyq.startSync();
-        this.fyp.startSync();
+        this.eTb.startSync();
+        this.eTa.startSync();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.fyq.onDestroy();
-        this.fyp.onDestroy();
+        this.eTb.onDestroy();
+        this.eTa.onDestroy();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.fyq.aXP()) {
-            this.fyq.aXQ();
-        } else if (view.getId() == this.fyq.aXR()) {
-            int intValue = ((Integer) view.getTag()).intValue();
-            this.fyq.arB();
-            if (!this.fyp.sr(intValue)) {
-                this.fyq.aIH();
+    public void onClick(View view2) {
+        if (view2 == this.eTb.aSK()) {
+            this.eTb.aSL();
+        } else if (view2.getId() == this.eTb.aSM()) {
+            int intValue = ((Integer) view2.getTag()).intValue();
+            this.eTb.alR();
+            if (!this.eTa.pM(intValue)) {
+                this.eTb.atM();
             }
         }
-        super.onClick(view);
+        super.onClick(view2);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i >= 0 && i < this.fyp.aYd().size()) {
-            this.fyr = i;
-            MarkData markData = this.fyp.aYd().get(i);
-            MarkData markData2 = this.fys.get(i);
-            int aYc = this.fyp.aYc();
-            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.GJ().getMsgBookmark();
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        if (i >= 0 && i < this.eTa.aSY().size()) {
+            this.eTc = i;
+            MarkData markData = this.eTa.aSY().get(i);
+            MarkData markData2 = this.eTd.get(i);
+            int aSX = this.eTa.aSX();
+            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.zx().getMsgBookmark();
             TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "my_favorite_content", "is_redpoint", markData2.getNewCounts() > 0 ? 1 : 0, new Object[0]);
             if (markData2.getNewCounts() > 0) {
                 if (msgBookmark > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgBookmark(msgBookmark - 1);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgBookmark(msgBookmark - 1);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgBookmark(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgBookmark(0);
                 }
-                if (aYc > 0) {
-                    this.fyp.sq(aYc - 1);
+                if (aSX > 0) {
+                    this.eTa.pL(aSX - 1);
                 } else {
-                    this.fyp.sq(0);
+                    this.eTa.pL(0);
                 }
             }
             markData2.setNewCounts(0);
@@ -137,14 +137,14 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
                 sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createMarkCfg(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
             }
         }
-        super.onItemClick(adapterView, view, i, j);
+        super.onItemClick(adapterView, view2, i, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.fyq.ah(this.fys);
+        this.eTb.ai(this.eTd);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -155,11 +155,11 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
             switch (i) {
                 case 17001:
                     MarkData markData = (MarkData) intent.getSerializableExtra("mark");
-                    if (markData != null && this.fyp.aYd().size() > this.fyr && this.fyr >= 0) {
-                        this.fyp.aYd().get(this.fyr).setPostId(markData.getPostId());
-                        this.fyp.aYd().get(this.fyr).setHostMode(markData.getHostMode());
-                        this.fyp.aYd().get(this.fyr).setSequence(markData.getSequence());
-                        this.fyq.aXT();
+                    if (markData != null && this.eTa.aSY().size() > this.eTc && this.eTc >= 0) {
+                        this.eTa.aSY().get(this.eTc).setPostId(markData.getPostId());
+                        this.eTa.aSY().get(this.eTc).setHostMode(markData.getHostMode());
+                        this.eTa.aSY().get(this.eTc).setSequence(markData.getSequence());
+                        this.eTb.aSO();
                         return;
                     }
                     return;
@@ -169,9 +169,9 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
         } else if (i2 == 1) {
             switch (i) {
                 case 17001:
-                    if (this.fyp.aYd().size() > this.fyr && this.fyr >= 0) {
-                        this.fyp.aYd().remove(this.fyr);
-                        this.fyq.aXT();
+                    if (this.eTa.aSY().size() > this.eTc && this.eTc >= 0) {
+                        this.eTa.aSY().remove(this.eTc);
+                        this.eTb.aSO();
                         return;
                     }
                     return;
@@ -181,27 +181,27 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.j.b
-    public void bw(boolean z) {
-        if (this.fyp != null && this.fyq != null) {
-            this.fyp.reset();
-            this.fyq.ct(true);
-            this.fyp.d(false);
+    @Override // com.baidu.tbadk.core.view.e.b
+    public void aO(boolean z) {
+        if (this.eTa != null && this.eTb != null) {
+            this.eTa.reset();
+            this.eTb.bL(true);
+            this.eTa.d(false);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.fyq != null && this.fyp != null && this.fyp.hasMore()) {
-            this.fyq.startRefresh(this.fyp.getOffset());
-            this.fyp.d(false);
+        if (this.eTb != null && this.eTa != null && this.eTa.hasMore()) {
+            this.eTb.startRefresh(this.eTa.getOffset());
+            this.eTa.d(false);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent.getKeyCode() == 4 && this.fyq != null && this.fyq.aqI()) {
-            this.fyq.aXQ();
+        if (keyEvent.getKeyCode() == 4 && this.eTb != null && this.eTb.akS()) {
+            this.eTb.aSL();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

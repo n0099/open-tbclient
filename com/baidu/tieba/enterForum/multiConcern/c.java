@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
@@ -19,12 +19,12 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public View bQi;
-        public TbImageView dqt;
-        public TextView dqu;
-        public TextView dqv;
-        public TextView dqw;
-        public View dqx;
+        public View bae;
+        public TbImageView cIV;
+        public TextView cIW;
+        public TextView cIX;
+        public TextView cIY;
+        public View cIZ;
     }
 
     public c(Context context) {
@@ -37,14 +37,14 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.D(this.mDatas);
+        return v.v(this.mDatas);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mm */
+    /* renamed from: jz */
     public b getItem(int i) {
-        return (b) v.f(this.mDatas, i);
+        return (b) v.c(this.mDatas, i);
     }
 
     @Override // android.widget.Adapter
@@ -53,40 +53,40 @@ public class c extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         a aVar;
-        View view2;
+        View view3;
         b item = getItem(i);
-        if (view != null && view.getTag() != null) {
-            aVar = (a) view.getTag();
-            view2 = view;
+        if (view2 != null && view2.getTag() != null) {
+            aVar = (a) view2.getTag();
+            view3 = view2;
         } else {
-            View inflate = LayoutInflater.from(this.mContext).inflate(d.h.item_recommend_forum_by_tag, viewGroup, false);
+            View inflate = LayoutInflater.from(this.mContext).inflate(d.i.item_recommend_forum_by_tag, viewGroup, false);
             aVar = new a();
-            aVar.dqt = (TbImageView) inflate.findViewById(d.g.imageview_forum);
-            aVar.dqu = (TextView) inflate.findViewById(d.g.textview_forum_name);
-            aVar.dqv = (TextView) inflate.findViewById(d.g.textview_forum_concern_count);
-            aVar.dqw = (TextView) inflate.findViewById(d.g.textview_forum_thread_count);
-            aVar.dqx = inflate.findViewById(d.g.view_check_state);
-            aVar.bQi = inflate.findViewById(d.g.view_bottom_line);
+            aVar.cIV = (TbImageView) inflate.findViewById(d.g.imageview_forum);
+            aVar.cIW = (TextView) inflate.findViewById(d.g.textview_forum_name);
+            aVar.cIX = (TextView) inflate.findViewById(d.g.textview_forum_concern_count);
+            aVar.cIY = (TextView) inflate.findViewById(d.g.textview_forum_thread_count);
+            aVar.cIZ = inflate.findViewById(d.g.view_check_state);
+            aVar.bae = inflate.findViewById(d.g.view_bottom_line);
             inflate.setTag(aVar);
-            view2 = inflate;
+            view3 = inflate;
         }
         if (item != null) {
-            aVar.dqt.startLoad(item.avatar, 10, false);
-            aVar.dqu.setText(item.forumName);
-            aVar.dqv.setText(String.format(this.mContext.getString(d.j.concern), am.C(item.followNum)));
-            aVar.dqw.setText(String.format(this.mContext.getString(d.j.forum_thread_number), am.C(item.threadNum)));
+            aVar.cIV.startLoad(item.avatar, 10, false);
+            aVar.cIW.setText(item.forumName);
+            aVar.cIX.setText(String.format(this.mContext.getString(d.k.concern), an.v(item.followNum)));
+            aVar.cIY.setText(String.format(this.mContext.getString(d.k.forum_thread_number), an.v(item.threadNum)));
             if (item.isSelected) {
-                aj.s(aVar.dqx, d.f.icon_list_confirm_s);
+                ak.i(aVar.cIZ, d.f.icon_list_confirm_s);
             } else {
-                aj.s(aVar.dqx, d.f.icon_jinba_confirm_n);
+                ak.i(aVar.cIZ, d.f.icon_jinba_confirm_n);
             }
-            aj.r(aVar.dqu, d.C0141d.cp_cont_b);
-            aj.r(aVar.dqv, d.C0141d.cp_cont_f);
-            aj.r(aVar.dqw, d.C0141d.cp_cont_f);
-            aj.t(aVar.bQi, d.C0141d.cp_bg_line_c);
+            ak.h(aVar.cIW, d.C0126d.cp_cont_b);
+            ak.h(aVar.cIX, d.C0126d.cp_cont_f);
+            ak.h(aVar.cIY, d.C0126d.cp_cont_f);
+            ak.j(aVar.bae, d.C0126d.cp_bg_line_c);
         }
-        return view2;
+        return view3;
     }
 }

@@ -1,5 +1,5 @@
 package org.apache.thrift.meta_data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends c {
     public final Class a;
 

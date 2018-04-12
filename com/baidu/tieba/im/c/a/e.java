@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.c.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e extends a {
     public e() {
-        super(com.baidu.tieba.im.settingcache.b.aLU(), 2001142);
+        super(com.baidu.tieba.im.settingcache.b.aGU(), 2001142);
     }
 }

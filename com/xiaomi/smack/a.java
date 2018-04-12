@@ -13,7 +13,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
     public static boolean a;
     private static final AtomicInteger o = new AtomicInteger(0);
@@ -26,8 +26,8 @@ public abstract class a {
     protected volatile long e = 0;
     private LinkedList<Pair<Integer, Long>> p = new LinkedList<>();
     private final Collection<d> q = new CopyOnWriteArrayList();
-    protected final Map<f, C0294a> g = new ConcurrentHashMap();
-    protected final Map<f, C0294a> h = new ConcurrentHashMap();
+    protected final Map<f, C0276a> g = new ConcurrentHashMap();
+    protected final Map<f, C0276a> h = new ConcurrentHashMap();
     protected com.xiaomi.smack.debugger.a i = null;
     protected String j = "";
     protected String k = "";
@@ -37,12 +37,12 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.xiaomi.smack.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0294a {
+    /* loaded from: classes3.dex */
+    public static class C0276a {
         private f a;
         private com.xiaomi.smack.filter.a b;
 
-        public C0294a(f fVar, com.xiaomi.smack.filter.a aVar) {
+        public C0276a(f fVar, com.xiaomi.smack.filter.a aVar) {
             this.a = fVar;
             this.b = aVar;
         }
@@ -143,7 +143,7 @@ public abstract class a {
         if (fVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.g.put(fVar, new C0294a(fVar, aVar));
+        this.g.put(fVar, new C0276a(fVar, aVar));
     }
 
     public abstract void a(com.xiaomi.smack.packet.d dVar);
@@ -184,7 +184,7 @@ public abstract class a {
         if (fVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.h.put(fVar, new C0294a(fVar, aVar));
+        this.h.put(fVar, new C0276a(fVar, aVar));
     }
 
     public abstract void b(boolean z);

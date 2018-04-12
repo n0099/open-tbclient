@@ -3,6 +3,7 @@ package android.support.v7.widget;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v7.view.menu.ListMenuItemView;
 import android.support.v7.view.menu.MenuAdapter;
@@ -18,17 +19,18 @@ import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 import java.lang.reflect.Method;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverListener {
-    private static Method QJ;
-    private MenuItemHoverListener QK;
+    private static final String TAG = "MenuPopupWindow";
+    private static Method sSetTouchModalMethod;
+    private MenuItemHoverListener mHoverListener;
 
     static {
         try {
-            QJ = PopupWindow.class.getDeclaredMethod("setTouchModal", Boolean.TYPE);
+            sSetTouchModalMethod = PopupWindow.class.getDeclaredMethod("setTouchModal", Boolean.TYPE);
         } catch (NoSuchMethodException e) {
-            Log.i("MenuPopupWindow", "Could not find method setTouchModal() on PopupWindow. Oh well.");
+            Log.i(TAG, "Could not find method setTouchModal() on PopupWindow. Oh well.");
         }
     }
 
@@ -37,7 +39,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
     }
 
     @Override // android.support.v7.widget.ListPopupWindow
-    l s(Context context, boolean z) {
+    DropDownListView createDropDownListView(Context context, boolean z) {
         MenuDropDownListView menuDropDownListView = new MenuDropDownListView(context, z);
         menuDropDownListView.setHoverListener(this);
         return menuDropDownListView;
@@ -45,73 +47,73 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
 
     public void setEnterTransition(Object obj) {
         if (Build.VERSION.SDK_INT >= 23) {
-            this.QE.setEnterTransition((Transition) obj);
+            this.mPopup.setEnterTransition((Transition) obj);
         }
     }
 
     public void setExitTransition(Object obj) {
         if (Build.VERSION.SDK_INT >= 23) {
-            this.QE.setExitTransition((Transition) obj);
+            this.mPopup.setExitTransition((Transition) obj);
         }
     }
 
     public void setHoverListener(MenuItemHoverListener menuItemHoverListener) {
-        this.QK = menuItemHoverListener;
+        this.mHoverListener = menuItemHoverListener;
     }
 
     public void setTouchModal(boolean z) {
-        if (QJ != null) {
+        if (sSetTouchModalMethod != null) {
             try {
-                QJ.invoke(this.QE, Boolean.valueOf(z));
+                sSetTouchModalMethod.invoke(this.mPopup, Boolean.valueOf(z));
             } catch (Exception e) {
-                Log.i("MenuPopupWindow", "Could not invoke setTouchModal() on PopupWindow. Oh well.");
+                Log.i(TAG, "Could not invoke setTouchModal() on PopupWindow. Oh well.");
             }
         }
     }
 
     @Override // android.support.v7.widget.MenuItemHoverListener
-    public void onItemHoverEnter(MenuBuilder menuBuilder, MenuItem menuItem) {
-        if (this.QK != null) {
-            this.QK.onItemHoverEnter(menuBuilder, menuItem);
+    public void onItemHoverEnter(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
+        if (this.mHoverListener != null) {
+            this.mHoverListener.onItemHoverEnter(menuBuilder, menuItem);
         }
     }
 
     @Override // android.support.v7.widget.MenuItemHoverListener
-    public void onItemHoverExit(MenuBuilder menuBuilder, MenuItem menuItem) {
-        if (this.QK != null) {
-            this.QK.onItemHoverExit(menuBuilder, menuItem);
+    public void onItemHoverExit(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
+        if (this.mHoverListener != null) {
+            this.mHoverListener.onItemHoverExit(menuBuilder, menuItem);
         }
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
-    public static class MenuDropDownListView extends l {
-        private MenuItemHoverListener QK;
-        final int QL;
-        final int QM;
-        private MenuItem QN;
+    public static class MenuDropDownListView extends DropDownListView {
+        final int mAdvanceKey;
+        private MenuItemHoverListener mHoverListener;
+        private MenuItem mHoveredMenuItem;
+        final int mRetreatKey;
 
-        @Override // android.support.v7.widget.l, android.view.ViewGroup, android.view.View
+        @Override // android.support.v7.widget.DropDownListView, android.view.ViewGroup, android.view.View
         public /* bridge */ /* synthetic */ boolean hasFocus() {
             return super.hasFocus();
         }
 
-        @Override // android.support.v7.widget.l, android.view.View
+        @Override // android.support.v7.widget.DropDownListView, android.view.View
         public /* bridge */ /* synthetic */ boolean hasWindowFocus() {
             return super.hasWindowFocus();
         }
 
-        @Override // android.support.v7.widget.l, android.view.View
+        @Override // android.support.v7.widget.DropDownListView, android.view.View
         public /* bridge */ /* synthetic */ boolean isFocused() {
             return super.isFocused();
         }
 
-        @Override // android.support.v7.widget.l, android.view.View
+        @Override // android.support.v7.widget.DropDownListView, android.view.View
         public /* bridge */ /* synthetic */ boolean isInTouchMode() {
             return super.isInTouchMode();
         }
 
-        @Override // android.support.v7.widget.l
+        @Override // android.support.v7.widget.DropDownListView
         public /* bridge */ /* synthetic */ boolean onForwardedEvent(MotionEvent motionEvent, int i) {
             return super.onForwardedEvent(motionEvent, i);
         }
@@ -120,16 +122,16 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
             super(context, z);
             Configuration configuration = context.getResources().getConfiguration();
             if (Build.VERSION.SDK_INT >= 17 && 1 == configuration.getLayoutDirection()) {
-                this.QL = 21;
-                this.QM = 22;
+                this.mAdvanceKey = 21;
+                this.mRetreatKey = 22;
                 return;
             }
-            this.QL = 22;
-            this.QM = 21;
+            this.mAdvanceKey = 22;
+            this.mRetreatKey = 21;
         }
 
         public void setHoverListener(MenuItemHoverListener menuItemHoverListener) {
-            this.QK = menuItemHoverListener;
+            this.mHoverListener = menuItemHoverListener;
         }
 
         public void clearSelection() {
@@ -139,12 +141,12 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
         @Override // android.widget.ListView, android.widget.AbsListView, android.view.View, android.view.KeyEvent.Callback
         public boolean onKeyDown(int i, KeyEvent keyEvent) {
             ListMenuItemView listMenuItemView = (ListMenuItemView) getSelectedView();
-            if (listMenuItemView != null && i == this.QL) {
+            if (listMenuItemView != null && i == this.mAdvanceKey) {
                 if (listMenuItemView.isEnabled() && listMenuItemView.getItemData().hasSubMenu()) {
                     performItemClick(listMenuItemView, getSelectedItemPosition(), getSelectedItemId());
                 }
                 return true;
-            } else if (listMenuItemView != null && i == this.QM) {
+            } else if (listMenuItemView != null && i == this.mRetreatKey) {
                 setSelection(-1);
                 ((MenuAdapter) getAdapter()).getAdapterMenu().close(false);
                 return true;
@@ -160,7 +162,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
             MenuItemImpl menuItemImpl;
             int pointToPosition;
             int i2;
-            if (this.QK != null) {
+            if (this.mHoverListener != null) {
                 ListAdapter adapter = getAdapter();
                 if (adapter instanceof HeaderViewListAdapter) {
                     HeaderViewListAdapter headerViewListAdapter = (HeaderViewListAdapter) adapter;
@@ -175,15 +177,15 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
                 } else {
                     menuItemImpl = menuAdapter.getItem(i2);
                 }
-                MenuItem menuItem = this.QN;
+                MenuItem menuItem = this.mHoveredMenuItem;
                 if (menuItem != menuItemImpl) {
                     MenuBuilder adapterMenu = menuAdapter.getAdapterMenu();
                     if (menuItem != null) {
-                        this.QK.onItemHoverExit(adapterMenu, menuItem);
+                        this.mHoverListener.onItemHoverExit(adapterMenu, menuItem);
                     }
-                    this.QN = menuItemImpl;
+                    this.mHoveredMenuItem = menuItemImpl;
                     if (menuItemImpl != null) {
-                        this.QK.onItemHoverEnter(adapterMenu, menuItemImpl);
+                        this.mHoverListener.onItemHoverEnter(adapterMenu, menuItemImpl);
                     }
                 }
             }

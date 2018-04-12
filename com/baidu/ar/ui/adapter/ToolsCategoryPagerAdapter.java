@@ -50,15 +50,15 @@ public class ToolsCategoryPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.b.get(i);
-        viewGroup.addView(view, -1, -1);
-        view.setTag(Integer.valueOf(i));
-        return view;
+        View view2 = this.b.get(i);
+        viewGroup.addView(view2, -1, -1);
+        view2.setTag(Integer.valueOf(i));
+        return view2;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
+    public boolean isViewFromObject(View view2, Object obj) {
+        return view2 == obj;
     }
 
     @Override // android.support.v4.view.PagerAdapter

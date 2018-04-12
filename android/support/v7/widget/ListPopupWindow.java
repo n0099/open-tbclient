@@ -7,11 +7,16 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.AttrRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StyleRes;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.PopupWindowCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.menu.ShowableListMenu;
+import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -28,273 +33,279 @@ import android.widget.PopupWindow;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class ListPopupWindow implements ShowableListMenu {
+    private static final boolean DEBUG = false;
+    static final int EXPAND_LIST_TIMEOUT = 250;
     public static final int INPUT_METHOD_FROM_FOCUSABLE = 0;
     public static final int INPUT_METHOD_NEEDED = 1;
     public static final int INPUT_METHOD_NOT_NEEDED = 2;
     public static final int MATCH_PARENT = -1;
     public static final int POSITION_PROMPT_ABOVE = 0;
     public static final int POSITION_PROMPT_BELOW = 1;
-    private static Method Qe = null;
-    private static Method Qf = null;
-    private static Method Qg = null;
+    private static final String TAG = "ListPopupWindow";
     public static final int WRAP_CONTENT = -2;
-    private int HU;
-    private Rect Jx;
-    private int Nq;
-    private final c QA;
-    private final a QB;
-    private Runnable QC;
-    private boolean QD;
-    PopupWindow QE;
-    l Qh;
-    private int Qi;
-    private int Qj;
-    private int Qk;
-    private int Ql;
-    private boolean Qm;
-    private boolean Qn;
-    private boolean Qo;
-    private boolean Qp;
-    int Qq;
-    private View Qr;
-    private int Qs;
-    private DataSetObserver Qt;
-    private View Qu;
-    private Drawable Qv;
-    private AdapterView.OnItemClickListener Qw;
-    private AdapterView.OnItemSelectedListener Qx;
-    final e Qy;
-    private final d Qz;
+    private static Method sClipToWindowEnabledMethod;
+    private static Method sGetMaxAvailableHeightMethod;
+    private static Method sSetEpicenterBoundsMethod;
     private ListAdapter mAdapter;
     private Context mContext;
+    private boolean mDropDownAlwaysVisible;
+    private View mDropDownAnchorView;
+    private int mDropDownGravity;
+    private int mDropDownHeight;
+    private int mDropDownHorizontalOffset;
+    DropDownListView mDropDownList;
+    private Drawable mDropDownListHighlight;
+    private int mDropDownVerticalOffset;
+    private boolean mDropDownVerticalOffsetSet;
+    private int mDropDownWidth;
+    private int mDropDownWindowLayoutType;
+    private Rect mEpicenterBounds;
+    private boolean mForceIgnoreOutsideTouch;
     final Handler mHandler;
+    private final ListSelectorHider mHideSelector;
+    private boolean mIsAnimatedFromAnchor;
+    private AdapterView.OnItemClickListener mItemClickListener;
+    private AdapterView.OnItemSelectedListener mItemSelectedListener;
+    int mListItemExpandMaximum;
+    private boolean mModal;
+    private DataSetObserver mObserver;
+    PopupWindow mPopup;
+    private int mPromptPosition;
+    private View mPromptView;
+    final ResizePopupRunnable mResizePopupRunnable;
+    private final PopupScrollListener mScrollListener;
+    private Runnable mShowDropDownRunnable;
     private final Rect mTempRect;
+    private final PopupTouchInterceptor mTouchInterceptor;
 
     static {
         try {
-            Qe = PopupWindow.class.getDeclaredMethod("setClipToScreenEnabled", Boolean.TYPE);
+            sClipToWindowEnabledMethod = PopupWindow.class.getDeclaredMethod("setClipToScreenEnabled", Boolean.TYPE);
+        } catch (NoSuchMethodException e) {
+            Log.i(TAG, "Could not find method setClipToScreenEnabled() on PopupWindow. Oh well.");
+        }
+        try {
+            sGetMaxAvailableHeightMethod = PopupWindow.class.getDeclaredMethod("getMaxAvailableHeight", View.class, Integer.TYPE, Boolean.TYPE);
         } catch (NoSuchMethodException e2) {
-            Log.i("ListPopupWindow", "Could not find method setClipToScreenEnabled() on PopupWindow. Oh well.");
+            Log.i(TAG, "Could not find method getMaxAvailableHeight(View, int, boolean) on PopupWindow. Oh well.");
         }
         try {
-            Qf = PopupWindow.class.getDeclaredMethod("getMaxAvailableHeight", View.class, Integer.TYPE, Boolean.TYPE);
+            sSetEpicenterBoundsMethod = PopupWindow.class.getDeclaredMethod("setEpicenterBounds", Rect.class);
         } catch (NoSuchMethodException e3) {
-            Log.i("ListPopupWindow", "Could not find method getMaxAvailableHeight(View, int, boolean) on PopupWindow. Oh well.");
-        }
-        try {
-            Qg = PopupWindow.class.getDeclaredMethod("setEpicenterBounds", Rect.class);
-        } catch (NoSuchMethodException e4) {
-            Log.i("ListPopupWindow", "Could not find method setEpicenterBounds(Rect) on PopupWindow. Oh well.");
+            Log.i(TAG, "Could not find method setEpicenterBounds(Rect) on PopupWindow. Oh well.");
         }
     }
 
-    public ListPopupWindow(Context context) {
+    public ListPopupWindow(@NonNull Context context) {
         this(context, null, R.attr.listPopupWindowStyle);
     }
 
-    public ListPopupWindow(Context context, AttributeSet attributeSet) {
+    public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.listPopupWindowStyle);
     }
 
-    public ListPopupWindow(Context context, AttributeSet attributeSet, int i) {
+    public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         this(context, attributeSet, i, 0);
     }
 
-    public ListPopupWindow(Context context, AttributeSet attributeSet, int i, int i2) {
-        this.Qi = -2;
-        this.Nq = -2;
-        this.Ql = 1002;
-        this.Qn = true;
-        this.HU = 0;
-        this.Qo = false;
-        this.Qp = false;
-        this.Qq = Integer.MAX_VALUE;
-        this.Qs = 0;
-        this.Qy = new e();
-        this.Qz = new d();
-        this.QA = new c();
-        this.QB = new a();
+    public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
+        this.mDropDownHeight = -2;
+        this.mDropDownWidth = -2;
+        this.mDropDownWindowLayoutType = 1002;
+        this.mIsAnimatedFromAnchor = true;
+        this.mDropDownGravity = 0;
+        this.mDropDownAlwaysVisible = false;
+        this.mForceIgnoreOutsideTouch = false;
+        this.mListItemExpandMaximum = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.mPromptPosition = 0;
+        this.mResizePopupRunnable = new ResizePopupRunnable();
+        this.mTouchInterceptor = new PopupTouchInterceptor();
+        this.mScrollListener = new PopupScrollListener();
+        this.mHideSelector = new ListSelectorHider();
         this.mTempRect = new Rect();
         this.mContext = context;
         this.mHandler = new Handler(context.getMainLooper());
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ListPopupWindow, i, i2);
-        this.Qj = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ListPopupWindow_android_dropDownHorizontalOffset, 0);
-        this.Qk = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ListPopupWindow_android_dropDownVerticalOffset, 0);
-        if (this.Qk != 0) {
-            this.Qm = true;
+        this.mDropDownHorizontalOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ListPopupWindow_android_dropDownHorizontalOffset, 0);
+        this.mDropDownVerticalOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ListPopupWindow_android_dropDownVerticalOffset, 0);
+        if (this.mDropDownVerticalOffset != 0) {
+            this.mDropDownVerticalOffsetSet = true;
         }
         obtainStyledAttributes.recycle();
         if (Build.VERSION.SDK_INT >= 11) {
-            this.QE = new f(context, attributeSet, i, i2);
+            this.mPopup = new AppCompatPopupWindow(context, attributeSet, i, i2);
         } else {
-            this.QE = new f(context, attributeSet, i);
+            this.mPopup = new AppCompatPopupWindow(context, attributeSet, i);
         }
-        this.QE.setInputMethodMode(1);
+        this.mPopup.setInputMethodMode(1);
     }
 
-    public void setAdapter(ListAdapter listAdapter) {
-        if (this.Qt == null) {
-            this.Qt = new b();
+    public void setAdapter(@Nullable ListAdapter listAdapter) {
+        if (this.mObserver == null) {
+            this.mObserver = new PopupDataSetObserver();
         } else if (this.mAdapter != null) {
-            this.mAdapter.unregisterDataSetObserver(this.Qt);
+            this.mAdapter.unregisterDataSetObserver(this.mObserver);
         }
         this.mAdapter = listAdapter;
         if (this.mAdapter != null) {
-            listAdapter.registerDataSetObserver(this.Qt);
+            listAdapter.registerDataSetObserver(this.mObserver);
         }
-        if (this.Qh != null) {
-            this.Qh.setAdapter(this.mAdapter);
+        if (this.mDropDownList != null) {
+            this.mDropDownList.setAdapter(this.mAdapter);
         }
     }
 
     public void setPromptPosition(int i) {
-        this.Qs = i;
+        this.mPromptPosition = i;
     }
 
     public int getPromptPosition() {
-        return this.Qs;
+        return this.mPromptPosition;
     }
 
     public void setModal(boolean z) {
-        this.QD = z;
-        this.QE.setFocusable(z);
+        this.mModal = z;
+        this.mPopup.setFocusable(z);
     }
 
     public boolean isModal() {
-        return this.QD;
+        return this.mModal;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setForceIgnoreOutsideTouch(boolean z) {
-        this.Qp = z;
+        this.mForceIgnoreOutsideTouch = z;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setDropDownAlwaysVisible(boolean z) {
-        this.Qo = z;
+        this.mDropDownAlwaysVisible = z;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean isDropDownAlwaysVisible() {
-        return this.Qo;
+        return this.mDropDownAlwaysVisible;
     }
 
     public void setSoftInputMode(int i) {
-        this.QE.setSoftInputMode(i);
+        this.mPopup.setSoftInputMode(i);
     }
 
     public int getSoftInputMode() {
-        return this.QE.getSoftInputMode();
+        return this.mPopup.getSoftInputMode();
     }
 
     public void setListSelector(Drawable drawable) {
-        this.Qv = drawable;
+        this.mDropDownListHighlight = drawable;
     }
 
+    @Nullable
     public Drawable getBackground() {
-        return this.QE.getBackground();
+        return this.mPopup.getBackground();
     }
 
-    public void setBackgroundDrawable(Drawable drawable) {
-        this.QE.setBackgroundDrawable(drawable);
+    public void setBackgroundDrawable(@Nullable Drawable drawable) {
+        this.mPopup.setBackgroundDrawable(drawable);
     }
 
-    public void setAnimationStyle(int i) {
-        this.QE.setAnimationStyle(i);
+    public void setAnimationStyle(@StyleRes int i) {
+        this.mPopup.setAnimationStyle(i);
     }
 
+    @StyleRes
     public int getAnimationStyle() {
-        return this.QE.getAnimationStyle();
+        return this.mPopup.getAnimationStyle();
     }
 
+    @Nullable
     public View getAnchorView() {
-        return this.Qu;
+        return this.mDropDownAnchorView;
     }
 
-    public void setAnchorView(View view) {
-        this.Qu = view;
+    public void setAnchorView(@Nullable View view2) {
+        this.mDropDownAnchorView = view2;
     }
 
     public int getHorizontalOffset() {
-        return this.Qj;
+        return this.mDropDownHorizontalOffset;
     }
 
     public void setHorizontalOffset(int i) {
-        this.Qj = i;
+        this.mDropDownHorizontalOffset = i;
     }
 
     public int getVerticalOffset() {
-        if (this.Qm) {
-            return this.Qk;
+        if (this.mDropDownVerticalOffsetSet) {
+            return this.mDropDownVerticalOffset;
         }
         return 0;
     }
 
     public void setVerticalOffset(int i) {
-        this.Qk = i;
-        this.Qm = true;
+        this.mDropDownVerticalOffset = i;
+        this.mDropDownVerticalOffsetSet = true;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setEpicenterBounds(Rect rect) {
-        this.Jx = rect;
+        this.mEpicenterBounds = rect;
     }
 
     public void setDropDownGravity(int i) {
-        this.HU = i;
+        this.mDropDownGravity = i;
     }
 
     public int getWidth() {
-        return this.Nq;
+        return this.mDropDownWidth;
     }
 
     public void setWidth(int i) {
-        this.Nq = i;
+        this.mDropDownWidth = i;
     }
 
     public void setContentWidth(int i) {
-        Drawable background = this.QE.getBackground();
+        Drawable background = this.mPopup.getBackground();
         if (background != null) {
             background.getPadding(this.mTempRect);
-            this.Nq = this.mTempRect.left + this.mTempRect.right + i;
+            this.mDropDownWidth = this.mTempRect.left + this.mTempRect.right + i;
             return;
         }
         setWidth(i);
     }
 
     public int getHeight() {
-        return this.Qi;
+        return this.mDropDownHeight;
     }
 
     public void setHeight(int i) {
-        this.Qi = i;
+        this.mDropDownHeight = i;
     }
 
     public void setWindowLayoutType(int i) {
-        this.Ql = i;
+        this.mDropDownWindowLayoutType = i;
     }
 
-    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        this.Qw = onItemClickListener;
+    public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener onItemClickListener) {
+        this.mItemClickListener = onItemClickListener;
     }
 
-    public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
-        this.Qx = onItemSelectedListener;
+    public void setOnItemSelectedListener(@Nullable AdapterView.OnItemSelectedListener onItemSelectedListener) {
+        this.mItemSelectedListener = onItemSelectedListener;
     }
 
-    public void setPromptView(View view) {
+    public void setPromptView(@Nullable View view2) {
         boolean isShowing = isShowing();
         if (isShowing) {
-            gq();
+            removePromptView();
         }
-        this.Qr = view;
+        this.mPromptView = view2;
         if (isShowing) {
             show();
         }
     }
 
     public void postShow() {
-        this.mHandler.post(this.QC);
+        this.mHandler.post(this.mShowDropDownRunnable);
     }
 
     @Override // android.support.v7.view.menu.ShowableListMenu
@@ -304,214 +315,222 @@ public class ListPopupWindow implements ShowableListMenu {
         int i3;
         boolean z = true;
         boolean z2 = false;
-        int gr = gr();
+        int buildDropDown = buildDropDown();
         boolean isInputMethodNotNeeded = isInputMethodNotNeeded();
-        PopupWindowCompat.setWindowLayoutType(this.QE, this.Ql);
-        if (this.QE.isShowing()) {
-            if (this.Nq == -1) {
+        PopupWindowCompat.setWindowLayoutType(this.mPopup, this.mDropDownWindowLayoutType);
+        if (this.mPopup.isShowing()) {
+            if (this.mDropDownWidth == -1) {
                 i2 = -1;
-            } else if (this.Nq == -2) {
+            } else if (this.mDropDownWidth == -2) {
                 i2 = getAnchorView().getWidth();
             } else {
-                i2 = this.Nq;
+                i2 = this.mDropDownWidth;
             }
-            if (this.Qi == -1) {
+            if (this.mDropDownHeight == -1) {
                 if (!isInputMethodNotNeeded) {
-                    gr = -1;
+                    buildDropDown = -1;
                 }
                 if (isInputMethodNotNeeded) {
-                    this.QE.setWidth(this.Nq == -1 ? -1 : 0);
-                    this.QE.setHeight(0);
-                    i3 = gr;
+                    this.mPopup.setWidth(this.mDropDownWidth == -1 ? -1 : 0);
+                    this.mPopup.setHeight(0);
+                    i3 = buildDropDown;
                 } else {
-                    this.QE.setWidth(this.Nq == -1 ? -1 : 0);
-                    this.QE.setHeight(-1);
-                    i3 = gr;
+                    this.mPopup.setWidth(this.mDropDownWidth == -1 ? -1 : 0);
+                    this.mPopup.setHeight(-1);
+                    i3 = buildDropDown;
                 }
             } else {
-                i3 = this.Qi == -2 ? gr : this.Qi;
+                i3 = this.mDropDownHeight == -2 ? buildDropDown : this.mDropDownHeight;
             }
-            PopupWindow popupWindow = this.QE;
-            if (!this.Qp && !this.Qo) {
+            PopupWindow popupWindow = this.mPopup;
+            if (!this.mForceIgnoreOutsideTouch && !this.mDropDownAlwaysVisible) {
                 z2 = true;
             }
             popupWindow.setOutsideTouchable(z2);
-            PopupWindow popupWindow2 = this.QE;
+            PopupWindow popupWindow2 = this.mPopup;
             View anchorView = getAnchorView();
-            int i4 = this.Qj;
-            int i5 = this.Qk;
+            int i4 = this.mDropDownHorizontalOffset;
+            int i5 = this.mDropDownVerticalOffset;
             if (i2 < 0) {
                 i2 = -1;
             }
             popupWindow2.update(anchorView, i4, i5, i2, i3 >= 0 ? i3 : -1);
             return;
         }
-        if (this.Nq == -1) {
+        if (this.mDropDownWidth == -1) {
             i = -1;
-        } else if (this.Nq == -2) {
+        } else if (this.mDropDownWidth == -2) {
             i = getAnchorView().getWidth();
         } else {
-            i = this.Nq;
+            i = this.mDropDownWidth;
         }
-        if (this.Qi == -1) {
-            gr = -1;
-        } else if (this.Qi != -2) {
-            gr = this.Qi;
+        if (this.mDropDownHeight == -1) {
+            buildDropDown = -1;
+        } else if (this.mDropDownHeight != -2) {
+            buildDropDown = this.mDropDownHeight;
         }
-        this.QE.setWidth(i);
-        this.QE.setHeight(gr);
-        I(true);
-        PopupWindow popupWindow3 = this.QE;
-        if (this.Qp || this.Qo) {
+        this.mPopup.setWidth(i);
+        this.mPopup.setHeight(buildDropDown);
+        setPopupClipToScreenEnabled(true);
+        PopupWindow popupWindow3 = this.mPopup;
+        if (this.mForceIgnoreOutsideTouch || this.mDropDownAlwaysVisible) {
             z = false;
         }
         popupWindow3.setOutsideTouchable(z);
-        this.QE.setTouchInterceptor(this.Qz);
-        if (Qg != null) {
+        this.mPopup.setTouchInterceptor(this.mTouchInterceptor);
+        if (sSetEpicenterBoundsMethod != null) {
             try {
-                Qg.invoke(this.QE, this.Jx);
-            } catch (Exception e2) {
-                Log.e("ListPopupWindow", "Could not invoke setEpicenterBounds on PopupWindow", e2);
+                sSetEpicenterBoundsMethod.invoke(this.mPopup, this.mEpicenterBounds);
+            } catch (Exception e) {
+                Log.e(TAG, "Could not invoke setEpicenterBounds on PopupWindow", e);
             }
         }
-        PopupWindowCompat.showAsDropDown(this.QE, getAnchorView(), this.Qj, this.Qk, this.HU);
-        this.Qh.setSelection(-1);
-        if (!this.QD || this.Qh.isInTouchMode()) {
+        PopupWindowCompat.showAsDropDown(this.mPopup, getAnchorView(), this.mDropDownHorizontalOffset, this.mDropDownVerticalOffset, this.mDropDownGravity);
+        this.mDropDownList.setSelection(-1);
+        if (!this.mModal || this.mDropDownList.isInTouchMode()) {
             clearListSelection();
         }
-        if (!this.QD) {
-            this.mHandler.post(this.QB);
+        if (!this.mModal) {
+            this.mHandler.post(this.mHideSelector);
         }
     }
 
     @Override // android.support.v7.view.menu.ShowableListMenu
     public void dismiss() {
-        this.QE.dismiss();
-        gq();
-        this.QE.setContentView(null);
-        this.Qh = null;
-        this.mHandler.removeCallbacks(this.Qy);
+        this.mPopup.dismiss();
+        removePromptView();
+        this.mPopup.setContentView(null);
+        this.mDropDownList = null;
+        this.mHandler.removeCallbacks(this.mResizePopupRunnable);
     }
 
-    public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
-        this.QE.setOnDismissListener(onDismissListener);
+    public void setOnDismissListener(@Nullable PopupWindow.OnDismissListener onDismissListener) {
+        this.mPopup.setOnDismissListener(onDismissListener);
     }
 
-    private void gq() {
-        if (this.Qr != null) {
-            ViewParent parent = this.Qr.getParent();
+    private void removePromptView() {
+        if (this.mPromptView != null) {
+            ViewParent parent = this.mPromptView.getParent();
             if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(this.Qr);
+                ((ViewGroup) parent).removeView(this.mPromptView);
             }
         }
     }
 
     public void setInputMethodMode(int i) {
-        this.QE.setInputMethodMode(i);
+        this.mPopup.setInputMethodMode(i);
     }
 
     public int getInputMethodMode() {
-        return this.QE.getInputMethodMode();
+        return this.mPopup.getInputMethodMode();
     }
 
     public void setSelection(int i) {
-        l lVar = this.Qh;
-        if (isShowing() && lVar != null) {
-            lVar.setListSelectionHidden(false);
-            lVar.setSelection(i);
-            if (Build.VERSION.SDK_INT >= 11 && lVar.getChoiceMode() != 0) {
-                lVar.setItemChecked(i, true);
+        DropDownListView dropDownListView = this.mDropDownList;
+        if (isShowing() && dropDownListView != null) {
+            dropDownListView.setListSelectionHidden(false);
+            dropDownListView.setSelection(i);
+            if (Build.VERSION.SDK_INT >= 11 && dropDownListView.getChoiceMode() != 0) {
+                dropDownListView.setItemChecked(i, true);
             }
         }
     }
 
     public void clearListSelection() {
-        l lVar = this.Qh;
-        if (lVar != null) {
-            lVar.setListSelectionHidden(true);
-            lVar.requestLayout();
+        DropDownListView dropDownListView = this.mDropDownList;
+        if (dropDownListView != null) {
+            dropDownListView.setListSelectionHidden(true);
+            dropDownListView.requestLayout();
         }
     }
 
     @Override // android.support.v7.view.menu.ShowableListMenu
     public boolean isShowing() {
-        return this.QE.isShowing();
+        return this.mPopup.isShowing();
     }
 
     public boolean isInputMethodNotNeeded() {
-        return this.QE.getInputMethodMode() == 2;
+        return this.mPopup.getInputMethodMode() == 2;
     }
 
     public boolean performItemClick(int i) {
         if (isShowing()) {
-            if (this.Qw != null) {
-                l lVar = this.Qh;
-                this.Qw.onItemClick(lVar, lVar.getChildAt(i - lVar.getFirstVisiblePosition()), i, lVar.getAdapter().getItemId(i));
+            if (this.mItemClickListener != null) {
+                DropDownListView dropDownListView = this.mDropDownList;
+                this.mItemClickListener.onItemClick(dropDownListView, dropDownListView.getChildAt(i - dropDownListView.getFirstVisiblePosition()), i, dropDownListView.getAdapter().getItemId(i));
             }
             return true;
         }
         return false;
     }
 
+    @Nullable
     public Object getSelectedItem() {
         if (isShowing()) {
-            return this.Qh.getSelectedItem();
+            return this.mDropDownList.getSelectedItem();
         }
         return null;
     }
 
     public int getSelectedItemPosition() {
         if (isShowing()) {
-            return this.Qh.getSelectedItemPosition();
+            return this.mDropDownList.getSelectedItemPosition();
         }
         return -1;
     }
 
     public long getSelectedItemId() {
         if (isShowing()) {
-            return this.Qh.getSelectedItemId();
+            return this.mDropDownList.getSelectedItemId();
         }
         return Long.MIN_VALUE;
     }
 
+    @Nullable
     public View getSelectedView() {
         if (isShowing()) {
-            return this.Qh.getSelectedView();
+            return this.mDropDownList.getSelectedView();
         }
         return null;
     }
 
     @Override // android.support.v7.view.menu.ShowableListMenu
+    @Nullable
     public ListView getListView() {
-        return this.Qh;
+        return this.mDropDownList;
     }
 
-    l s(Context context, boolean z) {
-        return new l(context, z);
+    @NonNull
+    DropDownListView createDropDownListView(Context context, boolean z) {
+        return new DropDownListView(context, z);
     }
 
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (isShowing() && i != 62 && (this.Qh.getSelectedItemPosition() >= 0 || !bq(i))) {
-            int selectedItemPosition = this.Qh.getSelectedItemPosition();
-            boolean z = !this.QE.isAboveAnchor();
+    void setListItemExpandMax(int i) {
+        this.mListItemExpandMaximum = i;
+    }
+
+    public boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
+        if (isShowing() && i != 62 && (this.mDropDownList.getSelectedItemPosition() >= 0 || !isConfirmKey(i))) {
+            int selectedItemPosition = this.mDropDownList.getSelectedItemPosition();
+            boolean z = !this.mPopup.isAboveAnchor();
             ListAdapter listAdapter = this.mAdapter;
-            int i2 = Integer.MAX_VALUE;
+            int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             int i3 = Integer.MIN_VALUE;
             if (listAdapter != null) {
                 boolean areAllItemsEnabled = listAdapter.areAllItemsEnabled();
-                i2 = areAllItemsEnabled ? 0 : this.Qh.lookForSelectablePosition(0, true);
-                i3 = areAllItemsEnabled ? listAdapter.getCount() - 1 : this.Qh.lookForSelectablePosition(listAdapter.getCount() - 1, false);
+                i2 = areAllItemsEnabled ? 0 : this.mDropDownList.lookForSelectablePosition(0, true);
+                i3 = areAllItemsEnabled ? listAdapter.getCount() - 1 : this.mDropDownList.lookForSelectablePosition(listAdapter.getCount() - 1, false);
             }
             if ((z && i == 19 && selectedItemPosition <= i2) || (!z && i == 20 && selectedItemPosition >= i3)) {
                 clearListSelection();
-                this.QE.setInputMethodMode(1);
+                this.mPopup.setInputMethodMode(1);
                 show();
                 return true;
             }
-            this.Qh.setListSelectionHidden(false);
-            if (this.Qh.onKeyDown(i, keyEvent)) {
-                this.QE.setInputMethodMode(2);
-                this.Qh.requestFocusFromTouch();
+            this.mDropDownList.setListSelectionHidden(false);
+            if (this.mDropDownList.onKeyDown(i, keyEvent)) {
+                this.mPopup.setInputMethodMode(2);
+                this.mDropDownList.requestFocusFromTouch();
                 show();
                 switch (i) {
                     case 19:
@@ -531,30 +550,30 @@ public class ListPopupWindow implements ShowableListMenu {
         return false;
     }
 
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        if (!isShowing() || this.Qh.getSelectedItemPosition() < 0) {
+    public boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
+        if (!isShowing() || this.mDropDownList.getSelectedItemPosition() < 0) {
             return false;
         }
-        boolean onKeyUp = this.Qh.onKeyUp(i, keyEvent);
-        if (onKeyUp && bq(i)) {
+        boolean onKeyUp = this.mDropDownList.onKeyUp(i, keyEvent);
+        if (onKeyUp && isConfirmKey(i)) {
             dismiss();
             return onKeyUp;
         }
         return onKeyUp;
     }
 
-    public boolean onKeyPreIme(int i, KeyEvent keyEvent) {
+    public boolean onKeyPreIme(int i, @NonNull KeyEvent keyEvent) {
         if (i == 4 && isShowing()) {
-            View view = this.Qu;
+            View view2 = this.mDropDownAnchorView;
             if (keyEvent.getAction() == 0 && keyEvent.getRepeatCount() == 0) {
-                KeyEvent.DispatcherState keyDispatcherState = view.getKeyDispatcherState();
+                KeyEvent.DispatcherState keyDispatcherState = view2.getKeyDispatcherState();
                 if (keyDispatcherState != null) {
                     keyDispatcherState.startTracking(keyEvent, this);
                     return true;
                 }
                 return true;
             } else if (keyEvent.getAction() == 1) {
-                KeyEvent.DispatcherState keyDispatcherState2 = view.getKeyDispatcherState();
+                KeyEvent.DispatcherState keyDispatcherState2 = view2.getKeyDispatcherState();
                 if (keyDispatcherState2 != null) {
                     keyDispatcherState2.handleUpEvent(keyEvent);
                 }
@@ -567,28 +586,27 @@ public class ListPopupWindow implements ShowableListMenu {
         return false;
     }
 
-    public View.OnTouchListener createDragToOpenListener(View view) {
-        return new ForwardingListener(view) { // from class: android.support.v7.widget.ListPopupWindow.1
+    public View.OnTouchListener createDragToOpenListener(View view2) {
+        return new ForwardingListener(view2) { // from class: android.support.v7.widget.ListPopupWindow.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.support.v7.widget.ForwardingListener
-            /* renamed from: gs */
             public ListPopupWindow getPopup() {
                 return ListPopupWindow.this;
             }
         };
     }
 
-    private int gr() {
+    private int buildDropDown() {
         int i;
         int i2;
         int makeMeasureSpec;
-        View view;
+        View view2;
         int i3;
         int i4;
         int i5;
-        if (this.Qh == null) {
+        if (this.mDropDownList == null) {
             Context context = this.mContext;
-            this.QC = new Runnable() { // from class: android.support.v7.widget.ListPopupWindow.2
+            this.mShowDropDownRunnable = new Runnable() { // from class: android.support.v7.widget.ListPopupWindow.2
                 @Override // java.lang.Runnable
                 public void run() {
                     View anchorView = ListPopupWindow.this.getAnchorView();
@@ -597,20 +615,20 @@ public class ListPopupWindow implements ShowableListMenu {
                     }
                 }
             };
-            this.Qh = s(context, !this.QD);
-            if (this.Qv != null) {
-                this.Qh.setSelector(this.Qv);
+            this.mDropDownList = createDropDownListView(context, !this.mModal);
+            if (this.mDropDownListHighlight != null) {
+                this.mDropDownList.setSelector(this.mDropDownListHighlight);
             }
-            this.Qh.setAdapter(this.mAdapter);
-            this.Qh.setOnItemClickListener(this.Qw);
-            this.Qh.setFocusable(true);
-            this.Qh.setFocusableInTouchMode(true);
-            this.Qh.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // from class: android.support.v7.widget.ListPopupWindow.3
+            this.mDropDownList.setAdapter(this.mAdapter);
+            this.mDropDownList.setOnItemClickListener(this.mItemClickListener);
+            this.mDropDownList.setFocusable(true);
+            this.mDropDownList.setFocusableInTouchMode(true);
+            this.mDropDownList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // from class: android.support.v7.widget.ListPopupWindow.3
                 @Override // android.widget.AdapterView.OnItemSelectedListener
-                public void onItemSelected(AdapterView<?> adapterView, View view2, int i6, long j) {
-                    l lVar;
-                    if (i6 != -1 && (lVar = ListPopupWindow.this.Qh) != null) {
-                        lVar.setListSelectionHidden(false);
+                public void onItemSelected(AdapterView<?> adapterView, View view3, int i6, long j) {
+                    DropDownListView dropDownListView;
+                    if (i6 != -1 && (dropDownListView = ListPopupWindow.this.mDropDownList) != null) {
+                        dropDownListView.setListSelectionHidden(false);
                     }
                 }
 
@@ -618,75 +636,75 @@ public class ListPopupWindow implements ShowableListMenu {
                 public void onNothingSelected(AdapterView<?> adapterView) {
                 }
             });
-            this.Qh.setOnScrollListener(this.QA);
-            if (this.Qx != null) {
-                this.Qh.setOnItemSelectedListener(this.Qx);
+            this.mDropDownList.setOnScrollListener(this.mScrollListener);
+            if (this.mItemSelectedListener != null) {
+                this.mDropDownList.setOnItemSelectedListener(this.mItemSelectedListener);
             }
-            View view2 = this.Qh;
-            View view3 = this.Qr;
-            if (view3 != null) {
+            View view3 = this.mDropDownList;
+            View view4 = this.mPromptView;
+            if (view4 != null) {
                 LinearLayout linearLayout = new LinearLayout(context);
                 linearLayout.setOrientation(1);
                 ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0, 1.0f);
-                switch (this.Qs) {
+                switch (this.mPromptPosition) {
                     case 0:
-                        linearLayout.addView(view3);
-                        linearLayout.addView(view2, layoutParams);
+                        linearLayout.addView(view4);
+                        linearLayout.addView(view3, layoutParams);
                         break;
                     case 1:
-                        linearLayout.addView(view2, layoutParams);
-                        linearLayout.addView(view3);
+                        linearLayout.addView(view3, layoutParams);
+                        linearLayout.addView(view4);
                         break;
                     default:
-                        Log.e("ListPopupWindow", "Invalid hint position " + this.Qs);
+                        Log.e(TAG, "Invalid hint position " + this.mPromptPosition);
                         break;
                 }
-                if (this.Nq >= 0) {
-                    i5 = this.Nq;
+                if (this.mDropDownWidth >= 0) {
+                    i5 = this.mDropDownWidth;
                     i4 = Integer.MIN_VALUE;
                 } else {
                     i4 = 0;
                     i5 = 0;
                 }
-                view3.measure(View.MeasureSpec.makeMeasureSpec(i5, i4), 0);
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view3.getLayoutParams();
-                i3 = layoutParams2.bottomMargin + view3.getMeasuredHeight() + layoutParams2.topMargin;
-                view = linearLayout;
+                view4.measure(View.MeasureSpec.makeMeasureSpec(i5, i4), 0);
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view4.getLayoutParams();
+                i3 = layoutParams2.bottomMargin + view4.getMeasuredHeight() + layoutParams2.topMargin;
+                view2 = linearLayout;
             } else {
-                view = view2;
+                view2 = view3;
                 i3 = 0;
             }
-            this.QE.setContentView(view);
+            this.mPopup.setContentView(view2);
             i = i3;
         } else {
-            ViewGroup viewGroup = (ViewGroup) this.QE.getContentView();
-            View view4 = this.Qr;
-            if (view4 != null) {
-                LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) view4.getLayoutParams();
-                i = layoutParams3.bottomMargin + view4.getMeasuredHeight() + layoutParams3.topMargin;
+            ViewGroup viewGroup = (ViewGroup) this.mPopup.getContentView();
+            View view5 = this.mPromptView;
+            if (view5 != null) {
+                LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) view5.getLayoutParams();
+                i = layoutParams3.bottomMargin + view5.getMeasuredHeight() + layoutParams3.topMargin;
             } else {
                 i = 0;
             }
         }
-        Drawable background = this.QE.getBackground();
+        Drawable background = this.mPopup.getBackground();
         if (background != null) {
             background.getPadding(this.mTempRect);
             int i6 = this.mTempRect.top + this.mTempRect.bottom;
-            if (this.Qm) {
+            if (this.mDropDownVerticalOffsetSet) {
                 i2 = i6;
             } else {
-                this.Qk = -this.mTempRect.top;
+                this.mDropDownVerticalOffset = -this.mTempRect.top;
                 i2 = i6;
             }
         } else {
             this.mTempRect.setEmpty();
             i2 = 0;
         }
-        int maxAvailableHeight = getMaxAvailableHeight(getAnchorView(), this.Qk, this.QE.getInputMethodMode() == 2);
-        if (this.Qo || this.Qi == -1) {
+        int maxAvailableHeight = getMaxAvailableHeight(getAnchorView(), this.mDropDownVerticalOffset, this.mPopup.getInputMethodMode() == 2);
+        if (this.mDropDownAlwaysVisible || this.mDropDownHeight == -1) {
             return maxAvailableHeight + i2;
         }
-        switch (this.Nq) {
+        switch (this.mDropDownWidth) {
             case -2:
                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContext.getResources().getDisplayMetrics().widthPixels - (this.mTempRect.left + this.mTempRect.right), Integer.MIN_VALUE);
                 break;
@@ -694,19 +712,19 @@ public class ListPopupWindow implements ShowableListMenu {
                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContext.getResources().getDisplayMetrics().widthPixels - (this.mTempRect.left + this.mTempRect.right), 1073741824);
                 break;
             default:
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.Nq, 1073741824);
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mDropDownWidth, 1073741824);
                 break;
         }
-        int measureHeightOfChildrenCompat = this.Qh.measureHeightOfChildrenCompat(makeMeasureSpec, 0, -1, maxAvailableHeight - i, -1);
+        int measureHeightOfChildrenCompat = this.mDropDownList.measureHeightOfChildrenCompat(makeMeasureSpec, 0, -1, maxAvailableHeight - i, -1);
         if (measureHeightOfChildrenCompat > 0) {
-            i += this.Qh.getPaddingTop() + this.Qh.getPaddingBottom() + i2;
+            i += this.mDropDownList.getPaddingTop() + this.mDropDownList.getPaddingBottom() + i2;
         }
         return measureHeightOfChildrenCompat + i;
     }
 
     /* loaded from: classes2.dex */
-    private class b extends DataSetObserver {
-        b() {
+    private class PopupDataSetObserver extends DataSetObserver {
+        PopupDataSetObserver() {
         }
 
         @Override // android.database.DataSetObserver
@@ -724,8 +742,8 @@ public class ListPopupWindow implements ShowableListMenu {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class a implements Runnable {
-        a() {
+    public class ListSelectorHider implements Runnable {
+        ListSelectorHider() {
         }
 
         @Override // java.lang.Runnable
@@ -736,14 +754,14 @@ public class ListPopupWindow implements ShowableListMenu {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class e implements Runnable {
-        e() {
+    public class ResizePopupRunnable implements Runnable {
+        ResizePopupRunnable() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (ListPopupWindow.this.Qh != null && ViewCompat.isAttachedToWindow(ListPopupWindow.this.Qh) && ListPopupWindow.this.Qh.getCount() > ListPopupWindow.this.Qh.getChildCount() && ListPopupWindow.this.Qh.getChildCount() <= ListPopupWindow.this.Qq) {
-                ListPopupWindow.this.QE.setInputMethodMode(2);
+            if (ListPopupWindow.this.mDropDownList != null && ViewCompat.isAttachedToWindow(ListPopupWindow.this.mDropDownList) && ListPopupWindow.this.mDropDownList.getCount() > ListPopupWindow.this.mDropDownList.getChildCount() && ListPopupWindow.this.mDropDownList.getChildCount() <= ListPopupWindow.this.mListItemExpandMaximum) {
+                ListPopupWindow.this.mPopup.setInputMethodMode(2);
                 ListPopupWindow.this.show();
             }
         }
@@ -751,20 +769,20 @@ public class ListPopupWindow implements ShowableListMenu {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class d implements View.OnTouchListener {
-        d() {
+    public class PopupTouchInterceptor implements View.OnTouchListener {
+        PopupTouchInterceptor() {
         }
 
         @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
             int action = motionEvent.getAction();
             int x = (int) motionEvent.getX();
             int y = (int) motionEvent.getY();
-            if (action == 0 && ListPopupWindow.this.QE != null && ListPopupWindow.this.QE.isShowing() && x >= 0 && x < ListPopupWindow.this.QE.getWidth() && y >= 0 && y < ListPopupWindow.this.QE.getHeight()) {
-                ListPopupWindow.this.mHandler.postDelayed(ListPopupWindow.this.Qy, 250L);
+            if (action == 0 && ListPopupWindow.this.mPopup != null && ListPopupWindow.this.mPopup.isShowing() && x >= 0 && x < ListPopupWindow.this.mPopup.getWidth() && y >= 0 && y < ListPopupWindow.this.mPopup.getHeight()) {
+                ListPopupWindow.this.mHandler.postDelayed(ListPopupWindow.this.mResizePopupRunnable, 250L);
                 return false;
             } else if (action == 1) {
-                ListPopupWindow.this.mHandler.removeCallbacks(ListPopupWindow.this.Qy);
+                ListPopupWindow.this.mHandler.removeCallbacks(ListPopupWindow.this.mResizePopupRunnable);
                 return false;
             } else {
                 return false;
@@ -774,8 +792,8 @@ public class ListPopupWindow implements ShowableListMenu {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class c implements AbsListView.OnScrollListener {
-        c() {
+    public class PopupScrollListener implements AbsListView.OnScrollListener {
+        PopupScrollListener() {
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -784,35 +802,35 @@ public class ListPopupWindow implements ShowableListMenu {
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (i == 1 && !ListPopupWindow.this.isInputMethodNotNeeded() && ListPopupWindow.this.QE.getContentView() != null) {
-                ListPopupWindow.this.mHandler.removeCallbacks(ListPopupWindow.this.Qy);
-                ListPopupWindow.this.Qy.run();
+            if (i == 1 && !ListPopupWindow.this.isInputMethodNotNeeded() && ListPopupWindow.this.mPopup.getContentView() != null) {
+                ListPopupWindow.this.mHandler.removeCallbacks(ListPopupWindow.this.mResizePopupRunnable);
+                ListPopupWindow.this.mResizePopupRunnable.run();
             }
         }
     }
 
-    private static boolean bq(int i) {
+    private static boolean isConfirmKey(int i) {
         return i == 66 || i == 23;
     }
 
-    private void I(boolean z) {
-        if (Qe != null) {
+    private void setPopupClipToScreenEnabled(boolean z) {
+        if (sClipToWindowEnabledMethod != null) {
             try {
-                Qe.invoke(this.QE, Boolean.valueOf(z));
-            } catch (Exception e2) {
-                Log.i("ListPopupWindow", "Could not call setClipToScreenEnabled() on PopupWindow. Oh well.");
+                sClipToWindowEnabledMethod.invoke(this.mPopup, Boolean.valueOf(z));
+            } catch (Exception e) {
+                Log.i(TAG, "Could not call setClipToScreenEnabled() on PopupWindow. Oh well.");
             }
         }
     }
 
-    private int getMaxAvailableHeight(View view, int i, boolean z) {
-        if (Qf != null) {
+    private int getMaxAvailableHeight(View view2, int i, boolean z) {
+        if (sGetMaxAvailableHeightMethod != null) {
             try {
-                return ((Integer) Qf.invoke(this.QE, view, Integer.valueOf(i), Boolean.valueOf(z))).intValue();
-            } catch (Exception e2) {
-                Log.i("ListPopupWindow", "Could not call getMaxAvailableHeightMethod(View, int, boolean) on PopupWindow. Using the public version.");
+                return ((Integer) sGetMaxAvailableHeightMethod.invoke(this.mPopup, view2, Integer.valueOf(i), Boolean.valueOf(z))).intValue();
+            } catch (Exception e) {
+                Log.i(TAG, "Could not call getMaxAvailableHeightMethod(View, int, boolean) on PopupWindow. Using the public version.");
             }
         }
-        return this.QE.getMaxAvailableHeight(view, i);
+        return this.mPopup.getMaxAvailableHeight(view2, i);
     }
 }

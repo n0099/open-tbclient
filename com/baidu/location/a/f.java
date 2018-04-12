@@ -7,13 +7,13 @@ import android.hardware.SensorManager;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class f implements SensorEventListener {
-    private static f aBI;
+    private static f NZ;
+    private SensorManager NY;
     private float[] a;
-    private SensorManager aBH;
     private float[] b;
     private float e;
     private boolean i;
-    private double aBJ = Double.MIN_VALUE;
+    private double Oa = Double.MIN_VALUE;
     private boolean g = false;
     private boolean h = false;
     private float j = 0.0f;
@@ -24,10 +24,10 @@ public class f implements SensorEventListener {
     private f() {
         this.i = false;
         try {
-            if (this.aBH == null) {
-                this.aBH = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.NY == null) {
+                this.NY = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.aBH.getDefaultSensor(6) != null) {
+            if (this.NY.getDefaultSensor(6) != null) {
                 this.i = true;
             }
         } catch (Exception e) {
@@ -36,22 +36,22 @@ public class f implements SensorEventListener {
     }
 
     private void k() {
-        if (this.aBH != null) {
-            Sensor defaultSensor = this.aBH.getDefaultSensor(6);
+        if (this.NY != null) {
+            Sensor defaultSensor = this.NY.getDefaultSensor(6);
             if (defaultSensor != null) {
-                this.aBH.registerListener(aBI, defaultSensor, 3);
+                this.NY.registerListener(NZ, defaultSensor, 3);
             }
             com.baidu.location.g.a.a().postDelayed(new k(this), 2000L);
         }
     }
 
-    public static synchronized f uq() {
+    public static synchronized f mW() {
         f fVar;
         synchronized (f.class) {
-            if (aBI == null) {
-                aBI = new f();
+            if (NZ == null) {
+                NZ = new f();
             }
-            fVar = aBI;
+            fVar = NZ;
         }
         return fVar;
     }
@@ -62,17 +62,17 @@ public class f implements SensorEventListener {
 
     public synchronized void b() {
         if (!this.l && (this.g || this.h)) {
-            if (this.aBH == null) {
-                this.aBH = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.NY == null) {
+                this.NY = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.aBH != null) {
-                Sensor defaultSensor = this.aBH.getDefaultSensor(11);
+            if (this.NY != null) {
+                Sensor defaultSensor = this.NY.getDefaultSensor(11);
                 if (defaultSensor != null && this.g) {
-                    this.aBH.registerListener(this, defaultSensor, 3);
+                    this.NY.registerListener(this, defaultSensor, 3);
                 }
-                Sensor defaultSensor2 = this.aBH.getDefaultSensor(6);
+                Sensor defaultSensor2 = this.NY.getDefaultSensor(6);
                 if (defaultSensor2 != null && this.h) {
-                    this.aBH.registerListener(this, defaultSensor2, 3);
+                    this.NY.registerListener(this, defaultSensor2, 3);
                 }
             }
             this.l = true;
@@ -85,9 +85,9 @@ public class f implements SensorEventListener {
 
     public synchronized void c() {
         if (this.l) {
-            if (this.aBH != null) {
-                this.aBH.unregisterListener(this);
-                this.aBH = null;
+            if (this.NY != null) {
+                this.NY.unregisterListener(this);
+                this.NY = null;
             }
             this.l = false;
             this.j = 0.0f;
@@ -121,6 +121,10 @@ public class f implements SensorEventListener {
         return this.e;
     }
 
+    public double mX() {
+        return this.Oa;
+    }
+
     @Override // android.hardware.SensorEventListener
     public void onAccuracyChanged(Sensor sensor, int i) {
     }
@@ -133,7 +137,7 @@ public class f implements SensorEventListener {
                     this.b = (float[]) sensorEvent.values.clone();
                     this.j = this.b[0];
                     this.k = System.currentTimeMillis();
-                    this.aBJ = SensorManager.getAltitude(1013.25f, this.b[0]);
+                    this.Oa = SensorManager.getAltitude(1013.25f, this.b[0]);
                     return;
                 } catch (Exception e) {
                     return;
@@ -158,9 +162,5 @@ public class f implements SensorEventListener {
             default:
                 return;
         }
-    }
-
-    public double ur() {
-        return this.aBJ;
     }
 }

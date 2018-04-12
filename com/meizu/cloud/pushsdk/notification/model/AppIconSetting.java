@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.a.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppIconSetting implements Parcelable {
     public static final String APP_ICON_SETTING = "is";
     public static final Parcelable.Creator<AppIconSetting> CREATOR = new Parcelable.Creator<AppIconSetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.AppIconSetting.1

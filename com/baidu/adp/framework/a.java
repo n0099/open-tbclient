@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a acc;
-    private SparseArray<String> acd;
+    private static volatile a mq;
+    private SparseArray<String> mr;
 
-    public static a jU() {
-        if (acc == null) {
+    public static a bY() {
+        if (mq == null) {
             synchronized (a.class) {
-                if (acc == null) {
-                    acc = new a();
+                if (mq == null) {
+                    mq = new a();
                 }
             }
         }
-        return acc;
+        return mq;
     }
 
     private a() {
-        this.acd = null;
-        this.acd = new SparseArray<>();
+        this.mr = null;
+        this.mr = new SparseArray<>();
     }
 
-    public void o(List<String> list) {
+    public void f(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                H(str);
+                E(str);
             }
         }
     }
 
-    private void H(String str) {
+    private void E(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.acd.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.acd.get(i) + " 重复");
+                    if (this.mr.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.mr.get(i) + " 重复");
                     }
-                    this.acd.put(i, name);
+                    this.mr.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String cz(int i) {
-        String str = this.acd.get(i);
+    public String z(int i) {
+        String str = this.mr.get(i);
         if (str != null) {
             return str;
         }

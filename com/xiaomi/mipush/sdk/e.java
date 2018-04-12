@@ -2,7 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.net.wifi.ScanResult;
 import java.util.Comparator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class e implements Comparator<ScanResult> {
     final /* synthetic */ d a;
 

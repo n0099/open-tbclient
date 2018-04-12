@@ -8,26 +8,26 @@ import android.support.annotation.RestrictTo;
 import java.security.Signature;
 import javax.crypto.Cipher;
 import javax.crypto.Mac;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public final class FingerprintManagerCompatApi23 {
-    private static FingerprintManager T(Context context) {
+    private static FingerprintManager getFingerprintManager(Context context) {
         return (FingerprintManager) context.getSystemService(FingerprintManager.class);
     }
 
     public static boolean hasEnrolledFingerprints(Context context) {
-        return T(context).hasEnrolledFingerprints();
+        return getFingerprintManager(context).hasEnrolledFingerprints();
     }
 
     public static boolean isHardwareDetected(Context context) {
-        return T(context).isHardwareDetected();
+        return getFingerprintManager(context).isHardwareDetected();
     }
 
     public static void authenticate(Context context, CryptoObject cryptoObject, int i, Object obj, AuthenticationCallback authenticationCallback, Handler handler) {
-        T(context).authenticate(b(cryptoObject), (CancellationSignal) obj, i, a(authenticationCallback), handler);
+        getFingerprintManager(context).authenticate(wrapCryptoObject(cryptoObject), (CancellationSignal) obj, i, wrapCallback(authenticationCallback), handler);
     }
 
-    private static FingerprintManager.CryptoObject b(CryptoObject cryptoObject) {
+    private static FingerprintManager.CryptoObject wrapCryptoObject(CryptoObject cryptoObject) {
         if (cryptoObject == null) {
             return null;
         }
@@ -44,7 +44,7 @@ public final class FingerprintManagerCompatApi23 {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static CryptoObject a(FingerprintManager.CryptoObject cryptoObject) {
+    public static CryptoObject unwrapCryptoObject(FingerprintManager.CryptoObject cryptoObject) {
         if (cryptoObject == null) {
             return null;
         }
@@ -60,7 +60,7 @@ public final class FingerprintManagerCompatApi23 {
         return null;
     }
 
-    private static FingerprintManager.AuthenticationCallback a(final AuthenticationCallback authenticationCallback) {
+    private static FingerprintManager.AuthenticationCallback wrapCallback(final AuthenticationCallback authenticationCallback) {
         return new FingerprintManager.AuthenticationCallback() { // from class: android.support.v4.hardware.fingerprint.FingerprintManagerCompatApi23.1
             @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
             public void onAuthenticationError(int i, CharSequence charSequence) {
@@ -74,7 +74,7 @@ public final class FingerprintManagerCompatApi23 {
 
             @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
             public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult authenticationResult) {
-                AuthenticationCallback.this.onAuthenticationSucceeded(new AuthenticationResultInternal(FingerprintManagerCompatApi23.a(authenticationResult.getCryptoObject())));
+                AuthenticationCallback.this.onAuthenticationSucceeded(new AuthenticationResultInternal(FingerprintManagerCompatApi23.unwrapCryptoObject(authenticationResult.getCryptoObject())));
             }
 
             @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
@@ -86,51 +86,51 @@ public final class FingerprintManagerCompatApi23 {
 
     /* loaded from: classes2.dex */
     public static class CryptoObject {
-        private final Signature wK;
-        private final Cipher wL;
-        private final Mac wM;
+        private final Cipher mCipher;
+        private final Mac mMac;
+        private final Signature mSignature;
 
         public CryptoObject(Signature signature) {
-            this.wK = signature;
-            this.wL = null;
-            this.wM = null;
+            this.mSignature = signature;
+            this.mCipher = null;
+            this.mMac = null;
         }
 
         public CryptoObject(Cipher cipher) {
-            this.wL = cipher;
-            this.wK = null;
-            this.wM = null;
+            this.mCipher = cipher;
+            this.mSignature = null;
+            this.mMac = null;
         }
 
         public CryptoObject(Mac mac) {
-            this.wM = mac;
-            this.wL = null;
-            this.wK = null;
+            this.mMac = mac;
+            this.mCipher = null;
+            this.mSignature = null;
         }
 
         public Signature getSignature() {
-            return this.wK;
+            return this.mSignature;
         }
 
         public Cipher getCipher() {
-            return this.wL;
+            return this.mCipher;
         }
 
         public Mac getMac() {
-            return this.wM;
+            return this.mMac;
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class AuthenticationResultInternal {
-        private CryptoObject wO;
+        private CryptoObject mCryptoObject;
 
         public AuthenticationResultInternal(CryptoObject cryptoObject) {
-            this.wO = cryptoObject;
+            this.mCryptoObject = cryptoObject;
         }
 
         public CryptoObject getCryptoObject() {
-            return this.wO;
+            return this.mCryptoObject;
         }
     }
 

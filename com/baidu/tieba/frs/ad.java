@@ -1,27 +1,15 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-/* loaded from: classes.dex */
-public class ad {
-    private static ad dHm = new ad();
-    private final SparseArray<String> dHl = new SparseArray<>();
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.bd;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+/* loaded from: classes2.dex */
+public interface ad {
+    com.baidu.adp.widget.ListView.a<? extends bd, ? extends q.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
 
-    private ad() {
-    }
+    f<ICardInfo, ? extends q.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 
-    public static ad awn() {
-        return dHm;
-    }
-
-    public void mZ(int i) {
-        this.dHl.put(i, "1");
-    }
-
-    public boolean na(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return !TextUtils.isEmpty(this.dHl.get(i));
-    }
+    com.baidu.adp.widget.ListView.a<? extends bd, ? extends q.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 }

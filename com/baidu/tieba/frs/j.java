@@ -1,37 +1,46 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
-public class j {
-    private com.baidu.tieba.frs.mc.j dFF;
+public class j extends f<k, l> {
+    private final int cZz;
 
-    public j(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.j jVar) {
-        this.dFF = jVar;
+    public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        this.cZz = (com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
-    public void b(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.dFF != null && this.dFF.auO() != null && this.dFF.auO().ayW() != null && this.dFF.auT() != null && bVar != null && this.dFF.auT().getListView() != null && this.dFF.auQ() != null) {
-            BdTypeRecyclerView listView = this.dFF.auT().getListView();
-            switch (bVar.what) {
-                case 2:
-                    if (bVar.getView() != null) {
-                        listView.removeHeaderView(bVar.getView());
-                        listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
-                        this.dFF.auQ().nS(8);
-                        return;
-                    }
-                    return;
-                case 3:
-                    if (bVar.getView() != null) {
-                        listView.removeHeaderView(bVar.getView());
-                        this.dFF.auQ().nS(0);
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: ao */
+    public l onCreateViewHolder(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.i.frs_no_list_item_view, viewGroup, false);
+        ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
+        generateLayoutParamsByParent.width = -1;
+        generateLayoutParamsByParent.height = this.cZz;
+        inflate.setLayoutParams(generateLayoutParamsByParent);
+        return new l(inflate);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, k kVar, l lVar) {
+        super.onFillViewHolder(i, view2, viewGroup, kVar, lVar);
+        if (kVar.aqC() == 6) {
+            lVar.cZC.setText(d.k.attention_no_post_tip);
+        } else {
+            lVar.cZC.setText(d.k.no_data_text);
         }
+        com.baidu.tbadk.core.util.ak.c(lVar.cZC, d.C0126d.cp_cont_b, 1);
+        return view2;
     }
 }

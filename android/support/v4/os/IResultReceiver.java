@@ -70,6 +70,10 @@ public interface IResultReceiver extends IInterface {
                 return this.mRemote;
             }
 
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
+            }
+
             @Override // android.support.v4.os.IResultReceiver
             public void send(int i, Bundle bundle) throws RemoteException {
                 Parcel obtain = Parcel.obtain();

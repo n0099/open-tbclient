@@ -1,10 +1,21 @@
 package com.baidu.adp.lib.g;
 /* loaded from: classes.dex */
 public abstract class b {
-    public static int h(String str, int i) {
+    public static int g(String str, int i) {
         if (str != null) {
             try {
                 return Integer.parseInt(str);
+            } catch (Exception e) {
+                return i;
+            }
+        }
+        return i;
+    }
+
+    public static int h(String str, int i, int i2) {
+        if (str != null) {
+            try {
+                return Integer.parseInt(str, i2);
             } catch (Exception e) {
                 return i;
             }
@@ -45,7 +56,7 @@ public abstract class b {
         return d;
     }
 
-    public static boolean c(String str, boolean z) {
+    public static boolean d(String str, boolean z) {
         if (str != null) {
             try {
                 return Boolean.parseBoolean(str);

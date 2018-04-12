@@ -16,20 +16,20 @@ public class ad extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: br */
+    /* renamed from: bo */
     public com.baidu.tieba.pb.pb.a.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.pb.pb.a.c(LayoutInflater.from(this.mContext).inflate(d.h.pb_no_data_item_layout, viewGroup, false), this.mContext);
+        return new com.baidu.tieba.pb.pb.a.c(LayoutInflater.from(this.mContext).inflate(d.i.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.g gVar, com.baidu.tieba.pb.pb.a.c cVar) {
-        super.onFillViewHolder(i, view, viewGroup, gVar, cVar);
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.pb.data.g gVar, com.baidu.tieba.pb.pb.a.c cVar) {
+        super.onFillViewHolder(i, view2, viewGroup, gVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.fNg.getLayoutMode().aQ(this.mSkinType == 1);
-        this.fNg.getLayoutMode().aM(view);
-        return view;
+        this.fgM.getLayoutMode().setNightMode(this.mSkinType == 1);
+        this.fgM.getLayoutMode().u(view2);
+        return view2;
     }
 }

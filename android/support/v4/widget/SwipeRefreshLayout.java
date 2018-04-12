@@ -3,6 +3,10 @@ package android.support.v4.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.NestedScrollingChild;
@@ -23,8 +27,24 @@ import android.view.animation.Transformation;
 import android.widget.AbsListView;
 /* loaded from: classes2.dex */
 public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
+    private static final int ALPHA_ANIMATION_DURATION = 300;
+    private static final int ANIMATE_TO_START_DURATION = 200;
+    private static final int ANIMATE_TO_TRIGGER_DURATION = 200;
+    private static final int CIRCLE_BG_LIGHT = -328966;
+    @VisibleForTesting
+    static final int CIRCLE_DIAMETER = 40;
+    @VisibleForTesting
+    static final int CIRCLE_DIAMETER_LARGE = 56;
+    private static final float DECELERATE_INTERPOLATION_FACTOR = 2.0f;
     public static final int DEFAULT = 1;
+    private static final int DEFAULT_CIRCLE_TARGET = 64;
+    private static final float DRAG_RATE = 0.5f;
+    private static final int INVALID_POINTER = -1;
     public static final int LARGE = 0;
+    private static final int MAX_ALPHA = 255;
+    private static final float MAX_PROGRESS_ANGLE = 0.8f;
+    private static final int SCALE_DOWN_DURATION = 150;
+    private static final int STARTING_PROGRESS_ALPHA = 76;
     private int mActivePointerId;
     private Animation mAlphaMaxAnimation;
     private Animation mAlphaStartAnimation;
@@ -69,7 +89,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
 
     /* loaded from: classes2.dex */
     public interface OnChildScrollUpCallback {
-        boolean canChildScrollUp(SwipeRefreshLayout swipeRefreshLayout, View view);
+        boolean canChildScrollUp(SwipeRefreshLayout swipeRefreshLayout, @Nullable View view2);
     }
 
     /* loaded from: classes2.dex */
@@ -203,7 +223,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         this.mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         this.mMediumAnimationDuration = getResources().getInteger(17694721);
         setWillNotDraw(false);
-        this.mDecelerateInterpolator = new DecelerateInterpolator(2.0f);
+        this.mDecelerateInterpolator = new DecelerateInterpolator(DECELERATE_INTERPOLATION_FACTOR);
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         this.mCircleDiameter = (int) (40.0f * displayMetrics.density);
         createProgressView();
@@ -237,9 +257,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
     }
 
     private void createProgressView() {
-        this.mCircleView = new CircleImageView(getContext(), -328966);
+        this.mCircleView = new CircleImageView(getContext(), CIRCLE_BG_LIGHT);
         this.mProgress = new MaterialProgressDrawable(getContext(), this);
-        this.mProgress.setBackgroundColor(-328966);
+        this.mProgress.setBackgroundColor(CIRCLE_BG_LIGHT);
         this.mCircleView.setImageDrawable(this.mProgress);
         this.mCircleView.setVisibility(8);
         addView(this.mCircleView);
@@ -354,21 +374,21 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         setProgressBackgroundColorSchemeResource(i);
     }
 
-    public void setProgressBackgroundColorSchemeResource(int i) {
+    public void setProgressBackgroundColorSchemeResource(@ColorRes int i) {
         setProgressBackgroundColorSchemeColor(ContextCompat.getColor(getContext(), i));
     }
 
-    public void setProgressBackgroundColorSchemeColor(int i) {
+    public void setProgressBackgroundColorSchemeColor(@ColorInt int i) {
         this.mCircleView.setBackgroundColor(i);
         this.mProgress.setBackgroundColor(i);
     }
 
     @Deprecated
-    public void setColorScheme(int... iArr) {
+    public void setColorScheme(@ColorInt int... iArr) {
         setColorSchemeResources(iArr);
     }
 
-    public void setColorSchemeResources(int... iArr) {
+    public void setColorSchemeResources(@ColorRes int... iArr) {
         Context context = getContext();
         int[] iArr2 = new int[iArr.length];
         for (int i = 0; i < iArr.length; i++) {
@@ -377,7 +397,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         setColorSchemeColors(iArr2);
     }
 
-    public void setColorSchemeColors(int... iArr) {
+    public void setColorSchemeColors(@ColorInt int... iArr) {
         ensureTarget();
         this.mProgress.setColorSchemeColors(iArr);
     }
@@ -411,10 +431,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
                 ensureTarget();
             }
             if (this.mTarget != null) {
-                View view = this.mTarget;
+                View view2 = this.mTarget;
                 int paddingLeft = getPaddingLeft();
                 int paddingTop = getPaddingTop();
-                view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
+                view2.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
                 int measuredWidth2 = this.mCircleView.getMeasuredWidth();
                 this.mCircleView.layout((measuredWidth / 2) - (measuredWidth2 / 2), this.mCurrentTargetOffsetTop, (measuredWidth / 2) + (measuredWidth2 / 2), this.mCurrentTargetOffsetTop + this.mCircleView.getMeasuredHeight());
             }
@@ -462,7 +482,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         return ViewCompat.canScrollVertically(this.mTarget, -1);
     }
 
-    public void setOnChildScrollUpCallback(OnChildScrollUpCallback onChildScrollUpCallback) {
+    public void setOnChildScrollUpCallback(@Nullable OnChildScrollUpCallback onChildScrollUpCallback) {
         this.mChildScrollUpCallback = onChildScrollUpCallback;
     }
 
@@ -522,20 +542,20 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i) {
+    public boolean onStartNestedScroll(View view2, View view3, int i) {
         return (!isEnabled() || this.mReturningToStart || this.mRefreshing || (i & 2) == 0) ? false : true;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i) {
-        this.mNestedScrollingParentHelper.onNestedScrollAccepted(view, view2, i);
+    public void onNestedScrollAccepted(View view2, View view3, int i) {
+        this.mNestedScrollingParentHelper.onNestedScrollAccepted(view2, view3, i);
         startNestedScroll(i & 2);
         this.mTotalUnconsumed = 0.0f;
         this.mNestedScrollInProgress = true;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
+    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr) {
         if (i2 > 0 && this.mTotalUnconsumed > 0.0f) {
             if (i2 > this.mTotalUnconsumed) {
                 iArr[1] = i2 - ((int) this.mTotalUnconsumed);
@@ -562,8 +582,8 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onStopNestedScroll(View view) {
-        this.mNestedScrollingParentHelper.onStopNestedScroll(view);
+    public void onStopNestedScroll(View view2) {
+        this.mNestedScrollingParentHelper.onStopNestedScroll(view2);
         this.mNestedScrollInProgress = false;
         if (this.mTotalUnconsumed > 0.0f) {
             finishSpinner(this.mTotalUnconsumed);
@@ -573,7 +593,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4) {
         dispatchNestedScroll(i, i2, i3, i4, this.mParentOffsetInWindow);
         int i5 = this.mParentOffsetInWindow[1] + i4;
         if (i5 < 0 && !canChildScrollUp()) {
@@ -618,12 +638,12 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view, float f, float f2) {
+    public boolean onNestedPreFling(View view2, float f, float f2) {
         return dispatchNestedPreFling(f, f2);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public boolean onNestedFling(View view, float f, float f2, boolean z) {
+    public boolean onNestedFling(View view2, float f, float f2, boolean z) {
         return dispatchNestedFling(f, f2, z);
     }
 
@@ -647,9 +667,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
         float abs = Math.abs(f) - this.mTotalDragDistance;
         float f2 = this.mUsingCustomStart ? this.mSpinnerOffsetEnd - this.mOriginalOffsetTop : this.mSpinnerOffsetEnd;
-        float max2 = Math.max(0.0f, Math.min(abs, f2 * 2.0f) / f2);
-        float pow = ((float) ((max2 / 4.0f) - Math.pow(max2 / 4.0f, 2.0d))) * 2.0f;
-        int i = ((int) ((f2 * min) + (f2 * pow * 2.0f))) + this.mOriginalOffsetTop;
+        float max2 = Math.max(0.0f, Math.min(abs, f2 * DECELERATE_INTERPOLATION_FACTOR) / f2);
+        float pow = ((float) ((max2 / 4.0f) - Math.pow(max2 / 4.0f, 2.0d))) * DECELERATE_INTERPOLATION_FACTOR;
+        int i = ((int) ((f2 * min) + (f2 * pow * DECELERATE_INTERPOLATION_FACTOR))) + this.mOriginalOffsetTop;
         if (this.mCircleView.getVisibility() != 0) {
             this.mCircleView.setVisibility(0);
         }
@@ -667,9 +687,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         } else if (this.mProgress.getAlpha() < 255 && !isAnimationRunning(this.mAlphaMaxAnimation)) {
             startProgressAlphaMaxAnimation();
         }
-        this.mProgress.setStartEndTrim(0.0f, Math.min(0.8f, max * 0.8f));
+        this.mProgress.setStartEndTrim(0.0f, Math.min((float) MAX_PROGRESS_ANGLE, max * MAX_PROGRESS_ANGLE));
         this.mProgress.setArrowScale(Math.min(1.0f, max));
-        this.mProgress.setProgressRotation(((-0.25f) + (max * 0.4f) + (pow * 2.0f)) * 0.5f);
+        this.mProgress.setProgressRotation(((-0.25f) + (max * 0.4f) + (pow * DECELERATE_INTERPOLATION_FACTOR)) * 0.5f);
         setTargetOffsetTopAndBottom(i - this.mCurrentTargetOffsetTop, true);
     }
 

@@ -9,7 +9,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l implements Serializable, Cloneable, org.apache.thrift.a<l, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> c;
     private static final org.apache.thrift.protocol.j d = new org.apache.thrift.protocol.j("Location");
@@ -19,7 +19,7 @@ public class l implements Serializable, Cloneable, org.apache.thrift.a<l, a> {
     public double b;
     private BitSet g = new BitSet(2);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         LONGITUDE(1, WBPageConstants.ParamKey.LONGITUDE),
         LATITUDE(2, WBPageConstants.ParamKey.LATITUDE);

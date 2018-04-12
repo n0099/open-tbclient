@@ -1,78 +1,82 @@
 package android.support.v7.util;
 /* loaded from: classes2.dex */
 public class BatchingListUpdateCallback implements ListUpdateCallback {
-    final ListUpdateCallback Fv;
-    int Fw = 0;
-    int Fx = -1;
-    int Fy = -1;
-    Object Fz = null;
+    private static final int TYPE_ADD = 1;
+    private static final int TYPE_CHANGE = 3;
+    private static final int TYPE_NONE = 0;
+    private static final int TYPE_REMOVE = 2;
+    final ListUpdateCallback mWrapped;
+    int mLastEventType = 0;
+    int mLastEventPosition = -1;
+    int mLastEventCount = -1;
+    Object mLastEventPayload = null;
 
     public BatchingListUpdateCallback(ListUpdateCallback listUpdateCallback) {
-        this.Fv = listUpdateCallback;
+        this.mWrapped = listUpdateCallback;
     }
 
     public void dispatchLastEvent() {
-        if (this.Fw != 0) {
-            switch (this.Fw) {
+        if (this.mLastEventType != 0) {
+            switch (this.mLastEventType) {
                 case 1:
-                    this.Fv.onInserted(this.Fx, this.Fy);
+                    this.mWrapped.onInserted(this.mLastEventPosition, this.mLastEventCount);
                     break;
                 case 2:
-                    this.Fv.onRemoved(this.Fx, this.Fy);
+                    this.mWrapped.onRemoved(this.mLastEventPosition, this.mLastEventCount);
                     break;
                 case 3:
-                    this.Fv.onChanged(this.Fx, this.Fy, this.Fz);
+                    this.mWrapped.onChanged(this.mLastEventPosition, this.mLastEventCount, this.mLastEventPayload);
                     break;
             }
-            this.Fz = null;
-            this.Fw = 0;
+            this.mLastEventPayload = null;
+            this.mLastEventType = 0;
         }
     }
 
     @Override // android.support.v7.util.ListUpdateCallback
     public void onInserted(int i, int i2) {
-        if (this.Fw == 1 && i >= this.Fx && i <= this.Fx + this.Fy) {
-            this.Fy += i2;
-            this.Fx = Math.min(i, this.Fx);
+        if (this.mLastEventType == 1 && i >= this.mLastEventPosition && i <= this.mLastEventPosition + this.mLastEventCount) {
+            this.mLastEventCount += i2;
+            this.mLastEventPosition = Math.min(i, this.mLastEventPosition);
             return;
         }
         dispatchLastEvent();
-        this.Fx = i;
-        this.Fy = i2;
-        this.Fw = 1;
+        this.mLastEventPosition = i;
+        this.mLastEventCount = i2;
+        this.mLastEventType = 1;
     }
 
     @Override // android.support.v7.util.ListUpdateCallback
     public void onRemoved(int i, int i2) {
-        if (this.Fw == 2 && this.Fx >= i && this.Fx <= i + i2) {
-            this.Fy += i2;
-            this.Fx = i;
+        if (this.mLastEventType == 2 && this.mLastEventPosition >= i && this.mLastEventPosition <= i + i2) {
+            this.mLastEventCount += i2;
+            this.mLastEventPosition = i;
             return;
         }
         dispatchLastEvent();
-        this.Fx = i;
-        this.Fy = i2;
-        this.Fw = 2;
+        this.mLastEventPosition = i;
+        this.mLastEventCount = i2;
+        this.mLastEventType = 2;
     }
 
     @Override // android.support.v7.util.ListUpdateCallback
     public void onMoved(int i, int i2) {
         dispatchLastEvent();
-        this.Fv.onMoved(i, i2);
+        this.mWrapped.onMoved(i, i2);
     }
 
     @Override // android.support.v7.util.ListUpdateCallback
     public void onChanged(int i, int i2, Object obj) {
-        if (this.Fw == 3 && i <= this.Fx + this.Fy && i + i2 >= this.Fx && this.Fz == obj) {
-            int i3 = this.Fx + this.Fy;
-            this.Fx = Math.min(i, this.Fx);
-            this.Fy = Math.max(i3, i + i2) - this.Fx;
+        if (this.mLastEventType == 3 && i <= this.mLastEventPosition + this.mLastEventCount && i + i2 >= this.mLastEventPosition && this.mLastEventPayload == obj) {
+            int i3 = this.mLastEventPosition + this.mLastEventCount;
+            this.mLastEventPosition = Math.min(i, this.mLastEventPosition);
+            this.mLastEventCount = Math.max(i3, i + i2) - this.mLastEventPosition;
             return;
         }
         dispatchLastEvent();
-        this.Fx = i;
-        this.Fy = i2;
-        this.Fz = obj;
-        this.Fw = 3;
+        this.mLastEventPosition = i;
+        this.mLastEventCount = i2;
+        this.mLastEventPayload = obj;
+        this.mLastEventType = 3;
     }
 }

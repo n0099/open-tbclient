@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class t extends XMPushService.h {
     final /* synthetic */ XMPushService b;
     final /* synthetic */ com.xiaomi.xmpush.thrift.ab c;

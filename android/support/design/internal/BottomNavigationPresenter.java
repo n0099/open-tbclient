@@ -9,35 +9,35 @@ import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.view.menu.MenuView;
 import android.support.v7.view.menu.SubMenuBuilder;
 import android.view.ViewGroup;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class BottomNavigationPresenter implements MenuPresenter {
-    private BottomNavigationMenuView jL;
-    private boolean jM = false;
     private MenuBuilder mMenu;
+    private BottomNavigationMenuView mMenuView;
+    private boolean mUpdateSuspended = false;
 
     public void setBottomNavigationMenuView(BottomNavigationMenuView bottomNavigationMenuView) {
-        this.jL = bottomNavigationMenuView;
+        this.mMenuView = bottomNavigationMenuView;
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public void initForMenu(Context context, MenuBuilder menuBuilder) {
-        this.jL.initialize(this.mMenu);
+        this.mMenuView.initialize(this.mMenu);
         this.mMenu = menuBuilder;
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
-        return this.jL;
+        return this.mMenuView;
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public void updateMenuView(boolean z) {
-        if (!this.jM) {
+        if (!this.mUpdateSuspended) {
             if (z) {
-                this.jL.buildMenuView();
+                this.mMenuView.buildMenuView();
             } else {
-                this.jL.updateMenuView();
+                this.mMenuView.updateMenuView();
             }
         }
     }
@@ -85,6 +85,6 @@ public class BottomNavigationPresenter implements MenuPresenter {
     }
 
     public void setUpdateSuspended(boolean z) {
-        this.jM = z;
+        this.mUpdateSuspended = z;
     }
 }

@@ -69,7 +69,7 @@ public class SubPbActivityConfig extends IntentConfig {
         intent.putExtra(KEY_REPLAY_POST_ID, str5);
         intent.putExtra(KEY_USER_IDENTITY, i);
         intent.putExtra(KEY_TAIL, smallTailInfo);
-        intent.putExtra("anti", antiData);
+        intent.putExtra(KEY_ANTI, antiData);
         intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
         return this;
     }
@@ -85,7 +85,7 @@ public class SubPbActivityConfig extends IntentConfig {
         intent.putExtra(KEY_REPLAY_POST_ID, str5);
         intent.putExtra(KEY_USER_IDENTITY, i);
         intent.putExtra(KEY_TAIL, smallTailInfo);
-        intent.putExtra("anti", antiData);
+        intent.putExtra(KEY_ANTI, antiData);
         intent.putExtra(ICON_LIST, arrayList);
         intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
         return this;

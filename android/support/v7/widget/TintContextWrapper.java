@@ -4,31 +4,32 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Resources;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class TintContextWrapper extends ContextWrapper {
-    private static final Object Xa = new Object();
-    private static ArrayList<WeakReference<TintContextWrapper>> Xb;
+    private static final Object CACHE_LOCK = new Object();
+    private static ArrayList<WeakReference<TintContextWrapper>> sCache;
     private final Resources mResources;
     private final Resources.Theme mTheme;
 
-    public static Context wrap(Context context) {
-        if (Z(context)) {
-            synchronized (Xa) {
-                if (Xb == null) {
-                    Xb = new ArrayList<>();
+    public static Context wrap(@NonNull Context context) {
+        if (shouldWrap(context)) {
+            synchronized (CACHE_LOCK) {
+                if (sCache == null) {
+                    sCache = new ArrayList<>();
                 } else {
-                    for (int size = Xb.size() - 1; size >= 0; size--) {
-                        WeakReference<TintContextWrapper> weakReference = Xb.get(size);
+                    for (int size = sCache.size() - 1; size >= 0; size--) {
+                        WeakReference<TintContextWrapper> weakReference = sCache.get(size);
                         if (weakReference == null || weakReference.get() == null) {
-                            Xb.remove(size);
+                            sCache.remove(size);
                         }
                     }
-                    for (int size2 = Xb.size() - 1; size2 >= 0; size2--) {
-                        WeakReference<TintContextWrapper> weakReference2 = Xb.get(size2);
+                    for (int size2 = sCache.size() - 1; size2 >= 0; size2--) {
+                        WeakReference<TintContextWrapper> weakReference2 = sCache.get(size2);
                         TintContextWrapper tintContextWrapper = weakReference2 != null ? weakReference2.get() : null;
                         if (tintContextWrapper != null && tintContextWrapper.getBaseContext() == context) {
                             return tintContextWrapper;
@@ -36,21 +37,21 @@ public class TintContextWrapper extends ContextWrapper {
                     }
                 }
                 TintContextWrapper tintContextWrapper2 = new TintContextWrapper(context);
-                Xb.add(new WeakReference<>(tintContextWrapper2));
+                sCache.add(new WeakReference<>(tintContextWrapper2));
                 return tintContextWrapper2;
             }
         }
         return context;
     }
 
-    private static boolean Z(Context context) {
-        if ((context instanceof TintContextWrapper) || (context.getResources() instanceof u) || (context.getResources() instanceof VectorEnabledTintResources)) {
+    private static boolean shouldWrap(@NonNull Context context) {
+        if ((context instanceof TintContextWrapper) || (context.getResources() instanceof TintResources) || (context.getResources() instanceof VectorEnabledTintResources)) {
             return false;
         }
         return Build.VERSION.SDK_INT < 21 || VectorEnabledTintResources.shouldBeUsed();
     }
 
-    private TintContextWrapper(Context context) {
+    private TintContextWrapper(@NonNull Context context) {
         super(context);
         if (VectorEnabledTintResources.shouldBeUsed()) {
             this.mResources = new VectorEnabledTintResources(this, context.getResources());
@@ -58,7 +59,7 @@ public class TintContextWrapper extends ContextWrapper {
             this.mTheme.setTo(context.getTheme());
             return;
         }
-        this.mResources = new u(this, context.getResources());
+        this.mResources = new TintResources(this, context.getResources());
         this.mTheme = null;
     }
 

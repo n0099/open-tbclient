@@ -1,5 +1,5 @@
 package com.xiaomi.channel.commonutils.string;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final String a = System.getProperty("line.separator");
     private static char[] b = new char[64];

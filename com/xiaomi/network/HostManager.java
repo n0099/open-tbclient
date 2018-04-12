@@ -31,7 +31,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HostManager {
     private static HostManagerFactory factory;
     private static String sAppName;
@@ -49,12 +49,12 @@ public class HostManager {
     private long lastRemoteRequestTimestamp = 0;
     private String currentISP = "isp_prov_city_country_ip";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface HostManagerFactory {
         HostManager a(Context context, HostFilter hostFilter, HttpGet httpGet, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface HttpGet {
         String a(String str);
     }

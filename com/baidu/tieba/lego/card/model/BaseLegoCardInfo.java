@@ -198,7 +198,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
         return this.mBdUniqueId;
     }

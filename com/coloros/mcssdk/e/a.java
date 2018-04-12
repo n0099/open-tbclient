@@ -2,24 +2,24 @@ package com.coloros.mcssdk.e;
 
 import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long hOH;
-    long hOI;
-    int hOJ;
-    String hOL;
+    long hmf;
+    long hmg;
+    int hmh;
+    String hmj;
     String title;
-    String hOK = "08:00-22:00";
-    int hOM = 0;
-    int hON = 0;
+    String hmi = "08:00-22:00";
+    int hmk = 0;
+    int hml = 0;
 
-    public void cW(long j) {
-        this.hOH = j;
+    public void dc(long j) {
+        this.hmf = j;
     }
 
-    public void cX(long j) {
-        this.hOI = j;
+    public void dd(long j) {
+        this.hmg = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -37,42 +37,42 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.hOT);
-        sb.append(",taskID:" + this.hOU);
+        sb.append("messageID:" + this.hmr);
+        sb.append(",taskID:" + this.hms);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.hOL);
+        sb.append(",rule:" + this.hmj);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.hOJ);
-        sb.append(",startTime:" + this.hOH);
-        sb.append(",endTime:" + this.hOI);
-        sb.append(",balanceTime:" + this.hOJ);
-        sb.append(",timeRanges:" + this.hOK);
-        sb.append(",forcedDelivery:" + this.hOM);
-        sb.append(",distinctBycontent:" + this.hON);
+        sb.append(",balanceTime:" + this.hmh);
+        sb.append(",startTime:" + this.hmf);
+        sb.append(",endTime:" + this.hmg);
+        sb.append(",balanceTime:" + this.hmh);
+        sb.append(",timeRanges:" + this.hmi);
+        sb.append(",forcedDelivery:" + this.hmk);
+        sb.append(",distinctBycontent:" + this.hml);
         return sb.toString();
     }
 
-    public void uU(String str) {
+    public void vt(int i) {
+        this.hmh = i;
+    }
+
+    public void vu(int i) {
+        this.hmk = i;
+    }
+
+    public void vv(int i) {
+        this.hml = i;
+    }
+
+    public void vx(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.hOK = str;
+        this.hmi = str;
     }
 
-    public void uV(String str) {
-        this.hOL = str;
-    }
-
-    public void xS(int i) {
-        this.hOJ = i;
-    }
-
-    public void xT(int i) {
-        this.hOM = i;
-    }
-
-    public void xU(int i) {
-        this.hON = i;
+    public void vy(String str) {
+        this.hmj = str;
     }
 }

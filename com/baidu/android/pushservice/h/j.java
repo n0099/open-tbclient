@@ -1,57 +1,47 @@
 package com.baidu.android.pushservice.h;
 
-import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.ar.util.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class j extends c {
-    public static int a = 0;
-    public static int b = 10;
-    public static int c = 11;
-    public static int d = 12;
-    public static int e = 13;
-    private int f;
+/* loaded from: classes3.dex */
+public class j extends l {
+    public String a;
+    public int b;
+    public int c;
+    public String k;
 
     public j() {
-        this.f = 0;
+        this.a = "";
+        this.b = -1;
+        this.c = -1;
     }
 
-    public j(String str) {
-        super(str);
-        this.f = 0;
+    public j(l lVar) {
+        super(lVar);
+        this.a = "";
+        this.b = -1;
+        this.c = -1;
     }
 
-    public JSONObject a(Context context) throws JSONException {
+    public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("app_type", this.f);
-        if (!TextUtils.isEmpty(b())) {
-            jSONObject.put("app_package_name", b());
+        jSONObject.put("action_name", this.d);
+        jSONObject.put("timestamp", this.e);
+        jSONObject.put("network_status", this.f);
+        if (this.c != -1) {
+            jSONObject.put("msg_type", this.c);
         }
-        if (!TextUtils.isEmpty(c())) {
-            jSONObject.put("app_name", c());
+        if (!TextUtils.isEmpty(this.a)) {
+            jSONObject.put("msg_id", this.a);
         }
-        if (!TextUtils.isEmpty(d())) {
-            jSONObject.put("app_cfrom", d());
+        if (this.b > 0) {
+            jSONObject.put("msg_len", this.b);
         }
-        if (e() != -1) {
-            jSONObject.put("app_vercode", e());
+        if (this.k != null) {
+            jSONObject.put("msg_open_by", this.k);
         }
-        if (!TextUtils.isEmpty(f())) {
-            jSONObject.put("app_vername", f());
-        }
-        if (g() != -1) {
-            jSONObject.put("app_push_version", g());
-        }
-        jSONObject.put("app_appid", a());
+        jSONObject.put(Constants.HTTP_ERR_CODE, this.g);
         return jSONObject;
-    }
-
-    public void c(int i) {
-        this.f = i;
-    }
-
-    public int h() {
-        return this.f;
     }
 }

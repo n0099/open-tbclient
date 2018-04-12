@@ -11,13 +11,13 @@ public final class DataReq extends Message {
     public final Integer bigWidth;
     @ProtoField(tag = 6, type = Message.Datatype.STRING)
     public final String from;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer smallHeight;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer smallWidth;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_SMALLHEIGHT = 0;
     public static final Integer DEFAULT_SMALLWIDTH = 0;
     public static final Integer DEFAULT_BIGHEIGHT = 0;
@@ -72,7 +72,7 @@ public final class DataReq extends Message {
         public Integer bigHeight;
         public Integer bigWidth;
         public String from;
-        public Integer groupId;
+        public Long groupId;
         public Integer smallHeight;
         public Integer smallWidth;
 

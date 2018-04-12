@@ -1,5 +1,5 @@
 package com.xiaomi.push.service;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aq {
     private static int a = 8;
     private int e = -666;

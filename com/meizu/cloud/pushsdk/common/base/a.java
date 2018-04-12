@@ -1,7 +1,8 @@
 package com.meizu.cloud.pushsdk.common.base;
 
+import com.meizu.cloud.pushsdk.common.util.Logger;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a<T> {
     protected T a;
     protected String b;
@@ -18,7 +19,7 @@ public abstract class a<T> {
     public final void a(T t) {
         synchronized (this.c) {
             if (this.c.incrementAndGet() == 1) {
-                com.meizu.cloud.pushsdk.common.b.c.b(this.b, "call onInit");
+                Logger.b(this.b, "call onInit");
                 this.a = t;
                 a();
             }
@@ -28,7 +29,7 @@ public abstract class a<T> {
     public final void c() {
         synchronized (this.c) {
             if (this.c.decrementAndGet() == 0) {
-                com.meizu.cloud.pushsdk.common.b.c.b(this.b, "call onDestroy");
+                Logger.b(this.b, "call onDestroy");
                 b();
             }
         }

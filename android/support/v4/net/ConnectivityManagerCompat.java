@@ -22,7 +22,7 @@ public final class ConnectivityManagerCompat {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface RestrictBackgroundStatus {
     }

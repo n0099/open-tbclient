@@ -2,14 +2,14 @@ package org.apache.thrift;
 
 import java.io.ByteArrayOutputStream;
 import org.apache.thrift.protocol.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     private final ByteArrayOutputStream a;
     private final org.apache.thrift.transport.a b;
     private org.apache.thrift.protocol.e c;
 
     public g() {
-        this(new a.C0295a());
+        this(new a.C0277a());
     }
 
     public g(org.apache.thrift.protocol.g gVar) {

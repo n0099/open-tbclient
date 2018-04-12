@@ -13,8 +13,8 @@ public final class DataReq extends Message {
     public final String bduss;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String device;
-    @ProtoField(tag = 11, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 11, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
     public final Integer height;
     @ProtoField(tag = 4, type = Message.Datatype.DOUBLE)
@@ -40,7 +40,7 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_HEIGHT = 0;
     public static final Integer DEFAULT_UNREAD_MSG = 0;
     public static final Integer DEFAULT_PUB_ENV = 0;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
 
     private DataReq(Builder builder, boolean z) {
         super(builder);
@@ -126,7 +126,7 @@ public final class DataReq extends Message {
     public static final class Builder extends Message.Builder<DataReq> {
         public String bduss;
         public String device;
-        public Integer groupId;
+        public Long groupId;
         public Integer height;
         public Double lat;
         public Double lng;

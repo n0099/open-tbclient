@@ -2,9 +2,11 @@ package com.baidu.tieba.post.a;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.e;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.personExtra.d;
 import com.baidu.tieba.personPolymeric.a.i;
 import com.baidu.tieba.personPolymeric.a.j;
 import com.baidu.tieba.personPolymeric.b.b;
@@ -14,12 +16,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public i gnH;
-    public j gyc;
-    private b gyd;
+    public i fIf;
+    public j fSO;
+    private b fSP;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private ArrayList<com.baidu.adp.widget.ListView.i> cry = new ArrayList<>();
+    private ArrayList<h> bHH = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
@@ -27,20 +29,20 @@ public class a {
     }
 
     private void o(TbPageContext<?> tbPageContext) {
-        this.gnH = new i(tbPageContext);
-        this.gyc = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gpY);
-        this.gyd = new com.baidu.tieba.personExtra.i(tbPageContext, this, tbPageContext.getUniqueId());
-        this.gyc.a(this.gyd);
-        this.mAdapters.add(this.gnH);
-        this.mAdapters.add(this.gyc);
+        this.fIf = new i(tbPageContext);
+        this.fSO = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.fKA);
+        this.fSP = new d(tbPageContext, this, tbPageContext.getUniqueId());
+        this.fSO.a(this.fSP);
+        this.mAdapters.add(this.fIf);
+        this.mAdapters.add(this.fSO);
         this.mListView.addAdapters(this.mAdapters);
     }
 
-    public void A(ArrayList<com.baidu.adp.widget.ListView.i> arrayList) {
+    public void z(ArrayList<h> arrayList) {
         if (arrayList != null && this.mListView != null) {
-            this.cry.clear();
-            this.cry.addAll(arrayList);
-            this.mListView.setData(this.cry);
+            this.bHH.clear();
+            this.bHH.addAll(arrayList);
+            this.mListView.setData(this.bHH);
         }
     }
 
@@ -56,30 +58,30 @@ public class a {
         }
     }
 
-    public boolean ru(String str) {
+    public boolean rA(String str) {
         boolean z;
-        if (am.isEmpty(str)) {
+        if (an.isEmpty(str)) {
             return false;
         }
-        if (this.mListView == null || this.cry == null) {
+        if (this.mListView == null || this.bHH == null) {
             return false;
         }
-        Iterator<com.baidu.adp.widget.ListView.i> it = this.cry.iterator();
+        Iterator<h> it = this.bHH.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
                 break;
             }
-            com.baidu.adp.widget.ListView.i next = it.next();
-            if ((next instanceof CardPersonDynamicThreadData) && am.equals(str, ((CardPersonDynamicThreadData) next).threadId)) {
+            h next = it.next();
+            if ((next instanceof CardPersonDynamicThreadData) && an.equals(str, ((CardPersonDynamicThreadData) next).threadId)) {
                 z = true;
                 it.remove();
                 break;
             }
         }
         if (z) {
-            this.cry = PersonPostModel.mergeDynamicThreadByTime(this.cry);
-            this.mListView.setData(this.cry);
+            this.bHH = PersonPostModel.mergeDynamicThreadByTime(this.bHH);
+            this.mListView.setData(this.bHH);
             notifyDataSetChanged();
             return z;
         }

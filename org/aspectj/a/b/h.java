@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 class h {
-    static h imY = new h();
-    static h imZ;
-    static h ina;
-    boolean imP = true;
-    boolean imQ = true;
-    boolean imR = false;
-    boolean imS = false;
-    boolean imT = false;
-    boolean imU = true;
-    boolean imV = true;
-    boolean imW = true;
-    int imX;
+    static h hzB = new h();
+    static h hzC;
+    static h hzD;
+    int hzA;
+    boolean hzs = true;
+    boolean hzt = true;
+    boolean hzu = false;
+    boolean hzv = false;
+    boolean hzw = false;
+    boolean hzx = true;
+    boolean hzy = true;
+    boolean hzz = true;
 
     h() {
     }
 
     static {
-        imY.imP = true;
-        imY.imQ = false;
-        imY.imR = false;
-        imY.imS = false;
-        imY.imT = true;
-        imY.imU = false;
-        imY.imV = false;
-        imY.imX = 0;
-        imZ = new h();
-        imZ.imP = true;
-        imZ.imQ = true;
-        imZ.imR = false;
-        imZ.imS = false;
-        imZ.imT = false;
-        imY.imX = 1;
-        ina = new h();
-        ina.imP = false;
-        ina.imQ = true;
-        ina.imR = false;
-        ina.imS = true;
-        ina.imT = false;
-        ina.imW = false;
-        ina.imX = 2;
+        hzB.hzs = true;
+        hzB.hzt = false;
+        hzB.hzu = false;
+        hzB.hzv = false;
+        hzB.hzw = true;
+        hzB.hzx = false;
+        hzB.hzy = false;
+        hzB.hzA = 0;
+        hzC = new h();
+        hzC.hzs = true;
+        hzC.hzt = true;
+        hzC.hzu = false;
+        hzC.hzv = false;
+        hzC.hzw = false;
+        hzB.hzA = 1;
+        hzD = new h();
+        hzD.hzs = false;
+        hzD.hzt = true;
+        hzD.hzu = false;
+        hzD.hzv = true;
+        hzD.hzw = false;
+        hzD.hzz = false;
+        hzD.hzA = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String wZ(String str) {
+    public String wL(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String zz(int i) {
-        if (this.imS) {
+    public String wq(int i) {
+        if (this.hzv) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String xa(String str) {
+    String wM(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return xa(str).replace('$', '.');
+            return wM(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
-    public String o(Class cls) {
-        return b(cls, cls.getName(), this.imP);
+    public String n(Class cls) {
+        return b(cls, cls.getName(), this.hzs);
     }
 
-    public String e(Class cls, String str) {
-        return b(cls, str, this.imT);
+    public String d(Class cls, String str) {
+        return b(cls, str, this.hzw);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -92,13 +92,13 @@ class h {
             if (i > 0) {
                 stringBuffer.append(", ");
             }
-            stringBuffer.append(o(clsArr[i]));
+            stringBuffer.append(n(clsArr[i]));
         }
     }
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.imQ) {
+            if (!this.hzt) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.imR && clsArr != null && clsArr.length != 0) {
+        if (this.hzu && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

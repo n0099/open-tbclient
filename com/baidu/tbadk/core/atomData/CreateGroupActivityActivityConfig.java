@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.im.data.GroupActivityData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CreateGroupActivityActivityConfig extends IntentConfig {
     public static final String GROUP_ACTIVITY_AREA = "area";
     public static final String GROUP_ACTIVITY_CONTENT = "content";
@@ -15,22 +15,22 @@ public class CreateGroupActivityActivityConfig extends IntentConfig {
     public static final String GROUP_ACTIVITY_NAME = "name";
     public static final String GROUP_ACTIVITY_TIME = "time";
 
-    public CreateGroupActivityActivityConfig(Context context, int i) {
+    public CreateGroupActivityActivityConfig(Context context, long j) {
         super(context);
-        getIntent().putExtra("gid", i);
+        getIntent().putExtra("gid", j);
         getIntent().putExtra(GROUP_ACTIVITY_ISEDIT, false);
     }
 
-    public CreateGroupActivityActivityConfig(Activity activity, int i, GroupActivityData groupActivityData, int i2) {
+    public CreateGroupActivityActivityConfig(Activity activity, long j, GroupActivityData groupActivityData, int i) {
         super(activity);
-        getIntent().putExtra("gid", i);
+        getIntent().putExtra("gid", j);
         getIntent().putExtra(GROUP_ACTIVITY_ISEDIT, true);
         getIntent().putExtra("aid", groupActivityData.getActivityId());
         getIntent().putExtra("name", groupActivityData.getgActivityTitle());
         getIntent().putExtra(GROUP_ACTIVITY_TIME, groupActivityData.getgActivityTime());
         getIntent().putExtra(GROUP_ACTIVITY_AREA, groupActivityData.getgActivityArea());
         getIntent().putExtra("content", groupActivityData.getgActivityContent());
-        setRequestCode(i2);
+        setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

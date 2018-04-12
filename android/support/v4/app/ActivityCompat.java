@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Parcelable;
+import android.support.annotation.IntRange;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompatApi21;
 import android.support.v4.app.ActivityCompatApi23;
 import android.support.v4.app.SharedElementCallback;
@@ -25,7 +28,7 @@ public class ActivityCompat extends ContextCompat {
 
     /* loaded from: classes2.dex */
     public interface OnRequestPermissionsResultCallback {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
     protected ActivityCompat() {
@@ -39,7 +42,7 @@ public class ActivityCompat extends ContextCompat {
         return false;
     }
 
-    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
+    public static void startActivityForResult(Activity activity, Intent intent, int i, @Nullable Bundle bundle) {
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityCompatJB.startActivityForResult(activity, intent, i, bundle);
         } else {
@@ -47,7 +50,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    public static void startIntentSenderForResult(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+    public static void startIntentSenderForResult(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityCompatJB.startIntentSenderForResult(activity, intentSender, i, intent, i2, i3, i4, bundle);
         } else {
@@ -71,6 +74,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
+    @Nullable
     public static Uri getReferrer(Activity activity) {
         if (Build.VERSION.SDK_INT >= 22) {
             return ActivityCompatApi22.getReferrer(activity);
@@ -115,7 +119,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    public static void requestPermissions(final Activity activity, final String[] strArr, final int i) {
+    public static void requestPermissions(@NonNull final Activity activity, @NonNull final String[] strArr, @IntRange(from = 0) final int i) {
         if (Build.VERSION.SDK_INT >= 23) {
             ActivityCompatApi23.requestPermissions(activity, strArr, i);
         } else if (activity instanceof OnRequestPermissionsResultCallback) {
@@ -135,7 +139,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
+    public static boolean shouldShowRequestPermissionRationale(@NonNull Activity activity, @NonNull String str) {
         if (Build.VERSION.SDK_INT >= 23) {
             return ActivityCompatApi23.shouldShowRequestPermissionRationale(activity, str);
         }
@@ -186,8 +190,8 @@ public class ActivityCompat extends ContextCompat {
         }
 
         @Override // android.support.v4.app.ActivityCompatApi21.SharedElementCallback21
-        public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
-            return this.mCallback.onCaptureSharedElementSnapshot(view, matrix, rectF);
+        public Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF) {
+            return this.mCallback.onCaptureSharedElementSnapshot(view2, matrix, rectF);
         }
 
         @Override // android.support.v4.app.ActivityCompatApi21.SharedElementCallback21
@@ -226,8 +230,8 @@ public class ActivityCompat extends ContextCompat {
         }
 
         @Override // android.support.v4.app.ActivityCompatApi21.SharedElementCallback21
-        public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
-            return this.mCallback.onCaptureSharedElementSnapshot(view, matrix, rectF);
+        public Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF) {
+            return this.mCallback.onCaptureSharedElementSnapshot(view2, matrix, rectF);
         }
 
         @Override // android.support.v4.app.ActivityCompatApi21.SharedElementCallback21

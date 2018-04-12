@@ -3,15 +3,15 @@ package com.baidu.tieba.qrcode.lib.zxing;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import com.baidu.tieba.qrcode.lib.a.e;
+import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes3.dex */
-public class ZXingView extends e {
-    private MultiFormatReader gAz;
+public class ZXingView extends QRCodeView {
+    private MultiFormatReader fVm;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -19,30 +19,30 @@ public class ZXingView extends e {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        bnB();
+        biH();
     }
 
-    private void bnB() {
-        this.gAz = new MultiFormatReader();
-        this.gAz.setHints(a.gAy);
+    private void biH() {
+        this.fVm = new MultiFormatReader();
+        this.fVm.setHints(a.fVl);
     }
 
-    @Override // com.baidu.tieba.qrcode.lib.a.d.a
+    @Override // com.baidu.tieba.qrcode.lib.core.c.a
     public String a(byte[] bArr, int i, int i2, boolean z) {
         Result result;
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect um = this.gzt.um(i2);
-                if (um != null) {
-                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, um.left, um.top, um.width(), um.height(), false);
+                Rect rK = this.fUg.rK(i2);
+                if (rK != null) {
+                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, rK.left, rK.top, rK.width(), rK.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.gAz.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.fVm.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.gAz.reset();
+                this.fVm.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends e {
             }
             return null;
         } finally {
-            this.gAz.reset();
+            this.fVm.reset();
         }
     }
 }

@@ -5,6 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,9 +30,9 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.i;
 import com.baidu.tieba.personPolymeric.b.e;
@@ -41,53 +42,58 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private e goP;
-    private com.baidu.tieba.personPolymeric.b.a goq;
+    private com.baidu.tieba.personPolymeric.b.a fIO;
+    private e fJp;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(e eVar) {
-        this.goP = eVar;
-        if (this.goP != null) {
-            this.goq = this.goP.bjZ();
+        this.fJp = eVar;
+        if (this.fJp != null) {
+            this.fIO = this.fJp.bfc();
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0130, code lost:
-        if (r0.equalsIgnoreCase(r2.getPersonalBgUrl()) == false) goto L48;
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0151, code lost:
+        if (r0.equalsIgnoreCase(r2.getPersonalBgUrl()) == false) goto L54;
      */
-    @Override // com.baidu.tieba.personPolymeric.event.a, com.baidu.tieba.view.i
+    @Override // com.baidu.tieba.personPolymeric.event.a, com.baidu.tieba.view.g
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(View view, com.baidu.tieba.f.a aVar) {
+    public void a(View view2, com.baidu.tieba.g.a aVar) {
         UserData userData;
         String str;
         int i;
         int i2 = 1;
-        super.a(view, aVar);
+        super.a(view2, aVar);
         if (aVar != null) {
-            if (aVar.drp == null) {
+            if (aVar.cKg == null) {
                 userData = null;
             } else {
-                userData = (UserData) aVar.drp.getSerializable(UserData.TYPE_USER);
+                userData = (UserData) aVar.cKg.getSerializable(UserData.TYPE_USER);
             }
-            switch (aVar.dro) {
+            switch (aVar.cKf) {
                 case 1:
                     if (userData != null) {
                         i iVar = new i();
-                        iVar.fZ(userData.getPortraitH());
-                        iVar.ga(userData.getPortrait());
-                        iVar.bY(true);
+                        if (!StringUtils.isNull(userData.getPortrait()) && userData.getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                            iVar.fQ(userData.getPortrait());
+                        } else {
+                            iVar.fQ(userData.getPortraitH());
+                        }
+                        iVar.fR(userData.getPortrait());
+                        iVar.bq(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(iVar);
-                        this.goP.bka().a((com.baidu.adp.widget.ListView.i) iVar, (List<com.baidu.adp.widget.ListView.i>) arrayList, 0);
+                        this.fJp.bfd().a((h) iVar, (List<h>) arrayList, 0);
                         return;
                     }
                     return;
@@ -111,9 +117,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.goq != null && this.goq.bjU() != null) {
+                    if (this.fIO != null && this.fIO.beX() != null) {
                         TiebaStatic.log("c12207");
-                        this.goq.bjU().bkg();
+                        this.fIO.beX().bfj();
                         return;
                     }
                     return;
@@ -126,7 +132,7 @@ public class c extends a {
                         str = userData.getUserId();
                         String bg_pic = userData.getBg_pic();
                         try {
-                            i = com.baidu.adp.lib.g.b.h(rd(bg_pic).get("props_id"), -1);
+                            i = com.baidu.adp.lib.g.b.g(rj(bg_pic).get("props_id"), -1);
                             str2 = bg_pic;
                         } catch (URISyntaxException e) {
                             str2 = bg_pic;
@@ -160,8 +166,8 @@ public class c extends a {
                             personChangeData.setIntro(userData.getIntro());
                             personChangeData.setNameShow(userData.getName_show());
                             personChangeData.setMem(userData.getIsMem());
-                            if (aVar.drp != null) {
-                                personChangeData.setNickNameLeftDays(aVar.drp.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
+                            if (aVar.cKg != null) {
+                                personChangeData.setNickNameLeftDays(aVar.cKg.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.mPageContext.getPageActivity(), 101, personChangeData, false)));
@@ -171,7 +177,7 @@ public class c extends a {
                 case 12:
                     if (userData != null) {
                         TiebaStatic.log("igift_icon_ck");
-                        if (ay.ba(this.mPageContext.getPageActivity())) {
+                        if (az.aK(this.mPageContext.getPageActivity())) {
                             GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.mPageContext.getPageActivity(), userData.getUserIdLong(), userData.getUserName(), userData.getName_show(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
                             giftTabActivityConfig.setReferPageAndClickZone("he/her_personal_center_V8.9", "T_recharge_V8.9");
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
@@ -181,7 +187,7 @@ public class c extends a {
                     }
                     return;
                 case 13:
-                    aw.Du().c(this.mPageContext, new String[]{TbConfig.WEB_URL_FANS});
+                    ax.wg().c(this.mPageContext, new String[]{TbConfig.WEB_URL_FANS});
                     return;
                 case 14:
                     BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.mPageContext.getPageActivity(), 0L);
@@ -189,88 +195,88 @@ public class c extends a {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
                     return;
                 case 15:
-                    tN(8);
+                    rk(8);
                     if (userData != null && userData.membershipInfo != null) {
                         String str3 = userData.membershipInfo.mLink;
                         if (!StringUtils.isNull(str3)) {
-                            aw.Du().c(this.mPageContext, new String[]{str3});
+                            ax.wg().c(this.mPageContext, new String[]{str3});
                             return;
                         }
                         return;
                     }
                     return;
                 case 16:
-                    tN(7);
-                    com.baidu.tieba.m.a.bpm().c(7, false, this.isHost);
+                    rk(7);
+                    com.baidu.tieba.n.a.bkt().b(7, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 17:
-                    tN(12);
+                    rk(12);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ConsumptionRecordsActivityConfig(TbadkCoreApplication.getInst().getApplicationContext())));
                     return;
                 case 20:
-                    tN(2);
-                    com.baidu.tieba.m.a.bpm().c(3, false, this.isHost);
+                    rk(2);
+                    com.baidu.tieba.n.a.bkt().b(3, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001259));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 21:
-                    tN(5);
-                    TiebaStatic.log(new ak("c11590").s("obj_locate", 2).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                    rk(5);
+                    TiebaStatic.log(new al("c11590").r("obj_locate", 2).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 22:
-                    TiebaStatic.log(new ak("c11590").s("obj_locate", 3).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                    TiebaStatic.log(new al("c11590").r("obj_locate", 3).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                     if (userData != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MissonDetailsActivityConfig(this.mPageContext.getPageActivity(), 24004, userData.getAnchorLevel(), userData.getPortrait(), userData.getName_show(), MissonDetailsActivityConfig.FROM_PERSON)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MissonDetailsActivityConfig(this.mPageContext.getPageActivity(), 24004, userData.getAnchorLevel(), userData.getPortrait(), userData.getName_show(), "from_person")));
                         return;
                     }
                     return;
                 case 24:
-                    tN(3);
-                    com.baidu.tieba.m.a.bpm().c(4, false, this.isHost);
+                    rk(3);
+                    com.baidu.tieba.n.a.bkt().b(4, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 27:
-                    tN(10);
-                    TiebaStatic.log(new ak("c11948"));
+                    rk(10);
+                    TiebaStatic.log(new al("c11948"));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigImgPbActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 29:
                     if (userData != null) {
-                        tN(6);
+                        rk(6);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getPortrait(), userData.getSex(), true)));
                         return;
                     }
                     return;
                 case 30:
                     if (TbadkCoreApplication.getInst().appResponseToIntentClass(ChannelHomeActivityConfig.class)) {
-                        tN(7);
+                        rk(7);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(this.mPageContext.getPageActivity(), 4)));
                         return;
                     }
                     return;
                 case 31:
                     if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(ChannelListActivityConfig.class)) {
-                        TiebaStatic.log(new ak("c11955"));
+                        TiebaStatic.log(new al("c11955"));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelListActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId())));
                         return;
                     }
                     return;
                 case 32:
-                    tN(1);
-                    com.baidu.tieba.m.a.bpm().c(8, false, this.isHost);
+                    rk(1);
+                    com.baidu.tieba.n.a.bkt().b(8, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 33:
-                    tN(9);
-                    aw.Du().a(this.mPageContext, new String[]{aVar.drp.getString("book_jump_link")}, true);
+                    rk(9);
+                    ax.wg().a(this.mPageContext, new String[]{aVar.cKg.getString("book_jump_link")}, true);
                     return;
                 case 34:
-                    if (ay.ba(this.mPageContext.getPageActivity())) {
-                        tN(4);
-                        com.baidu.tieba.m.a.bpm().c(1, false, this.isHost);
+                    if (az.aK(this.mPageContext.getPageActivity())) {
+                        rk(4);
+                        com.baidu.tieba.n.a.bkt().b(1, false, this.isHost);
                         if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                             return;
@@ -279,8 +285,8 @@ public class c extends a {
                     }
                     return;
                 case 35:
-                    tN(11);
-                    aw.Du().a(this.mPageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                    rk(11);
+                    ax.wg().a(this.mPageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
                     return;
                 case 36:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921008, false));
@@ -298,12 +304,12 @@ public class c extends a {
                     }
                     return;
                 case 41:
-                    com.baidu.tbadk.browser.b.R(this.mPageContext.getPageActivity(), TbConfig.URL_UEG_SERVICE_CENTER);
+                    com.baidu.tbadk.browser.a.M(this.mPageContext.getPageActivity(), TbConfig.URL_UEG_SERVICE_CENTER);
                     return;
                 case 42:
-                    if (userData != null && ay.ba(this.mPageContext.getPageActivity()) && userData != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    if (userData != null && az.aK(this.mPageContext.getPageActivity()) && userData != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                         try {
-                            TiebaStatic.log(new ak("c11593"));
+                            TiebaStatic.log(new al("c11593"));
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.mPageContext.getPageActivity(), Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getPortrait(), userData.getSex(), userData.getIsFriend())));
                             return;
                         } catch (Exception e2) {
@@ -316,11 +322,11 @@ public class c extends a {
         }
     }
 
-    private void tN(int i) {
-        TiebaStatic.log(new ak("c12044").s("obj_locate", i));
+    private void rk(int i) {
+        TiebaStatic.log(new al("c12044").r("obj_locate", i));
     }
 
-    private Map<String, String> rd(final String str) throws URISyntaxException {
+    private Map<String, String> rj(final String str) throws URISyntaxException {
         return new HashMap<String, String>() { // from class: com.baidu.tieba.personPolymeric.event.PersonPolymericEventController$1
             /* JADX INFO: Access modifiers changed from: package-private */
             {

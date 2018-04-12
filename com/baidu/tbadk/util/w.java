@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class w {
-    public static int e(char c) {
-        if (f(c)) {
+    public static int d(char c) {
+        if (e(c)) {
             return 1;
         }
         return 2;
     }
 
-    public static boolean f(char c) {
+    public static boolean e(char c) {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int hs(String str) {
+    public static int hk(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
-            if (f(str.charAt(i2))) {
+            if (e(str.charAt(i2))) {
                 i++;
             } else {
                 i += 2;
@@ -30,7 +30,7 @@ public class w {
         return i;
     }
 
-    public static int ht(String str) {
+    public static int hl(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -41,13 +41,13 @@ public class w {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += hs(substring);
+                i += hk(substring);
             }
         }
         return i;
     }
 
-    public static int hu(String str) {
+    public static int hm(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -67,7 +67,7 @@ public class w {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (hu(substring) > i) {
+            if (hm(substring) > i) {
                 break;
             }
             i2++;
@@ -80,8 +80,8 @@ public class w {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (hs(str) > i) {
-            return j(str, 0, i - 2) + "...";
+        if (hk(str) > i) {
+            return k(str, 0, i - 2) + "...";
         }
         return str;
     }
@@ -90,13 +90,13 @@ public class w {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (hs(str) > i) {
-            return j(str, 0, i);
+        if (hk(str) > i) {
+            return k(str, 0, i);
         }
         return str;
     }
 
-    public static String j(String str, int i, int i2) {
+    public static String k(String str, int i, int i2) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str) || i > i2) {
             return sb.toString();
@@ -114,7 +114,7 @@ public class w {
                 if (i3 >= i) {
                     sb.append(charAt);
                 }
-                if (f(charAt)) {
+                if (e(charAt)) {
                     i3++;
                 } else {
                     i3 += 2;
@@ -124,7 +124,7 @@ public class w {
         return sb.toString();
     }
 
-    public static boolean g(char c) {
+    public static boolean f(char c) {
         return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
     }
 
@@ -146,7 +146,7 @@ public class w {
                 if (i2 >= 0) {
                     sb.append(charAt);
                 }
-                if (g(charAt)) {
+                if (f(charAt)) {
                     i2++;
                 } else {
                     i2 += 2;
@@ -162,7 +162,7 @@ public class w {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (ht(substring) > i) {
+            if (hl(substring) > i) {
                 break;
             }
             i2++;

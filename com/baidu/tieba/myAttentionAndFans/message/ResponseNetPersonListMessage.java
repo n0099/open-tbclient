@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.c.a;
-import com.baidu.tbadk.core.data.aq;
+import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
@@ -14,7 +14,7 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private aq data;
+    private ar data;
     private int mErrCode;
     private String mErrMsg;
 
@@ -32,7 +32,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public aq getData() {
+    public ar getData() {
         return this.data;
     }
 
@@ -43,7 +43,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-            this.data = new aq();
+            this.data = new ar();
             this.data.parserJson(jSONObject);
         }
     }
@@ -61,9 +61,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                 if ((map.get(WBPageConstants.ParamKey.PAGE) == null || map.get(WBPageConstants.ParamKey.PAGE).equals(1)) && map.get("id") != null) {
                     z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                     String str = new String(bArr);
-                    l<String> dh = a.AR().dh("tb.my_pages");
-                    if (dh != null) {
-                        dh.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
+                    l<String> cZ = a.tz().cZ("tb.my_pages");
+                    if (cZ != null) {
+                        cZ.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
                     }
                 }
             }

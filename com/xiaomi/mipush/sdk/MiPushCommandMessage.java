@@ -2,7 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MiPushCommandMessage implements PushMessageHandler.a {
     private static final long serialVersionUID = 1;
     private String category;

@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.richmedia;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public String a;
     public String b;
@@ -19,7 +19,7 @@ public class c {
     public boolean h = false;
     public HashMap<String, String> f = new HashMap<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         REQ_TYPE_GET_ZIP
     }

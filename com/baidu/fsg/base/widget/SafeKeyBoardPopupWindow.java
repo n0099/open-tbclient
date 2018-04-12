@@ -179,15 +179,15 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getId() == ResUtils.id(this.mContext, "btn_del")) {
+    public void onClick(View view2) {
+        if (view2.getId() == ResUtils.id(this.mContext, "btn_del")) {
             if (!TextUtils.isEmpty(this.mySafeEditText.getText())) {
                 new Handler().post(new h(this));
                 return;
             }
             return;
         }
-        new Handler().post(new i(this, view));
+        new Handler().post(new i(this, view2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

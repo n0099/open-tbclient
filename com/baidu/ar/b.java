@@ -2,6 +2,7 @@ package com.baidu.ar;
 
 import android.content.Context;
 import android.opengl.EGL14;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import com.baidu.ar.opengl.BaiduArView;
 import com.baidu.ar.recorder.drawer.RectDrawableParams;
@@ -28,6 +29,7 @@ public class b implements BaiduArView.b {
         com.baidu.ar.representation.a.a(this.a, 0);
     }
 
+    @RequiresApi(api = 18)
     private void a(int i, float[] fArr, long j) {
         if (this.k && this.i != null) {
             switch (this.l) {
@@ -78,6 +80,7 @@ public class b implements BaiduArView.b {
     }
 
     @Override // com.baidu.ar.opengl.BaiduArView.b
+    @RequiresApi(api = 18)
     public void a(int i) {
         if (this.c == null) {
             return;
@@ -107,6 +110,7 @@ public class b implements BaiduArView.b {
     }
 
     @Override // com.baidu.ar.opengl.BaiduArView.b
+    @RequiresApi(api = 17)
     public void a(EGLContext eGLContext, int i, int i2) {
         Log.d(b, "onContextChanged width*height = " + i + " * " + i2);
         if (eGLContext == null) {

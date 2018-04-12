@@ -9,7 +9,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class s extends c {
     private ArrayList<String> d;
 
@@ -43,7 +43,7 @@ public class s extends c {
         } else if (!this.b.a.equals("method_list_lapp_tags") && !this.b.a.equals("method_list_sdk_tags")) {
             intent.setPackage(this.b.e);
         }
-        com.baidu.android.pushservice.j.p.b(this.a, intent, intent.getAction(), intent.getPackage());
+        com.baidu.android.pushservice.j.m.b(this.a, intent, intent.getAction(), intent.getPackage());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

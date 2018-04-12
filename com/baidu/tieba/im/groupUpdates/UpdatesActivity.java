@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.dialog.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tbadk.util.h;
@@ -33,29 +33,29 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements AbsListView.OnScrollListener {
-    private h<Boolean> eIA;
-    private Runnable eIB;
-    private UpdatesItemData eID;
-    private UpdatesModel eIE;
-    private c eIx;
-    private com.baidu.tbadk.core.dialog.b eIy;
-    private h<LinkedList<GroupNewsPojo>> eIz;
-    private boolean eIC = false;
-    private com.baidu.adp.framework.listener.c evf = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.5
+    private c edc;
+    private com.baidu.tbadk.core.dialog.b edd;
+    private h<LinkedList<GroupNewsPojo>> ede;
+    private h<Boolean> edf;
+    private Runnable edg;
+    private UpdatesItemData edi;
+    private UpdatesModel edj;
+    private boolean edh = false;
+    private com.baidu.adp.framework.listener.c dPL = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            UpdatesActivity.this.eIx.hP(false);
+            UpdatesActivity.this.edc.hp(false);
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage) && 202004 == socketResponsedMessage.getCmd()) {
                 ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
                 RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
                 if (responseDelSystemMessage.getError() == 0) {
-                    if (UpdatesActivity.this.eID != null) {
-                        UpdatesModel.deleteUpdatesData(UpdatesActivity.this.eID, UpdatesActivity.this.eIA);
-                        UpdatesActivity.this.eID = null;
+                    if (UpdatesActivity.this.edi != null) {
+                        UpdatesModel.deleteUpdatesData(UpdatesActivity.this.edi, UpdatesActivity.this.edf);
+                        UpdatesActivity.this.edi = null;
                     }
-                    if (UpdatesActivity.this.eIE != null && UpdatesActivity.this.eIE.getDeleteSize() > 0) {
-                        UpdatesActivity.this.eIE.deleteDatas(UpdatesActivity.this.eIA);
+                    if (UpdatesActivity.this.edj != null && UpdatesActivity.this.edj.getDeleteSize() > 0) {
+                        UpdatesActivity.this.edj.deleteDatas(UpdatesActivity.this.edf);
                     }
                 }
             }
@@ -65,11 +65,11 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            UpdatesActivity.this.eIx.hP(false);
+            UpdatesActivity.this.edc.hp(false);
             if (customResponsedMessage != null && (customResponsedMessage instanceof ResponsedMessage)) {
                 int cmd = customResponsedMessage.getCmd();
                 if (2001132 == cmd || 2001133 == cmd || 2001130 == cmd || 2001129 == cmd || 2001137 == cmd) {
-                    UpdatesModel.requestUpdatesDataFromDB(UpdatesActivity.this.eIz);
+                    UpdatesModel.requestUpdatesDataFromDB(UpdatesActivity.this.ede);
                 }
             }
         }
@@ -79,17 +79,17 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eIE = new UpdatesModel();
-        this.eIx = new c(this);
-        aKo();
+        this.edj = new UpdatesModel();
+        this.edc = new c(this);
+        aFl();
         registerListener(2001132, this.mCustomListener);
         registerListener(2001133, this.mCustomListener);
         registerListener(2001130, this.mCustomListener);
         registerListener(2001129, this.mCustomListener);
         registerListener(2001137, this.mCustomListener);
-        this.eIx.hP(true);
-        UpdatesModel.requestUpdatesDataFromDB(this.eIz);
-        registerListener(202004, this.evf);
+        this.edc.hp(true);
+        UpdatesModel.requestUpdatesDataFromDB(this.ede);
+        registerListener(202004, this.dPL);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -97,8 +97,8 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     public void onResume() {
         super.onResume();
         ChatStatusManager.getInst().setIsOpen(6, true);
-        com.baidu.tbadk.coreExtra.messageCenter.a.GJ().gT(2);
-        com.baidu.tbadk.coreExtra.messageCenter.a.GJ().GU();
+        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(2);
+        com.baidu.tbadk.coreExtra.messageCenter.a.zx().zI();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a("-1002", -3)));
     }
 
@@ -129,18 +129,18 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         ChatStatusManager.getInst().setIsOpen(6, false);
     }
 
-    private void aKo() {
+    private void aFl() {
         final h<LinkedList<GroupNewsPojo>> hVar = new h<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
-            /* renamed from: q */
+            /* renamed from: t */
             public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
                 List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-                UpdatesActivity.this.eIx.setData(convertToUpdatesItemData);
-                UpdatesActivity.this.eIE.calculateSelects(convertToUpdatesItemData);
-                UpdatesActivity.this.eIx.hP(false);
-                UpdatesActivity.this.eIx.qm(UpdatesActivity.this.eIE.getDeleteSize());
-                UpdatesActivity.this.asa();
+                UpdatesActivity.this.edc.setData(convertToUpdatesItemData);
+                UpdatesActivity.this.edj.calculateSelects(convertToUpdatesItemData);
+                UpdatesActivity.this.edc.hp(false);
+                UpdatesActivity.this.edc.nK(UpdatesActivity.this.edj.getDeleteSize());
+                UpdatesActivity.this.amq();
                 ImMessageCenterPojo imMessageCenterPojo = null;
                 if (convertToUpdatesItemData != null && convertToUpdatesItemData.size() > 0) {
                     ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
@@ -154,27 +154,27 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 }
             }
         };
-        this.eIA = new h<Boolean>() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.2
+        this.edf = new h<Boolean>() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
             public void onReturnDataInUI(Boolean bool) {
-                UpdatesActivity.this.eIE.clearSelect();
-                UpdatesActivity.this.eIx.aKt();
-                UpdatesActivity.this.hO(false);
+                UpdatesActivity.this.edj.clearSelect();
+                UpdatesActivity.this.edc.aFq();
+                UpdatesActivity.this.ho(false);
                 UpdatesModel.requestUpdatesDataFromDB(hVar);
             }
         };
-        this.eIz = new h<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.3
+        this.ede = new h<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
-            /* renamed from: q */
+            /* renamed from: t */
             public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
                 List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-                UpdatesActivity.this.eIx.setData(convertToUpdatesItemData);
-                UpdatesActivity.this.eIE.calculateSelects(convertToUpdatesItemData);
-                UpdatesActivity.this.eIx.hP(false);
-                UpdatesActivity.this.eIx.qm(UpdatesActivity.this.eIE.getDeleteSize());
-                UpdatesActivity.this.asa();
+                UpdatesActivity.this.edc.setData(convertToUpdatesItemData);
+                UpdatesActivity.this.edj.calculateSelects(convertToUpdatesItemData);
+                UpdatesActivity.this.edc.hp(false);
+                UpdatesActivity.this.edc.nK(UpdatesActivity.this.edj.getDeleteSize());
+                UpdatesActivity.this.amq();
             }
         };
     }
@@ -183,38 +183,38 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.eIx != null) {
-            this.eIx.destroy();
+        if (this.edc != null) {
+            this.edc.destroy();
         }
-        if (this.eIE != null) {
-            this.eIE.destory();
+        if (this.edj != null) {
+            this.edj.destory();
         }
-        this.eID = null;
+        this.edi = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view != null && this.eIx != null) {
-            if (view.equals(this.eIx.aKu())) {
+    public void onClick(View view2) {
+        if (view2 != null && this.edc != null) {
+            if (view2.equals(this.edc.aFr())) {
                 finish();
-            } else if (view.equals(this.eIx.aKw())) {
-                this.eIE.clearSelect();
-                this.eIE.calculateSelects(this.eIx.aKr().getDatas());
-                this.eIx.qm(this.eIE.getDeleteSize());
-                hO(true);
-                this.eIx.aKs();
-            } else if (view.equals(this.eIx.aKx())) {
-                hO(false);
-                this.eIx.aKt();
-                this.eIE.clearSelect();
-                UpdatesModel.requestUpdatesDataFromDB(this.eIz);
-            } else if (view.equals(this.eIx.aKy())) {
-                this.eIx.hP(true);
-                String deleteDatasIds = this.eIE.deleteDatasIds();
+            } else if (view2.equals(this.edc.aFt())) {
+                this.edj.clearSelect();
+                this.edj.calculateSelects(this.edc.aFo().getDatas());
+                this.edc.nK(this.edj.getDeleteSize());
+                ho(true);
+                this.edc.aFp();
+            } else if (view2.equals(this.edc.aFu())) {
+                ho(false);
+                this.edc.aFq();
+                this.edj.clearSelect();
+                UpdatesModel.requestUpdatesDataFromDB(this.ede);
+            } else if (view2.equals(this.edc.aFv())) {
+                this.edc.hp(true);
+                String deleteDatasIds = this.edj.deleteDatasIds();
                 if (!TextUtils.isEmpty(deleteDatasIds)) {
-                    nF(deleteDatasIds);
+                    nJ(deleteDatasIds);
                 } else {
-                    this.eIx.hP(false);
+                    this.edc.hp(false);
                 }
             }
         }
@@ -222,11 +222,11 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (4 == i && keyEvent.getAction() == 0 && this.eIC) {
-            hO(false);
-            this.eIE.clearSelect();
-            this.eIx.qm(this.eIE.getDeleteSize());
-            this.eIx.aKt();
+        if (4 == i && keyEvent.getAction() == 0 && this.edh) {
+            ho(false);
+            this.edj.clearSelect();
+            this.edc.nK(this.edj.getDeleteSize());
+            this.edc.aFq();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -234,13 +234,13 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UpdatesItemData updatesItemData) {
-        if (!j.oJ()) {
-            showToast(d.j.neterror);
-        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.b.aLF().aLH()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.b.aLF().aLH()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
+        if (!j.gP()) {
+            showToast(d.k.neterror);
+        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.b.aGC().aGE()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.b.aGC().aGE()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             try {
-                this.eIx.hP(true);
+                this.edc.hp(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                requestDelSystemMessage.setGroupId(Integer.parseInt(com.baidu.tieba.im.pushNotify.b.aLF().aLH()));
+                requestDelSystemMessage.setGroupId(com.baidu.adp.lib.g.b.c(com.baidu.tieba.im.pushNotify.b.aGC().aGE(), 0L));
                 requestDelSystemMessage.setMsgIds("" + (Long.parseLong(updatesItemData.getNotice_id()) / 100));
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             } catch (Exception e) {
@@ -249,15 +249,15 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    private void nF(String str) {
-        if (!j.oJ()) {
-            showToast(d.j.neterror);
+    private void nJ(String str) {
+        if (!j.gP()) {
+            showToast(d.k.neterror);
         } else if (!TextUtils.isEmpty(str)) {
-            String aLH = com.baidu.tieba.im.pushNotify.b.aLF().aLH();
-            if (!TextUtils.isEmpty(aLH) && TextUtils.isDigitsOnly(aLH)) {
-                this.eIx.hP(true);
+            String aGE = com.baidu.tieba.im.pushNotify.b.aGC().aGE();
+            if (!TextUtils.isEmpty(aGE) && TextUtils.isDigitsOnly(aGE)) {
+                this.edc.hp(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                requestDelSystemMessage.setGroupId(Integer.parseInt(aLH));
+                requestDelSystemMessage.setGroupId(com.baidu.adp.lib.g.b.c(aGE, 0L));
                 requestDelSystemMessage.setMsgIds(str);
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             }
@@ -268,13 +268,13 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eIx != null) {
-            this.eIx.onChangeSkinType(i);
+        if (this.edc != null) {
+            this.edc.onChangeSkinType(i);
         }
     }
 
-    public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
-        if (updatesItemData != null && 101 == i && !aKq()) {
+    public void a(View view2, int i, int i2, long j, UpdatesItemData updatesItemData) {
+        if (updatesItemData != null && 101 == i && !aFn()) {
             String groupId = updatesItemData.getGroupId();
             String updatesType = updatesItemData.getUpdatesType();
             if (!TextUtils.isEmpty(updatesType)) {
@@ -284,9 +284,9 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
                             TiebaStatic.log("update_activity_group_event_click");
-                            aw.Du().c(getPageContext(), new String[]{updatesItemData.getEventLink()});
+                            ax.wg().c(getPageContext(), new String[]{updatesItemData.getEventLink()});
                         } else if (updatesType.equals("group_activitys_change")) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupActivityActivityConfig(getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.h(updatesItemData.getGroupActivityId(), 0), com.baidu.adp.lib.g.b.c(updatesItemData.getGroupId(), 0L), 1)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupActivityActivityConfig(getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.g(updatesItemData.getGroupActivityId(), 0), com.baidu.adp.lib.g.b.c(updatesItemData.getGroupId(), 0L), 1)));
                         } else {
                             sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(getPageContext().getPageActivity(), Long.parseLong(groupId), 0)));
                         }
@@ -298,62 +298,62 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    public void a(View view, boolean z, UpdatesItemData updatesItemData) {
+    public void a(View view2, boolean z, UpdatesItemData updatesItemData) {
         if (updatesItemData != null) {
             if (z) {
-                this.eIE.addSelect(updatesItemData);
+                this.edj.addSelect(updatesItemData);
                 updatesItemData.setSelected(true);
-                if (this.eIE.getDeleteSize() > 100) {
-                    this.eIE.cancelSelect(updatesItemData);
+                if (this.edj.getDeleteSize() > 100) {
+                    this.edj.cancelSelect(updatesItemData);
                     updatesItemData.setSelected(false);
-                    showToast(d.j.updates_activity_del_limit);
+                    showToast(d.k.updates_activity_del_limit);
                 }
             } else {
-                this.eIE.cancelSelect(updatesItemData);
+                this.edj.cancelSelect(updatesItemData);
                 updatesItemData.setSelected(false);
             }
-            this.eIx.qm(this.eIE.getDeleteSize());
-            this.eIx.aJi();
+            this.edc.nK(this.edj.getDeleteSize());
+            this.edc.aEf();
         }
     }
 
-    public void b(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
-        if (view != null && updatesItemData != null && 200 == i && !aKq()) {
-            if (this.eIy == null) {
-                this.eID = updatesItemData;
-                aKp();
+    public void b(View view2, int i, int i2, long j, UpdatesItemData updatesItemData) {
+        if (view2 != null && updatesItemData != null && 200 == i && !aFn()) {
+            if (this.edd == null) {
+                this.edi = updatesItemData;
+                aFm();
             }
-            this.eIy.AY();
+            this.edd.tG();
         }
     }
 
-    private void aKp() {
-        String string = getPageContext().getString(d.j.delete_user_chat);
-        b.InterfaceC0097b interfaceC0097b = new b.InterfaceC0097b() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.4
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0097b
-            public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
+    private void aFm() {
+        String string = getPageContext().getString(d.k.delete_user_chat);
+        b.InterfaceC0086b interfaceC0086b = new b.InterfaceC0086b() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.4
+            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
+            public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view2) {
                 bVar.dismiss();
                 switch (i) {
                     case 0:
-                        UpdatesActivity.this.eIx.hP(true);
-                        UpdatesActivity.this.a(UpdatesActivity.this.eID);
+                        UpdatesActivity.this.edc.hp(true);
+                        UpdatesActivity.this.a(UpdatesActivity.this.edi);
                         return;
                     default:
                         return;
                 }
             }
         };
-        this.eIy = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-        this.eIy.fe(d.j.operation);
-        this.eIy.a(new String[]{string}, interfaceC0097b);
-        this.eIy.d(getPageContext());
+        this.edd = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
+        this.edd.cd(d.k.operation);
+        this.edd.a(new String[]{string}, interfaceC0086b);
+        this.edd.d(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void asa() {
-        if (this.eIx.aKv() != null) {
-            this.eIx.aKv().removeCallbacks(this.eIB);
-            this.eIx.aKv().post(this.eIB);
+    public void amq() {
+        if (this.edc.aFs() != null) {
+            this.edc.aFs().removeCallbacks(this.edg);
+            this.edc.aFs().post(this.edg);
         }
     }
 
@@ -364,15 +364,15 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            asa();
+            amq();
         }
     }
 
-    public boolean aKq() {
-        return this.eIC;
+    public boolean aFn() {
+        return this.edh;
     }
 
-    public void hO(boolean z) {
-        this.eIC = z;
+    public void ho(boolean z) {
+        this.edh = z;
     }
 }

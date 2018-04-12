@@ -1,11 +1,11 @@
 package org.aspectj.a.a;
 /* loaded from: classes2.dex */
 public final class a {
-    public static Object zt(int i) {
+    public static Object wl(int i) {
         return new Integer(i);
     }
 
-    public static Object i(short s) {
+    public static Object h(short s) {
         return new Short(s);
     }
 
@@ -13,19 +13,19 @@ public final class a {
         return new Byte(b);
     }
 
-    public static Object dV(long j) {
+    public static Object dE(long j) {
         return new Long(j);
     }
 
-    public static Object aI(float f) {
+    public static Object ax(float f) {
         return new Float(f);
     }
 
-    public static Object q(double d) {
+    public static Object r(double d) {
         return new Double(d);
     }
 
-    public static Object oA(boolean z) {
+    public static Object nV(boolean z) {
         return new Boolean(z);
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SubTagsStatus extends BasicPushStatus {
     private String pushId;
     private List<Tag> tagList;
@@ -16,7 +16,7 @@ public class SubTagsStatus extends BasicPushStatus {
     public SubTagsStatus() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Tag implements Serializable {
         private int tagId;
         private String tagName;

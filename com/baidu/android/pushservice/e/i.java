@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.e;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends c {
     protected String d;
 

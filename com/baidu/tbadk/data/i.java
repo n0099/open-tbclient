@@ -2,38 +2,38 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class i implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId brl = BdUniqueId.gen();
-    private String brm;
-    private String brn;
-    private boolean bro = false;
+public class i implements com.baidu.adp.widget.ListView.h {
+    public static final BdUniqueId aBK = BdUniqueId.gen();
+    private String aBL;
+    private String aBM;
+    private boolean aBN = false;
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return brl;
+        return aBK;
     }
 
-    public String KF() {
-        return this.brm;
+    public String Dl() {
+        return this.aBL;
     }
 
-    public void fZ(String str) {
-        this.brm = str;
+    public void fQ(String str) {
+        this.aBL = str;
     }
 
     public String getSmallUrl() {
-        return this.brn;
+        return this.aBM;
     }
 
-    public void ga(String str) {
-        this.brn = str;
+    public void fR(String str) {
+        this.aBM = str;
     }
 
     public boolean isPortrait() {
-        return this.bro;
+        return this.aBN;
     }
 
-    public void bY(boolean z) {
-        this.bro = z;
+    public void bq(boolean z) {
+        this.aBN = z;
     }
 }

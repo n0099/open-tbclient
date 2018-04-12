@@ -4,60 +4,58 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tbadk.mvc.f.d;
-import com.baidu.tieba.enterForum.b.e;
 import com.baidu.tieba.enterForum.data.f;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class b extends d<f, com.baidu.tbadk.mvc.d.b, e> implements c {
-    private int doR;
+public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.baidu.tieba.enterForum.view.c> implements c {
+    private int cGW;
 
-    public b(TbPageContext<?> tbPageContext, Class<e> cls, int i, ViewEventCenter viewEventCenter) {
+    public b(TbPageContext<?> tbPageContext, Class<com.baidu.tieba.enterForum.view.c> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.doR = -1;
+        this.cGW = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void bp(int i, int i2) {
+    public void as(int i, int i2) {
         List<f> dataList = getDataList();
         com.baidu.tieba.enterForum.model.b.d(dataList, i, i2);
-        N(dataList);
+        F(dataList);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void mk(int i) {
-        this.doR = i;
+    public void jw(int i) {
+        this.cGW = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void amD() {
+    public void agD() {
         notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.mvc.f.c
-    public void N(List<f> list) {
+    public void F(List<f> list) {
         if (list != null) {
             if (list.size() >= 1 && list.get(0) != null && list.get(0).getType() == 1) {
-                super.N(list);
+                super.F(list);
             } else {
-                super.N(list);
+                super.F(list);
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.f.d, android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        View view2 = super.getView(i, view, viewGroup);
-        if (view2 != null) {
-            if (i == this.doR) {
-                view2.setVisibility(4);
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        View view3 = super.getView(i, view2, viewGroup);
+        if (view3 != null) {
+            if (i == this.cGW) {
+                view3.setVisibility(4);
             } else {
-                view2.setVisibility(0);
+                view3.setVisibility(0);
             }
             if (i < getCount() && getItem(i) == null) {
-                view2.setVisibility(4);
+                view3.setVisibility(4);
             }
         }
-        return view2;
+        return view3;
     }
 }

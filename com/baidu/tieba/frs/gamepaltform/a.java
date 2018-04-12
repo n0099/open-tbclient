@@ -10,14 +10,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.e.c;
-import com.baidu.tieba.frs.g;
+import com.baidu.tieba.frs.f;
 import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
 /* loaded from: classes3.dex */
-public class a extends g<com.baidu.tieba.g.b, b> implements c {
+public class a extends f<com.baidu.tieba.h.b, b> implements c {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -26,52 +26,52 @@ public class a extends g<com.baidu.tieba.g.b, b> implements c {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
+    /* renamed from: aD */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(d.h.game_rank_list_item, (ViewGroup) null));
+        return new b(LayoutInflater.from(this.mContext).inflate(d.i.game_rank_list_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.g.b bVar, b bVar2) {
-        super.onFillViewHolder(i, view, viewGroup, bVar, bVar2);
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.h.b bVar, b bVar2) {
+        super.onFillViewHolder(i, view2, viewGroup, bVar, bVar2);
         if (bVar == null) {
             return null;
         }
-        aj.t(view, d.C0141d.cp_bg_line_d);
-        if (dUj != null) {
-            TiebaStatic.log(new ak("c12104").ab(ImageViewerConfig.FORUM_ID, dUj.dTZ));
+        ak.j(view2, d.C0126d.cp_bg_line_d);
+        if (doy != null) {
+            TiebaStatic.log(new al("c12104").ac(ImageViewerConfig.FORUM_ID, doy.doo));
         }
-        if (bVar2.dPp != null) {
-            bVar2.dPp.setData(bVar);
-            bVar2.dPp.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
+        if (bVar2.dhU != null) {
+            bVar2.dhU.setData(bVar);
+            bVar2.dhU.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
                 @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.a
-                public void b(com.baidu.tieba.g.a aVar, int i2) {
+                public void b(com.baidu.tieba.h.a aVar, int i2) {
                     if (aVar != null) {
-                        if (c.dUj != null) {
-                            TiebaStatic.log(new ak("c12105").ab(ImageViewerConfig.FORUM_ID, c.dUj.dTZ).s("obj_locate", i2 + 1));
+                        if (c.doy != null) {
+                            TiebaStatic.log(new al("c12105").ac(ImageViewerConfig.FORUM_ID, c.doy.doo).r("obj_locate", i2 + 1));
                         }
-                        if (!StringUtils.isNull(aVar.aBe())) {
-                            com.baidu.tbadk.browser.b.R(a.this.mPageContext.getPageActivity(), aVar.aBe());
+                        if (!StringUtils.isNull(aVar.awa())) {
+                            com.baidu.tbadk.browser.a.M(a.this.mPageContext.getPageActivity(), aVar.awa());
                         }
                     }
                 }
             });
         }
-        if (bVar2.dPq != null) {
-            bVar2.dPq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
+        if (bVar2.dhV != null) {
+            bVar2.dhV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
+                public void onClick(View view3) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("game_rank_list_info", System.currentTimeMillis() + ",7");
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("game_rank_list_show_times", 0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921005));
                 }
             });
         }
-        this.mPageContext.getLayoutMode().aQ(this.mSkinType == 1);
-        this.mPageContext.getLayoutMode().aM(view);
-        return view;
+        this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
+        this.mPageContext.getLayoutMode().u(view2);
+        return view2;
     }
 }

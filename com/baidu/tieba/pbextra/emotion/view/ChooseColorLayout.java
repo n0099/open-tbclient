@@ -8,19 +8,19 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ChooseColorLayout extends LinearLayout {
-    public View.OnClickListener blT;
-    private int[] ggN;
-    private int ggO;
-    private int ggP;
-    private int ggQ;
-    private int ggR;
-    private a ggS;
+    public View.OnClickListener axG;
+    private int[] fBj;
+    private int fBk;
+    private int fBl;
+    private int fBm;
+    private int fBn;
+    private a fBo;
     private int mPadding;
     private int mWidth;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void tu(int i);
+        void qR(int i);
     }
 
     public ChooseColorLayout(Context context) {
@@ -33,20 +33,20 @@ public class ChooseColorLayout extends LinearLayout {
 
     public ChooseColorLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.blT = new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout.1
+        this.axG = new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 int intValue;
-                if ((view instanceof com.baidu.tieba.pbextra.emotion.view.a) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.ggR) {
-                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.ggR);
-                    if (childAt instanceof com.baidu.tieba.pbextra.emotion.view.a) {
-                        ((com.baidu.tieba.pbextra.emotion.view.a) childAt).setIsChooseView(false);
+                if ((view2 instanceof ChooseColorView) && (intValue = ((Integer) view2.getTag()).intValue()) != ChooseColorLayout.this.fBn) {
+                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.fBn);
+                    if (childAt instanceof ChooseColorView) {
+                        ((ChooseColorView) childAt).setIsChooseView(false);
                     }
-                    ChooseColorLayout.this.ggR = intValue;
-                    ChooseColorLayout.this.ggQ = ((com.baidu.tieba.pbextra.emotion.view.a) view).getChooseColor();
-                    ((com.baidu.tieba.pbextra.emotion.view.a) view).setIsChooseView(true);
-                    if (ChooseColorLayout.this.ggS != null) {
-                        ChooseColorLayout.this.ggS.tu(ChooseColorLayout.this.ggQ);
+                    ChooseColorLayout.this.fBn = intValue;
+                    ChooseColorLayout.this.fBm = ((ChooseColorView) view2).getChooseColor();
+                    ((ChooseColorView) view2).setIsChooseView(true);
+                    if (ChooseColorLayout.this.fBo != null) {
+                        ChooseColorLayout.this.fBo.qR(ChooseColorLayout.this.fBm);
                     }
                 }
             }
@@ -55,34 +55,34 @@ public class ChooseColorLayout extends LinearLayout {
     }
 
     private void init() {
-        this.mWidth = l.ao(getContext());
-        this.ggN = getResources().getIntArray(d.b.choose_colors);
+        this.mWidth = l.af(getContext());
+        this.fBj = getResources().getIntArray(d.b.choose_colors);
         this.mPadding = getResources().getDimensionPixelSize(d.e.ds24);
-        this.ggO = (this.mWidth - (this.mPadding * 2)) / 8;
-        this.ggP = (this.ggO - (getResources().getDimensionPixelSize(d.e.ds16) * 2)) / 2;
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.ggO, this.ggO);
+        this.fBk = (this.mWidth - (this.mPadding * 2)) / 8;
+        this.fBl = (this.fBk - (getResources().getDimensionPixelSize(d.e.ds16) * 2)) / 2;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fBk, this.fBk);
         layoutParams.gravity = 17;
-        for (int i = 0; i < this.ggN.length; i++) {
-            com.baidu.tieba.pbextra.emotion.view.a aVar = new com.baidu.tieba.pbextra.emotion.view.a(getContext());
-            aVar.setChooseColor(this.ggN[i]);
-            aVar.setTag(Integer.valueOf(i));
-            aVar.setRadius(this.ggP);
+        for (int i = 0; i < this.fBj.length; i++) {
+            ChooseColorView chooseColorView = new ChooseColorView(getContext());
+            chooseColorView.setChooseColor(this.fBj[i]);
+            chooseColorView.setTag(Integer.valueOf(i));
+            chooseColorView.setRadius(this.fBl);
             if (i == 0) {
-                aVar.setIsChooseView(true);
-                this.ggQ = this.ggN[i];
-                this.ggR = i;
+                chooseColorView.setIsChooseView(true);
+                this.fBm = this.fBj[i];
+                this.fBn = i;
             }
-            aVar.setOnClickListener(this.blT);
-            addView(aVar, layoutParams);
+            chooseColorView.setOnClickListener(this.axG);
+            addView(chooseColorView, layoutParams);
         }
         setPadding(this.mPadding, 0, this.mPadding, getResources().getDimensionPixelSize(d.e.ds20));
     }
 
     public int getCurrentChooseColor() {
-        return this.ggQ;
+        return this.fBm;
     }
 
     public void setOnChooseColorChangeListener(a aVar) {
-        this.ggS = aVar;
+        this.fBo = aVar;
     }
 }

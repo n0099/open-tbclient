@@ -8,7 +8,7 @@ public class GodFansCallWebViewActivityConfig extends TbWebViewActivityConfig {
     private static String JUMP_URL = "http://c.tieba.baidu.com/mo/q/god/fansCall";
 
     public GodFansCallWebViewActivityConfig(Context context, String str, int i) {
-        super(context, "", JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS + "&tid=" + str, false);
+        super(context, "", JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE + "&tid=" + str, false);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }

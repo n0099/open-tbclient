@@ -11,7 +11,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ai implements Serializable, Cloneable, org.apache.thrift.a<ai, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> i;
     private static final org.apache.thrift.protocol.j j = new org.apache.thrift.protocol.j("XmPushActionSendFeedbackResult");
@@ -33,7 +33,7 @@ public class ai implements Serializable, Cloneable, org.apache.thrift.a<ai, a> {
     public String h;
     private BitSet s = new BitSet(1);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         DEBUG(1, BuildConfig.BUILD_TYPE),
         TARGET(2, BaiduRimConstants.ACTION_TARGET),

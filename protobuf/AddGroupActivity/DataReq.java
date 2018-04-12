@@ -19,9 +19,9 @@ public final class DataReq extends Message {
     public final Long gActivityTime;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String gActivityTitle;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
-    public static final Integer DEFAULT_GROUPID = 0;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_ACTIVITYID = 0;
     public static final Long DEFAULT_GACTIVITYTIME = 0L;
     public static final Integer DEFAULT_COMMITTYPE = 0;
@@ -84,7 +84,7 @@ public final class DataReq extends Message {
         public String gActivityContent;
         public Long gActivityTime;
         public String gActivityTitle;
-        public Integer groupId;
+        public Long groupId;
 
         public Builder() {
         }

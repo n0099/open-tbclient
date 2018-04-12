@@ -1,9 +1,8 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
-import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends c {
     public a(Context context) {
         super(context);
@@ -30,7 +29,7 @@ public class a extends c {
             }
             kVar.b((j * 1000) + System.currentTimeMillis());
             kVar.c((j2 * 1000) + System.currentTimeMillis());
-            p.a(this.a, kVar, bArr);
+            com.baidu.android.pushservice.j.m.a(this.a, kVar, bArr);
             gVar2.a(1);
             return gVar2;
         }

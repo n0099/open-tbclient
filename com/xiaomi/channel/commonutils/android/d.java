@@ -2,7 +2,7 @@ package com.xiaomi.channel.commonutils.android;
 
 import android.content.pm.Signature;
 import java.util.HashSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static int a(Signature[] signatureArr, Signature[] signatureArr2) {
         if (signatureArr == null) {

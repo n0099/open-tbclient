@@ -8,9 +8,9 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes2.dex */
 public final class TabItem extends View {
+    final int mCustomLayout;
     final Drawable mIcon;
     final CharSequence mText;
-    final int qy;
 
     public TabItem(Context context) {
         this(context, null);
@@ -21,7 +21,7 @@ public final class TabItem extends View {
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TabItem);
         this.mText = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
         this.mIcon = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
-        this.qy = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
+        this.mCustomLayout = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
         obtainStyledAttributes.recycle();
     }
 }

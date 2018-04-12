@@ -13,36 +13,36 @@ import java.net.UnknownHostException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private static a ahD = null;
-    private final String ahE = "c.tieba.baidu.com";
-    private long ahF;
-    private String ahG;
-    private long ahH;
+    private static a rW = null;
+    private final String rX = "c.tieba.baidu.com";
+    private long rY;
+    private String rZ;
+    private long sa;
 
-    public static final a mq() {
-        if (ahD == null) {
+    public static final a eu() {
+        if (rW == null) {
             synchronized (a.class) {
-                if (ahD == null) {
-                    ahD = new a();
+                if (rW == null) {
+                    rW = new a();
                 }
             }
         }
-        return ahD;
+        return rW;
     }
 
     private a() {
-        this.ahF = 0L;
-        this.ahG = null;
-        this.ahH = 0L;
+        this.rY = 0L;
+        this.rZ = null;
+        this.sa = 0L;
         SharedPreferences config = getConfig();
-        this.ahF = config.getLong(aj("c.tieba.baidu.com"), 0L);
-        this.ahG = config.getString(ak("c.tieba.baidu.com"), null);
-        this.ahH = config.getLong(al("c.tieba.baidu.com"), 0L);
+        this.rY = config.getLong(ag("c.tieba.baidu.com"), 0L);
+        this.rZ = config.getString(ah("c.tieba.baidu.com"), null);
+        this.sa = config.getLong(ai("c.tieba.baidu.com"), 0L);
     }
 
     public void a(String str, String str2, boolean z, boolean z2) {
         String host;
-        if (!TextUtils.isEmpty(str) && j.oJ()) {
+        if (!TextUtils.isEmpty(str) && j.gP()) {
             try {
                 URL url = new URL(str);
                 String host2 = url.getHost();
@@ -54,11 +54,11 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.ahF;
-                    long j2 = this.ahH;
-                    String str3 = this.ahG;
+                    long j = this.rY;
+                    long j2 = this.sa;
+                    String str3 = this.rZ;
                     if (currentTimeMillis - j > 43200000) {
-                        a(host, host2, z, "12hour", z2);
+                        b(host, host2, z, "12hour", z2);
                         return;
                     }
                     Calendar calendar = Calendar.getInstance();
@@ -66,15 +66,15 @@ public class a {
                     int i = calendar.get(6);
                     calendar.setTimeInMillis(j);
                     if (i != calendar.get(6)) {
-                        a(host, host2, z, "newday", z2);
+                        b(host, host2, z, "newday", z2);
                     } else if (System.currentTimeMillis() - j2 > 3600000) {
                         if (TextUtils.isEmpty(host2)) {
-                            host2 = ai(host);
+                            host2 = af(host);
                         }
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
-                            a(host, host2, z, "ipchange", z2);
+                            b(host, host2, z, "ipchange", z2);
                         } else {
-                            this.ahH = System.currentTimeMillis();
+                            this.sa = System.currentTimeMillis();
                         }
                     }
                 }
@@ -83,10 +83,10 @@ public class a {
         }
     }
 
-    private void a(String str, String str2, boolean z, String str3, boolean z2) {
+    private void b(String str, String str2, boolean z, String str3, boolean z2) {
         if (!TextUtils.isEmpty(str)) {
             if (str2 == null) {
-                str2 = ai(str);
+                str2 = af(str);
             }
             if (str2 != null) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -94,26 +94,26 @@ public class a {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.append("host", str);
                 statsItem.append("hostip", str2);
-                statsItem.h("issuc", Boolean.valueOf(z));
-                statsItem.h("isuseip", Boolean.valueOf(z2));
-                Address e = com.baidu.adp.lib.d.a.mG().e(false, false);
-                if (e != null) {
-                    statsItem.h("lati", Double.valueOf(e.getLatitude()));
-                    statsItem.h("longi", Double.valueOf(e.getLongitude()));
+                statsItem.f("issuc", Boolean.valueOf(z));
+                statsItem.f("isuseip", Boolean.valueOf(z2));
+                Address b = com.baidu.adp.lib.d.a.eK().b(false, false);
+                if (b != null) {
+                    statsItem.f("lati", Double.valueOf(b.getLatitude()));
+                    statsItem.f("longi", Double.valueOf(b.getLongitude()));
                 }
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                 SharedPreferences config = getConfig();
-                EditorHelper.putLong(config, aj(str), currentTimeMillis);
-                EditorHelper.putString(config, ak(str), str2);
-                EditorHelper.putLong(config, al(str), currentTimeMillis2);
-                this.ahF = currentTimeMillis;
-                this.ahH = currentTimeMillis2;
-                this.ahG = str2;
+                EditorHelper.putLong(config, ag(str), currentTimeMillis);
+                EditorHelper.putString(config, ah(str), str2);
+                EditorHelper.putLong(config, ai(str), currentTimeMillis2);
+                this.rY = currentTimeMillis;
+                this.sa = currentTimeMillis2;
+                this.rZ = str2;
             }
         }
     }
 
-    private String ai(String str) {
+    private String af(String str) {
         try {
             return InetAddress.getByName(str).getHostAddress();
         } catch (UnknownHostException e) {
@@ -127,15 +127,15 @@ public class a {
         return BdBaseApplication.getInst().getSharedPreferences("adp", 0);
     }
 
-    private String aj(String str) {
+    private String ag(String str) {
         return str + "-lastLogTime";
     }
 
-    private String ak(String str) {
+    private String ah(String str) {
         return str + "-lastIpAddress";
     }
 
-    private String al(String str) {
+    private String ai(String str) {
         return str + "-lastGetIpTime";
     }
 }

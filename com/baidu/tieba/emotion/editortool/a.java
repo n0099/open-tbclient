@@ -1,53 +1,33 @@
 package com.baidu.tieba.emotion.editortool;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.view.View;
-import android.widget.LinearLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.k;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class a extends LinearLayout {
-    private View bvx;
-    private boolean visible;
-
-    public a(Context context) {
-        super(context);
+public class a extends k {
+    public a(Context context, int i, boolean z) {
+        super(context, TbadkCoreApplication.getInst().getString(d.k.editor_express), 5, i);
+        this.aDz = d.f.pbeditor_face_button;
+        EmotionTabHost emotionTabHost = new EmotionTabHost(context);
+        emotionTabHost.setShowBigEmotion(z);
+        this.aCM = emotionTabHost;
+        this.aDD = true;
+        this.aDC = 6;
+        this.aDE = new int[]{1, 34, 35};
     }
 
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (this.bvx != null) {
-            this.bvx.measure(getChildMeasureSpec(i, 0, this.bvx.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.bvx.getLayoutParams().height));
-        }
+    public a(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(d.k.editor_express), 5, i);
+        this.aDz = d.f.pbeditor_face_button;
+        this.aCM = new EmotionTabHost(context);
+        this.aDD = true;
+        this.aDC = 6;
+        this.aDE = new int[]{1, 34, 35};
     }
 
-    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        View childAt = getChildAt(0);
-        if (this.bvx != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.bvx.getMeasuredWidth();
-            this.bvx.layout(measuredWidth, 0, this.bvx.getMeasuredWidth() + measuredWidth, this.bvx.getMeasuredHeight());
-        }
-    }
-
-    public void setNewView(View view) {
-        this.bvx = view;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        if (this.visible) {
-            canvas.save();
-            canvas.translate(this.bvx.getLeft(), this.bvx.getTop());
-            this.bvx.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    public void setNewViewVisible(boolean z) {
-        this.visible = z;
-        invalidate();
+    @Override // com.baidu.tbadk.editortools.k
+    public void bA(boolean z) {
+        ((EmotionTabHost) this.aCM).setShowUserCollect(z);
     }
 }

@@ -2,7 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import com.xiaomi.push.service.aw;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MiTinyDataClient {
     public static void init(Context context, String str) {
         if (context == null) {

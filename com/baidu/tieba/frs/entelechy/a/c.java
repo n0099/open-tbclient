@@ -1,61 +1,159 @@
 package com.baidu.tieba.frs.entelechy.a;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ar;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tieba.card.v;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
-/* loaded from: classes2.dex */
-public class c extends com.baidu.adp.widget.ListView.a<ar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.h>> implements com.baidu.tieba.frs.e.c {
-    private v clO;
-    private com.baidu.tieba.frs.entelechy.view.h dKo;
-    private TbPageContext<?> mPageContext;
+import com.baidu.tieba.tbadkCore.s;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes3.dex */
+public class c extends com.baidu.tieba.frs.f<s, a> implements View.OnClickListener {
+    private boolean ddt;
+    private boolean ddv;
 
-    public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.clO = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.c.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.v
-            public void a(View view, bd bdVar) {
-                if (view != null && c.this.dKo != null && c.this.dKo.getView() != null && c.this.dKo.dLZ != null && bdVar != null && !StringUtils.isNull(bdVar.getTid())) {
-                    if (view.getId() == d.g.card_root_view) {
-                        com.baidu.tieba.frs.e.b.azS().a(com.baidu.tieba.frs.e.c.dUj, bdVar, 1);
-                    } else if (view.getId() == d.g.avatar) {
-                        com.baidu.tieba.frs.e.b.azS().a(com.baidu.tieba.frs.e.c.dUj, bdVar, 2);
-                    } else if (view.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dUj, bdVar.zM());
-                    }
-                }
-            }
-        };
-        this.mPageContext = tbPageContext;
+    public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        super(tbPageContext, bdUniqueId);
+        this.ddt = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+        this.ddv = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ad */
-    public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.dKo = new com.baidu.tieba.frs.entelechy.view.h(this.mPageContext, this.mPageId);
-        this.dKo.h(this.mPageId);
-        return new com.baidu.tieba.card.a.a(this.dKo);
+    /* renamed from: ar */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        return new a(LayoutInflater.from(this.mContext).inflate(d.i.frs_extra_account_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ar arVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.alY() == null) {
-            return null;
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, s sVar, a aVar) {
+        boolean z = true;
+        super.onFillViewHolder(i, view2, viewGroup, sVar, aVar);
+        if (sVar.brs()) {
+            String brt = sVar.brt();
+            if (brt != null) {
+                aVar.ddx.setText(brt);
+            } else if (this.cWO != null && this.cWO.aVq() != null && this.cWO.aVq().getName() != null) {
+                TextView textView = aVar.ddx;
+                Context context = this.mContext;
+                int i2 = d.k.get_fortune_hint_format;
+                Object[] objArr = new Object[1];
+                objArr[0] = this.cWO == null ? "" : this.cWO.aVq().getName();
+                textView.setText(context.getString(i2, objArr));
+            }
+            aVar.ddw.setTag(Integer.valueOf(i));
+            aVar.ddw.setOnClickListener(this);
+            aVar.ddw.setVisibility(0);
+        } else {
+            aVar.ddw.setVisibility(8);
+            aVar.ddD.setVisibility(8);
         }
-        aVar.alY().a(arVar);
-        aVar.alY().b(this.clO);
-        com.baidu.tieba.frs.e.b.azS().a(dUj, arVar);
-        return aVar.getView();
+        com.baidu.tieba.tbadkCore.m bru = sVar.bru();
+        if (bru != null && bru.brl() && !TextUtils.isEmpty(bru.brm())) {
+            aVar.ddz.setText(bru.brm());
+            aVar.ddy.setTag(Integer.valueOf(i));
+            aVar.ddy.setOnClickListener(this);
+            aVar.ddy.setVisibility(0);
+        } else {
+            aVar.ddy.setVisibility(8);
+            aVar.ddE.setVisibility(8);
+        }
+        if (this.ddv) {
+            aVar.ddA.setVisibility(0);
+        } else {
+            aVar.ddA.setVisibility(8);
+        }
+        this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
+        this.mPageContext.getLayoutMode().u(view2);
+        if (this.cWO == null || this.cWO.getUserData() == null || !this.cWO.getUserData().isBawu()) {
+            z = false;
+        }
+        if (z) {
+            aVar.ddB.setVisibility(0);
+            ak.i(aVar.ddB, d.f.frs_top_item_bg);
+            aVar.ddA.setVisibility(0);
+            aVar.ddB.setOnClickListener(this);
+            aVar.ddB.setTag(Integer.valueOf(i));
+        } else {
+            aVar.ddB.setVisibility(8);
+            aVar.ddF.setVisibility(8);
+        }
+        if (!this.ddt && !sVar.brs()) {
+            if (z) {
+                aVar.ddw.setVisibility(8);
+                aVar.ddy.setVisibility(8);
+                a(aVar);
+                return view2;
+            }
+            return new View(this.mContext);
+        }
+        return view2;
+    }
+
+    private void a(a aVar) {
+        List<View> list = aVar.ddG;
+        for (View view2 : list) {
+            view2.setVisibility(8);
+        }
+        list.get(0).setVisibility(0);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        if (this.cWP != null) {
+            int id = view2.getId();
+            int intValue = ((Integer) view2.getTag()).intValue();
+            if (getItem(intValue) instanceof bd) {
+                View j = j(this.cWQ.getListView(), intValue);
+                this.cWP.a(id, intValue, view2, j, (bd) getItem(intValue));
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes3.dex */
+    public static class a extends q.a {
+        View ddA;
+        View ddB;
+        TextView ddC;
+        View ddD;
+        View ddE;
+        View ddF;
+        List<View> ddG;
+        View ddw;
+        TextView ddx;
+        View ddy;
+        TextView ddz;
+
+        a(View view2) {
+            super(view2);
+            this.ddG = new ArrayList();
+            this.ddx = (TextView) view2.findViewById(d.g.frs_fortune_bag_content);
+            this.ddw = view2.findViewById(d.g.frs_fortune_bag_item);
+            this.ddy = view2.findViewById(d.g.frs_my_service_item);
+            this.ddz = (TextView) view2.findViewById(d.g.frs_my_service_content);
+            this.ddA = view2.findViewById(d.g.frs_list_item_official_buttom_line);
+            this.ddB = view2.findViewById(d.g.frs_bawu_center);
+            this.ddC = (TextView) view2.findViewById(d.g.frs_bawu_center_inner);
+            this.ddD = view2.findViewById(d.g.official_account_text_divider_fortune_top);
+            this.ddE = view2.findViewById(d.g.official_account_text_divider_service_top);
+            this.ddF = view2.findViewById(d.g.official_account_text_divider_bawucenter_top);
+            this.ddG.add(this.ddD);
+            this.ddG.add(this.ddE);
+            this.ddG.add(this.ddF);
+        }
     }
 }

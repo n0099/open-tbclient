@@ -2,22 +2,22 @@ package com.baidu.tieba.pb.video;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.r;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
-public class c extends r.a {
-    public View bQi;
-    public int bfC;
-    public TextView cXo;
+public class c extends q.a {
+    public int aqQ;
+    public View bae;
+    public TextView cpe;
 
-    public c(View view) {
-        super(view);
-        this.bfC = 3;
-        this.cXo = (TextView) view.findViewById(d.g.look_more_view);
-        this.bQi = view.findViewById(d.g.divider_line_above_more_god_replays);
-        aj.r(this.cXo, d.C0141d.cp_cont_f);
-        aj.s(this.cXo, d.f.more_all);
-        aj.s(this.bQi, d.C0141d.cp_bg_line_c);
+    public c(View view2) {
+        super(view2);
+        this.aqQ = 3;
+        this.cpe = (TextView) view2.findViewById(d.g.look_more_view);
+        this.bae = view2.findViewById(d.g.divider_line_above_more_god_replays);
+        ak.h(this.cpe, d.C0126d.cp_cont_f);
+        ak.i(this.cpe, d.f.more_all);
+        ak.i(this.bae, d.C0126d.cp_bg_line_c);
     }
 }

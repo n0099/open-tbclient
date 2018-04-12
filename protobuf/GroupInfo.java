@@ -44,8 +44,8 @@ public final class GroupInfo extends Message {
     public final String forumShowName;
     @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer grade;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 20, type = Message.Datatype.INT32)
     public final Integer groupType;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
@@ -84,7 +84,7 @@ public final class GroupInfo extends Message {
     public final String position;
     @ProtoField(tag = 12, type = Message.Datatype.INT32)
     public final Integer status;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_FORUMID = 0;
     public static final Double DEFAULT_LNG = Double.valueOf(0.0d);
     public static final Double DEFAULT_LAT = Double.valueOf(0.0d);
@@ -335,7 +335,7 @@ public final class GroupInfo extends Message {
         public String forumName;
         public String forumShowName;
         public Integer grade;
-        public Integer groupId;
+        public Long groupId;
         public Integer groupType;
         public String intro;
         public Integer isGroupManager;

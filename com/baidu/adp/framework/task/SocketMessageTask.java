@@ -4,11 +4,11 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
-    private boolean aeV;
-    private boolean aeW;
-    private boolean aeX;
-    private DupLicateMode aeY;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
+    private boolean pv;
+    private boolean pw;
+    private boolean px;
+    private DupLicateMode py;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -20,31 +20,31 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.aeV = false;
-        this.aeW = false;
-        this.aeX = true;
-        this.aeY = DupLicateMode.NONE;
+        this.pv = false;
+        this.pw = false;
+        this.px = true;
+        this.py = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.cC(this.mCmd);
+        return FrameHelper.C(this.mCmd);
     }
 
-    public void V(boolean z) {
-        this.aeV = z;
+    public void n(boolean z) {
+        this.pv = z;
     }
 
-    public boolean ld() {
-        return this.aeV;
+    public boolean dh() {
+        return this.pv;
     }
 
-    public boolean le() {
-        return this.aeW;
+    public boolean di() {
+        return this.pw;
     }
 
-    public void W(boolean z) {
-        this.aeW = z;
+    public void o(boolean z) {
+        this.pw = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -55,19 +55,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean lf() {
-        return this.aeX;
+    public boolean dj() {
+        return this.px;
     }
 
-    public void X(boolean z) {
-        this.aeX = z;
+    public void p(boolean z) {
+        this.px = z;
     }
 
-    public DupLicateMode lg() {
-        return this.aeY;
+    public DupLicateMode dk() {
+        return this.py;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.aeY = dupLicateMode;
+        this.py = dupLicateMode;
     }
 }

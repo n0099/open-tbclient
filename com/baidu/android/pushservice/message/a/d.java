@@ -6,8 +6,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
-import com.baidu.android.pushservice.j.o;
-import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.ArrayList;
@@ -15,24 +13,24 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends c {
     public d(Context context) {
         super(context);
     }
 
     public static void a(final Context context) {
-        long c = com.baidu.android.pushservice.j.m.c(context, "com.baidu.pushservice.internal.bind.LATEST_TIME");
+        long b = com.baidu.android.pushservice.j.j.b(context, "com.baidu.pushservice.internal.bind.LATEST_TIME");
         final long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - c;
-        if (!com.baidu.android.pushservice.j.k.a(context) || j <= 259200000) {
+        long j = currentTimeMillis - b;
+        if (!com.baidu.android.pushservice.j.h.a(context) || j <= 259200000) {
             return;
         }
         com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("uploadInternalBindApps", (short) 95) { // from class: com.baidu.android.pushservice.message.a.d.1
             @Override // com.baidu.android.pushservice.i.c
             public void a() {
                 try {
-                    com.baidu.android.pushservice.j.m.a(context, "com.baidu.pushservice.internal.bind.LATEST_TIME", currentTimeMillis);
+                    com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.internal.bind.LATEST_TIME", currentTimeMillis);
                     String d = d.d(context);
                     HashMap hashMap = new HashMap();
                     com.baidu.android.pushservice.e.b.a(hashMap);
@@ -62,29 +60,29 @@ public class d extends c {
         intent.putExtra("bind_status", 0);
         intent.putExtra("push_sdk_version", (int) com.baidu.android.pushservice.a.a());
         if (Build.VERSION.SDK_INT >= 19) {
-            intent.putExtra("bind_notify_status", com.baidu.android.pushservice.j.l.a(context) + "");
+            intent.putExtra("bind_notify_status", com.baidu.android.pushservice.j.i.a(context) + "");
         }
-        o.a(context, intent);
+        com.baidu.android.pushservice.j.l.a(context, intent);
     }
 
     private static String c(Context context) {
-        ArrayList<String> q = p.q(context);
+        ArrayList<String> q = com.baidu.android.pushservice.j.m.q(context);
         if (!q.isEmpty()) {
             JSONArray jSONArray = new JSONArray();
             Iterator<String> it = q.iterator();
             while (it.hasNext()) {
                 String next = it.next();
-                if (!p.x(context, next)) {
-                    Context v = p.v(context, next);
-                    String w = p.w(v, next);
-                    String a = p.a(v, next, "bp_reg_key");
+                if (!com.baidu.android.pushservice.j.m.x(context, next)) {
+                    Context v = com.baidu.android.pushservice.j.m.v(context, next);
+                    String w = com.baidu.android.pushservice.j.m.w(v, next);
+                    String a = com.baidu.android.pushservice.j.m.a(v, next, "bp_reg_key");
                     if (!TextUtils.isEmpty(a)) {
                         try {
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("packagename", next);
                             jSONObject.put("apikey", a);
                             jSONObject.put("installtime", w);
-                            jSONObject.put("pkgMD5info", p.r(v, next));
+                            jSONObject.put("pkgMD5info", com.baidu.android.pushservice.j.m.r(v, next));
                             jSONArray.put(jSONObject);
                         } catch (Exception e) {
                         }
@@ -126,14 +124,14 @@ public class d extends c {
             if (!jSONObject.isNull("custom_content")) {
                 String string = jSONObject.getString("custom_content");
                 if (!TextUtils.isEmpty(string) && (length = (jSONArray = new JSONArray(string)).length()) > 0) {
-                    ArrayList<String> q = p.q(this.a);
+                    ArrayList<String> q = com.baidu.android.pushservice.j.m.q(this.a);
                     int i3 = 0;
                     while (i3 < length) {
                         JSONObject jSONObject2 = (JSONObject) jSONArray.get(i3);
                         String string2 = jSONObject2.getString("package_name");
                         if (q.contains(string2)) {
                             String string3 = jSONObject2.getString("apikey");
-                            if (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !p.x(this.a, string2)) {
+                            if (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !com.baidu.android.pushservice.j.m.x(this.a, string2)) {
                                 a(string3, string2, this.a);
                             }
                             i = i2;

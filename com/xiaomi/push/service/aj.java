@@ -1,5 +1,5 @@
 package com.xiaomi.push.service;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 /* synthetic */ class aj {
     static final /* synthetic */ int[] a;
     static final /* synthetic */ int[] b = new int[com.xiaomi.xmpush.thrift.g.values().length];

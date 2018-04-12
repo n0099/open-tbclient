@@ -2,29 +2,30 @@ package android.support.v4.content.res;
 
 import android.content.res.Resources;
 import android.os.Build;
+import android.support.annotation.NonNull;
 /* loaded from: classes2.dex */
 public final class ConfigurationHelper {
-    private static final a wn;
+    private static final ConfigurationHelperImpl IMPL;
 
     /* loaded from: classes2.dex */
-    private interface a {
-        int getDensityDpi(Resources resources);
+    private interface ConfigurationHelperImpl {
+        int getDensityDpi(@NonNull Resources resources);
 
-        int getScreenHeightDp(Resources resources);
+        int getScreenHeightDp(@NonNull Resources resources);
 
-        int getScreenWidthDp(Resources resources);
+        int getScreenWidthDp(@NonNull Resources resources);
 
-        int getSmallestScreenWidthDp(Resources resources);
+        int getSmallestScreenWidthDp(@NonNull Resources resources);
     }
 
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 17) {
-            wn = new d();
+            IMPL = new JellybeanMr1Impl();
         } else if (i >= 13) {
-            wn = new c();
+            IMPL = new HoneycombMr2Impl();
         } else {
-            wn = new b();
+            IMPL = new GingerbreadImpl();
         }
     }
 
@@ -32,76 +33,76 @@ public final class ConfigurationHelper {
     }
 
     /* loaded from: classes2.dex */
-    private static class b implements a {
-        b() {
+    private static class GingerbreadImpl implements ConfigurationHelperImpl {
+        GingerbreadImpl() {
         }
 
-        @Override // android.support.v4.content.res.ConfigurationHelper.a
-        public int getScreenHeightDp(Resources resources) {
-            return android.support.v4.content.res.a.getScreenHeightDp(resources);
+        @Override // android.support.v4.content.res.ConfigurationHelper.ConfigurationHelperImpl
+        public int getScreenHeightDp(@NonNull Resources resources) {
+            return ConfigurationHelperGingerbread.getScreenHeightDp(resources);
         }
 
-        @Override // android.support.v4.content.res.ConfigurationHelper.a
-        public int getScreenWidthDp(Resources resources) {
-            return android.support.v4.content.res.a.getScreenWidthDp(resources);
+        @Override // android.support.v4.content.res.ConfigurationHelper.ConfigurationHelperImpl
+        public int getScreenWidthDp(@NonNull Resources resources) {
+            return ConfigurationHelperGingerbread.getScreenWidthDp(resources);
         }
 
-        @Override // android.support.v4.content.res.ConfigurationHelper.a
-        public int getSmallestScreenWidthDp(Resources resources) {
-            return android.support.v4.content.res.a.getSmallestScreenWidthDp(resources);
+        @Override // android.support.v4.content.res.ConfigurationHelper.ConfigurationHelperImpl
+        public int getSmallestScreenWidthDp(@NonNull Resources resources) {
+            return ConfigurationHelperGingerbread.getSmallestScreenWidthDp(resources);
         }
 
-        @Override // android.support.v4.content.res.ConfigurationHelper.a
-        public int getDensityDpi(Resources resources) {
-            return android.support.v4.content.res.a.getDensityDpi(resources);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    private static class c extends b {
-        c() {
-        }
-
-        @Override // android.support.v4.content.res.ConfigurationHelper.b, android.support.v4.content.res.ConfigurationHelper.a
-        public int getScreenHeightDp(Resources resources) {
-            return android.support.v4.content.res.b.getScreenHeightDp(resources);
-        }
-
-        @Override // android.support.v4.content.res.ConfigurationHelper.b, android.support.v4.content.res.ConfigurationHelper.a
-        public int getScreenWidthDp(Resources resources) {
-            return android.support.v4.content.res.b.getScreenWidthDp(resources);
-        }
-
-        @Override // android.support.v4.content.res.ConfigurationHelper.b, android.support.v4.content.res.ConfigurationHelper.a
-        public int getSmallestScreenWidthDp(Resources resources) {
-            return android.support.v4.content.res.b.getSmallestScreenWidthDp(resources);
+        @Override // android.support.v4.content.res.ConfigurationHelper.ConfigurationHelperImpl
+        public int getDensityDpi(@NonNull Resources resources) {
+            return ConfigurationHelperGingerbread.getDensityDpi(resources);
         }
     }
 
     /* loaded from: classes2.dex */
-    private static class d extends c {
-        d() {
+    private static class HoneycombMr2Impl extends GingerbreadImpl {
+        HoneycombMr2Impl() {
         }
 
-        @Override // android.support.v4.content.res.ConfigurationHelper.b, android.support.v4.content.res.ConfigurationHelper.a
-        public int getDensityDpi(Resources resources) {
-            return android.support.v4.content.res.c.getDensityDpi(resources);
+        @Override // android.support.v4.content.res.ConfigurationHelper.GingerbreadImpl, android.support.v4.content.res.ConfigurationHelper.ConfigurationHelperImpl
+        public int getScreenHeightDp(@NonNull Resources resources) {
+            return ConfigurationHelperHoneycombMr2.getScreenHeightDp(resources);
+        }
+
+        @Override // android.support.v4.content.res.ConfigurationHelper.GingerbreadImpl, android.support.v4.content.res.ConfigurationHelper.ConfigurationHelperImpl
+        public int getScreenWidthDp(@NonNull Resources resources) {
+            return ConfigurationHelperHoneycombMr2.getScreenWidthDp(resources);
+        }
+
+        @Override // android.support.v4.content.res.ConfigurationHelper.GingerbreadImpl, android.support.v4.content.res.ConfigurationHelper.ConfigurationHelperImpl
+        public int getSmallestScreenWidthDp(@NonNull Resources resources) {
+            return ConfigurationHelperHoneycombMr2.getSmallestScreenWidthDp(resources);
         }
     }
 
-    public static int getScreenHeightDp(Resources resources) {
-        return wn.getScreenHeightDp(resources);
+    /* loaded from: classes2.dex */
+    private static class JellybeanMr1Impl extends HoneycombMr2Impl {
+        JellybeanMr1Impl() {
+        }
+
+        @Override // android.support.v4.content.res.ConfigurationHelper.GingerbreadImpl, android.support.v4.content.res.ConfigurationHelper.ConfigurationHelperImpl
+        public int getDensityDpi(@NonNull Resources resources) {
+            return ConfigurationHelperJellybeanMr1.getDensityDpi(resources);
+        }
     }
 
-    public static int getScreenWidthDp(Resources resources) {
-        return wn.getScreenWidthDp(resources);
+    public static int getScreenHeightDp(@NonNull Resources resources) {
+        return IMPL.getScreenHeightDp(resources);
     }
 
-    public static int getSmallestScreenWidthDp(Resources resources) {
-        return wn.getSmallestScreenWidthDp(resources);
+    public static int getScreenWidthDp(@NonNull Resources resources) {
+        return IMPL.getScreenWidthDp(resources);
     }
 
-    public static int getDensityDpi(Resources resources) {
-        return wn.getDensityDpi(resources);
+    public static int getSmallestScreenWidthDp(@NonNull Resources resources) {
+        return IMPL.getSmallestScreenWidthDp(resources);
+    }
+
+    public static int getDensityDpi(@NonNull Resources resources) {
+        return IMPL.getDensityDpi(resources);
     }
 }

@@ -1,7 +1,14 @@
 package com.baidu.tieba.frs;
 
-import java.util.ArrayList;
-/* loaded from: classes.dex */
-public interface an {
-    void a(int i, int i2, at atVar, ArrayList<com.baidu.adp.widget.ListView.i> arrayList);
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
+/* loaded from: classes3.dex */
+public class an implements com.baidu.tieba.horizonalList.widget.c {
+    public MetaData metaData = new MetaData();
+
+    public an() {
+        if (this.metaData.getGodUserData() == null) {
+            this.metaData.setGodUserData(new GodUserData());
+        }
+    }
 }

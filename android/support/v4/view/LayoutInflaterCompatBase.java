@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 /* loaded from: classes2.dex */
 class LayoutInflaterCompatBase {
+    LayoutInflaterCompatBase() {
+    }
 
     /* loaded from: classes2.dex */
     static class FactoryWrapper implements LayoutInflater.Factory {

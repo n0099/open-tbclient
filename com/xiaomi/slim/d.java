@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.Adler32;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     ByteBuffer a = ByteBuffer.allocate(2048);
     private ByteBuffer b = ByteBuffer.allocate(4);
@@ -63,7 +63,7 @@ public class d {
         eVar.c(Build.VERSION.SDK_INT);
         byte[] a = this.d.c().a();
         if (a != null) {
-            eVar.a(b.C0291b.b(a));
+            eVar.a(b.C0273b.b(a));
         }
         b bVar = new b();
         bVar.a(0);

@@ -5,6 +5,7 @@ import android.graphics.SurfaceTexture;
 import android.opengl.EGL14;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import com.baidu.ar.camera.CameraCallback;
 import com.baidu.ar.camera.CameraController;
@@ -27,7 +28,7 @@ public class a implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     private CameraParams k;
     private CameraCallback l;
     private EncoderParams n;
-    private InterfaceC0045a o;
+    private InterfaceC0034a o;
     private com.baidu.ar.recorder.b p;
     private boolean q;
     private int r;
@@ -39,7 +40,7 @@ public class a implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
 
     /* renamed from: com.baidu.ar.recorder.demo.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0045a {
+    public interface InterfaceC0034a {
         void a();
     }
 
@@ -47,6 +48,7 @@ public class a implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         this.b = context;
     }
 
+    @RequiresApi(api = 18)
     private void a(int i, float[] fArr, long j) {
         if (this.q && this.n != null) {
             switch (this.r) {
@@ -90,6 +92,7 @@ public class a implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         }
     }
 
+    @RequiresApi(api = 18)
     private void c() {
         if (this.d == null) {
             Matrix.setIdentityM(this.c, 0);
@@ -149,6 +152,7 @@ public class a implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
+    @RequiresApi(api = 18)
     public void onDrawFrame(GL10 gl10) {
         d();
         a(this.f, this.c);
@@ -213,6 +217,7 @@ public class a implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
+    @RequiresApi(api = 18)
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
         Log.d(a, "onSurfaceCreated !!!");
         b();

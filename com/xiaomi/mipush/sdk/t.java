@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 /* synthetic */ class t {
     static final /* synthetic */ int[] a = new int[com.xiaomi.xmpush.thrift.a.values().length];
 

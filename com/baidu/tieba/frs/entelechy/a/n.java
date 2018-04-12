@@ -1,129 +1,86 @@
 package com.baidu.tieba.frs.entelechy.a;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.HeadPendantView;
-import com.baidu.tieba.card.t;
-import com.baidu.tieba.card.u;
-import com.baidu.tieba.card.v;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
-import java.util.HashSet;
+import java.util.Calendar;
 /* loaded from: classes2.dex */
-public class n extends com.baidu.tieba.frs.g<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.card.s>> implements t, u, com.baidu.tieba.frs.e.c {
-    private v<be> clK;
-    private int clN;
-    private HashSet<String> dKS;
-    private com.baidu.tieba.card.s dKY;
-    private String mForumName;
-    private TbPageContext<?> mPageContext;
+public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore.k, o> {
+    private String mForumId;
 
-    private void Q(bd bdVar) {
-        if (this.dKS == null) {
-            this.dKS = new HashSet<>();
-        }
-        if (bdVar.getTid() != null && !this.dKS.contains(bdVar.getTid())) {
-            this.dKS.add(bdVar.getTid());
-            TiebaStatic.log(new ak("c11662").s("obj_param1", 1).ab("post_id", bdVar.getTid()));
-        }
-    }
-
-    public n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
-        this.clN = 0;
-        this.clK = new v<be>() { // from class: com.baidu.tieba.frs.entelechy.a.n.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.v
-            public void a(View view, be beVar) {
-                if (view != null && beVar != null && beVar.threadData != null) {
-                    bd bdVar = beVar.threadData;
-                    if (view.getId() == d.g.card_home_page_normal_thread_user_name || (view instanceof HeadImageView) || (view instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.e.b.azS().a(com.baidu.tieba.frs.e.c.dUj, bdVar, 2);
-                    } else {
-                        com.baidu.tieba.frs.e.b.azS().a(com.baidu.tieba.frs.e.c.dUj, bdVar, 1);
-                    }
-                    if (view.getId() == d.g.thread_user_pendant_header || view.getId() == d.g.card_home_page_normal_thread_user_name || view.getId() == d.g.card_home_page_normal_thread_user_header) {
-                        ak akVar = new ak("c12940");
-                        akVar.ab("obj_type", "1");
-                        akVar.ab("tid", beVar.threadData.getTid());
-                        TiebaStatic.log(akVar);
-                    } else if (view.getId() == d.g.original_thread_view) {
-                        ak akVar2 = new ak("c12940");
-                        akVar2.ab("obj_type", "3");
-                        akVar2.ab("tid", beVar.threadData.getTid());
-                        TiebaStatic.log(akVar2);
-                    }
-                }
-            }
-        };
-        this.mPageContext = tbPageContext;
-        this.mPageId = bdUniqueId2;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public n(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(context, bdUniqueId, bdUniqueId2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ad */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.card.s> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dKY = new com.baidu.tieba.card.s(this.mPageContext);
-        this.dKY.j(this.mPageId);
-        this.dKY.currentPageType = 3;
-        this.dKY.eL(false);
-        if (this.dKY.cma != null) {
-            this.dKY.cma.aQv = 3;
-        }
-        if (this.dKY.cYt != null) {
-            this.dKY.cYt.cYY = 3;
-        }
-        if (this.dKY.cmO != null) {
-            this.dKY.cmO.setHideBarName(true);
-        }
-        return new com.baidu.tieba.card.a.a<>(this.dKY);
+    /* renamed from: ax */
+    public o onCreateViewHolder(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.i.frs_video_activity_item, (ViewGroup) null);
+        o oVar = new o(inflate);
+        ak.h(oVar.mTitleTv, d.C0126d.cp_cont_b);
+        ak.h(oVar.deo, d.C0126d.cp_cont_h);
+        ak.c(oVar.den, d.f.icon_news_list_prompt);
+        ak.c(oVar.dep, d.f.icon_index_category_arrow_r);
+        ak.j(oVar.deq, d.C0126d.cp_bg_line_b);
+        ak.j(oVar.der, d.C0126d.cp_bg_line_b);
+        ak.i(inflate, d.f.home_thread_card_item_bg);
+        return oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.s> aVar) {
-        if (bdVar != null && bdVar.yU()) {
-            Q(bdVar);
-        }
-        if (aVar == null || aVar.alY() == null) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, final com.baidu.tieba.tbadkCore.k kVar, o oVar) {
+        if (view2 == null || oVar == null) {
             return null;
         }
-        if (bdVar != null) {
-            bdVar.aQp = this.clN;
+        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.n.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view3) {
+                TiebaStatic.log(new al("c12587").ac(ImageViewerConfig.FORUM_ID, n.this.mForumId));
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("frs_video_activity_tip" + n.this.mForumId, System.currentTimeMillis());
+                if (kVar != null && !StringUtils.isNull(kVar.url)) {
+                    com.baidu.tbadk.browser.a.N(n.this.mContext, kVar.url);
+                }
+            }
+        });
+        oVar.mTitleTv.setText(kVar != null ? kVar.text : "");
+        if (bE(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
+            oVar.den.setVisibility(0);
+        } else {
+            oVar.den.setVisibility(8);
         }
-        be beVar = new be(bdVar);
-        beVar.stType = "frs_page";
-        beVar.aQt = 2;
-        beVar.aQu = 1;
-        beVar.aQv = 3;
-        com.baidu.tieba.frs.f.a(aVar.alY().alu(), this.dDS);
-        com.baidu.tieba.frs.f.a(aVar.alY().alv(), this.dDS);
-        aVar.alY().a(beVar);
-        aVar.alY().b(this.clK);
-        com.baidu.tieba.frs.e.b.azS().a(dUj, bdVar);
-        if (bdVar != null) {
-            bdVar.Ai();
-        }
-        return aVar.getView();
+        return oVar.getView();
     }
 
-    @Override // com.baidu.tieba.card.t
-    public void setForumName(String str) {
-        this.mForumName = str;
+    private boolean bE(long j) {
+        if (j == 0) {
+            return true;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - j <= 86400000) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(currentTimeMillis);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTimeInMillis(j);
+            return calendar.get(7) > calendar2.get(7);
+        }
+        return true;
     }
 
-    @Override // com.baidu.tieba.card.u
-    public void setCardShowType(int i) {
-        this.clN = i;
+    public void setForumId(String str) {
+        this.mForumId = str;
     }
 }

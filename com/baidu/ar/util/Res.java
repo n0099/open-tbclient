@@ -108,8 +108,8 @@ public class Res {
         return -1;
     }
 
-    public static View findViewById(View view, String str) {
-        return view.findViewById(id(str));
+    public static View findViewById(View view2, String str) {
+        return view2.findViewById(id(str));
     }
 
     public static int getColor(String str) {

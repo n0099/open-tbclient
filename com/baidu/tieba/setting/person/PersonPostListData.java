@@ -225,7 +225,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         public String author_name = "";
         public int listeners = 0;
         public int likers = 0;
-        public int group_id = 0;
+        public long group_id = 0;
         public String intro = "";
         public String publisherPortrait = "";
         public String publisher_name = "";
@@ -242,7 +242,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
                     this.author_name = anchorInfo.author_name;
                     this.listeners = anchorInfo.listeners.intValue();
                     this.likers = anchorInfo.likers.intValue();
-                    this.group_id = anchorInfo.group_id.intValue();
+                    this.group_id = anchorInfo.group_id.longValue();
                     this.intro = anchorInfo.intro;
                     this.publisherPortrait = anchorInfo.publisherPortrait;
                     this.publisher_name = anchorInfo.publisherName;

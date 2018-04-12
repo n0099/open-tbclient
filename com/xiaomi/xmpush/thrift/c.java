@@ -9,14 +9,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> b;
     private static final org.apache.thrift.protocol.j c = new org.apache.thrift.protocol.j("ClientUploadData");
     private static final org.apache.thrift.protocol.b d = new org.apache.thrift.protocol.b("uploadDataItems", (byte) 15, 1);
     public List<d> a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         UPLOAD_DATA_ITEMS(1, "uploadDataItems");
         

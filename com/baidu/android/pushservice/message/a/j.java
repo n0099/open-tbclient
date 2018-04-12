@@ -6,7 +6,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.message.PublicMsg;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class j {
     public static PublicMsg a(Context context, String str, String str2, byte[] bArr) {
         PublicMsg publicMsg = new PublicMsg();

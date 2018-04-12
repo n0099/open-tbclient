@@ -4,6 +4,9 @@ import android.app.AppOpsManager;
 import android.content.Context;
 /* loaded from: classes2.dex */
 class AppOpsManagerCompat23 {
+    AppOpsManagerCompat23() {
+    }
+
     public static String permissionToOp(String str) {
         return AppOpsManager.permissionToOp(str);
     }

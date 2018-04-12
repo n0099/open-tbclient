@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
-    private PraiseListActivity ghu;
+    private PraiseListActivity fBQ;
     private volatile boolean isScrolling;
     private List<a> mZanItemDataList = null;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.ghu = null;
-        this.ghu = praiseListActivity;
+        this.fBQ = null;
+        this.fBQ = praiseListActivity;
     }
 
-    public void cZ(List<a> list) {
+    public void cR(List<a> list) {
         this.mZanItemDataList = list;
     }
 
@@ -31,7 +31,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tz */
+    /* renamed from: qW */
     public a getItem(int i) {
         if (this.mZanItemDataList != null) {
             return this.mZanItemDataList.get(i);
@@ -45,8 +45,8 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return g(i, view, viewGroup);
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        return g(i, view2, viewGroup);
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -63,11 +63,11 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
-    private View g(int i, View view, ViewGroup viewGroup) {
-        b c = b.c(this.ghu.getPageContext().getPageActivity(), view);
+    private View g(int i, View view2, ViewGroup viewGroup) {
+        b d = b.d(this.fBQ.getPageContext().getPageActivity(), view2);
         a item = getItem(i);
-        c.a(StringUtils.isNull(item.bio()) ? item.getUserName() : item.bio(), item.getPortrait(), item.bip(), this.isScrolling);
-        this.ghu.changSkinType(c.getView());
-        return c.getView();
+        d.a(StringUtils.isNull(item.bdo()) ? item.getUserName() : item.bdo(), item.getPortrait(), item.bdp(), this.isScrolling);
+        this.fBQ.changSkinType(d.getView());
+        return d.getView();
     }
 }

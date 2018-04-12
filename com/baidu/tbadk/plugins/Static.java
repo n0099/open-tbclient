@@ -10,11 +10,10 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.sharedPref.b;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] bCa = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] aMC = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.plugins.Static.1
@@ -35,7 +34,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.bCa;
+                    String[] strArr = Static.aMC;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {
@@ -46,22 +45,22 @@ public class Static {
                         if (exceptionData == null || exceptionData.info == null || !exceptionData.info.contains(str) || exceptionData.info.contains("java.lang.OutOfMemoryError")) {
                             i++;
                         } else {
-                            com.baidu.adp.plugin.b.a.qF().bn("plugin_crash_inflate");
-                            b.getInstance().putBoolean("is_plugin_resource_open_local", false);
+                            com.baidu.adp.plugin.b.a.iK().bk("plugin_crash_inflate");
+                            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("is_plugin_resource_open_local", false);
                             z = false;
                             break;
                         }
                     }
                     if (exceptionData.mExcep != null && exceptionData.mExcep.getCause() != null && exceptionData.mExcep.getCause().getStackTrace() != null && z && exceptionData != null && exceptionData.info != null) {
                         try {
-                            List<PluginSetting> pluginSettingsSortLoadPriorty = c.ru().rr().getPluginSettingsSortLoadPriorty();
+                            List<PluginSetting> pluginSettingsSortLoadPriorty = c.jz().jw().getPluginSettingsSortLoadPriorty();
                             if (pluginSettingsSortLoadPriorty != null && !pluginSettingsSortLoadPriorty.isEmpty() && (stackTrace = exceptionData.mExcep.getCause().getStackTrace()) != null && stackTrace.length != 0) {
                                 for (PluginSetting pluginSetting : pluginSettingsSortLoadPriorty) {
                                     if (pluginSetting.isPatch && pluginSetting.enable && (plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName)) != null && plugin2.getDexClassLoader() != null) {
                                         for (StackTraceElement stackTraceElement : stackTrace) {
                                             try {
                                                 plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                                b.getInstance().putInt("plugin_patch_hook_failed_count", b.getInstance().getInt("plugin_patch_hook_failed_count", 0) + 1);
+                                                com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("plugin_patch_hook_failed_count", 0) + 1);
                                                 break;
                                             } catch (ClassNotFoundException e) {
                                             }

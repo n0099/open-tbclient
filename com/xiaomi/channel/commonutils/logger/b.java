@@ -2,7 +2,7 @@ package com.xiaomi.channel.commonutils.logger;
 
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class b {
     private static int a = 2;
     private static LoggerInterface b = new a();

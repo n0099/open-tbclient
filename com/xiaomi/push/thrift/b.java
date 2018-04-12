@@ -13,7 +13,7 @@ import org.apache.thrift.protocol.e;
 import org.apache.thrift.protocol.f;
 import org.apache.thrift.protocol.h;
 import org.apache.thrift.protocol.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements Serializable, Cloneable, org.apache.thrift.a<b, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> k;
     private static final j l = new j("StatsEvent");
@@ -39,7 +39,7 @@ public class b implements Serializable, Cloneable, org.apache.thrift.a<b, a> {
     public int j;
     private BitSet w = new BitSet(6);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         CHID(1, "chid"),
         TYPE(2, "type"),

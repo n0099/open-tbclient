@@ -14,8 +14,8 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieba.channel.data.d> {
-    private TextView ddP;
-    private b ddQ;
+    private TextView cvG;
+    private b cvH;
     private Context mContext;
     private boolean mIsHost;
 
@@ -34,17 +34,17 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     @Override // com.baidu.tieba.channel.view.e
     public void a(boolean z, b bVar) {
         this.mIsHost = z;
-        this.ddQ = bVar;
+        this.cvH = bVar;
         this.mContext = getContext();
-        LayoutInflater.from(this.mContext).inflate(d.h.channel_home_header_desc_view, (ViewGroup) this, true);
-        this.ddP = (TextView) findViewById(d.g.channel_home_header_desc_text);
+        LayoutInflater.from(this.mContext).inflate(d.i.channel_home_header_desc_view, (ViewGroup) this, true);
+        this.cvG = (TextView) findViewById(d.g.channel_home_header_desc_text);
     }
 
     public void d(ChannelInfo channelInfo) {
         if (channelInfo != null) {
             String description = channelInfo.getDescription();
             if (TextUtils.isEmpty(description)) {
-                description = this.mContext.getResources().getString(d.j.channel_home_default_desc);
+                description = this.mContext.getResources().getString(d.k.channel_home_default_desc);
             }
             SpannableString spannableString = new SpannableString(description + "^");
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.ds24);
@@ -52,12 +52,12 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
             Drawable drawable = this.mContext.getResources().getDrawable(d.f.icon_channel_edit);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             spannableString.setSpan(new com.baidu.tieba.channel.c.a(drawable, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2), spannableString.length() - 1, spannableString.length(), 17);
-            this.ddP.setText(spannableString);
-            this.ddP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
+            this.cvG.setText(spannableString);
+            this.cvG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (ChannelHomeDescView.this.ddQ != null) {
-                        ChannelHomeDescView.this.ddQ.a(11, view, null, -1);
+                public void onClick(View view2) {
+                    if (ChannelHomeDescView.this.cvH != null) {
+                        ChannelHomeDescView.this.cvH.a(11, view2, null, -1);
                     }
                 }
             });
@@ -67,19 +67,19 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.channel.view.e
     /* renamed from: c */
-    public void aT(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.amj() != null) {
-            ChannelInfo amj = dVar.amj();
+    public void O(com.baidu.tieba.channel.data.d dVar) {
+        if (dVar != null && dVar.agj() != null) {
+            ChannelInfo agj = dVar.agj();
             if (this.mIsHost) {
-                d(amj);
+                d(agj);
                 return;
             }
-            if (TextUtils.isEmpty(amj.getDescription())) {
-                this.ddP.setText(this.mContext.getResources().getString(d.j.channel_home_default_desc_guest));
+            if (TextUtils.isEmpty(agj.getDescription())) {
+                this.cvG.setText(this.mContext.getResources().getString(d.k.channel_home_default_desc_guest));
             } else {
-                this.ddP.setText(amj.getDescription());
+                this.cvG.setText(agj.getDescription());
             }
-            this.ddP.setOnClickListener(null);
+            this.cvG.setOnClickListener(null);
         }
     }
 

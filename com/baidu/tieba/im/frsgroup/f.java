@@ -4,66 +4,66 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.r;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.view.GroupImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes3.dex */
-public class f extends r.a {
-    public View bQi;
-    public int bfC;
-    public GroupImageView eDB;
-    public TextView eDC;
-    public TextView eDD;
-    public TextView eDE;
-    public TextView eDF;
-    public ImageView eDG;
-    public ImageView eDH;
-    public ImageView eDI;
-    public ImageView[] eDJ;
+public class f extends q.a {
+    public int aqQ;
+    public View bae;
+    public GroupImageView dYf;
+    public TextView dYg;
+    public TextView dYh;
+    public TextView dYi;
+    public TextView dYj;
+    public ImageView dYk;
+    public ImageView dYl;
+    public ImageView dYm;
+    public ImageView[] dYn;
     public View rootView;
 
-    public f(View view, View.OnClickListener onClickListener) {
-        super(view);
-        this.bfC = 3;
-        this.rootView = view;
+    public f(View view2, View.OnClickListener onClickListener) {
+        super(view2);
+        this.aqQ = 3;
+        this.rootView = view2;
         this.rootView.setOnClickListener(onClickListener);
-        this.eDB = (GroupImageView) view.findViewById(d.g.item_head);
-        this.eDC = (TextView) view.findViewById(d.g.item_group_name);
-        this.eDD = (TextView) view.findViewById(d.g.item_group_meizi);
-        this.eDE = (TextView) view.findViewById(d.g.item_group_num);
-        this.eDF = (TextView) view.findViewById(d.g.item_introduce);
-        this.eDG = (ImageView) view.findViewById(d.g.item_grade1);
-        this.eDH = (ImageView) view.findViewById(d.g.item_grade2);
-        this.eDI = (ImageView) view.findViewById(d.g.item_grade3);
-        this.bQi = view.findViewById(d.g.divider_line);
-        this.eDJ = new ImageView[4];
-        this.eDJ[1] = this.eDG;
-        this.eDJ[2] = this.eDH;
-        this.eDJ[3] = this.eDI;
+        this.dYf = (GroupImageView) view2.findViewById(d.g.item_head);
+        this.dYg = (TextView) view2.findViewById(d.g.item_group_name);
+        this.dYh = (TextView) view2.findViewById(d.g.item_group_meizi);
+        this.dYi = (TextView) view2.findViewById(d.g.item_group_num);
+        this.dYj = (TextView) view2.findViewById(d.g.item_introduce);
+        this.dYk = (ImageView) view2.findViewById(d.g.item_grade1);
+        this.dYl = (ImageView) view2.findViewById(d.g.item_grade2);
+        this.dYm = (ImageView) view2.findViewById(d.g.item_grade3);
+        this.bae = view2.findViewById(d.g.divider_line);
+        this.dYn = new ImageView[4];
+        this.dYn[1] = this.dYk;
+        this.dYn[2] = this.dYl;
+        this.dYn[3] = this.dYm;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.eDB.setTag(null);
-            this.eDB.setDrawBorder(true);
-            this.eDB.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.dYf.setTag(null);
+            this.dYf.setDrawBorder(true);
+            this.dYf.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.eDB.setTag(portrait);
-                this.eDB.startLoad(portrait, 10, false);
+                this.dYf.setTag(portrait);
+                this.dYf.startLoad(portrait, 10, false);
             }
-            this.eDC.setText(groupInfoData.getName());
-            this.eDD.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.eDE.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.eDF.setText(groupInfoData.getIntro().trim());
-            a(this.eDJ, groupInfoData.getGrade());
+            this.dYg.setText(groupInfoData.getName());
+            this.dYh.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.dYi.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.dYj.setText(groupInfoData.getIntro().trim());
+            a(this.dYn, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                aj.e(this.eDC, d.C0141d.common_color_10009, 1);
-                aj.c(this.eDG, d.f.icon_vip_grade_big_small_s);
-                aj.c(this.eDH, d.f.icon_vip_grade_big_small_s);
-                aj.c(this.eDI, d.f.icon_vip_grade_big_small_s);
+                ak.c(this.dYg, d.C0126d.common_color_10009, 1);
+                ak.c(this.dYk, d.f.icon_vip_grade_big_small_s);
+                ak.c(this.dYl, d.f.icon_vip_grade_big_small_s);
+                ak.c(this.dYm, d.f.icon_vip_grade_big_small_s);
             }
         }
     }

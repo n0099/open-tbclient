@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
-    private String aGS;
-    private String bRn;
-    private boolean bRo;
-    private long bRp = -1;
-    private long bRq = -1;
-    private long bRr = 0;
-    private long bRs = 0;
+    private String Sc;
+    private String bbk;
+    private boolean bbl;
+    private long bbm = -1;
+    private long bbn = -1;
+    private long bbo = 0;
+    private long bbp = 0;
 
-    public String TK() {
-        return this.bRn;
+    public String Mg() {
+        return this.bbk;
     }
 
-    public void hP(String str) {
-        this.bRn = str;
+    public void hI(String str) {
+        this.bbk = str;
     }
 
-    public String TL() {
-        return this.aGS;
+    public String Mh() {
+        return this.Sc;
     }
 
-    public void hQ(String str) {
-        this.aGS = str;
+    public void hJ(String str) {
+        this.Sc = str;
     }
 
-    public boolean TM() {
-        return this.bRo;
+    public boolean Mi() {
+        return this.bbl;
     }
 
-    public void cW(boolean z) {
-        this.bRo = z;
+    public void cn(boolean z) {
+        this.bbl = z;
     }
 
-    public long TN() {
-        return this.bRp;
+    public long Mj() {
+        return this.bbm;
     }
 
-    public void aE(long j) {
-        this.bRp = j;
+    public void av(long j) {
+        this.bbm = j;
     }
 
-    public long TO() {
-        return this.bRq;
+    public long Mk() {
+        return this.bbn;
     }
 
-    public void aF(long j) {
-        this.bRq = j;
+    public void aw(long j) {
+        this.bbn = j;
     }
 
     public long getTotalLength() {
-        return this.bRr;
+        return this.bbo;
     }
 
-    public void Y(long j) {
-        this.bRr = j;
+    public void Q(long j) {
+        this.bbo = j;
     }
 
-    public void aG(long j) {
-        this.bRs = j;
+    public void ax(long j) {
+        this.bbp = j;
     }
 
-    public long TP() {
-        return this.bRs;
+    public long Ml() {
+        return this.bbp;
     }
 }

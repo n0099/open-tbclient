@@ -6,7 +6,7 @@ import com.xiaomi.push.service.aw;
 import com.xiaomi.xmpush.thrift.ae;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ab implements aw.b {
     private Context a;
 

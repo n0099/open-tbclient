@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.support.v4.content.IntentCompat;
 import android.util.Log;
 /* loaded from: classes2.dex */
 public final class NavUtils {
     private static final NavUtilsImpl IMPL;
     public static final String PARENT_ACTIVITY = "android.support.PARENT_ACTIVITY";
+    private static final String TAG = "NavUtils";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -45,7 +47,7 @@ public final class NavUtils {
                         intent = new Intent().setComponent(componentName);
                     }
                 } catch (PackageManager.NameNotFoundException e) {
-                    Log.e("NavUtils", "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest");
+                    Log.e(NavUtils.TAG, "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest");
                 }
             }
             return intent;
@@ -167,6 +169,7 @@ public final class NavUtils {
         return new Intent().setComponent(componentName2);
     }
 
+    @Nullable
     public static String getParentActivityName(Activity activity) {
         try {
             return getParentActivityName(activity, activity.getComponentName());
@@ -175,6 +178,7 @@ public final class NavUtils {
         }
     }
 
+    @Nullable
     public static String getParentActivityName(Context context, ComponentName componentName) throws PackageManager.NameNotFoundException {
         return IMPL.getParentActivityName(context, context.getPackageManager().getActivityInfo(componentName, 128));
     }

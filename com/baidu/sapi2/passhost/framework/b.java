@@ -106,32 +106,32 @@ public class b {
 
     /* renamed from: com.baidu.sapi2.passhost.framework.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0081b {
+    public static class C0070b {
         public boolean a;
         public int b = 100;
         public List<String> c = new ArrayList();
 
-        static C0081b a(JSONObject jSONObject) {
+        static C0070b a(JSONObject jSONObject) {
             JSONArray optJSONArray;
-            C0081b c0081b = new C0081b();
-            c0081b.a = jSONObject.optBoolean(b.d, true);
-            c0081b.b = jSONObject.optInt("gray", 100);
+            C0070b c0070b = new C0070b();
+            c0070b.a = jSONObject.optBoolean(b.d, true);
+            c0070b.b = jSONObject.optInt("gray", 100);
             JSONObject optJSONObject = jSONObject.optJSONObject(b.f);
             if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray(b.g)) != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                        c0081b.c.add(optJSONArray.optString(i));
+                        c0070b.c.add(optJSONArray.optString(i));
                     }
                 }
             }
-            return c0081b;
+            return c0070b;
         }
     }
 
     public static b a(JSONObject jSONObject) {
         b bVar = new b();
         bVar.l = jSONObject.optString("version");
-        C0081b a2 = C0081b.a(jSONObject.optJSONObject(c));
+        C0070b a2 = C0070b.a(jSONObject.optJSONObject(c));
         if (a2 != null) {
             bVar.m = a2.a;
             bVar.n = a2.c;
@@ -149,7 +149,7 @@ public class b {
                     }
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(c);
                     if (optJSONObject2 != null) {
-                        C0081b a3 = C0081b.a(optJSONObject2);
+                        C0070b a3 = C0070b.a(optJSONObject2);
                         cVar.b = a3.a;
                         cVar.c = a3.b;
                         cVar.d = a3.c;

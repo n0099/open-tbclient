@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.ar.util.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.d;
@@ -16,7 +16,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        o(0, 0, l.t(context, d.e.ds30), 0);
+        g(0, 0, l.e(context, d.e.ds30), 0);
     }
 
     public void refresh() {
@@ -27,14 +27,14 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.boC.setText("new");
-            this.boC.setTextAppearance(this.mContext, z2 ? d.k.setting_version_prompt_text_1 : d.k.setting_version_prompt_text);
-            aj.s(this.boC, d.f.icon_news_text_prompt);
+            this.azb.setText("new");
+            this.azb.setTextAppearance(this.mContext, z2 ? d.l.setting_version_prompt_text_1 : d.l.setting_version_prompt_text);
+            ak.i(this.azb, d.f.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
-        this.boC.setText((TbConfig.getVersionType() != 1 || am.isEmpty(TbConfig.getSubVersion())) ? version : version + Constants.DOT + TbConfig.getSubVersion());
-        this.boC.setBackgroundDrawable(null);
-        this.boC.setTextAppearance(this.mContext, z2 ? d.k.setting_version_text_1 : d.k.setting_version_text);
+        this.azb.setText((TbConfig.getVersionType() != 1 || an.isEmpty(TbConfig.getSubVersion())) ? version : version + Constants.DOT + TbConfig.getSubVersion());
+        this.azb.setBackgroundDrawable(null);
+        this.azb.setTextAppearance(this.mContext, z2 ? d.l.setting_version_text_1 : d.l.setting_version_text);
     }
 }

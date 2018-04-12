@@ -1,7 +1,7 @@
 package com.xiaomi.stats;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class b extends XMPushService.h {
     final /* synthetic */ a b;
 

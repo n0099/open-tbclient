@@ -2,20 +2,20 @@ package com.baidu.tieba.forumMember.a;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
-public class c extends r.a {
-    public View bQi;
-    public View dqm;
+public class c extends q.a {
+    public View bae;
+    public View cIO;
     public int mSkinType;
     public TextView title;
 
-    public c(View view) {
-        super(view);
+    public c(View view2) {
+        super(view2);
         this.mSkinType = 3;
-        this.dqm = view.findViewById(d.g.manito_header_top_divider_line);
-        this.title = (TextView) view.findViewById(d.g.manito_header_title);
-        this.bQi = view.findViewById(d.g.manito_header_divider_line);
+        this.cIO = view2.findViewById(d.g.manito_header_top_divider_line);
+        this.title = (TextView) view2.findViewById(d.g.manito_header_title);
+        this.bae = view2.findViewById(d.g.manito_header_divider_line);
     }
 }

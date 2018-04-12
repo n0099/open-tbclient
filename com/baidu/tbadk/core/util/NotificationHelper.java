@@ -125,8 +125,8 @@ public class NotificationHelper {
         if (switchData == null) {
             return false;
         }
-        if (am.isEmpty(str)) {
-            str = context.getString(d.j.app_name);
+        if (an.isEmpty(str)) {
+            str = context.getString(d.k.app_name);
         }
         try {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst());
@@ -142,11 +142,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.aWp) {
+            if (!switchData.ahJ) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.aWo) {
+            if (!switchData.ahI) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -154,7 +154,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.aWq) {
+            if (switchData.ahK) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = HttpStatus.SC_BAD_REQUEST;
@@ -176,38 +176,38 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.GL() && com.baidu.tbadk.coreExtra.messageCenter.a.GK()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.zz() && com.baidu.tbadk.coreExtra.messageCenter.a.zy()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Hz()) {
-                    aVar.aWo = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.Ae().An()) {
+                    aVar.ahI = true;
                     if (z || z2) {
-                        aVar.aWo = false;
+                        aVar.ahI = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().HC()) {
-                    aVar.aWp = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.Ae().Aq()) {
+                    aVar.ahJ = true;
                     if (z) {
-                        aVar.aWp = false;
+                        aVar.ahJ = false;
                     }
                     if (z2) {
-                        aVar.aWp = true;
+                        aVar.ahJ = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().HA()) {
-            aVar.aWq = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.Ae().Ao()) {
+            aVar.ahK = true;
         }
         return aVar;
     }
 
     private static Notification notif_excption(Context context) {
-        return new Notification(d.f.icon, context.getString(d.j.notify_text), System.currentTimeMillis());
+        return new Notification(d.f.icon, context.getString(d.k.notify_text), System.currentTimeMillis());
     }
 
     private static boolean processNotification(Context context, int i, Notification notification) {
@@ -231,9 +231,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean aWo = false;
-        boolean aWp = false;
-        boolean aWq = false;
+        boolean ahI = false;
+        boolean ahJ = false;
+        boolean ahK = false;
 
         a() {
         }

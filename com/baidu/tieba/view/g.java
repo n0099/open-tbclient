@@ -1,13 +1,7 @@
 package com.baidu.tieba.view;
 
-import com.baidu.tbadk.core.data.UserData;
-/* loaded from: classes.dex */
+import android.view.View;
+/* loaded from: classes2.dex */
 public interface g {
-    void nB(boolean z);
-
-    void onChangeSkinType(int i);
-
-    void setData(UserData userData);
-
-    void setOnViewResponseListener(i iVar);
+    void a(View view2, com.baidu.tieba.g.a aVar);
 }

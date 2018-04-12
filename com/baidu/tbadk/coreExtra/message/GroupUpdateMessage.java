@@ -8,18 +8,18 @@ public class GroupUpdateMessage implements Serializable {
     private String authorName;
     private String forumId;
     private int grade;
-    private int groupId;
+    private long groupId;
     private int groupType;
     private long lastMsgId;
     private String name;
     private String portrait;
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public long getLastMsgId() {

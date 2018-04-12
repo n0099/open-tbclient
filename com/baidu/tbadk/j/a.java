@@ -4,45 +4,45 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View bxq;
-    private boolean bxr;
+    protected View aHN;
+    private boolean aHO;
 
-    public a(View view) {
-        this.bxq = view;
+    public a(View view2) {
+        this.aHN = view2;
     }
 
-    public boolean MJ() {
-        return this.bxr;
+    public boolean Fm() {
+        return this.aHO;
     }
 
-    public void j(View view, boolean z) {
-        if (view != null && this.bxq != null && this.bxq.getParent() == null) {
-            this.bxr = true;
-            d.bl(view).a(view, this.bxq, z);
-            MK();
+    public void d(View view2, boolean z) {
+        if (view2 != null && this.aHN != null && this.aHN.getParent() == null) {
+            this.aHO = true;
+            d.Q(view2).a(view2, this.aHN, z);
+            Fn();
         }
     }
 
-    public void bk(View view) {
-        if (view != null && this.bxq != null && this.bxq.getParent() != null && (view instanceof ViewGroup)) {
+    public void P(View view2) {
+        if (view2 != null && this.aHN != null && this.aHN.getParent() != null && (view2 instanceof ViewGroup)) {
             try {
-                ML();
-                ((ViewGroup) view).removeView(this.bxq);
-                this.bxr = false;
+                Fo();
+                ((ViewGroup) view2).removeView(this.aHN);
+                this.aHO = false;
             } catch (Exception e) {
             }
         }
     }
 
-    public void attachView(View view) {
-        j(view, false);
+    public void attachView(View view2) {
+        d(view2, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void MK() {
+    public void Fn() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ML() {
+    public void Fo() {
     }
 }

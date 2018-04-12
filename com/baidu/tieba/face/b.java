@@ -23,27 +23,27 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private static final KeyEvent drs = new KeyEvent(0, 67);
+    private static final KeyEvent cKj = new KeyEvent(0, 67);
 
     /* loaded from: classes.dex */
     public interface a {
-        void b(SpannableStringBuilder spannableStringBuilder);
+        void a(SpannableStringBuilder spannableStringBuilder);
     }
 
     public static void a(final Context context, final n nVar, final EditText editText) {
         if (nVar != null && !TextUtils.isEmpty(nVar.getName()) && !TextUtils.isEmpty(nVar.getUrl()) && editText != null) {
             editText.getText().toString();
-            c.nm().a(nVar.getUrl(), 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.1
+            c.fp().a(nVar.getUrl(), 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
-                public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+                public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     if (aVar != null) {
                         int selectionStart = editText.getSelectionStart();
                         if (selectionStart < 0) {
                             selectionStart = 0;
                         }
-                        b.a(context, editText, new SpannableStringBuilder(nVar.getName()), selectionStart, aVar, nVar.FP());
+                        b.a(context, editText, new SpannableStringBuilder(nVar.getName()), selectionStart, aVar, nVar.yC());
                     }
                 }
             }, 0, 0, BdUniqueId.gen(), new Object[0]);
@@ -53,22 +53,22 @@ public class b {
     public static void b(final Context context, n nVar, final EditText editText) {
         if (nVar != null && editText != null && nVar.getName() != null) {
             String name = nVar.getName();
-            final EmotionGroupType FP = nVar.FP();
-            if (FP == EmotionGroupType.LOCAL || FP == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+            final EmotionGroupType yC = nVar.yC();
+            if (yC == EmotionGroupType.LOCAL || yC == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                 if (name != null) {
                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
-                    c.nm().a(name, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.2
+                    c.fp().a(name, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.2
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
-                        public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+                        public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                             super.onLoaded((AnonymousClass2) aVar, str, i);
                             if (aVar != null) {
                                 int selectionStart = editText.getSelectionStart();
                                 if (selectionStart < 0) {
                                     selectionStart = 0;
                                 }
-                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, FP);
+                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, yC);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -80,19 +80,19 @@ public class b {
         }
     }
 
-    public static void a(Context context, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.a.a aVar, EmotionGroupType emotionGroupType) {
+    public static void a(Context context, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.ImageView.a aVar, EmotionGroupType emotionGroupType) {
         if (context != null && editText != null && !TextUtils.isEmpty(spannableStringBuilder) && aVar != null) {
-            Bitmap sh = aVar.sh();
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(sh);
-            int width = sh.getWidth();
+            Bitmap km = aVar.km();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(km);
+            int width = km.getWidth();
             if (emotionGroupType == EmotionGroupType.LOCAL) {
                 int i2 = (int) (width * 0.5d);
                 bitmapDrawable.setBounds(0, 0, i2, i2);
             } else if (emotionGroupType == EmotionGroupType.USER_COLLECT || spannableStringBuilder.toString().startsWith("#(")) {
                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
-                int width2 = (int) (sh.getWidth() * ((dimensionPixelSize * 1.0d) / sh.getHeight()));
+                int width2 = (int) (km.getWidth() * ((dimensionPixelSize * 1.0d) / km.getHeight()));
                 if (width2 > editText.getMeasuredWidth()) {
-                    width2 = (int) (sh.getWidth() * 0.5d);
+                    width2 = (int) (km.getWidth() * 0.5d);
                 }
                 bitmapDrawable.setBounds(0, 0, width2, dimensionPixelSize);
             }
@@ -106,30 +106,30 @@ public class b {
         CustomResponsedMessage runTask;
         if (context != null && !TextUtils.isEmpty(str) && aVar != null) {
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            final int[] iArr = {com.baidu.tieba.face.a.kT(str)};
+            final int[] iArr = {com.baidu.tieba.face.a.kW(str)};
             if (iArr[0] <= 0) {
                 if (aVar != null) {
-                    aVar.b(spannableStringBuilder);
+                    aVar.a(spannableStringBuilder);
                     return;
                 }
                 return;
             }
-            Matcher matcher = com.baidu.tieba.face.a.drq.matcher(spannableStringBuilder);
+            Matcher matcher = com.baidu.tieba.face.a.cKh.matcher(spannableStringBuilder);
             while (matcher.find()) {
                 String group = matcher.group();
                 final int start = matcher.start();
                 final int end = matcher.end();
                 if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                    c.nm().a(group, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.3
+                    c.fp().a(group, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.3
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
-                        public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
-                            Bitmap sh;
+                        public void onLoaded(com.baidu.adp.widget.ImageView.a aVar2, String str2, int i) {
+                            Bitmap km;
                             super.onLoaded((AnonymousClass3) aVar2, str2, i);
                             if (aVar2 != null) {
-                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.sh());
-                                int width = (int) (0.5d * sh.getWidth());
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.km());
+                                int width = (int) (0.5d * km.getWidth());
                                 bitmapDrawable.setBounds(0, 0, width, width);
                                 bitmapDrawable.setGravity(119);
                                 spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(bitmapDrawable, 1), start, end, 33);
@@ -137,7 +137,7 @@ public class b {
                                 int i2 = iArr2[0] - 1;
                                 iArr2[0] = i2;
                                 if (i2 == 0 && aVar != null) {
-                                    aVar.b(spannableStringBuilder);
+                                    aVar.a(spannableStringBuilder);
                                     return;
                                 }
                                 return;
@@ -147,7 +147,7 @@ public class b {
                             int i3 = iArr3[0] - 1;
                             iArr3[0] = i3;
                             if (i3 == 0 && aVar != null) {
-                                aVar.b(spannableStringBuilder);
+                                aVar.a(spannableStringBuilder);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, group, false, null);
@@ -160,19 +160,19 @@ public class b {
                 if (split != null && split.length == 5) {
                     final int start2 = matcher2.start();
                     final int end2 = matcher2.end();
-                    c.nm().a(group2, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.4
+                    c.fp().a(group2, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.4
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
-                        public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
-                            Bitmap sh;
+                        public void onLoaded(com.baidu.adp.widget.ImageView.a aVar2, String str2, int i) {
+                            Bitmap km;
                             super.onLoaded((AnonymousClass4) aVar2, str2, i);
                             if (aVar2 != null) {
-                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.sh());
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.km());
                                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
-                                int width = (int) (sh.getWidth() * ((dimensionPixelSize * 1.0d) / sh.getHeight()));
-                                if (width > l.ao(context) * 0.6d) {
-                                    width = (int) (sh.getWidth() * 0.5d);
+                                int width = (int) (km.getWidth() * ((dimensionPixelSize * 1.0d) / km.getHeight()));
+                                if (width > l.af(context) * 0.6d) {
+                                    width = (int) (km.getWidth() * 0.5d);
                                 }
                                 bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                                 bitmapDrawable.setGravity(119);
@@ -181,7 +181,7 @@ public class b {
                                 int i2 = iArr2[0] - 1;
                                 iArr2[0] = i2;
                                 if (i2 == 0 && aVar != null) {
-                                    aVar.b(spannableStringBuilder);
+                                    aVar.a(spannableStringBuilder);
                                     return;
                                 }
                                 return;
@@ -191,7 +191,7 @@ public class b {
                             int i3 = iArr3[0] - 1;
                             iArr3[0] = i3;
                             if (i3 == 0 && aVar != null) {
-                                aVar.b(spannableStringBuilder);
+                                aVar.a(spannableStringBuilder);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, group2, false, null);
@@ -203,19 +203,19 @@ public class b {
                 if (split2 != null && split2.length == 6) {
                     final int start3 = matcher3.start();
                     final int end3 = matcher3.end();
-                    com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> bVar = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.5
+                    com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> bVar = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.5
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
-                        public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
-                            Bitmap sh;
+                        public void onLoaded(com.baidu.adp.widget.ImageView.a aVar2, String str2, int i) {
+                            Bitmap km;
                             super.onLoaded((AnonymousClass5) aVar2, str2, i);
                             if (aVar2 != null) {
-                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.sh());
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.km());
                                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
-                                int width = (int) (sh.getWidth() * ((dimensionPixelSize * 1.0d) / sh.getHeight()));
-                                if (width > l.ao(context) * 0.6d) {
-                                    width = (int) (sh.getWidth() * 0.5d);
+                                int width = (int) (km.getWidth() * ((dimensionPixelSize * 1.0d) / km.getHeight()));
+                                if (width > l.af(context) * 0.6d) {
+                                    width = (int) (km.getWidth() * 0.5d);
                                 }
                                 bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                                 bitmapDrawable.setGravity(119);
@@ -224,7 +224,7 @@ public class b {
                                 int i2 = iArr2[0] - 1;
                                 iArr2[0] = i2;
                                 if (i2 == 0 && aVar != null) {
-                                    aVar.b(spannableStringBuilder);
+                                    aVar.a(spannableStringBuilder);
                                     return;
                                 }
                                 return;
@@ -234,12 +234,12 @@ public class b {
                             int i3 = iArr3[0] - 1;
                             iArr3[0] = i3;
                             if (i3 == 0 && aVar != null) {
-                                aVar.b(spannableStringBuilder);
+                                aVar.a(spannableStringBuilder);
                             }
                         }
                     };
                     if (!TextUtils.isEmpty(split2[1])) {
-                        c.nm().a(Uri.decode(split2[1].replace("net_", "")), 10, bVar, 0, 0, BdUniqueId.gen(), new Object[0]);
+                        c.fp().a(Uri.decode(split2[1].replace("net_", "")), 10, bVar, 0, 0, BdUniqueId.gen(), new Object[0]);
                     }
                 }
             }
@@ -251,9 +251,9 @@ public class b {
         if (editText != null && (text = editText.getText()) != null) {
             int selectionStart = editText.getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                editText.onKeyDown(67, drs);
+                editText.onKeyDown(67, cKj);
             }
-            editText.onKeyDown(67, drs);
+            editText.onKeyDown(67, cKj);
             int selectionStart2 = editText.getSelectionStart();
             if (text != null) {
                 editText.setSelection(selectionStart2);

@@ -35,18 +35,18 @@ public final class AnimatorProxy extends Animation {
         a = new WeakHashMap<>();
     }
 
-    private AnimatorProxy(View view) {
+    private AnimatorProxy(View view2) {
         setDuration(0L);
         setFillAfter(true);
-        view.setAnimation(this);
-        this.b = new WeakReference<>(view);
+        view2.setAnimation(this);
+        this.b = new WeakReference<>(view2);
     }
 
-    public static AnimatorProxy wrap(View view) {
-        AnimatorProxy animatorProxy = a.get(view);
-        if (animatorProxy == null || animatorProxy != view.getAnimation()) {
-            AnimatorProxy animatorProxy2 = new AnimatorProxy(view);
-            a.put(view, animatorProxy2);
+    public static AnimatorProxy wrap(View view2) {
+        AnimatorProxy animatorProxy = a.get(view2);
+        if (animatorProxy == null || animatorProxy != view2.getAnimation()) {
+            AnimatorProxy animatorProxy2 = new AnimatorProxy(view2);
+            a.put(view2, animatorProxy2);
             return animatorProxy2;
         }
         return animatorProxy;
@@ -59,9 +59,9 @@ public final class AnimatorProxy extends Animation {
     public void setAlpha(float f) {
         if (this.h != f) {
             this.h = f;
-            View view = this.b.get();
-            if (view != null) {
-                view.invalidate();
+            View view2 = this.b.get();
+            if (view2 != null) {
+                view2.invalidate();
             }
         }
     }
@@ -153,32 +153,32 @@ public final class AnimatorProxy extends Animation {
     }
 
     public int getScrollX() {
-        View view = this.b.get();
-        if (view == null) {
+        View view2 = this.b.get();
+        if (view2 == null) {
             return 0;
         }
-        return view.getScrollX();
+        return view2.getScrollX();
     }
 
     public void setScrollX(int i) {
-        View view = this.b.get();
-        if (view != null) {
-            view.scrollTo(i, view.getScrollY());
+        View view2 = this.b.get();
+        if (view2 != null) {
+            view2.scrollTo(i, view2.getScrollY());
         }
     }
 
     public int getScrollY() {
-        View view = this.b.get();
-        if (view == null) {
+        View view2 = this.b.get();
+        if (view2 == null) {
             return 0;
         }
-        return view.getScrollY();
+        return view2.getScrollY();
     }
 
     public void setScrollY(int i) {
-        View view = this.b.get();
-        if (view != null) {
-            view.scrollTo(view.getScrollX(), i);
+        View view2 = this.b.get();
+        if (view2 != null) {
+            view2.scrollTo(view2.getScrollX(), i);
         }
     }
 
@@ -207,59 +207,59 @@ public final class AnimatorProxy extends Animation {
     }
 
     public float getX() {
-        View view = this.b.get();
-        if (view == null) {
+        View view2 = this.b.get();
+        if (view2 == null) {
             return 0.0f;
         }
-        return view.getLeft() + this.p;
+        return view2.getLeft() + this.p;
     }
 
     public void setX(float f) {
-        View view = this.b.get();
-        if (view != null) {
-            setTranslationX(f - view.getLeft());
+        View view2 = this.b.get();
+        if (view2 != null) {
+            setTranslationX(f - view2.getLeft());
         }
     }
 
     public float getY() {
-        View view = this.b.get();
-        if (view == null) {
+        View view2 = this.b.get();
+        if (view2 == null) {
             return 0.0f;
         }
-        return view.getTop() + this.q;
+        return view2.getTop() + this.q;
     }
 
     public void setY(float f) {
-        View view = this.b.get();
-        if (view != null) {
-            setTranslationY(f - view.getTop());
+        View view2 = this.b.get();
+        if (view2 != null) {
+            setTranslationY(f - view2.getTop());
         }
     }
 
     private void a() {
-        View view = this.b.get();
-        if (view != null) {
-            a(this.d, view);
+        View view2 = this.b.get();
+        if (view2 != null) {
+            a(this.d, view2);
         }
     }
 
     private void b() {
-        View view = this.b.get();
-        if (view != null && view.getParent() != null) {
+        View view2 = this.b.get();
+        if (view2 != null && view2.getParent() != null) {
             RectF rectF = this.e;
-            a(rectF, view);
+            a(rectF, view2);
             rectF.union(this.d);
-            ((View) view.getParent()).invalidate((int) Math.floor(rectF.left), (int) Math.floor(rectF.top), (int) Math.ceil(rectF.right), (int) Math.ceil(rectF.bottom));
+            ((View) view2.getParent()).invalidate((int) Math.floor(rectF.left), (int) Math.floor(rectF.top), (int) Math.ceil(rectF.right), (int) Math.ceil(rectF.bottom));
         }
     }
 
-    private void a(RectF rectF, View view) {
-        rectF.set(0.0f, 0.0f, view.getWidth(), view.getHeight());
+    private void a(RectF rectF, View view2) {
+        rectF.set(0.0f, 0.0f, view2.getWidth(), view2.getHeight());
         Matrix matrix = this.f;
         matrix.reset();
-        a(matrix, view);
+        a(matrix, view2);
         this.f.mapRect(rectF);
-        rectF.offset(view.getLeft(), view.getTop());
+        rectF.offset(view2.getLeft(), view2.getTop());
         if (rectF.right < rectF.left) {
             float f = rectF.right;
             rectF.right = rectF.left;
@@ -272,9 +272,9 @@ public final class AnimatorProxy extends Animation {
         }
     }
 
-    private void a(Matrix matrix, View view) {
-        float width = view.getWidth();
-        float height = view.getHeight();
+    private void a(Matrix matrix, View view2) {
+        float width = view2.getWidth();
+        float height = view2.getHeight();
         boolean z = this.g;
         float f = z ? this.i : width / 2.0f;
         float f2 = z ? this.j : height / 2.0f;
@@ -303,10 +303,10 @@ public final class AnimatorProxy extends Animation {
 
     @Override // android.view.animation.Animation
     protected void applyTransformation(float f, Transformation transformation) {
-        View view = this.b.get();
-        if (view != null) {
+        View view2 = this.b.get();
+        if (view2 != null) {
             transformation.setAlpha(this.h);
-            a(transformation.getMatrix(), view);
+            a(transformation.getMatrix(), view2);
         }
     }
 }

@@ -187,35 +187,35 @@ public class CompatibleUtile {
         }
     }
 
-    public boolean isUseHw(View view) {
+    public boolean isUseHw(View view2) {
         if (getObject11() != null) {
-            return getObject11().isUseHw(view);
+            return getObject11().isUseHw(view2);
         }
         return false;
     }
 
-    public int getViewLayer(View view) {
+    public int getViewLayer(View view2) {
         if (getObject11() != null) {
-            return getObject11().getViewLayer(view);
+            return getObject11().getViewLayer(view2);
         }
         return 0;
     }
 
-    public void noneViewGpu(View view) {
+    public void noneViewGpu(View view2) {
         if (getObject11() != null) {
-            getObject11().noneViewGpu(view);
+            getObject11().noneViewGpu(view2);
         }
     }
 
-    public void closeViewGpu(View view) {
+    public void closeViewGpu(View view2) {
         if (getObject11() != null) {
-            getObject11().closeViewGpu(view);
+            getObject11().closeViewGpu(view2);
         }
     }
 
-    public void openViewGpu(View view) {
+    public void openViewGpu(View view2) {
         if (getObject11() != null) {
-            getObject11().openViewGpu(view);
+            getObject11().openViewGpu(view2);
         }
     }
 
@@ -247,20 +247,20 @@ public class CompatibleUtile {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
+        public void onShowCustomView(View view2, int i, WebChromeClient.CustomViewCallback customViewCallback) {
             if (this.mCustomView != null) {
                 customViewCallback.onCustomViewHidden();
                 return;
             }
             this.mOriginalOrientation = this.mActivity.getRequestedOrientation();
             this.mFullscreenContainer = new FullscreenHolder(this.mActivity);
-            this.mFullscreenContainer.addView(view, this.COVER_SCREEN_PARAMS);
+            this.mFullscreenContainer.addView(view2, this.COVER_SCREEN_PARAMS);
             ((FrameLayout) this.mActivity.getWindow().getDecorView()).addView(this.mFullscreenContainer, this.COVER_SCREEN_PARAMS);
-            this.mCustomView = view;
+            this.mCustomView = view2;
             setFullscreen(true);
             this.mCustomViewCallback = customViewCallback;
             this.mActivity.setRequestedOrientation(i);
-            super.onShowCustomView(view, i, customViewCallback);
+            super.onShowCustomView(view2, i, customViewCallback);
         }
 
         @Override // android.webkit.WebChromeClient
@@ -459,32 +459,32 @@ public class CompatibleUtile {
             activity.getWindow().setFlags(16777216, 16777216);
         }
 
-        public boolean isUseHw(View view) {
-            return view != null && view.isHardwareAccelerated();
+        public boolean isUseHw(View view2) {
+            return view2 != null && view2.isHardwareAccelerated();
         }
 
-        public int getViewLayer(View view) {
-            if (view != null) {
-                return view.getLayerType();
+        public int getViewLayer(View view2) {
+            if (view2 != null) {
+                return view2.getLayerType();
             }
             return 0;
         }
 
-        public void noneViewGpu(View view) {
-            if (view != null) {
-                view.setLayerType(0, null);
+        public void noneViewGpu(View view2) {
+            if (view2 != null) {
+                view2.setLayerType(0, null);
             }
         }
 
-        public void closeViewGpu(View view) {
-            if (view != null && view.isHardwareAccelerated()) {
-                view.setLayerType(1, null);
+        public void closeViewGpu(View view2) {
+            if (view2 != null && view2.isHardwareAccelerated()) {
+                view2.setLayerType(1, null);
             }
         }
 
-        public void openViewGpu(View view) {
-            if (view != null) {
-                view.setLayerType(2, null);
+        public void openViewGpu(View view2) {
+            if (view2 != null) {
+                view2.setLayerType(2, null);
             }
         }
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Looper;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.adp.plugin.install.PluginInstallerService;
@@ -82,15 +81,15 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0079a {
+    public static class C0068a {
         public static a a = new a();
 
-        private C0079a() {
+        private C0068a() {
         }
     }
 
     public static a a() {
-        return C0079a.a;
+        return C0068a.a;
     }
 
     a() {
@@ -544,7 +543,7 @@ public class a {
                 piInstance.onCreate(pluginContext);
                 Log.d(a, "initPi()", Info.kBaiduPIDKey, Integer.valueOf(passPiInfo.pid), "time used", (System.currentTimeMillis() - currentTimeMillis2) + "ms");
             } catch (Throwable th) {
-                Log.e(a, "initPi()", Info.kBaiduPIDKey, Integer.valueOf(passPiInfo.pid), NotificationCompat.CATEGORY_ERROR, th.getMessage(), th);
+                Log.e(a, "initPi()", Info.kBaiduPIDKey, Integer.valueOf(passPiInfo.pid), "err", th.getMessage(), th);
             }
         }
     }

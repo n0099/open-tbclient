@@ -9,9 +9,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private int eLW;
-    private RequestCommitInviteMessage eRm;
-    private int eRn;
+    private long dQV;
+    private RequestCommitInviteMessage elB;
+    private long elC;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -24,34 +24,34 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.eLW = intent.getIntExtra("gid", -1);
-            this.eRn = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.dQV = intent.getLongExtra("gid", -1L);
+            this.elC = intent.getLongExtra(InviteFriendListActivityConfig.GROUP_ID, -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.eLW = bundle.getInt("gid", -1);
-            this.eRn = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.dQV = bundle.getLong("gid", -1L);
+            this.elC = bundle.getLong(InviteFriendListActivityConfig.GROUP_ID, -1L);
         }
     }
 
-    public void u(Bundle bundle) {
-        bundle.putInt("gid", this.eLW);
-        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.eRn);
+    public void r(Bundle bundle) {
+        bundle.putLong("gid", this.dQV);
+        bundle.putLong(InviteFriendListActivityConfig.GROUP_ID, this.elC);
     }
 
-    public void nX(String str) {
-        this.eRm = g(this.eLW, this.eRn, str);
-        super.sendMessage(this.eRm);
+    public void ob(String str) {
+        this.elB = a(this.dQV, this.elC, str);
+        super.sendMessage(this.elB);
     }
 
-    private RequestCommitInviteMessage g(int i, int i2, String str) {
+    private RequestCommitInviteMessage a(long j, long j2, String str) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.groupId = Integer.valueOf(i);
+        builder.groupId = Long.valueOf(j);
         builder.msgType = 5;
         builder.toUids = str;
-        builder.content = "{\"type\":" + String.valueOf(1) + ",\"groupId\":" + String.valueOf(i2) + "}";
+        builder.content = "{\"type\":" + String.valueOf(1) + ",\"groupId\":" + String.valueOf(j2) + "}";
         RequestCommitInviteMessage requestCommitInviteMessage = new RequestCommitInviteMessage();
         requestCommitInviteMessage.setReqData(builder.build(false));
         return requestCommitInviteMessage;

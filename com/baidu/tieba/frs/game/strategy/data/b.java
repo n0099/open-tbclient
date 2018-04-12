@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.i;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.data.bd;
 /* loaded from: classes3.dex */
-public class b extends com.baidu.tieba.card.data.b implements i {
-    public static final BdUniqueId dNQ = BdUniqueId.gen();
+public class b extends com.baidu.tieba.card.data.b implements h {
+    public static final BdUniqueId dgw = BdUniqueId.gen();
     private bd threadData;
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dNQ;
+        return dgw;
     }
 
-    public bd WE() {
+    public bd Pe() {
         return this.threadData;
     }
 

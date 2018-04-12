@@ -16,6 +16,9 @@ class AccessibilityNodeProviderCompatJellyBean {
         boolean performAction(int i, int i2, Bundle bundle);
     }
 
+    AccessibilityNodeProviderCompatJellyBean() {
+    }
+
     public static Object newAccessibilityNodeProviderBridge(final AccessibilityNodeInfoBridge accessibilityNodeInfoBridge) {
         return new AccessibilityNodeProvider() { // from class: android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean.1
             @Override // android.view.accessibility.AccessibilityNodeProvider

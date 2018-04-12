@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import android.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ai {
     public static int a(ah ahVar, com.xiaomi.xmpush.thrift.f fVar) {
         int i = 0;

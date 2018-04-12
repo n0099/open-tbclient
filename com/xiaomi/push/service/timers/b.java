@@ -6,13 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
 import com.xiaomi.push.service.am;
 import com.xiaomi.push.service.timers.a;
 import com.xiaomi.smack.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
-public class b implements a.InterfaceC0293a {
+/* loaded from: classes3.dex */
+public class b implements a.InterfaceC0275a {
     private Context b;
     private PendingIntent a = null;
     private volatile long c = 0;
@@ -30,10 +29,10 @@ public class b implements a.InterfaceC0293a {
         }
     }
 
-    @Override // com.xiaomi.push.service.timers.a.InterfaceC0293a
+    @Override // com.xiaomi.push.service.timers.a.InterfaceC0275a
     public void a() {
         if (this.a != null) {
-            ((AlarmManager) this.b.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.a);
+            ((AlarmManager) this.b.getSystemService("alarm")).cancel(this.a);
             this.a = null;
             com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
         }
@@ -41,7 +40,7 @@ public class b implements a.InterfaceC0293a {
     }
 
     public void a(Intent intent, long j) {
-        AlarmManager alarmManager = (AlarmManager) this.b.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        AlarmManager alarmManager = (AlarmManager) this.b.getSystemService("alarm");
         this.a = PendingIntent.getBroadcast(this.b, 0, intent, 0);
         if (Build.VERSION.SDK_INT >= 23) {
             com.xiaomi.channel.commonutils.reflect.a.a(alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j), this.a);
@@ -53,7 +52,7 @@ public class b implements a.InterfaceC0293a {
         com.xiaomi.channel.commonutils.logger.b.c("register timer " + j);
     }
 
-    @Override // com.xiaomi.push.service.timers.a.InterfaceC0293a
+    @Override // com.xiaomi.push.service.timers.a.InterfaceC0275a
     public void a(boolean z) {
         long c = g.c();
         if (z || this.c != 0) {
@@ -74,7 +73,7 @@ public class b implements a.InterfaceC0293a {
         }
     }
 
-    @Override // com.xiaomi.push.service.timers.a.InterfaceC0293a
+    @Override // com.xiaomi.push.service.timers.a.InterfaceC0275a
     public boolean b() {
         return this.c != 0;
     }

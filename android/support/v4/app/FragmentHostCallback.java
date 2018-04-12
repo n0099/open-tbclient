@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.util.SimpleArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,7 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
     private boolean mRetainLoaders;
     final int mWindowAnimations;
 
+    @Nullable
     public abstract E onGetHost();
 
     public FragmentHostCallback(Context context, Handler handler, int i) {
@@ -61,24 +64,24 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
         onStartActivityFromFragment(fragment, intent, i, null);
     }
 
-    public void onStartActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
+    public void onStartActivityFromFragment(Fragment fragment, Intent intent, int i, @Nullable Bundle bundle) {
         if (i != -1) {
             throw new IllegalStateException("Starting activity with a requestCode requires a FragmentActivity host");
         }
         this.mContext.startActivity(intent);
     }
 
-    public void onStartIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+    public void onStartIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
         if (i != -1) {
             throw new IllegalStateException("Starting intent sender with a requestCode requires a FragmentActivity host");
         }
         ActivityCompat.startIntentSenderForResult(this.mActivity, intentSender, i, intent, i2, i3, i4, bundle);
     }
 
-    public void onRequestPermissionsFromFragment(Fragment fragment, String[] strArr, int i) {
+    public void onRequestPermissionsFromFragment(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
     }
 
-    public boolean onShouldShowRequestPermissionRationale(String str) {
+    public boolean onShouldShowRequestPermissionRationale(@NonNull String str) {
         return false;
     }
 
@@ -91,6 +94,7 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
     }
 
     @Override // android.support.v4.app.FragmentContainer
+    @Nullable
     public View onFindViewById(int i) {
         return null;
     }

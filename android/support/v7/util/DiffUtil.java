@@ -1,5 +1,7 @@
 package android.support.v7.util;
 
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,13 +10,12 @@ import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class DiffUtil {
-    private static final Comparator<c> FA = new Comparator<c>() { // from class: android.support.v7.util.DiffUtil.1
+    private static final Comparator<Snake> SNAKE_COMPARATOR = new Comparator<Snake>() { // from class: android.support.v7.util.DiffUtil.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(c cVar, c cVar2) {
-            int i = cVar.x - cVar2.x;
-            return i == 0 ? cVar.y - cVar2.y : i;
+        public int compare(Snake snake, Snake snake2) {
+            int i = snake.x - snake2.x;
+            return i == 0 ? snake.y - snake2.y : i;
         }
     };
 
@@ -30,56 +31,56 @@ public class DiffUtil {
         int newListSize = callback.getNewListSize();
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        arrayList2.add(new b(0, oldListSize, 0, newListSize));
+        arrayList2.add(new Range(0, oldListSize, 0, newListSize));
         int abs = oldListSize + newListSize + Math.abs(oldListSize - newListSize);
         int[] iArr = new int[abs * 2];
         int[] iArr2 = new int[abs * 2];
         ArrayList arrayList3 = new ArrayList();
         while (!arrayList2.isEmpty()) {
-            b bVar = (b) arrayList2.remove(arrayList2.size() - 1);
-            c a2 = a(callback, bVar.FN, bVar.FO, bVar.FP, bVar.FQ, iArr, iArr2, abs);
-            if (a2 != null) {
-                if (a2.size > 0) {
-                    arrayList.add(a2);
+            Range range = (Range) arrayList2.remove(arrayList2.size() - 1);
+            Snake diffPartial = diffPartial(callback, range.oldListStart, range.oldListEnd, range.newListStart, range.newListEnd, iArr, iArr2, abs);
+            if (diffPartial != null) {
+                if (diffPartial.size > 0) {
+                    arrayList.add(diffPartial);
                 }
-                a2.x += bVar.FN;
-                a2.y += bVar.FP;
-                b bVar2 = arrayList3.isEmpty() ? new b() : (b) arrayList3.remove(arrayList3.size() - 1);
-                bVar2.FN = bVar.FN;
-                bVar2.FP = bVar.FP;
-                if (a2.FR) {
-                    bVar2.FO = a2.x;
-                    bVar2.FQ = a2.y;
-                } else if (a2.FM) {
-                    bVar2.FO = a2.x - 1;
-                    bVar2.FQ = a2.y;
+                diffPartial.x += range.oldListStart;
+                diffPartial.y += range.newListStart;
+                Range range2 = arrayList3.isEmpty() ? new Range() : (Range) arrayList3.remove(arrayList3.size() - 1);
+                range2.oldListStart = range.oldListStart;
+                range2.newListStart = range.newListStart;
+                if (diffPartial.reverse) {
+                    range2.oldListEnd = diffPartial.x;
+                    range2.newListEnd = diffPartial.y;
+                } else if (diffPartial.removal) {
+                    range2.oldListEnd = diffPartial.x - 1;
+                    range2.newListEnd = diffPartial.y;
                 } else {
-                    bVar2.FO = a2.x;
-                    bVar2.FQ = a2.y - 1;
+                    range2.oldListEnd = diffPartial.x;
+                    range2.newListEnd = diffPartial.y - 1;
                 }
-                arrayList2.add(bVar2);
-                if (a2.FR) {
-                    if (a2.FM) {
-                        bVar.FN = a2.x + a2.size + 1;
-                        bVar.FP = a2.y + a2.size;
+                arrayList2.add(range2);
+                if (diffPartial.reverse) {
+                    if (diffPartial.removal) {
+                        range.oldListStart = diffPartial.x + diffPartial.size + 1;
+                        range.newListStart = diffPartial.y + diffPartial.size;
                     } else {
-                        bVar.FN = a2.x + a2.size;
-                        bVar.FP = a2.y + a2.size + 1;
+                        range.oldListStart = diffPartial.x + diffPartial.size;
+                        range.newListStart = diffPartial.y + diffPartial.size + 1;
                     }
                 } else {
-                    bVar.FN = a2.x + a2.size;
-                    bVar.FP = a2.y + a2.size;
+                    range.oldListStart = diffPartial.x + diffPartial.size;
+                    range.newListStart = diffPartial.y + diffPartial.size;
                 }
-                arrayList2.add(bVar);
+                arrayList2.add(range);
             } else {
-                arrayList3.add(bVar);
+                arrayList3.add(range);
             }
         }
-        Collections.sort(arrayList, FA);
+        Collections.sort(arrayList, SNAKE_COMPARATOR);
         return new DiffResult(callback, arrayList, iArr, iArr2, z);
     }
 
-    private static c a(Callback callback, int i, int i2, int i3, int i4, int[] iArr, int[] iArr2, int i5) {
+    private static Snake diffPartial(Callback callback, int i, int i2, int i3, int i4, int[] iArr, int[] iArr2, int i5) {
         int i6;
         boolean z;
         int i7;
@@ -109,13 +110,13 @@ public class DiffUtil {
                 }
                 iArr[i5 + i13] = i14;
                 if (z3 && i13 >= (i10 - i12) + 1 && i13 <= (i10 + i12) - 1 && iArr[i5 + i13] >= iArr2[i5 + i13]) {
-                    c cVar = new c();
-                    cVar.x = iArr2[i5 + i13];
-                    cVar.y = cVar.x - i13;
-                    cVar.size = iArr[i5 + i13] - iArr2[i5 + i13];
-                    cVar.FM = z2;
-                    cVar.FR = false;
-                    return cVar;
+                    Snake snake = new Snake();
+                    snake.x = iArr2[i5 + i13];
+                    snake.y = snake.x - i13;
+                    snake.size = iArr[i5 + i13] - iArr2[i5 + i13];
+                    snake.removal = z2;
+                    snake.reverse = false;
+                    return snake;
                 }
             }
             for (int i16 = -i12; i16 <= i12; i16 += 2) {
@@ -133,13 +134,13 @@ public class DiffUtil {
                 }
                 iArr2[i5 + i17] = i18;
                 if (!z3 && i16 + i10 >= (-i12) && i16 + i10 <= i12 && iArr[i5 + i17] >= iArr2[i5 + i17]) {
-                    c cVar2 = new c();
-                    cVar2.x = iArr2[i5 + i17];
-                    cVar2.y = cVar2.x - i17;
-                    cVar2.size = iArr[i5 + i17] - iArr2[i5 + i17];
-                    cVar2.FM = z;
-                    cVar2.FR = true;
-                    return cVar2;
+                    Snake snake2 = new Snake();
+                    snake2.x = iArr2[i5 + i17];
+                    snake2.y = snake2.x - i17;
+                    snake2.size = iArr[i5 + i17] - iArr2[i5 + i17];
+                    snake2.removal = z;
+                    snake2.reverse = true;
+                    return snake2;
                 }
             }
         }
@@ -156,6 +157,7 @@ public class DiffUtil {
 
         public abstract int getOldListSize();
 
+        @Nullable
         public Object getChangePayload(int i, int i2) {
             return null;
         }
@@ -163,115 +165,122 @@ public class DiffUtil {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class c {
-        boolean FM;
-        boolean FR;
+    public static class Snake {
+        boolean removal;
+        boolean reverse;
         int size;
         int x;
         int y;
 
-        c() {
+        Snake() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static class b {
-        int FN;
-        int FO;
-        int FP;
-        int FQ;
+    public static class Range {
+        int newListEnd;
+        int newListStart;
+        int oldListEnd;
+        int oldListStart;
 
-        public b() {
+        public Range() {
         }
 
-        public b(int i, int i2, int i3, int i4) {
-            this.FN = i;
-            this.FO = i2;
-            this.FP = i3;
-            this.FQ = i4;
+        public Range(int i, int i2, int i3, int i4) {
+            this.oldListStart = i;
+            this.oldListEnd = i2;
+            this.newListStart = i3;
+            this.newListEnd = i4;
         }
     }
 
     /* loaded from: classes2.dex */
     public static class DiffResult {
-        private final List<c> FB;
-        private final int[] FC;
-        private final int[] FD;
-        private final Callback FE;
-        private final int FF;
-        private final int FG;
-        private final boolean FH;
+        private static final int FLAG_CHANGED = 2;
+        private static final int FLAG_IGNORE = 16;
+        private static final int FLAG_MASK = 31;
+        private static final int FLAG_MOVED_CHANGED = 4;
+        private static final int FLAG_MOVED_NOT_CHANGED = 8;
+        private static final int FLAG_NOT_CHANGED = 1;
+        private static final int FLAG_OFFSET = 5;
+        private final Callback mCallback;
+        private final boolean mDetectMoves;
+        private final int[] mNewItemStatuses;
+        private final int mNewListSize;
+        private final int[] mOldItemStatuses;
+        private final int mOldListSize;
+        private final List<Snake> mSnakes;
 
-        DiffResult(Callback callback, List<c> list, int[] iArr, int[] iArr2, boolean z) {
-            this.FB = list;
-            this.FC = iArr;
-            this.FD = iArr2;
-            Arrays.fill(this.FC, 0);
-            Arrays.fill(this.FD, 0);
-            this.FE = callback;
-            this.FF = callback.getOldListSize();
-            this.FG = callback.getNewListSize();
-            this.FH = z;
-            eA();
-            eB();
+        DiffResult(Callback callback, List<Snake> list, int[] iArr, int[] iArr2, boolean z) {
+            this.mSnakes = list;
+            this.mOldItemStatuses = iArr;
+            this.mNewItemStatuses = iArr2;
+            Arrays.fill(this.mOldItemStatuses, 0);
+            Arrays.fill(this.mNewItemStatuses, 0);
+            this.mCallback = callback;
+            this.mOldListSize = callback.getOldListSize();
+            this.mNewListSize = callback.getNewListSize();
+            this.mDetectMoves = z;
+            addRootSnake();
+            findMatchingItems();
         }
 
-        private void eA() {
-            c cVar = this.FB.isEmpty() ? null : this.FB.get(0);
-            if (cVar == null || cVar.x != 0 || cVar.y != 0) {
-                c cVar2 = new c();
-                cVar2.x = 0;
-                cVar2.y = 0;
-                cVar2.FM = false;
-                cVar2.size = 0;
-                cVar2.FR = false;
-                this.FB.add(0, cVar2);
+        private void addRootSnake() {
+            Snake snake = this.mSnakes.isEmpty() ? null : this.mSnakes.get(0);
+            if (snake == null || snake.x != 0 || snake.y != 0) {
+                Snake snake2 = new Snake();
+                snake2.x = 0;
+                snake2.y = 0;
+                snake2.removal = false;
+                snake2.size = 0;
+                snake2.reverse = false;
+                this.mSnakes.add(0, snake2);
             }
         }
 
-        private void eB() {
-            int i = this.FF;
-            int i2 = this.FG;
-            for (int size = this.FB.size() - 1; size >= 0; size--) {
-                c cVar = this.FB.get(size);
-                int i3 = cVar.x + cVar.size;
-                int i4 = cVar.y + cVar.size;
-                if (this.FH) {
+        private void findMatchingItems() {
+            int i = this.mOldListSize;
+            int i2 = this.mNewListSize;
+            for (int size = this.mSnakes.size() - 1; size >= 0; size--) {
+                Snake snake = this.mSnakes.get(size);
+                int i3 = snake.x + snake.size;
+                int i4 = snake.y + snake.size;
+                if (this.mDetectMoves) {
                     while (i > i3) {
-                        d(i, i2, size);
+                        findAddition(i, i2, size);
                         i--;
                     }
                     while (i2 > i4) {
-                        e(i, i2, size);
+                        findRemoval(i, i2, size);
                         i2--;
                     }
                 }
-                for (int i5 = 0; i5 < cVar.size; i5++) {
-                    int i6 = cVar.x + i5;
-                    int i7 = cVar.y + i5;
-                    int i8 = this.FE.areContentsTheSame(i6, i7) ? 1 : 2;
-                    this.FC[i6] = (i7 << 5) | i8;
-                    this.FD[i7] = i8 | (i6 << 5);
+                for (int i5 = 0; i5 < snake.size; i5++) {
+                    int i6 = snake.x + i5;
+                    int i7 = snake.y + i5;
+                    int i8 = this.mCallback.areContentsTheSame(i6, i7) ? 1 : 2;
+                    this.mOldItemStatuses[i6] = (i7 << 5) | i8;
+                    this.mNewItemStatuses[i7] = i8 | (i6 << 5);
                 }
-                i = cVar.x;
-                i2 = cVar.y;
+                i = snake.x;
+                i2 = snake.y;
             }
         }
 
-        private void d(int i, int i2, int i3) {
-            if (this.FC[i - 1] == 0) {
-                b(i, i2, i3, false);
+        private void findAddition(int i, int i2, int i3) {
+            if (this.mOldItemStatuses[i - 1] == 0) {
+                findMatchingItem(i, i2, i3, false);
             }
         }
 
-        private void e(int i, int i2, int i3) {
-            if (this.FD[i2 - 1] == 0) {
-                b(i, i2, i3, true);
+        private void findRemoval(int i, int i2, int i3) {
+            if (this.mNewItemStatuses[i2 - 1] == 0) {
+                findMatchingItem(i, i2, i3, true);
             }
         }
 
-        private boolean b(int i, int i2, int i3, boolean z) {
+        private boolean findMatchingItem(int i, int i2, int i3, boolean z) {
             int i4;
             int i5;
             if (z) {
@@ -285,32 +294,32 @@ public class DiffUtil {
             }
             int i7 = i5;
             while (i3 >= 0) {
-                c cVar = this.FB.get(i3);
-                int i8 = cVar.x + cVar.size;
-                int i9 = cVar.y + cVar.size;
+                Snake snake = this.mSnakes.get(i3);
+                int i8 = snake.x + snake.size;
+                int i9 = snake.y + snake.size;
                 if (z) {
                     for (int i10 = i7 - 1; i10 >= i8; i10--) {
-                        if (this.FE.areItemsTheSame(i10, i4)) {
-                            int i11 = this.FE.areContentsTheSame(i10, i4) ? 8 : 4;
-                            this.FD[i4] = (i10 << 5) | 16;
-                            this.FC[i10] = i11 | (i4 << 5);
+                        if (this.mCallback.areItemsTheSame(i10, i4)) {
+                            int i11 = this.mCallback.areContentsTheSame(i10, i4) ? 8 : 4;
+                            this.mNewItemStatuses[i4] = (i10 << 5) | 16;
+                            this.mOldItemStatuses[i10] = i11 | (i4 << 5);
                             return true;
                         }
                     }
                     continue;
                 } else {
                     for (int i12 = i2 - 1; i12 >= i9; i12--) {
-                        if (this.FE.areItemsTheSame(i4, i12)) {
-                            int i13 = this.FE.areContentsTheSame(i4, i12) ? 8 : 4;
-                            this.FC[i - 1] = (i12 << 5) | 16;
-                            this.FD[i12] = ((i - 1) << 5) | i13;
+                        if (this.mCallback.areItemsTheSame(i4, i12)) {
+                            int i13 = this.mCallback.areContentsTheSame(i4, i12) ? 8 : 4;
+                            this.mOldItemStatuses[i - 1] = (i12 << 5) | 16;
+                            this.mNewItemStatuses[i12] = ((i - 1) << 5) | i13;
                             return true;
                         }
                     }
                     continue;
                 }
-                i7 = cVar.x;
-                i2 = cVar.y;
+                i7 = snake.x;
+                i2 = snake.y;
                 i3--;
             }
             return false;
@@ -347,49 +356,49 @@ public class DiffUtil {
             } else {
                 batchingListUpdateCallback = new BatchingListUpdateCallback(listUpdateCallback);
             }
-            List<a> arrayList = new ArrayList<>();
-            int i = this.FF;
-            int i2 = this.FG;
-            int size = this.FB.size() - 1;
+            List<PostponedUpdate> arrayList = new ArrayList<>();
+            int i = this.mOldListSize;
+            int i2 = this.mNewListSize;
+            int size = this.mSnakes.size() - 1;
             int i3 = i2;
             while (size >= 0) {
-                c cVar = this.FB.get(size);
-                int i4 = cVar.size;
-                int i5 = cVar.x + i4;
-                int i6 = cVar.y + i4;
+                Snake snake = this.mSnakes.get(size);
+                int i4 = snake.size;
+                int i5 = snake.x + i4;
+                int i6 = snake.y + i4;
                 if (i5 < i) {
-                    b(arrayList, batchingListUpdateCallback, i5, i - i5, i5);
+                    dispatchRemovals(arrayList, batchingListUpdateCallback, i5, i - i5, i5);
                 }
                 if (i6 < i3) {
-                    a(arrayList, batchingListUpdateCallback, i5, i3 - i6, i6);
+                    dispatchAdditions(arrayList, batchingListUpdateCallback, i5, i3 - i6, i6);
                 }
                 for (int i7 = i4 - 1; i7 >= 0; i7--) {
-                    if ((this.FC[cVar.x + i7] & 31) == 2) {
-                        batchingListUpdateCallback.onChanged(cVar.x + i7, 1, this.FE.getChangePayload(cVar.x + i7, cVar.y + i7));
+                    if ((this.mOldItemStatuses[snake.x + i7] & 31) == 2) {
+                        batchingListUpdateCallback.onChanged(snake.x + i7, 1, this.mCallback.getChangePayload(snake.x + i7, snake.y + i7));
                     }
                 }
-                i = cVar.x;
+                i = snake.x;
                 size--;
-                i3 = cVar.y;
+                i3 = snake.y;
             }
             batchingListUpdateCallback.dispatchLastEvent();
         }
 
-        private static a b(List<a> list, int i, boolean z) {
+        private static PostponedUpdate removePostponedUpdate(List<PostponedUpdate> list, int i, boolean z) {
             int size = list.size() - 1;
             while (size >= 0) {
-                a aVar = list.get(size);
-                if (aVar.FK != i || aVar.FM != z) {
+                PostponedUpdate postponedUpdate = list.get(size);
+                if (postponedUpdate.posInOwnerList != i || postponedUpdate.removal != z) {
                     size--;
                 } else {
                     list.remove(size);
                     while (true) {
                         int i2 = size;
                         if (i2 >= list.size()) {
-                            return aVar;
+                            return postponedUpdate;
                         }
-                        a aVar2 = list.get(i2);
-                        aVar2.FL = (z ? 1 : -1) + aVar2.FL;
+                        PostponedUpdate postponedUpdate2 = list.get(i2);
+                        postponedUpdate2.currentPos = (z ? 1 : -1) + postponedUpdate2.currentPos;
                         size = i2 + 1;
                     }
                 }
@@ -397,32 +406,32 @@ public class DiffUtil {
             return null;
         }
 
-        private void a(List<a> list, ListUpdateCallback listUpdateCallback, int i, int i2, int i3) {
-            if (!this.FH) {
+        private void dispatchAdditions(List<PostponedUpdate> list, ListUpdateCallback listUpdateCallback, int i, int i2, int i3) {
+            if (!this.mDetectMoves) {
                 listUpdateCallback.onInserted(i, i2);
                 return;
             }
             for (int i4 = i2 - 1; i4 >= 0; i4--) {
-                int i5 = this.FD[i3 + i4] & 31;
+                int i5 = this.mNewItemStatuses[i3 + i4] & 31;
                 switch (i5) {
                     case 0:
                         listUpdateCallback.onInserted(i, 1);
-                        for (a aVar : list) {
-                            aVar.FL++;
+                        for (PostponedUpdate postponedUpdate : list) {
+                            postponedUpdate.currentPos++;
                         }
                         break;
                     case 4:
                     case 8:
-                        int i6 = this.FD[i3 + i4] >> 5;
-                        listUpdateCallback.onMoved(b(list, i6, true).FL, i);
+                        int i6 = this.mNewItemStatuses[i3 + i4] >> 5;
+                        listUpdateCallback.onMoved(removePostponedUpdate(list, i6, true).currentPos, i);
                         if (i5 == 4) {
-                            listUpdateCallback.onChanged(i, 1, this.FE.getChangePayload(i6, i3 + i4));
+                            listUpdateCallback.onChanged(i, 1, this.mCallback.getChangePayload(i6, i3 + i4));
                             break;
                         } else {
                             break;
                         }
                     case 16:
-                        list.add(new a(i3 + i4, i, false));
+                        list.add(new PostponedUpdate(i3 + i4, i, false));
                         break;
                     default:
                         throw new IllegalStateException("unknown flag for pos " + (i4 + i3) + " " + Long.toBinaryString(i5));
@@ -430,52 +439,57 @@ public class DiffUtil {
             }
         }
 
-        private void b(List<a> list, ListUpdateCallback listUpdateCallback, int i, int i2, int i3) {
-            if (!this.FH) {
+        private void dispatchRemovals(List<PostponedUpdate> list, ListUpdateCallback listUpdateCallback, int i, int i2, int i3) {
+            if (!this.mDetectMoves) {
                 listUpdateCallback.onRemoved(i, i2);
                 return;
             }
             for (int i4 = i2 - 1; i4 >= 0; i4--) {
-                int i5 = this.FC[i3 + i4] & 31;
+                int i5 = this.mOldItemStatuses[i3 + i4] & 31;
                 switch (i5) {
                     case 0:
                         listUpdateCallback.onRemoved(i + i4, 1);
-                        for (a aVar : list) {
-                            aVar.FL--;
+                        for (PostponedUpdate postponedUpdate : list) {
+                            postponedUpdate.currentPos--;
                         }
                         break;
                     case 4:
                     case 8:
-                        int i6 = this.FC[i3 + i4] >> 5;
-                        a b = b(list, i6, false);
-                        listUpdateCallback.onMoved(i + i4, b.FL - 1);
+                        int i6 = this.mOldItemStatuses[i3 + i4] >> 5;
+                        PostponedUpdate removePostponedUpdate = removePostponedUpdate(list, i6, false);
+                        listUpdateCallback.onMoved(i + i4, removePostponedUpdate.currentPos - 1);
                         if (i5 == 4) {
-                            listUpdateCallback.onChanged(b.FL - 1, 1, this.FE.getChangePayload(i3 + i4, i6));
+                            listUpdateCallback.onChanged(removePostponedUpdate.currentPos - 1, 1, this.mCallback.getChangePayload(i3 + i4, i6));
                             break;
                         } else {
                             break;
                         }
                     case 16:
-                        list.add(new a(i3 + i4, i + i4, true));
+                        list.add(new PostponedUpdate(i3 + i4, i + i4, true));
                         break;
                     default:
                         throw new IllegalStateException("unknown flag for pos " + (i4 + i3) + " " + Long.toBinaryString(i5));
                 }
             }
+        }
+
+        @VisibleForTesting
+        List<Snake> getSnakes() {
+            return this.mSnakes;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class a {
-        int FK;
-        int FL;
-        boolean FM;
+    public static class PostponedUpdate {
+        int currentPos;
+        int posInOwnerList;
+        boolean removal;
 
-        public a(int i, int i2, boolean z) {
-            this.FK = i;
-            this.FL = i2;
-            this.FM = z;
+        public PostponedUpdate(int i, int i2, boolean z) {
+            this.posInOwnerList = i;
+            this.currentPos = i2;
+            this.removal = z;
         }
     }
 }

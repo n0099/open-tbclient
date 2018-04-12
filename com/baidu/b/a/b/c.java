@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.View;
 /* loaded from: classes3.dex */
 public interface c {
-    View N(Context context, String str);
+    View I(Context context, String str);
 
-    boolean a(String str, View view, com.baidu.b.a.a.a aVar);
+    boolean a(String str, View view2, com.baidu.b.a.a.a aVar);
 
-    boolean a(String str, View view, String str2, String str3);
+    boolean a(String str, View view2, String str2, String str3);
 }

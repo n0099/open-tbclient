@@ -1,108 +1,198 @@
 package com.baidu.tieba.frs.entelechy.view;
 
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.view.FrsPicVoteLayout;
-import com.baidu.tieba.frs.view.FrsPicVotePhotoFrame;
-import java.util.List;
-import tbclient.PollOption;
-/* loaded from: classes2.dex */
-public class f extends i {
-    private FrsPicVoteLayout dLT;
-    private FrsPicVotePhotoFrame dLU;
-    private FrsPicVotePhotoFrame dLV;
-    private FrsPicVotePhotoFrame dLW;
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes3.dex */
+public class f extends e {
+    private TextView dfd;
+    private View dfe;
+    private TbImageView dff;
+    private TextView dfg;
+    private ArrayList<String> dfh;
+    private View.OnClickListener dfi;
+    private TbImageView.b mOnDrawListener;
 
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-    }
+        this.dfh = new ArrayList<>();
+        this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.frs.entelechy.view.f.1
+            @Override // com.baidu.tbadk.widget.TbImageView.b
+            public void a(TbImageView tbImageView, Canvas canvas) {
+                int i;
+                int i2;
+                float f;
+                float f2;
+                float f3;
+                float f4;
+                if (tbImageView != null && tbImageView.getImageMatrix() != null) {
+                    com.baidu.adp.widget.ImageView.a gG = com.baidu.tbadk.imageManager.c.Fa().gG(com.baidu.adp.lib.f.c.fp().f(tbImageView.getUrl(), f.this.akC ? 13 : 14));
+                    if (gG != null) {
+                        int width = gG.getWidth();
+                        i = gG.getHeight();
+                        i2 = width;
+                    } else {
+                        i = 0;
+                        i2 = 0;
+                    }
+                    if (i2 != 0 && i != 0) {
+                        int width2 = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
+                        int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
+                        Matrix imageMatrix = tbImageView.getImageMatrix();
+                        if (tbImageView.isLongPic() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                            if (i2 * height > width2 * i) {
+                                f4 = height / i;
+                            } else {
+                                f4 = width2 / i2;
+                            }
+                            imageMatrix.setScale(f4, f4);
+                            imageMatrix.postTranslate(0.0f, 0.0f);
+                        } else if (tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                            if (i2 * height > width2 * i) {
+                                float f5 = height / i;
+                                f2 = f5;
+                                f3 = (width2 - (i2 * f5)) * 0.5f;
+                                f = 0.0f;
+                            } else {
+                                float f6 = width2 / i2;
+                                f = (height - (i * f6)) * 0.5f;
+                                f2 = f6;
+                                f3 = 0.0f;
+                            }
+                            imageMatrix.setScale(f2, f2);
+                            if (i > i2) {
+                                imageMatrix.postTranslate(f3, 0.0f);
+                            } else {
+                                imageMatrix.postTranslate(f3, f);
+                            }
+                        }
+                    }
+                }
+            }
 
-    @Override // com.baidu.tieba.frs.entelechy.view.i
-    public void initView() {
-        super.initView();
-        View findViewById = this.mRootView.findViewById(d.g.vote_img_layout);
-        if (findViewById == null) {
-            findViewById = ((ViewStub) this.mRootView.findViewById(d.g.pic_vote_view_stub)).inflate();
+            @Override // com.baidu.tbadk.widget.TbImageView.b
+            public void b(TbImageView tbImageView, Canvas canvas) {
+            }
+        };
+        this.dfi = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.f.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                if (v.v(f.this.dfh) > 0) {
+                    if (TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
+                        String str = (String) f.this.dfh.get(0);
+                        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
+                        ImageUrlData imageUrlData = new ImageUrlData();
+                        imageUrlData.urlType = f.this.akC ? 13 : 14;
+                        imageUrlData.imageUrl = str;
+                        imageUrlData.originalUrl = str;
+                        imageUrlData.originalSize = 0L;
+                        imageUrlData.isLongPic = false;
+                        imageUrlData.mIsShowOrigonButton = false;
+                        imageUrlData.threadId = 0L;
+                        imageUrlData.postId = 0L;
+                        concurrentHashMap.put(str, imageUrlData);
+                        ImageViewerConfig createConfig = new ImageViewerConfig(f.this.mPageContext.getPageActivity()).createConfig(f.this.dfh, 0, "", "", "", f.this.akC, str, false, concurrentHashMap, false);
+                        createConfig.getIntent().putExtra("from", "frs");
+                        Rect rect = new Rect();
+                        view2.getGlobalVisibleRect(rect);
+                        createConfig.getIntent().putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, rect);
+                        createConfig.setIsShowHost(false);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2010000, createConfig));
+                        return;
+                    }
+                    l.showToast(f.this.mPageContext.getPageActivity(), d.k.plugin_image_viewer_install_error_tips);
+                }
+            }
+        };
+        View view2 = getView();
+        if (view2 != null) {
+            ((ViewStub) view2.findViewById(d.g.viewstub_interview_live_info)).inflate();
+            View findViewById = view2.findViewById(d.g.text_interview_live);
+            if (findViewById instanceof TextView) {
+                this.dfd = (TextView) findViewById;
+            }
+            this.dfe = ((ViewStub) view2.findViewById(d.g.viewstub_img_interview_live)).inflate();
+            View findViewById2 = view2.findViewById(d.g.img_interview_live);
+            if (findViewById2 instanceof TbImageView) {
+                this.dff = (TbImageView) findViewById2;
+                this.dff.setPageId(bdUniqueId);
+            }
+            View findViewById3 = view2.findViewById(d.g.interview_live_tip);
+            if (findViewById3 instanceof TextView) {
+                this.dfg = (TextView) findViewById3;
+            }
         }
-        if (findViewById != null) {
-            this.dLT = (FrsPicVoteLayout) findViewById;
-            int t = com.baidu.adp.lib.util.l.t(getContext(), d.e.ds20);
-            if (this.dLT.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.dLT.getLayoutParams()).topMargin = t;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
+    /* renamed from: A */
+    public void a(bd bdVar) {
+        if (bdVar != null && this.dfe != null && this.dff != null && this.coV != null) {
+            if (bdVar.sa() != null) {
+                bdVar.sa().clear();
             }
-            if (this.dMn.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.dMn.getLayoutParams()).topMargin = t;
+            bdVar.a((SparseArray<String>) null);
+            bb rA = bdVar.rA();
+            if (rA != null) {
+                super.a(bdVar);
+                if (com.baidu.tbadk.core.i.pY().qe() && rA != null && !StringUtils.isNull(rA.getThreadImgUrl())) {
+                    this.dfh.clear();
+                    this.dfh.add(rA.getThreadImgUrl());
+                    this.dfe.setVisibility(0);
+                    this.dff.setSupportNoImage(true);
+                    this.dff.setScaleType(ImageView.ScaleType.MATRIX);
+                    this.dff.setOnDrawListener(this.mOnDrawListener);
+                    this.dff.startLoad(rA.getThreadImgUrl(), this.akC ? 13 : 14, false);
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dfe.getLayoutParams();
+                    layoutParams.width = l.af(getContext()) - l.e(getContext(), d.e.ds68);
+                    layoutParams.height = (int) ((layoutParams.width * 428.0f) / 760.0f);
+                    this.dfe.setLayoutParams(layoutParams);
+                } else {
+                    this.dfe.setVisibility(8);
+                }
+                this.dff.setOnClickListener(this.dfi);
+                this.coV.setVisibility(8);
             }
-            this.dLU = (FrsPicVotePhotoFrame) this.dLT.findViewById(d.g.frs_pic_vote_photoframe_1);
-            this.dLV = (FrsPicVotePhotoFrame) this.dLT.findViewById(d.g.frs_pic_vote_photoframe_2);
-            this.dLW = (FrsPicVotePhotoFrame) this.dLT.findViewById(d.g.frs_pic_vote_photoframe_3);
-            this.dLU.setPageId(getTag());
-            this.dLV.setPageId(getTag());
-            this.dLW.setPageId(getTag());
-            int t2 = com.baidu.adp.lib.util.l.t(getContext(), d.e.ds64);
-            int t3 = com.baidu.adp.lib.util.l.t(getContext(), d.e.ds32);
-            int t4 = com.baidu.adp.lib.util.l.t(getContext(), d.e.ds4);
-            a(this.dLU, t2, t3, t4);
-            a(this.dLV, t2, t3, t4);
-            a(this.dLW, t2, t3, t4);
-            axK();
         }
     }
 
-    public void a(FrsPicVotePhotoFrame frsPicVotePhotoFrame, int i, int i2, int i3) {
-        if (frsPicVotePhotoFrame != null) {
-            frsPicVotePhotoFrame.bJ(i, i);
-            frsPicVotePhotoFrame.setBlueHeight(i2);
-            frsPicVotePhotoFrame.setGradeViewLeftMargin(i3);
+    @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        if (i != this.mSkinType) {
+            ak.h(this.dfd, d.C0126d.cp_cont_f);
+            ak.h(this.dfg, d.C0126d.cp_cont_i);
         }
+        super.d(tbPageContext, i);
     }
 
-    @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void nm(int i) {
-        axK();
-        this.dLU.onChangeSkinType(i);
-        this.dLV.onChangeSkinType(i);
-        this.dLW.onChangeSkinType(i);
-    }
-
-    private void axK() {
-        this.dLU.setGrade(aj.getDrawable(d.f.pic_grade_vote_num1));
-        this.dLV.setGrade(aj.getDrawable(d.f.pic_grade_vote_num2));
-        this.dLW.setGrade(aj.getDrawable(d.f.pic_grade_vote_num3));
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void S(bd bdVar) {
-        if (bdVar != null && bdVar.yZ() != null) {
-            List<PollOption> list = bdVar.yZ().options;
-            if (!com.baidu.tbadk.core.i.xo().xu() || v.E(list)) {
-                this.dLT.setVisibility(8);
-                return;
-            }
-            this.dLT.setVisibility(0);
-            this.dLU.setVisibility(0);
-            this.dLV.setVisibility(0);
-            int size = list.size() >= 3 ? 3 : list.size();
-            this.dLW.setVisibility(size == 3 ? 0 : 4);
-            if (size >= 1) {
-                PollOption pollOption = list.get(0);
-                this.dLU.a(1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), bdVar.yZ().total_poll.longValue());
-            }
-            if (size >= 2) {
-                PollOption pollOption2 = list.get(1);
-                this.dLV.a(1, pollOption2.image, Boolean.valueOf(this.mIsFromCDN), pollOption2.text, pollOption2.num.longValue(), bdVar.yZ().total_poll.longValue());
-            }
-            if (size >= 3) {
-                PollOption pollOption3 = list.get(2);
-                this.dLW.a(1, pollOption3.image, Boolean.valueOf(this.mIsFromCDN), pollOption3.text, pollOption3.num.longValue(), bdVar.yZ().total_poll.longValue());
-            }
+    public void fL(boolean z) {
+        if (this.bam != null) {
+            this.bam.setVisibility(z ? 0 : 8);
         }
     }
 }

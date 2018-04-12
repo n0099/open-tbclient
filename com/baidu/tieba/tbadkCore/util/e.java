@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    protected volatile int hdG;
-    protected volatile HashMap<Long, Integer> hdH = new HashMap<>();
-    private volatile int hdF = 0;
+    protected volatile int gza;
+    protected volatile HashMap<Long, Integer> gzb = new HashMap<>();
+    private volatile int gyZ = 0;
 
     public e(int i) {
-        this.hdG = i;
+        this.gza = i;
     }
 
-    public void sV(String str) {
+    public void tc(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.hdH.size() >= this.hdG) {
-                    bxT();
+                if (this.gzb.size() >= this.gza) {
+                    bsT();
                 }
-                this.hdF++;
-                this.hdH.put(valueOf, Integer.valueOf(this.hdF));
+                this.gyZ++;
+                this.gzb.put(valueOf, Integer.valueOf(this.gyZ));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void bxT() {
+    public void bsT() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.hdH.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.gzb.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class e {
                 l2 = l;
             }
             if (l2 != null) {
-                this.hdH.remove(l2);
+                this.gzb.remove(l2);
             } else {
-                this.hdH.clear();
+                this.gzb.clear();
             }
         }
     }
 
-    public boolean sW(String str) {
+    public boolean td(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.hdH.get(valueOf) != null;
+                z = this.gzb.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class e {
         }
     }
 
-    public boolean sX(String str) {
+    public boolean te(String str) {
         try {
-            return this.hdH.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.gzb.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void bxU() {
+    public void bsU() {
         synchronized (this) {
-            this.hdH.clear();
+            this.gzb.clear();
         }
     }
 }

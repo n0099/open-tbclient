@@ -7,7 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, c> {
@@ -15,16 +15,16 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     private int mSkinType;
 
     public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.dBh, eVar.getUniqueId());
+        super(eVar.getPageActivity(), b.cTT, eVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (view.getTag() instanceof String) {
-                    String str = (String) view.getTag();
+            public void onClick(View view2) {
+                if (view2.getTag() instanceof String) {
+                    String str = (String) view2.getTag();
                     if (a.this.mSkinType == 1) {
                         str = str + "?isNightModel=1";
                     }
-                    CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.mContext, a.this.mContext.getString(d.j.complaint_bar_lord), str, true));
+                    CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.mContext, a.this.mContext.getString(d.k.complaint_bar_lord), str, true));
                     customMessage.setTag(a.this.mPageId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
@@ -35,37 +35,37 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: am */
+    /* renamed from: aj */
     public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(LayoutInflater.from(this.mContext).inflate(d.h.item_complaint_bar_lord_view, viewGroup, false));
+        return new c(LayoutInflater.from(this.mContext).inflate(d.i.item_complaint_bar_lord_view, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b bVar, c cVar) {
         if (bVar != null && cVar != null) {
             a(cVar);
             a(cVar, bVar);
         }
-        return view;
+        return view2;
     }
 
     private void a(c cVar) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (cVar.mSkinType != this.mSkinType) {
             cVar.mSkinType = this.mSkinType;
-            aj.s(cVar.dpn, d.f.frs_member_manito_bg);
-            aj.t(cVar.aRs, d.C0141d.cp_bg_line_b);
-            aj.e(cVar.mTitleView, d.C0141d.cp_cont_b, 1);
-            aj.c(cVar.cLM, d.f.icon_arrow_tab);
+            ak.i(cVar.cHD, d.f.frs_member_manito_bg);
+            ak.j(cVar.acO, d.C0126d.cp_bg_line_b);
+            ak.c(cVar.mTitleView, d.C0126d.cp_cont_b, 1);
+            ak.c(cVar.cbV, d.f.icon_arrow_tab);
         }
     }
 
     private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.dBi);
-        cVar.dpn.setTag(bVar.mUrl);
-        cVar.dpn.setOnClickListener(this.mClickListener);
+        cVar.mTitleView.setText(bVar.cTU);
+        cVar.cHD.setTag(bVar.mUrl);
+        cVar.cHD.setOnClickListener(this.mClickListener);
     }
 }

@@ -2,14 +2,14 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.j.m;
 import com.meizu.cloud.pushsdk.MzPushMessageReceiver;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
     @Override // com.meizu.cloud.pushsdk.MzPushMessageReceiver
     public void onMessage(Context context, String str) {
@@ -27,7 +27,7 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
             intent.putExtra("mz_notification_content", str2);
             intent.putExtra("mz_notification_self_define_content", str3);
             intent.putExtra("mz_push_msg_type", 3);
-            p.a(intent, context.getApplicationContext());
+            m.a(intent, context.getApplicationContext());
         } catch (Exception e) {
         }
     }
@@ -52,7 +52,7 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
                 Intent intent = new Intent("com.meizu.mzpush.REGISTER");
                 intent.putExtra("mz_pushid", pushId);
                 intent.putExtra("mz_register_errorcode", registerStatus.getCode());
-                p.a(intent, context.getApplicationContext());
+                m.a(intent, context.getApplicationContext());
             } catch (Exception e) {
             }
         }

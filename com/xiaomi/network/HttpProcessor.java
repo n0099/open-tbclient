@@ -2,7 +2,7 @@ package com.xiaomi.network;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpProcessor {
     private int a;
 

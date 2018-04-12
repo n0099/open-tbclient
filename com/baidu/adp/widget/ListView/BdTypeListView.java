@@ -5,12 +5,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.q;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class BdTypeListView extends BdListView implements n<BdTypeListView> {
-    r mTypeAdapter;
+public class BdTypeListView extends BdListView implements m<BdTypeListView> {
+    q mTypeAdapter;
 
     public BdTypeListView(Context context) {
         super(context);
@@ -32,21 +32,21 @@ public class BdTypeListView extends BdListView implements n<BdTypeListView> {
 
     private void init() {
         if (this.mTypeAdapter == null) {
-            this.mTypeAdapter = new r();
+            this.mTypeAdapter = new q();
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
                 if (BdTypeListView.this.mTypeAdapter != null) {
-                    BdTypeListView.this.mTypeAdapter.a(adapterView, view, i, j);
+                    BdTypeListView.this.mTypeAdapter.a(adapterView, view2, i, j);
                 }
             }
         });
         super.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.2
             @Override // android.widget.AdapterView.OnItemLongClickListener
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
                 if (BdTypeListView.this.mTypeAdapter != null) {
-                    return BdTypeListView.this.mTypeAdapter.b(adapterView, view, i, j);
+                    return BdTypeListView.this.mTypeAdapter.b(adapterView, view2, i, j);
                 }
                 return false;
             }
@@ -55,7 +55,7 @@ public class BdTypeListView extends BdListView implements n<BdTypeListView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.adp.widget.ListView.k
+    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.adp.widget.ListView.j
     /* renamed from: getListView */
     public BdListView getListView2() {
         return this;
@@ -71,12 +71,12 @@ public class BdTypeListView extends BdListView implements n<BdTypeListView> {
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
     }
 
-    public void addAdapter(a<i, r.a> aVar) {
+    public void addAdapter(a<h, q.a> aVar) {
         this.mTypeAdapter.addAdapter(aVar);
         setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
-    @Override // com.baidu.adp.widget.ListView.n
+    @Override // com.baidu.adp.widget.ListView.m
     public void addAdapters(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
@@ -85,17 +85,17 @@ public class BdTypeListView extends BdListView implements n<BdTypeListView> {
         setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
-    @Override // com.baidu.adp.widget.ListView.n
-    public void setData(List<i> list) {
+    @Override // com.baidu.adp.widget.ListView.m
+    public void setData(List<h> list) {
         this.mTypeAdapter.setData(list);
     }
 
-    @Override // com.baidu.adp.widget.ListView.n
-    public List<i> getData() {
+    @Override // com.baidu.adp.widget.ListView.m
+    public List<h> getData() {
         return this.mTypeAdapter.getData();
     }
 
-    public i getItem(int i) {
+    public h getItem(int i) {
         return this.mTypeAdapter.getItem(i);
     }
 }

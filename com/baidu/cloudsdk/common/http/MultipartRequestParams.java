@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.apache.http.HttpEntity;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MultipartRequestParams extends RequestParams {
     protected HashMap<String, FileWrapper> mFileParams;
 
@@ -109,7 +109,7 @@ public class MultipartRequestParams extends RequestParams {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class FileWrapper {
         public String mContentType;
         public String mFileName;

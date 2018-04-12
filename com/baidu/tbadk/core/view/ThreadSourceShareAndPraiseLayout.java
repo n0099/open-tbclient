@@ -12,16 +12,16 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
-    private bd aZC;
-    private View.OnClickListener bdG;
-    public TextView beo;
-    public ThreadCommentAndPraiseInfoNewTypeLayout bep;
-    private boolean beq;
+    private bd alf;
+    private View.OnClickListener aoY;
+    public TextView apF;
+    public ThreadCommentAndPraiseInfoNewTypeLayout apG;
+    private boolean apH;
     private Context mContext;
     private String stType;
 
@@ -43,16 +43,16 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     private void init(Context context) {
         if (context != null) {
             this.mContext = context;
-            View inflate = LayoutInflater.from(context).inflate(d.h.thread_comment_praise_read_info_layout, (ViewGroup) this, true);
-            this.beo = (TextView) inflate.findViewById(d.g.view_forum_source);
-            this.bep = (ThreadCommentAndPraiseInfoNewTypeLayout) inflate.findViewById(d.g.layout_share_and_praise);
-            this.beo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadSourceShareAndPraiseLayout.1
+            View inflate = LayoutInflater.from(context).inflate(d.i.thread_comment_praise_read_info_layout, (ViewGroup) this, true);
+            this.apF = (TextView) inflate.findViewById(d.g.view_forum_source);
+            this.apG = (ThreadCommentAndPraiseInfoNewTypeLayout) inflate.findViewById(d.g.layout_share_and_praise);
+            this.apF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadSourceShareAndPraiseLayout.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (ThreadSourceShareAndPraiseLayout.this.aZC != null && !StringUtils.isNull(ThreadSourceShareAndPraiseLayout.this.aZC.zt())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ThreadSourceShareAndPraiseLayout.this.mContext).createNormalCfg(ThreadSourceShareAndPraiseLayout.this.aZC.zt(), ThreadSourceShareAndPraiseLayout.this.stType)));
-                        if (ThreadSourceShareAndPraiseLayout.this.bdG != null) {
-                            ThreadSourceShareAndPraiseLayout.this.bdG.onClick(view);
+                public void onClick(View view2) {
+                    if (ThreadSourceShareAndPraiseLayout.this.alf != null && !StringUtils.isNull(ThreadSourceShareAndPraiseLayout.this.alf.rV())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ThreadSourceShareAndPraiseLayout.this.mContext).createNormalCfg(ThreadSourceShareAndPraiseLayout.this.alf.rV(), ThreadSourceShareAndPraiseLayout.this.stType)));
+                        if (ThreadSourceShareAndPraiseLayout.this.aoY != null) {
+                            ThreadSourceShareAndPraiseLayout.this.aoY.onClick(view2);
                         }
                     }
                 }
@@ -61,17 +61,17 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     }
 
     public void onChangeSkinType() {
-        if (!this.beq) {
-            aj.r(this.beo, d.C0141d.cp_cont_d);
-            aj.s(this.beo, d.f.bg_forum_source_gray);
+        if (!this.apH) {
+            ak.h(this.apF, d.C0126d.cp_cont_d);
+            ak.i(this.apF, d.f.bg_forum_source_gray);
         }
-        if (this.bep.getVisibility() == 0) {
-            this.bep.onChangeSkinType();
+        if (this.apG.getVisibility() == 0) {
+            this.apG.onChangeSkinType();
         }
     }
 
     public void setHideBarName(boolean z) {
-        this.beq = z;
+        this.apH = z;
     }
 
     public boolean setData(bd bdVar) {
@@ -79,37 +79,37 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             setVisibility(8);
             return false;
         }
-        this.aZC = bdVar;
-        if (StringUtils.isNull(this.aZC.zt()) || this.beq) {
-            this.beo.setVisibility(8);
+        this.alf = bdVar;
+        if (StringUtils.isNull(this.alf.rV()) || this.apH) {
+            this.apF.setVisibility(8);
         } else {
-            this.beo.setText(am.e(this.aZC.zt(), 10, "...") + getResources().getString(d.j.forum));
-            this.beo.setVisibility(0);
+            this.apF.setText(an.e(this.alf.rV(), 10, "...") + getResources().getString(d.k.forum));
+            this.apF.setVisibility(0);
         }
-        this.bep.setData(this.aZC);
+        this.apG.setData(this.alf);
         setVisibility(0);
         return true;
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.bep.setForumAfterClickListener(onClickListener);
-        this.bdG = onClickListener;
+        this.apG.setForumAfterClickListener(onClickListener);
+        this.aoY = onClickListener;
     }
 
     public void setFrom(int i) {
-        this.bep.setFrom(i);
+        this.apG.setFrom(i);
     }
 
     public void setShareReportFrom(int i) {
-        this.bep.setShareReportFrom(i);
+        this.apG.setShareReportFrom(i);
     }
 
     public void setSourceFromForPb(int i) {
-        this.bep.aQv = i;
+        this.apG.abV = i;
     }
 
     public void setStType(String str) {
         this.stType = str;
-        this.bep.setStType(str);
+        this.apG.setStType(str);
     }
 }

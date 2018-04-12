@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MessageV3 implements Parcelable {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV3.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,6 +52,13 @@ public class MessageV3 implements Parcelable {
     private String uploadDataPackageName;
     private String uriPackageName;
     private String webUrl;
+
+    /* loaded from: classes3.dex */
+    public enum CLICK_TYPE_DEFINE {
+        CLICK_TYPE_LAUNCHER_ACTIVITY,
+        CLICK_TYPE_ACTIVITY,
+        CLICK_TYPE_WEB
+    }
 
     public MessageV3(Parcel parcel) {
         this.paramsMap = new HashMap();

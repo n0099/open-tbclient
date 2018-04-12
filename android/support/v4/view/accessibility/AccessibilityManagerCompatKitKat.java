@@ -9,6 +9,9 @@ class AccessibilityManagerCompatKitKat {
         void onTouchExplorationStateChanged(boolean z);
     }
 
+    AccessibilityManagerCompatKitKat() {
+    }
+
     /* loaded from: classes2.dex */
     public static class TouchExplorationStateChangeListenerWrapper implements AccessibilityManager.TouchExplorationStateChangeListener {
         final Object mListener;
@@ -41,6 +44,15 @@ class AccessibilityManagerCompatKitKat {
         public void onTouchExplorationStateChanged(boolean z) {
             this.mListenerBridge.onTouchExplorationStateChanged(z);
         }
+    }
+
+    public static Object newTouchExplorationStateChangeListener(final TouchExplorationStateChangeListenerBridge touchExplorationStateChangeListenerBridge) {
+        return new AccessibilityManager.TouchExplorationStateChangeListener() { // from class: android.support.v4.view.accessibility.AccessibilityManagerCompatKitKat.1
+            @Override // android.view.accessibility.AccessibilityManager.TouchExplorationStateChangeListener
+            public void onTouchExplorationStateChanged(boolean z) {
+                TouchExplorationStateChangeListenerBridge.this.onTouchExplorationStateChanged(z);
+            }
+        };
     }
 
     public static boolean addTouchExplorationStateChangeListener(AccessibilityManager accessibilityManager, Object obj) {

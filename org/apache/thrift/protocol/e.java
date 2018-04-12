@@ -1,7 +1,7 @@
 package org.apache.thrift.protocol;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class e {
     protected org.apache.thrift.transport.d e;
 

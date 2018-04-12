@@ -13,12 +13,12 @@ class ActivityOptionsCompatJB {
         return new ActivityOptionsCompatJB(ActivityOptions.makeCustomAnimation(context, i, i2));
     }
 
-    public static ActivityOptionsCompatJB makeScaleUpAnimation(View view, int i, int i2, int i3, int i4) {
-        return new ActivityOptionsCompatJB(ActivityOptions.makeScaleUpAnimation(view, i, i2, i3, i4));
+    public static ActivityOptionsCompatJB makeScaleUpAnimation(View view2, int i, int i2, int i3, int i4) {
+        return new ActivityOptionsCompatJB(ActivityOptions.makeScaleUpAnimation(view2, i, i2, i3, i4));
     }
 
-    public static ActivityOptionsCompatJB makeThumbnailScaleUpAnimation(View view, Bitmap bitmap, int i, int i2) {
-        return new ActivityOptionsCompatJB(ActivityOptions.makeThumbnailScaleUpAnimation(view, bitmap, i, i2));
+    public static ActivityOptionsCompatJB makeThumbnailScaleUpAnimation(View view2, Bitmap bitmap, int i, int i2) {
+        return new ActivityOptionsCompatJB(ActivityOptions.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
     }
 
     private ActivityOptionsCompatJB(ActivityOptions activityOptions) {

@@ -4,14 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.e;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.af;
-import com.baidu.tieba.frs.i;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.ab;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tbadk.mainTab.b {
-    public d(i iVar) {
-        MV().bxP = iVar;
+    public d(FrsFragment frsFragment) {
+        Fy().aIm = frsFragment;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -20,24 +20,24 @@ public class d extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c MU() {
+    public com.baidu.tbadk.mainTab.c Fx() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 1;
-        cVar.bxQ = d.j.chosen_pb_title;
-        cVar.bxX = com.baidu.tbadk.mainTab.c.bxV;
+        cVar.aIn = d.k.chosen_pb_title;
+        cVar.aIu = com.baidu.tbadk.mainTab.c.aIs;
         return cVar;
     }
 
-    public void a(af afVar) {
-        if (afVar != null && afVar.nb(1)) {
-            afVar.b(this);
+    public void a(ab abVar) {
+        if (abVar != null && abVar.kp(1)) {
+            abVar.b(this);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e bi(Context context) {
-        this.bxG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.bxG.setTextSize(2.0f);
-        return this.bxG;
+    public TbFragmentTabIndicator aT(Context context) {
+        this.aId = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
+        this.aId.setTextSize(2.0f);
+        return this.aId;
     }
 }

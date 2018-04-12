@@ -19,15 +19,15 @@ public class j extends ClickableSpan {
         return this.mContext;
     }
 
-    public void hk(String str) {
-        com.baidu.tbadk.browser.b.R(this.mContext, str);
+    public void hc(String str) {
+        com.baidu.tbadk.browser.a.M(this.mContext, str);
     }
 
-    public void hl(String str) {
+    public void hd(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
     }
 
     @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
+    public void onClick(View view2) {
     }
 }

@@ -1,13 +1,7 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.view.NavigationBar;
+/* loaded from: classes2.dex */
 public interface ai {
-    void a(TbPageContext tbPageContext, View view, int i, boolean z, BdUniqueId bdUniqueId);
-
-    void changeSkinType(int i);
-
-    void hide();
+    NavigationBar Rg();
 }

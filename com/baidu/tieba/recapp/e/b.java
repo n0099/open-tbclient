@@ -2,57 +2,57 @@ package com.baidu.tieba.recapp.e;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.s;
 /* loaded from: classes3.dex */
-public class b extends d {
-    private TextView beW;
-    private HeadImageView ecH;
-    private TextView gHJ;
+public class b extends e {
+    private TextView aqm;
+    private HeadImageView dxn;
+    private TextView gcG;
 
-    public b(View view, String str) {
-        super(view, str);
+    public b(View view2, String str) {
+        super(view2, str);
         init();
     }
 
     private void init() {
-        this.ecH = (HeadImageView) uy(d.g.user_portrait);
-        this.ecH.setDefaultResource(d.f.icon_default_avatar100);
-        this.ecH.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.ecH.setDefaultBgResource(d.C0141d.cp_bg_line_e);
-        this.ecH.setIsRound(true);
-        this.beW = (TextView) uy(d.g.user_name);
-        this.gHJ = (TextView) uy(d.g.action);
+        this.dxn = (HeadImageView) rZ(d.g.user_portrait);
+        this.dxn.setDefaultResource(d.f.icon_default_avatar100);
+        this.dxn.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.dxn.setDefaultBgResource(d.C0126d.cp_bg_line_e);
+        this.dxn.setIsRound(true);
+        this.aqm = (TextView) rZ(d.g.user_name);
+        this.gcG = (TextView) rZ(d.g.action);
     }
 
-    @Override // com.baidu.tieba.recapp.e.d
-    public void a(final AdCard.e eVar) {
-        super.a(eVar);
-        this.ecH.startLoad(eVar.gDr, 10, false);
-        this.beW.setText(eVar.userName);
-        this.gHJ.setText(eVar.buttonText);
+    @Override // com.baidu.tieba.recapp.e.e
+    public void a(final AdCard.f fVar) {
+        super.a(fVar);
+        this.dxn.startLoad(fVar.fYg, 10, false);
+        this.aqm.setText(fVar.userName);
+        this.gcG.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.b.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                s.ap(b.this.mRootView.getContext(), eVar.scheme);
-                if (b.this.gHP != null) {
-                    b.this.gHP.us(302);
-                    com.baidu.tieba.recapp.report.b.boX().a(b.this.gHP);
+            public void onClick(View view2) {
+                s.ak(b.this.mRootView.getContext(), fVar.scheme);
+                if (b.this.gcP != null) {
+                    b.this.gcP.rT(302);
+                    com.baidu.tieba.recapp.report.b.bke().a(b.this.gcP);
                 }
             }
         });
         onChangeSkinType();
     }
 
-    @Override // com.baidu.tieba.recapp.e.d
+    @Override // com.baidu.tieba.recapp.e.e
     public void onChangeSkinType() {
         super.onChangeSkinType();
-        aj.t(this.mRootView, d.C0141d.cp_cont_b_alpha80);
-        aj.e(this.beW, d.C0141d.cp_cont_i, 1);
-        aj.e(this.gHJ, d.C0141d.cp_cont_i, 1);
-        aj.g(this.gHJ, d.C0141d.cp_link_tip_a, 1);
+        ak.j(this.mRootView, d.C0126d.cp_cont_b_alpha80);
+        ak.c(this.aqm, d.C0126d.cp_cont_i, 1);
+        ak.c(this.gcG, d.C0126d.cp_cont_i, 1);
+        ak.e(this.gcG, d.C0126d.cp_link_tip_a, 1);
     }
 }

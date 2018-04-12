@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.zip.Adler32;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     private ByteBuffer a = ByteBuffer.allocate(2048);
     private ByteBuffer b = ByteBuffer.allocate(4);
@@ -50,7 +50,7 @@ public class c {
                 z = true;
             }
             if (b.h()) {
-                b.C0291b i = b.i();
+                b.C0273b i = b.i();
                 b bVar = new b();
                 bVar.a("SYNC", "CONF");
                 bVar.a(i.c(), (String) null);

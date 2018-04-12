@@ -7,10 +7,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
-import android.net.Uri;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.util.SparseArray;
+import com.baidu.tbadk.core.util.UtilHelper;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -88,7 +88,7 @@ public class c {
         }
     }
 
-    public static byte[] x(Bitmap bitmap) {
+    public static byte[] B(Bitmap bitmap) {
         return a(bitmap.getWidth(), bitmap.getHeight(), bitmap);
     }
 
@@ -123,10 +123,10 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void at(Context context, String str) {
+    public static void ao(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
-            intent.setData(Uri.fromFile(new File(str)));
+            intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
             context.sendBroadcast(intent);
         } catch (Exception e) {
         }
@@ -134,7 +134,7 @@ public class c {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.util.ArrayList<com.baidu.tieba.video.editvideo.b.c$a> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static ArrayList<a> y(Bitmap bitmap) {
+    public static ArrayList<a> C(Bitmap bitmap) {
         if (bitmap == null || bitmap.isRecycled()) {
             return new ArrayList<>();
         }

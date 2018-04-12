@@ -4,7 +4,11 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Build;
+import android.support.annotation.AttrRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StyleRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
@@ -13,37 +17,38 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
-public class MenuPopupHelper {
-    private final int HK;
-    private final int HL;
-    private final boolean HM;
-    private int HU;
-    private boolean HZ;
-    private MenuPresenter.Callback Ib;
-    private PopupWindow.OnDismissListener Id;
-    private e Jy;
-    private final PopupWindow.OnDismissListener Jz;
+public class MenuPopupHelper implements MenuHelper {
+    private static final int TOUCH_EPICENTER_SIZE_DP = 48;
+    private View mAnchorView;
     private final Context mContext;
+    private int mDropDownGravity;
+    private boolean mForceShowIcon;
+    private final PopupWindow.OnDismissListener mInternalOnDismissListener;
     private final MenuBuilder mMenu;
-    private View oa;
+    private PopupWindow.OnDismissListener mOnDismissListener;
+    private final boolean mOverflowOnly;
+    private MenuPopup mPopup;
+    private final int mPopupStyleAttr;
+    private final int mPopupStyleRes;
+    private MenuPresenter.Callback mPresenterCallback;
 
-    public MenuPopupHelper(Context context, MenuBuilder menuBuilder) {
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
         this(context, menuBuilder, null, false, R.attr.popupMenuStyle, 0);
     }
 
-    public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view) {
-        this(context, menuBuilder, view, false, R.attr.popupMenuStyle, 0);
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2) {
+        this(context, menuBuilder, view2, false, R.attr.popupMenuStyle, 0);
     }
 
-    public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view, boolean z, int i) {
-        this(context, menuBuilder, view, z, i, 0);
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i) {
+        this(context, menuBuilder, view2, z, i, 0);
     }
 
-    public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view, boolean z, int i, int i2) {
-        this.HU = GravityCompat.START;
-        this.Jz = new PopupWindow.OnDismissListener() { // from class: android.support.v7.view.menu.MenuPopupHelper.1
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i, @StyleRes int i2) {
+        this.mDropDownGravity = GravityCompat.START;
+        this.mInternalOnDismissListener = new PopupWindow.OnDismissListener() { // from class: android.support.v7.view.menu.MenuPopupHelper.1
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
                 MenuPopupHelper.this.onDismiss();
@@ -51,33 +56,33 @@ public class MenuPopupHelper {
         };
         this.mContext = context;
         this.mMenu = menuBuilder;
-        this.oa = view;
-        this.HM = z;
-        this.HK = i;
-        this.HL = i2;
+        this.mAnchorView = view2;
+        this.mOverflowOnly = z;
+        this.mPopupStyleAttr = i;
+        this.mPopupStyleRes = i2;
     }
 
-    public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
-        this.Id = onDismissListener;
+    public void setOnDismissListener(@Nullable PopupWindow.OnDismissListener onDismissListener) {
+        this.mOnDismissListener = onDismissListener;
     }
 
-    public void setAnchorView(View view) {
-        this.oa = view;
+    public void setAnchorView(@NonNull View view2) {
+        this.mAnchorView = view2;
     }
 
     public void setForceShowIcon(boolean z) {
-        this.HZ = z;
-        if (this.Jy != null) {
-            this.Jy.setForceShowIcon(z);
+        this.mForceShowIcon = z;
+        if (this.mPopup != null) {
+            this.mPopup.setForceShowIcon(z);
         }
     }
 
     public void setGravity(int i) {
-        this.HU = i;
+        this.mDropDownGravity = i;
     }
 
     public int getGravity() {
-        return this.HU;
+        return this.mDropDownGravity;
     }
 
     public void show() {
@@ -92,21 +97,22 @@ public class MenuPopupHelper {
         }
     }
 
-    public e getPopup() {
-        if (this.Jy == null) {
-            this.Jy = fc();
+    @NonNull
+    public MenuPopup getPopup() {
+        if (this.mPopup == null) {
+            this.mPopup = createPopup();
         }
-        return this.Jy;
+        return this.mPopup;
     }
 
     public boolean tryShow() {
         if (isShowing()) {
             return true;
         }
-        if (this.oa == null) {
+        if (this.mAnchorView == null) {
             return false;
         }
-        b(0, 0, false, false);
+        showPopup(0, 0, false, false);
         return true;
     }
 
@@ -114,15 +120,16 @@ public class MenuPopupHelper {
         if (isShowing()) {
             return true;
         }
-        if (this.oa == null) {
+        if (this.mAnchorView == null) {
             return false;
         }
-        b(i, i2, true, true);
+        showPopup(i, i2, true, true);
         return true;
     }
 
-    private e fc() {
-        e gVar;
+    @NonNull
+    private MenuPopup createPopup() {
+        MenuPopup standardMenuPopup;
         Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 17) {
@@ -133,25 +140,25 @@ public class MenuPopupHelper {
             point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
         }
         if (Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(R.dimen.abc_cascading_menus_min_smallest_width)) {
-            gVar = new CascadingMenuPopup(this.mContext, this.oa, this.HK, this.HL, this.HM);
+            standardMenuPopup = new CascadingMenuPopup(this.mContext, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
         } else {
-            gVar = new g(this.mContext, this.mMenu, this.oa, this.HK, this.HL, this.HM);
+            standardMenuPopup = new StandardMenuPopup(this.mContext, this.mMenu, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
         }
-        gVar.c(this.mMenu);
-        gVar.setOnDismissListener(this.Jz);
-        gVar.setAnchorView(this.oa);
-        gVar.setCallback(this.Ib);
-        gVar.setForceShowIcon(this.HZ);
-        gVar.setGravity(this.HU);
-        return gVar;
+        standardMenuPopup.addMenu(this.mMenu);
+        standardMenuPopup.setOnDismissListener(this.mInternalOnDismissListener);
+        standardMenuPopup.setAnchorView(this.mAnchorView);
+        standardMenuPopup.setCallback(this.mPresenterCallback);
+        standardMenuPopup.setForceShowIcon(this.mForceShowIcon);
+        standardMenuPopup.setGravity(this.mDropDownGravity);
+        return standardMenuPopup;
     }
 
-    private void b(int i, int i2, boolean z, boolean z2) {
-        e popup = getPopup();
+    private void showPopup(int i, int i2, boolean z, boolean z2) {
+        MenuPopup popup = getPopup();
         popup.setShowTitle(z2);
         if (z) {
-            if ((GravityCompat.getAbsoluteGravity(this.HU, ViewCompat.getLayoutDirection(this.oa)) & 7) == 5) {
-                i -= this.oa.getWidth();
+            if ((GravityCompat.getAbsoluteGravity(this.mDropDownGravity, ViewCompat.getLayoutDirection(this.mAnchorView)) & 7) == 5) {
+                i -= this.mAnchorView.getWidth();
             }
             popup.setHorizontalOffset(i);
             popup.setVerticalOffset(i2);
@@ -161,28 +168,30 @@ public class MenuPopupHelper {
         popup.show();
     }
 
+    @Override // android.support.v7.view.menu.MenuHelper
     public void dismiss() {
         if (isShowing()) {
-            this.Jy.dismiss();
+            this.mPopup.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDismiss() {
-        this.Jy = null;
-        if (this.Id != null) {
-            this.Id.onDismiss();
+        this.mPopup = null;
+        if (this.mOnDismissListener != null) {
+            this.mOnDismissListener.onDismiss();
         }
     }
 
     public boolean isShowing() {
-        return this.Jy != null && this.Jy.isShowing();
+        return this.mPopup != null && this.mPopup.isShowing();
     }
 
-    public void setPresenterCallback(MenuPresenter.Callback callback) {
-        this.Ib = callback;
-        if (this.Jy != null) {
-            this.Jy.setCallback(callback);
+    @Override // android.support.v7.view.menu.MenuHelper
+    public void setPresenterCallback(@Nullable MenuPresenter.Callback callback) {
+        this.mPresenterCallback = callback;
+        if (this.mPopup != null) {
+            this.mPopup.setCallback(callback);
         }
     }
 }

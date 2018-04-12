@@ -2,8 +2,7 @@ package org.apache.http.entity.mime.content;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import org.apache.http.entity.mime.MIME;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ByteArrayBody extends AbstractContentBody {
     private final byte[] data;
     private final String filename;
@@ -38,7 +37,7 @@ public class ByteArrayBody extends AbstractContentBody {
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public String getTransferEncoding() {
-        return MIME.ENC_BINARY;
+        return "binary";
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor

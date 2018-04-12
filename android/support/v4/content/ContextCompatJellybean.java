@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 /* loaded from: classes2.dex */
 class ContextCompatJellybean {
+    ContextCompatJellybean() {
+    }
+
     public static void startActivities(Context context, Intent[] intentArr, Bundle bundle) {
         context.startActivities(intentArr, bundle);
     }
