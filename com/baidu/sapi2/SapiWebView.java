@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.support.v7.widget.ActivityChooserView;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
@@ -568,17 +569,17 @@ public final class SapiWebView extends WebView {
         c();
     }
 
-    public final void setNoNetworkView(View view) {
+    public final void setNoNetworkView(View view2) {
         if (this.az == null) {
-            this.az = view;
+            this.az = view2;
             this.az.setVisibility(4);
             addView(this.az, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
-    public final void setTimeoutView(View view) {
+    public final void setTimeoutView(View view2) {
         if (this.aA == null) {
-            this.aA = view;
+            this.aA = view2;
             this.aA.setVisibility(4);
             addView(this.aA, new ViewGroup.LayoutParams(-1, -1));
         }
@@ -4574,7 +4575,7 @@ public final class SapiWebView extends WebView {
             this.aH = new SMSReceiver(handler);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
-            intentFilter.setPriority(Integer.MAX_VALUE);
+            intentFilter.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             getContext().registerReceiver(this.aH, intentFilter);
         }
     }

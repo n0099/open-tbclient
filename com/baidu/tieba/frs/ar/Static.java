@@ -9,32 +9,33 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
-import com.baidu.tieba.frs.ar.a.a;
-import com.baidu.tieba.frs.ar.a.b;
-import com.baidu.tieba.frs.i;
+import com.baidu.tbadk.core.sharedPref.b;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.ar.view.FrsARAnimView;
+import com.baidu.tieba.frs.ar.view.FrsAREntryView;
 import java.util.Calendar;
 import tbclient.ForumArIno;
 /* loaded from: classes3.dex */
 public class Static {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(FrsArActivityConfig.class, ARActivity.class);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921326, new CustomMessageTask.CustomRunnable<i>() { // from class: com.baidu.tieba.frs.ar.Static.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921326, new CustomMessageTask.CustomRunnable<FrsFragment>() { // from class: com.baidu.tieba.frs.ar.Static.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<i> customMessage) {
-                a aVar = null;
+            public CustomResponsedMessage<?> run(CustomMessage<FrsFragment> customMessage) {
+                FrsARAnimView frsARAnimView = null;
                 boolean z = true;
-                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().avl() == null || customMessage.getData().avl().dJs == null) {
+                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().apE() == null || customMessage.getData().apE().dce == null) {
                     return null;
                 }
-                ForumArIno forumArIno = customMessage.getData().avl().dJs;
+                ForumArIno forumArIno = customMessage.getData().apE().dce;
                 if (forumArIno._switch.intValue() != 0) {
-                    b bVar = new b(customMessage.getData().getPageContext().getPageActivity());
-                    bVar.setForumArIno(forumArIno);
-                    if (customMessage.getData().avl().bas() != null) {
-                        bVar.setForumName(customMessage.getData().avl().bas().getName());
+                    FrsAREntryView frsAREntryView = new FrsAREntryView(customMessage.getData().getPageContext().getPageActivity());
+                    frsAREntryView.setForumArIno(forumArIno);
+                    if (customMessage.getData().apE().aVq() != null) {
+                        frsAREntryView.setForumName(customMessage.getData().apE().aVq().getName());
                     }
-                    bVar.awS();
-                    long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_ar_big_anim_show_time", 0L);
+                    frsAREntryView.ari();
+                    long j = b.getInstance().getLong("frs_ar_big_anim_show_time", 0L);
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(j);
                     Calendar calendar2 = Calendar.getInstance();
@@ -45,32 +46,32 @@ public class Static {
                         z = false;
                     }
                     if (z) {
-                        aVar = new a(customMessage.getData().getPageContext().getPageActivity());
-                        aVar.setBdUniqueId(customMessage.getData().getUniqueId());
-                        aVar.startAnim();
-                        com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("frs_ar_big_anim_show_time", calendar2.getTimeInMillis());
+                        frsARAnimView = new FrsARAnimView(customMessage.getData().getPageContext().getPageActivity());
+                        frsARAnimView.setBdUniqueId(customMessage.getData().getUniqueId());
+                        frsARAnimView.startAnim();
+                        b.getInstance().putLong("frs_ar_big_anim_show_time", calendar2.getTimeInMillis());
                     }
-                    ViewGroup afu = customMessage.getData().auT().afu();
-                    if (afu instanceof RelativeLayout) {
-                        RelativeLayout relativeLayout = (RelativeLayout) afu;
+                    ViewGroup ZG = customMessage.getData().apn().ZG();
+                    if (ZG instanceof RelativeLayout) {
+                        RelativeLayout relativeLayout = (RelativeLayout) ZG;
                         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                         layoutParams.addRule(11);
                         layoutParams.addRule(12);
                         layoutParams.bottomMargin = 100;
                         layoutParams.rightMargin = 30;
-                        relativeLayout.addView(bVar, layoutParams);
+                        relativeLayout.addView(frsAREntryView, layoutParams);
                         if (z) {
-                            relativeLayout.addView(aVar, new RelativeLayout.LayoutParams(-1, -1));
+                            relativeLayout.addView(frsARAnimView, new RelativeLayout.LayoutParams(-1, -1));
                         }
-                    } else if (afu instanceof FrameLayout) {
-                        FrameLayout frameLayout = (FrameLayout) afu;
+                    } else if (ZG instanceof FrameLayout) {
+                        FrameLayout frameLayout = (FrameLayout) ZG;
                         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
                         layoutParams2.gravity = 85;
                         layoutParams2.bottomMargin = 100;
                         layoutParams2.rightMargin = 30;
-                        frameLayout.addView(bVar, layoutParams2);
+                        frameLayout.addView(frsAREntryView, layoutParams2);
                         if (z) {
-                            frameLayout.addView(aVar, new FrameLayout.LayoutParams(-1, -1));
+                            frameLayout.addView(frsARAnimView, new FrameLayout.LayoutParams(-1, -1));
                         }
                     }
                     CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(2921326);

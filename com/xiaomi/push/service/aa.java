@@ -5,7 +5,7 @@ import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.service.ak;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class aa {
     static com.xiaomi.slim.b a(XMPushService xMPushService, byte[] bArr) {
         com.xiaomi.xmpush.thrift.ab abVar = new com.xiaomi.xmpush.thrift.ab();

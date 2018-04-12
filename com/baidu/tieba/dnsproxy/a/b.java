@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     String address;
-    float dmS;
+    float cEY;
     private List<Integer> data = new ArrayList();
-    boolean dmT = false;
-    boolean dmU = false;
+    boolean cEZ = false;
+    boolean cFa = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -38,7 +38,7 @@ public class b {
         return builder.build(true);
     }
 
-    public void mb(int i) {
+    public void jn(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.dmS = 0.0f;
+            this.cEY = 0.0f;
         } else if (size == 1) {
-            this.dmS = this.data.get(0).intValue();
+            this.cEY = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.dmS = ((i * f3) / size) + f;
-            if (this.dmS < 0.05d) {
-                if (!this.dmT) {
-                    com.baidu.tieba.dnsproxy.d.apy().A("ip_weight_lower", this.address, String.valueOf(this.dmS));
-                    this.dmT = true;
+            this.cEY = ((i * f3) / size) + f;
+            if (this.cEY < 0.05d) {
+                if (!this.cEZ) {
+                    com.baidu.tieba.dnsproxy.d.ajG().z("ip_weight_lower", this.address, String.valueOf(this.cEY));
+                    this.cEZ = true;
                 }
-            } else if (this.dmT && this.dmS > 0.5d && !this.dmU) {
-                com.baidu.tieba.dnsproxy.d.apy().A("ip_weight_lower_recover", this.address, String.valueOf(this.dmS));
-                this.dmU = true;
+            } else if (this.cEZ && this.cEY > 0.5d && !this.cFa) {
+                com.baidu.tieba.dnsproxy.d.ajG().z("ip_weight_lower_recover", this.address, String.valueOf(this.cEY));
+                this.cFa = true;
             }
         }
     }

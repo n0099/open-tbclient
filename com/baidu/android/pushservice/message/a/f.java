@@ -13,13 +13,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushService;
-import com.baidu.android.pushservice.j.o;
-import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.ar.util.Constants;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     @SuppressLint({"NewApi"})
     public static void a(Context context, PublicMsg publicMsg, String str) {
@@ -35,7 +33,7 @@ public class f {
         intent.setClass(context, PushService.class);
         intent2.setClass(context, PushService.class);
         Notification.Builder autoCancel = new Notification.Builder(context).setContentTitle(publicMsg.mTitle).setContentText(publicMsg.mDescription).setSmallIcon(17301569).setTicker(publicMsg.mTitle).setSound(RingtoneManager.getDefaultUri(2)).setDeleteIntent(PendingIntent.getService(context, 0, intent2, 0)).setContentIntent(PendingIntent.getService(context, 0, intent, 0)).setAutoCancel(true);
-        notificationManager.notify(p.b(str), Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification());
+        notificationManager.notify(com.baidu.android.pushservice.j.m.a(str), Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification());
     }
 
     public static void a(Context context, PublicMsg publicMsg, String str, String str2, int i, byte[] bArr, byte[] bArr2) {
@@ -47,11 +45,11 @@ public class f {
         intent.putExtra("message_id", str);
         intent.putExtra(Constants.HTTP_APP_ID, str2);
         intent.putExtra("baidu_message_type", i);
-        if (p.m(context, publicMsg.mPkgName) > 45) {
+        if (com.baidu.android.pushservice.j.m.m(context, publicMsg.mPkgName) > 45) {
             intent.putExtra("baidu_message_body", bArr2);
             intent.putExtra("baidu_message_secur_info", bArr);
         }
-        p.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
+        com.baidu.android.pushservice.j.m.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
     }
 
     public static void a(Context context, String str) {
@@ -59,7 +57,7 @@ public class f {
             Intent intent = new Intent(com.baidu.android.pushservice.PushConstants.ACTION_METHOD);
             intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
             intent.putExtra(Constants.HTTP_APP_ID, str);
-            o.a(context, intent);
+            com.baidu.android.pushservice.j.l.a(context, intent);
         } catch (Exception e) {
         }
     }
@@ -73,11 +71,11 @@ public class f {
         intent.putExtra("pushService_package_name", context.getPackageName());
         intent.putExtra("baidu_message_type", i);
         intent.putExtra("service_name", "com.baidu.android.pushservice.PushService");
-        if (p.m(context, publicMsg.mPkgName) > 45) {
+        if (com.baidu.android.pushservice.j.m.m(context, publicMsg.mPkgName) > 45) {
             intent.putExtra("baidu_message_body", bArr2);
             intent.putExtra("baidu_message_secur_info", bArr);
         }
-        p.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
+        com.baidu.android.pushservice.j.m.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
     }
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
@@ -91,14 +89,14 @@ public class f {
         cVar.c(3);
         cVar.a(str);
         cVar.b(str2);
-        cVar.a(p.q(context, intent.getPackage()));
+        cVar.a(com.baidu.android.pushservice.j.m.q(context, intent.getPackage()));
         cVar.a(context, activity, str5);
     }
 
     public static boolean a(Context context, PublicMsg publicMsg) {
         boolean z;
         if (publicMsg.mNetType == 1) {
-            NetworkInfo c = com.baidu.android.pushservice.j.k.c(context);
+            NetworkInfo c = com.baidu.android.pushservice.j.h.c(context);
             if (!(c != null && "wifi".equals(c.getTypeName().toLowerCase(Locale.getDefault())))) {
                 return false;
             }

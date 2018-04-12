@@ -2,7 +2,7 @@ package com.coloros.mcssdk.d;
 
 import android.content.Context;
 import com.coloros.mcssdk.e.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void processMessage(Context context, com.coloros.mcssdk.e.a aVar);
 

@@ -7,7 +7,7 @@ import com.xiaomi.push.service.ah;
 import com.xiaomi.push.service.k;
 import com.xiaomi.xmpush.thrift.ae;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class z implements k.a {
     public z(Context context) {
         com.xiaomi.push.service.k.a(context).a(this);

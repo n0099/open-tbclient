@@ -4,7 +4,10 @@ import android.view.View;
 import android.widget.PopupWindow;
 /* loaded from: classes2.dex */
 class PopupWindowCompatKitKat {
-    public static void showAsDropDown(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        popupWindow.showAsDropDown(view, i, i2, i3);
+    PopupWindowCompatKitKat() {
+    }
+
+    public static void showAsDropDown(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
+        popupWindow.showAsDropDown(view2, i, i2, i3);
     }
 }

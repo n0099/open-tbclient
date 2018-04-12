@@ -1,8 +1,7 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
-import com.baidu.android.pushservice.j.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
     private Context a;
 
@@ -35,7 +34,7 @@ public class k {
             case MSG_TYPE_ULTRON_COMMAND:
                 return new n(this.a);
             default:
-                p.b(">>> Unknown msg_type : " + lVar, this.a);
+                com.baidu.android.pushservice.j.m.b(">>> Unknown msg_type : " + lVar, this.a);
                 return null;
         }
     }

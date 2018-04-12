@@ -19,15 +19,15 @@ public class b extends BdAsyncTask<e, Integer, String> {
         if (eVar == null) {
             return "";
         }
-        List<String> cf = s.cf(TbadkCoreApplication.getInst().getContext());
-        for (f fVar : eVar.FD()) {
+        List<String> bT = s.bT(TbadkCoreApplication.getInst().getContext());
+        for (f fVar : eVar.yq()) {
             if (fVar != null) {
                 String packageName = fVar.getPackageName();
-                Iterator<String> it = cf.iterator();
+                Iterator<String> it = bT.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         if (it.next().startsWith(packageName)) {
-                            fVar.bD(true);
+                            fVar.aV(true);
                             break;
                         }
                     } else {
@@ -36,7 +36,7 @@ public class b extends BdAsyncTask<e, Integer, String> {
                 }
             }
         }
-        return eVar.FC();
+        return eVar.yp();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

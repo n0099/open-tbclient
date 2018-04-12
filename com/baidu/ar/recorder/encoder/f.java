@@ -3,11 +3,13 @@ package com.baidu.ar.recorder.encoder;
 import android.media.MediaCodec;
 import android.media.MediaCrypto;
 import android.media.MediaFormat;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.Surface;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
+@RequiresApi(api = 18)
 /* loaded from: classes3.dex */
 public class f extends b {
     private static final String g = f.class.getSimpleName();

@@ -5,17 +5,19 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class HeadImageView extends com.baidu.tbadk.widget.b {
-    private int bat;
-    private int bau;
-    public boolean bav;
-    public boolean baw;
-    protected int bax;
-    private Drawable bay;
-    private int baz;
+public class HeadImageView extends TbClipImageView {
+    private int alO;
+    private int alP;
+    public boolean alQ;
+    public boolean alR;
+    protected int alS;
+    private Drawable alT;
+    private int alU;
     public boolean isBigV;
     private int mDefaultBgId;
     private int mDefaultId;
@@ -34,25 +36,25 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
 
     public HeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bat = 0;
+        this.alO = 0;
         this.mIconWidth = 0;
-        this.bav = false;
+        this.alQ = false;
         this.isBigV = false;
-        this.baw = false;
-        this.bax = 0;
-        this.bay = null;
+        this.alR = false;
+        this.alS = 0;
+        this.alT = null;
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
         this.mDefaultId = d.f.transparent_bg;
-        this.mDefaultBgId = d.C0141d.cp_bg_line_e;
-        this.baz = d.f.pic_v_avatar;
+        this.mDefaultBgId = d.C0126d.cp_bg_line_e;
+        this.alU = d.f.pic_v_avatar;
         init();
     }
 
     private void init() {
-        this.bau = com.baidu.adp.lib.util.l.t(getContext(), d.e.ds6);
-        this.mIconWidth = com.baidu.adp.lib.util.l.t(getContext(), d.e.tbds42);
+        this.alP = l.e(getContext(), d.e.ds6);
+        this.mIconWidth = l.e(getContext(), d.e.tbds42);
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
@@ -79,10 +81,10 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     }
 
     public void setUserName(String str) {
-        ad(str, str + getResources().getString(d.j.somebodys_portrait));
+        setUserName(str, str + getResources().getString(d.k.somebodys_portrait));
     }
 
-    public void ad(String str, String str2) {
+    public void setUserName(String str, String str2) {
         this.user_name = str;
         setContentDescription(str2);
     }
@@ -95,8 +97,8 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.bAq) {
-            this.mPerfLog.Op();
+        } else if (this.mPerfLog != null && this.mPerfLog.aKM) {
+            this.mPerfLog.GR();
         }
     }
 
@@ -104,19 +106,19 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            if (this.bax != 0) {
+            if (this.alS != 0) {
                 Paint paint = new Paint();
-                paint.setColor(this.bax);
+                paint.setColor(this.alS);
                 canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, getWidth() / 2.0f, paint);
             }
-            j(canvas);
-            if (this.bav && !this.isBigV) {
-                Drawable drawable = this.bay == null ? aj.getDrawable(d.f.pic_v_avatar) : this.bay;
+            g(canvas);
+            if (this.alQ && !this.isBigV) {
+                Drawable drawable = this.alT == null ? ak.getDrawable(d.f.pic_v_avatar) : this.alT;
                 if (drawable != null) {
                     int width = getWidth();
                     int height = getHeight();
-                    if (this.bav) {
-                        drawable.setBounds((width - this.mIconWidth) - this.bat, (height - this.mIconWidth) - this.bat, width - this.bat, height - this.bat);
+                    if (this.alQ) {
+                        drawable.setBounds((width - this.mIconWidth) - this.alO, (height - this.mIconWidth) - this.alO, width - this.alO, height - this.alO);
                     }
                     drawable.draw(canvas);
                 }
@@ -125,28 +127,28 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     }
 
     public void setGodIconWidth(int i) {
-        this.bav = true;
+        this.alQ = true;
         if (i < 0) {
-            this.bav = false;
+            this.alQ = false;
             this.mIconWidth = 0;
         } else {
-            this.mIconWidth = com.baidu.adp.lib.util.l.t(getContext(), i);
+            this.mIconWidth = l.e(getContext(), i);
         }
         if (this.mIconWidth < 0) {
             this.mIconWidth = 0;
-            this.bav = false;
+            this.alQ = false;
         }
         invalidate();
     }
 
     public void setGodIconMargin(int i) {
-        this.bav = true;
+        this.alQ = true;
         setIsRound(true);
         if (i > 0) {
-            this.bat = com.baidu.adp.lib.util.l.t(getContext(), i);
+            this.alO = l.e(getContext(), i);
         }
         if (i < 0) {
-            this.bav = false;
+            this.alQ = false;
         }
         invalidate();
     }
@@ -156,18 +158,18 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
             setGodIconMargin(0);
             return;
         }
-        this.bav = false;
+        this.alQ = false;
         setIsRound(true);
-        this.bat = 0;
+        this.alO = 0;
         invalidate();
     }
 
     public void setMaskColor(int i) {
-        this.bax = i;
+        this.alS = i;
     }
 
     public void setCustomGodIcon(Drawable drawable) {
-        this.bay = drawable;
+        this.alT = drawable;
     }
 
     public void setIsBigV(boolean z) {
@@ -175,21 +177,21 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     }
 
     public void setShowV(boolean z) {
-        this.baw = z;
+        this.alR = z;
     }
 
-    public void j(Canvas canvas) {
+    public void g(Canvas canvas) {
         Drawable drawable;
-        if (this.baw && (drawable = aj.getDrawable(this.baz)) != null) {
+        if (this.alR && (drawable = ak.getDrawable(this.alU)) != null) {
             int width = getWidth();
             int height = getHeight();
-            drawable.setBounds((width - this.mIconWidth) - this.bat, (height - this.mIconWidth) - this.bat, width - this.bat, height - this.bat);
+            drawable.setBounds((width - this.mIconWidth) - this.alO, (height - this.mIconWidth) - this.alO, width - this.alO, height - this.alO);
             drawable.draw(canvas);
         }
     }
 
     public void setIconMargin(int i) {
-        this.bat = i;
+        this.alO = i;
     }
 
     public void setIconWidth(int i) {
@@ -197,6 +199,6 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     }
 
     public void setCustomBigViewIconId(int i) {
-        this.baz = i;
+        this.alU = i;
     }
 }

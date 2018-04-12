@@ -32,14 +32,14 @@ import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.android.pushservice.d.a;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.richmedia.c;
 import com.baidu.ar.util.Constants;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaListActivity extends Activity {
     private static String r = "downloadUrl";
     ArrayList<HashMap<String, Object>> a;
@@ -61,7 +61,7 @@ public class MediaListActivity extends Activity {
     private LinearLayout l = null;
     private final AdapterView.OnItemClickListener s = new AdapterView.OnItemClickListener() { // from class: com.baidu.android.pushservice.richmedia.MediaListActivity.2
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             String str;
             Uri fromFile;
             a.g a2 = com.baidu.android.pushservice.d.a.a(MediaListActivity.this, (String) ((HashMap) adapterView.getItemAtPosition(i)).get(MediaListActivity.r));
@@ -75,7 +75,7 @@ public class MediaListActivity extends Activity {
                     String str3 = str2 + "/" + str.substring(0, str.lastIndexOf(Constants.DOT)) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
-                    int A = p.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
+                    int A = m.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
                     File file = new File(str3);
                     if (A >= 24) {
                         ContentValues contentValues = new ContentValues(1);
@@ -93,7 +93,7 @@ public class MediaListActivity extends Activity {
     };
     private final AdapterView.OnItemLongClickListener t = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.android.pushservice.richmedia.MediaListActivity.3
         @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, final long j) {
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, final long j) {
             new AlertDialog.Builder(MediaListActivity.this).setTitle("提示").setMessage("确定要删除该记录？").setPositiveButton("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.android.pushservice.richmedia.MediaListActivity.3.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i2) {
@@ -116,7 +116,7 @@ public class MediaListActivity extends Activity {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends BaseAdapter {
         private final Context b;
         private final ArrayList<HashMap<String, Object>> c;
@@ -145,7 +145,7 @@ public class MediaListActivity extends Activity {
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view2, ViewGroup viewGroup) {
             HashMap<String, Object> hashMap;
             View inflate = LayoutInflater.from(this.b.getApplicationContext()).inflate(MediaListActivity.this.e, (ViewGroup) null);
             inflate.setBackgroundColor(-7829368);
@@ -226,7 +226,7 @@ public class MediaListActivity extends Activity {
                     String str7 = str6 + "/" + str5.substring(0, str5.lastIndexOf(Constants.DOT)) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
-                    int A = p.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
+                    int A = m.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
                     File file2 = new File(str7);
                     if (A >= 24) {
                         ContentValues contentValues = new ContentValues(1);
@@ -283,7 +283,7 @@ public class MediaListActivity extends Activity {
             button.setClickable(true);
             button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.android.pushservice.richmedia.MediaListActivity.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     MediaListActivity.this.finish();
                 }
             });
@@ -333,7 +333,7 @@ public class MediaListActivity extends Activity {
                 hashMap.put(strArr[0], packageManager.getApplicationIcon(applicationInfo));
                 hashMap.put(strArr[1], b.get(i2).c);
                 hashMap.put(strArr[2], "来自：" + ((Object) packageManager.getApplicationLabel(applicationInfo)));
-                hashMap.put(strArr[3], p.a(b.get(i2).j));
+                hashMap.put(strArr[3], m.a(b.get(i2).j));
                 hashMap.put(r, b.get(i2).b);
                 this.a.add(hashMap);
             } catch (PackageManager.NameNotFoundException e) {

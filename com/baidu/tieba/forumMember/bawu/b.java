@@ -4,36 +4,36 @@ import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes3.dex */
 public class b implements i {
-    private ArrayList<BawuRoleInfoPub> dAt = new ArrayList<>();
-    private boolean dAu = false;
-    private String dAv;
+    private ArrayList<BawuRoleInfoPub> cTf = new ArrayList<>();
+    private boolean cTg = false;
+    private String cTh;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int atJ() {
+    public int anY() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> atK() {
-        return this.dAt;
+    public ArrayList<BawuRoleInfoPub> anZ() {
+        return this.cTf;
     }
 
     public void H(ArrayList<BawuRoleInfoPub> arrayList) {
-        this.dAt = arrayList;
+        this.cTf = arrayList;
     }
 
     public boolean isLast() {
-        return this.dAu;
+        return this.cTg;
     }
 
-    public void fE(boolean z) {
-        this.dAu = z;
+    public void fj(boolean z) {
+        this.cTg = z;
     }
 
-    public String atL() {
-        return this.dAv;
+    public String aoa() {
+        return this.cTh;
     }
 
-    public void lv(String str) {
-        this.dAv = str;
+    public void ly(String str) {
+        this.cTh = str;
     }
 }

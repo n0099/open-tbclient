@@ -11,7 +11,7 @@ public class NestedScrollingParentHelper {
         this.mViewGroup = viewGroup;
     }
 
-    public void onNestedScrollAccepted(View view, View view2, int i) {
+    public void onNestedScrollAccepted(View view2, View view3, int i) {
         this.mNestedScrollAxes = i;
     }
 
@@ -19,7 +19,7 @@ public class NestedScrollingParentHelper {
         return this.mNestedScrollAxes;
     }
 
-    public void onStopNestedScroll(View view) {
+    public void onStopNestedScroll(View view2) {
         this.mNestedScrollAxes = 0;
     }
 }

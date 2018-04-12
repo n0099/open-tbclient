@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.widget.ProgressBar;
 /* loaded from: classes2.dex */
 public class ContentLoadingProgressBar extends ProgressBar {
+    private static final int MIN_DELAY = 500;
+    private static final int MIN_SHOW_TIME = 500;
     private final Runnable mDelayedHide;
     private final Runnable mDelayedShow;
     boolean mDismissed;

@@ -4,10 +4,10 @@ import android.graphics.Bitmap;
 import android.os.Build;
 /* loaded from: classes2.dex */
 public final class BitmapCompat {
-    static final b wo;
+    static final BitmapImpl IMPL;
 
     /* loaded from: classes2.dex */
-    interface b {
+    interface BitmapImpl {
         int getAllocationByteCount(Bitmap bitmap);
 
         boolean hasMipMap(Bitmap bitmap);
@@ -16,86 +16,86 @@ public final class BitmapCompat {
     }
 
     /* loaded from: classes2.dex */
-    static class a implements b {
-        a() {
+    static class BaseBitmapImpl implements BitmapImpl {
+        BaseBitmapImpl() {
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.b
+        @Override // android.support.v4.graphics.BitmapCompat.BitmapImpl
         public boolean hasMipMap(Bitmap bitmap) {
             return false;
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.b
+        @Override // android.support.v4.graphics.BitmapCompat.BitmapImpl
         public void setHasMipMap(Bitmap bitmap, boolean z) {
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.b
+        @Override // android.support.v4.graphics.BitmapCompat.BitmapImpl
         public int getAllocationByteCount(Bitmap bitmap) {
             return bitmap.getRowBytes() * bitmap.getHeight();
         }
     }
 
     /* loaded from: classes2.dex */
-    static class c extends a {
-        c() {
+    static class HcMr1BitmapCompatImpl extends BaseBitmapImpl {
+        HcMr1BitmapCompatImpl() {
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.a, android.support.v4.graphics.BitmapCompat.b
+        @Override // android.support.v4.graphics.BitmapCompat.BaseBitmapImpl, android.support.v4.graphics.BitmapCompat.BitmapImpl
         public int getAllocationByteCount(Bitmap bitmap) {
-            return android.support.v4.graphics.a.getAllocationByteCount(bitmap);
+            return BitmapCompatHoneycombMr1.getAllocationByteCount(bitmap);
         }
     }
 
     /* loaded from: classes2.dex */
-    static class d extends c {
-        d() {
+    static class JbMr2BitmapCompatImpl extends HcMr1BitmapCompatImpl {
+        JbMr2BitmapCompatImpl() {
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.a, android.support.v4.graphics.BitmapCompat.b
+        @Override // android.support.v4.graphics.BitmapCompat.BaseBitmapImpl, android.support.v4.graphics.BitmapCompat.BitmapImpl
         public boolean hasMipMap(Bitmap bitmap) {
-            return android.support.v4.graphics.b.hasMipMap(bitmap);
+            return BitmapCompatJellybeanMR2.hasMipMap(bitmap);
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.a, android.support.v4.graphics.BitmapCompat.b
+        @Override // android.support.v4.graphics.BitmapCompat.BaseBitmapImpl, android.support.v4.graphics.BitmapCompat.BitmapImpl
         public void setHasMipMap(Bitmap bitmap, boolean z) {
-            android.support.v4.graphics.b.setHasMipMap(bitmap, z);
+            BitmapCompatJellybeanMR2.setHasMipMap(bitmap, z);
         }
     }
 
     /* loaded from: classes2.dex */
-    static class e extends d {
-        e() {
+    static class KitKatBitmapCompatImpl extends JbMr2BitmapCompatImpl {
+        KitKatBitmapCompatImpl() {
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.c, android.support.v4.graphics.BitmapCompat.a, android.support.v4.graphics.BitmapCompat.b
+        @Override // android.support.v4.graphics.BitmapCompat.HcMr1BitmapCompatImpl, android.support.v4.graphics.BitmapCompat.BaseBitmapImpl, android.support.v4.graphics.BitmapCompat.BitmapImpl
         public int getAllocationByteCount(Bitmap bitmap) {
-            return android.support.v4.graphics.c.getAllocationByteCount(bitmap);
+            return BitmapCompatKitKat.getAllocationByteCount(bitmap);
         }
     }
 
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 19) {
-            wo = new e();
+            IMPL = new KitKatBitmapCompatImpl();
         } else if (i >= 18) {
-            wo = new d();
+            IMPL = new JbMr2BitmapCompatImpl();
         } else if (i >= 12) {
-            wo = new c();
+            IMPL = new HcMr1BitmapCompatImpl();
         } else {
-            wo = new a();
+            IMPL = new BaseBitmapImpl();
         }
     }
 
     public static boolean hasMipMap(Bitmap bitmap) {
-        return wo.hasMipMap(bitmap);
+        return IMPL.hasMipMap(bitmap);
     }
 
     public static void setHasMipMap(Bitmap bitmap, boolean z) {
-        wo.setHasMipMap(bitmap, z);
+        IMPL.setHasMipMap(bitmap, z);
     }
 
     public static int getAllocationByteCount(Bitmap bitmap) {
-        return wo.getAllocationByteCount(bitmap);
+        return IMPL.getAllocationByteCount(bitmap);
     }
 
     private BitmapCompat() {

@@ -5,6 +5,9 @@ import android.graphics.drawable.Drawable;
 import java.io.File;
 /* loaded from: classes2.dex */
 class ContextCompatApi21 {
+    ContextCompatApi21() {
+    }
+
     public static Drawable getDrawable(Context context, int i) {
         return context.getDrawable(i);
     }

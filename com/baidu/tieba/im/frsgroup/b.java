@@ -2,21 +2,21 @@ package com.baidu.tieba.im.frsgroup;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
-public class b extends r.a {
-    public View dBD;
+public class b extends q.a {
+    public View cUp;
+    public TextView dXG;
     public View divider;
-    public TextView eDc;
     public View rootView;
 
-    public b(View view, View.OnClickListener onClickListener) {
-        super(view);
-        this.rootView = view;
-        this.dBD = view.findViewById(d.g.divider_top);
-        this.eDc = (TextView) view.findViewById(d.g.create_item_text);
-        this.divider = view.findViewById(d.g.divider);
+    public b(View view2, View.OnClickListener onClickListener) {
+        super(view2);
+        this.rootView = view2;
+        this.cUp = view2.findViewById(d.g.divider_top);
+        this.dXG = (TextView) view2.findViewById(d.g.create_item_text);
+        this.divider = view2.findViewById(d.g.divider);
         this.rootView.setOnClickListener(onClickListener);
     }
 }

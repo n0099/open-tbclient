@@ -18,27 +18,27 @@ import com.baidu.tieba.d.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class d implements a.InterfaceC0139a {
-    private static d dgq = null;
-    private a dgr;
-    private a dgs;
-    private ArrayList<TransmitForumData> dgt;
-    private ArrayList<TransmitForumData> dgv;
+public class d implements a.InterfaceC0124a {
+    private static d cye = null;
+    private a cyf;
+    private a cyg;
+    private ArrayList<TransmitForumData> cyh;
+    private ArrayList<TransmitForumData> cyj;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean dgu = false;
-    private boolean dgw = false;
+    private boolean cyi = false;
+    private boolean cyk = false;
     private boolean isLoading = false;
 
-    public static d anj() {
-        if (dgq == null) {
+    public static d ahh() {
+        if (cye == null) {
             synchronized (d.class) {
-                if (dgq == null) {
-                    dgq = new d();
+                if (cye == null) {
+                    cye = new d();
                 }
             }
         }
-        return dgq;
+        return cye;
     }
 
     private d() {
@@ -46,43 +46,43 @@ public class d implements a.InterfaceC0139a {
     }
 
     private void init() {
-        anl();
-        ank();
+        ahj();
+        ahi();
         this.isLoading = false;
     }
 
-    private void ank() {
+    private void ahi() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), a.class);
         if (runTask != null) {
-            this.dgs = (a) runTask.getData();
+            this.cyg = (a) runTask.getData();
         }
-        if (this.dgs != null) {
-            this.dgs.a(this);
+        if (this.cyg != null) {
+            this.cyg.a(this);
         }
     }
 
-    private void anl() {
+    private void ahj() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), a.class);
         if (runTask != null) {
-            this.dgr = (a) runTask.getData();
+            this.cyf = (a) runTask.getData();
         }
-        if (this.dgr != null) {
-            this.dgr.a(this);
+        if (this.cyf != null) {
+            this.cyf.a(this);
         }
     }
 
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !g.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.bls = ano();
+                shareDialogConfig.shareItem.awW = ahm();
             }
-            if (l.pa() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
+            if (l.hg() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
                 this.isLoading = true;
-                if (this.dgr != null) {
-                    this.dgr.ane();
+                if (this.cyf != null) {
+                    this.cyf.ahc();
                 }
-                if (this.dgs != null) {
-                    this.dgs.ane();
+                if (this.cyg != null) {
+                    this.cyg.ahc();
                 }
             }
             shareDialogConfig.setIsShowTransmitShare(true);
@@ -92,60 +92,60 @@ public class d implements a.InterfaceC0139a {
         }
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0139a
+    @Override // com.baidu.tieba.d.a.InterfaceC0124a
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.dgv = arrayList;
+                this.cyj = arrayList;
             }
-            this.dgw = true;
+            this.cyk = true;
         } else if (i == 2) {
             if (z) {
-                this.dgt = arrayList;
+                this.cyh = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.dgu = true;
+            this.cyi = true;
         }
-        anm();
+        ahk();
     }
 
-    private void anm() {
-        if (this.dgr == null || this.dgu) {
-            if (this.dgs == null || this.dgw) {
-                this.dgu = false;
-                this.dgw = false;
+    private void ahk() {
+        if (this.cyf == null || this.cyi) {
+            if (this.cyg == null || this.cyk) {
+                this.cyi = false;
+                this.cyk = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!v.E(this.dgt)) {
-                    Iterator<TransmitForumData> it = this.dgt.iterator();
+                if (!v.w(this.cyh)) {
+                    Iterator<TransmitForumData> it = this.cyh.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
-                        if (!bp(next.forumId)) {
+                        if (!bn(next.forumId)) {
                             this.mForumList.add(next);
                         }
                     }
                 }
-                if (!v.E(this.dgv)) {
-                    Iterator<TransmitForumData> it2 = this.dgv.iterator();
+                if (!v.w(this.cyj)) {
+                    Iterator<TransmitForumData> it2 = this.cyj.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
-                        if (!bp(next2.forumId)) {
+                        if (!bn(next2.forumId)) {
                             this.mForumList.add(next2);
                         }
                     }
                 }
-                this.dgt = null;
-                this.dgv = null;
-                ann();
+                this.cyh = null;
+                this.cyj = null;
+                ahl();
             }
         }
     }
 
-    private void ann() {
+    private void ahl() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.mForumList));
     }
 
-    private boolean bp(long j) {
+    private boolean bn(long j) {
         if (this.mForumList == null) {
             return false;
         }
@@ -159,8 +159,8 @@ public class d implements a.InterfaceC0139a {
         return false;
     }
 
-    private Location ano() {
-        if (ab.aS(TbadkCoreApplication.getInst())) {
+    private Location ahm() {
+        if (ab.aC(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
             criteria.setAccuracy(1);

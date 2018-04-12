@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
-import android.support.v4.media.TransportMediator;
-import android.support.v4.media.session.f;
+import android.support.v4.media.session.PlaybackStateCompatApi21;
 import android.text.TextUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -35,19 +35,21 @@ public final class PlaybackStateCompat implements Parcelable {
     public static final long ACTION_STOP = 1;
     public static final Parcelable.Creator<PlaybackStateCompat> CREATOR = new Parcelable.Creator<PlaybackStateCompat>() { // from class: android.support.v4.media.session.PlaybackStateCompat.1
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: m */
         public PlaybackStateCompat createFromParcel(Parcel parcel) {
             return new PlaybackStateCompat(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ar */
         public PlaybackStateCompat[] newArray(int i) {
             return new PlaybackStateCompat[i];
         }
     };
+    private static final int KEYCODE_MEDIA_PAUSE = 127;
+    private static final int KEYCODE_MEDIA_PLAY = 126;
     public static final long PLAYBACK_POSITION_UNKNOWN = -1;
     public static final int STATE_BUFFERING = 6;
     public static final int STATE_CONNECTING = 8;
@@ -61,42 +63,42 @@ public final class PlaybackStateCompat implements Parcelable {
     public static final int STATE_SKIPPING_TO_PREVIOUS = 9;
     public static final int STATE_SKIPPING_TO_QUEUE_ITEM = 11;
     public static final int STATE_STOPPED = 1;
-    List<CustomAction> Aa;
-    final long Ab;
-    private Object Ac;
+    final long mActions;
+    final long mActiveItemId;
+    final long mBufferedPosition;
+    List<CustomAction> mCustomActions;
+    final CharSequence mErrorMessage;
     final Bundle mExtras;
+    final long mPosition;
     final float mSpeed;
     final int mState;
-    final long zV;
-    final long zW;
-    final long zX;
-    final CharSequence zY;
-    final long zZ;
+    private Object mStateObj;
+    final long mUpdateTime;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface Actions {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface MediaKeyAction {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface State {
     }
 
     public static int toKeyCode(long j) {
         if (j == 4) {
-            return TransportMediator.KEYCODE_MEDIA_PLAY;
+            return 126;
         }
         if (j == 2) {
-            return TransportMediator.KEYCODE_MEDIA_PAUSE;
+            return 127;
         }
         if (j == 32) {
             return 87;
@@ -121,41 +123,41 @@ public final class PlaybackStateCompat implements Parcelable {
 
     PlaybackStateCompat(int i, long j, long j2, float f, long j3, CharSequence charSequence, long j4, List<CustomAction> list, long j5, Bundle bundle) {
         this.mState = i;
-        this.zV = j;
-        this.zW = j2;
+        this.mPosition = j;
+        this.mBufferedPosition = j2;
         this.mSpeed = f;
-        this.zX = j3;
-        this.zY = charSequence;
-        this.zZ = j4;
-        this.Aa = new ArrayList(list);
-        this.Ab = j5;
+        this.mActions = j3;
+        this.mErrorMessage = charSequence;
+        this.mUpdateTime = j4;
+        this.mCustomActions = new ArrayList(list);
+        this.mActiveItemId = j5;
         this.mExtras = bundle;
     }
 
     PlaybackStateCompat(Parcel parcel) {
         this.mState = parcel.readInt();
-        this.zV = parcel.readLong();
+        this.mPosition = parcel.readLong();
         this.mSpeed = parcel.readFloat();
-        this.zZ = parcel.readLong();
-        this.zW = parcel.readLong();
-        this.zX = parcel.readLong();
-        this.zY = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.Aa = parcel.createTypedArrayList(CustomAction.CREATOR);
-        this.Ab = parcel.readLong();
+        this.mUpdateTime = parcel.readLong();
+        this.mBufferedPosition = parcel.readLong();
+        this.mActions = parcel.readLong();
+        this.mErrorMessage = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.mCustomActions = parcel.createTypedArrayList(CustomAction.CREATOR);
+        this.mActiveItemId = parcel.readLong();
         this.mExtras = parcel.readBundle();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("PlaybackState {");
         sb.append("state=").append(this.mState);
-        sb.append(", position=").append(this.zV);
-        sb.append(", buffered position=").append(this.zW);
+        sb.append(", position=").append(this.mPosition);
+        sb.append(", buffered position=").append(this.mBufferedPosition);
         sb.append(", speed=").append(this.mSpeed);
-        sb.append(", updated=").append(this.zZ);
-        sb.append(", actions=").append(this.zX);
-        sb.append(", error=").append(this.zY);
-        sb.append(", custom actions=").append(this.Aa);
-        sb.append(", active item id=").append(this.Ab);
+        sb.append(", updated=").append(this.mUpdateTime);
+        sb.append(", actions=").append(this.mActions);
+        sb.append(", error=").append(this.mErrorMessage);
+        sb.append(", custom actions=").append(this.mCustomActions);
+        sb.append(", active item id=").append(this.mActiveItemId);
         sb.append("}");
         return sb.toString();
     }
@@ -168,14 +170,14 @@ public final class PlaybackStateCompat implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mState);
-        parcel.writeLong(this.zV);
+        parcel.writeLong(this.mPosition);
         parcel.writeFloat(this.mSpeed);
-        parcel.writeLong(this.zZ);
-        parcel.writeLong(this.zW);
-        parcel.writeLong(this.zX);
-        TextUtils.writeToParcel(this.zY, parcel, i);
-        parcel.writeTypedList(this.Aa);
-        parcel.writeLong(this.Ab);
+        parcel.writeLong(this.mUpdateTime);
+        parcel.writeLong(this.mBufferedPosition);
+        parcel.writeLong(this.mActions);
+        TextUtils.writeToParcel(this.mErrorMessage, parcel, i);
+        parcel.writeTypedList(this.mCustomActions);
+        parcel.writeLong(this.mActiveItemId);
         parcel.writeBundle(this.mExtras);
     }
 
@@ -184,11 +186,11 @@ public final class PlaybackStateCompat implements Parcelable {
     }
 
     public long getPosition() {
-        return this.zV;
+        return this.mPosition;
     }
 
     public long getBufferedPosition() {
-        return this.zW;
+        return this.mBufferedPosition;
     }
 
     public float getPlaybackSpeed() {
@@ -196,25 +198,26 @@ public final class PlaybackStateCompat implements Parcelable {
     }
 
     public long getActions() {
-        return this.zX;
+        return this.mActions;
     }
 
     public List<CustomAction> getCustomActions() {
-        return this.Aa;
+        return this.mCustomActions;
     }
 
     public CharSequence getErrorMessage() {
-        return this.zY;
+        return this.mErrorMessage;
     }
 
     public long getLastPositionUpdateTime() {
-        return this.zZ;
+        return this.mUpdateTime;
     }
 
     public long getActiveQueueItemId() {
-        return this.Ab;
+        return this.mActiveItemId;
     }
 
+    @Nullable
     public Bundle getExtras() {
         return this.mExtras;
     }
@@ -223,79 +226,79 @@ public final class PlaybackStateCompat implements Parcelable {
         if (obj == null || Build.VERSION.SDK_INT < 21) {
             return null;
         }
-        List<Object> ae = f.ae(obj);
+        List<Object> customActions = PlaybackStateCompatApi21.getCustomActions(obj);
         ArrayList arrayList = null;
-        if (ae != null) {
-            arrayList = new ArrayList(ae.size());
-            for (Object obj2 : ae) {
+        if (customActions != null) {
+            arrayList = new ArrayList(customActions.size());
+            for (Object obj2 : customActions) {
                 arrayList.add(CustomAction.fromCustomAction(obj2));
             }
         }
-        PlaybackStateCompat playbackStateCompat = new PlaybackStateCompat(f.X(obj), f.Y(obj), f.Z(obj), f.aa(obj), f.ab(obj), f.ac(obj), f.ad(obj), arrayList, f.af(obj), Build.VERSION.SDK_INT >= 22 ? g.getExtras(obj) : null);
-        playbackStateCompat.Ac = obj;
+        PlaybackStateCompat playbackStateCompat = new PlaybackStateCompat(PlaybackStateCompatApi21.getState(obj), PlaybackStateCompatApi21.getPosition(obj), PlaybackStateCompatApi21.getBufferedPosition(obj), PlaybackStateCompatApi21.getPlaybackSpeed(obj), PlaybackStateCompatApi21.getActions(obj), PlaybackStateCompatApi21.getErrorMessage(obj), PlaybackStateCompatApi21.getLastPositionUpdateTime(obj), arrayList, PlaybackStateCompatApi21.getActiveQueueItemId(obj), Build.VERSION.SDK_INT >= 22 ? PlaybackStateCompatApi22.getExtras(obj) : null);
+        playbackStateCompat.mStateObj = obj;
         return playbackStateCompat;
     }
 
     public Object getPlaybackState() {
-        if (this.Ac != null || Build.VERSION.SDK_INT < 21) {
-            return this.Ac;
+        if (this.mStateObj != null || Build.VERSION.SDK_INT < 21) {
+            return this.mStateObj;
         }
         ArrayList arrayList = null;
-        if (this.Aa != null) {
-            arrayList = new ArrayList(this.Aa.size());
-            for (CustomAction customAction : this.Aa) {
+        if (this.mCustomActions != null) {
+            arrayList = new ArrayList(this.mCustomActions.size());
+            for (CustomAction customAction : this.mCustomActions) {
                 arrayList.add(customAction.getCustomAction());
             }
         }
         if (Build.VERSION.SDK_INT >= 22) {
-            this.Ac = g.a(this.mState, this.zV, this.zW, this.mSpeed, this.zX, this.zY, this.zZ, arrayList, this.Ab, this.mExtras);
+            this.mStateObj = PlaybackStateCompatApi22.newInstance(this.mState, this.mPosition, this.mBufferedPosition, this.mSpeed, this.mActions, this.mErrorMessage, this.mUpdateTime, arrayList, this.mActiveItemId, this.mExtras);
         } else {
-            this.Ac = f.a(this.mState, this.zV, this.zW, this.mSpeed, this.zX, this.zY, this.zZ, arrayList, this.Ab);
+            this.mStateObj = PlaybackStateCompatApi21.newInstance(this.mState, this.mPosition, this.mBufferedPosition, this.mSpeed, this.mActions, this.mErrorMessage, this.mUpdateTime, arrayList, this.mActiveItemId);
         }
-        return this.Ac;
+        return this.mStateObj;
     }
 
     /* loaded from: classes2.dex */
     public static final class CustomAction implements Parcelable {
         public static final Parcelable.Creator<CustomAction> CREATOR = new Parcelable.Creator<CustomAction>() { // from class: android.support.v4.media.session.PlaybackStateCompat.CustomAction.1
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: n */
             public CustomAction createFromParcel(Parcel parcel) {
                 return new CustomAction(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: as */
             public CustomAction[] newArray(int i) {
                 return new CustomAction[i];
             }
         };
-        private final String Af;
-        private final CharSequence Ag;
-        private Object Ah;
+        private final String mAction;
+        private Object mCustomActionObj;
         private final Bundle mExtras;
         private final int mIcon;
+        private final CharSequence mName;
 
         CustomAction(String str, CharSequence charSequence, int i, Bundle bundle) {
-            this.Af = str;
-            this.Ag = charSequence;
+            this.mAction = str;
+            this.mName = charSequence;
             this.mIcon = i;
             this.mExtras = bundle;
         }
 
         CustomAction(Parcel parcel) {
-            this.Af = parcel.readString();
-            this.Ag = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+            this.mAction = parcel.readString();
+            this.mName = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
             this.mIcon = parcel.readInt();
             this.mExtras = parcel.readBundle();
         }
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeString(this.Af);
-            TextUtils.writeToParcel(this.Ag, parcel, i);
+            parcel.writeString(this.mAction);
+            TextUtils.writeToParcel(this.mName, parcel, i);
             parcel.writeInt(this.mIcon);
             parcel.writeBundle(this.mExtras);
         }
@@ -309,25 +312,25 @@ public final class PlaybackStateCompat implements Parcelable {
             if (obj == null || Build.VERSION.SDK_INT < 21) {
                 return null;
             }
-            CustomAction customAction = new CustomAction(f.a.ag(obj), f.a.ah(obj), f.a.ai(obj), f.a.getExtras(obj));
-            customAction.Ah = obj;
+            CustomAction customAction = new CustomAction(PlaybackStateCompatApi21.CustomAction.getAction(obj), PlaybackStateCompatApi21.CustomAction.getName(obj), PlaybackStateCompatApi21.CustomAction.getIcon(obj), PlaybackStateCompatApi21.CustomAction.getExtras(obj));
+            customAction.mCustomActionObj = obj;
             return customAction;
         }
 
         public Object getCustomAction() {
-            if (this.Ah != null || Build.VERSION.SDK_INT < 21) {
-                return this.Ah;
+            if (this.mCustomActionObj != null || Build.VERSION.SDK_INT < 21) {
+                return this.mCustomActionObj;
             }
-            this.Ah = f.a.a(this.Af, this.Ag, this.mIcon, this.mExtras);
-            return this.Ah;
+            this.mCustomActionObj = PlaybackStateCompatApi21.CustomAction.newInstance(this.mAction, this.mName, this.mIcon, this.mExtras);
+            return this.mCustomActionObj;
         }
 
         public String getAction() {
-            return this.Af;
+            return this.mAction;
         }
 
         public CharSequence getName() {
-            return this.Ag;
+            return this.mName;
         }
 
         public int getIcon() {
@@ -339,15 +342,15 @@ public final class PlaybackStateCompat implements Parcelable {
         }
 
         public String toString() {
-            return "Action:mName='" + ((Object) this.Ag) + ", mIcon=" + this.mIcon + ", mExtras=" + this.mExtras;
+            return "Action:mName='" + ((Object) this.mName) + ", mIcon=" + this.mIcon + ", mExtras=" + this.mExtras;
         }
 
         /* loaded from: classes2.dex */
         public static final class Builder {
-            private final String Af;
-            private final CharSequence Ag;
+            private final String mAction;
             private Bundle mExtras;
             private final int mIcon;
+            private final CharSequence mName;
 
             public Builder(String str, CharSequence charSequence, int i) {
                 if (TextUtils.isEmpty(str)) {
@@ -359,8 +362,8 @@ public final class PlaybackStateCompat implements Parcelable {
                 if (i == 0) {
                     throw new IllegalArgumentException("You must specify an icon resource id to build a CustomAction.");
                 }
-                this.Af = str;
-                this.Ag = charSequence;
+                this.mAction = str;
+                this.mName = charSequence;
                 this.mIcon = i;
             }
 
@@ -370,43 +373,43 @@ public final class PlaybackStateCompat implements Parcelable {
             }
 
             public CustomAction build() {
-                return new CustomAction(this.Af, this.Ag, this.mIcon, this.mExtras);
+                return new CustomAction(this.mAction, this.mName, this.mIcon, this.mExtras);
             }
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class Builder {
-        private final List<CustomAction> Aa;
-        private long Ab;
-        private float Ae;
+        private long mActions;
+        private long mActiveItemId;
+        private long mBufferedPosition;
+        private final List<CustomAction> mCustomActions;
+        private CharSequence mErrorMessage;
         private Bundle mExtras;
+        private long mPosition;
+        private float mRate;
         private int mState;
-        private long zV;
-        private long zW;
-        private long zX;
-        private CharSequence zY;
-        private long zZ;
+        private long mUpdateTime;
 
         public Builder() {
-            this.Aa = new ArrayList();
-            this.Ab = -1L;
+            this.mCustomActions = new ArrayList();
+            this.mActiveItemId = -1L;
         }
 
         public Builder(PlaybackStateCompat playbackStateCompat) {
-            this.Aa = new ArrayList();
-            this.Ab = -1L;
+            this.mCustomActions = new ArrayList();
+            this.mActiveItemId = -1L;
             this.mState = playbackStateCompat.mState;
-            this.zV = playbackStateCompat.zV;
-            this.Ae = playbackStateCompat.mSpeed;
-            this.zZ = playbackStateCompat.zZ;
-            this.zW = playbackStateCompat.zW;
-            this.zX = playbackStateCompat.zX;
-            this.zY = playbackStateCompat.zY;
-            if (playbackStateCompat.Aa != null) {
-                this.Aa.addAll(playbackStateCompat.Aa);
+            this.mPosition = playbackStateCompat.mPosition;
+            this.mRate = playbackStateCompat.mSpeed;
+            this.mUpdateTime = playbackStateCompat.mUpdateTime;
+            this.mBufferedPosition = playbackStateCompat.mBufferedPosition;
+            this.mActions = playbackStateCompat.mActions;
+            this.mErrorMessage = playbackStateCompat.mErrorMessage;
+            if (playbackStateCompat.mCustomActions != null) {
+                this.mCustomActions.addAll(playbackStateCompat.mCustomActions);
             }
-            this.Ab = playbackStateCompat.Ab;
+            this.mActiveItemId = playbackStateCompat.mActiveItemId;
             this.mExtras = playbackStateCompat.mExtras;
         }
 
@@ -416,19 +419,19 @@ public final class PlaybackStateCompat implements Parcelable {
 
         public Builder setState(int i, long j, float f, long j2) {
             this.mState = i;
-            this.zV = j;
-            this.zZ = j2;
-            this.Ae = f;
+            this.mPosition = j;
+            this.mUpdateTime = j2;
+            this.mRate = f;
             return this;
         }
 
         public Builder setBufferedPosition(long j) {
-            this.zW = j;
+            this.mBufferedPosition = j;
             return this;
         }
 
         public Builder setActions(long j) {
-            this.zX = j;
+            this.mActions = j;
             return this;
         }
 
@@ -440,17 +443,17 @@ public final class PlaybackStateCompat implements Parcelable {
             if (customAction == null) {
                 throw new IllegalArgumentException("You may not add a null CustomAction to PlaybackStateCompat.");
             }
-            this.Aa.add(customAction);
+            this.mCustomActions.add(customAction);
             return this;
         }
 
         public Builder setActiveQueueItemId(long j) {
-            this.Ab = j;
+            this.mActiveItemId = j;
             return this;
         }
 
         public Builder setErrorMessage(CharSequence charSequence) {
-            this.zY = charSequence;
+            this.mErrorMessage = charSequence;
             return this;
         }
 
@@ -460,7 +463,7 @@ public final class PlaybackStateCompat implements Parcelable {
         }
 
         public PlaybackStateCompat build() {
-            return new PlaybackStateCompat(this.mState, this.zV, this.zW, this.Ae, this.zX, this.zY, this.zZ, this.Aa, this.Ab, this.mExtras);
+            return new PlaybackStateCompat(this.mState, this.mPosition, this.mBufferedPosition, this.mRate, this.mActions, this.mErrorMessage, this.mUpdateTime, this.mCustomActions, this.mActiveItemId, this.mExtras);
         }
     }
 }

@@ -27,7 +27,7 @@ public interface IQuickMediaPlayerService extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof IQuickMediaPlayerService)) {
                 return (IQuickMediaPlayerService) queryLocalInterface;
             }
-            return new a(iBinder);
+            return new Proxy(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -53,16 +53,20 @@ public interface IQuickMediaPlayerService extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        private static class a implements IQuickMediaPlayerService {
+        private static class Proxy implements IQuickMediaPlayerService {
             private IBinder mRemote;
 
-            a(IBinder iBinder) {
+            Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 return this.mRemote;
+            }
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
             }
 
             @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService

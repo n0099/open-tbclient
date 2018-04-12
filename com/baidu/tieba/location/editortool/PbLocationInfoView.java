@@ -8,11 +8,11 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.base.i;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect fgI;
+    private Rect eBn;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,49 +25,49 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.fgI = new Rect(0, 0, getResources().getDimensionPixelSize(d.e.ds32), getResources().getDimensionPixelSize(d.e.ds32));
-        j(0, null);
+        this.eBn = new Rect(0, 0, getResources().getDimensionPixelSize(d.e.ds32), getResources().getDimensionPixelSize(d.e.ds32));
+        setState(0, null);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        setTextColor(aj.getColor(d.C0141d.cp_cont_c));
-        aRn();
+        setTextColor(ak.getColor(d.C0126d.cp_cont_c));
+        aMj();
     }
 
-    public void j(int i, String str) {
+    public void setState(int i, String str) {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(d.j.location_loading);
+                str = getResources().getString(d.k.location_loading);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(d.j.location_default);
+                str = getResources().getString(d.k.location_default);
             }
             setText(str);
         }
-        aRn();
+        aMj();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void aRn() {
+    public void aMj() {
         if (this.mState == 1) {
-            Drawable drawable = aj.getDrawable(d.f.icon_posts_pin_loading_anim);
+            Drawable drawable = ak.getDrawable(d.f.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.fgI);
+                drawable.setBounds(this.eBn);
             }
             setCompoundDrawables(drawable, null, null, null);
-            com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.aj(getContext()), (Animatable) drawable);
+            com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.aa(getContext()), (Animatable) drawable);
             return;
         }
-        Drawable drawable2 = aj.getDrawable(d.f.icon_tips_site);
+        Drawable drawable2 = ak.getDrawable(d.f.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.fgI);
+            drawable2.setBounds(this.eBn);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

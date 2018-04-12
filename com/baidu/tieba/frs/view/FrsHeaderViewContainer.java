@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs.view;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -11,12 +12,12 @@ public class FrsHeaderViewContainer extends LinearLayout {
         initView();
     }
 
-    public FrsHeaderViewContainer(Context context, AttributeSet attributeSet) {
+    public FrsHeaderViewContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         initView();
     }
 
-    public FrsHeaderViewContainer(Context context, AttributeSet attributeSet, int i) {
+    public FrsHeaderViewContainer(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         initView();
     }
@@ -25,16 +26,16 @@ public class FrsHeaderViewContainer extends LinearLayout {
         setOrientation(1);
     }
 
-    public void addHeaderView(View view) {
-        addView(view, new LinearLayout.LayoutParams(-1, -2));
+    public void addHeaderView(View view2) {
+        addView(view2, new LinearLayout.LayoutParams(-1, -2));
     }
 
-    public void addHeaderView(View view, int i) {
-        addView(view, i, new LinearLayout.LayoutParams(-1, -2));
+    public void addHeaderView(View view2, int i) {
+        addView(view2, i, new LinearLayout.LayoutParams(-1, -2));
     }
 
-    public void removeHeaderView(View view) {
-        removeView(view);
+    public void removeHeaderView(View view2) {
+        removeView(view2);
     }
 
     public int getHeaderViewsCount() {

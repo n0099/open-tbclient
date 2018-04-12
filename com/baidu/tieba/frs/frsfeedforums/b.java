@@ -7,23 +7,23 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b {
-    public View bUb;
-    public int bfC = 3;
-    public View chO;
-    public BarImageView dNA;
-    public TextView dNB;
-    public TextView dNC;
-    public EntelechyUserLikeButton dND;
+    public int aqQ = 3;
+    public View bee;
+    public View bwn;
+    public BarImageView dgh;
+    public TextView dgi;
+    public TextView dgj;
+    public EntelechyUserLikeButton dgk;
     public TextView mTitle;
     public int position;
 
-    public b(View view) {
-        this.bUb = view;
-        this.dNA = (BarImageView) view.findViewById(d.g.frs_feed_forum_image);
-        this.mTitle = (TextView) view.findViewById(d.g.frs_feed_forum_title);
-        this.dNB = (TextView) view.findViewById(d.g.frs_feed_forum_other_info);
-        this.dNC = (TextView) view.findViewById(d.g.frs_feed_forum_related);
-        this.dND = (EntelechyUserLikeButton) view.findViewById(d.g.frs_feed_forum_attention);
-        this.chO = view.findViewById(d.g.frs_feed_forum_divider);
+    public b(View view2) {
+        this.bee = view2;
+        this.dgh = (BarImageView) view2.findViewById(d.g.frs_feed_forum_image);
+        this.mTitle = (TextView) view2.findViewById(d.g.frs_feed_forum_title);
+        this.dgi = (TextView) view2.findViewById(d.g.frs_feed_forum_other_info);
+        this.dgj = (TextView) view2.findViewById(d.g.frs_feed_forum_related);
+        this.dgk = (EntelechyUserLikeButton) view2.findViewById(d.g.frs_feed_forum_attention);
+        this.bwn = view2.findViewById(d.g.frs_feed_forum_divider);
     }
 }

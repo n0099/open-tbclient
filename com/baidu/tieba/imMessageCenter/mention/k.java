@@ -1,92 +1,91 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.data.al;
-import com.baidu.tbadk.core.util.v;
-import com.sina.weibo.sdk.constant.WBPageConstants;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ReplyMe.DataRes;
-import tbclient.ReplyMe.ReplyList;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import com.baidu.tbadk.util.o;
+import java.util.HashMap;
+import tbclient.ReplyMe.DataReq;
+import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes2.dex */
-public class k implements com.baidu.tbadk.mvc.b.j {
-    protected boolean apH;
-    protected ArrayList<FeedData> eSY = new ArrayList<>();
-    protected al eSZ = new al();
-    protected h eTa = new h();
+public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
+    private int enO;
+    private String ids;
+    private int mPn = 1;
 
-    public ArrayList<FeedData> aNF() {
-        return this.eSY;
+    public void d(FeedData feedData) {
+        if (feedData != null) {
+            this.ids = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
+        }
     }
 
-    public al yA() {
-        return this.eSZ;
+    public void toNextPage() {
+        this.mPn++;
+        this.enO = 4;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void o(JSONObject jSONObject) {
+    public void reset() {
+        this.mPn = 1;
+        this.enO = 1;
+        this.ids = null;
+    }
+
+    public int getUpdateType() {
+        return this.enO;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.g
+    public HashMap<String, Object> FD() {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
+        hashMap.put("pn", String.valueOf(this.mPn));
+        hashMap.put("q_type", Integer.valueOf(com.baidu.tbadk.core.i.pY().getViewImageQuality()));
+        hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
+        hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getApp())));
+        hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst().getApp())));
+        if (this.enO == 4 && !TextUtils.isEmpty(this.ids)) {
+            hashMap.put("ids", this.ids);
+        }
+        return hashMap;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.k
+    public Object bK(boolean z) {
         try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    FeedData feedData = new FeedData();
-                    feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    if (feedData.getThread_Type() == 33) {
-                        if (TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.eSY.add(feedData);
-                        }
-                    } else {
-                        this.eSY.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.D(feedData.getPraiseList()) == 0) {
-                            this.eSY.remove(feedData);
-                        }
-                    }
-                }
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.pn = Integer.valueOf(this.mPn);
+            builder.ids = this.ids;
+            builder.q_type = Integer.valueOf(com.baidu.tbadk.core.i.pY().getViewImageQuality());
+            builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+            builder.scr_h = Integer.valueOf(com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_w = Integer.valueOf(com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst().getApp()));
+            if (z) {
+                o.bindCommonParamsToProtobufData(builder, true);
             }
-            this.eTa.parserJson(jSONObject.optJSONObject("message"));
-            this.eSZ.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
-            this.apH = true;
+            ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
         } catch (Exception e) {
-            this.apH = false;
-            BdLog.e(e.getMessage());
+            return null;
         }
     }
 
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void a(Message message) {
-        if (message instanceof ReplyMeResIdl) {
-            DataRes dataRes = ((ReplyMeResIdl) message).data;
-            try {
-                List<ReplyList> list = dataRes.reply_list;
-                if (list != null) {
-                    for (int i = 0; i < list.size(); i++) {
-                        FeedData feedData = new FeedData();
-                        feedData.parserProtoBuf(list.get(i));
-                        if (feedData.getThread_Type() == 33) {
-                            if (TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.eSY.add(feedData);
-                            }
-                        } else {
-                            this.eSY.add(feedData);
-                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.D(feedData.getPraiseList()) == 0) {
-                                this.eSY.remove(feedData);
-                            }
-                        }
-                    }
-                }
-                this.eSZ.a(dataRes.page);
-                this.apH = true;
-            } catch (Exception e) {
-                this.apH = false;
-                BdLog.e(e.getMessage());
-            }
-        }
+    @Override // com.baidu.tbadk.mvc.b.d
+    public String getCacheKey() {
+        return "replyme_cache";
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.e
+    public String FA() {
+        return "tb_user_replyme";
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.e
+    public boolean FB() {
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.e
+    public boolean isNeedUid() {
+        return true;
     }
 }

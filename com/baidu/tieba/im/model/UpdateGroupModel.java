@@ -21,7 +21,7 @@ public class UpdateGroupModel extends BdBaseModel {
     private String business;
     private int flag;
     private int forumId;
-    private int groupId;
+    private long groupId;
     private int groupType;
     private String intro;
     private String lat;
@@ -38,16 +38,12 @@ public class UpdateGroupModel extends BdBaseModel {
         this.flag = 0;
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
-    }
-
     public void setGroupId(long j) {
-        this.groupId = (int) j;
+        this.groupId = j;
     }
 
     public int getForumId() {

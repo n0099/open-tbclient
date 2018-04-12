@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -18,8 +18,8 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
     public RegisterStatus c(Intent intent) {
         RegisterStatus registerStatus = (RegisterStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_REGISTER_STATUS);
         if (!TextUtils.isEmpty(registerStatus.getPushId())) {
-            com.meizu.cloud.pushsdk.util.c.a(c(), registerStatus.getPushId());
-            com.meizu.cloud.pushsdk.util.c.a(c(), (int) ((System.currentTimeMillis() / 1000) + registerStatus.getExpireTime()));
+            com.meizu.cloud.pushsdk.util.b.a(c(), registerStatus.getPushId());
+            com.meizu.cloud.pushsdk.util.b.a(c(), (int) ((System.currentTimeMillis() / 1000) + registerStatus.getExpireTime()));
         }
         return registerStatus;
     }

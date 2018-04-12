@@ -1,8 +1,8 @@
 package com.baidu.tieba.enterForum.data;
 /* loaded from: classes2.dex */
 public class c {
-    public static final int[] cNt = {0, 1, 2, 3};
-    private int mType = 4;
+    public static final int[] cdD = {0, 1, 2, 3, 4};
+    private int mType = 5;
 
     public void setType(int i) {
         this.mType = i;

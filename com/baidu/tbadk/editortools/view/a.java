@@ -3,36 +3,36 @@ package com.baidu.tbadk.editortools.view;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.editortools.i;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.view.CommonTabContentView;
-import com.baidu.tbadk.editortools.view.b;
+import com.baidu.tbadk.editortools.view.CommonTabHost;
 /* loaded from: classes.dex */
 public abstract class a implements com.baidu.tbadk.editortools.b {
-    protected i axH;
-    private CommonTabContentView.c buU;
-    private b buZ;
-    private InterfaceC0107a bva;
-    private b.a bvd;
+    protected EditorTools JS;
+    private CommonTabHost.a aFB;
+    private CommonTabContentView.b aFs;
+    private b aFx;
+    private InterfaceC0096a aFy;
     private int column = 0;
     private int row = 0;
     private int verticalSpacing = 0;
     private int horizontalSpacing = 0;
-    private int bvb = 0;
-    private int bvc = 0;
-    private int kq = 0;
-    private int kr = 0;
-    private int bve = 0;
+    private int aFz = 0;
+    private int aFA = 0;
+    private int mPaddingTop = 0;
+    private int mPaddingBottom = 0;
+    private int aFC = 0;
 
     /* renamed from: com.baidu.tbadk.editortools.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0107a {
-        View getView(int i, View view, ViewGroup viewGroup);
+    public interface InterfaceC0096a {
+        View getView(int i, View view2, ViewGroup viewGroup);
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public int bvf;
-        public int bvg;
+        public int aFD;
+        public int aFE;
     }
 
     public abstract void exit();
@@ -41,41 +41,41 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
 
     public abstract void init(Context context);
 
-    public void a(b.a aVar) {
-        this.bvd = aVar;
+    public void a(CommonTabHost.a aVar) {
+        this.aFB = aVar;
     }
 
-    public void setEditorTools(i iVar) {
-        this.axH = iVar;
+    public void setEditorTools(EditorTools editorTools) {
+        this.JS = editorTools;
     }
 
     protected void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.axH != null) {
-            this.axH.b(aVar);
+        if (this.JS != null) {
+            this.JS.b(aVar);
         }
     }
 
-    public b Mc() {
-        return this.buZ;
+    public b EF() {
+        return this.aFx;
     }
 
     public void a(b bVar) {
-        this.buZ = bVar;
+        this.aFx = bVar;
     }
 
-    public InterfaceC0107a Md() {
-        return this.bva;
+    public InterfaceC0096a EG() {
+        return this.aFy;
     }
 
-    public void a(InterfaceC0107a interfaceC0107a) {
-        this.bva = interfaceC0107a;
+    public void a(InterfaceC0096a interfaceC0096a) {
+        this.aFy = interfaceC0096a;
     }
 
-    public int Me() {
+    public int EH() {
         return this.column;
     }
 
-    public void hR(int i) {
+    public void eR(int i) {
         this.column = i;
     }
 
@@ -83,7 +83,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         return this.row;
     }
 
-    public void hS(int i) {
+    public void eS(int i) {
         this.row = i;
     }
 
@@ -104,26 +104,26 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
     }
 
     public int getPaddingLeft() {
-        return this.bvb;
+        return this.aFz;
     }
 
     public int getPaddingRight() {
-        return this.bvc;
+        return this.aFA;
     }
 
-    public int Mf() {
-        return this.bve;
+    public int EI() {
+        return this.aFC;
     }
 
-    public b.a Mg() {
-        return this.bvd;
+    public CommonTabHost.a EJ() {
+        return this.aFB;
     }
 
-    public void a(CommonTabContentView.c cVar) {
-        this.buU = cVar;
+    public void a(CommonTabContentView.b bVar) {
+        this.aFs = bVar;
     }
 
-    public CommonTabContentView.c Mh() {
-        return this.buU;
+    public CommonTabContentView.b EK() {
+        return this.aFs;
     }
 }

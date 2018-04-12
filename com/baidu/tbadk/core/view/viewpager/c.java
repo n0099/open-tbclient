@@ -4,26 +4,27 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.i;
-import com.baidu.tbadk.core.view.viewpager.b;
-import com.baidu.tbadk.core.view.viewpager.b.a;
+import com.baidu.adp.widget.ListView.h;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
 /* loaded from: classes.dex */
-public abstract class c<T extends i, V extends b.a> {
-    protected a<T, V> bfE;
+public abstract class c<T extends h, V extends BdBaseViewPagerAdapter.a> {
+    protected a<T, V> ark;
     protected Context mContext;
     protected BdUniqueId mType;
 
     /* loaded from: classes.dex */
-    public interface a<T extends i, V extends b.a> {
+    public interface a<T extends h, V extends BdBaseViewPagerAdapter.a> {
         void c(V v, T t);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract View a(ViewGroup viewGroup, V v, T t);
 
-    public abstract V l(ViewGroup viewGroup);
+    public abstract V h(ViewGroup viewGroup);
 
-    protected c(Context context, BdUniqueId bdUniqueId) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public c(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
         this.mType = bdUniqueId;
     }
@@ -36,10 +37,10 @@ public abstract class c<T extends i, V extends b.a> {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.bfE = aVar;
+        this.ark = aVar;
     }
 
-    public a<T, V> EH() {
-        return this.bfE;
+    public a<T, V> xu() {
+        return this.ark;
     }
 }

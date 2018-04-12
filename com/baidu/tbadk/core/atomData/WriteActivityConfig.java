@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
+import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.AdditionData;
@@ -64,36 +65,6 @@ public class WriteActivityConfig extends IntentConfig {
         this(activity, i, str, str2, str3, str4, i2, antiData, i3, z, z2, str5, z3, z4, str6, additionData, postPrefixData, i4, "");
     }
 
-    public void toLivePost(int i, String str, String str2, int i2, int i3, String str3, String str4, String str5) {
-        getIntent().putExtra(IS_LIVE_POST, true);
-        getIntent().putExtra(LIVE_GROUP_ID, i);
-        if (str != null) {
-            getIntent().putExtra(LIVE_GROUP_HEAD, str);
-        }
-        if (str2 != null) {
-            getIntent().putExtra(LIVE_GROUP_NAME, str2);
-        }
-        if (str4 != null) {
-            getIntent().putExtra(LIVE_GROUP_PUBLISH_HEAD, str4);
-        }
-        getIntent().putExtra(LIVE_GROUP_MEMBER_COUNT, i2);
-        getIntent().putExtra(LIVE_GROUP_ZAN_COUNT, i3);
-        if (str3 != null) {
-            getIntent().putExtra(LIVE_GROUP_PUBLISH_NAME, str3);
-        }
-        if (str5 != null) {
-            getIntent().putExtra(LIVE_GROUP_INTRO, str5);
-        }
-    }
-
-    public void addHotTopicInfo(PostTopicData postTopicData) {
-        getIntent().putExtra("hot_topic", postTopicData);
-    }
-
-    public void setCategroyId(int i) {
-        getIntent().putExtra("category_id", i);
-    }
-
     public WriteActivityConfig(Activity activity, int i, String str, String str2, String str3, String str4, int i2, AntiData antiData, int i3, boolean z, boolean z2, String str5, boolean z3, boolean z4, String str6, AdditionData additionData, PostPrefixData postPrefixData, int i4, String str7) {
         super(activity);
         setIntentAction(IntentAction.ActivityForResult);
@@ -107,7 +78,7 @@ public class WriteActivityConfig extends IntentConfig {
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra(REPLY_SUB_PB, z2);
         getIntent().putExtra("is_ad", z3);
-        getIntent().putExtra("mem_type", i4);
+        getIntent().putExtra(MEMBER_TYPE, i4);
         if (antiData == null) {
             getIntent().putExtra(ENABLE_AUDIO, true);
             getIntent().putExtra(DISABLE_AUDIO_MESSAGE, "");
@@ -143,9 +114,22 @@ public class WriteActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str7);
     }
 
-    public void setTitleAndContent(String str, String str2, boolean z) {
+    public void setForumDir(String str, String str2) {
+        Intent intent = getIntent();
+        intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
+        intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
+    }
+
+    public void addHotTopicInfo(PostTopicData postTopicData) {
+        getIntent().putExtra("hot_topic", postTopicData);
+    }
+
+    public void setCategroyId(int i) {
+        getIntent().putExtra("category_id", i);
+    }
+
+    public void setTitle(String str, boolean z) {
         getIntent().putExtra("write_title", str);
-        getIntent().putExtra("write_content", str2);
         getIntent().putExtra("need_save_draft", z);
     }
 

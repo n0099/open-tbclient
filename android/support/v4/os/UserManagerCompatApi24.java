@@ -3,7 +3,7 @@ package android.support.v4.os;
 import android.content.Context;
 import android.os.UserManager;
 import android.support.annotation.RestrictTo;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class UserManagerCompatApi24 {
     public static boolean isUserUnlocked(Context context) {

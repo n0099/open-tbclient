@@ -1,167 +1,156 @@
 package com.baidu.tbadk.core.hybrid;
 
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Message;
-import android.view.KeyEvent;
-import android.webkit.HttpAuthHandler;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import java.util.HashSet;
+import android.os.Build;
+import com.baidu.adp.lib.util.BdLog;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class g extends WebViewClient {
-    private r aSN;
-    private WebViewClient aSU;
-    private final HashSet<String> aSV;
+public class g {
+    private a aer = null;
 
-    public g(WebViewClient webViewClient) {
-        this.aSN = null;
-        this.aSV = new HashSet<>(6);
-        this.aSU = webViewClient;
+    /* loaded from: classes.dex */
+    private static final class c {
+        private static final g aeD = new g();
     }
 
-    public g() {
-        this(null);
+    public static g ub() {
+        return c.aeD;
     }
 
-    public void a(r rVar) {
-        this.aSN = rVar;
-    }
-
-    public void a(WebViewClient webViewClient) {
-        this.aSU = webViewClient;
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        e.dn("page " + str + " load finished.");
-        if (!this.aSV.contains(str)) {
-            this.aSN.dr(str);
-        }
-        this.aSV.clear();
-        if (this.aSU != null) {
-            this.aSU.onPageFinished(webView, str);
-        } else {
-            super.onPageFinished(webView, str);
+    public void a(int i, j jVar) {
+        if (Build.VERSION.SDK_INT >= 16) {
+            try {
+                this.aer = new a(i, jVar);
+                this.aer.ud();
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
         }
     }
 
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        return this.aSU != null ? this.aSU.shouldOverrideUrlLoading(webView, str) : super.shouldOverrideUrlLoading(webView, str);
-    }
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class b implements InvocationHandler {
+        private final List<Long> aeB = new ArrayList(240);
+        private final List<Integer> aeC = new ArrayList(15);
+        protected a aer;
 
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        if (this.aSU != null) {
-            this.aSU.onPageStarted(webView, str, bitmap);
-        } else {
-            super.onPageStarted(webView, str, bitmap);
+        public b(a aVar) {
+            this.aer = aVar;
+        }
+
+        @Override // java.lang.reflect.InvocationHandler
+        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+            String name = method.getName();
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            if ("doFrame".equals(name)) {
+                switch (parameterTypes.length) {
+                    case 1:
+                        if (parameterTypes[0] == Long.TYPE) {
+                            doFrame(((Long) objArr[0]).longValue());
+                            return null;
+                        }
+                        return null;
+                    default:
+                        return null;
+                }
+            }
+            return null;
+        }
+
+        private void doFrame(long j) {
+            this.aeB.add(Long.valueOf(j));
+            this.aer.ud();
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void destroy() {
+            this.aer = null;
+            this.aeB.clear();
+            this.aeC.clear();
         }
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onLoadResource(WebView webView, String str) {
-        if (this.aSU != null) {
-            this.aSU.onLoadResource(webView, str);
-        } else {
-            super.onLoadResource(webView, str);
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a {
+        private final int MAX_FRAME_COUNT;
+        private final Class<?> aes;
+        private final Object aet;
+        private final Class<?> aeu;
+        private final Method aev;
+        private final Object aew;
+        private final Method aex;
+        private final b aey;
+        private final j aez;
+        private int index;
+
+        private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+            this.index = 0;
+            this.aeu = Class.forName("android.view.Choreographer");
+            this.aes = Class.forName("android.view.Choreographer$FrameCallback");
+            this.aey = new b(this);
+            this.aet = Proxy.newProxyInstance(this.aes.getClassLoader(), new Class[]{this.aes}, this.aey);
+            this.aev = this.aeu.getMethod("getInstance", new Class[0]);
+            this.aew = this.aev.invoke(null, new Object[0]);
+            this.aex = this.aeu.getMethod("postFrameCallback", this.aes);
+            this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
+            this.aez = jVar;
         }
-    }
 
-    @Override // android.webkit.WebViewClient
-    public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-        return this.aSU != null ? this.aSU.shouldInterceptRequest(webView, str) : super.shouldInterceptRequest(webView, str);
-    }
-
-    @Override // android.webkit.WebViewClient
-    @Deprecated
-    public void onTooManyRedirects(WebView webView, Message message, Message message2) {
-        if (this.aSU != null) {
-            this.aSU.onTooManyRedirects(webView, message, message2);
-        } else {
-            super.onTooManyRedirects(webView, message, message2);
+        private void uc() throws InvocationTargetException, IllegalAccessException {
+            this.aex.invoke(this.aew, this.aet);
         }
-    }
 
-    @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i, String str, String str2) {
-        e.dn("Failed url " + str2 + " with description:" + str);
-        this.aSV.add(str2);
-        if (this.aSU != null) {
-            this.aSU.onReceivedError(webView, i, str, str2);
-        } else {
-            super.onReceivedError(webView, i, str, str2);
+        /* JADX INFO: Access modifiers changed from: private */
+        public void ud() {
+            if (this.index >= this.MAX_FRAME_COUNT) {
+                com.baidu.adp.lib.g.e.fw().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        a.this.aez.t(a.this.uf());
+                        a.this.aey.destroy();
+                        a.this.destroy();
+                    }
+                });
+                return;
+            }
+            this.index++;
+            try {
+                uc();
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
         }
-    }
 
-    @Override // android.webkit.WebViewClient
-    public void onFormResubmission(WebView webView, Message message, Message message2) {
-        if (this.aSU != null) {
-            this.aSU.onFormResubmission(webView, message, message2);
-        } else {
-            super.onFormResubmission(webView, message, message2);
+        private List<Long> ue() {
+            return this.aey.aeB;
         }
-    }
 
-    @Override // android.webkit.WebViewClient
-    public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-        if (this.aSU != null) {
-            this.aSU.doUpdateVisitedHistory(webView, str, z);
-        } else {
-            super.doUpdateVisitedHistory(webView, str, z);
+        /* JADX INFO: Access modifiers changed from: private */
+        public void destroy() {
+            this.aey.destroy();
         }
-    }
 
-    @Override // android.webkit.WebViewClient
-    public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-        if (this.aSU != null) {
-            this.aSU.onReceivedSslError(webView, sslErrorHandler, sslError);
-        } else {
-            super.onReceivedSslError(webView, sslErrorHandler, sslError);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
-        if (this.aSU != null) {
-            this.aSU.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
-        } else {
-            super.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
-        return this.aSU != null ? this.aSU.shouldOverrideKeyEvent(webView, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
-        if (this.aSU != null) {
-            this.aSU.onUnhandledKeyEvent(webView, keyEvent);
-        } else {
-            super.onUnhandledKeyEvent(webView, keyEvent);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onScaleChanged(WebView webView, float f, float f2) {
-        if (this.aSU != null) {
-            this.aSU.onScaleChanged(webView, f, f2);
-        } else {
-            super.onScaleChanged(webView, f, f2);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
-        if (this.aSU != null) {
-            this.aSU.onReceivedLoginRequest(webView, str, str2, str3);
-        } else {
-            super.onReceivedLoginRequest(webView, str, str2, str3);
+        /* JADX INFO: Access modifiers changed from: private */
+        public List<Long> uf() {
+            ArrayList arrayList = new ArrayList(24);
+            List<Long> ue = ue();
+            int size = ue.size();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < size - 1) {
+                    arrayList.add(Long.valueOf(ue.get(i2 + 1).longValue() - ue.get(i2).longValue()));
+                    i = i2 + 1;
+                } else {
+                    return arrayList;
+                }
+            }
         }
     }
 }

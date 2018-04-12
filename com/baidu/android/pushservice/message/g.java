@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.message;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     private int a;
     private byte[] b;

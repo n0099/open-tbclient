@@ -8,12 +8,19 @@ import android.graphics.Shader;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class CircleImageView extends ImageView {
+    private static final int FILL_SHADOW_COLOR = 1023410176;
+    private static final int KEY_SHADOW_COLOR = 503316480;
+    private static final int SHADOW_ELEVATION = 4;
+    private static final float SHADOW_RADIUS = 3.5f;
+    private static final float X_OFFSET = 0.0f;
+    private static final float Y_OFFSET = 1.75f;
     private Animation.AnimationListener mListener;
     int mShadowRadius;
 
@@ -22,16 +29,16 @@ public class CircleImageView extends ImageView {
         super(context);
         ShapeDrawable shapeDrawable;
         float f = getContext().getResources().getDisplayMetrics().density;
-        int i2 = (int) (1.75f * f);
+        int i2 = (int) (Y_OFFSET * f);
         int i3 = (int) (0.0f * f);
-        this.mShadowRadius = (int) (3.5f * f);
+        this.mShadowRadius = (int) (SHADOW_RADIUS * f);
         if (elevationSupported()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
             ViewCompat.setElevation(this, f * 4.0f);
         } else {
             shapeDrawable = new ShapeDrawable(new OvalShadow(this.mShadowRadius));
             ViewCompat.setLayerType(this, 1, shapeDrawable.getPaint());
-            shapeDrawable.getPaint().setShadowLayer(this.mShadowRadius, i3, i2, 503316480);
+            shapeDrawable.getPaint().setShadowLayer(this.mShadowRadius, i3, i2, KEY_SHADOW_COLOR);
             int i4 = this.mShadowRadius;
             setPadding(i4, i4, i4, i4);
         }
@@ -71,6 +78,10 @@ public class CircleImageView extends ImageView {
         }
     }
 
+    public void setBackgroundColorRes(int i) {
+        setBackgroundColor(ContextCompat.getColor(getContext(), i));
+    }
+
     @Override // android.view.View
     public void setBackgroundColor(int i) {
         if (getBackground() instanceof ShapeDrawable) {
@@ -103,7 +114,7 @@ public class CircleImageView extends ImageView {
         }
 
         private void updateRadialGradient(int i) {
-            this.mRadialGradient = new RadialGradient(i / 2, i / 2, CircleImageView.this.mShadowRadius, new int[]{1023410176, 0}, (float[]) null, Shader.TileMode.CLAMP);
+            this.mRadialGradient = new RadialGradient(i / 2, i / 2, CircleImageView.this.mShadowRadius, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
             this.mShadowPaint.setShader(this.mRadialGradient);
         }
     }

@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class af implements Runnable {
     final /* synthetic */ List a;
     final /* synthetic */ boolean b;

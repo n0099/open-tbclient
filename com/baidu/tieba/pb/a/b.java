@@ -7,21 +7,21 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    public static String bbo() {
+    public static String aWn() {
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
-            return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_xlarge);
+            return TbadkCoreApplication.getInst().getString(d.k.toast_font_size_xlarge);
         }
         if (fontSize == 1) {
-            return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_big);
+            return TbadkCoreApplication.getInst().getString(d.k.toast_font_size_big);
         }
         if (fontSize == 2) {
-            return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_mid);
+            return TbadkCoreApplication.getInst().getString(d.k.toast_font_size_mid);
         }
-        return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_small);
+        return TbadkCoreApplication.getInst().getString(d.k.toast_font_size_small);
     }
 
-    public static void bbp() {
+    public static void aWo() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize != 0) {
@@ -35,10 +35,10 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.a(TbadkCoreApplication.getInst(), bbo(), d.f.icon_word_t_size, 0).Bd();
+        BdToast.a(TbadkCoreApplication.getInst(), aWn(), d.f.icon_word_t_size, 0).tL();
     }
 
-    public static void bbq() {
+    public static void aWp() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
@@ -52,10 +52,10 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.a(TbadkCoreApplication.getInst(), bbo(), d.f.icon_word_t_size, 0).Bd();
+        BdToast.a(TbadkCoreApplication.getInst(), aWn(), d.f.icon_word_t_size, 0).tL();
     }
 
-    public static void sE(int i) {
+    public static void pZ(int i) {
         if (TbadkCoreApplication.getInst().getFontSize() != i) {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));

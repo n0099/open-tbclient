@@ -6,7 +6,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.xiaomi.xmpush.thrift.aj;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PushMessageHelper {
     public static final String KEY_COMMAND = "key_command";
     public static final String KEY_MESSAGE = "key_message";

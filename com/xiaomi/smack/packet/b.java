@@ -3,12 +3,12 @@ package com.xiaomi.smack.packet;
 import android.os.Bundle;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends d {
     private a c;
     private final Map<String, String> d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static final a a = new a("get");
         public static final a b = new a("set");

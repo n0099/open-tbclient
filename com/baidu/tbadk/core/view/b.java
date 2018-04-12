@@ -1,124 +1,73 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Context;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import android.widget.Toast;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    private TbPageContext<?> aRI;
-    private DialogInterface.OnCancelListener aZA;
-    private AlertDialog aZy;
-    private Activity mActivity;
-    private String aZz = null;
-    private TextView aSa = null;
-    private boolean aZB = true;
-
-    public b(TbPageContext<?> tbPageContext) {
-        this.aRI = null;
-        this.mActivity = null;
-        this.aRI = tbPageContext;
-        if (this.aRI != null && this.aRI.getPageActivity() != null) {
-            this.mActivity = this.aRI.getPageActivity();
-        }
-    }
-
-    private b b(DialogInterface.OnCancelListener onCancelListener) {
-        if (this.mActivity != null) {
-            this.aZy = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.g.a(this.aZy, this.mActivity);
-            View inflate = LayoutInflater.from(this.mActivity).inflate(d.h.custom_loading_toast, (ViewGroup) null);
-            this.aSa = (TextView) inflate.findViewById(d.g.custom_loading_text);
-            if (!StringUtils.isNull(this.aZz) && this.aSa != null) {
-                this.aSa.setText(this.aZz);
-            }
-            if (this.aZy != null && this.aZy.getWindow() != null) {
-                this.aZy.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.aZy.setCancelable(true);
-                    this.aZy.setCanceledOnTouchOutside(true);
-                    this.aZy.setOnCancelListener(onCancelListener);
-                } else {
-                    this.aZy.setCanceledOnTouchOutside(false);
-                    this.aZy.setCancelable(false);
-                }
+    private View amv;
+    private TextView amw;
+    private ImageView amx;
+    private Context mContext;
+    private Toast xk;
+    public long ams = 3000;
+    private int amt = -1;
+    private int amu = -1;
+    private Runnable amz = new Runnable() { // from class: com.baidu.tbadk.core.view.b.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (b.this.xk != null) {
+                b.this.xk.cancel();
             }
         }
-        return this;
+    };
+    private Handler amy = new Handler();
+
+    public b() {
+        this.mContext = null;
+        this.amv = null;
+        this.amw = null;
+        this.amx = null;
+        this.mContext = TbadkCoreApplication.getInst().getContext();
+        this.amv = LayoutInflater.from(this.mContext).inflate(d.i.image_toast_view, (ViewGroup) null);
+        this.amw = (TextView) this.amv.findViewById(d.g.tip_text);
+        this.amx = (ImageView) this.amv.findViewById(d.g.tip_iamge);
     }
 
-    private b c(DialogInterface.OnCancelListener onCancelListener) {
-        if (this.mActivity != null) {
-            this.aZy = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.g.a(this.aZy, this.mActivity);
-            View inflate = LayoutInflater.from(this.mActivity).inflate(d.h.custom_loading_toast, (ViewGroup) null);
-            this.aSa = (TextView) inflate.findViewById(d.g.custom_loading_text);
-            if (!StringUtils.isNull(this.aZz) && this.aSa != null) {
-                this.aSa.setText(this.aZz);
-            }
-            if (this.aZy != null && this.aZy.getWindow() != null) {
-                this.aZy.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.aZy.setOnCancelListener(onCancelListener);
-                }
-            }
+    public void showToast(int i, int i2) {
+        this.amw.setText(i2);
+        this.amx.setImageResource(i);
+        B(this.amv);
+    }
+
+    public void B(View view2) {
+        this.amy.removeCallbacks(this.amz);
+        if (this.xk == null) {
+            this.xk = new Toast(this.mContext);
         }
-        return this;
+        this.amy.postDelayed(this.amz, this.ams);
+        this.xk.setView(view2);
+        this.xk.setDuration(1);
+        this.xk.setGravity(17, 0, 0);
+        this.xk.show();
     }
 
-    public void bq(boolean z) {
-        if (z) {
-            if (this.aZB) {
-                b(this.aZA);
-                return;
-            } else {
-                c(this.aZA);
-                return;
-            }
-        }
-        com.baidu.adp.lib.g.g.b(this.aZy, this.mActivity);
+    public void i(CharSequence charSequence) {
+        this.amw.setText(charSequence);
+        this.amx.setImageResource(d.f.icon_toast_game_ok);
+        B(this.amv);
     }
 
-    public void ga(int i) {
-        if (this.mActivity != null) {
-            this.aZz = this.mActivity.getString(i);
-        }
-    }
-
-    public void eR(String str) {
-        this.aZz = str;
-        if (this.aSa != null) {
-            this.aSa.setText(str);
-        }
-    }
-
-    public void d(DialogInterface.OnCancelListener onCancelListener) {
-        this.aZA = onCancelListener;
-    }
-
-    public boolean isShowing() {
-        return this.aZy != null && this.aZy.isShowing();
-    }
-
-    public void br(boolean z) {
-        this.aZB = z;
-    }
-
-    public void setCancelable(boolean z) {
-        if (this.aZy != null) {
-            this.aZy.setCancelable(z);
-        }
-    }
-
-    public void setCanceledOnTouchOutside(boolean z) {
-        if (this.aZy != null) {
-            this.aZy.setCanceledOnTouchOutside(z);
-        }
+    public void j(CharSequence charSequence) {
+        this.amw.setText(charSequence);
+        this.amx.setImageResource(d.f.icon_toast_game_error);
+        B(this.amv);
     }
 }

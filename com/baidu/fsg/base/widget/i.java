@@ -9,9 +9,9 @@ class i implements Runnable {
     final /* synthetic */ SafeKeyBoardPopupWindow b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow, View view) {
+    public i(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow, View view2) {
         this.b = safeKeyBoardPopupWindow;
-        this.a = view;
+        this.a = view2;
     }
 
     @Override // java.lang.Runnable

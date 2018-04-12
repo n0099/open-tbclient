@@ -6,6 +6,9 @@ import android.content.IntentSender;
 import android.os.Bundle;
 /* loaded from: classes2.dex */
 class ActivityCompatJB {
+    ActivityCompatJB() {
+    }
+
     public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
         activity.startActivityForResult(intent, i, bundle);
     }

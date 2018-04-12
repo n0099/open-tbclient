@@ -13,13 +13,13 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes3.dex */
 public class d {
-    private a dCY;
-    private com.baidu.adp.framework.listener.a dDd = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a cVT;
+    private com.baidu.adp.framework.listener.a cVY = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.dCY != null) {
-                    d.this.dCY.a(false, null);
+                if (d.this.cVT != null) {
+                    d.this.cVT.a(false, null);
                     return;
                 }
                 return;
@@ -28,8 +28,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.dCY != null) {
-                d.this.dCY.a(searchData != null, searchData);
+            if (d.this.cVT != null) {
+                d.this.cVT.a(searchData != null, searchData);
             }
         }
     };
@@ -44,18 +44,18 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.dDd.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.dDd);
+        this.cVY.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.cVY);
     }
 
     public void a(a aVar) {
-        this.dCY = aVar;
+        this.cVT = aVar;
     }
 
-    public void lD(String str) {
+    public void lG(String str) {
         if (!StringUtils.isNull(str)) {
-            if (!l.pa()) {
-                this.mPageContext.showToast(d.j.neterror);
+            if (!l.hg()) {
+                this.mPageContext.showToast(d.k.neterror);
                 return;
             }
             cancelMessage();

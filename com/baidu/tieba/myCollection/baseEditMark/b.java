@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel fzi;
+    private MarkModel eTT;
 
     public b(BaseActivity baseActivity) {
-        this.fzi = null;
-        this.fzi = new MarkModel(baseActivity);
+        this.eTT = null;
+        this.eTT = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.fzi = null;
-        this.fzi = new MarkModel(baseFragmentActivity);
+        this.eTT = null;
+        this.eTT = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aL(boolean z) {
-        this.fzi.aL(z);
+    public void ae(boolean z) {
+        this.eTT.ae(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String vW() {
-        return this.fzi.vW();
+    public String oH() {
+        return this.eTT.oH();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0093a interfaceC0093a) {
-        this.fzi.a(interfaceC0093a);
+    public void a(a.InterfaceC0082a interfaceC0082a) {
+        this.eTT.a(interfaceC0082a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void vY() {
-        this.fzi.vY();
+    public void oJ() {
+        this.eTT.oJ();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void vZ() {
-        this.fzi.vZ();
+    public void oK() {
+        this.eTT.oK();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData wa() {
-        return this.fzi.wa();
+    public MarkData oL() {
+        return this.eTT.oL();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.fzi.a(markData);
+        this.eTT.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean vX() {
-        return this.fzi.vX();
+    public boolean oI() {
+        return this.eTT.oI();
     }
 }

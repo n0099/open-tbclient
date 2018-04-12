@@ -6,8 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.f;
-import com.baidu.android.pushservice.j.p;
-/* loaded from: classes2.dex */
+import com.baidu.android.pushservice.j.m;
+/* loaded from: classes3.dex */
 public class HwNotifyActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -19,7 +19,7 @@ public class HwNotifyActivity extends Activity {
                 String d = f.d(getApplicationContext(), intent);
                 String c = f.c(getApplicationContext(), intent);
                 if (!TextUtils.isEmpty(c) && data != null && f.a(getApplicationContext(), c, d)) {
-                    p.a(getApplicationContext(), intent);
+                    m.a(getApplicationContext(), intent);
                 }
             }
         } catch (Exception e) {

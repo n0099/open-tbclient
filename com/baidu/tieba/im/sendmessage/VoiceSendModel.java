@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a eNc;
-    private b eNd;
+    private a ehI;
+    private b ehJ;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,33 +29,33 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.eNc = new a(str, chatMessage);
-        this.eNc.execute(new Object[0]);
+        this.ehI = new a(str, chatMessage);
+        this.ehI.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.eNd = bVar;
+        this.ehJ = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String eNe;
-        private ChatMessage eNf;
-        private com.baidu.tieba.im.sendmessage.b eNg = new com.baidu.tieba.im.sendmessage.b();
+        private String ehK;
+        private ChatMessage ehL;
+        private com.baidu.tieba.im.sendmessage.b ehM = new com.baidu.tieba.im.sendmessage.b();
 
         public a(String str, ChatMessage chatMessage) {
-            this.eNe = str;
-            this.eNf = chatMessage;
+            this.ehK = str;
+            this.ehL = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: A */
+        /* renamed from: y */
         public String doInBackground(Object... objArr) {
             try {
-                return this.eNg.nM(this.eNe);
+                return this.ehM.nQ(this.ehK);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.eNd != null) {
-                VoiceSendModel.this.eNd.a(str, this.eNf);
+            if (VoiceSendModel.this.ehJ != null) {
+                VoiceSendModel.this.ehJ.a(str, this.ehL);
             }
         }
     }

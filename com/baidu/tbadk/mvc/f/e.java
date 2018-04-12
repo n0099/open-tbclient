@@ -8,19 +8,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.d.b;
-import com.baidu.tieba.tbadkCore.p;
+import com.baidu.tieba.tbadkCore.o;
 /* loaded from: classes.dex */
-public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements p {
-    private S byo;
-    private final ViewEventCenter bza;
+public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements o {
+    private S aIL;
+    private final ViewEventCenter aJw;
     private D data;
     private TbPageContext<?> pageContext;
     private final View rootView;
 
-    public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
+    public e(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
         this.pageContext = tbPageContext;
-        this.rootView = view;
-        this.bza = viewEventCenter;
+        this.rootView = view2;
+        this.aJw = viewEventCenter;
     }
 
     public View getRootView() {
@@ -28,12 +28,12 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements p {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ViewEventCenter NL() {
-        return this.bza;
+    public ViewEventCenter Gn() {
+        return this.aJw;
     }
 
     public void a(D d, S s) {
-        aI(d);
+        D(d);
         a(s);
     }
 
@@ -41,12 +41,12 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements p {
         return this.data;
     }
 
-    public void aI(D d) {
+    public void D(D d) {
         this.data = d;
     }
 
     public void a(S s) {
-        this.byo = s;
+        this.aIL = s;
     }
 
     public TbPageContext<?> getPageContext() {

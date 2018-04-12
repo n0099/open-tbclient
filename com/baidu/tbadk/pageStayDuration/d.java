@@ -4,30 +4,31 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public boolean bzn = false;
-    private List<String> bzo;
-    private String bzp;
-    private long bzq;
-    public String bzr;
+    public boolean aJJ = false;
+    private List<String> aJK;
+    private String aJL;
+    private long aJM;
+    public String aJN;
+    public String aJO;
     private long fid;
     public String objParam1;
     private long pid;
     private long tid;
 
-    public List<String> NO() {
-        return this.bzo;
+    public List<String> Gq() {
+        return this.aJK;
     }
 
-    public void Q(List<String> list) {
-        this.bzo = list;
+    public void I(List<String> list) {
+        this.aJK = list;
     }
 
     public String getCurrentPageKey() {
-        return this.bzp;
+        return this.aJL;
     }
 
-    public void gZ(String str) {
-        this.bzp = str;
+    public void gO(String str) {
+        this.aJL = str;
     }
 
     public long getFid() {
@@ -50,15 +51,15 @@ public class d {
         return this.pid;
     }
 
-    public long NP() {
-        return this.bzq;
+    public long Gr() {
+        return this.aJM;
     }
 
-    public void ac(long j) {
-        this.bzq = j;
+    public void U(long j) {
+        this.aJM = j;
     }
 
-    public boolean NQ() {
-        return StringUtils.isNull(this.bzp);
+    public boolean Gs() {
+        return StringUtils.isNull(this.aJL);
     }
 }

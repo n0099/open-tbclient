@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
-import com.baidu.tieba.card.data.m;
-import com.baidu.tieba.card.data.q;
+import com.baidu.tieba.card.data.p;
 import com.baidu.tieba.homepage.personalize.data.f;
 import com.baidu.tieba.recapp.r;
 import com.baidu.tieba.tbadkCore.data.AppData;
+import com.baidu.tieba.tbadkCore.u;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -72,11 +72,11 @@ public class d {
                 while (it.hasNext()) {
                     App next = it.next();
                     if (next != null) {
-                        int h = com.baidu.adp.lib.g.b.h(next.pos_name, -1);
-                        if (h <= 0) {
+                        int g = com.baidu.adp.lib.g.b.g(next.pos_name, -1);
+                        if (g <= 0) {
                             it.remove();
                             a(next, 1, 23);
-                        } else if (h < i + i2 + 1) {
+                        } else if (g < i + i2 + 1) {
                             i2++;
                         } else {
                             it.remove();
@@ -112,7 +112,7 @@ public class d {
             if (builder.app == null) {
                 builder.app = new LinkedList();
             }
-            c(i, builder.app);
+            d(i, builder.app);
             int size = i + builder.app.size();
             BannerList.Builder builder2 = new BannerList.Builder(bannerList2);
             if (builder2.app == null) {
@@ -127,11 +127,11 @@ public class d {
                 while (it.hasNext()) {
                     App next = it.next();
                     if (next != null) {
-                        int h = com.baidu.adp.lib.g.b.h(next.pos_name, -1);
-                        if (h <= 0) {
+                        int g = com.baidu.adp.lib.g.b.g(next.pos_name, -1);
+                        if (g <= 0) {
                             it.remove();
                             a(next, 1, 23);
-                        } else if (h < i2 + i3 + 1) {
+                        } else if (g < i2 + i3 + 1) {
                             i3++;
                         } else {
                             it.remove();
@@ -152,7 +152,7 @@ public class d {
         return bannerList;
     }
 
-    private static void c(int i, List<App> list) {
+    private static void d(int i, List<App> list) {
         if (list != null) {
             int i2 = 0;
             Iterator<App> it = list.iterator();
@@ -161,11 +161,11 @@ public class d {
                 if (it.hasNext()) {
                     App next = it.next();
                     if (next != null) {
-                        int h = com.baidu.adp.lib.g.b.h(next.pos_name, -1);
-                        if (h <= 0) {
+                        int g = com.baidu.adp.lib.g.b.g(next.pos_name, -1);
+                        if (g <= 0) {
                             it.remove();
                             a(next, 1, 23);
-                        } else if (h < i + i3 + 1) {
+                        } else if (g < i + i3 + 1) {
                             i3++;
                         } else {
                             it.remove();
@@ -183,12 +183,12 @@ public class d {
     }
 
     private static void a(BannerList.Builder builder) {
-        if (builder != null && !v.E(builder.app)) {
+        if (builder != null && !v.w(builder.app)) {
             for (int i = 0; i < builder.app.size(); i++) {
                 App app = builder.app.get(i);
                 if (app != null) {
                     App.Builder builder2 = new App.Builder(app);
-                    builder2.pos = Integer.valueOf(com.baidu.adp.lib.g.b.h(app.pos_name, 0));
+                    builder2.pos = Integer.valueOf(com.baidu.adp.lib.g.b.g(app.pos_name, 0));
                     App build = builder2.build(false);
                     builder.app.remove(i);
                     builder.app.add(i, build);
@@ -203,7 +203,7 @@ public class d {
                 App app = builder.app.get(i2);
                 if (app != null) {
                     App.Builder builder2 = new App.Builder(app);
-                    builder2.pos_name = String.valueOf(com.baidu.adp.lib.g.b.h(app.pos_name, 0) + i);
+                    builder2.pos_name = String.valueOf(com.baidu.adp.lib.g.b.g(app.pos_name, 0) + i);
                     App build = builder2.build(false);
                     builder.app.remove(i2);
                     builder.app.add(i2, build);
@@ -212,7 +212,7 @@ public class d {
         }
     }
 
-    public static List<q> b(DataRes.Builder builder) {
+    public static List<p> b(DataRes.Builder builder) {
         com.baidu.tieba.homepage.personalize.data.d dVar = null;
         if (builder == null) {
             return null;
@@ -227,69 +227,69 @@ public class d {
         }
         if (builder.card_forum != null) {
             for (CardForum cardForum : builder.card_forum) {
-                if (cardForum != null && com.baidu.tieba.homepage.personalize.data.b.oQ(cardForum.card_type.intValue()) && dVar == null) {
+                if (cardForum != null && com.baidu.tieba.homepage.personalize.data.b.mp(cardForum.card_type.intValue()) && dVar == null) {
                     dVar = new com.baidu.tieba.homepage.personalize.data.d();
                     dVar.a(cardForum);
-                    if (dVar.Vp()) {
+                    if (dVar.isValidate()) {
                         linkedList.add(dVar);
                     }
                 }
                 dVar = dVar;
             }
         }
-        List<AppData> bod = r.bof().bod();
-        if (bod != null) {
-            bod.clear();
+        List<AppData> bjj = r.bjl().bjj();
+        if (bjj != null) {
+            bjj.clear();
         }
         if (builder.banner_list != null && builder.banner_list.app != null) {
             for (App app : builder.banner_list.app) {
                 com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                 aVar.b(app);
-                if (bod != null && aVar.cZK != null) {
-                    bod.add(aVar.cZK.aKN);
+                if (bjj != null && aVar.crI != null) {
+                    bjj.add(aVar.crI.Wh);
                 }
-                AdvertAppInfo alH = aVar.alH();
-                if (alH == null) {
-                    a(aVar.alH(), 1, 100);
+                AdvertAppInfo afP = aVar.afP();
+                if (afP == null) {
+                    a(aVar.afP(), 1, 100);
                 } else {
-                    int xJ = alH.xJ();
-                    if (xJ != 0) {
-                        a(aVar.alH(), 1, xJ);
-                        if (xJ != 28 && xJ != 31) {
-                            if (alH.aKH != null) {
-                                alH.aKH.aKT = -1001;
+                    int qs = afP.qs();
+                    if (qs != 0) {
+                        a(aVar.afP(), 1, qs);
+                        if (qs != 28 && qs != 31) {
+                            if (afP.Wb != null) {
+                                afP.Wb.Wn = -1001;
                             }
                         }
                     }
                     if (aVar.getPosition() <= 0) {
-                        a(aVar.alH(), 1, 23);
-                        if (alH.aKH != null) {
-                            alH.aKH.aKT = -1001;
+                        a(aVar.afP(), 1, 23);
+                        if (afP.Wb != null) {
+                            afP.Wb.Wn = -1001;
                         }
                     }
-                    if (alH.xK()) {
+                    if (afP.qt()) {
                         try {
-                            if (TextUtils.isEmpty(alH.aKA) || com.baidu.tieba.tbadkCore.v.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), alH.aKA)) {
-                                if (TextUtils.isEmpty(alH.aKA)) {
-                                    a(aVar.alH(), 1, 26);
+                            if (TextUtils.isEmpty(afP.VU) || u.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), afP.VU)) {
+                                if (TextUtils.isEmpty(afP.VU)) {
+                                    a(aVar.afP(), 1, 26);
                                 } else {
-                                    a(aVar.alH(), 1, 3);
+                                    a(aVar.afP(), 1, 3);
                                 }
                             }
                         } catch (Exception e) {
-                            a(aVar.alH(), 1, 100);
+                            a(aVar.afP(), 1, 100);
                         }
                     }
                     linkedList.add(aVar);
                 }
             }
         }
-        r.bof().boe();
-        if (v.D(builder.card_god) != 0) {
+        r.bjl().bjk();
+        if (v.v(builder.card_god) != 0) {
             for (CardGod cardGod : builder.card_god) {
                 f fVar = new f();
                 fVar.a(cardGod);
-                if (fVar.Vp()) {
+                if (fVar.isValidate()) {
                     linkedList.add(fVar);
                 }
             }
@@ -323,7 +323,7 @@ public class d {
         }
     }
 
-    public static com.baidu.tieba.card.data.c Y(bd bdVar) {
+    public static com.baidu.tieba.card.data.c Z(bd bdVar) {
         if (bdVar == null) {
             return null;
         }
@@ -331,25 +331,22 @@ public class d {
             k kVar = new k();
             kVar.threadData = bdVar;
             return kVar;
-        } else if (j.M(bdVar)) {
+        } else if (j.N(bdVar)) {
             return new j(bdVar);
         } else {
-            if (l.M(bdVar)) {
+            if (l.N(bdVar)) {
                 return new l(bdVar);
             }
-            if (m.M(bdVar)) {
-                return new m(bdVar);
-            }
-            if (k.M(bdVar)) {
+            if (k.N(bdVar)) {
                 k kVar2 = new k();
                 if (bdVar.isLinkThread()) {
                     kVar2.isLinkThread = true;
                 } else {
                     kVar2.isLinkThread = false;
-                    if (bdVar.zr()) {
-                        kVar2.dab = true;
+                    if (bdVar.rT()) {
+                        kVar2.csa = true;
                     } else {
-                        kVar2.dab = false;
+                        kVar2.csa = false;
                     }
                 }
                 kVar2.threadData = bdVar;
@@ -361,28 +358,28 @@ public class d {
 
     public static void d(DataRes.Builder builder) {
         if (builder != null) {
-            int D = v.D(builder.thread_list);
+            int v = v.v(builder.thread_list);
             if (builder.banner_list != null && builder.banner_list.app != null) {
                 BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
                 if (builder2.app != null) {
-                    bP(builder2.app);
+                    bJ(builder2.app);
                     for (int size = builder2.app.size() - 1; size >= 0; size--) {
                         App app = builder2.app.get(size);
                         com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                         aVar.b(app);
-                        int h = app != null ? com.baidu.adp.lib.g.b.h(app.pos_name, -1) : -1;
-                        if (h < 0 || h > D + size) {
-                            a(aVar.alH(), 1, 2);
+                        int g = app != null ? com.baidu.adp.lib.g.b.g(app.pos_name, -1) : -1;
+                        if (g < 0 || g > v + size) {
+                            a(aVar.afP(), 1, 2);
                             builder2.app.remove(size);
                         } else {
-                            AdvertAppInfo alH = aVar.alH();
-                            if (alH == null) {
-                                a(aVar.alH(), 1, 100);
+                            AdvertAppInfo afP = aVar.afP();
+                            if (afP == null) {
+                                a(aVar.afP(), 1, 100);
                                 builder2.app.remove(size);
                             } else {
-                                int xJ = alH.xJ();
-                                if (xJ != 0) {
-                                    a(aVar.alH(), 1, xJ);
+                                int qs = afP.qs();
+                                if (qs != 0) {
+                                    a(aVar.afP(), 1, qs);
                                     builder2.app.remove(size);
                                 }
                             }
@@ -396,7 +393,7 @@ public class d {
         }
     }
 
-    private static void bP(List<App> list) {
+    private static void bJ(List<App> list) {
         if (list != null && list.size() > 1) {
             int size = list.size() - 1;
             int i = size;
@@ -405,7 +402,7 @@ public class d {
                 int c = c(list.get(i));
                 int c2 = c(list.get(i2));
                 if (c <= 0 || c - c2 < 3) {
-                    v.g(list, i);
+                    v.d(list, i);
                 }
                 int i3 = i - 1;
                 i = i3;
@@ -418,30 +415,30 @@ public class d {
         if (app == null) {
             return 0;
         }
-        return com.baidu.adp.lib.g.b.h(app.pos_name, -1);
+        return com.baidu.adp.lib.g.b.g(app.pos_name, -1);
     }
 
     public static void e(DataRes.Builder builder) {
         d(builder);
-        if (builder != null && builder.card_forum != null && builder.card_topic != null && builder.resource_list != null && v.D(builder.thread_list) != 0) {
-            int D = v.D(builder.thread_list);
+        if (builder != null && builder.card_forum != null && builder.card_topic != null && builder.resource_list != null && v.v(builder.thread_list) != 0) {
+            int v = v.v(builder.thread_list);
             for (int size = builder.card_forum.size() - 1; size >= 0; size--) {
-                if (builder.card_forum.get(size).position.longValue() > D) {
+                if (builder.card_forum.get(size).position.longValue() > v) {
                     builder.card_forum.remove(size);
                 }
             }
             for (int size2 = builder.card_topic.size() - 1; size2 >= 0; size2--) {
-                if (builder.card_topic.get(size2).position.intValue() > D) {
+                if (builder.card_topic.get(size2).position.intValue() > v) {
                     builder.card_topic.remove(size2);
                 }
             }
             for (int size3 = builder.resource_list.size() - 1; size3 >= 0; size3--) {
-                if (builder.resource_list.get(size3).position.longValue() > D) {
+                if (builder.resource_list.get(size3).position.longValue() > v) {
                     builder.resource_list.remove(size3);
                 }
             }
             for (int size4 = builder.card_god.size() - 1; size4 >= 0; size4--) {
-                if (builder.card_god.get(size4).position.intValue() > D) {
+                if (builder.card_god.get(size4).position.intValue() > v) {
                     builder.card_god.remove(size4);
                 }
             }
@@ -449,15 +446,15 @@ public class d {
     }
 
     private static void a(AdvertAppInfo advertAppInfo, int i, int i2) {
-        com.baidu.tieba.recapp.report.b.boX().a(com.baidu.tieba.recapp.report.e.b(advertAppInfo, 5, i, i2));
-        if (advertAppInfo != null && advertAppInfo.aKN != null) {
-            advertAppInfo.aKN.mDiscardReason = i2;
+        com.baidu.tieba.recapp.report.b.bke().a(com.baidu.tieba.recapp.report.e.b(advertAppInfo, 5, i, i2));
+        if (advertAppInfo != null && advertAppInfo.Wh != null) {
+            advertAppInfo.Wh.mDiscardReason = i2;
         }
     }
 
     private static void a(App app, int i, int i2) {
         com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
         aVar.b(app);
-        a(aVar.alH(), i, i2);
+        a(aVar.afP(), i, i2);
     }
 }

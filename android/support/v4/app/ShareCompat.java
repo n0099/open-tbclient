@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.support.annotation.StringRes;
 import android.support.v4.content.IntentCompat;
 import android.text.Html;
 import android.text.Spanned;
@@ -243,7 +244,7 @@ public final class ShareCompat {
             return this;
         }
 
-        public IntentBuilder setChooserTitle(int i) {
+        public IntentBuilder setChooserTitle(@StringRes int i) {
             return setChooserTitle(this.mActivity.getText(i));
         }
 
@@ -355,6 +356,7 @@ public final class ShareCompat {
 
     /* loaded from: classes2.dex */
     public static class IntentReader {
+        private static final String TAG = "IntentReader";
         private Activity mActivity;
         private ComponentName mCallingActivity;
         private String mCallingPackage;
@@ -465,7 +467,7 @@ public final class ShareCompat {
             try {
                 return this.mActivity.getPackageManager().getActivityIcon(this.mCallingActivity);
             } catch (PackageManager.NameNotFoundException e) {
-                Log.e("IntentReader", "Could not retrieve icon for calling activity", e);
+                Log.e(TAG, "Could not retrieve icon for calling activity", e);
                 return null;
             }
         }
@@ -477,7 +479,7 @@ public final class ShareCompat {
             try {
                 return this.mActivity.getPackageManager().getApplicationIcon(this.mCallingPackage);
             } catch (PackageManager.NameNotFoundException e) {
-                Log.e("IntentReader", "Could not retrieve icon for calling application", e);
+                Log.e(TAG, "Could not retrieve icon for calling application", e);
                 return null;
             }
         }
@@ -490,7 +492,7 @@ public final class ShareCompat {
             try {
                 return packageManager.getApplicationLabel(packageManager.getApplicationInfo(this.mCallingPackage, 0));
             } catch (PackageManager.NameNotFoundException e) {
-                Log.e("IntentReader", "Could not retrieve label for calling application", e);
+                Log.e(TAG, "Could not retrieve label for calling application", e);
                 return null;
             }
         }

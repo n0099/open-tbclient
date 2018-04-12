@@ -216,7 +216,7 @@ public class SystemInfoActivity extends Activity {
         button.setText("宿主登录");
         button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.activity.SystemInfoActivity.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 if (SystemInfoActivity.this.d.a(SystemInfoActivity.this.c)) {
                     SystemInfoActivity.this.d.a(SystemInfoActivity.this.c, new com.baidu.ar.external.a.a.b() { // from class: com.baidu.ar.activity.SystemInfoActivity.1.1
                         @Override // com.baidu.ar.external.a.a.b
@@ -235,7 +235,7 @@ public class SystemInfoActivity extends Activity {
         button2.setText("获取系统信息");
         button2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.activity.SystemInfoActivity.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 textView2.setText((CharSequence) SystemInfoActivity.this.b.get(0));
                 i.a(SystemInfoActivity.this.getPackageName());
                 new b().execute(SystemInfoActivity.this.b);

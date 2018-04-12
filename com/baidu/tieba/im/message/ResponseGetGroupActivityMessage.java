@@ -33,7 +33,7 @@ public class ResponseGetGroupActivityMessage extends TbSocketReponsedMessage {
             groupActivityData.setgActivityContent(dataRes.gActivityContent);
             groupActivityData.setgActivityTime(dataRes.gActivityTime.longValue());
             groupActivityData.setgActivityTitle(dataRes.gActivityTitle);
-            groupActivityData.setGroupId(dataRes.groupId.intValue());
+            groupActivityData.setGroupId(dataRes.groupId.longValue());
             groupActivityData.setActivityId(dataRes.activityId.intValue());
             groupActivityData.setUserId(dataRes.userId.longValue());
             groupActivityData.setUserName(dataRes.userName);
@@ -50,7 +50,7 @@ public class ResponseGetGroupActivityMessage extends TbSocketReponsedMessage {
             if (TbadkApplication.getCurrentAccountObj() != null) {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.AR().dg("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + getActivityData().getActivityId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.tz().cY("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + getActivityData().getActivityId(), bArr);
         }
     }
 }

@@ -11,10 +11,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 /* loaded from: classes3.dex */
 public class EmotionEditLayout extends FrameLayout {
-    private float drO;
-    private float ggX;
-    private float ggY;
-    private long ggZ;
+    private float cKF;
+    private float fBt;
+    private float fBu;
+    private long fBv;
     private ViewDragHelper mDragHelper;
 
     public EmotionEditLayout(Context context) {
@@ -27,55 +27,55 @@ public class EmotionEditLayout extends FrameLayout {
 
     public EmotionEditLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.drO = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.cKF = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
-    public void a(final b bVar) {
+    public void a(final EmotionEditText emotionEditText) {
         this.mDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelper.Callback() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditLayout.1
             @Override // android.support.v4.widget.ViewDragHelper.Callback
-            public boolean tryCaptureView(View view, int i) {
-                boolean z = view == bVar;
-                if (view instanceof ImageView) {
-                    bVar.bim();
+            public boolean tryCaptureView(View view2, int i) {
+                boolean z = view2 == emotionEditText;
+                if (view2 instanceof ImageView) {
+                    emotionEditText.bdm();
                 }
                 return z;
             }
 
             @Override // android.support.v4.widget.ViewDragHelper.Callback
-            public int clampViewPositionHorizontal(View view, int i, int i2) {
-                return Math.min(Math.max(i, EmotionEditLayout.this.getPaddingLeft()), EmotionEditLayout.this.getWidth() - bVar.getWidth());
+            public int clampViewPositionHorizontal(View view2, int i, int i2) {
+                return Math.min(Math.max(i, EmotionEditLayout.this.getPaddingLeft()), EmotionEditLayout.this.getWidth() - emotionEditText.getWidth());
             }
 
             @Override // android.support.v4.widget.ViewDragHelper.Callback
-            public int clampViewPositionVertical(View view, int i, int i2) {
-                return Math.min(Math.max(i, EmotionEditLayout.this.getPaddingTop()), EmotionEditLayout.this.getHeight() - bVar.getHeight());
+            public int clampViewPositionVertical(View view2, int i, int i2) {
+                return Math.min(Math.max(i, EmotionEditLayout.this.getPaddingTop()), EmotionEditLayout.this.getHeight() - emotionEditText.getHeight());
             }
 
             @Override // android.support.v4.widget.ViewDragHelper.Callback
-            public void onViewCaptured(View view, int i) {
-                super.onViewCaptured(view, i);
-                if (view instanceof b) {
-                    EmotionEditLayout.this.ggZ = System.currentTimeMillis();
-                    EmotionEditLayout.this.ggX = view.getX();
-                    EmotionEditLayout.this.ggY = view.getY();
-                    bVar.bim();
+            public void onViewCaptured(View view2, int i) {
+                super.onViewCaptured(view2, i);
+                if (view2 instanceof EmotionEditText) {
+                    EmotionEditLayout.this.fBv = System.currentTimeMillis();
+                    EmotionEditLayout.this.fBt = view2.getX();
+                    EmotionEditLayout.this.fBu = view2.getY();
+                    emotionEditText.bdm();
                 }
             }
 
             @Override // android.support.v4.widget.ViewDragHelper.Callback
-            public void onViewReleased(View view, float f, float f2) {
-                super.onViewReleased(view, f, f2);
-                if (view instanceof b) {
-                    float x = view.getX();
-                    float y = view.getY();
-                    float abs = Math.abs(x - EmotionEditLayout.this.ggX);
-                    float abs2 = Math.abs(y - EmotionEditLayout.this.ggY);
-                    if (abs < EmotionEditLayout.this.drO && abs2 < EmotionEditLayout.this.drO && System.currentTimeMillis() - EmotionEditLayout.this.ggZ < 300) {
-                        bVar.bin();
+            public void onViewReleased(View view2, float f, float f2) {
+                super.onViewReleased(view2, f, f2);
+                if (view2 instanceof EmotionEditText) {
+                    float x = view2.getX();
+                    float y = view2.getY();
+                    float abs = Math.abs(x - EmotionEditLayout.this.fBt);
+                    float abs2 = Math.abs(y - EmotionEditLayout.this.fBu);
+                    if (abs < EmotionEditLayout.this.cKF && abs2 < EmotionEditLayout.this.cKF && System.currentTimeMillis() - EmotionEditLayout.this.fBv < 300) {
+                        emotionEditText.bdn();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                    layoutParams.setMargins(view.getLeft(), view.getTop(), 0, 0);
-                    bVar.setLayoutParams(layoutParams);
+                    layoutParams.setMargins(view2.getLeft(), view2.getTop(), 0, 0);
+                    emotionEditText.setLayoutParams(layoutParams);
                 }
             }
         });

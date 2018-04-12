@@ -20,7 +20,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends Thread implements Comparable<a> {
     protected f a;
     public WeakReference<Context> b;

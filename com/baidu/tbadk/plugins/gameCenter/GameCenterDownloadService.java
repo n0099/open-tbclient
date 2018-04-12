@@ -10,8 +10,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        if (a.OK() != null) {
-            return a.OK().onBind(intent);
+        if (a.Ho() != null) {
+            return a.Ho().onBind(intent);
         }
         return null;
     }
@@ -20,58 +20,58 @@ public class GameCenterDownloadService extends Service {
     public void onCreate() {
         super.onCreate();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016519, this));
-        if (a.OK() != null) {
-            a.OK().onCreate();
+        if (a.Ho() != null) {
+            a.Ho().onCreate();
         }
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (a.OK() != null) {
-            a.OK().onStart(intent, i);
+        if (a.Ho() != null) {
+            a.Ho().onStart(intent, i);
         }
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        return a.OK() != null ? a.OK().onStartCommand(intent, i, i2) : super.onStartCommand(intent, i, i2);
+        return a.Ho() != null ? a.Ho().onStartCommand(intent, i, i2) : super.onStartCommand(intent, i, i2);
     }
 
     @Override // android.app.Service
     public void onRebind(Intent intent) {
         super.onRebind(intent);
-        if (a.OK() != null) {
-            a.OK().onRebind(intent);
+        if (a.Ho() != null) {
+            a.Ho().onRebind(intent);
         }
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return a.OK() != null ? a.OK().onUnbind(intent) : super.onUnbind(intent);
+        return a.Ho() != null ? a.Ho().onUnbind(intent) : super.onUnbind(intent);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (a.OK() != null) {
-            a.OK().onDestroy();
+        if (a.Ho() != null) {
+            a.Ho().onDestroy();
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
-        if (a.OK() != null) {
-            a.OK().onLowMemory();
+        if (a.Ho() != null) {
+            a.Ho().onLowMemory();
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (a.OK() != null) {
-            a.OK().onConfigurationChanged(configuration);
+        if (a.Ho() != null) {
+            a.Ho().onConfigurationChanged(configuration);
         }
     }
 }

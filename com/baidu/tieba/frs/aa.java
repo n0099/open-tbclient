@@ -1,19 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
-/* loaded from: classes.dex */
+import android.support.v4.util.LongSparseArray;
+import java.util.LinkedList;
+/* loaded from: classes2.dex */
 public class aa {
-    private static aa dHi = new aa();
-    private SparseArray<ab> dHh = new SparseArray<>();
+    private static final aa dah = new aa();
+    private LongSparseArray<LinkedList<String>> dag = new LongSparseArray<>();
 
     private aa() {
     }
 
-    public static aa awm() {
-        return dHi;
+    public static aa aqH() {
+        return dah;
     }
 
-    public ab mX(int i) {
-        return this.dHh.get(i);
+    public void bC(long j) {
+        LinkedList<String> linkedList = this.dag.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
+        }
     }
 }

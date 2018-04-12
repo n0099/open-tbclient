@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.AdditionData;
@@ -54,6 +55,12 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         if (originalThreadInfo != null) {
             getIntent().putExtra(KEY_ORIGINAL_THREAD, originalThreadInfo);
         }
+    }
+
+    public void setForumDir(String str, String str2) {
+        Intent intent = getIntent();
+        intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
+        intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
     }
 
     public void setCategroyId(int i) {

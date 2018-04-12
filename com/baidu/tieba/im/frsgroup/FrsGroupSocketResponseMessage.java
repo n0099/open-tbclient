@@ -40,7 +40,7 @@ public class FrsGroupSocketResponseMessage extends SocketResponsedMessage {
                 groupInfoData.setForumName(groupInfo.forumName);
                 groupInfoData.setForumId(groupInfo.forumId.intValue());
                 groupInfoData.setGrade(groupInfo.grade.intValue());
-                groupInfoData.setGroupId(groupInfo.groupId.intValue());
+                groupInfoData.setGroupId(groupInfo.groupId.longValue());
                 groupInfoData.setIntro(groupInfo.intro);
                 groupInfoData.setIsGroupManager(0);
                 groupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());

@@ -1,5 +1,5 @@
 package org.apache.thrift.protocol;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends org.apache.thrift.f {
     protected int a;
 

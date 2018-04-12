@@ -22,7 +22,7 @@ public class CategoryView extends RelativeLayout implements ViewPager.OnPageChan
     private EdgeEffectCompat c;
     private EdgeEffectCompat d;
     private boolean e;
-    private a.InterfaceC0051a f;
+    private a.InterfaceC0040a f;
     private volatile int g;
     private volatile float h;
     private float i;
@@ -115,7 +115,7 @@ public class CategoryView extends RelativeLayout implements ViewPager.OnPageChan
         this.a.setAdapter(this.b);
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.ar.ui.CategoryView.1
             @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
                 int width;
                 final float rawX = motionEvent.getRawX();
                 motionEvent.getRawY();
@@ -125,11 +125,11 @@ public class CategoryView extends RelativeLayout implements ViewPager.OnPageChan
                 if (motionEvent.getAction() == 1) {
                     int[] iArr = new int[2];
                     for (int i = 0; i < CategoryView.this.b.getCount(); i++) {
-                        View view2 = CategoryView.this.b.b().get(i);
-                        view2.getLocationOnScreen(iArr);
-                        CategoryView.this.i = view2.getWidth();
+                        View view3 = CategoryView.this.b.b().get(i);
+                        view3.getLocationOnScreen(iArr);
+                        CategoryView.this.i = view3.getWidth();
                         if (rawX > iArr[0] && rawX < width + iArr[0]) {
-                            CategoryView.this.g = ((Integer) view2.getTag()).intValue();
+                            CategoryView.this.g = ((Integer) view3.getTag()).intValue();
                             CategoryView.this.a.postDelayed(new Runnable() { // from class: com.baidu.ar.ui.CategoryView.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
@@ -151,7 +151,7 @@ public class CategoryView extends RelativeLayout implements ViewPager.OnPageChan
         });
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.CategoryView.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
             }
         });
         setPagerState(0);
@@ -193,8 +193,8 @@ public class CategoryView extends RelativeLayout implements ViewPager.OnPageChan
         }
     }
 
-    public void setCategoryListener(a.InterfaceC0051a interfaceC0051a) {
-        this.f = interfaceC0051a;
+    public void setCategoryListener(a.InterfaceC0040a interfaceC0040a) {
+        this.f = interfaceC0040a;
     }
 
     public void setCurrentItem(int i) {

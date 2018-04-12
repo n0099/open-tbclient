@@ -1,7 +1,7 @@
 package com.xiaomi.channel.commonutils.logger;
 
 import android.util.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements LoggerInterface {
     private String a = "xiaomi";
 

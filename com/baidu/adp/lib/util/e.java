@@ -3,10 +3,10 @@ package com.baidu.adp.lib.util;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class e {
-    public static int ao(Context context) {
-        if (!l.amD) {
-            l.ap(context);
+    public static int af(Context context) {
+        if (!l.xg) {
+            l.ag(context);
         }
-        return l.amF;
+        return l.xi;
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends com.meizu.cloud.pushsdk.handler.a.a<UnRegisterStatus> {
     public f(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -17,7 +17,7 @@ public class f extends com.meizu.cloud.pushsdk.handler.a.a<UnRegisterStatus> {
     public UnRegisterStatus c(Intent intent) {
         UnRegisterStatus unRegisterStatus = (UnRegisterStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_UNREGISTER_STATUS);
         if (unRegisterStatus.isUnRegisterSuccess()) {
-            com.meizu.cloud.pushsdk.util.c.a(c(), "");
+            com.meizu.cloud.pushsdk.util.b.a(c(), "");
         }
         return unRegisterStatus;
     }

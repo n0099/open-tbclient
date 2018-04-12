@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static boolean a(Context context, String str, String str2) {
         FileInputStream fileInputStream;

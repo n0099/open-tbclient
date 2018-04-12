@@ -6,7 +6,7 @@ import protobuf.DelGroupActivity.DelGroupActivityReqIdl;
 /* loaded from: classes3.dex */
 public class RequestDelGroupActivityMessage extends TbSocketMessage {
     private int activityId;
-    private int groupId;
+    private long groupId;
 
     public RequestDelGroupActivityMessage() {
         super(103121);
@@ -20,19 +20,19 @@ public class RequestDelGroupActivityMessage extends TbSocketMessage {
         this.activityId = i;
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
         builder.activityId = Integer.valueOf(getActivityId());
-        builder.groupId = Integer.valueOf(getGroupId());
+        builder.groupId = Long.valueOf(getGroupId());
         DelGroupActivityReqIdl.Builder builder2 = new DelGroupActivityReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

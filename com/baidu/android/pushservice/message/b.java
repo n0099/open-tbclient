@@ -1,11 +1,11 @@
 package com.baidu.android.pushservice.message;
 
 import android.content.Context;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.j.m;
 import com.baidu.ar.util.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends c {
     public b(Context context) {
         super(context);
@@ -26,8 +26,8 @@ public class b extends c {
         } else if (optInt == 5003) {
             com.baidu.android.pushservice.e.b.a(this.a);
         } else if (optInt == 2002) {
-            com.baidu.android.pushservice.j.a(this.a).a(null, null);
-            p.e(this.a);
+            com.baidu.android.pushservice.j.a(this.a).a(null, null, null, null);
+            m.e(this.a);
         }
         gVar.a(optInt);
         return gVar;

@@ -5,18 +5,18 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements b {
 
         /* renamed from: com.baidu.android.pushservice.a.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        private static class C0030a implements b {
+        /* loaded from: classes3.dex */
+        private static class C0019a implements b {
             private IBinder a;
 
-            C0030a(IBinder iBinder) {
+            C0019a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -79,7 +79,7 @@ public interface b extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.android.pushservice.aidl.IPushServiceListener");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0030a(iBinder) : (b) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0019a(iBinder) : (b) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

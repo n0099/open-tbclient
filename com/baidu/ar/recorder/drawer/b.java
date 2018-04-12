@@ -1,6 +1,7 @@
 package com.baidu.ar.recorder.drawer;
 
 import android.opengl.EGLContext;
+import android.support.annotation.NonNull;
 import com.baidu.ar.recorder.filter.FilterManager;
 /* loaded from: classes3.dex */
 public class b implements Cloneable, Comparable<b> {
@@ -26,7 +27,7 @@ public class b implements Cloneable, Comparable<b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
-    public int compareTo(b bVar) {
+    public int compareTo(@NonNull b bVar) {
         return this.d < bVar.d() ? -1 : 1;
     }
 

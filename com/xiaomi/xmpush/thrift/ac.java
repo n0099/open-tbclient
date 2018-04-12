@@ -9,14 +9,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ac implements Serializable, Cloneable, org.apache.thrift.a<ac, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> b;
     private static final org.apache.thrift.protocol.j c = new org.apache.thrift.protocol.j("XmPushActionCustomConfig");
     private static final org.apache.thrift.protocol.b d = new org.apache.thrift.protocol.b("customConfigs", (byte) 15, 1);
     public List<p> a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         CUSTOM_CONFIGS(1, "customConfigs");
         

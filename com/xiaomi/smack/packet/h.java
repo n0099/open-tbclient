@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     private int a;
     private String b;
@@ -15,7 +15,7 @@ public class h {
     private String e;
     private List<com.xiaomi.smack.packet.a> f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static final a a = new a("internal-server-error");
         public static final a b = new a("forbidden");

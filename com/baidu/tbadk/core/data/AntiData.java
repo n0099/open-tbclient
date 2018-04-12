@@ -32,6 +32,7 @@ public class AntiData implements Serializable {
     private int days_tofree = 0;
     private int ifvoice = 1;
     private int ifaddition = 0;
+    public int replyPrivateFlag = 1;
 
     public boolean isIfvoice() {
         return this.ifvoice == 1;
@@ -189,6 +190,7 @@ public class AntiData implements Serializable {
                 this.mFrsForbidenDialogInfo.block_info = anti.block_pop_info.block_info;
                 this.mFrsForbidenDialogInfo.ahead_type = anti.block_pop_info.ahead_type;
             }
+            this.replyPrivateFlag = anti.reply_private_flag.intValue();
         }
     }
 
@@ -234,6 +236,7 @@ public class AntiData implements Serializable {
                     this.mFrsForbidenDialogInfo.block_info = optJSONObject.optString("block_info");
                     this.mFrsForbidenDialogInfo.ahead_type = Integer.valueOf(optJSONObject.optInt("ahead_type"));
                 }
+                this.replyPrivateFlag = jSONObject.optInt("reply_private_flag", 1);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -271,6 +274,7 @@ public class AntiData implements Serializable {
                 jSONObject2.put("ahead_type", this.mFrsForbidenDialogInfo.ahead_type);
                 jSONObject.put("block_pop_info", jSONObject2);
             }
+            jSONObject.put("reply_private_flag", this.replyPrivateFlag);
             return jSONObject.toString();
         } catch (JSONException e) {
             BdLog.e(e.getMessage());

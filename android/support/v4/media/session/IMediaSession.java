@@ -141,7 +141,7 @@ public interface IMediaSession extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof IMediaSession)) {
                 return (IMediaSession) queryLocalInterface;
             }
-            return new a(iBinder);
+            return new Proxy(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -384,16 +384,20 @@ public interface IMediaSession extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        private static class a implements IMediaSession {
+        private static class Proxy implements IMediaSession {
             private IBinder mRemote;
 
-            a(IBinder iBinder) {
+            Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 return this.mRemote;
+            }
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
             }
 
             @Override // android.support.v4.media.session.IMediaSession

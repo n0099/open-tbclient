@@ -10,23 +10,26 @@ class MediaBrowserServiceCompatApi23 {
 
     /* loaded from: classes2.dex */
     public interface ServiceCompatProxy extends MediaBrowserServiceCompatApi21.ServiceCompatProxy {
-        void onLoadItem(String str, MediaBrowserServiceCompatApi21.c<Parcel> cVar);
+        void onLoadItem(String str, MediaBrowserServiceCompatApi21.ResultWrapper<Parcel> resultWrapper);
     }
 
-    public static Object a(Context context, ServiceCompatProxy serviceCompatProxy) {
-        return new a(context, serviceCompatProxy);
+    MediaBrowserServiceCompatApi23() {
+    }
+
+    public static Object createService(Context context, ServiceCompatProxy serviceCompatProxy) {
+        return new MediaBrowserServiceAdaptor(context, serviceCompatProxy);
     }
 
     /* loaded from: classes2.dex */
-    static class a extends MediaBrowserServiceCompatApi21.b {
+    static class MediaBrowserServiceAdaptor extends MediaBrowserServiceCompatApi21.MediaBrowserServiceAdaptor {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a(Context context, ServiceCompatProxy serviceCompatProxy) {
+        public MediaBrowserServiceAdaptor(Context context, ServiceCompatProxy serviceCompatProxy) {
             super(context, serviceCompatProxy);
         }
 
         @Override // android.service.media.MediaBrowserService
         public void onLoadItem(String str, MediaBrowserService.Result<MediaBrowser.MediaItem> result) {
-            ((ServiceCompatProxy) this.mServiceProxy).onLoadItem(str, new MediaBrowserServiceCompatApi21.c<>(result));
+            ((ServiceCompatProxy) this.mServiceProxy).onLoadItem(str, new MediaBrowserServiceCompatApi21.ResultWrapper<>(result));
         }
     }
 }

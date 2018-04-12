@@ -13,8 +13,10 @@ public final class MsgInfo extends Message {
     public final Integer createTime;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
     public final Integer duration;
-    @ProtoField(tag = 2, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 18, type = Message.Datatype.INT32)
+    public final Integer followStatus;
+    @ProtoField(tag = 2, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 16, type = Message.Datatype.INT32)
     public final Integer isFriend;
     @ProtoField(tag = 13, type = Message.Datatype.STRING)
@@ -42,7 +44,7 @@ public final class MsgInfo extends Message {
     @ProtoField(tag = 10)
     public final UserInfo userInfo;
     public static final Long DEFAULT_MSGID = 0L;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_MSGTYPE = 0;
     public static final Long DEFAULT_USERID = 0L;
     public static final Integer DEFAULT_STATUS = 0;
@@ -53,6 +55,7 @@ public final class MsgInfo extends Message {
     public static final Long DEFAULT_TASKID = 0L;
     public static final Integer DEFAULT_ISFRIEND = 0;
     public static final Long DEFAULT_SID = 0L;
+    public static final Integer DEFAULT_FOLLOWSTATUS = 0;
 
     private MsgInfo(Builder builder, boolean z) {
         super(builder);
@@ -131,9 +134,14 @@ public final class MsgInfo extends Message {
             }
             if (builder.sid == null) {
                 this.sid = DEFAULT_SID;
-                return;
             } else {
                 this.sid = builder.sid;
+            }
+            if (builder.followStatus == null) {
+                this.followStatus = DEFAULT_FOLLOWSTATUS;
+                return;
+            } else {
+                this.followStatus = builder.followStatus;
                 return;
             }
         }
@@ -154,6 +162,7 @@ public final class MsgInfo extends Message {
         this.taskId = builder.taskId;
         this.isFriend = builder.isFriend;
         this.sid = builder.sid;
+        this.followStatus = builder.followStatus;
     }
 
     /* loaded from: classes.dex */
@@ -161,7 +170,8 @@ public final class MsgInfo extends Message {
         public String content;
         public Integer createTime;
         public Integer duration;
-        public Integer groupId;
+        public Integer followStatus;
+        public Long groupId;
         public Integer isFriend;
         public String link;
         public Long msgId;
@@ -199,6 +209,7 @@ public final class MsgInfo extends Message {
                 this.taskId = msgInfo.taskId;
                 this.isFriend = msgInfo.isFriend;
                 this.sid = msgInfo.sid;
+                this.followStatus = msgInfo.followStatus;
             }
         }
 

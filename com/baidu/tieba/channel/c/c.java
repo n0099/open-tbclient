@@ -2,29 +2,29 @@ package com.baidu.tieba.channel.c;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class c {
-    private static int ddo = -1;
+    private static int cvh = -1;
 
-    public static final String bl(long j) {
+    public static final String bj(long j) {
         long j2 = 1000 * j;
-        return bm(j2) == amv() ? am.A(j2) : am.z(j2);
+        return bk(j2) == agv() ? an.t(j2) : an.s(j2);
     }
 
-    private static final int bm(long j) {
+    private static final int bk(long j) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(j);
         return calendar.get(1);
     }
 
-    private static final int amv() {
-        if (ddo == -1) {
-            ddo = bm(System.currentTimeMillis());
+    private static final int agv() {
+        if (cvh == -1) {
+            cvh = bk(System.currentTimeMillis());
         }
-        return ddo;
+        return cvh;
     }
 
     public static void a(int i, String str, Class cls) {

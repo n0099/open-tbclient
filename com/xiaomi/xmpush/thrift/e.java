@@ -1,5 +1,5 @@
 package com.xiaomi.xmpush.thrift;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum e {
     UploadSwitch(1),
     UploadFrequency(2),

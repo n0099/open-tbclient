@@ -2,8 +2,8 @@ package com.baidu.android.pushservice.b;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.p;
-/* loaded from: classes2.dex */
+import com.baidu.android.pushservice.j.m;
+/* loaded from: classes3.dex */
 public class d {
     public f a;
     public g b;
@@ -21,7 +21,7 @@ public class d {
             dVar.a = d;
             return dVar;
         }
-        p.b("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
+        m.b("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
         g e = h.a(context).e(str);
         if (e == null || e.c() == null) {
             return new d(c.UNKNOWN_CLIENT);

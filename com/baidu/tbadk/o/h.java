@@ -1,10 +1,10 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.lib.b.a {
-    public static final String[] bCj = {"com.baidu.browser"};
+    public static final String[] aMJ = {"com.baidu.browser"};
 
     @Override // com.baidu.adp.lib.b.a
-    protected void cQ(int i) {
+    protected void Q(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -13,22 +13,22 @@ public class h extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] mr() {
-        return bCj;
+    protected String[] ev() {
+        return aMJ;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ms() {
+    protected int ew() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mt() {
+    protected int ex() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mu() {
+    protected int ey() {
         return 10;
     }
 }

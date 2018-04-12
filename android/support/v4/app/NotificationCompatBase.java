@@ -6,7 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.RemoteInputCompatBase;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class NotificationCompatBase {
 
@@ -46,6 +46,8 @@ public class NotificationCompatBase {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public abstract String[] getMessages();
+
+        abstract String getParticipant();
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public abstract String[] getParticipants();

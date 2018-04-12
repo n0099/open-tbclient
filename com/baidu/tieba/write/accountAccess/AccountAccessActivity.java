@@ -2,45 +2,42 @@ package com.baidu.tieba.write.accountAccess;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
-    private NewWriteModel btX;
-    private a hEA;
-    private AccessState hEB;
-    private b hEz;
+    private NewWriteModel aEw;
+    private b hbe;
+    private a hbf;
+    private AccessState hbg;
     private WriteData mWriteData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hEz = new b(this);
+        this.hbe = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.hEB = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.hbg = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.mWriteData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.mWriteData == null || this.hEB == null) {
+            if (this.mWriteData == null || this.hbg == null) {
                 finish();
                 return;
             }
-            this.btX = new NewWriteModel(this);
-            this.btX.setWriteData(this.mWriteData);
+            this.aEw = new NewWriteModel(this);
+            this.aEw.setWriteData(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.btX.mT(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.aEw.mv(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.hEA = new a(this.hEz, this.btX);
-            this.hEz.c(this.hEA);
-            this.hEA.start(bFR());
+            this.hbf = new a(this.hbe, this.aEw);
+            this.hbe.c(this.hbf);
+            this.hbf.start(bBf());
         }
     }
 
@@ -57,21 +54,15 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.mWriteData != null && this.mWriteData.getIsStory() == 1) {
-            bk bkVar = new bk();
-            bkVar.aQI = this.mWriteData;
-            bkVar.aQL = this.hEA.bFU();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921051, bkVar));
-        }
         super.onDestroy();
-        this.hEz.onDestory();
+        this.hbe.onDestory();
     }
 
-    public String bFR() {
-        if (this.hEB == null || this.hEB.getUserInfo() == null) {
+    public String bBf() {
+        if (this.hbg == null || this.hbg.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.hEB.getToken(), this.hEB.getType(), this.hEB.getUserInfo().strMobile, this.hEB.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.hbg.getToken(), this.hbg.getType(), this.hbg.getUserInfo().strMobile, this.hbg.getUserInfo().strEmail);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

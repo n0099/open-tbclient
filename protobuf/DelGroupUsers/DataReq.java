@@ -2,12 +2,12 @@ package protobuf.DelGroupUsers;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DataReq extends Message {
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final String DEFAULT_USERIDS = "";
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String userIds;
 
@@ -31,9 +31,9 @@ public final class DataReq extends Message {
         this.userIds = builder.userIds;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataReq> {
-        public Integer groupId;
+        public Long groupId;
         public String userIds;
 
         public Builder() {

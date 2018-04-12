@@ -4,7 +4,11 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StringRes;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.ActionMode;
@@ -30,13 +34,13 @@ public abstract class ActionBar {
     public static final int NAVIGATION_MODE_TABS = 2;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface DisplayOptions {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface NavigationMode {
     }
@@ -77,9 +81,9 @@ public abstract class ActionBar {
 
         public abstract Tab setCustomView(int i);
 
-        public abstract Tab setCustomView(View view);
+        public abstract Tab setCustomView(View view2);
 
-        public abstract Tab setIcon(int i);
+        public abstract Tab setIcon(@DrawableRes int i);
 
         public abstract Tab setIcon(Drawable drawable);
 
@@ -131,9 +135,11 @@ public abstract class ActionBar {
     @Deprecated
     public abstract int getSelectedNavigationIndex();
 
+    @Nullable
     @Deprecated
     public abstract Tab getSelectedTab();
 
+    @Nullable
     public abstract CharSequence getSubtitle();
 
     @Deprecated
@@ -142,6 +148,7 @@ public abstract class ActionBar {
     @Deprecated
     public abstract int getTabCount();
 
+    @Nullable
     public abstract CharSequence getTitle();
 
     public abstract void hide();
@@ -165,13 +172,13 @@ public abstract class ActionBar {
     @Deprecated
     public abstract void selectTab(Tab tab);
 
-    public abstract void setBackgroundDrawable(Drawable drawable);
+    public abstract void setBackgroundDrawable(@Nullable Drawable drawable);
 
     public abstract void setCustomView(int i);
 
-    public abstract void setCustomView(View view);
+    public abstract void setCustomView(View view2);
 
-    public abstract void setCustomView(View view, LayoutParams layoutParams);
+    public abstract void setCustomView(View view2, LayoutParams layoutParams);
 
     public abstract void setDisplayHomeAsUpEnabled(boolean z);
 
@@ -187,14 +194,14 @@ public abstract class ActionBar {
 
     public abstract void setDisplayUseLogoEnabled(boolean z);
 
-    public abstract void setIcon(int i);
+    public abstract void setIcon(@DrawableRes int i);
 
     public abstract void setIcon(Drawable drawable);
 
     @Deprecated
     public abstract void setListNavigationCallbacks(SpinnerAdapter spinnerAdapter, OnNavigationListener onNavigationListener);
 
-    public abstract void setLogo(int i);
+    public abstract void setLogo(@DrawableRes int i);
 
     public abstract void setLogo(Drawable drawable);
 
@@ -208,7 +215,7 @@ public abstract class ActionBar {
 
     public abstract void setSubtitle(CharSequence charSequence);
 
-    public abstract void setTitle(int i);
+    public abstract void setTitle(@StringRes int i);
 
     public abstract void setTitle(CharSequence charSequence);
 
@@ -227,21 +234,21 @@ public abstract class ActionBar {
         return null;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean isTitleTruncated() {
         return false;
     }
 
-    public void setHomeAsUpIndicator(Drawable drawable) {
+    public void setHomeAsUpIndicator(@Nullable Drawable drawable) {
     }
 
-    public void setHomeAsUpIndicator(int i) {
+    public void setHomeAsUpIndicator(@DrawableRes int i) {
     }
 
-    public void setHomeActionContentDescription(CharSequence charSequence) {
+    public void setHomeActionContentDescription(@Nullable CharSequence charSequence) {
     }
 
-    public void setHomeActionContentDescription(int i) {
+    public void setHomeActionContentDescription(@StringRes int i) {
     }
 
     public void setHideOnContentScrollEnabled(boolean z) {
@@ -274,53 +281,53 @@ public abstract class ActionBar {
         return 0.0f;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setDefaultDisplayHomeAsUpEnabled(boolean z) {
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setShowHideAnimationEnabled(boolean z) {
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void onConfigurationChanged(Configuration configuration) {
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void dispatchMenuVisibilityChanged(boolean z) {
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public ActionMode startActionMode(ActionMode.Callback callback) {
         return null;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean openOptionsMenu() {
         return false;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean invalidateOptionsMenu() {
         return false;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean onMenuKeyEvent(KeyEvent keyEvent) {
         return false;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         return false;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean collapseActionView() {
         return false;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setWindowTitle(CharSequence charSequence) {
     }
 
@@ -337,7 +344,7 @@ public abstract class ActionBar {
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public int gravity;
 
-        public LayoutParams(Context context, AttributeSet attributeSet) {
+        public LayoutParams(@NonNull Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             this.gravity = 0;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ActionBarLayout);

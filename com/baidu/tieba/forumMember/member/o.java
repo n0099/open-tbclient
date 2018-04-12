@@ -6,26 +6,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
-public class o extends com.baidu.tieba.frs.g<p, q> {
-    private static final int dBZ = d.g.manager_apply_tip;
-    private static final int dCa = d.g.assist_apply_tip;
+public class o extends com.baidu.tieba.frs.f<p, q> {
+    private static final int cUL = d.g.manager_apply_tip;
+    private static final int cUM = d.g.assist_apply_tip;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.o.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                Object tag = view.getTag(o.dBZ);
+            public void onClick(View view2) {
+                Object tag = view2.getTag(o.cUL);
                 if (tag == null || tag.toString().equals("")) {
-                    aw.Du().c((TbPageContext) com.baidu.adp.base.i.ak(o.this.mContext), new String[]{view.getTag(o.dCa).toString()});
+                    ax.wg().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{view2.getTag(o.cUM).toString()});
                 } else {
-                    aw.Du().c((TbPageContext) com.baidu.adp.base.i.ak(o.this.mContext), new String[]{tag.toString()});
+                    ax.wg().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -34,89 +34,89 @@ public class o extends com.baidu.tieba.frs.g<p, q> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
+    /* renamed from: an */
     public q onCreateViewHolder(ViewGroup viewGroup) {
-        return new q(LayoutInflater.from(this.mContext).inflate(d.h.frs_member_manager_apply, (ViewGroup) null));
+        return new q(LayoutInflater.from(this.mContext).inflate(d.i.frs_member_manager_apply, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, p pVar, q qVar) {
-        super.onFillViewHolder(i, view, viewGroup, pVar, qVar);
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, p pVar, q qVar) {
+        super.onFillViewHolder(i, view2, viewGroup, pVar, qVar);
         if (pVar != null && !pVar.isEmpty() && qVar != null) {
             if (pVar.isEmpty()) {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    aj.t(qVar.aRs, d.C0141d.cp_bg_line_b);
-                    aj.e(qVar.dCk, d.C0141d.cp_cont_d, 1);
-                    aj.e(qVar.dCl, d.C0141d.cp_cont_d, 1);
-                    aj.e(qVar.dCi, d.C0141d.cp_cont_b, 1);
-                    aj.e(qVar.dCj, d.C0141d.cp_cont_b, 1);
-                    aj.s(qVar.dCm, d.f.frs_member_manito_bg);
-                    aj.s(qVar.dCn, d.f.frs_member_manito_bg);
+                    ak.j(qVar.acO, d.C0126d.cp_bg_line_b);
+                    ak.c(qVar.cUW, d.C0126d.cp_cont_d, 1);
+                    ak.c(qVar.cUX, d.C0126d.cp_cont_d, 1);
+                    ak.c(qVar.cUU, d.C0126d.cp_cont_b, 1);
+                    ak.c(qVar.cUV, d.C0126d.cp_cont_b, 1);
+                    ak.i(qVar.cUY, d.f.frs_member_manito_bg);
+                    ak.i(qVar.cUZ, d.f.frs_member_manito_bg);
                 }
-                int atX = pVar.atX();
-                if (atX == -1) {
-                    int atW = pVar.atW();
-                    String C = am.C(atW);
-                    if (atW > 0) {
-                        qVar.dCk.setText(String.format(this.mContext.getResources().getString(d.j.tbtitle_apply_left_num_tip), C));
-                        qVar.dCm.setTag(dBZ, pVar.atZ());
-                        qVar.dCm.setOnClickListener(this.mClickListener);
-                        qVar.dCm.setEnabled(true);
-                        qVar.dCm.setClickable(true);
+                int aom = pVar.aom();
+                if (aom == -1) {
+                    int aol = pVar.aol();
+                    String v = an.v(aol);
+                    if (aol > 0) {
+                        qVar.cUW.setText(String.format(this.mContext.getResources().getString(d.k.tbtitle_apply_left_num_tip), v));
+                        qVar.cUY.setTag(cUL, pVar.aoo());
+                        qVar.cUY.setOnClickListener(this.mClickListener);
+                        qVar.cUY.setEnabled(true);
+                        qVar.cUY.setClickable(true);
                     } else {
-                        qVar.dCk.setText(this.mContext.getResources().getString(d.j.tbtitle_quota_is_full));
-                        qVar.dCm.setTag(dBZ, pVar.atZ());
-                        qVar.dCm.setOnClickListener(this.mClickListener);
-                        qVar.dCm.setEnabled(false);
-                        qVar.dCm.setClickable(false);
+                        qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
+                        qVar.cUY.setTag(cUL, pVar.aoo());
+                        qVar.cUY.setOnClickListener(this.mClickListener);
+                        qVar.cUY.setEnabled(false);
+                        qVar.cUY.setClickable(false);
                     }
-                } else if (atX == 0) {
-                    qVar.dCk.setText(this.mContext.getResources().getString(d.j.tbtitle_is_bazhu));
-                    qVar.dCm.setTag(dBZ, pVar.atZ());
-                    qVar.dCm.setOnClickListener(this.mClickListener);
-                    qVar.dCm.setEnabled(true);
-                    qVar.dCm.setClickable(true);
-                } else if (atX == 1) {
-                    qVar.dCk.setText(this.mContext.getResources().getString(d.j.tbtitle_applying));
-                    qVar.dCm.setTag(dBZ, pVar.atZ());
-                    qVar.dCm.setOnClickListener(this.mClickListener);
-                    qVar.dCm.setEnabled(true);
-                    qVar.dCm.setClickable(true);
-                } else if (atX == 2) {
-                    qVar.dCk.setText(this.mContext.getResources().getString(d.j.tbtitle_apply_failed));
-                    qVar.dCm.setTag(dBZ, pVar.atZ());
-                    qVar.dCm.setOnClickListener(this.mClickListener);
-                    qVar.dCm.setEnabled(true);
-                    qVar.dCm.setClickable(true);
+                } else if (aom == 0) {
+                    qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_is_bazhu));
+                    qVar.cUY.setTag(cUL, pVar.aoo());
+                    qVar.cUY.setOnClickListener(this.mClickListener);
+                    qVar.cUY.setEnabled(true);
+                    qVar.cUY.setClickable(true);
+                } else if (aom == 1) {
+                    qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_applying));
+                    qVar.cUY.setTag(cUL, pVar.aoo());
+                    qVar.cUY.setOnClickListener(this.mClickListener);
+                    qVar.cUY.setEnabled(true);
+                    qVar.cUY.setClickable(true);
+                } else if (aom == 2) {
+                    qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_apply_failed));
+                    qVar.cUY.setTag(cUL, pVar.aoo());
+                    qVar.cUY.setOnClickListener(this.mClickListener);
+                    qVar.cUY.setEnabled(true);
+                    qVar.cUY.setClickable(true);
                 } else {
-                    qVar.dCk.setText(this.mContext.getResources().getString(d.j.tbtitle_quota_is_full));
-                    qVar.dCm.setTag(dBZ, pVar.atZ());
-                    qVar.dCm.setOnClickListener(this.mClickListener);
-                    qVar.dCm.setEnabled(false);
-                    qVar.dCm.setClickable(false);
+                    qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
+                    qVar.cUY.setTag(cUL, pVar.aoo());
+                    qVar.cUY.setOnClickListener(this.mClickListener);
+                    qVar.cUY.setEnabled(false);
+                    qVar.cUY.setClickable(false);
                 }
-                int atY = pVar.atY();
-                if (atY > 0) {
-                    qVar.dCl.setText(String.format(this.mContext.getResources().getString(d.j.apply_left_num_tip), am.C(atY)));
-                    qVar.dCn.setTag(dCa, pVar.aua());
-                    qVar.dCn.setOnClickListener(this.mClickListener);
-                    qVar.dCn.setEnabled(true);
-                    qVar.dCn.setClickable(true);
+                int aon = pVar.aon();
+                if (aon > 0) {
+                    qVar.cUX.setText(String.format(this.mContext.getResources().getString(d.k.apply_left_num_tip), an.v(aon)));
+                    qVar.cUZ.setTag(cUM, pVar.aop());
+                    qVar.cUZ.setOnClickListener(this.mClickListener);
+                    qVar.cUZ.setEnabled(true);
+                    qVar.cUZ.setClickable(true);
                 } else {
-                    qVar.dCl.setText(this.mContext.getResources().getString(d.j.apply_no_left_tip));
-                    qVar.dCn.setEnabled(false);
-                    qVar.dCn.setClickable(false);
+                    qVar.cUX.setText(this.mContext.getResources().getString(d.k.apply_no_left_tip));
+                    qVar.cUZ.setEnabled(false);
+                    qVar.cUZ.setClickable(false);
                 }
-                qVar.dCl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
-                qVar.dCk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
+                qVar.cUX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
+                qVar.cUW.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
-        return view;
+        return view2;
     }
 }

@@ -7,17 +7,28 @@ import android.os.Bundle;
 import android.support.v4.app.RemoteInputCompatBase;
 /* loaded from: classes2.dex */
 class RemoteInputCompatJellybean {
+    public static final String EXTRA_RESULTS_DATA = "android.remoteinput.resultsData";
+    private static final String KEY_ALLOW_FREE_FORM_INPUT = "allowFreeFormInput";
+    private static final String KEY_CHOICES = "choices";
+    private static final String KEY_EXTRAS = "extras";
+    private static final String KEY_LABEL = "label";
+    private static final String KEY_RESULT_KEY = "resultKey";
+    public static final String RESULTS_CLIP_LABEL = "android.remoteinput.results";
+
+    RemoteInputCompatJellybean() {
+    }
+
     static RemoteInputCompatBase.RemoteInput fromBundle(Bundle bundle, RemoteInputCompatBase.RemoteInput.Factory factory) {
-        return factory.build(bundle.getString("resultKey"), bundle.getCharSequence("label"), bundle.getCharSequenceArray("choices"), bundle.getBoolean("allowFreeFormInput"), bundle.getBundle("extras"));
+        return factory.build(bundle.getString(KEY_RESULT_KEY), bundle.getCharSequence(KEY_LABEL), bundle.getCharSequenceArray(KEY_CHOICES), bundle.getBoolean(KEY_ALLOW_FREE_FORM_INPUT), bundle.getBundle(KEY_EXTRAS));
     }
 
     static Bundle toBundle(RemoteInputCompatBase.RemoteInput remoteInput) {
         Bundle bundle = new Bundle();
-        bundle.putString("resultKey", remoteInput.getResultKey());
-        bundle.putCharSequence("label", remoteInput.getLabel());
-        bundle.putCharSequenceArray("choices", remoteInput.getChoices());
-        bundle.putBoolean("allowFreeFormInput", remoteInput.getAllowFreeFormInput());
-        bundle.putBundle("extras", remoteInput.getExtras());
+        bundle.putString(KEY_RESULT_KEY, remoteInput.getResultKey());
+        bundle.putCharSequence(KEY_LABEL, remoteInput.getLabel());
+        bundle.putCharSequenceArray(KEY_CHOICES, remoteInput.getChoices());
+        bundle.putBoolean(KEY_ALLOW_FREE_FORM_INPUT, remoteInput.getAllowFreeFormInput());
+        bundle.putBundle(KEY_EXTRAS, remoteInput.getExtras());
         return bundle;
     }
 
@@ -52,8 +63,8 @@ class RemoteInputCompatJellybean {
             return null;
         }
         ClipDescription description = clipData.getDescription();
-        if (description.hasMimeType("text/vnd.android.intent") && description.getLabel().equals(RemoteInput.RESULTS_CLIP_LABEL)) {
-            return (Bundle) clipData.getItemAt(0).getIntent().getExtras().getParcelable(RemoteInput.EXTRA_RESULTS_DATA);
+        if (description.hasMimeType("text/vnd.android.intent") && description.getLabel().equals("android.remoteinput.results")) {
+            return (Bundle) clipData.getItemAt(0).getIntent().getExtras().getParcelable("android.remoteinput.resultsData");
         }
         return null;
     }
@@ -68,7 +79,7 @@ class RemoteInputCompatJellybean {
             }
         }
         Intent intent2 = new Intent();
-        intent2.putExtra(RemoteInput.EXTRA_RESULTS_DATA, bundle2);
-        intent.setClipData(ClipData.newIntent(RemoteInput.RESULTS_CLIP_LABEL, intent2));
+        intent2.putExtra("android.remoteinput.resultsData", bundle2);
+        intent.setClipData(ClipData.newIntent("android.remoteinput.results", intent2));
     }
 }

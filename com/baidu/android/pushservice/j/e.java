@@ -1,95 +1,57 @@
 package com.baidu.android.pushservice.j;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-/* loaded from: classes2.dex */
+import java.io.DataInputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+/* loaded from: classes3.dex */
 public class e {
-    private static int c = 1000;
-    private static final Object f = new Object();
-    private long a = System.currentTimeMillis();
-    private c b;
-    private Context d;
-    private Intent e;
-    private Intent g;
+    byte[] a = new byte[8];
+    private DataInputStream b;
 
-    public e(Context context, Intent intent) {
-        this.d = context;
-        this.e = intent;
+    public e(InputStream inputStream) {
+        this.b = new DataInputStream(inputStream);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long a() {
-        return this.a;
-    }
-
-    public void a(Intent intent) {
-        if (this.b != null) {
-            this.b.a(0, intent);
-        }
-        this.g = intent;
-        synchronized (f) {
-            f.notifyAll();
-        }
-    }
-
-    public com.baidu.android.pushservice.message.g b() {
-        this.e.putExtra("bd.cross.request.SOURCE_PACKAGE", this.d.getPackageName());
-        this.e.putExtra("bd.cross.request.ID", this.a);
-        this.e.putExtra("bd.cross.request.NEED_CALLBACK", true);
-        this.e.putExtra("bd.cross.request.SENDING", true);
-        d.a(this);
-        try {
-            this.d.startService(this.e);
-        } catch (Exception e) {
-        }
-        com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-        com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("timeOutRunnable-" + this.a, (short) 50) { // from class: com.baidu.android.pushservice.j.e.1
-            @Override // com.baidu.android.pushservice.i.c
-            public void a() {
-                try {
-                    Thread.sleep(e.c);
-                    synchronized (e.f) {
-                        e.f.notifyAll();
-                    }
-                } catch (InterruptedException e2) {
-                }
+    private int a(int i) throws IOException {
+        int i2 = 0;
+        while (i2 < i) {
+            int read = this.b.read(this.a, i2, i - i2);
+            if (read == -1) {
+                return read;
             }
-        });
-        if (this.b == null) {
-            synchronized (f) {
-                try {
-                    f.wait();
-                } catch (Exception e2) {
-                }
-            }
-            c();
-            if (this.g != null) {
-                if (com.baidu.android.pushservice.a.b() > 0 && this.g.getBooleanExtra("bd.message.rate.MH", false)) {
-                    this.g.putExtra("bd.message.rate.END", System.currentTimeMillis());
-                    j.a(this.d, this.e, this.g);
-                }
-                gVar.a(this.g.getIntExtra("bd.cross.request.RESULT_CODE", 10));
-                if (this.g.hasExtra("bd.cross.request.RESULT_DATA")) {
-                    String stringExtra = this.g.getStringExtra("bd.cross.request.RESULT_DATA");
-                    if (!TextUtils.isEmpty(stringExtra)) {
-                        gVar.a(stringExtra.getBytes());
-                    }
-                }
-            } else {
-                if (com.baidu.android.pushservice.a.b() > 0 && this.e.getBooleanExtra("bd.message.rate.MH", false)) {
-                    this.e.putExtra("bd.message.rate.TIMEOUT", System.currentTimeMillis());
-                    j.a(this.d, this.e, null);
-                }
-                gVar.a(11);
-            }
+            i2 += read;
         }
-        return gVar;
+        return i2;
     }
 
-    synchronized void c() {
-        this.b = null;
-        this.d = null;
-        d.a(this.a);
+    public void a() throws IOException {
+        this.b.close();
+    }
+
+    public final void a(byte[] bArr) throws IOException {
+        this.b.readFully(bArr, 0, bArr.length);
+    }
+
+    public final int b() throws IOException {
+        if (a(4) < 0) {
+            throw new EOFException();
+        }
+        return ((this.a[3] & 255) << 24) | ((this.a[2] & 255) << 16) | ((this.a[1] & 255) << 8) | (this.a[0] & 255);
+    }
+
+    public final short c() throws IOException {
+        if (a(2) < 0) {
+            throw new EOFException();
+        }
+        return (short) (((this.a[1] & 255) << 8) | (this.a[0] & 255));
+    }
+
+    public final long d() throws IOException {
+        if (a(8) < 0) {
+            throw new EOFException();
+        }
+        int i = ((this.a[7] & 255) << 24) | ((this.a[6] & 255) << 16) | ((this.a[5] & 255) << 8) | (this.a[4] & 255);
+        return ((((this.a[3] & 255) << 24) | ((this.a[2] & 255) << 16) | ((this.a[1] & 255) << 8) | (this.a[0] & 255)) & 4294967295L) | ((i & 4294967295L) << 32);
     }
 }

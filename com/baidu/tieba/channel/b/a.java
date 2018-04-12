@@ -12,95 +12,95 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.channel.activity.ChannelHomeActivity;
 import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.channel.data.d;
+import com.baidu.tieba.channel.view.ChannelMoreView;
 import com.baidu.tieba.channel.view.k;
-import com.baidu.tieba.channel.view.l;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a {
-    private View.OnClickListener blT = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
+    private Runnable aHT;
+    private View.OnClickListener axG = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (view != a.this.dcG.getCancelView()) {
-                if (view != a.this.dcG.getLayerView()) {
-                    if (view == a.this.dcG.getUpInfoView()) {
-                        a.this.ahX();
-                        if (a.this.amf()) {
-                            a.this.wH();
+        public void onClick(View view2) {
+            if (view2 != a.this.cuz.getCancelView()) {
+                if (view2 != a.this.cuz.getLayerView()) {
+                    if (view2 == a.this.cuz.getUpInfoView()) {
+                        a.this.acd();
+                        if (a.this.agf()) {
+                            a.this.pr();
                         }
                         TiebaStatic.log("c11994");
-                    } else if (view == a.this.dcG.getPushView()) {
-                        if (a.this.dcH != null) {
-                            a.this.dcH.a(18, null, null, -1);
+                    } else if (view2 == a.this.cuz.getPushView()) {
+                        if (a.this.cuA != null) {
+                            a.this.cuA.a(18, null, null, -1);
                         }
-                        if (a.this.amf()) {
-                            a.this.wH();
+                        if (a.this.agf()) {
+                            a.this.pr();
                         }
                     }
-                } else if (a.this.amf()) {
-                    a.this.wH();
+                } else if (a.this.agf()) {
+                    a.this.pr();
                 }
-            } else if (a.this.amf()) {
-                a.this.wH();
+            } else if (a.this.agf()) {
+                a.this.pr();
             }
         }
     };
-    private Runnable bxw;
-    private d dbF;
-    private k dcF;
-    private l dcG;
-    private ChannelHomeActivity dcH;
+    private d cty;
+    private ChannelHomeActivity cuA;
+    private k cuy;
+    private ChannelMoreView cuz;
 
     public a(ChannelHomeActivity channelHomeActivity) {
-        this.dcH = channelHomeActivity;
+        this.cuA = channelHomeActivity;
     }
 
-    public void ame() {
-        if (this.dbF != null) {
-            if (this.dcF == null) {
-                this.dcG = new l(this.dcH.getApplicationContext(), this.dbF, this.blT);
-                this.dcG.amI();
-                this.dcF = new k(this.dcH.getActivity(), this.dcG);
+    public void age() {
+        if (this.cty != null) {
+            if (this.cuy == null) {
+                this.cuz = new ChannelMoreView(this.cuA.getApplicationContext(), this.cty, this.axG);
+                this.cuz.setBackGround();
+                this.cuy = new k(this.cuA.getActivity(), this.cuz);
             }
-            this.dcF.showAtLocation(this.dcH.findViewById(d.g.channel_home_navigation_bar), 17, 0, 0);
+            this.cuy.showAtLocation(this.cuA.findViewById(d.g.channel_home_navigation_bar), 17, 0, 0);
         }
     }
 
-    public void wH() {
-        if (this.bxw == null) {
-            this.bxw = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
+    public void pr() {
+        if (this.aHT == null) {
+            this.aHT = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.dcF != null) {
-                        g.a(a.this.dcF, a.this.dcH.getPageContext().getPageActivity());
-                        a.this.dcF = null;
+                    if (a.this.cuy != null) {
+                        g.a(a.this.cuy, a.this.cuA.getPageContext().getPageActivity());
+                        a.this.cuy = null;
                     }
                 }
             };
         }
-        e.ns().postDelayed(this.bxw, 100L);
+        e.fw().postDelayed(this.aHT, 100L);
     }
 
     public void b(com.baidu.tieba.channel.data.d dVar) {
-        this.dbF = dVar;
+        this.cty = dVar;
     }
 
-    public boolean amf() {
-        return this.dcF != null && this.dcF.isShowing();
+    public boolean agf() {
+        return this.cuy != null && this.cuy.isShowing();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dcG != null) {
-            this.dcG.amI();
+        if (this.cuz != null) {
+            this.cuz.setBackGround();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahX() {
-        if (this.dbF != null && this.dbF.amj() != null) {
-            ChannelInfo amj = this.dbF.amj();
-            String valueOf = String.valueOf(amj.getUserId());
+    public void acd() {
+        if (this.cty != null && this.cty.agj() != null) {
+            ChannelInfo agj = this.cty.agj();
+            String valueOf = String.valueOf(agj.getUserId());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.dcH.getPageContext().getPageActivity()).createNormalConfig(amj.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.cuA.getPageContext().getPageActivity()).createNormalConfig(agj.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
         }
     }
 }

@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes3.dex */
 public class b {
-    private List<a> eXA;
-    private List<a> eXw;
-    private List<Integer> eXx;
+    private List<a> ese;
+    private List<Integer> esf;
+    private List<a> esi;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!v.E(dataRes.sex_taglist)) {
-                this.eXA = new ArrayList();
-                n(this.eXA, dataRes.sex_taglist);
+            if (!v.w(dataRes.sex_taglist)) {
+                this.esi = new ArrayList();
+                n(this.esi, dataRes.sex_taglist);
             }
-            if (!v.E(dataRes.taglist)) {
-                this.eXw = new ArrayList();
-                this.eXx = new ArrayList();
-                n(this.eXw, dataRes.taglist);
+            if (!v.w(dataRes.taglist)) {
+                this.ese = new ArrayList();
+                this.esf = new ArrayList();
+                n(this.ese, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.eXx != null && aVar.isFollow) {
-                        this.eXx.add(Integer.valueOf(aVar.labelId));
+                    if (this.esf != null && aVar.isFollow) {
+                        this.esf.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> aOK() {
-        return this.eXA;
+    public List<a> aJM() {
+        return this.esi;
     }
 
-    public List<a> aOL() {
-        return this.eXw;
+    public List<a> aJN() {
+        return this.ese;
     }
 
-    public List<Integer> aOM() {
-        return this.eXx;
+    public List<Integer> aJO() {
+        return this.esf;
     }
 }

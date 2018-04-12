@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.SearchView;
 /* loaded from: classes2.dex */
 class SearchViewCompatIcs {
+    SearchViewCompatIcs() {
+    }
 
     /* loaded from: classes2.dex */
     public static class MySearchView extends SearchView {
@@ -23,11 +25,11 @@ class SearchViewCompatIcs {
         return new MySearchView(context);
     }
 
-    public static void setImeOptions(View view, int i) {
-        ((SearchView) view).setImeOptions(i);
+    public static void setImeOptions(View view2, int i) {
+        ((SearchView) view2).setImeOptions(i);
     }
 
-    public static void setInputType(View view, int i) {
-        ((SearchView) view).setInputType(i);
+    public static void setInputType(View view2, int i) {
+        ((SearchView) view2).setInputType(i);
     }
 }

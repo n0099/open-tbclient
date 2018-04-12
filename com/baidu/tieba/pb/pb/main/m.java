@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -9,16 +8,16 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes2.dex */
 public class m {
-    private BaseActivity bSF;
-    private PbModel fLi;
-    private a fMv = null;
-    protected final HttpMessageListener fOB = new HttpMessageListener(CmdConfigHttp.CMD_APPLY_COPY_THREAD) { // from class: com.baidu.tieba.pb.pb.main.m.1
+    private BaseActivity bcJ;
+    private PbModel feN;
+    private a fgb = null;
+    protected final HttpMessageListener fis = new HttpMessageListener(CmdConfigHttp.CMD_APPLY_COPY_THREAD) { // from class: com.baidu.tieba.pb.pb.main.m.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
                 if (httpResponsedMessage.getStatusCode() != 200) {
-                    m.this.fMv.i(-1, null, null);
+                    m.this.fgb.h(-1, null, null);
                     return;
                 }
                 ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
@@ -28,31 +27,31 @@ public class m {
                 if (errorCode == 0) {
                     errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
                 }
-                m.this.fMv.i(errorCode, errorMessage, tid);
+                m.this.fgb.h(errorCode, errorMessage, tid);
             }
         }
     };
 
     /* loaded from: classes2.dex */
     public interface a {
-        void i(int i, String str, String str2);
+        void h(int i, String str, String str2);
     }
 
     public m(PbModel pbModel, BaseActivity baseActivity) {
-        this.fLi = pbModel;
-        this.bSF = baseActivity;
-        this.bSF.registerListener(this.fOB);
+        this.feN = pbModel;
+        this.bcJ = baseActivity;
+        this.bcJ.registerListener(this.fis);
     }
 
     public void a(a aVar) {
-        this.fMv = aVar;
+        this.fgb = aVar;
     }
 
-    public void sO(int i) {
-        if (this.fLi != null) {
+    public void ql(int i) {
+        if (this.feN != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.fLi.bdm());
-            httpMessage.addParam(NotificationCompat.CATEGORY_STATUS, String.valueOf(i));
+            httpMessage.addParam("thread_id", this.feN.aYj());
+            httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }

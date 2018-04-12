@@ -7,7 +7,7 @@ import com.xiaomi.push.service.aq;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static String b = com.xiaomi.smack.util.d.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
     private static long c = 0;

@@ -12,7 +12,7 @@ public class c implements View.OnLongClickListener {
     }
 
     @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
+    public boolean onLongClick(View view2) {
         boolean z;
         z = this.a.p;
         if (z) {

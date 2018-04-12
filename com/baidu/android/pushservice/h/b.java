@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.ar.util.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class b extends n {
+/* loaded from: classes3.dex */
+public class b extends l {
     public String a;
     public String b;
     public String c;
@@ -13,8 +13,8 @@ public class b extends n {
     public b() {
     }
 
-    public b(n nVar) {
-        super(nVar);
+    public b(l lVar) {
+        super(lVar);
     }
 
     public JSONObject a() throws JSONException {

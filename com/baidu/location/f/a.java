@@ -1,11 +1,12 @@
 package com.baidu.location.f;
 
+import android.support.v7.widget.ActivityChooserView;
 import java.util.Locale;
 import org.apache.http.HttpStatus;
 /* loaded from: classes.dex */
 public class a {
+    public char PW;
     public int a;
-    public char aDJ;
     public int b;
     public int c;
     public int d;
@@ -20,11 +21,11 @@ public class a {
         this.b = -1;
         this.c = -1;
         this.d = -1;
-        this.e = Integer.MAX_VALUE;
-        this.f = Integer.MAX_VALUE;
+        this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.g = 0L;
         this.h = -1;
-        this.aDJ = (char) 0;
+        this.PW = (char) 0;
         this.j = false;
         this.g = System.currentTimeMillis();
     }
@@ -34,23 +35,23 @@ public class a {
         this.b = -1;
         this.c = -1;
         this.d = -1;
-        this.e = Integer.MAX_VALUE;
-        this.f = Integer.MAX_VALUE;
+        this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.g = 0L;
         this.h = -1;
-        this.aDJ = (char) 0;
+        this.PW = (char) 0;
         this.j = false;
         this.a = i;
         this.b = i2;
         this.c = i3;
         this.d = i4;
         this.h = i5;
-        this.aDJ = c;
+        this.PW = c;
         this.g = System.currentTimeMillis();
     }
 
     public a(a aVar) {
-        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.aDJ);
+        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.PW);
         this.g = aVar.g;
     }
 
@@ -97,7 +98,7 @@ public class a {
     public String h() {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
-        stringBuffer.append(this.aDJ);
+        stringBuffer.append(this.PW);
         stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b), Integer.valueOf(this.h)));
         if (this.j) {
             stringBuffer.append("&newcl=1");

@@ -33,7 +33,7 @@ public class RequestUpgradeMemberGroupMessage extends TbSocketMessage {
     public Object encode() {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.groupId = Integer.valueOf((int) this.groupId);
+            builder.groupId = Long.valueOf(this.groupId);
             builder.flag = Integer.valueOf(this.flag);
             UpgradeMemberGroupReqIdl.Builder builder2 = new UpgradeMemberGroupReqIdl.Builder();
             builder2.data = builder.build(false);

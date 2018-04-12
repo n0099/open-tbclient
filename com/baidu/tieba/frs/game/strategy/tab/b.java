@@ -1,13 +1,10 @@
 package com.baidu.tieba.frs.game.strategy.tab;
+
+import com.baidu.adp.widget.ListView.h;
+import java.util.List;
 /* loaded from: classes3.dex */
 public interface b {
-    void bx(int i, int i2);
+    void a(int i, int i2, List<h> list, List<e> list2, boolean z, boolean z2, int i3);
 
-    void by(int i, int i2);
-
-    boolean bz(int i, int i2);
-
-    String getForumId();
-
-    f no(int i);
+    void c(int i, int i2, String str);
 }

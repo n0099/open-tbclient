@@ -9,19 +9,17 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveCommentActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams gsY;
-    private List<TextView> gsX;
+    private static ViewGroup.LayoutParams fNH;
+    private List<TextView> fNG;
     private boolean mIsHost;
     private View.OnClickListener mOnItemClickListener;
 
@@ -33,53 +31,41 @@ public class ReplyLinearLayout extends LinearLayout {
         super(context, attributeSet);
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.ReplyLinearLayout.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                boolean z;
-                String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new ak("c12043").s("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
+            public void onClick(View view2) {
+                String[] strArr = (String[]) view2.getTag();
+                TiebaStatic.log(new al("c12043").r("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
                 if (strArr != null) {
                     Context context2 = ReplyLinearLayout.this.getContext();
-                    if (strArr.length < 6 || strArr[5] == null || com.baidu.adp.lib.g.b.h(strArr[5], 0) != 33) {
-                        z = false;
-                    } else if ("0".equals(strArr[3])) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PhotoLiveActivityConfig.a(context2, strArr[1]).xD()));
-                        z = true;
-                    } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PhotoLiveCommentActivityConfig(context2).createPhotoLiveCommentActivityConfig(strArr[1], strArr[2], false)));
-                        z = true;
+                    if ("0".equals(strArr[3])) {
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(context2).createNormalCfg(strArr[1], strArr[2], "person_page");
+                        createNormalCfg.setStartFrom(4);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+                        return;
                     }
-                    if (!z) {
-                        if ("0".equals(strArr[3])) {
-                            PbActivityConfig createNormalCfg = new PbActivityConfig(context2).createNormalCfg(strArr[1], strArr[2], "person_page");
-                            createNormalCfg.setStartFrom(4);
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                            return;
-                        }
-                        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(context2).createSubPbActivityConfig(strArr[1], strArr[2], "person_post_reply", false, null, false);
-                        createSubPbActivityConfig.setKeyPageStartFrom(4);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                    }
+                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(context2).createSubPbActivityConfig(strArr[1], strArr[2], "person_post_reply", false, null, false);
+                    createSubPbActivityConfig.setKeyPageStartFrom(4);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                 }
             }
         };
-        this.gsX = new ArrayList();
+        this.fNG = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (gsY == null) {
-            gsY = new LinearLayout.LayoutParams(-1, -2);
+        if (fNH == null) {
+            fNH = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.gsX.size();
+        int size2 = size - this.fNG.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.gsX.add(textView);
+            this.fNG.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.gsX.size(); i3++) {
-            TextView textView2 = this.gsX.get(i3);
+        for (int i3 = 0; i3 < this.fNG.size(); i3++) {
+            TextView textView2 = this.fNG.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -96,24 +82,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
                 textView2.setTag(charSequenceArr);
                 textView2.setOnClickListener(this.mOnItemClickListener);
-                o(textView2, i3);
+                m(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(gsY);
-                    aj.e(textView2, d.C0141d.cp_cont_b, 1);
+                    textView2.setLayoutParams(fNH);
+                    ak.c(textView2, d.C0126d.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    aj.s(textView2, d.C0141d.cp_bg_line_b);
+                    ak.i(textView2, d.C0126d.cp_bg_line_b);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(gsY);
-                    aj.e(textView2, d.C0141d.cp_cont_f, 1);
+                    textView2.setLayoutParams(fNH);
+                    ak.c(textView2, d.C0126d.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(gsY);
-                    aj.e(textView2, d.C0141d.cp_cont_d, 1);
+                    textView2.setLayoutParams(fNH);
+                    ak.c(textView2, d.C0126d.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
             } else {
@@ -122,16 +108,16 @@ public class ReplyLinearLayout extends LinearLayout {
         }
     }
 
-    private void o(TextView textView, int i) {
+    private void m(TextView textView, int i) {
         if (i == 0) {
-            aj.e(textView, d.C0141d.common_color_10039, 1);
+            ak.c(textView, d.C0126d.common_color_10039, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         } else if (i % 3 == 2) {
-            aj.e(textView, d.C0141d.common_color_10081, 1);
-            textView.setBackgroundResource(d.C0141d.common_color_10022);
+            ak.c(textView, d.C0126d.common_color_10081, 1);
+            textView.setBackgroundResource(d.C0126d.common_color_10022);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f));
         } else if (i % 3 == 0) {
-            aj.e(textView, d.C0141d.common_color_10005, 1);
+            ak.c(textView, d.C0126d.common_color_10005, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         }
     }

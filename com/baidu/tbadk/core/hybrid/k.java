@@ -1,7 +1,9 @@
 package com.baidu.tbadk.core.hybrid;
 
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface k {
-    void z(List<Long> list);
+    void a(m mVar, JSONObject jSONObject);
+
+    void b(int i, Throwable th);
 }

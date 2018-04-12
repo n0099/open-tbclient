@@ -27,15 +27,15 @@ public class a {
     }
 
     public static a a() {
-        return C0076a.a;
+        return C0065a.a;
     }
 
     /* renamed from: com.baidu.sapi2.biometrics.liveness.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0076a {
+    private static class C0065a {
         private static a a = new a();
 
-        private C0076a() {
+        private C0065a() {
         }
     }
 

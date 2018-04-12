@@ -4,14 +4,14 @@ import android.support.v4.media.TransportMediator;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     private final byte[] a;
     private final int b;
     private int c;
-    private final OutputStream hYS;
+    private final OutputStream d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends IOException {
         a() {
             super("CodedOutputStream was writing to a flat byte array and ran out of space.");
@@ -19,93 +19,117 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.hYS = outputStream;
+        this.d = outputStream;
         this.a = bArr;
         this.c = 0;
         this.b = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.hYS = null;
+        this.d = null;
         this.a = bArr;
         this.c = i;
         this.b = i + i2;
+    }
+
+    public static c a(OutputStream outputStream) {
+        return a(outputStream, 4096);
     }
 
     public static c a(OutputStream outputStream, int i) {
         return new c(outputStream, new byte[i]);
     }
 
-    public static int ac(int i, boolean z) {
-        return yK(i) + or(z);
+    public static c a(byte[] bArr, int i, int i2) {
+        return new c(bArr, i, i2);
     }
 
     public static int b(int i, com.google.protobuf.micro.a aVar) {
-        return yK(i) + c(aVar);
+        return f(i) + b(aVar);
     }
 
     public static int b(int i, e eVar) {
-        return yK(i) + b(eVar);
+        return f(i) + b(eVar);
     }
 
     public static int b(int i, String str) {
-        return yK(i) + b(str);
+        return f(i) + b(str);
+    }
+
+    public static int b(int i, boolean z) {
+        return f(i) + b(z);
+    }
+
+    public static int b(com.google.protobuf.micro.a aVar) {
+        return h(aVar.a()) + aVar.a();
     }
 
     public static int b(e eVar) {
         int b = eVar.b();
-        return b + yL(b);
+        return b + h(b);
     }
 
     public static int b(String str) {
         try {
             byte[] bytes = str.getBytes("UTF-8");
-            return bytes.length + yL(bytes.length);
+            return bytes.length + h(bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UTF-8 not supported.");
         }
     }
 
+    public static int b(boolean z) {
+        return 1;
+    }
+
     public static int c(int i) {
         if (i >= 0) {
-            return yL(i);
+            return h(i);
         }
         return 10;
     }
 
     public static int c(int i, int i2) {
-        return yK(i) + c(i2);
+        return f(i) + c(i2);
     }
 
-    public static int c(com.google.protobuf.micro.a aVar) {
-        return yL(aVar.a()) + aVar.a();
+    public static int c(int i, long j) {
+        return f(i) + c(j);
     }
 
-    public static int cV(int i, int i2) {
-        return yK(i) + d(i2);
+    public static int c(long j) {
+        return f(j);
     }
 
     public static int d(int i) {
-        return yL(i);
+        return h(i);
+    }
+
+    public static int d(int i, int i2) {
+        return f(i) + d(i2);
+    }
+
+    public static int d(int i, long j) {
+        return f(i) + d(j);
+    }
+
+    public static int d(long j) {
+        return f(j);
     }
 
     private void d() {
-        if (this.hYS == null) {
+        if (this.d == null) {
             throw new a();
         }
-        this.hYS.write(this.a, 0, this.c);
+        this.d.write(this.a, 0, this.c);
         this.c = 0;
     }
 
-    public static int dr(long j) {
-        return dt(j);
+    public static int f(int i) {
+        return h(f.a(i, 0));
     }
 
-    public static int ds(long j) {
-        return dt(j);
-    }
-
-    public static int dt(long j) {
+    public static int f(long j) {
         if (((-128) & j) == 0) {
             return 1;
         }
@@ -133,31 +157,7 @@ public final class c {
         return (Long.MIN_VALUE & j) == 0 ? 9 : 10;
     }
 
-    public static c g(OutputStream outputStream) {
-        return a(outputStream, 4096);
-    }
-
-    public static int k(int i, long j) {
-        return yK(i) + dr(j);
-    }
-
-    public static int l(int i, long j) {
-        return yK(i) + ds(j);
-    }
-
-    public static c n(byte[] bArr, int i, int i2) {
-        return new c(bArr, i, i2);
-    }
-
-    public static int or(boolean z) {
-        return 1;
-    }
-
-    public static int yK(int i) {
-        return yL(f.a(i, 0));
-    }
-
-    public static int yL(int i) {
+    public static int h(int i) {
         if ((i & (-128)) == 0) {
             return 1;
         }
@@ -171,7 +171,7 @@ public final class c {
     }
 
     public void a() {
-        if (this.hYS != null) {
+        if (this.d != null) {
             d();
         }
     }
@@ -206,7 +206,7 @@ public final class c {
 
     public void a(int i, com.google.protobuf.micro.a aVar) {
         e(i, 2);
-        b(aVar);
+        a(aVar);
     }
 
     public void a(int i, e eVar) {
@@ -226,6 +226,12 @@ public final class c {
 
     public void a(long j) {
         e(j);
+    }
+
+    public void a(com.google.protobuf.micro.a aVar) {
+        byte[] b = aVar.b();
+        g(b.length);
+        a(b);
     }
 
     public void a(e eVar) {
@@ -248,7 +254,7 @@ public final class c {
     }
 
     public int b() {
-        if (this.hYS == null) {
+        if (this.d == null) {
             return this.b - this.c;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
@@ -263,14 +269,13 @@ public final class c {
         b(i2);
     }
 
-    public void b(long j) {
-        e(j);
+    public void b(int i, long j) {
+        e(i, 0);
+        b(j);
     }
 
-    public void b(com.google.protobuf.micro.a aVar) {
-        byte[] b = aVar.b();
-        g(b.length);
-        a(b);
+    public void b(long j) {
+        e(j);
     }
 
     public void b(byte[] bArr, int i, int i2) {
@@ -286,7 +291,7 @@ public final class c {
         this.c = this.b;
         d();
         if (i5 > this.b) {
-            this.hYS.write(bArr, i4, i5);
+            this.d.write(bArr, i4, i5);
             return;
         }
         System.arraycopy(bArr, i4, this.a, 0, i5);
@@ -321,10 +326,5 @@ public final class c {
             i >>>= 7;
         }
         e(i);
-    }
-
-    public void j(int i, long j) {
-        e(i, 0);
-        b(j);
     }
 }

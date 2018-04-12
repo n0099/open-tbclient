@@ -1,7 +1,11 @@
 package com.baidu.tbadk.d;
-
-import android.view.View;
 /* loaded from: classes.dex */
 public interface a {
-    boolean aL(View view);
+    void ci(String str);
+
+    void oY();
+
+    void oZ();
+
+    void oh();
 }

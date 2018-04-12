@@ -11,12 +11,11 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.l;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.j.m;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     protected int a;
     protected int b;
@@ -65,8 +64,8 @@ public class c {
                     try {
                         Drawable createFromStream = Drawable.createFromStream(new URL(c.this.i).openStream(), null);
                         Notification.Builder builder = new Notification.Builder(context);
-                        if (p.G(context)) {
-                            l.a(context, "com.baidu.android.pushservice.push", "Push");
+                        if (m.G(context)) {
+                            com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.push", "Push");
                             builder.setChannelId("com.baidu.android.pushservice.push");
                         }
                         Notification build = builder.setContentTitle(c.this.f).setContentTitle(c.this.f).setContentText(c.this.g).setSmallIcon(c.this.a).setLargeIcon(c.this.a(createFromStream, context)).build();
@@ -116,7 +115,7 @@ public class c {
         }
         if (notification != null) {
             notification.contentIntent = pendingIntent;
-            ((NotificationManager) context.getSystemService("notification")).notify(p.b(str), notification);
+            ((NotificationManager) context.getSystemService("notification")).notify(m.a(str), notification);
         }
     }
 

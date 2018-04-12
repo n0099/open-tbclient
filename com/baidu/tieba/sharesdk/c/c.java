@@ -16,7 +16,7 @@ public class c {
         }
     }
 
-    public static Oauth2AccessToken ch(Context context) {
+    public static Oauth2AccessToken bV(Context context) {
         if (context == null) {
             return null;
         }

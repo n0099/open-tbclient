@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
-import android.provider.Settings;
 import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.common.b.h;
+import com.meizu.cloud.pushsdk.common.util.g;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MzSystemUtils {
-    private static String c(Context context, String str) {
+    private static final String TAG = "MzSystemUtils";
+
+    private static String getServicesByPackageName(Context context, String str) {
         ServiceInfo[] serviceInfoArr;
         try {
             serviceInfoArr = context.getPackageManager().getPackageInfo(str, 4).services;
@@ -29,12 +30,12 @@ public class MzSystemUtils {
         return null;
     }
 
-    public static String a(Context context) {
+    public static String getMzPushServicePackageName(Context context) {
         String packageName = context.getPackageName();
         try {
-            String c = c(context, "com.meizu.cloud");
-            if (!TextUtils.isEmpty(c)) {
-                if (c.contains("mzservice_v1")) {
+            String servicesByPackageName = getServicesByPackageName(context, "com.meizu.cloud");
+            if (!TextUtils.isEmpty(servicesByPackageName)) {
+                if (servicesByPackageName.contains("mzservice_v1")) {
                     return "com.meizu.cloud";
                 }
             }
@@ -45,7 +46,7 @@ public class MzSystemUtils {
         return packageName;
     }
 
-    public static String a(Context context, String str) {
+    public static String getAppVersionName(Context context, String str) {
         try {
             String str2 = context.getPackageManager().getPackageInfo(str, 0).versionName;
             if (str2 != null) {
@@ -60,7 +61,7 @@ public class MzSystemUtils {
         }
     }
 
-    public static boolean a(String str, String str2) {
+    public static boolean compareVersion(String str, String str2) {
         String[] split = str.split("\\.");
         String[] split2 = str2.split("\\.");
         int min = Math.min(split.length, split2.length);
@@ -77,7 +78,7 @@ public class MzSystemUtils {
         return i >= 0;
     }
 
-    public static String a(Context context, String str, String str2) {
+    public static String findReceiver(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
@@ -90,30 +91,11 @@ public class MzSystemUtils {
         return queryBroadcastReceivers.get(0).activityInfo.name;
     }
 
-    public static void a(Context context, String str, boolean z) {
-        try {
-            Settings.System.putInt(context.getContentResolver(), str, z ? 0 : 1);
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e("MzSystemUtils", "Setting setCurrentPackageName exception " + e.getMessage());
-        }
-    }
-
-    public static boolean b(Context context, String str) {
-        try {
-            int i = Settings.System.getInt(context.getContentResolver(), str);
-            com.meizu.cloud.a.a.e("MzSystemUtils", "isRemoved " + i);
-            return i == 0;
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e("MzSystemUtils", "get removed package fail " + e.getMessage());
-            return false;
-        }
-    }
-
-    public static String b(Context context) {
-        return com.meizu.cloud.pushsdk.common.b.b.a(context);
+    public static String getDeviceId(Context context) {
+        return com.meizu.cloud.pushsdk.common.util.b.a(context);
     }
 
     public static boolean isBrandMeizu() {
-        return h.a();
+        return g.a();
     }
 }

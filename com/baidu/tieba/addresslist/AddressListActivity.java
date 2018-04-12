@@ -13,16 +13,16 @@ public class AddressListActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.addresslist_activity);
+        setContentView(d.i.addresslist_activity);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.AddressListActivity.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 AddressListActivity.this.finish();
             }
         });
-        this.mNavigationBar.setTitleText(getPageContext().getString(d.j.my_good_friends));
-        getSupportFragmentManager().beginTransaction().add(d.g.address_list_fragment_container, new a()).commit();
+        this.mNavigationBar.setTitleText(getPageContext().getString(d.k.my_good_friends));
+        getSupportFragmentManager().beginTransaction().add(d.g.address_list_fragment_container, new AddressListFragment()).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity

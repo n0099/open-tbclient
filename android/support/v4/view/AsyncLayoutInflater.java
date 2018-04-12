@@ -3,6 +3,10 @@ package android.support.v4.view;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.UiThread;
 import android.support.v4.util.Pools;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -12,15 +16,16 @@ import android.view.ViewGroup;
 import java.util.concurrent.ArrayBlockingQueue;
 /* loaded from: classes2.dex */
 public final class AsyncLayoutInflater {
+    private static final String TAG = "AsyncLayoutInflater";
     LayoutInflater mInflater;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: android.support.v4.view.AsyncLayoutInflater.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             InflateRequest inflateRequest = (InflateRequest) message.obj;
-            if (inflateRequest.view == null) {
-                inflateRequest.view = AsyncLayoutInflater.this.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
+            if (inflateRequest.f3view == null) {
+                inflateRequest.f3view = AsyncLayoutInflater.this.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
             }
-            inflateRequest.callback.onInflateFinished(inflateRequest.view, inflateRequest.resid, inflateRequest.parent);
+            inflateRequest.callback.onInflateFinished(inflateRequest.f3view, inflateRequest.resid, inflateRequest.parent);
             AsyncLayoutInflater.this.mInflateThread.releaseRequest(inflateRequest);
             return true;
         }
@@ -30,14 +35,15 @@ public final class AsyncLayoutInflater {
 
     /* loaded from: classes2.dex */
     public interface OnInflateFinishedListener {
-        void onInflateFinished(View view, int i, ViewGroup viewGroup);
+        void onInflateFinished(View view2, int i, ViewGroup viewGroup);
     }
 
-    public AsyncLayoutInflater(Context context) {
+    public AsyncLayoutInflater(@NonNull Context context) {
         this.mInflater = new BasicInflater(context);
     }
 
-    public void inflate(int i, ViewGroup viewGroup, OnInflateFinishedListener onInflateFinishedListener) {
+    @UiThread
+    public void inflate(@LayoutRes int i, @Nullable ViewGroup viewGroup, @NonNull OnInflateFinishedListener onInflateFinishedListener) {
         if (onInflateFinishedListener == null) {
             throw new NullPointerException("callback argument may not be null!");
         }
@@ -56,7 +62,9 @@ public final class AsyncLayoutInflater {
         AsyncLayoutInflater inflater;
         ViewGroup parent;
         int resid;
-        View view;
+
+        /* renamed from: view  reason: collision with root package name */
+        View f3view;
 
         InflateRequest() {
         }
@@ -114,13 +122,13 @@ public final class AsyncLayoutInflater {
                 try {
                     InflateRequest take = this.mQueue.take();
                     try {
-                        take.view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
+                        take.f3view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
                     } catch (RuntimeException e) {
-                        Log.w("AsyncLayoutInflater", "Failed to inflate resource in the background! Retrying on the UI thread", e);
+                        Log.w(AsyncLayoutInflater.TAG, "Failed to inflate resource in the background! Retrying on the UI thread", e);
                     }
                     Message.obtain(take.inflater.mHandler, 0, take).sendToTarget();
                 } catch (InterruptedException e2) {
-                    Log.w("AsyncLayoutInflater", e2);
+                    Log.w(AsyncLayoutInflater.TAG, e2);
                 }
             }
         }
@@ -138,7 +146,7 @@ public final class AsyncLayoutInflater {
             inflateRequest.inflater = null;
             inflateRequest.parent = null;
             inflateRequest.resid = 0;
-            inflateRequest.view = null;
+            inflateRequest.f3view = null;
             this.mRequestPool.release(inflateRequest);
         }
 

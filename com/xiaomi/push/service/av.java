@@ -5,12 +5,12 @@ import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.service.aw;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class av {
     private static String a = com.xiaomi.channel.commonutils.string.d.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
     private static AtomicLong b = new AtomicLong(0);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements aw.b {
         private final Context a;
 
@@ -28,7 +28,7 @@ public class av {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public String a;
         public int b;

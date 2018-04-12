@@ -4,20 +4,23 @@ import java.nio.CharBuffer;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class TextDirectionHeuristicsCompat {
-    public static final TextDirectionHeuristicCompat LTR = new e(null, false);
-    public static final TextDirectionHeuristicCompat RTL = new e(null, true);
-    public static final TextDirectionHeuristicCompat FIRSTSTRONG_LTR = new e(b.Be, false);
-    public static final TextDirectionHeuristicCompat FIRSTSTRONG_RTL = new e(b.Be, true);
-    public static final TextDirectionHeuristicCompat ANYRTL_LTR = new e(a.Bc, false);
-    public static final TextDirectionHeuristicCompat LOCALE = f.Bh;
+    private static final int STATE_FALSE = 1;
+    private static final int STATE_TRUE = 0;
+    private static final int STATE_UNKNOWN = 2;
+    public static final TextDirectionHeuristicCompat LTR = new TextDirectionHeuristicInternal(null, false);
+    public static final TextDirectionHeuristicCompat RTL = new TextDirectionHeuristicInternal(null, true);
+    public static final TextDirectionHeuristicCompat FIRSTSTRONG_LTR = new TextDirectionHeuristicInternal(FirstStrong.INSTANCE, false);
+    public static final TextDirectionHeuristicCompat FIRSTSTRONG_RTL = new TextDirectionHeuristicInternal(FirstStrong.INSTANCE, true);
+    public static final TextDirectionHeuristicCompat ANYRTL_LTR = new TextDirectionHeuristicInternal(AnyStrong.INSTANCE_RTL, false);
+    public static final TextDirectionHeuristicCompat LOCALE = TextDirectionHeuristicLocale.INSTANCE;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public interface c {
-        int b(CharSequence charSequence, int i, int i2);
+    public interface TextDirectionAlgorithm {
+        int checkRtl(CharSequence charSequence, int i, int i2);
     }
 
-    static int at(int i) {
+    static int isRtlText(int i) {
         switch (i) {
             case 0:
                 return 1;
@@ -29,7 +32,7 @@ public final class TextDirectionHeuristicsCompat {
         }
     }
 
-    static int au(int i) {
+    static int isRtlTextOrFormat(int i) {
         switch (i) {
             case 0:
             case 14:
@@ -46,13 +49,13 @@ public final class TextDirectionHeuristicsCompat {
     }
 
     /* loaded from: classes2.dex */
-    private static abstract class d implements TextDirectionHeuristicCompat {
-        private final c Bf;
+    private static abstract class TextDirectionHeuristicImpl implements TextDirectionHeuristicCompat {
+        private final TextDirectionAlgorithm mAlgorithm;
 
-        protected abstract boolean dQ();
+        protected abstract boolean defaultIsRtl();
 
-        public d(c cVar) {
-            this.Bf = cVar;
+        public TextDirectionHeuristicImpl(TextDirectionAlgorithm textDirectionAlgorithm) {
+            this.mAlgorithm = textDirectionAlgorithm;
         }
 
         @Override // android.support.v4.text.TextDirectionHeuristicCompat
@@ -65,76 +68,76 @@ public final class TextDirectionHeuristicsCompat {
             if (charSequence == null || i < 0 || i2 < 0 || charSequence.length() - i2 < i) {
                 throw new IllegalArgumentException();
             }
-            return this.Bf == null ? dQ() : c(charSequence, i, i2);
+            return this.mAlgorithm == null ? defaultIsRtl() : doCheck(charSequence, i, i2);
         }
 
-        private boolean c(CharSequence charSequence, int i, int i2) {
-            switch (this.Bf.b(charSequence, i, i2)) {
+        private boolean doCheck(CharSequence charSequence, int i, int i2) {
+            switch (this.mAlgorithm.checkRtl(charSequence, i, i2)) {
                 case 0:
                     return true;
                 case 1:
                     return false;
                 default:
-                    return dQ();
+                    return defaultIsRtl();
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    private static class e extends d {
-        private final boolean Bg;
+    private static class TextDirectionHeuristicInternal extends TextDirectionHeuristicImpl {
+        private final boolean mDefaultIsRtl;
 
-        e(c cVar, boolean z) {
-            super(cVar);
-            this.Bg = z;
+        TextDirectionHeuristicInternal(TextDirectionAlgorithm textDirectionAlgorithm, boolean z) {
+            super(textDirectionAlgorithm);
+            this.mDefaultIsRtl = z;
         }
 
-        @Override // android.support.v4.text.TextDirectionHeuristicsCompat.d
-        protected boolean dQ() {
-            return this.Bg;
+        @Override // android.support.v4.text.TextDirectionHeuristicsCompat.TextDirectionHeuristicImpl
+        protected boolean defaultIsRtl() {
+            return this.mDefaultIsRtl;
         }
     }
 
     /* loaded from: classes2.dex */
-    private static class b implements c {
-        public static final b Be = new b();
+    private static class FirstStrong implements TextDirectionAlgorithm {
+        public static final FirstStrong INSTANCE = new FirstStrong();
 
-        @Override // android.support.v4.text.TextDirectionHeuristicsCompat.c
-        public int b(CharSequence charSequence, int i, int i2) {
+        @Override // android.support.v4.text.TextDirectionHeuristicsCompat.TextDirectionAlgorithm
+        public int checkRtl(CharSequence charSequence, int i, int i2) {
             int i3 = i + i2;
             int i4 = 2;
             while (i < i3 && i4 == 2) {
-                i4 = TextDirectionHeuristicsCompat.au(Character.getDirectionality(charSequence.charAt(i)));
+                i4 = TextDirectionHeuristicsCompat.isRtlTextOrFormat(Character.getDirectionality(charSequence.charAt(i)));
                 i++;
             }
             return i4;
         }
 
-        private b() {
+        private FirstStrong() {
         }
     }
 
     /* loaded from: classes2.dex */
-    private static class a implements c {
-        public static final a Bc = new a(true);
-        public static final a Bd = new a(false);
-        private final boolean Bb;
+    private static class AnyStrong implements TextDirectionAlgorithm {
+        private final boolean mLookForRtl;
+        public static final AnyStrong INSTANCE_RTL = new AnyStrong(true);
+        public static final AnyStrong INSTANCE_LTR = new AnyStrong(false);
 
-        @Override // android.support.v4.text.TextDirectionHeuristicsCompat.c
-        public int b(CharSequence charSequence, int i, int i2) {
+        @Override // android.support.v4.text.TextDirectionHeuristicsCompat.TextDirectionAlgorithm
+        public int checkRtl(CharSequence charSequence, int i, int i2) {
             int i3 = i + i2;
             boolean z = false;
             while (i < i3) {
-                switch (TextDirectionHeuristicsCompat.at(Character.getDirectionality(charSequence.charAt(i)))) {
+                switch (TextDirectionHeuristicsCompat.isRtlText(Character.getDirectionality(charSequence.charAt(i)))) {
                     case 0:
-                        if (!this.Bb) {
+                        if (!this.mLookForRtl) {
                             z = true;
                             break;
                         } else {
                             return 0;
                         }
                     case 1:
-                        if (this.Bb) {
+                        if (this.mLookForRtl) {
                             z = true;
                             break;
                         } else {
@@ -144,26 +147,26 @@ public final class TextDirectionHeuristicsCompat {
                 i++;
             }
             if (z) {
-                return !this.Bb ? 0 : 1;
+                return !this.mLookForRtl ? 0 : 1;
             }
             return 2;
         }
 
-        private a(boolean z) {
-            this.Bb = z;
+        private AnyStrong(boolean z) {
+            this.mLookForRtl = z;
         }
     }
 
     /* loaded from: classes2.dex */
-    private static class f extends d {
-        public static final f Bh = new f();
+    private static class TextDirectionHeuristicLocale extends TextDirectionHeuristicImpl {
+        public static final TextDirectionHeuristicLocale INSTANCE = new TextDirectionHeuristicLocale();
 
-        public f() {
+        public TextDirectionHeuristicLocale() {
             super(null);
         }
 
-        @Override // android.support.v4.text.TextDirectionHeuristicsCompat.d
-        protected boolean dQ() {
+        @Override // android.support.v4.text.TextDirectionHeuristicsCompat.TextDirectionHeuristicImpl
+        protected boolean defaultIsRtl() {
             return TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == 1;
         }
     }

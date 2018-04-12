@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.tbadkCore.s;
+import com.baidu.tieba.tbadkCore.r;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetMemberInfo.GetMemberInfoResIdl;
@@ -14,7 +14,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     private ManagerApplyInfo mManagerApplyInfo;
     private MemberGodInfo mMemberGodInfo;
     private List<MemberGroupInfo> mMemberGroupInfoList;
-    private s mUserInfo;
+    private r mUserInfo;
 
     public ForumMemberSocketResponseMessage() {
         super(301004);
@@ -33,11 +33,11 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
             if (getError() == 0) {
                 if (getMemberInfoResIdl.data != null) {
                     if (getMemberInfoResIdl.data.forum_member_info != null) {
-                        this.mUserInfo = new s();
+                        this.mUserInfo = new r();
                         this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.vp(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.sS(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                         this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                     }
                     this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;
@@ -60,12 +60,12 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
             }
             if (forumMemberRequestMessage != null) {
-                new d().l(forumMemberRequestMessage.getForumName() + "", bArr);
+                new d().k(forumMemberRequestMessage.getForumName() + "", bArr);
             }
         }
     }
 
-    public s getUserInfo() {
+    public r getUserInfo() {
         return this.mUserInfo;
     }
 

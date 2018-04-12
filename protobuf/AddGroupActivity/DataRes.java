@@ -15,11 +15,11 @@ public final class DataRes extends Message {
     public final Long gActivityTime;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String gActivityTitle;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String groupName;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Long DEFAULT_GACTIVITYTIME = 0L;
     public static final Long DEFAULT_ACTIVITYID = 0L;
 
@@ -73,7 +73,7 @@ public final class DataRes extends Message {
         public String gActivityArea;
         public Long gActivityTime;
         public String gActivityTitle;
-        public Integer groupId;
+        public Long groupId;
         public String groupName;
 
         public Builder() {

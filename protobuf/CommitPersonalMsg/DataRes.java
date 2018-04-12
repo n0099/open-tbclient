@@ -7,8 +7,8 @@ import protobuf.BlockInfo;
 public final class DataRes extends Message {
     @ProtoField(tag = 6)
     public final BlockInfo blockInfo;
-    @ProtoField(tag = 2, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 2, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long msgId;
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
@@ -18,7 +18,7 @@ public final class DataRes extends Message {
     @ProtoField(tag = 5, type = Message.Datatype.INT32)
     public final Integer toUserType;
     public static final Long DEFAULT_MSGID = 0L;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Long DEFAULT_RECORDID = 0L;
     public static final Long DEFAULT_TOUID = 0L;
     public static final Integer DEFAULT_TOUSERTYPE = 0;
@@ -65,7 +65,7 @@ public final class DataRes extends Message {
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public BlockInfo blockInfo;
-        public Integer groupId;
+        public Long groupId;
         public Long msgId;
         public Long recordId;
         public Long toUid;

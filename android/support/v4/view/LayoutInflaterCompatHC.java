@@ -9,8 +9,12 @@ import android.view.View;
 import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 class LayoutInflaterCompatHC {
+    private static final String TAG = "LayoutInflaterCompatHC";
     private static boolean sCheckedField;
     private static Field sLayoutInflaterFactory2Field;
+
+    LayoutInflaterCompatHC() {
+    }
 
     /* loaded from: classes2.dex */
     static class FactoryWrapperHC extends LayoutInflaterCompatBase.FactoryWrapper implements LayoutInflater.Factory2 {
@@ -20,8 +24,8 @@ class LayoutInflaterCompatHC {
         }
 
         @Override // android.view.LayoutInflater.Factory2
-        public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-            return this.mDelegateFactory.onCreateView(view, str, context, attributeSet);
+        public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+            return this.mDelegateFactory.onCreateView(view2, str, context, attributeSet);
         }
     }
 
@@ -43,7 +47,7 @@ class LayoutInflaterCompatHC {
                 sLayoutInflaterFactory2Field = LayoutInflater.class.getDeclaredField("mFactory2");
                 sLayoutInflaterFactory2Field.setAccessible(true);
             } catch (NoSuchFieldException e) {
-                Log.e("LayoutInflaterCompatHC", "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
+                Log.e(TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
             }
             sCheckedField = true;
         }
@@ -51,7 +55,7 @@ class LayoutInflaterCompatHC {
             try {
                 sLayoutInflaterFactory2Field.set(layoutInflater, factory2);
             } catch (IllegalAccessException e2) {
-                Log.e("LayoutInflaterCompatHC", "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
+                Log.e(TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
             }
         }
     }

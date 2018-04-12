@@ -5,11 +5,14 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.media.TransportMediator;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
+import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
@@ -21,38 +24,45 @@ import java.util.BitSet;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
+    static final boolean DEBUG = false;
     @Deprecated
     public static final int GAP_HANDLING_LAZY = 1;
     public static final int GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS = 2;
     public static final int GAP_HANDLING_NONE = 0;
     public static final int HORIZONTAL = 0;
+    static final int INVALID_OFFSET = Integer.MIN_VALUE;
+    private static final float MAX_SCROLL_FACTOR = 0.33333334f;
+    private static final String TAG = "StaggeredGridLayoutManager";
     public static final int VERTICAL = 1;
-    private int An;
-    b[] Vo;
-    OrientationHelper Vp;
-    OrientationHelper Vq;
-    private int Vr;
-    private final m Vs;
-    private BitSet Vt;
-    private boolean Vw;
-    private boolean Vx;
-    private SavedState Vy;
-    private int Vz;
-    private int OW = -1;
-    boolean PE = false;
-    boolean PF = false;
-    int PH = -1;
-    int PI = Integer.MIN_VALUE;
-    LazySpanLookup Vu = new LazySpanLookup();
-    private int Vv = 2;
+    private int mFullSizeSpec;
+    private boolean mLastLayoutFromEnd;
+    private boolean mLastLayoutRTL;
+    @NonNull
+    private final LayoutState mLayoutState;
+    private int mOrientation;
+    private SavedState mPendingSavedState;
+    @NonNull
+    OrientationHelper mPrimaryOrientation;
+    private BitSet mRemainingSpans;
+    @NonNull
+    OrientationHelper mSecondaryOrientation;
+    private int mSizePerSpan;
+    Span[] mSpans;
+    private int mSpanCount = -1;
+    boolean mReverseLayout = false;
+    boolean mShouldReverseLayout = false;
+    int mPendingScrollPosition = -1;
+    int mPendingScrollPositionOffset = Integer.MIN_VALUE;
+    LazySpanLookup mLazySpanLookup = new LazySpanLookup();
+    private int mGapStrategy = 2;
     private final Rect mTmpRect = new Rect();
-    private final a VA = new a();
-    private boolean VB = false;
+    private final AnchorInfo mAnchorInfo = new AnchorInfo();
+    private boolean mLaidOutInvalidFullSpan = false;
     private boolean mSmoothScrollbarEnabled = true;
-    private final Runnable VC = new Runnable() { // from class: android.support.v7.widget.StaggeredGridLayoutManager.1
+    private final Runnable mCheckForGapsRunnable = new Runnable() { // from class: android.support.v7.widget.StaggeredGridLayoutManager.1
         @Override // java.lang.Runnable
         public void run() {
-            StaggeredGridLayoutManager.this.hU();
+            StaggeredGridLayoutManager.this.checkForGaps();
         }
     };
 
@@ -61,55 +71,55 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         setOrientation(properties.orientation);
         setSpanCount(properties.spanCount);
         setReverseLayout(properties.reverseLayout);
-        setAutoMeasureEnabled(this.Vv != 0);
-        this.Vs = new m();
-        hT();
+        setAutoMeasureEnabled(this.mGapStrategy != 0);
+        this.mLayoutState = new LayoutState();
+        createOrientationHelpers();
     }
 
     public StaggeredGridLayoutManager(int i, int i2) {
-        this.An = i2;
+        this.mOrientation = i2;
         setSpanCount(i);
-        setAutoMeasureEnabled(this.Vv != 0);
-        this.Vs = new m();
-        hT();
+        setAutoMeasureEnabled(this.mGapStrategy != 0);
+        this.mLayoutState = new LayoutState();
+        createOrientationHelpers();
     }
 
-    private void hT() {
-        this.Vp = OrientationHelper.createOrientationHelper(this, this.An);
-        this.Vq = OrientationHelper.createOrientationHelper(this, 1 - this.An);
+    private void createOrientationHelpers() {
+        this.mPrimaryOrientation = OrientationHelper.createOrientationHelper(this, this.mOrientation);
+        this.mSecondaryOrientation = OrientationHelper.createOrientationHelper(this, 1 - this.mOrientation);
     }
 
-    boolean hU() {
-        int ib;
-        int ia;
-        if (getChildCount() == 0 || this.Vv == 0 || !isAttachedToWindow()) {
+    boolean checkForGaps() {
+        int firstChildPosition;
+        int lastChildPosition;
+        if (getChildCount() == 0 || this.mGapStrategy == 0 || !isAttachedToWindow()) {
             return false;
         }
-        if (this.PF) {
-            ib = ia();
-            ia = ib();
+        if (this.mShouldReverseLayout) {
+            firstChildPosition = getLastChildPosition();
+            lastChildPosition = getFirstChildPosition();
         } else {
-            ib = ib();
-            ia = ia();
+            firstChildPosition = getFirstChildPosition();
+            lastChildPosition = getLastChildPosition();
         }
-        if (ib == 0 && hV() != null) {
-            this.Vu.clear();
+        if (firstChildPosition == 0 && hasGapsToFix() != null) {
+            this.mLazySpanLookup.clear();
             requestSimpleAnimationsInNextLayout();
             requestLayout();
             return true;
-        } else if (this.VB) {
-            int i = this.PF ? -1 : 1;
-            LazySpanLookup.FullSpanItem c = this.Vu.c(ib, ia + 1, i, true);
-            if (c == null) {
-                this.VB = false;
-                this.Vu.bQ(ia + 1);
+        } else if (this.mLaidOutInvalidFullSpan) {
+            int i = this.mShouldReverseLayout ? -1 : 1;
+            LazySpanLookup.FullSpanItem firstFullSpanItemInRange = this.mLazySpanLookup.getFirstFullSpanItemInRange(firstChildPosition, lastChildPosition + 1, i, true);
+            if (firstFullSpanItemInRange == null) {
+                this.mLaidOutInvalidFullSpan = false;
+                this.mLazySpanLookup.forceInvalidateAfter(lastChildPosition + 1);
                 return false;
             }
-            LazySpanLookup.FullSpanItem c2 = this.Vu.c(ib, c.mPosition, i * (-1), true);
-            if (c2 == null) {
-                this.Vu.bQ(c.mPosition);
+            LazySpanLookup.FullSpanItem firstFullSpanItemInRange2 = this.mLazySpanLookup.getFirstFullSpanItemInRange(firstChildPosition, firstFullSpanItemInRange.mPosition, i * (-1), true);
+            if (firstFullSpanItemInRange2 == null) {
+                this.mLazySpanLookup.forceInvalidateAfter(firstFullSpanItemInRange.mPosition);
             } else {
-                this.Vu.bQ(c2.mPosition + 1);
+                this.mLazySpanLookup.forceInvalidateAfter(firstFullSpanItemInRange2.mPosition + 1);
             }
             requestSimpleAnimationsInNextLayout();
             requestLayout();
@@ -122,15 +132,15 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onScrollStateChanged(int i) {
         if (i == 0) {
-            hU();
+            checkForGaps();
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onDetachedFromWindow(RecyclerView recyclerView, RecyclerView.Recycler recycler) {
-        removeCallbacks(this.VC);
-        for (int i = 0; i < this.OW; i++) {
-            this.Vo[i].clear();
+        removeCallbacks(this.mCheckForGapsRunnable);
+        for (int i = 0; i < this.mSpanCount; i++) {
+            this.mSpans[i].clear();
         }
         recyclerView.requestLayout();
     }
@@ -140,14 +150,14 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    View hV() {
+    View hasGapsToFix() {
         int i;
         boolean z;
         int childCount = getChildCount() - 1;
-        BitSet bitSet = new BitSet(this.OW);
-        bitSet.set(0, this.OW, true);
-        char c = (this.An == 1 && isLayoutRTL()) ? (char) 1 : (char) 65535;
-        if (this.PF) {
+        BitSet bitSet = new BitSet(this.mSpanCount);
+        bitSet.set(0, this.mSpanCount, true);
+        char c = (this.mOrientation == 1 && isLayoutRTL()) ? (char) 1 : (char) 65535;
+        if (this.mShouldReverseLayout) {
             i = -1;
         } else {
             i = childCount + 1;
@@ -157,24 +167,24 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         for (int i3 = childCount; i3 != i; i3 += i2) {
             View childAt = getChildAt(i3);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-            if (bitSet.get(layoutParams.VG.mIndex)) {
-                if (a(layoutParams.VG)) {
+            if (bitSet.get(layoutParams.mSpan.mIndex)) {
+                if (checkSpanForGap(layoutParams.mSpan)) {
                     return childAt;
                 }
-                bitSet.clear(layoutParams.VG.mIndex);
+                bitSet.clear(layoutParams.mSpan.mIndex);
             }
-            if (!layoutParams.VH && i3 + i2 != i) {
+            if (!layoutParams.mFullSpan && i3 + i2 != i) {
                 View childAt2 = getChildAt(i3 + i2);
-                if (this.PF) {
-                    int decoratedEnd = this.Vp.getDecoratedEnd(childAt);
-                    int decoratedEnd2 = this.Vp.getDecoratedEnd(childAt2);
+                if (this.mShouldReverseLayout) {
+                    int decoratedEnd = this.mPrimaryOrientation.getDecoratedEnd(childAt);
+                    int decoratedEnd2 = this.mPrimaryOrientation.getDecoratedEnd(childAt2);
                     if (decoratedEnd < decoratedEnd2) {
                         return childAt;
                     }
                     if (decoratedEnd == decoratedEnd2) {
                         z = true;
                         if (z) {
-                            if ((layoutParams.VG.mIndex - ((LayoutParams) childAt2.getLayoutParams()).VG.mIndex < 0) != (c < 0)) {
+                            if ((layoutParams.mSpan.mIndex - ((LayoutParams) childAt2.getLayoutParams()).mSpan.mIndex < 0) != (c < 0)) {
                                 return childAt;
                             }
                         } else {
@@ -185,8 +195,8 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
                     if (z) {
                     }
                 } else {
-                    int decoratedStart = this.Vp.getDecoratedStart(childAt);
-                    int decoratedStart2 = this.Vp.getDecoratedStart(childAt2);
+                    int decoratedStart = this.mPrimaryOrientation.getDecoratedStart(childAt);
+                    int decoratedStart2 = this.mPrimaryOrientation.getDecoratedStart(childAt2);
                     if (decoratedStart > decoratedStart2) {
                         return childAt;
                     }
@@ -204,26 +214,26 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         return null;
     }
 
-    private boolean a(b bVar) {
-        if (this.PF) {
-            if (bVar.ih() < this.Vp.getEndAfterPadding()) {
-                return !bVar.aA(bVar.VR.get(bVar.VR.size() + (-1))).VH;
+    private boolean checkSpanForGap(Span span) {
+        if (this.mShouldReverseLayout) {
+            if (span.getEndLine() < this.mPrimaryOrientation.getEndAfterPadding()) {
+                return !span.getLayoutParams(span.mViews.get(span.mViews.size() + (-1))).mFullSpan;
             }
-        } else if (bVar.m5if() > this.Vp.getStartAfterPadding()) {
-            return bVar.aA(bVar.VR.get(0)).VH ? false : true;
+        } else if (span.getStartLine() > this.mPrimaryOrientation.getStartAfterPadding()) {
+            return span.getLayoutParams(span.mViews.get(0)).mFullSpan ? false : true;
         }
         return false;
     }
 
     public void setSpanCount(int i) {
         assertNotInLayoutOrScroll(null);
-        if (i != this.OW) {
+        if (i != this.mSpanCount) {
             invalidateSpanAssignments();
-            this.OW = i;
-            this.Vt = new BitSet(this.OW);
-            this.Vo = new b[this.OW];
-            for (int i2 = 0; i2 < this.OW; i2++) {
-                this.Vo[i2] = new b(i2);
+            this.mSpanCount = i;
+            this.mRemainingSpans = new BitSet(this.mSpanCount);
+            this.mSpans = new Span[this.mSpanCount];
+            for (int i2 = 0; i2 < this.mSpanCount; i2++) {
+                this.mSpans[i2] = new Span(i2);
             }
             requestLayout();
         }
@@ -234,61 +244,61 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             throw new IllegalArgumentException("invalid orientation.");
         }
         assertNotInLayoutOrScroll(null);
-        if (i != this.An) {
-            this.An = i;
-            OrientationHelper orientationHelper = this.Vp;
-            this.Vp = this.Vq;
-            this.Vq = orientationHelper;
+        if (i != this.mOrientation) {
+            this.mOrientation = i;
+            OrientationHelper orientationHelper = this.mPrimaryOrientation;
+            this.mPrimaryOrientation = this.mSecondaryOrientation;
+            this.mSecondaryOrientation = orientationHelper;
             requestLayout();
         }
     }
 
     public void setReverseLayout(boolean z) {
         assertNotInLayoutOrScroll(null);
-        if (this.Vy != null && this.Vy.PE != z) {
-            this.Vy.PE = z;
+        if (this.mPendingSavedState != null && this.mPendingSavedState.mReverseLayout != z) {
+            this.mPendingSavedState.mReverseLayout = z;
         }
-        this.PE = z;
+        this.mReverseLayout = z;
         requestLayout();
     }
 
     public int getGapStrategy() {
-        return this.Vv;
+        return this.mGapStrategy;
     }
 
     public void setGapStrategy(int i) {
         assertNotInLayoutOrScroll(null);
-        if (i != this.Vv) {
+        if (i != this.mGapStrategy) {
             if (i != 0 && i != 2) {
                 throw new IllegalArgumentException("invalid gap strategy. Must be GAP_HANDLING_NONE or GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS");
             }
-            this.Vv = i;
-            setAutoMeasureEnabled(this.Vv != 0);
+            this.mGapStrategy = i;
+            setAutoMeasureEnabled(this.mGapStrategy != 0);
             requestLayout();
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void assertNotInLayoutOrScroll(String str) {
-        if (this.Vy == null) {
+        if (this.mPendingSavedState == null) {
             super.assertNotInLayoutOrScroll(str);
         }
     }
 
     public int getSpanCount() {
-        return this.OW;
+        return this.mSpanCount;
     }
 
     public void invalidateSpanAssignments() {
-        this.Vu.clear();
+        this.mLazySpanLookup.clear();
         requestLayout();
     }
 
-    private void gf() {
-        if (this.An == 1 || !isLayoutRTL()) {
-            this.PF = this.PE;
+    private void resolveShouldLayoutReverse() {
+        if (this.mOrientation == 1 || !isLayoutRTL()) {
+            this.mShouldReverseLayout = this.mReverseLayout;
         } else {
-            this.PF = this.PE ? false : true;
+            this.mShouldReverseLayout = this.mReverseLayout ? false : true;
         }
     }
 
@@ -297,7 +307,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     public boolean getReverseLayout() {
-        return this.PE;
+        return this.mReverseLayout;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
@@ -306,19 +316,19 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         int chooseSize2;
         int paddingRight = getPaddingRight() + getPaddingLeft();
         int paddingTop = getPaddingTop() + getPaddingBottom();
-        if (this.An == 1) {
+        if (this.mOrientation == 1) {
             chooseSize2 = chooseSize(i2, paddingTop + rect.height(), getMinimumHeight());
-            chooseSize = chooseSize(i, paddingRight + (this.Vr * this.OW), getMinimumWidth());
+            chooseSize = chooseSize(i, paddingRight + (this.mSizePerSpan * this.mSpanCount), getMinimumWidth());
         } else {
             chooseSize = chooseSize(i, paddingRight + rect.width(), getMinimumWidth());
-            chooseSize2 = chooseSize(i2, paddingTop + (this.Vr * this.OW), getMinimumHeight());
+            chooseSize2 = chooseSize(i2, paddingTop + (this.mSizePerSpan * this.mSpanCount), getMinimumHeight());
         }
         setMeasuredDimension(chooseSize, chooseSize2);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
-        a(recycler, state, true);
+        onLayoutChildren(recycler, state, true);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:82:0x012d  */
@@ -327,92 +337,92 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
+    private void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
         boolean z2;
-        a aVar = this.VA;
-        if ((this.Vy != null || this.PH != -1) && state.getItemCount() == 0) {
+        AnchorInfo anchorInfo = this.mAnchorInfo;
+        if ((this.mPendingSavedState != null || this.mPendingScrollPosition != -1) && state.getItemCount() == 0) {
             removeAndRecycleAllViews(recycler);
-            aVar.reset();
+            anchorInfo.reset();
             return;
         }
-        boolean z3 = (aVar.PQ && this.PH == -1 && this.Vy == null) ? false : true;
+        boolean z3 = (anchorInfo.mValid && this.mPendingScrollPosition == -1 && this.mPendingSavedState == null) ? false : true;
         if (z3) {
-            aVar.reset();
-            if (this.Vy != null) {
-                a(aVar);
+            anchorInfo.reset();
+            if (this.mPendingSavedState != null) {
+                applyPendingSavedState(anchorInfo);
             } else {
-                gf();
-                aVar.PP = this.PF;
+                resolveShouldLayoutReverse();
+                anchorInfo.mLayoutFromEnd = this.mShouldReverseLayout;
             }
-            a(state, aVar);
-            aVar.PQ = true;
+            updateAnchorInfoForLayout(state, anchorInfo);
+            anchorInfo.mValid = true;
         }
-        if (this.Vy == null && this.PH == -1 && (aVar.PP != this.Vw || isLayoutRTL() != this.Vx)) {
-            this.Vu.clear();
-            aVar.VE = true;
+        if (this.mPendingSavedState == null && this.mPendingScrollPosition == -1 && (anchorInfo.mLayoutFromEnd != this.mLastLayoutFromEnd || isLayoutRTL() != this.mLastLayoutRTL)) {
+            this.mLazySpanLookup.clear();
+            anchorInfo.mInvalidateOffsets = true;
         }
-        if (getChildCount() > 0 && (this.Vy == null || this.Vy.VN < 1)) {
-            if (aVar.VE) {
-                for (int i = 0; i < this.OW; i++) {
-                    this.Vo[i].clear();
-                    if (aVar.mOffset != Integer.MIN_VALUE) {
-                        this.Vo[i].cc(aVar.mOffset);
+        if (getChildCount() > 0 && (this.mPendingSavedState == null || this.mPendingSavedState.mSpanOffsetsSize < 1)) {
+            if (anchorInfo.mInvalidateOffsets) {
+                for (int i = 0; i < this.mSpanCount; i++) {
+                    this.mSpans[i].clear();
+                    if (anchorInfo.mOffset != Integer.MIN_VALUE) {
+                        this.mSpans[i].setLine(anchorInfo.mOffset);
                     }
                 }
-            } else if (z3 || this.VA.VF == null) {
-                for (int i2 = 0; i2 < this.OW; i2++) {
-                    this.Vo[i2].c(this.PF, aVar.mOffset);
+            } else if (z3 || this.mAnchorInfo.mSpanReferenceLines == null) {
+                for (int i2 = 0; i2 < this.mSpanCount; i2++) {
+                    this.mSpans[i2].cacheReferenceLineAndClear(this.mShouldReverseLayout, anchorInfo.mOffset);
                 }
-                this.VA.a(this.Vo);
+                this.mAnchorInfo.saveSpanReferenceLines(this.mSpans);
             } else {
-                for (int i3 = 0; i3 < this.OW; i3++) {
-                    b bVar = this.Vo[i3];
-                    bVar.clear();
-                    bVar.cc(this.VA.VF[i3]);
+                for (int i3 = 0; i3 < this.mSpanCount; i3++) {
+                    Span span = this.mSpans[i3];
+                    span.clear();
+                    span.setLine(this.mAnchorInfo.mSpanReferenceLines[i3]);
                 }
             }
         }
         detachAndScrapAttachedViews(recycler);
-        this.Vs.Ph = false;
-        this.VB = false;
-        bD(this.Vq.getTotalSpace());
-        a(aVar.mPosition, state);
-        if (aVar.PP) {
-            bE(-1);
-            a(recycler, this.Vs, state);
-            bE(1);
-            this.Vs.Pj = aVar.mPosition + this.Vs.Pk;
-            a(recycler, this.Vs, state);
+        this.mLayoutState.mRecycle = false;
+        this.mLaidOutInvalidFullSpan = false;
+        updateMeasureSpecs(this.mSecondaryOrientation.getTotalSpace());
+        updateLayoutState(anchorInfo.mPosition, state);
+        if (anchorInfo.mLayoutFromEnd) {
+            setLayoutStateDirection(-1);
+            fill(recycler, this.mLayoutState, state);
+            setLayoutStateDirection(1);
+            this.mLayoutState.mCurrentPosition = anchorInfo.mPosition + this.mLayoutState.mItemDirection;
+            fill(recycler, this.mLayoutState, state);
         } else {
-            bE(1);
-            a(recycler, this.Vs, state);
-            bE(-1);
-            this.Vs.Pj = aVar.mPosition + this.Vs.Pk;
-            a(recycler, this.Vs, state);
+            setLayoutStateDirection(1);
+            fill(recycler, this.mLayoutState, state);
+            setLayoutStateDirection(-1);
+            this.mLayoutState.mCurrentPosition = anchorInfo.mPosition + this.mLayoutState.mItemDirection;
+            fill(recycler, this.mLayoutState, state);
         }
-        hW();
+        repositionToWrapContentIfNecessary();
         if (getChildCount() > 0) {
-            if (this.PF) {
-                b(recycler, state, true);
-                c(recycler, state, false);
+            if (this.mShouldReverseLayout) {
+                fixEndGap(recycler, state, true);
+                fixStartGap(recycler, state, false);
             } else {
-                c(recycler, state, true);
-                b(recycler, state, false);
+                fixStartGap(recycler, state, true);
+                fixEndGap(recycler, state, false);
             }
         }
         if (z && !state.isPreLayout()) {
-            if (this.Vv != 0 && getChildCount() > 0 && (this.VB || hV() != null)) {
-                removeCallbacks(this.VC);
-                if (hU()) {
+            if (this.mGapStrategy != 0 && getChildCount() > 0 && (this.mLaidOutInvalidFullSpan || hasGapsToFix() != null)) {
+                removeCallbacks(this.mCheckForGapsRunnable);
+                if (checkForGaps()) {
                     z2 = true;
                     if (state.isPreLayout()) {
-                        this.VA.reset();
+                        this.mAnchorInfo.reset();
                     }
-                    this.Vw = aVar.PP;
-                    this.Vx = isLayoutRTL();
+                    this.mLastLayoutFromEnd = anchorInfo.mLayoutFromEnd;
+                    this.mLastLayoutRTL = isLayoutRTL();
                     if (!z2) {
-                        this.VA.reset();
-                        a(recycler, state, false);
+                        this.mAnchorInfo.reset();
+                        onLayoutChildren(recycler, state, false);
                         return;
                     }
                     return;
@@ -422,8 +432,8 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         z2 = false;
         if (state.isPreLayout()) {
         }
-        this.Vw = aVar.PP;
-        this.Vx = isLayoutRTL();
+        this.mLastLayoutFromEnd = anchorInfo.mLayoutFromEnd;
+        this.mLastLayoutRTL = isLayoutRTL();
         if (!z2) {
         }
     }
@@ -431,46 +441,46 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onLayoutCompleted(RecyclerView.State state) {
         super.onLayoutCompleted(state);
-        this.PH = -1;
-        this.PI = Integer.MIN_VALUE;
-        this.Vy = null;
-        this.VA.reset();
+        this.mPendingScrollPosition = -1;
+        this.mPendingScrollPositionOffset = Integer.MIN_VALUE;
+        this.mPendingSavedState = null;
+        this.mAnchorInfo.reset();
     }
 
-    private void hW() {
+    private void repositionToWrapContentIfNecessary() {
         float max;
-        if (this.Vq.getMode() != 1073741824) {
+        if (this.mSecondaryOrientation.getMode() != 1073741824) {
             float f = 0.0f;
             int childCount = getChildCount();
             int i = 0;
             while (i < childCount) {
                 View childAt = getChildAt(i);
-                float decoratedMeasurement = this.Vq.getDecoratedMeasurement(childAt);
+                float decoratedMeasurement = this.mSecondaryOrientation.getDecoratedMeasurement(childAt);
                 if (decoratedMeasurement < f) {
                     max = f;
                 } else {
-                    max = Math.max(f, ((LayoutParams) childAt.getLayoutParams()).isFullSpan() ? (1.0f * decoratedMeasurement) / this.OW : decoratedMeasurement);
+                    max = Math.max(f, ((LayoutParams) childAt.getLayoutParams()).isFullSpan() ? (1.0f * decoratedMeasurement) / this.mSpanCount : decoratedMeasurement);
                 }
                 i++;
                 f = max;
             }
-            int i2 = this.Vr;
-            int round = Math.round(this.OW * f);
-            if (this.Vq.getMode() == Integer.MIN_VALUE) {
-                round = Math.min(round, this.Vq.getTotalSpace());
+            int i2 = this.mSizePerSpan;
+            int round = Math.round(this.mSpanCount * f);
+            if (this.mSecondaryOrientation.getMode() == Integer.MIN_VALUE) {
+                round = Math.min(round, this.mSecondaryOrientation.getTotalSpace());
             }
-            bD(round);
-            if (this.Vr != i2) {
+            updateMeasureSpecs(round);
+            if (this.mSizePerSpan != i2) {
                 for (int i3 = 0; i3 < childCount; i3++) {
                     View childAt2 = getChildAt(i3);
                     LayoutParams layoutParams = (LayoutParams) childAt2.getLayoutParams();
-                    if (!layoutParams.VH) {
-                        if (isLayoutRTL() && this.An == 1) {
-                            childAt2.offsetLeftAndRight(((-((this.OW - 1) - layoutParams.VG.mIndex)) * this.Vr) - ((-((this.OW - 1) - layoutParams.VG.mIndex)) * i2));
+                    if (!layoutParams.mFullSpan) {
+                        if (isLayoutRTL() && this.mOrientation == 1) {
+                            childAt2.offsetLeftAndRight(((-((this.mSpanCount - 1) - layoutParams.mSpan.mIndex)) * this.mSizePerSpan) - ((-((this.mSpanCount - 1) - layoutParams.mSpan.mIndex)) * i2));
                         } else {
-                            int i4 = layoutParams.VG.mIndex * this.Vr;
-                            int i5 = layoutParams.VG.mIndex * i2;
-                            if (this.An == 1) {
+                            int i4 = layoutParams.mSpan.mIndex * this.mSizePerSpan;
+                            int i5 = layoutParams.mSpan.mIndex * i2;
+                            if (this.mOrientation == 1) {
                                 childAt2.offsetLeftAndRight(i4 - i5);
                             } else {
                                 childAt2.offsetTopAndBottom(i4 - i5);
@@ -482,259 +492,259 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
-    private void a(a aVar) {
-        if (this.Vy.VN > 0) {
-            if (this.Vy.VN == this.OW) {
-                for (int i = 0; i < this.OW; i++) {
-                    this.Vo[i].clear();
-                    int i2 = this.Vy.VO[i];
+    private void applyPendingSavedState(AnchorInfo anchorInfo) {
+        if (this.mPendingSavedState.mSpanOffsetsSize > 0) {
+            if (this.mPendingSavedState.mSpanOffsetsSize == this.mSpanCount) {
+                for (int i = 0; i < this.mSpanCount; i++) {
+                    this.mSpans[i].clear();
+                    int i2 = this.mPendingSavedState.mSpanOffsets[i];
                     if (i2 != Integer.MIN_VALUE) {
-                        if (this.Vy.Qa) {
-                            i2 += this.Vp.getEndAfterPadding();
+                        if (this.mPendingSavedState.mAnchorLayoutFromEnd) {
+                            i2 += this.mPrimaryOrientation.getEndAfterPadding();
                         } else {
-                            i2 += this.Vp.getStartAfterPadding();
+                            i2 += this.mPrimaryOrientation.getStartAfterPadding();
                         }
                     }
-                    this.Vo[i].cc(i2);
+                    this.mSpans[i].setLine(i2);
                 }
             } else {
-                this.Vy.ic();
-                this.Vy.PY = this.Vy.VM;
+                this.mPendingSavedState.invalidateSpanInfo();
+                this.mPendingSavedState.mAnchorPosition = this.mPendingSavedState.mVisibleAnchorPosition;
             }
         }
-        this.Vx = this.Vy.Vx;
-        setReverseLayout(this.Vy.PE);
-        gf();
-        if (this.Vy.PY != -1) {
-            this.PH = this.Vy.PY;
-            aVar.PP = this.Vy.Qa;
+        this.mLastLayoutRTL = this.mPendingSavedState.mLastLayoutRTL;
+        setReverseLayout(this.mPendingSavedState.mReverseLayout);
+        resolveShouldLayoutReverse();
+        if (this.mPendingSavedState.mAnchorPosition != -1) {
+            this.mPendingScrollPosition = this.mPendingSavedState.mAnchorPosition;
+            anchorInfo.mLayoutFromEnd = this.mPendingSavedState.mAnchorLayoutFromEnd;
         } else {
-            aVar.PP = this.PF;
+            anchorInfo.mLayoutFromEnd = this.mShouldReverseLayout;
         }
-        if (this.Vy.VP > 1) {
-            this.Vu.mData = this.Vy.VQ;
-            this.Vu.VI = this.Vy.VI;
+        if (this.mPendingSavedState.mSpanLookupSize > 1) {
+            this.mLazySpanLookup.mData = this.mPendingSavedState.mSpanLookup;
+            this.mLazySpanLookup.mFullSpanItems = this.mPendingSavedState.mFullSpanItems;
         }
     }
 
-    void a(RecyclerView.State state, a aVar) {
-        if (!c(state, aVar) && !b(state, aVar)) {
-            aVar.gm();
-            aVar.mPosition = 0;
+    void updateAnchorInfoForLayout(RecyclerView.State state, AnchorInfo anchorInfo) {
+        if (!updateAnchorFromPendingData(state, anchorInfo) && !updateAnchorFromChildren(state, anchorInfo)) {
+            anchorInfo.assignCoordinateFromPadding();
+            anchorInfo.mPosition = 0;
         }
     }
 
-    private boolean b(RecyclerView.State state, a aVar) {
-        int bN;
-        if (this.Vw) {
-            bN = bO(state.getItemCount());
+    private boolean updateAnchorFromChildren(RecyclerView.State state, AnchorInfo anchorInfo) {
+        int findFirstReferenceChildPosition;
+        if (this.mLastLayoutFromEnd) {
+            findFirstReferenceChildPosition = findLastReferenceChildPosition(state.getItemCount());
         } else {
-            bN = bN(state.getItemCount());
+            findFirstReferenceChildPosition = findFirstReferenceChildPosition(state.getItemCount());
         }
-        aVar.mPosition = bN;
-        aVar.mOffset = Integer.MIN_VALUE;
+        anchorInfo.mPosition = findFirstReferenceChildPosition;
+        anchorInfo.mOffset = Integer.MIN_VALUE;
         return true;
     }
 
-    boolean c(RecyclerView.State state, a aVar) {
+    boolean updateAnchorFromPendingData(RecyclerView.State state, AnchorInfo anchorInfo) {
         int startAfterPadding;
-        if (state.isPreLayout() || this.PH == -1) {
+        if (state.isPreLayout() || this.mPendingScrollPosition == -1) {
             return false;
         }
-        if (this.PH < 0 || this.PH >= state.getItemCount()) {
-            this.PH = -1;
-            this.PI = Integer.MIN_VALUE;
+        if (this.mPendingScrollPosition < 0 || this.mPendingScrollPosition >= state.getItemCount()) {
+            this.mPendingScrollPosition = -1;
+            this.mPendingScrollPositionOffset = Integer.MIN_VALUE;
             return false;
-        } else if (this.Vy == null || this.Vy.PY == -1 || this.Vy.VN < 1) {
-            View findViewByPosition = findViewByPosition(this.PH);
+        } else if (this.mPendingSavedState == null || this.mPendingSavedState.mAnchorPosition == -1 || this.mPendingSavedState.mSpanOffsetsSize < 1) {
+            View findViewByPosition = findViewByPosition(this.mPendingScrollPosition);
             if (findViewByPosition != null) {
-                aVar.mPosition = this.PF ? ia() : ib();
-                if (this.PI != Integer.MIN_VALUE) {
-                    if (aVar.PP) {
-                        aVar.mOffset = (this.Vp.getEndAfterPadding() - this.PI) - this.Vp.getDecoratedEnd(findViewByPosition);
+                anchorInfo.mPosition = this.mShouldReverseLayout ? getLastChildPosition() : getFirstChildPosition();
+                if (this.mPendingScrollPositionOffset != Integer.MIN_VALUE) {
+                    if (anchorInfo.mLayoutFromEnd) {
+                        anchorInfo.mOffset = (this.mPrimaryOrientation.getEndAfterPadding() - this.mPendingScrollPositionOffset) - this.mPrimaryOrientation.getDecoratedEnd(findViewByPosition);
                         return true;
                     }
-                    aVar.mOffset = (this.Vp.getStartAfterPadding() + this.PI) - this.Vp.getDecoratedStart(findViewByPosition);
+                    anchorInfo.mOffset = (this.mPrimaryOrientation.getStartAfterPadding() + this.mPendingScrollPositionOffset) - this.mPrimaryOrientation.getDecoratedStart(findViewByPosition);
                     return true;
-                } else if (this.Vp.getDecoratedMeasurement(findViewByPosition) > this.Vp.getTotalSpace()) {
-                    if (aVar.PP) {
-                        startAfterPadding = this.Vp.getEndAfterPadding();
+                } else if (this.mPrimaryOrientation.getDecoratedMeasurement(findViewByPosition) > this.mPrimaryOrientation.getTotalSpace()) {
+                    if (anchorInfo.mLayoutFromEnd) {
+                        startAfterPadding = this.mPrimaryOrientation.getEndAfterPadding();
                     } else {
-                        startAfterPadding = this.Vp.getStartAfterPadding();
+                        startAfterPadding = this.mPrimaryOrientation.getStartAfterPadding();
                     }
-                    aVar.mOffset = startAfterPadding;
+                    anchorInfo.mOffset = startAfterPadding;
                     return true;
                 } else {
-                    int decoratedStart = this.Vp.getDecoratedStart(findViewByPosition) - this.Vp.getStartAfterPadding();
+                    int decoratedStart = this.mPrimaryOrientation.getDecoratedStart(findViewByPosition) - this.mPrimaryOrientation.getStartAfterPadding();
                     if (decoratedStart < 0) {
-                        aVar.mOffset = -decoratedStart;
+                        anchorInfo.mOffset = -decoratedStart;
                         return true;
                     }
-                    int endAfterPadding = this.Vp.getEndAfterPadding() - this.Vp.getDecoratedEnd(findViewByPosition);
+                    int endAfterPadding = this.mPrimaryOrientation.getEndAfterPadding() - this.mPrimaryOrientation.getDecoratedEnd(findViewByPosition);
                     if (endAfterPadding < 0) {
-                        aVar.mOffset = endAfterPadding;
+                        anchorInfo.mOffset = endAfterPadding;
                         return true;
                     }
-                    aVar.mOffset = Integer.MIN_VALUE;
+                    anchorInfo.mOffset = Integer.MIN_VALUE;
                     return true;
                 }
             }
-            aVar.mPosition = this.PH;
-            if (this.PI == Integer.MIN_VALUE) {
-                aVar.PP = bM(aVar.mPosition) == 1;
-                aVar.gm();
+            anchorInfo.mPosition = this.mPendingScrollPosition;
+            if (this.mPendingScrollPositionOffset == Integer.MIN_VALUE) {
+                anchorInfo.mLayoutFromEnd = calculateScrollDirectionForPosition(anchorInfo.mPosition) == 1;
+                anchorInfo.assignCoordinateFromPadding();
             } else {
-                aVar.bP(this.PI);
+                anchorInfo.assignCoordinateFromPadding(this.mPendingScrollPositionOffset);
             }
-            aVar.VE = true;
+            anchorInfo.mInvalidateOffsets = true;
             return true;
         } else {
-            aVar.mOffset = Integer.MIN_VALUE;
-            aVar.mPosition = this.PH;
+            anchorInfo.mOffset = Integer.MIN_VALUE;
+            anchorInfo.mPosition = this.mPendingScrollPosition;
             return true;
         }
     }
 
-    void bD(int i) {
-        this.Vr = i / this.OW;
-        this.Vz = View.MeasureSpec.makeMeasureSpec(i, this.Vq.getMode());
+    void updateMeasureSpecs(int i) {
+        this.mSizePerSpan = i / this.mSpanCount;
+        this.mFullSizeSpec = View.MeasureSpec.makeMeasureSpec(i, this.mSecondaryOrientation.getMode());
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public boolean supportsPredictiveItemAnimations() {
-        return this.Vy == null;
+        return this.mPendingSavedState == null;
     }
 
     public int[] findFirstVisibleItemPositions(int[] iArr) {
         if (iArr == null) {
-            iArr = new int[this.OW];
-        } else if (iArr.length < this.OW) {
-            throw new IllegalArgumentException("Provided int[]'s size must be more than or equal to span count. Expected:" + this.OW + ", array size:" + iArr.length);
+            iArr = new int[this.mSpanCount];
+        } else if (iArr.length < this.mSpanCount) {
+            throw new IllegalArgumentException("Provided int[]'s size must be more than or equal to span count. Expected:" + this.mSpanCount + ", array size:" + iArr.length);
         }
-        for (int i = 0; i < this.OW; i++) {
-            iArr[i] = this.Vo[i].findFirstVisibleItemPosition();
+        for (int i = 0; i < this.mSpanCount; i++) {
+            iArr[i] = this.mSpans[i].findFirstVisibleItemPosition();
         }
         return iArr;
     }
 
     public int[] findFirstCompletelyVisibleItemPositions(int[] iArr) {
         if (iArr == null) {
-            iArr = new int[this.OW];
-        } else if (iArr.length < this.OW) {
-            throw new IllegalArgumentException("Provided int[]'s size must be more than or equal to span count. Expected:" + this.OW + ", array size:" + iArr.length);
+            iArr = new int[this.mSpanCount];
+        } else if (iArr.length < this.mSpanCount) {
+            throw new IllegalArgumentException("Provided int[]'s size must be more than or equal to span count. Expected:" + this.mSpanCount + ", array size:" + iArr.length);
         }
-        for (int i = 0; i < this.OW; i++) {
-            iArr[i] = this.Vo[i].findFirstCompletelyVisibleItemPosition();
+        for (int i = 0; i < this.mSpanCount; i++) {
+            iArr[i] = this.mSpans[i].findFirstCompletelyVisibleItemPosition();
         }
         return iArr;
     }
 
     public int[] findLastVisibleItemPositions(int[] iArr) {
         if (iArr == null) {
-            iArr = new int[this.OW];
-        } else if (iArr.length < this.OW) {
-            throw new IllegalArgumentException("Provided int[]'s size must be more than or equal to span count. Expected:" + this.OW + ", array size:" + iArr.length);
+            iArr = new int[this.mSpanCount];
+        } else if (iArr.length < this.mSpanCount) {
+            throw new IllegalArgumentException("Provided int[]'s size must be more than or equal to span count. Expected:" + this.mSpanCount + ", array size:" + iArr.length);
         }
-        for (int i = 0; i < this.OW; i++) {
-            iArr[i] = this.Vo[i].findLastVisibleItemPosition();
+        for (int i = 0; i < this.mSpanCount; i++) {
+            iArr[i] = this.mSpans[i].findLastVisibleItemPosition();
         }
         return iArr;
     }
 
     public int[] findLastCompletelyVisibleItemPositions(int[] iArr) {
         if (iArr == null) {
-            iArr = new int[this.OW];
-        } else if (iArr.length < this.OW) {
-            throw new IllegalArgumentException("Provided int[]'s size must be more than or equal to span count. Expected:" + this.OW + ", array size:" + iArr.length);
+            iArr = new int[this.mSpanCount];
+        } else if (iArr.length < this.mSpanCount) {
+            throw new IllegalArgumentException("Provided int[]'s size must be more than or equal to span count. Expected:" + this.mSpanCount + ", array size:" + iArr.length);
         }
-        for (int i = 0; i < this.OW; i++) {
-            iArr[i] = this.Vo[i].findLastCompletelyVisibleItemPosition();
+        for (int i = 0; i < this.mSpanCount; i++) {
+            iArr[i] = this.mSpans[i].findLastCompletelyVisibleItemPosition();
         }
         return iArr;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int computeHorizontalScrollOffset(RecyclerView.State state) {
-        return b(state);
+        return computeScrollOffset(state);
     }
 
-    private int b(RecyclerView.State state) {
+    private int computeScrollOffset(RecyclerView.State state) {
         if (getChildCount() == 0) {
             return 0;
         }
-        return q.a(state, this.Vp, O(!this.mSmoothScrollbarEnabled), P(this.mSmoothScrollbarEnabled ? false : true), this, this.mSmoothScrollbarEnabled, this.PF);
+        return ScrollbarHelper.computeScrollOffset(state, this.mPrimaryOrientation, findFirstVisibleItemClosestToStart(!this.mSmoothScrollbarEnabled), findFirstVisibleItemClosestToEnd(this.mSmoothScrollbarEnabled ? false : true), this, this.mSmoothScrollbarEnabled, this.mShouldReverseLayout);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int computeVerticalScrollOffset(RecyclerView.State state) {
-        return b(state);
+        return computeScrollOffset(state);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int computeHorizontalScrollExtent(RecyclerView.State state) {
-        return c(state);
+        return computeScrollExtent(state);
     }
 
-    private int c(RecyclerView.State state) {
+    private int computeScrollExtent(RecyclerView.State state) {
         if (getChildCount() == 0) {
             return 0;
         }
-        return q.a(state, this.Vp, O(!this.mSmoothScrollbarEnabled), P(this.mSmoothScrollbarEnabled ? false : true), this, this.mSmoothScrollbarEnabled);
+        return ScrollbarHelper.computeScrollExtent(state, this.mPrimaryOrientation, findFirstVisibleItemClosestToStart(!this.mSmoothScrollbarEnabled), findFirstVisibleItemClosestToEnd(this.mSmoothScrollbarEnabled ? false : true), this, this.mSmoothScrollbarEnabled);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int computeVerticalScrollExtent(RecyclerView.State state) {
-        return c(state);
+        return computeScrollExtent(state);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int computeHorizontalScrollRange(RecyclerView.State state) {
-        return d(state);
+        return computeScrollRange(state);
     }
 
-    private int d(RecyclerView.State state) {
+    private int computeScrollRange(RecyclerView.State state) {
         if (getChildCount() == 0) {
             return 0;
         }
-        return q.b(state, this.Vp, O(!this.mSmoothScrollbarEnabled), P(this.mSmoothScrollbarEnabled ? false : true), this, this.mSmoothScrollbarEnabled);
+        return ScrollbarHelper.computeScrollRange(state, this.mPrimaryOrientation, findFirstVisibleItemClosestToStart(!this.mSmoothScrollbarEnabled), findFirstVisibleItemClosestToEnd(this.mSmoothScrollbarEnabled ? false : true), this, this.mSmoothScrollbarEnabled);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int computeVerticalScrollRange(RecyclerView.State state) {
-        return d(state);
+        return computeScrollRange(state);
     }
 
-    private void a(View view, LayoutParams layoutParams, boolean z) {
-        if (layoutParams.VH) {
-            if (this.An == 1) {
-                a(view, this.Vz, getChildMeasureSpec(getHeight(), getHeightMode(), 0, layoutParams.height, true), z);
+    private void measureChildWithDecorationsAndMargin(View view2, LayoutParams layoutParams, boolean z) {
+        if (layoutParams.mFullSpan) {
+            if (this.mOrientation == 1) {
+                measureChildWithDecorationsAndMargin(view2, this.mFullSizeSpec, getChildMeasureSpec(getHeight(), getHeightMode(), 0, layoutParams.height, true), z);
             } else {
-                a(view, getChildMeasureSpec(getWidth(), getWidthMode(), 0, layoutParams.width, true), this.Vz, z);
+                measureChildWithDecorationsAndMargin(view2, getChildMeasureSpec(getWidth(), getWidthMode(), 0, layoutParams.width, true), this.mFullSizeSpec, z);
             }
-        } else if (this.An == 1) {
-            a(view, getChildMeasureSpec(this.Vr, getWidthMode(), 0, layoutParams.width, false), getChildMeasureSpec(getHeight(), getHeightMode(), 0, layoutParams.height, true), z);
+        } else if (this.mOrientation == 1) {
+            measureChildWithDecorationsAndMargin(view2, getChildMeasureSpec(this.mSizePerSpan, getWidthMode(), 0, layoutParams.width, false), getChildMeasureSpec(getHeight(), getHeightMode(), 0, layoutParams.height, true), z);
         } else {
-            a(view, getChildMeasureSpec(getWidth(), getWidthMode(), 0, layoutParams.width, true), getChildMeasureSpec(this.Vr, getHeightMode(), 0, layoutParams.height, false), z);
+            measureChildWithDecorationsAndMargin(view2, getChildMeasureSpec(getWidth(), getWidthMode(), 0, layoutParams.width, true), getChildMeasureSpec(this.mSizePerSpan, getHeightMode(), 0, layoutParams.height, false), z);
         }
     }
 
-    private void a(View view, int i, int i2, boolean z) {
-        boolean b2;
-        calculateItemDecorationsForChild(view, this.mTmpRect);
-        LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-        int j = j(i, layoutParams.leftMargin + this.mTmpRect.left, layoutParams.rightMargin + this.mTmpRect.right);
-        int j2 = j(i2, layoutParams.topMargin + this.mTmpRect.top, layoutParams.bottomMargin + this.mTmpRect.bottom);
+    private void measureChildWithDecorationsAndMargin(View view2, int i, int i2, boolean z) {
+        boolean shouldMeasureChild;
+        calculateItemDecorationsForChild(view2, this.mTmpRect);
+        LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
+        int updateSpecWithExtra = updateSpecWithExtra(i, layoutParams.leftMargin + this.mTmpRect.left, layoutParams.rightMargin + this.mTmpRect.right);
+        int updateSpecWithExtra2 = updateSpecWithExtra(i2, layoutParams.topMargin + this.mTmpRect.top, layoutParams.bottomMargin + this.mTmpRect.bottom);
         if (z) {
-            b2 = a(view, j, j2, layoutParams);
+            shouldMeasureChild = shouldReMeasureChild(view2, updateSpecWithExtra, updateSpecWithExtra2, layoutParams);
         } else {
-            b2 = b(view, j, j2, layoutParams);
+            shouldMeasureChild = shouldMeasureChild(view2, updateSpecWithExtra, updateSpecWithExtra2, layoutParams);
         }
-        if (b2) {
-            view.measure(j, j2);
+        if (shouldMeasureChild) {
+            view2.measure(updateSpecWithExtra, updateSpecWithExtra2);
         }
     }
 
-    private int j(int i, int i2, int i3) {
+    private int updateSpecWithExtra(int i, int i2, int i3) {
         if (i2 != 0 || i3 != 0) {
             int mode = View.MeasureSpec.getMode(i);
             if (mode == Integer.MIN_VALUE || mode == 1073741824) {
@@ -748,67 +758,67 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onRestoreInstanceState(Parcelable parcelable) {
         if (parcelable instanceof SavedState) {
-            this.Vy = (SavedState) parcelable;
+            this.mPendingSavedState = (SavedState) parcelable;
             requestLayout();
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public Parcelable onSaveInstanceState() {
-        int ca;
-        if (this.Vy != null) {
-            return new SavedState(this.Vy);
+        int startLine;
+        if (this.mPendingSavedState != null) {
+            return new SavedState(this.mPendingSavedState);
         }
         SavedState savedState = new SavedState();
-        savedState.PE = this.PE;
-        savedState.Qa = this.Vw;
-        savedState.Vx = this.Vx;
-        if (this.Vu != null && this.Vu.mData != null) {
-            savedState.VQ = this.Vu.mData;
-            savedState.VP = savedState.VQ.length;
-            savedState.VI = this.Vu.VI;
+        savedState.mReverseLayout = this.mReverseLayout;
+        savedState.mAnchorLayoutFromEnd = this.mLastLayoutFromEnd;
+        savedState.mLastLayoutRTL = this.mLastLayoutRTL;
+        if (this.mLazySpanLookup != null && this.mLazySpanLookup.mData != null) {
+            savedState.mSpanLookup = this.mLazySpanLookup.mData;
+            savedState.mSpanLookupSize = savedState.mSpanLookup.length;
+            savedState.mFullSpanItems = this.mLazySpanLookup.mFullSpanItems;
         } else {
-            savedState.VP = 0;
+            savedState.mSpanLookupSize = 0;
         }
         if (getChildCount() > 0) {
-            savedState.PY = this.Vw ? ia() : ib();
-            savedState.VM = hX();
-            savedState.VN = this.OW;
-            savedState.VO = new int[this.OW];
-            for (int i = 0; i < this.OW; i++) {
-                if (this.Vw) {
-                    ca = this.Vo[i].cb(Integer.MIN_VALUE);
-                    if (ca != Integer.MIN_VALUE) {
-                        ca -= this.Vp.getEndAfterPadding();
+            savedState.mAnchorPosition = this.mLastLayoutFromEnd ? getLastChildPosition() : getFirstChildPosition();
+            savedState.mVisibleAnchorPosition = findFirstVisibleItemPositionInt();
+            savedState.mSpanOffsetsSize = this.mSpanCount;
+            savedState.mSpanOffsets = new int[this.mSpanCount];
+            for (int i = 0; i < this.mSpanCount; i++) {
+                if (this.mLastLayoutFromEnd) {
+                    startLine = this.mSpans[i].getEndLine(Integer.MIN_VALUE);
+                    if (startLine != Integer.MIN_VALUE) {
+                        startLine -= this.mPrimaryOrientation.getEndAfterPadding();
                     }
                 } else {
-                    ca = this.Vo[i].ca(Integer.MIN_VALUE);
-                    if (ca != Integer.MIN_VALUE) {
-                        ca -= this.Vp.getStartAfterPadding();
+                    startLine = this.mSpans[i].getStartLine(Integer.MIN_VALUE);
+                    if (startLine != Integer.MIN_VALUE) {
+                        startLine -= this.mPrimaryOrientation.getStartAfterPadding();
                     }
                 }
-                savedState.VO[i] = ca;
+                savedState.mSpanOffsets[i] = startLine;
             }
         } else {
-            savedState.PY = -1;
-            savedState.VM = -1;
-            savedState.VN = 0;
+            savedState.mAnchorPosition = -1;
+            savedState.mVisibleAnchorPosition = -1;
+            savedState.mSpanOffsetsSize = 0;
         }
         return savedState;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
-    public void onInitializeAccessibilityNodeInfoForItem(RecyclerView.Recycler recycler, RecyclerView.State state, View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+    public void onInitializeAccessibilityNodeInfoForItem(RecyclerView.Recycler recycler, RecyclerView.State state, View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
         if (!(layoutParams instanceof LayoutParams)) {
-            super.a(view, accessibilityNodeInfoCompat);
+            super.onInitializeAccessibilityNodeInfoForItem(view2, accessibilityNodeInfoCompat);
             return;
         }
         LayoutParams layoutParams2 = (LayoutParams) layoutParams;
-        if (this.An == 0) {
-            accessibilityNodeInfoCompat.setCollectionItemInfo(AccessibilityNodeInfoCompat.CollectionItemInfoCompat.obtain(layoutParams2.getSpanIndex(), layoutParams2.VH ? this.OW : 1, -1, -1, layoutParams2.VH, false));
+        if (this.mOrientation == 0) {
+            accessibilityNodeInfoCompat.setCollectionItemInfo(AccessibilityNodeInfoCompat.CollectionItemInfoCompat.obtain(layoutParams2.getSpanIndex(), layoutParams2.mFullSpan ? this.mSpanCount : 1, -1, -1, layoutParams2.mFullSpan, false));
         } else {
-            accessibilityNodeInfoCompat.setCollectionItemInfo(AccessibilityNodeInfoCompat.CollectionItemInfoCompat.obtain(-1, -1, layoutParams2.getSpanIndex(), layoutParams2.VH ? this.OW : 1, layoutParams2.VH, false));
+            accessibilityNodeInfoCompat.setCollectionItemInfo(AccessibilityNodeInfoCompat.CollectionItemInfoCompat.obtain(-1, -1, layoutParams2.getSpanIndex(), layoutParams2.mFullSpan ? this.mSpanCount : 1, layoutParams2.mFullSpan, false));
         }
     }
 
@@ -817,11 +827,11 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         super.onInitializeAccessibilityEvent(accessibilityEvent);
         if (getChildCount() > 0) {
             AccessibilityRecordCompat asRecord = AccessibilityEventCompat.asRecord(accessibilityEvent);
-            View O = O(false);
-            View P = P(false);
-            if (O != null && P != null) {
-                int position = getPosition(O);
-                int position2 = getPosition(P);
+            View findFirstVisibleItemClosestToStart = findFirstVisibleItemClosestToStart(false);
+            View findFirstVisibleItemClosestToEnd = findFirstVisibleItemClosestToEnd(false);
+            if (findFirstVisibleItemClosestToStart != null && findFirstVisibleItemClosestToEnd != null) {
+                int position = getPosition(findFirstVisibleItemClosestToStart);
+                int position2 = getPosition(findFirstVisibleItemClosestToEnd);
                 if (position < position2) {
                     asRecord.setFromIndex(position);
                     asRecord.setToIndex(position2);
@@ -833,174 +843,174 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
-    int hX() {
-        View P = this.PF ? P(true) : O(true);
-        if (P == null) {
+    int findFirstVisibleItemPositionInt() {
+        View findFirstVisibleItemClosestToEnd = this.mShouldReverseLayout ? findFirstVisibleItemClosestToEnd(true) : findFirstVisibleItemClosestToStart(true);
+        if (findFirstVisibleItemClosestToEnd == null) {
             return -1;
         }
-        return getPosition(P);
+        return getPosition(findFirstVisibleItemClosestToEnd);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int getRowCountForAccessibility(RecyclerView.Recycler recycler, RecyclerView.State state) {
-        return this.An == 0 ? this.OW : super.getRowCountForAccessibility(recycler, state);
+        return this.mOrientation == 0 ? this.mSpanCount : super.getRowCountForAccessibility(recycler, state);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int getColumnCountForAccessibility(RecyclerView.Recycler recycler, RecyclerView.State state) {
-        return this.An == 1 ? this.OW : super.getColumnCountForAccessibility(recycler, state);
+        return this.mOrientation == 1 ? this.mSpanCount : super.getColumnCountForAccessibility(recycler, state);
     }
 
-    View O(boolean z) {
-        int startAfterPadding = this.Vp.getStartAfterPadding();
-        int endAfterPadding = this.Vp.getEndAfterPadding();
+    View findFirstVisibleItemClosestToStart(boolean z) {
+        int startAfterPadding = this.mPrimaryOrientation.getStartAfterPadding();
+        int endAfterPadding = this.mPrimaryOrientation.getEndAfterPadding();
         int childCount = getChildCount();
-        View view = null;
+        View view2 = null;
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
-            int decoratedStart = this.Vp.getDecoratedStart(childAt);
-            if (this.Vp.getDecoratedEnd(childAt) > startAfterPadding && decoratedStart < endAfterPadding) {
+            int decoratedStart = this.mPrimaryOrientation.getDecoratedStart(childAt);
+            if (this.mPrimaryOrientation.getDecoratedEnd(childAt) > startAfterPadding && decoratedStart < endAfterPadding) {
                 if (decoratedStart < startAfterPadding && z) {
-                    if (view == null) {
-                        view = childAt;
+                    if (view2 == null) {
+                        view2 = childAt;
                     }
                 } else {
                     return childAt;
                 }
             }
         }
-        return view;
+        return view2;
     }
 
-    View P(boolean z) {
-        int startAfterPadding = this.Vp.getStartAfterPadding();
-        int endAfterPadding = this.Vp.getEndAfterPadding();
-        View view = null;
+    View findFirstVisibleItemClosestToEnd(boolean z) {
+        int startAfterPadding = this.mPrimaryOrientation.getStartAfterPadding();
+        int endAfterPadding = this.mPrimaryOrientation.getEndAfterPadding();
+        View view2 = null;
         for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
             View childAt = getChildAt(childCount);
-            int decoratedStart = this.Vp.getDecoratedStart(childAt);
-            int decoratedEnd = this.Vp.getDecoratedEnd(childAt);
+            int decoratedStart = this.mPrimaryOrientation.getDecoratedStart(childAt);
+            int decoratedEnd = this.mPrimaryOrientation.getDecoratedEnd(childAt);
             if (decoratedEnd > startAfterPadding && decoratedStart < endAfterPadding) {
                 if (decoratedEnd > endAfterPadding && z) {
-                    if (view == null) {
-                        view = childAt;
+                    if (view2 == null) {
+                        view2 = childAt;
                     }
                 } else {
                     return childAt;
                 }
             }
         }
-        return view;
+        return view2;
     }
 
-    private void b(RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
+    private void fixEndGap(RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
         int endAfterPadding;
-        int bJ = bJ(Integer.MIN_VALUE);
-        if (bJ != Integer.MIN_VALUE && (endAfterPadding = this.Vp.getEndAfterPadding() - bJ) > 0) {
-            int i = endAfterPadding - (-a(-endAfterPadding, recycler, state));
+        int maxEnd = getMaxEnd(Integer.MIN_VALUE);
+        if (maxEnd != Integer.MIN_VALUE && (endAfterPadding = this.mPrimaryOrientation.getEndAfterPadding() - maxEnd) > 0) {
+            int i = endAfterPadding - (-scrollBy(-endAfterPadding, recycler, state));
             if (z && i > 0) {
-                this.Vp.offsetChildren(i);
+                this.mPrimaryOrientation.offsetChildren(i);
             }
         }
     }
 
-    private void c(RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
+    private void fixStartGap(RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
         int startAfterPadding;
-        int bI = bI(Integer.MAX_VALUE);
-        if (bI != Integer.MAX_VALUE && (startAfterPadding = bI - this.Vp.getStartAfterPadding()) > 0) {
-            int a2 = startAfterPadding - a(startAfterPadding, recycler, state);
-            if (z && a2 > 0) {
-                this.Vp.offsetChildren(-a2);
+        int minStart = getMinStart(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        if (minStart != Integer.MAX_VALUE && (startAfterPadding = minStart - this.mPrimaryOrientation.getStartAfterPadding()) > 0) {
+            int scrollBy = startAfterPadding - scrollBy(startAfterPadding, recycler, state);
+            if (z && scrollBy > 0) {
+                this.mPrimaryOrientation.offsetChildren(-scrollBy);
             }
         }
     }
 
-    private void a(int i, RecyclerView.State state) {
+    private void updateLayoutState(int i, RecyclerView.State state) {
         int i2;
         int i3;
         int targetScrollPosition;
         boolean z = false;
-        this.Vs.Pi = 0;
-        this.Vs.Pj = i;
+        this.mLayoutState.mAvailable = 0;
+        this.mLayoutState.mCurrentPosition = i;
         if (!isSmoothScrolling() || (targetScrollPosition = state.getTargetScrollPosition()) == -1) {
             i2 = 0;
             i3 = 0;
         } else {
-            if (this.PF == (targetScrollPosition < i)) {
-                i2 = this.Vp.getTotalSpace();
+            if (this.mShouldReverseLayout == (targetScrollPosition < i)) {
+                i2 = this.mPrimaryOrientation.getTotalSpace();
                 i3 = 0;
             } else {
-                i3 = this.Vp.getTotalSpace();
+                i3 = this.mPrimaryOrientation.getTotalSpace();
                 i2 = 0;
             }
         }
         if (getClipToPadding()) {
-            this.Vs.Pm = this.Vp.getStartAfterPadding() - i3;
-            this.Vs.Pn = i2 + this.Vp.getEndAfterPadding();
+            this.mLayoutState.mStartLine = this.mPrimaryOrientation.getStartAfterPadding() - i3;
+            this.mLayoutState.mEndLine = i2 + this.mPrimaryOrientation.getEndAfterPadding();
         } else {
-            this.Vs.Pn = i2 + this.Vp.getEnd();
-            this.Vs.Pm = -i3;
+            this.mLayoutState.mEndLine = i2 + this.mPrimaryOrientation.getEnd();
+            this.mLayoutState.mStartLine = -i3;
         }
-        this.Vs.Po = false;
-        this.Vs.Ph = true;
-        m mVar = this.Vs;
-        if (this.Vp.getMode() == 0 && this.Vp.getEnd() == 0) {
+        this.mLayoutState.mStopInFocusable = false;
+        this.mLayoutState.mRecycle = true;
+        LayoutState layoutState = this.mLayoutState;
+        if (this.mPrimaryOrientation.getMode() == 0 && this.mPrimaryOrientation.getEnd() == 0) {
             z = true;
         }
-        mVar.Pp = z;
+        layoutState.mInfinite = z;
     }
 
-    private void bE(int i) {
-        this.Vs.Pl = i;
-        this.Vs.Pk = this.PF != (i == -1) ? -1 : 1;
+    private void setLayoutStateDirection(int i) {
+        this.mLayoutState.mLayoutDirection = i;
+        this.mLayoutState.mItemDirection = this.mShouldReverseLayout != (i == -1) ? -1 : 1;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void offsetChildrenHorizontal(int i) {
         super.offsetChildrenHorizontal(i);
-        for (int i2 = 0; i2 < this.OW; i2++) {
-            this.Vo[i2].cd(i);
+        for (int i2 = 0; i2 < this.mSpanCount; i2++) {
+            this.mSpans[i2].onOffset(i);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void offsetChildrenVertical(int i) {
         super.offsetChildrenVertical(i);
-        for (int i2 = 0; i2 < this.OW; i2++) {
-            this.Vo[i2].cd(i);
+        for (int i2 = 0; i2 < this.mSpanCount; i2++) {
+            this.mSpans[i2].onOffset(i);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsRemoved(RecyclerView recyclerView, int i, int i2) {
-        k(i, i2, 2);
+        handleUpdate(i, i2, 2);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsAdded(RecyclerView recyclerView, int i, int i2) {
-        k(i, i2, 1);
+        handleUpdate(i, i2, 1);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsChanged(RecyclerView recyclerView) {
-        this.Vu.clear();
+        this.mLazySpanLookup.clear();
         requestLayout();
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsMoved(RecyclerView recyclerView, int i, int i2, int i3) {
-        k(i, i2, 8);
+        handleUpdate(i, i2, 8);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onItemsUpdated(RecyclerView recyclerView, int i, int i2, Object obj) {
-        k(i, i2, 4);
+        handleUpdate(i, i2, 4);
     }
 
-    private void k(int i, int i2, int i3) {
+    private void handleUpdate(int i, int i2, int i3) {
         int i4;
         int i5;
-        int ia = this.PF ? ia() : ib();
+        int lastChildPosition = this.mShouldReverseLayout ? getLastChildPosition() : getFirstChildPosition();
         if (i3 == 8) {
             if (i < i2) {
                 i4 = i2 + 1;
@@ -1013,333 +1023,333 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             i4 = i + i2;
             i5 = i;
         }
-        this.Vu.bR(i5);
+        this.mLazySpanLookup.invalidateAfter(i5);
         switch (i3) {
             case 1:
-                this.Vu.ah(i, i2);
+                this.mLazySpanLookup.offsetForAddition(i, i2);
                 break;
             case 2:
-                this.Vu.af(i, i2);
+                this.mLazySpanLookup.offsetForRemoval(i, i2);
                 break;
             case 8:
-                this.Vu.af(i, 1);
-                this.Vu.ah(i2, 1);
+                this.mLazySpanLookup.offsetForRemoval(i, 1);
+                this.mLazySpanLookup.offsetForAddition(i2, 1);
                 break;
         }
-        if (i4 > ia) {
-            if (i5 <= (this.PF ? ib() : ia())) {
+        if (i4 > lastChildPosition) {
+            if (i5 <= (this.mShouldReverseLayout ? getFirstChildPosition() : getLastChildPosition())) {
                 requestLayout();
             }
         }
     }
 
-    private int a(RecyclerView.Recycler recycler, m mVar, RecyclerView.State state) {
+    private int fill(RecyclerView.Recycler recycler, LayoutState layoutState, RecyclerView.State state) {
         int i;
         int startAfterPadding;
-        int bJ;
-        b bVar;
+        int maxEnd;
+        Span span;
         int decoratedMeasurement;
         int i2;
         int decoratedMeasurement2;
         int i3;
         boolean z;
-        this.Vt.set(0, this.OW, true);
-        if (this.Vs.Pp) {
-            if (mVar.Pl == 1) {
+        this.mRemainingSpans.set(0, this.mSpanCount, true);
+        if (this.mLayoutState.mInfinite) {
+            if (layoutState.mLayoutDirection == 1) {
                 i = Integer.MAX_VALUE;
             } else {
                 i = Integer.MIN_VALUE;
             }
-        } else if (mVar.Pl == 1) {
-            i = mVar.Pn + mVar.Pi;
+        } else if (layoutState.mLayoutDirection == 1) {
+            i = layoutState.mEndLine + layoutState.mAvailable;
         } else {
-            i = mVar.Pm - mVar.Pi;
+            i = layoutState.mStartLine - layoutState.mAvailable;
         }
-        ae(mVar.Pl, i);
-        if (this.PF) {
-            startAfterPadding = this.Vp.getEndAfterPadding();
+        updateAllRemainingSpans(layoutState.mLayoutDirection, i);
+        if (this.mShouldReverseLayout) {
+            startAfterPadding = this.mPrimaryOrientation.getEndAfterPadding();
         } else {
-            startAfterPadding = this.Vp.getStartAfterPadding();
+            startAfterPadding = this.mPrimaryOrientation.getStartAfterPadding();
         }
         boolean z2 = false;
-        while (mVar.a(state) && (this.Vs.Pp || !this.Vt.isEmpty())) {
-            View a2 = mVar.a(recycler);
-            LayoutParams layoutParams = (LayoutParams) a2.getLayoutParams();
+        while (layoutState.hasMore(state) && (this.mLayoutState.mInfinite || !this.mRemainingSpans.isEmpty())) {
+            View next = layoutState.next(recycler);
+            LayoutParams layoutParams = (LayoutParams) next.getLayoutParams();
             int viewLayoutPosition = layoutParams.getViewLayoutPosition();
-            int bS = this.Vu.bS(viewLayoutPosition);
-            boolean z3 = bS == -1;
+            int span2 = this.mLazySpanLookup.getSpan(viewLayoutPosition);
+            boolean z3 = span2 == -1;
             if (z3) {
-                b a3 = layoutParams.VH ? this.Vo[0] : a(mVar);
-                this.Vu.a(viewLayoutPosition, a3);
-                bVar = a3;
+                Span nextSpan = layoutParams.mFullSpan ? this.mSpans[0] : getNextSpan(layoutState);
+                this.mLazySpanLookup.setSpan(viewLayoutPosition, nextSpan);
+                span = nextSpan;
             } else {
-                bVar = this.Vo[bS];
+                span = this.mSpans[span2];
             }
-            layoutParams.VG = bVar;
-            if (mVar.Pl == 1) {
-                addView(a2);
+            layoutParams.mSpan = span;
+            if (layoutState.mLayoutDirection == 1) {
+                addView(next);
             } else {
-                addView(a2, 0);
+                addView(next, 0);
             }
-            a(a2, layoutParams, false);
-            if (mVar.Pl == 1) {
-                int bJ2 = layoutParams.VH ? bJ(startAfterPadding) : bVar.cb(startAfterPadding);
-                i2 = bJ2 + this.Vp.getDecoratedMeasurement(a2);
-                if (z3 && layoutParams.VH) {
-                    LazySpanLookup.FullSpanItem bF = bF(bJ2);
-                    bF.VJ = -1;
-                    bF.mPosition = viewLayoutPosition;
-                    this.Vu.a(bF);
-                    decoratedMeasurement = bJ2;
+            measureChildWithDecorationsAndMargin(next, layoutParams, false);
+            if (layoutState.mLayoutDirection == 1) {
+                int maxEnd2 = layoutParams.mFullSpan ? getMaxEnd(startAfterPadding) : span.getEndLine(startAfterPadding);
+                i2 = maxEnd2 + this.mPrimaryOrientation.getDecoratedMeasurement(next);
+                if (z3 && layoutParams.mFullSpan) {
+                    LazySpanLookup.FullSpanItem createFullSpanItemFromEnd = createFullSpanItemFromEnd(maxEnd2);
+                    createFullSpanItemFromEnd.mGapDir = -1;
+                    createFullSpanItemFromEnd.mPosition = viewLayoutPosition;
+                    this.mLazySpanLookup.addFullSpanItem(createFullSpanItemFromEnd);
+                    decoratedMeasurement = maxEnd2;
                 } else {
-                    decoratedMeasurement = bJ2;
+                    decoratedMeasurement = maxEnd2;
                 }
             } else {
-                int bI = layoutParams.VH ? bI(startAfterPadding) : bVar.ca(startAfterPadding);
-                decoratedMeasurement = bI - this.Vp.getDecoratedMeasurement(a2);
-                if (z3 && layoutParams.VH) {
-                    LazySpanLookup.FullSpanItem bG = bG(bI);
-                    bG.VJ = 1;
-                    bG.mPosition = viewLayoutPosition;
-                    this.Vu.a(bG);
+                int minStart = layoutParams.mFullSpan ? getMinStart(startAfterPadding) : span.getStartLine(startAfterPadding);
+                decoratedMeasurement = minStart - this.mPrimaryOrientation.getDecoratedMeasurement(next);
+                if (z3 && layoutParams.mFullSpan) {
+                    LazySpanLookup.FullSpanItem createFullSpanItemFromStart = createFullSpanItemFromStart(minStart);
+                    createFullSpanItemFromStart.mGapDir = 1;
+                    createFullSpanItemFromStart.mPosition = viewLayoutPosition;
+                    this.mLazySpanLookup.addFullSpanItem(createFullSpanItemFromStart);
                 }
-                i2 = bI;
+                i2 = minStart;
             }
-            if (layoutParams.VH && mVar.Pk == -1) {
+            if (layoutParams.mFullSpan && layoutState.mItemDirection == -1) {
                 if (z3) {
-                    this.VB = true;
+                    this.mLaidOutInvalidFullSpan = true;
                 } else {
-                    if (mVar.Pl == 1) {
-                        z = !hY();
+                    if (layoutState.mLayoutDirection == 1) {
+                        z = !areAllEndsEqual();
                     } else {
-                        z = !hZ();
+                        z = !areAllStartsEqual();
                     }
                     if (z) {
-                        LazySpanLookup.FullSpanItem bW = this.Vu.bW(viewLayoutPosition);
-                        if (bW != null) {
-                            bW.VL = true;
+                        LazySpanLookup.FullSpanItem fullSpanItem = this.mLazySpanLookup.getFullSpanItem(viewLayoutPosition);
+                        if (fullSpanItem != null) {
+                            fullSpanItem.mHasUnwantedGapAfter = true;
                         }
-                        this.VB = true;
+                        this.mLaidOutInvalidFullSpan = true;
                     }
                 }
             }
-            a(a2, layoutParams, mVar);
-            if (isLayoutRTL() && this.An == 1) {
-                int endAfterPadding = layoutParams.VH ? this.Vq.getEndAfterPadding() : this.Vq.getEndAfterPadding() - (((this.OW - 1) - bVar.mIndex) * this.Vr);
-                i3 = endAfterPadding - this.Vq.getDecoratedMeasurement(a2);
+            attachViewToSpans(next, layoutParams, layoutState);
+            if (isLayoutRTL() && this.mOrientation == 1) {
+                int endAfterPadding = layoutParams.mFullSpan ? this.mSecondaryOrientation.getEndAfterPadding() : this.mSecondaryOrientation.getEndAfterPadding() - (((this.mSpanCount - 1) - span.mIndex) * this.mSizePerSpan);
+                i3 = endAfterPadding - this.mSecondaryOrientation.getDecoratedMeasurement(next);
                 decoratedMeasurement2 = endAfterPadding;
             } else {
-                int startAfterPadding2 = layoutParams.VH ? this.Vq.getStartAfterPadding() : (bVar.mIndex * this.Vr) + this.Vq.getStartAfterPadding();
-                decoratedMeasurement2 = startAfterPadding2 + this.Vq.getDecoratedMeasurement(a2);
+                int startAfterPadding2 = layoutParams.mFullSpan ? this.mSecondaryOrientation.getStartAfterPadding() : (span.mIndex * this.mSizePerSpan) + this.mSecondaryOrientation.getStartAfterPadding();
+                decoratedMeasurement2 = startAfterPadding2 + this.mSecondaryOrientation.getDecoratedMeasurement(next);
                 i3 = startAfterPadding2;
             }
-            if (this.An == 1) {
-                layoutDecoratedWithMargins(a2, i3, decoratedMeasurement, decoratedMeasurement2, i2);
+            if (this.mOrientation == 1) {
+                layoutDecoratedWithMargins(next, i3, decoratedMeasurement, decoratedMeasurement2, i2);
             } else {
-                layoutDecoratedWithMargins(a2, decoratedMeasurement, i3, i2, decoratedMeasurement2);
+                layoutDecoratedWithMargins(next, decoratedMeasurement, i3, i2, decoratedMeasurement2);
             }
-            if (layoutParams.VH) {
-                ae(this.Vs.Pl, i);
+            if (layoutParams.mFullSpan) {
+                updateAllRemainingSpans(this.mLayoutState.mLayoutDirection, i);
             } else {
-                a(bVar, this.Vs.Pl, i);
+                updateRemainingSpans(span, this.mLayoutState.mLayoutDirection, i);
             }
-            a(recycler, this.Vs);
-            if (this.Vs.Po && a2.isFocusable()) {
-                if (layoutParams.VH) {
-                    this.Vt.clear();
+            recycle(recycler, this.mLayoutState);
+            if (this.mLayoutState.mStopInFocusable && next.isFocusable()) {
+                if (layoutParams.mFullSpan) {
+                    this.mRemainingSpans.clear();
                 } else {
-                    this.Vt.set(bVar.mIndex, false);
+                    this.mRemainingSpans.set(span.mIndex, false);
                 }
             }
             z2 = true;
         }
         if (!z2) {
-            a(recycler, this.Vs);
+            recycle(recycler, this.mLayoutState);
         }
-        if (this.Vs.Pl == -1) {
-            bJ = this.Vp.getStartAfterPadding() - bI(this.Vp.getStartAfterPadding());
+        if (this.mLayoutState.mLayoutDirection == -1) {
+            maxEnd = this.mPrimaryOrientation.getStartAfterPadding() - getMinStart(this.mPrimaryOrientation.getStartAfterPadding());
         } else {
-            bJ = bJ(this.Vp.getEndAfterPadding()) - this.Vp.getEndAfterPadding();
+            maxEnd = getMaxEnd(this.mPrimaryOrientation.getEndAfterPadding()) - this.mPrimaryOrientation.getEndAfterPadding();
         }
-        if (bJ > 0) {
-            return Math.min(mVar.Pi, bJ);
+        if (maxEnd > 0) {
+            return Math.min(layoutState.mAvailable, maxEnd);
         }
         return 0;
     }
 
-    private LazySpanLookup.FullSpanItem bF(int i) {
+    private LazySpanLookup.FullSpanItem createFullSpanItemFromEnd(int i) {
         LazySpanLookup.FullSpanItem fullSpanItem = new LazySpanLookup.FullSpanItem();
-        fullSpanItem.VK = new int[this.OW];
-        for (int i2 = 0; i2 < this.OW; i2++) {
-            fullSpanItem.VK[i2] = i - this.Vo[i2].cb(i);
+        fullSpanItem.mGapPerSpan = new int[this.mSpanCount];
+        for (int i2 = 0; i2 < this.mSpanCount; i2++) {
+            fullSpanItem.mGapPerSpan[i2] = i - this.mSpans[i2].getEndLine(i);
         }
         return fullSpanItem;
     }
 
-    private LazySpanLookup.FullSpanItem bG(int i) {
+    private LazySpanLookup.FullSpanItem createFullSpanItemFromStart(int i) {
         LazySpanLookup.FullSpanItem fullSpanItem = new LazySpanLookup.FullSpanItem();
-        fullSpanItem.VK = new int[this.OW];
-        for (int i2 = 0; i2 < this.OW; i2++) {
-            fullSpanItem.VK[i2] = this.Vo[i2].ca(i) - i;
+        fullSpanItem.mGapPerSpan = new int[this.mSpanCount];
+        for (int i2 = 0; i2 < this.mSpanCount; i2++) {
+            fullSpanItem.mGapPerSpan[i2] = this.mSpans[i2].getStartLine(i) - i;
         }
         return fullSpanItem;
     }
 
-    private void a(View view, LayoutParams layoutParams, m mVar) {
-        if (mVar.Pl == 1) {
-            if (layoutParams.VH) {
-                aw(view);
+    private void attachViewToSpans(View view2, LayoutParams layoutParams, LayoutState layoutState) {
+        if (layoutState.mLayoutDirection == 1) {
+            if (layoutParams.mFullSpan) {
+                appendViewToAllSpans(view2);
             } else {
-                layoutParams.VG.az(view);
+                layoutParams.mSpan.appendToSpan(view2);
             }
-        } else if (layoutParams.VH) {
-            ax(view);
+        } else if (layoutParams.mFullSpan) {
+            prependViewToAllSpans(view2);
         } else {
-            layoutParams.VG.ay(view);
+            layoutParams.mSpan.prependToSpan(view2);
         }
     }
 
-    private void a(RecyclerView.Recycler recycler, m mVar) {
+    private void recycle(RecyclerView.Recycler recycler, LayoutState layoutState) {
         int min;
         int min2;
-        if (mVar.Ph && !mVar.Pp) {
-            if (mVar.Pi == 0) {
-                if (mVar.Pl == -1) {
-                    d(recycler, mVar.Pn);
+        if (layoutState.mRecycle && !layoutState.mInfinite) {
+            if (layoutState.mAvailable == 0) {
+                if (layoutState.mLayoutDirection == -1) {
+                    recycleFromEnd(recycler, layoutState.mEndLine);
                 } else {
-                    c(recycler, mVar.Pm);
+                    recycleFromStart(recycler, layoutState.mStartLine);
                 }
-            } else if (mVar.Pl == -1) {
-                int bH = mVar.Pm - bH(mVar.Pm);
-                if (bH < 0) {
-                    min2 = mVar.Pn;
+            } else if (layoutState.mLayoutDirection == -1) {
+                int maxStart = layoutState.mStartLine - getMaxStart(layoutState.mStartLine);
+                if (maxStart < 0) {
+                    min2 = layoutState.mEndLine;
                 } else {
-                    min2 = mVar.Pn - Math.min(bH, mVar.Pi);
+                    min2 = layoutState.mEndLine - Math.min(maxStart, layoutState.mAvailable);
                 }
-                d(recycler, min2);
+                recycleFromEnd(recycler, min2);
             } else {
-                int bK = bK(mVar.Pn) - mVar.Pn;
-                if (bK < 0) {
-                    min = mVar.Pm;
+                int minEnd = getMinEnd(layoutState.mEndLine) - layoutState.mEndLine;
+                if (minEnd < 0) {
+                    min = layoutState.mStartLine;
                 } else {
-                    min = Math.min(bK, mVar.Pi) + mVar.Pm;
+                    min = Math.min(minEnd, layoutState.mAvailable) + layoutState.mStartLine;
                 }
-                c(recycler, min);
+                recycleFromStart(recycler, min);
             }
         }
     }
 
-    private void aw(View view) {
-        for (int i = this.OW - 1; i >= 0; i--) {
-            this.Vo[i].az(view);
+    private void appendViewToAllSpans(View view2) {
+        for (int i = this.mSpanCount - 1; i >= 0; i--) {
+            this.mSpans[i].appendToSpan(view2);
         }
     }
 
-    private void ax(View view) {
-        for (int i = this.OW - 1; i >= 0; i--) {
-            this.Vo[i].ay(view);
+    private void prependViewToAllSpans(View view2) {
+        for (int i = this.mSpanCount - 1; i >= 0; i--) {
+            this.mSpans[i].prependToSpan(view2);
         }
     }
 
-    private void ae(int i, int i2) {
-        for (int i3 = 0; i3 < this.OW; i3++) {
-            if (!this.Vo[i3].VR.isEmpty()) {
-                a(this.Vo[i3], i, i2);
+    private void updateAllRemainingSpans(int i, int i2) {
+        for (int i3 = 0; i3 < this.mSpanCount; i3++) {
+            if (!this.mSpans[i3].mViews.isEmpty()) {
+                updateRemainingSpans(this.mSpans[i3], i, i2);
             }
         }
     }
 
-    private void a(b bVar, int i, int i2) {
-        int il = bVar.il();
+    private void updateRemainingSpans(Span span, int i, int i2) {
+        int deletedSize = span.getDeletedSize();
         if (i == -1) {
-            if (il + bVar.m5if() <= i2) {
-                this.Vt.set(bVar.mIndex, false);
+            if (deletedSize + span.getStartLine() <= i2) {
+                this.mRemainingSpans.set(span.mIndex, false);
             }
-        } else if (bVar.ih() - il >= i2) {
-            this.Vt.set(bVar.mIndex, false);
+        } else if (span.getEndLine() - deletedSize >= i2) {
+            this.mRemainingSpans.set(span.mIndex, false);
         }
     }
 
-    private int bH(int i) {
-        int ca = this.Vo[0].ca(i);
-        for (int i2 = 1; i2 < this.OW; i2++) {
-            int ca2 = this.Vo[i2].ca(i);
-            if (ca2 > ca) {
-                ca = ca2;
+    private int getMaxStart(int i) {
+        int startLine = this.mSpans[0].getStartLine(i);
+        for (int i2 = 1; i2 < this.mSpanCount; i2++) {
+            int startLine2 = this.mSpans[i2].getStartLine(i);
+            if (startLine2 > startLine) {
+                startLine = startLine2;
             }
         }
-        return ca;
+        return startLine;
     }
 
-    private int bI(int i) {
-        int ca = this.Vo[0].ca(i);
-        for (int i2 = 1; i2 < this.OW; i2++) {
-            int ca2 = this.Vo[i2].ca(i);
-            if (ca2 < ca) {
-                ca = ca2;
+    private int getMinStart(int i) {
+        int startLine = this.mSpans[0].getStartLine(i);
+        for (int i2 = 1; i2 < this.mSpanCount; i2++) {
+            int startLine2 = this.mSpans[i2].getStartLine(i);
+            if (startLine2 < startLine) {
+                startLine = startLine2;
             }
         }
-        return ca;
+        return startLine;
     }
 
-    boolean hY() {
-        int cb = this.Vo[0].cb(Integer.MIN_VALUE);
-        for (int i = 1; i < this.OW; i++) {
-            if (this.Vo[i].cb(Integer.MIN_VALUE) != cb) {
+    boolean areAllEndsEqual() {
+        int endLine = this.mSpans[0].getEndLine(Integer.MIN_VALUE);
+        for (int i = 1; i < this.mSpanCount; i++) {
+            if (this.mSpans[i].getEndLine(Integer.MIN_VALUE) != endLine) {
                 return false;
             }
         }
         return true;
     }
 
-    boolean hZ() {
-        int ca = this.Vo[0].ca(Integer.MIN_VALUE);
-        for (int i = 1; i < this.OW; i++) {
-            if (this.Vo[i].ca(Integer.MIN_VALUE) != ca) {
+    boolean areAllStartsEqual() {
+        int startLine = this.mSpans[0].getStartLine(Integer.MIN_VALUE);
+        for (int i = 1; i < this.mSpanCount; i++) {
+            if (this.mSpans[i].getStartLine(Integer.MIN_VALUE) != startLine) {
                 return false;
             }
         }
         return true;
     }
 
-    private int bJ(int i) {
-        int cb = this.Vo[0].cb(i);
-        for (int i2 = 1; i2 < this.OW; i2++) {
-            int cb2 = this.Vo[i2].cb(i);
-            if (cb2 > cb) {
-                cb = cb2;
+    private int getMaxEnd(int i) {
+        int endLine = this.mSpans[0].getEndLine(i);
+        for (int i2 = 1; i2 < this.mSpanCount; i2++) {
+            int endLine2 = this.mSpans[i2].getEndLine(i);
+            if (endLine2 > endLine) {
+                endLine = endLine2;
             }
         }
-        return cb;
+        return endLine;
     }
 
-    private int bK(int i) {
-        int cb = this.Vo[0].cb(i);
-        for (int i2 = 1; i2 < this.OW; i2++) {
-            int cb2 = this.Vo[i2].cb(i);
-            if (cb2 < cb) {
-                cb = cb2;
+    private int getMinEnd(int i) {
+        int endLine = this.mSpans[0].getEndLine(i);
+        for (int i2 = 1; i2 < this.mSpanCount; i2++) {
+            int endLine2 = this.mSpans[i2].getEndLine(i);
+            if (endLine2 < endLine) {
+                endLine = endLine2;
             }
         }
-        return cb;
+        return endLine;
     }
 
-    private void c(RecyclerView.Recycler recycler, int i) {
+    private void recycleFromStart(RecyclerView.Recycler recycler, int i) {
         while (getChildCount() > 0) {
             View childAt = getChildAt(0);
-            if (this.Vp.getDecoratedEnd(childAt) <= i && this.Vp.getTransformedEndWithDecoration(childAt) <= i) {
+            if (this.mPrimaryOrientation.getDecoratedEnd(childAt) <= i && this.mPrimaryOrientation.getTransformedEndWithDecoration(childAt) <= i) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                if (layoutParams.VH) {
-                    for (int i2 = 0; i2 < this.OW; i2++) {
-                        if (this.Vo[i2].VR.size() == 1) {
+                if (layoutParams.mFullSpan) {
+                    for (int i2 = 0; i2 < this.mSpanCount; i2++) {
+                        if (this.mSpans[i2].mViews.size() == 1) {
                             return;
                         }
                     }
-                    for (int i3 = 0; i3 < this.OW; i3++) {
-                        this.Vo[i3].ik();
+                    for (int i3 = 0; i3 < this.mSpanCount; i3++) {
+                        this.mSpans[i3].popStart();
                     }
-                } else if (layoutParams.VG.VR.size() != 1) {
-                    layoutParams.VG.ik();
+                } else if (layoutParams.mSpan.mViews.size() != 1) {
+                    layoutParams.mSpan.popStart();
                 } else {
                     return;
                 }
@@ -1350,22 +1360,22 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
-    private void d(RecyclerView.Recycler recycler, int i) {
+    private void recycleFromEnd(RecyclerView.Recycler recycler, int i) {
         for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
             View childAt = getChildAt(childCount);
-            if (this.Vp.getDecoratedStart(childAt) >= i && this.Vp.getTransformedStartWithDecoration(childAt) >= i) {
+            if (this.mPrimaryOrientation.getDecoratedStart(childAt) >= i && this.mPrimaryOrientation.getTransformedStartWithDecoration(childAt) >= i) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                if (layoutParams.VH) {
-                    for (int i2 = 0; i2 < this.OW; i2++) {
-                        if (this.Vo[i2].VR.size() == 1) {
+                if (layoutParams.mFullSpan) {
+                    for (int i2 = 0; i2 < this.mSpanCount; i2++) {
+                        if (this.mSpans[i2].mViews.size() == 1) {
                             return;
                         }
                     }
-                    for (int i3 = 0; i3 < this.OW; i3++) {
-                        this.Vo[i3].ij();
+                    for (int i3 = 0; i3 < this.mSpanCount; i3++) {
+                        this.mSpans[i3].popEnd();
                     }
-                } else if (layoutParams.VG.VR.size() != 1) {
-                    layoutParams.VG.ij();
+                } else if (layoutParams.mSpan.mViews.size() != 1) {
+                    layoutParams.mSpan.popEnd();
                 } else {
                     return;
                 }
@@ -1376,107 +1386,107 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
-    private boolean bL(int i) {
-        if (this.An == 0) {
-            return (i == -1) != this.PF;
+    private boolean preferLastSpan(int i) {
+        if (this.mOrientation == 0) {
+            return (i == -1) != this.mShouldReverseLayout;
         }
-        return ((i == -1) == this.PF) == isLayoutRTL();
+        return ((i == -1) == this.mShouldReverseLayout) == isLayoutRTL();
     }
 
-    private b a(m mVar) {
+    private Span getNextSpan(LayoutState layoutState) {
         int i;
         int i2;
-        b bVar;
-        b bVar2;
-        b bVar3 = null;
+        Span span;
+        Span span2;
+        Span span3 = null;
         int i3 = -1;
-        if (bL(mVar.Pl)) {
-            i = this.OW - 1;
+        if (preferLastSpan(layoutState.mLayoutDirection)) {
+            i = this.mSpanCount - 1;
             i2 = -1;
         } else {
             i = 0;
-            i2 = this.OW;
+            i2 = this.mSpanCount;
             i3 = 1;
         }
-        if (mVar.Pl == 1) {
-            int startAfterPadding = this.Vp.getStartAfterPadding();
+        if (layoutState.mLayoutDirection == 1) {
+            int startAfterPadding = this.mPrimaryOrientation.getStartAfterPadding();
             int i4 = i;
             int i5 = Integer.MAX_VALUE;
             while (i4 != i2) {
-                b bVar4 = this.Vo[i4];
-                int cb = bVar4.cb(startAfterPadding);
-                if (cb < i5) {
-                    bVar2 = bVar4;
+                Span span4 = this.mSpans[i4];
+                int endLine = span4.getEndLine(startAfterPadding);
+                if (endLine < i5) {
+                    span2 = span4;
                 } else {
-                    cb = i5;
-                    bVar2 = bVar3;
+                    endLine = i5;
+                    span2 = span3;
                 }
                 i4 += i3;
-                bVar3 = bVar2;
-                i5 = cb;
+                span3 = span2;
+                i5 = endLine;
             }
         } else {
-            int endAfterPadding = this.Vp.getEndAfterPadding();
+            int endAfterPadding = this.mPrimaryOrientation.getEndAfterPadding();
             int i6 = i;
             int i7 = Integer.MIN_VALUE;
             while (i6 != i2) {
-                b bVar5 = this.Vo[i6];
-                int ca = bVar5.ca(endAfterPadding);
-                if (ca > i7) {
-                    bVar = bVar5;
+                Span span5 = this.mSpans[i6];
+                int startLine = span5.getStartLine(endAfterPadding);
+                if (startLine > i7) {
+                    span = span5;
                 } else {
-                    ca = i7;
-                    bVar = bVar3;
+                    startLine = i7;
+                    span = span3;
                 }
                 i6 += i3;
-                bVar3 = bVar;
-                i7 = ca;
+                span3 = span;
+                i7 = startLine;
             }
         }
-        return bVar3;
+        return span3;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public boolean canScrollVertically() {
-        return this.An == 1;
+        return this.mOrientation == 1;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public boolean canScrollHorizontally() {
-        return this.An == 0;
+        return this.mOrientation == 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int scrollHorizontallyBy(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
-        return a(i, recycler, state);
+        return scrollBy(i, recycler, state);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int scrollVerticallyBy(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
-        return a(i, recycler, state);
+        return scrollBy(i, recycler, state);
     }
 
-    private int bM(int i) {
+    private int calculateScrollDirectionForPosition(int i) {
         if (getChildCount() == 0) {
-            return this.PF ? 1 : -1;
+            return this.mShouldReverseLayout ? 1 : -1;
         }
-        return (i < ib()) == this.PF ? 1 : -1;
+        return (i < getFirstChildPosition()) == this.mShouldReverseLayout ? 1 : -1;
     }
 
     @Override // android.support.v7.widget.RecyclerView.SmoothScroller.ScrollVectorProvider
     public PointF computeScrollVectorForPosition(int i) {
-        int bM = bM(i);
+        int calculateScrollDirectionForPosition = calculateScrollDirectionForPosition(i);
         PointF pointF = new PointF();
-        if (bM == 0) {
+        if (calculateScrollDirectionForPosition == 0) {
             return null;
         }
-        if (this.An == 0) {
-            pointF.x = bM;
+        if (this.mOrientation == 0) {
+            pointF.x = calculateScrollDirectionForPosition;
             pointF.y = 0.0f;
             return pointF;
         }
         pointF.x = 0.0f;
-        pointF.y = bM;
+        pointF.y = calculateScrollDirectionForPosition;
         return pointF;
     }
 
@@ -1489,81 +1499,81 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void scrollToPosition(int i) {
-        if (this.Vy != null && this.Vy.PY != i) {
-            this.Vy.id();
+        if (this.mPendingSavedState != null && this.mPendingSavedState.mAnchorPosition != i) {
+            this.mPendingSavedState.invalidateAnchorPositionInfo();
         }
-        this.PH = i;
-        this.PI = Integer.MIN_VALUE;
+        this.mPendingScrollPosition = i;
+        this.mPendingScrollPositionOffset = Integer.MIN_VALUE;
         requestLayout();
     }
 
     public void scrollToPositionWithOffset(int i, int i2) {
-        if (this.Vy != null) {
-            this.Vy.id();
+        if (this.mPendingSavedState != null) {
+            this.mPendingSavedState.invalidateAnchorPositionInfo();
         }
-        this.PH = i;
-        this.PI = i2;
+        this.mPendingScrollPosition = i;
+        this.mPendingScrollPositionOffset = i2;
         requestLayout();
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
-    int ge() {
-        return this.OW;
+    int getItemPrefetchCount() {
+        return this.mSpanCount;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
-    int a(int i, int i2, RecyclerView.State state, int[] iArr) {
+    int gatherPrefetchIndices(int i, int i2, RecyclerView.State state, int[] iArr) {
         int i3 = 0;
-        if (this.An != 0) {
+        if (this.mOrientation != 0) {
             i = i2;
         }
         if (getChildCount() != 0 && i != 0) {
-            b(i, state);
-            int i4 = this.OW;
-            while (i3 < this.OW && this.Vs.a(state) && i4 > 0) {
-                iArr[i3] = this.Vs.Pj;
+            prepareLayoutStateForDelta(i, state);
+            int i4 = this.mSpanCount;
+            while (i3 < this.mSpanCount && this.mLayoutState.hasMore(state) && i4 > 0) {
+                iArr[i3] = this.mLayoutState.mCurrentPosition;
                 i4--;
-                this.Vs.Pj += this.Vs.Pk;
+                this.mLayoutState.mCurrentPosition += this.mLayoutState.mItemDirection;
                 i3++;
             }
         }
         return i3;
     }
 
-    void b(int i, RecyclerView.State state) {
+    void prepareLayoutStateForDelta(int i, RecyclerView.State state) {
         int i2;
-        int ib;
+        int firstChildPosition;
         if (i > 0) {
-            ib = ia();
+            firstChildPosition = getLastChildPosition();
             i2 = 1;
         } else {
             i2 = -1;
-            ib = ib();
+            firstChildPosition = getFirstChildPosition();
         }
-        this.Vs.Ph = true;
-        a(ib, state);
-        bE(i2);
-        this.Vs.Pj = this.Vs.Pk + ib;
-        this.Vs.Pi = Math.abs(i);
+        this.mLayoutState.mRecycle = true;
+        updateLayoutState(firstChildPosition, state);
+        setLayoutStateDirection(i2);
+        this.mLayoutState.mCurrentPosition = this.mLayoutState.mItemDirection + firstChildPosition;
+        this.mLayoutState.mAvailable = Math.abs(i);
     }
 
-    int a(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
+    int scrollBy(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
         if (getChildCount() == 0 || i == 0) {
             return 0;
         }
-        b(i, state);
-        int a2 = a(recycler, this.Vs, state);
-        if (this.Vs.Pi >= a2) {
-            i = i < 0 ? -a2 : a2;
+        prepareLayoutStateForDelta(i, state);
+        int fill = fill(recycler, this.mLayoutState, state);
+        if (this.mLayoutState.mAvailable >= fill) {
+            i = i < 0 ? -fill : fill;
         }
-        this.Vp.offsetChildren(-i);
-        this.Vw = this.PF;
-        this.Vs.Pi = 0;
-        a(recycler, this.Vs);
+        this.mPrimaryOrientation.offsetChildren(-i);
+        this.mLastLayoutFromEnd = this.mShouldReverseLayout;
+        this.mLayoutState.mAvailable = 0;
+        recycle(recycler, this.mLayoutState);
         return i;
     }
 
-    private int ia() {
+    private int getLastChildPosition() {
         int childCount = getChildCount();
         if (childCount == 0) {
             return 0;
@@ -1571,14 +1581,14 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         return getPosition(getChildAt(childCount - 1));
     }
 
-    private int ib() {
+    private int getFirstChildPosition() {
         if (getChildCount() == 0) {
             return 0;
         }
         return getPosition(getChildAt(0));
     }
 
-    private int bN(int i) {
+    private int findFirstReferenceChildPosition(int i) {
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             int position = getPosition(getChildAt(i2));
@@ -1589,7 +1599,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         return 0;
     }
 
-    private int bO(int i) {
+    private int findLastReferenceChildPosition(int i) {
         for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
             int position = getPosition(getChildAt(childCount));
             if (position >= 0 && position < i) {
@@ -1601,7 +1611,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public RecyclerView.LayoutParams generateDefaultLayoutParams() {
-        return this.An == 0 ? new LayoutParams(-2, -1) : new LayoutParams(-1, -2);
+        return this.mOrientation == 0 ? new LayoutParams(-2, -1) : new LayoutParams(-1, -2);
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
@@ -1620,73 +1630,74 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     public int getOrientation() {
-        return this.An;
+        return this.mOrientation;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
-    public View onFocusSearchFailed(View view, int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
+    @Nullable
+    public View onFocusSearchFailed(View view2, int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
         View findContainingItemView;
-        int ib;
-        View aj;
-        if (getChildCount() != 0 && (findContainingItemView = findContainingItemView(view)) != null) {
-            gf();
-            int bo = bo(i);
-            if (bo == Integer.MIN_VALUE) {
+        int firstChildPosition;
+        View focusableViewAfter;
+        if (getChildCount() != 0 && (findContainingItemView = findContainingItemView(view2)) != null) {
+            resolveShouldLayoutReverse();
+            int convertFocusDirectionToLayoutDirection = convertFocusDirectionToLayoutDirection(i);
+            if (convertFocusDirectionToLayoutDirection == Integer.MIN_VALUE) {
                 return null;
             }
             LayoutParams layoutParams = (LayoutParams) findContainingItemView.getLayoutParams();
-            boolean z = layoutParams.VH;
-            b bVar = layoutParams.VG;
-            if (bo == 1) {
-                ib = ia();
+            boolean z = layoutParams.mFullSpan;
+            Span span = layoutParams.mSpan;
+            if (convertFocusDirectionToLayoutDirection == 1) {
+                firstChildPosition = getLastChildPosition();
             } else {
-                ib = ib();
+                firstChildPosition = getFirstChildPosition();
             }
-            a(ib, state);
-            bE(bo);
-            this.Vs.Pj = this.Vs.Pk + ib;
-            this.Vs.Pi = (int) (0.33333334f * this.Vp.getTotalSpace());
-            this.Vs.Po = true;
-            this.Vs.Ph = false;
-            a(recycler, this.Vs, state);
-            this.Vw = this.PF;
-            if (z || (aj = bVar.aj(ib, bo)) == null || aj == findContainingItemView) {
-                if (bL(bo)) {
-                    for (int i2 = this.OW - 1; i2 >= 0; i2--) {
-                        View aj2 = this.Vo[i2].aj(ib, bo);
-                        if (aj2 != null && aj2 != findContainingItemView) {
-                            return aj2;
+            updateLayoutState(firstChildPosition, state);
+            setLayoutStateDirection(convertFocusDirectionToLayoutDirection);
+            this.mLayoutState.mCurrentPosition = this.mLayoutState.mItemDirection + firstChildPosition;
+            this.mLayoutState.mAvailable = (int) (MAX_SCROLL_FACTOR * this.mPrimaryOrientation.getTotalSpace());
+            this.mLayoutState.mStopInFocusable = true;
+            this.mLayoutState.mRecycle = false;
+            fill(recycler, this.mLayoutState, state);
+            this.mLastLayoutFromEnd = this.mShouldReverseLayout;
+            if (z || (focusableViewAfter = span.getFocusableViewAfter(firstChildPosition, convertFocusDirectionToLayoutDirection)) == null || focusableViewAfter == findContainingItemView) {
+                if (preferLastSpan(convertFocusDirectionToLayoutDirection)) {
+                    for (int i2 = this.mSpanCount - 1; i2 >= 0; i2--) {
+                        View focusableViewAfter2 = this.mSpans[i2].getFocusableViewAfter(firstChildPosition, convertFocusDirectionToLayoutDirection);
+                        if (focusableViewAfter2 != null && focusableViewAfter2 != findContainingItemView) {
+                            return focusableViewAfter2;
                         }
                     }
                 } else {
-                    for (int i3 = 0; i3 < this.OW; i3++) {
-                        View aj3 = this.Vo[i3].aj(ib, bo);
-                        if (aj3 != null && aj3 != findContainingItemView) {
-                            return aj3;
+                    for (int i3 = 0; i3 < this.mSpanCount; i3++) {
+                        View focusableViewAfter3 = this.mSpans[i3].getFocusableViewAfter(firstChildPosition, convertFocusDirectionToLayoutDirection);
+                        if (focusableViewAfter3 != null && focusableViewAfter3 != findContainingItemView) {
+                            return focusableViewAfter3;
                         }
                     }
                 }
                 return null;
             }
-            return aj;
+            return focusableViewAfter;
         }
         return null;
     }
 
-    private int bo(int i) {
+    private int convertFocusDirectionToLayoutDirection(int i) {
         switch (i) {
             case 1:
-                return (this.An == 1 || !isLayoutRTL()) ? -1 : 1;
+                return (this.mOrientation == 1 || !isLayoutRTL()) ? -1 : 1;
             case 2:
-                return (this.An != 1 && isLayoutRTL()) ? -1 : 1;
+                return (this.mOrientation != 1 && isLayoutRTL()) ? -1 : 1;
             case 17:
-                return this.An != 0 ? Integer.MIN_VALUE : -1;
+                return this.mOrientation != 0 ? Integer.MIN_VALUE : -1;
             case 33:
-                return this.An != 1 ? Integer.MIN_VALUE : -1;
+                return this.mOrientation != 1 ? Integer.MIN_VALUE : -1;
             case 66:
-                return this.An != 0 ? Integer.MIN_VALUE : 1;
+                return this.mOrientation != 0 ? Integer.MIN_VALUE : 1;
             case TransportMediator.KEYCODE_MEDIA_RECORD /* 130 */:
-                return this.An == 1 ? 1 : Integer.MIN_VALUE;
+                return this.mOrientation == 1 ? 1 : Integer.MIN_VALUE;
             default:
                 return Integer.MIN_VALUE;
         }
@@ -1695,8 +1706,8 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     /* loaded from: classes2.dex */
     public static class LayoutParams extends RecyclerView.LayoutParams {
         public static final int INVALID_SPAN_ID = -1;
-        b VG;
-        boolean VH;
+        boolean mFullSpan;
+        Span mSpan;
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
@@ -1719,241 +1730,241 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
 
         public void setFullSpan(boolean z) {
-            this.VH = z;
+            this.mFullSpan = z;
         }
 
         public boolean isFullSpan() {
-            return this.VH;
+            return this.mFullSpan;
         }
 
         public final int getSpanIndex() {
-            if (this.VG == null) {
+            if (this.mSpan == null) {
                 return -1;
             }
-            return this.VG.mIndex;
+            return this.mSpan.mIndex;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public class b {
-        ArrayList<View> VR = new ArrayList<>();
-        int VS = Integer.MIN_VALUE;
-        int VT = Integer.MIN_VALUE;
-        int VU = 0;
+    public class Span {
+        static final int INVALID_LINE = Integer.MIN_VALUE;
         final int mIndex;
+        ArrayList<View> mViews = new ArrayList<>();
+        int mCachedStart = Integer.MIN_VALUE;
+        int mCachedEnd = Integer.MIN_VALUE;
+        int mDeletedSize = 0;
 
-        b(int i) {
+        Span(int i) {
             this.mIndex = i;
         }
 
-        int ca(int i) {
-            if (this.VS != Integer.MIN_VALUE) {
-                return this.VS;
+        int getStartLine(int i) {
+            if (this.mCachedStart != Integer.MIN_VALUE) {
+                return this.mCachedStart;
             }
-            if (this.VR.size() != 0) {
-                ie();
-                return this.VS;
-            }
-            return i;
-        }
-
-        void ie() {
-            LazySpanLookup.FullSpanItem bW;
-            View view = this.VR.get(0);
-            LayoutParams aA = aA(view);
-            this.VS = StaggeredGridLayoutManager.this.Vp.getDecoratedStart(view);
-            if (aA.VH && (bW = StaggeredGridLayoutManager.this.Vu.bW(aA.getViewLayoutPosition())) != null && bW.VJ == -1) {
-                this.VS -= bW.bX(this.mIndex);
-            }
-        }
-
-        /* renamed from: if  reason: not valid java name */
-        int m5if() {
-            if (this.VS != Integer.MIN_VALUE) {
-                return this.VS;
-            }
-            ie();
-            return this.VS;
-        }
-
-        int cb(int i) {
-            if (this.VT != Integer.MIN_VALUE) {
-                return this.VT;
-            }
-            if (this.VR.size() != 0) {
-                ig();
-                return this.VT;
+            if (this.mViews.size() != 0) {
+                calculateCachedStart();
+                return this.mCachedStart;
             }
             return i;
         }
 
-        void ig() {
-            LazySpanLookup.FullSpanItem bW;
-            View view = this.VR.get(this.VR.size() - 1);
-            LayoutParams aA = aA(view);
-            this.VT = StaggeredGridLayoutManager.this.Vp.getDecoratedEnd(view);
-            if (!aA.VH || (bW = StaggeredGridLayoutManager.this.Vu.bW(aA.getViewLayoutPosition())) == null || bW.VJ != 1) {
+        void calculateCachedStart() {
+            LazySpanLookup.FullSpanItem fullSpanItem;
+            View view2 = this.mViews.get(0);
+            LayoutParams layoutParams = getLayoutParams(view2);
+            this.mCachedStart = StaggeredGridLayoutManager.this.mPrimaryOrientation.getDecoratedStart(view2);
+            if (layoutParams.mFullSpan && (fullSpanItem = StaggeredGridLayoutManager.this.mLazySpanLookup.getFullSpanItem(layoutParams.getViewLayoutPosition())) != null && fullSpanItem.mGapDir == -1) {
+                this.mCachedStart -= fullSpanItem.getGapForSpan(this.mIndex);
+            }
+        }
+
+        int getStartLine() {
+            if (this.mCachedStart != Integer.MIN_VALUE) {
+                return this.mCachedStart;
+            }
+            calculateCachedStart();
+            return this.mCachedStart;
+        }
+
+        int getEndLine(int i) {
+            if (this.mCachedEnd != Integer.MIN_VALUE) {
+                return this.mCachedEnd;
+            }
+            if (this.mViews.size() != 0) {
+                calculateCachedEnd();
+                return this.mCachedEnd;
+            }
+            return i;
+        }
+
+        void calculateCachedEnd() {
+            LazySpanLookup.FullSpanItem fullSpanItem;
+            View view2 = this.mViews.get(this.mViews.size() - 1);
+            LayoutParams layoutParams = getLayoutParams(view2);
+            this.mCachedEnd = StaggeredGridLayoutManager.this.mPrimaryOrientation.getDecoratedEnd(view2);
+            if (!layoutParams.mFullSpan || (fullSpanItem = StaggeredGridLayoutManager.this.mLazySpanLookup.getFullSpanItem(layoutParams.getViewLayoutPosition())) == null || fullSpanItem.mGapDir != 1) {
                 return;
             }
-            this.VT = bW.bX(this.mIndex) + this.VT;
+            this.mCachedEnd = fullSpanItem.getGapForSpan(this.mIndex) + this.mCachedEnd;
         }
 
-        int ih() {
-            if (this.VT != Integer.MIN_VALUE) {
-                return this.VT;
+        int getEndLine() {
+            if (this.mCachedEnd != Integer.MIN_VALUE) {
+                return this.mCachedEnd;
             }
-            ig();
-            return this.VT;
+            calculateCachedEnd();
+            return this.mCachedEnd;
         }
 
-        void ay(View view) {
-            LayoutParams aA = aA(view);
-            aA.VG = this;
-            this.VR.add(0, view);
-            this.VS = Integer.MIN_VALUE;
-            if (this.VR.size() == 1) {
-                this.VT = Integer.MIN_VALUE;
+        void prependToSpan(View view2) {
+            LayoutParams layoutParams = getLayoutParams(view2);
+            layoutParams.mSpan = this;
+            this.mViews.add(0, view2);
+            this.mCachedStart = Integer.MIN_VALUE;
+            if (this.mViews.size() == 1) {
+                this.mCachedEnd = Integer.MIN_VALUE;
             }
-            if (aA.isItemRemoved() || aA.isItemChanged()) {
-                this.VU += StaggeredGridLayoutManager.this.Vp.getDecoratedMeasurement(view);
-            }
-        }
-
-        void az(View view) {
-            LayoutParams aA = aA(view);
-            aA.VG = this;
-            this.VR.add(view);
-            this.VT = Integer.MIN_VALUE;
-            if (this.VR.size() == 1) {
-                this.VS = Integer.MIN_VALUE;
-            }
-            if (aA.isItemRemoved() || aA.isItemChanged()) {
-                this.VU += StaggeredGridLayoutManager.this.Vp.getDecoratedMeasurement(view);
+            if (layoutParams.isItemRemoved() || layoutParams.isItemChanged()) {
+                this.mDeletedSize += StaggeredGridLayoutManager.this.mPrimaryOrientation.getDecoratedMeasurement(view2);
             }
         }
 
-        void c(boolean z, int i) {
-            int ca;
+        void appendToSpan(View view2) {
+            LayoutParams layoutParams = getLayoutParams(view2);
+            layoutParams.mSpan = this;
+            this.mViews.add(view2);
+            this.mCachedEnd = Integer.MIN_VALUE;
+            if (this.mViews.size() == 1) {
+                this.mCachedStart = Integer.MIN_VALUE;
+            }
+            if (layoutParams.isItemRemoved() || layoutParams.isItemChanged()) {
+                this.mDeletedSize += StaggeredGridLayoutManager.this.mPrimaryOrientation.getDecoratedMeasurement(view2);
+            }
+        }
+
+        void cacheReferenceLineAndClear(boolean z, int i) {
+            int startLine;
             if (z) {
-                ca = cb(Integer.MIN_VALUE);
+                startLine = getEndLine(Integer.MIN_VALUE);
             } else {
-                ca = ca(Integer.MIN_VALUE);
+                startLine = getStartLine(Integer.MIN_VALUE);
             }
             clear();
-            if (ca != Integer.MIN_VALUE) {
-                if (!z || ca >= StaggeredGridLayoutManager.this.Vp.getEndAfterPadding()) {
-                    if (z || ca <= StaggeredGridLayoutManager.this.Vp.getStartAfterPadding()) {
+            if (startLine != Integer.MIN_VALUE) {
+                if (!z || startLine >= StaggeredGridLayoutManager.this.mPrimaryOrientation.getEndAfterPadding()) {
+                    if (z || startLine <= StaggeredGridLayoutManager.this.mPrimaryOrientation.getStartAfterPadding()) {
                         if (i != Integer.MIN_VALUE) {
-                            ca += i;
+                            startLine += i;
                         }
-                        this.VT = ca;
-                        this.VS = ca;
+                        this.mCachedEnd = startLine;
+                        this.mCachedStart = startLine;
                     }
                 }
             }
         }
 
         void clear() {
-            this.VR.clear();
-            ii();
-            this.VU = 0;
+            this.mViews.clear();
+            invalidateCache();
+            this.mDeletedSize = 0;
         }
 
-        void ii() {
-            this.VS = Integer.MIN_VALUE;
-            this.VT = Integer.MIN_VALUE;
+        void invalidateCache() {
+            this.mCachedStart = Integer.MIN_VALUE;
+            this.mCachedEnd = Integer.MIN_VALUE;
         }
 
-        void cc(int i) {
-            this.VS = i;
-            this.VT = i;
+        void setLine(int i) {
+            this.mCachedStart = i;
+            this.mCachedEnd = i;
         }
 
-        void ij() {
-            int size = this.VR.size();
-            View remove = this.VR.remove(size - 1);
-            LayoutParams aA = aA(remove);
-            aA.VG = null;
-            if (aA.isItemRemoved() || aA.isItemChanged()) {
-                this.VU -= StaggeredGridLayoutManager.this.Vp.getDecoratedMeasurement(remove);
+        void popEnd() {
+            int size = this.mViews.size();
+            View remove = this.mViews.remove(size - 1);
+            LayoutParams layoutParams = getLayoutParams(remove);
+            layoutParams.mSpan = null;
+            if (layoutParams.isItemRemoved() || layoutParams.isItemChanged()) {
+                this.mDeletedSize -= StaggeredGridLayoutManager.this.mPrimaryOrientation.getDecoratedMeasurement(remove);
             }
             if (size == 1) {
-                this.VS = Integer.MIN_VALUE;
+                this.mCachedStart = Integer.MIN_VALUE;
             }
-            this.VT = Integer.MIN_VALUE;
+            this.mCachedEnd = Integer.MIN_VALUE;
         }
 
-        void ik() {
-            View remove = this.VR.remove(0);
-            LayoutParams aA = aA(remove);
-            aA.VG = null;
-            if (this.VR.size() == 0) {
-                this.VT = Integer.MIN_VALUE;
+        void popStart() {
+            View remove = this.mViews.remove(0);
+            LayoutParams layoutParams = getLayoutParams(remove);
+            layoutParams.mSpan = null;
+            if (this.mViews.size() == 0) {
+                this.mCachedEnd = Integer.MIN_VALUE;
             }
-            if (aA.isItemRemoved() || aA.isItemChanged()) {
-                this.VU -= StaggeredGridLayoutManager.this.Vp.getDecoratedMeasurement(remove);
+            if (layoutParams.isItemRemoved() || layoutParams.isItemChanged()) {
+                this.mDeletedSize -= StaggeredGridLayoutManager.this.mPrimaryOrientation.getDecoratedMeasurement(remove);
             }
-            this.VS = Integer.MIN_VALUE;
+            this.mCachedStart = Integer.MIN_VALUE;
         }
 
-        public int il() {
-            return this.VU;
+        public int getDeletedSize() {
+            return this.mDeletedSize;
         }
 
-        LayoutParams aA(View view) {
-            return (LayoutParams) view.getLayoutParams();
+        LayoutParams getLayoutParams(View view2) {
+            return (LayoutParams) view2.getLayoutParams();
         }
 
-        void cd(int i) {
-            if (this.VS != Integer.MIN_VALUE) {
-                this.VS += i;
+        void onOffset(int i) {
+            if (this.mCachedStart != Integer.MIN_VALUE) {
+                this.mCachedStart += i;
             }
-            if (this.VT != Integer.MIN_VALUE) {
-                this.VT += i;
+            if (this.mCachedEnd != Integer.MIN_VALUE) {
+                this.mCachedEnd += i;
             }
         }
 
         public int findFirstVisibleItemPosition() {
-            if (StaggeredGridLayoutManager.this.PE) {
-                return d(this.VR.size() - 1, -1, false);
+            if (StaggeredGridLayoutManager.this.mReverseLayout) {
+                return findOneVisibleChild(this.mViews.size() - 1, -1, false);
             }
-            return d(0, this.VR.size(), false);
+            return findOneVisibleChild(0, this.mViews.size(), false);
         }
 
         public int findFirstCompletelyVisibleItemPosition() {
-            return StaggeredGridLayoutManager.this.PE ? d(this.VR.size() - 1, -1, true) : d(0, this.VR.size(), true);
+            return StaggeredGridLayoutManager.this.mReverseLayout ? findOneVisibleChild(this.mViews.size() - 1, -1, true) : findOneVisibleChild(0, this.mViews.size(), true);
         }
 
         public int findLastVisibleItemPosition() {
-            if (StaggeredGridLayoutManager.this.PE) {
-                return d(0, this.VR.size(), false);
+            if (StaggeredGridLayoutManager.this.mReverseLayout) {
+                return findOneVisibleChild(0, this.mViews.size(), false);
             }
-            return d(this.VR.size() - 1, -1, false);
+            return findOneVisibleChild(this.mViews.size() - 1, -1, false);
         }
 
         public int findLastCompletelyVisibleItemPosition() {
-            if (StaggeredGridLayoutManager.this.PE) {
-                return d(0, this.VR.size(), true);
+            if (StaggeredGridLayoutManager.this.mReverseLayout) {
+                return findOneVisibleChild(0, this.mViews.size(), true);
             }
-            return d(this.VR.size() - 1, -1, true);
+            return findOneVisibleChild(this.mViews.size() - 1, -1, true);
         }
 
-        int d(int i, int i2, boolean z) {
-            int startAfterPadding = StaggeredGridLayoutManager.this.Vp.getStartAfterPadding();
-            int endAfterPadding = StaggeredGridLayoutManager.this.Vp.getEndAfterPadding();
+        int findOneVisibleChild(int i, int i2, boolean z) {
+            int startAfterPadding = StaggeredGridLayoutManager.this.mPrimaryOrientation.getStartAfterPadding();
+            int endAfterPadding = StaggeredGridLayoutManager.this.mPrimaryOrientation.getEndAfterPadding();
             int i3 = i2 > i ? 1 : -1;
             while (i != i2) {
-                View view = this.VR.get(i);
-                int decoratedStart = StaggeredGridLayoutManager.this.Vp.getDecoratedStart(view);
-                int decoratedEnd = StaggeredGridLayoutManager.this.Vp.getDecoratedEnd(view);
+                View view2 = this.mViews.get(i);
+                int decoratedStart = StaggeredGridLayoutManager.this.mPrimaryOrientation.getDecoratedStart(view2);
+                int decoratedEnd = StaggeredGridLayoutManager.this.mPrimaryOrientation.getDecoratedEnd(view2);
                 if (decoratedStart < endAfterPadding && decoratedEnd > startAfterPadding) {
                     if (z) {
                         if (decoratedStart >= startAfterPadding && decoratedEnd <= endAfterPadding) {
-                            return StaggeredGridLayoutManager.this.getPosition(view);
+                            return StaggeredGridLayoutManager.this.getPosition(view2);
                         }
                     } else {
-                        return StaggeredGridLayoutManager.this.getPosition(view);
+                        return StaggeredGridLayoutManager.this.getPosition(view2);
                     }
                 }
                 i += i3;
@@ -1961,86 +1972,87 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             return -1;
         }
 
-        public View aj(int i, int i2) {
-            View view = null;
+        public View getFocusableViewAfter(int i, int i2) {
+            View view2 = null;
             if (i2 == -1) {
-                int size = this.VR.size();
+                int size = this.mViews.size();
                 int i3 = 0;
                 while (i3 < size) {
-                    View view2 = this.VR.get(i3);
-                    if (!view2.isFocusable()) {
+                    View view3 = this.mViews.get(i3);
+                    if (!view3.isFocusable()) {
                         break;
                     }
-                    if ((StaggeredGridLayoutManager.this.getPosition(view2) > i) != StaggeredGridLayoutManager.this.PE) {
+                    if ((StaggeredGridLayoutManager.this.getPosition(view3) > i) != StaggeredGridLayoutManager.this.mReverseLayout) {
                         break;
                     }
                     i3++;
-                    view = view2;
+                    view2 = view3;
                 }
-                return view;
+                return view2;
             }
-            int size2 = this.VR.size() - 1;
+            int size2 = this.mViews.size() - 1;
             while (size2 >= 0) {
-                View view3 = this.VR.get(size2);
-                if (!view3.isFocusable()) {
+                View view4 = this.mViews.get(size2);
+                if (!view4.isFocusable()) {
                     break;
                 }
-                if ((StaggeredGridLayoutManager.this.getPosition(view3) > i) != (!StaggeredGridLayoutManager.this.PE)) {
+                if ((StaggeredGridLayoutManager.this.getPosition(view4) > i) != (!StaggeredGridLayoutManager.this.mReverseLayout)) {
                     break;
                 }
                 size2--;
-                view = view3;
+                view2 = view4;
             }
-            return view;
+            return view2;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class LazySpanLookup {
-        List<FullSpanItem> VI;
+        private static final int MIN_SIZE = 10;
         int[] mData;
+        List<FullSpanItem> mFullSpanItems;
 
         LazySpanLookup() {
         }
 
-        int bQ(int i) {
-            if (this.VI != null) {
-                for (int size = this.VI.size() - 1; size >= 0; size--) {
-                    if (this.VI.get(size).mPosition >= i) {
-                        this.VI.remove(size);
+        int forceInvalidateAfter(int i) {
+            if (this.mFullSpanItems != null) {
+                for (int size = this.mFullSpanItems.size() - 1; size >= 0; size--) {
+                    if (this.mFullSpanItems.get(size).mPosition >= i) {
+                        this.mFullSpanItems.remove(size);
                     }
                 }
             }
-            return bR(i);
+            return invalidateAfter(i);
         }
 
-        int bR(int i) {
+        int invalidateAfter(int i) {
             if (this.mData != null && i < this.mData.length) {
-                int bV = bV(i);
-                if (bV == -1) {
+                int invalidateFullSpansAfter = invalidateFullSpansAfter(i);
+                if (invalidateFullSpansAfter == -1) {
                     Arrays.fill(this.mData, i, this.mData.length, -1);
                     return this.mData.length;
                 }
-                Arrays.fill(this.mData, i, bV + 1, -1);
-                return bV + 1;
+                Arrays.fill(this.mData, i, invalidateFullSpansAfter + 1, -1);
+                return invalidateFullSpansAfter + 1;
             }
             return -1;
         }
 
-        int bS(int i) {
+        int getSpan(int i) {
             if (this.mData == null || i >= this.mData.length) {
                 return -1;
             }
             return this.mData[i];
         }
 
-        void a(int i, b bVar) {
-            bU(i);
-            this.mData[i] = bVar.mIndex;
+        void setSpan(int i, Span span) {
+            ensureSize(i);
+            this.mData[i] = span.mIndex;
         }
 
-        int bT(int i) {
+        int sizeForPosition(int i) {
             int length = this.mData.length;
             while (length <= i) {
                 length *= 2;
@@ -2048,13 +2060,13 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             return length;
         }
 
-        void bU(int i) {
+        void ensureSize(int i) {
             if (this.mData == null) {
                 this.mData = new int[Math.max(i, 10) + 1];
                 Arrays.fill(this.mData, -1);
             } else if (i >= this.mData.length) {
                 int[] iArr = this.mData;
-                this.mData = new int[bT(i)];
+                this.mData = new int[sizeForPosition(i)];
                 System.arraycopy(iArr, 0, this.mData, 0, iArr.length);
                 Arrays.fill(this.mData, iArr.length, this.mData.length, -1);
             }
@@ -2064,26 +2076,26 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             if (this.mData != null) {
                 Arrays.fill(this.mData, -1);
             }
-            this.VI = null;
+            this.mFullSpanItems = null;
         }
 
-        void af(int i, int i2) {
+        void offsetForRemoval(int i, int i2) {
             if (this.mData != null && i < this.mData.length) {
-                bU(i + i2);
+                ensureSize(i + i2);
                 System.arraycopy(this.mData, i + i2, this.mData, i, (this.mData.length - i) - i2);
                 Arrays.fill(this.mData, this.mData.length - i2, this.mData.length, -1);
-                ag(i, i2);
+                offsetFullSpansForRemoval(i, i2);
             }
         }
 
-        private void ag(int i, int i2) {
-            if (this.VI != null) {
+        private void offsetFullSpansForRemoval(int i, int i2) {
+            if (this.mFullSpanItems != null) {
                 int i3 = i + i2;
-                for (int size = this.VI.size() - 1; size >= 0; size--) {
-                    FullSpanItem fullSpanItem = this.VI.get(size);
+                for (int size = this.mFullSpanItems.size() - 1; size >= 0; size--) {
+                    FullSpanItem fullSpanItem = this.mFullSpanItems.get(size);
                     if (fullSpanItem.mPosition >= i) {
                         if (fullSpanItem.mPosition < i3) {
-                            this.VI.remove(size);
+                            this.mFullSpanItems.remove(size);
                         } else {
                             fullSpanItem.mPosition -= i2;
                         }
@@ -2092,19 +2104,19 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             }
         }
 
-        void ah(int i, int i2) {
+        void offsetForAddition(int i, int i2) {
             if (this.mData != null && i < this.mData.length) {
-                bU(i + i2);
+                ensureSize(i + i2);
                 System.arraycopy(this.mData, i, this.mData, i + i2, (this.mData.length - i) - i2);
                 Arrays.fill(this.mData, i, i + i2, -1);
-                ai(i, i2);
+                offsetFullSpansForAddition(i, i2);
             }
         }
 
-        private void ai(int i, int i2) {
-            if (this.VI != null) {
-                for (int size = this.VI.size() - 1; size >= 0; size--) {
-                    FullSpanItem fullSpanItem = this.VI.get(size);
+        private void offsetFullSpansForAddition(int i, int i2) {
+            if (this.mFullSpanItems != null) {
+                for (int size = this.mFullSpanItems.size() - 1; size >= 0; size--) {
+                    FullSpanItem fullSpanItem = this.mFullSpanItems.get(size);
                     if (fullSpanItem.mPosition >= i) {
                         fullSpanItem.mPosition += i2;
                     }
@@ -2112,57 +2124,57 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             }
         }
 
-        private int bV(int i) {
-            if (this.VI == null) {
+        private int invalidateFullSpansAfter(int i) {
+            if (this.mFullSpanItems == null) {
                 return -1;
             }
-            FullSpanItem bW = bW(i);
-            if (bW != null) {
-                this.VI.remove(bW);
+            FullSpanItem fullSpanItem = getFullSpanItem(i);
+            if (fullSpanItem != null) {
+                this.mFullSpanItems.remove(fullSpanItem);
             }
-            int size = this.VI.size();
+            int size = this.mFullSpanItems.size();
             int i2 = 0;
             while (true) {
                 if (i2 >= size) {
                     i2 = -1;
                     break;
-                } else if (this.VI.get(i2).mPosition >= i) {
+                } else if (this.mFullSpanItems.get(i2).mPosition >= i) {
                     break;
                 } else {
                     i2++;
                 }
             }
             if (i2 != -1) {
-                this.VI.remove(i2);
-                return this.VI.get(i2).mPosition;
+                this.mFullSpanItems.remove(i2);
+                return this.mFullSpanItems.get(i2).mPosition;
             }
             return -1;
         }
 
-        public void a(FullSpanItem fullSpanItem) {
-            if (this.VI == null) {
-                this.VI = new ArrayList();
+        public void addFullSpanItem(FullSpanItem fullSpanItem) {
+            if (this.mFullSpanItems == null) {
+                this.mFullSpanItems = new ArrayList();
             }
-            int size = this.VI.size();
+            int size = this.mFullSpanItems.size();
             for (int i = 0; i < size; i++) {
-                FullSpanItem fullSpanItem2 = this.VI.get(i);
+                FullSpanItem fullSpanItem2 = this.mFullSpanItems.get(i);
                 if (fullSpanItem2.mPosition == fullSpanItem.mPosition) {
-                    this.VI.remove(i);
+                    this.mFullSpanItems.remove(i);
                 }
                 if (fullSpanItem2.mPosition >= fullSpanItem.mPosition) {
-                    this.VI.add(i, fullSpanItem);
+                    this.mFullSpanItems.add(i, fullSpanItem);
                     return;
                 }
             }
-            this.VI.add(fullSpanItem);
+            this.mFullSpanItems.add(fullSpanItem);
         }
 
-        public FullSpanItem bW(int i) {
-            if (this.VI == null) {
+        public FullSpanItem getFullSpanItem(int i) {
+            if (this.mFullSpanItems == null) {
                 return null;
             }
-            for (int size = this.VI.size() - 1; size >= 0; size--) {
-                FullSpanItem fullSpanItem = this.VI.get(size);
+            for (int size = this.mFullSpanItems.size() - 1; size >= 0; size--) {
+                FullSpanItem fullSpanItem = this.mFullSpanItems.get(size);
                 if (fullSpanItem.mPosition == i) {
                     return fullSpanItem;
                 }
@@ -2170,21 +2182,21 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             return null;
         }
 
-        public FullSpanItem c(int i, int i2, int i3, boolean z) {
-            if (this.VI == null) {
+        public FullSpanItem getFirstFullSpanItemInRange(int i, int i2, int i3, boolean z) {
+            if (this.mFullSpanItems == null) {
                 return null;
             }
-            int size = this.VI.size();
+            int size = this.mFullSpanItems.size();
             for (int i4 = 0; i4 < size; i4++) {
-                FullSpanItem fullSpanItem = this.VI.get(i4);
+                FullSpanItem fullSpanItem = this.mFullSpanItems.get(i4);
                 if (fullSpanItem.mPosition >= i2) {
                     return null;
                 }
                 if (fullSpanItem.mPosition >= i) {
-                    if (i3 == 0 || fullSpanItem.VJ == i3) {
+                    if (i3 == 0 || fullSpanItem.mGapDir == i3) {
                         return fullSpanItem;
                     }
-                    if (z && fullSpanItem.VL) {
+                    if (z && fullSpanItem.mHasUnwantedGapAfter) {
                         return fullSpanItem;
                     }
                 }
@@ -2197,43 +2209,43 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         public static class FullSpanItem implements Parcelable {
             public static final Parcelable.Creator<FullSpanItem> CREATOR = new Parcelable.Creator<FullSpanItem>() { // from class: android.support.v7.widget.StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem.1
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                /* renamed from: q */
                 public FullSpanItem createFromParcel(Parcel parcel) {
                     return new FullSpanItem(parcel);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                /* renamed from: bY */
                 public FullSpanItem[] newArray(int i) {
                     return new FullSpanItem[i];
                 }
             };
-            int VJ;
-            int[] VK;
-            boolean VL;
+            int mGapDir;
+            int[] mGapPerSpan;
+            boolean mHasUnwantedGapAfter;
             int mPosition;
 
             public FullSpanItem(Parcel parcel) {
                 this.mPosition = parcel.readInt();
-                this.VJ = parcel.readInt();
-                this.VL = parcel.readInt() == 1;
+                this.mGapDir = parcel.readInt();
+                this.mHasUnwantedGapAfter = parcel.readInt() == 1;
                 int readInt = parcel.readInt();
                 if (readInt > 0) {
-                    this.VK = new int[readInt];
-                    parcel.readIntArray(this.VK);
+                    this.mGapPerSpan = new int[readInt];
+                    parcel.readIntArray(this.mGapPerSpan);
                 }
             }
 
             public FullSpanItem() {
             }
 
-            int bX(int i) {
-                if (this.VK == null) {
+            int getGapForSpan(int i) {
+                if (this.mGapPerSpan == null) {
                     return 0;
                 }
-                return this.VK[i];
+                return this.mGapPerSpan[i];
             }
 
             @Override // android.os.Parcelable
@@ -2244,99 +2256,99 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
             @Override // android.os.Parcelable
             public void writeToParcel(Parcel parcel, int i) {
                 parcel.writeInt(this.mPosition);
-                parcel.writeInt(this.VJ);
-                parcel.writeInt(this.VL ? 1 : 0);
-                if (this.VK != null && this.VK.length > 0) {
-                    parcel.writeInt(this.VK.length);
-                    parcel.writeIntArray(this.VK);
+                parcel.writeInt(this.mGapDir);
+                parcel.writeInt(this.mHasUnwantedGapAfter ? 1 : 0);
+                if (this.mGapPerSpan != null && this.mGapPerSpan.length > 0) {
+                    parcel.writeInt(this.mGapPerSpan.length);
+                    parcel.writeIntArray(this.mGapPerSpan);
                     return;
                 }
                 parcel.writeInt(0);
             }
 
             public String toString() {
-                return "FullSpanItem{mPosition=" + this.mPosition + ", mGapDir=" + this.VJ + ", mHasUnwantedGapAfter=" + this.VL + ", mGapPerSpan=" + Arrays.toString(this.VK) + '}';
+                return "FullSpanItem{mPosition=" + this.mPosition + ", mGapDir=" + this.mGapDir + ", mHasUnwantedGapAfter=" + this.mHasUnwantedGapAfter + ", mGapPerSpan=" + Arrays.toString(this.mGapPerSpan) + '}';
             }
         }
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v7.widget.StaggeredGridLayoutManager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: r */
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: bZ */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         };
-        boolean PE;
-        int PY;
-        boolean Qa;
-        List<LazySpanLookup.FullSpanItem> VI;
-        int VM;
-        int VN;
-        int[] VO;
-        int VP;
-        int[] VQ;
-        boolean Vx;
+        boolean mAnchorLayoutFromEnd;
+        int mAnchorPosition;
+        List<LazySpanLookup.FullSpanItem> mFullSpanItems;
+        boolean mLastLayoutRTL;
+        boolean mReverseLayout;
+        int[] mSpanLookup;
+        int mSpanLookupSize;
+        int[] mSpanOffsets;
+        int mSpanOffsetsSize;
+        int mVisibleAnchorPosition;
 
         public SavedState() {
         }
 
         SavedState(Parcel parcel) {
-            this.PY = parcel.readInt();
-            this.VM = parcel.readInt();
-            this.VN = parcel.readInt();
-            if (this.VN > 0) {
-                this.VO = new int[this.VN];
-                parcel.readIntArray(this.VO);
+            this.mAnchorPosition = parcel.readInt();
+            this.mVisibleAnchorPosition = parcel.readInt();
+            this.mSpanOffsetsSize = parcel.readInt();
+            if (this.mSpanOffsetsSize > 0) {
+                this.mSpanOffsets = new int[this.mSpanOffsetsSize];
+                parcel.readIntArray(this.mSpanOffsets);
             }
-            this.VP = parcel.readInt();
-            if (this.VP > 0) {
-                this.VQ = new int[this.VP];
-                parcel.readIntArray(this.VQ);
+            this.mSpanLookupSize = parcel.readInt();
+            if (this.mSpanLookupSize > 0) {
+                this.mSpanLookup = new int[this.mSpanLookupSize];
+                parcel.readIntArray(this.mSpanLookup);
             }
-            this.PE = parcel.readInt() == 1;
-            this.Qa = parcel.readInt() == 1;
-            this.Vx = parcel.readInt() == 1;
-            this.VI = parcel.readArrayList(LazySpanLookup.FullSpanItem.class.getClassLoader());
+            this.mReverseLayout = parcel.readInt() == 1;
+            this.mAnchorLayoutFromEnd = parcel.readInt() == 1;
+            this.mLastLayoutRTL = parcel.readInt() == 1;
+            this.mFullSpanItems = parcel.readArrayList(LazySpanLookup.FullSpanItem.class.getClassLoader());
         }
 
         public SavedState(SavedState savedState) {
-            this.VN = savedState.VN;
-            this.PY = savedState.PY;
-            this.VM = savedState.VM;
-            this.VO = savedState.VO;
-            this.VP = savedState.VP;
-            this.VQ = savedState.VQ;
-            this.PE = savedState.PE;
-            this.Qa = savedState.Qa;
-            this.Vx = savedState.Vx;
-            this.VI = savedState.VI;
+            this.mSpanOffsetsSize = savedState.mSpanOffsetsSize;
+            this.mAnchorPosition = savedState.mAnchorPosition;
+            this.mVisibleAnchorPosition = savedState.mVisibleAnchorPosition;
+            this.mSpanOffsets = savedState.mSpanOffsets;
+            this.mSpanLookupSize = savedState.mSpanLookupSize;
+            this.mSpanLookup = savedState.mSpanLookup;
+            this.mReverseLayout = savedState.mReverseLayout;
+            this.mAnchorLayoutFromEnd = savedState.mAnchorLayoutFromEnd;
+            this.mLastLayoutRTL = savedState.mLastLayoutRTL;
+            this.mFullSpanItems = savedState.mFullSpanItems;
         }
 
-        void ic() {
-            this.VO = null;
-            this.VN = 0;
-            this.VP = 0;
-            this.VQ = null;
-            this.VI = null;
+        void invalidateSpanInfo() {
+            this.mSpanOffsets = null;
+            this.mSpanOffsetsSize = 0;
+            this.mSpanLookupSize = 0;
+            this.mSpanLookup = null;
+            this.mFullSpanItems = null;
         }
 
-        void id() {
-            this.VO = null;
-            this.VN = 0;
-            this.PY = -1;
-            this.VM = -1;
+        void invalidateAnchorPositionInfo() {
+            this.mSpanOffsets = null;
+            this.mSpanOffsetsSize = 0;
+            this.mAnchorPosition = -1;
+            this.mVisibleAnchorPosition = -1;
         }
 
         @Override // android.os.Parcelable
@@ -2346,67 +2358,67 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeInt(this.PY);
-            parcel.writeInt(this.VM);
-            parcel.writeInt(this.VN);
-            if (this.VN > 0) {
-                parcel.writeIntArray(this.VO);
+            parcel.writeInt(this.mAnchorPosition);
+            parcel.writeInt(this.mVisibleAnchorPosition);
+            parcel.writeInt(this.mSpanOffsetsSize);
+            if (this.mSpanOffsetsSize > 0) {
+                parcel.writeIntArray(this.mSpanOffsets);
             }
-            parcel.writeInt(this.VP);
-            if (this.VP > 0) {
-                parcel.writeIntArray(this.VQ);
+            parcel.writeInt(this.mSpanLookupSize);
+            if (this.mSpanLookupSize > 0) {
+                parcel.writeIntArray(this.mSpanLookup);
             }
-            parcel.writeInt(this.PE ? 1 : 0);
-            parcel.writeInt(this.Qa ? 1 : 0);
-            parcel.writeInt(this.Vx ? 1 : 0);
-            parcel.writeList(this.VI);
+            parcel.writeInt(this.mReverseLayout ? 1 : 0);
+            parcel.writeInt(this.mAnchorLayoutFromEnd ? 1 : 0);
+            parcel.writeInt(this.mLastLayoutRTL ? 1 : 0);
+            parcel.writeList(this.mFullSpanItems);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public class a {
-        boolean PP;
-        boolean PQ;
-        boolean VE;
-        int[] VF;
+    public class AnchorInfo {
+        boolean mInvalidateOffsets;
+        boolean mLayoutFromEnd;
         int mOffset;
         int mPosition;
+        int[] mSpanReferenceLines;
+        boolean mValid;
 
-        public a() {
+        public AnchorInfo() {
             reset();
         }
 
         void reset() {
             this.mPosition = -1;
             this.mOffset = Integer.MIN_VALUE;
-            this.PP = false;
-            this.VE = false;
-            this.PQ = false;
-            if (this.VF != null) {
-                Arrays.fill(this.VF, -1);
+            this.mLayoutFromEnd = false;
+            this.mInvalidateOffsets = false;
+            this.mValid = false;
+            if (this.mSpanReferenceLines != null) {
+                Arrays.fill(this.mSpanReferenceLines, -1);
             }
         }
 
-        void a(b[] bVarArr) {
-            int length = bVarArr.length;
-            if (this.VF == null || this.VF.length < length) {
-                this.VF = new int[StaggeredGridLayoutManager.this.Vo.length];
+        void saveSpanReferenceLines(Span[] spanArr) {
+            int length = spanArr.length;
+            if (this.mSpanReferenceLines == null || this.mSpanReferenceLines.length < length) {
+                this.mSpanReferenceLines = new int[StaggeredGridLayoutManager.this.mSpans.length];
             }
             for (int i = 0; i < length; i++) {
-                this.VF[i] = bVarArr[i].ca(Integer.MIN_VALUE);
+                this.mSpanReferenceLines[i] = spanArr[i].getStartLine(Integer.MIN_VALUE);
             }
         }
 
-        void gm() {
-            this.mOffset = this.PP ? StaggeredGridLayoutManager.this.Vp.getEndAfterPadding() : StaggeredGridLayoutManager.this.Vp.getStartAfterPadding();
+        void assignCoordinateFromPadding() {
+            this.mOffset = this.mLayoutFromEnd ? StaggeredGridLayoutManager.this.mPrimaryOrientation.getEndAfterPadding() : StaggeredGridLayoutManager.this.mPrimaryOrientation.getStartAfterPadding();
         }
 
-        void bP(int i) {
-            if (this.PP) {
-                this.mOffset = StaggeredGridLayoutManager.this.Vp.getEndAfterPadding() - i;
+        void assignCoordinateFromPadding(int i) {
+            if (this.mLayoutFromEnd) {
+                this.mOffset = StaggeredGridLayoutManager.this.mPrimaryOrientation.getEndAfterPadding() - i;
             } else {
-                this.mOffset = StaggeredGridLayoutManager.this.Vp.getStartAfterPadding() + i;
+                this.mOffset = StaggeredGridLayoutManager.this.mPrimaryOrientation.getStartAfterPadding() + i;
             }
         }
     }

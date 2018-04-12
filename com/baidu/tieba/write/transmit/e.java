@@ -1,13 +1,13 @@
 package com.baidu.tieba.write.transmit;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.i;
-/* loaded from: classes2.dex */
-public class e implements i {
-    public static final BdUniqueId aQE = BdUniqueId.gen();
+import com.baidu.adp.widget.ListView.h;
+/* loaded from: classes3.dex */
+public class e implements h {
+    public static final BdUniqueId ace = BdUniqueId.gen();
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return aQE;
+        return ace;
     }
 }

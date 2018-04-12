@@ -72,7 +72,7 @@ public final class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private HttpURLConnection vD() throws IOException {
+    private HttpURLConnection a() throws IOException {
         String str;
         HttpURLConnection httpURLConnection;
         KeyStore keyStore;
@@ -142,7 +142,7 @@ public final class k {
                     String str3 = "sofire";
                     if ("sofire".equals("sofire")) {
                     }
-                    httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str3 + "/" + str2 + "/" + q.a(this.a) + "/3.1.0");
+                    httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str3 + "/" + str2 + "/" + r.a(this.a) + "/3.1.0");
                     httpURLConnection.setRequestProperty("Pragma", "no-cache");
                     httpURLConnection.setRequestProperty("Accept", "*/*");
                     httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
@@ -185,7 +185,7 @@ public final class k {
         if ("sofire".equals("sofire")) {
             str32 = "eos";
         }
-        httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str32 + "/" + str22 + "/" + q.a(this.a) + "/3.1.0");
+        httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str32 + "/" + str22 + "/" + r.a(this.a) + "/3.1.0");
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
         httpURLConnection.setRequestProperty("Accept", "*/*");
         httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
@@ -237,7 +237,7 @@ public final class k {
         }
     }
 
-    private InputStream g(HttpURLConnection httpURLConnection) {
+    private InputStream a(HttpURLConnection httpURLConnection) {
         InputStream inputStream = null;
         if (!d.d(this.a) || httpURLConnection == null || httpURLConnection == null) {
             return null;
@@ -268,7 +268,7 @@ public final class k {
             if (this.g) {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                i.f(byteArrayInputStream, byteArrayOutputStream);
+                i.b(byteArrayInputStream, byteArrayOutputStream);
                 b = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.flush();
                 byteArrayOutputStream.close();
@@ -299,7 +299,7 @@ public final class k {
         }
     }
 
-    private boolean b(InputStream inputStream, File file) {
+    private boolean a(InputStream inputStream, File file) {
         BufferedOutputStream bufferedOutputStream;
         if (this.g) {
             try {
@@ -364,23 +364,23 @@ public final class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements X509TrustManager {
-        private X509TrustManager aGm;
+        private X509TrustManager b;
 
         a(X509TrustManager x509TrustManager) {
-            this.aGm = null;
-            this.aGm = x509TrustManager;
+            this.b = null;
+            this.b = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.aGm.checkClientTrusted(x509CertificateArr, str);
+            this.b.checkClientTrusted(x509CertificateArr, str);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.aGm.checkServerTrusted(x509CertificateArr, str);
+                this.b.checkServerTrusted(x509CertificateArr, str);
             } catch (Throwable th) {
                 d.a(th);
                 for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
@@ -400,12 +400,12 @@ public final class k {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            return this.aGm.getAcceptedIssuers();
+            return this.b.getAcceptedIssuers();
         }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IF, SGET, INVOKE, MOVE_EXCEPTION] complete} */
-    public final String g(String str, byte[] bArr) throws IOException, InterruptedException, NetworkErrorException {
+    public final String a(String str, byte[] bArr) throws IOException, InterruptedException, NetworkErrorException {
         HttpURLConnection httpURLConnection;
         InputStream inputStream = null;
         try {
@@ -419,7 +419,7 @@ public final class k {
             this.c = "POST";
             this.d = str;
             try {
-                httpURLConnection = vD();
+                httpURLConnection = a();
                 try {
                     inputStream = a(bArr, httpURLConnection);
                     String a2 = a(inputStream);
@@ -470,7 +470,7 @@ public final class k {
             try {
                 this.c = "GET";
                 this.d = str;
-                httpURLConnection = vD();
+                httpURLConnection = a();
                 try {
                     inputStream = a((byte[]) null, httpURLConnection);
                     String a2 = a(inputStream);
@@ -561,9 +561,9 @@ public final class k {
             java.lang.String r1 = "GET"
             r6.c = r1     // Catch: java.lang.Throwable -> L82
             r6.d = r7     // Catch: java.lang.Throwable -> L82
-            java.net.HttpURLConnection r2 = r6.vD()     // Catch: java.lang.Throwable -> L82
-            java.io.InputStream r3 = r6.g(r2)     // Catch: java.lang.Throwable -> Le9
-            boolean r1 = r6.b(r3, r8)     // Catch: java.lang.Throwable -> Le9
+            java.net.HttpURLConnection r2 = r6.a()     // Catch: java.lang.Throwable -> L82
+            java.io.InputStream r3 = r6.a(r2)     // Catch: java.lang.Throwable -> Le9
+            boolean r1 = r6.a(r3, r8)     // Catch: java.lang.Throwable -> Le9
             if (r3 == 0) goto L5e
             r3.close()     // Catch: java.lang.Throwable -> L6c
         L5e:

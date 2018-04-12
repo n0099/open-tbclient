@@ -249,8 +249,8 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     };
     private View.OnClickListener bl = new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.21
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            int id = view.getId();
+        public void onClick(View view2) {
+            int id = view2.getId();
             if (id == R.id.re_video_container) {
                 LivenessRecogActivity.this.p();
                 LivenessRecogActivity.this.aF.a();
@@ -342,7 +342,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(int[] iArr) {
-        a.C0077a g2 = this.aL.g();
+        a.C0066a g2 = this.aL.g();
         Bitmap createBitmap = Bitmap.createBitmap(iArr, g2.b, g2.a, Bitmap.Config.ARGB_8888);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -668,20 +668,20 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    private void a(View view) {
-        if (view.getBackground() != null) {
-            view.getBackground().setCallback(null);
-            view.setBackgroundResource(0);
+    private void a(View view2) {
+        if (view2.getBackground() != null) {
+            view2.getBackground().setCallback(null);
+            view2.setBackgroundResource(0);
         }
-        if (view instanceof ImageView) {
-            ((ImageView) view).setImageBitmap(null);
+        if (view2 instanceof ImageView) {
+            ((ImageView) view2).setImageBitmap(null);
         }
-        if (view instanceof ViewGroup) {
-            for (int i2 = 0; i2 < ((ViewGroup) view).getChildCount(); i2++) {
-                a(((ViewGroup) view).getChildAt(i2));
+        if (view2 instanceof ViewGroup) {
+            for (int i2 = 0; i2 < ((ViewGroup) view2).getChildCount(); i2++) {
+                a(((ViewGroup) view2).getChildAt(i2));
             }
-            ((ViewGroup) view).removeAllViews();
-            view.setBackgroundResource(0);
+            ((ViewGroup) view2).removeAllViews();
+            view2.setBackgroundResource(0);
         }
     }
 
@@ -725,7 +725,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.B = (ImageView) findViewById(R.id.btn_cancel);
         this.B.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.36
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 if (LivenessRecogActivity.this.aD.x) {
                     LivenessRecogActivity.this.bb.a();
                     LivenessRecogActivity.this.y();
@@ -756,7 +756,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.C = (ImageView) findViewById(R.id.btn_switch_voice);
         this.C.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.37
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 LivenessRecogActivity.this.aH = !LivenessRecogActivity.this.aH;
                 if (LivenessRecogActivity.this.aH) {
                     LivenessRecogActivity.this.C.setImageResource(R.drawable.sapi_liveness_switch_sound_open);
@@ -935,10 +935,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    private void a(a.C0077a c0077a) {
+    private void a(a.C0066a c0066a) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.V.getLayoutParams());
-        a.C0077a b2 = b(c0077a);
-        if (b2 == null || (b2.a == c0077a.a && b2.b == c0077a.b)) {
+        a.C0066a b2 = b(c0066a);
+        if (b2 == null || (b2.a == c0066a.a && b2.b == c0066a.b)) {
             layoutParams.width = -2;
             layoutParams.height = -1;
         } else {
@@ -1010,30 +1010,30 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.aL.b();
     }
 
-    private a.C0077a b(a.C0077a c0077a) {
-        if (c0077a == null) {
+    private a.C0066a b(a.C0066a c0066a) {
+        if (c0066a == null) {
             return null;
         }
-        a.C0077a s2 = s();
-        a.C0077a c0077a2 = new a.C0077a(c0077a.a, c0077a.b);
-        float f2 = c0077a.a / c0077a.b;
+        a.C0066a s2 = s();
+        a.C0066a c0066a2 = new a.C0066a(c0066a.a, c0066a.b);
+        float f2 = c0066a.a / c0066a.b;
         float f3 = s2.b / s2.a;
         if (Math.abs(f2 - f3) > 0.02d) {
             if (f2 < f3) {
-                c0077a2.a = (s2.b * c0077a.b) / c0077a.a;
-                c0077a2.b = s2.b;
-                return c0077a2;
+                c0066a2.a = (s2.b * c0066a.b) / c0066a.a;
+                c0066a2.b = s2.b;
+                return c0066a2;
             }
-            c0077a2.a = s2.a;
-            c0077a2.b = (s2.a * c0077a.a) / c0077a.b;
-            return c0077a2;
+            c0066a2.a = s2.a;
+            c0066a2.b = (s2.a * c0066a.a) / c0066a.b;
+            return c0066a2;
         }
-        return c0077a2;
+        return c0066a2;
     }
 
-    private a.C0077a s() {
+    private a.C0066a s() {
         Display defaultDisplay = ((WindowManager) getSystemService("window")).getDefaultDisplay();
-        return new a.C0077a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + com.baidu.fsg.biometrics.base.d.d.a(this));
+        return new a.C0066a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + com.baidu.fsg.biometrics.base.d.d.a(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1135,7 +1135,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         bioAlertDialog.setMessageText(getString(R.string.sapi_liveness_dialog_recognized_time_out_msg));
         bioAlertDialog.setPositiveBtn(getString(R.string.sapi_liveness_dialog_recognized_fail_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.39
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 LivenessRecogActivity.this.aF.b();
                 LivenessRecogActivity.this.o();
                 LivenessRecogActivity.this.aD.u = 1;
@@ -1150,7 +1150,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         });
         bioAlertDialog.setNegativeBtn(getString(R.string.sapi_biometric_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.40
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
                 if (!LivenessRecogActivity.this.aI) {
                     LivenessRecogActivity.this.b();
@@ -1176,7 +1176,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         bioAlertDialog.setDialogMsg(String.format(getString(R.string.sapi_liveness_record_video_moible_network_tip), R()));
         bioAlertDialog.setPositiveBtn(getString(R.string.sapi_liveness_record_video_moible_network_btn_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
                 LivenessRecogActivity.this.ah.setVisibility(8);
                 LivenessRecogActivity.this.ai.setVisibility(8);
@@ -1187,7 +1187,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         });
         bioAlertDialog.setNegativeBtn(getString(R.string.sapi_alert_dialog_btn_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
             }
         });
@@ -1203,14 +1203,14 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         bioAlertDialog.setDialogMsg(str);
         bioAlertDialog.setPositiveBtn(getString(R.string.sapi_alert_dialog_btn_try_again), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.4
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
                 LivenessRecogActivity.this.getRecordVideoQuestions();
             }
         });
         bioAlertDialog.setNegativeBtn(getString(R.string.sapi_alert_dialog_btn_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.5
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
                 if (!LivenessRecogActivity.this.aI) {
                     LivenessRecogActivity.this.b();
@@ -1236,7 +1236,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             this.ad.setDialogMsg(getString(R.string.sapi_liveness_record_up_interrupt));
             this.ad.setPositiveBtn(getString(R.string.sapi_liveness_record_up_interrupt_btn_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.6
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     LivenessRecogActivity.this.aD.y = false;
                     LivenessRecogActivity.this.ad.dismiss();
                     LivenessRecogActivity.this.T();
@@ -1244,7 +1244,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             });
             this.ad.setNegativeBtn(getString(R.string.sapi_liveness_record_up_interrupt_btn_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.7
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     LivenessRecogActivity.this.aD.y = false;
                     LivenessRecogActivity.this.ag.dynamicWaveView.stopAnim();
                     LivenessRecogActivity.this.ad.dismiss();
@@ -1272,7 +1272,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             this.ae.setTitleMsg(getString(R.string.sapi_liveness_record_video_fail_dialog_title));
             this.ae.setPositiveBtn(getString(R.string.sapi_liveness_upload_video_fail_dialog_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.8
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     LivenessRecogActivity.this.p();
                     LivenessRecogActivity.this.aF.a();
                     LivenessRecogActivity.this.ae.dismiss();
@@ -1281,7 +1281,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             });
             this.ae.setNegativeBtn(getString(R.string.sapi_liveness_upload_video_fail_dialog_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.9
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     LivenessRecogActivity.this.ae.dismiss();
                     if (!LivenessRecogActivity.this.aI) {
                         LivenessRecogActivity.this.b();
@@ -1306,14 +1306,14 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         bioAlertDialog.setDialogMsg(getString(R.string.sapi_liveness_upload_video_fail_dialog_msg));
         bioAlertDialog.setPositiveBtn(getString(R.string.sapi_liveness_upload_video_fail_dialog_reupload), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.10
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
                 LivenessRecogActivity.this.T();
             }
         });
         bioAlertDialog.setNegativeBtn(getString(R.string.sapi_liveness_upload_video_fail_dialog_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.11
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
                 if (!LivenessRecogActivity.this.aI) {
                     LivenessRecogActivity.this.b();
@@ -1338,7 +1338,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         bioAlertDialog.setDialogMsg(getString(R.string.sapi_liveness_record_video_up_time_out_tip));
         bioAlertDialog.setPositiveBtn(getString(R.string.sapi_liveness_record_video_record_again), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.13
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 LivenessRecogActivity.this.J();
                 LivenessRecogActivity.this.p();
                 LivenessRecogActivity.this.aF.a();
@@ -1348,7 +1348,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         });
         bioAlertDialog.setNegativeBtn(getString(R.string.sapi_liveness_upload_video_fail_dialog_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.14
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
                 if (!LivenessRecogActivity.this.aI) {
                     LivenessRecogActivity.this.b();
@@ -1377,7 +1377,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         bioAlertDialog.setBtnCount(1);
         bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.15
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
                 LivenessRecogActivity.this.setActivityResult(-1);
                 if (LivenessRecogActivity.this.A != null) {
@@ -1405,7 +1405,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             this.Y.setBtnCount(1);
             this.Y.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.16
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     LivenessRecogActivity.this.Y.dismiss();
                     LivenessRecogActivity.this.aD.F = false;
                     if (LivenessRecogActivity.this.aI) {
@@ -1436,7 +1436,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             this.Z.setBtnCount(1);
             this.Z.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.17
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     LivenessRecogActivity.this.Z.dismiss();
                     if (LivenessRecogActivity.this.aI) {
                         LivenessRecogActivity.this.setActivityResult(-1);
@@ -1465,7 +1465,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         bioAlertDialog.setBtnCount(1);
         bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.18
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 bioAlertDialog.dismiss();
                 if (LivenessRecogActivity.this.aI) {
                     LivenessRecogActivity.this.setActivityResult(-1);
@@ -1506,7 +1506,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             this.aa.setBtnCount(1);
             this.aa.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.19
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     LivenessRecogActivity.this.aa.dismiss();
                     if (LivenessRecogActivity.this.aI) {
                         LivenessRecogActivity.this.setActivityResult(-1);
@@ -1535,7 +1535,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             this.ab.setBtnCount(1);
             this.ab.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity.20
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     LivenessRecogActivity.this.ab.dismiss();
                     if (LivenessRecogActivity.this.aI) {
                         LivenessRecogActivity.this.setActivityResult(-1);
@@ -2822,7 +2822,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         int ab;
         long ac;
         int ai;
-        a.C0077a aq;
+        a.C0066a aq;
         boolean M = false;
         int ad = 1;
         int ae = 0;

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static void R(List<a> list) {
+    public static void J(List<a> list) {
         if (list != null) {
             StringBuilder sb = new StringBuilder();
             HashMap hashMap = new HashMap();
@@ -25,7 +25,7 @@ public class c {
         }
     }
 
-    public static String[] OW() {
+    public static String[] Hz() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
@@ -34,9 +34,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a hg = a.hg(str);
-                if (hg != null && !StringUtils.isNull(hg.forumName)) {
-                    arrayList.add(hg.forumName);
+                a gY = a.gY(str);
+                if (gY != null && !StringUtils.isNull(gY.forumName)) {
+                    arrayList.add(gY.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -64,7 +64,7 @@ public class c {
             return this.forumName + "#" + this.level;
         }
 
-        public static a hg(String str) {
+        public static a gY(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -76,7 +76,7 @@ public class c {
                     return aVar;
                 } else if (split.length == 2) {
                     aVar.forumName = split[0];
-                    aVar.level = com.baidu.adp.lib.g.b.h(split[1], -1);
+                    aVar.level = com.baidu.adp.lib.g.b.g(split[1], -1);
                     return aVar;
                 } else {
                     return aVar;

@@ -3,18 +3,18 @@ package com.baidu.tbadk.imageManager;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static String bwy = "add_user_collect_emotoin";
-    public static String bwz = "image_url";
-    public static String bwA = "package_id";
-    public static String bwB = "#(meme,setting)";
-    public static String bwC = "#(meme,collect_";
-    public static String bwD = "meme,collect_";
+    public static String aGV = "add_user_collect_emotoin";
+    public static String aGW = "image_url";
+    public static String aGX = "package_id";
+    public static String aGY = "#(meme,setting)";
+    public static String aGZ = "#(meme,collect_";
+    public static String aHa = "meme,collect_";
 
     /* loaded from: classes.dex */
     public static class a {
@@ -22,15 +22,15 @@ public class d {
         public String url;
     }
 
-    public static String MB() {
+    public static String Fe() {
         return "collect_" + (TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
     }
 
-    public static String MC() {
-        return Math.abs(MB().hashCode()) + "";
+    public static String Ff() {
+        return Math.abs(Fe().hashCode()) + "";
     }
 
-    public static void gQ(String str) {
+    public static void gH(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
@@ -49,14 +49,14 @@ public class d {
                 }
             }
             if (i2 > 0) {
-                ak akVar = new ak("c12223");
-                akVar.s("obj_param1", i2);
-                TiebaStatic.log(akVar);
+                al alVar = new al("c12223");
+                alVar.r("obj_param1", i2);
+                TiebaStatic.log(alVar);
             }
             if (i > 0) {
-                ak akVar2 = new ak("c12231");
-                akVar2.s("obj_param1", i);
-                TiebaStatic.log(akVar2);
+                al alVar2 = new al("c12231");
+                alVar2.r("obj_param1", i);
+                TiebaStatic.log(alVar2);
             }
         }
     }

@@ -2,31 +2,50 @@ package com.baidu.tieba.personPolymeric;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private b gnv;
+    private final CustomMessageListener cYo = new CustomMessageListener(2016493) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivity.1
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.personPolymeric.PersonPolymericActivity */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null) {
+                String str = (String) customResponsedMessage.getData();
+                if (!TextUtils.isEmpty(str)) {
+                    ax.wg().c(PersonPolymericActivity.this.getPageContext(), new String[]{str});
+                }
+            }
+        }
+    };
+    private PersonPolymericFragment fHS;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.person_new_fragment_view);
-        this.gnv = new b();
+        setContentView(d.i.person_new_fragment_view);
+        this.fHS = new PersonPolymericFragment();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.gnv.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, this.gnv).commit();
+        this.fHS.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, this.fHS).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.gnv != null) {
-            this.gnv.onChangeSkinType(i);
+        if (this.fHS != null) {
+            this.fHS.onChangeSkinType(i);
         }
     }
 
@@ -39,15 +58,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.gnv != null) {
-            this.gnv.onActivityResult(i, i2, intent);
+        if (this.fHS != null) {
+            this.fHS.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.gnv != null) {
-            return this.gnv.getVoiceManager();
+        if (this.fHS != null) {
+            return this.fHS.getVoiceManager();
         }
         return null;
     }
@@ -55,5 +74,19 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager.b c(VoiceData.VoiceModel voiceModel) {
         return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        MessageManager.getInstance().registerListener(this.cYo);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        MessageManager.getInstance().unRegisterListener(this.cYo);
     }
 }

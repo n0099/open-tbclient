@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.h.a;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static byte[] a(String str) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(str.length());

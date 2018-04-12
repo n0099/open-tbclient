@@ -10,42 +10,42 @@ import com.baidu.tieba.interestlabel.b.b;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
 import com.baidu.tieba.interestlabel.model.a;
-import com.baidu.tieba.interestlabel.view.d;
+import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements a {
-    private d eXu;
-    private LabelSettingModel eXv;
+    private LabelSettingView esc;
+    private LabelSettingModel esd;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eXu = new d(getPageContext(), this);
-        this.eXv = new LabelSettingModel(getPageContext());
-        setContentView(this.eXu);
-        this.eXv.a(this);
-        aOH();
+        this.esc = new LabelSettingView(getPageContext(), this);
+        this.esd = new LabelSettingModel(getPageContext());
+        setContentView(this.esc);
+        this.esd.a(this);
+        aJJ();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void aOH() {
-        if (!j.ox()) {
-            this.eXu.VV();
-            this.eXu.iu(true);
+    public void aJJ() {
+        if (!j.gD()) {
+            this.esc.Ou();
+            this.esc.hS(true);
             return;
         }
-        this.eXu.XN();
-        this.eXu.gZ(true);
-        this.eXv.aON();
+        this.esc.Qn();
+        this.esc.gA(true);
+        this.esd.aJP();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void cr(List<Integer> list) {
-        if (!j.ox()) {
-            showToast(d.j.neterror);
+    public void ck(List<Integer> list) {
+        if (!j.gD()) {
+            showToast(d.k.neterror);
         } else {
-            this.eXv.cs(list);
+            this.esd.cl(list);
         }
     }
 
@@ -53,13 +53,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public void a(LabelRequestEnum labelRequestEnum, b bVar, int i) {
         switch (labelRequestEnum) {
             case GET_LABEL:
-                this.eXu.VV();
-                if (bVar == null || v.E(bVar.aOL())) {
-                    this.eXu.iu(true);
+                this.esc.Ou();
+                if (bVar == null || v.w(bVar.aJN())) {
+                    this.esc.hS(true);
                     return;
                 }
-                this.eXu.XN();
-                this.eXu.setData(bVar);
+                this.esc.Qn();
+                this.esc.setData(bVar);
                 return;
             case SUB_LABEL:
                 if (i == 0) {
@@ -77,13 +77,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eXu.onChangeSkinType();
+        this.esc.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.eXu != null && this.eXu.aOX()) {
-            this.eXu.showDialog();
+        if (i == 4 && this.esc != null && this.esc.aJZ()) {
+            this.esc.showDialog();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

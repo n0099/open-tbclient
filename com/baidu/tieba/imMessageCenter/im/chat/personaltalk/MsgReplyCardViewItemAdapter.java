@@ -17,32 +17,32 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bc */
+    /* renamed from: ba */
     public e.a<MsgReplyCardView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.mPageContext);
-        return new a(msgReplyCardView.jK(), msgReplyCardView);
+        return new a(msgReplyCardView.bO(), msgReplyCardView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
-        super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgReplyCardView aFU = aVar.aFU();
-        aFU.a(this.mPageContext, chatMessage, viewGroup);
-        aFU.a(this.evT);
-        aFU.setPosition(i);
-        this.mPageContext.getLayoutMode().aQ(false);
-        this.mPageContext.getLayoutMode().aM(view);
-        return view;
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
+        super.onFillViewHolder(i, view2, viewGroup, chatMessage, aVar);
+        MsgReplyCardView aAU = aVar.aAU();
+        aAU.a(this.mPageContext, chatMessage, viewGroup);
+        aAU.a(this.dQz);
+        aAU.setPosition(i);
+        this.mPageContext.getLayoutMode().setNightMode(false);
+        this.mPageContext.getLayoutMode().u(view2);
+        return view2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a extends e.a<MsgReplyCardView> {
-        public a(View view, MsgReplyCardView msgReplyCardView) {
-            super(view, msgReplyCardView);
+        public a(View view2, MsgReplyCardView msgReplyCardView) {
+            super(view2, msgReplyCardView);
         }
     }
 }

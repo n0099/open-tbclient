@@ -2,7 +2,7 @@ package android.support.v4.internal.view;
 
 import android.support.annotation.RestrictTo;
 import android.view.Menu;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public interface SupportMenu extends Menu {
     public static final int CATEGORY_MASK = -65536;

@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.k;
 import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     private static int a(char c) {
         return (byte) "0123456789ABCDEF".indexOf(c);

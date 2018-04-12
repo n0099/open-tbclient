@@ -9,4 +9,15 @@ public interface IRefreshable {
         animating,
         pulling_refresh
     }
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void a(State state);
+
+        void lj();
+
+        void lk();
+
+        void ll();
+    }
 }

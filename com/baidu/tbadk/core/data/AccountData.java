@@ -31,7 +31,7 @@ public class AccountData implements Serializable {
     private String mStoken = null;
     private int mIsActive = 0;
     private long mTime = 0;
-    private int mPersonalGid = 0;
+    private long mPersonalGid = 0;
 
     public String getID() {
         return this.mID;
@@ -137,12 +137,12 @@ public class AccountData implements Serializable {
         this.portrait = str;
     }
 
-    public int getPersonalGid() {
+    public long getPersonalGid() {
         return this.mPersonalGid;
     }
 
-    public void setPersonalGid(int i) {
-        this.mPersonalGid = i;
+    public void setPersonalGid(long j) {
+        this.mPersonalGid = j;
     }
 
     public int getSex() {

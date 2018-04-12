@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j implements Serializable, Cloneable, org.apache.thrift.a<j, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> k;
     private static final org.apache.thrift.protocol.j l = new org.apache.thrift.protocol.j("GeoFencing");
@@ -37,7 +37,7 @@ public class j implements Serializable, Cloneable, org.apache.thrift.a<j, a> {
     public h j;
     private BitSet w = new BitSet(3);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         ID(1, "id"),
         NAME(2, "name"),

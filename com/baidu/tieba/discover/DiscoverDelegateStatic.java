@@ -9,12 +9,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tbadk.mainTab.d;
-import com.baidu.tbadk.mainTab.e;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
-public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
+public class DiscoverDelegateStatic extends b {
     private static boolean isAdded = false;
 
     static {
@@ -22,12 +23,12 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c MV;
+                c Fy;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(discoverDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (MV = discoverDelegateStatic.MV()) != null) {
-                        MV.bxP.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (Fy = discoverDelegateStatic.Fy()) != null) {
+                        Fy.aIm.setArguments(new Bundle());
                     }
                 }
             }
@@ -43,32 +44,32 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c MU() {
+    public c Fx() {
         c cVar = new c();
-        cVar.bxP = new a();
+        cVar.aIm = new DiscoverFragment();
         cVar.type = 10;
-        cVar.bxQ = d.j.home_discover;
-        cVar.bxR = d.f.s_icon_tabbar_discover;
+        cVar.aIn = d.k.home_discover;
+        cVar.aIo = d.f.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e bi(Context context) {
-        this.bxG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        e.a aVar = new e.a();
-        aVar.byk = this.bxG;
-        aVar.aiy = l.dip2px(context, 3.0f);
-        aVar.byi = d.f.icon_news_down_bar_one;
-        this.bxG.a("emotion", aVar);
-        return this.bxG;
+    public TbFragmentTabIndicator aT(Context context) {
+        this.aId = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
+        TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
+        aVar.aIH = this.aId;
+        aVar.sU = l.dip2px(context, 3.0f);
+        aVar.aIF = d.f.icon_news_down_bar_one;
+        this.aId.a("emotion", aVar);
+        return this.aId;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void MT() {
+    public void Fw() {
         isAdded = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void kg() {
+    public void ck() {
     }
 }

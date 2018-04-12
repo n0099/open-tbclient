@@ -5,7 +5,7 @@ import com.xiaomi.channel.commonutils.misc.h;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class h extends h.b {
     final /* synthetic */ Context a;
 

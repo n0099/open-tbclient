@@ -1,5 +1,5 @@
 package com.xiaomi.channel.commonutils.misc;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static final String a;
     public static final boolean b;

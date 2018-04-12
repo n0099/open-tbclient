@@ -7,13 +7,13 @@ public final class DataRes extends Message {
     public static final String DEFAULT_GROUPNAME = "";
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer activityId;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String groupName;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
     public final Integer isEnd;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_ACTIVITYID = 0;
     public static final Integer DEFAULT_ISEND = 0;
 
@@ -52,7 +52,7 @@ public final class DataRes extends Message {
     /* loaded from: classes3.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer activityId;
-        public Integer groupId;
+        public Long groupId;
         public String groupName;
         public Integer isEnd;
 

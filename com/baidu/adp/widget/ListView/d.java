@@ -6,11 +6,11 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.q;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public a auT = null;
+    public a FF = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
@@ -27,7 +27,7 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.auT = aVar;
+        this.FF = aVar;
     }
 
     public int getHeadersCount() {
@@ -38,15 +38,15 @@ public class d {
         return this.mFooterViewInfos.size();
     }
 
-    public void addHeaderView(View view, Object obj, boolean z, int i) {
-        if (view != null) {
+    public void addHeaderView(View view2, Object obj, boolean z, int i) {
+        if (view2 != null) {
             c cVar = new c();
-            cVar.auV = new r.a(view);
+            cVar.FH = new q.a(view2);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
-            view.setTag("HEADER");
+            view2.setTag("HEADER");
             if (i < 0 || i > this.mHeaderViewInfos.size()) {
                 this.mHeaderViewInfos.add(cVar);
             } else {
@@ -55,15 +55,15 @@ public class d {
         }
     }
 
-    public void addFooterView(View view, Object obj, boolean z, int i) {
-        if (view != null) {
+    public void addFooterView(View view2, Object obj, boolean z, int i) {
+        if (view2 != null) {
             c cVar = new c();
-            cVar.auV = new r.a(view);
+            cVar.FH = new q.a(view2);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
-            view.setTag("FOOTER");
+            view2.setTag("FOOTER");
             if (i < 0 || i > this.mFooterViewInfos.size()) {
                 this.mFooterViewInfos.add(cVar);
             } else {
@@ -72,13 +72,13 @@ public class d {
         }
     }
 
-    public boolean removeHeader(View view) {
-        if (view == null) {
+    public boolean removeHeader(View view2) {
+        if (view2 == null) {
             return false;
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.auV != null && cVar.auV.itemView == view) {
+            if (cVar != null && cVar.FH != null && cVar.FH.itemView == view2) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -86,13 +86,13 @@ public class d {
         return false;
     }
 
-    public boolean removeFooter(View view) {
-        if (view == null) {
+    public boolean removeFooter(View view2) {
+        if (view2 == null) {
             return false;
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.auV != null && cVar.auV.itemView == view) {
+            if (cVar != null && cVar.FH != null && cVar.FH.itemView == view2) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -100,7 +100,7 @@ public class d {
         return false;
     }
 
-    public r.a dF(int i) {
+    public q.a aH(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -108,7 +108,7 @@ public class d {
                 if (this.mHeaderViewInfos.get(i3) == null || i != this.mHeaderViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mHeaderViewInfos.get(i3).auV;
+                    return this.mHeaderViewInfos.get(i3).FH;
                 }
             } else {
                 return null;
@@ -116,7 +116,7 @@ public class d {
         }
     }
 
-    public r.a dG(int i) {
+    public q.a aI(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -124,7 +124,7 @@ public class d {
                 if (this.mFooterViewInfos.get(i3) == null || i != this.mFooterViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mFooterViewInfos.get(i3).auV;
+                    return this.mFooterViewInfos.get(i3).FH;
                 }
             } else {
                 return null;
@@ -132,7 +132,7 @@ public class d {
         }
     }
 
-    public r.a at(Context context) {
+    public q.a ak(Context context) {
         TextView textView = new TextView(context);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 15.0f);
@@ -141,15 +141,15 @@ public class d {
     }
 
     /* loaded from: classes.dex */
-    class b extends r.a {
-        public b(View view) {
-            super(view);
+    class b extends q.a {
+        public b(View view2) {
+            super(view2);
         }
     }
 
     /* loaded from: classes.dex */
     public class c {
-        public r.a auV;
+        public q.a FH;
         public Object data;
         public long id;
         public boolean isSelectable;

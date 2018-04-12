@@ -3,7 +3,7 @@ package protobuf.AddGroup;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class AddGroupResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class AddGroupResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<AddGroupResIdl> {
         public DataRes data;
         public Error error;

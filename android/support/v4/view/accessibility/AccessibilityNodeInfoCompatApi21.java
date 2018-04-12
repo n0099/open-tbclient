@@ -5,6 +5,9 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatApi21 {
+    AccessibilityNodeInfoCompatApi21() {
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<Object> getActionList(Object obj) {
         return ((AccessibilityNodeInfo) obj).getActionList();
@@ -47,16 +50,19 @@ class AccessibilityNodeInfoCompatApi21 {
         return ((AccessibilityNodeInfo) obj).getWindow();
     }
 
-    public static boolean removeChild(Object obj, View view) {
-        return ((AccessibilityNodeInfo) obj).removeChild(view);
+    public static boolean removeChild(Object obj, View view2) {
+        return ((AccessibilityNodeInfo) obj).removeChild(view2);
     }
 
-    public static boolean removeChild(Object obj, View view, int i) {
-        return ((AccessibilityNodeInfo) obj).removeChild(view, i);
+    public static boolean removeChild(Object obj, View view2, int i) {
+        return ((AccessibilityNodeInfo) obj).removeChild(view2, i);
     }
 
     /* loaded from: classes2.dex */
     static class CollectionInfo {
+        CollectionInfo() {
+        }
+
         public static int getSelectionMode(Object obj) {
             return ((AccessibilityNodeInfo.CollectionInfo) obj).getSelectionMode();
         }
@@ -64,6 +70,9 @@ class AccessibilityNodeInfoCompatApi21 {
 
     /* loaded from: classes2.dex */
     static class CollectionItemInfo {
+        CollectionItemInfo() {
+        }
+
         public static boolean isSelected(Object obj) {
             return ((AccessibilityNodeInfo.CollectionItemInfo) obj).isSelected();
         }

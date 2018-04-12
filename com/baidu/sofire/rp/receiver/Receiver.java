@@ -16,13 +16,13 @@ public class Receiver extends BroadcastReceiver {
                 String action = intent.getAction();
                 if (!TextUtils.isEmpty(action)) {
                     if (action.equals("android.intent.action.BOOT_COMPLETED")) {
-                        e.aB(context).a();
+                        e.a(context).a();
                     } else if (action.equals("com.b.r.p") && intent != null) {
                         d.a(context, new com.baidu.sofire.e(context).e() * 3600000);
-                        e aB = e.aB(context);
+                        e a = e.a(context);
                         Message message = new Message();
                         message.what = 2;
-                        aB.aGk.aGI.sendMessage(message);
+                        a.a.a.sendMessage(message);
                     }
                 }
             } catch (Throwable th) {

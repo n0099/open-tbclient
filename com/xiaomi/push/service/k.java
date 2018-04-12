@@ -7,7 +7,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
     private static volatile k c;
     private Context a;
@@ -15,7 +15,7 @@ public class k {
     private ArrayList<a> d;
     private OnAccountsUpdateListener e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(String str, Context context);
     }

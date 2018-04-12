@@ -22,12 +22,12 @@ public class a implements com.baidu.ar.recorder.a.a {
 
     /* renamed from: com.baidu.ar.recorder.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0043a {
+    private class C0032a {
         ByteBuffer a;
         int b;
         long c;
 
-        public C0043a(ByteBuffer byteBuffer, int i, long j) {
+        public C0032a(ByteBuffer byteBuffer, int i, long j) {
             this.a = byteBuffer;
             this.b = i;
             this.c = j;
@@ -125,8 +125,8 @@ public class a implements com.baidu.ar.recorder.a.a {
                 f();
                 return;
             case 1003:
-                C0043a c0043a = (C0043a) message.obj;
-                b(c0043a.a, c0043a.b, c0043a.c);
+                C0032a c0032a = (C0032a) message.obj;
+                b(c0032a.a, c0032a.b, c0032a.c);
                 return;
             case 1004:
                 g();
@@ -143,11 +143,11 @@ public class a implements com.baidu.ar.recorder.a.a {
     }
 
     public void a(ByteBuffer byteBuffer, int i, long j) {
-        C0043a c0043a = new C0043a(byteBuffer, i, j);
+        C0032a c0032a = new C0032a(byteBuffer, i, j);
         if (this.c == null || !this.f) {
             return;
         }
-        this.c.sendMessage(this.c.obtainMessage(1003, c0043a));
+        this.c.sendMessage(this.c.obtainMessage(1003, c0032a));
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {

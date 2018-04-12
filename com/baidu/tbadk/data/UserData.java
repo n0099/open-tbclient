@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +61,7 @@ public class UserData extends MetaData {
     private List<MyGroup> mGroup;
     private boolean mIsSelectTail;
     private List<MyLikeForum> mLikeForum;
-    private List<com.baidu.adp.widget.ListView.i> mPhotoAlbum;
+    private List<com.baidu.adp.widget.ListView.h> mPhotoAlbum;
     private long mTDouNum;
     private int managerLevel;
     private int markCount;
@@ -267,17 +267,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             i iVar = new i();
-            iVar.fZ(getPortraitH());
-            iVar.ga(getPortrait());
-            iVar.bY(true);
+            iVar.fQ(getPortraitH());
+            iVar.fR(getPortrait());
+            iVar.bq(true);
             this.mPhotoAlbum.add(iVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         i iVar2 = new i();
-                        iVar2.fZ(userPics.big);
-                        iVar2.ga(userPics.small);
-                        iVar2.bY(false);
+                        iVar2.fQ(userPics.big);
+                        iVar2.fR(userPics.small);
+                        iVar2.bq(false);
                         this.mPhotoAlbum.add(iVar2);
                     }
                 }
@@ -384,7 +384,7 @@ public class UserData extends MetaData {
                     if (this.sex != 2 && this.sex != 1) {
                         this.sex = 1;
                     }
-                    this.alaUserData.sex = am.fU(this.sex);
+                    this.alaUserData.sex = an.cU(this.sex);
                 }
             }
             this.isGodInvited = user.is_invited.intValue() == 1;
@@ -474,9 +474,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 i iVar = new i();
-                iVar.fZ(getPortraitH());
-                iVar.ga(getPortrait());
-                iVar.bY(true);
+                iVar.fQ(getPortraitH());
+                iVar.fR(getPortrait());
+                iVar.bq(true);
                 this.mPhotoAlbum.add(iVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -485,9 +485,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             i iVar2 = new i();
-                            iVar2.fZ(jSONObject2.optString("big"));
-                            iVar2.ga(jSONObject2.optString("small"));
-                            iVar2.bY(false);
+                            iVar2.fQ(jSONObject2.optString("big"));
+                            iVar2.fR(jSONObject2.optString("small"));
+                            iVar2.bq(false);
                             this.mPhotoAlbum.add(iVar2);
                         }
                     }
@@ -536,7 +536,7 @@ public class UserData extends MetaData {
                     this.liveId = optJSONObject9.optString("live_id");
                     this.alaUserData = (AlaUserInfoData) OrmObject.objectWithJson(jSONObject.optJSONObject("ala_info"), AlaUserInfoData.class);
                     if (StringUtils.isNull(this.alaUserData.sex)) {
-                        this.alaUserData.sex = am.fU(this.sex);
+                        this.alaUserData.sex = an.cU(this.sex);
                     }
                 }
             }
@@ -711,7 +711,7 @@ public class UserData extends MetaData {
         return this.mTDouNum;
     }
 
-    public List<com.baidu.adp.widget.ListView.i> getPhotoAlbum() {
+    public List<com.baidu.adp.widget.ListView.h> getPhotoAlbum() {
         return this.mPhotoAlbum;
     }
 

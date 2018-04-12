@@ -421,7 +421,7 @@ public class AuthAgent extends BaseApi {
                 Drawable loadIcon = packageInfo != null ? packageInfo.applicationInfo.loadIcon(packageManager) : null;
                 View.OnClickListener onClickListener = new a(dialog) { // from class: com.tencent.connect.auth.AuthAgent.b.1
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
+                    public void onClick(View view2) {
                         b.this.a();
                         if (this.d != null && this.d.isShowing()) {
                             this.d.dismiss();
@@ -433,7 +433,7 @@ public class AuthAgent extends BaseApi {
                 };
                 View.OnClickListener onClickListener2 = new a(dialog) { // from class: com.tencent.connect.auth.AuthAgent.b.2
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
+                    public void onClick(View view2) {
                         if (this.d != null && this.d.isShowing()) {
                             this.d.dismiss();
                         }
@@ -527,15 +527,15 @@ public class AuthAgent extends BaseApi {
             int i2 = (int) (10.0f * f);
             layoutParams2.setMargins(0, 0, (int) (5.0f * f), 0);
             relativeLayout.addView(textView, layoutParams2);
-            View view = new View(context);
-            view.setBackgroundColor(Color.rgb(214, 214, 214));
-            view.setId(3);
+            View view2 = new View(context);
+            view2.setBackgroundColor(Color.rgb(214, 214, 214));
+            view2.setId(3);
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, 2);
             layoutParams3.addRule(3, 1);
             layoutParams3.addRule(5, 1);
             layoutParams3.addRule(7, 5);
             layoutParams3.setMargins(0, 0, 0, (int) (12.0f * f));
-            relativeLayout.addView(view, layoutParams3);
+            relativeLayout.addView(view2, layoutParams3);
             LinearLayout linearLayout = new LinearLayout(context);
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams4.addRule(5, 1);

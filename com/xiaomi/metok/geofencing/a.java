@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.RemoteException;
 import android.util.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     private Context a;
     private c b;

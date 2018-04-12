@@ -1,71 +1,56 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ac extends SparseArray<ak> {
-    public BdUniqueId bIy = null;
+public class ac {
+    private final List<com.baidu.tbadk.mainTab.b> cWH = new LinkedList();
+    private String forumGameLabel;
+    private String forumId;
+    private String forumName;
+    private Context mContext;
 
-    public void a(an anVar) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                ak valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(anVar);
+    public ac(Context context) {
+        this.mContext = context;
+    }
+
+    public void b(com.baidu.tbadk.mainTab.b bVar) {
+        if (bVar != null && bVar.Fy() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.cWH) {
+                if (bVar2 != null && bVar2.Fy() != null && bVar2.Fy().type == bVar.Fy().type) {
+                    return;
                 }
-                i = i2 + 1;
-            } else {
-                return;
             }
+            this.cWH.add(bVar);
         }
     }
 
-    public void init() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                ak valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    public List<com.baidu.tbadk.mainTab.b> aoX() {
+        return this.cWH;
     }
 
-    public void destory() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                ak valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(null);
-                    valueAt.Za();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    public void setForumName(String str) {
+        this.forumName = str;
     }
 
-    public void a(int i, ak akVar) {
-        if (i > 100) {
-            i = 100;
-        }
-        put(i, akVar);
+    public String getForumName() {
+        return this.forumName;
     }
 
-    public ak mY(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return get(i);
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumGameLabel(String str) {
+        this.forumGameLabel = str;
+    }
+
+    public String getForumGameLabel() {
+        return this.forumGameLabel;
     }
 }

@@ -18,7 +18,7 @@ public final class ViewGroupCompat {
 
         boolean isTransitionGroup(ViewGroup viewGroup);
 
-        boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent);
+        boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent);
 
         void setLayoutMode(ViewGroup viewGroup, int i);
 
@@ -33,7 +33,7 @@ public final class ViewGroupCompat {
         }
 
         @Override // android.support.v4.view.ViewGroupCompat.ViewGroupCompatImpl
-        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
+        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
             return true;
         }
 
@@ -85,8 +85,8 @@ public final class ViewGroupCompat {
         }
 
         @Override // android.support.v4.view.ViewGroupCompat.ViewGroupCompatStubImpl, android.support.v4.view.ViewGroupCompat.ViewGroupCompatImpl
-        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
-            return ViewGroupCompatIcs.onRequestSendAccessibilityEvent(viewGroup, view, accessibilityEvent);
+        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
+            return ViewGroupCompatIcs.onRequestSendAccessibilityEvent(viewGroup, view2, accessibilityEvent);
         }
     }
 
@@ -145,8 +145,8 @@ public final class ViewGroupCompat {
     private ViewGroupCompat() {
     }
 
-    public static boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
-        return IMPL.onRequestSendAccessibilityEvent(viewGroup, view, accessibilityEvent);
+    public static boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
+        return IMPL.onRequestSendAccessibilityEvent(viewGroup, view2, accessibilityEvent);
     }
 
     public static void setMotionEventSplittingEnabled(ViewGroup viewGroup, boolean z) {

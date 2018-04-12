@@ -1,14 +1,14 @@
 package com.xiaomi.smack.packet;
 
 import android.os.Bundle;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends d {
     private b c;
     private String d;
     private int e;
     private a f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         chat,
         available,
@@ -17,7 +17,7 @@ public class f extends d {
         dnd
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         available,
         unavailable,

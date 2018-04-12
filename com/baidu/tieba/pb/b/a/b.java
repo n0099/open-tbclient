@@ -6,19 +6,19 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class b implements c {
-    private SpannableString gbn;
+    private SpannableString fvw;
     private TbPageContext<?> pageContext;
     private String url;
 
     public b(TbPageContext<?> tbPageContext, ExcContent excContent) {
         if (excContent != null && excContent.type.longValue() == 1 && !StringUtils.isNull(excContent.text)) {
             this.pageContext = tbPageContext;
-            this.gbn = new SpannableString(excContent.text);
-            this.gbn.setSpan(new a(), 0, excContent.text.length(), 17);
+            this.fvw = new SpannableString(excContent.text);
+            this.fvw.setSpan(new a(), 0, excContent.text.length(), 17);
             this.url = excContent.link;
         }
     }
@@ -29,8 +29,8 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence bhg() {
-        return this.gbn;
+    public CharSequence bcg() {
+        return this.fvw;
     }
 
     /* loaded from: classes3.dex */
@@ -39,8 +39,8 @@ public class b implements c {
         }
 
         @Override // android.text.style.ClickableSpan
-        public void onClick(View view) {
-            aw.Du().c(b.this.pageContext, new String[]{b.this.url});
+        public void onClick(View view2) {
+            ax.wg().c(b.this.pageContext, new String[]{b.this.url});
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -51,7 +51,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean bhh() {
+    public boolean bch() {
         return false;
     }
 }

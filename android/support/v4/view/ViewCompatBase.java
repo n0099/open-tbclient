@@ -9,48 +9,52 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 class ViewCompatBase {
+    private static final String TAG = "ViewCompatBase";
     private static Field sMinHeightField;
     private static boolean sMinHeightFieldFetched;
     private static Field sMinWidthField;
     private static boolean sMinWidthFieldFetched;
 
+    ViewCompatBase() {
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ColorStateList getBackgroundTintList(View view) {
-        if (view instanceof TintableBackgroundView) {
-            return ((TintableBackgroundView) view).getSupportBackgroundTintList();
+    public static ColorStateList getBackgroundTintList(View view2) {
+        if (view2 instanceof TintableBackgroundView) {
+            return ((TintableBackgroundView) view2).getSupportBackgroundTintList();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setBackgroundTintList(View view, ColorStateList colorStateList) {
-        if (view instanceof TintableBackgroundView) {
-            ((TintableBackgroundView) view).setSupportBackgroundTintList(colorStateList);
+    public static void setBackgroundTintList(View view2, ColorStateList colorStateList) {
+        if (view2 instanceof TintableBackgroundView) {
+            ((TintableBackgroundView) view2).setSupportBackgroundTintList(colorStateList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static PorterDuff.Mode getBackgroundTintMode(View view) {
-        if (view instanceof TintableBackgroundView) {
-            return ((TintableBackgroundView) view).getSupportBackgroundTintMode();
+    public static PorterDuff.Mode getBackgroundTintMode(View view2) {
+        if (view2 instanceof TintableBackgroundView) {
+            return ((TintableBackgroundView) view2).getSupportBackgroundTintMode();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setBackgroundTintMode(View view, PorterDuff.Mode mode) {
-        if (view instanceof TintableBackgroundView) {
-            ((TintableBackgroundView) view).setSupportBackgroundTintMode(mode);
+    public static void setBackgroundTintMode(View view2, PorterDuff.Mode mode) {
+        if (view2 instanceof TintableBackgroundView) {
+            ((TintableBackgroundView) view2).setSupportBackgroundTintMode(mode);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isLaidOut(View view) {
-        return view.getWidth() > 0 && view.getHeight() > 0;
+    public static boolean isLaidOut(View view2) {
+        return view2.getWidth() > 0 && view2.getHeight() > 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int getMinimumWidth(View view) {
+    public static int getMinimumWidth(View view2) {
         if (!sMinWidthFieldFetched) {
             try {
                 sMinWidthField = View.class.getDeclaredField("mMinWidth");
@@ -61,7 +65,7 @@ class ViewCompatBase {
         }
         if (sMinWidthField != null) {
             try {
-                return ((Integer) sMinWidthField.get(view)).intValue();
+                return ((Integer) sMinWidthField.get(view2)).intValue();
             } catch (Exception e2) {
             }
         }
@@ -69,7 +73,7 @@ class ViewCompatBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int getMinimumHeight(View view) {
+    public static int getMinimumHeight(View view2) {
         if (!sMinHeightFieldFetched) {
             try {
                 sMinHeightField = View.class.getDeclaredField("mMinHeight");
@@ -80,7 +84,7 @@ class ViewCompatBase {
         }
         if (sMinHeightField != null) {
             try {
-                return ((Integer) sMinHeightField.get(view)).intValue();
+                return ((Integer) sMinHeightField.get(view2)).intValue();
             } catch (Exception e2) {
             }
         }
@@ -88,44 +92,44 @@ class ViewCompatBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean isAttachedToWindow(View view) {
-        return view.getWindowToken() != null;
+    public static boolean isAttachedToWindow(View view2) {
+        return view2.getWindowToken() != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void offsetTopAndBottom(View view, int i) {
-        int top = view.getTop();
-        view.offsetTopAndBottom(i);
+    public static void offsetTopAndBottom(View view2, int i) {
+        int top = view2.getTop();
+        view2.offsetTopAndBottom(i);
         if (i != 0) {
-            ViewParent parent = view.getParent();
+            ViewParent parent = view2.getParent();
             if (parent instanceof View) {
                 int abs = Math.abs(i);
-                ((View) parent).invalidate(view.getLeft(), top - abs, view.getRight(), top + view.getHeight() + abs);
+                ((View) parent).invalidate(view2.getLeft(), top - abs, view2.getRight(), top + view2.getHeight() + abs);
                 return;
             }
-            view.invalidate();
+            view2.invalidate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void offsetLeftAndRight(View view, int i) {
-        int left = view.getLeft();
-        view.offsetLeftAndRight(i);
+    public static void offsetLeftAndRight(View view2, int i) {
+        int left = view2.getLeft();
+        view2.offsetLeftAndRight(i);
         if (i != 0) {
-            ViewParent parent = view.getParent();
+            ViewParent parent = view2.getParent();
             if (parent instanceof View) {
                 int abs = Math.abs(i);
-                ((View) parent).invalidate(left - abs, view.getTop(), left + view.getWidth() + abs, view.getBottom());
+                ((View) parent).invalidate(left - abs, view2.getTop(), left + view2.getWidth() + abs, view2.getBottom());
                 return;
             }
-            view.invalidate();
+            view2.invalidate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Display getDisplay(View view) {
-        if (isAttachedToWindow(view)) {
-            return ((WindowManager) view.getContext().getSystemService("window")).getDefaultDisplay();
+    public static Display getDisplay(View view2) {
+        if (isAttachedToWindow(view2)) {
+            return ((WindowManager) view2.getContext().getSystemService("window")).getDefaultDisplay();
         }
         return null;
     }

@@ -9,14 +9,14 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.h.q;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.h.o;
+import com.baidu.android.pushservice.j.m;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PublicMsg implements Parcelable {
     public static final Parcelable.Creator<PublicMsg> CREATOR = new Parcelable.Creator<PublicMsg>() { // from class: com.baidu.android.pushservice.message.PublicMsg.2
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,30 +122,30 @@ public class PublicMsg implements Parcelable {
         }
     }
 
-    private void insertBehavior(Context context, com.baidu.android.pushservice.b.f fVar, com.baidu.android.pushservice.h.k kVar, com.baidu.android.pushservice.h.j jVar) {
+    private void insertBehavior(Context context, com.baidu.android.pushservice.b.f fVar, com.baidu.android.pushservice.h.j jVar, com.baidu.android.pushservice.h.i iVar) {
         if (fVar != null) {
-            jVar.b(fVar.c());
-            com.baidu.android.pushservice.h.j a = p.a(jVar, context, fVar.c());
-            kVar.j = fVar.c();
+            iVar.b(fVar.c());
+            com.baidu.android.pushservice.h.i a = m.a(iVar, context, fVar.c());
+            jVar.j = fVar.c();
             try {
-                q.a(context, kVar);
-                q.a(context, a);
+                o.a(context, jVar);
+                o.a(context, a);
             } catch (Exception e) {
             }
         }
     }
 
     private void insertNotiBehavior(Context context, String str, String str2, String str3) {
-        com.baidu.android.pushservice.h.k kVar = new com.baidu.android.pushservice.h.k();
-        kVar.d = str3;
-        kVar.a = str;
-        kVar.e = System.currentTimeMillis();
-        kVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-        kVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION.a();
-        kVar.h = str2;
+        com.baidu.android.pushservice.h.j jVar = new com.baidu.android.pushservice.h.j();
+        jVar.d = str3;
+        jVar.a = str;
+        jVar.e = System.currentTimeMillis();
+        jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
+        jVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION.a();
+        jVar.h = str2;
         com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str2);
         if (d != null) {
-            insertBehavior(context, d, kVar, new com.baidu.android.pushservice.h.j(str2));
+            insertBehavior(context, d, jVar, new com.baidu.android.pushservice.h.i(str2));
         }
     }
 
@@ -290,7 +290,7 @@ public class PublicMsg implements Parcelable {
                 intent.putExtra("baidu_message_secur_info", bArr);
                 intent.putExtra("baidu_message_body", bArr2);
                 addCustomContentToIntent(intent);
-                p.b(context, intent, "com.baidu.android.pushservice.action.notification.CLICK", this.mPkgName);
+                m.b(context, intent, "com.baidu.android.pushservice.action.notification.CLICK", this.mPkgName);
                 insertNotiBehavior(context, str2, str3, "010201");
                 if (this.mOpenType == 1 && this.mUrl != null) {
                     Intent intent2 = new Intent();
@@ -324,25 +324,25 @@ public class PublicMsg implements Parcelable {
 
     public void handleRichMediaNotification(Context context, String str, String str2) {
         com.baidu.android.pushservice.g.a.a(TAG, "Handle rich media notification", context);
-        com.baidu.android.pushservice.h.k kVar = new com.baidu.android.pushservice.h.k();
+        com.baidu.android.pushservice.h.j jVar = new com.baidu.android.pushservice.h.j();
         if ("com.baidu.android.pushservice.action.media.DELETE".equals(str)) {
-            kVar.d = "010402";
+            jVar.d = "010402";
         } else {
             Intent intent = new Intent("com.baidu.android.pushservice.action.media.CLICK");
             intent.setPackage(this.mPkgName);
             intent.putExtra("public_msg", this);
             context.sendBroadcast(intent);
-            kVar.d = "010401";
+            jVar.d = "010401";
         }
-        kVar.a = this.mMsgId;
-        kVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_RICH_MEDIA.a();
-        kVar.e = System.currentTimeMillis();
-        kVar.g = 0;
-        kVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-        kVar.h = str2;
+        jVar.a = this.mMsgId;
+        jVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_RICH_MEDIA.a();
+        jVar.e = System.currentTimeMillis();
+        jVar.g = 0;
+        jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
+        jVar.h = str2;
         com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str2);
         if (d != null) {
-            insertBehavior(context, d, kVar, new com.baidu.android.pushservice.h.j(str2));
+            insertBehavior(context, d, jVar, new com.baidu.android.pushservice.h.i(str2));
         }
     }
 

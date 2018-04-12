@@ -1,24 +1,25 @@
 package com.faceunity.a;
 
 import android.media.AudioRecord;
+import android.support.annotation.NonNull;
 import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class b {
-    private static b hXs;
-    private boolean hXt;
+    private static b hus;
+    private boolean hut;
     private AudioRecord mAudioRecord;
-    private static final int[] hXp = {1, 0, 5, 7, 6};
-    public static int hXq = 48000;
+    private static final int[] hup = {1, 0, 5, 7, 6};
+    public static int huq = 48000;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int hXr = 24;
+    public static int hur = 24;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(hXq, 16, 2);
-        int i = SAMPLES_PER_FRAME * hXr;
+        int minBufferSize = AudioRecord.getMinBufferSize(huq, 16, 2);
+        int i = SAMPLES_PER_FRAME * hur;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : hXp) {
+        for (int i2 : hup) {
             try {
-                this.mAudioRecord = new AudioRecord(i2, hXq, 16, 2, i);
+                this.mAudioRecord = new AudioRecord(i2, huq, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
                     this.mAudioRecord = null;
                 }
@@ -29,8 +30,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.hXt) {
-            this.hXt = true;
+        if (!this.hut) {
+            this.hut = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -38,7 +39,7 @@ public class b {
         }
     }
 
-    public int read(ByteBuffer byteBuffer, int i) {
+    public int read(@NonNull ByteBuffer byteBuffer, int i) {
         if (this.mAudioRecord == null) {
             return 0;
         }
@@ -47,11 +48,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (hXs != null && !hXs.bML()) {
-                hXs.release();
+            if (hus != null && !hus.bIk()) {
+                hus.release();
             }
             this.mAudioRecord.startRecording();
-            hXs = this;
+            hus = this;
         }
     }
 
@@ -61,11 +62,11 @@ public class b {
         }
     }
 
-    public boolean bML() {
-        return this.hXt;
+    public boolean bIk() {
+        return this.hut;
     }
 
-    public AudioRecord bMM() {
+    public AudioRecord bIl() {
         return this.mAudioRecord;
     }
 }

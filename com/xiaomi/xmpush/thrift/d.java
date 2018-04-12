@@ -9,7 +9,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements Serializable, Cloneable, org.apache.thrift.a<d, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> h;
     private static final org.apache.thrift.protocol.j i = new org.apache.thrift.protocol.j("ClientUploadDataItem");
@@ -29,7 +29,7 @@ public class d implements Serializable, Cloneable, org.apache.thrift.a<d, a> {
     public String g;
     private BitSet q = new BitSet(3);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         CHANNEL(1, "channel"),
         DATA(2, "data"),

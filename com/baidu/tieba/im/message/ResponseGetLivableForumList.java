@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import protobuf.ForumRalatedInfo;
 import protobuf.GetLivableForumList.GetLivableForumListResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ResponseGetLivableForumList extends SocketResponsedMessage {
     private boolean available;
     private ArrayList<ForumData> data;

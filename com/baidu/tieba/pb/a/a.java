@@ -6,56 +6,56 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0205a fIy;
+    private InterfaceC0187a fdb;
     private int count = 0;
-    private long fIw = 0;
-    private long fIx = 0;
-    private long fIz = 500;
+    private long fcZ = 0;
+    private long fda = 0;
+    private long fdc = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.fIw = 0L;
-                a.this.fIx = 0L;
+                a.this.fcZ = 0L;
+                a.this.fda = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.fIy != null) {
-                    a.this.fIy.bbn();
+                if (a.this.fdb != null) {
+                    a.this.fdb.aWm();
                 }
                 a.this.count = 0;
-                a.this.fIw = 0L;
-                a.this.fIx = 0L;
+                a.this.fcZ = 0L;
+                a.this.fda = 0L;
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0205a {
-        void bbm();
+    public interface InterfaceC0187a {
+        void aWl();
 
-        void bbn();
+        void aWm();
     }
 
-    public a(InterfaceC0205a interfaceC0205a) {
-        this.fIy = interfaceC0205a;
+    public a(InterfaceC0187a interfaceC0187a) {
+        this.fdb = interfaceC0187a;
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.fIy == null) {
+            if (this.fdb == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.fIw = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.fIz);
+                this.fcZ = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.fdc);
                 return true;
             } else if (this.count == 2) {
-                this.fIx = System.currentTimeMillis();
-                if (this.fIx - this.fIw < this.fIz) {
-                    this.fIy.bbm();
+                this.fda = System.currentTimeMillis();
+                if (this.fda - this.fcZ < this.fdc) {
+                    this.fdb.aWl();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

@@ -16,7 +16,7 @@ import org.apache.thrift.protocol.e;
 import org.apache.thrift.protocol.f;
 import org.apache.thrift.protocol.h;
 import org.apache.thrift.protocol.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> d;
     private static final j e = new j("StatsEvents");
@@ -27,7 +27,7 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
     public String b;
     public List<b> c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         UUID(1, UserBox.TYPE),
         OPERATOR(2, "operator"),

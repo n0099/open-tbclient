@@ -12,7 +12,7 @@ public class ApplistStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001370, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.applist.ApplistStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                c.akK().eG(false);
+                c.aeU().el(false);
                 return null;
             }
         });

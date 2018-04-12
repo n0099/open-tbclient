@@ -5,14 +5,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.os.Build;
 import com.xiaomi.channel.commonutils.android.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
-    private static InterfaceC0293a a;
+    private static InterfaceC0275a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.xiaomi.push.service.timers.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0293a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0275a {
         void a();
 
         void a(boolean z);

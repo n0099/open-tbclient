@@ -6,7 +6,7 @@ import com.baidu.tieba.im.message.RequestQueryGroupLocMessage;
 import com.baidu.tieba.im.message.ResponseRequestGroupLocMessage;
 /* loaded from: classes3.dex */
 public class RequestGroupLocModel extends BdBaseModel {
-    private int groupId;
+    private long groupId;
     private String lat;
     private String lng;
     private RequestQueryGroupLocMessage sentMsg;
@@ -16,12 +16,12 @@ public class RequestGroupLocModel extends BdBaseModel {
         this.sentMsg = null;
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public String getLng() {

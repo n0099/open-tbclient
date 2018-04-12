@@ -60,13 +60,13 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         if (this.a != null) {
-            if (view.getId() == R.id.liveness_again_btn) {
+            if (view2.getId() == R.id.liveness_again_btn) {
                 this.a.a();
-            } else if (view.getId() == R.id.start_record_btn) {
+            } else if (view2.getId() == R.id.start_record_btn) {
                 this.a.b();
-            } else if (view.getId() == R.id.record_video_close_iv) {
+            } else if (view2.getId() == R.id.record_video_close_iv) {
                 this.a.c();
             }
         }

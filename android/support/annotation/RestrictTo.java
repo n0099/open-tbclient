@@ -15,4 +15,6 @@ public @interface RestrictTo {
         TESTS,
         SUBCLASSES
     }
+
+    Scope[] value();
 }

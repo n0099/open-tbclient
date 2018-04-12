@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static int a(List<String> list, String str) {
         for (int i = 0; list != null && i < list.size(); i++) {

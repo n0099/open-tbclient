@@ -3,6 +3,7 @@ package android.support.v4.content;
 import android.content.Context;
 import android.os.Binder;
 import android.os.Process;
+import android.support.annotation.NonNull;
 import android.support.v4.app.AppOpsManagerCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -20,7 +21,7 @@ public final class PermissionChecker {
     private PermissionChecker() {
     }
 
-    public static int checkPermission(Context context, String str, int i, int i2, String str2) {
+    public static int checkPermission(@NonNull Context context, @NonNull String str, int i, int i2, String str2) {
         if (context.checkPermission(str, i, i2) == -1) {
             return -1;
         }
@@ -38,18 +39,18 @@ public final class PermissionChecker {
         return AppOpsManagerCompat.noteProxyOp(context, permissionToOp, str2) != 0 ? -2 : 0;
     }
 
-    public static int checkSelfPermission(Context context, String str) {
+    public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
         return checkPermission(context, str, Process.myPid(), Process.myUid(), context.getPackageName());
     }
 
-    public static int checkCallingPermission(Context context, String str, String str2) {
+    public static int checkCallingPermission(@NonNull Context context, @NonNull String str, String str2) {
         if (Binder.getCallingPid() == Process.myPid()) {
             return -1;
         }
         return checkPermission(context, str, Binder.getCallingPid(), Binder.getCallingUid(), str2);
     }
 
-    public static int checkCallingOrSelfPermission(Context context, String str) {
+    public static int checkCallingOrSelfPermission(@NonNull Context context, @NonNull String str) {
         return checkPermission(context, str, Binder.getCallingPid(), Binder.getCallingUid(), Binder.getCallingPid() == Process.myPid() ? context.getPackageName() : null);
     }
 }

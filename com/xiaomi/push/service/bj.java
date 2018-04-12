@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class bj extends XMPushService.h {
     final /* synthetic */ ArrayList b;
     final /* synthetic */ bi c;

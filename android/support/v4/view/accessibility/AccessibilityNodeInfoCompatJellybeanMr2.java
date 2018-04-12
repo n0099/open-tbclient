@@ -4,6 +4,9 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatJellybeanMr2 {
+    AccessibilityNodeInfoCompatJellybeanMr2() {
+    }
+
     public static void setViewIdResourceName(Object obj, String str) {
         ((AccessibilityNodeInfo) obj).setViewIdResourceName(str);
     }

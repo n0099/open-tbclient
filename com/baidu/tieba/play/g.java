@@ -3,6 +3,7 @@ package com.baidu.tieba.play;
 import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.net.Uri;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface g {
@@ -39,7 +40,7 @@ public interface g {
 
     /* renamed from: com.baidu.tieba.play.g$g  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0220g {
+    public interface InterfaceC0202g {
         void b(g gVar);
     }
 
@@ -53,9 +54,9 @@ public interface g {
         void onSubError(int i, int i2, String str);
     }
 
-    void Pk();
+    void HM();
 
-    int Tl();
+    int LI();
 
     void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, int i2);
 
@@ -81,6 +82,10 @@ public interface g {
 
     int getDuration();
 
+    String getId();
+
+    List<String> getMediaIDs();
+
     int getPlayerType();
 
     int getVideoHeight();
@@ -103,7 +108,7 @@ public interface g {
 
     void setOnPreparedListener(f fVar);
 
-    void setOnSeekCompleteListener(InterfaceC0220g interfaceC0220g);
+    void setOnSeekCompleteListener(InterfaceC0202g interfaceC0202g);
 
     void setVolume(float f2, float f3);
 

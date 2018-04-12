@@ -2,6 +2,8 @@ package android.support.v4.widget;
 
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.media.TransportMediator;
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v4.view.AccessibilityDelegateCompat;
@@ -14,6 +16,7 @@ import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeProviderCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
 import android.support.v4.widget.FocusStrategy;
+import android.support.v7.widget.ActivityChooserView;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,9 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
+    private static final String DEFAULT_CLASS_NAME = "android.view.View";
     public static final int HOST_ID = -1;
     public static final int INVALID_ID = Integer.MIN_VALUE;
-    private static final Rect INVALID_PARENT_BOUNDS = new Rect(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
+    private static final Rect INVALID_PARENT_BOUNDS = new Rect(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.MIN_VALUE, Integer.MIN_VALUE);
     private static final FocusStrategy.BoundsAdapter<AccessibilityNodeInfoCompat> NODE_ADAPTER = new FocusStrategy.BoundsAdapter<AccessibilityNodeInfoCompat>() { // from class: android.support.v4.widget.ExploreByTouchHelper.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.support.v4.widget.FocusStrategy.BoundsAdapter
@@ -66,27 +70,27 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
 
     protected abstract void onPopulateNodeForVirtualView(int i, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat);
 
-    public ExploreByTouchHelper(View view) {
-        if (view == null) {
+    public ExploreByTouchHelper(View view2) {
+        if (view2 == null) {
             throw new IllegalArgumentException("View may not be null");
         }
-        this.mHost = view;
-        this.mManager = (AccessibilityManager) view.getContext().getSystemService("accessibility");
-        view.setFocusable(true);
-        if (ViewCompat.getImportantForAccessibility(view) == 0) {
-            ViewCompat.setImportantForAccessibility(view, 1);
+        this.mHost = view2;
+        this.mManager = (AccessibilityManager) view2.getContext().getSystemService("accessibility");
+        view2.setFocusable(true);
+        if (ViewCompat.getImportantForAccessibility(view2) == 0) {
+            ViewCompat.setImportantForAccessibility(view2, 1);
         }
     }
 
     @Override // android.support.v4.view.AccessibilityDelegateCompat
-    public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view) {
+    public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view2) {
         if (this.mNodeProvider == null) {
             this.mNodeProvider = new MyNodeProvider();
         }
         return this.mNodeProvider;
     }
 
-    public final boolean dispatchHoverEvent(MotionEvent motionEvent) {
+    public final boolean dispatchHoverEvent(@NonNull MotionEvent motionEvent) {
         if (this.mManager.isEnabled() && AccessibilityManagerCompat.isTouchExplorationEnabled(this.mManager)) {
             switch (motionEvent.getAction()) {
                 case 7:
@@ -108,7 +112,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return false;
     }
 
-    public final boolean dispatchKeyEvent(KeyEvent keyEvent) {
+    public final boolean dispatchKeyEvent(@NonNull KeyEvent keyEvent) {
         boolean z = false;
         if (keyEvent.getAction() != 1) {
             int keyCode = keyEvent.getKeyCode();
@@ -150,7 +154,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return false;
     }
 
-    public final void onFocusChanged(boolean z, int i, Rect rect) {
+    public final void onFocusChanged(boolean z, int i, @Nullable Rect rect) {
         if (this.mKeyboardFocusedVirtualViewId != Integer.MIN_VALUE) {
             clearKeyboardFocusForVirtualView(this.mKeyboardFocusedVirtualViewId);
         }
@@ -185,7 +189,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         obtainAccessibilityNodeInfo(i).getBoundsInParent(rect);
     }
 
-    private boolean moveFocus(int i, Rect rect) {
+    private boolean moveFocus(int i, @Nullable Rect rect) {
         AccessibilityNodeInfoCompat accessibilityNodeInfoCompat;
         SparseArrayCompat<AccessibilityNodeInfoCompat> allNodes = getAllNodes();
         int i2 = this.mKeyboardFocusedVirtualViewId;
@@ -225,9 +229,9 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return sparseArrayCompat;
     }
 
-    private static Rect guessPreviouslyFocusedRect(View view, int i, Rect rect) {
-        int width = view.getWidth();
-        int height = view.getHeight();
+    private static Rect guessPreviouslyFocusedRect(@NonNull View view2, int i, @NonNull Rect rect) {
+        int width = view2.getWidth();
+        int height = view2.getHeight();
         switch (i) {
             case 17:
                 rect.set(width, 0, width, height);
@@ -309,8 +313,8 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     }
 
     @Override // android.support.v4.view.AccessibilityDelegateCompat
-    public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
-        super.onInitializeAccessibilityEvent(view, accessibilityEvent);
+    public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+        super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
         onPopulateEventForHost(accessibilityEvent);
     }
 
@@ -334,10 +338,12 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return obtain;
     }
 
+    @NonNull
     AccessibilityNodeInfoCompat obtainAccessibilityNodeInfo(int i) {
         return i == -1 ? createNodeForHost() : createNodeForChild(i);
     }
 
+    @NonNull
     private AccessibilityNodeInfoCompat createNodeForHost() {
         AccessibilityNodeInfoCompat obtain = AccessibilityNodeInfoCompat.obtain(this.mHost);
         ViewCompat.onInitializeAccessibilityNodeInfo(this.mHost, obtain);
@@ -354,16 +360,17 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     }
 
     @Override // android.support.v4.view.AccessibilityDelegateCompat
-    public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-        super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+    public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
         onPopulateNodeForHost(accessibilityNodeInfoCompat);
     }
 
+    @NonNull
     private AccessibilityNodeInfoCompat createNodeForChild(int i) {
         AccessibilityNodeInfoCompat obtain = AccessibilityNodeInfoCompat.obtain();
         obtain.setEnabled(true);
         obtain.setFocusable(true);
-        obtain.setClassName("android.view.View");
+        obtain.setClassName(DEFAULT_CLASS_NAME);
         obtain.setBoundsInParent(INVALID_PARENT_BOUNDS);
         obtain.setBoundsInScreen(INVALID_PARENT_BOUNDS);
         onPopulateNodeForVirtualView(i, obtain);
@@ -449,11 +456,11 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         }
         ViewParent parent = this.mHost.getParent();
         while (parent instanceof View) {
-            View view = (View) parent;
-            if (ViewCompat.getAlpha(view) <= 0.0f || view.getVisibility() != 0) {
+            View view2 = (View) parent;
+            if (ViewCompat.getAlpha(view2) <= 0.0f || view2.getVisibility() != 0) {
                 return false;
             }
-            parent = view.getParent();
+            parent = view2.getParent();
         }
         if (parent != null && this.mHost.getLocalVisibleRect(this.mTempVisibleRect)) {
             return rect.intersect(this.mTempVisibleRect);

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v4.media.session.MediaControllerCompatApi23;
 /* loaded from: classes2.dex */
 class MediaControllerCompatApi24 {
+    MediaControllerCompatApi24() {
+    }
 
     /* loaded from: classes2.dex */
     public static class TransportControls extends MediaControllerCompatApi23.TransportControls {

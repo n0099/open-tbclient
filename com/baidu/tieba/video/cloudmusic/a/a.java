@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.adp.base.e;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
@@ -17,24 +17,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private List<CloudMusicData.MusicTagList.MusicList> hpf = new ArrayList();
-    private b hpg;
+    private List<CloudMusicData.MusicTagList.MusicList> gKP = new ArrayList();
+    private b gKQ;
     private e mPageContext;
 
     /* loaded from: classes2.dex */
     public interface b {
-        void a(View view, String str, int i);
+        void a(View view2, String str, int i);
     }
 
     public a(e eVar) {
         this.mPageContext = eVar;
     }
 
-    public void dH(List<CloudMusicData.MusicTagList.MusicList> list) {
+    public void dy(List<CloudMusicData.MusicTagList.MusicList> list) {
         if (list != null) {
             for (CloudMusicData.MusicTagList.MusicList musicList : list) {
-                if (!this.hpf.contains(musicList)) {
-                    this.hpf.add(musicList);
+                if (!this.gKP.contains(musicList)) {
+                    this.gKP.add(musicList);
                 }
             }
             notifyDataSetChanged();
@@ -43,14 +43,14 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.hpf.size();
+        return this.gKP.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wK */
+    /* renamed from: un */
     public CloudMusicData.MusicTagList.MusicList getItem(int i) {
-        return this.hpf.get(i);
+        return this.gKP.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,94 +59,94 @@ public class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(final int i, View view, ViewGroup viewGroup) {
-        C0240a c0240a;
-        if (view == null) {
-            view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.cloud_music_item, viewGroup, false);
-            c0240a = new C0240a();
-            c0240a.hpj = (TbImageView) view.findViewById(d.g.music_state);
-            c0240a.hpi = (TbImageView) view.findViewById(d.g.music_image);
-            c0240a.hpi.setDrawerType(1);
-            c0240a.hpi.setIsRound(true);
-            c0240a.hpi.setDefaultErrorResource(d.f.bg_video_cloudmusic);
-            c0240a.hpi.setDefaultResource(d.f.bg_video_cloudmusic);
-            c0240a.hpi.setDefaultBgResource(d.C0141d.transparent);
-            c0240a.hpi.setBorderWidth(l.t(this.mPageContext.getPageActivity(), d.e.ds4));
-            c0240a.hpi.setBorderColor(aj.getColor(d.C0141d.cp_link_tip_a));
-            c0240a.hpk = view.findViewById(d.g.music_loading);
-            c0240a.hpl = (TextView) view.findViewById(d.g.music_title);
-            c0240a.hpm = (TextView) view.findViewById(d.g.music_author_name);
-            c0240a.hpn = (TextView) view.findViewById(d.g.music_duration);
-            c0240a.hpo = (TextView) view.findViewById(d.g.music_choose);
-            c0240a.erb = view.findViewById(d.g.line);
-            view.setTag(c0240a);
+    public View getView(final int i, View view2, ViewGroup viewGroup) {
+        C0221a c0221a;
+        if (view2 == null) {
+            view2 = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.i.cloud_music_item, viewGroup, false);
+            c0221a = new C0221a();
+            c0221a.gKT = (TbImageView) view2.findViewById(d.g.music_state);
+            c0221a.gKS = (TbImageView) view2.findViewById(d.g.music_image);
+            c0221a.gKS.setDrawerType(1);
+            c0221a.gKS.setIsRound(true);
+            c0221a.gKS.setDefaultErrorResource(d.f.bg_video_cloudmusic);
+            c0221a.gKS.setDefaultResource(d.f.bg_video_cloudmusic);
+            c0221a.gKS.setDefaultBgResource(d.C0126d.transparent);
+            c0221a.gKS.setBorderWidth(l.e(this.mPageContext.getPageActivity(), d.e.ds4));
+            c0221a.gKS.setBorderColor(ak.getColor(d.C0126d.cp_link_tip_a));
+            c0221a.gKU = view2.findViewById(d.g.music_loading);
+            c0221a.gKV = (TextView) view2.findViewById(d.g.music_title);
+            c0221a.gKW = (TextView) view2.findViewById(d.g.music_author_name);
+            c0221a.gKX = (TextView) view2.findViewById(d.g.music_duration);
+            c0221a.gKY = (TextView) view2.findViewById(d.g.music_choose);
+            c0221a.dLN = view2.findViewById(d.g.line);
+            view2.setTag(c0221a);
         } else {
-            c0240a = (C0240a) view.getTag();
+            c0221a = (C0221a) view2.getTag();
         }
-        c0240a.gB(TbadkCoreApplication.getInst().getSkinType());
-        final CloudMusicData.MusicTagList.MusicList musicList = this.hpf.get(i);
+        c0221a.dA(TbadkCoreApplication.getInst().getSkinType());
+        final CloudMusicData.MusicTagList.MusicList musicList = this.gKP.get(i);
         if (musicList != null) {
-            c0240a.hpl.setText(musicList.name);
-            c0240a.hpi.startLoad(musicList.image, 10, false);
-            c0240a.hpm.setText(musicList.author);
-            c0240a.hpn.setText(am.fV(musicList.duration * 1000));
+            c0221a.gKV.setText(musicList.name);
+            c0221a.gKS.startLoad(musicList.image, 10, false);
+            c0221a.gKW.setText(musicList.author);
+            c0221a.gKX.setText(an.cV(musicList.duration * 1000));
             if (musicList.isLoading) {
-                c0240a.hpk.setVisibility(0);
+                c0221a.gKU.setVisibility(0);
             } else {
-                c0240a.hpk.setVisibility(4);
+                c0221a.gKU.setVisibility(4);
             }
-            if (musicList.equals(com.baidu.tieba.video.cloudmusic.data.a.bBc().bBd())) {
-                c0240a.hpj.setImageResource(d.f.btn_icon_stop_video);
-                c0240a.hpi.setDrawBorder(true);
-                c0240a.hpo.setVisibility(0);
-                c0240a.hpk.setVisibility(4);
+            if (musicList.equals(com.baidu.tieba.video.cloudmusic.data.a.bwh().bwi())) {
+                c0221a.gKT.setImageResource(d.f.btn_icon_stop_video);
+                c0221a.gKS.setDrawBorder(true);
+                c0221a.gKY.setVisibility(0);
+                c0221a.gKU.setVisibility(4);
                 musicList.isLoading = false;
-                c0240a.hpo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.cloudmusic.a.a.1
+                c0221a.gKY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.cloudmusic.a.a.1
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
-                        if (a.this.hpg != null) {
-                            a.this.hpg.a(view2, musicList.resource, i);
+                    public void onClick(View view3) {
+                        if (a.this.gKQ != null) {
+                            a.this.gKQ.a(view3, musicList.resource, i);
                         }
                     }
                 });
             } else {
-                c0240a.hpj.setImageResource(d.f.btn_icon_play_video_n);
-                c0240a.hpi.setDrawBorder(false);
-                c0240a.hpo.setVisibility(8);
+                c0221a.gKT.setImageResource(d.f.btn_icon_play_video_n);
+                c0221a.gKS.setDrawBorder(false);
+                c0221a.gKY.setVisibility(8);
             }
         }
-        return view;
+        return view2;
     }
 
     public void a(b bVar) {
-        this.hpg = bVar;
+        this.gKQ = bVar;
     }
 
-    public void U(int i, boolean z) {
+    public void F(int i, boolean z) {
         getItem(i).isLoading = z;
         notifyDataSetChanged();
     }
 
     /* renamed from: com.baidu.tieba.video.cloudmusic.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0240a {
-        private View erb;
-        public TbImageView hpi;
-        public TbImageView hpj;
-        public View hpk;
-        public TextView hpl;
-        public TextView hpm;
-        public TextView hpn;
-        public TextView hpo;
+    public static class C0221a {
+        private View dLN;
+        public TbImageView gKS;
+        public TbImageView gKT;
+        public View gKU;
+        public TextView gKV;
+        public TextView gKW;
+        public TextView gKX;
+        public TextView gKY;
 
-        public void gB(int i) {
-            aj.r(this.hpl, d.C0141d.cp_cont_b);
-            aj.r(this.hpm, d.C0141d.cp_cont_j);
-            aj.r(this.hpn, d.C0141d.cp_cont_j);
-            aj.r(this.hpo, d.C0141d.common_color_10140);
-            aj.s(this.hpo, d.f.bg_music_choose);
-            aj.t(this.erb, d.C0141d.cp_bg_line_c);
-            aj.c(this.hpj, d.f.btn_icon_play_video_n);
+        public void dA(int i) {
+            ak.h(this.gKV, d.C0126d.cp_cont_b);
+            ak.h(this.gKW, d.C0126d.cp_cont_j);
+            ak.h(this.gKX, d.C0126d.cp_cont_j);
+            ak.h(this.gKY, d.C0126d.common_color_10140);
+            ak.i(this.gKY, d.f.bg_music_choose);
+            ak.j(this.dLN, d.C0126d.cp_bg_line_c);
+            ak.c(this.gKT, d.f.btn_icon_play_video_n);
         }
     }
 }

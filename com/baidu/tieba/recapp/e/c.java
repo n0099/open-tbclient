@@ -1,48 +1,78 @@
 package com.baidu.tieba.recapp.e;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
-public class c {
-    private final Context context;
-    private final ViewGroup gHN;
+public class c extends e {
+    private TextView aqm;
+    private HeadImageView dxn;
+    private TextView gcG;
+    private CountDownTextView gcK;
+    private boolean gcL;
 
-    public c(Context context, ViewGroup viewGroup) {
-        this.context = context;
-        this.gHN = viewGroup;
+    public c(View view2, String str) {
+        super(view2, str);
+        init();
     }
 
-    public d a(AdCard.e eVar, d dVar) {
-        if (eVar != null && eVar.style != null) {
-            if (dVar == null || !bT(eVar.style, dVar.gHO)) {
-                if (this.gHN == null) {
-                    return null;
+    private void init() {
+        this.dxn = (HeadImageView) rZ(d.g.user_portrait);
+        this.dxn.setDefaultResource(d.f.icon_default_avatar100);
+        this.dxn.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.dxn.setDefaultBgResource(d.C0126d.cp_bg_line_e);
+        this.dxn.setIsRound(true);
+        this.aqm = (TextView) rZ(d.g.user_name);
+        this.gcK = (CountDownTextView) rZ(d.g.count_down_text);
+        this.gcG = (TextView) rZ(d.g.action);
+    }
+
+    @Override // com.baidu.tieba.recapp.e.e
+    public void a(final AdCard.f fVar) {
+        super.a(fVar);
+        this.dxn.startLoad(fVar.fYg, 10, false);
+        this.aqm.setText(fVar.userName);
+        this.gcG.setText(fVar.buttonText);
+        this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.c.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                s.ak(c.this.mRootView.getContext(), fVar.scheme);
+                if (c.this.gcP != null) {
+                    c.this.gcP.rT(302);
+                    com.baidu.tieba.recapp.report.b.bke().a(c.this.gcP);
                 }
-                this.gHN.removeAllViews();
-                if (TbWebViewActivityConfig.PARAMS_KEY.equals(eVar.style)) {
-                    return new b(LayoutInflater.from(this.context).inflate(d.h.tail_frame_ad_jump, this.gHN, true), TbWebViewActivityConfig.PARAMS_KEY);
-                }
-                if ("apk_download".equals(eVar.style)) {
-                    return new a(LayoutInflater.from(this.context).inflate(d.h.tail_frame_ad_download, this.gHN, true), "apk_download");
-                }
-                return null;
+                c.this.lF(false);
             }
-            return dVar;
-        }
-        return dVar;
+        });
+        this.gcK.update(fVar.count);
+        onChangeSkinType();
     }
 
-    private boolean bT(String str, String str2) {
-        if ("apk_download".equals(str)) {
-            return "apk_download".equals(str2);
+    @Override // com.baidu.tieba.recapp.e.e
+    public void bkj() {
+        super.bkj();
+        this.gcK.startCountDown();
+    }
+
+    @Override // com.baidu.tieba.recapp.e.e
+    public void setTimeoutListener(CountDownTextView.b bVar) {
+        super.setTimeoutListener(bVar);
+        this.gcK.setTimeoutListener(bVar);
+    }
+
+    @Override // com.baidu.tieba.recapp.e.e
+    public void onChangeSkinType() {
+    }
+
+    @Override // com.baidu.tieba.recapp.e.e
+    public void lF(boolean z) {
+        this.gcL = z;
+        if (this.gcK != null) {
+            this.gcK.setEnableTimeoutListener(this.gcL);
         }
-        if (TbWebViewActivityConfig.PARAMS_KEY.equals(str)) {
-            return TbWebViewActivityConfig.PARAMS_KEY.equals(str2);
-        }
-        return false;
     }
 }

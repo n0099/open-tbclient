@@ -1,240 +1,219 @@
 package com.baidu.tieba.personExtra;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.al;
-import com.sina.weibo.sdk.constant.WBPageConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c {
-    private int dcP;
-    private int glI = 0;
-    private int glJ = 0;
-    private ArrayList<ForumData> glB = new ArrayList<>();
-    private ArrayList<ForumData> glC = new ArrayList<>();
-    private ArrayList<ForumData> glD = new ArrayList<>();
-    private ArrayList<ForumData> glE = new ArrayList<>();
-    private ArrayList<ForumData> glG = new ArrayList<>();
-    private ArrayList<ForumData> glF = new ArrayList<>();
-    private al eSZ = new al();
-    private Date glH = null;
-    private boolean apH = true;
+public class c extends BaseAdapter {
+    private boolean dxu;
+    private View.OnClickListener eSE;
+    private View.OnClickListener eSe;
+    private PersonFriendActivity fHF;
+    private int mPageType;
+    private ArrayList<UserData> adv = null;
+    private boolean mHasMore = false;
+    private boolean fHG = false;
+    private boolean eSc = false;
+    private ArrayList<ProgressBar> fHH = new ArrayList<>();
 
-    public c() {
-        setHasMore(false);
-    }
-
-    public int bjk() {
-        return this.glI;
-    }
-
-    public void tE(int i) {
-        this.glI = i;
-    }
-
-    public void tF(int i) {
-        this.glI += i;
-    }
-
-    public int bjl() {
-        return this.glJ;
-    }
-
-    public void tG(int i) {
-        this.glJ = i;
-    }
-
-    public void tH(int i) {
-        this.glJ += i;
-    }
-
-    public ArrayList<ForumData> bjm() {
-        return this.glC;
-    }
-
-    public ArrayList<ForumData> bjn() {
-        return this.glD;
-    }
-
-    public ArrayList<ForumData> bjo() {
-        return this.glF;
-    }
-
-    public ArrayList<ForumData> bjp() {
-        return this.glG;
-    }
-
-    public ArrayList<ForumData> bjq() {
-        return this.glB;
-    }
-
-    public void b(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.glB == null) {
-            this.glB = new ArrayList<>();
-        }
-        if (this.glC != null && arrayList != null) {
-            this.glC.clear();
-            this.glC.addAll(arrayList);
-        }
-        if (this.glD != null && arrayList2 != null) {
-            this.glD.clear();
-            this.glD.addAll(arrayList2);
-        }
-        if (this.glC != null || this.glD != null) {
-            this.glB.clear();
-            if (this.glC != null) {
-                this.glB.addAll(this.glC);
-            }
-            if (this.glD != null) {
-                this.glB.addAll(this.glD);
-            }
-        }
-    }
-
-    public void c(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.glB == null) {
-            this.glB = new ArrayList<>();
-        }
-        if (this.glC != null && arrayList != null) {
-            this.glC.addAll(arrayList);
-        }
-        if (this.glD != null && arrayList2 != null) {
-            this.glD.addAll(arrayList2);
-        }
-        if (this.glC != null || this.glD != null) {
-            this.glB.clear();
-            if (this.glC != null) {
-                this.glB.addAll(this.glC);
-            }
-            if (this.glD != null) {
-                this.glB.addAll(this.glD);
-            }
-        }
-    }
-
-    public ArrayList<ForumData> bjr() {
-        return this.glE;
-    }
-
-    public void d(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.glE == null) {
-            this.glE = new ArrayList<>();
-        }
-        if (this.glF != null && arrayList != null) {
-            this.glF.addAll(arrayList);
-        }
-        if (this.glG != null && arrayList2 != null) {
-            this.glG.addAll(arrayList2);
-        }
-        if (this.glF != null || this.glG != null) {
-            this.glE.clear();
-            if (this.glF != null) {
-                this.glE.addAll(this.glF);
-            }
-            if (this.glG != null) {
-                this.glE.addAll(this.glG);
-            }
-        }
-    }
-
-    public void e(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.glE == null) {
-            this.glE = new ArrayList<>();
-        }
-        if (this.glF != null && arrayList != null) {
-            this.glF.clear();
-            this.glF.addAll(arrayList);
-        }
-        if (this.glG != null && arrayList2 != null) {
-            this.glG.clear();
-            this.glG.addAll(arrayList2);
-        }
-        if (this.glF != null || this.glG != null) {
-            this.glE.clear();
-            if (this.glF != null) {
-                this.glE.addAll(this.glF);
-            }
-            if (this.glG != null) {
-                this.glE.addAll(this.glG);
-            }
-        }
-    }
-
-    public void parserJson(String str) {
-        if (str != null) {
-            try {
-                parserJson(new JSONObject(str));
-            } catch (Exception e) {
-                this.apH = false;
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.eSZ.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
-            this.dcP = jSONObject.optInt("has_more", 1);
-            long optLong = jSONObject.optLong("ctime", 0L);
-            if (optLong > 0) {
-                this.glH = new Date(optLong);
-            } else {
-                this.glH = new Date();
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
-            if (optJSONObject != null) {
-                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
-                if (optJSONArray != null) {
-                    this.glI = optJSONArray.length();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        ForumData forumData = new ForumData();
-                        forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.glC.add(forumData);
+    public void beM() {
+        if (this.fHH != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.fHH.size()) {
+                    try {
+                        this.fHH.get(i2).setVisibility(8);
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
                     }
-                }
-                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        ForumData forumData2 = new ForumData();
-                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.glD.add(forumData2);
-                    }
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
-                if (optJSONObject2 != null) {
-                    JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
-                    if (optJSONArray3 != null) {
-                        this.glJ = optJSONArray3.length();
-                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                            ForumData forumData3 = new ForumData();
-                            forumData3.parserJson(optJSONArray3.getJSONObject(i3));
-                            this.glF.add(forumData3);
-                        }
-                    }
-                    JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
-                    if (optJSONArray4 != null) {
-                        for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                            ForumData forumData4 = new ForumData();
-                            forumData4.parserJson(optJSONArray4.getJSONObject(i4));
-                            this.glG.add(forumData4);
-                        }
-                    }
+                    i = i2 + 1;
+                } else {
+                    this.fHH.clear();
+                    return;
                 }
             }
-        } catch (Exception e) {
-            this.apH = false;
-            BdLog.e(e.getMessage());
         }
     }
 
-    public boolean isHasMore() {
-        return this.dcP == 1;
+    public void aSq() {
+        this.eSc = false;
+        if (this.adv != null && this.adv.size() == 0) {
+            this.eSc = true;
+        }
     }
 
     public void setHasMore(boolean z) {
-        this.dcP = z ? 1 : 0;
+        this.mHasMore = z;
+    }
+
+    public void lb(boolean z) {
+        this.fHG = z;
+    }
+
+    public c(PersonFriendActivity personFriendActivity, boolean z, int i, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
+        this.fHF = null;
+        this.dxu = true;
+        this.mPageType = 0;
+        this.eSE = null;
+        this.eSe = null;
+        this.fHF = personFriendActivity;
+        this.dxu = z;
+        this.mPageType = i;
+        this.eSE = onClickListener;
+        this.eSe = onClickListener2;
+    }
+
+    public void setData(ArrayList<UserData> arrayList) {
+        this.adv = arrayList;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.eSc) {
+            return 1;
+        }
+        int i = 0;
+        if (this.adv != null) {
+            i = this.adv.size();
+        }
+        if (this.mHasMore) {
+            return i + 1;
+        }
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.adv == null || i >= this.adv.size()) {
+            return null;
+        }
+        return this.adv.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        if (this.adv == null || i >= this.adv.size()) {
+            return -1L;
+        }
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        a aVar;
+        View view3;
+        if (this.adv != null) {
+            if (view2 == null) {
+                a aVar2 = new a();
+                if (getItemViewType(i) == 0) {
+                    View inflate = LayoutInflater.from(this.fHF.getPageContext().getPageActivity()).inflate(d.i.person_list_item_friend, (ViewGroup) null);
+                    aVar2.cZE = (HeadImageView) inflate.findViewById(d.g.photo);
+                    aVar2.cZE.setIsRound(false);
+                    aVar2.cZE.setAutoChangeStyle(true);
+                    aVar2.bse = (LinearLayout) inflate.findViewById(d.g.info);
+                    aVar2.mName = (TextView) inflate.findViewById(d.g.name);
+                    aVar2.eSj = (TextView) inflate.findViewById(d.g.at_list_nodata);
+                    aVar2.bsd = (TextView) inflate.findViewById(d.g.intro);
+                    aVar2.fHI = (ImageView) inflate.findViewById(d.g.chat);
+                    aVar2.ege = (ImageView) inflate.findViewById(d.g.diver_buttom_px);
+                    aVar2.fHI.setOnClickListener(this.eSE);
+                    view3 = inflate;
+                } else {
+                    View inflate2 = LayoutInflater.from(this.fHF.getPageContext().getPageActivity()).inflate(d.i.new_pb_list_more, (ViewGroup) null);
+                    aVar2.mName = (TextView) inflate2.findViewById(d.g.pb_more_text);
+                    inflate2.setOnClickListener(this.eSe);
+                    aVar2.mProgress = (ProgressBar) inflate2.findViewById(d.g.progress);
+                    this.fHH.add(aVar2.mProgress);
+                    view3 = inflate2;
+                }
+                view3.setTag(aVar2);
+                aVar = aVar2;
+                view2 = view3;
+            } else {
+                aVar = (a) view2.getTag();
+            }
+            if (getItemViewType(i) == 0) {
+                if (this.eSc) {
+                    aVar.bse.setVisibility(8);
+                    aVar.fHI.setVisibility(8);
+                    aVar.eSj.setVisibility(8);
+                    aVar.ege.setVisibility(8);
+                } else {
+                    if (!this.dxu && this.mPageType == 0) {
+                        aVar.fHI.setVisibility(8);
+                    } else {
+                        aVar.fHI.setVisibility(0);
+                    }
+                    aVar.bse.setVisibility(0);
+                    aVar.bse.setTag(Integer.valueOf(i));
+                    aVar.ege.setVisibility(0);
+                    aVar.eSj.setVisibility(8);
+                    String portrait = this.adv.get(i).getPortrait();
+                    aVar.cZE.setImageDrawable(null);
+                    aVar.cZE.startLoad(portrait, 12, false);
+                    aVar.mName.setText(this.adv.get(i).getName_show());
+                    aVar.bsd.setText(this.adv.get(i).getIntro());
+                    aVar.fHI.setTag(Integer.valueOf(i));
+                }
+            } else {
+                aVar.mName.setText(this.fHF.getPageContext().getString(d.k.loading));
+                aVar.mProgress.setVisibility(0);
+            }
+            aA(view2);
+        }
+        return view2;
+    }
+
+    private void aA(View view2) {
+        this.fHF.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.fHF.getLayoutMode().u(view2);
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        if (this.eSc) {
+            return 0;
+        }
+        return (this.adv == null || i >= this.adv.size()) ? 1 : 0;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 2;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.ListAdapter
+    public boolean isEnabled(int i) {
+        if (this.eSc) {
+            return false;
+        }
+        return super.isEnabled(i);
+    }
+
+    /* loaded from: classes3.dex */
+    private class a {
+        TextView bsd;
+        LinearLayout bse;
+        HeadImageView cZE;
+        TextView eSj;
+        ImageView ege;
+        ImageView fHI;
+        TextView mName;
+        ProgressBar mProgress;
+
+        private a() {
+        }
     }
 }

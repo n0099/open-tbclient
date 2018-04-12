@@ -29,7 +29,7 @@ public abstract class d implements h.b {
     protected IARCallback ak;
     protected ARConfiguration am;
     protected a ao;
-    protected a.C0035a ap;
+    protected a.C0024a ap;
     protected b aq;
     protected boolean al = false;
     private boolean b = false;
@@ -166,7 +166,7 @@ public abstract class d implements h.b {
         }
     }
 
-    public d(BaseFragment baseFragment, a.C0035a c0035a) {
+    public d(BaseFragment baseFragment, a.C0024a c0024a) {
         this.ao = null;
         this.ae = new WeakReference<>(baseFragment);
         FragmentActivity activity = baseFragment.getActivity();
@@ -174,7 +174,7 @@ public abstract class d implements h.b {
         this.ag = activity.getApplicationContext();
         this.ah = this.ag.getPackageName();
         this.ao = new a(this.ag, this);
-        this.ap = c0035a;
+        this.ap = c0024a;
         this.aq = new b(this);
         Res.addResource(activity);
     }

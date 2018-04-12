@@ -19,28 +19,28 @@ public class a {
 
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0136a {
-        void akN();
+    public interface InterfaceC0121a {
+        void aeX();
     }
 
-    public static boolean akM() {
+    public static boolean aeW() {
         return UtilHelper.isInstallApk(TbadkCoreApplication.getInst(), "com.baidu.tiebabz");
     }
 
-    public static void a(e<?> eVar, String str, String str2, InterfaceC0136a interfaceC0136a) {
-        if (!akM() || !i(eVar.getPageActivity(), str, str2)) {
-            if (j.oJ()) {
-                if (!j.oK()) {
-                    a(eVar, interfaceC0136a);
+    public static void a(e<?> eVar, String str, String str2, InterfaceC0121a interfaceC0121a) {
+        if (!aeW() || !h(eVar.getPageActivity(), str, str2)) {
+            if (j.gP()) {
+                if (!j.gQ()) {
+                    a(eVar, interfaceC0121a);
                     return;
                 }
                 return;
             }
-            UtilHelper.showToast(eVar.getPageActivity(), d.j.neterror);
+            UtilHelper.showToast(eVar.getPageActivity(), d.k.neterror);
         }
     }
 
-    public static boolean i(Context context, String str, String str2) {
+    public static boolean h(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
             BdLog.e("fname is null");
             return false;
@@ -82,7 +82,7 @@ public class a {
         }
     }
 
-    public static boolean j(Context context, String str, String str2) {
+    public static boolean i(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             BdLog.e("tid is null");
             return false;
@@ -162,27 +162,27 @@ public class a {
         }
     }
 
-    private static void a(e<?> eVar, final InterfaceC0136a interfaceC0136a) {
+    private static void a(e<?> eVar, final InterfaceC0121a interfaceC0121a) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eVar.getPageActivity());
-        aVar.dk(eVar.getString(d.j.bawu_center_3g_tips));
-        aVar.a(d.j.download, new a.b() { // from class: com.baidu.tieba.c.a.1
+        aVar.dc(eVar.getString(d.k.bawu_center_3g_tips));
+        aVar.a(d.k.download, new a.b() { // from class: com.baidu.tieba.c.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
                 TiebaStatic.log("c11577");
             }
         });
-        aVar.b(d.j.continue_forward, new a.b() { // from class: com.baidu.tieba.c.a.2
+        aVar.b(d.k.continue_forward, new a.b() { // from class: com.baidu.tieba.c.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (InterfaceC0136a.this != null) {
-                    InterfaceC0136a.this.akN();
+                if (InterfaceC0121a.this != null) {
+                    InterfaceC0121a.this.aeX();
                 }
                 TiebaStatic.log("c11574");
             }
         });
         aVar.b(eVar);
-        aVar.AV();
+        aVar.tD();
     }
 }

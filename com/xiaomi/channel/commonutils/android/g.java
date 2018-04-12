@@ -4,7 +4,7 @@ import android.os.Environment;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     private static int a = 0;
 

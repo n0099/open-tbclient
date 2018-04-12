@@ -4,18 +4,21 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
-import com.meizu.cloud.pushsdk.common.b.c;
-import com.meizu.cloud.pushsdk.common.b.h;
+import com.meizu.cloud.pushsdk.common.event.Event;
+import com.meizu.cloud.pushsdk.common.event.Listener;
+import com.meizu.cloud.pushsdk.common.event.Serviceable;
+import com.meizu.cloud.pushsdk.common.util.Logger;
+import com.meizu.cloud.pushsdk.common.util.g;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.meizu.cloud.pushsdk.common.base.a<Context> {
     private static a c;
     private HandlerThread d;
     private Handler e;
-    private HashMap<Integer, ArrayList<Object>> f;
-    private HashMap<Integer, Object> g;
-    private ArrayList<Object> h;
+    private HashMap<Integer, ArrayList<Listener>> f;
+    private HashMap<Integer, Event> g;
+    private ArrayList<Serviceable> h;
 
     private a() {
         super("EventCore");
@@ -46,7 +49,7 @@ public class a extends com.meizu.cloud.pushsdk.common.base.a<Context> {
         if (this.a == 0) {
             throw new NullPointerException("context must not be null");
         }
-        c.b(this.b, "onInit");
+        Logger.b(this.b, "onInit");
         this.a = ((Context) this.a).getApplicationContext();
         this.d = new HandlerThread(this.b);
         this.d.start();
@@ -55,9 +58,9 @@ public class a extends com.meizu.cloud.pushsdk.common.base.a<Context> {
 
     @Override // com.meizu.cloud.pushsdk.common.base.a
     protected synchronized void b() {
-        c.b(this.b, "onDestroy");
+        Logger.b(this.b, "onDestroy");
         if (this.d != null) {
-            if (h.a(18)) {
+            if (g.a(18)) {
                 e();
             } else {
                 this.d.quit();

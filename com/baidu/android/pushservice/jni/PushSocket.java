@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.jni;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.message.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PushSocket {
     public static boolean a;
     private static byte[] b = null;
@@ -51,7 +51,7 @@ public class PushSocket {
         if (r2 != com.baidu.android.pushservice.message.h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) goto L49;
      */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0044, code lost:
-        com.baidu.android.pushservice.j.p.b("MSG_ID_TINY_HEARTBEAT_SERVER", r6);
+        com.baidu.android.pushservice.j.m.b("MSG_ID_TINY_HEARTBEAT_SERVER", r6);
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x004a, code lost:
         com.baidu.android.pushservice.jni.PushSocket.c += 2;

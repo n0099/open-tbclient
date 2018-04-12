@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.h;
 
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public String a;
     public int b;
@@ -50,8 +50,8 @@ public class e {
         this.g = str;
     }
 
-    public n c() {
-        return new n(this.e, this.f, this.g, this.n, this.o);
+    public l c() {
+        return new l(this.e, this.f, this.g, this.n, this.o);
     }
 
     public void c(int i) {
@@ -62,13 +62,13 @@ public class e {
         this.i = str;
     }
 
-    public i d() {
-        i iVar = new i(c());
-        iVar.a = this.m;
-        iVar.i = this.k;
-        iVar.b = this.i;
-        iVar.c = this.q;
-        return iVar;
+    public h d() {
+        h hVar = new h(c());
+        hVar.a = this.m;
+        hVar.i = this.k;
+        hVar.b = this.i;
+        hVar.c = this.q;
+        return hVar;
     }
 
     public void d(int i) {
@@ -79,16 +79,16 @@ public class e {
         this.k = str;
     }
 
-    public k e() {
-        k kVar = new k(c());
-        kVar.c = this.h;
-        kVar.a = this.i;
-        kVar.b = this.j;
+    public j e() {
+        j jVar = new j(c());
+        jVar.c = this.h;
+        jVar.a = this.i;
+        jVar.b = this.j;
         String str = this.q;
         if (!TextUtils.isEmpty(str)) {
-            kVar.k = str;
+            jVar.k = str;
         }
-        return kVar;
+        return jVar;
     }
 
     public void e(int i) {
@@ -129,13 +129,13 @@ public class e {
         this.p = str;
     }
 
-    public h h() {
-        h hVar = new h(c());
-        hVar.j = this.r;
-        hVar.a = this.a;
-        hVar.b = this.b;
-        hVar.c = this.c;
-        return hVar;
+    public g h() {
+        g gVar = new g(c());
+        gVar.j = this.r;
+        gVar.a = this.a;
+        gVar.b = this.b;
+        gVar.c = this.c;
+        return gVar;
     }
 
     public void h(String str) {

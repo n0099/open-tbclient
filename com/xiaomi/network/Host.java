@@ -1,7 +1,7 @@
 package com.xiaomi.network;
 
 import java.net.InetSocketAddress;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Host {
     private String a;
     private int b;

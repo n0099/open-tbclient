@@ -7,7 +7,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class g {
     private static int a;
     private static int b;

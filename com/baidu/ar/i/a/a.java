@@ -5,18 +5,18 @@ import com.baidu.ar.util.o;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class a extends AsyncTask<String, Integer, Boolean> {
-    InterfaceC0041a a;
+    InterfaceC0030a a;
 
     /* renamed from: com.baidu.ar.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0041a {
+    public interface InterfaceC0030a {
         void a();
 
         void b();
     }
 
-    public a(InterfaceC0041a interfaceC0041a) {
-        this.a = interfaceC0041a;
+    public a(InterfaceC0030a interfaceC0030a) {
+        this.a = interfaceC0030a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

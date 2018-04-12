@@ -3,16 +3,16 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static a a;
     private Context b;
-    private C0288a c;
+    private C0270a c;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.xiaomi.mipush.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0288a {
+    /* loaded from: classes3.dex */
+    public class C0270a {
         public String a;
         public String b;
         public String c;
@@ -24,7 +24,7 @@ public class a {
         public boolean i;
         public int j;
 
-        private C0288a() {
+        private C0270a() {
             this.h = true;
             this.i = false;
             this.j = 1;
@@ -108,7 +108,7 @@ public class a {
     }
 
     private void o() {
-        this.c = new C0288a();
+        this.c = new C0270a();
         SharedPreferences j = j();
         this.c.a = j.getString("appId", null);
         this.c.b = j.getString("appToken", null);

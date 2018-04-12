@@ -69,7 +69,7 @@ public class a extends com.baidu.ar.c implements View.OnClickListener, View.OnLa
     private com.baidu.slamlibrary.b aV;
     private boolean aW;
     private float aX;
-    private C0047a aY;
+    private C0036a aY;
     private b aZ;
     protected ARWebView ar;
     private RelativeLayout as;
@@ -86,7 +86,7 @@ public class a extends com.baidu.ar.c implements View.OnClickListener, View.OnLa
 
     /* renamed from: com.baidu.ar.slam.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0047a implements com.baidu.ar.a.a.a {
+    public static class C0036a implements com.baidu.ar.a.a.a {
         @Override // com.baidu.ar.a.a.a
         public void a(Bundle bundle) {
             SlamStateMachine.a().a(SlamStateMachine.EVENT.SLAM_PLANE_LEVEL, bundle);
@@ -242,15 +242,15 @@ public class a extends com.baidu.ar.c implements View.OnClickListener, View.OnLa
         }
     }
 
-    public a(BaseFragment baseFragment, a.C0035a c0035a) {
-        super(baseFragment, c0035a);
+    public a(BaseFragment baseFragment, a.C0024a c0024a) {
+        super(baseFragment, c0024a);
         this.aM = false;
         this.aN = false;
         this.aP = false;
         this.aS = true;
         this.aT = false;
         this.aU = false;
-        this.aY = new C0047a();
+        this.aY = new C0036a();
         this.aZ = new b();
         this.ba = new ARWebView.c() { // from class: com.baidu.ar.slam.a.3
             @Override // com.baidu.ar.ui.ARWebView.c
@@ -649,11 +649,11 @@ public class a extends com.baidu.ar.c implements View.OnClickListener, View.OnLa
         }
     }
 
-    public void b(View view, int i) {
-        view.setLayoutParams(new LinearLayout.LayoutParams(this.aG, this.aF));
-        view.setRotation(i);
-        view.setY((this.aG - this.aF) / 2);
-        view.setX((this.aF - this.aG) / 2);
+    public void b(View view2, int i) {
+        view2.setLayoutParams(new LinearLayout.LayoutParams(this.aG, this.aF));
+        view2.setRotation(i);
+        view2.setY((this.aG - this.aF) / 2);
+        view2.setX((this.aF - this.aG) / 2);
     }
 
     public void b(e eVar) {
@@ -903,8 +903,8 @@ public class a extends com.baidu.ar.c implements View.OnClickListener, View.OnLa
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int id = view.getId();
+    public void onClick(View view2) {
+        int id = view2.getId();
         if (id == Res.id("bdar_titlebar_back")) {
             v();
         } else if (id == Res.id("bdar_titlebar_help_tip")) {
@@ -922,7 +922,7 @@ public class a extends com.baidu.ar.c implements View.OnClickListener, View.OnLa
     }
 
     @Override // android.view.View.OnLayoutChangeListener
-    public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+    public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
         ay();
         this.aC.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         this.aE.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));

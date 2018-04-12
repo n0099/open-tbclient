@@ -2,11 +2,12 @@ package android.support.v4.graphics.drawable;
 
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
+import android.support.annotation.ColorInt;
 import android.support.annotation.RestrictTo;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public interface TintAwareDrawable {
-    void setTint(int i);
+    void setTint(@ColorInt int i);
 
     void setTintList(ColorStateList colorStateList);
 

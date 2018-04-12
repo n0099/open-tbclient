@@ -6,13 +6,13 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ReplacementSpan;
 /* loaded from: classes3.dex */
 public class a extends ReplacementSpan {
+    private Drawable mDrawable;
     private int mHeight;
     private int mWidth;
     private int padding;
-    private Drawable wy;
 
     public a(Drawable drawable, int i, int i2, int i3) {
-        this.wy = drawable;
+        this.mDrawable = drawable;
         this.mWidth = i;
         this.mHeight = i2;
         this.padding = i3;
@@ -25,7 +25,7 @@ public class a extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        this.wy.setBounds(((int) f) + this.padding, (int) (i3 + paint.descent()), ((int) f) + this.mWidth + this.padding, (int) (i3 + paint.descent() + this.mHeight));
-        this.wy.draw(canvas);
+        this.mDrawable.setBounds(((int) f) + this.padding, (int) (i3 + paint.descent()), ((int) f) + this.mWidth + this.padding, (int) (i3 + paint.descent() + this.mHeight));
+        this.mDrawable.draw(canvas);
     }
 }

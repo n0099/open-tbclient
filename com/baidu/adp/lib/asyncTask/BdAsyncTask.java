@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class BdAsyncTask<Params, Progress, Result> {
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
-    private static final com.baidu.adp.lib.asyncTask.a sDefaultExecutor = com.baidu.adp.lib.asyncTask.a.lO();
+    private static final com.baidu.adp.lib.asyncTask.a sDefaultExecutor = com.baidu.adp.lib.asyncTask.a.dS();
     private static final b sHandler = new b(Looper.getMainLooper());
     private volatile BdAsyncTaskStatus mStatus = BdAsyncTaskStatus.PENDING;
     private int mPriority = 1;
@@ -54,7 +54,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.b
-        public void lM() {
+        public void dQ() {
             BdAsyncTask.this.cancel();
         }
     };
@@ -257,10 +257,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.agx.finish(aVar.mData[0]);
+                    aVar.qT.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.agx.onProgressUpdate(aVar.mData);
+                    aVar.qT.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;
@@ -280,11 +280,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a<Data> {
-        final BdAsyncTask agx;
         final Data[] mData;
+        final BdAsyncTask qT;
 
         a(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.agx = bdAsyncTask;
+            this.qT = bdAsyncTask;
             this.mData = dataArr;
         }
     }

@@ -13,31 +13,31 @@ import android.widget.TextView;
 import com.baidu.ar.util.Res;
 /* loaded from: classes3.dex */
 public class a extends Dialog {
-    private C0050a a;
+    private C0039a a;
 
     /* renamed from: com.baidu.ar.ui.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0050a {
+    public static class C0039a {
         private final b a;
         private final a b;
         private Context c;
         private boolean d = false;
 
-        public C0050a(Context context) {
+        public C0039a(Context context) {
             this.b = a(context);
             this.b.a(this);
             this.a = new b((ViewGroup) this.b.getWindow().getDecorView());
             this.c = context;
         }
 
-        public C0050a a(CharSequence charSequence) {
+        public C0039a a(CharSequence charSequence) {
             if (charSequence != null) {
                 this.a.a.setText(charSequence);
             }
             return this;
         }
 
-        public C0050a a(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
+        public C0039a a(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
                 this.a.d.setVisibility(8);
                 if (this.a.e.getVisibility() == 0) {
@@ -51,11 +51,11 @@ public class a extends Dialog {
                 this.a.d.setText(charSequence);
                 this.a.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.a.a.1
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        C0050a.this.b.a(-1);
-                        C0050a.this.b.dismiss();
+                    public void onClick(View view2) {
+                        C0039a.this.b.a(-1);
+                        C0039a.this.b.dismiss();
                         if (onClickListener != null) {
-                            onClickListener.onClick(C0050a.this.b, -1);
+                            onClickListener.onClick(C0039a.this.b, -1);
                         }
                     }
                 });
@@ -63,7 +63,7 @@ public class a extends Dialog {
             return this;
         }
 
-        public C0050a a(String str) {
+        public C0039a a(String str) {
             if (this.a.c.getVisibility() != 0) {
                 this.a.c.setVisibility(0);
             }
@@ -91,7 +91,7 @@ public class a extends Dialog {
             return new a(context, Res.getStyle("NoTitleDialog"));
         }
 
-        public C0050a b(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
+        public C0039a b(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
                 this.a.e.setVisibility(8);
                 if (this.a.d.getVisibility() == 0) {
@@ -105,11 +105,11 @@ public class a extends Dialog {
                 this.a.e.setText(charSequence);
                 this.a.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.a.a.2
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        C0050a.this.b.a(-2);
-                        C0050a.this.b.dismiss();
+                    public void onClick(View view2) {
+                        C0039a.this.b.a(-2);
+                        C0039a.this.b.dismiss();
                         if (onClickListener != null) {
-                            onClickListener.onClick(C0050a.this.b, -2);
+                            onClickListener.onClick(C0039a.this.b, -2);
                         }
                     }
                 });
@@ -168,7 +168,7 @@ public class a extends Dialog {
     protected void a(int i) {
     }
 
-    void a(C0050a c0050a) {
-        this.a = c0050a;
+    void a(C0039a c0039a) {
+        this.a = c0039a;
     }
 }

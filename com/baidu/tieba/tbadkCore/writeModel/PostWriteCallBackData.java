@@ -1,7 +1,9 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.ax;
 import com.baidu.tbadk.coreExtra.data.AccessState;
+import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
@@ -14,7 +16,6 @@ public class PostWriteCallBackData implements Serializable {
     public static final int ERROR_DISABLE_AT = 230278;
     public static final int ERROR_DISABLE_REPLY = 230277;
     public static final int ERROR_LEVEL_UNDER_THREE = 1990032;
-    public static final int ERROR_VCODE_FAILED_WITH_STORY = -1;
     public static final int VIDEO_FROM_ACTIVITY = 3;
     public static final int VIDEO_FROM_FRS = 2;
     public static final int VIDEO_FROM_MAINTAB = 1;
@@ -26,6 +27,8 @@ public class PostWriteCallBackData implements Serializable {
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
     public int mFrom;
+    private ax mReplyPrivacyTip;
+    private VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
     private String preMsg;
@@ -133,6 +136,14 @@ public class PostWriteCallBackData implements Serializable {
         this.mContriInfo = contriInfo;
     }
 
+    public void setVideoEasterEggData(VideoEasterEggData videoEasterEggData) {
+        this.mVideoEasterEggData = videoEasterEggData;
+    }
+
+    public VideoEasterEggData getVideoEasterEggData() {
+        return this.mVideoEasterEggData;
+    }
+
     public boolean isSensitiveError() {
         return this.errorCode == 220015;
     }
@@ -156,5 +167,13 @@ public class PostWriteCallBackData implements Serializable {
             sb.append(this.mVideoMd5);
         }
         return sb.toString();
+    }
+
+    public void setReplyPrivacyTip(ax axVar) {
+        this.mReplyPrivacyTip = axVar;
+    }
+
+    public ax getReplyPrivacyTip() {
+        return this.mReplyPrivacyTip;
     }
 }

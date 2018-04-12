@@ -1,71 +1,111 @@
 package com.baidu.tieba.a;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.ubs.analytics.SampleResult;
+import com.baidu.ubs.analytics.c;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, com.baidu.tbadk.i.a> {
-    private TbPageContext mPageContext;
+public class c {
+    private int bbS;
+    private boolean bbT = false;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.mPageContext = tbPageContext;
+    public c() {
+        MD();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: n */
-    public com.baidu.tbadk.i.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.i.a(LayoutInflater.from(this.mContext).inflate(d.h.ala_follow_live_common_item_view, viewGroup, false), this.mPageContext);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.a aVar, com.baidu.tbadk.i.a aVar2) {
-        if (aVar != null && aVar2 != null) {
-            aVar2.a(i, aVar);
-            a(aVar2, aVar);
-        }
-        return view;
-    }
-
-    private void a(com.baidu.tbadk.i.a aVar, final com.baidu.tbadk.data.a aVar2) {
-        aVar.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.c.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (aVar2.bqG == -100) {
-                    TiebaStatic.log("c12679");
-                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911006, String.class);
-                    if (runTask == null || StringUtils.isNull((String) runTask.getData())) {
-                        com.baidu.tbadk.core.e.b.d(c.this.mPageContext.getPageActivity(), 15, true);
-                        return;
-                    } else {
-                        aw.Du().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
-                        return;
-                    }
-                }
-                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.bqF;
-                if (alaLiveInfoCoreData != null) {
-                    TiebaStatic.log("c12677");
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_CONCERN_TAB_TOP_LIVE, TbadkCoreApplication.getCurrentAccount(), false, "")));
-                }
+    public void a(ArrayList<Integer> arrayList, b bVar) {
+        if (arrayList != null && bVar != null) {
+            Iterator<Integer> it = arrayList.iterator();
+            while (it.hasNext()) {
+                int intValue = it.next().intValue();
+                bVar.put(intValue, gn(intValue));
             }
-        });
+        }
+    }
+
+    private int gn(int i) {
+        if (i == 1) {
+            return go(i);
+        }
+        if (this.bbS == 1) {
+            return gq(i);
+        }
+        if (this.bbS == 0) {
+            return go(i);
+        }
+        return 0;
+    }
+
+    private int go(int i) {
+        String gp = gp(i);
+        return (!an.isEmpty(gp) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(gp, 0) == 1) ? 1 : 0;
+    }
+
+    private String gp(int i) {
+        if (i == 1) {
+            return "key_card_show_type";
+        }
+        if (i == 2) {
+            return "key_card_abstract_switch";
+        }
+        return null;
+    }
+
+    private int gq(int i) {
+        String gr = gr(i);
+        if (an.isEmpty(gr)) {
+            return 0;
+        }
+        SampleResult vc = com.baidu.ubs.analytics.a.vc(gr);
+        return (vc == SampleResult.T1 || vc == SampleResult.T2 || vc == SampleResult.T3 || vc == SampleResult.T4 || vc == SampleResult.T5) ? 1 : 0;
+    }
+
+    private String gr(int i) {
+        if (i == 2) {
+            return "46";
+        }
+        return null;
+    }
+
+    private void MD() {
+        this.bbS = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0);
+        ME();
+    }
+
+    public void gs(int i) {
+        if (i == 1 || i == 0) {
+            this.bbS = i;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_abtest_channel", this.bbS);
+            ME();
+        }
+    }
+
+    private void ME() {
+        if (!this.bbT && this.bbS == 1) {
+            this.bbT = MG();
+            if (!this.bbT) {
+                this.bbS = 0;
+            }
+        }
+    }
+
+    public boolean MF() {
+        return this.bbT;
+    }
+
+    public boolean MG() {
+        boolean z = true;
+        if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+            try {
+                com.baidu.ubs.analytics.a.a(new c.a().cl(TbadkCoreApplication.getInst()).nC(false).da(30L).vq(1).nD(false).db(15L).vr(1000).bEL());
+            } catch (Exception e) {
+                e.printStackTrace();
+                z = false;
+            }
+            return z;
+        }
+        return false;
     }
 }

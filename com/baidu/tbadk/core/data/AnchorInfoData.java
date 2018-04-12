@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.data;
 
-import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
@@ -19,7 +18,7 @@ public class AnchorInfoData extends OrmObject implements Serializable {
     private String authorName = "";
     private int listeners = 0;
     private int likers = 0;
-    private int group_id = 0;
+    private long group_id = 0;
     private String intro = "";
     private String publisherPortrait = "";
     private String labelName = "";
@@ -96,12 +95,12 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         this.likers = i;
     }
 
-    public int getGroup_id() {
+    public long getGroup_id() {
         return this.group_id;
     }
 
-    public void setGroup_id(int i) {
-        this.group_id = i;
+    public void setGroup_id(long j) {
+        this.group_id = j;
     }
 
     public String getIntro() {
@@ -134,12 +133,12 @@ public class AnchorInfoData extends OrmObject implements Serializable {
                 this.portrait = jSONObject.getString(IntentConfig.PORTRAIT);
                 this.name = jSONObject.getString("name");
                 this.startTime = jSONObject.getInt("start_time");
-                this.status = jSONObject.getInt(NotificationCompat.CATEGORY_STATUS);
+                this.status = jSONObject.getInt("status");
                 this.authorId = jSONObject.getLong("author_id");
                 this.authorName = jSONObject.getString("author_name");
                 this.listeners = jSONObject.getInt("listeners");
                 this.likers = jSONObject.getInt("likers");
-                this.group_id = jSONObject.getInt("group_id");
+                this.group_id = jSONObject.optLong("group_id", 0L);
                 this.intro = jSONObject.getString("intro");
                 this.publisherPortrait = jSONObject.getString("publisherPortrait");
             } catch (JSONException e) {
@@ -152,7 +151,7 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         if (anchorInfo != null) {
             this.authorId = anchorInfo.author_id.longValue();
             this.authorName = anchorInfo.author_name;
-            this.group_id = anchorInfo.group_id.intValue();
+            this.group_id = anchorInfo.group_id.longValue();
             this.intro = anchorInfo.intro;
             this.likers = anchorInfo.likers.intValue();
             this.listeners = anchorInfo.listeners.intValue();

@@ -24,7 +24,7 @@ interface ThreadUtil<T> {
         void updateItemCount(int i, int i2);
     }
 
-    BackgroundCallback<T> a(BackgroundCallback<T> backgroundCallback);
+    BackgroundCallback<T> getBackgroundProxy(BackgroundCallback<T> backgroundCallback);
 
-    MainThreadCallback<T> a(MainThreadCallback<T> mainThreadCallback);
+    MainThreadCallback<T> getMainThreadProxy(MainThreadCallback<T> mainThreadCallback);
 }

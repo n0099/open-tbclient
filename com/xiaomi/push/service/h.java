@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static void a(Context context, String str) {
         ArrayList<com.xiaomi.xmpush.thrift.j> b = e.a(context).b(str);

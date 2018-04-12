@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.NotificationCompatApi20;
 import android.support.v4.app.NotificationCompatApi21;
@@ -18,9 +20,7 @@ import android.support.v4.app.NotificationCompatJellybean;
 import android.support.v4.app.NotificationCompatKitKat;
 import android.support.v4.app.RemoteInputCompatBase;
 import android.support.v4.os.BuildCompat;
-import android.support.v4.view.GravityCompat;
 import android.widget.RemoteViews;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -42,6 +42,7 @@ public class NotificationCompat {
     public static final String CATEGORY_STATUS = "status";
     public static final String CATEGORY_SYSTEM = "sys";
     public static final String CATEGORY_TRANSPORT = "transport";
+    @ColorInt
     public static final int COLOR_DEFAULT = 0;
     public static final int DEFAULT_ALL = -1;
     public static final int DEFAULT_LIGHTS = 4;
@@ -131,7 +132,7 @@ public class NotificationCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public static class BuilderExtender {
         public Notification build(Builder builder, NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
@@ -531,26 +532,27 @@ public class NotificationCompat {
 
     /* loaded from: classes2.dex */
     public static class Builder {
+        private static final int MAX_CHARSEQUENCE_LENGTH = 5120;
         RemoteViews mBigContentView;
         String mCategory;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public CharSequence mContentInfo;
         PendingIntent mContentIntent;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public CharSequence mContentText;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public CharSequence mContentTitle;
         RemoteViews mContentView;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public Context mContext;
         Bundle mExtras;
         PendingIntent mFullScreenIntent;
         String mGroupKey;
         boolean mGroupSummary;
         RemoteViews mHeadsUpContentView;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public Bitmap mLargeIcon;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public int mNumber;
         public ArrayList<String> mPeople;
         int mPriority;
@@ -558,23 +560,23 @@ public class NotificationCompat {
         boolean mProgressIndeterminate;
         int mProgressMax;
         Notification mPublicVersion;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public CharSequence[] mRemoteInputHistory;
         String mSortKey;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public Style mStyle;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public CharSequence mSubText;
         RemoteViews mTickerView;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public boolean mUseChronometer;
         boolean mShowWhen = true;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public ArrayList<Action> mActions = new ArrayList<>();
         boolean mLocalOnly = false;
         int mColor = 0;
         int mVisibility = 0;
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public Notification mNotification = new Notification();
 
         public Builder(Context context) {
@@ -702,7 +704,7 @@ public class NotificationCompat {
             return this;
         }
 
-        public Builder setLights(int i, int i2, int i3) {
+        public Builder setLights(@ColorInt int i, int i2, int i3) {
             this.mNotification.ledARGB = i;
             this.mNotification.ledOnMS = i2;
             this.mNotification.ledOffMS = i3;
@@ -819,7 +821,7 @@ public class NotificationCompat {
             return this;
         }
 
-        public Builder setColor(int i) {
+        public Builder setColor(@ColorInt int i) {
             this.mColor = i;
             return this;
         }
@@ -864,34 +866,34 @@ public class NotificationCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public BuilderExtender getExtender() {
             return new BuilderExtender();
         }
 
         protected static CharSequence limitCharSequenceLength(CharSequence charSequence) {
-            if (charSequence != null && charSequence.length() > 5120) {
-                return charSequence.subSequence(0, 5120);
+            if (charSequence != null && charSequence.length() > MAX_CHARSEQUENCE_LENGTH) {
+                return charSequence.subSequence(0, MAX_CHARSEQUENCE_LENGTH);
             }
             return charSequence;
         }
 
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public RemoteViews getContentView() {
             return this.mContentView;
         }
 
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public RemoteViews getBigContentView() {
             return this.mBigContentView;
         }
 
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public RemoteViews getHeadsUpContentView() {
             return this.mHeadsUpContentView;
         }
 
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public long getWhenIfShowing() {
             if (this.mShowWhen) {
                 return this.mNotification.when;
@@ -899,24 +901,24 @@ public class NotificationCompat {
             return 0L;
         }
 
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public int getPriority() {
             return this.mPriority;
         }
 
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public int getColor() {
             return this.mColor;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public CharSequence resolveText() {
             return this.mContentText;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public CharSequence resolveTitle() {
             return this.mContentTitle;
         }
@@ -945,11 +947,11 @@ public class NotificationCompat {
             return this.mBuilder.build();
         }
 
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public void addCompatExtras(Bundle bundle) {
         }
 
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         protected void restoreFromCompatExtras(Bundle bundle) {
         }
     }
@@ -1028,7 +1030,7 @@ public class NotificationCompat {
         MessagingStyle() {
         }
 
-        public MessagingStyle(CharSequence charSequence) {
+        public MessagingStyle(@NonNull CharSequence charSequence) {
             this.mUserDisplayName = charSequence;
         }
 
@@ -1094,7 +1096,7 @@ public class NotificationCompat {
         }
 
         @Override // android.support.v4.app.NotificationCompat.Style
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         protected void restoreFromCompatExtras(Bundle bundle) {
             this.mMessages.clear();
             this.mUserDisplayName = bundle.getString(NotificationCompat.EXTRA_SELF_DISPLAY_NAME);
@@ -1107,6 +1109,11 @@ public class NotificationCompat {
 
         /* loaded from: classes2.dex */
         public static final class Message {
+            static final String KEY_DATA_MIME_TYPE = "type";
+            static final String KEY_DATA_URI = "uri";
+            static final String KEY_SENDER = "sender";
+            static final String KEY_TEXT = "text";
+            static final String KEY_TIMESTAMP = "time";
             private String mDataMimeType;
             private Uri mDataUri;
             private final CharSequence mSender;
@@ -1150,7 +1157,7 @@ public class NotificationCompat {
                 if (this.mText != null) {
                     bundle.putCharSequence("text", this.mText);
                 }
-                bundle.putLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.mTimestamp);
+                bundle.putLong("time", this.mTimestamp);
                 if (this.mSender != null) {
                     bundle.putCharSequence("sender", this.mSender);
                 }
@@ -1158,7 +1165,7 @@ public class NotificationCompat {
                     bundle.putString("type", this.mDataMimeType);
                 }
                 if (this.mDataUri != null) {
-                    bundle.putParcelable("uri", this.mDataUri);
+                    bundle.putParcelable(KEY_DATA_URI, this.mDataUri);
                 }
                 return bundle;
             }
@@ -1191,10 +1198,10 @@ public class NotificationCompat {
 
             static Message getMessageFromBundle(Bundle bundle) {
                 try {
-                    if (bundle.containsKey("text") && bundle.containsKey(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) {
-                        Message message = new Message(bundle.getCharSequence("text"), bundle.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME), bundle.getCharSequence("sender"));
-                        if (bundle.containsKey("type") && bundle.containsKey("uri")) {
-                            message.setData(bundle.getString("type"), (Uri) bundle.getParcelable("uri"));
+                    if (bundle.containsKey("text") && bundle.containsKey("time")) {
+                        Message message = new Message(bundle.getCharSequence("text"), bundle.getLong("time"), bundle.getCharSequence("sender"));
+                        if (bundle.containsKey("type") && bundle.containsKey(KEY_DATA_URI)) {
+                            message.setData(bundle.getString("type"), (Uri) bundle.getParcelable(KEY_DATA_URI));
                         }
                         return message;
                     }
@@ -1236,7 +1243,7 @@ public class NotificationCompat {
 
     /* loaded from: classes2.dex */
     public static class Action extends NotificationCompatBase.Action {
-        @RestrictTo
+        @RestrictTo({RestrictTo.Scope.GROUP_ID})
         public static final NotificationCompatBase.Action.Factory FACTORY = new NotificationCompatBase.Action.Factory() { // from class: android.support.v4.app.NotificationCompat.Action.1
             @Override // android.support.v4.app.NotificationCompatBase.Action.Factory
             public NotificationCompatBase.Action build(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInputCompatBase.RemoteInput[] remoteInputArr, boolean z) {
@@ -1366,6 +1373,15 @@ public class NotificationCompat {
 
         /* loaded from: classes2.dex */
         public static final class WearableExtender implements Extender {
+            private static final int DEFAULT_FLAGS = 1;
+            private static final String EXTRA_WEARABLE_EXTENSIONS = "android.wearable.EXTENSIONS";
+            private static final int FLAG_AVAILABLE_OFFLINE = 1;
+            private static final int FLAG_HINT_DISPLAY_INLINE = 4;
+            private static final int FLAG_HINT_LAUNCHES_ACTIVITY = 2;
+            private static final String KEY_CANCEL_LABEL = "cancelLabel";
+            private static final String KEY_CONFIRM_LABEL = "confirmLabel";
+            private static final String KEY_FLAGS = "flags";
+            private static final String KEY_IN_PROGRESS_LABEL = "inProgressLabel";
             private CharSequence mCancelLabel;
             private CharSequence mConfirmLabel;
             private int mFlags;
@@ -1377,12 +1393,12 @@ public class NotificationCompat {
 
             public WearableExtender(Action action) {
                 this.mFlags = 1;
-                Bundle bundle = action.getExtras().getBundle("android.wearable.EXTENSIONS");
+                Bundle bundle = action.getExtras().getBundle(EXTRA_WEARABLE_EXTENSIONS);
                 if (bundle != null) {
-                    this.mFlags = bundle.getInt("flags", 1);
-                    this.mInProgressLabel = bundle.getCharSequence("inProgressLabel");
-                    this.mConfirmLabel = bundle.getCharSequence("confirmLabel");
-                    this.mCancelLabel = bundle.getCharSequence("cancelLabel");
+                    this.mFlags = bundle.getInt(KEY_FLAGS, 1);
+                    this.mInProgressLabel = bundle.getCharSequence(KEY_IN_PROGRESS_LABEL);
+                    this.mConfirmLabel = bundle.getCharSequence(KEY_CONFIRM_LABEL);
+                    this.mCancelLabel = bundle.getCharSequence(KEY_CANCEL_LABEL);
                 }
             }
 
@@ -1390,24 +1406,24 @@ public class NotificationCompat {
             public Builder extend(Builder builder) {
                 Bundle bundle = new Bundle();
                 if (this.mFlags != 1) {
-                    bundle.putInt("flags", this.mFlags);
+                    bundle.putInt(KEY_FLAGS, this.mFlags);
                 }
                 if (this.mInProgressLabel != null) {
-                    bundle.putCharSequence("inProgressLabel", this.mInProgressLabel);
+                    bundle.putCharSequence(KEY_IN_PROGRESS_LABEL, this.mInProgressLabel);
                 }
                 if (this.mConfirmLabel != null) {
-                    bundle.putCharSequence("confirmLabel", this.mConfirmLabel);
+                    bundle.putCharSequence(KEY_CONFIRM_LABEL, this.mConfirmLabel);
                 }
                 if (this.mCancelLabel != null) {
-                    bundle.putCharSequence("cancelLabel", this.mCancelLabel);
+                    bundle.putCharSequence(KEY_CANCEL_LABEL, this.mCancelLabel);
                 }
-                builder.getExtras().putBundle("android.wearable.EXTENSIONS", bundle);
+                builder.getExtras().putBundle(EXTRA_WEARABLE_EXTENSIONS, bundle);
                 return builder;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* renamed from: clone */
-            public WearableExtender m0clone() {
+            public WearableExtender m1clone() {
                 WearableExtender wearableExtender = new WearableExtender();
                 wearableExtender.mFlags = this.mFlags;
                 wearableExtender.mInProgressLabel = this.mInProgressLabel;
@@ -1482,6 +1498,31 @@ public class NotificationCompat {
 
     /* loaded from: classes2.dex */
     public static final class WearableExtender implements Extender {
+        private static final int DEFAULT_CONTENT_ICON_GRAVITY = 8388613;
+        private static final int DEFAULT_FLAGS = 1;
+        private static final int DEFAULT_GRAVITY = 80;
+        private static final String EXTRA_WEARABLE_EXTENSIONS = "android.wearable.EXTENSIONS";
+        private static final int FLAG_BIG_PICTURE_AMBIENT = 32;
+        private static final int FLAG_CONTENT_INTENT_AVAILABLE_OFFLINE = 1;
+        private static final int FLAG_HINT_AVOID_BACKGROUND_CLIPPING = 16;
+        private static final int FLAG_HINT_CONTENT_INTENT_LAUNCHES_ACTIVITY = 64;
+        private static final int FLAG_HINT_HIDE_ICON = 2;
+        private static final int FLAG_HINT_SHOW_BACKGROUND_ONLY = 4;
+        private static final int FLAG_START_SCROLL_BOTTOM = 8;
+        private static final String KEY_ACTIONS = "actions";
+        private static final String KEY_BACKGROUND = "background";
+        private static final String KEY_BRIDGE_TAG = "bridgeTag";
+        private static final String KEY_CONTENT_ACTION_INDEX = "contentActionIndex";
+        private static final String KEY_CONTENT_ICON = "contentIcon";
+        private static final String KEY_CONTENT_ICON_GRAVITY = "contentIconGravity";
+        private static final String KEY_CUSTOM_CONTENT_HEIGHT = "customContentHeight";
+        private static final String KEY_CUSTOM_SIZE_PRESET = "customSizePreset";
+        private static final String KEY_DISMISSAL_ID = "dismissalId";
+        private static final String KEY_DISPLAY_INTENT = "displayIntent";
+        private static final String KEY_FLAGS = "flags";
+        private static final String KEY_GRAVITY = "gravity";
+        private static final String KEY_HINT_SCREEN_TIMEOUT = "hintScreenTimeout";
+        private static final String KEY_PAGES = "pages";
         public static final int SCREEN_TIMEOUT_LONG = -1;
         public static final int SCREEN_TIMEOUT_SHORT = 0;
         public static final int SIZE_DEFAULT = 0;
@@ -1510,7 +1551,7 @@ public class NotificationCompat {
             this.mActions = new ArrayList<>();
             this.mFlags = 1;
             this.mPages = new ArrayList<>();
-            this.mContentIconGravity = GravityCompat.END;
+            this.mContentIconGravity = 8388613;
             this.mContentActionIndex = -1;
             this.mCustomSizePreset = 0;
             this.mGravity = 80;
@@ -1520,33 +1561,33 @@ public class NotificationCompat {
             this.mActions = new ArrayList<>();
             this.mFlags = 1;
             this.mPages = new ArrayList<>();
-            this.mContentIconGravity = GravityCompat.END;
+            this.mContentIconGravity = 8388613;
             this.mContentActionIndex = -1;
             this.mCustomSizePreset = 0;
             this.mGravity = 80;
             Bundle extras = NotificationCompat.getExtras(notification);
-            Bundle bundle = extras != null ? extras.getBundle("android.wearable.EXTENSIONS") : null;
+            Bundle bundle = extras != null ? extras.getBundle(EXTRA_WEARABLE_EXTENSIONS) : null;
             if (bundle != null) {
-                Action[] actionsFromParcelableArrayList = NotificationCompat.IMPL.getActionsFromParcelableArrayList(bundle.getParcelableArrayList("actions"));
+                Action[] actionsFromParcelableArrayList = NotificationCompat.IMPL.getActionsFromParcelableArrayList(bundle.getParcelableArrayList(KEY_ACTIONS));
                 if (actionsFromParcelableArrayList != null) {
                     Collections.addAll(this.mActions, actionsFromParcelableArrayList);
                 }
-                this.mFlags = bundle.getInt("flags", 1);
-                this.mDisplayIntent = (PendingIntent) bundle.getParcelable("displayIntent");
-                Notification[] notificationArrayFromBundle = NotificationCompat.getNotificationArrayFromBundle(bundle, "pages");
+                this.mFlags = bundle.getInt(KEY_FLAGS, 1);
+                this.mDisplayIntent = (PendingIntent) bundle.getParcelable(KEY_DISPLAY_INTENT);
+                Notification[] notificationArrayFromBundle = NotificationCompat.getNotificationArrayFromBundle(bundle, KEY_PAGES);
                 if (notificationArrayFromBundle != null) {
                     Collections.addAll(this.mPages, notificationArrayFromBundle);
                 }
-                this.mBackground = (Bitmap) bundle.getParcelable("background");
-                this.mContentIcon = bundle.getInt("contentIcon");
-                this.mContentIconGravity = bundle.getInt("contentIconGravity", GravityCompat.END);
-                this.mContentActionIndex = bundle.getInt("contentActionIndex", -1);
-                this.mCustomSizePreset = bundle.getInt("customSizePreset", 0);
-                this.mCustomContentHeight = bundle.getInt("customContentHeight");
-                this.mGravity = bundle.getInt("gravity", 80);
-                this.mHintScreenTimeout = bundle.getInt("hintScreenTimeout");
-                this.mDismissalId = bundle.getString("dismissalId");
-                this.mBridgeTag = bundle.getString("bridgeTag");
+                this.mBackground = (Bitmap) bundle.getParcelable(KEY_BACKGROUND);
+                this.mContentIcon = bundle.getInt(KEY_CONTENT_ICON);
+                this.mContentIconGravity = bundle.getInt(KEY_CONTENT_ICON_GRAVITY, 8388613);
+                this.mContentActionIndex = bundle.getInt(KEY_CONTENT_ACTION_INDEX, -1);
+                this.mCustomSizePreset = bundle.getInt(KEY_CUSTOM_SIZE_PRESET, 0);
+                this.mCustomContentHeight = bundle.getInt(KEY_CUSTOM_CONTENT_HEIGHT);
+                this.mGravity = bundle.getInt(KEY_GRAVITY, 80);
+                this.mHintScreenTimeout = bundle.getInt(KEY_HINT_SCREEN_TIMEOUT);
+                this.mDismissalId = bundle.getString(KEY_DISMISSAL_ID);
+                this.mBridgeTag = bundle.getString(KEY_BRIDGE_TAG);
             }
         }
 
@@ -1554,54 +1595,54 @@ public class NotificationCompat {
         public Builder extend(Builder builder) {
             Bundle bundle = new Bundle();
             if (!this.mActions.isEmpty()) {
-                bundle.putParcelableArrayList("actions", NotificationCompat.IMPL.getParcelableArrayListForActions((Action[]) this.mActions.toArray(new Action[this.mActions.size()])));
+                bundle.putParcelableArrayList(KEY_ACTIONS, NotificationCompat.IMPL.getParcelableArrayListForActions((Action[]) this.mActions.toArray(new Action[this.mActions.size()])));
             }
             if (this.mFlags != 1) {
-                bundle.putInt("flags", this.mFlags);
+                bundle.putInt(KEY_FLAGS, this.mFlags);
             }
             if (this.mDisplayIntent != null) {
-                bundle.putParcelable("displayIntent", this.mDisplayIntent);
+                bundle.putParcelable(KEY_DISPLAY_INTENT, this.mDisplayIntent);
             }
             if (!this.mPages.isEmpty()) {
-                bundle.putParcelableArray("pages", (Parcelable[]) this.mPages.toArray(new Notification[this.mPages.size()]));
+                bundle.putParcelableArray(KEY_PAGES, (Parcelable[]) this.mPages.toArray(new Notification[this.mPages.size()]));
             }
             if (this.mBackground != null) {
-                bundle.putParcelable("background", this.mBackground);
+                bundle.putParcelable(KEY_BACKGROUND, this.mBackground);
             }
             if (this.mContentIcon != 0) {
-                bundle.putInt("contentIcon", this.mContentIcon);
+                bundle.putInt(KEY_CONTENT_ICON, this.mContentIcon);
             }
             if (this.mContentIconGravity != 8388613) {
-                bundle.putInt("contentIconGravity", this.mContentIconGravity);
+                bundle.putInt(KEY_CONTENT_ICON_GRAVITY, this.mContentIconGravity);
             }
             if (this.mContentActionIndex != -1) {
-                bundle.putInt("contentActionIndex", this.mContentActionIndex);
+                bundle.putInt(KEY_CONTENT_ACTION_INDEX, this.mContentActionIndex);
             }
             if (this.mCustomSizePreset != 0) {
-                bundle.putInt("customSizePreset", this.mCustomSizePreset);
+                bundle.putInt(KEY_CUSTOM_SIZE_PRESET, this.mCustomSizePreset);
             }
             if (this.mCustomContentHeight != 0) {
-                bundle.putInt("customContentHeight", this.mCustomContentHeight);
+                bundle.putInt(KEY_CUSTOM_CONTENT_HEIGHT, this.mCustomContentHeight);
             }
             if (this.mGravity != 80) {
-                bundle.putInt("gravity", this.mGravity);
+                bundle.putInt(KEY_GRAVITY, this.mGravity);
             }
             if (this.mHintScreenTimeout != 0) {
-                bundle.putInt("hintScreenTimeout", this.mHintScreenTimeout);
+                bundle.putInt(KEY_HINT_SCREEN_TIMEOUT, this.mHintScreenTimeout);
             }
             if (this.mDismissalId != null) {
-                bundle.putString("dismissalId", this.mDismissalId);
+                bundle.putString(KEY_DISMISSAL_ID, this.mDismissalId);
             }
             if (this.mBridgeTag != null) {
-                bundle.putString("bridgeTag", this.mBridgeTag);
+                bundle.putString(KEY_BRIDGE_TAG, this.mBridgeTag);
             }
-            builder.getExtras().putBundle("android.wearable.EXTENSIONS", bundle);
+            builder.getExtras().putBundle(EXTRA_WEARABLE_EXTENSIONS, bundle);
             return builder;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
-        public WearableExtender m1clone() {
+        public WearableExtender m2clone() {
             WearableExtender wearableExtender = new WearableExtender();
             wearableExtender.mActions = new ArrayList<>(this.mActions);
             wearableExtender.mFlags = this.mFlags;
@@ -1831,6 +1872,11 @@ public class NotificationCompat {
 
     /* loaded from: classes2.dex */
     public static final class CarExtender implements Extender {
+        private static final String EXTRA_CAR_EXTENDER = "android.car.EXTENSIONS";
+        private static final String EXTRA_COLOR = "app_color";
+        private static final String EXTRA_CONVERSATION = "car_conversation";
+        private static final String EXTRA_LARGE_ICON = "large_icon";
+        private static final String TAG = "CarExtender";
         private int mColor;
         private Bitmap mLargeIcon;
         private UnreadConversation mUnreadConversation;
@@ -1842,11 +1888,11 @@ public class NotificationCompat {
         public CarExtender(Notification notification) {
             this.mColor = 0;
             if (Build.VERSION.SDK_INT >= 21) {
-                Bundle bundle = NotificationCompat.getExtras(notification) == null ? null : NotificationCompat.getExtras(notification).getBundle("android.car.EXTENSIONS");
+                Bundle bundle = NotificationCompat.getExtras(notification) == null ? null : NotificationCompat.getExtras(notification).getBundle(EXTRA_CAR_EXTENDER);
                 if (bundle != null) {
-                    this.mLargeIcon = (Bitmap) bundle.getParcelable("large_icon");
-                    this.mColor = bundle.getInt("app_color", 0);
-                    this.mUnreadConversation = (UnreadConversation) NotificationCompat.IMPL.getUnreadConversationFromBundle(bundle.getBundle("car_conversation"), UnreadConversation.FACTORY, RemoteInput.FACTORY);
+                    this.mLargeIcon = (Bitmap) bundle.getParcelable(EXTRA_LARGE_ICON);
+                    this.mColor = bundle.getInt(EXTRA_COLOR, 0);
+                    this.mUnreadConversation = (UnreadConversation) NotificationCompat.IMPL.getUnreadConversationFromBundle(bundle.getBundle(EXTRA_CONVERSATION), UnreadConversation.FACTORY, RemoteInput.FACTORY);
                 }
             }
         }
@@ -1856,24 +1902,25 @@ public class NotificationCompat {
             if (Build.VERSION.SDK_INT >= 21) {
                 Bundle bundle = new Bundle();
                 if (this.mLargeIcon != null) {
-                    bundle.putParcelable("large_icon", this.mLargeIcon);
+                    bundle.putParcelable(EXTRA_LARGE_ICON, this.mLargeIcon);
                 }
                 if (this.mColor != 0) {
-                    bundle.putInt("app_color", this.mColor);
+                    bundle.putInt(EXTRA_COLOR, this.mColor);
                 }
                 if (this.mUnreadConversation != null) {
-                    bundle.putBundle("car_conversation", NotificationCompat.IMPL.getBundleForUnreadConversation(this.mUnreadConversation));
+                    bundle.putBundle(EXTRA_CONVERSATION, NotificationCompat.IMPL.getBundleForUnreadConversation(this.mUnreadConversation));
                 }
-                builder.getExtras().putBundle("android.car.EXTENSIONS", bundle);
+                builder.getExtras().putBundle(EXTRA_CAR_EXTENDER, bundle);
             }
             return builder;
         }
 
-        public CarExtender setColor(int i) {
+        public CarExtender setColor(@ColorInt int i) {
             this.mColor = i;
             return this;
         }
 
+        @ColorInt
         public int getColor() {
             return this.mColor;
         }
@@ -1947,6 +1994,7 @@ public class NotificationCompat {
                 return this.mParticipants;
             }
 
+            @Override // android.support.v4.app.NotificationCompatBase.UnreadConversation
             public String getParticipant() {
                 if (this.mParticipants.length > 0) {
                     return this.mParticipants[0];

@@ -1,6 +1,5 @@
 package com.baidu.tieba.imageProblem.data;
 
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.a;
@@ -11,59 +10,59 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CDNLogSyncData {
-    private boolean aLA;
-    private int aLB;
-    private int aLC;
-    private int aLD = 25;
-    private int aLE = 25;
-    private int aLF = 10;
+    private boolean WV;
+    private int WW;
+    private int WX;
+    private int WY = 25;
+    private int WZ = 25;
+    private int Xa = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.aLD;
+        return this.WY;
     }
 
     public void setSuccRank(int i) {
-        this.aLD = i;
+        this.WY = i;
     }
 
     public int getErrRank() {
-        return this.aLE;
+        return this.WZ;
     }
 
     public void setErrRank(int i) {
-        this.aLE = i;
+        this.WZ = i;
     }
 
     public int getSlowRank() {
-        return this.aLF;
+        return this.Xa;
     }
 
     public void setSlowRank(int i) {
-        this.aLF = i;
+        this.Xa = i;
     }
 
     public boolean ismSwitch() {
-        return this.aLA;
+        return this.WV;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.aLA != z) {
-            a nn = s.nn();
-            nn.append(SocialConstants.PARAM_ACT, "fallback");
-            nn.append("result", z ? "1" : "0");
-            nn.append("type", "switch");
-            BdStatisticsManager.getInstance().debug("img", nn);
+        if (this.WV != z) {
+            a fq = s.fq();
+            fq.append(SocialConstants.PARAM_ACT, "fallback");
+            fq.append("result", z ? "1" : "0");
+            fq.append("type", "switch");
+            BdStatisticsManager.getInstance().debug("img", fq);
         }
-        this.aLA = z;
+        this.WV = z;
     }
 
     public int getSlowNumber() {
-        return this.aLB;
+        return this.WW;
     }
 
     public void setSlowNumber(int i) {
-        this.aLB = i;
+        this.WW = i;
     }
 
     public int getTime() {
@@ -75,11 +74,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.aLC;
+        return this.WX;
     }
 
     public void setErrNumber(int i) {
-        this.aLC = i;
+        this.WX = i;
     }
 
     public void parseJson(String str) {
@@ -88,7 +87,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.aLA = false;
+            this.WV = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -97,30 +96,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.aLA = true;
+                    this.WV = true;
                 } else {
-                    this.aLA = false;
+                    this.WV = false;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
+                JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.aLC = optJSONObject.optInt("num");
+                    this.WX = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.aLB = optJSONObject2.optInt("num");
+                    this.WW = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.aLD = optJSONObject3.optInt("succ");
-                    this.aLE = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.aLF = optJSONObject3.optInt("slow");
+                    this.WY = optJSONObject3.optInt("succ");
+                    this.WZ = optJSONObject3.optInt("err");
+                    this.Xa = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.aLB <= 0 || this.aLC <= 0) {
-                    this.aLA = false;
+                if (this.time <= 0 || this.WW <= 0 || this.WX <= 0) {
+                    this.WV = false;
                 }
             } catch (Exception e) {
-                this.aLA = false;
+                this.WV = false;
                 BdLog.e(e.getMessage());
             }
         }

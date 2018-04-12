@@ -36,35 +36,38 @@ class MediaControllerCompatApi21 {
         void onSessionEvent(String str, Bundle bundle);
     }
 
-    public static Object a(Context context, Object obj) {
+    MediaControllerCompatApi21() {
+    }
+
+    public static Object fromToken(Context context, Object obj) {
         return new MediaController(context, (MediaSession.Token) obj);
     }
 
-    public static Object a(Callback callback) {
-        return new a(callback);
+    public static Object createCallback(Callback callback) {
+        return new CallbackProxy(callback);
     }
 
-    public static void a(Object obj, Object obj2, Handler handler) {
+    public static void registerCallback(Object obj, Object obj2, Handler handler) {
         ((MediaController) obj).registerCallback((MediaController.Callback) obj2, handler);
     }
 
-    public static void f(Object obj, Object obj2) {
+    public static void unregisterCallback(Object obj, Object obj2) {
         ((MediaController) obj).unregisterCallback((MediaController.Callback) obj2);
     }
 
-    public static Object G(Object obj) {
+    public static Object getTransportControls(Object obj) {
         return ((MediaController) obj).getTransportControls();
     }
 
-    public static Object H(Object obj) {
+    public static Object getPlaybackState(Object obj) {
         return ((MediaController) obj).getPlaybackState();
     }
 
-    public static Object I(Object obj) {
+    public static Object getMetadata(Object obj) {
         return ((MediaController) obj).getMetadata();
     }
 
-    public static List<Object> J(Object obj) {
+    public static List<Object> getQueue(Object obj) {
         List<MediaSession.QueueItem> queue = ((MediaController) obj).getQueue();
         if (queue == null) {
             return null;
@@ -72,7 +75,7 @@ class MediaControllerCompatApi21 {
         return new ArrayList(queue);
     }
 
-    public static CharSequence K(Object obj) {
+    public static CharSequence getQueueTitle(Object obj) {
         return ((MediaController) obj).getQueueTitle();
     }
 
@@ -80,39 +83,39 @@ class MediaControllerCompatApi21 {
         return ((MediaController) obj).getExtras();
     }
 
-    public static int L(Object obj) {
+    public static int getRatingType(Object obj) {
         return ((MediaController) obj).getRatingType();
     }
 
-    public static long M(Object obj) {
+    public static long getFlags(Object obj) {
         return ((MediaController) obj).getFlags();
     }
 
-    public static Object N(Object obj) {
+    public static Object getPlaybackInfo(Object obj) {
         return ((MediaController) obj).getPlaybackInfo();
     }
 
-    public static PendingIntent O(Object obj) {
+    public static PendingIntent getSessionActivity(Object obj) {
         return ((MediaController) obj).getSessionActivity();
     }
 
-    public static boolean a(Object obj, KeyEvent keyEvent) {
+    public static boolean dispatchMediaButtonEvent(Object obj, KeyEvent keyEvent) {
         return ((MediaController) obj).dispatchMediaButtonEvent(keyEvent);
     }
 
-    public static void a(Object obj, int i, int i2) {
+    public static void setVolumeTo(Object obj, int i, int i2) {
         ((MediaController) obj).setVolumeTo(i, i2);
     }
 
-    public static void b(Object obj, int i, int i2) {
+    public static void adjustVolume(Object obj, int i, int i2) {
         ((MediaController) obj).adjustVolume(i, i2);
     }
 
-    public static void a(Object obj, String str, Bundle bundle, ResultReceiver resultReceiver) {
+    public static void sendCommand(Object obj, String str, Bundle bundle, ResultReceiver resultReceiver) {
         ((MediaController) obj).sendCommand(str, bundle, resultReceiver);
     }
 
-    public static String P(Object obj) {
+    public static String getPackageName(Object obj) {
         return ((MediaController) obj).getPackageName();
     }
 
@@ -173,6 +176,10 @@ class MediaControllerCompatApi21 {
 
     /* loaded from: classes2.dex */
     public static class PlaybackInfo {
+        private static final int FLAG_SCO = 4;
+        private static final int STREAM_BLUETOOTH_SCO = 6;
+        private static final int STREAM_SYSTEM_ENFORCED = 7;
+
         public static int getPlaybackType(Object obj) {
             return ((MediaController.PlaybackInfo) obj).getPlaybackType();
         }
@@ -182,7 +189,7 @@ class MediaControllerCompatApi21 {
         }
 
         public static int getLegacyAudioStream(Object obj) {
-            return a(getAudioAttributes(obj));
+            return toLegacyStreamType(getAudioAttributes(obj));
         }
 
         public static int getVolumeControl(Object obj) {
@@ -197,7 +204,7 @@ class MediaControllerCompatApi21 {
             return ((MediaController.PlaybackInfo) obj).getCurrentVolume();
         }
 
-        private static int a(AudioAttributes audioAttributes) {
+        private static int toLegacyStreamType(AudioAttributes audioAttributes) {
             if ((audioAttributes.getFlags() & 1) == 1) {
                 return 7;
             }
@@ -232,51 +239,51 @@ class MediaControllerCompatApi21 {
     }
 
     /* loaded from: classes2.dex */
-    static class a<T extends Callback> extends MediaController.Callback {
-        protected final T zk;
+    static class CallbackProxy<T extends Callback> extends MediaController.Callback {
+        protected final T mCallback;
 
-        public a(T t) {
-            this.zk = t;
+        public CallbackProxy(T t) {
+            this.mCallback = t;
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onSessionDestroyed() {
-            this.zk.onSessionDestroyed();
+            this.mCallback.onSessionDestroyed();
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onSessionEvent(String str, Bundle bundle) {
-            this.zk.onSessionEvent(str, bundle);
+            this.mCallback.onSessionEvent(str, bundle);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onPlaybackStateChanged(PlaybackState playbackState) {
-            this.zk.onPlaybackStateChanged(playbackState);
+            this.mCallback.onPlaybackStateChanged(playbackState);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onMetadataChanged(MediaMetadata mediaMetadata) {
-            this.zk.onMetadataChanged(mediaMetadata);
+            this.mCallback.onMetadataChanged(mediaMetadata);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onQueueChanged(List<MediaSession.QueueItem> list) {
-            this.zk.onQueueChanged(list);
+            this.mCallback.onQueueChanged(list);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onQueueTitleChanged(CharSequence charSequence) {
-            this.zk.onQueueTitleChanged(charSequence);
+            this.mCallback.onQueueTitleChanged(charSequence);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onExtrasChanged(Bundle bundle) {
-            this.zk.onExtrasChanged(bundle);
+            this.mCallback.onExtrasChanged(bundle);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onAudioInfoChanged(MediaController.PlaybackInfo playbackInfo) {
-            this.zk.onAudioInfoChanged(playbackInfo.getPlaybackType(), PlaybackInfo.getLegacyAudioStream(playbackInfo), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume());
+            this.mCallback.onAudioInfoChanged(playbackInfo.getPlaybackType(), PlaybackInfo.getLegacyAudioStream(playbackInfo), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume());
         }
     }
 }

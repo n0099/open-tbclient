@@ -5,7 +5,7 @@ import android.support.v4.view.ActionProvider;
 import android.support.v4.view.MenuItemCompat;
 import android.view.MenuItem;
 import android.view.View;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public interface SupportMenuItem extends MenuItem {
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
@@ -32,7 +32,7 @@ public interface SupportMenuItem extends MenuItem {
     MenuItem setActionView(int i);
 
     @Override // android.view.MenuItem
-    MenuItem setActionView(View view);
+    MenuItem setActionView(View view2);
 
     @Override // android.view.MenuItem
     void setShowAsAction(int i);

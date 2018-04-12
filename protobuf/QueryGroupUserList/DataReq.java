@@ -4,15 +4,15 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes3.dex */
 public final class DataReq extends Message {
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer offset;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
     public final Integer orderType;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer rn;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_OFFSET = 0;
     public static final Integer DEFAULT_RN = 0;
     public static final Integer DEFAULT_ORDERTYPE = 0;
@@ -51,7 +51,7 @@ public final class DataReq extends Message {
 
     /* loaded from: classes3.dex */
     public static final class Builder extends Message.Builder<DataReq> {
-        public Integer groupId;
+        public Long groupId;
         public Integer offset;
         public Integer orderType;
         public Integer rn;

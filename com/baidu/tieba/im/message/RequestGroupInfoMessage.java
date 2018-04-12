@@ -66,13 +66,14 @@ public class RequestGroupInfoMessage extends TbSocketMessage {
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
+        long groupId = getGroupId();
         DataReq.Builder builder = new DataReq.Builder();
         builder.bigHeight = Integer.valueOf(getBigHeight());
         builder.bigWidth = Integer.valueOf(getBigWidth());
         builder.smallHeight = Integer.valueOf(getSmallHeight());
         builder.smallWidth = Integer.valueOf(getSmallWidth());
         builder.from = getFrom();
-        builder.groupId = Integer.valueOf((int) getGroupId());
+        builder.groupId = Long.valueOf(groupId);
         QueryGroupDetailReqIdl.Builder builder2 = new QueryGroupDetailReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

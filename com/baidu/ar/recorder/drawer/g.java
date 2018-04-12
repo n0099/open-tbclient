@@ -1,6 +1,8 @@
 package com.baidu.ar.recorder.drawer;
 
+import android.support.annotation.RequiresApi;
 import android.view.Surface;
+@RequiresApi(api = 18)
 /* loaded from: classes3.dex */
 public class g extends com.baidu.ar.recorder.c.c {
     private Surface c;

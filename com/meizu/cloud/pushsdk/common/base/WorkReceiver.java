@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.common.base;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class WorkReceiver extends BroadcastReceiver {
     public abstract void onHandleIntent(Context context, Intent intent);
 

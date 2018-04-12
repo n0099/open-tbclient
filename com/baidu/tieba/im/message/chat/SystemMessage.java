@@ -15,10 +15,10 @@ public class SystemMessage extends CommonGroupChatMessage {
     @Override // com.baidu.tieba.im.message.chat.CommonGroupChatMessage, com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         try {
-            int intValue = Integer.valueOf(getGroupId()).intValue();
+            long longValue = Long.valueOf(getGroupId()).longValue();
             DataReq.Builder builder = new DataReq.Builder();
             builder.content = getContent();
-            builder.groupId = Integer.valueOf(intValue);
+            builder.groupId = Long.valueOf(longValue);
             builder.msgType = Integer.valueOf(getMsgType());
             builder.recordId = Long.valueOf(getRecordId());
             CommitGroupMsgReqIdl.Builder builder2 = new CommitGroupMsgReqIdl.Builder();

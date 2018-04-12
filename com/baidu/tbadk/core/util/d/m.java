@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.d;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class m extends a {
     private int procType;
@@ -27,35 +27,35 @@ public class m extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean DJ() {
+    public boolean wv() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean DK() {
+    public boolean ww() {
         return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: g */
-    public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
+    public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a gP = com.baidu.tbadk.imageManager.c.Mx().gP(str3);
-        if (gP == null) {
-            Bitmap fO = aj.fO(com.baidu.adp.lib.g.b.h(str2, 0));
-            if (fO == null) {
+        com.baidu.adp.widget.ImageView.a gG = com.baidu.tbadk.imageManager.c.Fa().gG(str3);
+        if (gG == null) {
+            Bitmap cO = ak.cO(com.baidu.adp.lib.g.b.g(str2, 0));
+            if (cO == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(fO, false, str2);
-            com.baidu.tbadk.imageManager.c.Mx().c(str3, aVar);
+            com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(cO, false, str2);
+            com.baidu.tbadk.imageManager.c.Fa().c(str3, aVar);
             return aVar;
         }
-        return gP;
+        return gG;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int DL() {
+    public int wx() {
         return this.procType;
     }
 }

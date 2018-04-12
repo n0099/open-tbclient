@@ -2,7 +2,7 @@ package com.xiaomi.smack;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l extends Exception {
     private com.xiaomi.smack.packet.g a;
     private com.xiaomi.smack.packet.h b;

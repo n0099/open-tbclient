@@ -9,24 +9,25 @@ import android.webkit.WebView;
 import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.l;
 import java.lang.reflect.Field;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CustomScrollView extends ScrollView {
-    private int hAN;
-    private int hAO;
-    protected Field hAP;
-    private a hAQ;
+    private int gXi;
+    private int gXj;
+    protected Field gXk;
+    private a gXl;
     private GestureDetector mGestureDetector;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
     public CustomScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hAN = 0;
-        this.hAO = 0;
+        this.gXi = 0;
+        this.gXj = 0;
         this.mGestureDetector = new GestureDetector(context, new b());
         setFadingEdgeLength(0);
     }
@@ -40,10 +41,10 @@ public class CustomScrollView extends ScrollView {
     }
 
     public void setOnScrollListener(a aVar) {
-        this.hAQ = aVar;
+        this.gXl = aVar;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     class b extends GestureDetector.SimpleOnGestureListener {
         b() {
         }
@@ -56,16 +57,16 @@ public class CustomScrollView extends ScrollView {
 
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
-        if (this.hAQ != null) {
-            this.hAQ.onScrollChanged(i, i2, i3, i4);
+        if (this.gXl != null) {
+            this.gXl.onScrollChanged(i, i2, i3, i4);
         }
-        boolean z = this.hAN - this.hAO == i2;
+        boolean z = this.gXi - this.gXj == i2;
         if (i2 == 0 || z) {
             try {
-                if (this.hAP == null) {
-                    this.hAP = com.baidu.adp.lib.util.l.h(this, "mScroller");
+                if (this.gXk == null) {
+                    this.gXk = l.d(this, "mScroller");
                 }
-                Object obj = this.hAP.get(this);
+                Object obj = this.gXk.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 } else {
@@ -80,10 +81,10 @@ public class CustomScrollView extends ScrollView {
 
     private void stopAnim() {
         try {
-            if (this.hAP == null) {
-                this.hAP = com.baidu.adp.lib.util.l.h(this, "mScroller");
+            if (this.gXk == null) {
+                this.gXk = l.d(this, "mScroller");
             }
-            Object obj = this.hAP.get(this);
+            Object obj = this.gXk.get(this);
             if (obj != null) {
                 obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
             }
@@ -94,22 +95,22 @@ public class CustomScrollView extends ScrollView {
 
     @Override // android.widget.ScrollView, android.view.View
     protected int computeVerticalScrollRange() {
-        this.hAN = super.computeVerticalScrollRange();
-        return this.hAN;
+        this.gXi = super.computeVerticalScrollRange();
+        return this.gXi;
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            this.hAO = i4 - i2;
+            this.gXj = i4 - i2;
         }
     }
 
     @Override // android.widget.ScrollView, android.view.ViewGroup, android.view.ViewParent
-    public void requestChildFocus(View view, View view2) {
-        if (view2 == null || !(view2 instanceof WebView)) {
-            super.requestChildFocus(view, view2);
+    public void requestChildFocus(View view2, View view3) {
+        if (view3 == null || !(view3 instanceof WebView)) {
+            super.requestChildFocus(view2, view3);
         }
     }
 }

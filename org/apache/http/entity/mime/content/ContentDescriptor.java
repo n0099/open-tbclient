@@ -1,5 +1,5 @@
 package org.apache.http.entity.mime.content;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface ContentDescriptor {
     String getCharset();
 

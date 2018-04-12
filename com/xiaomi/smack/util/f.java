@@ -1,7 +1,7 @@
 package com.xiaomi.smack.util;
 
 import com.xiaomi.channel.commonutils.misc.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 final class f extends h.b {
     final /* synthetic */ Runnable a;
 

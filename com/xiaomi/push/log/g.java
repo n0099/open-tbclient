@@ -4,7 +4,7 @@ import android.util.Log;
 import com.xiaomi.channel.commonutils.misc.h;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends h.b {
     final /* synthetic */ f a;
 

@@ -1,54 +1,54 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
-    private String bhY;
-    private long bhZ;
-    private long bia;
-    private long bib;
-    private String bic;
-    private String bie;
+    private String atD;
+    private long atE;
+    private long atF;
+    private long atG;
+    private String atH;
+    private String atI;
 
     public void parseJson(String str) {
-        if (!am.isEmpty(str)) {
+        if (!an.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.bhY = jSONObject.optString("splash_video_url");
-                this.bhZ = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.bia = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.bib = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.bic = jSONObject.optString("splash_video_h5_url");
-                this.bie = jSONObject.optString("splash_video_h5_text");
+                this.atD = jSONObject.optString("splash_video_url");
+                this.atE = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.atF = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.atG = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.atH = jSONObject.optString("splash_video_h5_url");
+                this.atI = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String Ga() {
-        return this.bhY;
+    public String yN() {
+        return this.atD;
     }
 
-    public long Gb() {
-        return this.bhZ;
+    public long yO() {
+        return this.atE;
     }
 
-    public long Gc() {
-        return this.bia;
+    public long yP() {
+        return this.atF;
     }
 
-    public long Gd() {
-        return this.bib;
+    public long yQ() {
+        return this.atG;
     }
 
-    public String Ge() {
-        return this.bic;
+    public String yR() {
+        return this.atH;
     }
 
-    public String Gf() {
-        return this.bie;
+    public String yS() {
+        return this.atI;
     }
 }

@@ -6,37 +6,37 @@ import com.baidu.tbadk.core.dialog.a;
 public interface a {
     void a(a.b bVar);
 
-    View aGR();
+    View aBR();
 
-    View aHE();
+    View aCD();
 
-    boolean aHu();
+    boolean aCu();
 
-    String aMe();
+    String aHe();
 
-    View aMf();
+    View aHf();
 
-    void aMg();
+    void aHg();
 
-    int aMh();
+    int aHh();
 
-    boolean aMi();
+    boolean aHi();
 
     void b(a.b bVar);
 
     void clearText();
 
-    int getGroupId();
+    long getGroupId();
 
     String getText();
 
-    void nO(String str);
+    void nS(String str);
 
     void onChangeSkinType(int i);
 
     void release();
 
-    void setGroupId(int i);
+    void setGroupId(long j);
 
     void setIsLoading(boolean z);
 

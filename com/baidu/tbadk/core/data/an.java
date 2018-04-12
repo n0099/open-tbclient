@@ -1,25 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.PbPage.NewsInfo;
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class an {
-    public String aNq;
-    public int aNr;
-    public String aNs;
-    public String buttonText;
-    public int position = 0;
-    public String subtitle;
-    public String summary;
+    private int YP;
+    private ArrayList<a> YQ;
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.aNq = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-            this.aNr = newsInfo.news_type.intValue();
-            this.aNs = newsInfo.news_icon;
-            this.subtitle = newsInfo.subtitle;
-            this.buttonText = newsInfo.button_text;
+    /* loaded from: classes.dex */
+    public static class a {
+        public int giftId;
+        public String giftName;
+        public int num;
+        public String thumbnailUrl;
+    }
+
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.YP = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.YQ = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.giftName = pbPresentList.gift_name;
+                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.YQ.add(aVar);
+                    }
+                }
+            }
         }
+    }
+
+    public int re() {
+        return this.YP;
+    }
+
+    public void bK(int i) {
+        this.YP = i;
+    }
+
+    public ArrayList<a> rf() {
+        return this.YQ;
+    }
+
+    public void g(ArrayList<a> arrayList) {
+        this.YQ = arrayList;
     }
 }

@@ -99,9 +99,9 @@ public class AccessibilityRecordCompat {
 
         void setScrollable(Object obj, boolean z);
 
-        void setSource(Object obj, View view);
+        void setSource(Object obj, View view2);
 
-        void setSource(Object obj, View view, int i);
+        void setSource(Object obj, View view2, int i);
 
         void setToIndex(Object obj, int i);
     }
@@ -308,11 +308,11 @@ public class AccessibilityRecordCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setSource(Object obj, View view) {
+        public void setSource(Object obj, View view2) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setSource(Object obj, View view, int i) {
+        public void setSource(Object obj, View view2, int i) {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
@@ -521,8 +521,8 @@ public class AccessibilityRecordCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setSource(Object obj, View view) {
-            AccessibilityRecordCompatIcs.setSource(obj, view);
+        public void setSource(Object obj, View view2) {
+            AccessibilityRecordCompatIcs.setSource(obj, view2);
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
@@ -563,8 +563,8 @@ public class AccessibilityRecordCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setSource(Object obj, View view, int i) {
-            AccessibilityRecordCompatJellyBean.setSource(obj, view, i);
+        public void setSource(Object obj, View view2, int i) {
+            AccessibilityRecordCompatJellyBean.setSource(obj, view2, i);
         }
     }
 
@@ -598,12 +598,12 @@ public class AccessibilityRecordCompat {
         return new AccessibilityRecordCompat(IMPL.obtain());
     }
 
-    public void setSource(View view) {
-        IMPL.setSource(this.mRecord, view);
+    public void setSource(View view2) {
+        IMPL.setSource(this.mRecord, view2);
     }
 
-    public void setSource(View view, int i) {
-        IMPL.setSource(this.mRecord, view, i);
+    public void setSource(View view2, int i) {
+        IMPL.setSource(this.mRecord, view2, i);
     }
 
     public AccessibilityNodeInfoCompat getSource() {

@@ -49,7 +49,7 @@ public class RequestMembersMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.groupId = Integer.valueOf((int) getGroupId());
+        builder.groupId = Long.valueOf(getGroupId());
         builder.offset = Integer.valueOf(getOffset());
         builder.orderType = Integer.valueOf(getOrderType());
         builder.rn = Integer.valueOf(getRn());

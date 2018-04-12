@@ -3,7 +3,7 @@ package com.xiaomi.channel.commonutils.android;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class h {
     public static void a(Context context) {
     }

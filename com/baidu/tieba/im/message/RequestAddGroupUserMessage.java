@@ -6,7 +6,7 @@ import protobuf.AddGroupUsers.DataReq;
 /* loaded from: classes3.dex */
 public class RequestAddGroupUserMessage extends TbSocketMessage {
     private int decision;
-    private int groupId;
+    private long groupId;
     private long inviterUserId;
     private int joinType;
     private String notice_id;
@@ -34,12 +34,12 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
         this.joinType = i;
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public String getUserIds() {
@@ -86,12 +86,12 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
         builder.decision = Integer.valueOf(getDecision());
-        builder.groupId = Integer.valueOf(getGroupId());
+        builder.groupId = Long.valueOf(getGroupId());
         builder.inviteUserId = Long.valueOf(getInviterUserId());
         builder.joinType = Integer.valueOf(getJoinType());
         builder.sysGroupId = Integer.valueOf(getSysGroupId());
         builder.userIds = getUserIds();
-        builder.groupId = Integer.valueOf(getGroupId());
+        builder.groupId = Long.valueOf(getGroupId());
         AddGroupUsersReqIdl.Builder builder2 = new AddGroupUsersReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

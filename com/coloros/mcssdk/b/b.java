@@ -1,7 +1,7 @@
 package com.coloros.mcssdk.b;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b implements c {
     @Override // com.coloros.mcssdk.b.c
     public final void a(Context context, com.coloros.mcssdk.e.c cVar, com.coloros.mcssdk.d.a aVar) {

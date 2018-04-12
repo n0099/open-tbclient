@@ -11,18 +11,18 @@ public class RequestCreateGroupActivityMessage extends TbSocketMessage {
     private String gActivityContent;
     private long gActivityTime;
     private String gActivityTitle;
-    private int groupId;
+    private long groupId;
 
     public RequestCreateGroupActivityMessage() {
         super(103120);
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public int getActivityId() {
@@ -82,7 +82,7 @@ public class RequestCreateGroupActivityMessage extends TbSocketMessage {
         builder.gActivityContent = getgActivityContent();
         builder.gActivityTime = Long.valueOf(getgActivityTime());
         builder.gActivityTitle = getgActivityTitle();
-        builder.groupId = Integer.valueOf(getGroupId());
+        builder.groupId = Long.valueOf(getGroupId());
         AddGroupActivityReqIdl.Builder builder2 = new AddGroupActivityReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

@@ -5,7 +5,7 @@ import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.squareup.wire.Wire;
 import protobuf.AddGroup.AddGroupResIdl;
 import protobuf.GroupInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponseAddGroupMessage extends SocketResponsedMessage {
     private AddGroupInfoData groupInfo;
 
@@ -26,7 +26,7 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
         if (getError() == 0) {
             AddGroupInfoData addGroupInfoData = new AddGroupInfoData();
             GroupInfo groupInfo = addGroupResIdl.data.group;
-            addGroupInfoData.setGroupId(groupInfo.groupId.intValue());
+            addGroupInfoData.setGroupId(groupInfo.groupId.longValue());
             addGroupInfoData.setForumId(groupInfo.forumId.intValue());
             addGroupInfoData.setName(groupInfo.name);
             addGroupInfoData.setIntro(groupInfo.intro);

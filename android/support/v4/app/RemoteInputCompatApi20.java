@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v4.app.RemoteInputCompatBase;
 /* loaded from: classes2.dex */
 class RemoteInputCompatApi20 {
+    RemoteInputCompatApi20() {
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public static RemoteInputCompatBase.RemoteInput[] toCompat(android.app.RemoteInput[] remoteInputArr, RemoteInputCompatBase.RemoteInput.Factory factory) {
         if (remoteInputArr == null) {

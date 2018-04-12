@@ -3,13 +3,10 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.widget.ListView.i;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ab;
-import com.baidu.tbadk.core.data.ar;
+import com.baidu.tbadk.core.data.ac;
 import com.baidu.tbadk.core.data.bd;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -21,14 +18,14 @@ import tbclient.User;
 /* loaded from: classes2.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     private BannerListData bannerListData;
-    private ArrayList<i> threadList;
+    private ArrayList<h> threadList;
     private HashMap<String, MetaData> userMap;
 
     public LoadMoreResponseSocketMessage() {
         super(301002);
     }
 
-    public ArrayList<i> getThreadList() {
+    public ArrayList<h> getThreadList() {
         return this.threadList;
     }
 
@@ -52,7 +49,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.d.a.boS().rV(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.d.a.bjZ().sc(threadListResIdl.data.asp_shown_info);
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
@@ -60,18 +57,12 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     bd bdVar = new bd();
                     bdVar.setUserMap(this.userMap);
                     bdVar.a(list2.get(i3));
-                    bdVar.eW(3);
-                    bdVar.zW();
-                    if (bdVar.getThreadType() == 33) {
-                        ar arVar = new ar();
-                        arVar.a(bdVar, 0);
-                        if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.threadList.add(arVar);
-                        }
-                    } else if (!TextUtils.isEmpty(bdVar.Af())) {
-                        ab abVar = new ab();
-                        abVar.cU(bdVar.Af());
-                        this.threadList.add(abVar);
+                    bdVar.bV(3);
+                    bdVar.sx();
+                    if (!TextUtils.isEmpty(bdVar.sH())) {
+                        ac acVar = new ac();
+                        acVar.cI(bdVar.sH());
+                        this.threadList.add(acVar);
                     } else {
                         this.threadList.add(bdVar);
                     }

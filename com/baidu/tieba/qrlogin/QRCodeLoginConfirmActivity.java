@@ -12,50 +12,50 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.QRCodeLoginConfirmActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnClickListener, b {
-    private View bCs;
-    private LinearLayout cna;
-    private View dHD;
-    private TextView gAA;
-    private TextView gAB;
-    private TextView gAC;
-    private a gAD;
+    private View aMS;
+    private LinearLayout bxk;
+    private View dax;
+    private TextView fVn;
+    private TextView fVo;
+    private TextView fVp;
+    private a fVq;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.layout_qr_code_confirm_activity);
+        setContentView(d.i.layout_qr_code_confirm_activity);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(getString(d.j.login_confirm));
-        this.bCs = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bCs.setOnClickListener(this);
-        this.gAA = (TextView) findViewById(d.g.qrlogin_login_info);
-        this.gAB = (TextView) findViewById(d.g.qrlogin_confirm_btn);
-        this.gAC = (TextView) findViewById(d.g.qrlogin_cancel_btn);
-        this.dHD = findViewById(d.g.qrlogin_tip_view);
-        this.gAB.setOnClickListener(this);
-        this.gAC.setOnClickListener(this);
-        this.cna = (LinearLayout) findViewById(d.g.qrlogin_content_layout);
-        this.cna.setVisibility(8);
+        this.mNavigationBar.setCenterTextTitle(getString(d.k.login_confirm));
+        this.aMS = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aMS.setOnClickListener(this);
+        this.fVn = (TextView) findViewById(d.g.qrlogin_login_info);
+        this.fVo = (TextView) findViewById(d.g.qrlogin_confirm_btn);
+        this.fVp = (TextView) findViewById(d.g.qrlogin_cancel_btn);
+        this.dax = findViewById(d.g.qrlogin_tip_view);
+        this.fVo.setOnClickListener(this);
+        this.fVp.setOnClickListener(this);
+        this.bxk = (LinearLayout) findViewById(d.g.qrlogin_content_layout);
+        this.bxk.setVisibility(8);
         String str = null;
         if (getIntent() != null) {
             str = getIntent().getStringExtra(QRCodeLoginConfirmActivityConfig.QRCODE_RESULT);
         }
         if (StringUtils.isNull(str)) {
-            UtilHelper.showToast(this, d.j.error);
+            UtilHelper.showToast(this, d.k.error);
             finish();
             return;
         }
-        this.gAD = new a(this, this);
-        this.gAD.start(str);
+        this.fVq = new a(this, this);
+        this.fVq.start(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -63,29 +63,29 @@ public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnC
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        aj.r(this.gAB, d.C0141d.cp_cont_i);
-        aj.s(this.gAB, d.f.selector_qr_login_confirm_btn);
-        aj.r(this.gAC, d.C0141d.selector_qr_login_cancel_tv);
-        aj.s(this.gAC, d.f.selector_qr_login_cancel_btn);
-        aj.s(this.dHD, d.f.pc_scan_login_confirm);
-        aj.r(this.gAA, d.C0141d.cp_cont_b);
+        ak.h(this.fVo, d.C0126d.cp_cont_i);
+        ak.i(this.fVo, d.f.selector_qr_login_confirm_btn);
+        ak.h(this.fVp, d.C0126d.selector_qr_login_cancel_tv);
+        ak.i(this.fVp, d.f.selector_qr_login_cancel_btn);
+        ak.i(this.dax, d.f.pc_scan_login_confirm);
+        ak.h(this.fVn, d.C0126d.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.qrlogin.b
-    public void bnC() {
-        this.cna.setVisibility(0);
-        bnD();
+    public void biI() {
+        this.bxk.setVisibility(0);
+        biJ();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.gAC) {
-            TiebaStatic.log(new ak("c12709"));
-            this.gAD.bnF();
-        } else if (view == this.gAB) {
-            TiebaStatic.log(new ak("c12710"));
-            this.gAD.bnE();
-        } else if (view == this.bCs) {
+    public void onClick(View view2) {
+        if (view2 == this.fVp) {
+            TiebaStatic.log(new al("c12709"));
+            this.fVq.biL();
+        } else if (view2 == this.fVo) {
+            TiebaStatic.log(new al("c12710"));
+            this.fVq.biK();
+        } else if (view2 == this.aMS) {
             finish();
         }
     }
@@ -94,17 +94,17 @@ public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnC
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        TiebaStatic.log(new ak("c12708"));
-        this.gAD.onDestory();
+        TiebaStatic.log(new al("c12708"));
+        this.fVq.onDestory();
     }
 
-    private void bnD() {
+    private void biJ() {
         String accountNameShow;
         if (TbadkCoreApplication.getCurrentAccountInfo() != null && (accountNameShow = TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow()) != null) {
-            String e = am.e(accountNameShow, 30, "...");
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.format(getString(d.j.about_to_login_with_name), e));
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0141d.cp_link_tip_a)), 4, e.length() + 4, 33);
-            this.gAA.setText(spannableStringBuilder);
+            String e = an.e(accountNameShow, 30, "...");
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.format(getString(d.k.about_to_login_with_name), e));
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(ak.getColor(d.C0126d.cp_link_tip_a)), 4, e.length() + 4, 33);
+            this.fVn.setText(spannableStringBuilder);
         }
     }
 }

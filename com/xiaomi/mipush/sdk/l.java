@@ -3,7 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class l implements Runnable {
     @Override // java.lang.Runnable
     public void run() {

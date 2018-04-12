@@ -6,10 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.NotificationService;
-import com.meizu.cloud.pushsdk.common.b.h;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
@@ -18,7 +16,7 @@ import com.meizu.cloud.pushsdk.notification.model.styleenum.BaseStyleModel;
 import com.meizu.cloud.pushsdk.notification.model.styleenum.InnerStyleLayout;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends a<MessageV3> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -109,13 +107,13 @@ public class c extends a<MessageV3> {
             return 0;
         }
         if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getEndShowTime()).longValue()) {
-            com.meizu.cloud.pushsdk.util.d.a(c(), "schedule notification expire", (int) PushConstants.EXPIRE_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification expire", (int) PushConstants.EXPIRE_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
             return 1;
         } else if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getStartShowTime()).longValue()) {
-            com.meizu.cloud.pushsdk.util.d.a(c(), "schedule notification on time", (int) PushConstants.ONTIME_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification on time", (int) PushConstants.ONTIME_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
             return 2;
         } else {
-            com.meizu.cloud.pushsdk.util.d.a(c(), "schedule notification delay", (int) PushConstants.DELAY_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification delay", (int) PushConstants.DELAY_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
             return 3;
         }
     }
@@ -126,7 +124,7 @@ public class c extends a<MessageV3> {
     public void e(MessageV3 messageV3) {
         Context c = c();
         c();
-        AlarmManager alarmManager = (AlarmManager) c.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        AlarmManager alarmManager = (AlarmManager) c.getSystemService("alarm");
         Intent intent = new Intent(c(), NotificationService.class);
         intent.setPackage(messageV3.getPackageName());
         intent.addCategory(messageV3.getPackageName());
@@ -144,7 +142,7 @@ public class c extends a<MessageV3> {
         }
         long longValue = Long.valueOf(startShowTime).longValue() - System.currentTimeMillis();
         com.meizu.cloud.a.a.i("AbstractMessageHandler", "after " + (longValue / 1000) + " seconds Notification AlarmManager execute At " + str);
-        if (h.a(19)) {
+        if (com.meizu.cloud.pushsdk.common.util.g.a(19)) {
             com.meizu.cloud.a.a.i("AbstractMessageHandler", "setAlarmManager setWindow ELAPSED_REALTIME_WAKEUP");
             alarmManager.setExact(2, longValue + SystemClock.elapsedRealtime(), service);
             return;
@@ -183,7 +181,7 @@ public class c extends a<MessageV3> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: a */
     public void b(MessageV3 messageV3) {
-        com.meizu.cloud.pushsdk.util.d.c(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        com.meizu.cloud.pushsdk.util.c.c(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -192,6 +190,6 @@ public class c extends a<MessageV3> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: b */
     public void c(MessageV3 messageV3) {
-        com.meizu.cloud.pushsdk.util.d.a(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        com.meizu.cloud.pushsdk.util.c.a(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
     }
 }

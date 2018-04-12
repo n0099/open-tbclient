@@ -6,15 +6,16 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tieba.frs.FrsFragment;
 /* loaded from: classes2.dex */
 public class e {
-    public static boolean a(com.baidu.tieba.frs.i iVar, String str, String str2, boolean z) {
-        if (z && iVar != null && !TextUtils.isEmpty(str) && iVar.isAdded() && h.ag(TbadkCoreApplication.getInst().getApplicationContext(), iVar.getActivity().getClass().getName())) {
+    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
+        if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && h.ab(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
             Intent intent = new Intent();
             intent.putExtra("class", 2);
             intent.putExtra(ImageViewerConfig.FORUM_NAME, str);
             intent.putExtra(str2, "short_cut");
-            iVar.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(iVar.getPageContext().getPageActivity(), intent)));
+            frsFragment.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
             return false;
         }
         return true;

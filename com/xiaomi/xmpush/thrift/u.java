@@ -8,7 +8,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u implements Serializable, Cloneable, org.apache.thrift.a<u, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> f;
     private static final org.apache.thrift.protocol.j g = new org.apache.thrift.protocol.j("Target");
@@ -24,7 +24,7 @@ public class u implements Serializable, Cloneable, org.apache.thrift.a<u, a> {
     public String d = "";
     public boolean e = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         CHANNEL_ID(1, "channelId"),
         USER_ID(2, "userId"),

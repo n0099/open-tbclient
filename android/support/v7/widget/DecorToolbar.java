@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.SpinnerAdapter;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public interface DecorToolbar {
     void animateToVisibility(int i);
@@ -77,7 +77,7 @@ public interface DecorToolbar {
 
     void setCollapsible(boolean z);
 
-    void setCustomView(View view);
+    void setCustomView(View view2);
 
     void setDefaultNavigationContentDescription(int i);
 

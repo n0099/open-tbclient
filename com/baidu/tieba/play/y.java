@@ -1,70 +1,88 @@
 package com.baidu.tieba.play;
 
-import android.animation.ObjectAnimator;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.tieba.d;
-import com.baidu.tieba.play.VideoLoadingProgressView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
 public class y {
-    private ImageView gvA;
-    private VideoLoadingProgressView gvB;
-    ObjectAnimator gvC;
-    ObjectAnimator gvD;
-    ObjectAnimator gvE;
-    private ViewGroup gvz;
+    public String XM;
+    public String aNu;
+    public String crJ;
+    public String fQM;
+    public String fQN;
+    public String fQO;
+    public String fQP;
+    public String fQQ;
+    public String fQR;
+    public String fQS;
+    public String mExtra;
+    public String mLocate;
+    public String mSource;
+    public String mType;
+    public String mUid;
 
-    public y(ViewGroup viewGroup) {
-        this.gvz = viewGroup;
-        this.gvA = (ImageView) viewGroup.findViewById(d.g.auto_video_loading_image);
-        this.gvB = (VideoLoadingProgressView) viewGroup.findViewById(d.g.auto_video_loading_progress);
-        init();
-    }
-
-    private void init() {
-        this.gvC = ObjectAnimator.ofFloat(this.gvA, "alpha", 1.0f, 0.5f);
-        this.gvD = ObjectAnimator.ofFloat(this.gvA, "alpha", 0.5f, 0.0f);
-        this.gvE = ObjectAnimator.ofFloat(this.gvB, "alpha", 1.0f, 0.0f);
-        this.gvC.setDuration(300L);
-        this.gvD.setDuration(300L);
-        this.gvE.setDuration(300L);
-    }
-
-    public void startLoading() {
-        blS();
-        this.gvA.setAlpha(1.0f);
-        this.gvB.setAlpha(1.0f);
-        this.gvz.setVisibility(0);
-        this.gvB.startLoading();
-        this.gvC.start();
-    }
-
-    public void blP() {
-        blS();
-        this.gvB.blP();
-    }
-
-    public void blQ() {
-        blS();
-        this.gvD.start();
-        this.gvE.start();
-    }
-
-    public void blR() {
-        blS();
-        this.gvz.setVisibility(8);
-        this.gvB.blR();
-    }
-
-    private void blS() {
-        this.gvC.cancel();
-        this.gvD.cancel();
-        this.gvE.cancel();
-    }
-
-    public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.gvB != null) {
-            this.gvB.setLoadingAnimationListener(aVar);
+    public al b(al alVar) {
+        if (alVar != null) {
+            if (!StringUtils.isNull(this.mLocate)) {
+                alVar.ac("obj_locate", this.mLocate);
+            }
+            if (!StringUtils.isNull(this.aNu)) {
+                alVar.ac("tid", this.aNu);
+            }
+            if (!StringUtils.isNull(this.crJ)) {
+                alVar.ac(ImageViewerConfig.FORUM_ID, this.crJ);
+            }
+            if (!StringUtils.isNull(this.mUid)) {
+                alVar.ac("uid", this.mUid);
+            }
+            if (!StringUtils.isNull(this.mSource)) {
+                alVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
+            }
+            if (!StringUtils.isNull(this.fQM)) {
+                alVar.ac("obj_param1", this.fQM);
+            }
+            if (!StringUtils.isNull(this.fQN)) {
+                alVar.ac("obj_param2", this.fQN);
+            }
+            if (!StringUtils.isNull(this.fQO)) {
+                alVar.ac("obj_param3", this.fQO);
+            }
+            if (!StringUtils.isNull(this.XM)) {
+                alVar.ac(VideoPlayActivityConfig.OBJ_ID, this.XM);
+            }
+            if (!StringUtils.isNull(this.fQP)) {
+                alVar.ac("ab_tag", this.fQP);
+            }
+            if (!StringUtils.isNull(this.fQR)) {
+                alVar.ac("topic_type", this.fQR);
+            }
+            if (!StringUtils.isNull(this.mExtra)) {
+                alVar.ac("extra", this.mExtra);
+            }
+            if (!StringUtils.isNull(this.fQS)) {
+                alVar.ac("is_vertical", this.fQS);
+            }
         }
+        return alVar;
+    }
+
+    public y bhc() {
+        y yVar = new y();
+        yVar.mLocate = this.mLocate;
+        yVar.mType = this.mType;
+        yVar.aNu = this.aNu;
+        yVar.crJ = this.crJ;
+        yVar.mUid = this.mUid;
+        yVar.mSource = this.mSource;
+        yVar.fQM = this.fQM;
+        yVar.fQN = this.fQN;
+        yVar.fQO = this.fQO;
+        yVar.XM = this.XM;
+        yVar.fQP = this.fQP;
+        yVar.fQQ = this.fQQ;
+        yVar.fQR = this.fQR;
+        return yVar;
     }
 }

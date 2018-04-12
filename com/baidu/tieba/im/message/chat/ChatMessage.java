@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.lib.g.b;
-import com.baidu.adp.widget.ListView.i;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements a, i {
+public abstract class ChatMessage extends TbSocketMessage implements a, h {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
@@ -371,9 +371,9 @@ public abstract class ChatMessage extends TbSocketMessage implements a, i {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hi() != null && com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hi().contains(String.valueOf(this.userId)) && this.msgType == 1) {
+        if (com.baidu.tbadk.coreExtra.messageCenter.a.zx().zW() != null && com.baidu.tbadk.coreExtra.messageCenter.a.zx().zW().contains(String.valueOf(this.userId)) && this.msgType == 1) {
             return TYPE_MSG_TEXT_OFFICAL_NOTIFICATION;
         }
         if (this.msgType == 11) {

@@ -6,9 +6,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.j.p;
 import com.baidu.ar.util.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends c {
     public g(Context context) {
         super(context);
@@ -24,12 +23,12 @@ public class g extends c {
         String f = kVar.f();
         String str = new String(bArr);
         com.baidu.android.pushservice.b.d a = com.baidu.android.pushservice.b.d.a(this.a, e);
-        if (TextUtils.isEmpty(f) || !p.c(this.a, f)) {
+        if (TextUtils.isEmpty(f) || !com.baidu.android.pushservice.j.m.c(this.a, f)) {
             f = a.a() == com.baidu.android.pushservice.b.c.PUSH_CLIENT ? a.a.c() : a.a() == com.baidu.android.pushservice.b.c.SDK_CLIENT ? a.b.c() : null;
         }
         switch (a.a()) {
             case PUSH_CLIENT:
-                byte[] a2 = p.a(this.a, h, bArr, j, f);
+                byte[] a2 = com.baidu.android.pushservice.j.m.a(this.a, h, bArr, j, f);
                 try {
                     this.a.getPackageManager().getPackageInfo(f, 128);
                     Intent intent = new Intent();
@@ -48,18 +47,18 @@ public class g extends c {
                     if (com.baidu.android.pushservice.a.b() > 0) {
                         intent.putExtra("bd.message.rate.REDIRECTION", System.currentTimeMillis());
                     }
-                    i = p.a(this.a, intent, PushConstants.ACTION_MESSAGE, f);
-                    p.b(">>> Deliver message to client: " + a.a.c() + " result: " + i, this.a);
+                    i = com.baidu.android.pushservice.j.m.a(this.a, intent, PushConstants.ACTION_MESSAGE, f);
+                    com.baidu.android.pushservice.j.m.b(">>> Deliver message to client: " + a.a.c() + " result: " + i, this.a);
                     break;
                 } catch (PackageManager.NameNotFoundException e2) {
                     f.a(this.a, e);
-                    p.b(">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.", this.a);
+                    com.baidu.android.pushservice.j.m.b(">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.", this.a);
                     i = 7;
                     break;
                 }
             case SDK_CLIENT:
                 try {
-                    byte[] a3 = p.a(this.a, h, bArr, j, f);
+                    byte[] a3 = com.baidu.android.pushservice.j.m.a(this.a, h, bArr, j, f);
                     this.a.getPackageManager().getPackageInfo(f, 128);
                     Intent intent2 = new Intent();
                     intent2.setPackage(f);
@@ -69,7 +68,7 @@ public class g extends c {
                     intent2.putExtra("baidu_message_body", bArr);
                     intent2.putExtra("baidu_message_secur_info", a3);
                     intent2.putExtra("message_id", h);
-                    p.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", f);
+                    com.baidu.android.pushservice.j.m.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", f);
                     i = 0;
                     break;
                 } catch (PackageManager.NameNotFoundException e3) {
@@ -81,7 +80,7 @@ public class g extends c {
                 if (Build.VERSION.SDK_INT < 24) {
                     f.a(this.a, e);
                 }
-                p.b(">>> Don't found app  in OldPrivateMessage " + str, this.a);
+                com.baidu.android.pushservice.j.m.b(">>> Don't found app  in OldPrivateMessage " + str, this.a);
                 i = 7;
                 break;
         }

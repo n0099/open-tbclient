@@ -9,22 +9,22 @@ import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class e implements ae, d {
-    private ArrayList<PreLoadImageInfo> gbp;
-    public String gbq;
+    private ArrayList<PreLoadImageInfo> fvy;
+    public String fvz;
     private int height;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.gbp = new ArrayList<>(1);
+            this.fvy = new ArrayList<>(1);
             this.src = excContent.src;
-            this.gbq = excContent.bsize;
-            if (this.gbq != null) {
+            this.fvz = excContent.bsize;
+            if (this.fvz != null) {
                 try {
-                    String[] split = this.gbq.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.width = com.baidu.adp.lib.g.b.h(split[0], 0);
-                    this.height = com.baidu.adp.lib.g.b.h(split[1], 0);
+                    String[] split = this.fvz.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.width = com.baidu.adp.lib.g.b.g(split[0], 0);
+                    this.height = com.baidu.adp.lib.g.b.g(split[1], 0);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -45,15 +45,15 @@ public class e implements ae, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.gbp.add(preLoadImageInfo);
+            this.fvy.add(preLoadImageInfo);
         }
     }
 
-    public String RB() {
+    public String getSrc() {
         return this.src;
     }
 
-    public int to(int i) {
+    public int qL(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -67,6 +67,6 @@ public class e implements ae, d {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.gbp;
+        return this.fvy;
     }
 }

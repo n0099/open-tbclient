@@ -11,40 +11,40 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private String fhf;
-    private List<String> fiv;
+    private String eBK;
+    private List<String> eCZ;
     private Context mContext;
 
     public a(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.fiv = arrayList;
+        this.eCZ = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.fiv = list;
-        if (this.fiv != null) {
+        this.eCZ = list;
+        if (this.eCZ != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void oC(String str) {
+    public void oH(String str) {
         if (!StringUtils.isNull(str)) {
-            this.fhf = str.trim();
+            this.eBK = str.trim();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fiv == null) {
+        if (this.eCZ == null) {
             return 0;
         }
-        return this.fiv.size();
+        return this.eCZ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.fiv.get(i);
+        return this.eCZ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,58 +63,58 @@ public class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        C0198a c0198a;
-        if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(d.h.search_suggest_item, (ViewGroup) null);
-            C0198a c0198a2 = new C0198a();
-            c0198a2.mRootView = view.findViewById(d.g.rootview);
-            c0198a2.fiw = (TextView) view.findViewById(d.g.searchSuggestTitle);
-            c0198a2.drj = view.findViewById(d.g.searchItemSep);
-            view.setTag(c0198a2);
-            c0198a = c0198a2;
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        C0180a c0180a;
+        if (view2 == null) {
+            view2 = LayoutInflater.from(this.mContext).inflate(d.i.search_suggest_item, (ViewGroup) null);
+            C0180a c0180a2 = new C0180a();
+            c0180a2.mRootView = view2.findViewById(d.g.rootview);
+            c0180a2.eDa = (TextView) view2.findViewById(d.g.searchSuggestTitle);
+            c0180a2.cJP = view2.findViewById(d.g.searchItemSep);
+            view2.setTag(c0180a2);
+            c0180a = c0180a2;
         } else {
-            c0198a = (C0198a) view.getTag();
+            c0180a = (C0180a) view2.getTag();
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            b(c0198a.fiw, item);
+            a(c0180a.eDa, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != c0198a.mSkinType) {
-                c0198a.mSkinType = skinType;
-                aj.s(c0198a.mRootView, d.f.addresslist_item_bg);
-                aj.r(c0198a.fiw, d.C0141d.cp_cont_b);
-                aj.t(c0198a.drj, d.C0141d.cp_bg_line_c);
+            if (skinType != c0180a.mSkinType) {
+                c0180a.mSkinType = skinType;
+                ak.i(c0180a.mRootView, d.f.addresslist_item_bg);
+                ak.h(c0180a.eDa, d.C0126d.cp_cont_b);
+                ak.j(c0180a.cJP, d.C0126d.cp_bg_line_c);
             }
         }
-        return view;
+        return view2;
     }
 
     /* renamed from: com.baidu.tieba.mainentrance.searchSuggestList.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0198a {
-        View drj;
-        TextView fiw;
+    private class C0180a {
+        View cJP;
+        TextView eDa;
         View mRootView;
         int mSkinType;
 
-        private C0198a() {
+        private C0180a() {
             this.mSkinType = 3;
         }
     }
 
-    public void b(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.fhf)) {
+    public void a(TextView textView, String str) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.eBK)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.fhf.toLowerCase();
+            String lowerCase2 = this.eBK.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
             }
             int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(aj.getColor(d.C0141d.cp_cont_h));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ak.getColor(d.C0126d.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.fhf.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.eBK.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

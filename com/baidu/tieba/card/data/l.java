@@ -1,69 +1,84 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.ak;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.util.al;
+/* loaded from: classes2.dex */
 public class l extends c {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bd bZi;
-    private ak dad;
-    private ak dae;
-    private ak daf;
-    private ak dag;
-
-    @Override // com.baidu.adp.widget.ListView.i
-    public BdUniqueId getType() {
-        return TYPE;
-    }
+    public static final BdUniqueId csc = BdUniqueId.gen();
+    public static final BdUniqueId csd = BdUniqueId.gen();
+    public static String cse = "";
+    public static String csf = "";
+    public static String csg = "";
+    public static String csh = "";
+    public static String csi = "";
+    public static String csj = "";
+    public static String csk = "";
+    public bd bji;
+    public boolean csb = false;
+    public boolean csl = true;
+    public int sourceType = 0;
 
     public l(bd bdVar) {
-        this.bZi = bdVar;
+        this.bji = bdVar;
     }
 
-    public static boolean M(bd bdVar) {
-        return bdVar != null && bdVar.getThreadType() == 33;
+    public static boolean N(bd bdVar) {
+        return (bdVar == null || bdVar.sh() == null) ? false : true;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.h
+    public BdUniqueId getType() {
+        if (this.bji == null) {
+            return csc;
+        }
+        if (this.bji.rT() || this.bji.rU()) {
+            return csd;
+        }
+        return csc;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bd WE() {
-        return this.bZi;
+    public bd Pe() {
+        return this.bji;
     }
 
-    public int alQ() {
-        return (this.bZi == null || StringUtils.isNull(this.bZi.getPhotoLiveCover())) ? 0 : 1;
+    public al kC(String str) {
+        al alVar = new al(str);
+        if (this.bji != null) {
+            alVar.f(ImageViewerConfig.FORUM_ID, this.bji.getFid());
+            alVar.ac("tid", this.bji.getTid());
+            alVar.r("obj_type", 2);
+            if (this.bji.rQ() != null) {
+                alVar.ac(VideoPlayActivityConfig.OBJ_ID, this.bji.rQ().getUserId());
+            }
+        }
+        return alVar;
     }
 
-    public void b(ak akVar) {
-        this.dad = akVar;
+    public al afS() {
+        al p = p(csh, true);
+        if (p != null && Pe() != null) {
+            bd Pe = Pe();
+            p.r("obj_name", Pe.tc() != null && (Pe.tc().bsb() != null || Pe.tc().JR() != null) ? 1 : 0);
+            if (Pe.rQ() != null) {
+                p.r("ab_type", Pe.rQ().hadConcerned() ? 1 : 0);
+            }
+        }
+        return p;
     }
 
-    public void c(ak akVar) {
-        this.dae = akVar;
+    public al O(bd bdVar) {
+        return (bdVar.sQ() == null || bdVar.sQ().channelId <= 0) ? p(csi, true) : p(csj, true);
     }
 
-    public void d(ak akVar) {
-        this.daf = akVar;
+    public al afU() {
+        return p(csf, true);
     }
 
-    public void e(ak akVar) {
-        this.dag = akVar;
-    }
-
-    public ak alR() {
-        return this.dad != null ? this.dad.ab("obj_param3", com.baidu.tieba.card.j.alg()) : this.dad;
-    }
-
-    public ak alS() {
-        return this.dae != null ? this.dae.ab("obj_param3", com.baidu.tieba.card.j.alg()) : this.dae;
-    }
-
-    public ak alT() {
-        return this.dag != null ? this.dag.ab("obj_param3", com.baidu.tieba.card.j.alg()) : this.dag;
-    }
-
-    public ak alU() {
-        return this.daf != null ? this.daf.ab("obj_param3", com.baidu.tieba.card.j.alg()) : this.daf;
+    public al P(bd bdVar) {
+        return (bdVar.sQ() == null || bdVar.sQ().channelId <= 0) ? p(cse, true) : p(csk, true);
     }
 }

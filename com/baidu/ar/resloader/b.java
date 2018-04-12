@@ -16,7 +16,7 @@ import java.io.FileFilter;
 /* loaded from: classes3.dex */
 public class b {
     private final Context a;
-    private C0046b b;
+    private C0035b b;
     private a c;
     private c d;
 
@@ -28,12 +28,12 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.resloader.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0046b extends Thread {
+    public class C0035b extends Thread {
         private Context b;
         private String c;
         private volatile boolean d = false;
 
-        public C0046b(Context context, String str) {
+        public C0035b(Context context, String str) {
             this.b = context;
             this.c = str;
         }
@@ -46,7 +46,7 @@ public class b {
                         b.this.d.b(com.baidu.ar.util.c.b());
                         b.this.d.a(dVar.a);
                     }
-                    if (C0046b.this.b()) {
+                    if (C0035b.this.b()) {
                         return;
                     }
                     b.this.a(z);
@@ -58,7 +58,7 @@ public class b {
             return HttpUtils.downloadFile(str, file, new IoUtils.Operation() { // from class: com.baidu.ar.resloader.b.b.1
                 @Override // com.baidu.ar.resloader.utils.IoUtils.Cancelable
                 public boolean isCancelled() {
-                    return C0046b.this.b();
+                    return C0035b.this.b();
                 }
 
                 @Override // com.baidu.ar.resloader.utils.IoUtils.ProgressListener
@@ -176,7 +176,7 @@ public class b {
 
     private void c(String str) {
         a();
-        this.b = new C0046b(this.a, str);
+        this.b = new C0035b(this.a, str);
         this.b.start();
     }
 

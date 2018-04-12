@@ -1,7 +1,7 @@
 package com.google.protobuf.micro;
 
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class e {
     public abstract int a();
 
@@ -15,9 +15,9 @@ public abstract class e {
 
     public void a(byte[] bArr, int i, int i2) {
         try {
-            c n = c.n(bArr, i, i2);
-            a(n);
-            n.c();
+            c a = c.a(bArr, i, i2);
+            a(a);
+            a.c();
         } catch (IOException e) {
             throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).");
         }
@@ -32,9 +32,9 @@ public abstract class e {
 
     public e b(byte[] bArr, int i, int i2) {
         try {
-            b m = b.m(bArr, i, i2);
-            a(m);
-            m.a(0);
+            b a = b.a(bArr, i, i2);
+            a(a);
+            a.a(0);
             return this;
         } catch (d e) {
             throw e;

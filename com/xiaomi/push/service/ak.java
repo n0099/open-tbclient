@@ -8,18 +8,18 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ak {
     private static ak a;
     private ConcurrentHashMap<String, HashMap<String, b>> b = new ConcurrentHashMap<>();
     private List<a> c = new ArrayList();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public String a;
         public String b;
@@ -39,7 +39,7 @@ public class ak {
         private List<a> o = new ArrayList();
         private XMPushService.b q = new XMPushService.b(this);
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public interface a {
             void a(c cVar, c cVar2, int i);
         }
@@ -109,7 +109,7 @@ public class ak {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum c {
         unbind,
         binding,

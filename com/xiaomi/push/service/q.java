@@ -6,7 +6,7 @@ import com.xiaomi.push.service.ak;
 import java.io.IOException;
 import java.util.Collection;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class q extends XMPushService.h {
     private XMPushService b;
     private byte[] c;

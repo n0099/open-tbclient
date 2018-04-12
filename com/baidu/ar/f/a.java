@@ -156,15 +156,15 @@ public class a {
         public void onSurfaceTextureSet(boolean z) {
         }
     };
-    protected C0040a k = new C0040a(this);
+    protected C0029a k = new C0029a(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0040a implements Camera.PreviewCallback {
+    public static class C0029a implements Camera.PreviewCallback {
         a a;
 
-        C0040a(a aVar) {
+        C0029a(a aVar) {
             this.a = aVar;
         }
 
@@ -218,7 +218,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(e eVar) {
         if (this.a != null) {
-            this.k = new C0040a(this);
+            this.k = new C0029a(this);
             this.a.a((Camera.PreviewCallback) this.k, true);
         }
     }

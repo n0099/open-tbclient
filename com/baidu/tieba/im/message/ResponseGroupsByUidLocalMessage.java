@@ -74,7 +74,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
             if (queryGroupsByUidResIdl.data.groups != null) {
                 for (GroupInfo groupInfo : queryGroupsByUidResIdl.data.groups) {
                     GroupInfoData groupInfoData = new GroupInfoData();
-                    groupInfoData.setGroupId(groupInfo.groupId.intValue());
+                    groupInfoData.setGroupId(groupInfo.groupId.longValue());
                     groupInfoData.setAuthorId(groupInfo.authorId.longValue());
                     groupInfoData.setAuthorName(groupInfo.authorName);
                     groupInfoData.setForumId(groupInfo.forumId.intValue());
@@ -93,7 +93,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
             if (queryGroupsByUidResIdl.data.commonGroups != null) {
                 for (GroupInfo groupInfo2 : queryGroupsByUidResIdl.data.commonGroups) {
                     GroupInfoData groupInfoData2 = new GroupInfoData();
-                    groupInfoData2.setGroupId(groupInfo2.groupId.intValue());
+                    groupInfoData2.setGroupId(groupInfo2.groupId.longValue());
                     groupInfoData2.setAuthorId(groupInfo2.authorId.longValue());
                     groupInfoData2.setAuthorName(groupInfo2.authorName);
                     groupInfoData2.setForumId(groupInfo2.forumId.intValue());

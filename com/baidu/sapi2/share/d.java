@@ -8,6 +8,7 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -91,7 +92,7 @@ public final class d {
                     }
                     if (TextUtils.isEmpty(str2) || context.checkCallingOrSelfPermission(str2) == 0) {
                         if (a(context, intent.getComponent().getPackageName()) && !context.getPackageName().equals(intent.getComponent().getPackageName())) {
-                            int i = Integer.MAX_VALUE;
+                            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                             for (String str3 : orderAuthorizedPackages.keySet()) {
                                 i = intent.getComponent().getPackageName().matches(str3) ? orderAuthorizedPackages.get(str3).intValue() : i;
                             }

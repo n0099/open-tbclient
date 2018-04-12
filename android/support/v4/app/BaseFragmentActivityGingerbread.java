@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes2.dex */
@@ -13,7 +14,7 @@ abstract class BaseFragmentActivityGingerbread extends Activity {
     boolean mStartedIntentSenderFromFragment;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet);
+    public abstract View dispatchFragmentsOnCreateView(View view2, String str, Context context, AttributeSet attributeSet);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
@@ -34,7 +35,7 @@ abstract class BaseFragmentActivityGingerbread extends Activity {
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         if (!this.mStartedIntentSenderFromFragment && i != -1) {
             checkForValidRequestCode(i);
         }

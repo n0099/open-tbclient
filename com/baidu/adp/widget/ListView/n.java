@@ -1,14 +1,9 @@
 package com.baidu.adp.widget.ListView;
 
+import android.view.View;
 import android.view.ViewGroup;
-import java.util.List;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public interface n<V extends ViewGroup> {
-    void addAdapters(List<a> list);
-
-    List<i> getData();
-
-    j getListAdapter();
-
-    void setData(List<i> list);
+public interface n {
+    void a(View view2, h hVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
 }

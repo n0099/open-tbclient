@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.os.IBinder;
 /* loaded from: classes2.dex */
 class BundleCompatJellybeanMR2 {
+    BundleCompatJellybeanMR2() {
+    }
+
     public static IBinder getBinder(Bundle bundle, String str) {
         return bundle.getBinder(str);
     }

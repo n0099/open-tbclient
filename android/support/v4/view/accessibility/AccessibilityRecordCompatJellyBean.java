@@ -4,7 +4,10 @@ import android.view.View;
 import android.view.accessibility.AccessibilityRecord;
 /* loaded from: classes2.dex */
 class AccessibilityRecordCompatJellyBean {
-    public static void setSource(Object obj, View view, int i) {
-        ((AccessibilityRecord) obj).setSource(view, i);
+    AccessibilityRecordCompatJellyBean() {
+    }
+
+    public static void setSource(Object obj, View view2, int i) {
+        ((AccessibilityRecord) obj).setSource(view2, i);
     }
 }

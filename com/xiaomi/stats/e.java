@@ -6,7 +6,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements com.xiaomi.smack.d {
     XMPushService a;
     com.xiaomi.smack.a b;

@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ag {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         byte[] a;
         int b;
@@ -25,7 +25,7 @@ public class ag {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public Bitmap a;
         public long b;

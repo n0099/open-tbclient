@@ -12,35 +12,35 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.i;
-import com.baidu.adp.widget.ListView.o;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.n;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.atomData.HotTopicChangeActivityConfig;
 import com.baidu.tbadk.core.data.HotTopicBussinessData;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
 import com.baidu.tieba.likedForum.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<e, a> {
-    private a.InterfaceC0191a crA;
-    private com.baidu.tieba.likedForum.a crx;
-    private List<TransmitForumData> hDD;
-    private o hHD;
+    private com.baidu.tieba.likedForum.a bHG;
+    private a.InterfaceC0174a bHJ;
+    private List<TransmitForumData> haf;
+    private n heh;
     private ArrayList<HotTopicBussinessData> mForumList;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bp(long j) {
-        if (this.hDD == null) {
+    public boolean bn(long j) {
+        if (this.haf == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.hDD) {
+        for (TransmitForumData transmitForumData : this.haf) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -49,14 +49,14 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bAx() {
+    public void bvz() {
         HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, 25005, this.mForumList);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
     }
 
-    public HotTopicBussinessData xw(int i) {
-        if (v.E(this.mForumList)) {
+    public HotTopicBussinessData vb(int i) {
+        if (v.w(this.mForumList)) {
             return null;
         }
         return this.mForumList.remove(i);
@@ -65,27 +65,27 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.hHD = new o() { // from class: com.baidu.tieba.write.transmit.d.1
-            @Override // com.baidu.adp.widget.ListView.o
-            public void a(View view, i iVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
-                if (!j.oJ()) {
-                    l.showToast(d.this.mContext, d.j.neterror);
+        this.heh = new n() { // from class: com.baidu.tieba.write.transmit.d.1
+            @Override // com.baidu.adp.widget.ListView.n
+            public void a(View view2, h hVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
+                if (!j.gP()) {
+                    l.showToast(d.this.mContext, d.k.neterror);
                 }
-                TiebaStatic.log(new ak("c12053"));
-                if (!v.E(d.this.mForumList)) {
-                    d.this.bAx();
+                TiebaStatic.log(new al("c12053"));
+                if (!v.w(d.this.mForumList)) {
+                    d.this.bvz();
                     return;
                 }
-                d.this.crx = new com.baidu.tieba.likedForum.a(d.this.mPageId);
-                d.this.crx.a(d.this.crA);
-                d.this.crx.Nw();
+                d.this.bHG = new com.baidu.tieba.likedForum.a(d.this.mPageId);
+                d.this.bHG.a(d.this.bHJ);
+                d.this.bHG.FY();
             }
         };
-        this.crA = new a.InterfaceC0191a() { // from class: com.baidu.tieba.write.transmit.d.2
-            @Override // com.baidu.tieba.likedForum.a.InterfaceC0191a
+        this.bHJ = new a.InterfaceC0174a() { // from class: com.baidu.tieba.write.transmit.d.2
+            @Override // com.baidu.tieba.likedForum.a.InterfaceC0174a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
-                if (v.D(list2) > 0) {
+                if (v.v(list2) > 0) {
                     int size = list2.size();
                     int i2 = 0;
                     while (true) {
@@ -94,55 +94,55 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                             break;
                         }
                         ForumInfo forumInfo = list2.get(i3);
-                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !d.this.bp(forumInfo.forum_id.longValue())) {
+                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !d.this.bn(forumInfo.forum_id.longValue())) {
                             arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
                         }
                         i2 = i3 + 1;
                     }
                     if (d.this.mForumList == null) {
                         d.this.mForumList = arrayList;
-                        d.this.bAx();
+                        d.this.bvz();
                     }
                 }
             }
         };
-        setOnAdapterItemClickListener(this.hHD);
-        this.hDD = list;
+        setOnAdapterItemClickListener(this.heh);
+        this.haf = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bK */
+    /* renamed from: bI */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        return new a(LayoutInflater.from(this.mContext).inflate(d.h.transmit_select_layout, (ViewGroup) null));
+        return new a(LayoutInflater.from(this.mContext).inflate(d.i.transmit_select_layout, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        aj.r(aVar.hHF, d.C0141d.cp_link_tip_a);
-        aj.c(aVar.dyn, d.f.icon_post_add_ba_n);
-        return view;
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e eVar, a aVar) {
+        ak.h(aVar.hej, d.C0126d.cp_link_tip_a);
+        ak.c(aVar.cRa, d.f.icon_post_add_ba_n);
+        return view2;
     }
 
-    /* loaded from: classes2.dex */
-    public static class a extends r.a {
-        public ImageView dyn;
-        public TextView hHF;
+    /* loaded from: classes3.dex */
+    public static class a extends q.a {
+        public ImageView cRa;
+        public TextView hej;
 
-        public a(View view) {
-            super(view);
-            this.hHF = (TextView) view.findViewById(d.g.select_by_self);
-            this.dyn = (ImageView) view.findViewById(d.g.add_icon);
+        public a(View view2) {
+            super(view2);
+            this.hej = (TextView) view2.findViewById(d.g.select_by_self);
+            this.cRa = (ImageView) view2.findViewById(d.g.add_icon);
         }
     }
 
     public void destroy() {
-        if (this.crx != null) {
-            this.crx.destroy();
+        if (this.bHG != null) {
+            this.bHG.destroy();
         }
     }
 }

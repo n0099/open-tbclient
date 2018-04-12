@@ -10,31 +10,31 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private TbPageContext<?> aRI;
-    private ArrayList<h> aRZ = new ArrayList<>();
+    private TbPageContext<?> adf;
+    private ArrayList<h> adv = new ArrayList<>();
 
     public g(TbPageContext<?> tbPageContext) {
-        this.aRI = tbPageContext;
+        this.adf = tbPageContext;
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.aRZ = arrayList;
+        this.adv = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.aRZ.size();
+        return this.adv.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.aRZ.get(i);
+        return this.adv.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -43,54 +43,54 @@ public class g extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         a aVar;
-        h hVar = this.aRZ.get(i);
+        h hVar = this.adv.get(i);
         if (hVar == null) {
             return null;
         }
-        if (view == null) {
-            view = LayoutInflater.from(this.aRI.getPageActivity()).inflate(d.h.dialog_rich_bdlist_item, viewGroup, false);
+        if (view2 == null) {
+            view2 = LayoutInflater.from(this.adf.getPageActivity()).inflate(d.i.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.aSa = (TextView) view.findViewById(d.g.text_tip);
-            aVar2.aSb = (TextView) view.findViewById(d.g.text_desc);
-            aVar2.aSc = (CheckBox) view.findViewById(d.g.checked_icon);
-            aVar2.divider = view.findViewById(d.g.line);
+            aVar2.adw = (TextView) view2.findViewById(d.g.text_tip);
+            aVar2.adx = (TextView) view2.findViewById(d.g.text_desc);
+            aVar2.ady = (CheckBox) view2.findViewById(d.g.checked_icon);
+            aVar2.divider = view2.findViewById(d.g.line);
             aVar = aVar2;
         } else {
-            aVar = (a) view.getTag();
+            aVar = (a) view2.getTag();
         }
-        aVar.aSa.setText(hVar.Be());
+        aVar.adw.setText(hVar.tM());
         if (StringUtils.isNull(hVar.getDesc())) {
-            aVar.aSb.setVisibility(8);
+            aVar.adx.setVisibility(8);
         } else {
-            aVar.aSb.setText(hVar.getDesc());
-            aVar.aSb.setVisibility(0);
+            aVar.adx.setText(hVar.getDesc());
+            aVar.adx.setVisibility(0);
         }
-        aVar.aSc.setChecked(hVar.isChecked());
-        aVar.aSc.setButtonDrawable(hVar.isChecked() ? aj.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0141d.common_color_10022));
-        if (fq(i)) {
+        aVar.ady.setChecked(hVar.isChecked());
+        aVar.ady.setButtonDrawable(hVar.isChecked() ? ak.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0126d.common_color_10022));
+        if (cp(i)) {
             aVar.divider.setVisibility(8);
-            aj.s(view, d.f.dialog_single_button_bg_selector);
+            ak.i(view2, d.f.dialog_single_button_bg_selector);
         } else {
             aVar.divider.setVisibility(0);
-            aj.s(view, d.f.dialg_alert_btn_bg);
+            ak.i(view2, d.f.dialg_alert_btn_bg);
         }
-        view.setTag(aVar);
-        this.aRI.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.aRI.getLayoutMode().aM(view);
-        return view;
+        view2.setTag(aVar);
+        this.adf.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.adf.getLayoutMode().u(view2);
+        return view2;
     }
 
-    private boolean fq(int i) {
-        return this.aRZ != null && i == this.aRZ.size() + (-1);
+    private boolean cp(int i) {
+        return this.adv != null && i == this.adv.size() + (-1);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TextView aSa;
-        TextView aSb;
-        CheckBox aSc;
+        TextView adw;
+        TextView adx;
+        CheckBox ady;
         View divider;
 
         private a() {

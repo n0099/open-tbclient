@@ -10,7 +10,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ah implements Serializable, Cloneable, org.apache.thrift.a<ah, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> g;
     private static final org.apache.thrift.protocol.j h = new org.apache.thrift.protocol.j("XmPushActionSendFeedback");
@@ -27,7 +27,7 @@ public class ah implements Serializable, Cloneable, org.apache.thrift.a<ah, a> {
     public Map<String, String> e;
     public String f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         DEBUG(1, BuildConfig.BUILD_TYPE),
         TARGET(2, BaiduRimConstants.ACTION_TARGET),

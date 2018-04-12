@@ -16,8 +16,9 @@ import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements e {
     protected Context a;
     protected PushNotificationBuilder b;
@@ -52,7 +53,7 @@ public abstract class a implements e {
         c(builder, messageV3);
         b(builder, messageV3);
         a(builder, messageV3);
-        if (com.meizu.cloud.pushsdk.util.b.a()) {
+        if (MinSdkChecker.isSupportNotificationBuild()) {
             notification = builder.build();
         } else {
             notification = builder.getNotification();
@@ -67,7 +68,7 @@ public abstract class a implements e {
         intent.setData(Uri.parse("custom://" + System.currentTimeMillis()));
         intent.putExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE, messageV3);
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
-        intent.setClassName(this.a.getPackageName(), MzSystemUtils.a(this.a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, this.a.getPackageName()));
+        intent.setClassName(this.a.getPackageName(), MzSystemUtils.findReceiver(this.a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, this.a.getPackageName()));
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
         return PendingIntent.getBroadcast(this.a, 0, intent, 1073741824);
     }
@@ -77,7 +78,7 @@ public abstract class a implements e {
         intent.setData(Uri.parse("custom://" + System.currentTimeMillis()));
         intent.putExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE, messageV3);
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_DELETE);
-        intent.setClassName(this.a.getPackageName(), MzSystemUtils.a(this.a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, this.a.getPackageName()));
+        intent.setClassName(this.a.getPackageName(), MzSystemUtils.findReceiver(this.a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, this.a.getPackageName()));
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
         return PendingIntent.getBroadcast(this.a, 0, intent, 1073741824);
     }
@@ -87,7 +88,7 @@ public abstract class a implements e {
         builder.setContentText(messageV3.getContent());
         builder.setTicker(messageV3.getContent());
         builder.setAutoCancel(true);
-        if (com.meizu.cloud.pushsdk.util.b.b()) {
+        if (MinSdkChecker.isSupportSendNotification()) {
             builder.setVisibility(1);
         }
         builder.setSmallIcon((this.b == null || this.b.getmStatusbarIcon() == 0) ? this.a.getApplicationInfo().icon : this.b.getmStatusbarIcon());
@@ -115,14 +116,14 @@ public abstract class a implements e {
                 }
             }
             builder.setOngoing(!advanceSetting.isClearNotification());
-            if (advanceSetting.isHeadUpNotification() && com.meizu.cloud.pushsdk.util.b.a()) {
+            if (advanceSetting.isHeadUpNotification() && MinSdkChecker.isSupportNotificationBuild()) {
                 builder.setPriority(2);
             }
         }
     }
 
     public Bitmap a(String str) {
-        com.meizu.cloud.pushsdk.a.a.c a = com.meizu.cloud.pushsdk.a.a.a(str).a().a();
+        com.meizu.cloud.pushsdk.networking.common.c a = com.meizu.cloud.pushsdk.networking.a.a(str).a().a();
         if (a.b() && a.a() != null) {
             com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image " + (a.a() != null ? ImagesInvalidReceiver.SUCCESS : "fail"));
             return (Bitmap) a.a();
@@ -150,19 +151,19 @@ public abstract class a implements e {
         Notification a = a(messageV3, a(messageV3), b(messageV3));
         int currentTimeMillis = (int) System.currentTimeMillis();
         if (messageV3.isDiscard()) {
-            if (com.meizu.cloud.pushsdk.util.c.c(this.a, messageV3.getPackageName()) == 0) {
-                com.meizu.cloud.pushsdk.util.c.a(this.a, messageV3.getPackageName(), currentTimeMillis);
+            if (com.meizu.cloud.pushsdk.util.b.c(this.a, messageV3.getPackageName()) == 0) {
+                com.meizu.cloud.pushsdk.util.b.a(this.a, messageV3.getPackageName(), currentTimeMillis);
                 com.meizu.cloud.a.a.i("AbstractPushNotification", "no notification show so put notification id " + currentTimeMillis);
             }
             if (!TextUtils.isEmpty(messageV3.getTaskId())) {
-                if (com.meizu.cloud.pushsdk.util.c.d(this.a, messageV3.getPackageName()) == 0) {
-                    com.meizu.cloud.pushsdk.util.c.b(this.a, messageV3.getPackageName(), Integer.valueOf(messageV3.getTaskId()).intValue());
-                } else if (Integer.valueOf(messageV3.getTaskId()).intValue() < com.meizu.cloud.pushsdk.util.c.d(this.a, messageV3.getPackageName())) {
+                if (com.meizu.cloud.pushsdk.util.b.d(this.a, messageV3.getPackageName()) == 0) {
+                    com.meizu.cloud.pushsdk.util.b.b(this.a, messageV3.getPackageName(), Integer.valueOf(messageV3.getTaskId()).intValue());
+                } else if (Integer.valueOf(messageV3.getTaskId()).intValue() < com.meizu.cloud.pushsdk.util.b.d(this.a, messageV3.getPackageName())) {
                     com.meizu.cloud.a.a.i("AbstractPushNotification", "current package " + messageV3.getPackageName() + " taskid " + messageV3.getTaskId() + " dont show notification");
                     return;
                 } else {
-                    com.meizu.cloud.pushsdk.util.c.b(this.a, messageV3.getPackageName(), Integer.valueOf(messageV3.getTaskId()).intValue());
-                    currentTimeMillis = com.meizu.cloud.pushsdk.util.c.c(this.a, messageV3.getPackageName());
+                    com.meizu.cloud.pushsdk.util.b.b(this.a, messageV3.getPackageName(), Integer.valueOf(messageV3.getTaskId()).intValue());
+                    currentTimeMillis = com.meizu.cloud.pushsdk.util.b.c(this.a, messageV3.getPackageName());
                 }
             }
             com.meizu.cloud.a.a.i("AbstractPushNotification", "current package " + messageV3.getPackageName() + " notificationId=" + currentTimeMillis + " taskId=" + messageV3.getTaskId());

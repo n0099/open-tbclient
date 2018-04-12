@@ -16,6 +16,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.RemoteViews;
@@ -37,18 +38,18 @@ import java.util.Map;
 import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ac {
     public static long a = 0;
     private static final LinkedList<Pair<Integer, com.xiaomi.xmpush.thrift.ab>> b = new LinkedList<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         Notification a;
         long b = 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public String a;
         public long b = 0;
@@ -549,7 +550,7 @@ public class ac {
     }
 
     static int c(Context context, String str) {
-        return context.getSharedPreferences("pref_notify_type", 0).getInt(str, Integer.MAX_VALUE);
+        return context.getSharedPreferences("pref_notify_type", 0).getInt(str, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -1,35 +1,51 @@
 package com.baidu.tieba.frs.gametabs;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.d;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.hybrid.l;
+import com.baidu.tbadk.core.hybrid.n;
+import com.baidu.tbadk.core.hybrid.o;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class d extends com.baidu.tbadk.mainTab.b {
-    public d(int i, String str) {
-        this.bxF.type = i;
-        ((c) this.bxF.bxP).setUrl(str);
+public class d extends n {
+    public d(l lVar) {
+        super(lVar);
     }
 
-    @Override // com.baidu.tbadk.mainTab.b
-    public boolean isAvailable() {
-        return true;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.hybrid.n
+    public String pg() {
+        return "TBHY_COMMON_IS_GAME_INSTALL";
     }
 
-    @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c MU() {
-        com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.bxP = new c();
-        cVar.type = 101;
-        cVar.bxX = com.baidu.tbadk.mainTab.c.bxV;
-        return cVar;
-    }
-
-    @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.e bi(Context context) {
-        this.bxG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.bxG.setTextSize(2.0f);
-        return this.bxG;
+    @o(ul = false, value = "isGameInstall")
+    private JSONObject isGameInstall(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
+        JSONObject jSONObject2 = new JSONObject();
+        String optString = jSONObject.optString("packagename");
+        try {
+            PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
+            if (packageInfo != null && packageInfo.packageName.equals(optString)) {
+                jSONObject2.put("isInstall", true);
+            } else {
+                jSONObject2.put("isInstall", false);
+            }
+            return jSONObject2;
+        } catch (PackageManager.NameNotFoundException e) {
+            try {
+                jSONObject2.put("isInstall", false);
+                return jSONObject2;
+            } catch (JSONException e2) {
+                BdLog.e(e.getMessage());
+                return jSONObject2;
+            }
+        } catch (JSONException e3) {
+            BdLog.e(e3.getMessage());
+            return jSONObject2;
+        }
     }
 }

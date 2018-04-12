@@ -7,12 +7,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
-import com.baidu.android.pushservice.j.l;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.j.m;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CustomPushNotificationBuilder extends PushNotificationBuilder {
     private int mLayoutIconDrawable;
     private int mLayoutIconId;
@@ -111,14 +110,14 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
             builder.setContentTitle(this.mNotificationTitle);
             builder.setContentText(this.mNotificationText);
         }
-        if (p.G(context)) {
+        if (m.G(context)) {
             if (TextUtils.isEmpty(this.mChannelId)) {
                 this.mChannelId = "com.baidu.android.pushservice.push";
             }
             if (TextUtils.isEmpty(this.mChannelName)) {
                 this.mChannelName = "Push";
             }
-            l.a(context, this.mChannelId, this.mChannelName);
+            com.baidu.android.pushservice.j.i.a(context, this.mChannelId, this.mChannelName);
             builder.setChannelId(this.mChannelId);
         }
         Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();

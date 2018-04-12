@@ -5,7 +5,7 @@ import android.accounts.OnAccountsUpdateListener;
 import android.content.Context;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l implements OnAccountsUpdateListener {
     final /* synthetic */ k a;
 

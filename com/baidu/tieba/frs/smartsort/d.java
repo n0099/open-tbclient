@@ -12,55 +12,55 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d dTS;
-    private boolean dTL = false;
-    private final HashMap<String, ArrayList<f>> dTR = new HashMap<>();
+    private static volatile d doh;
+    private boolean dnZ = false;
+    private final HashMap<String, ArrayList<f>> dog = new HashMap<>();
 
     private d() {
     }
 
-    public static d azN() {
-        if (dTS == null) {
+    public static d auC() {
+        if (doh == null) {
             synchronized (d.class) {
-                if (dTS == null) {
-                    dTS = new d();
+                if (doh == null) {
+                    doh = new d();
                 }
             }
         }
-        return dTS;
+        return doh;
     }
 
-    public String azI() {
+    public String aux() {
         return "frs_sorttype_" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public synchronized void h(String str, int i, String str2) {
+    public synchronized void i(String str, int i, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String azI = azI();
-            ArrayList<f> arrayList = this.dTR.get(azI);
+            String aux = aux();
+            ArrayList<f> arrayList = this.dog.get(aux);
             ArrayList<f> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            f mo = mo(str);
+            f mq = mq(str);
             boolean z = false;
-            if (mo != null) {
-                if (mo.dTW != i) {
-                    mo.dTW = i;
+            if (mq != null) {
+                if (mq.dol != i) {
+                    mq.dol = i;
                     z = true;
                 }
             } else {
                 f fVar = new f();
                 fVar.forumName = str;
-                fVar.dTW = i;
+                fVar.dol = i;
                 arrayList2.add(fVar);
                 z = true;
             }
             if (z) {
-                f(azI, arrayList2);
+                f(aux, arrayList2);
             }
         }
     }
 
     private synchronized void f(String str, ArrayList<f> arrayList) {
-        JSONObject azR;
+        JSONObject auG;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -68,26 +68,26 @@ public class d {
             ArrayList<f> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 f fVar = arrayList.get(i);
-                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (azR = fVar.azR()) != null) {
-                    jSONArray.put(azR);
+                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (auG = fVar.auG()) != null) {
+                    jSONArray.put(auG);
                     arrayList2.add(fVar);
                 }
             }
-            if (!v.E(arrayList2)) {
-                this.dTR.put(str, arrayList2);
-                if (!this.dTL) {
-                    azO();
+            if (!v.w(arrayList2)) {
+                this.dog.put(str, arrayList2);
+                if (!this.dnZ) {
+                    auD();
                 } else {
-                    mp(jSONArray.toString());
+                    mr(jSONArray.toString());
                 }
             }
         }
     }
 
-    public synchronized f mo(String str) {
+    public synchronized f mq(String str) {
         f fVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<f> arrayList = this.dTR.get(azI());
+            ArrayList<f> arrayList = this.dog.get(aux());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -111,20 +111,20 @@ public class d {
         return fVar;
     }
 
-    private void mp(String str) {
-        l<String> azK = azK();
-        if (azK != null) {
-            azK.f("frs_sortType", str);
+    private void mr(String str) {
+        l<String> auz = auz();
+        if (auz != null) {
+            auz.f("frs_sortType", str);
         }
     }
 
-    public void azO() {
+    public void auD() {
         com.baidu.tbadk.util.v.a(new u<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: azQ */
+            /* renamed from: auF */
             public l<String> doInBackground() {
-                return d.this.azK();
+                return d.this.auz();
             }
         }, new h<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -138,9 +138,9 @@ public class d {
                         /* renamed from: aX */
                         public void g(String str, String str2) {
                             if (str2 != null) {
-                                d.this.dTR.put(d.this.azI(), d.this.mn(str2));
+                                d.this.dog.put(d.this.aux(), d.this.mp(str2));
                             }
-                            d.this.dTL = true;
+                            d.this.dnZ = true;
                         }
                     });
                 }
@@ -149,12 +149,12 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public l<String> azK() {
-        return com.baidu.tbadk.core.c.a.AR().N("frs_sortType", TbadkCoreApplication.getCurrentAccount());
+    public l<String> auz() {
+        return com.baidu.tbadk.core.c.a.tz().O("frs_sortType", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<f> mn(String str) {
+    public ArrayList<f> mp(String str) {
         ArrayList<f> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -169,8 +169,8 @@ public class d {
         return arrayList;
     }
 
-    public void azP() {
-        mp("");
-        this.dTR.remove(azI());
+    public void auE() {
+        mr("");
+        this.dog.remove(aux());
     }
 }

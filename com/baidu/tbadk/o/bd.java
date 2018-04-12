@@ -1,16 +1,16 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class bd extends com.baidu.adp.lib.b.a {
-    public static final String[] bCq = {"com.baidu.tieba.voice"};
+    public static final String[] aMQ = {"com.baidu.tieba.voice"};
 
     @Override // com.baidu.adp.lib.b.a
-    protected void cQ(int i) {
+    protected void Q(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected void initData() {
         this.mName = "voice";
-        this.ahI = bCq;
+        this.sb = aMQ;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -19,22 +19,22 @@ public class bd extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] mr() {
-        return bCq;
+    protected String[] ev() {
+        return aMQ;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ms() {
+    protected int ew() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mt() {
+    protected int ex() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mu() {
+    protected int ey() {
         return 10;
     }
 }

@@ -12,12 +12,12 @@ import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class g {
-    private View aHT;
-    private BdListView auZ;
-    private BawuTeamInfoActivity dAM;
-    private h dAN;
-    private NoNetworkView dAO;
-    private boolean dAP = false;
+    private BdListView FL;
+    private View Tl;
+    private NoNetworkView cTA;
+    private boolean cTB = false;
+    private BawuTeamInfoActivity cTy;
+    private h cTz;
     private NavigationBar mNavigationBar;
     private View mParent;
 
@@ -26,59 +26,59 @@ public class g {
     }
 
     public g(BawuTeamInfoActivity bawuTeamInfoActivity) {
-        this.dAM = bawuTeamInfoActivity;
-        this.aHT = LayoutInflater.from(this.dAM.getPageContext().getPageActivity()).inflate(d.h.bawu_team_info_activity_layout, (ViewGroup) null);
-        this.dAM.setContentView(this.aHT);
-        this.mParent = this.aHT.findViewById(d.g.root_bawu_team_info);
-        this.mNavigationBar = (NavigationBar) this.aHT.findViewById(d.g.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.dAM.getString(d.j.bawu_manager_team));
+        this.cTy = bawuTeamInfoActivity;
+        this.Tl = LayoutInflater.from(this.cTy.getPageContext().getPageActivity()).inflate(d.i.bawu_team_info_activity_layout, (ViewGroup) null);
+        this.cTy.setContentView(this.Tl);
+        this.mParent = this.Tl.findViewById(d.g.root_bawu_team_info);
+        this.mNavigationBar = (NavigationBar) this.Tl.findViewById(d.g.view_navigation_bar);
+        this.mNavigationBar.setCenterTextTitle(this.cTy.getString(d.k.bawu_manager_team));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.dAO = (NoNetworkView) this.aHT.findViewById(d.g.view_no_network);
-        this.auZ = (BdListView) this.aHT.findViewById(d.g.listview_bawu_team_info);
-        this.dAN = new h(this.dAM.getPageContext());
-        this.auZ.setAdapter((ListAdapter) this.dAN);
+        this.cTA = (NoNetworkView) this.Tl.findViewById(d.g.view_no_network);
+        this.FL = (BdListView) this.Tl.findViewById(d.g.listview_bawu_team_info);
+        this.cTz = new h(this.cTy.getPageContext());
+        this.FL.setAdapter((ListAdapter) this.cTz);
     }
 
     public void a(ArrayList<i> arrayList, p pVar, boolean z) {
         if (arrayList == null || arrayList.size() <= 0) {
-            this.dAP = true;
+            this.cTB = true;
         } else {
-            this.dAP = false;
+            this.cTB = false;
         }
-        if (z && this.dAP) {
-            atO();
+        if (z && this.cTB) {
+            aod();
             return;
         }
-        atP();
-        this.dAN.I(arrayList);
-        this.dAN.a(pVar);
-        this.dAN.notifyDataSetChanged();
+        aoe();
+        this.cTz.I(arrayList);
+        this.cTz.a(pVar);
+        this.cTz.notifyDataSetChanged();
     }
 
-    public boolean atN() {
-        return this.dAP;
+    public boolean aoc() {
+        return this.cTB;
     }
 
     public void onChangeSkinType(int i) {
-        this.dAM.getLayoutMode().aQ(i == 1);
-        this.dAM.getLayoutMode().aM(this.aHT);
-        this.mNavigationBar.onChangeSkinType(this.dAM.getPageContext(), i);
-        this.dAO.onChangeSkinType(this.dAM.getPageContext(), i);
-        this.dAN.notifyDataSetChanged();
+        this.cTy.getLayoutMode().setNightMode(i == 1);
+        this.cTy.getLayoutMode().u(this.Tl);
+        this.mNavigationBar.onChangeSkinType(this.cTy.getPageContext(), i);
+        this.cTA.onChangeSkinType(this.cTy.getPageContext(), i);
+        this.cTz.notifyDataSetChanged();
     }
 
-    public void atO() {
-        this.auZ.setVisibility(8);
-        this.dAM.showNetRefreshView(this.aHT, this.dAM.getPageContext().getResources().getString(d.j.no_data_text), true);
+    public void aod() {
+        this.FL.setVisibility(8);
+        this.cTy.showNetRefreshView(this.Tl, this.cTy.getPageContext().getResources().getString(d.k.no_data_text), true);
     }
 
-    public void atP() {
-        this.dAM.hideNetRefreshView(this.aHT);
-        this.auZ.setVisibility(0);
+    public void aoe() {
+        this.cTy.hideNetRefreshView(this.Tl);
+        this.FL.setVisibility(0);
     }
 
     public void f(NoNetworkView.a aVar) {
-        this.dAO.a(aVar);
+        this.cTA.a(aVar);
     }
 }

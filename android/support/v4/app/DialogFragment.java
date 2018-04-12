@@ -4,11 +4,20 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StyleRes;
 import android.view.LayoutInflater;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class DialogFragment extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
+    private static final String SAVED_BACK_STACK_ID = "android:backStackId";
+    private static final String SAVED_CANCELABLE = "android:cancelable";
+    private static final String SAVED_DIALOG_STATE_TAG = "android:savedDialogState";
+    private static final String SAVED_SHOWS_DIALOG = "android:showsDialog";
+    private static final String SAVED_STYLE = "android:style";
+    private static final String SAVED_THEME = "android:theme";
     public static final int STYLE_NORMAL = 0;
     public static final int STYLE_NO_FRAME = 2;
     public static final int STYLE_NO_INPUT = 3;
@@ -23,7 +32,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     boolean mShowsDialog = true;
     int mBackStackId = -1;
 
-    public void setStyle(int i, int i2) {
+    public void setStyle(int i, @StyleRes int i2) {
         this.mStyle = i;
         if (this.mStyle == 2 || this.mStyle == 3) {
             this.mTheme = 16973913;
@@ -86,6 +95,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         return this.mDialog;
     }
 
+    @StyleRes
     public int getTheme() {
         return this.mTheme;
     }
@@ -126,20 +136,20 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         this.mShowsDialog = this.mContainerId == 0;
         if (bundle != null) {
-            this.mStyle = bundle.getInt("android:style", 0);
-            this.mTheme = bundle.getInt("android:theme", 0);
-            this.mCancelable = bundle.getBoolean("android:cancelable", true);
-            this.mShowsDialog = bundle.getBoolean("android:showsDialog", this.mShowsDialog);
-            this.mBackStackId = bundle.getInt("android:backStackId", -1);
+            this.mStyle = bundle.getInt(SAVED_STYLE, 0);
+            this.mTheme = bundle.getInt(SAVED_THEME, 0);
+            this.mCancelable = bundle.getBoolean(SAVED_CANCELABLE, true);
+            this.mShowsDialog = bundle.getBoolean(SAVED_SHOWS_DIALOG, this.mShowsDialog);
+            this.mBackStackId = bundle.getInt(SAVED_BACK_STACK_ID, -1);
         }
     }
 
     @Override // android.support.v4.app.Fragment
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public LayoutInflater getLayoutInflater(Bundle bundle) {
         if (!this.mShowsDialog) {
             return super.getLayoutInflater(bundle);
@@ -152,7 +162,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         return (LayoutInflater) this.mHost.getContext().getSystemService("layout_inflater");
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setupDialog(Dialog dialog, int i) {
         switch (i) {
             case 1:
@@ -167,6 +177,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         dialog.requestWindowFeature(1);
     }
 
+    @NonNull
     public Dialog onCreateDialog(Bundle bundle) {
         return new Dialog(getActivity(), getTheme());
     }
@@ -187,12 +198,12 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         Bundle bundle2;
         super.onActivityCreated(bundle);
         if (this.mShowsDialog) {
-            View view = getView();
-            if (view != null) {
-                if (view.getParent() != null) {
+            View view2 = getView();
+            if (view2 != null) {
+                if (view2.getParent() != null) {
                     throw new IllegalStateException("DialogFragment can not be attached to a container view");
                 }
-                this.mDialog.setContentView(view);
+                this.mDialog.setContentView(view2);
             }
             FragmentActivity activity = getActivity();
             if (activity != null) {
@@ -201,7 +212,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             this.mDialog.setCancelable(this.mCancelable);
             this.mDialog.setOnCancelListener(this);
             this.mDialog.setOnDismissListener(this);
-            if (bundle != null && (bundle2 = bundle.getBundle("android:savedDialogState")) != null) {
+            if (bundle != null && (bundle2 = bundle.getBundle(SAVED_DIALOG_STATE_TAG)) != null) {
                 this.mDialog.onRestoreInstanceState(bundle2);
             }
         }
@@ -221,22 +232,22 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         Bundle onSaveInstanceState;
         super.onSaveInstanceState(bundle);
         if (this.mDialog != null && (onSaveInstanceState = this.mDialog.onSaveInstanceState()) != null) {
-            bundle.putBundle("android:savedDialogState", onSaveInstanceState);
+            bundle.putBundle(SAVED_DIALOG_STATE_TAG, onSaveInstanceState);
         }
         if (this.mStyle != 0) {
-            bundle.putInt("android:style", this.mStyle);
+            bundle.putInt(SAVED_STYLE, this.mStyle);
         }
         if (this.mTheme != 0) {
-            bundle.putInt("android:theme", this.mTheme);
+            bundle.putInt(SAVED_THEME, this.mTheme);
         }
         if (!this.mCancelable) {
-            bundle.putBoolean("android:cancelable", this.mCancelable);
+            bundle.putBoolean(SAVED_CANCELABLE, this.mCancelable);
         }
         if (!this.mShowsDialog) {
-            bundle.putBoolean("android:showsDialog", this.mShowsDialog);
+            bundle.putBoolean(SAVED_SHOWS_DIALOG, this.mShowsDialog);
         }
         if (this.mBackStackId != -1) {
-            bundle.putInt("android:backStackId", this.mBackStackId);
+            bundle.putInt(SAVED_BACK_STACK_ID, this.mBackStackId);
         }
     }
 

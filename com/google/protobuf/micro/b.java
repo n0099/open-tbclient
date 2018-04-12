@@ -1,8 +1,9 @@
 package com.google.protobuf.micro;
 
+import android.support.v7.widget.ActivityChooserView;
 import java.io.InputStream;
 import java.util.Vector;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b {
     private final byte[] a;
     private int b;
@@ -17,7 +18,7 @@ public final class b {
     private int k;
 
     private b(InputStream inputStream) {
-        this.h = Integer.MAX_VALUE;
+        this.h = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.j = 64;
         this.k = 67108864;
         this.a = new byte[4096];
@@ -27,13 +28,21 @@ public final class b {
     }
 
     private b(byte[] bArr, int i, int i2) {
-        this.h = Integer.MAX_VALUE;
+        this.h = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.j = 64;
         this.k = 67108864;
         this.a = bArr;
         this.b = i + i2;
         this.d = i;
         this.e = null;
+    }
+
+    public static b a(InputStream inputStream) {
+        return new b(inputStream);
+    }
+
+    public static b a(byte[] bArr, int i, int i2) {
+        return new b(bArr, i, i2);
     }
 
     private boolean a(boolean z) {
@@ -65,14 +74,6 @@ public final class b {
             throw d.h();
         }
         return true;
-    }
-
-    public static b j(InputStream inputStream) {
-        return new b(inputStream);
-    }
-
-    public static b m(byte[] bArr, int i, int i2) {
-        return new b(bArr, i, i2);
     }
 
     private void p() {
@@ -152,26 +153,6 @@ public final class b {
         }
     }
 
-    public a bNb() {
-        int j = j();
-        if (j > this.b - this.d || j <= 0) {
-            return a.J(yJ(j));
-        }
-        a l = a.l(this.a, this.d, j);
-        this.d = j + this.d;
-        return l;
-    }
-
-    public byte bNc() {
-        if (this.d == this.b) {
-            a(true);
-        }
-        byte[] bArr = this.a;
-        int i = this.d;
-        this.d = i + 1;
-        return bArr[i];
-    }
-
     public int c(int i) {
         if (i < 0) {
             throw d.b();
@@ -203,111 +184,7 @@ public final class b {
         return j();
     }
 
-    public void f(int i) {
-        if (i < 0) {
-            throw d.b();
-        }
-        if (this.g + this.d + i > this.h) {
-            f((this.h - this.g) - this.d);
-            throw d.a();
-        } else if (i <= this.b - this.d) {
-            this.d += i;
-        } else {
-            int i2 = this.b - this.d;
-            this.g += this.b;
-            this.d = 0;
-            this.b = 0;
-            int i3 = i2;
-            while (i3 < i) {
-                int skip = this.e == null ? -1 : (int) this.e.skip(i - i3);
-                if (skip <= 0) {
-                    throw d.a();
-                }
-                i3 += skip;
-                this.g = skip + this.g;
-            }
-        }
-    }
-
-    public boolean f() {
-        return j() != 0;
-    }
-
-    public String g() {
-        int j = j();
-        if (j > this.b - this.d || j <= 0) {
-            return new String(yJ(j), "UTF-8");
-        }
-        String str = new String(this.a, this.d, j, "UTF-8");
-        this.d = j + this.d;
-        return str;
-    }
-
-    public int i() {
-        return j();
-    }
-
-    public int j() {
-        byte bNc = bNc();
-        if (bNc >= 0) {
-            return bNc;
-        }
-        int i = bNc & Byte.MAX_VALUE;
-        byte bNc2 = bNc();
-        if (bNc2 >= 0) {
-            return i | (bNc2 << 7);
-        }
-        int i2 = i | ((bNc2 & Byte.MAX_VALUE) << 7);
-        byte bNc3 = bNc();
-        if (bNc3 >= 0) {
-            return i2 | (bNc3 << 14);
-        }
-        int i3 = i2 | ((bNc3 & Byte.MAX_VALUE) << 14);
-        byte bNc4 = bNc();
-        if (bNc4 >= 0) {
-            return i3 | (bNc4 << 21);
-        }
-        int i4 = i3 | ((bNc4 & Byte.MAX_VALUE) << 21);
-        byte bNc5 = bNc();
-        int i5 = i4 | (bNc5 << 28);
-        if (bNc5 < 0) {
-            for (int i6 = 0; i6 < 5; i6++) {
-                if (bNc() >= 0) {
-                    return i5;
-                }
-            }
-            throw d.c();
-        }
-        return i5;
-    }
-
-    public long k() {
-        long j = 0;
-        for (int i = 0; i < 64; i += 7) {
-            byte bNc = bNc();
-            j |= (bNc & Byte.MAX_VALUE) << i;
-            if ((bNc & 128) == 0) {
-                return j;
-            }
-        }
-        throw d.c();
-    }
-
-    public int l() {
-        return (bNc() & 255) | ((bNc() & 255) << 8) | ((bNc() & 255) << 16) | ((bNc() & 255) << 24);
-    }
-
-    public long m() {
-        byte bNc = bNc();
-        byte bNc2 = bNc();
-        return ((bNc2 & 255) << 8) | (bNc & 255) | ((bNc() & 255) << 16) | ((bNc() & 255) << 24) | ((bNc() & 255) << 32) | ((bNc() & 255) << 40) | ((bNc() & 255) << 48) | ((bNc() & 255) << 56);
-    }
-
-    public boolean n() {
-        return this.d == this.b && !a(false);
-    }
-
-    public byte[] yJ(int i) {
+    public byte[] e(int i) {
         if (i < 0) {
             throw d.b();
         }
@@ -367,5 +244,129 @@ public final class b {
             }
             return bArr4;
         }
+    }
+
+    public void f(int i) {
+        if (i < 0) {
+            throw d.b();
+        }
+        if (this.g + this.d + i > this.h) {
+            f((this.h - this.g) - this.d);
+            throw d.a();
+        } else if (i <= this.b - this.d) {
+            this.d += i;
+        } else {
+            int i2 = this.b - this.d;
+            this.g += this.b;
+            this.d = 0;
+            this.b = 0;
+            int i3 = i2;
+            while (i3 < i) {
+                int skip = this.e == null ? -1 : (int) this.e.skip(i - i3);
+                if (skip <= 0) {
+                    throw d.a();
+                }
+                i3 += skip;
+                this.g = skip + this.g;
+            }
+        }
+    }
+
+    public boolean f() {
+        return j() != 0;
+    }
+
+    public String g() {
+        int j = j();
+        if (j > this.b - this.d || j <= 0) {
+            return new String(e(j), "UTF-8");
+        }
+        String str = new String(this.a, this.d, j, "UTF-8");
+        this.d = j + this.d;
+        return str;
+    }
+
+    public a h() {
+        int j = j();
+        if (j > this.b - this.d || j <= 0) {
+            return a.a(e(j));
+        }
+        a a = a.a(this.a, this.d, j);
+        this.d = j + this.d;
+        return a;
+    }
+
+    public int i() {
+        return j();
+    }
+
+    public int j() {
+        byte o = o();
+        if (o >= 0) {
+            return o;
+        }
+        int i = o & Byte.MAX_VALUE;
+        byte o2 = o();
+        if (o2 >= 0) {
+            return i | (o2 << 7);
+        }
+        int i2 = i | ((o2 & Byte.MAX_VALUE) << 7);
+        byte o3 = o();
+        if (o3 >= 0) {
+            return i2 | (o3 << 14);
+        }
+        int i3 = i2 | ((o3 & Byte.MAX_VALUE) << 14);
+        byte o4 = o();
+        if (o4 >= 0) {
+            return i3 | (o4 << 21);
+        }
+        int i4 = i3 | ((o4 & Byte.MAX_VALUE) << 21);
+        byte o5 = o();
+        int i5 = i4 | (o5 << 28);
+        if (o5 < 0) {
+            for (int i6 = 0; i6 < 5; i6++) {
+                if (o() >= 0) {
+                    return i5;
+                }
+            }
+            throw d.c();
+        }
+        return i5;
+    }
+
+    public long k() {
+        long j = 0;
+        for (int i = 0; i < 64; i += 7) {
+            byte o = o();
+            j |= (o & Byte.MAX_VALUE) << i;
+            if ((o & 128) == 0) {
+                return j;
+            }
+        }
+        throw d.c();
+    }
+
+    public int l() {
+        return (o() & 255) | ((o() & 255) << 8) | ((o() & 255) << 16) | ((o() & 255) << 24);
+    }
+
+    public long m() {
+        byte o = o();
+        byte o2 = o();
+        return ((o2 & 255) << 8) | (o & 255) | ((o() & 255) << 16) | ((o() & 255) << 24) | ((o() & 255) << 32) | ((o() & 255) << 40) | ((o() & 255) << 48) | ((o() & 255) << 56);
+    }
+
+    public boolean n() {
+        return this.d == this.b && !a(false);
+    }
+
+    public byte o() {
+        if (this.d == this.b) {
+            a(true);
+        }
+        byte[] bArr = this.a;
+        int i = this.d;
+        this.d = i + 1;
+        return bArr[i];
     }
 }

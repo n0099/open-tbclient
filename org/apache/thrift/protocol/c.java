@@ -1,5 +1,5 @@
 package org.apache.thrift.protocol;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public final byte a;
     public final int b;

@@ -11,8 +11,8 @@ import com.baidu.adp.lib.g.f;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean aSj = false;
-    private static Handler pL = new Handler() { // from class: com.baidu.tbadk.core.diskCache.a.1
+    private static boolean adF = false;
+    private static Handler sHandler = new Handler() { // from class: com.baidu.tbadk.core.diskCache.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
@@ -30,8 +30,8 @@ public class a {
         f.f(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
-    public static void bh(boolean z) {
-        aSj = z;
+    public static void az(boolean z) {
+        adF = z;
     }
 
     public static void init() {
@@ -41,13 +41,13 @@ public class a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        if (!a.aSj) {
-                            a.pL.sendEmptyMessageDelayed(1, 10000L);
+                        if (!a.adF) {
+                            a.sHandler.sendEmptyMessageDelayed(1, 10000L);
                             return;
                         }
                         return;
                     }
-                    a.pL.removeMessages(1);
+                    a.sHandler.removeMessages(1);
                     a.stopService();
                 }
             }

@@ -7,7 +7,8 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.WindowManager;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
@@ -16,23 +17,21 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends d {
-    private com.baidu.android.pushservice.j.h b;
-
     public f(Context context) {
         super(context);
     }
 
     private byte[] a(long j, g gVar) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        com.baidu.android.pushservice.j.i iVar = new com.baidu.android.pushservice.j.i(byteArrayOutputStream);
+        com.baidu.android.pushservice.j.f fVar = new com.baidu.android.pushservice.j.f(byteArrayOutputStream);
         try {
-            iVar.a(j);
-            iVar.b(gVar.a());
-            iVar.b(0);
+            fVar.a(j);
+            fVar.b(gVar.a());
+            fVar.b(0);
             if (gVar.b() != null) {
-                iVar.a(gVar.b());
+                fVar.a(gVar.b());
             }
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             try {
@@ -40,7 +39,7 @@ public class f extends d {
             } catch (IOException e) {
             }
             try {
-                iVar.a();
+                fVar.a();
                 return byteArray;
             } catch (IOException e2) {
                 return byteArray;
@@ -51,7 +50,7 @@ public class f extends d {
             } catch (IOException e4) {
             }
             try {
-                iVar.a();
+                fVar.a();
             } catch (IOException e5) {
             }
             return null;
@@ -61,7 +60,7 @@ public class f extends d {
             } catch (IOException e6) {
             }
             try {
-                iVar.a();
+                fVar.a();
             } catch (IOException e7) {
             }
             throw th;
@@ -79,25 +78,25 @@ public class f extends d {
 
     private byte[] a(short s, byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        com.baidu.android.pushservice.j.i iVar = new com.baidu.android.pushservice.j.i(byteArrayOutputStream);
+        com.baidu.android.pushservice.j.f fVar = new com.baidu.android.pushservice.j.f(byteArrayOutputStream);
         int length = bArr != null ? bArr.length : 0;
         try {
-            iVar.a((int) s);
+            fVar.a((int) s);
             if (s != h.MSG_ID_TINY_HEARTBEAT_CLIENT.a() && s != h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) {
-                iVar.a((int) com.baidu.android.pushservice.a.a());
-                iVar.b(0);
-                iVar.a(a(p.e(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
-                iVar.b(-76508268);
-                iVar.b(1);
-                iVar.b(length);
+                fVar.a((int) com.baidu.android.pushservice.a.a());
+                fVar.b(0);
+                fVar.a(a(m.e(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
+                fVar.b(-76508268);
+                fVar.b(1);
+                fVar.b(length);
                 if (bArr != null) {
-                    iVar.a(bArr);
+                    fVar.a(bArr);
                 }
             }
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
             try {
-                iVar.a();
+                fVar.a();
                 return byteArray;
             } catch (Exception e) {
                 return byteArray;
@@ -105,14 +104,14 @@ public class f extends d {
         } catch (Exception e2) {
             com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
             try {
-                iVar.a();
+                fVar.a();
             } catch (Exception e3) {
             }
             return null;
         } catch (Throwable th) {
             com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
             try {
-                iVar.a();
+                fVar.a();
             } catch (Exception e4) {
             }
             throw th;
@@ -121,7 +120,7 @@ public class f extends d {
 
     private String d() {
         try {
-            switch (p.t(this.a)) {
+            switch (m.t(this.a)) {
                 case 1:
                     return "wifi";
                 case 2:
@@ -140,17 +139,22 @@ public class f extends d {
 
     private String e() {
         try {
-            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
-            return defaultDisplay.getHeight() + "_" + defaultDisplay.getWidth();
+            WindowManager windowManager = (WindowManager) this.a.getSystemService("window");
+            if (windowManager != null) {
+                Display defaultDisplay = windowManager.getDefaultDisplay();
+                return defaultDisplay.getHeight() + "_" + defaultDisplay.getWidth();
+            }
+            return null;
         } catch (Exception e) {
             return null;
         }
     }
 
     private String f() {
+        String simOperator;
         try {
-            String simOperator = ((TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimOperator();
-            if (simOperator != null) {
+            TelephonyManager telephonyManager = (TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            if (telephonyManager != null && (simOperator = telephonyManager.getSimOperator()) != null) {
                 if (simOperator.equals("46000") || simOperator.equals("46002") || simOperator.equals("46007")) {
                     return "cm";
                 }
@@ -162,24 +166,30 @@ public class f extends d {
                 }
             }
         } catch (Exception e) {
+        } catch (NoSuchFieldError e2) {
         }
         return null;
     }
 
     private String g() {
+        TelephonyManager telephonyManager;
         try {
-            if (p.u(this.a, "android.permission.READ_PHONE_STATE")) {
-                return ((TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
+            if (!m.u(this.a, "android.permission.READ_PHONE_STATE") || (telephonyManager = (TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)) == null) {
+                return null;
             }
-            return null;
+            return telephonyManager.getSubscriberId();
         } catch (Exception e) {
             return null;
         }
     }
 
     private String h() {
+        WifiManager wifiManager;
         try {
-            return ((WifiManager) this.a.getSystemService("wifi")).getConnectionInfo().getMacAddress();
+            if (!m.u(this.a, "android.permission.ACCESS_WIFI_STATE") || (wifiManager = (WifiManager) this.a.getSystemService("wifi")) == null) {
+                return null;
+            }
+            return wifiManager.getConnectionInfo().getMacAddress();
         } catch (Exception e) {
             return null;
         }
@@ -189,36 +199,30 @@ public class f extends d {
     public e a(byte[] bArr, int i) throws IOException {
         byte[] bArr2;
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-        this.b = new com.baidu.android.pushservice.j.h(byteArrayInputStream);
-        short c = this.b.c();
-        e eVar = new e(c);
+        com.baidu.android.pushservice.j.e eVar = new com.baidu.android.pushservice.j.e(byteArrayInputStream);
+        short c = eVar.c();
+        e eVar2 = new e(c);
         if (c == h.MSG_ID_TINY_HEARTBEAT_SERVER.a() || c == h.MSG_ID_TINY_HEARTBEAT_CLIENT.a()) {
-            if (byteArrayInputStream != null) {
-                byteArrayInputStream.close();
-            }
-            if (this.b != null) {
-                this.b.a();
-            }
-            return eVar;
+            byteArrayInputStream.close();
+            eVar.a();
+            return eVar2;
         }
-        this.b.c();
-        this.b.b();
-        this.b.a(new byte[16]);
-        this.b.b();
-        this.b.b();
-        int b = this.b.b();
+        eVar.c();
+        eVar.b();
+        eVar.a(new byte[16]);
+        eVar.b();
+        eVar.b();
+        int b = eVar.b();
         if (b > 0) {
             bArr2 = new byte[b <= 20480 ? b : 20480];
-            this.b.a(bArr2);
+            eVar.a(bArr2);
         } else {
             bArr2 = null;
         }
-        eVar.c = bArr2;
+        eVar2.c = bArr2;
         byteArrayInputStream.close();
-        if (this.b != null) {
-            this.b.a();
-        }
-        return eVar;
+        eVar.a();
+        return eVar2;
     }
 
     @Override // com.baidu.android.pushservice.message.d
@@ -228,12 +232,16 @@ public class f extends d {
         try {
             jSONObject.put("channel_token", com.baidu.android.pushservice.j.a(this.a).b());
             jSONObject.put("channel_id", com.baidu.android.pushservice.j.a(this.a).a());
-            jSONObject.put("sa_mode", com.baidu.android.pushservice.c.d.a(this.a).b());
-            jSONObject.put("highest_version", com.baidu.android.pushservice.c.d.a(this.a).d());
+            if (com.baidu.android.pushservice.c.e.b(this.a)) {
+                jSONObject.put("new_channel_token", com.baidu.android.pushservice.j.a(this.a).d());
+                jSONObject.put("new_channel_id", com.baidu.android.pushservice.j.a(this.a).c());
+            }
+            jSONObject.put("sa_mode", com.baidu.android.pushservice.c.e.a(this.a).b());
+            jSONObject.put("highest_version", com.baidu.android.pushservice.c.e.a(this.a).d());
             jSONObject.put("period", TbConfig.POST_IMAGE_MIDDLE);
             jSONObject.put("channel_type", 3);
             jSONObject.put("tinyheart", 1);
-            if (p.F(this.a)) {
+            if (m.F(this.a)) {
                 jSONObject.put("connect_version", 3);
                 String str2 = Build.MANUFACTURER;
                 if (!TextUtils.isEmpty(str2) && str2.length() <= 128) {
@@ -242,35 +250,37 @@ public class f extends d {
             } else {
                 jSONObject.put("connect_version", 2);
             }
+            jSONObject.put("app_alone_conn", com.baidu.android.pushservice.a.d(this.a) ? 1 : 0);
+            jSONObject.put(PushConstants.PACKAGE_NAME, this.a.getPackageName());
             jSONObject.put("tiny_msghead", 1);
             jSONObject.put("alarm_function", 1);
             JSONObject jSONObject2 = new JSONObject();
             String str3 = Build.MODEL;
-            if (str3 != null && str3 != "") {
+            if (!TextUtils.isEmpty(str3)) {
                 jSONObject2.put("model", str3);
             }
             String f = f();
-            if (f != null && f != "") {
+            if (!TextUtils.isEmpty(f)) {
                 jSONObject2.put("carrier", f);
             }
             String e = e();
-            if (e != null && e != "") {
+            if (!TextUtils.isEmpty(e)) {
                 jSONObject2.put("resolution", e);
             }
             String d = d();
-            if (d != null && d != "") {
+            if (!TextUtils.isEmpty(d)) {
                 jSONObject2.put(LivenessRecogActivity.f.J, d);
             }
             String h = h();
-            if (h != null && h != "") {
+            if (!TextUtils.isEmpty(h)) {
                 jSONObject2.put("mac", h);
             }
             String a = com.baidu.android.pushservice.k.e.a(this.a);
-            if (a != null && a != "") {
+            if (!TextUtils.isEmpty(a)) {
                 jSONObject2.put("cuid", a);
             }
             String g = g();
-            if (g != null && g != "") {
+            if (!TextUtils.isEmpty(g)) {
                 jSONObject2.put("imsi", g);
             }
             int length = jSONObject2.toString().length();

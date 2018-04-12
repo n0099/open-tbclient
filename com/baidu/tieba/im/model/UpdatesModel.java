@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.model;
 
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.util.h;
@@ -29,7 +30,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.u
                 public Boolean doInBackground() {
-                    return d.aIa().o(linkedList);
+                    return d.aCZ().r(linkedList);
                 }
             }, hVar);
         }
@@ -42,7 +43,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.u
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.aIa().nk(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.aCZ().no(UpdatesItemData.this.getNotice_id()));
                 }
             }, hVar);
         }
@@ -54,7 +55,7 @@ public class UpdatesModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.u
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.aIa().cc(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.aCZ().bV(UpdatesModel.this.dataToDelete));
             }
         }, hVar);
     }
@@ -112,7 +113,7 @@ public class UpdatesModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.aIa().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.aCZ().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, hVar);
     }

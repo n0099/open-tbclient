@@ -5,6 +5,9 @@ import android.graphics.PorterDuff;
 import android.widget.CompoundButton;
 /* loaded from: classes2.dex */
 class CompoundButtonCompatLollipop {
+    CompoundButtonCompatLollipop() {
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void setButtonTintList(CompoundButton compoundButton, ColorStateList colorStateList) {
         compoundButton.setButtonTintList(colorStateList);

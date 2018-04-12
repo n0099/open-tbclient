@@ -1,37 +1,37 @@
 package com.baidu.tieba.InjectPlugin.b;
 
-import com.baidu.adp.widget.ListView.k;
+import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a extends g {
-    private k bNB;
-    private Object bNC;
-    private boolean bND;
-    private int bNE;
-    private int bfC;
+    private Object aXA;
+    private boolean aXB;
+    private int aXC;
+    private j aXz;
+    private int aqQ;
     private Map<String, String> params;
 
     public a(TbPageContext tbPageContext, int i) {
         super(tbPageContext, i);
-        this.bND = false;
+        this.aXB = false;
     }
 
-    public k Sw() {
-        return this.bNB;
+    public j KU() {
+        return this.aXz;
     }
 
-    public void a(k kVar) {
-        this.bNB = kVar;
+    public void a(j jVar) {
+        this.aXz = jVar;
     }
 
-    public Object Sx() {
-        return this.bNC;
+    public Object KV() {
+        return this.aXA;
     }
 
-    public void aM(Object obj) {
-        this.bNC = obj;
+    public void H(Object obj) {
+        this.aXA = obj;
     }
 
     public Map<String, String> getParams() {
@@ -43,14 +43,14 @@ public class a extends g {
     }
 
     public int getMaskColor() {
-        return this.bNE;
+        return this.aXC;
     }
 
     public int getSkinType() {
-        return this.bfC;
+        return this.aqQ;
     }
 
     public void setSkinType(int i) {
-        this.bfC = i;
+        this.aqQ = i;
     }
 }

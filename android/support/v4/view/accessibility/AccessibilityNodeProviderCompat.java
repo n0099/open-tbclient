@@ -2,6 +2,7 @@ package android.support.v4.view.accessibility;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean;
 import android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat;
 import java.util.ArrayList;
@@ -137,6 +138,7 @@ public class AccessibilityNodeProviderCompat {
         return this.mProvider;
     }
 
+    @Nullable
     public AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int i) {
         return null;
     }
@@ -145,10 +147,12 @@ public class AccessibilityNodeProviderCompat {
         return false;
     }
 
+    @Nullable
     public List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText(String str, int i) {
         return null;
     }
 
+    @Nullable
     public AccessibilityNodeInfoCompat findFocus(int i) {
         return null;
     }

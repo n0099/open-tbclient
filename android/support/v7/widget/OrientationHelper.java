@@ -6,18 +6,19 @@ import android.view.View;
 /* loaded from: classes2.dex */
 public abstract class OrientationHelper {
     public static final int HORIZONTAL = 0;
+    private static final int INVALID_SIZE = Integer.MIN_VALUE;
     public static final int VERTICAL = 1;
-    private int QP;
+    private int mLastTotalSpace;
     protected final RecyclerView.LayoutManager mLayoutManager;
     final Rect mTmpRect;
 
-    public abstract int getDecoratedEnd(View view);
+    public abstract int getDecoratedEnd(View view2);
 
-    public abstract int getDecoratedMeasurement(View view);
+    public abstract int getDecoratedMeasurement(View view2);
 
-    public abstract int getDecoratedMeasurementInOther(View view);
+    public abstract int getDecoratedMeasurementInOther(View view2);
 
-    public abstract int getDecoratedStart(View view);
+    public abstract int getDecoratedStart(View view2);
 
     public abstract int getEnd();
 
@@ -33,29 +34,29 @@ public abstract class OrientationHelper {
 
     public abstract int getTotalSpace();
 
-    public abstract int getTransformedEndWithDecoration(View view);
+    public abstract int getTransformedEndWithDecoration(View view2);
 
-    public abstract int getTransformedStartWithDecoration(View view);
+    public abstract int getTransformedStartWithDecoration(View view2);
 
-    public abstract void offsetChild(View view, int i);
+    public abstract void offsetChild(View view2, int i);
 
     public abstract void offsetChildren(int i);
 
     private OrientationHelper(RecyclerView.LayoutManager layoutManager) {
-        this.QP = Integer.MIN_VALUE;
+        this.mLastTotalSpace = Integer.MIN_VALUE;
         this.mTmpRect = new Rect();
         this.mLayoutManager = layoutManager;
     }
 
     public void onLayoutComplete() {
-        this.QP = getTotalSpace();
+        this.mLastTotalSpace = getTotalSpace();
     }
 
     public int getTotalSpaceChange() {
-        if (Integer.MIN_VALUE == this.QP) {
+        if (Integer.MIN_VALUE == this.mLastTotalSpace) {
             return 0;
         }
-        return getTotalSpace() - this.QP;
+        return getTotalSpace() - this.mLastTotalSpace;
     }
 
     public static OrientationHelper createOrientationHelper(RecyclerView.LayoutManager layoutManager, int i) {
@@ -92,36 +93,36 @@ public abstract class OrientationHelper {
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getDecoratedMeasurement(View view) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
-                return layoutParams.rightMargin + this.mLayoutManager.getDecoratedMeasuredWidth(view) + layoutParams.leftMargin;
+            public int getDecoratedMeasurement(View view2) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return layoutParams.rightMargin + this.mLayoutManager.getDecoratedMeasuredWidth(view2) + layoutParams.leftMargin;
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getDecoratedMeasurementInOther(View view) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
-                return layoutParams.bottomMargin + this.mLayoutManager.getDecoratedMeasuredHeight(view) + layoutParams.topMargin;
+            public int getDecoratedMeasurementInOther(View view2) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return layoutParams.bottomMargin + this.mLayoutManager.getDecoratedMeasuredHeight(view2) + layoutParams.topMargin;
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getDecoratedEnd(View view) {
-                return ((RecyclerView.LayoutParams) view.getLayoutParams()).rightMargin + this.mLayoutManager.getDecoratedRight(view);
+            public int getDecoratedEnd(View view2) {
+                return ((RecyclerView.LayoutParams) view2.getLayoutParams()).rightMargin + this.mLayoutManager.getDecoratedRight(view2);
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getDecoratedStart(View view) {
-                return this.mLayoutManager.getDecoratedLeft(view) - ((RecyclerView.LayoutParams) view.getLayoutParams()).leftMargin;
+            public int getDecoratedStart(View view2) {
+                return this.mLayoutManager.getDecoratedLeft(view2) - ((RecyclerView.LayoutParams) view2.getLayoutParams()).leftMargin;
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getTransformedEndWithDecoration(View view) {
-                this.mLayoutManager.getTransformedBoundingBox(view, true, this.mTmpRect);
+            public int getTransformedEndWithDecoration(View view2) {
+                this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
                 return this.mTmpRect.right;
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getTransformedStartWithDecoration(View view) {
-                this.mLayoutManager.getTransformedBoundingBox(view, true, this.mTmpRect);
+            public int getTransformedStartWithDecoration(View view2) {
+                this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
                 return this.mTmpRect.left;
             }
 
@@ -131,8 +132,8 @@ public abstract class OrientationHelper {
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public void offsetChild(View view, int i) {
-                view.offsetLeftAndRight(i);
+            public void offsetChild(View view2, int i) {
+                view2.offsetLeftAndRight(i);
             }
 
             @Override // android.support.v7.widget.OrientationHelper
@@ -175,36 +176,36 @@ public abstract class OrientationHelper {
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getDecoratedMeasurement(View view) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
-                return layoutParams.bottomMargin + this.mLayoutManager.getDecoratedMeasuredHeight(view) + layoutParams.topMargin;
+            public int getDecoratedMeasurement(View view2) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return layoutParams.bottomMargin + this.mLayoutManager.getDecoratedMeasuredHeight(view2) + layoutParams.topMargin;
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getDecoratedMeasurementInOther(View view) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
-                return layoutParams.rightMargin + this.mLayoutManager.getDecoratedMeasuredWidth(view) + layoutParams.leftMargin;
+            public int getDecoratedMeasurementInOther(View view2) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return layoutParams.rightMargin + this.mLayoutManager.getDecoratedMeasuredWidth(view2) + layoutParams.leftMargin;
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getDecoratedEnd(View view) {
-                return ((RecyclerView.LayoutParams) view.getLayoutParams()).bottomMargin + this.mLayoutManager.getDecoratedBottom(view);
+            public int getDecoratedEnd(View view2) {
+                return ((RecyclerView.LayoutParams) view2.getLayoutParams()).bottomMargin + this.mLayoutManager.getDecoratedBottom(view2);
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getDecoratedStart(View view) {
-                return this.mLayoutManager.getDecoratedTop(view) - ((RecyclerView.LayoutParams) view.getLayoutParams()).topMargin;
+            public int getDecoratedStart(View view2) {
+                return this.mLayoutManager.getDecoratedTop(view2) - ((RecyclerView.LayoutParams) view2.getLayoutParams()).topMargin;
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getTransformedEndWithDecoration(View view) {
-                this.mLayoutManager.getTransformedBoundingBox(view, true, this.mTmpRect);
+            public int getTransformedEndWithDecoration(View view2) {
+                this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
                 return this.mTmpRect.bottom;
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public int getTransformedStartWithDecoration(View view) {
-                this.mLayoutManager.getTransformedBoundingBox(view, true, this.mTmpRect);
+            public int getTransformedStartWithDecoration(View view2) {
+                this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
                 return this.mTmpRect.top;
             }
 
@@ -214,8 +215,8 @@ public abstract class OrientationHelper {
             }
 
             @Override // android.support.v7.widget.OrientationHelper
-            public void offsetChild(View view, int i) {
-                view.offsetTopAndBottom(i);
+            public void offsetChild(View view2, int i) {
+                view2.offsetTopAndBottom(i);
             }
 
             @Override // android.support.v7.widget.OrientationHelper

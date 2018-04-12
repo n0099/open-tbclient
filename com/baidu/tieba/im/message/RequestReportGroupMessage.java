@@ -5,19 +5,19 @@ import protobuf.ReportGroup.DataReq;
 import protobuf.ReportGroup.ReportGroupReqIdl;
 /* loaded from: classes3.dex */
 public class RequestReportGroupMessage extends TbSocketMessage {
-    private int mGroupId;
+    private long mGroupId;
     private int mReportType;
 
     public RequestReportGroupMessage() {
         super(103103);
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.mGroupId;
     }
 
-    public void setGroupId(int i) {
-        this.mGroupId = i;
+    public void setGroupId(long j) {
+        this.mGroupId = j;
     }
 
     public int getReportType() {
@@ -32,7 +32,7 @@ public class RequestReportGroupMessage extends TbSocketMessage {
     public Object encode() {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.groupId = Integer.valueOf(getGroupId());
+            builder.groupId = Long.valueOf(getGroupId());
             builder.reportType = Integer.valueOf(getReportType());
             ReportGroupReqIdl.Builder builder2 = new ReportGroupReqIdl.Builder();
             builder2.data = builder.build(false);

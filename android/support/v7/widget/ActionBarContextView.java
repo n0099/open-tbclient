@@ -17,20 +17,21 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class ActionBarContextView extends AbsActionBarView {
-    private View JX;
-    private LinearLayout JY;
-    private TextView JZ;
-    private int Ka;
-    private int Kb;
-    private boolean Kc;
-    private int Kd;
+    private static final String TAG = "ActionBarContextView";
+    private View mClose;
+    private int mCloseItemLayout;
     private View mCustomView;
+    private CharSequence mSubtitle;
+    private int mSubtitleStyleRes;
+    private TextView mSubtitleView;
     private CharSequence mTitle;
+    private LinearLayout mTitleLayout;
+    private boolean mTitleOptional;
+    private int mTitleStyleRes;
     private TextView mTitleView;
-    private CharSequence yg;
 
     @Override // android.support.v7.widget.AbsActionBarView
     public /* bridge */ /* synthetic */ void animateToVisibility(int i) {
@@ -104,10 +105,10 @@ public class ActionBarContextView extends AbsActionBarView {
         super(context, attributeSet, i);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.ActionMode, i, 0);
         ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(R.styleable.ActionMode_background));
-        this.Ka = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_titleTextStyle, 0);
-        this.Kb = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_subtitleTextStyle, 0);
+        this.mTitleStyleRes = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_titleTextStyle, 0);
+        this.mSubtitleStyleRes = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_subtitleTextStyle, 0);
         this.mContentHeight = obtainStyledAttributes.getLayoutDimension(R.styleable.ActionMode_height, 0);
-        this.Kd = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_closeItemLayout, R.layout.abc_action_mode_close_item_material);
+        this.mCloseItemLayout = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_closeItemLayout, R.layout.abc_action_mode_close_item_material);
         obtainStyledAttributes.recycle();
     }
 
@@ -116,7 +117,7 @@ public class ActionBarContextView extends AbsActionBarView {
         super.onDetachedFromWindow();
         if (this.mActionMenuPresenter != null) {
             this.mActionMenuPresenter.hideOverflowMenu();
-            this.mActionMenuPresenter.fm();
+            this.mActionMenuPresenter.hideSubMenus();
         }
     }
 
@@ -125,29 +126,29 @@ public class ActionBarContextView extends AbsActionBarView {
         this.mContentHeight = i;
     }
 
-    public void setCustomView(View view) {
+    public void setCustomView(View view2) {
         if (this.mCustomView != null) {
             removeView(this.mCustomView);
         }
-        this.mCustomView = view;
-        if (view != null && this.JY != null) {
-            removeView(this.JY);
-            this.JY = null;
+        this.mCustomView = view2;
+        if (view2 != null && this.mTitleLayout != null) {
+            removeView(this.mTitleLayout);
+            this.mTitleLayout = null;
         }
-        if (view != null) {
-            addView(view);
+        if (view2 != null) {
+            addView(view2);
         }
         requestLayout();
     }
 
     public void setTitle(CharSequence charSequence) {
         this.mTitle = charSequence;
-        fe();
+        initTitle();
     }
 
     public void setSubtitle(CharSequence charSequence) {
-        this.yg = charSequence;
-        fe();
+        this.mSubtitle = charSequence;
+        initTitle();
     }
 
     public CharSequence getTitle() {
@@ -155,57 +156,57 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     public CharSequence getSubtitle() {
-        return this.yg;
+        return this.mSubtitle;
     }
 
-    private void fe() {
+    private void initTitle() {
         int i = 8;
-        if (this.JY == null) {
+        if (this.mTitleLayout == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.abc_action_bar_title_item, this);
-            this.JY = (LinearLayout) getChildAt(getChildCount() - 1);
-            this.mTitleView = (TextView) this.JY.findViewById(R.id.action_bar_title);
-            this.JZ = (TextView) this.JY.findViewById(R.id.action_bar_subtitle);
-            if (this.Ka != 0) {
-                this.mTitleView.setTextAppearance(getContext(), this.Ka);
+            this.mTitleLayout = (LinearLayout) getChildAt(getChildCount() - 1);
+            this.mTitleView = (TextView) this.mTitleLayout.findViewById(R.id.action_bar_title);
+            this.mSubtitleView = (TextView) this.mTitleLayout.findViewById(R.id.action_bar_subtitle);
+            if (this.mTitleStyleRes != 0) {
+                this.mTitleView.setTextAppearance(getContext(), this.mTitleStyleRes);
             }
-            if (this.Kb != 0) {
-                this.JZ.setTextAppearance(getContext(), this.Kb);
+            if (this.mSubtitleStyleRes != 0) {
+                this.mSubtitleView.setTextAppearance(getContext(), this.mSubtitleStyleRes);
             }
         }
         this.mTitleView.setText(this.mTitle);
-        this.JZ.setText(this.yg);
+        this.mSubtitleView.setText(this.mSubtitle);
         boolean z = !TextUtils.isEmpty(this.mTitle);
-        boolean z2 = TextUtils.isEmpty(this.yg) ? false : true;
-        this.JZ.setVisibility(z2 ? 0 : 8);
-        LinearLayout linearLayout = this.JY;
+        boolean z2 = TextUtils.isEmpty(this.mSubtitle) ? false : true;
+        this.mSubtitleView.setVisibility(z2 ? 0 : 8);
+        LinearLayout linearLayout = this.mTitleLayout;
         if (z || z2) {
             i = 0;
         }
         linearLayout.setVisibility(i);
-        if (this.JY.getParent() == null) {
-            addView(this.JY);
+        if (this.mTitleLayout.getParent() == null) {
+            addView(this.mTitleLayout);
         }
     }
 
     public void initForMode(final ActionMode actionMode) {
-        if (this.JX == null) {
-            this.JX = LayoutInflater.from(getContext()).inflate(this.Kd, (ViewGroup) this, false);
-            addView(this.JX);
-        } else if (this.JX.getParent() == null) {
-            addView(this.JX);
+        if (this.mClose == null) {
+            this.mClose = LayoutInflater.from(getContext()).inflate(this.mCloseItemLayout, (ViewGroup) this, false);
+            addView(this.mClose);
+        } else if (this.mClose.getParent() == null) {
+            addView(this.mClose);
         }
-        this.JX.findViewById(R.id.action_mode_close_button).setOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.ActionBarContextView.1
+        this.mClose.findViewById(R.id.action_mode_close_button).setOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.ActionBarContextView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 actionMode.finish();
             }
         });
         MenuBuilder menuBuilder = (MenuBuilder) actionMode.getMenu();
         if (this.mActionMenuPresenter != null) {
-            this.mActionMenuPresenter.fl();
+            this.mActionMenuPresenter.dismissPopupMenus();
         }
         this.mActionMenuPresenter = new ActionMenuPresenter(getContext());
-        this.mActionMenuPresenter.F(true);
+        this.mActionMenuPresenter.setReserveOverflow(true);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-2, -1);
         menuBuilder.addMenuPresenter(this.mActionMenuPresenter, this.mPopupContext);
         this.mMenuView = (ActionMenuView) this.mActionMenuPresenter.getMenuView(this);
@@ -214,7 +215,7 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     public void closeMode() {
-        if (this.JX == null) {
+        if (this.mClose == null) {
             killMode();
         }
     }
@@ -274,25 +275,25 @@ public class ActionBarContextView extends AbsActionBarView {
         int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
         int i4 = size2 - paddingTop;
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
-        if (this.JX != null) {
-            int measureChildView = measureChildView(this.JX, paddingLeft, makeMeasureSpec, 0);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.JX.getLayoutParams();
+        if (this.mClose != null) {
+            int measureChildView = measureChildView(this.mClose, paddingLeft, makeMeasureSpec, 0);
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mClose.getLayoutParams();
             paddingLeft = measureChildView - (marginLayoutParams.rightMargin + marginLayoutParams.leftMargin);
         }
         if (this.mMenuView != null && this.mMenuView.getParent() == this) {
             paddingLeft = measureChildView(this.mMenuView, paddingLeft, makeMeasureSpec, 0);
         }
-        if (this.JY != null && this.mCustomView == null) {
-            if (this.Kc) {
-                this.JY.measure(View.MeasureSpec.makeMeasureSpec(0, 0), makeMeasureSpec);
-                int measuredWidth = this.JY.getMeasuredWidth();
+        if (this.mTitleLayout != null && this.mCustomView == null) {
+            if (this.mTitleOptional) {
+                this.mTitleLayout.measure(View.MeasureSpec.makeMeasureSpec(0, 0), makeMeasureSpec);
+                int measuredWidth = this.mTitleLayout.getMeasuredWidth();
                 boolean z = measuredWidth <= paddingLeft;
                 if (z) {
                     paddingLeft -= measuredWidth;
                 }
-                this.JY.setVisibility(z ? 0 : 8);
+                this.mTitleLayout.setVisibility(z ? 0 : 8);
             } else {
-                paddingLeft = measureChildView(this.JY, paddingLeft, makeMeasureSpec, 0);
+                paddingLeft = measureChildView(this.mTitleLayout, paddingLeft, makeMeasureSpec, 0);
             }
         }
         if (this.mCustomView != null) {
@@ -327,17 +328,17 @@ public class ActionBarContextView extends AbsActionBarView {
         int paddingRight = isLayoutRtl ? (i3 - i) - getPaddingRight() : getPaddingLeft();
         int paddingTop = getPaddingTop();
         int paddingTop2 = ((i4 - i2) - getPaddingTop()) - getPaddingBottom();
-        if (this.JX == null || this.JX.getVisibility() == 8) {
+        if (this.mClose == null || this.mClose.getVisibility() == 8) {
             i5 = paddingRight;
         } else {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.JX.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mClose.getLayoutParams();
             int i6 = isLayoutRtl ? marginLayoutParams.rightMargin : marginLayoutParams.leftMargin;
             int i7 = isLayoutRtl ? marginLayoutParams.leftMargin : marginLayoutParams.rightMargin;
             int next = next(paddingRight, i6, isLayoutRtl);
-            i5 = next(positionChild(this.JX, next, paddingTop, paddingTop2, isLayoutRtl) + next, i7, isLayoutRtl);
+            i5 = next(positionChild(this.mClose, next, paddingTop, paddingTop2, isLayoutRtl) + next, i7, isLayoutRtl);
         }
-        if (this.JY != null && this.mCustomView == null && this.JY.getVisibility() != 8) {
-            i5 += positionChild(this.JY, i5, paddingTop, paddingTop2, isLayoutRtl);
+        if (this.mTitleLayout != null && this.mCustomView == null && this.mTitleLayout.getVisibility() != 8) {
+            i5 += positionChild(this.mTitleLayout, i5, paddingTop, paddingTop2, isLayoutRtl);
         }
         if (this.mCustomView != null) {
             int positionChild = positionChild(this.mCustomView, i5, paddingTop, paddingTop2, isLayoutRtl) + i5;
@@ -368,13 +369,13 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     public void setTitleOptional(boolean z) {
-        if (z != this.Kc) {
+        if (z != this.mTitleOptional) {
             requestLayout();
         }
-        this.Kc = z;
+        this.mTitleOptional = z;
     }
 
     public boolean isTitleOptional() {
-        return this.Kc;
+        return this.mTitleOptional;
     }
 }

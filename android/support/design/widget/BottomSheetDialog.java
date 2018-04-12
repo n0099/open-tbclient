@@ -5,6 +5,9 @@ import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.StyleRes;
 import android.support.design.R;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatDialog;
@@ -14,49 +17,49 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class BottomSheetDialog extends AppCompatDialog {
-    private BottomSheetBehavior<FrameLayout> lI;
-    private boolean lJ;
-    private boolean lK;
-    private BottomSheetBehavior.BottomSheetCallback lL;
+    private BottomSheetBehavior<FrameLayout> mBehavior;
+    private BottomSheetBehavior.BottomSheetCallback mBottomSheetCallback;
     boolean mCancelable;
+    private boolean mCanceledOnTouchOutside;
+    private boolean mCanceledOnTouchOutsideSet;
 
-    public BottomSheetDialog(Context context) {
+    public BottomSheetDialog(@NonNull Context context) {
         this(context, 0);
     }
 
-    public BottomSheetDialog(Context context, int i) {
-        super(context, c(context, i));
+    public BottomSheetDialog(@NonNull Context context, @StyleRes int i) {
+        super(context, getThemeResId(context, i));
         this.mCancelable = true;
-        this.lJ = true;
-        this.lL = new BottomSheetBehavior.BottomSheetCallback() { // from class: android.support.design.widget.BottomSheetDialog.2
+        this.mCanceledOnTouchOutside = true;
+        this.mBottomSheetCallback = new BottomSheetBehavior.BottomSheetCallback() { // from class: android.support.design.widget.BottomSheetDialog.2
             @Override // android.support.design.widget.BottomSheetBehavior.BottomSheetCallback
-            public void onStateChanged(View view, int i2) {
+            public void onStateChanged(@NonNull View view2, int i2) {
                 if (i2 == 5) {
                     BottomSheetDialog.this.cancel();
                 }
             }
 
             @Override // android.support.design.widget.BottomSheetBehavior.BottomSheetCallback
-            public void onSlide(View view, float f) {
+            public void onSlide(@NonNull View view2, float f) {
             }
         };
         supportRequestWindowFeature(1);
     }
 
-    protected BottomSheetDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
+    protected BottomSheetDialog(@NonNull Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
         super(context, z, onCancelListener);
         this.mCancelable = true;
-        this.lJ = true;
-        this.lL = new BottomSheetBehavior.BottomSheetCallback() { // from class: android.support.design.widget.BottomSheetDialog.2
+        this.mCanceledOnTouchOutside = true;
+        this.mBottomSheetCallback = new BottomSheetBehavior.BottomSheetCallback() { // from class: android.support.design.widget.BottomSheetDialog.2
             @Override // android.support.design.widget.BottomSheetBehavior.BottomSheetCallback
-            public void onStateChanged(View view, int i2) {
+            public void onStateChanged(@NonNull View view2, int i2) {
                 if (i2 == 5) {
                     BottomSheetDialog.this.cancel();
                 }
             }
 
             @Override // android.support.design.widget.BottomSheetBehavior.BottomSheetCallback
-            public void onSlide(View view, float f) {
+            public void onSlide(@NonNull View view2, float f) {
             }
         };
         supportRequestWindowFeature(1);
@@ -64,8 +67,8 @@ public class BottomSheetDialog extends AppCompatDialog {
     }
 
     @Override // android.support.v7.app.AppCompatDialog, android.app.Dialog
-    public void setContentView(int i) {
-        super.setContentView(a(i, null, null));
+    public void setContentView(@LayoutRes int i) {
+        super.setContentView(wrapInBottomSheet(i, null, null));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -76,13 +79,13 @@ public class BottomSheetDialog extends AppCompatDialog {
     }
 
     @Override // android.support.v7.app.AppCompatDialog, android.app.Dialog
-    public void setContentView(View view) {
-        super.setContentView(a(0, view, null));
+    public void setContentView(View view2) {
+        super.setContentView(wrapInBottomSheet(0, view2, null));
     }
 
     @Override // android.support.v7.app.AppCompatDialog, android.app.Dialog
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        super.setContentView(a(0, view, layoutParams));
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        super.setContentView(wrapInBottomSheet(0, view2, layoutParams));
     }
 
     @Override // android.app.Dialog
@@ -90,8 +93,8 @@ public class BottomSheetDialog extends AppCompatDialog {
         super.setCancelable(z);
         if (this.mCancelable != z) {
             this.mCancelable = z;
-            if (this.lI != null) {
-                this.lI.setHideable(z);
+            if (this.mBehavior != null) {
+                this.mBehavior.setHideable(z);
             }
         }
     }
@@ -102,28 +105,28 @@ public class BottomSheetDialog extends AppCompatDialog {
         if (z && !this.mCancelable) {
             this.mCancelable = true;
         }
-        this.lJ = z;
-        this.lK = true;
+        this.mCanceledOnTouchOutside = z;
+        this.mCanceledOnTouchOutsideSet = true;
     }
 
-    private View a(int i, View view, ViewGroup.LayoutParams layoutParams) {
+    private View wrapInBottomSheet(int i, View view2, ViewGroup.LayoutParams layoutParams) {
         CoordinatorLayout coordinatorLayout = (CoordinatorLayout) View.inflate(getContext(), R.layout.design_bottom_sheet_dialog, null);
-        if (i != 0 && view == null) {
-            view = getLayoutInflater().inflate(i, (ViewGroup) coordinatorLayout, false);
+        if (i != 0 && view2 == null) {
+            view2 = getLayoutInflater().inflate(i, (ViewGroup) coordinatorLayout, false);
         }
         FrameLayout frameLayout = (FrameLayout) coordinatorLayout.findViewById(R.id.design_bottom_sheet);
-        this.lI = BottomSheetBehavior.from(frameLayout);
-        this.lI.setBottomSheetCallback(this.lL);
-        this.lI.setHideable(this.mCancelable);
+        this.mBehavior = BottomSheetBehavior.from(frameLayout);
+        this.mBehavior.setBottomSheetCallback(this.mBottomSheetCallback);
+        this.mBehavior.setHideable(this.mCancelable);
         if (layoutParams == null) {
-            frameLayout.addView(view);
+            frameLayout.addView(view2);
         } else {
-            frameLayout.addView(view, layoutParams);
+            frameLayout.addView(view2, layoutParams);
         }
         coordinatorLayout.findViewById(R.id.touch_outside).setOnClickListener(new View.OnClickListener() { // from class: android.support.design.widget.BottomSheetDialog.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (BottomSheetDialog.this.mCancelable && BottomSheetDialog.this.isShowing() && BottomSheetDialog.this.aZ()) {
+            public void onClick(View view3) {
+                if (BottomSheetDialog.this.mCancelable && BottomSheetDialog.this.isShowing() && BottomSheetDialog.this.shouldWindowCloseOnTouchOutside()) {
                     BottomSheetDialog.this.cancel();
                 }
             }
@@ -131,21 +134,21 @@ public class BottomSheetDialog extends AppCompatDialog {
         return coordinatorLayout;
     }
 
-    boolean aZ() {
-        if (!this.lK) {
+    boolean shouldWindowCloseOnTouchOutside() {
+        if (!this.mCanceledOnTouchOutsideSet) {
             if (Build.VERSION.SDK_INT < 11) {
-                this.lJ = true;
+                this.mCanceledOnTouchOutside = true;
             } else {
                 TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(new int[]{16843611});
-                this.lJ = obtainStyledAttributes.getBoolean(0, true);
+                this.mCanceledOnTouchOutside = obtainStyledAttributes.getBoolean(0, true);
                 obtainStyledAttributes.recycle();
             }
-            this.lK = true;
+            this.mCanceledOnTouchOutsideSet = true;
         }
-        return this.lJ;
+        return this.mCanceledOnTouchOutside;
     }
 
-    private static int c(Context context, int i) {
+    private static int getThemeResId(Context context, int i) {
         if (i == 0) {
             TypedValue typedValue = new TypedValue();
             if (context.getTheme().resolveAttribute(R.attr.bottomSheetDialogTheme, typedValue, true)) {

@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     private a a;
     private Handler b;
@@ -14,7 +14,7 @@ public class h {
     private volatile b f;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Thread {
         private final LinkedBlockingQueue<b> b;
 
@@ -47,7 +47,7 @@ public class h {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b {
         public void a() {
         }

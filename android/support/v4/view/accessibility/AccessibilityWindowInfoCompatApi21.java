@@ -4,6 +4,9 @@ import android.graphics.Rect;
 import android.view.accessibility.AccessibilityWindowInfo;
 /* loaded from: classes2.dex */
 class AccessibilityWindowInfoCompatApi21 {
+    AccessibilityWindowInfoCompatApi21() {
+    }
+
     public static Object obtain() {
         return AccessibilityWindowInfo.obtain();
     }

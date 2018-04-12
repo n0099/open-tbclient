@@ -45,7 +45,7 @@ import java.util.TimerTask;
 import org.apache.http.HttpStatus;
 /* loaded from: classes3.dex */
 public class a extends c implements View.OnClickListener {
-    private C0048a aA;
+    private C0037a aA;
     private View ar;
     private RotateViewGroup as;
     private View at;
@@ -58,7 +58,7 @@ public class a extends c implements View.OnClickListener {
 
     /* renamed from: com.baidu.ar.track.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0048a implements com.baidu.ar.a.a.a {
+    public static class C0037a implements com.baidu.ar.a.a.a {
         @Override // com.baidu.ar.a.a.a
         public void a(Bundle bundle) {
             if (bundle == null || bundle.getInt("track2D_method_type") == 0) {
@@ -210,11 +210,11 @@ public class a extends c implements View.OnClickListener {
         }
     }
 
-    public a(BaseFragment baseFragment, a.C0035a c0035a) {
-        super(baseFragment, c0035a);
+    public a(BaseFragment baseFragment, a.C0024a c0024a) {
+        super(baseFragment, c0024a);
         this.ax = null;
         this.ay = false;
-        this.aA = new C0048a();
+        this.aA = new C0037a();
         this.E = new com.baidu.ar.a.c.a();
         TrackStateMachine.a().b();
         TrackStateMachine.a().a(this.Q);
@@ -282,15 +282,15 @@ public class a extends c implements View.OnClickListener {
         return a;
     }
 
-    private void a(final View view) {
+    private void a(final View view2) {
         final BaseFragment baseFragment = this.ae.get();
         final boolean isNeedLastPreview = this.am.isNeedLastPreview();
         if (baseFragment != null) {
             a(new com.baidu.ar.f.c() { // from class: com.baidu.ar.track.a.5
                 @Override // com.baidu.ar.f.c
                 public void a(boolean z) {
-                    if (view != null) {
-                        view.setEnabled(true);
+                    if (view2 != null) {
+                        view2.setEnabled(true);
                     }
                     if (a.this.ak != null) {
                         if (isNeedLastPreview) {
@@ -307,8 +307,8 @@ public class a extends c implements View.OnClickListener {
                     }
                 }
             }, isNeedLastPreview);
-            if (view != null) {
-                view.setEnabled(false);
+            if (view2 != null) {
+                view2.setEnabled(false);
             }
         }
     }
@@ -597,7 +597,7 @@ public class a extends c implements View.OnClickListener {
         this.av = (RotateImageView) this.a.findViewById(Res.id("bdar_gui_image_trigger_picture"));
         this.a.findViewById(Res.id("bdar_transparent_layer")).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.ar.track.a.2
             @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
                 if (a.this.ar == null || !a.this.ar.isShown()) {
                     return false;
                 }
@@ -811,28 +811,28 @@ public class a extends c implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getId() == Res.id("bdar_titlebar_back")) {
+    public void onClick(View view2) {
+        if (view2.getId() == Res.id("bdar_titlebar_back")) {
             v();
         }
         if (K()) {
-            if (view.getId() == Res.id("bdar_titlebar_close")) {
+            if (view2.getId() == Res.id("bdar_titlebar_close")) {
                 this.ar.setVisibility(8);
                 u();
-            } else if (view.getId() == Res.id("bdar_titlebar_flash")) {
+            } else if (view2.getId() == Res.id("bdar_titlebar_flash")) {
                 this.ar.setVisibility(8);
                 w();
-            } else if (view.getId() == Res.id("bdar_gui_capture")) {
+            } else if (view2.getId() == Res.id("bdar_gui_capture")) {
                 P();
-            } else if (view.getId() == Res.id("bdar_popmenu_item1")) {
+            } else if (view2.getId() == Res.id("bdar_popmenu_item1")) {
                 this.ar.setVisibility(8);
                 b("https://dusee.baidu.com/artrack/article/articlelist");
-            } else if (view.getId() == Res.id("bdar_popmenu_item2")) {
+            } else if (view2.getId() == Res.id("bdar_popmenu_item2")) {
                 this.ar.setVisibility(8);
                 b("https://dusee.baidu.com/static/site/pages/intro/index.html");
-            } else if (view.getId() != Res.id("bdar_titlebar_more")) {
-                if (view.getId() == Res.id("bdar_gui_rescan")) {
-                    a(view);
+            } else if (view2.getId() != Res.id("bdar_titlebar_more")) {
+                if (view2.getId() == Res.id("bdar_gui_rescan")) {
+                    a(view2);
                 }
             } else if (TextUtils.isEmpty(ARConfiguration.getAccessKey())) {
                 this.ar.setVisibility(this.ar.isShown() ? 8 : 0);

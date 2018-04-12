@@ -11,8 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
@@ -21,11 +22,11 @@ import tbclient.FrsPage.AgreeBanner;
 import tbclient.SimpleUser;
 /* loaded from: classes2.dex */
 public class FrsHeaderPraiseView extends RelativeLayout {
-    private View dMv;
-    private View dMw;
-    private TextView dMx;
-    private FrameLayout dMy;
-    private ImageView dMz;
+    private View deW;
+    private View deX;
+    private TextView deY;
+    private FrameLayout deZ;
+    private ImageView dfa;
 
     public FrsHeaderPraiseView(Context context) {
         this(context, null);
@@ -37,25 +38,25 @@ public class FrsHeaderPraiseView extends RelativeLayout {
 
     public FrsHeaderPraiseView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        LayoutInflater.from(context).inflate(d.h.frs_header_extra_praise_layout, this);
+        LayoutInflater.from(context).inflate(d.i.frs_header_extra_praise_layout, this);
         initView();
     }
 
     private void initView() {
-        this.dMv = findViewById(d.g.divider_top);
-        this.dMw = findViewById(d.g.divider_bottom);
-        this.dMx = (TextView) findViewById(d.g.frs_praise_title);
-        this.dMy = (FrameLayout) findViewById(d.g.frs_praise_portrait);
-        this.dMz = (ImageView) findViewById(d.g.frs_praise_more);
-        aj.c(this.dMz, d.f.icon_arrow_more_gray_n);
+        this.deW = findViewById(d.g.divider_top);
+        this.deX = findViewById(d.g.divider_bottom);
+        this.deY = (TextView) findViewById(d.g.frs_praise_title);
+        this.deZ = (FrameLayout) findViewById(d.g.frs_praise_portrait);
+        this.dfa = (ImageView) findViewById(d.g.frs_praise_more);
+        ak.c(this.dfa, d.f.icon_arrow_more_gray_n);
     }
 
     public void changeSkinType(int i) {
-        aj.s(this, d.f.home_thread_card_item_bg);
-        aj.t(this.dMv, d.C0141d.cp_bg_line_c);
-        aj.t(this.dMw, d.C0141d.cp_bg_line_e);
-        aj.r(this.dMx, d.C0141d.cp_cont_b);
-        aj.c(this.dMz, d.f.icon_arrow_more_gray_n);
+        ak.i(this, d.f.home_thread_card_item_bg);
+        ak.j(this.deW, d.C0126d.cp_bg_line_c);
+        ak.j(this.deX, d.C0126d.cp_bg_line_e);
+        ak.h(this.deY, d.C0126d.cp_cont_b);
+        ak.c(this.dfa, d.f.icon_arrow_more_gray_n);
     }
 
     public void setData(final AgreeBanner agreeBanner) {
@@ -64,9 +65,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        this.dMx.setText(agreeBanner.text);
+        this.deY.setText(agreeBanner.text);
         List<SimpleUser> list = agreeBanner.top_agree_user;
-        this.dMy.removeAllViews();
+        this.deZ.removeAllViews();
         if (list != null) {
             ArrayList arrayList = new ArrayList();
             if (list.size() > 5) {
@@ -76,26 +77,26 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             } else {
                 arrayList.addAll(list);
             }
-            for (int size = arrayList.size() - 1; size >= 0 && this.dMy.getChildCount() != 5; size--) {
+            for (int size = arrayList.size() - 1; size >= 0 && this.deZ.getChildCount() != 5; size--) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(d.e.ds40), getResources().getDimensionPixelSize(d.e.ds40));
                 HeadImageView headImageView = new HeadImageView(getContext());
                 headImageView.setDefaultResource(17170445);
                 headImageView.setDefaultErrorResource(d.f.icon_default_avatar100);
-                headImageView.setDefaultBgResource(d.C0141d.cp_bg_line_e);
+                headImageView.setDefaultBgResource(d.C0126d.cp_bg_line_e);
                 headImageView.setIsRound(true);
-                headImageView.setBorderColor(aj.getColor(d.C0141d.cp_bg_line_d));
-                headImageView.setBorderWidth(com.baidu.adp.lib.util.l.t(getContext(), d.e.ds2));
+                headImageView.setBorderColor(ak.getColor(d.C0126d.cp_bg_line_d));
+                headImageView.setBorderWidth(l.e(getContext(), d.e.ds2));
                 headImageView.startLoad(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                 if (size != arrayList.size() - 1) {
                     layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(d.e.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(d.e.ds8));
                 }
                 layoutParams.gravity = 5;
-                this.dMy.addView(headImageView, layoutParams);
+                this.deZ.addView(headImageView, layoutParams);
             }
         }
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.FrsHeaderPraiseView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 if (!TextUtils.isEmpty(agreeBanner.url)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(FrsHeaderPraiseView.this.getContext(), null, agreeBanner.url, true)));
                 }

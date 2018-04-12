@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class al implements ak.b.a {
     final /* synthetic */ ak.b a;
 

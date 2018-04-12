@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.tieba.im.message.LoadDraftMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LoadGroupDraftMessage extends LoadDraftMessage {
     public LoadGroupDraftMessage(LoadDraftMessage.a aVar) {
         super(2001142, aVar);

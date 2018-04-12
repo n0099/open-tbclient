@@ -17,11 +17,11 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
             return new CustomResponsedMessage<>(2001306, null);
         }
         long longValue = ((Long) customMessage.getData()).longValue();
-        l<byte[]> dg = com.baidu.tbadk.core.c.a.AR().dg("tb.im_recommend_detail");
-        if (dg == null) {
+        l<byte[]> cY = com.baidu.tbadk.core.c.a.tz().cY("tb.im_recommend_detail");
+        if (cY == null) {
             return new CustomResponsedMessage<>(2001306, null);
         }
-        byte[] bArr = dg.get(longValue + "");
+        byte[] bArr = cY.get(longValue + "");
         if (bArr == null) {
             return new CustomResponsedMessage<>(2001306, null);
         }

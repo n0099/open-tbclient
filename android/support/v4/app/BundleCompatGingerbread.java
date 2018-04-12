@@ -7,10 +7,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 class BundleCompatGingerbread {
+    private static final String TAG = "BundleCompatGingerbread";
     private static Method sGetIBinderMethod;
     private static boolean sGetIBinderMethodFetched;
     private static Method sPutIBinderMethod;
     private static boolean sPutIBinderMethodFetched;
+
+    BundleCompatGingerbread() {
+    }
 
     public static IBinder getBinder(Bundle bundle, String str) {
         if (!sGetIBinderMethodFetched) {
@@ -18,7 +22,7 @@ class BundleCompatGingerbread {
                 sGetIBinderMethod = Bundle.class.getMethod("getIBinder", String.class);
                 sGetIBinderMethod.setAccessible(true);
             } catch (NoSuchMethodException e) {
-                Log.i("BundleCompatGingerbread", "Failed to retrieve getIBinder method", e);
+                Log.i(TAG, "Failed to retrieve getIBinder method", e);
             }
             sGetIBinderMethodFetched = true;
         }
@@ -26,7 +30,7 @@ class BundleCompatGingerbread {
             try {
                 return (IBinder) sGetIBinderMethod.invoke(bundle, str);
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e2) {
-                Log.i("BundleCompatGingerbread", "Failed to invoke getIBinder via reflection", e2);
+                Log.i(TAG, "Failed to invoke getIBinder via reflection", e2);
                 sGetIBinderMethod = null;
             }
         }
@@ -39,7 +43,7 @@ class BundleCompatGingerbread {
                 sPutIBinderMethod = Bundle.class.getMethod("putIBinder", String.class, IBinder.class);
                 sPutIBinderMethod.setAccessible(true);
             } catch (NoSuchMethodException e) {
-                Log.i("BundleCompatGingerbread", "Failed to retrieve putIBinder method", e);
+                Log.i(TAG, "Failed to retrieve putIBinder method", e);
             }
             sPutIBinderMethodFetched = true;
         }
@@ -47,7 +51,7 @@ class BundleCompatGingerbread {
             try {
                 sPutIBinderMethod.invoke(bundle, str, iBinder);
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e2) {
-                Log.i("BundleCompatGingerbread", "Failed to invoke putIBinder via reflection", e2);
+                Log.i(TAG, "Failed to invoke putIBinder via reflection", e2);
                 sPutIBinderMethod = null;
             }
         }

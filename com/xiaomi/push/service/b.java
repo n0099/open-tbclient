@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.xiaomi.push.service.ak;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     private s a = new s();
 

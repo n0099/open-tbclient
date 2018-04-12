@@ -3,19 +3,19 @@ package com.baidu.tieba.play;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface i {
-    void ad(Context context, String str);
+    void Y(Context context, String str);
 
-    void ae(Context context, String str);
+    void Z(Context context, String str);
 
-    void bo(Context context);
+    void aZ(Context context);
 
-    void f(Context context, String str, int i);
+    void e(Context context, String str, int i);
 
-    String hW(String str);
+    String hP(String str);
 
-    String hX(String str);
+    String hQ(String str);
 
-    void hY(String str);
+    void hR(String str);
 
-    String q(String str, boolean z);
+    String o(String str, boolean z);
 }

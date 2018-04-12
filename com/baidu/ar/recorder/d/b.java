@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import com.baidu.ar.recorder.drawer.e;
 import com.baidu.ar.recorder.encoder.EncoderParams;
@@ -41,10 +42,10 @@ public class b implements com.baidu.ar.recorder.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.recorder.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC0044b extends Handler {
+    public static class HandlerC0033b extends Handler {
         private com.baidu.ar.recorder.a.a a;
 
-        public HandlerC0044b(Looper looper, com.baidu.ar.recorder.a.a aVar) {
+        public HandlerC0033b(Looper looper, com.baidu.ar.recorder.a.a aVar) {
             super(looper);
             this.a = aVar;
         }
@@ -72,7 +73,7 @@ public class b implements com.baidu.ar.recorder.a.a {
     private void a(d dVar, c cVar) {
         this.c = new HandlerThread("VideoRecorderThread");
         this.c.start();
-        this.d = new HandlerC0044b(this.c.getLooper(), this);
+        this.d = new HandlerC0033b(this.c.getLooper(), this);
         if (Build.VERSION.SDK_INT >= 18) {
             this.f = new f();
             this.f.a(cVar);
@@ -140,6 +141,7 @@ public class b implements com.baidu.ar.recorder.a.a {
     }
 
     @Override // com.baidu.ar.recorder.a.a
+    @RequiresApi(api = 18)
     public void a(Message message) {
         switch (message.what) {
             case 1001:

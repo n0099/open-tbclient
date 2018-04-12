@@ -1,5 +1,5 @@
 package org.apache.thrift.transport;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class d {
     public abstract int a(byte[] bArr, int i, int i2);
 

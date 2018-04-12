@@ -1,11 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface ak {
-    void Za();
+    String getForumId();
 
-    void a(int i, int i2, aq aqVar);
-
-    void a(an anVar);
-
-    void init();
+    String getForumName();
 }

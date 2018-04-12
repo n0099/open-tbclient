@@ -20,6 +20,9 @@ public final class KeyEventCompat {
 
     /* loaded from: classes2.dex */
     static class BaseKeyEventVersionImpl implements KeyEventVersionImpl {
+        private static final int META_ALL_MASK = 247;
+        private static final int META_MODIFIER_MASK = 247;
+
         BaseKeyEventVersionImpl() {
         }
 
@@ -129,8 +132,8 @@ public final class KeyEventCompat {
     }
 
     @Deprecated
-    public static Object getKeyDispatcherState(View view) {
-        return view.getKeyDispatcherState();
+    public static Object getKeyDispatcherState(View view2) {
+        return view2.getKeyDispatcherState();
     }
 
     @Deprecated

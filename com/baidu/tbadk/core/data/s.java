@@ -1,31 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
+import java.util.ArrayList;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class s {
-    private String mIcon;
-    private String mName;
-    private String mUrl;
+    private p XD;
+    private long threadId;
+    private long Xy = 0;
+    private String Xz = "";
+    private long XA = 0;
+    private String XB = "";
+    private String imgUrl = "";
+    private String XC = "";
 
-    public void a(MemberShowIcon memberShowIcon) {
-        if (memberShowIcon != null) {
-            this.mIcon = memberShowIcon.icon;
-            this.mName = memberShowIcon.name;
-            this.mUrl = memberShowIcon.url;
+    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        if (forumHeadlineImgInfo != null) {
+            this.threadId = forumHeadlineImgInfo.thread_id.longValue();
+            this.Xy = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.Xz = forumHeadlineImgInfo.thread_user_name;
+            this.XA = forumHeadlineImgInfo.img_user_id.longValue();
+            this.XB = forumHeadlineImgInfo.img_user_name;
+            this.imgUrl = forumHeadlineImgInfo.img_url;
+            this.XC = forumHeadlineImgInfo.headline_url;
+            this.XD = new p();
+            ArrayList<r> arrayList = new ArrayList<>();
+            r rVar = new r(this.imgUrl == null ? "" : this.imgUrl, this.XC == null ? "" : this.XC, null);
+            rVar.an(true);
+            arrayList.add(rVar);
+            this.XD.f(arrayList);
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.mIcon = jSONObject.optString("icon");
-                this.mName = jSONObject.optString("name");
-                this.mUrl = jSONObject.optString("url");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    public String qG() {
+        return this.imgUrl;
     }
 }

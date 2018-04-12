@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public abstract class FragmentPagerAdapter extends PagerAdapter {
+    private static final boolean DEBUG = false;
+    private static final String TAG = "FragmentPagerAdapter";
     private FragmentTransaction mCurTransaction = null;
     private Fragment mCurrentPrimaryItem = null;
     private final FragmentManager mFragmentManager;
@@ -76,8 +78,8 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return ((Fragment) obj).getView() == view;
+    public boolean isViewFromObject(View view2, Object obj) {
+        return ((Fragment) obj).getView() == view2;
     }
 
     @Override // android.support.v4.view.PagerAdapter

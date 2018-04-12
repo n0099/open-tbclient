@@ -7,46 +7,46 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class BrowseSettingActivity extends BaseActivity implements BdSwitchView.a {
-    private b gMD = null;
+    private b ghH = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gMD = new b(this);
+        this.ghH = new b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gMD.onChangeSkinType(i);
+        this.ghH.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.gMD.bqk()) {
-            this.gMD.bqp();
+    public void onClick(View view2) {
+        if (view2 == this.ghH.blt()) {
+            this.ghH.bly();
             TiebaStatic.log("c10649");
         }
-        if (view == this.gMD.bql()) {
-            this.gMD.bqq();
+        if (view2 == this.ghH.blu()) {
+            this.ghH.blz();
             TiebaStatic.log("c10653");
-        } else if (view == this.gMD.bqm()) {
-            this.gMD.bqr();
-        } else if (view == this.gMD.bqn()) {
-            this.gMD.bqs();
-        } else if (view == this.gMD.bqo()) {
-            this.gMD.bqt();
+        } else if (view2 == this.ghH.blv()) {
+            this.ghH.blA();
+        } else if (view2 == this.ghH.blw()) {
+            this.ghH.blB();
+        } else if (view2 == this.ghH.blx()) {
+            this.ghH.blC();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
-    public void a(View view, BdSwitchView.SwitchState switchState) {
+    public void a(View view2, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            this.gMD.uS(1);
+            this.ghH.sv(1);
         } else {
-            this.gMD.uS(0);
+            this.ghH.sv(0);
         }
     }
 }

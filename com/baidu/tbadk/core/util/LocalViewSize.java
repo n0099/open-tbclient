@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize aVK = null;
+    private static LocalViewSize ahe = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -13,17 +13,17 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize Cs() {
-        if (aVK == null) {
-            aVK = new LocalViewSize();
+    public static LocalViewSize vc() {
+        if (ahe == null) {
+            ahe = new LocalViewSize();
         }
-        return aVK;
+        return ahe;
     }
 
     private LocalViewSize() {
     }
 
-    public void an(Context context) {
+    public void ae(Context context) {
         this.mContext = context;
     }
 
@@ -58,28 +58,28 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int Ct() {
-        int ao = com.baidu.adp.lib.util.l.ao(this.mContext);
-        if (ao >= 1080) {
+    public int vd() {
+        int af = com.baidu.adp.lib.util.l.af(this.mContext);
+        if (af >= 1080) {
             return 1080;
         }
-        if (ao < 720 || ao >= 1080) {
+        if (af < 720 || af >= 1080) {
             return com.baidu.sapi2.biometrics.liveness.camera.a.d;
         }
         return 720;
     }
 
-    public ImageSize Cu() {
+    public ImageSize ve() {
         int i = 240;
-        int ao = com.baidu.adp.lib.util.l.ao(this.mContext);
-        if (ao < 240) {
-            i = ao / 3;
-        } else if (ao <= 320) {
+        int af = com.baidu.adp.lib.util.l.af(this.mContext);
+        if (af < 240) {
+            i = af / 3;
+        } else if (af <= 320) {
             i = 80;
-        } else if (ao <= 480) {
+        } else if (af <= 480) {
             i = 160;
-        } else if (ao > 720) {
-            i = ao / 3;
+        } else if (af > 720) {
+            i = af / 3;
         }
         ImageSize imageSize = new ImageSize();
         imageSize.height = i;
@@ -87,15 +87,15 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize Cv() {
+    public ImageSize vf() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.util.l.aq(this.mContext);
-        imageSize.width = com.baidu.adp.lib.util.l.ao(this.mContext);
+        imageSize.height = com.baidu.adp.lib.util.l.ah(this.mContext);
+        imageSize.width = com.baidu.adp.lib.util.l.af(this.mContext);
         return imageSize;
     }
 
-    public int Cw() {
-        ImageSize Cu = Cu();
-        return Cu.height >= Cu.width ? Cu.height : Cu.width;
+    public int vg() {
+        ImageSize ve = ve();
+        return ve.height >= ve.width ? ve.height : ve.width;
     }
 }

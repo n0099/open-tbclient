@@ -9,11 +9,11 @@ import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.BannerFollowLive;
 /* loaded from: classes.dex */
-public class b implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId bqJ = BdUniqueId.gen();
-    private List<com.baidu.adp.widget.ListView.i> mList;
+public class b implements com.baidu.adp.widget.ListView.h {
+    public static final BdUniqueId aBi = BdUniqueId.gen();
+    private List<com.baidu.adp.widget.ListView.h> mList;
 
-    public List<com.baidu.adp.widget.ListView.i> getList() {
+    public List<com.baidu.adp.widget.ListView.h> getList() {
         return this.mList;
     }
 
@@ -25,7 +25,7 @@ public class b implements com.baidu.adp.widget.ListView.i {
                 this.mList.clear();
             }
             List<AlaLiveInfo> list = bannerFollowLive.ala_live_list;
-            if (!v.E(list)) {
+            if (!v.w(list)) {
                 for (AlaLiveInfo alaLiveInfo : list) {
                     if (alaLiveInfo != null) {
                         a aVar = new a();
@@ -33,21 +33,21 @@ public class b implements com.baidu.adp.widget.ListView.i {
                         this.mList.add(aVar);
                     }
                 }
-                Kt();
+                CZ();
             }
         }
     }
 
-    private void Kt() {
+    private void CZ() {
         a aVar = new a();
-        aVar.bqG = -100;
-        aVar.bqH = TbadkCoreApplication.getInst().getResources().getString(d.j.ala_follow_live_enter_live_square_txt);
-        aVar.bqI = d.f.icon_follow_live_recommend;
+        aVar.aBf = -100;
+        aVar.aBg = TbadkCoreApplication.getInst().getResources().getString(d.k.ala_follow_live_enter_live_square_txt);
+        aVar.aBh = d.f.icon_follow_live_recommend;
         this.mList.add(aVar);
     }
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return bqJ;
+        return aBi;
     }
 }

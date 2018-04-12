@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.protobuf.b;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class bd extends com.xiaomi.smack.b {
     final /* synthetic */ XMPushService a;
 
@@ -16,9 +16,9 @@ class bd extends com.xiaomi.smack.b {
     @Override // com.xiaomi.smack.b
     public byte[] a() {
         try {
-            b.C0291b c0291b = new b.C0291b();
-            c0291b.a(at.a().c());
-            return c0291b.c();
+            b.C0273b c0273b = new b.C0273b();
+            c0273b.a(at.a().c());
+            return c0273b.c();
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a("getOBBString err: " + e.toString());
             return null;

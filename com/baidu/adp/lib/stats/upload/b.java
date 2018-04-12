@@ -20,8 +20,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.adp.lib.util.g;
 import com.baidu.adp.lib.util.j;
-import com.xiaomi.mipush.sdk.Constants;
+import com.tencent.connect.common.Constants;
 import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -31,67 +32,67 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b alm = null;
-    private com.baidu.adp.lib.stats.c aln;
-    private a alo;
+    private static b vP = null;
     private CustomMessageListener mNetworkChangedListener = new CustomMessageListener(2000994) { // from class: com.baidu.adp.lib.stats.upload.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                b.this.oi();
+                b.this.gn();
             }
         }
     };
     private String mUploadUrl;
+    private com.baidu.adp.lib.stats.c vQ;
+    private a vR;
 
-    public static b oh() {
-        if (alm == null) {
+    public static b gm() {
+        if (vP == null) {
             synchronized (b.class) {
-                if (alm == null) {
-                    alm = new b();
+                if (vP == null) {
+                    vP = new b();
                 }
             }
         }
-        return alm;
+        return vP;
     }
 
     public void a(com.baidu.adp.lib.stats.c cVar, String str) {
         this.mUploadUrl = str;
-        this.aln = cVar;
-        if (this.aln != null) {
-            this.aln.akw = Build.MODEL;
-            this.aln.akA = Build.VERSION.RELEASE;
-            this.aln.mNetType = d.getNetType(BdBaseApplication.getInst());
-            this.aln.akz = String.valueOf(j.oP());
+        this.vQ = cVar;
+        if (this.vQ != null) {
+            this.vQ.va = Build.MODEL;
+            this.vQ.ve = Build.VERSION.RELEASE;
+            this.vQ.mNetType = d.getNetType(BdBaseApplication.getInst());
+            this.vQ.vd = String.valueOf(j.gV());
         }
         try {
             MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (this.alo == null) {
-            this.alo = new a();
+        if (this.vR == null) {
+            this.vR = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-            BdBaseApplication.getInst().registerReceiver(this.alo, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.vR, intentFilter);
         }
     }
 
     public void setUser(String str, String str2, String str3) {
-        if (this.aln.mUid != null || str != null) {
-            if (this.aln.mUid == null || !this.aln.mUid.equals(str)) {
-                this.aln.mUid = str;
-                this.aln.akx = str2;
-                this.aln.aky = str3;
+        if (this.vQ.mUid != null || str != null) {
+            if (this.vQ.mUid == null || !this.vQ.mUid.equals(str)) {
+                this.vQ.mUid = str;
+                this.vQ.vb = str2;
+                this.vQ.vc = str3;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oi() {
-        this.aln.mNetType = d.getNetType(BdBaseApplication.getInst());
-        this.aln.akz = String.valueOf(j.oP());
+    public void gn() {
+        this.vQ.mNetType = d.getNetType(BdBaseApplication.getInst());
+        this.vQ.vd = String.valueOf(j.gV());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -109,33 +110,33 @@ public class b {
     }
 
     public void a(com.baidu.adp.lib.stats.base.a aVar, String str) {
-        new C0020b(aVar, str).execute(new Object[0]);
+        new C0009b(aVar, str).execute(new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.adp.lib.stats.upload.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0020b extends BdAsyncTask<Object, Integer, Void> {
-        private com.baidu.adp.lib.stats.base.a alp;
-        private String alq;
+    public class C0009b extends BdAsyncTask<Object, Integer, Void> {
+        private com.baidu.adp.lib.stats.base.a vS;
+        private String vT;
 
-        public C0020b(com.baidu.adp.lib.stats.base.a aVar, String str) {
-            this.alp = aVar;
-            this.alq = str;
+        public C0009b(com.baidu.adp.lib.stats.base.a aVar, String str) {
+            this.vS = aVar;
+            this.vT = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Object... objArr) {
-            String a = com.baidu.adp.lib.stats.upload.c.a(this.alp, b.this.aln);
-            String str = this.alq;
+            String a = com.baidu.adp.lib.stats.upload.c.a(this.vS, b.this.vQ);
+            String str = this.vT;
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
             BdLog.i("commonHeader = " + a);
             BdLog.i("cache = " + str);
-            this.alp.nQ();
-            b.this.a(this.alp, a, arrayList, null, true);
+            this.vS.fU();
+            b.this.a(this.vS, a, arrayList, null, true);
             return null;
         }
     }
@@ -149,31 +150,31 @@ public class b {
         ArrayList<String> arrayList;
         ArrayList arrayList2;
         if (BdStatisticsManager.getInstance().isMainProcess() && aVar != null) {
-            ArrayList<String> aA = com.baidu.adp.lib.stats.switchs.a.ob().aA(aVar.nS());
+            ArrayList<String> ax = com.baidu.adp.lib.stats.switchs.a.gg().ax(aVar.fW());
             if (!z) {
-                boolean onlyWifiUpload = com.baidu.adp.lib.stats.switchs.a.ob().onlyWifiUpload(aVar.nS(), null);
-                boolean oK = j.oK();
-                if (!onlyWifiUpload || oK) {
-                    if (aA != null && aA.size() > 0) {
+                boolean onlyWifiUpload = com.baidu.adp.lib.stats.switchs.a.gg().onlyWifiUpload(aVar.fW(), null);
+                boolean gQ = j.gQ();
+                if (!onlyWifiUpload || gQ) {
+                    if (ax != null && ax.size() > 0) {
                         ArrayList<String> arrayList3 = new ArrayList<>();
-                        Iterator<String> it = aA.iterator();
+                        Iterator<String> it = ax.iterator();
                         while (it.hasNext()) {
                             String next = it.next();
-                            if (!com.baidu.adp.lib.stats.switchs.a.ob().isUpload(aVar.nS(), next)) {
+                            if (!com.baidu.adp.lib.stats.switchs.a.gg().isUpload(aVar.fW(), next)) {
                                 b(arrayList3, next);
-                            } else if (!com.baidu.adp.lib.stats.switchs.a.ob().smallFlowUpload(aVar.nS(), next)) {
+                            } else if (!com.baidu.adp.lib.stats.switchs.a.gg().smallFlowUpload(aVar.fW(), next)) {
                                 b(arrayList3, next);
                             } else {
-                                boolean onlyWifiUpload2 = com.baidu.adp.lib.stats.switchs.a.ob().onlyWifiUpload(aVar.nS(), next);
-                                boolean oK2 = j.oK();
-                                if (onlyWifiUpload2 && !oK2) {
+                                boolean onlyWifiUpload2 = com.baidu.adp.lib.stats.switchs.a.gg().onlyWifiUpload(aVar.fW(), next);
+                                boolean gQ2 = j.gQ();
+                                if (onlyWifiUpload2 && !gQ2) {
                                     b(arrayList3, next);
                                 }
                             }
                         }
                         arrayList = arrayList3;
-                        if (aVar.nT()) {
-                            aVar.as(true);
+                        if (aVar.fX()) {
+                            aVar.L(true);
                             if (arrayList == null || arrayList.size() <= 0) {
                                 arrayList2 = null;
                             } else {
@@ -181,7 +182,7 @@ public class b {
                                 Iterator<String> it2 = arrayList.iterator();
                                 while (it2.hasNext()) {
                                     try {
-                                        arrayList4.add("st=" + URLEncoder.encode(com.baidu.adp.lib.stats.a.au(it2.next()), "utf-8") + "&");
+                                        arrayList4.add("st=" + URLEncoder.encode(com.baidu.adp.lib.stats.a.ar(it2.next()), "utf-8") + "&");
                                     } catch (UnsupportedEncodingException e) {
                                         e.printStackTrace();
                                     }
@@ -198,7 +199,7 @@ public class b {
                 }
             }
             arrayList = null;
-            if (aVar.nT()) {
+            if (aVar.fX()) {
             }
         }
     }
@@ -217,30 +218,30 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<Object, Integer, Void> {
-        private com.baidu.adp.lib.stats.base.a alr;
-        private ArrayList<String> als;
-        private boolean alt;
-        private boolean alu;
-        private boolean alv;
+        private com.baidu.adp.lib.stats.base.a vU;
+        private ArrayList<String> vV;
+        private boolean vW;
+        private boolean vX;
+        private boolean vY;
 
         public c(com.baidu.adp.lib.stats.base.a aVar, ArrayList<String> arrayList, boolean z, boolean z2, boolean z3) {
-            this.alr = null;
-            this.als = null;
-            this.alt = false;
-            this.alu = false;
-            this.alv = false;
-            this.alr = aVar;
-            this.als = arrayList;
-            this.alt = z;
-            this.alu = z2;
-            this.alv = z3;
+            this.vU = null;
+            this.vV = null;
+            this.vW = false;
+            this.vX = false;
+            this.vY = false;
+            this.vU = aVar;
+            this.vV = arrayList;
+            this.vW = z;
+            this.vX = z2;
+            this.vY = z3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Object... objArr) {
-            b(this.alr, this.alt, this.alu, this.alv);
+            b(this.vU, this.vW, this.vX, this.vY);
             return null;
         }
 
@@ -249,19 +250,19 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(Void r3) {
-            this.alr.as(false);
+            this.vU.L(false);
         }
 
         private void b(com.baidu.adp.lib.stats.base.a aVar, boolean z, boolean z2, boolean z3) {
             int i;
             try {
-                String a = com.baidu.adp.lib.stats.upload.c.a(aVar, b.this.aln);
+                String a = com.baidu.adp.lib.stats.upload.c.a(aVar, b.this.vQ);
                 BdUploadingLogInfo a2 = com.baidu.adp.lib.stats.upload.a.a(aVar, z2);
                 int size = a2.size();
                 if (a2 != null && size > 0) {
                     if (!z) {
                         for (int i2 = 0; i2 < size; i2++) {
-                            ArrayList<String> logStringByIndex = a2.getLogStringByIndex(i2, this.als);
+                            ArrayList<String> logStringByIndex = a2.getLogStringByIndex(i2, this.vV);
                             if (logStringByIndex != null && logStringByIndex.size() != 0) {
                                 if (!z2) {
                                     b.this.a(aVar, a, logStringByIndex, a2.get(i2), z3);
@@ -280,9 +281,9 @@ public class b {
                     }
                     int i4 = 0;
                     for (int i5 = size - 1; i5 >= 0; i5--) {
-                        ArrayList<String> logStringByIndex2 = a2.getLogStringByIndex(i5, this.als);
+                        ArrayList<String> logStringByIndex2 = a2.getLogStringByIndex(i5, this.vV);
                         if (logStringByIndex2 != null && logStringByIndex2.size() != 0) {
-                            if (j.oK()) {
+                            if (j.gQ()) {
                                 i = i4;
                             } else {
                                 i = i4 + logStringByIndex2.toString().length();
@@ -339,7 +340,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.adp.lib.stats.base.a aVar, String str, ArrayList<String> arrayList, ArrayList<com.baidu.adp.lib.stats.base.c> arrayList2, boolean z) {
-        if (a(this.mUploadUrl, aVar, str, arrayList, arrayList2, z, false) != null && j.oJ()) {
+        if (a(this.mUploadUrl, aVar, str, arrayList, arrayList2, z, false) != null && j.gP()) {
             String a2 = a(this.mUploadUrl, aVar, str, arrayList, arrayList2, z, true);
             if (a2 == null) {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
@@ -354,118 +355,179 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x008d A[Catch: Exception -> 0x014a, TryCatch #1 {Exception -> 0x014a, blocks: (B:14:0x0037, B:16:0x0044, B:19:0x004e, B:21:0x0055, B:23:0x005e, B:24:0x0075, B:26:0x008d, B:27:0x009d, B:29:0x00af, B:42:0x00f7, B:43:0x0100, B:45:0x0106, B:47:0x010c, B:48:0x0113, B:50:0x0119, B:52:0x0121, B:54:0x0129, B:56:0x012f, B:57:0x0135, B:58:0x013a, B:59:0x013e, B:61:0x0144, B:40:0x00ed, B:28:0x00a4, B:33:0x00c1, B:35:0x00d8), top: B:69:0x0037, inners: #0, #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00d8 A[Catch: Exception -> 0x00f6, TRY_LEAVE, TryCatch #2 {Exception -> 0x00f6, blocks: (B:33:0x00c1, B:35:0x00d8), top: B:70:0x00c1, outer: #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0119 A[Catch: Exception -> 0x014a, TryCatch #1 {Exception -> 0x014a, blocks: (B:14:0x0037, B:16:0x0044, B:19:0x004e, B:21:0x0055, B:23:0x005e, B:24:0x0075, B:26:0x008d, B:27:0x009d, B:29:0x00af, B:42:0x00f7, B:43:0x0100, B:45:0x0106, B:47:0x010c, B:48:0x0113, B:50:0x0119, B:52:0x0121, B:54:0x0129, B:56:0x012f, B:57:0x0135, B:58:0x013a, B:59:0x013e, B:61:0x0144, B:40:0x00ed, B:28:0x00a4, B:33:0x00c1, B:35:0x00d8), top: B:69:0x0037, inners: #0, #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x0144 A[Catch: Exception -> 0x014a, TRY_LEAVE, TryCatch #1 {Exception -> 0x014a, blocks: (B:14:0x0037, B:16:0x0044, B:19:0x004e, B:21:0x0055, B:23:0x005e, B:24:0x0075, B:26:0x008d, B:27:0x009d, B:29:0x00af, B:42:0x00f7, B:43:0x0100, B:45:0x0106, B:47:0x010c, B:48:0x0113, B:50:0x0119, B:52:0x0121, B:54:0x0129, B:56:0x012f, B:57:0x0135, B:58:0x013a, B:59:0x013e, B:61:0x0144, B:40:0x00ed, B:28:0x00a4, B:33:0x00c1, B:35:0x00d8), top: B:69:0x0037, inners: #0, #2 }] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [529=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:101:0x0013 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0028 A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x003b  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00a8 A[Catch: Exception -> 0x01e5, TryCatch #5 {Exception -> 0x01e5, blocks: (B:25:0x0052, B:27:0x005f, B:30:0x0069, B:32:0x0070, B:34:0x0079, B:35:0x0090, B:37:0x00a8, B:38:0x00b8, B:40:0x00ca, B:70:0x0192, B:71:0x019b, B:73:0x01a1, B:75:0x01a7, B:76:0x01ae, B:78:0x01b4, B:80:0x01bc, B:82:0x01c4, B:84:0x01ca, B:85:0x01d0, B:86:0x01d5, B:87:0x01d9, B:89:0x01df, B:64:0x0183, B:39:0x00bf, B:44:0x00dc, B:47:0x00f5, B:49:0x0102, B:51:0x0108, B:53:0x0111, B:55:0x011a, B:56:0x0131, B:58:0x0143, B:59:0x0153, B:67:0x018d, B:61:0x0178), top: B:105:0x0052, inners: #6, #7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00f3  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x01b4 A[Catch: Exception -> 0x01e5, TryCatch #5 {Exception -> 0x01e5, blocks: (B:25:0x0052, B:27:0x005f, B:30:0x0069, B:32:0x0070, B:34:0x0079, B:35:0x0090, B:37:0x00a8, B:38:0x00b8, B:40:0x00ca, B:70:0x0192, B:71:0x019b, B:73:0x01a1, B:75:0x01a7, B:76:0x01ae, B:78:0x01b4, B:80:0x01bc, B:82:0x01c4, B:84:0x01ca, B:85:0x01d0, B:86:0x01d5, B:87:0x01d9, B:89:0x01df, B:64:0x0183, B:39:0x00bf, B:44:0x00dc, B:47:0x00f5, B:49:0x0102, B:51:0x0108, B:53:0x0111, B:55:0x011a, B:56:0x0131, B:58:0x0143, B:59:0x0153, B:67:0x018d, B:61:0x0178), top: B:105:0x0052, inners: #6, #7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x01df A[Catch: Exception -> 0x01e5, TRY_LEAVE, TryCatch #5 {Exception -> 0x01e5, blocks: (B:25:0x0052, B:27:0x005f, B:30:0x0069, B:32:0x0070, B:34:0x0079, B:35:0x0090, B:37:0x00a8, B:38:0x00b8, B:40:0x00ca, B:70:0x0192, B:71:0x019b, B:73:0x01a1, B:75:0x01a7, B:76:0x01ae, B:78:0x01b4, B:80:0x01bc, B:82:0x01c4, B:84:0x01ca, B:85:0x01d0, B:86:0x01d5, B:87:0x01d9, B:89:0x01df, B:64:0x0183, B:39:0x00bf, B:44:0x00dc, B:47:0x00f5, B:49:0x0102, B:51:0x0108, B:53:0x0111, B:55:0x011a, B:56:0x0131, B:58:0x0143, B:59:0x0153, B:67:0x018d, B:61:0x0178), top: B:105:0x0052, inners: #6, #7 }] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [int] */
+    /* JADX WARN: Type inference failed for: r1v11 */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.lang.Object] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private String a(String str, com.baidu.adp.lib.stats.base.a aVar, String str2, ArrayList<String> arrayList, ArrayList<com.baidu.adp.lib.stats.base.c> arrayList2, boolean z, boolean z2) {
         byte[] b;
+        ?? length;
+        ByteArrayOutputStream byteArrayOutputStream;
         String str3;
         e eVar;
         HashMap<String, Object> a2;
         byte[] bArr;
-        List<com.baidu.adp.lib.network.http.d> nd;
+        List<com.baidu.adp.lib.network.http.d> fg;
         StringBuilder sb;
         int i;
-        if (str != null && aVar != null && (b = b(str2, arrayList)) != null && b.length > 0) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(b.length / 2);
+        if (str != null && aVar != null && (b = b(str2, arrayList)) != null && (length = b.length) > 0) {
+            OutputStream outputStream = null;
             try {
-                g.a(b, byteArrayOutputStream);
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                HashMap hashMap = new HashMap();
-                hashMap.put(aVar.nU(), byteArray);
-                ArrayList arrayList3 = new ArrayList(hashMap.entrySet());
                 try {
-                    if (aVar != null) {
-                        try {
-                            if (aVar.nS().equals("pfmonitor") && BdStatisticsSwitchStatic.nv()) {
-                                str3 = "http://nlog.baidu.com/dplog/n";
-                                eVar = new e();
-                                if (z2 && str3.contains("c.tieba.baidu.com")) {
-                                    str3 = str3.replace("c.tieba.baidu.com", "123.125.115.120");
-                                    eVar.nb().o("Host", "c.tieba.baidu.com");
-                                }
-                                eVar.nb().setUrl(str3);
-                                eVar.nb().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                                a2 = com.baidu.adp.lib.stats.upload.c.a(this.aln, z);
-                                if (a2 != null) {
-                                    eVar.nb().p(new ArrayList(a2.entrySet()));
-                                }
-                                eVar.nb().p(arrayList3);
-                                new com.baidu.adp.lib.network.http.c(eVar).o(3, -1, -1);
-                                int i2 = eVar.nc().responseCode;
-                                bArr = eVar.nc().ajy;
-                                if (bArr != null && i2 == 200) {
-                                    try {
-                                        if (new JSONObject(new String(bArr, "utf-8")).optInt("error_code", -1) == 0) {
-                                            b(arrayList2, aVar.nX());
-                                            return null;
-                                        }
-                                    } catch (Exception e) {
-                                        BdLog.e(e);
-                                        return e.getMessage();
-                                    }
-                                }
-                                nd = eVar.nd();
-                                if (nd != null && nd.size() > 0) {
-                                    sb = new StringBuilder();
-                                    for (i = 0; i < nd.size(); i++) {
-                                        com.baidu.adp.lib.network.http.d dVar = nd.get(i);
-                                        if (dVar != null && !TextUtils.isEmpty(dVar.ajf)) {
-                                            if (sb.length() > 0) {
-                                                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    byteArrayOutputStream = new ByteArrayOutputStream(b.length / 2);
+                    try {
+                        g.a(b, byteArrayOutputStream);
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
+                        length = byteArray;
+                    } catch (Exception e) {
+                        e = e;
+                        BdLog.e(e);
+                        com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
+                        length = 0;
+                        if (length != 0) {
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    outputStream = length;
+                    com.baidu.adp.lib.g.a.b(outputStream);
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                byteArrayOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                com.baidu.adp.lib.g.a.b(outputStream);
+                throw th;
+            }
+            if (length != 0) {
+                return "";
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put(aVar.fY(), length);
+            ArrayList arrayList3 = new ArrayList(hashMap.entrySet());
+            try {
+                if (aVar != null) {
+                    try {
+                        if (aVar.fW().equals("pfmonitor") && BdStatisticsSwitchStatic.fz()) {
+                            str3 = "http://nlog.baidu.com/dplog/n";
+                            eVar = new e();
+                            if (z2 && str3.contains("c.tieba.baidu.com")) {
+                                str3 = str3.replace("c.tieba.baidu.com", "123.125.115.120");
+                                eVar.fe().o("Host", "c.tieba.baidu.com");
+                            }
+                            eVar.fe().setUrl(str3);
+                            eVar.fe().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+                            a2 = com.baidu.adp.lib.stats.upload.c.a(this.vQ, z);
+                            if (a2 != null) {
+                                eVar.fe().g(new ArrayList(a2.entrySet()));
+                            }
+                            eVar.fe().g(arrayList3);
+                            new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
+                            int i2 = eVar.ff().responseCode;
+                            bArr = eVar.ff().tZ;
+                            if (bArr != null && i2 == 200) {
+                                try {
+                                    if (new JSONObject(new String(bArr, "utf-8")).optInt("error_code", -1) == 0) {
+                                        if (aVar != null && aVar.fW().equals("pfmonitor") && BdStatisticsSwitchStatic.fz()) {
+                                            e eVar2 = new e();
+                                            String str4 = this.mUploadUrl;
+                                            if (z2 && str4.contains("c.tieba.baidu.com")) {
+                                                str4 = str4.replace("c.tieba.baidu.com", "123.125.115.120");
+                                                eVar2.fe().o("Host", "c.tieba.baidu.com");
                                             }
-                                            sb.append(dVar.ajf);
+                                            eVar2.fe().setUrl(str4);
+                                            eVar2.fe().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+                                            if (a2 != null) {
+                                                eVar2.fe().g(new ArrayList(a2.entrySet()));
+                                            }
+                                            hashMap.clear();
+                                            hashMap.put(Constants.PARAM_PLATFORM_ID, length);
+                                            arrayList3.clear();
+                                            arrayList3.addAll(hashMap.entrySet());
+                                            eVar2.fe().g(arrayList3);
+                                            try {
+                                                new com.baidu.adp.lib.network.http.c(eVar2).f(3, -1, -1);
+                                            } catch (Exception e3) {
+                                                BdLog.detailException(e3);
+                                            }
                                         }
+                                        b(arrayList2, aVar.gb());
+                                        return null;
                                     }
-                                    if (sb.length() > 0) {
-                                        return sb.toString();
-                                    }
+                                } catch (Exception e4) {
+                                    BdLog.e(e4);
+                                    return e4.getMessage();
                                 }
                             }
-                        } catch (Exception e2) {
-                            BdLog.e(e2);
-                            return e2.getMessage();
+                            fg = eVar.fg();
+                            if (fg != null && fg.size() > 0) {
+                                sb = new StringBuilder();
+                                for (i = 0; i < fg.size(); i++) {
+                                    com.baidu.adp.lib.network.http.d dVar = fg.get(i);
+                                    if (dVar != null && !TextUtils.isEmpty(dVar.tG)) {
+                                        if (sb.length() > 0) {
+                                            sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                        }
+                                        sb.append(dVar.tG);
+                                    }
+                                }
+                                if (sb.length() > 0) {
+                                    return sb.toString();
+                                }
+                            }
                         }
+                    } catch (Exception e5) {
+                        BdLog.e(e5);
+                        return e5.getMessage();
                     }
-                    new com.baidu.adp.lib.network.http.c(eVar).o(3, -1, -1);
-                    int i22 = eVar.nc().responseCode;
-                    bArr = eVar.nc().ajy;
-                    if (bArr != null) {
-                        if (new JSONObject(new String(bArr, "utf-8")).optInt("error_code", -1) == 0) {
-                        }
+                }
+                new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
+                int i22 = eVar.ff().responseCode;
+                bArr = eVar.ff().tZ;
+                if (bArr != null) {
+                    if (new JSONObject(new String(bArr, "utf-8")).optInt("error_code", -1) == 0) {
                     }
-                    nd = eVar.nd();
-                    if (nd != null) {
-                        sb = new StringBuilder();
-                        while (i < nd.size()) {
-                        }
-                        if (sb.length() > 0) {
-                        }
+                }
+                fg = eVar.fg();
+                if (fg != null) {
+                    sb = new StringBuilder();
+                    while (i < fg.size()) {
                     }
-                } catch (Exception e3) {
-                    BdLog.detailException(e3);
-                    return e3.getMessage();
+                    if (sb.length() > 0) {
+                    }
                 }
-                str3 = str;
-                eVar = new e();
-                if (z2) {
-                    str3 = str3.replace("c.tieba.baidu.com", "123.125.115.120");
-                    eVar.nb().o("Host", "c.tieba.baidu.com");
-                }
-                eVar.nb().setUrl(str3);
-                eVar.nb().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                a2 = com.baidu.adp.lib.stats.upload.c.a(this.aln, z);
-                if (a2 != null) {
-                }
-                eVar.nb().p(arrayList3);
-            } catch (Exception e4) {
-                BdLog.e(e4);
-                return e4.getMessage();
+            } catch (Exception e6) {
+                BdLog.detailException(e6);
+                return e6.getMessage();
             }
+            str3 = str;
+            eVar = new e();
+            if (z2) {
+                str3 = str3.replace("c.tieba.baidu.com", "123.125.115.120");
+                eVar.fe().o("Host", "c.tieba.baidu.com");
+            }
+            eVar.fe().setUrl(str3);
+            eVar.fe().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            a2 = com.baidu.adp.lib.stats.upload.c.a(this.vQ, z);
+            if (a2 != null) {
+            }
+            eVar.fe().g(arrayList3);
         }
         return "";
     }

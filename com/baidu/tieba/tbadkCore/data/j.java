@@ -5,37 +5,37 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String haM;
-    private String haN;
-    private String haO;
-    private String haP;
+    private String gwj;
+    private String gwk;
+    private String gwl;
+    private String gwm;
     private int height;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public j(Timgs timgs) {
-        this.haM = null;
+        this.gwj = null;
         this.urlFlag = 0;
-        this.haN = null;
-        this.haO = null;
-        this.haP = null;
+        this.gwk = null;
+        this.gwl = null;
+        this.gwm = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.haM = timgs.img_url;
+            this.gwj = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.haN = timgs.url;
-            this.haO = timgs.big_cdn_url;
-            this.haP = timgs.des_main;
+            this.gwk = timgs.url;
+            this.gwl = timgs.big_cdn_url;
+            this.gwm = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.width = com.baidu.adp.lib.g.b.h(split[0], 1);
-                    this.height = com.baidu.adp.lib.g.b.h(split[1], 1);
+                    this.width = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.height = com.baidu.adp.lib.g.b.g(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -51,19 +51,19 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.haM;
+        return this.gwj;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String xV() {
-        return this.haN;
+    public String qB() {
+        return this.gwk;
     }
 
-    public String bwH() {
-        return this.haM;
+    public String brJ() {
+        return this.gwj;
     }
 
-    public String bwI() {
-        return this.haO;
+    public String brK() {
+        return this.gwl;
     }
 }

@@ -8,24 +8,31 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class c extends ImageSpan {
-    private WeakReference<Drawable> asU;
-    private int bEG;
-    private int bEH;
+    private WeakReference<Drawable> Dw;
+    private int aPg;
+    private int paddingLeft;
+    private int paddingRight;
 
-    public c(Drawable drawable, int i) {
+    public c(Drawable drawable) {
         super(drawable);
-        this.bEG = 0;
-        this.bEH = 1;
-        this.bEH = i;
+        this.aPg = 0;
+    }
+
+    public void ft(int i) {
+        this.paddingLeft = i;
+    }
+
+    public void fu(int i) {
+        this.paddingRight = i;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Drawable rM = rM();
-        if (rM == null) {
+        Drawable jR = jR();
+        if (jR == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
-        Rect bounds = rM.getBounds();
+        Rect bounds = jR.getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -37,47 +44,35 @@ public class c extends ImageSpan {
             fontMetricsInt.bottom = i5;
             fontMetricsInt.descent = i5;
         }
-        return bounds.right;
+        return bounds.right + this.paddingLeft + this.paddingRight;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable rM;
-        float f2;
-        if (rM() != null) {
-            switch (this.bEH) {
-                case 0:
-                    f2 = 0.1f;
-                    break;
-                case 1:
-                    f2 = 0.15f;
-                    break;
-                case 2:
-                    f2 = 0.2f;
-                    break;
-                default:
-                    f2 = 0.0f;
-                    break;
-            }
-            float height = f2 != 0.0f ? ((i4 - i5) + (f2 * rM.getBounds().height())) - this.bEG : 0.0f;
+        Drawable jR = jR();
+        if (jR != null) {
             canvas.save();
-            canvas.translate(rM.getBounds().width() * 0.15f, height);
-            super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
+            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - jR.getBounds().bottom) / 2) + i3) - this.aPg);
+            jR.draw(canvas);
             canvas.restore();
         }
     }
 
-    private Drawable rM() {
-        WeakReference<Drawable> weakReference = this.asU;
+    private Drawable jR() {
+        WeakReference<Drawable> weakReference = this.Dw;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.asU = new WeakReference<>(drawable2);
+            this.Dw = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;
+    }
+
+    public void setVerticalOffset(int i) {
+        this.aPg = i;
     }
 }

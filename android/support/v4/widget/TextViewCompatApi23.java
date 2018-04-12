@@ -1,9 +1,14 @@
 package android.support.v4.widget;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.StyleRes;
 import android.widget.TextView;
 /* loaded from: classes2.dex */
 class TextViewCompatApi23 {
-    public static void setTextAppearance(TextView textView, int i) {
+    TextViewCompatApi23() {
+    }
+
+    public static void setTextAppearance(@NonNull TextView textView, @StyleRes int i) {
         textView.setTextAppearance(i);
     }
 }

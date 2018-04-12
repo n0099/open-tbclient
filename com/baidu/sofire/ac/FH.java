@@ -32,13 +32,13 @@ public class FH {
                         if (i > 0) {
                             Thread.sleep(i * 1000);
                         }
-                        new e(context).k(iArr);
-                        c aC = c.aC(context);
+                        new e(context).a(iArr);
+                        c a = c.a(context);
                         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                            aC.a(str, str2);
+                            a.a(str, str2);
                         }
                         c.a(1);
-                        aC.a((Callback) null);
+                        a.a((Callback) null);
                     } catch (Throwable th) {
                         d.a(th);
                     }
@@ -60,11 +60,11 @@ public class FH {
     public static Pair<Integer, Object> callSync(int i, String str, Class<?>[] clsArr, Object... objArr) {
         Pair<Integer, Object> a;
         try {
-            c vE = c.vE();
-            if (vE == null) {
+            c a2 = c.a();
+            if (a2 == null) {
                 a = new Pair<>(3, null);
             } else {
-                a = vE.a(i, str, clsArr, objArr);
+                a = a2.a(i, str, clsArr, objArr);
             }
             return a;
         } catch (Throwable th) {
@@ -92,11 +92,11 @@ public class FH {
                     return "";
                 }
                 try {
-                    com.baidu.sofire.core.e vF = com.baidu.sofire.core.e.vF();
-                    if (vF == null) {
+                    com.baidu.sofire.core.e a = com.baidu.sofire.core.e.a();
+                    if (a == null) {
                         return "";
                     }
-                    List<ApkInfo> b = vF.b();
+                    List<ApkInfo> b = a.b();
                     if (b == null || b.size() <= 0) {
                         return "";
                     }
@@ -160,14 +160,14 @@ public class FH {
     }
 
     public static boolean isInitSuc(int i) {
-        ApkInfo dW;
-        com.baidu.sofire.core.e vF;
+        ApkInfo a;
+        com.baidu.sofire.core.e a2;
         try {
-            a aVar = a.aGd;
-            if (aVar == null || (dW = aVar.dW(i)) == null || dW.initStatus != 1 || (vF = com.baidu.sofire.core.e.vF()) == null) {
+            a aVar = a.d;
+            if (aVar == null || (a = aVar.a(i)) == null || a.initStatus != 1 || (a2 = com.baidu.sofire.core.e.a()) == null) {
                 return false;
             }
-            return vF.cm(dW.packageName) != null;
+            return a2.d(a.packageName) != null;
         } catch (Throwable th) {
             d.a(th);
             return false;

@@ -3,7 +3,7 @@ package com.xiaomi.smack;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static int a(Throwable th) {
         Throwable a = (!(th instanceof l) || ((l) th).a() == null) ? th : ((l) th).a();

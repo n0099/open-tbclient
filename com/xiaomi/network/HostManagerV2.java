@@ -18,7 +18,7 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HostManagerV2 extends HostManager {
     private final int a;
     private final int b;

@@ -5,12 +5,12 @@ import com.xiaomi.push.service.ak;
 import com.xiaomi.stats.d;
 import com.xiaomi.xmpush.thrift.aq;
 import java.util.Hashtable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     private static final int a = com.xiaomi.push.thrift.a.PING_RTT.a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         static Hashtable<Integer, Long> a = new Hashtable<>();
     }

@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.design.R;
 import android.support.v4.view.OnApplyWindowInsetsListener;
@@ -13,11 +14,11 @@ import android.support.v4.view.WindowInsetsCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class ScrimInsetsFrameLayout extends FrameLayout {
-    Drawable ku;
-    Rect kv;
+    Drawable mInsetForeground;
+    Rect mInsets;
     private Rect mTempRect;
 
     public ScrimInsetsFrameLayout(Context context) {
@@ -32,18 +33,18 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
         super(context, attributeSet, i);
         this.mTempRect = new Rect();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ScrimInsetsFrameLayout, i, R.style.Widget_Design_ScrimInsetsFrameLayout);
-        this.ku = obtainStyledAttributes.getDrawable(R.styleable.ScrimInsetsFrameLayout_insetForeground);
+        this.mInsetForeground = obtainStyledAttributes.getDrawable(R.styleable.ScrimInsetsFrameLayout_insetForeground);
         obtainStyledAttributes.recycle();
         setWillNotDraw(true);
         ViewCompat.setOnApplyWindowInsetsListener(this, new OnApplyWindowInsetsListener() { // from class: android.support.design.internal.ScrimInsetsFrameLayout.1
             @Override // android.support.v4.view.OnApplyWindowInsetsListener
-            public WindowInsetsCompat onApplyWindowInsets(View view, WindowInsetsCompat windowInsetsCompat) {
-                if (ScrimInsetsFrameLayout.this.kv == null) {
-                    ScrimInsetsFrameLayout.this.kv = new Rect();
+            public WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
+                if (ScrimInsetsFrameLayout.this.mInsets == null) {
+                    ScrimInsetsFrameLayout.this.mInsets = new Rect();
                 }
-                ScrimInsetsFrameLayout.this.kv.set(windowInsetsCompat.getSystemWindowInsetLeft(), windowInsetsCompat.getSystemWindowInsetTop(), windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom());
+                ScrimInsetsFrameLayout.this.mInsets.set(windowInsetsCompat.getSystemWindowInsetLeft(), windowInsetsCompat.getSystemWindowInsetTop(), windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom());
                 ScrimInsetsFrameLayout.this.onInsetsChanged(windowInsetsCompat);
-                ScrimInsetsFrameLayout.this.setWillNotDraw(!windowInsetsCompat.hasSystemWindowInsets() || ScrimInsetsFrameLayout.this.ku == null);
+                ScrimInsetsFrameLayout.this.setWillNotDraw(!windowInsetsCompat.hasSystemWindowInsets() || ScrimInsetsFrameLayout.this.mInsetForeground == null);
                 ViewCompat.postInvalidateOnAnimation(ScrimInsetsFrameLayout.this);
                 return windowInsetsCompat.consumeSystemWindowInsets();
             }
@@ -51,25 +52,25 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         super.draw(canvas);
         int width = getWidth();
         int height = getHeight();
-        if (this.kv != null && this.ku != null) {
+        if (this.mInsets != null && this.mInsetForeground != null) {
             int save = canvas.save();
             canvas.translate(getScrollX(), getScrollY());
-            this.mTempRect.set(0, 0, width, this.kv.top);
-            this.ku.setBounds(this.mTempRect);
-            this.ku.draw(canvas);
-            this.mTempRect.set(0, height - this.kv.bottom, width, height);
-            this.ku.setBounds(this.mTempRect);
-            this.ku.draw(canvas);
-            this.mTempRect.set(0, this.kv.top, this.kv.left, height - this.kv.bottom);
-            this.ku.setBounds(this.mTempRect);
-            this.ku.draw(canvas);
-            this.mTempRect.set(width - this.kv.right, this.kv.top, width, height - this.kv.bottom);
-            this.ku.setBounds(this.mTempRect);
-            this.ku.draw(canvas);
+            this.mTempRect.set(0, 0, width, this.mInsets.top);
+            this.mInsetForeground.setBounds(this.mTempRect);
+            this.mInsetForeground.draw(canvas);
+            this.mTempRect.set(0, height - this.mInsets.bottom, width, height);
+            this.mInsetForeground.setBounds(this.mTempRect);
+            this.mInsetForeground.draw(canvas);
+            this.mTempRect.set(0, this.mInsets.top, this.mInsets.left, height - this.mInsets.bottom);
+            this.mInsetForeground.setBounds(this.mTempRect);
+            this.mInsetForeground.draw(canvas);
+            this.mTempRect.set(width - this.mInsets.right, this.mInsets.top, width, height - this.mInsets.bottom);
+            this.mInsetForeground.setBounds(this.mTempRect);
+            this.mInsetForeground.draw(canvas);
             canvas.restoreToCount(save);
         }
     }
@@ -77,16 +78,16 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.ku != null) {
-            this.ku.setCallback(this);
+        if (this.mInsetForeground != null) {
+            this.mInsetForeground.setCallback(this);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.ku != null) {
-            this.ku.setCallback(null);
+        if (this.mInsetForeground != null) {
+            this.mInsetForeground.setCallback(null);
         }
     }
 

@@ -14,7 +14,7 @@ public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> 
         }
     }
 
-    public void j(int i, int i2, String str) {
+    public void g(int i, int i2, String str) {
         Intent intent = new Intent();
         intent.putExtra("extra_show_channel", i);
         intent.putExtra("extra_share_status", i2);

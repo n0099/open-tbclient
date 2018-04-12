@@ -29,4 +29,7 @@ class RemoteInputCompatBase {
         /* JADX INFO: Access modifiers changed from: protected */
         public abstract String getResultKey();
     }
+
+    RemoteInputCompatBase() {
+    }
 }

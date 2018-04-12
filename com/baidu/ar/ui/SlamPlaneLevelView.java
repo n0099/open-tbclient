@@ -65,6 +65,6 @@ public class SlamPlaneLevelView extends RelativeLayout implements View.OnClickLi
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
     }
 }

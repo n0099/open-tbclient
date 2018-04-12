@@ -1,5 +1,5 @@
 package org.apache.thrift.transport;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c extends d {
     private byte[] a;
     private int b;

@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
@@ -21,28 +22,38 @@ public class KeepLiveUtil {
     private static ScreenManager screenManager = null;
 
     public static void startForKeeplive(Context context) {
-        try {
-            TiebaStatic.log("c12662");
-            if (TbadkCoreApplication.getKeepLiveSwitch(context)) {
-                if (context == null) {
-                    context = mKeepLiveContext;
+        new BdAsyncTask<Context, Void, Void>() { // from class: com.baidu.tieba.keepLive.KeepLiveUtil.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            /* renamed from: a */
+            public Void doInBackground(Context... contextArr) {
+                Context context2;
+                try {
+                    context2 = contextArr[0];
+                    TiebaStatic.log("c12662");
+                } catch (Throwable th) {
                 }
-                if (context != null) {
-                    if ((context instanceof Activity) || (context instanceof Application)) {
-                        mKeepLiveContext = context;
+                if (TbadkCoreApplication.getKeepLiveSwitch(context2)) {
+                    if (context2 == null) {
+                        context2 = KeepLiveUtil.mKeepLiveContext;
                     }
-                    if (Build.VERSION.SDK_INT >= 23) {
-                        BdSocketLinkService.startService(false, "restart");
-                    } else {
-                        GuardServiceObserver.startNativeServiceForUnder23(context);
+                    if (context2 != null) {
+                        if ((context2 instanceof Activity) || (context2 instanceof Application)) {
+                            KeepLiveUtil.mKeepLiveContext = context2;
+                        }
+                        if (Build.VERSION.SDK_INT >= 23) {
+                            BdSocketLinkService.startService(false, "restart");
+                        } else {
+                            GuardServiceObserver.startNativeServiceForUnder23(context2);
+                        }
                     }
-                } else {
-                    return;
+                    return null;
                 }
+                KeepLiveUtil.reBorn();
+                return null;
             }
-            reBorn();
-        } catch (Throwable th) {
-        }
+        }.execute(context);
     }
 
     public static void startRemoteService() {
@@ -53,7 +64,7 @@ public class KeepLiveUtil {
     public static void startKeepLiveForBackGroungActivity() {
         if (screenManager == null) {
             screenManager = ScreenManager.getInstance(TbadkCoreApplication.getInst().getBaseContext());
-            new ScreenBroadcastListener(TbadkCoreApplication.getInst().getBaseContext()).registerListener(new ScreenBroadcastListener.ScreenStateListener() { // from class: com.baidu.tieba.keepLive.KeepLiveUtil.1
+            new ScreenBroadcastListener(TbadkCoreApplication.getInst().getBaseContext()).registerListener(new ScreenBroadcastListener.ScreenStateListener() { // from class: com.baidu.tieba.keepLive.KeepLiveUtil.2
                 @Override // com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener.ScreenStateListener
                 public void onScreenOn() {
                 }

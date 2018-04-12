@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes2.dex */
 public class aa {
-    public String fSg;
-    public boolean fSh;
-    public boolean fSi;
-    public boolean fRR = false;
-    public boolean fRS = false;
-    public boolean fIs = false;
-    public boolean fRT = false;
-    public boolean fRU = false;
-    public boolean fRV = false;
-    public boolean fRW = false;
-    public boolean fRX = false;
-    public boolean fRY = false;
-    public boolean fRZ = false;
-    public boolean fSa = false;
-    public boolean fSb = false;
-    public boolean fSc = false;
-    public boolean fSd = false;
-    public boolean fSe = false;
-    public boolean fSf = false;
+    public String fmf;
+    public boolean fmg;
+    public boolean fmh;
+    public boolean flQ = false;
+    public boolean flR = false;
+    public boolean fcV = false;
+    public boolean flS = false;
+    public boolean flT = false;
+    public boolean flU = false;
+    public boolean flV = false;
+    public boolean flW = false;
+    public boolean flX = false;
+    public boolean flY = false;
+    public boolean flZ = false;
+    public boolean fma = false;
+    public boolean fmb = false;
+    public boolean fmc = false;
+    public boolean fmd = false;
+    public boolean fme = false;
     public boolean isHostOnly = false;
 }

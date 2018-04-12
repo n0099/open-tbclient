@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d ahV = null;
+    private static d sq = null;
     private HashMap<String, c> mSwitchs;
 
     private d() {
@@ -15,13 +15,13 @@ public class d {
         this.mSwitchs = new HashMap<>();
     }
 
-    public static synchronized d mA() {
+    public static synchronized d eE() {
         d dVar;
         synchronized (d.class) {
-            if (ahV == null) {
-                ahV = new d();
+            if (sq == null) {
+                sq = new d();
             }
-            dVar = ahV;
+            dVar = sq;
         }
         return dVar;
     }
@@ -34,19 +34,19 @@ public class d {
 
     public void crash(String str) {
         Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().am(str)) {
+        while (it.hasNext() && !it.next().aj(str)) {
         }
     }
 
-    public boolean e(String str, int i) {
+    public boolean d(String str, int i) {
         c cVar;
         if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.cR(i);
+            return cVar.R(i);
         }
         return false;
     }
 
-    public int an(String str) {
+    public int ak(String str) {
         c cVar = this.mSwitchs.get(str);
         if (cVar != null) {
             return cVar.getType();
@@ -59,9 +59,9 @@ public class d {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
-                    cVar.cU(0);
-                    edit.putInt(cVar.getName() + c.ahQ, 0);
-                    edit.putInt(cVar.getName() + c.ahR, cVar.ms());
+                    cVar.U(0);
+                    edit.putInt(cVar.getName() + c.sj, 0);
+                    edit.putInt(cVar.getName() + c.sk, cVar.ew());
                 }
             }
             edit.commit();
@@ -81,7 +81,7 @@ public class d {
     public void f(HashMap<String, Integer> hashMap) {
         if (hashMap != null && hashMap.size() > 0) {
             for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-                e(entry.getKey(), entry.getValue().intValue());
+                d(entry.getKey(), entry.getValue().intValue());
             }
         }
     }

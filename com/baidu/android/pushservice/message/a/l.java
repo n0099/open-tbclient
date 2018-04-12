@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.message.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum l {
     MSG_TYPE_INVALID(-1),
     MSG_TYPE_SINGLE_PRIVATE(0),

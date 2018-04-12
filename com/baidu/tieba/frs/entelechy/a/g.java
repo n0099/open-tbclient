@@ -5,94 +5,78 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tieba.card.t;
-import com.baidu.tieba.card.u;
-import com.baidu.tieba.card.v;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadPendantView;
+import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.d;
-import com.baidu.tieba.play.aa;
 /* loaded from: classes2.dex */
-public class g extends com.baidu.tieba.frs.g<bd, a<Object>> implements t, u, com.baidu.tieba.frs.e.c {
-    private int clN;
-    private v<bd> clO;
-    private String forumName;
+public class g extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d>> implements com.baidu.tieba.a.f, aa, com.baidu.tieba.frs.e.c {
+    private ab<bd> bvU;
+    private String bvX;
+    private com.baidu.tieba.frs.entelechy.view.d ddQ;
+    private String mForumName;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.clN = 0;
-        this.clO = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
+        super(tbPageContext, bdUniqueId);
+        this.bvU = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.v
-            public void a(View view, bd bdVar) {
-                if (view != null && bdVar != null) {
-                    if (view.getId() == d.g.frame_video) {
-                        com.baidu.tieba.frs.e.b.azS().a(com.baidu.tieba.frs.e.c.dUj, bdVar, 4);
-                    } else if (view.getId() == d.g.layout_root) {
-                        com.baidu.tieba.frs.e.b.azS().a(com.baidu.tieba.frs.e.c.dUj, bdVar, 1);
-                    } else if (view.getId() == d.g.image_user) {
-                        com.baidu.tieba.frs.e.b.azS().a(com.baidu.tieba.frs.e.c.dUj, bdVar, 2);
-                    } else if (view.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dUj, bdVar.zM());
+            @Override // com.baidu.tieba.card.ab
+            public void a(View view2, bd bdVar) {
+                if (view2 != null && bdVar != null) {
+                    if (view2.getId() == d.g.card_home_page_normal_thread_user_name || (view2 instanceof HeadImageView) || (view2 instanceof HeadPendantView)) {
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 2);
+                    } else {
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 7);
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
+        this.mPageId = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aw */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.entelechy.view.a aVar = new com.baidu.tieba.frs.entelechy.view.a(this.mPageContext, this.mPageId);
-        aVar.j(this.mPageId);
-        aVar.setForumName(this.forumName);
-        return new a(aVar);
-    }
-
-    private aa P(bd bdVar) {
-        if (bdVar == null) {
-            return null;
-        }
-        aa aaVar = new aa();
-        aaVar.mLocate = bdVar.Ae() ? "3" : "2";
-        aaVar.cZL = dUj.dTZ;
-        aaVar.bCV = bdVar.getTid();
-        aaVar.gwe = bdVar.mRecomAbTag;
-        if (bdVar.zF() != null) {
-            aaVar.gwf = bdVar.zF().video_md5;
-        }
-        bdVar.Ai();
-        return aaVar;
+    /* renamed from: aa */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d> onCreateViewHolder(ViewGroup viewGroup) {
+        this.ddQ = new com.baidu.tieba.frs.entelechy.view.d(this.mPageContext, this.mPageId);
+        this.ddQ.j(this.mPageId);
+        return new com.baidu.tieba.card.a.a<>(this.ddQ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, a aVar) {
-        if (aVar == null || aVar.alY() == null) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bd bdVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d> aVar) {
+        if (aVar == null || aVar.afY() == null) {
             return null;
         }
-        if (bdVar != null) {
-            bdVar.aQp = this.clN;
+        if (aVar.afY() instanceof com.baidu.tieba.a.e) {
+            aVar.afY().setPage(this.bvX);
         }
-        com.baidu.tieba.frs.f.a(aVar.alY().alu(), this.dDS);
-        aVar.alY().setVideoStatsData(P(bdVar));
-        aVar.alY().a(bdVar);
-        aVar.alY().b(this.clO);
-        com.baidu.tieba.frs.e.b.azS().a(dUj, bdVar);
+        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWO);
+        com.baidu.tieba.frs.e.a(aVar.afY().afA(), this.cWO);
+        aVar.afY().a(bdVar);
+        aVar.afY().setForumName(this.mForumName);
+        aVar.afY().b(this.bvU);
+        com.baidu.tieba.frs.e.b.auH().a(doy, bdVar);
+        if (bdVar != null) {
+            bdVar.sK();
+        }
         return aVar.getView();
     }
 
-    @Override // com.baidu.tieba.card.t
+    @Override // com.baidu.tieba.card.aa
     public void setForumName(String str) {
-        this.forumName = str;
+        this.mForumName = str;
     }
 
-    @Override // com.baidu.tieba.card.u
-    public void setCardShowType(int i) {
-        this.clN = i;
+    @Override // com.baidu.tieba.a.f
+    public void hY(String str) {
+        this.bvX = str;
     }
 }

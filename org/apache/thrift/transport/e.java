@@ -1,7 +1,7 @@
 package org.apache.thrift.transport;
 
 import org.apache.thrift.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends f {
     protected int a;
 

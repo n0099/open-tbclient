@@ -14,6 +14,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 class NotificationCompatApi21 {
+    public static final String CATEGORY_ALARM = "alarm";
+    public static final String CATEGORY_CALL = "call";
+    public static final String CATEGORY_EMAIL = "email";
+    public static final String CATEGORY_ERROR = "err";
+    public static final String CATEGORY_EVENT = "event";
+    public static final String CATEGORY_MESSAGE = "msg";
+    public static final String CATEGORY_PROGRESS = "progress";
+    public static final String CATEGORY_PROMO = "promo";
+    public static final String CATEGORY_RECOMMENDATION = "recommendation";
+    public static final String CATEGORY_SERVICE = "service";
+    public static final String CATEGORY_SOCIAL = "social";
+    public static final String CATEGORY_STATUS = "status";
+    public static final String CATEGORY_SYSTEM = "sys";
+    public static final String CATEGORY_TRANSPORT = "transport";
+    private static final String KEY_AUTHOR = "author";
+    private static final String KEY_MESSAGES = "messages";
+    private static final String KEY_ON_READ = "on_read";
+    private static final String KEY_ON_REPLY = "on_reply";
+    private static final String KEY_PARTICIPANTS = "participants";
+    private static final String KEY_REMOTE_INPUT = "remote_input";
+    private static final String KEY_TEXT = "text";
+    private static final String KEY_TIMESTAMP = "timestamp";
+
+    NotificationCompatApi21() {
+    }
 
     /* loaded from: classes2.dex */
     public static class Builder implements NotificationBuilderWithActions, NotificationBuilderWithBuilderAccessor {
@@ -83,17 +108,17 @@ class NotificationCompatApi21 {
         for (int i = 0; i < parcelableArr.length; i++) {
             Bundle bundle2 = new Bundle();
             bundle2.putString("text", unreadConversation.getMessages()[i]);
-            bundle2.putString("author", str);
+            bundle2.putString(KEY_AUTHOR, str);
             parcelableArr[i] = bundle2;
         }
-        bundle.putParcelableArray("messages", parcelableArr);
+        bundle.putParcelableArray(KEY_MESSAGES, parcelableArr);
         RemoteInputCompatBase.RemoteInput remoteInput = unreadConversation.getRemoteInput();
         if (remoteInput != null) {
-            bundle.putParcelable("remote_input", fromCompatRemoteInput(remoteInput));
+            bundle.putParcelable(KEY_REMOTE_INPUT, fromCompatRemoteInput(remoteInput));
         }
-        bundle.putParcelable("on_reply", unreadConversation.getReplyPendingIntent());
-        bundle.putParcelable("on_read", unreadConversation.getReadPendingIntent());
-        bundle.putStringArray("participants", unreadConversation.getParticipants());
+        bundle.putParcelable(KEY_ON_REPLY, unreadConversation.getReplyPendingIntent());
+        bundle.putParcelable(KEY_ON_READ, unreadConversation.getReadPendingIntent());
+        bundle.putStringArray(KEY_PARTICIPANTS, unreadConversation.getParticipants());
         bundle.putLong("timestamp", unreadConversation.getLatestTimestamp());
         return bundle;
     }
@@ -105,7 +130,7 @@ class NotificationCompatApi21 {
         if (bundle == null) {
             return null;
         }
-        Parcelable[] parcelableArray = bundle.getParcelableArray("messages");
+        Parcelable[] parcelableArray = bundle.getParcelableArray(KEY_MESSAGES);
         if (parcelableArray != null) {
             String[] strArr2 = new String[parcelableArray.length];
             int i = 0;
@@ -130,10 +155,10 @@ class NotificationCompatApi21 {
         } else {
             strArr = null;
         }
-        PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("on_read");
-        PendingIntent pendingIntent2 = (PendingIntent) bundle.getParcelable("on_reply");
-        android.app.RemoteInput remoteInput = (android.app.RemoteInput) bundle.getParcelable("remote_input");
-        String[] stringArray = bundle.getStringArray("participants");
+        PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable(KEY_ON_READ);
+        PendingIntent pendingIntent2 = (PendingIntent) bundle.getParcelable(KEY_ON_REPLY);
+        android.app.RemoteInput remoteInput = (android.app.RemoteInput) bundle.getParcelable(KEY_REMOTE_INPUT);
+        String[] stringArray = bundle.getStringArray(KEY_PARTICIPANTS);
         if (stringArray == null || stringArray.length != 1) {
             return null;
         }

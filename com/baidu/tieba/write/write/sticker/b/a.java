@@ -2,9 +2,9 @@ package com.baidu.tieba.write.write.sticker.b;
 
 import android.graphics.PointF;
 import android.view.MotionEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public static PointF W(MotionEvent motionEvent) {
+    public static PointF R(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return null;
         }
@@ -13,7 +13,7 @@ public class a {
         return pointF;
     }
 
-    public static float X(MotionEvent motionEvent) {
+    public static float S(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }
@@ -22,7 +22,7 @@ public class a {
         return (float) Math.sqrt((x * x) + (y * y));
     }
 
-    public static float Y(MotionEvent motionEvent) {
+    public static float T(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }
@@ -41,33 +41,33 @@ public class a {
         float f8 = fArr[5];
         float f9 = fArr[6];
         float f10 = fArr[7];
-        float l = l(f3, f4, f5, f6);
+        float h = h(f3, f4, f5, f6);
         float a = a(f3, f4, f5, f6, f, f2);
-        float l2 = l(f5, f6, f9, f10);
+        float h2 = h(f5, f6, f9, f10);
         float a2 = a(f5, f6, f9, f10, f, f2);
         float a3 = a(f9, f10, f7, f8, f, f2);
         float a4 = a(f7, f8, f3, f4, f, f2);
-        if (l > 0.0f && l2 > 0.0f && a <= l2 && a3 <= l2 && a2 <= l && a4 <= l) {
+        if (h > 0.0f && h2 > 0.0f && a <= h2 && a3 <= h2 && a2 <= h && a4 <= h) {
             return true;
         }
         return false;
     }
 
     private static float a(float f, float f2, float f3, float f4, float f5, float f6) {
-        float l = l(f, f2, f3, f4);
-        float l2 = l(f, f2, f5, f6);
-        float l3 = l(f3, f4, f5, f6);
-        if (l != 0.0f) {
-            if (l2 == 0.0f || l3 == 0.0f) {
+        float h = h(f, f2, f3, f4);
+        float h2 = h(f, f2, f5, f6);
+        float h3 = h(f3, f4, f5, f6);
+        if (h != 0.0f) {
+            if (h2 == 0.0f || h3 == 0.0f) {
                 return 0.0f;
             }
-            float f7 = ((l + l2) + l3) / 2.0f;
-            return (((float) Math.sqrt(((f7 - l2) * ((f7 - l) * f7)) * (f7 - l3))) * 2.0f) / l;
+            float f7 = ((h + h2) + h3) / 2.0f;
+            return (((float) Math.sqrt(((f7 - h2) * ((f7 - h) * f7)) * (f7 - h3))) * 2.0f) / h;
         }
-        return l2;
+        return h2;
     }
 
-    private static float l(float f, float f2, float f3, float f4) {
+    private static float h(float f, float f2, float f3, float f4) {
         return (float) Math.sqrt(Math.pow(f - f3, 2.0d) + Math.pow(f2 - f4, 2.0d));
     }
 }

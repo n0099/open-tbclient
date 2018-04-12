@@ -1,6 +1,8 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.util.ArrayList;
@@ -10,11 +12,13 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String heD;
-    private String heE;
+    private String gzV;
+    private String gzW;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
+    private ax mReplyPrivacyTip;
+    private VideoEasterEggData mVideoEasterEggData;
     private String preMsg;
     private String videoId;
     private String threadId = null;
@@ -31,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean byi() {
+    public boolean bti() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean byj() {
+    public boolean btj() {
         return this.errorCode == 1990055;
     }
 
-    public boolean byk() {
+    public boolean btk() {
         return this.errorCode == 3250012;
     }
 
-    public boolean byl() {
+    public boolean btl() {
         return this.errorCode == 227001;
     }
 
@@ -59,7 +63,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData bbl() {
+    public AntiData aWk() {
         return this.antiData;
     }
 
@@ -103,20 +107,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String bym() {
-        return this.heD;
+    public String btm() {
+        return this.gzV;
     }
 
-    public void tb(String str) {
-        this.heD = str;
+    public void ti(String str) {
+        this.gzV = str;
     }
 
-    public String byn() {
-        return this.heE;
+    public String btn() {
+        return this.gzW;
     }
 
-    public void tc(String str) {
-        this.heE = str;
+    public void tj(String str) {
+        this.gzW = str;
     }
 
     public CustomDialogData getActivityDialog() {
@@ -153,5 +157,21 @@ public class b {
 
     public void setContriInfo(ContriInfo contriInfo) {
         this.mContriInfo = contriInfo;
+    }
+
+    public void setReplyPrivacyTip(ax axVar) {
+        this.mReplyPrivacyTip = axVar;
+    }
+
+    public ax getReplyPrivacyTip() {
+        return this.mReplyPrivacyTip;
+    }
+
+    public void setVideoEasterEggData(VideoEasterEggData videoEasterEggData) {
+        this.mVideoEasterEggData = videoEasterEggData;
+    }
+
+    public VideoEasterEggData getVideoEasterEggData() {
+        return this.mVideoEasterEggData;
     }
 }

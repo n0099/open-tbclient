@@ -17,7 +17,16 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class BackStackRecord extends FragmentTransaction implements FragmentManager.BackStackEntry, Runnable {
+    static final int OP_ADD = 1;
+    static final int OP_ATTACH = 7;
+    static final int OP_DETACH = 6;
+    static final int OP_HIDE = 4;
+    static final int OP_NULL = 0;
+    static final int OP_REMOVE = 3;
+    static final int OP_REPLACE = 2;
+    static final int OP_SHOW = 5;
     static final boolean SUPPORTS_TRANSITIONS;
+    static final String TAG = "FragmentManager";
     boolean mAddToBackStack;
     int mBreadCrumbShortTitleRes;
     CharSequence mBreadCrumbShortTitleText;
@@ -379,9 +388,9 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction addSharedElement(View view, String str) {
+    public FragmentTransaction addSharedElement(View view2, String str) {
         if (SUPPORTS_TRANSITIONS) {
-            String transitionName = FragmentTransitionCompat21.getTransitionName(view);
+            String transitionName = FragmentTransitionCompat21.getTransitionName(view2);
             if (transitionName == null) {
                 throw new IllegalArgumentException("Unique transitionNames are required for all sharedElements");
             }
@@ -457,13 +466,13 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     public void bumpBackStackNesting(int i) {
         if (this.mAddToBackStack) {
             if (FragmentManagerImpl.DEBUG) {
-                Log.v("FragmentManager", "Bump nesting in " + this + " by " + i);
+                Log.v(TAG, "Bump nesting in " + this + " by " + i);
             }
             for (Op op = this.mHead; op != null; op = op.next) {
                 if (op.fragment != null) {
                     op.fragment.mBackStackNesting += i;
                     if (FragmentManagerImpl.DEBUG) {
-                        Log.v("FragmentManager", "Bump nesting of " + op.fragment + " to " + op.fragment.mBackStackNesting);
+                        Log.v(TAG, "Bump nesting of " + op.fragment + " to " + op.fragment.mBackStackNesting);
                     }
                 }
                 if (op.removed != null) {
@@ -471,7 +480,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                         Fragment fragment = op.removed.get(size);
                         fragment.mBackStackNesting += i;
                         if (FragmentManagerImpl.DEBUG) {
-                            Log.v("FragmentManager", "Bump nesting of " + fragment + " to " + fragment.mBackStackNesting);
+                            Log.v(TAG, "Bump nesting of " + fragment + " to " + fragment.mBackStackNesting);
                         }
                     }
                 }
@@ -506,8 +515,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             throw new IllegalStateException("commit already called");
         }
         if (FragmentManagerImpl.DEBUG) {
-            Log.v("FragmentManager", "Commit: " + this);
-            dump("  ", null, new PrintWriter(new LogWriter("FragmentManager")), null);
+            Log.v(TAG, "Commit: " + this);
+            dump("  ", null, new PrintWriter(new LogWriter(TAG)), null);
         }
         this.mCommitted = true;
         if (this.mAddToBackStack) {
@@ -524,7 +533,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         TransitionState transitionState;
         Fragment fragment;
         if (FragmentManagerImpl.DEBUG) {
-            Log.v("FragmentManager", "Run: " + this);
+            Log.v(TAG, "Run: " + this);
         }
         if (this.mAddToBackStack && this.mIndex < 0) {
             throw new IllegalStateException("addToBackStack() called after commit()");
@@ -557,7 +566,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                         while (size >= 0) {
                             Fragment fragment4 = this.mManager.mAdded.get(size);
                             if (FragmentManagerImpl.DEBUG) {
-                                Log.v("FragmentManager", "OP_REPLACE: adding=" + fragment3 + " old=" + fragment4);
+                                Log.v(TAG, "OP_REPLACE: adding=" + fragment3 + " old=" + fragment4);
                             }
                             if (fragment4.mContainerId == i5) {
                                 if (fragment4 == fragment3) {
@@ -574,7 +583,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                                     if (this.mAddToBackStack) {
                                         fragment4.mBackStackNesting++;
                                         if (FragmentManagerImpl.DEBUG) {
-                                            Log.v("FragmentManager", "Bump nesting of " + fragment4 + " to " + fragment4.mBackStackNesting);
+                                            Log.v(TAG, "Bump nesting of " + fragment4 + " to " + fragment4.mBackStackNesting);
                                         }
                                     }
                                     this.mManager.removeFragment(fragment4, i2, i);
@@ -744,8 +753,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     public TransitionState popFromBackStack(boolean z, TransitionState transitionState, SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
         if (FragmentManagerImpl.DEBUG) {
-            Log.v("FragmentManager", "popFromBackStack: " + this);
-            dump("  ", null, new PrintWriter(new LogWriter("FragmentManager")), null);
+            Log.v(TAG, "popFromBackStack: " + this);
+            dump("  ", null, new PrintWriter(new LogWriter(TAG)), null);
         }
         if (SUPPORTS_TRANSITIONS && this.mManager.mCurState >= 1) {
             if (transitionState == null) {
@@ -829,6 +838,14 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         return this.mName;
     }
 
+    public int getTransition() {
+        return this.mTransition;
+    }
+
+    public int getTransitionStyle() {
+        return this.mTransitionStyle;
+    }
+
     @Override // android.support.v4.app.FragmentTransaction
     public boolean isEmpty() {
         return this.mNumOp == 0;
@@ -883,9 +900,9 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         return FragmentTransitionCompat21.wrapSharedElementTransition(sharedElementEnterTransition);
     }
 
-    private static Object captureExitingViews(Object obj, Fragment fragment, ArrayList<View> arrayList, ArrayMap<String, View> arrayMap, View view) {
+    private static Object captureExitingViews(Object obj, Fragment fragment, ArrayList<View> arrayList, ArrayMap<String, View> arrayMap, View view2) {
         if (obj != null) {
-            return FragmentTransitionCompat21.captureExitingViews(obj, fragment.getView(), arrayList, arrayMap, view);
+            return FragmentTransitionCompat21.captureExitingViews(obj, fragment.getView(), arrayList, arrayMap, view2);
         }
         return obj;
     }
@@ -925,7 +942,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     private boolean configureTransitions(int i, TransitionState transitionState, boolean z, SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
         Object obj;
         Object mergeTransitions;
-        View view;
+        View view2;
         ViewGroup viewGroup = (ViewGroup) this.mManager.mContainer.onFindViewById(i);
         if (viewGroup == null) {
             return false;
@@ -948,13 +965,13 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                 ArrayList arrayList2 = new ArrayList();
                 Object captureExitingViews = captureExitingViews(exitTransition, fragment2, arrayList2, arrayMap, transitionState.nonExistentView);
                 if (this.mSharedElementTargetNames != null && arrayMap != null) {
-                    view = arrayMap.get(this.mSharedElementTargetNames.get(0));
-                    if (view != null) {
+                    view2 = arrayMap.get(this.mSharedElementTargetNames.get(0));
+                    if (view2 != null) {
                         if (captureExitingViews != null) {
-                            FragmentTransitionCompat21.setEpicenter(captureExitingViews, view);
+                            FragmentTransitionCompat21.setEpicenter(captureExitingViews, view2);
                         }
                         if (obj != null) {
-                            FragmentTransitionCompat21.setEpicenter(obj, view);
+                            FragmentTransitionCompat21.setEpicenter(obj, view2);
                         }
                     }
                 }
@@ -993,8 +1010,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         ArrayList arrayList22 = new ArrayList();
         Object captureExitingViews2 = captureExitingViews(exitTransition, fragment2, arrayList22, arrayMap, transitionState.nonExistentView);
         if (this.mSharedElementTargetNames != null) {
-            view = arrayMap.get(this.mSharedElementTargetNames.get(0));
-            if (view != null) {
+            view2 = arrayMap.get(this.mSharedElementTargetNames.get(0));
+            if (view2 != null) {
             }
         }
         FragmentTransitionCompat21.ViewRetriever viewRetriever2 = new FragmentTransitionCompat21.ViewRetriever() { // from class: android.support.v4.app.BackStackRecord.1
@@ -1015,12 +1032,12 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         }
     }
 
-    private void prepareSharedElementTransition(final TransitionState transitionState, final View view, final Object obj, final Fragment fragment, final Fragment fragment2, final boolean z, final ArrayList<View> arrayList, final Object obj2, final Object obj3) {
+    private void prepareSharedElementTransition(final TransitionState transitionState, final View view2, final Object obj, final Fragment fragment, final Fragment fragment2, final boolean z, final ArrayList<View> arrayList, final Object obj2, final Object obj3) {
         if (obj != null) {
-            view.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.v4.app.BackStackRecord.2
+            view2.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.v4.app.BackStackRecord.2
                 @Override // android.view.ViewTreeObserver.OnPreDrawListener
                 public boolean onPreDraw() {
-                    view.getViewTreeObserver().removeOnPreDrawListener(this);
+                    view2.getViewTreeObserver().removeOnPreDrawListener(this);
                     FragmentTransitionCompat21.removeTargets(obj, arrayList);
                     arrayList.remove(transitionState.nonExistentView);
                     FragmentTransitionCompat21.excludeSharedElementViews(obj2, obj3, obj, arrayList, false);
@@ -1044,9 +1061,9 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     void setEpicenterIn(ArrayMap<String, View> arrayMap, TransitionState transitionState) {
-        View view;
-        if (this.mSharedElementTargetNames != null && !arrayMap.isEmpty() && (view = arrayMap.get(this.mSharedElementTargetNames.get(0))) != null) {
-            transitionState.enteringEpicenterView.epicenter = view;
+        View view2;
+        if (this.mSharedElementTargetNames != null && !arrayMap.isEmpty() && (view2 = arrayMap.get(this.mSharedElementTargetNames.get(0))) != null) {
+            transitionState.enteringEpicenterView.epicenter = view2;
         }
     }
 
@@ -1071,9 +1088,9 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             ArrayMap<String, View> arrayMap2 = new ArrayMap<>();
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
-                View view = arrayMap.get(arrayList.get(i));
-                if (view != null) {
-                    arrayMap2.put(arrayList2.get(i), view);
+                View view2 = arrayMap.get(arrayList.get(i));
+                if (view2 != null) {
+                    arrayMap2.put(arrayList2.get(i), view2);
                 }
             }
             return arrayMap2;
@@ -1083,9 +1100,9 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     private ArrayMap<String, View> mapEnteringSharedElements(TransitionState transitionState, Fragment fragment, boolean z) {
         ArrayMap<String, View> arrayMap = new ArrayMap<>();
-        View view = fragment.getView();
-        if (view != null && this.mSharedElementSourceNames != null) {
-            FragmentTransitionCompat21.findNamedViews(arrayMap, view);
+        View view2 = fragment.getView();
+        if (view2 != null && this.mSharedElementSourceNames != null) {
+            FragmentTransitionCompat21.findNamedViews(arrayMap, view2);
             if (z) {
                 return remapNames(this.mSharedElementSourceNames, this.mSharedElementTargetNames, arrayMap);
             }
@@ -1095,11 +1112,11 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         return arrayMap;
     }
 
-    private void excludeHiddenFragmentsAfterEnter(final View view, final TransitionState transitionState, final int i, final Object obj) {
-        view.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.v4.app.BackStackRecord.3
+    private void excludeHiddenFragmentsAfterEnter(final View view2, final TransitionState transitionState, final int i, final Object obj) {
+        view2.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.v4.app.BackStackRecord.3
             @Override // android.view.ViewTreeObserver.OnPreDrawListener
             public boolean onPreDraw() {
-                view.getViewTreeObserver().removeOnPreDrawListener(this);
+                view2.getViewTreeObserver().removeOnPreDrawListener(this);
                 BackStackRecord.this.excludeHiddenFragments(transitionState, i, obj);
                 return true;
             }
@@ -1156,9 +1173,9 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         int size = this.mSharedElementTargetNames == null ? 0 : this.mSharedElementTargetNames.size();
         for (int i = 0; i < size; i++) {
             String str = this.mSharedElementSourceNames.get(i);
-            View view = arrayMap.get(this.mSharedElementTargetNames.get(i));
-            if (view != null) {
-                String transitionName = FragmentTransitionCompat21.getTransitionName(view);
+            View view2 = arrayMap.get(this.mSharedElementTargetNames.get(i));
+            if (view2 != null) {
+                String transitionName = FragmentTransitionCompat21.getTransitionName(view2);
                 if (z) {
                     setNameOverride(transitionState.nameOverrides, str, transitionName);
                 } else {

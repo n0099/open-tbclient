@@ -3,7 +3,8 @@ package com.baidu.tieba.recapp.lego.model;
 import com.baidu.b.a.c.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import com.baidu.tieba.recapp.lego.model.AdCard;
@@ -13,17 +14,17 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
     public static final String CHARGE_STYLE_CPC = "cpc";
     public static final String CHARGE_STYLE_CPV = "cpv";
     private AdvertAppInfo appInfo;
-    private final a.InterfaceC0053a businessConverter;
+    private final a.InterfaceC0042a businessConverter;
     public AdCard.a chargeInfo;
     a criusData;
-    public AdCard.e tailFrame;
+    public AdCard.f tailFrame;
 
     public CriusAdCard(JSONObject jSONObject) {
         super(jSONObject);
-        this.businessConverter = new a.InterfaceC0053a() { // from class: com.baidu.tieba.recapp.lego.model.CriusAdCard.1
-            @Override // com.baidu.b.a.c.a.InterfaceC0053a
-            public String bW(String str) {
-                return am.z(Long.valueOf(str).longValue());
+        this.businessConverter = new a.InterfaceC0042a() { // from class: com.baidu.tieba.recapp.lego.model.CriusAdCard.1
+            @Override // com.baidu.b.a.c.a.InterfaceC0042a
+            public String bT(String str) {
+                return an.s(Long.valueOf(str).longValue());
             }
         };
         JSONObject optJSONObject = jSONObject.optJSONObject("crius");
@@ -31,9 +32,9 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
             System.currentTimeMillis();
             this.criusData = new a(TbadkCoreApplication.getInst(), optJSONObject, this.businessConverter, true);
             this.chargeInfo = new AdCard.a();
-            this.chargeInfo.gDk = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_STYLE, "cpc");
-            this.chargeInfo.gDl = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_URL);
-            this.tailFrame = new AdCard.e();
+            this.chargeInfo.fXX = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_STYLE, "cpc");
+            this.chargeInfo.fXY = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_URL);
+            this.tailFrame = new AdCard.f();
             this.tailFrame.parseFromJson(jSONObject.optJSONObject(WebVideoActivityConfig.KEY_TAIL_FRAME));
         }
     }
@@ -59,8 +60,8 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
         this.appInfo = advertAppInfo;
-        if ((this.appInfo == null || this.appInfo.aKH == null || this.appInfo.aKH.aLc == null || advertAppInfo.aKH.aLc.support_close.intValue() <= 0) && this.criusData != null) {
-            this.criusData.bV("closead");
+        if ((this.appInfo == null || this.appInfo.Wb == null || this.appInfo.Wb.Ww == null || advertAppInfo.Wb.Ww.support_close.intValue() <= 0) && this.criusData != null) {
+            this.criusData.bS("closead");
         }
     }
 
@@ -71,7 +72,7 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public boolean isNoPicAd() {
-        return false;
+        return this.appInfo == null || this.appInfo.Wb == null || v.w(this.appInfo.Wb.Wr);
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert

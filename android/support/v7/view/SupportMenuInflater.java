@@ -26,21 +26,26 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class SupportMenuInflater extends MenuInflater {
-    static final Class<?>[] GB = {Context.class};
-    static final Class<?>[] GC = GB;
-    final Object[] GD;
-    final Object[] GE;
-    private Object GF;
+    static final String LOG_TAG = "SupportMenuInflater";
+    static final int NO_ID = 0;
+    private static final String XML_GROUP = "group";
+    private static final String XML_ITEM = "item";
+    private static final String XML_MENU = "menu";
+    final Object[] mActionProviderConstructorArguments;
+    final Object[] mActionViewConstructorArguments;
     Context mContext;
+    private Object mRealOwner;
+    static final Class<?>[] ACTION_VIEW_CONSTRUCTOR_SIGNATURE = {Context.class};
+    static final Class<?>[] ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE = ACTION_VIEW_CONSTRUCTOR_SIGNATURE;
 
     public SupportMenuInflater(Context context) {
         super(context);
         this.mContext = context;
-        this.GD = new Object[]{context};
-        this.GE = this.GD;
+        this.mActionViewConstructorArguments = new Object[]{context};
+        this.mActionProviderConstructorArguments = this.mActionViewConstructorArguments;
     }
 
     @Override // android.view.MenuInflater
@@ -53,7 +58,7 @@ public class SupportMenuInflater extends MenuInflater {
         try {
             try {
                 xmlResourceParser = this.mContext.getResources().getLayout(i);
-                a(xmlResourceParser, Xml.asAttributeSet(xmlResourceParser), menu);
+                parseMenu(xmlResourceParser, Xml.asAttributeSet(xmlResourceParser), menu);
             } catch (IOException e) {
                 throw new InflateException("Error inflating menu XML", e);
             } catch (XmlPullParserException e2) {
@@ -92,24 +97,24 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = r11.getName();
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0062, code lost:
-        if (r3.equals("group") == false) goto L20;
+        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_GROUP) == false) goto L20;
      */
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0064, code lost:
-        r7.a(r12);
+        r7.readGroup(r12);
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0070, code lost:
-        if (r3.equals("item") == false) goto L24;
+        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_ITEM) == false) goto L24;
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:0x0072, code lost:
-        r7.b(r12);
+        r7.readItem(r12);
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x007e, code lost:
-        if (r3.equals("menu") == false) goto L28;
+        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_MENU) == false) goto L28;
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x0080, code lost:
-        a(r11, r12, r7.eJ());
+        parseMenu(r11, r12, r7.addSubMenuItem());
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x0089, code lost:
@@ -130,34 +135,34 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x00a2, code lost:
-        if (r3.equals("group") == false) goto L40;
+        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_GROUP) == false) goto L40;
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x00a4, code lost:
-        r7.eH();
+        r7.resetGroup();
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:39:0x00b0, code lost:
-        if (r3.equals("item") == false) goto L52;
+        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_ITEM) == false) goto L52;
      */
     /* JADX WARN: Code restructure failed: missing block: B:41:0x00b6, code lost:
-        if (r7.eK() != false) goto L10;
+        if (r7.hasAddedItem() != false) goto L10;
      */
     /* JADX WARN: Code restructure failed: missing block: B:43:0x00ba, code lost:
-        if (r7.He == null) goto L50;
+        if (r7.itemActionProvider == null) goto L50;
      */
     /* JADX WARN: Code restructure failed: missing block: B:45:0x00c2, code lost:
-        if (r7.He.hasSubMenu() == false) goto L50;
+        if (r7.itemActionProvider.hasSubMenu() == false) goto L50;
      */
     /* JADX WARN: Code restructure failed: missing block: B:46:0x00c4, code lost:
-        r7.eJ();
+        r7.addSubMenuItem();
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:47:0x00ca, code lost:
-        r7.eI();
+        r7.addItem();
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:49:0x00d7, code lost:
-        if (r3.equals("menu") == false) goto L10;
+        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_MENU) == false) goto L10;
      */
     /* JADX WARN: Code restructure failed: missing block: B:50:0x00d9, code lost:
         r0 = true;
@@ -181,13 +186,13 @@ public class SupportMenuInflater extends MenuInflater {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(XmlPullParser xmlPullParser, AttributeSet attributeSet, Menu menu) throws XmlPullParserException, IOException {
-        b bVar = new b(menu);
+    private void parseMenu(XmlPullParser xmlPullParser, AttributeSet attributeSet, Menu menu) throws XmlPullParserException, IOException {
+        MenuState menuState = new MenuState(menu);
         int eventType = xmlPullParser.getEventType();
         while (true) {
             if (eventType == 2) {
                 String name = xmlPullParser.getName();
-                if (name.equals("menu")) {
+                if (name.equals(XML_MENU)) {
                     eventType = xmlPullParser.next();
                 } else {
                     throw new RuntimeException("Expecting menu, got " + name);
@@ -201,32 +206,32 @@ public class SupportMenuInflater extends MenuInflater {
         }
     }
 
-    Object eG() {
-        if (this.GF == null) {
-            this.GF = aj(this.mContext);
+    Object getRealOwner() {
+        if (this.mRealOwner == null) {
+            this.mRealOwner = findRealOwner(this.mContext);
         }
-        return this.GF;
+        return this.mRealOwner;
     }
 
-    private Object aj(Object obj) {
+    private Object findRealOwner(Object obj) {
         if (!(obj instanceof Activity) && (obj instanceof ContextWrapper)) {
-            return aj(((ContextWrapper) obj).getBaseContext());
+            return findRealOwner(((ContextWrapper) obj).getBaseContext());
         }
         return obj;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public static class a implements MenuItem.OnMenuItemClickListener {
-        private static final Class<?>[] GG = {MenuItem.class};
-        private Object GF;
+    public static class InflatedOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
+        private static final Class<?>[] PARAM_TYPES = {MenuItem.class};
         private Method mMethod;
+        private Object mRealOwner;
 
-        public a(Object obj, String str) {
-            this.GF = obj;
+        public InflatedOnMenuItemClickListener(Object obj, String str) {
+            this.mRealOwner = obj;
             Class<?> cls = obj.getClass();
             try {
-                this.mMethod = cls.getMethod(str, GG);
+                this.mMethod = cls.getMethod(str, PARAM_TYPES);
             } catch (Exception e) {
                 InflateException inflateException = new InflateException("Couldn't resolve menu item onClick handler " + str + " in class " + cls.getName());
                 inflateException.initCause(e);
@@ -238,9 +243,9 @@ public class SupportMenuInflater extends MenuInflater {
         public boolean onMenuItemClick(MenuItem menuItem) {
             try {
                 if (this.mMethod.getReturnType() == Boolean.TYPE) {
-                    return ((Boolean) this.mMethod.invoke(this.GF, menuItem)).booleanValue();
+                    return ((Boolean) this.mMethod.invoke(this.mRealOwner, menuItem)).booleanValue();
                 }
-                this.mMethod.invoke(this.GF, menuItem);
+                this.mMethod.invoke(this.mRealOwner, menuItem);
                 return true;
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -250,153 +255,161 @@ public class SupportMenuInflater extends MenuInflater {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class b {
-        private Menu GH;
-        private int GI;
-        private int GJ;
-        private int GK;
-        private boolean GL;
-        private boolean GM;
-        private boolean GN;
-        private int GO;
-        private CharSequence GP;
-        private CharSequence GQ;
-        private int GR;
-        private char GT;
-        private char GU;
-        private int GV;
-        private boolean GW;
-        private boolean GX;
-        private boolean GY;
-        private int GZ;
-        private int Ha;
-        private String Hb;
-        private String Hc;
-        private String Hd;
-        ActionProvider He;
+    public class MenuState {
+        private static final int defaultGroupId = 0;
+        private static final int defaultItemCategory = 0;
+        private static final int defaultItemCheckable = 0;
+        private static final boolean defaultItemChecked = false;
+        private static final boolean defaultItemEnabled = true;
+        private static final int defaultItemId = 0;
+        private static final int defaultItemOrder = 0;
+        private static final boolean defaultItemVisible = true;
+        private int groupCategory;
+        private int groupCheckable;
+        private boolean groupEnabled;
         private int groupId;
+        private int groupOrder;
+        private boolean groupVisible;
+        ActionProvider itemActionProvider;
+        private String itemActionProviderClassName;
+        private String itemActionViewClassName;
+        private int itemActionViewLayout;
+        private boolean itemAdded;
+        private char itemAlphabeticShortcut;
+        private int itemCategoryOrder;
+        private int itemCheckable;
+        private boolean itemChecked;
+        private boolean itemEnabled;
+        private int itemIconResId;
         private int itemId;
+        private String itemListenerMethodName;
+        private char itemNumericShortcut;
+        private int itemShowAsAction;
+        private CharSequence itemTitle;
+        private CharSequence itemTitleCondensed;
+        private boolean itemVisible;
+        private Menu menu;
 
-        public b(Menu menu) {
-            this.GH = menu;
-            eH();
+        public MenuState(Menu menu) {
+            this.menu = menu;
+            resetGroup();
         }
 
-        public void eH() {
+        public void resetGroup() {
             this.groupId = 0;
-            this.GI = 0;
-            this.GJ = 0;
-            this.GK = 0;
-            this.GL = true;
-            this.GM = true;
+            this.groupCategory = 0;
+            this.groupOrder = 0;
+            this.groupCheckable = 0;
+            this.groupVisible = true;
+            this.groupEnabled = true;
         }
 
-        public void a(AttributeSet attributeSet) {
+        public void readGroup(AttributeSet attributeSet) {
             TypedArray obtainStyledAttributes = SupportMenuInflater.this.mContext.obtainStyledAttributes(attributeSet, R.styleable.MenuGroup);
             this.groupId = obtainStyledAttributes.getResourceId(R.styleable.MenuGroup_android_id, 0);
-            this.GI = obtainStyledAttributes.getInt(R.styleable.MenuGroup_android_menuCategory, 0);
-            this.GJ = obtainStyledAttributes.getInt(R.styleable.MenuGroup_android_orderInCategory, 0);
-            this.GK = obtainStyledAttributes.getInt(R.styleable.MenuGroup_android_checkableBehavior, 0);
-            this.GL = obtainStyledAttributes.getBoolean(R.styleable.MenuGroup_android_visible, true);
-            this.GM = obtainStyledAttributes.getBoolean(R.styleable.MenuGroup_android_enabled, true);
+            this.groupCategory = obtainStyledAttributes.getInt(R.styleable.MenuGroup_android_menuCategory, 0);
+            this.groupOrder = obtainStyledAttributes.getInt(R.styleable.MenuGroup_android_orderInCategory, 0);
+            this.groupCheckable = obtainStyledAttributes.getInt(R.styleable.MenuGroup_android_checkableBehavior, 0);
+            this.groupVisible = obtainStyledAttributes.getBoolean(R.styleable.MenuGroup_android_visible, true);
+            this.groupEnabled = obtainStyledAttributes.getBoolean(R.styleable.MenuGroup_android_enabled, true);
             obtainStyledAttributes.recycle();
         }
 
-        public void b(AttributeSet attributeSet) {
+        public void readItem(AttributeSet attributeSet) {
             TypedArray obtainStyledAttributes = SupportMenuInflater.this.mContext.obtainStyledAttributes(attributeSet, R.styleable.MenuItem);
             this.itemId = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_android_id, 0);
-            this.GO = (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_menuCategory, this.GI) & SupportMenu.CATEGORY_MASK) | (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_orderInCategory, this.GJ) & SupportMenu.USER_MASK);
-            this.GP = obtainStyledAttributes.getText(R.styleable.MenuItem_android_title);
-            this.GQ = obtainStyledAttributes.getText(R.styleable.MenuItem_android_titleCondensed);
-            this.GR = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_android_icon, 0);
-            this.GT = B(obtainStyledAttributes.getString(R.styleable.MenuItem_android_alphabeticShortcut));
-            this.GU = B(obtainStyledAttributes.getString(R.styleable.MenuItem_android_numericShortcut));
+            this.itemCategoryOrder = (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_menuCategory, this.groupCategory) & SupportMenu.CATEGORY_MASK) | (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_orderInCategory, this.groupOrder) & SupportMenu.USER_MASK);
+            this.itemTitle = obtainStyledAttributes.getText(R.styleable.MenuItem_android_title);
+            this.itemTitleCondensed = obtainStyledAttributes.getText(R.styleable.MenuItem_android_titleCondensed);
+            this.itemIconResId = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_android_icon, 0);
+            this.itemAlphabeticShortcut = getShortcut(obtainStyledAttributes.getString(R.styleable.MenuItem_android_alphabeticShortcut));
+            this.itemNumericShortcut = getShortcut(obtainStyledAttributes.getString(R.styleable.MenuItem_android_numericShortcut));
             if (obtainStyledAttributes.hasValue(R.styleable.MenuItem_android_checkable)) {
-                this.GV = obtainStyledAttributes.getBoolean(R.styleable.MenuItem_android_checkable, false) ? 1 : 0;
+                this.itemCheckable = obtainStyledAttributes.getBoolean(R.styleable.MenuItem_android_checkable, false) ? 1 : 0;
             } else {
-                this.GV = this.GK;
+                this.itemCheckable = this.groupCheckable;
             }
-            this.GW = obtainStyledAttributes.getBoolean(R.styleable.MenuItem_android_checked, false);
-            this.GX = obtainStyledAttributes.getBoolean(R.styleable.MenuItem_android_visible, this.GL);
-            this.GY = obtainStyledAttributes.getBoolean(R.styleable.MenuItem_android_enabled, this.GM);
-            this.GZ = obtainStyledAttributes.getInt(R.styleable.MenuItem_showAsAction, -1);
-            this.Hd = obtainStyledAttributes.getString(R.styleable.MenuItem_android_onClick);
-            this.Ha = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_actionLayout, 0);
-            this.Hb = obtainStyledAttributes.getString(R.styleable.MenuItem_actionViewClass);
-            this.Hc = obtainStyledAttributes.getString(R.styleable.MenuItem_actionProviderClass);
-            boolean z = this.Hc != null;
-            if (z && this.Ha == 0 && this.Hb == null) {
-                this.He = (ActionProvider) newInstance(this.Hc, SupportMenuInflater.GC, SupportMenuInflater.this.GE);
+            this.itemChecked = obtainStyledAttributes.getBoolean(R.styleable.MenuItem_android_checked, false);
+            this.itemVisible = obtainStyledAttributes.getBoolean(R.styleable.MenuItem_android_visible, this.groupVisible);
+            this.itemEnabled = obtainStyledAttributes.getBoolean(R.styleable.MenuItem_android_enabled, this.groupEnabled);
+            this.itemShowAsAction = obtainStyledAttributes.getInt(R.styleable.MenuItem_showAsAction, -1);
+            this.itemListenerMethodName = obtainStyledAttributes.getString(R.styleable.MenuItem_android_onClick);
+            this.itemActionViewLayout = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_actionLayout, 0);
+            this.itemActionViewClassName = obtainStyledAttributes.getString(R.styleable.MenuItem_actionViewClass);
+            this.itemActionProviderClassName = obtainStyledAttributes.getString(R.styleable.MenuItem_actionProviderClass);
+            boolean z = this.itemActionProviderClassName != null;
+            if (z && this.itemActionViewLayout == 0 && this.itemActionViewClassName == null) {
+                this.itemActionProvider = (ActionProvider) newInstance(this.itemActionProviderClassName, SupportMenuInflater.ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE, SupportMenuInflater.this.mActionProviderConstructorArguments);
             } else {
                 if (z) {
-                    Log.w("SupportMenuInflater", "Ignoring attribute 'actionProviderClass'. Action view already specified.");
+                    Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'actionProviderClass'. Action view already specified.");
                 }
-                this.He = null;
+                this.itemActionProvider = null;
             }
             obtainStyledAttributes.recycle();
-            this.GN = false;
+            this.itemAdded = false;
         }
 
-        private char B(String str) {
+        private char getShortcut(String str) {
             if (str == null) {
                 return (char) 0;
             }
             return str.charAt(0);
         }
 
-        private void a(MenuItem menuItem) {
+        private void setItem(MenuItem menuItem) {
             boolean z = true;
-            menuItem.setChecked(this.GW).setVisible(this.GX).setEnabled(this.GY).setCheckable(this.GV >= 1).setTitleCondensed(this.GQ).setIcon(this.GR).setAlphabeticShortcut(this.GT).setNumericShortcut(this.GU);
-            if (this.GZ >= 0) {
-                MenuItemCompat.setShowAsAction(menuItem, this.GZ);
+            menuItem.setChecked(this.itemChecked).setVisible(this.itemVisible).setEnabled(this.itemEnabled).setCheckable(this.itemCheckable >= 1).setTitleCondensed(this.itemTitleCondensed).setIcon(this.itemIconResId).setAlphabeticShortcut(this.itemAlphabeticShortcut).setNumericShortcut(this.itemNumericShortcut);
+            if (this.itemShowAsAction >= 0) {
+                MenuItemCompat.setShowAsAction(menuItem, this.itemShowAsAction);
             }
-            if (this.Hd != null) {
+            if (this.itemListenerMethodName != null) {
                 if (SupportMenuInflater.this.mContext.isRestricted()) {
                     throw new IllegalStateException("The android:onClick attribute cannot be used within a restricted context");
                 }
-                menuItem.setOnMenuItemClickListener(new a(SupportMenuInflater.this.eG(), this.Hd));
+                menuItem.setOnMenuItemClickListener(new InflatedOnMenuItemClickListener(SupportMenuInflater.this.getRealOwner(), this.itemListenerMethodName));
             }
             if (menuItem instanceof MenuItemImpl) {
                 MenuItemImpl menuItemImpl = (MenuItemImpl) menuItem;
             }
-            if (this.GV >= 2) {
+            if (this.itemCheckable >= 2) {
                 if (menuItem instanceof MenuItemImpl) {
                     ((MenuItemImpl) menuItem).setExclusiveCheckable(true);
                 } else if (menuItem instanceof MenuItemWrapperICS) {
                     ((MenuItemWrapperICS) menuItem).setExclusiveCheckable(true);
                 }
             }
-            if (this.Hb != null) {
-                MenuItemCompat.setActionView(menuItem, (View) newInstance(this.Hb, SupportMenuInflater.GB, SupportMenuInflater.this.GD));
+            if (this.itemActionViewClassName != null) {
+                MenuItemCompat.setActionView(menuItem, (View) newInstance(this.itemActionViewClassName, SupportMenuInflater.ACTION_VIEW_CONSTRUCTOR_SIGNATURE, SupportMenuInflater.this.mActionViewConstructorArguments));
             } else {
                 z = false;
             }
-            if (this.Ha > 0) {
+            if (this.itemActionViewLayout > 0) {
                 if (!z) {
-                    MenuItemCompat.setActionView(menuItem, this.Ha);
+                    MenuItemCompat.setActionView(menuItem, this.itemActionViewLayout);
                 } else {
-                    Log.w("SupportMenuInflater", "Ignoring attribute 'itemActionViewLayout'. Action view already specified.");
+                    Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'itemActionViewLayout'. Action view already specified.");
                 }
             }
-            if (this.He != null) {
-                MenuItemCompat.setActionProvider(menuItem, this.He);
+            if (this.itemActionProvider != null) {
+                MenuItemCompat.setActionProvider(menuItem, this.itemActionProvider);
             }
         }
 
-        public void eI() {
-            this.GN = true;
-            a(this.GH.add(this.groupId, this.itemId, this.GO, this.GP));
+        public void addItem() {
+            this.itemAdded = true;
+            setItem(this.menu.add(this.groupId, this.itemId, this.itemCategoryOrder, this.itemTitle));
         }
 
-        public SubMenu eJ() {
-            this.GN = true;
-            SubMenu addSubMenu = this.GH.addSubMenu(this.groupId, this.itemId, this.GO, this.GP);
-            a(addSubMenu.getItem());
+        public SubMenu addSubMenuItem() {
+            this.itemAdded = true;
+            SubMenu addSubMenu = this.menu.addSubMenu(this.groupId, this.itemId, this.itemCategoryOrder, this.itemTitle);
+            setItem(addSubMenu.getItem());
             return addSubMenu;
         }
 
-        public boolean eK() {
-            return this.GN;
+        public boolean hasAddedItem() {
+            return this.itemAdded;
         }
 
         private <T> T newInstance(String str, Class<?>[] clsArr, Object[] objArr) {
@@ -405,7 +418,7 @@ public class SupportMenuInflater extends MenuInflater {
                 constructor.setAccessible(true);
                 return (T) constructor.newInstance(objArr);
             } catch (Exception e) {
-                Log.w("SupportMenuInflater", "Cannot instantiate class: " + str, e);
+                Log.w(SupportMenuInflater.LOG_TAG, "Cannot instantiate class: " + str, e);
                 return null;
             }
         }

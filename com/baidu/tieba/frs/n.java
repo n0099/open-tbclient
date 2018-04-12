@@ -1,15 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.r;
-import com.baidu.tieba.d;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes2.dex */
-public class n extends r.a {
-    public TextView dGF;
+public class n extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId cZF = BdUniqueId.gen();
+    private long cZG;
 
-    public n(View view) {
-        super(view);
-        this.dGF = (TextView) view.findViewById(d.g.no_data_tips);
+    @Override // com.baidu.adp.widget.ListView.h
+    public BdUniqueId getType() {
+        return cZF;
+    }
+
+    public long getReadTime() {
+        return this.cZG;
+    }
+
+    public void setReadTime(long j) {
+        this.cZG = j;
     }
 }

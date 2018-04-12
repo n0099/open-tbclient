@@ -9,7 +9,7 @@ import java.security.Signature;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public static boolean a(byte[] bArr, String str, String str2) {
         try {

@@ -4,7 +4,7 @@ import com.xiaomi.push.service.av;
 import com.xiaomi.push.service.aw;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bi implements aw.b {
     final /* synthetic */ XMPushService a;
 

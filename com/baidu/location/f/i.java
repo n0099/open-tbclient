@@ -68,7 +68,7 @@ public class i {
     }
 
     public String a(int i) {
-        return t(i, false);
+        return h(i, false);
     }
 
     public boolean a(i iVar) {
@@ -86,7 +86,7 @@ public class i {
 
     public String b() {
         try {
-            return t(com.baidu.location.h.i.L, true);
+            return h(com.baidu.location.h.i.L, true);
         } catch (Exception e) {
             return null;
         }
@@ -184,7 +184,7 @@ public class i {
     }
 
     public boolean c(i iVar) {
-        return j.a(iVar, this, com.baidu.location.h.i.aEC);
+        return j.a(iVar, this, com.baidu.location.h.i.QK);
     }
 
     public int d() {
@@ -209,10 +209,6 @@ public class i {
         return System.currentTimeMillis() - this.c < TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 
-    public boolean h() {
-        return System.currentTimeMillis() - this.b < TbConfig.NOTIFY_SOUND_INTERVAL;
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:120:0x0308 A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:125:0x031c  */
     /* JADX WARN: Removed duplicated region for block: B:126:0x0320  */
@@ -222,7 +218,7 @@ public class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String t(int i, boolean z) {
+    public String h(int i, boolean z) {
         int i2;
         String str;
         long j;
@@ -246,13 +242,13 @@ public class i {
                 Random random = new Random();
                 StringBuffer stringBuffer = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo vi = k.vm().vi();
-                if (vi == null || vi.getBSSID() == null) {
+                WifiInfo nO = k.nS().nO();
+                if (nO == null || nO.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                 } else {
-                    String replace = vi.getBSSID().replace(":", "");
-                    int rssi = vi.getRssi();
+                    String replace = nO.getBSSID().replace(":", "");
+                    int rssi = nO.getRssi();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = replace;
@@ -428,5 +424,9 @@ public class i {
         } catch (Error e5) {
             return null;
         }
+    }
+
+    public boolean h() {
+        return System.currentTimeMillis() - this.b < TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 }

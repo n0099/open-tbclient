@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     static volatile a a = null;
     private Context b;
@@ -40,22 +40,22 @@ public class a {
         }
         this.b = context.getApplicationContext();
         this.d = new HashMap();
-        C0263a c0263a = new C0263a();
+        C0248a c0248a = new C0248a();
         if (list == null) {
-            a(new com.meizu.cloud.pushsdk.handler.a.c(context, c0263a));
-            a(new b(context, c0263a));
-            a(new e(context, c0263a));
-            a(new com.meizu.cloud.pushsdk.handler.a.a.a(context, c0263a));
-            a(new d(context, c0263a));
-            a(new f(context, c0263a));
-            a(new com.meizu.cloud.pushsdk.handler.a.a.b(context, c0263a));
-            a(new com.meizu.cloud.pushsdk.handler.a.b.a(context, c0263a));
-            a(new com.meizu.cloud.pushsdk.handler.a.b.c(context, c0263a));
-            a(new com.meizu.cloud.pushsdk.handler.a.b.f(context, c0263a));
-            a(new com.meizu.cloud.pushsdk.handler.a.b.d(context, c0263a));
-            a(new com.meizu.cloud.pushsdk.handler.a.b.e(context, c0263a));
-            a(new com.meizu.cloud.pushsdk.handler.a.c.a(context, c0263a));
-            a(new com.meizu.cloud.pushsdk.handler.a.b.b(context, c0263a));
+            a(new com.meizu.cloud.pushsdk.handler.a.c(context, c0248a));
+            a(new b(context, c0248a));
+            a(new e(context, c0248a));
+            a(new com.meizu.cloud.pushsdk.handler.a.a.a(context, c0248a));
+            a(new d(context, c0248a));
+            a(new f(context, c0248a));
+            a(new com.meizu.cloud.pushsdk.handler.a.a.b(context, c0248a));
+            a(new com.meizu.cloud.pushsdk.handler.a.b.a(context, c0248a));
+            a(new com.meizu.cloud.pushsdk.handler.a.b.c(context, c0248a));
+            a(new com.meizu.cloud.pushsdk.handler.a.b.f(context, c0248a));
+            a(new com.meizu.cloud.pushsdk.handler.a.b.d(context, c0248a));
+            a(new com.meizu.cloud.pushsdk.handler.a.b.e(context, c0248a));
+            a(new com.meizu.cloud.pushsdk.handler.a.c.a(context, c0248a));
+            a(new com.meizu.cloud.pushsdk.handler.a.b.b(context, c0248a));
             return;
         }
         a(list);
@@ -95,8 +95,15 @@ public class a {
 
     public void a(Intent intent) {
         com.meizu.cloud.a.a.e("PushMessageProxy", "is onMainThread " + a());
-        Iterator<Map.Entry<Integer, c>> it = this.c.entrySet().iterator();
-        while (it.hasNext() && !it.next().getValue().b(intent)) {
+        try {
+            com.meizu.cloud.a.a.i("PushMessageProxy", "receive action " + intent.getAction() + " method " + intent.getStringExtra("method"));
+            if (intent != null) {
+                Iterator<Map.Entry<Integer, c>> it = this.c.entrySet().iterator();
+                while (it.hasNext() && !it.next().getValue().b(intent)) {
+                }
+            }
+        } catch (Exception e) {
+            com.meizu.cloud.a.a.e("PushMessageProxy", "processMessage error " + e.getMessage());
         }
     }
 
@@ -105,9 +112,9 @@ public class a {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0263a extends com.meizu.cloud.pushsdk.handler.a {
-        public C0263a() {
+    /* loaded from: classes3.dex */
+    public class C0248a extends com.meizu.cloud.pushsdk.handler.a {
+        public C0248a() {
         }
 
         @Override // com.meizu.cloud.pushsdk.handler.a

@@ -19,38 +19,39 @@ public class NoDataViewFactory {
         SINGALL,
         GIFT,
         WEBVIEW,
-        LOCAL
+        LOCAL,
+        ANTI
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        final a bbP;
-        final a bbQ;
-        final int bbR;
+        final a anj;
+        final a ank;
+        final int anl;
 
         private b(a aVar) {
-            this.bbP = aVar.bbP;
-            this.bbQ = aVar.bbQ;
-            this.bbR = aVar.bbR;
+            this.anj = aVar.anj;
+            this.ank = aVar.ank;
+            this.anl = aVar.anl;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private a bbP = null;
-            private a bbQ = null;
-            private int bbR = -1;
+            private a anj = null;
+            private a ank = null;
+            private int anl = -1;
 
             public a b(a aVar) {
-                this.bbP = aVar;
+                this.anj = aVar;
                 return this;
             }
 
-            public a gk(int i) {
-                this.bbR = i;
+            public a dk(int i) {
+                this.anl = i;
                 return this;
             }
 
-            public b DX() {
+            public b wI() {
                 return new b(this);
             }
         }
@@ -58,78 +59,79 @@ public class NoDataViewFactory {
         public static b a(a aVar) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            return aVar2.DX();
+            return aVar2.wI();
         }
 
         public static b a(a aVar, int i) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            aVar2.gk(i);
-            return aVar2.DX();
+            aVar2.dk(i);
+            return aVar2.wI();
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        String aUN;
-        View.OnClickListener bbO;
+        String agh;
+        View.OnClickListener ani;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.aUN = str;
-            this.bbO = onClickListener;
+            this.agh = str;
+            this.ani = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        final int bbM;
-        final ImgType bbS;
-        final int bbT;
+        final int ang;
+        final ImgType anm;
+        final int ann;
         final int mHeight;
         final int mWidth;
 
         private c(a aVar) {
-            this.bbS = aVar.bbS;
-            this.bbT = aVar.bbT;
-            this.bbM = aVar.bbM;
+            this.anm = aVar.anm;
+            this.ann = aVar.ann;
+            this.ang = aVar.ang;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private ImgType bbS = ImgType.NONE;
-            private int bbT = -1;
-            private int bbM = -1;
+            private ImgType anm = ImgType.NONE;
+            private int ann = -1;
+            private int ang = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.bbS = imgType;
+                this.anm = imgType;
                 return this;
             }
 
-            public a gl(int i) {
-                this.bbT = i;
+            public a dl(int i) {
+                this.ann = i;
                 return this;
             }
 
-            public a gm(int i) {
-                this.bbM = i;
+            public a dm(int i) {
+                this.ang = i;
                 return this;
             }
 
-            public a gn(int i) {
+            public a dn(int i) {
                 this.mHeight = i;
                 return this;
             }
 
-            public a go(int i) {
+            /* renamed from: do  reason: not valid java name */
+            public a m16do(int i) {
                 this.mWidth = i;
                 return this;
             }
 
-            public c DY() {
+            public c wJ() {
                 return new c(this);
             }
         }
@@ -137,130 +139,130 @@ public class NoDataViewFactory {
         public static c a(ImgType imgType, int i) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.gl(i);
-            return aVar.DY();
+            aVar.dl(i);
+            return aVar.wJ();
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.gm(i);
-            aVar.gl(i2);
-            aVar.gn(i3);
-            aVar.go(i4);
-            return aVar.DY();
+            aVar.dm(i);
+            aVar.dl(i2);
+            aVar.dn(i3);
+            aVar.m16do(i4);
+            return aVar.wJ();
         }
 
         public static c a(ImgType imgType) {
             a aVar = new a();
             aVar.b(imgType);
-            return aVar.DY();
+            return aVar.wJ();
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        final String aMa;
-        final String bbV;
-        final int bbW;
-        final int bbX;
+        final String Xv;
+        final String ano;
+        final int anp;
+        final int anq;
         final String mTitle;
 
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
-            this.aMa = aVar.aMa;
-            this.bbV = aVar.bbV;
-            this.bbW = aVar.bbY;
-            this.bbX = aVar.bbX;
+            this.Xv = aVar.Xv;
+            this.ano = aVar.ano;
+            this.anp = aVar.anr;
+            this.anq = aVar.anq;
         }
 
         /* loaded from: classes.dex */
         public static class a {
             private String mTitle = null;
-            private String aMa = null;
-            private String bbV = null;
-            private int bbY = -1;
-            private int bbX = 0;
+            private String Xv = null;
+            private String ano = null;
+            private int anr = -1;
+            private int anq = 0;
 
-            public a eU(String str) {
+            public a eM(String str) {
                 this.mTitle = str;
                 return this;
             }
 
-            public a eV(String str) {
-                this.aMa = str;
+            public a eN(String str) {
+                this.Xv = str;
                 return this;
             }
 
-            public a gq(int i) {
-                this.bbY = i;
+            public a dq(int i) {
+                this.anr = i;
                 return this;
             }
 
-            public d DZ() {
+            public d wK() {
                 return new d(this);
             }
         }
 
-        public static d aB(int i, int i2) {
+        public static d B(int i, int i2) {
             a aVar = new a();
-            aVar.eV(TbadkCoreApplication.getInst().getResources().getString(i));
-            aVar.gq(i2);
-            return aVar.DZ();
+            aVar.eN(TbadkCoreApplication.getInst().getResources().getString(i));
+            aVar.dq(i2);
+            return aVar.wK();
         }
 
-        public static d gp(int i) {
-            return eT(TbadkCoreApplication.getInst().getResources().getString(i));
+        public static d dp(int i) {
+            return eL(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
-        public static d aC(int i, int i2) {
-            return ae(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
+        public static d C(int i, int i2) {
+            return af(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d eT(String str) {
+        public static d eL(String str) {
             a aVar = new a();
-            aVar.eV(str);
-            return aVar.DZ();
+            aVar.eN(str);
+            return aVar.wK();
         }
 
-        public static d ae(String str, String str2) {
+        public static d af(String str, String str2) {
             a aVar = new a();
-            aVar.eV(str);
-            aVar.eU(str2);
-            return aVar.DZ();
+            aVar.eN(str);
+            aVar.eM(str2);
+            return aVar.wK();
         }
     }
 
-    public static h a(Context context, View view, c cVar, d dVar, b bVar) {
-        return a(context, view, cVar, dVar, bVar, false);
+    public static NoDataView a(Context context, View view2, c cVar, d dVar, b bVar) {
+        return a(context, view2, cVar, dVar, bVar, false);
     }
 
-    public static h a(Context context, View view, c cVar, d dVar, b bVar, boolean z) {
-        h hVar = new h(context);
-        hVar.a(bVar, cVar, dVar);
-        if (view != null) {
-            if (view instanceof RelativeLayout) {
-                RelativeLayout relativeLayout = (RelativeLayout) view;
+    public static NoDataView a(Context context, View view2, c cVar, d dVar, b bVar, boolean z) {
+        NoDataView noDataView = new NoDataView(context);
+        noDataView.a(bVar, cVar, dVar);
+        if (view2 != null) {
+            if (view2 instanceof RelativeLayout) {
+                RelativeLayout relativeLayout = (RelativeLayout) view2;
                 if (z) {
-                    relativeLayout.addView(hVar, 0);
+                    relativeLayout.addView(noDataView, 0);
                 } else {
-                    relativeLayout.addView(hVar);
+                    relativeLayout.addView(noDataView);
                 }
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) hVar.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) noDataView.getLayoutParams();
                 layoutParams.width = -1;
                 layoutParams.height = -1;
                 layoutParams.addRule(14);
-                hVar.setLayoutParams(layoutParams);
-            } else if (view instanceof LinearLayout) {
-                ((LinearLayout) view).addView(hVar);
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) hVar.getLayoutParams();
+                noDataView.setLayoutParams(layoutParams);
+            } else if (view2 instanceof LinearLayout) {
+                ((LinearLayout) view2).addView(noDataView);
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) noDataView.getLayoutParams();
                 layoutParams2.gravity = 1;
-                hVar.setLayoutParams(layoutParams2);
-            } else if (view instanceof FrameLayout) {
-                ((FrameLayout) view).addView(hVar, 0);
+                noDataView.setLayoutParams(layoutParams2);
+            } else if (view2 instanceof FrameLayout) {
+                ((FrameLayout) view2).addView(noDataView, 0);
             }
         }
-        hVar.setVisibility(8);
-        return hVar;
+        noDataView.setVisibility(8);
+        return noDataView;
     }
 }

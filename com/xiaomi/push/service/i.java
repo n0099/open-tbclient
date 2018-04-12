@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import android.os.SystemClock;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     private static long a;
     private static long b;
@@ -10,7 +10,7 @@ public class i {
     private final c d;
     private final a e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private static final class a {
         private final c a;
 
@@ -30,7 +30,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b implements Runnable {
         protected int a;
 
@@ -40,7 +40,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class c extends Thread {
         private boolean d;
         private boolean e;
@@ -50,7 +50,7 @@ public class i {
         private a f = new a();
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class a {
             private int a;
             private d[] b;
@@ -278,7 +278,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d {
         final Object a = new Object();
         boolean b;

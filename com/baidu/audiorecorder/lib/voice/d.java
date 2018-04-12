@@ -1,7 +1,7 @@
 package com.baidu.audiorecorder.lib.voice;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
-    public static float dS(int i) {
+    public static float aV(int i) {
         switch (i) {
             case 1:
                 return 6.6f;

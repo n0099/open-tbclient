@@ -3,35 +3,35 @@ package com.baidu.tieba.person.b;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.i;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
-public class b extends r.a {
-    public ImageView giC;
-    public TextView giD;
-    private i giE;
+public class b extends q.a {
+    public ImageView fCZ;
+    public TextView fDa;
+    private h fDb;
     private View.OnClickListener mClickListener;
     private int mSkinType;
     public View rootView;
 
-    public b(View view) {
-        super(view);
+    public b(View view2) {
+        super(view2);
         this.mSkinType = 3;
-        this.rootView = view.findViewById(d.g.add_pic_root);
-        this.giC = (ImageView) view.findViewById(d.g.add_image_view);
-        this.giD = (TextView) view.findViewById(d.g.tip_left_count_view);
+        this.rootView = view2.findViewById(d.g.add_pic_root);
+        this.fCZ = (ImageView) view2.findViewById(d.g.add_image_view);
+        this.fDa = (TextView) view2.findViewById(d.g.tip_left_count_view);
     }
 
-    public void f(i iVar) {
-        if (iVar instanceof com.baidu.tieba.person.data.c) {
-            this.giE = iVar;
-            com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) iVar;
-            aj.c(this.giC, d.f.icon_mine_pic_add);
-            if (cVar.biB() > 0) {
-                this.giD.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.have_left_some_picture_upload), Integer.valueOf(cVar.biB())));
+    public void g(h hVar) {
+        if (hVar instanceof com.baidu.tieba.person.data.c) {
+            this.fDb = hVar;
+            com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) hVar;
+            ak.c(this.fCZ, d.f.icon_mine_pic_add);
+            if (cVar.bdC() > 0) {
+                this.fDa.setText(String.format(TbadkCoreApplication.getInst().getString(d.k.have_left_some_picture_upload), Integer.valueOf(cVar.bdC())));
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -40,17 +40,17 @@ public class b extends r.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.e(this.giD, d.C0141d.cp_cont_e, 1);
-            aj.t(getView(), d.C0141d.cp_bg_line_e);
+            ak.c(this.fDa, d.C0126d.cp_cont_e, 1);
+            ak.j(getView(), d.C0126d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
-    public i EG() {
-        return this.giE;
+    public h xq() {
+        return this.fDb;
     }
 
-    public void r(View.OnClickListener onClickListener) {
+    public void t(View.OnClickListener onClickListener) {
         this.mClickListener = onClickListener;
     }
 }

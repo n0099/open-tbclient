@@ -1,36 +1,25 @@
 package com.baidu.tbadk.widget.dragsort;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.Checkable;
+import android.graphics.Canvas;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
 /* loaded from: classes.dex */
-public class d extends c implements Checkable {
-    public d(Context context) {
-        super(context);
-    }
+public interface d {
+    void dispatchDraw(Canvas canvas);
 
-    @Override // android.widget.Checkable
-    public boolean isChecked() {
-        View childAt = getChildAt(0);
-        if (childAt instanceof Checkable) {
-            return ((Checkable) childAt).isChecked();
-        }
-        return false;
-    }
+    void layoutChildren();
 
-    @Override // android.widget.Checkable
-    public void setChecked(boolean z) {
-        View childAt = getChildAt(0);
-        if (childAt instanceof Checkable) {
-            ((Checkable) childAt).setChecked(z);
-        }
-    }
+    void onDraw(Canvas canvas);
 
-    @Override // android.widget.Checkable
-    public void toggle() {
-        View childAt = getChildAt(0);
-        if (childAt instanceof Checkable) {
-            ((Checkable) childAt).toggle();
-        }
-    }
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
+
+    void onMeasure(int i, int i2);
+
+    void onSizeChanged(int i, int i2, int i3, int i4);
+
+    boolean onTouchEvent(MotionEvent motionEvent);
+
+    void requestLayout();
+
+    void setAdapter(ListAdapter listAdapter);
 }

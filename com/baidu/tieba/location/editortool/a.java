@@ -2,30 +2,30 @@ package com.baidu.tieba.location.editortool;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.editortools.p;
-import com.baidu.tbadk.editortools.r;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tbadk.editortools.k;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
-public class a extends r {
+public class a extends k {
     public a(Context context) {
         super(context, (String) null, 8);
-        this.btd = false;
-        this.btc = 3;
-        this.bsm = new c(context);
-        this.bte = new int[]{20, 19};
+        this.aDD = false;
+        this.aDC = 3;
+        this.aCM = new PbLocationInfoContainer(context);
+        this.aDE = new int[]{20, 19};
     }
 
     public a(Context context, boolean z) {
         super(context, (String) null, 8);
-        this.btd = false;
-        this.btc = 3;
-        this.bsm = new c(context);
-        p.a aVar = new p.a(-2, l.t(getContext(), d.e.ds48));
-        aVar.leftMargin = l.t(getContext(), d.e.ds32);
-        aVar.rightMargin = l.t(getContext(), d.e.ds32);
-        aVar.bottomMargin = l.t(getContext(), d.e.ds21);
-        aVar.topMargin = l.t(getContext(), d.e.ds21);
-        ((c) this.bsm).setLayoutParams(aVar);
-        this.bte = new int[]{20, 19};
+        this.aDD = false;
+        this.aDC = 3;
+        this.aCM = new PbLocationInfoContainer(context);
+        RawLayout.a aVar = new RawLayout.a(-2, l.e(getContext(), d.e.ds48));
+        aVar.leftMargin = l.e(getContext(), d.e.ds32);
+        aVar.rightMargin = l.e(getContext(), d.e.ds32);
+        aVar.bottomMargin = l.e(getContext(), d.e.ds21);
+        aVar.topMargin = l.e(getContext(), d.e.ds21);
+        ((PbLocationInfoContainer) this.aCM).setLayoutParams(aVar);
+        this.aDE = new int[]{20, 19};
     }
 }

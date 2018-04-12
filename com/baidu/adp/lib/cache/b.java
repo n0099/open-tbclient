@@ -10,13 +10,13 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String R(String str) {
+    public String O(String str) {
         int hashCode = str.hashCode();
         if (hashCode < 0) {
             hashCode *= -1;
         }
         String str2 = "cache_kv_b" + hashCode;
-        this.agQ.F("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.rk.C("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         return str2;
     }
 
@@ -25,34 +25,34 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int lX() {
+    public int eb() {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v15, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r2v15, types: [byte[], T] */
     @Override // com.baidu.adp.lib.cache.c
     protected g<byte[]> c(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;
         Throwable th;
         g<byte[]> gVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.agR + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.rl + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
                     gVar = new g<>();
-                    gVar.ahc = cursor.getString(0);
-                    gVar.ahe = cursor.getLong(1);
-                    gVar.ahf = cursor.getLong(2);
-                    gVar.ahg = cursor.getLong(3);
+                    gVar.rx = cursor.getString(0);
+                    gVar.rz = cursor.getLong(1);
+                    gVar.rA = cursor.getLong(2);
+                    gVar.rB = cursor.getLong(3);
                     gVar.value = cursor.getBlob(4);
-                    com.baidu.adp.lib.g.a.i(cursor);
+                    com.baidu.adp.lib.g.a.e(cursor);
                 } else {
-                    com.baidu.adp.lib.g.a.i(cursor);
+                    com.baidu.adp.lib.g.a.e(cursor);
                 }
                 return gVar;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.adp.lib.g.a.i(cursor);
+                com.baidu.adp.lib.g.a.e(cursor);
                 throw th;
             }
         } catch (Throwable th3) {
@@ -64,22 +64,22 @@ public class b extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(g<byte[]> gVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", gVar.ahc);
+        contentValues.put("m_key", gVar.rx);
         contentValues.put("m_value", gVar.value);
-        contentValues.put("saveTime", Long.valueOf(gVar.ahe));
-        contentValues.put("lastHitTime", Long.valueOf(gVar.ahf));
-        contentValues.put("timeToExpire", Long.valueOf(gVar.ahg));
+        contentValues.put("saveTime", Long.valueOf(gVar.rz));
+        contentValues.put("lastHitTime", Long.valueOf(gVar.rA));
+        contentValues.put("timeToExpire", Long.valueOf(gVar.rB));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.agR, new String[0]);
+        return sQLiteDatabase.rawQuery("select * from " + this.rl, new String[0]);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean S(String str) {
-        this.agQ.F("DROP TABLE IF EXISTS " + this.agR);
+    protected boolean P(String str) {
+        this.rk.C("DROP TABLE IF EXISTS " + this.rl);
         return true;
     }
 }

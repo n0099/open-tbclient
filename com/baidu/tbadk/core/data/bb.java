@@ -6,9 +6,9 @@ import org.json.JSONObject;
 import tbclient.TaskInfo;
 /* loaded from: classes.dex */
 public class bb {
-    private long aOf;
-    private String aOg;
-    private String aOh;
+    private long ZC;
+    private String ZD;
+    private String ZE;
     private long endTime;
     private long forumId;
     private String forumName;
@@ -26,11 +26,11 @@ public class bb {
         return this.forumId + "";
     }
 
-    public long yQ() {
-        return this.aOf;
+    public long rv() {
+        return this.ZC;
     }
 
-    public long yR() {
+    public long rw() {
         return this.endTime;
     }
 
@@ -43,18 +43,18 @@ public class bb {
     }
 
     public String getThreadImgUrl() {
-        return this.aOh;
+        return this.ZE;
     }
 
-    public int yS() {
+    public int rx() {
         return this.mWidth;
     }
 
-    public int yT() {
+    public int ry() {
         return this.mHeight;
     }
 
-    public String xP() {
+    public String qw() {
         return this.obj_id;
     }
 
@@ -64,16 +64,16 @@ public class bb {
             this.forumId = taskInfo.forum_id.longValue();
             this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
             this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
-            this.aOg = taskInfo.bgimg;
-            this.aOh = taskInfo.thread_img;
-            this.aOf = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.ZD = taskInfo.bgimg;
+            this.ZE = taskInfo.thread_img;
+            this.ZC = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
             this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
             String str = taskInfo.thread_img_size;
             if (str != null) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.mWidth = com.baidu.adp.lib.g.b.h(split[0], 1);
-                    this.mHeight = com.baidu.adp.lib.g.b.h(split[1], 1);
+                    this.mWidth = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.g.b.g(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -95,10 +95,10 @@ public class bb {
                 this.forumId = jSONObject.optLong("forum_id");
                 this.taskId = jSONObject.optLong("task_id");
                 this.threadId = jSONObject.optLong("thread_id");
-                this.aOg = jSONObject.optString("bgimg");
-                this.aOf = jSONObject.optLong("start_time");
+                this.ZD = jSONObject.optString("bgimg");
+                this.ZC = jSONObject.optLong("start_time");
                 this.endTime = jSONObject.optLong("end_time");
-                this.aOh = jSONObject.optString("thread_img");
+                this.ZE = jSONObject.optString("thread_img");
                 String optString = jSONObject.optString("thread_img_size");
                 if (optString != null && optString.length() > 0) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);

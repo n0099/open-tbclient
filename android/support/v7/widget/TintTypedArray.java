@@ -10,12 +10,12 @@ import android.support.annotation.RestrictTo;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class TintTypedArray {
-    private TypedValue MS;
-    private final TypedArray Xg;
     private final Context mContext;
+    private TypedValue mTypedValue;
+    private final TypedArray mWrapped;
 
     public static TintTypedArray obtainStyledAttributes(Context context, AttributeSet attributeSet, int[] iArr) {
         return new TintTypedArray(context, context.obtainStyledAttributes(attributeSet, iArr));
@@ -31,140 +31,140 @@ public class TintTypedArray {
 
     private TintTypedArray(Context context, TypedArray typedArray) {
         this.mContext = context;
-        this.Xg = typedArray;
+        this.mWrapped = typedArray;
     }
 
     public Drawable getDrawable(int i) {
         int resourceId;
-        return (!this.Xg.hasValue(i) || (resourceId = this.Xg.getResourceId(i, 0)) == 0) ? this.Xg.getDrawable(i) : AppCompatResources.getDrawable(this.mContext, resourceId);
+        return (!this.mWrapped.hasValue(i) || (resourceId = this.mWrapped.getResourceId(i, 0)) == 0) ? this.mWrapped.getDrawable(i) : AppCompatResources.getDrawable(this.mContext, resourceId);
     }
 
     public Drawable getDrawableIfKnown(int i) {
         int resourceId;
-        if (!this.Xg.hasValue(i) || (resourceId = this.Xg.getResourceId(i, 0)) == 0) {
+        if (!this.mWrapped.hasValue(i) || (resourceId = this.mWrapped.getResourceId(i, 0)) == 0) {
             return null;
         }
-        return AppCompatDrawableManager.get().b(this.mContext, resourceId, true);
+        return AppCompatDrawableManager.get().getDrawable(this.mContext, resourceId, true);
     }
 
     public int length() {
-        return this.Xg.length();
+        return this.mWrapped.length();
     }
 
     public int getIndexCount() {
-        return this.Xg.getIndexCount();
+        return this.mWrapped.getIndexCount();
     }
 
     public int getIndex(int i) {
-        return this.Xg.getIndex(i);
+        return this.mWrapped.getIndex(i);
     }
 
     public Resources getResources() {
-        return this.Xg.getResources();
+        return this.mWrapped.getResources();
     }
 
     public CharSequence getText(int i) {
-        return this.Xg.getText(i);
+        return this.mWrapped.getText(i);
     }
 
     public String getString(int i) {
-        return this.Xg.getString(i);
+        return this.mWrapped.getString(i);
     }
 
     public String getNonResourceString(int i) {
-        return this.Xg.getNonResourceString(i);
+        return this.mWrapped.getNonResourceString(i);
     }
 
     public boolean getBoolean(int i, boolean z) {
-        return this.Xg.getBoolean(i, z);
+        return this.mWrapped.getBoolean(i, z);
     }
 
     public int getInt(int i, int i2) {
-        return this.Xg.getInt(i, i2);
+        return this.mWrapped.getInt(i, i2);
     }
 
     public float getFloat(int i, float f) {
-        return this.Xg.getFloat(i, f);
+        return this.mWrapped.getFloat(i, f);
     }
 
     public int getColor(int i, int i2) {
-        return this.Xg.getColor(i, i2);
+        return this.mWrapped.getColor(i, i2);
     }
 
     public ColorStateList getColorStateList(int i) {
         int resourceId;
         ColorStateList colorStateList;
-        return (!this.Xg.hasValue(i) || (resourceId = this.Xg.getResourceId(i, 0)) == 0 || (colorStateList = AppCompatResources.getColorStateList(this.mContext, resourceId)) == null) ? this.Xg.getColorStateList(i) : colorStateList;
+        return (!this.mWrapped.hasValue(i) || (resourceId = this.mWrapped.getResourceId(i, 0)) == 0 || (colorStateList = AppCompatResources.getColorStateList(this.mContext, resourceId)) == null) ? this.mWrapped.getColorStateList(i) : colorStateList;
     }
 
     public int getInteger(int i, int i2) {
-        return this.Xg.getInteger(i, i2);
+        return this.mWrapped.getInteger(i, i2);
     }
 
     public float getDimension(int i, float f) {
-        return this.Xg.getDimension(i, f);
+        return this.mWrapped.getDimension(i, f);
     }
 
     public int getDimensionPixelOffset(int i, int i2) {
-        return this.Xg.getDimensionPixelOffset(i, i2);
+        return this.mWrapped.getDimensionPixelOffset(i, i2);
     }
 
     public int getDimensionPixelSize(int i, int i2) {
-        return this.Xg.getDimensionPixelSize(i, i2);
+        return this.mWrapped.getDimensionPixelSize(i, i2);
     }
 
     public int getLayoutDimension(int i, String str) {
-        return this.Xg.getLayoutDimension(i, str);
+        return this.mWrapped.getLayoutDimension(i, str);
     }
 
     public int getLayoutDimension(int i, int i2) {
-        return this.Xg.getLayoutDimension(i, i2);
+        return this.mWrapped.getLayoutDimension(i, i2);
     }
 
     public float getFraction(int i, int i2, int i3, float f) {
-        return this.Xg.getFraction(i, i2, i3, f);
+        return this.mWrapped.getFraction(i, i2, i3, f);
     }
 
     public int getResourceId(int i, int i2) {
-        return this.Xg.getResourceId(i, i2);
+        return this.mWrapped.getResourceId(i, i2);
     }
 
     public CharSequence[] getTextArray(int i) {
-        return this.Xg.getTextArray(i);
+        return this.mWrapped.getTextArray(i);
     }
 
     public boolean getValue(int i, TypedValue typedValue) {
-        return this.Xg.getValue(i, typedValue);
+        return this.mWrapped.getValue(i, typedValue);
     }
 
     public int getType(int i) {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.Xg.getType(i);
+            return this.mWrapped.getType(i);
         }
-        if (this.MS == null) {
-            this.MS = new TypedValue();
+        if (this.mTypedValue == null) {
+            this.mTypedValue = new TypedValue();
         }
-        this.Xg.getValue(i, this.MS);
-        return this.MS.type;
+        this.mWrapped.getValue(i, this.mTypedValue);
+        return this.mTypedValue.type;
     }
 
     public boolean hasValue(int i) {
-        return this.Xg.hasValue(i);
+        return this.mWrapped.hasValue(i);
     }
 
     public TypedValue peekValue(int i) {
-        return this.Xg.peekValue(i);
+        return this.mWrapped.peekValue(i);
     }
 
     public String getPositionDescription() {
-        return this.Xg.getPositionDescription();
+        return this.mWrapped.getPositionDescription();
     }
 
     public void recycle() {
-        this.Xg.recycle();
+        this.mWrapped.recycle();
     }
 
     public int getChangingConfigurations() {
-        return this.Xg.getChangingConfigurations();
+        return this.mWrapped.getChangingConfigurations();
     }
 }

@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
-public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.o, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.o>> {
+public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.o, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.l>> {
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
 
@@ -17,24 +17,24 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ad */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.o> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.o(this.mPageContext));
+    /* renamed from: aa */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.l> onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.l(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.o oVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.o> aVar) {
-        if (oVar == null || aVar == null || aVar.alY() == null) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.o oVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.l> aVar) {
+        if (oVar == null || aVar == null || aVar.afY() == null) {
             return null;
         }
-        aVar.alY().a(oVar);
-        if (aVar.alY().getView() != null) {
-            aVar.alY().getView().setOnClickListener(this.mOnClickListener);
+        aVar.afY().a(oVar);
+        if (aVar.afY().getView() != null) {
+            aVar.afY().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.alY().getView();
+        return aVar.afY().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

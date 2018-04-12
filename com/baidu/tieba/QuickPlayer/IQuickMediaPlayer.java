@@ -8,6 +8,7 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import android.view.Surface;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener;
+import java.util.List;
 /* loaded from: classes2.dex */
 public interface IQuickMediaPlayer extends IInterface {
     void forceUseSystemMediaPlayer(boolean z) throws RemoteException;
@@ -21,6 +22,10 @@ public interface IQuickMediaPlayer extends IInterface {
     int getCurrentPosition() throws RemoteException;
 
     int getDuration() throws RemoteException;
+
+    String getId() throws RemoteException;
+
+    List<String> getMediaIDs() throws RemoteException;
 
     int getVideoHeight() throws RemoteException;
 
@@ -56,22 +61,24 @@ public interface IQuickMediaPlayer extends IInterface {
     public static abstract class Stub extends Binder implements IQuickMediaPlayer {
         private static final String DESCRIPTOR = "com.baidu.tieba.QuickPlayer.IQuickMediaPlayer";
         static final int TRANSACTION_forceUseSystemMediaPlayer = 1;
-        static final int TRANSACTION_getBitRate = 20;
-        static final int TRANSACTION_getCachedPostion = 19;
-        static final int TRANSACTION_getCachedSize = 21;
+        static final int TRANSACTION_getBitRate = 22;
+        static final int TRANSACTION_getCachedPostion = 21;
+        static final int TRANSACTION_getCachedSize = 23;
         static final int TRANSACTION_getCurrentPosition = 7;
         static final int TRANSACTION_getDuration = 6;
+        static final int TRANSACTION_getId = 18;
+        static final int TRANSACTION_getMediaIDs = 17;
         static final int TRANSACTION_getVideoHeight = 11;
         static final int TRANSACTION_getVideoWidth = 10;
         static final int TRANSACTION_isExistInRemote = 16;
-        static final int TRANSACTION_isIjkPlayer = 17;
+        static final int TRANSACTION_isIjkPlayer = 19;
         static final int TRANSACTION_isLooping = 14;
         static final int TRANSACTION_isPlaying = 9;
         static final int TRANSACTION_openVideo = 2;
         static final int TRANSACTION_pause = 5;
         static final int TRANSACTION_release = 3;
         static final int TRANSACTION_seekTo = 8;
-        static final int TRANSACTION_setDebugParams = 18;
+        static final int TRANSACTION_setDebugParams = 20;
         static final int TRANSACTION_setListener = 15;
         static final int TRANSACTION_setLooping = 13;
         static final int TRANSACTION_setVolume = 12;
@@ -89,7 +96,7 @@ public interface IQuickMediaPlayer extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof IQuickMediaPlayer)) {
                 return (IQuickMediaPlayer) queryLocalInterface;
             }
-            return new a(iBinder);
+            return new Proxy(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -197,28 +204,40 @@ public interface IQuickMediaPlayer extends IInterface {
                     return true;
                 case 17:
                     parcel.enforceInterface(DESCRIPTOR);
+                    List<String> mediaIDs = getMediaIDs();
+                    parcel2.writeNoException();
+                    parcel2.writeStringList(mediaIDs);
+                    return true;
+                case 18:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    String id = getId();
+                    parcel2.writeNoException();
+                    parcel2.writeString(id);
+                    return true;
+                case 19:
+                    parcel.enforceInterface(DESCRIPTOR);
                     boolean isIjkPlayer = isIjkPlayer();
                     parcel2.writeNoException();
                     parcel2.writeInt(isIjkPlayer ? 1 : 0);
                     return true;
-                case 18:
+                case 20:
                     parcel.enforceInterface(DESCRIPTOR);
                     setDebugParams(parcel.readString(), parcel.readString());
                     parcel2.writeNoException();
                     return true;
-                case 19:
+                case 21:
                     parcel.enforceInterface(DESCRIPTOR);
                     int cachedPostion = getCachedPostion();
                     parcel2.writeNoException();
                     parcel2.writeInt(cachedPostion);
                     return true;
-                case 20:
+                case 22:
                     parcel.enforceInterface(DESCRIPTOR);
                     int bitRate = getBitRate();
                     parcel2.writeNoException();
                     parcel2.writeInt(bitRate);
                     return true;
-                case 21:
+                case 23:
                     parcel.enforceInterface(DESCRIPTOR);
                     int cachedSize = getCachedSize();
                     parcel2.writeNoException();
@@ -233,16 +252,20 @@ public interface IQuickMediaPlayer extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        private static class a implements IQuickMediaPlayer {
+        private static class Proxy implements IQuickMediaPlayer {
             private IBinder mRemote;
 
-            a(IBinder iBinder) {
+            Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 return this.mRemote;
+            }
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
             }
 
             @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
@@ -499,12 +522,42 @@ public interface IQuickMediaPlayer extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
-            public boolean isIjkPlayer() throws RemoteException {
+            public List<String> getMediaIDs() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     this.mRemote.transact(17, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.createStringArrayList();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+            public String getId() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(18, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+            public boolean isIjkPlayer() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(19, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -521,7 +574,7 @@ public interface IQuickMediaPlayer extends IInterface {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.mRemote.transact(18, obtain, obtain2, 0);
+                    this.mRemote.transact(20, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -535,7 +588,7 @@ public interface IQuickMediaPlayer extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(19, obtain, obtain2, 0);
+                    this.mRemote.transact(21, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -550,7 +603,7 @@ public interface IQuickMediaPlayer extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(20, obtain, obtain2, 0);
+                    this.mRemote.transact(22, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -565,7 +618,7 @@ public interface IQuickMediaPlayer extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(21, obtain, obtain2, 0);
+                    this.mRemote.transact(23, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {

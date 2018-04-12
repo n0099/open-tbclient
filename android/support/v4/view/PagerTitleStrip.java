@@ -5,6 +5,8 @@ import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.ColorInt;
+import android.support.annotation.FloatRange;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.TextViewCompat;
 import android.text.TextUtils;
@@ -18,6 +20,9 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class PagerTitleStrip extends ViewGroup {
     private static final PagerTitleStripImpl IMPL;
+    private static final float SIDE_ALPHA = 0.6f;
+    private static final String TAG = "PagerTitleStrip";
+    private static final int TEXT_SPACING = 16;
     TextView mCurrText;
     private int mGravity;
     private int mLastKnownCurrentPage;
@@ -115,7 +120,7 @@ public class PagerTitleStrip extends ViewGroup {
         this.mGravity = obtainStyledAttributes.getInteger(3, 80);
         obtainStyledAttributes.recycle();
         this.mTextColor = this.mCurrText.getTextColors().getDefaultColor();
-        setNonPrimaryAlpha(0.6f);
+        setNonPrimaryAlpha(SIDE_ALPHA);
         this.mPrevText.setEllipsize(TextUtils.TruncateAt.END);
         this.mCurrText.setEllipsize(TextUtils.TruncateAt.END);
         this.mNextText.setEllipsize(TextUtils.TruncateAt.END);
@@ -145,14 +150,14 @@ public class PagerTitleStrip extends ViewGroup {
         return this.mScaledTextSpacing;
     }
 
-    public void setNonPrimaryAlpha(float f) {
+    public void setNonPrimaryAlpha(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         this.mNonPrimaryAlpha = ((int) (255.0f * f)) & 255;
         int i = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
         this.mPrevText.setTextColor(i);
         this.mNextText.setTextColor(i);
     }
 
-    public void setTextColor(int i) {
+    public void setTextColor(@ColorInt int i) {
         this.mTextColor = i;
         this.mCurrText.setTextColor(i);
         int i2 = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);

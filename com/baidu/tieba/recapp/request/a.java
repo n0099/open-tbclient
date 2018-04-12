@@ -25,30 +25,30 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap bpb = a.this.bpb();
+                HashMap bki = a.this.bki();
                 HashMap b = a.this.b(str, i, i2, i3, str2, str3);
                 e eVar = new e();
-                eVar.nb().setUrl(a.this.url);
-                eVar.nb().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                if (bpb != null && !bpb.isEmpty()) {
-                    eVar.nb().g(a.this.bpb());
+                eVar.fe().setUrl(a.this.url);
+                eVar.fe().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+                if (bki != null && !bki.isEmpty()) {
+                    eVar.fe().g(a.this.bki());
                 }
                 if (b != null && !b.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
                     for (Map.Entry<String, Object> entry : b.entrySet()) {
                         arrayList.add(entry);
                     }
-                    eVar.nb().p(arrayList);
+                    eVar.fe().g(arrayList);
                 }
-                new c(eVar).o(1, 0, 0);
-                eVar.nc();
+                new c(eVar).f(1, 0, 0);
+                eVar.ff();
                 return null;
             }
         }.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> bpb() {
+    public HashMap<String, String> bki() {
         String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(SM.COOKIE, cookie);

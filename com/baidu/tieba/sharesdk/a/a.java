@@ -3,6 +3,7 @@ package com.baidu.tieba.sharesdk.a;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.h;
@@ -12,6 +13,8 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.d;
 import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
 /* loaded from: classes3.dex */
 public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     Context context;
@@ -28,55 +31,55 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     public void onDestroy() {
     }
 
-    public void F(Intent intent) {
+    public void D(Intent intent) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public BdUniqueId getPageId() {
-        h ai;
+        h Z;
         BdUniqueId bdUniqueId = this.pageId;
-        if (bdUniqueId == null && (ai = i.ai(this.context)) != null) {
-            return ai.getUniqueId();
+        if (bdUniqueId == null && (Z = i.Z(this.context)) != null) {
+            return Z.getUniqueId();
         }
         return bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void si(String str) {
-        aI(str, d.f.icon_toast_game_error);
+    public void sp(String str) {
+        aJ(str, d.f.icon_toast_game_error);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void sj(String str) {
-        aI(str, d.f.icon_toast_game_ok);
+    public void sq(String str) {
+        aJ(str, d.f.icon_toast_game_ok);
     }
 
-    protected void aI(String str, int i) {
-        BdToast.b(getAppContext(), str, i).Bd();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void uY(int i) {
-        ad(i, null);
+    protected void aJ(String str, int i) {
+        BdToast.b(getAppContext(), str, i).tL();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ad(int i, String str) {
+    public void sB(int i) {
+        aj(i, null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void aj(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
-                str = getString(d.j.share_success, new Object[0]);
+                str = getString(d.k.share_success, new Object[0]);
             }
-            sj(str);
+            sq(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
-                str = getString(d.j.share_cancel, new Object[0]);
+                str = getString(d.k.share_cancel, new Object[0]);
             }
-            si(str);
+            sp(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
-                str = getString(d.j.share_failed, new Object[0]);
+                str = getString(d.k.share_failed, new Object[0]);
             }
-            si(str);
+            sp(str);
         }
     }
 
@@ -91,25 +94,36 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap bsk() {
+    public Bitmap bnt() {
         return BitmapHelper.getCashBitmap(d.f.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap sk(String str) {
+    public Bitmap ss(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean ri(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        File file = new File(str);
-        return file.isFile() && file.exists();
+    public Bitmap h(Uri uri) {
+        return BitmapHelper.loadBitmap(uri.getPath());
     }
 
-    public Bitmap g(Bitmap bitmap, int i) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean i(Uri uri) {
+        if (uri == null) {
+            return false;
+        }
+        try {
+            File file = new File(new URI(uri.toString()));
+            return file.isFile() && file.exists();
+        } catch (IllegalArgumentException e) {
+            return false;
+        } catch (URISyntaxException e2) {
+            return false;
+        }
+    }
+
+    public Bitmap e(Bitmap bitmap, int i) {
         return BitmapHelper.resizeBitmap(bitmap, i, i, false);
     }
 }

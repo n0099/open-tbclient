@@ -3,7 +3,7 @@ package com.xiaomi.channel.commonutils.misc;
 import android.content.SharedPreferences;
 import com.xiaomi.channel.commonutils.misc.f;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends f.b {
     final /* synthetic */ String a;
     final /* synthetic */ f b;

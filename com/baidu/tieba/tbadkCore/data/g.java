@@ -22,6 +22,10 @@ public class g {
         return this.url;
     }
 
+    public String getText() {
+        return this.text;
+    }
+
     public int getType() {
         return this.type;
     }

@@ -1,7 +1,7 @@
 package com.xiaomi.xmpush.thrift;
 
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum o {
     Invalid("INVALID"),
     BarClick("bar:click"),

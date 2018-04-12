@@ -4,6 +4,13 @@ import android.os.SystemClock;
 import android.view.KeyEvent;
 /* loaded from: classes2.dex */
 public abstract class TransportPerformer {
+    static final int AUDIOFOCUS_GAIN = 1;
+    static final int AUDIOFOCUS_GAIN_TRANSIENT = 2;
+    static final int AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK = 3;
+    static final int AUDIOFOCUS_LOSS = -1;
+    static final int AUDIOFOCUS_LOSS_TRANSIENT = -2;
+    static final int AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK = -3;
+
     public abstract long onGetCurrentPosition();
 
     public abstract long onGetDuration();

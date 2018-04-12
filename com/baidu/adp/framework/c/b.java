@@ -3,28 +3,28 @@ package com.baidu.adp.framework.c;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b extends d {
-    private static b aeN = null;
-    private e aeO;
+    private static b pl = null;
+    private e po;
 
-    public static b kW() {
-        if (aeN == null) {
+    public static b da() {
+        if (pl == null) {
             synchronized (b.class) {
-                if (aeN == null) {
-                    aeN = new b();
+                if (pl == null) {
+                    pl = new b();
                 }
             }
         }
-        return aeN;
+        return pl;
     }
 
     private b() {
-        this.aeO = null;
-        this.aeQ = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.aeO = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
+        this.po = null;
+        this.pq = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
+        this.po = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
         this.mRetryCount = 5;
     }
 
-    public e kX() {
-        return this.aeO;
+    public e db() {
+        return this.po;
     }
 }

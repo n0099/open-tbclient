@@ -60,7 +60,7 @@ public class d extends FileObserver {
                                         c.a(new File(d.this.a));
                                         c.a(d.this.d, d.this.c, new File(d.this.a), new File(d.this.b));
                                         new StringBuilder().append(d.this.a.toString());
-                                        com.baidu.sofire.a.a.ay(d.this.d).b(d.this.c, -1);
+                                        com.baidu.sofire.a.a.a(d.this.d).b(d.this.c, -1);
                                     }
                                 }
                             } catch (Throwable th) {

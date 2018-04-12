@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ar {
     private static int e = 300000;
     private XMPushService a;

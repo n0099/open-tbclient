@@ -8,16 +8,19 @@ import android.support.v4.content.IntentCompat;
 import android.support.v4.content.SharedPreferencesCompat;
 /* loaded from: classes2.dex */
 public class AppLaunchChecker {
+    private static final String KEY_STARTED_FROM_LAUNCHER = "startedFromLauncher";
+    private static final String SHARED_PREFS_NAME = "android.support.AppLaunchChecker";
+
     public static boolean hasStartedFromLauncher(Context context) {
-        return context.getSharedPreferences("android.support.AppLaunchChecker", 0).getBoolean("startedFromLauncher", false);
+        return context.getSharedPreferences(SHARED_PREFS_NAME, 0).getBoolean(KEY_STARTED_FROM_LAUNCHER, false);
     }
 
     public static void onActivityCreate(Activity activity) {
         Intent intent;
-        SharedPreferences sharedPreferences = activity.getSharedPreferences("android.support.AppLaunchChecker", 0);
-        if (!sharedPreferences.getBoolean("startedFromLauncher", false) && (intent = activity.getIntent()) != null && "android.intent.action.MAIN".equals(intent.getAction())) {
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(SHARED_PREFS_NAME, 0);
+        if (!sharedPreferences.getBoolean(KEY_STARTED_FROM_LAUNCHER, false) && (intent = activity.getIntent()) != null && "android.intent.action.MAIN".equals(intent.getAction())) {
             if (intent.hasCategory("android.intent.category.LAUNCHER") || intent.hasCategory(IntentCompat.CATEGORY_LEANBACK_LAUNCHER)) {
-                SharedPreferencesCompat.EditorCompat.getInstance().apply(sharedPreferences.edit().putBoolean("startedFromLauncher", true));
+                SharedPreferencesCompat.EditorCompat.getInstance().apply(sharedPreferences.edit().putBoolean(KEY_STARTED_FROM_LAUNCHER, true));
             }
         }
     }

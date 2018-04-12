@@ -8,12 +8,14 @@ import java.io.Serializable;
 public class ForumWriteData implements Serializable {
     public final AntiData antiData;
     public String avatar;
+    public String firstDir;
     public final String forumId;
     public final String forumName;
     public String mFrom;
     public int mem_type;
     public final PostPrefixData prefixData;
     public int privateThread;
+    public String secondDir;
     public String specialForumType;
     public PostTopicData topicData;
     public String writeCallFrom;

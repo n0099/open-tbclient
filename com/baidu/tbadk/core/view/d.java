@@ -1,47 +1,27 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.widget.HorizontalScrollView;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
-public class d extends HorizontalScrollView {
-    private a baF;
+public class d extends ImageSpan {
+    private int paddingLeft;
+    private int paddingRight;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void ax(int i, int i2);
+    public d(Drawable drawable, int i) {
+        super(drawable, i);
+        this.paddingLeft = 0;
+        this.paddingRight = 2;
     }
 
-    public void setOnSizeChangeListener(a aVar) {
-        this.baF = aVar;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.paddingLeft + this.paddingRight;
     }
 
-    public d(Context context) {
-        super(context);
-    }
-
-    public d(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public d(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (getParent() != null) {
-            getParent().requestDisallowInterceptTouchEvent(true);
-        }
-        return super.onInterceptTouchEvent(motionEvent);
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (this.baF != null) {
-            this.baF.ax(getMeasuredWidth(), getMeasuredHeight());
-        }
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        super.draw(canvas, charSequence, i, i2, f + this.paddingLeft, i3, i4, i5, paint);
     }
 }

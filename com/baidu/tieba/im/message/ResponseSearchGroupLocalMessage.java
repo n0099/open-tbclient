@@ -60,7 +60,7 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
             GroupInfo groupInfo = searchGroupResIdl.data.group;
             if (groupInfo != null) {
                 BaseGroupData baseGroupData = new BaseGroupData();
-                baseGroupData.setGroupId(groupInfo.groupId.intValue());
+                baseGroupData.setGroupId(groupInfo.groupId.longValue());
                 baseGroupData.setName(groupInfo.name);
                 baseGroupData.setIntro(groupInfo.intro);
                 baseGroupData.setPortrait(groupInfo.portrait);

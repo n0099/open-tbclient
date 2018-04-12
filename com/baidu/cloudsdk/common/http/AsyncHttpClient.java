@@ -51,7 +51,7 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.SyncBasicHttpContext;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AsyncHttpClient extends DefaultHttpClient {
     private static final int DEFAULT_CHECK_INTERVAL = 10000;
     private static final int DEFAULT_CONNECT_TIMEOUT = 15000;
@@ -317,7 +317,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private static class InflatingEntity extends HttpEntityWrapper {
         GZIPInputStream gzipStream;
         InputStream wrappedStream;

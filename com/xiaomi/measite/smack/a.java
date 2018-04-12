@@ -6,23 +6,23 @@ import com.xiaomi.smack.d;
 import com.xiaomi.smack.f;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements com.xiaomi.smack.debugger.a {
     public static boolean a;
     private com.xiaomi.smack.a c;
     private SimpleDateFormat b = new SimpleDateFormat("hh:mm:ss aaa");
-    private C0286a d = null;
-    private C0286a e = null;
+    private C0268a d = null;
+    private C0268a e = null;
     private d f = null;
     private final String g = "[Slim] ";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.xiaomi.measite.smack.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0286a implements f, com.xiaomi.smack.filter.a {
+    /* loaded from: classes3.dex */
+    public class C0268a implements f, com.xiaomi.smack.filter.a {
         String a;
 
-        C0286a(boolean z) {
+        C0268a(boolean z) {
             this.a = z ? " RCV " : " Sent ";
         }
 
@@ -61,8 +61,8 @@ public class a implements com.xiaomi.smack.debugger.a {
     }
 
     private void a() {
-        this.d = new C0286a(true);
-        this.e = new C0286a(false);
+        this.d = new C0268a(true);
+        this.e = new C0268a(false);
         this.c.a(this.d, this.d);
         this.c.b(this.e, this.e);
         this.f = new b(this);

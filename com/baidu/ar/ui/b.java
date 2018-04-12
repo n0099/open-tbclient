@@ -78,12 +78,12 @@ public class b extends Dialog implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getId() == Res.id("btn_setting")) {
+    public void onClick(View view2) {
+        if (view2.getId() == Res.id("btn_setting")) {
             if (this.e != null) {
                 this.e.b();
             }
-        } else if (view.getId() != Res.id("btn_close") || this.e == null) {
+        } else if (view2.getId() != Res.id("btn_close") || this.e == null) {
         } else {
             this.e.a();
         }

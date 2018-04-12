@@ -4,41 +4,31 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveCommentActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class k {
-    private static String bCV;
-    private static String bCW;
-    private static String bCU = "";
+    private static String aNu;
+    private static String aNv;
+    private static String aNt = "";
     private static int mThreadType = 0;
-    public static String bCX = "floor";
-    public static String bCY = "pbPage";
+    public static String aNw = "floor";
+    public static String aNx = "pbPage";
 
     public static void a(String str, String str2, String str3, int i, com.baidu.adp.base.e eVar) {
-        bCV = str;
-        bCW = str2;
-        bCU = str3;
+        aNu = str;
+        aNv = str2;
+        aNt = str3;
         mThreadType = i;
-        if (!StringUtils.isNull(bCU) && eVar != null && eVar.getPageActivity() != null) {
-            if (bCX.equals(bCU)) {
-                if (mThreadType == 33) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PhotoLiveCommentActivityConfig(eVar.getPageActivity()).createPhotoLiveCommentActivityConfig(bCV, bCW, true)));
-                    return;
-                }
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(bCV, bCW, "search_post", true);
+        if (!StringUtils.isNull(aNt) && eVar != null && eVar.getPageActivity() != null) {
+            if (aNw.equals(aNt)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(aNu, aNv, "search_post", true);
                 createSubPbActivityConfig.setKeyPageStartFrom(8);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-            } else if (mThreadType == 33) {
-                TiebaStatic.log("c10256");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PhotoLiveActivityConfig.a(eVar.getPageActivity(), bCV).cP(bCW).cQ("search_post").xD()));
-            } else {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(eVar.getPageActivity()).createNormalCfg(bCV, bCW, "search_post");
-                createNormalCfg.setStartFrom(8);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+                return;
             }
+            PbActivityConfig createNormalCfg = new PbActivityConfig(eVar.getPageActivity()).createNormalCfg(aNu, aNv, "search_post");
+            createNormalCfg.setStartFrom(8);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
         }
     }
 }

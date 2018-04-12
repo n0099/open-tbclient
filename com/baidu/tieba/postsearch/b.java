@@ -2,11 +2,9 @@ package com.baidu.tieba.postsearch;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.am;
 import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +12,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public List<a> gyk = new ArrayList();
-    public al gyl = new al();
+    public List<a> fSX = new ArrayList();
+    public am fSY = new am();
 
     /* loaded from: classes3.dex */
     public static class a {
         public String content;
+        public int fSZ;
         public String fname;
-        public int gym;
         public int is_floor;
         public String name;
         public String name_show;
@@ -32,21 +30,21 @@ public class b {
         public String title;
     }
 
-    public boolean aLK() {
-        return (this.gyk == null || this.gyk.size() == 0) ? false : true;
+    public boolean aGI() {
+        return (this.fSX == null || this.fSX.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.gyl != null && this.gyl.yw() == 1;
+        return this.fSY != null && this.fSY.rc() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gyl.parserJson(jSONObject.getJSONObject(WBPageConstants.ParamKey.PAGE));
+                this.fSY.parserJson(jSONObject.getJSONObject(WBPageConstants.ParamKey.PAGE));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.gyk.clear();
+                    this.fSX.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -62,7 +60,7 @@ public class b {
                             int optInt = jSONObject2.optInt("is_floor", 0);
                             int optInt2 = jSONObject2.optInt("is_replay", 0);
                             int optInt3 = jSONObject2.optInt("thread_type", 0);
-                            if (optInt3 != 33 || TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                            if (optInt3 != 33) {
                                 a aVar = new a();
                                 aVar.pid = optLong;
                                 aVar.title = optString3;
@@ -71,11 +69,11 @@ public class b {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.gym = optInt2;
+                                aVar.fSZ = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.gyk.add(aVar);
+                                this.fSX.add(aVar);
                             }
                         }
                     }

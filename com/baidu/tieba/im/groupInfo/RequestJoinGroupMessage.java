@@ -5,7 +5,7 @@ import protobuf.ApplyJoinGroup.ApplyJoinGroupReqIdl;
 import protobuf.ApplyJoinGroup.DataReq;
 /* loaded from: classes3.dex */
 public class RequestJoinGroupMessage extends TbSocketMessage {
-    private int groupId;
+    private long groupId;
     private long inviteUserId;
     private int joinType;
     private String userMsg;
@@ -30,12 +30,12 @@ public class RequestJoinGroupMessage extends TbSocketMessage {
         this.inviteUserId = j;
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public String getUserMsg() {
@@ -49,7 +49,7 @@ public class RequestJoinGroupMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.groupId = Integer.valueOf(getGroupId());
+        builder.groupId = Long.valueOf(getGroupId());
         builder.inviteUserId = Long.valueOf(getInviteUserId());
         builder.userMsg = getUserMsg();
         builder.joinType = Integer.valueOf(getJoinType());

@@ -7,14 +7,14 @@ import com.baidu.tieba.homepage.framework.c;
 /* loaded from: classes3.dex */
 class a extends CustomMessageTask {
     public a() {
-        super(2001406, new C0162a());
+        super(2001406, new C0146a());
         setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
     }
 
     /* renamed from: com.baidu.tieba.homeExtra.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0162a implements CustomMessageTask.CustomRunnable<c> {
-        private C0162a() {
+    private static class C0146a implements CustomMessageTask.CustomRunnable<c> {
+        private C0146a() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -22,8 +22,8 @@ class a extends CustomMessageTask {
             com.baidu.tieba.lego.model.a b;
             if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c)) {
                 c data = customMessage.getData();
-                if (data.aCx() == null && (b = com.baidu.tieba.lego.d.b.aRf().b(data.aCw(), data.getUniqueId())) != null) {
-                    b.a(new b(data.aCy()));
+                if (data.axu() == null && (b = com.baidu.tieba.lego.d.b.aMe().b(data.axt(), data.getUniqueId())) != null) {
+                    b.a(new b(data.axv()));
                     data.a(b);
                 }
             }

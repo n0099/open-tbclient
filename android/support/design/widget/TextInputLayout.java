@@ -13,8 +13,14 @@ import android.graphics.drawable.DrawableContainer;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
+import android.support.annotation.StyleRes;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.R;
-import android.support.design.widget.s;
+import android.support.design.widget.ValueAnimatorCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.os.ParcelableCompat;
@@ -28,7 +34,6 @@ import android.support.v4.widget.Space;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.AppCompatDrawableManager;
-import android.support.v7.widget.DrawableUtils;
 import android.support.v7.widget.TintTypedArray;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -47,44 +52,47 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes2.dex */
 public class TextInputLayout extends LinearLayout {
+    private static final int ANIMATION_DURATION = 200;
+    private static final int INVALID_MAX_LENGTH = -1;
+    private static final String LOG_TAG = "TextInputLayout";
+    private ValueAnimatorCompat mAnimator;
+    final CollapsingTextHelper mCollapsingTextHelper;
+    boolean mCounterEnabled;
+    private int mCounterMaxLength;
+    private int mCounterOverflowTextAppearance;
+    private boolean mCounterOverflowed;
+    private int mCounterTextAppearance;
+    private TextView mCounterView;
+    private ColorStateList mDefaultTextColor;
+    EditText mEditText;
+    private CharSequence mError;
+    private boolean mErrorEnabled;
+    private boolean mErrorShown;
+    private int mErrorTextAppearance;
+    TextView mErrorView;
+    private ColorStateList mFocusedTextColor;
+    private boolean mHasPasswordToggleTintList;
+    private boolean mHasPasswordToggleTintMode;
+    private boolean mHasReconstructedEditTextBackground;
+    private CharSequence mHint;
+    private boolean mHintAnimationEnabled;
+    private boolean mHintEnabled;
+    private boolean mHintExpanded;
+    private boolean mInDrawableStateChanged;
+    private LinearLayout mIndicatorArea;
+    private int mIndicatorsAdded;
+    private final FrameLayout mInputFrame;
+    private Drawable mOriginalEditTextEndDrawable;
+    private CharSequence mPasswordToggleContentDesc;
+    private Drawable mPasswordToggleDrawable;
+    private Drawable mPasswordToggleDummyDrawable;
+    private boolean mPasswordToggleEnabled;
+    private ColorStateList mPasswordToggleTintList;
+    private PorterDuff.Mode mPasswordToggleTintMode;
+    private CheckableImageButton mPasswordToggleView;
+    private boolean mPasswordToggledVisible;
+    private Paint mTmpPaint;
     private final Rect mTmpRect;
-    final d nh;
-    private s qm;
-    private final FrameLayout rC;
-    EditText rD;
-    private boolean rE;
-    private CharSequence rF;
-    private Paint rG;
-    private LinearLayout rH;
-    private int rI;
-    private boolean rJ;
-    TextView rK;
-    private int rL;
-    private boolean rM;
-    private CharSequence rN;
-    boolean rO;
-    private TextView rP;
-    private int rQ;
-    private int rR;
-    private int rS;
-    private boolean rT;
-    private boolean rU;
-    private Drawable rV;
-    private CharSequence rW;
-    private CheckableImageButton rX;
-    private boolean rY;
-    private Drawable rZ;
-    private Drawable sa;
-    private ColorStateList sb;
-    private boolean sc;
-    private PorterDuff.Mode sd;
-    private boolean se;
-    private ColorStateList sf;
-    private ColorStateList sg;
-    private boolean sh;
-    private boolean si;
-    private boolean sj;
-    private boolean sk;
 
     public TextInputLayout(Context context) {
         this(context, null);
@@ -97,98 +105,99 @@ public class TextInputLayout extends LinearLayout {
     public TextInputLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         this.mTmpRect = new Rect();
-        this.nh = new d(this);
-        r.R(context);
+        this.mCollapsingTextHelper = new CollapsingTextHelper(this);
+        ThemeUtils.checkAppCompatTheme(context);
         setOrientation(1);
         setWillNotDraw(false);
         setAddStatesFromChildren(true);
-        this.rC = new FrameLayout(context);
-        this.rC.setAddStatesFromChildren(true);
-        addView(this.rC);
-        this.nh.a(android.support.design.widget.a.kB);
-        this.nh.b(new AccelerateInterpolator());
-        this.nh.s(8388659);
-        this.sh = this.nh.bg() == 1.0f;
+        this.mInputFrame = new FrameLayout(context);
+        this.mInputFrame.setAddStatesFromChildren(true);
+        addView(this.mInputFrame);
+        this.mCollapsingTextHelper.setTextSizeInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
+        this.mCollapsingTextHelper.setPositionInterpolator(new AccelerateInterpolator());
+        this.mCollapsingTextHelper.setCollapsedTextGravity(8388659);
+        this.mHintExpanded = this.mCollapsingTextHelper.getExpansionFraction() == 1.0f;
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TextInputLayout, i, R.style.Widget_Design_TextInputLayout);
-        this.rE = obtainStyledAttributes.getBoolean(R.styleable.TextInputLayout_hintEnabled, true);
+        this.mHintEnabled = obtainStyledAttributes.getBoolean(R.styleable.TextInputLayout_hintEnabled, true);
         setHint(obtainStyledAttributes.getText(R.styleable.TextInputLayout_android_hint));
-        this.si = obtainStyledAttributes.getBoolean(R.styleable.TextInputLayout_hintAnimationEnabled, true);
+        this.mHintAnimationEnabled = obtainStyledAttributes.getBoolean(R.styleable.TextInputLayout_hintAnimationEnabled, true);
         if (obtainStyledAttributes.hasValue(R.styleable.TextInputLayout_android_textColorHint)) {
             ColorStateList colorStateList = obtainStyledAttributes.getColorStateList(R.styleable.TextInputLayout_android_textColorHint);
-            this.sg = colorStateList;
-            this.sf = colorStateList;
+            this.mFocusedTextColor = colorStateList;
+            this.mDefaultTextColor = colorStateList;
         }
         if (obtainStyledAttributes.getResourceId(R.styleable.TextInputLayout_hintTextAppearance, -1) != -1) {
             setHintTextAppearance(obtainStyledAttributes.getResourceId(R.styleable.TextInputLayout_hintTextAppearance, 0));
         }
-        this.rL = obtainStyledAttributes.getResourceId(R.styleable.TextInputLayout_errorTextAppearance, 0);
+        this.mErrorTextAppearance = obtainStyledAttributes.getResourceId(R.styleable.TextInputLayout_errorTextAppearance, 0);
         boolean z = obtainStyledAttributes.getBoolean(R.styleable.TextInputLayout_errorEnabled, false);
         boolean z2 = obtainStyledAttributes.getBoolean(R.styleable.TextInputLayout_counterEnabled, false);
         setCounterMaxLength(obtainStyledAttributes.getInt(R.styleable.TextInputLayout_counterMaxLength, -1));
-        this.rR = obtainStyledAttributes.getResourceId(R.styleable.TextInputLayout_counterTextAppearance, 0);
-        this.rS = obtainStyledAttributes.getResourceId(R.styleable.TextInputLayout_counterOverflowTextAppearance, 0);
-        this.rU = obtainStyledAttributes.getBoolean(R.styleable.TextInputLayout_passwordToggleEnabled, true);
-        this.rV = obtainStyledAttributes.getDrawable(R.styleable.TextInputLayout_passwordToggleDrawable);
-        this.rW = obtainStyledAttributes.getText(R.styleable.TextInputLayout_passwordToggleContentDescription);
+        this.mCounterTextAppearance = obtainStyledAttributes.getResourceId(R.styleable.TextInputLayout_counterTextAppearance, 0);
+        this.mCounterOverflowTextAppearance = obtainStyledAttributes.getResourceId(R.styleable.TextInputLayout_counterOverflowTextAppearance, 0);
+        this.mPasswordToggleEnabled = obtainStyledAttributes.getBoolean(R.styleable.TextInputLayout_passwordToggleEnabled, true);
+        this.mPasswordToggleDrawable = obtainStyledAttributes.getDrawable(R.styleable.TextInputLayout_passwordToggleDrawable);
+        this.mPasswordToggleContentDesc = obtainStyledAttributes.getText(R.styleable.TextInputLayout_passwordToggleContentDescription);
         if (obtainStyledAttributes.hasValue(R.styleable.TextInputLayout_passwordToggleTint)) {
-            this.sc = true;
-            this.sb = obtainStyledAttributes.getColorStateList(R.styleable.TextInputLayout_passwordToggleTint);
+            this.mHasPasswordToggleTintList = true;
+            this.mPasswordToggleTintList = obtainStyledAttributes.getColorStateList(R.styleable.TextInputLayout_passwordToggleTint);
         }
         if (obtainStyledAttributes.hasValue(R.styleable.TextInputLayout_passwordToggleTintMode)) {
-            this.se = true;
-            this.sd = z.a(obtainStyledAttributes.getInt(R.styleable.TextInputLayout_passwordToggleTintMode, -1), null);
+            this.mHasPasswordToggleTintMode = true;
+            this.mPasswordToggleTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(R.styleable.TextInputLayout_passwordToggleTintMode, -1), null);
         }
         obtainStyledAttributes.recycle();
         setErrorEnabled(z);
         setCounterEnabled(z2);
-        cz();
+        applyPasswordToggleTint();
         if (ViewCompat.getImportantForAccessibility(this) == 0) {
             ViewCompat.setImportantForAccessibility(this, 1);
         }
-        ViewCompat.setAccessibilityDelegate(this, new a());
+        ViewCompat.setAccessibilityDelegate(this, new TextInputAccessibilityDelegate());
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        if (view instanceof EditText) {
-            this.rC.addView(view, new FrameLayout.LayoutParams(layoutParams));
-            this.rC.setLayoutParams(layoutParams);
-            cr();
-            setEditText((EditText) view);
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
+        if (view2 instanceof EditText) {
+            this.mInputFrame.addView(view2, new FrameLayout.LayoutParams(layoutParams));
+            this.mInputFrame.setLayoutParams(layoutParams);
+            updateInputLayoutMargins();
+            setEditText((EditText) view2);
             return;
         }
-        super.addView(view, i, layoutParams);
+        super.addView(view2, i, layoutParams);
     }
 
-    public void setTypeface(Typeface typeface) {
-        this.nh.c(typeface);
+    public void setTypeface(@Nullable Typeface typeface) {
+        this.mCollapsingTextHelper.setTypefaces(typeface);
     }
 
+    @NonNull
     public Typeface getTypeface() {
-        return this.nh.be();
+        return this.mCollapsingTextHelper.getCollapsedTypeface();
     }
 
     private void setEditText(EditText editText) {
-        if (this.rD != null) {
+        if (this.mEditText != null) {
             throw new IllegalArgumentException("We already have an EditText, can only have one");
         }
         if (!(editText instanceof TextInputEditText)) {
-            Log.i("TextInputLayout", "EditText added is not a TextInputEditText. Please switch to using that class instead.");
+            Log.i(LOG_TAG, "EditText added is not a TextInputEditText. Please switch to using that class instead.");
         }
-        this.rD = editText;
-        if (!cx()) {
-            this.nh.c(this.rD.getTypeface());
+        this.mEditText = editText;
+        if (!hasPasswordTransformation()) {
+            this.mCollapsingTextHelper.setTypefaces(this.mEditText.getTypeface());
         }
-        this.nh.g(this.rD.getTextSize());
-        int gravity = this.rD.getGravity();
-        this.nh.s((8388615 & gravity) | 48);
-        this.nh.r(gravity);
-        this.rD.addTextChangedListener(new TextWatcher() { // from class: android.support.design.widget.TextInputLayout.1
+        this.mCollapsingTextHelper.setExpandedTextSize(this.mEditText.getTextSize());
+        int gravity = this.mEditText.getGravity();
+        this.mCollapsingTextHelper.setCollapsedTextGravity((8388615 & gravity) | 48);
+        this.mCollapsingTextHelper.setExpandedTextGravity(gravity);
+        this.mEditText.addTextChangedListener(new TextWatcher() { // from class: android.support.design.widget.TextInputLayout.1
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                TextInputLayout.this.p(true);
-                if (TextInputLayout.this.rO) {
-                    TextInputLayout.this.P(editable.length());
+                TextInputLayout.this.updateLabelState(true);
+                if (TextInputLayout.this.mCounterEnabled) {
+                    TextInputLayout.this.updateCounter(editable.length());
                 }
             }
 
@@ -200,147 +209,149 @@ public class TextInputLayout extends LinearLayout {
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
         });
-        if (this.sf == null) {
-            this.sf = this.rD.getHintTextColors();
+        if (this.mDefaultTextColor == null) {
+            this.mDefaultTextColor = this.mEditText.getHintTextColors();
         }
-        if (this.rE && TextUtils.isEmpty(this.rF)) {
-            setHint(this.rD.getHint());
-            this.rD.setHint((CharSequence) null);
+        if (this.mHintEnabled && TextUtils.isEmpty(this.mHint)) {
+            setHint(this.mEditText.getHint());
+            this.mEditText.setHint((CharSequence) null);
         }
-        if (this.rP != null) {
-            P(this.rD.getText().length());
+        if (this.mCounterView != null) {
+            updateCounter(this.mEditText.getText().length());
         }
-        if (this.rH != null) {
-            cs();
+        if (this.mIndicatorArea != null) {
+            adjustIndicatorPadding();
         }
-        cv();
-        p(false);
+        updatePasswordToggleView();
+        updateLabelState(false);
     }
 
-    private void cr() {
+    private void updateInputLayoutMargins() {
         int i;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.rC.getLayoutParams();
-        if (this.rE) {
-            if (this.rG == null) {
-                this.rG = new Paint();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mInputFrame.getLayoutParams();
+        if (this.mHintEnabled) {
+            if (this.mTmpPaint == null) {
+                this.mTmpPaint = new Paint();
             }
-            this.rG.setTypeface(this.nh.be());
-            this.rG.setTextSize(this.nh.bh());
-            i = (int) (-this.rG.ascent());
+            this.mTmpPaint.setTypeface(this.mCollapsingTextHelper.getCollapsedTypeface());
+            this.mTmpPaint.setTextSize(this.mCollapsingTextHelper.getCollapsedTextSize());
+            i = (int) (-this.mTmpPaint.ascent());
         } else {
             i = 0;
         }
         if (i != layoutParams.topMargin) {
             layoutParams.topMargin = i;
-            this.rC.requestLayout();
+            this.mInputFrame.requestLayout();
         }
     }
 
-    void p(boolean z) {
+    void updateLabelState(boolean z) {
         boolean isEnabled = isEnabled();
-        boolean z2 = (this.rD == null || TextUtils.isEmpty(this.rD.getText())) ? false : true;
-        boolean b = b(getDrawableState(), 16842908);
+        boolean z2 = (this.mEditText == null || TextUtils.isEmpty(this.mEditText.getText())) ? false : true;
+        boolean arrayContains = arrayContains(getDrawableState(), 16842908);
         boolean z3 = TextUtils.isEmpty(getError()) ? false : true;
-        if (this.sf != null) {
-            this.nh.c(this.sf);
+        if (this.mDefaultTextColor != null) {
+            this.mCollapsingTextHelper.setExpandedTextColor(this.mDefaultTextColor);
         }
-        if (isEnabled && this.rT && this.rP != null) {
-            this.nh.b(this.rP.getTextColors());
-        } else if (isEnabled && b && this.sg != null) {
-            this.nh.b(this.sg);
-        } else if (this.sf != null) {
-            this.nh.b(this.sf);
+        if (isEnabled && this.mCounterOverflowed && this.mCounterView != null) {
+            this.mCollapsingTextHelper.setCollapsedTextColor(this.mCounterView.getTextColors());
+        } else if (isEnabled && arrayContains && this.mFocusedTextColor != null) {
+            this.mCollapsingTextHelper.setCollapsedTextColor(this.mFocusedTextColor);
+        } else if (this.mDefaultTextColor != null) {
+            this.mCollapsingTextHelper.setCollapsedTextColor(this.mDefaultTextColor);
         }
-        if (z2 || (isEnabled() && (b || z3))) {
-            q(z);
+        if (z2 || (isEnabled() && (arrayContains || z3))) {
+            collapseHint(z);
         } else {
-            s(z);
+            expandHint(z);
         }
     }
 
+    @Nullable
     public EditText getEditText() {
-        return this.rD;
+        return this.mEditText;
     }
 
-    public void setHint(CharSequence charSequence) {
-        if (this.rE) {
+    public void setHint(@Nullable CharSequence charSequence) {
+        if (this.mHintEnabled) {
             setHintInternal(charSequence);
             sendAccessibilityEvent(2048);
         }
     }
 
     private void setHintInternal(CharSequence charSequence) {
-        this.rF = charSequence;
-        this.nh.setText(charSequence);
+        this.mHint = charSequence;
+        this.mCollapsingTextHelper.setText(charSequence);
     }
 
+    @Nullable
     public CharSequence getHint() {
-        if (this.rE) {
-            return this.rF;
+        if (this.mHintEnabled) {
+            return this.mHint;
         }
         return null;
     }
 
     public void setHintEnabled(boolean z) {
-        if (z != this.rE) {
-            this.rE = z;
-            CharSequence hint = this.rD.getHint();
-            if (!this.rE) {
-                if (!TextUtils.isEmpty(this.rF) && TextUtils.isEmpty(hint)) {
-                    this.rD.setHint(this.rF);
+        if (z != this.mHintEnabled) {
+            this.mHintEnabled = z;
+            CharSequence hint = this.mEditText.getHint();
+            if (!this.mHintEnabled) {
+                if (!TextUtils.isEmpty(this.mHint) && TextUtils.isEmpty(hint)) {
+                    this.mEditText.setHint(this.mHint);
                 }
                 setHintInternal(null);
             } else if (!TextUtils.isEmpty(hint)) {
-                if (TextUtils.isEmpty(this.rF)) {
+                if (TextUtils.isEmpty(this.mHint)) {
                     setHint(hint);
                 }
-                this.rD.setHint((CharSequence) null);
+                this.mEditText.setHint((CharSequence) null);
             }
-            if (this.rD != null) {
-                cr();
+            if (this.mEditText != null) {
+                updateInputLayoutMargins();
             }
         }
     }
 
     public boolean isHintEnabled() {
-        return this.rE;
+        return this.mHintEnabled;
     }
 
-    public void setHintTextAppearance(int i) {
-        this.nh.t(i);
-        this.sg = this.nh.bp();
-        if (this.rD != null) {
-            p(false);
-            cr();
+    public void setHintTextAppearance(@StyleRes int i) {
+        this.mCollapsingTextHelper.setCollapsedTextAppearance(i);
+        this.mFocusedTextColor = this.mCollapsingTextHelper.getCollapsedTextColor();
+        if (this.mEditText != null) {
+            updateLabelState(false);
+            updateInputLayoutMargins();
         }
     }
 
-    private void a(TextView textView, int i) {
-        if (this.rH == null) {
-            this.rH = new LinearLayout(getContext());
-            this.rH.setOrientation(0);
-            addView(this.rH, -1, -2);
-            this.rH.addView(new Space(getContext()), new LinearLayout.LayoutParams(0, 0, 1.0f));
-            if (this.rD != null) {
-                cs();
+    private void addIndicator(TextView textView, int i) {
+        if (this.mIndicatorArea == null) {
+            this.mIndicatorArea = new LinearLayout(getContext());
+            this.mIndicatorArea.setOrientation(0);
+            addView(this.mIndicatorArea, -1, -2);
+            this.mIndicatorArea.addView(new Space(getContext()), new LinearLayout.LayoutParams(0, 0, 1.0f));
+            if (this.mEditText != null) {
+                adjustIndicatorPadding();
             }
         }
-        this.rH.setVisibility(0);
-        this.rH.addView(textView, i);
-        this.rI++;
+        this.mIndicatorArea.setVisibility(0);
+        this.mIndicatorArea.addView(textView, i);
+        this.mIndicatorsAdded++;
     }
 
-    private void cs() {
-        ViewCompat.setPaddingRelative(this.rH, ViewCompat.getPaddingStart(this.rD), 0, ViewCompat.getPaddingEnd(this.rD), this.rD.getPaddingBottom());
+    private void adjustIndicatorPadding() {
+        ViewCompat.setPaddingRelative(this.mIndicatorArea, ViewCompat.getPaddingStart(this.mEditText), 0, ViewCompat.getPaddingEnd(this.mEditText), this.mEditText.getPaddingBottom());
     }
 
-    private void b(TextView textView) {
-        if (this.rH != null) {
-            this.rH.removeView(textView);
-            int i = this.rI - 1;
-            this.rI = i;
+    private void removeIndicator(TextView textView) {
+        if (this.mIndicatorArea != null) {
+            this.mIndicatorArea.removeView(textView);
+            int i = this.mIndicatorsAdded - 1;
+            this.mIndicatorsAdded = i;
             if (i == 0) {
-                this.rH.setVisibility(8);
+                this.mIndicatorArea.setVisibility(8);
             }
         }
     }
@@ -351,208 +362,208 @@ public class TextInputLayout extends LinearLayout {
     */
     public void setErrorEnabled(boolean z) {
         boolean z2;
-        if (this.rJ != z) {
-            if (this.rK != null) {
-                ViewCompat.animate(this.rK).cancel();
+        if (this.mErrorEnabled != z) {
+            if (this.mErrorView != null) {
+                ViewCompat.animate(this.mErrorView).cancel();
             }
             if (z) {
-                this.rK = new TextView(getContext());
+                this.mErrorView = new TextView(getContext());
                 try {
-                    TextViewCompat.setTextAppearance(this.rK, this.rL);
+                    TextViewCompat.setTextAppearance(this.mErrorView, this.mErrorTextAppearance);
                 } catch (Exception e) {
                     z2 = true;
                 }
                 if (Build.VERSION.SDK_INT >= 23) {
-                    if (this.rK.getTextColors().getDefaultColor() == -65281) {
+                    if (this.mErrorView.getTextColors().getDefaultColor() == -65281) {
                         z2 = true;
                         if (z2) {
-                            TextViewCompat.setTextAppearance(this.rK, android.support.v7.appcompat.R.style.TextAppearance_AppCompat_Caption);
-                            this.rK.setTextColor(ContextCompat.getColor(getContext(), R.color.design_textinput_error_color_light));
+                            TextViewCompat.setTextAppearance(this.mErrorView, android.support.v7.appcompat.R.style.TextAppearance_AppCompat_Caption);
+                            this.mErrorView.setTextColor(ContextCompat.getColor(getContext(), R.color.design_textinput_error_color_light));
                         }
-                        this.rK.setVisibility(4);
-                        ViewCompat.setAccessibilityLiveRegion(this.rK, 1);
-                        a(this.rK, 0);
+                        this.mErrorView.setVisibility(4);
+                        ViewCompat.setAccessibilityLiveRegion(this.mErrorView, 1);
+                        addIndicator(this.mErrorView, 0);
                     }
                 }
                 z2 = false;
                 if (z2) {
                 }
-                this.rK.setVisibility(4);
-                ViewCompat.setAccessibilityLiveRegion(this.rK, 1);
-                a(this.rK, 0);
+                this.mErrorView.setVisibility(4);
+                ViewCompat.setAccessibilityLiveRegion(this.mErrorView, 1);
+                addIndicator(this.mErrorView, 0);
             } else {
-                this.rM = false;
-                ct();
-                b(this.rK);
-                this.rK = null;
+                this.mErrorShown = false;
+                updateEditTextBackground();
+                removeIndicator(this.mErrorView);
+                this.mErrorView = null;
             }
-            this.rJ = z;
+            this.mErrorEnabled = z;
         }
     }
 
     public boolean isErrorEnabled() {
-        return this.rJ;
+        return this.mErrorEnabled;
     }
 
-    public void setError(CharSequence charSequence) {
-        a(charSequence, ViewCompat.isLaidOut(this) && isEnabled() && (this.rK == null || !TextUtils.equals(this.rK.getText(), charSequence)));
+    public void setError(@Nullable CharSequence charSequence) {
+        setError(charSequence, ViewCompat.isLaidOut(this) && isEnabled() && (this.mErrorView == null || !TextUtils.equals(this.mErrorView.getText(), charSequence)));
     }
 
-    private void a(final CharSequence charSequence, boolean z) {
-        this.rN = charSequence;
-        if (!this.rJ) {
+    private void setError(@Nullable final CharSequence charSequence, boolean z) {
+        this.mError = charSequence;
+        if (!this.mErrorEnabled) {
             if (!TextUtils.isEmpty(charSequence)) {
                 setErrorEnabled(true);
             } else {
                 return;
             }
         }
-        this.rM = TextUtils.isEmpty(charSequence) ? false : true;
-        ViewCompat.animate(this.rK).cancel();
-        if (this.rM) {
-            this.rK.setText(charSequence);
-            this.rK.setVisibility(0);
+        this.mErrorShown = TextUtils.isEmpty(charSequence) ? false : true;
+        ViewCompat.animate(this.mErrorView).cancel();
+        if (this.mErrorShown) {
+            this.mErrorView.setText(charSequence);
+            this.mErrorView.setVisibility(0);
             if (z) {
-                if (ViewCompat.getAlpha(this.rK) == 1.0f) {
-                    ViewCompat.setAlpha(this.rK, 0.0f);
+                if (ViewCompat.getAlpha(this.mErrorView) == 1.0f) {
+                    ViewCompat.setAlpha(this.mErrorView, 0.0f);
                 }
-                ViewCompat.animate(this.rK).alpha(1.0f).setDuration(200L).setInterpolator(android.support.design.widget.a.kD).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.design.widget.TextInputLayout.2
+                ViewCompat.animate(this.mErrorView).alpha(1.0f).setDuration(200L).setInterpolator(AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.design.widget.TextInputLayout.2
                     @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-                    public void onAnimationStart(View view) {
-                        view.setVisibility(0);
+                    public void onAnimationStart(View view2) {
+                        view2.setVisibility(0);
                     }
                 }).start();
             } else {
-                ViewCompat.setAlpha(this.rK, 1.0f);
+                ViewCompat.setAlpha(this.mErrorView, 1.0f);
             }
-        } else if (this.rK.getVisibility() == 0) {
+        } else if (this.mErrorView.getVisibility() == 0) {
             if (z) {
-                ViewCompat.animate(this.rK).alpha(0.0f).setDuration(200L).setInterpolator(android.support.design.widget.a.kC).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.design.widget.TextInputLayout.3
+                ViewCompat.animate(this.mErrorView).alpha(0.0f).setDuration(200L).setInterpolator(AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.design.widget.TextInputLayout.3
                     @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-                    public void onAnimationEnd(View view) {
-                        TextInputLayout.this.rK.setText(charSequence);
-                        view.setVisibility(4);
+                    public void onAnimationEnd(View view2) {
+                        TextInputLayout.this.mErrorView.setText(charSequence);
+                        view2.setVisibility(4);
                     }
                 }).start();
             } else {
-                this.rK.setText(charSequence);
-                this.rK.setVisibility(4);
+                this.mErrorView.setText(charSequence);
+                this.mErrorView.setVisibility(4);
             }
         }
-        ct();
-        p(z);
+        updateEditTextBackground();
+        updateLabelState(z);
     }
 
     public void setCounterEnabled(boolean z) {
-        if (this.rO != z) {
+        if (this.mCounterEnabled != z) {
             if (z) {
-                this.rP = new TextView(getContext());
-                this.rP.setMaxLines(1);
+                this.mCounterView = new TextView(getContext());
+                this.mCounterView.setMaxLines(1);
                 try {
-                    TextViewCompat.setTextAppearance(this.rP, this.rR);
+                    TextViewCompat.setTextAppearance(this.mCounterView, this.mCounterTextAppearance);
                 } catch (Exception e) {
-                    TextViewCompat.setTextAppearance(this.rP, android.support.v7.appcompat.R.style.TextAppearance_AppCompat_Caption);
-                    this.rP.setTextColor(ContextCompat.getColor(getContext(), R.color.design_textinput_error_color_light));
+                    TextViewCompat.setTextAppearance(this.mCounterView, android.support.v7.appcompat.R.style.TextAppearance_AppCompat_Caption);
+                    this.mCounterView.setTextColor(ContextCompat.getColor(getContext(), R.color.design_textinput_error_color_light));
                 }
-                a(this.rP, -1);
-                if (this.rD == null) {
-                    P(0);
+                addIndicator(this.mCounterView, -1);
+                if (this.mEditText == null) {
+                    updateCounter(0);
                 } else {
-                    P(this.rD.getText().length());
+                    updateCounter(this.mEditText.getText().length());
                 }
             } else {
-                b(this.rP);
-                this.rP = null;
+                removeIndicator(this.mCounterView);
+                this.mCounterView = null;
             }
-            this.rO = z;
+            this.mCounterEnabled = z;
         }
     }
 
     public boolean isCounterEnabled() {
-        return this.rO;
+        return this.mCounterEnabled;
     }
 
     public void setCounterMaxLength(int i) {
-        if (this.rQ != i) {
+        if (this.mCounterMaxLength != i) {
             if (i > 0) {
-                this.rQ = i;
+                this.mCounterMaxLength = i;
             } else {
-                this.rQ = -1;
+                this.mCounterMaxLength = -1;
             }
-            if (this.rO) {
-                P(this.rD == null ? 0 : this.rD.getText().length());
+            if (this.mCounterEnabled) {
+                updateCounter(this.mEditText == null ? 0 : this.mEditText.getText().length());
             }
         }
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
-        b(this, z);
+        recursiveSetEnabled(this, z);
         super.setEnabled(z);
     }
 
-    private static void b(ViewGroup viewGroup, boolean z) {
+    private static void recursiveSetEnabled(ViewGroup viewGroup, boolean z) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
             childAt.setEnabled(z);
             if (childAt instanceof ViewGroup) {
-                b((ViewGroup) childAt, z);
+                recursiveSetEnabled((ViewGroup) childAt, z);
             }
         }
     }
 
     public int getCounterMaxLength() {
-        return this.rQ;
+        return this.mCounterMaxLength;
     }
 
-    void P(int i) {
-        boolean z = this.rT;
-        if (this.rQ == -1) {
-            this.rP.setText(String.valueOf(i));
-            this.rT = false;
+    void updateCounter(int i) {
+        boolean z = this.mCounterOverflowed;
+        if (this.mCounterMaxLength == -1) {
+            this.mCounterView.setText(String.valueOf(i));
+            this.mCounterOverflowed = false;
         } else {
-            this.rT = i > this.rQ;
-            if (z != this.rT) {
-                TextViewCompat.setTextAppearance(this.rP, this.rT ? this.rS : this.rR);
+            this.mCounterOverflowed = i > this.mCounterMaxLength;
+            if (z != this.mCounterOverflowed) {
+                TextViewCompat.setTextAppearance(this.mCounterView, this.mCounterOverflowed ? this.mCounterOverflowTextAppearance : this.mCounterTextAppearance);
             }
-            this.rP.setText(getContext().getString(R.string.character_counter_pattern, Integer.valueOf(i), Integer.valueOf(this.rQ)));
+            this.mCounterView.setText(getContext().getString(R.string.character_counter_pattern, Integer.valueOf(i), Integer.valueOf(this.mCounterMaxLength)));
         }
-        if (this.rD != null && z != this.rT) {
-            p(false);
-            ct();
+        if (this.mEditText != null && z != this.mCounterOverflowed) {
+            updateLabelState(false);
+            updateEditTextBackground();
         }
     }
 
-    private void ct() {
+    private void updateEditTextBackground() {
         Drawable background;
-        if (this.rD != null && (background = this.rD.getBackground()) != null) {
-            cu();
-            if (DrawableUtils.canSafelyMutateDrawable(background)) {
+        if (this.mEditText != null && (background = this.mEditText.getBackground()) != null) {
+            ensureBackgroundDrawableStateWorkaround();
+            if (android.support.v7.widget.DrawableUtils.canSafelyMutateDrawable(background)) {
                 background = background.mutate();
             }
-            if (this.rM && this.rK != null) {
-                background.setColorFilter(AppCompatDrawableManager.getPorterDuffColorFilter(this.rK.getCurrentTextColor(), PorterDuff.Mode.SRC_IN));
-            } else if (this.rT && this.rP != null) {
-                background.setColorFilter(AppCompatDrawableManager.getPorterDuffColorFilter(this.rP.getCurrentTextColor(), PorterDuff.Mode.SRC_IN));
+            if (this.mErrorShown && this.mErrorView != null) {
+                background.setColorFilter(AppCompatDrawableManager.getPorterDuffColorFilter(this.mErrorView.getCurrentTextColor(), PorterDuff.Mode.SRC_IN));
+            } else if (this.mCounterOverflowed && this.mCounterView != null) {
+                background.setColorFilter(AppCompatDrawableManager.getPorterDuffColorFilter(this.mCounterView.getCurrentTextColor(), PorterDuff.Mode.SRC_IN));
             } else {
                 DrawableCompat.clearColorFilter(background);
-                this.rD.refreshDrawableState();
+                this.mEditText.refreshDrawableState();
             }
         }
     }
 
-    private void cu() {
+    private void ensureBackgroundDrawableStateWorkaround() {
         Drawable background;
         int i = Build.VERSION.SDK_INT;
-        if ((i == 21 || i == 22) && (background = this.rD.getBackground()) != null && !this.sj) {
+        if ((i == 21 || i == 22) && (background = this.mEditText.getBackground()) != null && !this.mHasReconstructedEditTextBackground) {
             Drawable newDrawable = background.getConstantState().newDrawable();
             if (background instanceof DrawableContainer) {
-                this.sj = f.a((DrawableContainer) background, newDrawable.getConstantState());
+                this.mHasReconstructedEditTextBackground = DrawableUtils.setContainerConstantState((DrawableContainer) background, newDrawable.getConstantState());
             }
-            if (!this.sj) {
-                ViewCompat.setBackground(this.rD, newDrawable);
-                this.sj = true;
+            if (!this.mHasReconstructedEditTextBackground) {
+                ViewCompat.setBackground(this.mEditText, newDrawable);
+                this.mHasReconstructedEditTextBackground = true;
             }
         }
     }
@@ -562,20 +573,20 @@ public class TextInputLayout extends LinearLayout {
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() { // from class: android.support.design.widget.TextInputLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
-            /* renamed from: f */
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
-            /* renamed from: Q */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         });
-        CharSequence so;
+        CharSequence error;
 
         SavedState(Parcelable parcelable) {
             super(parcelable);
@@ -583,25 +594,25 @@ public class TextInputLayout extends LinearLayout {
 
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
-            this.so = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+            this.error = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
         }
 
         @Override // android.support.v4.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            TextUtils.writeToParcel(this.so, parcel, i);
+            TextUtils.writeToParcel(this.error, parcel, i);
         }
 
         public String toString() {
-            return "TextInputLayout.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " error=" + ((Object) this.so) + "}";
+            return "TextInputLayout.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " error=" + ((Object) this.error) + "}";
         }
     }
 
     @Override // android.view.View
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        if (this.rM) {
-            savedState.so = getError();
+        if (this.mErrorShown) {
+            savedState.error = getError();
         }
         return savedState;
     }
@@ -614,169 +625,172 @@ public class TextInputLayout extends LinearLayout {
         }
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        setError(savedState.so);
+        setError(savedState.error);
         requestLayout();
     }
 
+    @Nullable
     public CharSequence getError() {
-        if (this.rJ) {
-            return this.rN;
+        if (this.mErrorEnabled) {
+            return this.mError;
         }
         return null;
     }
 
     public boolean isHintAnimationEnabled() {
-        return this.si;
+        return this.mHintAnimationEnabled;
     }
 
     public void setHintAnimationEnabled(boolean z) {
-        this.si = z;
+        this.mHintAnimationEnabled = z;
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (this.rE) {
-            this.nh.draw(canvas);
+        if (this.mHintEnabled) {
+            this.mCollapsingTextHelper.draw(canvas);
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        cv();
+        updatePasswordToggleView();
         super.onMeasure(i, i2);
     }
 
-    private void cv() {
-        if (this.rD != null) {
-            if (cy()) {
-                if (this.rX == null) {
-                    this.rX = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.design_text_input_password_icon, (ViewGroup) this.rC, false);
-                    this.rX.setImageDrawable(this.rV);
-                    this.rX.setContentDescription(this.rW);
-                    this.rC.addView(this.rX);
-                    this.rX.setOnClickListener(new View.OnClickListener() { // from class: android.support.design.widget.TextInputLayout.4
+    private void updatePasswordToggleView() {
+        if (this.mEditText != null) {
+            if (shouldShowPasswordIcon()) {
+                if (this.mPasswordToggleView == null) {
+                    this.mPasswordToggleView = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.design_text_input_password_icon, (ViewGroup) this.mInputFrame, false);
+                    this.mPasswordToggleView.setImageDrawable(this.mPasswordToggleDrawable);
+                    this.mPasswordToggleView.setContentDescription(this.mPasswordToggleContentDesc);
+                    this.mInputFrame.addView(this.mPasswordToggleView);
+                    this.mPasswordToggleView.setOnClickListener(new View.OnClickListener() { // from class: android.support.design.widget.TextInputLayout.4
                         @Override // android.view.View.OnClickListener
-                        public void onClick(View view) {
-                            TextInputLayout.this.cw();
+                        public void onClick(View view2) {
+                            TextInputLayout.this.passwordVisibilityToggleRequested();
                         }
                     });
                 }
-                this.rX.setVisibility(0);
-                if (this.rZ == null) {
-                    this.rZ = new ColorDrawable();
+                this.mPasswordToggleView.setVisibility(0);
+                if (this.mPasswordToggleDummyDrawable == null) {
+                    this.mPasswordToggleDummyDrawable = new ColorDrawable();
                 }
-                this.rZ.setBounds(0, 0, this.rX.getMeasuredWidth(), 1);
-                Drawable[] compoundDrawablesRelative = TextViewCompat.getCompoundDrawablesRelative(this.rD);
-                if (compoundDrawablesRelative[2] != this.rZ) {
-                    this.sa = compoundDrawablesRelative[2];
+                this.mPasswordToggleDummyDrawable.setBounds(0, 0, this.mPasswordToggleView.getMeasuredWidth(), 1);
+                Drawable[] compoundDrawablesRelative = TextViewCompat.getCompoundDrawablesRelative(this.mEditText);
+                if (compoundDrawablesRelative[2] != this.mPasswordToggleDummyDrawable) {
+                    this.mOriginalEditTextEndDrawable = compoundDrawablesRelative[2];
                 }
-                TextViewCompat.setCompoundDrawablesRelative(this.rD, compoundDrawablesRelative[0], compoundDrawablesRelative[1], this.rZ, compoundDrawablesRelative[3]);
-                this.rX.setPadding(this.rD.getPaddingLeft(), this.rD.getPaddingTop(), this.rD.getPaddingRight(), this.rD.getPaddingBottom());
+                TextViewCompat.setCompoundDrawablesRelative(this.mEditText, compoundDrawablesRelative[0], compoundDrawablesRelative[1], this.mPasswordToggleDummyDrawable, compoundDrawablesRelative[3]);
+                this.mPasswordToggleView.setPadding(this.mEditText.getPaddingLeft(), this.mEditText.getPaddingTop(), this.mEditText.getPaddingRight(), this.mEditText.getPaddingBottom());
                 return;
             }
-            if (this.rX != null && this.rX.getVisibility() == 0) {
-                this.rX.setVisibility(8);
+            if (this.mPasswordToggleView != null && this.mPasswordToggleView.getVisibility() == 0) {
+                this.mPasswordToggleView.setVisibility(8);
             }
-            Drawable[] compoundDrawablesRelative2 = TextViewCompat.getCompoundDrawablesRelative(this.rD);
-            if (compoundDrawablesRelative2[2] == this.rZ) {
-                TextViewCompat.setCompoundDrawablesRelative(this.rD, compoundDrawablesRelative2[0], compoundDrawablesRelative2[1], this.sa, compoundDrawablesRelative2[3]);
+            Drawable[] compoundDrawablesRelative2 = TextViewCompat.getCompoundDrawablesRelative(this.mEditText);
+            if (compoundDrawablesRelative2[2] == this.mPasswordToggleDummyDrawable) {
+                TextViewCompat.setCompoundDrawablesRelative(this.mEditText, compoundDrawablesRelative2[0], compoundDrawablesRelative2[1], this.mOriginalEditTextEndDrawable, compoundDrawablesRelative2[3]);
             }
         }
     }
 
-    public void setPasswordVisibilityToggleDrawable(int i) {
+    public void setPasswordVisibilityToggleDrawable(@DrawableRes int i) {
         setPasswordVisibilityToggleDrawable(i != 0 ? AppCompatResources.getDrawable(getContext(), i) : null);
     }
 
-    public void setPasswordVisibilityToggleDrawable(Drawable drawable) {
-        this.rV = drawable;
-        if (this.rX != null) {
-            this.rX.setImageDrawable(drawable);
+    public void setPasswordVisibilityToggleDrawable(@Nullable Drawable drawable) {
+        this.mPasswordToggleDrawable = drawable;
+        if (this.mPasswordToggleView != null) {
+            this.mPasswordToggleView.setImageDrawable(drawable);
         }
     }
 
-    public void setPasswordVisibilityToggleContentDescription(int i) {
+    public void setPasswordVisibilityToggleContentDescription(@StringRes int i) {
         setPasswordVisibilityToggleContentDescription(i != 0 ? getResources().getText(i) : null);
     }
 
-    public void setPasswordVisibilityToggleContentDescription(CharSequence charSequence) {
-        this.rW = charSequence;
-        if (this.rX != null) {
-            this.rX.setContentDescription(charSequence);
+    public void setPasswordVisibilityToggleContentDescription(@Nullable CharSequence charSequence) {
+        this.mPasswordToggleContentDesc = charSequence;
+        if (this.mPasswordToggleView != null) {
+            this.mPasswordToggleView.setContentDescription(charSequence);
         }
     }
 
+    @Nullable
     public Drawable getPasswordVisibilityToggleDrawable() {
-        return this.rV;
+        return this.mPasswordToggleDrawable;
     }
 
+    @Nullable
     public CharSequence getPasswordVisibilityToggleContentDescription() {
-        return this.rW;
+        return this.mPasswordToggleContentDesc;
     }
 
     public boolean isPasswordVisibilityToggleEnabled() {
-        return this.rU;
+        return this.mPasswordToggleEnabled;
     }
 
     public void setPasswordVisibilityToggleEnabled(boolean z) {
-        if (this.rU != z) {
-            this.rU = z;
-            if (!z && this.rY && this.rD != null) {
-                this.rD.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        if (this.mPasswordToggleEnabled != z) {
+            this.mPasswordToggleEnabled = z;
+            if (!z && this.mPasswordToggledVisible && this.mEditText != null) {
+                this.mEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
-            this.rY = false;
-            cv();
+            this.mPasswordToggledVisible = false;
+            updatePasswordToggleView();
         }
     }
 
-    public void setPasswordVisibilityToggleTintList(ColorStateList colorStateList) {
-        this.sb = colorStateList;
-        this.sc = true;
-        cz();
+    public void setPasswordVisibilityToggleTintList(@Nullable ColorStateList colorStateList) {
+        this.mPasswordToggleTintList = colorStateList;
+        this.mHasPasswordToggleTintList = true;
+        applyPasswordToggleTint();
     }
 
-    public void setPasswordVisibilityToggleTintMode(PorterDuff.Mode mode) {
-        this.sd = mode;
-        this.se = true;
-        cz();
+    public void setPasswordVisibilityToggleTintMode(@Nullable PorterDuff.Mode mode) {
+        this.mPasswordToggleTintMode = mode;
+        this.mHasPasswordToggleTintMode = true;
+        applyPasswordToggleTint();
     }
 
-    void cw() {
-        if (this.rU) {
-            int selectionEnd = this.rD.getSelectionEnd();
-            if (cx()) {
-                this.rD.setTransformationMethod(null);
-                this.rY = true;
+    void passwordVisibilityToggleRequested() {
+        if (this.mPasswordToggleEnabled) {
+            int selectionEnd = this.mEditText.getSelectionEnd();
+            if (hasPasswordTransformation()) {
+                this.mEditText.setTransformationMethod(null);
+                this.mPasswordToggledVisible = true;
             } else {
-                this.rD.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                this.rY = false;
+                this.mEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                this.mPasswordToggledVisible = false;
             }
-            this.rX.setChecked(this.rY);
-            this.rD.setSelection(selectionEnd);
+            this.mPasswordToggleView.setChecked(this.mPasswordToggledVisible);
+            this.mEditText.setSelection(selectionEnd);
         }
     }
 
-    private boolean cx() {
-        return this.rD != null && (this.rD.getTransformationMethod() instanceof PasswordTransformationMethod);
+    private boolean hasPasswordTransformation() {
+        return this.mEditText != null && (this.mEditText.getTransformationMethod() instanceof PasswordTransformationMethod);
     }
 
-    private boolean cy() {
-        return this.rU && (cx() || this.rY);
+    private boolean shouldShowPasswordIcon() {
+        return this.mPasswordToggleEnabled && (hasPasswordTransformation() || this.mPasswordToggledVisible);
     }
 
-    private void cz() {
-        if (this.rV != null) {
-            if (this.sc || this.se) {
-                this.rV = DrawableCompat.wrap(this.rV).mutate();
-                if (this.sc) {
-                    DrawableCompat.setTintList(this.rV, this.sb);
+    private void applyPasswordToggleTint() {
+        if (this.mPasswordToggleDrawable != null) {
+            if (this.mHasPasswordToggleTintList || this.mHasPasswordToggleTintMode) {
+                this.mPasswordToggleDrawable = DrawableCompat.wrap(this.mPasswordToggleDrawable).mutate();
+                if (this.mHasPasswordToggleTintList) {
+                    DrawableCompat.setTintList(this.mPasswordToggleDrawable, this.mPasswordToggleTintList);
                 }
-                if (this.se) {
-                    DrawableCompat.setTintMode(this.rV, this.sd);
+                if (this.mHasPasswordToggleTintMode) {
+                    DrawableCompat.setTintMode(this.mPasswordToggleDrawable, this.mPasswordToggleTintMode);
                 }
-                if (this.rX != null && this.rX.getDrawable() != this.rV) {
-                    this.rX.setImageDrawable(this.rV);
+                if (this.mPasswordToggleView != null && this.mPasswordToggleView.getDrawable() != this.mPasswordToggleDrawable) {
+                    this.mPasswordToggleView.setImageDrawable(this.mPasswordToggleDrawable);
                 }
             }
         }
@@ -785,110 +799,115 @@ public class TextInputLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.rE && this.rD != null) {
+        if (this.mHintEnabled && this.mEditText != null) {
             Rect rect = this.mTmpRect;
-            v.b(this, this.rD, rect);
-            int compoundPaddingLeft = rect.left + this.rD.getCompoundPaddingLeft();
-            int compoundPaddingRight = rect.right - this.rD.getCompoundPaddingRight();
-            this.nh.c(compoundPaddingLeft, rect.top + this.rD.getCompoundPaddingTop(), compoundPaddingRight, rect.bottom - this.rD.getCompoundPaddingBottom());
-            this.nh.d(compoundPaddingLeft, getPaddingTop(), compoundPaddingRight, (i4 - i2) - getPaddingBottom());
-            this.nh.bn();
+            ViewGroupUtils.getDescendantRect(this, this.mEditText, rect);
+            int compoundPaddingLeft = rect.left + this.mEditText.getCompoundPaddingLeft();
+            int compoundPaddingRight = rect.right - this.mEditText.getCompoundPaddingRight();
+            this.mCollapsingTextHelper.setExpandedBounds(compoundPaddingLeft, rect.top + this.mEditText.getCompoundPaddingTop(), compoundPaddingRight, rect.bottom - this.mEditText.getCompoundPaddingBottom());
+            this.mCollapsingTextHelper.setCollapsedBounds(compoundPaddingLeft, getPaddingTop(), compoundPaddingRight, (i4 - i2) - getPaddingBottom());
+            this.mCollapsingTextHelper.recalculate();
         }
     }
 
-    private void q(boolean z) {
-        if (this.qm != null && this.qm.isRunning()) {
-            this.qm.cancel();
+    private void collapseHint(boolean z) {
+        if (this.mAnimator != null && this.mAnimator.isRunning()) {
+            this.mAnimator.cancel();
         }
-        if (z && this.si) {
-            p(1.0f);
+        if (z && this.mHintAnimationEnabled) {
+            animateToExpansionFraction(1.0f);
         } else {
-            this.nh.h(1.0f);
+            this.mCollapsingTextHelper.setExpansionFraction(1.0f);
         }
-        this.sh = false;
+        this.mHintExpanded = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void drawableStateChanged() {
         boolean z = true;
-        if (!this.sk) {
-            this.sk = true;
+        if (!this.mInDrawableStateChanged) {
+            this.mInDrawableStateChanged = true;
             super.drawableStateChanged();
             int[] drawableState = getDrawableState();
             if (!ViewCompat.isLaidOut(this) || !isEnabled()) {
                 z = false;
             }
-            p(z);
-            ct();
-            if (this.nh != null ? this.nh.setState(drawableState) | false : false) {
+            updateLabelState(z);
+            updateEditTextBackground();
+            if (this.mCollapsingTextHelper != null ? this.mCollapsingTextHelper.setState(drawableState) | false : false) {
                 invalidate();
             }
-            this.sk = false;
+            this.mInDrawableStateChanged = false;
         }
     }
 
-    private void s(boolean z) {
-        if (this.qm != null && this.qm.isRunning()) {
-            this.qm.cancel();
+    private void expandHint(boolean z) {
+        if (this.mAnimator != null && this.mAnimator.isRunning()) {
+            this.mAnimator.cancel();
         }
-        if (z && this.si) {
-            p(0.0f);
+        if (z && this.mHintAnimationEnabled) {
+            animateToExpansionFraction(0.0f);
         } else {
-            this.nh.h(0.0f);
+            this.mCollapsingTextHelper.setExpansionFraction(0.0f);
         }
-        this.sh = true;
+        this.mHintExpanded = true;
     }
 
-    private void p(float f) {
-        if (this.nh.bg() != f) {
-            if (this.qm == null) {
-                this.qm = z.cE();
-                this.qm.setInterpolator(android.support.design.widget.a.LINEAR_INTERPOLATOR);
-                this.qm.setDuration(200L);
-                this.qm.a(new s.c() { // from class: android.support.design.widget.TextInputLayout.5
-                    @Override // android.support.design.widget.s.c
-                    public void a(s sVar) {
-                        TextInputLayout.this.nh.h(sVar.cB());
+    private void animateToExpansionFraction(float f) {
+        if (this.mCollapsingTextHelper.getExpansionFraction() != f) {
+            if (this.mAnimator == null) {
+                this.mAnimator = ViewUtils.createAnimator();
+                this.mAnimator.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
+                this.mAnimator.setDuration(200L);
+                this.mAnimator.addUpdateListener(new ValueAnimatorCompat.AnimatorUpdateListener() { // from class: android.support.design.widget.TextInputLayout.5
+                    @Override // android.support.design.widget.ValueAnimatorCompat.AnimatorUpdateListener
+                    public void onAnimationUpdate(ValueAnimatorCompat valueAnimatorCompat) {
+                        TextInputLayout.this.mCollapsingTextHelper.setExpansionFraction(valueAnimatorCompat.getAnimatedFloatValue());
                     }
                 });
             }
-            this.qm.e(this.nh.bg(), f);
-            this.qm.start();
+            this.mAnimator.setFloatValues(this.mCollapsingTextHelper.getExpansionFraction(), f);
+            this.mAnimator.start();
         }
     }
 
+    @VisibleForTesting
+    final boolean isHintExpanded() {
+        return this.mHintExpanded;
+    }
+
     /* loaded from: classes2.dex */
-    private class a extends AccessibilityDelegateCompat {
-        a() {
+    private class TextInputAccessibilityDelegate extends AccessibilityDelegateCompat {
+        TextInputAccessibilityDelegate() {
         }
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
-            super.onInitializeAccessibilityEvent(view, accessibilityEvent);
+        public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+            super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
             accessibilityEvent.setClassName(TextInputLayout.class.getSimpleName());
         }
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat
-        public void onPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
-            super.onPopulateAccessibilityEvent(view, accessibilityEvent);
-            CharSequence text = TextInputLayout.this.nh.getText();
+        public void onPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+            super.onPopulateAccessibilityEvent(view2, accessibilityEvent);
+            CharSequence text = TextInputLayout.this.mCollapsingTextHelper.getText();
             if (!TextUtils.isEmpty(text)) {
                 accessibilityEvent.getText().add(text);
             }
         }
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-            super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+        public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
             accessibilityNodeInfoCompat.setClassName(TextInputLayout.class.getSimpleName());
-            CharSequence text = TextInputLayout.this.nh.getText();
+            CharSequence text = TextInputLayout.this.mCollapsingTextHelper.getText();
             if (!TextUtils.isEmpty(text)) {
                 accessibilityNodeInfoCompat.setText(text);
             }
-            if (TextInputLayout.this.rD != null) {
-                accessibilityNodeInfoCompat.setLabelFor(TextInputLayout.this.rD);
+            if (TextInputLayout.this.mEditText != null) {
+                accessibilityNodeInfoCompat.setLabelFor(TextInputLayout.this.mEditText);
             }
-            CharSequence text2 = TextInputLayout.this.rK != null ? TextInputLayout.this.rK.getText() : null;
+            CharSequence text2 = TextInputLayout.this.mErrorView != null ? TextInputLayout.this.mErrorView.getText() : null;
             if (!TextUtils.isEmpty(text2)) {
                 accessibilityNodeInfoCompat.setContentInvalid(true);
                 accessibilityNodeInfoCompat.setError(text2);
@@ -896,7 +915,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private static boolean b(int[] iArr, int i) {
+    private static boolean arrayContains(int[] iArr, int i) {
         for (int i2 : iArr) {
             if (i2 == i) {
                 return true;

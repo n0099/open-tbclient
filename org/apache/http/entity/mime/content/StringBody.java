@@ -7,9 +7,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-import org.apache.http.entity.mime.MIME;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class StringBody extends AbstractContentBody {
     private final Charset charset;
     private final byte[] content;
@@ -41,11 +39,11 @@ public class StringBody extends AbstractContentBody {
     }
 
     public StringBody(String str, Charset charset) throws UnsupportedEncodingException {
-        this(str, HTTP.PLAIN_TEXT_TYPE, charset);
+        this(str, "text/plain", charset);
     }
 
     public StringBody(String str) throws UnsupportedEncodingException {
-        this(str, HTTP.PLAIN_TEXT_TYPE, null);
+        this(str, "text/plain", null);
     }
 
     public Reader getReader() {
@@ -77,7 +75,7 @@ public class StringBody extends AbstractContentBody {
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public String getTransferEncoding() {
-        return MIME.ENC_8BIT;
+        return "8bit";
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor

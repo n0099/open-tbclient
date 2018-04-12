@@ -6,7 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushSettings;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends d {
     protected int e;
     private int f;
@@ -49,23 +49,27 @@ public class f extends d {
         hashMap.put("bind_name", Build.MODEL);
         hashMap.put("bind_status", this.e + "");
         hashMap.put("push_sdk_version", this.f + "");
+        if (com.baidu.android.pushservice.c.e.b(this.a)) {
+            String a = com.baidu.android.pushservice.k.e.a(this.a);
+            if (!TextUtils.isEmpty(a)) {
+                hashMap.put("cuid", a);
+            }
+            hashMap.put("new_channel_id", com.baidu.android.pushservice.j.a(this.a).c());
+        }
         if (!TextUtils.isEmpty(this.h) && this.h.equalsIgnoreCase("true")) {
             hashMap.put("is_baidu_internal_bind", "true");
         }
         if (!TextUtils.isEmpty(this.g)) {
             hashMap.put("bind_notify_status", this.g);
         }
-        if (!TextUtils.isEmpty(this.b.l) && com.baidu.android.pushservice.c.d.g(this.a)) {
+        if (!TextUtils.isEmpty(this.b.l) && com.baidu.android.pushservice.c.e.h(this.a)) {
             hashMap.put("push_proxy", this.b.l);
         }
-        try {
-            hashMap.put("manufacture", Build.MANUFACTURER);
-            if (Build.MANUFACTURER.toLowerCase().contains("huawei") || Build.MANUFACTURER.toLowerCase().contains("xiaomi") || Build.MANUFACTURER.toLowerCase().contains("oppo")) {
-                hashMap.put("rom", com.baidu.android.pushservice.j.p.C(this.a));
-            }
-        } catch (Exception e) {
+        hashMap.put("manufacture", Build.MANUFACTURER);
+        if (com.baidu.android.pushservice.j.m.f()) {
+            hashMap.put("rom", com.baidu.android.pushservice.j.m.C(this.a));
         }
-        if (com.baidu.android.pushservice.j.p.F(this.a)) {
+        if (com.baidu.android.pushservice.j.m.F(this.a)) {
             hashMap.put("connect_version", "3");
         } else {
             hashMap.put("connect_version", "2");
@@ -75,11 +79,12 @@ public class f extends d {
         if (!TextUtils.isEmpty(str) && str.length() <= 128) {
             hashMap.put("package_name", str);
         }
-        if (!PushSettings.c(this.a)) {
-            hashMap.put("check_sdk", com.baidu.android.pushservice.j.m.a(this.a, "com.baidu.android.pushservice.CHECK_SDK"));
+        hashMap.put("app_alone_conn", (com.baidu.android.pushservice.a.d(this.a) ? 1 : 0) + "");
+        if (!PushSettings.d(this.a)) {
+            hashMap.put("check_sdk", com.baidu.android.pushservice.j.j.a(this.a, "com.baidu.android.pushservice.CHECK_SDK"));
         }
         if (com.baidu.android.pushservice.a.b() > 0) {
-            com.baidu.android.pushservice.h.q.a(this.a, "039903", 0, this.b.i);
+            com.baidu.android.pushservice.h.o.a(this.a, "039903", 0, this.b.i);
         }
     }
 

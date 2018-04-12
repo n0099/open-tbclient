@@ -34,11 +34,11 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     }
 
     public void updateShowInfo() {
-        yN();
-        yO();
+        rs();
+        rt();
     }
 
-    private void yN() {
+    private void rs() {
         if (this.content != null) {
             StringBuilder sb = new StringBuilder();
             for (SmallTailInfoContent smallTailInfoContent : this.content) {
@@ -47,31 +47,31 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String gm = TbFaceManager.Mw().gm(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(gm)) {
-                        sb.append("#(" + gm + ")");
+                    String gd = TbFaceManager.EZ().gd(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(gd)) {
+                        sb.append("#(" + gd + ")");
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.Mw().a(TbadkCoreApplication.getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.EZ().a(TbadkCoreApplication.getInst(), sb.toString(), null);
         }
     }
 
-    private void yO() {
+    private void rt() {
         try {
-            this.showColorId = Color.parseColor(cW(this.color));
+            this.showColorId = Color.parseColor(cK(this.color));
         } catch (Exception e) {
-            this.showColorId = Color.parseColor(cW(TbadkCoreApplication.getInst().getString(d.j.tail_color_default)));
+            this.showColorId = Color.parseColor(cK(TbadkCoreApplication.getInst().getString(d.k.tail_color_default)));
         }
     }
 
-    private String cW(String str) {
+    private String cK(String str) {
         if (str == null) {
             return null;
         }
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            return TbadkCoreApplication.getInst().getString(d.j.color_prefix) + TbadkCoreApplication.getInst().getString(d.j.tail_color_night) + str;
+            return TbadkCoreApplication.getInst().getString(d.k.color_prefix) + TbadkCoreApplication.getInst().getString(d.k.tail_color_night) + str;
         }
-        return TbadkCoreApplication.getInst().getString(d.j.color_prefix) + str;
+        return TbadkCoreApplication.getInst().getString(d.k.color_prefix) + str;
     }
 }

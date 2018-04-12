@@ -11,6 +11,9 @@ class AccessibilityManagerCompatIcs {
         void onAccessibilityStateChanged(boolean z);
     }
 
+    AccessibilityManagerCompatIcs() {
+    }
+
     /* loaded from: classes2.dex */
     public static class AccessibilityStateChangeListenerWrapper implements AccessibilityManager.AccessibilityStateChangeListener {
         Object mListener;

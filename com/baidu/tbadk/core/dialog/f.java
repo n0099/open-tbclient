@@ -5,44 +5,44 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends e {
-    private ViewGroup aRJ;
-    private TextView aRK;
-    private TextView aRL;
-    private View.OnClickListener aRM;
+    private ViewGroup adg;
+    private TextView adh;
+    private TextView adi;
+    private View.OnClickListener adj;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        this.aRJ = (ViewGroup) ((ViewStub) getRootView().findViewById(d.g.yes_no_viewStub)).inflate();
-        this.aRK = (TextView) this.aRJ.findViewById(d.g.yes);
-        this.aRL = (TextView) this.aRJ.findViewById(d.g.no);
+        this.adg = (ViewGroup) ((ViewStub) getRootView().findViewById(d.g.yes_no_viewStub)).inflate();
+        this.adh = (TextView) this.adg.findViewById(d.g.yes);
+        this.adi = (TextView) this.adg.findViewById(d.g.no);
     }
 
     public f a(int i, View.OnClickListener onClickListener) {
-        this.aRK.setText(i);
-        this.aRK.setOnClickListener(onClickListener);
-        this.aRM = onClickListener;
+        this.adh.setText(i);
+        this.adh.setOnClickListener(onClickListener);
+        this.adj = onClickListener;
         return this;
     }
 
     public void setPositiveButtonEnable(boolean z) {
         if (z) {
-            aj.r(this.aRK, d.C0141d.cp_link_tip_a);
-            this.aRK.setOnClickListener(this.aRM);
+            ak.h(this.adh, d.C0126d.cp_link_tip_a);
+            this.adh.setOnClickListener(this.adj);
             return;
         }
-        aj.r(this.aRK, d.C0141d.cp_cont_e);
-        this.aRK.setOnClickListener(null);
+        ak.h(this.adh, d.C0126d.cp_cont_e);
+        this.adh.setOnClickListener(null);
     }
 
     public f b(int i, View.OnClickListener onClickListener) {
-        this.aRL.setText(i);
-        this.aRL.setOnClickListener(onClickListener);
+        this.adi.setText(i);
+        this.adi.setOnClickListener(onClickListener);
         return this;
     }
 }

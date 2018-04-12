@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.frsfeedforums;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes3.dex */
-public class d extends r.a {
-    public d(View view) {
-        super(view);
+public class d extends q.a {
+    public d(View view2) {
+        super(view2);
     }
 }

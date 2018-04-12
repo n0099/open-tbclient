@@ -53,9 +53,9 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null && bArr.length > 0) {
-            l<byte[]> dg = com.baidu.tbadk.core.c.a.AR().dg("tb.pb_normal");
-            dg.remove("chosen_pb_page_cache");
-            dg.e("chosen_pb_page_cache", bArr);
+            l<byte[]> cY = com.baidu.tbadk.core.c.a.tz().cY("tb.pb_normal");
+            cY.remove("chosen_pb_page_cache");
+            cY.e("chosen_pb_page_cache", bArr);
         }
     }
 

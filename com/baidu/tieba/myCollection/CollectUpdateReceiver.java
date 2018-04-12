@@ -16,7 +16,7 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (ACTION_NAME.equals(intent.getAction())) {
-            b.aXI().aXM();
+            b.aSD().aSH();
             if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
@@ -24,8 +24,8 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
                     intent2.putExtra("is_notify", true);
                     intent2.setFlags(603979776);
                     PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                    String string = context.getString(d.j.collect_update_notification_content);
-                    NotificationHelper.showNotification(context, 28, context.getString(d.j.app_name), string, string, service, false);
+                    String string = context.getString(d.k.collect_update_notification_content);
+                    NotificationHelper.showNotification(context, 28, context.getString(d.k.app_name), string, string, service, false);
                 } catch (Throwable th) {
                     if (BdLog.isDebugMode()) {
                         BdLog.e(th.getMessage());

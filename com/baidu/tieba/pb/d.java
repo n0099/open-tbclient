@@ -1,17 +1,22 @@
 package com.baidu.tieba.pb;
+/* loaded from: classes.dex */
+public class d<T> {
+    private T data;
+    private int type;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes2.dex */
-public class d {
-    public static int u(TbPageContext tbPageContext) {
-        String fromPageKey = UtilHelper.getFromPageKey(tbPageContext);
-        if (fromPageKey == null) {
-            return 3;
-        }
-        if (fromPageKey.equals("a002")) {
-            return 1;
-        }
-        return fromPageKey.equals("a006") ? 2 : 3;
+    public int getType() {
+        return this.type;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public T getData() {
+        return this.data;
+    }
+
+    public void setData(T t) {
+        this.data = t;
     }
 }

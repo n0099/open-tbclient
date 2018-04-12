@@ -3,6 +3,7 @@ package com.baidu.ar.camera;
 import android.content.Context;
 import android.hardware.Camera;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -58,6 +59,7 @@ class CameraHelper {
         return null;
     }
 
+    @Nullable
     private static Camera.Size a(List<Camera.Size> list, int i, int i2, boolean z, double d, boolean z2) {
         double d2 = i / i2;
         Collections.sort(list, new CameraSizeComparator(z2));

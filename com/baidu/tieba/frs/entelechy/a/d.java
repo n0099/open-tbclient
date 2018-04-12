@@ -3,111 +3,105 @@ package com.baidu.tieba.frs.entelechy.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tieba.card.t;
-import com.baidu.tieba.card.v;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.d;
+import com.baidu.tieba.play.y;
 /* loaded from: classes2.dex */
-public class d extends com.baidu.adp.widget.ListView.a<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.i>> implements t, com.baidu.tieba.frs.e.c {
-    private v clO;
-    private int dKq;
-    private String mForumName;
-    private boolean mIsFromCDN;
+public class d extends com.baidu.tieba.frs.f<bd, a<Object>> implements com.baidu.tieba.a.f, aa, com.baidu.tieba.frs.e.c {
+    private String bvX;
+    private ab<bd> bvY;
+    private String forumName;
+    private String mFrom;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.mIsFromCDN = true;
-        this.dKq = 0;
-        this.clO = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.d.1
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
+        this.bvY = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.v
-            public void a(View view, bd bdVar) {
-                if (view != null && bdVar != null) {
-                    if (view.getId() == d.g.card_vote_header_image) {
-                        com.baidu.tieba.frs.e.b.azS().a(com.baidu.tieba.frs.e.c.dUj, bdVar, 2);
-                    } else if (view.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dUj, bdVar.zM());
-                    } else {
-                        com.baidu.tieba.frs.e.b.azS().a(com.baidu.tieba.frs.e.c.dUj, bdVar, 1);
+            @Override // com.baidu.tieba.card.ab
+            public void a(View view2, bd bdVar) {
+                if (view2 != null && bdVar != null) {
+                    if ("c13010".equals(d.this.mFrom)) {
+                        TiebaStatic.log(new al("c13010").r("obj_type", 2).f(ImageViewerConfig.FORUM_ID, bdVar.getFid()).ac("tid", bdVar.getTid()));
+                    }
+                    if (view2.getId() == d.g.frame_video) {
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 4);
+                    } else if (view2.getId() == d.g.layout_root) {
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 1);
+                    } else if (view2.getId() == d.g.image_user) {
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 2);
+                    } else if (view2.getId() == d.g.card_divider_tv) {
+                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.doy, bdVar.sn());
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.dKq = com.baidu.adp.lib.util.l.t(this.mPageContext.getPageActivity(), d.e.ds14);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.i> aVar) {
-        if (aVar == null || aVar.alY() == null) {
+    /* renamed from: as */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        com.baidu.tieba.frs.entelechy.view.a aVar = new com.baidu.tieba.frs.entelechy.view.a(this.mPageContext, this.mPageId);
+        aVar.j(this.mPageId);
+        aVar.setForumName(this.forumName);
+        return new a(aVar);
+    }
+
+    private y Q(bd bdVar) {
+        if (bdVar == null) {
             return null;
         }
-        a(i, view, bdVar, aVar);
-        aVar.alY().a(bdVar);
-        aVar.alY().setForumName(this.mForumName);
-        aVar.alY().b(this.clO);
-        com.baidu.tieba.frs.e.b.azS().a(dUj, bdVar);
+        y yVar = new y();
+        yVar.mLocate = bdVar.sG() ? "3" : "2";
+        yVar.crJ = doy.doo;
+        yVar.aNu = bdVar.getTid();
+        yVar.fQP = bdVar.mRecomAbTag;
+        if (bdVar.sh() != null) {
+            yVar.fQQ = bdVar.sh().video_md5;
+        }
+        bdVar.sK();
+        return yVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bd bdVar, a aVar) {
+        if (aVar == null || aVar.afY() == null) {
+            return null;
+        }
+        if (aVar.afY() instanceof com.baidu.tieba.a.e) {
+            aVar.afY().setPage(this.bvX);
+        }
+        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWO);
+        aVar.afY().setVideoStatsData(Q(bdVar));
+        aVar.afY().a(bdVar);
+        aVar.afY().b(this.bvY);
+        com.baidu.tieba.frs.e.b.auH().a(doy, bdVar);
         return aVar.getView();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ad */
-    public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.entelechy.view.i iVar = null;
-        if (this.mType == bd.aOw) {
-            iVar = new com.baidu.tieba.frs.entelechy.view.f(this.mPageContext, this.mPageId);
-        } else if (this.mType == bd.aOx) {
-            iVar = new com.baidu.tieba.frs.entelechy.view.g(this.mPageContext, this.mPageId);
-        }
-        if (iVar != null) {
-            iVar.j(this.mPageId);
-            iVar.setIsFromCDN(this.mIsFromCDN);
-        }
-        return new com.baidu.tieba.card.a.a(iVar);
-    }
-
-    private void a(int i, View view, bd bdVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.i> aVar) {
-        if (bdVar != null && aVar != null) {
-            bdVar.Ai();
-            MetaData zn = bdVar.zn();
-            if (zn != null) {
-                final ThemeCardInUserData themeCard = zn.getThemeCard();
-                if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
-                    aVar.alY().cYN.setVisibility(8);
-                } else {
-                    aVar.alY().cYN.setVisibility(0);
-                    aVar.alY().cYN.setImageBitmap(null);
-                    aVar.alY().cYN.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
-                }
-                aVar.alY().cYN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.d.2
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(d.this.mPageContext.getPageActivity(), themeCard.getCardId())));
-                    }
-                });
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.card.t
+    @Override // com.baidu.tieba.card.aa
     public void setForumName(String str) {
-        this.mForumName = str;
+        this.forumName = str;
     }
 
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
+    @Override // com.baidu.tieba.a.f
+    public void hY(String str) {
+        this.bvX = str;
+    }
+
+    public void setFrom(String str) {
+        this.mFrom = str;
     }
 }

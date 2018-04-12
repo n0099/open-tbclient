@@ -7,7 +7,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public abstract class i {
-    public static void e(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public static void a(InputStream inputStream, OutputStream outputStream) throws IOException {
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
         byte[] bArr = new byte[2048];
         while (true) {
@@ -23,7 +23,7 @@ public abstract class i {
         }
     }
 
-    public static void f(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public static void b(InputStream inputStream, OutputStream outputStream) throws IOException {
         GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
         byte[] bArr = new byte[2048];
         while (true) {

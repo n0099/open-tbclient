@@ -6,44 +6,44 @@ import org.json.JSONObject;
 public class i {
     private int forumId;
     private String forumName;
-    private a gRF = new a();
-    private int gSO;
-    private int gSP;
-    private int gSQ;
-    private int gSR;
+    private a gmL = new a();
+    private int gnU;
+    private int gnV;
+    private int gnW;
+    private int gnX;
     private int signed;
 
     public int getForumId() {
         return this.forumId;
     }
 
-    public int btH() {
+    public int boQ() {
         return this.signed;
     }
 
-    public int btI() {
-        return this.gSQ;
+    public int boR() {
+        return this.gnW;
     }
 
     public int getCurScore() {
-        return this.gSR;
+        return this.gnX;
     }
 
-    public a bte() {
-        return this.gRF;
+    public a bon() {
+        return this.gmL;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gRF.parserJson(jSONObject.optJSONObject("error"));
+                this.gmL.parserJson(jSONObject.optJSONObject("error"));
                 this.forumId = jSONObject.optInt("forum_id");
                 this.forumName = jSONObject.optString("forum_name");
                 this.signed = jSONObject.optInt("signed");
-                this.gSO = jSONObject.optInt("is_on");
-                this.gSP = jSONObject.optInt("is_filter");
-                this.gSQ = jSONObject.optInt("sign_day_count");
-                this.gSR = jSONObject.optInt("cur_score");
+                this.gnU = jSONObject.optInt("is_on");
+                this.gnV = jSONObject.optInt("is_filter");
+                this.gnW = jSONObject.optInt("sign_day_count");
+                this.gnX = jSONObject.optInt("cur_score");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

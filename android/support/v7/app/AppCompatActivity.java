@@ -5,7 +5,13 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
+import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StyleRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
@@ -23,44 +29,45 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public class AppCompatActivity extends FragmentActivity implements TaskStackBuilder.SupportParentable, ActionBarDrawerToggle.DelegateProvider, AppCompatCallback {
-    private AppCompatDelegate Cf;
-    private int Cg = 0;
-    private boolean Ch;
+    private AppCompatDelegate mDelegate;
+    private boolean mEatKeyUpEvent;
     private Resources mResources;
+    private int mThemeId = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         AppCompatDelegate delegate = getDelegate();
         delegate.installViewFactory();
         delegate.onCreate(bundle);
-        if (delegate.applyDayNight() && this.Cg != 0) {
+        if (delegate.applyDayNight() && this.mThemeId != 0) {
             if (Build.VERSION.SDK_INT >= 23) {
-                onApplyThemeResource(getTheme(), this.Cg, false);
+                onApplyThemeResource(getTheme(), this.mThemeId, false);
             } else {
-                setTheme(this.Cg);
+                setTheme(this.mThemeId);
             }
         }
         super.onCreate(bundle);
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i) {
+    public void setTheme(@StyleRes int i) {
         super.setTheme(i);
-        this.Cg = i;
+        this.mThemeId = i;
     }
 
     @Override // android.app.Activity
-    protected void onPostCreate(Bundle bundle) {
+    protected void onPostCreate(@Nullable Bundle bundle) {
         super.onPostCreate(bundle);
         getDelegate().onPostCreate(bundle);
     }
 
+    @Nullable
     public ActionBar getSupportActionBar() {
         return getDelegate().getSupportActionBar();
     }
 
-    public void setSupportActionBar(Toolbar toolbar) {
+    public void setSupportActionBar(@Nullable Toolbar toolbar) {
         getDelegate().setSupportActionBar(toolbar);
     }
 
@@ -70,23 +77,23 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     @Override // android.app.Activity
-    public void setContentView(int i) {
+    public void setContentView(@LayoutRes int i) {
         getDelegate().setContentView(i);
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view) {
-        getDelegate().setContentView(view);
+    public void setContentView(View view2) {
+        getDelegate().setContentView(view2);
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        getDelegate().setContentView(view, layoutParams);
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        getDelegate().setContentView(view2, layoutParams);
     }
 
     @Override // android.app.Activity
-    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        getDelegate().addContentView(view, layoutParams);
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        getDelegate().addContentView(view2, layoutParams);
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
@@ -120,7 +127,7 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     @Override // android.app.Activity
-    public View findViewById(int i) {
+    public View findViewById(@IdRes int i) {
         return getDelegate().findViewById(i);
     }
 
@@ -159,25 +166,29 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     @Override // android.app.Activity
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void invalidateOptionsMenu() {
         getDelegate().invalidateOptionsMenu();
     }
 
     @Override // android.support.v7.app.AppCompatCallback
-    public void onSupportActionModeStarted(ActionMode actionMode) {
+    @CallSuper
+    public void onSupportActionModeStarted(@NonNull ActionMode actionMode) {
     }
 
     @Override // android.support.v7.app.AppCompatCallback
-    public void onSupportActionModeFinished(ActionMode actionMode) {
+    @CallSuper
+    public void onSupportActionModeFinished(@NonNull ActionMode actionMode) {
     }
 
     @Override // android.support.v7.app.AppCompatCallback
-    public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+    @Nullable
+    public ActionMode onWindowStartingSupportActionMode(@NonNull ActionMode.Callback callback) {
         return null;
     }
 
-    public ActionMode startSupportActionMode(ActionMode.Callback callback) {
+    @Nullable
+    public ActionMode startSupportActionMode(@NonNull ActionMode.Callback callback) {
         return getDelegate().startSupportActionMode(callback);
     }
 
@@ -197,11 +208,11 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     public void setSupportProgress(int i) {
     }
 
-    public void onCreateSupportNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
+    public void onCreateSupportNavigateUpTaskStack(@NonNull TaskStackBuilder taskStackBuilder) {
         taskStackBuilder.addParentStack(this);
     }
 
-    public void onPrepareSupportNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
+    public void onPrepareSupportNavigateUpTaskStack(@NonNull TaskStackBuilder taskStackBuilder) {
     }
 
     public boolean onSupportNavigateUp() {
@@ -226,15 +237,16 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     @Override // android.support.v4.app.TaskStackBuilder.SupportParentable
+    @Nullable
     public Intent getSupportParentActivityIntent() {
         return NavUtils.getParentActivityIntent(this);
     }
 
-    public boolean supportShouldUpRecreateTask(Intent intent) {
+    public boolean supportShouldUpRecreateTask(@NonNull Intent intent) {
         return NavUtils.shouldUpRecreateTask(this, intent);
     }
 
-    public void supportNavigateUpTo(Intent intent) {
+    public void supportNavigateUpTo(@NonNull Intent intent) {
         NavUtils.navigateUpTo(this, intent);
     }
 
@@ -248,6 +260,7 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     @Override // android.support.v7.app.ActionBarDrawerToggle.DelegateProvider
+    @Nullable
     public ActionBarDrawerToggle.Delegate getDrawerToggleDelegate() {
         return getDelegate().getDrawerToggleDelegate();
     }
@@ -269,11 +282,12 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
         getDelegate().onSaveInstanceState(bundle);
     }
 
+    @NonNull
     public AppCompatDelegate getDelegate() {
-        if (this.Cf == null) {
-            this.Cf = AppCompatDelegate.create(this, this);
+        if (this.mDelegate == null) {
+            this.mDelegate = AppCompatDelegate.create(this, this);
         }
-        return this.Cf;
+        return this.mDelegate;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -283,11 +297,11 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
             if (action == 0) {
                 ActionBar supportActionBar = getSupportActionBar();
                 if (supportActionBar != null && supportActionBar.isShowing() && supportActionBar.requestFocus()) {
-                    this.Ch = true;
+                    this.mEatKeyUpEvent = true;
                     return true;
                 }
-            } else if (action == 1 && this.Ch) {
-                this.Ch = false;
+            } else if (action == 1 && this.mEatKeyUpEvent) {
+                this.mEatKeyUpEvent = false;
                 return true;
             }
         }

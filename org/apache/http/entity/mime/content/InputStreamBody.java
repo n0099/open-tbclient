@@ -3,8 +3,7 @@ package org.apache.http.entity.mime.content;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.apache.http.entity.mime.MIME;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class InputStreamBody extends AbstractContentBody {
     private final String filename;
     private final InputStream in;
@@ -54,7 +53,7 @@ public class InputStreamBody extends AbstractContentBody {
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public String getTransferEncoding() {
-        return MIME.ENC_BINARY;
+        return "binary";
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor

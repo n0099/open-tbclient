@@ -8,45 +8,45 @@ import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class e extends d {
-    private ThreadLinkView cXF;
+    private ThreadLinkView cpx;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void by(View view) {
-        if (view != null) {
-            this.cXF = (ThreadLinkView) view.findViewById(d.g.card_recommend_god_link_therad);
-            this.cXF.setTag(getTag());
+    protected void ac(View view2) {
+        if (view2 != null) {
+            this.cpx = (ThreadLinkView) view2.findViewById(d.g.card_recommend_god_link_therad);
+            this.cpx.setTag(getTag());
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.card_recgod_link;
+        return d.i.card_recgod_link;
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void X(bd bdVar) {
+    protected void Y(bd bdVar) {
         if (bdVar != null && !StringUtils.isNull(bdVar.getTid())) {
             if (getView() != null) {
-                getView().setOnClickListener(this.ehi);
+                getView().setOnClickListener(this.dBO);
             }
-            this.cXF.setData(bdVar);
+            this.cpx.setData(bdVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.concern.view.d
-    public void akU() {
-        super.akU();
-        this.cXF.eW(this.bZU.getId());
+    public void afe() {
+        super.afe();
+        this.cpx.eO(this.bjU.getId());
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.cXF.onChangeSkinType();
+        this.cpx.onChangeSkinType();
     }
 }

@@ -9,78 +9,78 @@ import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.data.ai;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private boolean bOC = false;
-    private SparseArray<String> bOD = null;
-    private String[] bOE;
-    private LinearLayout bOF;
-    private CompoundButton.OnCheckedChangeListener bOG;
-    private int bOH;
+    private LinearLayout aYA;
+    private CompoundButton.OnCheckedChangeListener aYB;
+    private int aYC;
+    private boolean aYx = false;
+    private SparseArray<String> aYy = null;
+    private String[] aYz;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.bOH = l.t(this.mPageContext.getPageActivity(), d.e.ds16);
+        this.aYC = l.e(this.mPageContext.getPageActivity(), d.e.ds16);
     }
 
-    public void setData(ah ahVar) {
-        if (ahVar != null) {
-            this.bOD = ahVar.yo();
+    public void setData(ai aiVar) {
+        if (aiVar != null) {
+            this.aYy = aiVar.qU();
         }
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.bOE = strArr;
+        this.aYz = strArr;
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.bOC = z;
+        this.aYx = z;
     }
 
     public void a(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        this.bOG = onCheckedChangeListener;
+        this.aYB = onCheckedChangeListener;
     }
 
     public View getView() {
-        if (this.bOF == null) {
-            this.bOF = new LinearLayout(this.mPageContext.getPageActivity());
-            this.bOF.setOrientation(1);
+        if (this.aYA == null) {
+            this.aYA = new LinearLayout(this.mPageContext.getPageActivity());
+            this.aYA.setOrientation(1);
         }
-        List<List<a>> SW = SW();
-        if (v.E(SW)) {
+        List<List<a>> Lu = Lu();
+        if (v.w(Lu)) {
             return null;
         }
-        int size = SW.size();
+        int size = Lu.size();
         int i = 0;
         while (i < size) {
-            View a2 = a(SW.get(i), i == size + (-1), this.bOF.getChildAt(i));
+            View a2 = a(Lu.get(i), i == size + (-1), this.aYA.getChildAt(i));
             if (a2 != null && a2.getParent() == null) {
-                this.bOF.addView(a2);
+                this.aYA.addView(a2);
             }
             i++;
         }
-        if (this.bOF.getChildCount() > size) {
-            this.bOF.removeViews(size, this.bOF.getChildCount() - size);
+        if (this.aYA.getChildCount() > size) {
+            this.aYA.removeViews(size, this.aYA.getChildCount() - size);
         }
-        return this.bOF;
+        return this.aYA;
     }
 
-    private List<List<a>> SW() {
+    private List<List<a>> Lu() {
         int i;
         int i2;
         int i3 = -1;
-        if (this.bOD == null || this.bOD.size() == 0) {
-            return SX();
+        if (this.aYy == null || this.aYy.size() == 0) {
+            return Lv();
         }
-        int size = this.bOD.size();
-        int i4 = this.bOC ? 0 : -1;
-        int i5 = this.bOC ? size - 1 : size;
+        int size = this.aYy.size();
+        int i4 = this.aYx ? 0 : -1;
+        int i5 = this.aYx ? size - 1 : size;
         if (i5 > 1 && i5 % 2 == 1) {
             i3 = i4 + 1;
         }
@@ -95,9 +95,9 @@ public class b {
                 i = i6 + 1;
             }
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(new a(i6, this.bOD.keyAt(i6), this.bOD.valueAt(i6)));
+            arrayList2.add(new a(i6, this.aYy.keyAt(i6), this.aYy.valueAt(i6)));
             if (i > i6 && i < size) {
-                arrayList2.add(new a(i, this.bOD.keyAt(i), this.bOD.valueAt(i)));
+                arrayList2.add(new a(i, this.aYy.keyAt(i), this.aYy.valueAt(i)));
             }
             arrayList.add(arrayList2);
             i6 = i2;
@@ -105,18 +105,18 @@ public class b {
         return arrayList;
     }
 
-    private List<List<a>> SX() {
-        if (this.bOE == null || this.bOE.length <= 0) {
+    private List<List<a>> Lv() {
+        if (this.aYz == null || this.aYz.length <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < this.bOE.length; i += 2) {
+        for (int i = 0; i < this.aYz.length; i += 2) {
             ArrayList arrayList2 = new ArrayList();
-            if (!StringUtils.isNull(this.bOE[i])) {
-                arrayList2.add(new a(i, 0, this.bOE[i]));
+            if (!StringUtils.isNull(this.aYz[i])) {
+                arrayList2.add(new a(i, 0, this.aYz[i]));
             }
-            if (i + 1 < this.bOE.length && !StringUtils.isNull(this.bOE[i + 1])) {
-                arrayList2.add(new a(i + 1, 0, this.bOE[i + 1]));
+            if (i + 1 < this.aYz.length && !StringUtils.isNull(this.aYz[i + 1])) {
+                arrayList2.add(new a(i + 1, 0, this.aYz[i + 1]));
             }
             if (arrayList2.size() > 0) {
                 arrayList.add(arrayList2);
@@ -125,20 +125,20 @@ public class b {
         return arrayList;
     }
 
-    private View a(List<a> list, boolean z, View view) {
+    private View a(List<a> list, boolean z, View view2) {
         LinearLayout linearLayout;
-        if (v.E(list)) {
+        if (v.w(list)) {
             return null;
         }
-        if (view instanceof LinearLayout) {
-            linearLayout = (LinearLayout) view;
+        if (view2 instanceof LinearLayout) {
+            linearLayout = (LinearLayout) view2;
         } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.neg_feedback_reason_item, (ViewGroup) this.bOF, false);
+            linearLayout = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.i.neg_feedback_reason_item, (ViewGroup) this.aYA, false);
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(d.g.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(d.g.right_reason);
-        nEGFeedBackReasonCheckBox.En();
-        nEGFeedBackReasonCheckBox2.En();
+        nEGFeedBackReasonCheckBox.wY();
+        nEGFeedBackReasonCheckBox2.wY();
         nEGFeedBackReasonCheckBox.setChecked(false);
         nEGFeedBackReasonCheckBox2.setChecked(false);
         a aVar = list.get(0);
@@ -154,9 +154,9 @@ public class b {
         } else {
             nEGFeedBackReasonCheckBox2.setVisibility(8);
         }
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.bOG);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.bOG);
-        int i = z ? 0 : this.bOH;
+        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.aYB);
+        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.aYB);
+        int i = z ? 0 : this.aYC;
         if (linearLayout.getLayoutParams() != null) {
             ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
             return linearLayout;

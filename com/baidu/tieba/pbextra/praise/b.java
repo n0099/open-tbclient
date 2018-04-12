@@ -6,47 +6,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b {
-    private View bXM;
-    private HeadImageView gho;
-    private TextView ghp;
-    private TextView ghq;
-    private ImageView ghr;
+    private View bhL;
+    private HeadImageView fBK;
+    private TextView fBL;
+    private TextView fBM;
+    private ImageView fBN;
 
-    public static b c(Context context, View view) {
-        if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
+    public static b d(Context context, View view2) {
+        if (view2 == null || view2.getTag() == null || !(view2.getTag() instanceof b)) {
             return new b(context);
         }
-        return (b) view.getTag();
+        return (b) view2.getTag();
     }
 
     private b(Context context) {
-        this.bXM = null;
-        this.gho = null;
-        this.ghp = null;
-        this.ghq = null;
-        this.ghr = null;
-        this.bXM = LayoutInflater.from(context).inflate(d.h.zan_list_item, (ViewGroup) null);
-        this.gho = (HeadImageView) this.bXM.findViewById(d.g.zan_list_item_head);
-        this.ghp = (TextView) this.bXM.findViewById(d.g.zan_list_item_name);
-        this.ghq = (TextView) this.bXM.findViewById(d.g.zan_list_item_time);
-        this.ghr = (ImageView) this.bXM.findViewById(d.g.zan_list_item_line_bottom);
-        this.ghr.setVisibility(0);
-        this.bXM.setTag(this);
+        this.bhL = null;
+        this.fBK = null;
+        this.fBL = null;
+        this.fBM = null;
+        this.fBN = null;
+        this.bhL = LayoutInflater.from(context).inflate(d.i.zan_list_item, (ViewGroup) null);
+        this.fBK = (HeadImageView) this.bhL.findViewById(d.g.zan_list_item_head);
+        this.fBL = (TextView) this.bhL.findViewById(d.g.zan_list_item_name);
+        this.fBM = (TextView) this.bhL.findViewById(d.g.zan_list_item_time);
+        this.fBN = (ImageView) this.bhL.findViewById(d.g.zan_list_item_line_bottom);
+        this.fBN.setVisibility(0);
+        this.bhL.setTag(this);
     }
 
     public View getView() {
-        return this.bXM;
+        return this.bhL;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.ghp.setText(str);
-        this.gho.setImageDrawable(null);
-        this.ghq.setText(am.z(j));
-        this.gho.startLoad(str2, 28, false);
+        this.fBL.setText(str);
+        this.fBK.setImageDrawable(null);
+        this.fBM.setText(an.s(j));
+        this.fBK.startLoad(str2, 28, false);
     }
 }

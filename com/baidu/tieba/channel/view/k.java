@@ -9,22 +9,22 @@ import com.baidu.tieba.d;
 public class k extends PopupWindow {
     private View mContentView;
 
-    public k(Activity activity, View view) {
+    public k(Activity activity, View view2) {
         super(activity);
         this.mContentView = null;
-        a(activity, view);
+        a(activity, view2);
     }
 
-    private void a(Activity activity, View view) {
-        this.mContentView = view;
+    private void a(Activity activity, View view2) {
+        this.mContentView = view2;
         setContentView(this.mContentView);
         setOutsideTouchable(true);
         setFocusable(true);
         setHeight(-1);
         setWidth(-1);
         setSoftInputMode(16);
-        setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0141d.common_color_10022)));
-        setAnimationStyle(d.k.channel_more_pop_anim);
+        setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0126d.common_color_10022)));
+        setAnimationStyle(d.l.channel_more_pop_anim);
     }
 
     @Override // android.widget.PopupWindow

@@ -2,7 +2,7 @@ package android.support.v4.animation;
 
 import android.support.annotation.RestrictTo;
 import android.view.View;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public interface ValueAnimatorCompat {
     void addListener(AnimatorListenerCompat animatorListenerCompat);
@@ -15,7 +15,7 @@ public interface ValueAnimatorCompat {
 
     void setDuration(long j);
 
-    void setTarget(View view);
+    void setTarget(View view2);
 
     void start();
 }

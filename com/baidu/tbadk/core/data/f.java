@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.AwardUser;
+import tbclient.AwardInfo;
 /* loaded from: classes.dex */
 public class f {
-    private String aLj;
-    private int aLl;
-    private long mUserId;
-    private String mUserName;
+    private long WC;
+    private long WD;
+    private String WE;
+    private String WF;
 
-    public void a(AwardUser awardUser) {
-        if (awardUser != null) {
-            this.mUserId = awardUser.user_id.longValue();
-            this.mUserName = awardUser.user_name;
-            this.aLj = awardUser.award_name;
-            this.aLl = awardUser.award_time.intValue();
+    public void a(AwardInfo awardInfo) {
+        if (awardInfo != null) {
+            this.WC = awardInfo.award_id.longValue();
+            this.WD = awardInfo.award_act_id.longValue();
+            this.WE = awardInfo.award_name;
+            this.WF = awardInfo.award_imgsrc;
         }
     }
 }

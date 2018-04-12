@@ -4,6 +4,9 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.pm.ResolveInfo;
 /* loaded from: classes2.dex */
 class AccessibilityServiceInfoCompatIcs {
+    AccessibilityServiceInfoCompatIcs() {
+    }
+
     public static boolean getCanRetrieveWindowContent(AccessibilityServiceInfo accessibilityServiceInfo) {
         return accessibilityServiceInfo.getCanRetrieveWindowContent();
     }

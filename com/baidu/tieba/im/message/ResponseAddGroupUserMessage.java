@@ -3,15 +3,15 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.AddGroupUsers.AddGroupUsersResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponseAddGroupUserMessage extends SocketResponsedMessage {
-    private int groupId;
+    private long groupId;
 
     public ResponseAddGroupUserMessage() {
         super(103111);
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
@@ -22,7 +22,7 @@ public class ResponseAddGroupUserMessage extends SocketResponsedMessage {
         setError(addGroupUsersResIdl.error.errorno.intValue());
         setErrorString(addGroupUsersResIdl.error.usermsg);
         if (getError() == 0) {
-            this.groupId = addGroupUsersResIdl.data.groupId.intValue();
+            this.groupId = addGroupUsersResIdl.data.groupId.longValue();
         }
     }
 }

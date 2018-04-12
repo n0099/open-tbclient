@@ -4,12 +4,12 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes3.dex */
 public final class DataReq extends Message {
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Long DEFAULT_INVITEUSERID = 0L;
     public static final Integer DEFAULT_JOINTYPE = 0;
     public static final String DEFAULT_USERMSG = "";
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long inviteUserId;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
@@ -51,7 +51,7 @@ public final class DataReq extends Message {
 
     /* loaded from: classes3.dex */
     public static final class Builder extends Message.Builder<DataReq> {
-        public Integer groupId;
+        public Long groupId;
         public Long inviteUserId;
         public Integer joinType;
         public String userMsg;

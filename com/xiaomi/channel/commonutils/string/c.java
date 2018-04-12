@@ -2,7 +2,7 @@ package com.xiaomi.channel.commonutils.string;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static String a(byte b) {
         int i = (b & Byte.MAX_VALUE) + (b < 0 ? 128 : 0);

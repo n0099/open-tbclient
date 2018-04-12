@@ -21,9 +21,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class VideoAggregationModel extends BdBaseModel {
-    private a dIR;
-    private final HttpMessageListener dIS;
-    private final HttpMessageListener dIT;
+    private a dbG;
+    private final HttpMessageListener dbH;
+    private final HttpMessageListener dbI;
     private String mFrom;
     private String mId;
     private boolean mIsLoading;
@@ -34,9 +34,9 @@ public class VideoAggregationModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void c(List<f> list, boolean z, boolean z2);
+        void c(List<g> list, boolean z, boolean z2);
 
-        void lO(String str);
+        void lR(String str);
     }
 
     static /* synthetic */ int b(VideoAggregationModel videoAggregationModel) {
@@ -47,57 +47,57 @@ public class VideoAggregationModel extends BdBaseModel {
 
     public VideoAggregationModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.dIS = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_AGGREGATION) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationModel.1
+        this.dbH = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_AGGREGATION) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003360 || !(httpResponsedMessage instanceof VideoAggregationResponseMessage)) {
-                    VideoAggregationModel.this.dIR.lO("error");
+                    VideoAggregationModel.this.dbG.lR("error");
                     return;
                 }
                 VideoAggregationModel.this.mIsLoading = false;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    VideoAggregationModel.this.dIR.c(((VideoAggregationResponseMessage) httpResponsedMessage).mDataList, VideoAggregationModel.this.mPn == 1, ((VideoAggregationResponseMessage) httpResponsedMessage).mHasMore);
+                    VideoAggregationModel.this.dbG.c(((VideoAggregationResponseMessage) httpResponsedMessage).mDataList, VideoAggregationModel.this.mPn == 1, ((VideoAggregationResponseMessage) httpResponsedMessage).mHasMore);
                     return;
                 }
                 VideoAggregationModel.b(VideoAggregationModel.this);
                 String errorString = httpResponsedMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = TbadkCoreApplication.getInst().getResources().getString(d.j.error_unkown_try_again);
+                    errorString = TbadkCoreApplication.getInst().getResources().getString(d.k.error_unkown_try_again);
                 }
-                VideoAggregationModel.this.dIR.lO(errorString);
+                VideoAggregationModel.this.dbG.lR(errorString);
             }
         };
-        this.dIT = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationModel.2
+        this.dbI = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoAggregationResponseMessage)) {
-                    VideoAggregationModel.this.dIR.lO("error");
+                    VideoAggregationModel.this.dbG.lR("error");
                     return;
                 }
                 VideoAggregationModel.this.mIsLoading = false;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    VideoAggregationModel.this.dIR.c(((VideoAggregationResponseMessage) httpResponsedMessage).mDataList, VideoAggregationModel.this.mPn == 1, ((VideoAggregationResponseMessage) httpResponsedMessage).mHasMore);
+                    VideoAggregationModel.this.dbG.c(((VideoAggregationResponseMessage) httpResponsedMessage).mDataList, VideoAggregationModel.this.mPn == 1, ((VideoAggregationResponseMessage) httpResponsedMessage).mHasMore);
                     return;
                 }
                 VideoAggregationModel.b(VideoAggregationModel.this);
                 String errorString = httpResponsedMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = TbadkCoreApplication.getInst().getResources().getString(d.j.error_unkown_try_again);
+                    errorString = TbadkCoreApplication.getInst().getResources().getString(d.k.error_unkown_try_again);
                 }
-                VideoAggregationModel.this.dIR.lO(errorString);
+                VideoAggregationModel.this.dbG.lR(errorString);
             }
         };
         this.mPageContext = tbPageContext;
-        this.dIR = aVar;
-        HQ();
-        this.dIS.setTag(getUniqueId());
-        this.dIS.setSelfListener(true);
-        this.dIT.setTag(getUniqueId());
-        this.dIT.setSelfListener(true);
-        registerListener(this.dIS);
-        registerListener(this.dIT);
+        this.dbG = aVar;
+        AE();
+        this.dbH.setTag(getUniqueId());
+        this.dbH.setSelfListener(true);
+        this.dbI.setTag(getUniqueId());
+        this.dbI.setSelfListener(true);
+        registerListener(this.dbH);
+        registerListener(this.dbI);
     }
 
     public void setId(String str) {
@@ -108,7 +108,7 @@ public class VideoAggregationModel extends BdBaseModel {
         this.mFrom = str;
     }
 
-    public void lN(String str) {
+    public void lQ(String str) {
         this.st_type = str;
     }
 
@@ -116,7 +116,7 @@ public class VideoAggregationModel extends BdBaseModel {
         this.yuelaou_locate = str;
     }
 
-    private void HQ() {
+    private void AE() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_AGGREGATION, TbConfig.SERVER_ADDRESS + "c/f/video/frstab");
         tbHttpMessageTask.setResponsedClass(VideoAggregationResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -127,7 +127,7 @@ public class VideoAggregationModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public static class VideoAggregationResponseMessage extends JsonHttpResponsedMessage {
-        public List<f> mDataList;
+        public List<g> mDataList;
         public boolean mHasMore;
 
         public VideoAggregationResponseMessage(int i) {
@@ -145,10 +145,10 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.mDataList = new ArrayList();
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        f fVar = new f();
-                        fVar.parseJson(jSONArray.optString(i2));
-                        if (fVar.dIK != null) {
-                            this.mDataList.add(fVar);
+                        g gVar = new g();
+                        gVar.parseJson(jSONArray.optString(i2));
+                        if (gVar.dbz != null) {
+                            this.mDataList.add(gVar);
                         }
                     }
                 }
@@ -156,7 +156,7 @@ public class VideoAggregationModel extends BdBaseModel {
         }
     }
 
-    public void awP() {
+    public void arf() {
         this.mPn = 0;
         LoadData();
     }

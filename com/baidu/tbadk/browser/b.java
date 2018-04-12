@@ -1,201 +1,128 @@
 package com.baidu.tbadk.browser;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Pair;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebSettings;
+import android.webkit.JsPromptResult;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ag;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import java.util.List;
+import com.baidu.tbadk.core.atomData.GameShareActivityConfig;
+import com.baidu.tbadk.core.data.GameShareData;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.xiuba.JSResultData;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String L(String str, String str2) {
-        String str3;
-        if (!str.startsWith("http://") && !str.startsWith("https://")) {
-            str = "http://".concat(str);
-        }
-        if (str.contains("?")) {
-            str3 = "&st_type=" + str2;
-        } else {
-            str3 = "?st_type=" + str2;
-        }
-        return str.concat(str3);
+public class b implements com.baidu.tieba.tbadkCore.e.b {
+    private final Context mContext;
+
+    public b(Context context) {
+        this.mContext = context;
     }
 
-    public static void R(Context context, String str) {
-        b(context, true, str);
+    private String pd() {
+        az.aK(this.mContext);
+        JSResultData jSResultData = new JSResultData();
+        jSResultData.setStatus(1);
+        jSResultData.setErrorCode("0");
+        jSResultData.setErrorMsg("");
+        return OrmObject.jsonStrWithObject(jSResultData);
     }
 
-    public static void b(Context context, boolean z, String str) {
-        a(context, "", str, true, true, true, true, z);
+    private String pe() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921053));
+        return "";
     }
 
-    public static void a(Context context, boolean z, String str, String str2) {
-        a(context, str2, str, true, true, true, true, z);
+    private String pf() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921052));
+        return "";
     }
 
-    public static void g(Context context, String str, String str2) {
-        a(context, str, str2, true, true, true, true, true);
+    private void ck(String str) {
     }
 
-    public static void a(boolean z, Context context, String str, String str2) {
-        a(context, str, str2, true, true, true, true, true, false, z);
-    }
-
-    public static void c(Context context, String str, String str2, boolean z) {
-        a(context, str, str2, true, z, true, true, true);
-    }
-
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
-        a(context, str, str2, z, z2, z3, true, true);
-    }
-
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        ws();
-        try {
-            if (!StringUtils.isNull(str2)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
-        a(context, str, str2, z, z2, z3, z4, z5, z6, false);
-    }
-
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        ws();
-        try {
-            if (!StringUtils.isNull(str2)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
-                tbWebViewActivityConfig.setFixTitle(z7);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void S(Context context, String str) {
-        R(context, str);
-    }
-
-    public static void T(Context context, String str) {
-        String appendVersionCode = appendVersionCode(appendCuidParam(str));
-        try {
-            Intent intent = new Intent("android.intent.action.VIEW");
-            intent.setData(Uri.parse(appendVersionCode));
-            if (!(context instanceof Activity)) {
-                intent.addFlags(268435456);
-            }
-            context.startActivity(intent);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static String b(String str, List<Pair<String, String>> list) {
-        if (!am.isEmpty(str) && list != null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (str.indexOf("?") < 0) {
-                sb.append("?");
-            }
-            for (Pair<String, String> pair : list) {
-                if (pair != null && !TextUtils.isEmpty((CharSequence) pair.first)) {
-                    sb.append("&");
-                    sb.append((String) pair.first);
-                    sb.append("=");
-                    sb.append((String) pair.second);
-                }
-            }
-            return sb.toString();
-        }
-        return str;
-    }
-
-    public static String appendCuidParam(String str) {
-        if (!am.isEmpty(str) && str.indexOf("cuid=") <= -1) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (str.indexOf("?") > 0) {
-                sb.append("&");
-            } else {
-                sb.append("?");
-            }
-            if (!UtilHelper.isNativeAdURL(str)) {
-                sb.append("cuid=");
-                sb.append(TbadkCoreApplication.getInst().getCuid());
-            }
-            sb.append("&timestamp=");
-            sb.append(Long.toString(System.currentTimeMillis()));
-            return sb.toString();
-        }
-        return str;
-    }
-
-    public static String appendVersionCode(String str) {
-        return (am.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
-    }
-
-    public static void aH(Context context) {
-        CookieManager cookieManager;
-        try {
-            CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
-            cookieManager = CookieManager.getInstance();
-        } catch (Throwable th) {
-            BdLog.e(th);
-            cookieManager = null;
-        }
-        if (cookieManager != null) {
-            cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.xv().cL(TbadkCoreApplication.getCurrentBduss()) != null) {
-                String c = com.baidu.tbadk.core.a.e.c(TbadkCoreApplication.getCurrentAccountInfo());
-                StringBuilder sb = new StringBuilder();
-                if (!StringUtils.isNull(c)) {
-                    sb.append("STOKEN=").append(c).append("; domain=.tieba.baidu.com;");
-                    cookieManager.setCookie("tieba.baidu.com", sb.toString());
-                }
-            } else {
+    @Override // com.baidu.tieba.tbadkCore.e.b
+    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        if ("CommonJSBridge".equals(str)) {
+            if ("startLoginModule".equals(str2)) {
                 try {
-                    cookieManager.removeAllCookie();
+                    new JSONObject(str3);
+                    jsPromptResult.confirm(pd());
+                    return true;
                 } catch (Exception e) {
-                    BdLog.e(e);
+                    e.printStackTrace();
                 }
             }
-            cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com;");
-            try {
-                CookieSyncManager.getInstance().sync();
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            if ("hideWebLoading".equals(str2)) {
+                try {
+                    String optString = new JSONObject(str3).optString("url");
+                    if (!StringUtils.isNull(optString)) {
+                        ck(optString);
+                    }
+                    jsPromptResult.confirm();
+                    return true;
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
             }
-            SapiAccountManager.getInstance().getAccountService().webLogin(context);
+            if ("personPageRefresh".equals(str2)) {
+                try {
+                    jsPromptResult.confirm(pf());
+                    return true;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+            }
+            if ("finishThisPage".equals(str2)) {
+                try {
+                    jsPromptResult.confirm(pe());
+                    return true;
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            }
+            if ("registerShareData".equals(str2)) {
+                try {
+                    cl(str3);
+                    jsPromptResult.confirm();
+                    return true;
+                } catch (Exception e5) {
+                    e5.printStackTrace();
+                }
+            }
+            if ("gameShare".equals(str2)) {
+                try {
+                    cm(str3);
+                    jsPromptResult.confirm();
+                    return true;
+                } catch (Exception e6) {
+                    e6.printStackTrace();
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
-    public static void WebViewNoDataBase(WebSettings webSettings) {
-        CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
+    private void cl(String str) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921331, str));
     }
 
-    private static void ws() {
-        new ag("open_webview", true).start();
+    private void cm(String str) {
+        JSONObject jSONObject;
+        try {
+            jSONObject = new JSONObject(str);
+        } catch (JSONException e) {
+            BdLog.e(e);
+            jSONObject = null;
+        }
+        if (jSONObject != null) {
+            GameShareData gameShareData = new GameShareData();
+            gameShareData.parseJson(jSONObject);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameShareActivityConfig(this.mContext, gameShareData)));
+        }
     }
 }

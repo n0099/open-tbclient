@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.o;
 import tbclient.GetMoreMsg.DataReq;
 import tbclient.GetMoreMsg.GetMoreMsgReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScreenLockLoadMoreMessage extends NetMessage {
     public ScreenLockLoadMoreMessage() {
         super(CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, 309420);

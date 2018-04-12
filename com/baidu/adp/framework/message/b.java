@@ -1,16 +1,16 @@
 package com.baidu.adp.framework.message;
 /* loaded from: classes.dex */
 public class b {
-    public long aeA = 0;
-    public long aeB = 0;
-    public long aeC = 0;
-    public long aeD = 0;
-    public long aeE = 0;
-    public long aeF = 0;
-    public long aeG = 0;
-    public long aeH = 0;
-    public int aeI = 0;
-    public long aeJ = 0;
-    public long aeK = 0;
-    public long aeL = 0;
+    public long oV = 0;
+    public long oW = 0;
+    public long oX = 0;
+    public long oY = 0;
+    public long oZ = 0;
+    public long pa = 0;
+    public long pd = 0;
+    public long pe = 0;
+    public int pf = 0;
+    public long pg = 0;
+    public long ph = 0;
+    public long pi = 0;
 }

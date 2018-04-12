@@ -28,6 +28,9 @@ class ActivityCompatApi23 {
         public abstract void onSharedElementsArrived(List<String> list, List<View> list2, OnSharedElementsReadyListenerBridge onSharedElementsReadyListenerBridge);
     }
 
+    ActivityCompatApi23() {
+    }
+
     public static void requestPermissions(Activity activity, String[] strArr, int i) {
         if (activity instanceof RequestPermissionsRequestCodeValidator) {
             ((RequestPermissionsRequestCodeValidator) activity).validateRequestPermissionsRequestCode(i);
@@ -84,8 +87,8 @@ class ActivityCompatApi23 {
         }
 
         @Override // android.app.SharedElementCallback
-        public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
-            return this.mCallback.onCaptureSharedElementSnapshot(view, matrix, rectF);
+        public Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF) {
+            return this.mCallback.onCaptureSharedElementSnapshot(view2, matrix, rectF);
         }
 
         @Override // android.app.SharedElementCallback

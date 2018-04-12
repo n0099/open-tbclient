@@ -4,6 +4,9 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityRecord;
 /* loaded from: classes2.dex */
 class AccessibilityEventCompatIcs {
+    AccessibilityEventCompatIcs() {
+    }
+
     public static int getRecordCount(AccessibilityEvent accessibilityEvent) {
         return accessibilityEvent.getRecordCount();
     }
@@ -14,5 +17,9 @@ class AccessibilityEventCompatIcs {
 
     public static Object getRecord(AccessibilityEvent accessibilityEvent, int i) {
         return accessibilityEvent.getRecord(i);
+    }
+
+    public static void setScrollable(AccessibilityEvent accessibilityEvent, boolean z) {
+        accessibilityEvent.setScrollable(z);
     }
 }

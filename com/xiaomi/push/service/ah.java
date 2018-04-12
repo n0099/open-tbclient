@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.util.Pair;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ah {
     private static volatile ah b;
     protected SharedPreferences a;

@@ -13,7 +13,7 @@ public class e implements View.OnKeyListener {
     }
 
     @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+    public boolean onKey(View view2, int i, KeyEvent keyEvent) {
         boolean z;
         SafeScrollView safeScrollView;
         SafeScrollView safeScrollView2;

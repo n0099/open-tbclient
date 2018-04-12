@@ -1,37 +1,35 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes.dex */
 public class o {
-    private String aLI;
-    private int aLJ;
-    private ArrayList<q> aLK = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+    private ArrayList<String> Xb = new ArrayList<>();
+    private int Xc;
 
-    public ArrayList<q> xS() {
-        return this.aLK;
+    public ArrayList<String> qx() {
+        return this.Xb;
     }
 
-    public void g(ArrayList<q> arrayList) {
-        this.aLK = arrayList;
+    public int qy() {
+        return this.Xc;
     }
 
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
-            this.aLJ = activityHead.activity_type.intValue();
-            this.aLI = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            for (HeadImgs headImgs : activityHead.head_imgs) {
-                q qVar = new q();
-                qVar.a(headImgs);
-                this.aLK.add(qVar);
+    public boolean a(ColorEgg colorEgg) {
+        this.Xc = 0;
+        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
+            return false;
+        }
+        for (String str : colorEgg.holiday_words) {
+            if (!StringUtils.isNull(str)) {
+                this.Xb.add(str);
             }
         }
+        if (this.Xb.size() <= 0) {
+            return false;
+        }
+        this.Xc = colorEgg.style_flag.intValue();
+        return true;
     }
 }

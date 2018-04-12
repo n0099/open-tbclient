@@ -7,7 +7,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     private static String a = null;
     private static String b = null;

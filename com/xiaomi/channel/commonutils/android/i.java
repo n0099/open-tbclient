@@ -1,7 +1,7 @@
 package com.xiaomi.channel.commonutils.android;
 
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static String a(String str, String str2) {
         try {

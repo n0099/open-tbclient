@@ -6,35 +6,35 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class m<T> implements l.c<T> {
-    protected final String ahd;
-    private boolean ahw = false;
-    protected final k<T> ahx;
+    private boolean rP = false;
+    protected final k<T> rQ;
+    protected final String ry;
 
     public m(String str, k<T> kVar) {
-        this.ahd = str;
-        this.ahx = kVar;
+        this.ry = str;
+        this.rQ = kVar;
     }
 
     @Override // com.baidu.adp.lib.cache.l
     public T get(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.oZ()) {
-            if (this.ahw) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.hf()) {
+            if (this.rP) {
                 throw new RuntimeException("access db in main thread!");
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.ahx.k(this.ahd, str);
+        return this.rQ.k(this.ry, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public l.b<T> ae(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.oZ()) {
-            if (this.ahw) {
+    public l.b<T> ab(String str) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.hf()) {
+            if (this.rP) {
                 throw new RuntimeException("access db in main thread!");
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.ahx.l(this.ahd, str);
+        return this.rQ.l(this.ry, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -43,8 +43,8 @@ public class m<T> implements l.c<T> {
             throw new NullPointerException("BdKVCache key cannot be null!");
         }
         long currentTimeMillis = j <= 315532800000L ? j + System.currentTimeMillis() : j;
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.oZ()) {
-            if (this.ahw) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.hf()) {
+            if (this.rP) {
                 throw new RuntimeException("access db in main thread!");
             }
             BdLog.detailException("access db in main thread!", new Exception());
@@ -52,7 +52,7 @@ public class m<T> implements l.c<T> {
         if (currentTimeMillis <= System.currentTimeMillis()) {
             remove(str);
         } else {
-            this.ahx.a(this.ahd, str, t, currentTimeMillis);
+            this.rQ.a(this.ry, str, t, currentTimeMillis);
         }
     }
 
@@ -63,18 +63,18 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public void remove(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.oZ()) {
-            if (this.ahw) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.l.hf()) {
+            if (this.rP) {
                 throw new RuntimeException("access db in main thread!");
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        this.ahx.m(this.ahd, str);
+        this.rQ.m(this.ry, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
     public void a(final String str, final l.a<T> aVar) {
-        com.baidu.adp.lib.g.h.nt().e(new Runnable() { // from class: com.baidu.adp.lib.cache.m.1
+        com.baidu.adp.lib.g.h.fx().d(new Runnable() { // from class: com.baidu.adp.lib.cache.m.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.adp.lib.cache.l$a */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
@@ -86,7 +86,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public void b(final String str, final T t, final long j) {
-        com.baidu.adp.lib.g.h.nt().e(new Runnable() { // from class: com.baidu.adp.lib.cache.m.2
+        com.baidu.adp.lib.g.h.fx().d(new Runnable() { // from class: com.baidu.adp.lib.cache.m.2
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.adp.lib.cache.m */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
@@ -102,8 +102,8 @@ public class m<T> implements l.c<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void af(final String str) {
-        com.baidu.adp.lib.g.h.nt().e(new Runnable() { // from class: com.baidu.adp.lib.cache.m.3
+    public void ac(final String str) {
+        com.baidu.adp.lib.g.h.fx().d(new Runnable() { // from class: com.baidu.adp.lib.cache.m.3
             @Override // java.lang.Runnable
             public void run() {
                 m.this.remove(str);
@@ -112,29 +112,29 @@ public class m<T> implements l.c<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l.c
-    public String ml() {
-        return this.ahd;
+    public String ep() {
+        return this.ry;
     }
 
     @Override // com.baidu.adp.lib.cache.l.c
-    public k<T> mm() {
-        return this.ahx;
+    public k<T> eq() {
+        return this.rQ;
     }
 
-    public void mo() {
-        this.ahx.ad(this.ahd);
+    public void es() {
+        this.rQ.aa(this.ry);
     }
 
-    protected void mp() {
-        e mb = mm().mb();
-        if (mb instanceof e.b) {
-            ((e.b) mb).release();
+    protected void et() {
+        e ef = eq().ef();
+        if (ef instanceof e.b) {
+            ((e.b) ef).release();
         }
     }
 
     @Override // com.baidu.adp.lib.cache.l.c
-    public void mn() {
-        this.ahx.ac(this.ahd);
-        mp();
+    public void er() {
+        this.rQ.Z(this.ry);
+        et();
     }
 }

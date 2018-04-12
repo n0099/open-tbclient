@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.xiaomi.mipush.sdk.MessageHandleService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public void onCommandResult(Context context, MiPushCommandMessage miPushCommandMessage) {
     }

@@ -41,8 +41,8 @@ public class BlurringView extends View {
         setOverlayColor(parseColor);
     }
 
-    public void setBlurredView(View view) {
-        this.c = view;
+    public void setBlurredView(View view2) {
+        this.c = view2;
     }
 
     @Override // android.view.View

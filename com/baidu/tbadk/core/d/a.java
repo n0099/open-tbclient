@@ -8,7 +8,7 @@ import com.tencent.tauth.AuthActivity;
 public class a {
     public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
         com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a();
-        aVar.h(IntentConfig.CMD, Integer.valueOf(i));
+        aVar.f(IntentConfig.CMD, Integer.valueOf(i));
         if (!TextUtils.isEmpty(str2)) {
             aVar.append(AuthActivity.ACTION_KEY, str2);
         }
@@ -17,7 +17,7 @@ public class a {
             aVar.append("errMsg", str3);
         }
         if (objArr != null && objArr.length > 0) {
-            aVar.h(objArr);
+            aVar.f(objArr);
         }
         if (i2 == 0) {
             BdStatisticsManager.getInstance().debug(str, j, null, aVar);

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.push.service.ay;
 import org.apache.thrift.protocol.a;
 import org.apache.thrift.protocol.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aq {
     public static short a(Context context, ab abVar) {
         return (short) ((com.xiaomi.channel.commonutils.misc.e.a(context) ? 8 : 0) + 0 + com.xiaomi.channel.commonutils.android.b.d(context, abVar.f).a() + (com.xiaomi.channel.commonutils.misc.e.b(context) ? 4 : 0) + (ay.a(context, abVar) ? 16 : 0));
@@ -26,7 +26,7 @@ public class aq {
             return null;
         }
         try {
-            return new org.apache.thrift.g(new a.C0295a()).a(t);
+            return new org.apache.thrift.g(new a.C0277a()).a(t);
         } catch (org.apache.thrift.f e) {
             com.xiaomi.channel.commonutils.logger.b.a("convertThriftObjectToBytes catch TException.", e);
             return null;

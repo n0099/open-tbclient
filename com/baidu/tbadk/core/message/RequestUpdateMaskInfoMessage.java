@@ -8,6 +8,7 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
     private static final int FALSE = 0;
     public static final int SWITCH_PRIVATE_CHAT_SINGLE = 9;
     private static final int TRUE = 1;
+    private long g_id;
     private int isMask;
     private String list;
     private int maskType;
@@ -22,6 +23,7 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
         builder.type = Integer.valueOf(this.maskType);
         builder.isMask = Integer.valueOf(this.isMask);
         builder.list = this.list;
+        builder.g_id = Long.valueOf(this.g_id);
         UpdateMaskInfoReqIdl.Builder builder2 = new UpdateMaskInfoReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
@@ -65,5 +67,13 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
 
     public void setList(String str) {
         this.list = str;
+    }
+
+    public long getG_id() {
+        return this.g_id;
+    }
+
+    public void setG_id(long j) {
+        this.g_id = j;
     }
 }

@@ -1,133 +1,145 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
-import com.baidu.tieba.im.chat.officialBar.g;
+import android.widget.BaseAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.OfficialHistoryImageActivityConfig;
+import com.baidu.tieba.im.chat.j;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class d extends LinearLayout {
-    private com.baidu.adp.lib.c.b evU;
-    private TbImageView exH;
-    private int exI;
-    private String exJ;
-    private Context mContext;
-    private int mPosition;
-    private TextView mTitle;
-
-    public d(Context context) {
-        this(context, null);
-    }
-
-    public d(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.evU = null;
-        this.mContext = context;
-        initView();
-        setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
-            @Override // android.view.View.OnLongClickListener
-            public boolean onLongClick(View view) {
-                if (d.this.evU != null) {
-                    d.this.evU.b(view, 9, d.this.mPosition, 0L);
-                    return false;
+public class d extends BaseAdapter {
+    BaseActivity bcJ;
+    private View.OnClickListener dSQ = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            int intValue = ((Integer) view2.getTag()).intValue();
+            if (intValue >= 0 && intValue < d.this.mList.size()) {
+                ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) d.this.mList.get(intValue);
+                String F = com.baidu.tieba.im.util.e.F("[" + aVar.content + "]", true);
+                if (F != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(d.this.mContext, F, String.valueOf(aVar.id))));
                 }
-                return false;
             }
-        });
+        }
+    };
+    Context mContext;
+    private List<ResponseHistoryMessage.a> mList;
+
+    public d(BaseActivity baseActivity, Context context) {
+        this.mContext = context;
+        this.bcJ = baseActivity;
     }
 
-    private void initView() {
-        setOrientation(0);
-        LayoutInflater.from(this.mContext).inflate(d.h.msg_multi_pic_text_bottom_view, (ViewGroup) this, true);
-        this.exH = (TbImageView) findViewById(d.g.bottom_content_pic);
-        this.exH.setAutoChangeStyle(false);
-        this.mTitle = (TextView) findViewById(d.g.bottom_title);
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.mList == null) {
+            return 0;
+        }
+        return this.mList.size();
     }
 
-    public void a(final TbPageContext<?> tbPageContext, final g.a aVar, View view, final int i) {
-        if (aVar != null) {
-            String str = "";
-            if (!TextUtils.isEmpty(aVar.title)) {
-                str = aVar.title;
-            }
-            this.mTitle.setText(str);
-            if (!TextUtils.isEmpty(aVar.url)) {
-                setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.2
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
-                        if (aVar != null && !StringUtils.isNull(aVar.url)) {
-                            aw.Du().c(tbPageContext, new String[]{aVar.url});
-                            if (i == 1) {
-                                TiebaStatic.eventStat(d.this.mContext, "official_msg_ck", "click", 1, ImageViewerConfig.FORUM_ID, aVar.fid);
-                                com.baidu.tieba.im.data.d nT = com.baidu.tieba.im.util.e.nT(d.this.exJ);
-                                if (nT != null) {
-                                    TiebaStatic.eventStat(d.this.mContext, "message_open_detail", "click", 1, "task_type", nT.eBx, "task_id", nT.taskId, "loc", "" + d.this.exI);
-                                    if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(nT.taskId)) {
-                                        com.baidu.tieba.im.b.a.aLZ().nN(nT.taskId);
-                                    }
-                                }
-                                ak akVar = new ak("official_message_open_detail");
-                                akVar.f("msg_id", aVar.exQ / 100);
-                                akVar.ab("official_id", aVar.exR);
-                                akVar.s("official_type", aVar.exS);
-                                akVar.f("operate_time", System.currentTimeMillis() / 1000);
-                                akVar.f("task_id", aVar.taskId);
-                                akVar.ab("obj_params1", aVar.url);
-                                TiebaStatic.log(akVar);
-                            }
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.mList == null || i >= getCount()) {
+            return null;
+        }
+        return this.mList.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        if (this.mList == null || i >= this.mList.size()) {
+            return 0L;
+        }
+        return i;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        if (this.mList == null || i >= this.mList.size()) {
+            return 0;
+        }
+        switch (this.mList.get(i).type) {
+            case 1:
+                return 0;
+            case 2:
+                return 1;
+            case 7:
+                return 2;
+            default:
+                return 0;
+        }
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 3;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        return d(i, view2, viewGroup);
+    }
+
+    private View d(int i, View view2, ViewGroup viewGroup) {
+        ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) getItem(i);
+        if (aVar != null && aVar.content != null) {
+            switch (getItemViewType(i)) {
+                case 0:
+                    View historyItemView = view2 == null ? new HistoryItemView(this.mContext) : view2;
+                    HistoryItemView historyItemView2 = (HistoryItemView) historyItemView;
+                    historyItemView2.setClickable(false);
+                    historyItemView2.setTime(aVar.time);
+                    ChatMessage chatMessage = new ChatMessage(501126) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$2
+                        @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
+                        protected Object encode() {
+                            return null;
                         }
-                    }
-                });
-            }
-            if (!TextUtils.isEmpty(aVar.src)) {
-                this.exH.setTag(aVar.src);
-                this.exH.startLoad(aVar.src, 10, false);
+                    };
+                    chatMessage.setContent(aVar.content);
+                    chatMessage.setMsgType(aVar.type);
+                    j.a(this.mContext, historyItemView2.getRichTextView(), chatMessage, "official_history_adapter", 0);
+                    return historyItemView;
+                case 1:
+                    View historyItemView3 = view2 == null ? new HistoryItemView(this.mContext) : view2;
+                    HistoryItemView historyItemView4 = (HistoryItemView) historyItemView3;
+                    historyItemView4.setClickable(false);
+                    historyItemView4.setTime(aVar.time);
+                    ChatMessage chatMessage2 = new ChatMessage(501126) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$3
+                        @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
+                        protected Object encode() {
+                            return null;
+                        }
+                    };
+                    chatMessage2.setContent("[" + aVar.content + "]");
+                    chatMessage2.setMsgType(aVar.type);
+                    j.a(this.mContext, historyItemView3, historyItemView4.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    historyItemView4.getImageView().setTag(Integer.valueOf(i));
+                    historyItemView4.getImageView().setOnClickListener(this.dSQ);
+                    return historyItemView3;
+                case 2:
+                    View historyItemView5 = view2 == null ? new HistoryItemView(this.mContext) : view2;
+                    MultiContentView multiContentView = new MultiContentView(this.mContext);
+                    multiContentView.setNeedNightMode(true);
+                    multiContentView.setTime(aVar.time);
+                    multiContentView.setData(this.bcJ.getPageContext(), c.a(aVar.content, "", 0L), viewGroup);
+                    ((HistoryItemView) historyItemView5).aF(multiContentView);
+                    return historyItemView5;
+                default:
+                    return view2;
             }
         }
+        return view2;
     }
 
-    public void reset() {
-        this.mTitle.setText("");
-        this.exH.setBackgroundDrawable(null);
-        this.exH.setImageDrawable(null);
-    }
-
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.evU = bVar;
-    }
-
-    public void setPosition(int i) {
-        this.mPosition = i;
-    }
-
-    public void setStPosition(int i) {
-        this.exI = i;
-    }
-
-    public void setTaskInfo(String str) {
-        this.exJ = str;
-    }
-
-    public void hl(boolean z) {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 1 && !z) {
-            skinType = 0;
-        }
-        this.exH.setAutoChangeStyle(z);
-        aj.b(this.mTitle, d.C0141d.common_color_10039, 1, skinType);
+    public void setData(List<ResponseHistoryMessage.a> list) {
+        this.mList = list;
+        notifyDataSetChanged();
     }
 }

@@ -25,15 +25,15 @@ public class i {
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;
-    private static String aEt = "http://loc.map.baidu.com/sdk.php";
+    private static String as = "http://loc.map.baidu.com/sdk.php";
     public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String aEu = "http://loc.map.baidu.com/user_err.php";
-    private static String aEv = "http://loc.map.baidu.com/oqur.php";
-    private static String aEw = "http://loc.map.baidu.com/tcu.php";
-    private static String aEx = "http://loc.map.baidu.com/rtbu.php";
-    private static String aEy = "http://loc.map.baidu.com/iofd.php";
-    private static String aEz = "https://sapi.skyhookwireless.com/wps2/location";
-    private static String aEA = "http://loc.map.baidu.com/wloc";
+    private static String QC = "http://loc.map.baidu.com/user_err.php";
+    private static String QD = "http://loc.map.baidu.com/oqur.php";
+    private static String QE = "http://loc.map.baidu.com/tcu.php";
+    private static String QF = "http://loc.map.baidu.com/rtbu.php";
+    private static String QG = "http://loc.map.baidu.com/iofd.php";
+    private static String QH = "https://sapi.skyhookwireless.com/wps2/location";
+    private static String QI = "http://loc.map.baidu.com/wloc";
     public static String f = "no";
     public static boolean g = false;
     public static boolean h = false;
@@ -45,8 +45,8 @@ public class i {
     public static int n = 3;
     public static double o = 0.0d;
     public static double p = 0.0d;
-    public static double aBN = 0.0d;
-    public static double aBO = 0.0d;
+    public static double Oe = 0.0d;
+    public static double Of = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -58,7 +58,7 @@ public class i {
     public static int A = 3;
     public static int B = 10;
     public static int C = 2;
-    public static int aCo = 7;
+    public static int D = 7;
     public static int E = 20;
     public static int F = 70;
     public static int G = 120;
@@ -67,11 +67,11 @@ public class i {
     public static float J = 50.0f;
     public static float K = 200.0f;
     public static int L = 16;
-    public static float aEB = 0.9f;
+    public static float QJ = 0.9f;
     public static int N = 10000;
-    public static float aEC = 0.5f;
-    public static float aED = 0.0f;
-    public static float aEE = 0.1f;
+    public static float QK = 0.5f;
+    public static float QL = 0.0f;
+    public static float QM = 0.1f;
     public static int R = 30;
     public static int S = 100;
     public static int T = 0;
@@ -84,23 +84,23 @@ public class i {
     public static int aa = 300;
     public static int ab = 1000;
     public static long ac = 900000;
-    public static long aEF = 420000;
-    public static long aEG = 180000;
-    public static long aEH = 0;
-    public static long aEI = 15;
-    public static long aEJ = ReportUserInfoModel.TIME_INTERVAL;
+    public static long QN = 420000;
+    public static long QO = 180000;
+    public static long QP = 0;
+    public static long QQ = 15;
+    public static long QR = ReportUserInfoModel.TIME_INTERVAL;
     public static int ai = 1000;
     public static int aj = 0;
     public static int ak = 30000;
     public static int al = 30000;
     public static float am = 10.0f;
-    public static float aEK = 6.0f;
-    public static float aEL = 10.0f;
+    public static float QS = 6.0f;
+    public static float QT = 10.0f;
     public static int ap = 60;
     public static int aq = 70;
     public static int ar = 6;
 
-    public static Object P(Context context, String str) {
+    public static Object K(Context context, String str) {
         if (context == null) {
             return null;
         }
@@ -138,7 +138,7 @@ public class i {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.f.b.uY().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.f.b.nE().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (iVar != null) {
@@ -148,25 +148,25 @@ public class i {
             }
         }
         if (location != null) {
-            String i3 = (d == 0 || i2 == 0) ? com.baidu.location.f.e.i(location) : com.baidu.location.f.e.j(location);
-            if (i3 != null) {
-                stringBuffer.append(i3);
+            String h2 = (d == 0 || i2 == 0) ? com.baidu.location.f.e.h(location) : com.baidu.location.f.e.i(location);
+            if (h2 != null) {
+                stringBuffer.append(h2);
             }
         }
-        String a2 = c.vn().a(i2 == 0);
+        String a2 = c.nT().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.c.b.uD().d();
+        String d2 = com.baidu.location.c.b.nj().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
         if (i2 == 0) {
         }
-        if (aVar != null && (f2 = com.baidu.location.f.c.vd().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.f.c.nJ().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -175,13 +175,13 @@ public class i {
                 n = 3;
             } else {
                 float speed = location.getSpeed();
-                int i4 = d;
+                int i3 = d;
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < aEK && ((i4 == 1 || i4 == 0) && (d3 < ap || e2))) {
+                if (speed < QS && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
                     n = 1;
-                } else if (speed >= aEL || (!(i4 == 1 || i4 == 0 || i4 == 3) || (d3 >= aq && a3 <= ar))) {
+                } else if (speed >= QT || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
                     n = 3;
                 } else {
                     n = 2;
@@ -262,11 +262,11 @@ public class i {
     }
 
     public static String c() {
-        return aEt;
+        return as;
     }
 
     public static String d() {
-        return aEw;
+        return QE;
     }
 
     public static boolean d(BDLocation bDLocation) {

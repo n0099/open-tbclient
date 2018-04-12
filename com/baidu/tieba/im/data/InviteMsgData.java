@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class InviteMsgData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 5185744948511601466L;
     private long fromUid;
-    private int groupId;
+    private long groupId;
     private String groupName;
     private long groupOwnerId;
     private String notice;
@@ -79,11 +79,11 @@ public class InviteMsgData extends OrmObject implements Serializable {
         this.fromUid = j;
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 }

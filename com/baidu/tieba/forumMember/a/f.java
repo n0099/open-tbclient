@@ -2,28 +2,28 @@ package com.baidu.tieba.forumMember.a;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.r;
-import com.baidu.tbadk.core.view.GodHeadImageView;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.d;
+import com.baidu.tieba.forumMember.view.GodHeadImageView;
 /* loaded from: classes3.dex */
-public class f extends r.a {
-    public TextView bMV;
-    public View bQi;
-    public GodHeadImageView dBe;
-    public TextView dBf;
-    public TextView dbW;
+public class f extends q.a {
+    public View bae;
+    public TextView blN;
+    public GodHeadImageView cTQ;
+    public TextView cTR;
+    public TextView ctP;
     public int mSkinType;
 
-    public f(View view) {
-        super(view);
+    public f(View view2) {
+        super(view2);
         this.mSkinType = 3;
-        this.dBe = (GodHeadImageView) view.findViewById(d.g.item_head);
-        this.dBe.setShapeType(0);
-        this.dBe.setShowType(1);
-        this.dBe.setRadius(14);
-        this.bMV = (TextView) view.findViewById(d.g.item_manito_name);
-        this.dbW = (TextView) view.findViewById(d.g.item_manito_intro);
-        this.dBf = (TextView) view.findViewById(d.g.item_manito_fans);
-        this.bQi = view.findViewById(d.g.divider_line);
+        this.cTQ = (GodHeadImageView) view2.findViewById(d.g.item_head);
+        this.cTQ.setShapeType(0);
+        this.cTQ.setShowType(1);
+        this.cTQ.setRadius(14);
+        this.blN = (TextView) view2.findViewById(d.g.item_manito_name);
+        this.ctP = (TextView) view2.findViewById(d.g.item_manito_intro);
+        this.cTR = (TextView) view2.findViewById(d.g.item_manito_fans);
+        this.bae = view2.findViewById(d.g.divider_line);
     }
 }

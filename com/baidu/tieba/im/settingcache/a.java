@@ -12,20 +12,20 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> eNi = new HashMap<>();
+    protected HashMap<String, ChatSetting> ehO = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
     public abstract void a(ChatSetting chatSetting, h<Void> hVar);
 
-    protected abstract l<String> aLT();
+    protected abstract l<String> aGT();
 
     public abstract ChatSetting bj(String str, String str2);
 
     public void m(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.eNi) {
-            this.eNi.clear();
+        synchronized (this.ehO) {
+            this.ehO.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -33,14 +33,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + "@";
-            synchronized (this.eNi) {
-                l<String> aLT = aLT();
-                List<l.b<String>> b = r.b(aLT);
+            synchronized (this.ehO) {
+                l<String> aGT = aGT();
+                List<l.b<String>> b = r.b(aGT);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = aLT.get(str4)) != null) {
-                            this.eNi.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = aGT.get(str4)) != null) {
+                            this.ehO.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -48,7 +48,7 @@ public abstract class a {
         }
     }
 
-    public void h(String str, String str2, boolean z) {
+    public void i(String str, String str2, boolean z) {
         ChatSetting bj = bj(str, str2);
         if (bj != null) {
             bj.setAcceptNotify(z);

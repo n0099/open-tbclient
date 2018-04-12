@@ -11,12 +11,11 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.notification.e;
 import com.meizu.cloud.pushsdk.util.c;
-import com.meizu.cloud.pushsdk.util.d;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -62,7 +61,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(MessageV3 messageV3, e eVar) {
-        c.a(c(), messageV3.getPackageName(), 0);
+        com.meizu.cloud.pushsdk.util.b.a(c(), messageV3.getPackageName(), 0);
         Intent a = a(c(), messageV3);
         if (a != null) {
             a.addFlags(268435456);
@@ -93,7 +92,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: a */
     public void b(MessageV3 messageV3) {
-        d.e(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        c.e(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
     }
 
     private Intent a(Context context, MessageV3 messageV3) {

@@ -1,86 +1,131 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.d;
-import java.util.Calendar;
+import com.baidu.tieba.play.y;
 /* loaded from: classes2.dex */
-public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore.l, q> {
-    private String mForumId;
+public class p extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy.view.a>> implements com.baidu.tieba.a.f, aa, com.baidu.tieba.frs.e.c {
+    private String bvX;
+    private ab<bd> bvY;
+    private com.baidu.tieba.frs.entelechy.view.a det;
+    private String mForumName;
+    private String mFrom;
+    private TbPageContext<?> mPageContext;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public p(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(context, bdUniqueId, bdUniqueId2);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aB */
-    public q onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_video_activity_item, (ViewGroup) null);
-        q qVar = new q(inflate);
-        aj.r(qVar.mTitleTv, d.C0141d.cp_cont_b);
-        aj.r(qVar.dLl, d.C0141d.cp_cont_h);
-        aj.c(qVar.dLk, d.f.icon_news_list_prompt);
-        aj.c(qVar.dLm, d.f.icon_index_category_arrow_r);
-        aj.t(qVar.dLn, d.C0141d.cp_bg_line_b);
-        aj.t(qVar.dLo, d.C0141d.cp_bg_line_b);
-        aj.s(inflate, d.f.home_thread_card_item_bg);
-        return qVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.tbadkCore.l lVar, q qVar) {
-        if (view == null || qVar == null) {
-            return null;
-        }
-        view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.p.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                TiebaStatic.log(new ak("c12587").ab(ImageViewerConfig.FORUM_ID, p.this.mForumId));
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("frs_video_activity_tip" + p.this.mForumId, System.currentTimeMillis());
-                if (lVar != null && !StringUtils.isNull(lVar.url)) {
-                    com.baidu.tbadk.browser.b.S(p.this.mContext, lVar.url);
+    public p(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
+        this.bvY = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.p.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.card.ab
+            public void a(View view2, bd bdVar) {
+                if (view2 != null && bdVar != null) {
+                    if ("c13010".equals(p.this.mFrom)) {
+                        TiebaStatic.log(new al("c13010").r("obj_type", 2).f(ImageViewerConfig.FORUM_ID, bdVar.getFid()).ac("tid", bdVar.getTid()));
+                    }
+                    if (view2.getId() == d.g.layout_root || (p.this.det.bwk != null && p.this.det.bwk.getCommentContainer() != null && view2.getId() == p.this.det.bwk.getCommentContainer().getId())) {
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 1);
+                        p.this.S(bdVar);
+                    } else if (view2.getId() == d.g.card_home_page_normal_thread_user_name || view2.getId() == d.g.card_home_page_normal_thread_user_header) {
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 2);
+                    } else if (view2.getId() == d.g.header_divider) {
+                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.doy, bdVar.sn());
+                    } else if (view2.getId() == d.g.frame_video) {
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 4);
+                        p.this.S(bdVar);
+                    } else if (view2.getId() == d.g.card_god_reply_layout) {
+                        p.this.S(bdVar);
+                    }
                 }
             }
-        });
-        qVar.mTitleTv.setText(lVar != null ? lVar.text : "");
-        if (bG(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
-            qVar.dLk.setVisibility(0);
-        } else {
-            qVar.dLk.setVisibility(8);
-        }
-        return qVar.getView();
+        };
+        this.mPageContext = tbPageContext;
     }
 
-    private boolean bG(long j) {
-        if (j == 0) {
-            return true;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - j <= 86400000) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(currentTimeMillis);
-            Calendar calendar2 = Calendar.getInstance();
-            calendar2.setTimeInMillis(j);
-            return calendar.get(7) > calendar2.get(7);
-        }
-        return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: as */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        this.det = new com.baidu.tieba.frs.entelechy.view.a(this.mPageContext, this.mPageId);
+        this.det.j(this.mPageId);
+        this.det.setForumName(this.mForumName);
+        return new a(this.det);
     }
 
-    public void setForumId(String str) {
-        this.mForumId = str;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bd bdVar, a aVar) {
+        if (aVar == null || aVar.afY() == null) {
+            return null;
+        }
+        if (aVar.afY() instanceof com.baidu.tieba.a.e) {
+            aVar.afY().setPage(this.bvX);
+        }
+        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWO);
+        com.baidu.tieba.frs.e.a(aVar.afY().afA(), this.cWO);
+        aVar.afY().setVideoStatsData(Q(bdVar));
+        if (this.cWO != null && this.cWO.aVq() != null && !StringUtils.isNull(this.cWO.aVq().getTopic_special_icon()) && !StringUtils.isNull(this.cWO.aVq().getTopic_special_icon_right())) {
+            aVar.afY().M(this.cWO.aVq().getTopic_special_icon(), this.cWO.aVq().getTopic_special_icon_right());
+        }
+        aVar.afY().a(bdVar);
+        aVar.afY().setForumName(this.mForumName);
+        aVar.afY().b(this.bvY);
+        com.baidu.tieba.frs.e.b.auH().a(doy, bdVar);
+        com.baidu.tieba.frs.e.b.auH().V(bdVar);
+        if (bdVar != null) {
+            TiebaStatic.log(new al("c12125").ac("tid", bdVar.getId()).r("obj_locate", apb() ? 2 : 1).f(VideoPlayActivityConfig.OBJ_ID, bdVar.si() != null ? bdVar.si().live_id : -1L).r("obj_type", 1));
+            bdVar.sK();
+        }
+        return aVar.getView();
+    }
+
+    private y Q(bd bdVar) {
+        if (bdVar == null) {
+            return null;
+        }
+        y yVar = new y();
+        yVar.mLocate = bdVar.sG() ? "3" : "2";
+        yVar.crJ = doy.doo;
+        yVar.aNu = bdVar.getTid();
+        yVar.mSource = bdVar.mRecomSource;
+        yVar.fQM = bdVar.abq;
+        yVar.fQN = bdVar.mRecomWeight;
+        yVar.fQP = bdVar.mRecomAbTag;
+        if (bdVar.sh() != null) {
+            yVar.fQQ = bdVar.sh().video_md5;
+        }
+        return yVar;
+    }
+
+    @Override // com.baidu.tieba.card.aa
+    public void setForumName(String str) {
+        this.mForumName = str;
+    }
+
+    @Override // com.baidu.tieba.a.f
+    public void hY(String str) {
+        this.bvX = str;
+    }
+
+    public void setFrom(String str) {
+        this.mFrom = str;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void S(bd bdVar) {
+        TiebaStatic.log(new al("c12126").ac("tid", bdVar.getId()).r("obj_locate", apb() ? 2 : 1).f(VideoPlayActivityConfig.OBJ_ID, bdVar.si() == null ? -1L : bdVar.si().live_id).r("obj_type", 1));
     }
 }

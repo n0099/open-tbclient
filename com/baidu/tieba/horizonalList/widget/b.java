@@ -1,62 +1,87 @@
 package com.baidu.tieba.horizonalList.widget;
 
-import android.widget.ExpandableListView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
-class b {
-    private static ArrayList<b> emn = new ArrayList<>(5);
-    public int emr;
-    public int ems;
-    int emt;
-    public int type;
+public class b extends BaseAdapter {
+    private int GG;
+    private List<c> Yt;
+    public final ArrayList<e> aSf = new ArrayList<>();
+    private e dHz;
+    private LayoutInflater mInflater;
+    private View.OnClickListener mOnClickListener;
 
-    private void Tc() {
-        this.emr = 0;
-        this.ems = 0;
-        this.emt = 0;
-        this.type = 0;
+    public b(Context context, int i, e eVar) {
+        this.mInflater = LayoutInflater.from(context);
+        this.GG = i;
+        this.dHz = eVar;
     }
 
-    private b() {
+    public void setData(List<c> list) {
+        this.Yt = list;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long aDt() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.emr, this.ems) : ExpandableListView.getPackedPositionForGroup(this.emr);
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static b pb(int i) {
-        return z(2, i, 0, 0);
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public boolean hasStableIds() {
+        return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static b z(int i, int i2, int i3, int i4) {
-        b aDu = aDu();
-        aDu.type = i;
-        aDu.emr = i2;
-        aDu.ems = i3;
-        aDu.emt = i4;
-        return aDu;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return v.v(this.Yt);
     }
 
-    private static b aDu() {
-        b bVar;
-        synchronized (emn) {
-            if (emn.size() > 0) {
-                bVar = emn.remove(0);
-                bVar.Tc();
-            } else {
-                bVar = new b();
-            }
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return v.c(this.Yt, i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        if (v.c(this.Yt, i) == null) {
+            return -1L;
         }
-        return bVar;
+        return ((c) v.c(this.Yt, i)).hashCode();
     }
 
-    public void recycle() {
-        synchronized (emn) {
-            if (emn.size() < 5) {
-                emn.add(this);
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        if (view2 == null) {
+            view2 = this.mInflater.inflate(this.GG, viewGroup, false);
+            e ad = this.dHz.ad(view2);
+            ad.setOnClickListener(this.mOnClickListener);
+            view2.setTag(ad);
+            this.aSf.add(ad);
+        }
+        e eVar = (e) view2.getTag();
+        if (v.c(this.Yt, i) != null) {
+            a(eVar, this.Yt.get(i));
+        }
+        return eVar.getView();
+    }
+
+    private void a(e eVar, c cVar) {
+        if (cVar != null && eVar != null) {
+            eVar.a(cVar);
+        }
+    }
+
+    public void di(int i) {
+        if (v.v(this.aSf) > 0) {
+            Iterator<e> it = this.aSf.iterator();
+            while (it.hasNext()) {
+                it.next().onChangeSkinType(i);
             }
         }
     }

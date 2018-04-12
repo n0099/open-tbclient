@@ -2,10 +2,13 @@ package android.support.v4.util;
 
 import android.support.annotation.RestrictTo;
 import java.io.PrintWriter;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public final class TimeUtils {
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
+    private static final int SECONDS_PER_DAY = 86400;
+    private static final int SECONDS_PER_HOUR = 3600;
+    private static final int SECONDS_PER_MINUTE = 60;
     private static final Object sFormatSync = new Object();
     private static char[] sFormatStr = new char[24];
 
@@ -77,14 +80,14 @@ public final class TimeUtils {
         int i8 = (int) (j % 1000);
         int floor = (int) Math.floor(j / 1000);
         int i9 = 0;
-        if (floor > 86400) {
-            i9 = floor / 86400;
-            floor -= 86400 * i9;
+        if (floor > SECONDS_PER_DAY) {
+            i9 = floor / SECONDS_PER_DAY;
+            floor -= SECONDS_PER_DAY * i9;
         }
-        if (floor > 3600) {
-            int i10 = floor / 3600;
+        if (floor > SECONDS_PER_HOUR) {
+            int i10 = floor / SECONDS_PER_HOUR;
             i2 = i10;
-            i3 = floor - (i10 * 3600);
+            i3 = floor - (i10 * SECONDS_PER_HOUR);
         } else {
             i2 = 0;
             i3 = floor;

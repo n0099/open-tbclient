@@ -1,30 +1,37 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes.dex */
-public class h implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId dDZ = BdUniqueId.gen();
-    private int height = 0;
-    private int dEa = 0;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+/* loaded from: classes2.dex */
+public class h {
+    private com.baidu.tieba.frs.mc.j cYD;
 
-    @Override // com.baidu.adp.widget.ListView.i
-    public BdUniqueId getType() {
-        return dDZ;
+    public h(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.j jVar) {
+        this.cYD = jVar;
     }
 
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public int auJ() {
-        return this.dEa;
-    }
-
-    public void mN(int i) {
-        this.dEa = i;
+    public void b(com.baidu.tieba.InjectPlugin.b bVar) {
+        if (this.cYD != null && this.cYD.aph() != null && this.cYD.aph().atJ() != null && this.cYD.apn() != null && bVar != null && this.cYD.apn().getListView() != null && this.cYD.apk() != null) {
+            BdTypeRecyclerView listView = this.cYD.apn().getListView();
+            switch (bVar.what) {
+                case 2:
+                    if (bVar.getView() != null) {
+                        listView.removeHeaderView(bVar.getView());
+                        listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
+                        this.cYD.apk().ls(8);
+                        return;
+                    }
+                    return;
+                case 3:
+                    if (bVar.getView() != null) {
+                        listView.removeHeaderView(bVar.getView());
+                        this.cYD.apk().ls(0);
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
     }
 }

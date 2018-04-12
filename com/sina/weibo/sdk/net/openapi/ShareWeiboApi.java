@@ -2,7 +2,6 @@ package com.sina.weibo.sdk.net.openapi;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.net.AsyncWeiboRunner;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -56,7 +55,7 @@ public class ShareWeiboApi {
 
     private WeiboParameters buildUpdateParams(String str, String str2, String str3) {
         WeiboParameters weiboParameters = new WeiboParameters(this.mAppKey);
-        weiboParameters.put(NotificationCompat.CATEGORY_STATUS, str);
+        weiboParameters.put("status", str);
         if (!TextUtils.isEmpty(str3)) {
             weiboParameters.put("long", str3);
         }

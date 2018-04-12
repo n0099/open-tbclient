@@ -1,7 +1,9 @@
 package android.support.v4.app;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.RestrictTo;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -14,10 +16,12 @@ public abstract class FragmentManager {
     public interface BackStackEntry {
         CharSequence getBreadCrumbShortTitle();
 
+        @StringRes
         int getBreadCrumbShortTitleRes();
 
         CharSequence getBreadCrumbTitle();
 
+        @StringRes
         int getBreadCrumbTitleRes();
 
         int getId();
@@ -38,7 +42,7 @@ public abstract class FragmentManager {
 
     public abstract boolean executePendingTransactions();
 
-    public abstract Fragment findFragmentById(int i);
+    public abstract Fragment findFragmentById(@IdRes int i);
 
     public abstract Fragment findFragmentByTag(String str);
 
@@ -48,7 +52,7 @@ public abstract class FragmentManager {
 
     public abstract Fragment getFragment(Bundle bundle, String str);
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public abstract List<Fragment> getFragments();
 
     public abstract boolean isDestroyed();
@@ -71,7 +75,7 @@ public abstract class FragmentManager {
 
     public abstract Fragment.SavedState saveFragmentInstanceState(Fragment fragment);
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     @Deprecated
     public FragmentTransaction openTransaction() {
         return beginTransaction();

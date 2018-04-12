@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestAddGroupMessage extends TbSocketMessage {
     private String business;
     private int flag;

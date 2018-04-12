@@ -10,15 +10,15 @@ public final class NewpushGroupRepair extends Message {
     public final Integer fromUType;
     @ProtoField(tag = 6, type = Message.Datatype.INT64)
     public final Long fromUid;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer gid;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long gid;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer gtype;
     @ProtoField(tag = 5, type = Message.Datatype.INT64)
     public final Long lastMid;
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long startSid;
-    public static final Integer DEFAULT_GID = 0;
+    public static final Long DEFAULT_GID = 0L;
     public static final Integer DEFAULT_GTYPE = 0;
     public static final Long DEFAULT_STARTSID = 0L;
     public static final Long DEFAULT_ENDSID = 0L;
@@ -81,7 +81,7 @@ public final class NewpushGroupRepair extends Message {
         public Long endSid;
         public Integer fromUType;
         public Long fromUid;
-        public Integer gid;
+        public Long gid;
         public Integer gtype;
         public Long lastMid;
         public Long startSid;

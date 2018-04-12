@@ -13,36 +13,36 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> aYT = new ArrayList<>();
-    private InterfaceC0099a aYU;
+    private ArrayList<String> akw = new ArrayList<>();
+    private InterfaceC0088a akx;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0099a {
-        void eI(String str);
+    public interface InterfaceC0088a {
+        void eA(String str);
 
-        void eJ(String str);
+        void eB(String str);
     }
 
-    public void a(InterfaceC0099a interfaceC0099a) {
-        this.aYU = interfaceC0099a;
+    public void a(InterfaceC0088a interfaceC0088a) {
+        this.akx = interfaceC0088a;
     }
 
-    public void DI() {
-        if (this.aYT != null) {
-            this.aYT.clear();
+    public void wu() {
+        if (this.akw != null) {
+            this.akw.clear();
         }
     }
 
     public void c(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !d(activity, str)) {
-            this.aYT.add(str);
+            this.akw.add(str);
         }
     }
 
     public boolean v(Activity activity) {
-        if (com.baidu.d.a.vB() && !v.E(this.aYT)) {
-            Iterator<String> it = this.aYT.iterator();
+        if (com.baidu.d.a.on() && !v.w(this.akw)) {
+            Iterator<String> it = this.akw.iterator();
             while (it.hasNext()) {
                 if (!e(activity, it.next())) {
                     return true;
@@ -58,7 +58,7 @@ public class a {
         if (activity == null) {
             return false;
         }
-        return com.baidu.d.a.a.Q(activity, str);
+        return com.baidu.d.a.a.L(activity, str);
     }
 
     private boolean e(final Activity activity, final String str) {
@@ -66,10 +66,10 @@ public class a {
             return true;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.ba(false);
-        aVar.fa(d.j.request_permission_default_title);
-        aVar.fb(eH(str));
-        aVar.a(d.j.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
+        aVar.as(false);
+        aVar.bZ(d.k.request_permission_default_title);
+        aVar.ca(ez(str));
+        aVar.a(d.k.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
@@ -78,58 +78,58 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.aYU != null) {
-                    a.this.aYU.eJ(str);
+                if (a.this.akx != null) {
+                    a.this.akx.eB(str);
                 }
             }
-        }).b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
+        }).b(d.k.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.aYU != null) {
-                    a.this.aYU.eI(str);
+                if (a.this.akx != null) {
+                    a.this.akx.eA(str);
                 }
             }
-        }).b(i.ak(activity));
-        aVar.AV();
+        }).b(i.ab(activity));
+        aVar.tD();
         return false;
     }
 
     private void w(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.d.a.a.requestPermissions(activity, (String[]) this.aYT.toArray(new String[this.aYT.size()]), 25040);
+                com.baidu.d.a.a.requestPermissions(activity, (String[]) this.akw.toArray(new String[this.akw.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private int eH(String str) {
+    private int ez(String str) {
         if (TextUtils.isEmpty(str)) {
-            return d.j.request_permission_default_text;
+            return d.k.request_permission_default_text;
         }
         if ("android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
-            return d.j.request_permission_default_text;
+            return d.k.request_permission_default_text;
         }
         if ("android.permission.ACCESS_FINE_LOCATION".equals(str) || "android.permission.ACCESS_COARSE_LOCATION".equals(str)) {
-            return d.j.request_permission_location;
+            return d.k.request_permission_location;
         }
         if ("android.permission.CAMERA".equals(str)) {
-            return d.j.request_permission_camera;
+            return d.k.request_permission_camera;
         }
         if ("android.permission.RECORD_AUDIO".equals(str)) {
-            return d.j.request_permission_microphone;
+            return d.k.request_permission_microphone;
         }
         if ("android.permission.READ_PHONE_STATE".equals(str)) {
-            return d.j.request_permission_contacts;
+            return d.k.request_permission_contacts;
         }
         if ("android.permission.SEND_SMS".equals(str)) {
-            return d.j.request_permission_sms;
+            return d.k.request_permission_sms;
         }
         if ("android.permission.CALL_PHONE".equals(str)) {
-            return d.j.request_permission_cellphone;
+            return d.k.request_permission_cellphone;
         }
-        return d.j.request_permission_default_text;
+        return d.k.request_permission_default_text;
     }
 }

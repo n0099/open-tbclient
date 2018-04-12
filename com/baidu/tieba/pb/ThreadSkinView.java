@@ -9,7 +9,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.d.a;
@@ -17,8 +18,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo fFu;
-    private a.C0236a fFv;
+    private SkinInfo faa;
+    private a.C0217a fab;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -40,32 +41,32 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0236a c0236a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0217a c0217a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.fFu != skinInfo && c0236a != null) {
-            this.fFv = c0236a;
-            this.fFv.em(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.fFv.ce("obj_id", skinInfo.obj_id);
-            this.fFv.ce("obj_url", skinInfo.url);
-            this.fFv.ce("obj_name", skinInfo.monitor_id);
-            this.fFv.ce(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.fFv.save();
+        if (this.faa != skinInfo && c0217a != null) {
+            this.fab = c0217a;
+            this.fab.ee(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.fab.cd(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.fab.cd("obj_url", skinInfo.url);
+            this.fab.cd("obj_name", skinInfo.monitor_id);
+            this.fab.cd(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.fab.save();
         }
-        this.fFu = skinInfo;
-        int ao = l.ao(tbPageContext.getPageActivity());
+        this.faa = skinInfo;
+        int af = l.af(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.width = ao;
+        layoutParams.width = af;
         if (!StringUtils.isNull(skinInfo.skin_size)) {
             String[] split = skinInfo.skin_size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length > 1) {
-                int h = com.baidu.adp.lib.g.b.h(split[0].trim(), -1);
-                int h2 = com.baidu.adp.lib.g.b.h(split[1].trim(), -1);
-                if (h > 0 && h2 > 0) {
-                    layoutParams.height = (int) ((h2 / h) * layoutParams.width);
+                int g = com.baidu.adp.lib.g.b.g(split[0].trim(), -1);
+                int g2 = com.baidu.adp.lib.g.b.g(split[1].trim(), -1);
+                if (g > 0 && g2 > 0) {
+                    layoutParams.height = (int) ((g2 / g) * layoutParams.width);
                 } else {
                     layoutParams.height = (int) tbPageContext.getResources().getDimension(d.e.ds80);
                 }
@@ -81,14 +82,14 @@ public class ThreadSkinView extends TbImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.fFu != null && !StringUtils.isNull(this.fFu.url)) {
-            if (this.fFv != null) {
-                this.fFv.em(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.fFv.ce(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.fFv.save();
+    public void onClick(View view2) {
+        if (this.faa != null && !StringUtils.isNull(this.faa.url)) {
+            if (this.fab != null) {
+                this.fab.ee(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.fab.cd(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.fab.save();
             }
-            aw.Du().c(this.mTbPageContext, new String[]{this.fFu.url});
+            ax.wg().c(this.mTbPageContext, new String[]{this.faa.url});
         }
     }
 }

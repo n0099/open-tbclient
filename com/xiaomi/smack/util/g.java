@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     private static com.xiaomi.channel.commonutils.misc.h a = new com.xiaomi.channel.commonutils.misc.h(true);
     private static int b = -1;
@@ -24,7 +24,7 @@ public class g {
     private static com.xiaomi.push.providers.a f = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public String a;
         public long b;

@@ -1,12 +1,71 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.r;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes2.dex */
-public class y extends r.a {
-    public com.baidu.tbadk.j.f dHf;
+public class y extends SparseArray<ag> {
+    public BdUniqueId aTr = null;
 
-    public y(View view) {
-        super(view);
+    public void a(aj ajVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ag valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(ajVar);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    public void init() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ag valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    public void destory() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ag valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(null);
+                    valueAt.Ry();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    public void a(int i, ag agVar) {
+        if (i > 100) {
+            i = 100;
+        }
+        put(i, agVar);
+    }
+
+    public ag km(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return get(i);
     }
 }

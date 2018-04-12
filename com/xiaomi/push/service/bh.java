@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.content.Intent;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class bh implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ String b;

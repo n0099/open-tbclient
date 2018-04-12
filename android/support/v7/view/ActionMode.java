@@ -7,8 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 /* loaded from: classes2.dex */
 public abstract class ActionMode {
-    private boolean Gv;
-    private Object rr;
+    private Object mTag;
+    private boolean mTitleOptionalHint;
 
     /* loaded from: classes2.dex */
     public interface Callback {
@@ -35,7 +35,7 @@ public abstract class ActionMode {
 
     public abstract void invalidate();
 
-    public abstract void setCustomView(View view);
+    public abstract void setCustomView(View view2);
 
     public abstract void setSubtitle(int i);
 
@@ -46,26 +46,26 @@ public abstract class ActionMode {
     public abstract void setTitle(CharSequence charSequence);
 
     public void setTag(Object obj) {
-        this.rr = obj;
+        this.mTag = obj;
     }
 
     public Object getTag() {
-        return this.rr;
+        return this.mTag;
     }
 
     public void setTitleOptionalHint(boolean z) {
-        this.Gv = z;
+        this.mTitleOptionalHint = z;
     }
 
     public boolean getTitleOptionalHint() {
-        return this.Gv;
+        return this.mTitleOptionalHint;
     }
 
     public boolean isTitleOptional() {
         return false;
     }
 
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public boolean isUiFocusable() {
         return true;
     }

@@ -1,7 +1,7 @@
 package com.xiaomi.channel.commonutils.misc;
 
 import android.os.Looper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
     public static void a() {
         if (Looper.getMainLooper().getThread() == Thread.currentThread()) {

@@ -5,7 +5,7 @@ import android.database.ContentObserver;
 import android.os.Handler;
 import com.xiaomi.push.service.ao;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class w extends ContentObserver {
     final /* synthetic */ u a;
 

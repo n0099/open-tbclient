@@ -42,8 +42,8 @@ public final class LiveGroupInfo extends Message {
     public final Integer fromType;
     @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer gagers;
-    @ProtoField(tag = 10, type = Message.Datatype.INT32)
-    public final Integer groupId;
+    @ProtoField(tag = 10, type = Message.Datatype.INT64)
+    public final Long groupId;
     @ProtoField(tag = 6, type = Message.Datatype.INT32)
     public final Integer groupType;
     @ProtoField(tag = 13, type = Message.Datatype.STRING)
@@ -88,7 +88,7 @@ public final class LiveGroupInfo extends Message {
     public static final Integer DEFAULT_GROUPTYPE = 0;
     public static final Long DEFAULT_PUBLISHERID = 0L;
     public static final Integer DEFAULT_CREATETIME = 0;
-    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_DEVICEID = 0;
     public static final Integer DEFAULT_STARTTIME = 0;
     public static final Integer DEFAULT_LISTENERS = 0;
@@ -306,7 +306,7 @@ public final class LiveGroupInfo extends Message {
         public String forumName;
         public Integer fromType;
         public Integer gagers;
-        public Integer groupId;
+        public Long groupId;
         public Integer groupType;
         public String intro;
         public Integer isLiving;

@@ -8,11 +8,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tbadk.mainTab.e;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.af;
+import com.baidu.tieba.frs.ab;
 /* loaded from: classes3.dex */
 public class FrsGameStrategyFragmentDelegateStatic extends b {
     static {
@@ -20,18 +20,18 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c MV;
+                c Fy;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null) {
-                    af afVar = (af) customResponsedMessage.getData();
+                    ab abVar = (ab) customResponsedMessage.getData();
                     FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
-                    afVar.b(frsGameStrategyFragmentDelegateStatic);
-                    if (afVar.getContext() != null && (MV = frsGameStrategyFragmentDelegateStatic.MV()) != null) {
+                    abVar.b(frsGameStrategyFragmentDelegateStatic);
+                    if (abVar.getContext() != null && (Fy = frsGameStrategyFragmentDelegateStatic.Fy()) != null) {
                         Bundle bundle = new Bundle();
-                        bundle.putString("name", afVar.getForumName());
+                        bundle.putString("name", abVar.getForumName());
                         bundle.putString("from", "game_frs");
                         bundle.putBoolean("back_special", false);
                         bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-                        MV.bxP.setArguments(bundle);
+                        Fy.aIm.setArguments(bundle);
                     }
                 }
             }
@@ -44,18 +44,18 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c MU() {
+    public c Fx() {
         c cVar = new c();
-        cVar.bxP = new a();
+        cVar.aIm = new FrsGameStrategyMainFragment();
         cVar.type = 3;
-        cVar.bxX = c.bxV;
+        cVar.aIu = c.aIs;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e bi(Context context) {
-        this.bxG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.bxG.setTextSize(2.0f);
-        return this.bxG;
+    public TbFragmentTabIndicator aT(Context context) {
+        this.aId = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
+        this.aId.setTextSize(2.0f);
+        return this.aId;
     }
 }

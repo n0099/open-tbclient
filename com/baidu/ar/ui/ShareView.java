@@ -63,21 +63,21 @@ public class ShareView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC0041a {
+    public class a implements a.InterfaceC0030a {
         ShareView a;
 
         a(ShareView shareView) {
             this.a = shareView;
         }
 
-        @Override // com.baidu.ar.i.a.a.InterfaceC0041a
+        @Override // com.baidu.ar.i.a.a.InterfaceC0030a
         public void a() {
             if (this.a != null) {
                 this.a.n();
             }
         }
 
-        @Override // com.baidu.ar.i.a.a.InterfaceC0041a
+        @Override // com.baidu.ar.i.a.a.InterfaceC0030a
         public void b() {
             if (this.a != null) {
                 this.a.o();
@@ -166,14 +166,14 @@ public class ShareView extends FrameLayout {
         i();
     }
 
-    public static void a(View view) {
+    public static void a(View view2) {
         Bitmap bitmap;
-        if (view != null && (view instanceof ImageView)) {
-            Drawable drawable = ((ImageView) view).getDrawable();
+        if (view2 != null && (view2 instanceof ImageView)) {
+            Drawable drawable = ((ImageView) view2).getDrawable();
             if (!(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null || bitmap.isRecycled()) {
                 return;
             }
-            ((ImageView) view).setImageBitmap(null);
+            ((ImageView) view2).setImageBitmap(null);
             bitmap.recycle();
         }
     }
@@ -239,7 +239,7 @@ public class ShareView extends FrameLayout {
         this.e = (FrameLayout) findViewById(Res.id("bdar_gui_share_content_group"));
         this.e.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.ar.ui.ShareView.1
             @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
                 return true;
             }
         });
@@ -247,7 +247,7 @@ public class ShareView extends FrameLayout {
         this.g = (RotateImageView) findViewById(Res.id("bdar_gui_titlebar_share_back"));
         this.g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.ShareView.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 if (ShareView.this.n != null) {
                     ShareView.this.g.setEnabled(false);
                     ShareView.this.n.a();
@@ -258,7 +258,7 @@ public class ShareView extends FrameLayout {
         this.h.setEnabled(false);
         this.h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.ShareView.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 if (ShareView.this.l.isShown()) {
                     ShareView.this.l.setVisibility(8);
                     if (ShareView.this.j != null) {
@@ -282,7 +282,7 @@ public class ShareView extends FrameLayout {
         this.i = (RotateImageView) findViewById(Res.id("bdar_gui_titlebar_share_save"));
         this.i.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.ShareView.4
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 if (!ShareView.this.o) {
                     if (ShareView.this.b != 2) {
                         if (ShareView.this.b == 1) {
@@ -346,7 +346,7 @@ public class ShareView extends FrameLayout {
         this.s = (Button) this.q.findViewById(Res.id("bdar_video_upload_cancel"));
         this.s.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.ShareView.5
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 ShareView.this.e();
                 if (ShareView.this.u != null) {
                     ShareView.this.u.cancel(true);

@@ -259,31 +259,31 @@ public class PushConnService extends Service {
                             }
                             if (PushConnService.this.mCallbacks.register(iSocketServiceCallback)) {
                                 PushConnService.this.mCallbackMap.put(str2, iSocketServiceCallback);
-                                c aC = c.aC(PushConnService.this.getApplicationContext());
-                                e aD = e.aD(PushConnService.this);
-                                ApkInfo cm = aD.cm("com.baidu.sofire.x18");
-                                if (cm == null) {
+                                c a2 = c.a(PushConnService.this.getApplicationContext());
+                                e a3 = e.a(PushConnService.this);
+                                ApkInfo d = a3.d("com.baidu.sofire.x18");
+                                if (d == null) {
                                     for (int i = 0; i < 10; i++) {
                                         try {
                                             Thread.sleep(3000L);
                                         } catch (InterruptedException e) {
                                             e.printStackTrace();
                                         }
-                                        cm = aD.cm("com.baidu.sofire.x18");
-                                        if (cm != null) {
+                                        d = a3.d("com.baidu.sofire.x18");
+                                        if (d != null) {
                                             break;
                                         }
                                     }
                                 }
-                                new StringBuilder("push::fha:").append(aC).append(",hub:").append(aD).append(",info:").append(cm);
-                                if (cm != null) {
+                                new StringBuilder("push::fha:").append(a2).append(",hub:").append(a3).append(",info:").append(d);
+                                if (d != null) {
                                     if (PushConnService.sPushPluginId == -1) {
-                                        int unused = PushConnService.sPushPluginId = cm.key;
+                                        int unused = PushConnService.sPushPluginId = d.key;
                                     }
-                                    Pair<Integer, Object> a2 = aC.a(PushConnService.sPushPluginId, "registerHost", new Class[]{String.class, String.class, String.class}, str3, str2, str);
-                                    new StringBuilder("push::p:").append(a2.first).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(a2.second);
-                                    if (((Integer) a2.first).intValue() != 0) {
-                                        PushConnService.this.reportMethodFail("registerHost", (Integer) a2.first);
+                                    Pair<Integer, Object> a4 = a2.a(PushConnService.sPushPluginId, "registerHost", new Class[]{String.class, String.class, String.class}, str3, str2, str);
+                                    new StringBuilder("push::p:").append(a4.first).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(a4.second);
+                                    if (((Integer) a4.first).intValue() != 0) {
+                                        PushConnService.this.reportMethodFail("registerHost", (Integer) a4.first);
                                     }
                                 }
                             }
@@ -309,30 +309,30 @@ public class PushConnService extends Service {
                 if (!TextUtils.isEmpty(string)) {
                     PushConnService.this.mCallbackMap.remove(string);
                     new StringBuilder("afterRemove:mCallbackMap:").append(PushConnService.this.mCallbackMap.size());
-                    c aC = c.aC(PushConnService.this.getApplicationContext());
-                    e aD = e.aD(PushConnService.this);
-                    ApkInfo cm = aD.cm("com.baidu.sofire.x18");
-                    if (cm == null) {
+                    c a2 = c.a(PushConnService.this.getApplicationContext());
+                    e a3 = e.a(PushConnService.this);
+                    ApkInfo d = a3.d("com.baidu.sofire.x18");
+                    if (d == null) {
                         for (int i = 0; i < 10; i++) {
                             try {
                                 Thread.sleep(3000L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            cm = aD.cm("com.baidu.sofire.x18");
-                            if (cm != null) {
+                            d = a3.d("com.baidu.sofire.x18");
+                            if (d != null) {
                                 break;
                             }
                         }
                     }
-                    if (cm != null) {
+                    if (d != null) {
                         if (PushConnService.sPushPluginId == -1) {
-                            int unused = PushConnService.sPushPluginId = cm.key;
+                            int unused = PushConnService.sPushPluginId = d.key;
                         }
-                        Pair<Integer, Object> a2 = aC.a(PushConnService.sPushPluginId, "unregisterHost", new Class[]{String.class, String.class}, string2, string);
-                        new StringBuilder("push::unregisterHost:p:").append(a2.first).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(a2.second);
-                        if (((Integer) a2.first).intValue() != 0) {
-                            PushConnService.this.reportMethodFail("unregisterHost", (Integer) a2.first);
+                        Pair<Integer, Object> a4 = a2.a(PushConnService.sPushPluginId, "unregisterHost", new Class[]{String.class, String.class}, string2, string);
+                        new StringBuilder("push::unregisterHost:p:").append(a4.first).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(a4.second);
+                        if (((Integer) a4.first).intValue() != 0) {
+                            PushConnService.this.reportMethodFail("unregisterHost", (Integer) a4.first);
                         }
                     }
                 }
@@ -365,7 +365,7 @@ public class PushConnService extends Service {
         try {
             super.onCreate();
             sIsPushServiceProcess = true;
-            this.mFha = c.aC(getApplicationContext());
+            this.mFha = c.a(getApplicationContext());
             new StringBuilder("push::1 PushService oncreate:").append(getPackageName());
             new Thread(new Runnable() { // from class: com.baidu.sofire.push.PushConnService.1
                 @Override // java.lang.Runnable
@@ -390,17 +390,17 @@ public class PushConnService extends Service {
                         } else {
                             PushConnService.this.reportInitPushModuleResult(true);
                         }
-                        e aD = e.aD(PushConnService.this);
-                        ApkInfo cm = aD.cm("com.baidu.sofire.x18");
-                        new StringBuilder("push::onCreate fha:").append(PushConnService.this.mFha).append(",hub:").append(aD).append(",info:").append(cm);
-                        if (cm != null) {
-                            PushConnService.this.mPushPluginVersion = cm.versionName;
+                        e a2 = e.a(PushConnService.this);
+                        ApkInfo d = a2.d("com.baidu.sofire.x18");
+                        new StringBuilder("push::onCreate fha:").append(PushConnService.this.mFha).append(",hub:").append(a2).append(",info:").append(d);
+                        if (d != null) {
+                            PushConnService.this.mPushPluginVersion = d.versionName;
                         } else {
                             PushConnService.this.reportKillSelf(2);
                             PushConnService.this.stopSelf();
                             Process.killProcess(Process.myPid());
                         }
-                        int unused = PushConnService.sPushPluginId = cm.key;
+                        int unused = PushConnService.sPushPluginId = d.key;
                         Pair startDataServer = PushConnService.this.startDataServer(PushConnService.sPushPluginId);
                         boolean z2 = startDataServer != null && ((Boolean) startDataServer.second).booleanValue();
                         if (((Integer) startDataServer.first).intValue() == 0 && z2) {

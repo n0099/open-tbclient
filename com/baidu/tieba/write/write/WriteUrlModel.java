@@ -5,13 +5,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WriteUrlModel extends NewWriteModel {
     public WriteUrlModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
     }
 
-    public void al(Intent intent) {
+    public void aj(Intent intent) {
         if (intent != null) {
             WriteData writeData = new WriteData();
             writeData.setType(intent.getIntExtra("type", 0));

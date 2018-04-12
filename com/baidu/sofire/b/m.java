@@ -29,9 +29,9 @@ public final class m {
             jSONObject.put(PushConstants.URI_PACKAGE_NAME, packageName);
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
             if (packageInfo != null) {
-                PublicKey cj = c.cj(packageInfo.applicationInfo.sourceDir);
-                if (cj != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
-                    publicKey = cj;
+                PublicKey a2 = c.a(packageInfo.applicationInfo.sourceDir);
+                if (a2 != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
+                    publicKey = a2;
                 } else {
                     publicKey = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                 }
@@ -47,9 +47,9 @@ public final class m {
             } else {
                 jSONObject.put("sm", "");
             }
-            String a2 = g.a(context, str, jSONObject.toString(), false, false, "");
-            new StringBuilder().append(a2);
-            JSONObject jSONObject2 = new JSONObject(a2);
+            String a3 = g.a(context, str, jSONObject.toString(), false, false, "");
+            new StringBuilder().append(a3);
+            JSONObject jSONObject2 = new JSONObject(a3);
             JSONArray optJSONArray = jSONObject2.optJSONArray("product");
             long optLong = jSONObject2.optLong("pt");
             if (optJSONArray != null && optLong > 0) {
@@ -81,23 +81,23 @@ public final class m {
                     String str = packageInfo.packageName;
                     if (hashMap.keySet().contains(str) && !str.equals(context.getPackageName())) {
                         String str2 = (String) hashMap.get(str);
-                        PublicKey cj = c.cj(packageInfo.applicationInfo.sourceDir);
-                        new StringBuilder("183:").append(cj == null);
-                        if (cj == null && packageInfo.signatures != null && packageInfo.signatures.length > 0 && packageInfo.signatures[0] != null) {
-                            cj = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
+                        PublicKey a3 = c.a(packageInfo.applicationInfo.sourceDir);
+                        new StringBuilder("183:").append(a3 == null);
+                        if (a3 == null && packageInfo.signatures != null && packageInfo.signatures.length > 0 && packageInfo.signatures[0] != null) {
+                            a3 = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                         }
-                        new StringBuilder("194:").append(cj == null);
-                        if (cj != null) {
-                            byte[] encoded = cj.getEncoded();
+                        new StringBuilder("194:").append(a3 == null);
+                        if (a3 != null) {
+                            byte[] encoded = a3.getEncoded();
                             new StringBuilder("197:").append(encoded == null);
                             if (encoded != null) {
                                 d.a(context, encoded);
-                                String a3 = l.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
-                                if (!TextUtils.isEmpty(a3) && a3.equals(str2)) {
+                                String a4 = l.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
+                                if (!TextUtils.isEmpty(a4) && a4.equals(str2)) {
                                     JSONObject jSONObject = new JSONObject();
                                     jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
                                     jSONObject.put("av", packageInfo.versionName);
-                                    jSONObject.put("sm", a3);
+                                    jSONObject.put("sm", a4);
                                     jSONObject.put("dm", Build.MODEL);
                                     jSONObject.put("al", String.valueOf(Build.VERSION.SDK_INT));
                                     a.put(str, jSONObject.toString());

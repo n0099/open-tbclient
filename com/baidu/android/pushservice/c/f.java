@@ -1,40 +1,27 @@
 package com.baidu.android.pushservice.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     private String a;
     private String b;
-    private String c;
-    private int d;
+    private int c;
 
     public String a() {
-        return this.a;
+        return this.b;
     }
 
     public void a(int i) {
-        this.d = i;
+        this.c = i;
     }
 
     public void a(String str) {
         this.a = str;
     }
 
-    public String b() {
-        return this.b;
+    public int b() {
+        return this.c;
     }
 
     public void b(String str) {
         this.b = str;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void c(String str) {
-        this.c = str;
-    }
-
-    public int d() {
-        return this.d;
     }
 }

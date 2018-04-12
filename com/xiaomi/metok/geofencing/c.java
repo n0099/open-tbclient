@@ -6,18 +6,18 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements c {
 
         /* renamed from: com.xiaomi.metok.geofencing.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        private static class C0287a implements c {
+        /* loaded from: classes3.dex */
+        private static class C0269a implements c {
             private IBinder a;
 
-            C0287a(IBinder iBinder) {
+            C0269a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -174,7 +174,7 @@ public interface c extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.xiaomi.metok.geofencing.IGeoFencing");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0287a(iBinder) : (c) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0269a(iBinder) : (c) queryLocalInterface;
         }
 
         @Override // android.os.Binder

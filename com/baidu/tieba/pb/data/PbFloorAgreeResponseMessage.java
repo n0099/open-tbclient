@@ -25,7 +25,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject2 != null) {
                 this.mScore = optJSONObject2.optInt(WBConstants.GAME_PARAMS_SCORE);
             }
-            this.mActDialogData = com.baidu.tieba.pb.b.Q(optJSONObject);
+            this.mActDialogData = com.baidu.tieba.pb.b.T(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             this.mContriInfo = new ContriInfo();
             this.mContriInfo.parseJson(optJSONObject3);

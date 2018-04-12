@@ -10,7 +10,7 @@ public class ShareEntity implements Parcelable {
     public static final Parcelable.Creator<ShareEntity> CREATOR = new Parcelable.Creator<ShareEntity>() { // from class: com.baidu.tieba.sharesdk.bean.ShareEntity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: G */
+        /* renamed from: r */
         public ShareEntity createFromParcel(Parcel parcel) {
             if (parcel == null) {
                 return null;
@@ -19,38 +19,38 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.uW(parcel.readInt());
+            shareEntity.sz(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
-            shareEntity.j((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
+            shareEntity.g((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
-            shareEntity.i(parcel.readBundle());
-            shareEntity.mv(parcel.readInt() != 0);
+            shareEntity.f(parcel.readBundle());
+            shareEntity.lW(parcel.readInt() != 0);
             return shareEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: uX */
+        /* renamed from: sA */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
     };
-    private Bundle blB;
-    private Uri blr;
-    private Location bls;
-    private boolean blz;
+    private Uri awV;
+    private Location awW;
+    private boolean axd;
+    private Bundle axf;
     private String content;
-    private int gPv;
+    private int gkB;
     private String linkUrl;
     private String title;
     private String videoUrl;
 
-    public void i(Bundle bundle) {
-        this.blB = bundle;
+    public void f(Bundle bundle) {
+        this.axf = bundle;
     }
 
-    public Bundle IX() {
-        return this.blB;
+    public Bundle BL() {
+        return this.axf;
     }
 
     public String getVideoUrl() {
@@ -85,32 +85,36 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public String ya() {
-        return this.blr == null ? "" : this.blr.toString();
+    public String qG() {
+        return this.awV == null ? "" : this.awV.toString();
     }
 
-    public void j(Uri uri) {
-        this.blr = uri;
+    public Uri bnq() {
+        return this.awV;
+    }
+
+    public void g(Uri uri) {
+        this.awV = uri;
     }
 
     public void setLocation(Location location) {
-        this.bls = location;
+        this.awW = location;
     }
 
-    public int bsi() {
-        return this.gPv;
+    public int bnr() {
+        return this.gkB;
     }
 
-    public void uW(int i) {
-        this.gPv = i;
+    public void sz(int i) {
+        this.gkB = i;
     }
 
-    public boolean bsj() {
-        return this.blz;
+    public boolean bns() {
+        return this.axd;
     }
 
-    public void mv(boolean z) {
-        this.blz = z;
+    public void lW(boolean z) {
+        this.axd = z;
     }
 
     @Override // android.os.Parcelable
@@ -123,11 +127,11 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeInt(this.gPv);
+        parcel.writeInt(this.gkB);
         parcel.writeString(this.videoUrl);
-        parcel.writeParcelable(this.blr, i);
-        parcel.writeParcelable(this.bls, i);
-        parcel.writeBundle(this.blB);
-        parcel.writeInt(this.blz ? 1 : 0);
+        parcel.writeParcelable(this.awV, i);
+        parcel.writeParcelable(this.awW, i);
+        parcel.writeBundle(this.axf);
+        parcel.writeInt(this.axd ? 1 : 0);
     }
 }

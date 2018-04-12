@@ -1,0 +1,26 @@
+package com.baidu.tieba.videoEasterEgg.a;
+
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes3.dex */
+public interface a {
+    void C(Intent intent);
+
+    String getID();
+
+    String getPopImageUrl();
+
+    String getPopText();
+
+    String getShareContent();
+
+    String getShareImageUrl();
+
+    String getShareTitle();
+
+    String getShareUrl();
+
+    String getVideoUrl();
+
+    void r(BdUniqueId bdUniqueId);
+}

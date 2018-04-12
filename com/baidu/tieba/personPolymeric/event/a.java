@@ -13,15 +13,15 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.d;
-import com.baidu.tieba.view.i;
+import com.baidu.tieba.view.g;
 /* loaded from: classes3.dex */
-public class a implements i {
+public class a implements g {
     protected TbPageContext mPageContext;
-    protected int gqf = 1;
+    protected int fKG = 1;
     protected int userType = 2;
     protected boolean isHost = false;
 
@@ -29,57 +29,57 @@ public class a implements i {
         this.mPageContext = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.view.i
-    public void a(View view, com.baidu.tieba.f.a aVar) {
+    @Override // com.baidu.tieba.view.g
+    public void a(View view2, com.baidu.tieba.g.a aVar) {
         if (aVar != null) {
             UserData userData = null;
-            if (aVar.drp != null && (userData = (UserData) aVar.drp.getSerializable(UserData.TYPE_USER)) != null) {
-                this.gqf = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+            if (aVar.cKg != null && (userData = (UserData) aVar.cKg.getSerializable(UserData.TYPE_USER)) != null) {
+                this.fKG = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
                 this.userType = userData.isGod() ? 1 : 2;
-                this.isHost = this.gqf == 1;
+                this.isHost = this.fKG == 1;
             }
-            switch (aVar.dro) {
+            switch (aVar.cKf) {
                 case 2:
-                    if (ay.ba(this.mPageContext.getPageActivity())) {
-                        aw.Du().c(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+                    if (az.aK(this.mPageContext.getPageActivity())) {
+                        ax.wg().c(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                         return;
                     }
                     return;
                 case 3:
                     if (userData != null) {
-                        com.baidu.tbadk.browser.b.a(this.mPageContext.getPageActivity(), this.mPageContext.getString(d.j.user_icon_web_view_title), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId(), true, true, true);
+                        com.baidu.tbadk.browser.a.a(this.mPageContext.getPageActivity(), this.mPageContext.getString(d.k.user_icon_web_view_title), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId(), true, true, true);
                         return;
                     }
                     return;
                 case 4:
                     if (userData != null) {
                         if (aVar instanceof com.baidu.tieba.personCenter.c.a) {
-                            TiebaStatic.log(new ak("c11586"));
+                            TiebaStatic.log(new al("c11586"));
                         } else {
-                            TiebaStatic.log(new ak("c11597").s("obj_locate", 2).s("obj_type", this.gqf).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                            TiebaStatic.log(new al("c11597").r("obj_locate", 2).r("obj_type", this.fKG).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mPageContext.getPageActivity(), true, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 5:
-                    com.baidu.tieba.m.a.bpm().c(2, false, this.isHost);
+                    com.baidu.tieba.n.a.bkt().b(2, false, this.isHost);
                     if (userData != null) {
-                        TiebaStatic.log(new ak("c11597").s("obj_locate", 3).s("obj_type", this.gqf).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        TiebaStatic.log(new al("c11597").r("obj_locate", 3).r("obj_type", this.fKG).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 6:
                     if (userData != null) {
-                        TiebaStatic.log(new ak("c11597").s("obj_locate", 1).s("obj_type", this.gqf).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        TiebaStatic.log(new al("c11597").r("obj_locate", 1).r("obj_type", this.fKG).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 7:
                     if (userData != null) {
-                        TiebaStatic.log(new ak("c11597").s("obj_locate", 4).s("obj_type", this.gqf).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        TiebaStatic.log(new al("c11597").r("obj_locate", 4).r("obj_type", this.fKG).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.mPageContext.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
                         return;
                     }

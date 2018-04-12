@@ -26,16 +26,16 @@ public class a {
     private IARCallback i;
     private View k;
     private b l;
-    private C0035a m;
+    private C0024a m;
     boolean a = false;
     private com.baidu.ar.f.a j = new com.baidu.ar.f.a();
 
     /* renamed from: com.baidu.ar.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0035a {
+    public static class C0024a {
         a a;
 
-        C0035a(a aVar) {
+        C0024a(a aVar) {
             this.a = aVar;
         }
 
@@ -168,7 +168,7 @@ public class a {
             this.g = new FrameLayout(viewGroup.getContext());
             this.f.addView(this.g, new FrameLayout.LayoutParams(-1, -1));
             this.j.a(this.f, this.g, this.i);
-            this.m = new C0035a(this);
+            this.m = new C0024a(this);
             a(this.f, this.m);
             return this.f;
         }
@@ -199,18 +199,18 @@ public class a {
         b(bundle);
     }
 
-    public void a(ViewGroup viewGroup, C0035a c0035a) {
+    public void a(ViewGroup viewGroup, C0024a c0024a) {
         com.baidu.ar.external.a.a.a.a().a(this.e.getARType());
         switch (this.e.getARType()) {
             case 0:
-                this.h = new com.baidu.ar.track.a(this.b.get(), c0035a);
+                this.h = new com.baidu.ar.track.a(this.b.get(), c0024a);
                 break;
             case 1:
             case 2:
             case 4:
             default:
                 com.baidu.ar.util.b.d("Resource Type error, not defined!");
-                this.h = new com.baidu.ar.track.a(this.b.get(), c0035a);
+                this.h = new com.baidu.ar.track.a(this.b.get(), c0024a);
                 break;
             case 3:
                 com.baidu.ar.ui.c.a(this.c.getApplicationContext(), this.c, "AR type error!!!", 1).a();
@@ -220,7 +220,7 @@ public class a {
                 }
                 return;
             case 5:
-                this.h = new com.baidu.ar.slam.a(this.b.get(), c0035a);
+                this.h = new com.baidu.ar.slam.a(this.b.get(), c0024a);
                 break;
         }
         this.h.a(this.e);

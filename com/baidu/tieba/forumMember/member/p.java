@@ -3,60 +3,60 @@ package com.baidu.tieba.forumMember.member;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
-public class p implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId dCc = BdUniqueId.gen();
-    private String dCf;
-    private String dCg;
-    private int dCd = -1;
-    private int dCe = -1;
-    private int dCh = -1;
+public class p implements com.baidu.adp.widget.ListView.h {
+    public static final BdUniqueId cUO = BdUniqueId.gen();
+    private String cUR;
+    private String cUS;
+    private int cUP = -1;
+    private int cUQ = -1;
+    private int cUT = -1;
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dCc;
+        return cUO;
     }
 
-    public int atW() {
-        return this.dCd;
+    public int aol() {
+        return this.cUP;
     }
 
-    public void mG(int i) {
-        this.dCd = i;
+    public void jT(int i) {
+        this.cUP = i;
     }
 
-    public int atX() {
-        return this.dCh;
+    public int aom() {
+        return this.cUT;
     }
 
-    public void mH(int i) {
-        this.dCh = i;
+    public void jU(int i) {
+        this.cUT = i;
     }
 
-    public int atY() {
-        return this.dCe;
+    public int aon() {
+        return this.cUQ;
     }
 
-    public void mI(int i) {
-        this.dCe = i;
+    public void jV(int i) {
+        this.cUQ = i;
     }
 
-    public String atZ() {
-        return this.dCf;
+    public String aoo() {
+        return this.cUR;
     }
 
-    public void lz(String str) {
-        this.dCf = str;
+    public void lC(String str) {
+        this.cUR = str;
     }
 
-    public String aua() {
-        return this.dCg;
+    public String aop() {
+        return this.cUS;
     }
 
-    public void lA(String str) {
-        this.dCg = str;
+    public void lD(String str) {
+        this.cUS = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.dCf) || StringUtils.isNull(this.dCg) || this.dCd < 0 || this.dCe < 0;
+        return StringUtils.isNull(this.cUR) || StringUtils.isNull(this.cUS) || this.cUP < 0 || this.cUQ < 0;
     }
 }

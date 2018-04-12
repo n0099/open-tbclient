@@ -1,7 +1,7 @@
 package com.xiaomi.push.service.receivers;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class a implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ NetworkStatusReceiver b;

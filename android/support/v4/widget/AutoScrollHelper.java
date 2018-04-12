@@ -14,12 +14,22 @@ import android.view.animation.Interpolator;
 /* loaded from: classes2.dex */
 public abstract class AutoScrollHelper implements View.OnTouchListener {
     private static final int DEFAULT_ACTIVATION_DELAY = ViewConfiguration.getTapTimeout();
+    private static final int DEFAULT_EDGE_TYPE = 1;
+    private static final float DEFAULT_MAXIMUM_EDGE = Float.MAX_VALUE;
+    private static final int DEFAULT_MAXIMUM_VELOCITY_DIPS = 1575;
+    private static final int DEFAULT_MINIMUM_VELOCITY_DIPS = 315;
+    private static final int DEFAULT_RAMP_DOWN_DURATION = 500;
+    private static final int DEFAULT_RAMP_UP_DURATION = 500;
+    private static final float DEFAULT_RELATIVE_EDGE = 0.2f;
+    private static final float DEFAULT_RELATIVE_VELOCITY = 1.0f;
     public static final int EDGE_TYPE_INSIDE = 0;
     public static final int EDGE_TYPE_INSIDE_EXTEND = 1;
     public static final int EDGE_TYPE_OUTSIDE = 2;
+    private static final int HORIZONTAL = 0;
     public static final float NO_MAX = Float.MAX_VALUE;
     public static final float NO_MIN = 0.0f;
     public static final float RELATIVE_UNSPECIFIED = 0.0f;
+    private static final int VERTICAL = 1;
     private int mActivationDelay;
     private boolean mAlreadyDelayed;
     boolean mAnimating;
@@ -44,8 +54,8 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
 
     public abstract void scrollTargetBy(int i, int i2);
 
-    public AutoScrollHelper(View view) {
-        this.mTarget = view;
+    public AutoScrollHelper(View view2) {
+        this.mTarget = view2;
         DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
         int i = (int) ((1575.0f * displayMetrics.density) + 0.5f);
         int i2 = (int) ((displayMetrics.density * 315.0f) + 0.5f);
@@ -53,7 +63,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         setMinimumVelocity(i2, i2);
         setEdgeType(1);
         setMaximumEdges(Float.MAX_VALUE, Float.MAX_VALUE);
-        setRelativeEdges(0.2f, 0.2f);
+        setRelativeEdges(DEFAULT_RELATIVE_EDGE, DEFAULT_RELATIVE_EDGE);
         setRelativeVelocity(1.0f, 1.0f);
         setActivationDelay(DEFAULT_ACTIVATION_DELAY);
         setRampUpDuration(500);
@@ -133,14 +143,14 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         boolean z = true;
         if (this.mEnabled) {
             switch (MotionEventCompat.getActionMasked(motionEvent)) {
                 case 0:
                     this.mNeedsCancel = true;
                     this.mAlreadyDelayed = false;
-                    this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view.getHeight(), this.mTarget.getHeight()));
+                    this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view2.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view2.getHeight(), this.mTarget.getHeight()));
                     if (!this.mAnimating && shouldAnimate()) {
                         startAnimating();
                         break;
@@ -151,7 +161,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
                     requestStop();
                     break;
                 case 2:
-                    this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view.getHeight(), this.mTarget.getHeight()));
+                    this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view2.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view2.getHeight(), this.mTarget.getHeight()));
                     if (!this.mAnimating) {
                         startAnimating();
                         break;

@@ -1,11 +1,13 @@
 package com.baidu.ar.recorder.drawer;
 
 import android.content.Context;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.Surface;
 import com.baidu.ar.recorder.filter.FilterManager;
 import java.util.ArrayList;
 import java.util.Iterator;
+@RequiresApi(api = 18)
 /* loaded from: classes3.dex */
 public class e {
     private static final String a = e.class.getSimpleName();

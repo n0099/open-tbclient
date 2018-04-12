@@ -3,6 +3,9 @@ package android.support.v4.view;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 class ViewGroupCompatLollipop {
+    ViewGroupCompatLollipop() {
+    }
+
     public static void setTransitionGroup(ViewGroup viewGroup, boolean z) {
         viewGroup.setTransitionGroup(z);
     }

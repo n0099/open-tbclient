@@ -5,7 +5,10 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 /* loaded from: classes2.dex */
 class ViewParentCompatICS {
-    public static boolean requestSendAccessibilityEvent(ViewParent viewParent, View view, AccessibilityEvent accessibilityEvent) {
-        return viewParent.requestSendAccessibilityEvent(view, accessibilityEvent);
+    ViewParentCompatICS() {
+    }
+
+    public static boolean requestSendAccessibilityEvent(ViewParent viewParent, View view2, AccessibilityEvent accessibilityEvent) {
+        return viewParent.requestSendAccessibilityEvent(view2, accessibilityEvent);
     }
 }

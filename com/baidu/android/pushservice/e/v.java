@@ -2,40 +2,34 @@ package com.baidu.android.pushservice.e;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
-public class v extends e {
-    protected String d;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class v extends d {
     protected String e;
-    protected String f;
-    protected String g;
 
-    public v(l lVar, Context context, String str, String str2, String str3, String str4) {
+    public v(l lVar, Context context, String str) {
         super(lVar, context);
-        this.d = null;
         this.e = null;
-        this.f = null;
-        this.g = null;
-        this.d = str;
-        this.e = str2;
-        this.f = str3;
-        this.g = str4;
+        this.e = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.e.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put("method", "sendmsgtouser");
-        hashMap.put("appid", this.d);
-        hashMap.put("user_id", this.e);
-        if (this.g == null || this.f == null) {
-            return;
+        hashMap.put("method", "sendmsgtoserver");
+        if (this.e != null) {
+            try {
+                JSONObject jSONObject = new JSONObject(this.e);
+                if (jSONObject.has("to")) {
+                    hashMap.put("cb_url", jSONObject.getString("to"));
+                }
+                if (jSONObject.has("data")) {
+                    hashMap.put("cb_data", jSONObject.getString("data"));
+                }
+            } catch (JSONException e) {
+            }
         }
-        StringBuilder sb = new StringBuilder("[\"");
-        sb.append(this.f).append("\"]");
-        StringBuilder sb2 = new StringBuilder("[\"");
-        sb2.append(this.g).append("\"]");
-        hashMap.put("msg_keys", sb.toString());
-        hashMap.put("messages", sb2.toString());
     }
 }

@@ -211,8 +211,8 @@ public class a extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0273a extends WebViewClient {
-        private C0273a() {
+    public class C0255a extends WebViewClient {
+        private C0255a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -466,24 +466,24 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0273a());
+        this.j.setWebViewClient(new C0255a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();
         this.j.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.tencent.connect.auth.a.1
             @Override // android.view.View.OnLongClickListener
-            public boolean onLongClick(View view) {
+            public boolean onLongClick(View view2) {
                 return true;
             }
         });
         this.j.setOnTouchListener(new View.OnTouchListener() { // from class: com.tencent.connect.auth.a.2
             @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
                     case 1:
-                        if (!view.hasFocus()) {
-                            view.requestFocus();
+                        if (!view2.hasFocus()) {
+                            view2.requestFocus();
                             return false;
                         }
                         return false;

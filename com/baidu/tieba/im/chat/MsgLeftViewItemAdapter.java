@@ -15,46 +15,46 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void hi(boolean z) {
+    public void gI(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bc */
+    /* renamed from: ba */
     public e.a<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.mPageContext);
-        return new a(msgleftView.jK(), msgleftView);
+        return new a(msgleftView.bO(), msgleftView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
-        super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgleftView aFU = aVar.aFU();
-        aFU.pI(this.ewd);
-        aFU.hi(this.mNeedShowName);
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
+        super.onFillViewHolder(i, view2, viewGroup, chatMessage, aVar);
+        MsgleftView aAU = aVar.aAU();
+        aAU.nh(this.dQJ);
+        aAU.gI(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        aFU.a(this.evT);
-        aFU.setOnItemViewLongClickListener(this.evU);
-        aFU.setPosition(i);
-        aFU.bS(this.ewa);
-        aFU.bR(chatMessage.getCacheData().getLastMsgTime());
-        aFU.a(viewGroup, chatMessage);
-        aFU.b(viewGroup, chatMessage);
-        this.mPageContext.getLayoutMode().aQ(false);
-        this.mPageContext.getLayoutMode().aM(view);
-        return view;
+        aAU.a(this.dQz);
+        aAU.setOnItemViewLongClickListener(this.dQA);
+        aAU.setPosition(i);
+        aAU.bQ(this.dQG);
+        aAU.bP(chatMessage.getCacheData().getLastMsgTime());
+        aAU.a(viewGroup, chatMessage);
+        aAU.b(viewGroup, chatMessage);
+        this.mPageContext.getLayoutMode().setNightMode(false);
+        this.mPageContext.getLayoutMode().u(view2);
+        return view2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends e.a<MsgleftView> {
-        public a(View view, MsgleftView msgleftView) {
-            super(view, msgleftView);
+        public a(View view2, MsgleftView msgleftView) {
+            super(view2, msgleftView);
         }
     }
 }

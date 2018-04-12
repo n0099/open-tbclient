@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class m implements Serializable, Cloneable, org.apache.thrift.a<m, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> d;
     private static final org.apache.thrift.protocol.j e = new org.apache.thrift.protocol.j("LocationInfo");
@@ -20,7 +20,7 @@ public class m implements Serializable, Cloneable, org.apache.thrift.a<m, a> {
     public List<b> b;
     public i c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         WIFI_LIST(1, "wifiList"),
         CELL_LIST(2, "cellList"),

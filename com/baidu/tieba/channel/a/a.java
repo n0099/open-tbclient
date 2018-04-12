@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.channel.activity.ChannelAddVideoActivity;
@@ -16,11 +16,11 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ChannelAddVideoActivity dbR;
+    private ChannelAddVideoActivity ctK;
     private List<com.baidu.tieba.channel.data.b> mData;
 
     public a(ChannelAddVideoActivity channelAddVideoActivity) {
-        this.dbR = channelAddVideoActivity;
+        this.ctK = channelAddVideoActivity;
     }
 
     public List<com.baidu.tieba.channel.data.b> getData() {
@@ -41,7 +41,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lF */
+    /* renamed from: iQ */
     public com.baidu.tieba.channel.data.b getItem(int i) {
         if (this.mData != null) {
             return this.mData.get(i);
@@ -55,67 +55,67 @@ public class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        C0137a c0137a;
-        if (view != null) {
-            c0137a = (C0137a) view.getTag();
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        C0122a c0122a;
+        if (view2 != null) {
+            c0122a = (C0122a) view2.getTag();
         } else {
-            view = LayoutInflater.from(this.dbR.getPageContext().getPageActivity()).inflate(d.h.channel_add_video_item_layout, viewGroup, false);
-            C0137a c0137a2 = new C0137a();
-            c0137a2.dbS = (TbCheckBox) view.findViewById(d.g.item_check_box);
-            c0137a2.dbT = (TbImageView) view.findViewById(d.g.video_cover);
-            c0137a2.dbU = (TextView) view.findViewById(d.g.video_length);
-            c0137a2.title = (TextView) view.findViewById(d.g.title);
-            c0137a2.dbV = (TextView) view.findViewById(d.g.forum_from);
-            c0137a2.dbW = (TextView) view.findViewById(d.g.intro);
-            view.setTag(c0137a2);
-            c0137a = c0137a2;
+            view2 = LayoutInflater.from(this.ctK.getPageContext().getPageActivity()).inflate(d.i.channel_add_video_item_layout, viewGroup, false);
+            C0122a c0122a2 = new C0122a();
+            c0122a2.ctL = (TbCheckBox) view2.findViewById(d.g.item_check_box);
+            c0122a2.ctM = (TbImageView) view2.findViewById(d.g.video_cover);
+            c0122a2.ctN = (TextView) view2.findViewById(d.g.video_length);
+            c0122a2.title = (TextView) view2.findViewById(d.g.title);
+            c0122a2.ctO = (TextView) view2.findViewById(d.g.forum_from);
+            c0122a2.ctP = (TextView) view2.findViewById(d.g.intro);
+            view2.setTag(c0122a2);
+            c0122a = c0122a2;
         }
         com.baidu.tieba.channel.data.b item = getItem(i);
         if (item != null) {
-            c0137a.dbS.setTagData(item);
-            if (item.amq() == 1) {
-                c0137a.dbS.setEnabled(false);
-                aj.c(c0137a.dbS, d.f.icon_choose_channel_n);
+            c0122a.ctL.setTagData(item);
+            if (item.agq() == 1) {
+                c0122a.ctL.setEnabled(false);
+                ak.c(c0122a.ctL, d.f.icon_choose_channel_n);
             } else {
-                c0137a.dbS.setEnabled(true);
-                c0137a.dbS.En();
+                c0122a.ctL.setEnabled(true);
+                c0122a.ctL.wY();
             }
             if (!TextUtils.isEmpty(item.getThumbnailUrl())) {
-                c0137a.dbT.setTag(null);
-                c0137a.dbT.startLoad(item.getThumbnailUrl(), 10, false);
-                c0137a.dbT.invalidate();
+                c0122a.ctM.setTag(null);
+                c0122a.ctM.startLoad(item.getThumbnailUrl(), 10, false);
+                c0122a.ctM.invalidate();
             }
-            c0137a.dbU.setText(am.fR(item.getVideoDuration() * 1000));
+            c0122a.ctN.setText(an.cR(item.getVideoDuration() * 1000));
             if (!TextUtils.isEmpty(item.getTitle())) {
-                c0137a.title.setText(item.getTitle());
+                c0122a.title.setText(item.getTitle());
             }
             if (!TextUtils.isEmpty(item.getForumName())) {
-                c0137a.dbV.setText(item.getForumName() + "吧");
+                c0122a.ctO.setText(item.getForumName() + "吧");
             }
-            c0137a.dbW.setText(am.C(item.amp()) + "次播放·" + com.baidu.tieba.channel.c.c.bl(item.getCreateTime()));
+            c0122a.ctP.setText(an.v(item.agp()) + "次播放·" + com.baidu.tieba.channel.c.c.bj(item.getCreateTime()));
         }
-        this.dbR.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.dbR.getLayoutMode().aM(view);
-        return view;
+        this.ctK.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.ctK.getLayoutMode().u(view2);
+        return view2;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        return getItem(i).amq() != 1;
+        return getItem(i).agq() != 1;
     }
 
     /* renamed from: com.baidu.tieba.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0137a {
-        public TbCheckBox dbS;
-        public TbImageView dbT;
-        public TextView dbU;
-        public TextView dbV;
-        public TextView dbW;
+    public class C0122a {
+        public TbCheckBox ctL;
+        public TbImageView ctM;
+        public TextView ctN;
+        public TextView ctO;
+        public TextView ctP;
         public TextView title;
 
-        public C0137a() {
+        public C0122a() {
         }
     }
 }

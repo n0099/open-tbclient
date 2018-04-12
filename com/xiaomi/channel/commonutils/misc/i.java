@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.xiaomi.channel.commonutils.misc.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class i extends Handler {
     final /* synthetic */ h a;
 

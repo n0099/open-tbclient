@@ -22,14 +22,14 @@ public class GroupChatActivityConfig extends IntentConfig {
         this.mObjTp = null;
     }
 
-    public GroupChatActivityConfig(Activity activity, int i, String str, long j, String str2) {
+    public GroupChatActivityConfig(Activity activity, long j, String str, long j2, String str2) {
         super(activity);
         this.mGroupData = null;
         this.mObjTp = null;
         GroupData groupData = new GroupData();
-        groupData.setGroupId(i);
+        groupData.setGroupId(j);
         groupData.setName(str);
-        groupData.setAuthorId(j);
+        groupData.setAuthorId(j2);
         this.mGroupData = groupData;
         this.mObjTp = str2;
         Intent intent = getIntent();
@@ -41,14 +41,14 @@ public class GroupChatActivityConfig extends IntentConfig {
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
-    public GroupChatActivityConfig(Activity activity, int i, String str, long j, String str2, String str3, String str4) {
+    public GroupChatActivityConfig(Activity activity, long j, String str, long j2, String str2, String str3, String str4) {
         super(activity);
         this.mGroupData = null;
         this.mObjTp = null;
         GroupData groupData = new GroupData();
-        groupData.setGroupId(i);
+        groupData.setGroupId(j);
         groupData.setName(str);
-        groupData.setAuthorId(j);
+        groupData.setAuthorId(j2);
         this.mGroupData = groupData;
         this.mObjTp = str2;
         Intent intent = getIntent();

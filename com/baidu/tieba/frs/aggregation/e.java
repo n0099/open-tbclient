@@ -1,154 +1,172 @@
 package com.baidu.tieba.frs.aggregation;
 
 import android.content.res.Configuration;
-import android.text.TextUtils;
-import android.widget.BaseAdapter;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.os.Handler;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.frs.aggregation.d;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.card.ab;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class e implements d.a {
-    private TbPageContext aRI;
-    private d dID;
-    private boolean dIE;
-    private BdTypeListView mListView;
-    private List<com.baidu.adp.widget.ListView.i> mDatas = new ArrayList();
-    private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private int dIF = -1;
+public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a.a<b>> {
+    private List<b> Ji;
+    private b dbm;
+    private boolean dbn;
+    private a dbo;
+    private boolean dbp;
+    private ab<g> dbq;
+    private Handler mHandler;
+    private TbPageContext mPageContext;
 
-    public e(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
-        this.dIE = false;
-        this.aRI = tbPageContext;
-        this.mListView = bdTypeListView;
-        this.dIE = z;
-        initAdapters();
-    }
-
-    private void initAdapters() {
-        this.dID = new d(this.aRI, this, this.dIE);
-        this.mAdapters.add(this.dID);
-        this.mListView.addAdapters(this.mAdapters);
-    }
-
-    public void setData(List<f> list, boolean z) {
-        if (list != null) {
-            if (z) {
-                this.mDatas.clear();
+    public e(TbPageContext<?> tbPageContext, a aVar, boolean z) {
+        super(tbPageContext.getPageActivity().getBaseContext(), g.dbv);
+        this.Ji = new ArrayList();
+        this.mHandler = new Handler();
+        this.dbq = new ab<g>() { // from class: com.baidu.tieba.frs.aggregation.e.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.card.ab
+            public void a(View view2, g gVar) {
+                if (view2 != null && gVar != null) {
+                    if ((view2.getId() == d.g.video_container || view2.getId() == d.g.video_agg_container || view2.getId() == d.g.mobile_network_play) && view2.getTag() != null && (view2.getTag() instanceof b)) {
+                        b bVar = (b) view2.getTag();
+                        if (e.this.dbm != null && e.this.dbm != bVar && (view2.getId() == d.g.video_container || view2.getId() == d.g.mobile_network_play)) {
+                            e.this.dbm.aqS();
+                        }
+                        if (e.this.dbm != bVar) {
+                            e.this.dbm = bVar;
+                        }
+                    }
+                    if (view2.getId() == d.g.title) {
+                        al alVar = new al("c12411");
+                        alVar.ac(ImageViewerConfig.FORUM_ID, gVar.forumId);
+                        if (TbadkCoreApplication.isLogin()) {
+                            alVar.ac("uid", TbadkCoreApplication.getCurrentAccount());
+                        }
+                        TiebaStatic.log(alVar);
+                    } else if (view2.getId() == d.g.agree_view_container) {
+                        al alVar2 = new al("c12414");
+                        alVar2.ac(ImageViewerConfig.FORUM_ID, gVar.forumId);
+                        if (TbadkCoreApplication.isLogin()) {
+                            alVar2.ac("uid", TbadkCoreApplication.getCurrentAccount());
+                        }
+                        TiebaStatic.log(alVar2);
+                    } else if (view2.getId() == d.g.thread_info_commont_container || view2.getId() == d.g.card_root_view) {
+                        al alVar3 = new al("c12415");
+                        alVar3.ac(ImageViewerConfig.FORUM_ID, gVar.forumId);
+                        if (TbadkCoreApplication.isLogin()) {
+                            alVar3.ac("uid", TbadkCoreApplication.getCurrentAccount());
+                        }
+                        TiebaStatic.log(alVar3);
+                    } else if (view2.getId() == d.g.user_icon || view2.getId() == d.g.user_name) {
+                        al alVar4 = new al("c12412");
+                        alVar4.ac(ImageViewerConfig.FORUM_ID, gVar.forumId);
+                        if (TbadkCoreApplication.isLogin()) {
+                            alVar4.ac("uid", TbadkCoreApplication.getCurrentAccount());
+                        }
+                        TiebaStatic.log(alVar4);
+                    } else if (view2.getId() == d.g.attention) {
+                        al alVar5 = new al("c12413");
+                        alVar5.ac(ImageViewerConfig.FORUM_ID, gVar.forumId);
+                        if (TbadkCoreApplication.isLogin()) {
+                            alVar5.ac("uid", TbadkCoreApplication.getCurrentAccount());
+                        }
+                        TiebaStatic.log(alVar5);
+                    } else if (view2.getId() == d.g.mobile_network_play) {
+                        al alVar6 = new al("c12416");
+                        alVar6.ac(ImageViewerConfig.FORUM_ID, gVar.forumId);
+                        if (TbadkCoreApplication.isLogin()) {
+                            alVar6.ac("uid", TbadkCoreApplication.getCurrentAccount());
+                        }
+                        TiebaStatic.log(alVar6);
+                    }
+                }
             }
-            this.mDatas.addAll(list);
-            this.mListView.setData(this.mDatas);
-            if (z && list.size() > 0 && this.dIE && j.oK()) {
-                awN();
-                list.get(0).autoPlay = true;
+        };
+        this.mPageContext = tbPageContext;
+        this.dbo = aVar;
+        this.dbp = z;
+    }
+
+    public void onConfigurationChanged(Configuration configuration) {
+        if (this.dbm != null) {
+            this.dbn = true;
+            this.dbm.onConfigurationChanged(configuration);
+            if (configuration.orientation == 1) {
+                this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.aggregation.e.2
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        if (e.this.dbn) {
+                            e.this.dbn = false;
+                        }
+                    }
+                }, 500L);
             }
         }
     }
 
-    public void F(String str, boolean z) {
-        boolean z2;
-        if (!TextUtils.isEmpty(str)) {
-            boolean z3 = false;
-            Iterator<com.baidu.adp.widget.ListView.i> it = this.mDatas.iterator();
-            while (true) {
-                z2 = z3;
-                if (!it.hasNext()) {
-                    break;
-                }
-                com.baidu.adp.widget.ListView.i next = it.next();
-                if (next != null && (next instanceof f) && ((f) next).dIJ != null && str.equals(((f) next).dIJ.userId)) {
-                    ((f) next).dIJ.hasFocus = z;
-                    z2 = true;
-                }
-                z3 = z2;
-            }
-            if (z2) {
-                notifyDataSetChanged();
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aa */
+    public com.baidu.tieba.card.a.a<b> onCreateViewHolder(ViewGroup viewGroup) {
+        b bVar = new b(this.mPageContext, this.dbp);
+        bVar.b(this.dbq);
+        this.Ji.add(bVar);
+        return new com.baidu.tieba.card.a.a<>(bVar);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, g gVar, com.baidu.tieba.card.a.a<b> aVar) {
+        if (gVar == null || aVar == null) {
+            return null;
+        }
+        if (!this.dbn) {
+            aVar.afY().a(gVar, i, this.dbo);
+            aVar.afY().mPosition = i;
+        }
+        return aVar.getView();
+    }
+
+    public boolean lC() {
+        if (this.dbm != null) {
+            return this.dbm.isPlaying();
+        }
+        return false;
+    }
+
+    public void lA() {
+        if (this.dbm != null) {
+            this.dbm.aqR();
         }
     }
 
-    public void notifyDataSetChanged() {
-        if (this.mListView != null && this.mListView.getAdapter() != null && (this.mListView.getAdapter() instanceof BaseAdapter)) {
-            this.mListView.getAdapter().notifyDataSetChanged();
+    public void lB() {
+        if (this.dbm != null) {
+            this.dbm.aqS();
         }
     }
 
     public void onDestroy() {
-        this.dID.onDestroy();
-    }
-
-    public boolean awI() {
-        return this.dID.awI();
-    }
-
-    public void awJ() {
-        this.dID.awJ();
-    }
-
-    public void awK() {
-        this.dID.awK();
-    }
-
-    public void onConfigurationChanged(Configuration configuration) {
-        this.dID.onConfigurationChanged(configuration);
-    }
-
-    public boolean nc(int i) {
-        return this.dID.nc(i);
-    }
-
-    @Override // com.baidu.tieba.frs.aggregation.d.a
-    public void nd(int i) {
-        this.dIF = i;
-        if (!v.E(this.mDatas) && this.mListView != null) {
-            for (com.baidu.adp.widget.ListView.i iVar : this.mDatas) {
-                if (iVar instanceof f) {
-                    ((f) iVar).autoPlay = false;
-                }
-            }
-            if (j.oK()) {
-                if (this.dIF < this.mDatas.size() - 1) {
-                    List<com.baidu.adp.widget.ListView.i> list = this.mDatas;
-                    int i2 = this.dIF + 1;
-                    this.dIF = i2;
-                    if (list.get(i2) instanceof f) {
-                        ((f) this.mDatas.get(this.dIF)).autoPlay = true;
-                        this.mListView.smoothScrollToPositionFromTop(this.mListView.getHeaderViewsCount() + i + 1, 0);
-                        notifyDataSetChanged();
-                    }
-                } else if (this.dIF == this.mDatas.size() - 1 && (this.mDatas.get(this.dIF) instanceof f)) {
-                    ((f) this.mDatas.get(this.dIF)).autoPlay = false;
-                }
+        for (b bVar : this.Ji) {
+            if (bVar != null) {
+                bVar.onDestroy();
             }
         }
     }
 
-    public int awL() {
-        return this.dIF;
-    }
-
-    public void awM() {
-        if (!v.E(this.mDatas)) {
-            Iterator<com.baidu.adp.widget.ListView.i> it = this.mDatas.iterator();
-            while (it.hasNext()) {
-                ((f) it.next()).autoPlay = false;
-            }
+    public boolean kr(int i) {
+        if (this.dbm == null) {
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.frs.aggregation.d.a
-    public void cancel() {
-        awN();
-    }
-
-    private void awN() {
-        awM();
-        this.dIF = 0;
-        awJ();
+        return this.dbm.kr(i);
     }
 }

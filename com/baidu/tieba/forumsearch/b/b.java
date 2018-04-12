@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dDn = BdUniqueId.gen();
-    private String dCS;
-    private String dDj;
-    private String dDk;
-    private String dDl;
-    private boolean dDm;
-    private String dpc;
+    public static final BdUniqueId cWi = BdUniqueId.gen();
+    private String cHq;
+    private String cVN;
+    private String cWe;
+    private String cWf;
+    private String cWg;
+    private boolean cWh;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.dCS = str;
+        this.cVN = str;
     }
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dDn;
+        return cWi;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.dpc = searchForum.avatar;
-            this.dDj = searchForum.post_num;
-            this.dDk = searchForum.concern_num;
-            this.dDl = searchForum.slogan;
+            this.cHq = searchForum.avatar;
+            this.cWe = searchForum.post_num;
+            this.cWf = searchForum.concern_num;
+            this.cWg = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.dDm = searchForum.has_concerned.intValue() != 0;
+            this.cWh = searchForum.has_concerned.intValue() != 0;
         }
     }
 
     public String getAvatar() {
-        return this.dpc;
+        return this.cHq;
     }
 
-    public String auq() {
-        return this.dDk;
+    public String aoF() {
+        return this.cWf;
     }
 
-    public String aur() {
-        return this.dDj;
+    public String aoG() {
+        return this.cWe;
     }
 
     public String getForumName() {
@@ -57,7 +57,7 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String aus() {
-        return this.dCS;
+    public String aoH() {
+        return this.cVN;
     }
 }

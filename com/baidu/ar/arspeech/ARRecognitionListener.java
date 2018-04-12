@@ -3,7 +3,6 @@ package com.baidu.ar.arspeech;
 import android.content.Context;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
-import android.support.v4.app.NotificationCompat;
 import com.baidu.baiduarsdk.ArBridge;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +28,7 @@ public class ARRecognitionListener implements RecognitionListener {
     private void a(int i, String str, int i2) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 2001);
-        hashMap.put(NotificationCompat.CATEGORY_STATUS, Integer.valueOf(i));
+        hashMap.put("status", Integer.valueOf(i));
         if (str != null) {
             hashMap.put("voice_result", str);
         }

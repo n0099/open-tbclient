@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TimeZone;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class MiPushClient {
     public static final String COMMAND_REGISTER = "register";
     public static final String COMMAND_SET_ACCEPT_TIME = "accept-time";
@@ -39,7 +39,7 @@ public abstract class MiPushClient {
     private static long sCurMsgId = System.currentTimeMillis();
 
     @Deprecated
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class MiPushClientCallback {
         private String category;
 

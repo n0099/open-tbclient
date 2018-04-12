@@ -5,38 +5,41 @@ import android.animation.AnimatorListenerAdapter;
 import android.view.View;
 /* loaded from: classes2.dex */
 class ViewPropertyAnimatorCompatJB {
-    public static void withStartAction(View view, Runnable runnable) {
-        view.animate().withStartAction(runnable);
+    ViewPropertyAnimatorCompatJB() {
     }
 
-    public static void withEndAction(View view, Runnable runnable) {
-        view.animate().withEndAction(runnable);
+    public static void withStartAction(View view2, Runnable runnable) {
+        view2.animate().withStartAction(runnable);
     }
 
-    public static void withLayer(View view) {
-        view.animate().withLayer();
+    public static void withEndAction(View view2, Runnable runnable) {
+        view2.animate().withEndAction(runnable);
     }
 
-    public static void setListener(final View view, final ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
+    public static void withLayer(View view2) {
+        view2.animate().withLayer();
+    }
+
+    public static void setListener(final View view2, final ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
         if (viewPropertyAnimatorListener != null) {
-            view.animate().setListener(new AnimatorListenerAdapter() { // from class: android.support.v4.view.ViewPropertyAnimatorCompatJB.1
+            view2.animate().setListener(new AnimatorListenerAdapter() { // from class: android.support.v4.view.ViewPropertyAnimatorCompatJB.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    ViewPropertyAnimatorListener.this.onAnimationCancel(view);
+                    ViewPropertyAnimatorListener.this.onAnimationCancel(view2);
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    ViewPropertyAnimatorListener.this.onAnimationEnd(view);
+                    ViewPropertyAnimatorListener.this.onAnimationEnd(view2);
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    ViewPropertyAnimatorListener.this.onAnimationStart(view);
+                    ViewPropertyAnimatorListener.this.onAnimationStart(view2);
                 }
             });
         } else {
-            view.animate().setListener(null);
+            view2.animate().setListener(null);
         }
     }
 }

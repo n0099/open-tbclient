@@ -3,16 +3,16 @@ package com.baidu.tieba.frs.a.a;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
-public class c extends r.a {
-    LinearLayout dNc;
+public class c extends q.a {
+    LinearLayout dfJ;
     TextView mTitle;
 
-    public c(View view) {
-        super(view);
-        this.dNc = (LinearLayout) view.findViewById(d.g.frs_top_item);
-        this.mTitle = (TextView) view.findViewById(d.g.frs_top_title);
+    public c(View view2) {
+        super(view2);
+        this.dfJ = (LinearLayout) view2.findViewById(d.g.frs_top_item);
+        this.mTitle = (TextView) view2.findViewById(d.g.frs_top_title);
     }
 }

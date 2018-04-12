@@ -11,55 +11,55 @@ import com.baidu.tieba.d;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private final BaseActivity bSF;
-    private final b gAE;
-    private Map<String, String> gAF;
-    private QrLoginAction gAG;
+    private final BaseActivity bcJ;
+    private final b fVr;
+    private Map<String, String> fVs;
+    private QrLoginAction fVt;
 
     public a(BaseActivity baseActivity, b bVar) {
-        this.bSF = baseActivity;
-        this.gAE = bVar;
+        this.bcJ = baseActivity;
+        this.fVr = bVar;
     }
 
     public void start(String str) {
-        this.gAF = SapiUtils.parseQrLoginSchema(str);
-        if (j.ox()) {
-            a(this.gAF, QrLoginAction.NOTICE);
+        this.fVs = SapiUtils.parseQrLoginSchema(str);
+        if (j.gD()) {
+            a(this.fVs, QrLoginAction.NOTICE);
         } else {
-            this.gAE.bnC();
+            this.fVr.biI();
         }
     }
 
-    public void bnE() {
-        if (!j.ox()) {
-            this.bSF.showToast(d.j.network_not_available);
+    public void biK() {
+        if (!j.gD()) {
+            this.bcJ.showToast(d.k.network_not_available);
         } else {
-            a(this.gAF, QrLoginAction.LOGIN);
+            a(this.fVs, QrLoginAction.LOGIN);
         }
     }
 
-    public void bnF() {
-        a(this.gAF, QrLoginAction.CANCEL);
+    public void biL() {
+        a(this.fVs, QrLoginAction.CANCEL);
     }
 
     private void a(Map<String, String> map, QrLoginAction qrLoginAction) {
         if (!TbadkCoreApplication.isLogin()) {
             onError("loginError");
         } else {
-            this.gAG = qrLoginAction;
+            this.fVt = qrLoginAction;
         }
     }
 
     public void onDestory() {
-        if (this.gAG != null && this.gAG == QrLoginAction.NOTICE) {
-            bnF();
+        if (this.fVt != null && this.fVt == QrLoginAction.NOTICE) {
+            biL();
         }
     }
 
     private void onError(String str) {
         if (!StringUtils.isNull(str)) {
-            UtilHelper.showToast(this.bSF, str);
+            UtilHelper.showToast(this.bcJ, str);
         }
-        this.bSF.finish();
+        this.bcJ.finish();
     }
 }

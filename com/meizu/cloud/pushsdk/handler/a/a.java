@@ -8,7 +8,7 @@ import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     private com.meizu.cloud.pushsdk.handler.a a;
     private Context b;
@@ -63,12 +63,12 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     public String d(Intent intent) {
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY);
         if (TextUtils.isEmpty(stringExtra)) {
-            String c = com.meizu.cloud.pushsdk.util.c.c(c());
+            String c = com.meizu.cloud.pushsdk.util.b.c(c());
             if (TextUtils.isEmpty(c)) {
-                String b = MzSystemUtils.b(c());
-                com.meizu.cloud.pushsdk.util.c.b(c(), b);
-                com.meizu.cloud.a.a.e("AbstractMessageHandler", "force get deviceId " + b);
-                return b;
+                String deviceId = MzSystemUtils.getDeviceId(c());
+                com.meizu.cloud.pushsdk.util.b.b(c(), deviceId);
+                com.meizu.cloud.a.a.e("AbstractMessageHandler", "force get deviceId " + deviceId);
+                return deviceId;
             }
             return c;
         }
@@ -172,7 +172,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
                 str = null;
             } else {
                 String str2 = map.get("sk");
-                str = TextUtils.isEmpty(str2) ? com.meizu.cloud.pushsdk.b.f.e.a((Map) map).toString() : str2;
+                str = TextUtils.isEmpty(str2) ? com.meizu.cloud.pushsdk.pushtracer.utils.d.a((Map) map).toString() : str2;
             }
         }
         com.meizu.cloud.a.a.e("AbstractMessageHandler", "self json " + str);
@@ -187,9 +187,9 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     public boolean a(int i, String str) {
         boolean z = true;
         if (i == 0) {
-            z = com.meizu.cloud.pushsdk.util.c.e(c(), str);
+            z = com.meizu.cloud.pushsdk.util.b.e(c(), str);
         } else if (i == 1) {
-            z = com.meizu.cloud.pushsdk.util.c.f(c(), str);
+            z = com.meizu.cloud.pushsdk.util.b.f(c(), str);
         }
         com.meizu.cloud.a.a.e("AbstractMessageHandler", str + (i == 0 ? " canNotificationMessage " : " canThroughMessage ") + z);
         return z;

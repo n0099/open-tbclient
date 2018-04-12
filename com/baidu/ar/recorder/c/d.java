@@ -3,6 +3,7 @@ package com.baidu.ar.recorder.c;
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -13,7 +14,7 @@ public class d {
         return a(i, null, 9729, 9729, 33071, 33071);
     }
 
-    public static int a(int i, Bitmap bitmap, int i2, int i3, int i4, int i5) {
+    public static int a(int i, @Nullable Bitmap bitmap, int i2, int i3, int i4, int i5) {
         int[] iArr = new int[1];
         GLES20.glGenTextures(1, iArr, 0);
         a("glGenTextures");

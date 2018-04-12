@@ -6,12 +6,15 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatIcs {
+    AccessibilityNodeInfoCompatIcs() {
+    }
+
     public static Object obtain() {
         return AccessibilityNodeInfo.obtain();
     }
 
-    public static Object obtain(View view) {
-        return AccessibilityNodeInfo.obtain(view);
+    public static Object obtain(View view2) {
+        return AccessibilityNodeInfo.obtain(view2);
     }
 
     public static Object obtain(Object obj) {
@@ -22,8 +25,8 @@ class AccessibilityNodeInfoCompatIcs {
         ((AccessibilityNodeInfo) obj).addAction(i);
     }
 
-    public static void addChild(Object obj, View view) {
-        ((AccessibilityNodeInfo) obj).addChild(view);
+    public static void addChild(Object obj, View view2) {
+        ((AccessibilityNodeInfo) obj).addChild(view2);
     }
 
     public static List<Object> findAccessibilityNodeInfosByText(Object obj, String str) {
@@ -166,8 +169,8 @@ class AccessibilityNodeInfoCompatIcs {
         ((AccessibilityNodeInfo) obj).setPackageName(charSequence);
     }
 
-    public static void setParent(Object obj, View view) {
-        ((AccessibilityNodeInfo) obj).setParent(view);
+    public static void setParent(Object obj, View view2) {
+        ((AccessibilityNodeInfo) obj).setParent(view2);
     }
 
     public static void setPassword(Object obj, boolean z) {
@@ -182,8 +185,8 @@ class AccessibilityNodeInfoCompatIcs {
         ((AccessibilityNodeInfo) obj).setSelected(z);
     }
 
-    public static void setSource(Object obj, View view) {
-        ((AccessibilityNodeInfo) obj).setSource(view);
+    public static void setSource(Object obj, View view2) {
+        ((AccessibilityNodeInfo) obj).setSource(view2);
     }
 
     public static void setText(Object obj, CharSequence charSequence) {

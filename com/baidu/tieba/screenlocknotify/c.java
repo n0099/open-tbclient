@@ -10,11 +10,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<e> gKu = new ArrayList();
+    private List<e> gfu = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,20 +22,20 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gKu != null) {
-            return this.gKu.size();
+        if (this.gfu != null) {
+            return this.gfu.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uG */
+    /* renamed from: sh */
     public e getItem(int i) {
-        if (this.gKu == null || i >= this.gKu.size()) {
+        if (this.gfu == null || i >= this.gfu.size()) {
             return null;
         }
-        return this.gKu.get(i);
+        return this.gfu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -44,58 +44,58 @@ public class c extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.gKu.get(i), view, viewGroup);
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        return a(this.gfu.get(i), view2, viewGroup);
     }
 
-    public View a(e eVar, View view, ViewGroup viewGroup) {
+    public View a(e eVar, View view2, ViewGroup viewGroup) {
         View inflate;
-        a cM;
-        if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-            cM = (a) view.getTag();
-            inflate = view;
+        a bs;
+        if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof a)) {
+            bs = (a) view2.getTag();
+            inflate = view2;
         } else {
-            inflate = LayoutInflater.from(this.mContext).inflate(d.h.screenlock_show_item_view_4, viewGroup, false);
-            cM = cM(inflate);
-            inflate.setTag(cM);
+            inflate = LayoutInflater.from(this.mContext).inflate(d.i.screenlock_show_item_view_4, viewGroup, false);
+            bs = bs(inflate);
+            inflate.setTag(bs);
         }
         if (eVar == null) {
             return inflate;
         }
-        cM.gKv.setText(eVar.title);
-        cM.gKw.setText(eVar.content);
-        cM.gKx.setDefaultErrorResource(d.f.screen_notify_default_bg);
-        cM.gKx.setDefaultResource(d.f.screen_notify_default_bg);
-        cM.gKx.startLoad(eVar.pic, 10, 0, 0, false);
+        bs.gfv.setText(eVar.title);
+        bs.gfw.setText(eVar.content);
+        bs.gfx.setDefaultErrorResource(d.f.screen_notify_default_bg);
+        bs.gfx.setDefaultResource(d.f.screen_notify_default_bg);
+        bs.gfx.startLoad(eVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
-    public void dm(List<e> list) {
+    public void de(List<e> list) {
         if (list != null && list.size() != 0) {
-            this.gKu.addAll(list);
+            this.gfu.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a {
-        TextView gKv;
-        TextView gKw;
-        TbImageView gKx;
+        TextView gfv;
+        TextView gfw;
+        TbImageView gfx;
         View mLine;
 
         private a() {
         }
     }
 
-    private a cM(View view) {
+    private a bs(View view2) {
         a aVar = new a();
-        aVar.gKv = (TextView) view.findViewById(d.g.push_msg_title);
-        aVar.gKw = (TextView) view.findViewById(d.g.push_msg_content);
-        aVar.gKx = (TbImageView) view.findViewById(d.g.push_msg_pic);
-        aVar.gKx.setAutoChangeStyle(false);
-        aVar.mLine = view.findViewById(d.g.line);
+        aVar.gfv = (TextView) view2.findViewById(d.g.push_msg_title);
+        aVar.gfw = (TextView) view2.findViewById(d.g.push_msg_content);
+        aVar.gfx = (TbImageView) view2.findViewById(d.g.push_msg_pic);
+        aVar.gfx.setAutoChangeStyle(false);
+        aVar.mLine = view2.findViewById(d.g.line);
         return aVar;
     }
 

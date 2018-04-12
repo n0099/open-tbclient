@@ -8,7 +8,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class y implements Serializable, Cloneable, org.apache.thrift.a<y, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> c;
     private static final org.apache.thrift.protocol.j d = new org.apache.thrift.protocol.j("XmPushActionCheckClientInfo");
@@ -18,7 +18,7 @@ public class y implements Serializable, Cloneable, org.apache.thrift.a<y, a> {
     public int b;
     private BitSet g = new BitSet(2);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         MISC_CONFIG_VERSION(1, "miscConfigVersion"),
         PLUGIN_CONFIG_VERSION(2, "pluginConfigVersion");

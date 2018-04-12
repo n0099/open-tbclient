@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.util.Log;
 import com.xiaomi.metok.geofencing.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements ServiceConnection {
     final /* synthetic */ a a;
 

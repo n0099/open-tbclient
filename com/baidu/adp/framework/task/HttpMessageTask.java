@@ -83,7 +83,7 @@ public class HttpMessageTask extends MessageTask {
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.cB(this.mCmd);
+        return FrameHelper.B(this.mCmd);
     }
 
     public e getConnectTimeOut() {
@@ -96,20 +96,20 @@ public class HttpMessageTask extends MessageTask {
 
     /* loaded from: classes.dex */
     public static class a {
-        private String aeT;
-        private boolean aeU;
         private int mCmd;
+        private String pt;
+        private boolean pu;
 
         public int getCmd() {
             return this.mCmd;
         }
 
-        public String lb() {
-            return this.aeT;
+        public String df() {
+            return this.pt;
         }
 
-        public boolean lc() {
-            return this.aeU;
+        public boolean dg() {
+            return this.pu;
         }
     }
 }

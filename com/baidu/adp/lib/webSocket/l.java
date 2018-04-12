@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String anE;
-    private int aor;
-    private int aos;
-    private boolean aot;
-    private boolean aou;
-    private int aov;
-    private int aow;
-    private boolean aox;
-    private boolean aoy;
+    private int yU;
+    private int yV;
+    private boolean yW;
+    private boolean yX;
+    private int yY;
+    private int yZ;
+    private String yh;
+    private boolean za;
+    private boolean zb;
 
     public l() {
-        this.anE = null;
-        this.aor = 32768;
-        this.aos = 131072;
-        this.aot = false;
-        this.aou = true;
-        this.aov = 30000;
-        this.aow = 30000;
-        this.aox = true;
-        this.aoy = true;
-        this.anE = null;
+        this.yh = null;
+        this.yU = 32768;
+        this.yV = 131072;
+        this.yW = false;
+        this.yX = true;
+        this.yY = 30000;
+        this.yZ = 30000;
+        this.za = true;
+        this.zb = true;
+        this.yh = null;
     }
 
     public l(l lVar) {
-        this.anE = null;
-        this.aor = lVar.aor;
-        this.aos = lVar.aos;
-        this.aot = lVar.aot;
-        this.aou = lVar.aou;
-        this.aov = lVar.aov;
-        this.aow = lVar.aow;
-        this.aox = lVar.aox;
-        this.aoy = lVar.aoy;
-        this.anE = lVar.anE;
+        this.yh = null;
+        this.yU = lVar.yU;
+        this.yV = lVar.yV;
+        this.yW = lVar.yW;
+        this.yX = lVar.yX;
+        this.yY = lVar.yY;
+        this.yZ = lVar.yZ;
+        this.za = lVar.za;
+        this.zb = lVar.zb;
+        this.yh = lVar.yh;
     }
 
-    public boolean pK() {
-        return this.aot;
+    public boolean hP() {
+        return this.yW;
     }
 
-    public int pL() {
-        return this.aor;
+    public int hQ() {
+        return this.yU;
     }
 
-    public int pM() {
-        return this.aos;
+    public int hR() {
+        return this.yV;
     }
 
     public boolean getTcpNoDelay() {
-        return this.aou;
+        return this.yX;
     }
 
-    public int pN() {
-        return this.aov;
+    public int hS() {
+        return this.yY;
     }
 
-    public int pO() {
-        return this.aow;
+    public int hT() {
+        return this.yZ;
     }
 
-    public boolean pP() {
-        return this.aox;
+    public boolean hU() {
+        return this.za;
     }
 
-    public boolean pQ() {
-        return this.aoy;
+    public boolean hV() {
+        return this.zb;
     }
 
-    public String pR() {
-        return this.anE;
+    public String hW() {
+        return this.yh;
     }
 
-    public void bd(String str) {
-        this.anE = str;
+    public void ba(String str) {
+        this.yh = str;
     }
 }

@@ -14,22 +14,22 @@ import com.baidu.tieba.d;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class c {
-    public static void d(Context context, View view) {
+    public static void e(Context context, View view2) {
         Toast toast = new Toast(context);
-        toast.setView(view);
+        toast.setView(view2);
         toast.setGravity(17, 0, 0);
         toast.setDuration(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
         toast.show();
     }
 
     public static void e(Context context, String str, String str2, String str3) {
-        View inflate = LayoutInflater.from(context).inflate(d.h.post_write_or_reply_lay, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(d.i.post_write_or_reply_lay, (ViewGroup) null);
         View findViewById = inflate.findViewById(d.g.experience_score);
         TextView textView = (TextView) inflate.findViewById(d.g.success_text);
         TextView textView2 = (TextView) inflate.findViewById(d.g.pre_msg);
         TextView textView3 = (TextView) inflate.findViewById(d.g.color_msg);
         if (StringUtils.isNull(str)) {
-            str = context.getString(d.j.send_success);
+            str = context.getString(d.k.send_success);
         }
         textView.setText(str);
         if (str2 != null || str3 != null) {
@@ -37,21 +37,21 @@ public class c {
             textView2.setText(str2);
             textView3.setText(str3);
         }
-        d(context, inflate);
+        e(context, inflate);
     }
 
     public static void a(x xVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
             xVar.n("is_location", "2");
-            Address an = com.baidu.adp.lib.d.a.mG().an(false);
-            if (an != null) {
-                xVar.n("lat", String.valueOf(an.getLatitude()));
-                xVar.n("lng", String.valueOf(an.getLongitude()));
+            Address G = com.baidu.adp.lib.d.a.eK().G(false);
+            if (G != null) {
+                xVar.n("lat", String.valueOf(G.getLatitude()));
+                xVar.n("lng", String.valueOf(G.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bxE().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bsE().getLocationData();
             if (locationData != null) {
-                xVar.n("name", locationData.bxA());
-                xVar.n("sn", locationData.bxC());
+                xVar.n("name", locationData.bsA());
+                xVar.n("sn", locationData.bsC());
             }
         }
     }

@@ -6,11 +6,11 @@ import android.view.View;
 public interface b {
     View a(LayoutInflater layoutInflater);
 
+    int eF();
+
+    int eG();
+
     int getXOffset();
 
     int getYOffset();
-
-    int mB();
-
-    int mC();
 }

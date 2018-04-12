@@ -1,10 +1,10 @@
 package com.coloros.mcssdk.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends c {
     private String content;
     private String description;
-    private String hOV;
-    private String hOW;
+    private String hmt;
+    private String hmu;
 
     @Override // com.coloros.mcssdk.e.c
     public int getType() {
@@ -20,14 +20,14 @@ public class d extends c {
     }
 
     public String toString() {
-        return "messageID:" + this.hOT + ",taskID:" + this.hOU + ",globalID:" + this.hOV + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.hOW;
+        return "messageID:" + this.hmr + ",taskID:" + this.hms + ",globalID:" + this.hmt + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.hmu;
     }
 
-    public void uY(String str) {
-        this.hOV = str;
+    public void vB(String str) {
+        this.hmt = str;
     }
 
-    public void uZ(String str) {
-        this.hOW = str;
+    public void vC(String str) {
+        this.hmu = str;
     }
 }

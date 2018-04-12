@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.GiftInfo;
 /* loaded from: classes3.dex */
 public class o extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gqd = BdUniqueId.gen();
-    public long gqe;
+    public static final BdUniqueId fKF = BdUniqueId.gen();
+    public long giftNum;
     public String picUrl;
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gqd;
+        return fKF;
     }
 
     public void a(GiftInfo giftInfo) {
         if (giftInfo != null) {
             this.picUrl = giftInfo.icon;
-            this.gqe = giftInfo.num.intValue();
+            this.giftNum = giftInfo.num.intValue();
         }
     }
 }

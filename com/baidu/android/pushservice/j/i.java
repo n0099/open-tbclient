@@ -1,48 +1,35 @@
 package com.baidu.android.pushservice.j;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-/* loaded from: classes2.dex */
+import android.annotation.SuppressLint;
+import android.app.AppOpsManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+/* loaded from: classes3.dex */
 public class i {
-    byte[] a = new byte[8];
-    private DataOutputStream b;
-
-    public i(OutputStream outputStream) {
-        this.b = new DataOutputStream(outputStream);
+    @SuppressLint({"NewApi"})
+    public static int a(Context context) {
+        AppOpsManager appOpsManager = (AppOpsManager) context.getSystemService("appops");
+        ApplicationInfo applicationInfo = context.getApplicationInfo();
+        String packageName = context.getApplicationContext().getPackageName();
+        int i = applicationInfo.uid;
+        try {
+            Class<?> cls = Class.forName(AppOpsManager.class.getName());
+            return ((Integer) cls.getMethod("checkOpNoThrow", Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField("OP_POST_NOTIFICATION").get(Integer.class)).intValue()), Integer.valueOf(i), packageName)).intValue() == 0 ? 1 : 0;
+        } catch (Exception e) {
+            return 2;
+        }
     }
 
-    public void a() throws IOException {
-        this.b.close();
-    }
-
-    public final void a(int i) throws Exception {
-        this.a[1] = (byte) (i >> 8);
-        this.a[0] = (byte) i;
-        this.b.write(this.a, 0, 2);
-    }
-
-    public final void a(long j) throws Exception {
-        this.a[7] = (byte) (j >> 56);
-        this.a[6] = (byte) (j >> 48);
-        this.a[5] = (byte) (j >> 40);
-        this.a[4] = (byte) (j >> 32);
-        this.a[3] = (byte) (j >> 24);
-        this.a[2] = (byte) (j >> 16);
-        this.a[1] = (byte) (j >> 8);
-        this.a[0] = (byte) j;
-        this.b.write(this.a, 0, 8);
-    }
-
-    public void a(byte[] bArr) throws Exception {
-        this.b.write(bArr);
-    }
-
-    public final void b(int i) throws Exception {
-        this.a[3] = (byte) (i >> 24);
-        this.a[2] = (byte) (i >> 16);
-        this.a[1] = (byte) (i >> 8);
-        this.a[0] = (byte) i;
-        this.b.write(this.a, 0, 4);
+    @SuppressLint({"NewApi"})
+    public static void a(Context context, String str, String str2) {
+        NotificationChannel notificationChannel = new NotificationChannel(str, str2, 3);
+        notificationChannel.setShowBadge(true);
+        notificationChannel.setLockscreenVisibility(1);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        if (notificationManager != null) {
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
     }
 }

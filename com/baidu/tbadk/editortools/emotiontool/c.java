@@ -3,14 +3,18 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a btj;
-    private com.baidu.adp.widget.a.a btk;
+    private com.baidu.adp.widget.ImageView.a aDJ;
+    private com.baidu.adp.widget.ImageView.a aDK;
     private int cols;
     private int rows;
 
-    public abstract boolean Lq();
+    public abstract boolean DT();
 
-    public abstract EmotionGroupType Lr();
+    public abstract EmotionGroupType DU();
+
+    public abstract String eL(int i);
+
+    public abstract boolean ge(String str);
 
     public abstract int getEmotionsCount();
 
@@ -22,51 +26,47 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract boolean gn(String str);
+    public abstract com.baidu.adp.widget.ImageView.a gf(String str);
 
-    public abstract com.baidu.adp.widget.a.a go(String str);
+    public abstract com.baidu.adp.widget.ImageView.a gg(String str);
 
-    public abstract com.baidu.adp.widget.a.a gp(String str);
-
-    public abstract String hL(int i);
-
-    public com.baidu.adp.widget.a.a Ls() {
-        return this.btj;
+    public com.baidu.adp.widget.ImageView.a DV() {
+        return this.aDJ;
     }
 
-    public void c(com.baidu.adp.widget.a.a aVar) {
+    public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.sh();
+            aVar.km();
         }
-        this.btj = aVar;
+        this.aDJ = aVar;
     }
 
-    public com.baidu.adp.widget.a.a Lt() {
-        return this.btk;
+    public com.baidu.adp.widget.ImageView.a DW() {
+        return this.aDK;
     }
 
-    public void d(com.baidu.adp.widget.a.a aVar) {
+    public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.sh();
+            aVar.km();
         }
-        this.btk = aVar;
+        this.aDK = aVar;
     }
 
-    public int Lu() {
+    public int DX() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void hM(int i) {
+    public void eM(int i) {
         this.cols = i;
     }
 
-    public int Lv() {
+    public int DY() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void hN(int i) {
+    public void eN(int i) {
         this.rows = i;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 public class o {
     public String subType = null;
 
-    public static com.baidu.adp.lib.stats.a nn() {
+    public static com.baidu.adp.lib.stats.a fq() {
         return BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
     }
 }

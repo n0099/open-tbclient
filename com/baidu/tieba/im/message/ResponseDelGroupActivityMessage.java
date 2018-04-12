@@ -26,7 +26,7 @@ public class ResponseDelGroupActivityMessage extends SocketResponsedMessage {
         if (getError() == 0) {
             DataRes dataRes = delGroupActivityResIdl.data;
             GroupActivityData groupActivityData = new GroupActivityData();
-            groupActivityData.setGroupId(dataRes.groupId.intValue());
+            groupActivityData.setGroupId(dataRes.groupId.longValue());
             groupActivityData.setGroupName(dataRes.groupName);
             groupActivityData.setActivityId(dataRes.activityId.intValue());
             groupActivityData.setIsEnd(dataRes.isEnd.intValue());

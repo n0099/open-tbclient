@@ -6,24 +6,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a bgI = null;
-    private boolean bgH;
-    private int bgJ;
+    private static volatile a asn = null;
+    private boolean asm;
+    private int aso;
 
     private a() {
-        this.bgH = false;
-        this.bgJ = 0;
+        this.asm = false;
+        this.aso = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
-            dVar.ad(true);
+            dVar.w(true);
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (dVar.lm()) {
+            if (dVar.dq()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.bgJ = Integer.parseInt(content);
+                    this.aso = Integer.parseInt(content);
                 }
-                if (this.bgJ == 1 || this.bgJ == 2) {
-                    this.bgH = true;
+                if (this.aso == 1 || this.aso == 2) {
+                    this.asm = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a Fe() {
-        if (bgI == null) {
+    public static a xR() {
+        if (asn == null) {
             synchronized (a.class) {
-                if (bgI == null) {
-                    bgI = new a();
+                if (asn == null) {
+                    asn = new a();
                 }
             }
         }
-        return bgI;
+        return asn;
     }
 
-    public boolean Ff() {
-        return this.bgH;
+    public boolean xS() {
+        return this.asm;
     }
 
-    public int Fg() {
-        return this.bgJ;
+    public int xT() {
+        return this.aso;
     }
 
-    public String Fh() {
-        return this.bgH ? "pub_env=" + this.bgJ + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String xU() {
+        return this.asm ? "pub_env=" + this.aso + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

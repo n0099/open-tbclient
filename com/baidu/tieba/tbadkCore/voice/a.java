@@ -8,15 +8,15 @@ public interface a {
 
     boolean a(f fVar, int i);
 
-    void bR(String str);
+    void bO(String str);
+
+    void lP();
+
+    boolean lQ();
 
     void release();
 
     void setContext(TbPageContext<?> tbPageContext);
 
     void stopRecord();
-
-    void tj();
-
-    boolean tk();
 }

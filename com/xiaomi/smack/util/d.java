@@ -2,7 +2,7 @@ package com.xiaomi.smack.util;
 
 import android.text.TextUtils;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     private static final char[] a = "&quot;".toCharArray();
     private static final char[] b = "&apos;".toCharArray();

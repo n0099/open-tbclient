@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.h.q;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.h.o;
+import com.baidu.android.pushservice.j.m;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Properties;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class h {
     private static String g = "api.tuisong.baidu.com";
     private static String[] h = {"api0.tuisong.baidu.com", "api1.tuisong.baidu.com", "api2.tuisong.baidu.com", "api3.tuisong.baidu.com", "api4.tuisong.baidu.com", "api5.tuisong.baidu.com", "api6.tuisong.baidu.com", "api7.tuisong.baidu.com", "api8.tuisong.baidu.com", "api9.tuisong.baidu.com"};
@@ -31,7 +31,7 @@ public final class h {
     private static boolean p = false;
 
     public static int a(Context context) {
-        return p.F(context) ? b : a;
+        return m.F(context) ? b : a;
     }
 
     public static String a() {
@@ -131,7 +131,7 @@ public final class h {
         Properties properties = new Properties();
         FileInputStream fileInputStream2 = null;
         try {
-            if (p.u(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            if (m.u(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                 fileInputStream = new FileInputStream(file);
                 try {
                     properties.load(fileInputStream);
@@ -146,7 +146,7 @@ public final class h {
                 }
             } else {
                 properties.put("http_server", "http://10.95.41.15:8080");
-                if (p.F(context)) {
+                if (m.F(context)) {
                     properties.put("socket_server_port_v3", "8006");
                 } else {
                     properties.put("socket_server_port", "8005");
@@ -165,7 +165,7 @@ public final class h {
             if (!TextUtils.isEmpty(property2)) {
                 i = property2;
             }
-            if (p.F(context)) {
+            if (m.F(context)) {
                 String property3 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property3)) {
                     b = Integer.parseInt(property3);
@@ -220,7 +220,7 @@ public final class h {
                 }
             }
         } catch (Exception e2) {
-            q.a(context, e2);
+            o.a(context, e2);
         }
         return false;
     }

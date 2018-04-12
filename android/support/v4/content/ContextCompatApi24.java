@@ -4,6 +4,9 @@ import android.content.Context;
 import java.io.File;
 /* loaded from: classes2.dex */
 class ContextCompatApi24 {
+    ContextCompatApi24() {
+    }
+
     public static File getDataDir(Context context) {
         return context.getDataDir();
     }

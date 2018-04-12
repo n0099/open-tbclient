@@ -9,9 +9,9 @@ public class SearchGroupModel extends BdBaseModel<AddGroupActivity> {
         super(addGroupActivity.getPageContext());
     }
 
-    public void sendMessage(int i) {
+    public void sendMessage(long j) {
         RequestSearchGroupsMessage requestSearchGroupsMessage = new RequestSearchGroupsMessage();
-        requestSearchGroupsMessage.setGroupId(i);
+        requestSearchGroupsMessage.setGroupId(j);
         super.sendMessage(requestSearchGroupsMessage);
     }
 
@@ -23,9 +23,9 @@ public class SearchGroupModel extends BdBaseModel<AddGroupActivity> {
         super.sendMessage(new RequestSearchGroupsMessage());
     }
 
-    public void sendUpdateMessage(int i) {
+    public void sendUpdateMessage(long j) {
         RequestSearchGroupsMessage requestSearchGroupsMessage = new RequestSearchGroupsMessage();
-        requestSearchGroupsMessage.setGroupId(i);
+        requestSearchGroupsMessage.setGroupId(j);
         super.sendMessage(requestSearchGroupsMessage);
     }
 

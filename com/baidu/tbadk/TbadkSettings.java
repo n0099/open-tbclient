@@ -58,4 +58,8 @@ public abstract class TbadkSettings {
     public void saveLong(String str, long j) {
         b.getInstance().putLong(str, j);
     }
+
+    public boolean isContains(String str) {
+        return b.getInstance().isContains(str);
+    }
 }

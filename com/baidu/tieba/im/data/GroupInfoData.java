@@ -2,14 +2,14 @@ package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.i;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ae;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends AbstractImageProvider implements i, ae, Serializable {
+public class GroupInfoData extends AbstractImageProvider implements h, ae, Serializable {
     public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
     private static final long serialVersionUID = 5616188082014345808L;
     private long authorId;
@@ -20,7 +20,7 @@ public class GroupInfoData extends AbstractImageProvider implements i, ae, Seria
     private String forumShowName;
     private int from;
     private int grade;
-    private int groupId;
+    private long groupId;
     private String intro;
     private int isGroupManager;
     private boolean isMemGroup;
@@ -45,12 +45,12 @@ public class GroupInfoData extends AbstractImageProvider implements i, ae, Seria
         this.isGroupManager = i;
     }
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public long getForumId() {
@@ -170,7 +170,7 @@ public class GroupInfoData extends AbstractImageProvider implements i, ae, Seria
         return arrayList;
     }
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
         return TYPE_FRS_GROUP;
     }

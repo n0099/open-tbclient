@@ -4,6 +4,14 @@ import android.os.Bundle;
 import android.view.accessibility.AccessibilityNodeInfo;
 /* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatKitKat {
+    private static final String ROLE_DESCRIPTION_KEY = "AccessibilityNodeInfo.roleDescription";
+    private static final String TRAITS_KEY = "android.view.accessibility.AccessibilityNodeInfo.traits";
+    private static final long TRAIT_HAS_IMAGE = 1;
+    private static final byte TRAIT_UNSET = -1;
+
+    AccessibilityNodeInfoCompatKitKat() {
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int getLiveRegion(Object obj) {
         return ((AccessibilityNodeInfo) obj).getLiveRegion();
@@ -73,6 +81,15 @@ class AccessibilityNodeInfoCompatKitKat {
         return ((AccessibilityNodeInfo) obj).getExtras();
     }
 
+    private static long getTraits(Object obj) {
+        return getExtras(obj).getLong(TRAITS_KEY, -1L);
+    }
+
+    private static void setTrait(Object obj, long j) {
+        Bundle extras = getExtras(obj);
+        extras.putLong(TRAITS_KEY, extras.getLong(TRAITS_KEY, 0L) | j);
+    }
+
     public static int getInputType(Object obj) {
         return ((AccessibilityNodeInfo) obj).getInputType();
     }
@@ -98,11 +115,11 @@ class AccessibilityNodeInfoCompatKitKat {
     }
 
     public static CharSequence getRoleDescription(Object obj) {
-        return getExtras(obj).getCharSequence("AccessibilityNodeInfo.roleDescription");
+        return getExtras(obj).getCharSequence(ROLE_DESCRIPTION_KEY);
     }
 
     public static void setRoleDescription(Object obj, CharSequence charSequence) {
-        getExtras(obj).putCharSequence("AccessibilityNodeInfo.roleDescription", charSequence);
+        getExtras(obj).putCharSequence(ROLE_DESCRIPTION_KEY, charSequence);
     }
 
     public static Object obtainRangeInfo(int i, float f, float f2, float f3) {
@@ -111,6 +128,9 @@ class AccessibilityNodeInfoCompatKitKat {
 
     /* loaded from: classes2.dex */
     static class CollectionInfo {
+        CollectionInfo() {
+        }
+
         /* JADX INFO: Access modifiers changed from: package-private */
         public static int getColumnCount(Object obj) {
             return ((AccessibilityNodeInfo.CollectionInfo) obj).getColumnCount();
@@ -129,6 +149,9 @@ class AccessibilityNodeInfoCompatKitKat {
 
     /* loaded from: classes2.dex */
     static class CollectionItemInfo {
+        CollectionItemInfo() {
+        }
+
         /* JADX INFO: Access modifiers changed from: package-private */
         public static int getColumnIndex(Object obj) {
             return ((AccessibilityNodeInfo.CollectionItemInfo) obj).getColumnIndex();
@@ -157,6 +180,9 @@ class AccessibilityNodeInfoCompatKitKat {
 
     /* loaded from: classes2.dex */
     static class RangeInfo {
+        RangeInfo() {
+        }
+
         /* JADX INFO: Access modifiers changed from: package-private */
         public static float getCurrent(Object obj) {
             return ((AccessibilityNodeInfo.RangeInfo) obj).getCurrent();

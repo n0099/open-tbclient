@@ -20,7 +20,7 @@ public class a extends com.baidu.tbadk.a.a {
     }
 
     @Override // com.baidu.tbadk.a.a
-    public String vG() {
+    public String key() {
         Uri parse = Uri.parse(this.mKey);
         return parse != null ? parse.getAuthority() + parse.getPath() : "";
     }
@@ -30,70 +30,70 @@ public class a extends com.baidu.tbadk.a.a {
         if (hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
             String str2 = hashMap.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                C0223a c0223a = new C0223a(str, str2, hashMap, dVar);
-                c0223a.setPriority(2);
-                c0223a.execute(new Object[0]);
+                C0205a c0205a = new C0205a(str, str2, hashMap, dVar);
+                c0205a.setPriority(2);
+                c0205a.execute(new Object[0]);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0223a extends BdAsyncTask<Object, Integer, h> {
-        private String aGS;
-        private HashMap<String, String> eZE;
-        private d eZF;
+    private class C0205a extends BdAsyncTask<Object, Integer, h> {
+        private String Sc;
+        private HashMap<String, String> eun;
+        private d euo;
         private volatile x mNetwork = null;
         private String postUrl;
 
-        public C0223a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
-            this.aGS = str;
+        public C0205a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
+            this.Sc = str;
             this.postUrl = str2;
-            this.eZE = hashMap;
-            this.eZF = dVar;
+            this.eun = hashMap;
+            this.euo = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: E */
+        /* renamed from: C */
         public h doInBackground(Object... objArr) {
             h hVar = new h();
             try {
                 this.mNetwork = new x(this.postUrl);
-                Set<String> keySet = this.eZE.keySet();
+                Set<String> keySet = this.eun.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.n(str, this.eZE.get(str));
+                            this.mNetwork.n(str, this.eun.get(str));
                         }
                     }
                 }
                 this.mNetwork.n("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.n("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.mNetwork.Cz().Dw().mIsNeedTbs = true;
-                String Cb = this.mNetwork.Cb();
-                if (!this.mNetwork.Cz().Dx().CC()) {
-                    hVar.errorCode = this.mNetwork.CE();
-                    hVar.errorString = this.mNetwork.Cd();
+                this.mNetwork.vj().wi().mIsNeedTbs = true;
+                String uL = this.mNetwork.uL();
+                if (!this.mNetwork.vj().wj().vm()) {
+                    hVar.errorCode = this.mNetwork.vo();
+                    hVar.errorString = this.mNetwork.uN();
                 } else {
-                    hVar.errorCode = this.mNetwork.CD();
+                    hVar.errorCode = this.mNetwork.vn();
                     hVar.errorString = this.mNetwork.getErrorString();
                 }
-                if (this.mNetwork.Cz().Dx().isRequestSuccess() && !TextUtils.isEmpty(Cb)) {
-                    JSONObject jSONObject = new JSONObject(Cb);
+                if (this.mNetwork.vj().wj().isRequestSuccess() && !TextUtils.isEmpty(uL)) {
+                    JSONObject jSONObject = new JSONObject(uL);
                     if (jSONObject.has("code")) {
                         if (jSONObject.optInt("code", -1) == 0) {
-                            hVar.aGT = true;
-                            hVar.aGS = this.aGS;
+                            hVar.Sd = true;
+                            hVar.Sc = this.Sc;
                             return hVar;
                         }
                         String str2 = "";
                         if (jSONObject.has("msg")) {
                             str2 = jSONObject.optString("msg", "");
                         }
-                        hVar.aGT = false;
-                        hVar.aGS = this.aGS;
+                        hVar.Sd = false;
+                        hVar.Sc = this.Sc;
                         hVar.errorString = str2;
                         return hVar;
                     }
@@ -101,8 +101,8 @@ public class a extends com.baidu.tbadk.a.a {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            hVar.aGT = false;
-            hVar.aGS = this.aGS;
+            hVar.Sd = false;
+            hVar.Sc = this.Sc;
             return hVar;
         }
 
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.a.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.eZF != null) {
-                this.eZF.ak(hVar);
+            if (this.euo != null) {
+                this.euo.f(hVar);
             }
         }
 
@@ -120,20 +120,20 @@ public class a extends com.baidu.tbadk.a.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.eZF != null) {
-                this.eZF.ak(null);
+            if (this.euo != null) {
+                this.euo.f(null);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.mS();
+                this.mNetwork.eW();
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.eZF != null) {
-                this.eZF.ak(null);
+            if (this.euo != null) {
+                this.euo.f(null);
             }
         }
     }

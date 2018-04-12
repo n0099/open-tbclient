@@ -4,60 +4,59 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.b;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.i;
-import com.baidu.tieba.frs.z;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.v;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends b {
-    private b.InterfaceC0097b aRr;
-    private i dFH;
-    private int dLz;
-    private List<z> mDatas;
+    private b.InterfaceC0086b acN;
+    private FrsFragment cYF;
+    private int deF;
+    private List<v> mDatas;
 
-    public a(i iVar, b.InterfaceC0097b interfaceC0097b) {
-        super(iVar.getActivity());
-        this.dLz = 0;
-        if (iVar != null && interfaceC0097b != null) {
-            this.dFH = iVar;
-            this.aRr = interfaceC0097b;
+    public a(FrsFragment frsFragment, b.InterfaceC0086b interfaceC0086b) {
+        super(frsFragment.getActivity());
+        this.deF = 0;
+        if (frsFragment != null && interfaceC0086b != null) {
+            this.cYF = frsFragment;
+            this.acN = interfaceC0086b;
         }
     }
 
-    public void setData(List<z> list) {
-        if (!v.E(list)) {
+    public void setData(List<v> list) {
+        if (!com.baidu.tbadk.core.util.v.w(list)) {
             this.mDatas = new ArrayList();
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
-                z zVar = new z();
-                zVar.name = this.dFH.getResources().getString(d.j.attention_users_thread);
-                zVar.dHg = 6;
-                this.mDatas.add(zVar);
+                v vVar = new v();
+                vVar.name = this.cYF.getResources().getString(d.k.attention_users_thread);
+                vVar.cZZ = 6;
+                this.mDatas.add(vVar);
             }
             ArrayList arrayList = new ArrayList();
-            for (z zVar2 : this.mDatas) {
-                if (zVar2 != null) {
-                    arrayList.add(zVar2.name);
+            for (v vVar2 : this.mDatas) {
+                if (vVar2 != null) {
+                    arrayList.add(vVar2.name);
                 }
             }
             reset();
-            a(arrayList, this.aRr);
+            a(arrayList, this.acN);
         }
     }
 
-    public List<z> axJ() {
+    public List<v> asi() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.b
-    public b AY() {
-        View fj;
-        super.AY();
-        if (this.mDatas != null && (fj = fj(this.mDatas.size())) != null && (fj.findViewById(d.g.dialog_item_btn) instanceof TextView)) {
-            aj.r((TextView) fj.findViewById(d.g.dialog_item_btn), d.C0141d.cp_link_tip_a);
+    public b tG() {
+        View ci;
+        super.tG();
+        if (this.mDatas != null && (ci = ci(this.mDatas.size())) != null && (ci.findViewById(d.g.dialog_item_btn) instanceof TextView)) {
+            ak.h((TextView) ci.findViewById(d.g.dialog_item_btn), d.C0126d.cp_link_tip_a);
         }
         return this;
     }

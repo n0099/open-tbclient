@@ -10,16 +10,16 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.coreExtra.c.c;
-import com.baidu.tieba.o.d;
+import com.baidu.tieba.p.d;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class ShareStatic {
     static {
-        bsg();
-        bsh();
+        bno();
+        bnp();
     }
 
-    private static void bsg() {
+    private static void bno() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001445, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -31,7 +31,7 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bsh() {
+    private static void bnp() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001276, new CustomMessageTask.CustomRunnable<ShareDialogConfig>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
@@ -45,24 +45,24 @@ public class ShareStatic {
                         com.baidu.tieba.sharesdk.d.a aVar = new com.baidu.tieba.sharesdk.d.a(data.getContext(), data.isLandscape, data.hideMode);
                         aVar.a(data.shareItem, data.showLocation);
                         if (data.mtjStatistics != null) {
-                            aVar.e(data.mtjStatistics);
+                            aVar.d(data.mtjStatistics);
                         }
                         aVar.setIsCopyLink(data.isCopyLink);
                         if (data.copyLinkListener != null) {
                             aVar.setCopyLinkListener(data.copyLinkListener);
                         }
                         if (data.onDismissListener != null) {
-                            aVar.a(data.onDismissListener);
+                            aVar.b(data.onDismissListener);
                         }
                         if (data.textViewList != null && data.textViewList.size() > 0) {
                             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                             while (it.hasNext()) {
                                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                                TextView cC = aVar.cC(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
+                                TextView bE = aVar.bE(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                                 if (data.isInsertBack) {
-                                    aVar.a(cC, aVar.bsr(), (View.OnClickListener) ((Pair) next.second).second);
+                                    aVar.a(bE, aVar.bnA(), (View.OnClickListener) ((Pair) next.second).second);
                                 } else {
-                                    aVar.b(cC, (View.OnClickListener) ((Pair) next.second).second);
+                                    aVar.b(bE, (View.OnClickListener) ((Pair) next.second).second);
                                 }
                             }
                         }
@@ -79,7 +79,7 @@ public class ShareStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(ShareDialogConfig shareDialogConfig) {
         d dVar = new d(shareDialogConfig.getContext());
-        dVar.nm(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
+        dVar.mO(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
         dVar.a(shareDialogConfig.mForumList, shareDialogConfig.shareItem, shareDialogConfig.mPrivateThread);
         dVar.setOnDismissListener(shareDialogConfig.onDismissListener);
         dVar.show();

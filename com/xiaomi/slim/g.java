@@ -1,6 +1,6 @@
 package com.xiaomi.slim;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends Thread {
     final /* synthetic */ f a;
 

@@ -5,27 +5,27 @@ import com.baidu.tbadk.core.util.k;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a fb(String str) {
+    public static a eT(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.gL(aVar.error_code);
-        } else if (!k.dz(k.BV() + "voice")) {
+            aVar.error_msg = a.dK(aVar.error_code);
+        } else if (!k.dr(k.uF() + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.gL(aVar.error_code);
+            aVar.error_msg = a.dK(aVar.error_code);
         } else {
-            String e = s.e(k.dT(str));
+            String e = s.e(k.dK(str));
             if (e == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.gL(aVar.error_code);
+                aVar.error_msg = a.dK(aVar.error_code);
             } else {
                 String b = k.b(e, 1, true);
-                if (k.aa(str, b)) {
+                if (k.ab(str, b)) {
                     aVar.path = b;
                     aVar.md5 = e;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.gL(aVar.error_code);
+                    aVar.error_msg = a.dK(aVar.error_code);
                 }
             }
         }
@@ -33,12 +33,12 @@ public class b {
     }
 
     public static boolean renameFile(String str, String str2) {
-        return k.aa(str, k.b(str2, 1, true));
+        return k.ab(str, k.b(str2, 1, true));
     }
 
-    public static synchronized void EO() {
+    public static synchronized void xC() {
         synchronized (b.class) {
-            File file = new File(k.BV() + "voice");
+            File file = new File(k.uF() + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

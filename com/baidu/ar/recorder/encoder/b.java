@@ -2,8 +2,10 @@ package com.baidu.ar.recorder.encoder;
 
 import android.media.MediaCodec;
 import android.media.MediaFormat;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import java.nio.ByteBuffer;
+@RequiresApi(api = 18)
 /* loaded from: classes3.dex */
 abstract class b {
     private static final String g = b.class.getSimpleName();

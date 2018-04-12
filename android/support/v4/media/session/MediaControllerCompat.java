@@ -26,12 +26,13 @@ import android.view.KeyEvent;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class MediaControllerCompat {
-    private final a yX;
-    private final MediaSessionCompat.Token yY;
+    static final String TAG = "MediaControllerCompat";
+    private final MediaControllerImpl mImpl;
+    private final MediaSessionCompat.Token mToken;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public interface a {
+    public interface MediaControllerImpl {
         void adjustVolume(int i, int i2);
 
         boolean dispatchMediaButtonEvent(KeyEvent keyEvent);
@@ -73,15 +74,15 @@ public final class MediaControllerCompat {
         if (mediaSessionCompat == null) {
             throw new IllegalArgumentException("session must not be null");
         }
-        this.yY = mediaSessionCompat.getSessionToken();
+        this.mToken = mediaSessionCompat.getSessionToken();
         if (Build.VERSION.SDK_INT >= 24) {
-            this.yX = new d(context, mediaSessionCompat);
+            this.mImpl = new MediaControllerImplApi24(context, mediaSessionCompat);
         } else if (Build.VERSION.SDK_INT >= 23) {
-            this.yX = new c(context, mediaSessionCompat);
+            this.mImpl = new MediaControllerImplApi23(context, mediaSessionCompat);
         } else if (Build.VERSION.SDK_INT >= 21) {
-            this.yX = new b(context, mediaSessionCompat);
+            this.mImpl = new MediaControllerImplApi21(context, mediaSessionCompat);
         } else {
-            this.yX = new e(this.yY);
+            this.mImpl = new MediaControllerImplBase(this.mToken);
         }
     }
 
@@ -89,75 +90,75 @@ public final class MediaControllerCompat {
         if (token == null) {
             throw new IllegalArgumentException("sessionToken must not be null");
         }
-        this.yY = token;
+        this.mToken = token;
         if (Build.VERSION.SDK_INT >= 24) {
-            this.yX = new d(context, token);
+            this.mImpl = new MediaControllerImplApi24(context, token);
         } else if (Build.VERSION.SDK_INT >= 23) {
-            this.yX = new c(context, token);
+            this.mImpl = new MediaControllerImplApi23(context, token);
         } else if (Build.VERSION.SDK_INT >= 21) {
-            this.yX = new b(context, token);
+            this.mImpl = new MediaControllerImplApi21(context, token);
         } else {
-            this.yX = new e(this.yY);
+            this.mImpl = new MediaControllerImplBase(this.mToken);
         }
     }
 
     public TransportControls getTransportControls() {
-        return this.yX.getTransportControls();
+        return this.mImpl.getTransportControls();
     }
 
     public boolean dispatchMediaButtonEvent(KeyEvent keyEvent) {
         if (keyEvent == null) {
             throw new IllegalArgumentException("KeyEvent may not be null");
         }
-        return this.yX.dispatchMediaButtonEvent(keyEvent);
+        return this.mImpl.dispatchMediaButtonEvent(keyEvent);
     }
 
     public PlaybackStateCompat getPlaybackState() {
-        return this.yX.getPlaybackState();
+        return this.mImpl.getPlaybackState();
     }
 
     public MediaMetadataCompat getMetadata() {
-        return this.yX.getMetadata();
+        return this.mImpl.getMetadata();
     }
 
     public List<MediaSessionCompat.QueueItem> getQueue() {
-        return this.yX.getQueue();
+        return this.mImpl.getQueue();
     }
 
     public CharSequence getQueueTitle() {
-        return this.yX.getQueueTitle();
+        return this.mImpl.getQueueTitle();
     }
 
     public Bundle getExtras() {
-        return this.yX.getExtras();
+        return this.mImpl.getExtras();
     }
 
     public int getRatingType() {
-        return this.yX.getRatingType();
+        return this.mImpl.getRatingType();
     }
 
     public long getFlags() {
-        return this.yX.getFlags();
+        return this.mImpl.getFlags();
     }
 
     public PlaybackInfo getPlaybackInfo() {
-        return this.yX.getPlaybackInfo();
+        return this.mImpl.getPlaybackInfo();
     }
 
     public PendingIntent getSessionActivity() {
-        return this.yX.getSessionActivity();
+        return this.mImpl.getSessionActivity();
     }
 
     public MediaSessionCompat.Token getSessionToken() {
-        return this.yY;
+        return this.mToken;
     }
 
-    public void setVolumeTo(int i2, int i3) {
-        this.yX.setVolumeTo(i2, i3);
+    public void setVolumeTo(int i, int i2) {
+        this.mImpl.setVolumeTo(i, i2);
     }
 
-    public void adjustVolume(int i2, int i3) {
-        this.yX.adjustVolume(i2, i3);
+    public void adjustVolume(int i, int i2) {
+        this.mImpl.adjustVolume(i, i2);
     }
 
     public void registerCallback(Callback callback) {
@@ -171,42 +172,42 @@ public final class MediaControllerCompat {
         if (handler == null) {
             handler = new Handler();
         }
-        this.yX.registerCallback(callback, handler);
+        this.mImpl.registerCallback(callback, handler);
     }
 
     public void unregisterCallback(Callback callback) {
         if (callback == null) {
             throw new IllegalArgumentException("callback cannot be null");
         }
-        this.yX.unregisterCallback(callback);
+        this.mImpl.unregisterCallback(callback);
     }
 
     public void sendCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("command cannot be null or empty");
         }
-        this.yX.sendCommand(str, bundle, resultReceiver);
+        this.mImpl.sendCommand(str, bundle, resultReceiver);
     }
 
     public String getPackageName() {
-        return this.yX.getPackageName();
+        return this.mImpl.getPackageName();
     }
 
     public Object getMediaController() {
-        return this.yX.getMediaController();
+        return this.mImpl.getMediaController();
     }
 
     /* loaded from: classes2.dex */
     public static abstract class Callback implements IBinder.DeathRecipient {
-        private final Object yZ;
-        a za;
-        boolean zb = false;
+        private final Object mCallbackObj;
+        MessageHandler mHandler;
+        boolean mRegistered = false;
 
         public Callback() {
             if (Build.VERSION.SDK_INT >= 21) {
-                this.yZ = MediaControllerCompatApi21.a(new b());
+                this.mCallbackObj = MediaControllerCompatApi21.createCallback(new StubApi21());
             } else {
-                this.yZ = new c();
+                this.mCallbackObj = new StubCompat();
             }
         }
 
@@ -240,13 +241,13 @@ public final class MediaControllerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void b(Handler handler) {
-            this.za = new a(handler.getLooper());
+        public void setHandler(Handler handler) {
+            this.mHandler = new MessageHandler(handler.getLooper());
         }
 
         /* loaded from: classes2.dex */
-        private class b implements MediaControllerCompatApi21.Callback {
-            b() {
+        private class StubApi21 implements MediaControllerCompatApi21.Callback {
+            StubApi21() {
             }
 
             @Override // android.support.v4.media.session.MediaControllerCompatApi21.Callback
@@ -291,61 +292,70 @@ public final class MediaControllerCompat {
         }
 
         /* loaded from: classes2.dex */
-        private class c extends IMediaControllerCallback.Stub {
-            c() {
+        private class StubCompat extends IMediaControllerCallback.Stub {
+            StubCompat() {
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
             public void onEvent(String str, Bundle bundle) throws RemoteException {
-                Callback.this.za.a(1, str, bundle);
+                Callback.this.mHandler.post(1, str, bundle);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
             public void onSessionDestroyed() throws RemoteException {
-                Callback.this.za.a(8, null, null);
+                Callback.this.mHandler.post(8, null, null);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
             public void onPlaybackStateChanged(PlaybackStateCompat playbackStateCompat) throws RemoteException {
-                Callback.this.za.a(2, playbackStateCompat, null);
+                Callback.this.mHandler.post(2, playbackStateCompat, null);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
             public void onMetadataChanged(MediaMetadataCompat mediaMetadataCompat) throws RemoteException {
-                Callback.this.za.a(3, mediaMetadataCompat, null);
+                Callback.this.mHandler.post(3, mediaMetadataCompat, null);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
             public void onQueueChanged(List<MediaSessionCompat.QueueItem> list) throws RemoteException {
-                Callback.this.za.a(5, list, null);
+                Callback.this.mHandler.post(5, list, null);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
             public void onQueueTitleChanged(CharSequence charSequence) throws RemoteException {
-                Callback.this.za.a(6, charSequence, null);
+                Callback.this.mHandler.post(6, charSequence, null);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
             public void onExtrasChanged(Bundle bundle) throws RemoteException {
-                Callback.this.za.a(7, bundle, null);
+                Callback.this.mHandler.post(7, bundle, null);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
             public void onVolumeInfoChanged(ParcelableVolumeInfo parcelableVolumeInfo) throws RemoteException {
-                Callback.this.za.a(4, parcelableVolumeInfo != null ? new PlaybackInfo(parcelableVolumeInfo.volumeType, parcelableVolumeInfo.audioStream, parcelableVolumeInfo.controlType, parcelableVolumeInfo.maxVolume, parcelableVolumeInfo.currentVolume) : null, null);
+                Callback.this.mHandler.post(4, parcelableVolumeInfo != null ? new PlaybackInfo(parcelableVolumeInfo.volumeType, parcelableVolumeInfo.audioStream, parcelableVolumeInfo.controlType, parcelableVolumeInfo.maxVolume, parcelableVolumeInfo.currentVolume) : null, null);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes2.dex */
-        public class a extends Handler {
-            public a(Looper looper) {
+        public class MessageHandler extends Handler {
+            private static final int MSG_DESTROYED = 8;
+            private static final int MSG_EVENT = 1;
+            private static final int MSG_UPDATE_EXTRAS = 7;
+            private static final int MSG_UPDATE_METADATA = 3;
+            private static final int MSG_UPDATE_PLAYBACK_STATE = 2;
+            private static final int MSG_UPDATE_QUEUE = 5;
+            private static final int MSG_UPDATE_QUEUE_TITLE = 6;
+            private static final int MSG_UPDATE_VOLUME = 4;
+
+            public MessageHandler(Looper looper) {
                 super(looper);
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                if (Callback.this.zb) {
+                if (Callback.this.mRegistered) {
                     switch (message.what) {
                         case 1:
                             Callback.this.onSessionEvent((String) message.obj, message.getData());
@@ -377,7 +387,7 @@ public final class MediaControllerCompat {
                 }
             }
 
-            public void a(int i, Object obj, Bundle bundle) {
+            public void post(int i, Object obj, Bundle bundle) {
                 Message obtainMessage = obtainMessage(i, obj);
                 obtainMessage.setData(bundle);
                 obtainMessage.sendToTarget();
@@ -433,396 +443,396 @@ public final class MediaControllerCompat {
     public static final class PlaybackInfo {
         public static final int PLAYBACK_TYPE_LOCAL = 1;
         public static final int PLAYBACK_TYPE_REMOTE = 2;
-        private final int yR;
-        private final int yS;
-        private final int zg;
-        private final int zh;
-        private final int zi;
+        private final int mAudioStream;
+        private final int mCurrentVolume;
+        private final int mMaxVolume;
+        private final int mPlaybackType;
+        private final int mVolumeControl;
 
         PlaybackInfo(int i, int i2, int i3, int i4, int i5) {
-            this.zg = i;
-            this.zh = i2;
-            this.zi = i3;
-            this.yR = i4;
-            this.yS = i5;
+            this.mPlaybackType = i;
+            this.mAudioStream = i2;
+            this.mVolumeControl = i3;
+            this.mMaxVolume = i4;
+            this.mCurrentVolume = i5;
         }
 
         public int getPlaybackType() {
-            return this.zg;
+            return this.mPlaybackType;
         }
 
         public int getAudioStream() {
-            return this.zh;
+            return this.mAudioStream;
         }
 
         public int getVolumeControl() {
-            return this.zi;
+            return this.mVolumeControl;
         }
 
         public int getMaxVolume() {
-            return this.yR;
+            return this.mMaxVolume;
         }
 
         public int getCurrentVolume() {
-            return this.yS;
+            return this.mCurrentVolume;
         }
     }
 
     /* loaded from: classes2.dex */
-    static class e implements a {
-        private MediaSessionCompat.Token yY;
-        private IMediaSession ze;
-        private TransportControls zf;
+    static class MediaControllerImplBase implements MediaControllerImpl {
+        private IMediaSession mBinder;
+        private MediaSessionCompat.Token mToken;
+        private TransportControls mTransportControls;
 
-        public e(MediaSessionCompat.Token token) {
-            this.yY = token;
-            this.ze = IMediaSession.Stub.asInterface((IBinder) token.getToken());
+        public MediaControllerImplBase(MediaSessionCompat.Token token) {
+            this.mToken = token;
+            this.mBinder = IMediaSession.Stub.asInterface((IBinder) token.getToken());
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void registerCallback(Callback callback, Handler handler) {
             if (callback == null) {
                 throw new IllegalArgumentException("callback may not be null.");
             }
             try {
-                this.ze.asBinder().linkToDeath(callback, 0);
-                this.ze.registerCallbackListener((IMediaControllerCallback) callback.yZ);
-                callback.b(handler);
-                callback.zb = true;
+                this.mBinder.asBinder().linkToDeath(callback, 0);
+                this.mBinder.registerCallbackListener((IMediaControllerCallback) callback.mCallbackObj);
+                callback.setHandler(handler);
+                callback.mRegistered = true;
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in registerCallback. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in registerCallback. " + e);
                 callback.onSessionDestroyed();
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void unregisterCallback(Callback callback) {
             if (callback == null) {
                 throw new IllegalArgumentException("callback may not be null.");
             }
             try {
-                this.ze.unregisterCallbackListener((IMediaControllerCallback) callback.yZ);
-                this.ze.asBinder().unlinkToDeath(callback, 0);
-                callback.zb = false;
+                this.mBinder.unregisterCallbackListener((IMediaControllerCallback) callback.mCallbackObj);
+                this.mBinder.asBinder().unlinkToDeath(callback, 0);
+                callback.mRegistered = false;
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in unregisterCallback. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in unregisterCallback. " + e);
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public boolean dispatchMediaButtonEvent(KeyEvent keyEvent) {
             if (keyEvent == null) {
                 throw new IllegalArgumentException("event may not be null.");
             }
             try {
-                this.ze.sendMediaButton(keyEvent);
+                this.mBinder.sendMediaButton(keyEvent);
                 return false;
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in dispatchMediaButtonEvent. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in dispatchMediaButtonEvent. " + e);
                 return false;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public TransportControls getTransportControls() {
-            if (this.zf == null) {
-                this.zf = new i(this.ze);
+            if (this.mTransportControls == null) {
+                this.mTransportControls = new TransportControlsBase(this.mBinder);
             }
-            return this.zf;
+            return this.mTransportControls;
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public PlaybackStateCompat getPlaybackState() {
             try {
-                return this.ze.getPlaybackState();
+                return this.mBinder.getPlaybackState();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getPlaybackState. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getPlaybackState. " + e);
                 return null;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public MediaMetadataCompat getMetadata() {
             try {
-                return this.ze.getMetadata();
+                return this.mBinder.getMetadata();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getMetadata. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getMetadata. " + e);
                 return null;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public List<MediaSessionCompat.QueueItem> getQueue() {
             try {
-                return this.ze.getQueue();
+                return this.mBinder.getQueue();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getQueue. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getQueue. " + e);
                 return null;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public CharSequence getQueueTitle() {
             try {
-                return this.ze.getQueueTitle();
+                return this.mBinder.getQueueTitle();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getQueueTitle. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getQueueTitle. " + e);
                 return null;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public Bundle getExtras() {
             try {
-                return this.ze.getExtras();
+                return this.mBinder.getExtras();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getExtras. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getExtras. " + e);
                 return null;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public int getRatingType() {
             try {
-                return this.ze.getRatingType();
+                return this.mBinder.getRatingType();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getRatingType. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getRatingType. " + e);
                 return 0;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public long getFlags() {
             try {
-                return this.ze.getFlags();
+                return this.mBinder.getFlags();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getFlags. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getFlags. " + e);
                 return 0L;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public PlaybackInfo getPlaybackInfo() {
             try {
-                ParcelableVolumeInfo volumeAttributes = this.ze.getVolumeAttributes();
+                ParcelableVolumeInfo volumeAttributes = this.mBinder.getVolumeAttributes();
                 return new PlaybackInfo(volumeAttributes.volumeType, volumeAttributes.audioStream, volumeAttributes.controlType, volumeAttributes.maxVolume, volumeAttributes.currentVolume);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getPlaybackInfo. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getPlaybackInfo. " + e);
                 return null;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public PendingIntent getSessionActivity() {
             try {
-                return this.ze.getLaunchPendingIntent();
+                return this.mBinder.getLaunchPendingIntent();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getSessionActivity. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getSessionActivity. " + e);
                 return null;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void setVolumeTo(int i, int i2) {
             try {
-                this.ze.setVolumeTo(i, i2, null);
+                this.mBinder.setVolumeTo(i, i2, null);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in setVolumeTo. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in setVolumeTo. " + e);
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void adjustVolume(int i, int i2) {
             try {
-                this.ze.adjustVolume(i, i2, null);
+                this.mBinder.adjustVolume(i, i2, null);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in adjustVolume. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in adjustVolume. " + e);
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void sendCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
             try {
-                this.ze.sendCommand(str, bundle, new MediaSessionCompat.ResultReceiverWrapper(resultReceiver));
+                this.mBinder.sendCommand(str, bundle, new MediaSessionCompat.ResultReceiverWrapper(resultReceiver));
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in sendCommand. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in sendCommand. " + e);
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public String getPackageName() {
             try {
-                return this.ze.getPackageName();
+                return this.mBinder.getPackageName();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in getPackageName. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in getPackageName. " + e);
                 return null;
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public Object getMediaController() {
             return null;
         }
     }
 
     /* loaded from: classes2.dex */
-    static class i extends TransportControls {
-        private IMediaSession ze;
+    static class TransportControlsBase extends TransportControls {
+        private IMediaSession mBinder;
 
-        public i(IMediaSession iMediaSession) {
-            this.ze = iMediaSession;
+        public TransportControlsBase(IMediaSession iMediaSession) {
+            this.mBinder = iMediaSession;
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void prepare() {
             try {
-                this.ze.prepare();
+                this.mBinder.prepare();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in prepare. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in prepare. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void prepareFromMediaId(String str, Bundle bundle) {
             try {
-                this.ze.prepareFromMediaId(str, bundle);
+                this.mBinder.prepareFromMediaId(str, bundle);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in prepareFromMediaId. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in prepareFromMediaId. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void prepareFromSearch(String str, Bundle bundle) {
             try {
-                this.ze.prepareFromSearch(str, bundle);
+                this.mBinder.prepareFromSearch(str, bundle);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in prepareFromSearch. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in prepareFromSearch. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void prepareFromUri(Uri uri, Bundle bundle) {
             try {
-                this.ze.prepareFromUri(uri, bundle);
+                this.mBinder.prepareFromUri(uri, bundle);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in prepareFromUri. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in prepareFromUri. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void play() {
             try {
-                this.ze.play();
+                this.mBinder.play();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in play. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in play. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void playFromMediaId(String str, Bundle bundle) {
             try {
-                this.ze.playFromMediaId(str, bundle);
+                this.mBinder.playFromMediaId(str, bundle);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in playFromMediaId. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in playFromMediaId. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void playFromSearch(String str, Bundle bundle) {
             try {
-                this.ze.playFromSearch(str, bundle);
+                this.mBinder.playFromSearch(str, bundle);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in playFromSearch. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in playFromSearch. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void playFromUri(Uri uri, Bundle bundle) {
             try {
-                this.ze.playFromUri(uri, bundle);
+                this.mBinder.playFromUri(uri, bundle);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in playFromUri. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in playFromUri. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void skipToQueueItem(long j) {
             try {
-                this.ze.skipToQueueItem(j);
+                this.mBinder.skipToQueueItem(j);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in skipToQueueItem. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in skipToQueueItem. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void pause() {
             try {
-                this.ze.pause();
+                this.mBinder.pause();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in pause. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in pause. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void stop() {
             try {
-                this.ze.stop();
+                this.mBinder.stop();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in stop. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in stop. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void seekTo(long j) {
             try {
-                this.ze.seekTo(j);
+                this.mBinder.seekTo(j);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in seekTo. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in seekTo. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void fastForward() {
             try {
-                this.ze.fastForward();
+                this.mBinder.fastForward();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in fastForward. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in fastForward. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void skipToNext() {
             try {
-                this.ze.next();
+                this.mBinder.next();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in skipToNext. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in skipToNext. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void rewind() {
             try {
-                this.ze.rewind();
+                this.mBinder.rewind();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in rewind. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in rewind. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void skipToPrevious() {
             try {
-                this.ze.previous();
+                this.mBinder.previous();
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in skipToPrevious. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in skipToPrevious. " + e);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void setRating(RatingCompat ratingCompat) {
             try {
-                this.ze.rate(ratingCompat);
+                this.mBinder.rate(ratingCompat);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in setRating. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in setRating. " + e);
             }
         }
 
@@ -834,145 +844,145 @@ public final class MediaControllerCompat {
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void sendCustomAction(String str, Bundle bundle) {
             try {
-                this.ze.sendCustomAction(str, bundle);
+                this.mBinder.sendCustomAction(str, bundle);
             } catch (RemoteException e) {
-                Log.e("MediaControllerCompat", "Dead object in sendCustomAction. " + e);
+                Log.e(MediaControllerCompat.TAG, "Dead object in sendCustomAction. " + e);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    static class b implements a {
-        protected final Object zd;
+    static class MediaControllerImplApi21 implements MediaControllerImpl {
+        protected final Object mControllerObj;
 
-        public b(Context context, MediaSessionCompat mediaSessionCompat) {
-            this.zd = MediaControllerCompatApi21.a(context, mediaSessionCompat.getSessionToken().getToken());
+        public MediaControllerImplApi21(Context context, MediaSessionCompat mediaSessionCompat) {
+            this.mControllerObj = MediaControllerCompatApi21.fromToken(context, mediaSessionCompat.getSessionToken().getToken());
         }
 
-        public b(Context context, MediaSessionCompat.Token token) throws RemoteException {
-            this.zd = MediaControllerCompatApi21.a(context, token.getToken());
-            if (this.zd == null) {
+        public MediaControllerImplApi21(Context context, MediaSessionCompat.Token token) throws RemoteException {
+            this.mControllerObj = MediaControllerCompatApi21.fromToken(context, token.getToken());
+            if (this.mControllerObj == null) {
                 throw new RemoteException();
             }
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void registerCallback(Callback callback, Handler handler) {
-            MediaControllerCompatApi21.a(this.zd, callback.yZ, handler);
+            MediaControllerCompatApi21.registerCallback(this.mControllerObj, callback.mCallbackObj, handler);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void unregisterCallback(Callback callback) {
-            MediaControllerCompatApi21.f(this.zd, callback.yZ);
+            MediaControllerCompatApi21.unregisterCallback(this.mControllerObj, callback.mCallbackObj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public boolean dispatchMediaButtonEvent(KeyEvent keyEvent) {
-            return MediaControllerCompatApi21.a(this.zd, keyEvent);
+            return MediaControllerCompatApi21.dispatchMediaButtonEvent(this.mControllerObj, keyEvent);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public TransportControls getTransportControls() {
-            Object G = MediaControllerCompatApi21.G(this.zd);
-            if (G != null) {
-                return new f(G);
+            Object transportControls = MediaControllerCompatApi21.getTransportControls(this.mControllerObj);
+            if (transportControls != null) {
+                return new TransportControlsApi21(transportControls);
             }
             return null;
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public PlaybackStateCompat getPlaybackState() {
-            Object H = MediaControllerCompatApi21.H(this.zd);
-            if (H != null) {
-                return PlaybackStateCompat.fromPlaybackState(H);
+            Object playbackState = MediaControllerCompatApi21.getPlaybackState(this.mControllerObj);
+            if (playbackState != null) {
+                return PlaybackStateCompat.fromPlaybackState(playbackState);
             }
             return null;
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public MediaMetadataCompat getMetadata() {
-            Object I = MediaControllerCompatApi21.I(this.zd);
-            if (I != null) {
-                return MediaMetadataCompat.fromMediaMetadata(I);
+            Object metadata = MediaControllerCompatApi21.getMetadata(this.mControllerObj);
+            if (metadata != null) {
+                return MediaMetadataCompat.fromMediaMetadata(metadata);
             }
             return null;
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public List<MediaSessionCompat.QueueItem> getQueue() {
-            List<Object> J = MediaControllerCompatApi21.J(this.zd);
-            if (J != null) {
-                return MediaSessionCompat.QueueItem.fromQueueItemList(J);
+            List<Object> queue = MediaControllerCompatApi21.getQueue(this.mControllerObj);
+            if (queue != null) {
+                return MediaSessionCompat.QueueItem.fromQueueItemList(queue);
             }
             return null;
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public CharSequence getQueueTitle() {
-            return MediaControllerCompatApi21.K(this.zd);
+            return MediaControllerCompatApi21.getQueueTitle(this.mControllerObj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public Bundle getExtras() {
-            return MediaControllerCompatApi21.getExtras(this.zd);
+            return MediaControllerCompatApi21.getExtras(this.mControllerObj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public int getRatingType() {
-            return MediaControllerCompatApi21.L(this.zd);
+            return MediaControllerCompatApi21.getRatingType(this.mControllerObj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public long getFlags() {
-            return MediaControllerCompatApi21.M(this.zd);
+            return MediaControllerCompatApi21.getFlags(this.mControllerObj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public PlaybackInfo getPlaybackInfo() {
-            Object N = MediaControllerCompatApi21.N(this.zd);
-            if (N != null) {
-                return new PlaybackInfo(MediaControllerCompatApi21.PlaybackInfo.getPlaybackType(N), MediaControllerCompatApi21.PlaybackInfo.getLegacyAudioStream(N), MediaControllerCompatApi21.PlaybackInfo.getVolumeControl(N), MediaControllerCompatApi21.PlaybackInfo.getMaxVolume(N), MediaControllerCompatApi21.PlaybackInfo.getCurrentVolume(N));
+            Object playbackInfo = MediaControllerCompatApi21.getPlaybackInfo(this.mControllerObj);
+            if (playbackInfo != null) {
+                return new PlaybackInfo(MediaControllerCompatApi21.PlaybackInfo.getPlaybackType(playbackInfo), MediaControllerCompatApi21.PlaybackInfo.getLegacyAudioStream(playbackInfo), MediaControllerCompatApi21.PlaybackInfo.getVolumeControl(playbackInfo), MediaControllerCompatApi21.PlaybackInfo.getMaxVolume(playbackInfo), MediaControllerCompatApi21.PlaybackInfo.getCurrentVolume(playbackInfo));
             }
             return null;
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public PendingIntent getSessionActivity() {
-            return MediaControllerCompatApi21.O(this.zd);
+            return MediaControllerCompatApi21.getSessionActivity(this.mControllerObj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void setVolumeTo(int i, int i2) {
-            MediaControllerCompatApi21.a(this.zd, i, i2);
+            MediaControllerCompatApi21.setVolumeTo(this.mControllerObj, i, i2);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void adjustVolume(int i, int i2) {
-            MediaControllerCompatApi21.b(this.zd, i, i2);
+            MediaControllerCompatApi21.adjustVolume(this.mControllerObj, i, i2);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public void sendCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
-            MediaControllerCompatApi21.a(this.zd, str, bundle, resultReceiver);
+            MediaControllerCompatApi21.sendCommand(this.mControllerObj, str, bundle, resultReceiver);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public String getPackageName() {
-            return MediaControllerCompatApi21.P(this.zd);
+            return MediaControllerCompatApi21.getPackageName(this.mControllerObj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public Object getMediaController() {
-            return this.zd;
+            return this.mControllerObj;
         }
     }
 
     /* loaded from: classes2.dex */
-    static class f extends TransportControls {
-        protected final Object zj;
+    static class TransportControlsApi21 extends TransportControls {
+        protected final Object mControlsObj;
 
-        public f(Object obj) {
-            this.zj = obj;
+        public TransportControlsApi21(Object obj) {
+            this.mControlsObj = obj;
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
@@ -1006,57 +1016,57 @@ public final class MediaControllerCompat {
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void play() {
-            MediaControllerCompatApi21.TransportControls.play(this.zj);
+            MediaControllerCompatApi21.TransportControls.play(this.mControlsObj);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void pause() {
-            MediaControllerCompatApi21.TransportControls.pause(this.zj);
+            MediaControllerCompatApi21.TransportControls.pause(this.mControlsObj);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void stop() {
-            MediaControllerCompatApi21.TransportControls.stop(this.zj);
+            MediaControllerCompatApi21.TransportControls.stop(this.mControlsObj);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void seekTo(long j) {
-            MediaControllerCompatApi21.TransportControls.seekTo(this.zj, j);
+            MediaControllerCompatApi21.TransportControls.seekTo(this.mControlsObj, j);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void fastForward() {
-            MediaControllerCompatApi21.TransportControls.fastForward(this.zj);
+            MediaControllerCompatApi21.TransportControls.fastForward(this.mControlsObj);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void rewind() {
-            MediaControllerCompatApi21.TransportControls.rewind(this.zj);
+            MediaControllerCompatApi21.TransportControls.rewind(this.mControlsObj);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void skipToNext() {
-            MediaControllerCompatApi21.TransportControls.skipToNext(this.zj);
+            MediaControllerCompatApi21.TransportControls.skipToNext(this.mControlsObj);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void skipToPrevious() {
-            MediaControllerCompatApi21.TransportControls.skipToPrevious(this.zj);
+            MediaControllerCompatApi21.TransportControls.skipToPrevious(this.mControlsObj);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void setRating(RatingCompat ratingCompat) {
-            MediaControllerCompatApi21.TransportControls.setRating(this.zj, ratingCompat != null ? ratingCompat.getRating() : null);
+            MediaControllerCompatApi21.TransportControls.setRating(this.mControlsObj, ratingCompat != null ? ratingCompat.getRating() : null);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void playFromMediaId(String str, Bundle bundle) {
-            MediaControllerCompatApi21.TransportControls.playFromMediaId(this.zj, str, bundle);
+            MediaControllerCompatApi21.TransportControls.playFromMediaId(this.mControlsObj, str, bundle);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void playFromSearch(String str, Bundle bundle) {
-            MediaControllerCompatApi21.TransportControls.playFromSearch(this.zj, str, bundle);
+            MediaControllerCompatApi21.TransportControls.playFromSearch(this.mControlsObj, str, bundle);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
@@ -1072,96 +1082,96 @@ public final class MediaControllerCompat {
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void skipToQueueItem(long j) {
-            MediaControllerCompatApi21.TransportControls.skipToQueueItem(this.zj, j);
+            MediaControllerCompatApi21.TransportControls.skipToQueueItem(this.mControlsObj, j);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void sendCustomAction(PlaybackStateCompat.CustomAction customAction, Bundle bundle) {
-            MediaControllerCompatApi21.TransportControls.sendCustomAction(this.zj, customAction.getAction(), bundle);
+            MediaControllerCompatApi21.TransportControls.sendCustomAction(this.mControlsObj, customAction.getAction(), bundle);
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void sendCustomAction(String str, Bundle bundle) {
-            MediaControllerCompatApi21.TransportControls.sendCustomAction(this.zj, str, bundle);
+            MediaControllerCompatApi21.TransportControls.sendCustomAction(this.mControlsObj, str, bundle);
         }
     }
 
     /* loaded from: classes2.dex */
-    static class c extends b {
-        public c(Context context, MediaSessionCompat mediaSessionCompat) {
+    static class MediaControllerImplApi23 extends MediaControllerImplApi21 {
+        public MediaControllerImplApi23(Context context, MediaSessionCompat mediaSessionCompat) {
             super(context, mediaSessionCompat);
         }
 
-        public c(Context context, MediaSessionCompat.Token token) throws RemoteException {
+        public MediaControllerImplApi23(Context context, MediaSessionCompat.Token token) throws RemoteException {
             super(context, token);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.b, android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImplApi21, android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public TransportControls getTransportControls() {
-            Object G = MediaControllerCompatApi21.G(this.zd);
-            if (G != null) {
-                return new g(G);
+            Object transportControls = MediaControllerCompatApi21.getTransportControls(this.mControllerObj);
+            if (transportControls != null) {
+                return new TransportControlsApi23(transportControls);
             }
             return null;
         }
     }
 
     /* loaded from: classes2.dex */
-    static class g extends f {
-        public g(Object obj) {
+    static class TransportControlsApi23 extends TransportControlsApi21 {
+        public TransportControlsApi23(Object obj) {
             super(obj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.f, android.support.v4.media.session.MediaControllerCompat.TransportControls
+        @Override // android.support.v4.media.session.MediaControllerCompat.TransportControlsApi21, android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void playFromUri(Uri uri, Bundle bundle) {
-            MediaControllerCompatApi23.TransportControls.playFromUri(this.zj, uri, bundle);
+            MediaControllerCompatApi23.TransportControls.playFromUri(this.mControlsObj, uri, bundle);
         }
     }
 
     /* loaded from: classes2.dex */
-    static class d extends c {
-        public d(Context context, MediaSessionCompat mediaSessionCompat) {
+    static class MediaControllerImplApi24 extends MediaControllerImplApi23 {
+        public MediaControllerImplApi24(Context context, MediaSessionCompat mediaSessionCompat) {
             super(context, mediaSessionCompat);
         }
 
-        public d(Context context, MediaSessionCompat.Token token) throws RemoteException {
+        public MediaControllerImplApi24(Context context, MediaSessionCompat.Token token) throws RemoteException {
             super(context, token);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.c, android.support.v4.media.session.MediaControllerCompat.b, android.support.v4.media.session.MediaControllerCompat.a
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImplApi23, android.support.v4.media.session.MediaControllerCompat.MediaControllerImplApi21, android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public TransportControls getTransportControls() {
-            Object G = MediaControllerCompatApi21.G(this.zd);
-            if (G != null) {
-                return new h(G);
+            Object transportControls = MediaControllerCompatApi21.getTransportControls(this.mControllerObj);
+            if (transportControls != null) {
+                return new TransportControlsApi24(transportControls);
             }
             return null;
         }
     }
 
     /* loaded from: classes2.dex */
-    static class h extends g {
-        public h(Object obj) {
+    static class TransportControlsApi24 extends TransportControlsApi23 {
+        public TransportControlsApi24(Object obj) {
             super(obj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.f, android.support.v4.media.session.MediaControllerCompat.TransportControls
+        @Override // android.support.v4.media.session.MediaControllerCompat.TransportControlsApi21, android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void prepare() {
-            MediaControllerCompatApi24.TransportControls.prepare(this.zj);
+            MediaControllerCompatApi24.TransportControls.prepare(this.mControlsObj);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.f, android.support.v4.media.session.MediaControllerCompat.TransportControls
+        @Override // android.support.v4.media.session.MediaControllerCompat.TransportControlsApi21, android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void prepareFromMediaId(String str, Bundle bundle) {
-            MediaControllerCompatApi24.TransportControls.prepareFromMediaId(this.zj, str, bundle);
+            MediaControllerCompatApi24.TransportControls.prepareFromMediaId(this.mControlsObj, str, bundle);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.f, android.support.v4.media.session.MediaControllerCompat.TransportControls
+        @Override // android.support.v4.media.session.MediaControllerCompat.TransportControlsApi21, android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void prepareFromSearch(String str, Bundle bundle) {
-            MediaControllerCompatApi24.TransportControls.prepareFromSearch(this.zj, str, bundle);
+            MediaControllerCompatApi24.TransportControls.prepareFromSearch(this.mControlsObj, str, bundle);
         }
 
-        @Override // android.support.v4.media.session.MediaControllerCompat.f, android.support.v4.media.session.MediaControllerCompat.TransportControls
+        @Override // android.support.v4.media.session.MediaControllerCompat.TransportControlsApi21, android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void prepareFromUri(Uri uri, Bundle bundle) {
-            MediaControllerCompatApi24.TransportControls.prepareFromUri(this.zj, uri, bundle);
+            MediaControllerCompatApi24.TransportControls.prepareFromUri(this.mControlsObj, uri, bundle);
         }
     }
 }

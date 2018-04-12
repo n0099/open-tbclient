@@ -2,7 +2,6 @@ package com.baidu.tieba.lego.card;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.e.k;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
@@ -11,32 +10,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> faF;
+    private final List<e> evn;
 
     private b() {
-        this.faF = new ArrayList(4);
+        this.evn = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b faG = new b();
+        private static final b evo = new b();
     }
 
-    public static b aPz() {
-        return a.faG;
+    public static b aKA() {
+        return a.evo;
     }
 
     public synchronized void a(e eVar) {
-        this.faF.add(eVar);
+        this.evn.add(eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void aPA() {
+    protected void aKB() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    public String vG() {
+    public String key() {
         return "lego_main";
     }
 
@@ -46,14 +45,14 @@ public class b extends e {
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.faF) {
+        for (e eVar : this.evn) {
             try {
                 ICardInfo a2 = eVar.a(jSONObject, i);
                 if (a2 != null) {
                     return a2;
                 }
             } catch (Throwable th) {
-                throw new CardParseException("Card type " + i + ", factory <" + eVar.vG() + "> respond exception", th);
+                throw new CardParseException("Card type " + i + ", factory <" + eVar.key() + "> respond exception", th);
             }
         }
         BdLog.e("No card factory for card type " + i);
@@ -61,21 +60,21 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    public <T> k a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        k b = b(tbPageContext, iCardInfo, i);
+    public <T> com.baidu.tieba.lego.card.view.e a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+        com.baidu.tieba.lego.card.view.e b = b(tbPageContext, iCardInfo, i);
         if (b != null) {
             b.setBusinessType(i);
         }
         return b;
     }
 
-    private <T> k b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        k a2;
-        for (e eVar : this.faF) {
+    private <T> com.baidu.tieba.lego.card.view.e b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+        com.baidu.tieba.lego.card.view.e a2;
+        for (e eVar : this.evn) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {
-                BdLog.detailException("factory <" + eVar.vG() + "> respond exception", th);
+                BdLog.detailException("factory <" + eVar.key() + "> respond exception", th);
             }
             if (a2 != null) {
                 return a2;
@@ -85,12 +84,12 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo or(String str) {
+    public static ICardInfo ov(String str) {
         try {
-            ICardInfo I = I(new JSONObject(str));
-            if (I != null) {
-                if (I.isValid()) {
-                    return I;
+            ICardInfo L = L(new JSONObject(str));
+            if (L != null) {
+                if (L.isValid()) {
+                    return L;
                 }
             }
             return null;
@@ -103,7 +102,7 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo I(JSONObject jSONObject) throws CardParseException {
-        return aPz().a(jSONObject, jSONObject.optInt("card_type"));
+    public static ICardInfo L(JSONObject jSONObject) throws CardParseException {
+        return aKA().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

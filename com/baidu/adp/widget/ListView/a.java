@@ -9,13 +9,13 @@ import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.r;
-import com.baidu.adp.widget.ListView.r.a;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.q.a;
 /* loaded from: classes.dex */
-public abstract class a<T, V extends r.a> {
-    private m<i> mAdapter;
-    protected o mAdapterItemClickListener;
-    protected p mAdapterItemLongClickListener;
+public abstract class a<T, V extends q.a> {
+    private l<h> mAdapter;
+    protected n mAdapterItemClickListener;
+    protected o mAdapterItemLongClickListener;
     protected Context mContext;
     protected BdUniqueId mPageId;
     protected BdUniqueId mType;
@@ -23,7 +23,7 @@ public abstract class a<T, V extends r.a> {
 
     protected abstract V onCreateViewHolder(ViewGroup viewGroup);
 
-    protected abstract View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v);
+    protected abstract View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
@@ -38,24 +38,24 @@ public abstract class a<T, V extends r.a> {
         this.mPageId = bdUniqueId2;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.r$a> */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.q$a> */
     /* JADX WARN: Multi-variable type inference failed */
-    public View getView(int i, View view, ViewGroup viewGroup, T t) {
-        View view2;
-        if (needCreateNewHolder(view)) {
+    public View getView(int i, View view2, ViewGroup viewGroup, T t) {
+        View view3;
+        if (needCreateNewHolder(view2)) {
             this.viewholder = (V) onCreateViewHolder(viewGroup);
-            view2 = this.viewholder.getView();
+            view3 = this.viewholder.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
                 BdLog.i("convertView is creating" + this.viewholder.getClass().getName());
             }
         } else {
-            view2 = view;
+            view3 = view2;
         }
-        return onFillViewHolder(i, view2, viewGroup, t, (r.a) view2.getTag());
+        return onFillViewHolder(i, view3, viewGroup, t, (q.a) view3.getTag());
     }
 
-    private boolean needCreateNewHolder(View view) {
-        return view == null || view.getTag() == null || this.viewholder == null || !this.viewholder.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.viewholder.getClass());
+    private boolean needCreateNewHolder(View view2) {
+        return view2 == null || view2.getTag() == null || this.viewholder == null || !this.viewholder.getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(this.viewholder.getClass());
     }
 
     public V onCreateViewHolder(ViewGroup viewGroup, T t) {
@@ -66,19 +66,19 @@ public abstract class a<T, V extends r.a> {
         onFillViewHolder(i, v.getView(), viewGroup, t, v);
     }
 
-    public void setOnAdapterItemClickListener(o oVar) {
-        this.mAdapterItemClickListener = oVar;
+    public void setOnAdapterItemClickListener(n nVar) {
+        this.mAdapterItemClickListener = nVar;
     }
 
-    public o getOnAdapterItemClickListener() {
+    public n getOnAdapterItemClickListener() {
         return this.mAdapterItemClickListener;
     }
 
-    public void setOnAdapterItemLongClickListener(p pVar) {
-        this.mAdapterItemLongClickListener = pVar;
+    public void setOnAdapterItemLongClickListener(o oVar) {
+        this.mAdapterItemLongClickListener = oVar;
     }
 
-    public p getOnAdapterItemLongClickListener() {
+    public o getOnAdapterItemLongClickListener() {
         return this.mAdapterItemLongClickListener;
     }
 
@@ -95,8 +95,8 @@ public abstract class a<T, V extends r.a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAdapter(m<i> mVar) {
-        this.mAdapter = mVar;
+    public void setAdapter(l<h> lVar) {
+        this.mAdapter = lVar;
     }
 
     public void notifyDataSetChanged() {
@@ -105,7 +105,7 @@ public abstract class a<T, V extends r.a> {
         }
     }
 
-    public i getItem(int i) {
+    public h getItem(int i) {
         if (this.mAdapter != null) {
             return this.mAdapter.getItem(i);
         }
@@ -116,7 +116,7 @@ public abstract class a<T, V extends r.a> {
         if (this.mAdapter == null || this.mType == null) {
             return -1;
         }
-        return this.mAdapter.ar(i, this.mType.getId());
+        return this.mAdapter.q(i, this.mType.getId());
     }
 
     public int getCount() {

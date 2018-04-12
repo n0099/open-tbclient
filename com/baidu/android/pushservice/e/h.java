@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.e;
 import android.content.Context;
 import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends c {
     public h(l lVar, Context context) {
         super(lVar, context);

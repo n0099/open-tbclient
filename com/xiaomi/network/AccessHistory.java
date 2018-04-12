@@ -2,7 +2,7 @@ package com.xiaomi.network;
 
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccessHistory {
     private int a;
     private long b;

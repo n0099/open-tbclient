@@ -1,310 +1,171 @@
 package com.baidu.tieba.frs.aggregation;
 
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.FrameLayout;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.core.view.j;
-import com.baidu.tbadk.core.view.k;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.d;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
+import com.sina.weibo.sdk.constant.WBConstants;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class g extends BaseFragment implements View.OnClickListener, c {
-    private FrameLayout caN;
-    private NoNetworkView cba;
-    private BdTypeListView dIM;
-    private PbListView dIN;
-    private e dIO;
-    private i dIP;
-    private boolean isFullScreen;
-    private String mFrom;
-    private String mId;
-    private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.core.view.h mNoDataView;
-    private k mPullView;
-    private String st_type;
-    private String yuelaou_locate;
-    private List<f> mListData = null;
-    private CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.frs.aggregation.g.5
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.oJ()) {
-                if (g.this.mNoDataView != null) {
-                    g.this.dIP.awP();
-                } else if (j.oL() && g.this.dIO != null && g.this.dIO.awI()) {
-                    g.this.getPageContext().showToast(d.j.video_mobile_play_tips);
-                }
-            }
-        }
-    };
-    private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.frs.aggregation.g.6
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && g.this.dIO != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.apH) {
-                g.this.dIO.F(data.toUid, data.isAttention);
-            }
-        }
-    };
+public class g extends com.baidu.tieba.card.data.b implements com.baidu.tieba.lego.card.view.h {
+    public static final BdUniqueId dbv = BdUniqueId.gen();
+    public String abtest_tag;
+    public long agreeNum;
+    public boolean autoPlay;
+    public String createTime;
+    public List<String> dbw;
+    public List<String> dbx;
+    public a dby;
+    public b dbz;
+    public String extra;
+    public String firstPostId;
+    public String forumId;
+    public boolean hasAgree;
+    public long playCount;
+    public long postNum;
+    public long shareNum;
+    public String source;
+    public String threadId;
+    public String title;
+    public boolean waitConfirm = false;
+    public String weight;
 
-    public static g l(String str, String str2, String str3, String str4) {
-        g gVar = new g();
-        Bundle bundle = new Bundle();
-        bundle.putString("PARAM_FID", str);
-        bundle.putString("PARAM_FROM", str2);
-        bundle.putString("st_type", str3);
-        bundle.putString("yuelaou_locate", str4);
-        gVar.setArguments(bundle);
-        return gVar;
+    /* loaded from: classes3.dex */
+    public static class a {
+        public boolean hasFocus;
+        public boolean isBigV;
+        public boolean isGod;
+        public String portrait;
+        public String userId;
+        public String userName;
+        public String userNickname;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        Bundle arguments = getArguments();
-        if (arguments != null) {
-            this.mId = arguments.getString("PARAM_FID");
-            this.mFrom = arguments.getString("PARAM_FROM");
-            this.st_type = arguments.getString("st_type");
-            this.yuelaou_locate = arguments.getString("yuelaou_locate");
-        }
-        this.dIP = new i(getPageContext(), this);
-        this.dIP.setId(this.mId);
-        this.dIP.setFrom(this.mFrom);
-        this.dIP.lN(this.st_type);
-        this.dIP.setLocation(this.yuelaou_locate);
-        this.dIP.awP();
-        registerListener(this.mNetworkChangedMessageListener);
-        registerListener(this.mAttentionListener);
+    /* loaded from: classes3.dex */
+    public static class b {
+        public List<c> dbA;
+        public String originVideoUrl;
+        public String thumbnailHeight;
+        public String thumbnailPicid;
+        public String thumbnailUrl;
+        public String thumbnailWidth;
+        public int videoDuration;
+        public String videoFormat;
+        public String videoHeight;
+        public String videoMd5;
+        public long videoSize;
+        public String videoType;
+        public String videoUrl;
+        public String videoWidth;
     }
 
-    @Override // android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return layoutInflater.inflate(d.h.fragment_video_aggregation, (ViewGroup) null);
+    /* loaded from: classes3.dex */
+    public static class c {
+        public String videoHeight;
+        public String videoId;
+        public String videoUrl;
+        public String videoWidth;
     }
 
-    @Override // android.support.v4.app.Fragment
-    public void onViewCreated(View view, Bundle bundle) {
-        super.onViewCreated(view, bundle);
-        this.caN = (FrameLayout) view.findViewById(d.g.container);
-        this.mNavigationBar = (NavigationBar) view.findViewById(d.g.navigation_bar);
-        awO();
-        this.cba = (NoNetworkView) view.findViewById(d.g.no_network_view);
-        if (!j.oJ()) {
-            this.cba.setVisibility(0);
-        }
-        this.dIM = (BdTypeListView) view.findViewById(d.g.listView);
-        this.mPullView = new k(getPageContext());
-        this.mPullView.st();
-        this.mPullView.a(new j.b() { // from class: com.baidu.tieba.frs.aggregation.g.1
-            @Override // com.baidu.tbadk.core.view.j.b
-            public void bw(boolean z) {
-                g.this.dIP.awP();
-            }
-        });
-        this.mPullView.setTag(getUniqueId());
-        this.dIM.setPullRefresh(this.mPullView);
-        this.dIN = new PbListView(getPageContext().getPageActivity());
-        this.dIN.st();
-        this.dIN.Ec();
-        this.dIN.setText(getResources().getString(d.j.list_has_no_more));
-        this.dIN.Eg();
-        this.dIM.setNextPage(this.dIN);
-        this.dIM.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.aggregation.g.2
-            @Override // android.widget.AbsListView.OnScrollListener
-            public void onScrollStateChanged(AbsListView absListView, int i) {
-                if (i == 0 && absListView.getLastVisiblePosition() > absListView.getCount() - 2 && absListView.getFirstVisiblePosition() != 0) {
-                    g.this.dIP.awR();
-                }
-            }
+    @Override // com.baidu.tieba.lego.card.view.h
+    public void setAutoPlay(boolean z) {
+        this.autoPlay = z;
+    }
 
-            @Override // android.widget.AbsListView.OnScrollListener
-            public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (g.this.dIO != null) {
-                    if (i > g.this.dIO.awL() || i + i2 < g.this.dIO.awL()) {
-                        g.this.dIO.awM();
+    @Override // com.baidu.tieba.lego.card.view.h
+    public void setWaitConfirm(boolean z) {
+        this.waitConfirm = z;
+    }
+
+    public void parseJson(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.forumId = jSONObject.optString("forum_id");
+                this.threadId = jSONObject.optString("thread_id");
+                this.firstPostId = jSONObject.optString("first_post_id");
+                this.createTime = jSONObject.optString(WBConstants.GAME_PARAMS_GAME_CREATE_TIME);
+                this.playCount = jSONObject.optLong("play_count");
+                this.title = jSONObject.optString("title");
+                this.postNum = jSONObject.optLong("post_num");
+                this.agreeNum = jSONObject.optLong("agree_num");
+                this.shareNum = jSONObject.optLong("share_num");
+                this.hasAgree = jSONObject.optInt("has_agree") == 1;
+                this.source = jSONObject.optString("source");
+                this.extra = jSONObject.optString("extra");
+                this.abtest_tag = jSONObject.optString("abtest_tag");
+                this.weight = jSONObject.optString("weight");
+                this.dbw = new ArrayList();
+                String optString = jSONObject.optString("forum_id_shared");
+                if (!StringUtils.isNull(optString)) {
+                    JSONArray jSONArray = new JSONArray(optString);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        this.dbw.add(jSONArray.optString(i));
                     }
                 }
-            }
-        });
-        this.dIO = new e(getPageContext(), this.dIM, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom));
-        VU();
-    }
-
-    private void o(View view, boolean z) {
-        if (this.mNoDataView == null) {
-            if (z) {
-                this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), view, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, d.f.net_refresh_emotion, 0, l.t(getPageContext().getPageActivity(), d.e.ds480), l.t(getPageContext().getPageActivity(), d.e.ds360)), NoDataViewFactory.d.ae(getPageContext().getPageActivity().getString(d.j.neterror), getPageContext().getPageActivity().getString(d.j.refresh_view_title_text)), NoDataViewFactory.b.a(new NoDataViewFactory.a(getPageContext().getPageActivity().getString(d.j.refresh_view_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.frs.aggregation.g.3
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
-                        g.this.hideNoDataView();
-                        g.this.dIP.awP();
+                this.dbx = new ArrayList();
+                String optString2 = jSONObject.optString("forum_name_shared");
+                if (!StringUtils.isNull(optString2)) {
+                    JSONArray jSONArray2 = new JSONArray(optString2);
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        this.dbx.add(jSONArray2.optString(i2));
                     }
-                })));
-            } else {
-                this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.caN, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.t(getActivity(), d.e.ds220)), NoDataViewFactory.d.gp(d.j.video_no_data), null);
-            }
-        }
-        this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.mNoDataView.setVisibility(0);
-        this.dIM.setVisibility(8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void hideNoDataView() {
-        if (this.mNoDataView != null && this.mNoDataView.getVisibility() == 0) {
-            this.mNoDataView.setVisibility(8);
-            this.dIM.setVisibility(0);
-        }
-    }
-
-    private void awO() {
-        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.mFrom)) {
-            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(d.j.video_aggregation_title));
-        } else {
-            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(d.j.video_middle_page_title));
-        }
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.frs.aggregation.g.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (g.this.getActivity() != null && !g.this.getActivity().isFinishing()) {
-                    g.this.getActivity().finish();
                 }
-            }
-        });
-    }
-
-    public void ne(int i) {
-        if (this.dIM != null && this.dIO != null) {
-            if (i == 1 && this.dIO.awI()) {
-                this.dIO.awJ();
-            }
-            if (i == 2) {
-                this.dIO.awK();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.cba.onChangeSkinType(getPageContext(), i);
-        aj.t(this.caN, d.C0141d.cp_cont_g);
-    }
-
-    @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
-        if (configuration.orientation == 2) {
-            this.isFullScreen = true;
-            this.mNavigationBar.setVisibility(8);
-        } else {
-            this.isFullScreen = false;
-            this.mNavigationBar.setVisibility(0);
-        }
-        if (this.dIO != null) {
-            this.dIO.onConfigurationChanged(configuration);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onResume() {
-        super.onResume();
-        ne(2);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onPause() {
-        super.onPause();
-        ne(1);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.dIP != null) {
-            this.dIP.awQ();
-        }
-        if (this.dIO != null) {
-            this.dIO.onDestroy();
-        }
-    }
-
-    public void VU() {
-        if (getPageContext() != null && this.caN != null) {
-            showLoadingView(this.caN, false, l.t(getPageContext().getPageActivity(), d.e.ds360));
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.aggregation.c
-    public void VV() {
-        if (this.caN != null) {
-            this.dIM.completePullRefreshPostDelayed(2000L);
-            hideLoadingView(this.caN);
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.aggregation.c
-    public void showMsg(String str) {
-    }
-
-    @Override // com.baidu.tieba.frs.aggregation.c
-    public void Mj() {
-        if (v.E(this.mListData)) {
-            o(this.caN, true);
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.aggregation.c
-    public void a(List<f> list, boolean z, boolean z2) {
-        if (list != null) {
-            if (z) {
-                this.mListData = list;
-            } else {
-                this.mListData.addAll(list);
-            }
-            if (z && list.size() == 0) {
-                o(this.caN, false);
-                return;
-            }
-            this.dIO.setData(list, z);
-            if (!z2) {
-                this.dIN.Eh();
-            }
-            hideNoDataView();
-            if (this.mNoDataView != null) {
-                this.caN.removeView(this.mNoDataView);
-                this.mNoDataView = null;
+                String optString3 = jSONObject.optString("author");
+                if (!TextUtils.isEmpty(optString3)) {
+                    this.dby = new a();
+                    JSONObject jSONObject2 = new JSONObject(optString3);
+                    this.dby.userId = jSONObject2.optString("user_id");
+                    this.dby.userName = jSONObject2.optString("user_name");
+                    this.dby.userNickname = jSONObject2.optString("user_nickname");
+                    this.dby.portrait = jSONObject2.optString(IntentConfig.PORTRAIT);
+                    this.dby.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
+                    this.dby.isGod = jSONObject2.optInt("is_god") == 1;
+                }
+                String optString4 = jSONObject.optString("video");
+                if (!TextUtils.isEmpty(optString4)) {
+                    this.dbz = new b();
+                    JSONObject jSONObject3 = new JSONObject(optString4);
+                    this.dbz.thumbnailWidth = jSONObject3.optString("thumbnail_width");
+                    this.dbz.thumbnailHeight = jSONObject3.optString("thumbnail_height");
+                    this.dbz.videoMd5 = jSONObject3.optString("video_md5");
+                    this.dbz.videoUrl = jSONObject3.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
+                    this.dbz.videoDuration = jSONObject3.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
+                    this.dbz.videoWidth = jSONObject3.optString("video_width");
+                    this.dbz.videoHeight = jSONObject3.optString("video_height");
+                    this.dbz.videoSize = jSONObject3.optLong("video_size");
+                    this.dbz.videoType = jSONObject3.optString("video_type");
+                    this.dbz.thumbnailUrl = jSONObject3.optString("thumbnail_url");
+                    this.dbz.videoFormat = jSONObject3.optString("video_format");
+                    this.dbz.thumbnailPicid = jSONObject3.optString("thumbnail_picid");
+                    this.dbz.originVideoUrl = jSONObject3.optString("origin_video_url");
+                    String optString5 = jSONObject3.optString("video_desc");
+                    if (!TextUtils.isEmpty(optString5)) {
+                        this.dbz.dbA = new ArrayList();
+                        JSONArray jSONArray3 = new JSONArray(optString5);
+                        for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
+                            c cVar = new c();
+                            cVar.videoId = jSONArray3.optJSONObject(i3).optString("video_id");
+                            cVar.videoUrl = jSONArray3.optJSONObject(i3).optString(WebVideoActivityConfig.KEY_VIDEO_URL);
+                            cVar.videoWidth = jSONArray3.optJSONObject(i3).optString("video_width");
+                            cVar.videoHeight = jSONArray3.optJSONObject(i3).optString("video_height");
+                            this.dbz.dbA.add(cVar);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public boolean nc(int i) {
-        if (this.dIO == null) {
-            return false;
-        }
-        return this.dIO.nc(i);
+    @Override // com.baidu.adp.widget.ListView.h
+    public BdUniqueId getType() {
+        return dbv;
     }
 }

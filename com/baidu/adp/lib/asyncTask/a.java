@@ -21,17 +21,17 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class a implements Executor {
-    private volatile int agA = 0;
-    private volatile int agB = 0;
-    private volatile int agC = 0;
-    private volatile int agD = 0;
-    private final SparseIntArray agE = new SparseIntArray();
-    private final LinkedList<AbstractRunnableC0016a> agF = new LinkedList<>();
-    private final LinkedList<AbstractRunnableC0016a> agG = new LinkedList<>();
-    private final LinkedList<AbstractRunnableC0016a> agH = new LinkedList<>();
-    private HandlerThread agI;
     private Handler mHandler;
-    private static a agz = null;
+    private volatile int qV = 0;
+    private volatile int qW = 0;
+    private volatile int qX = 0;
+    private volatile int qY = 0;
+    private final SparseIntArray qZ = new SparseIntArray();
+    private final LinkedList<AbstractRunnableC0005a> ra = new LinkedList<>();
+    private final LinkedList<AbstractRunnableC0005a> rb = new LinkedList<>();
+    private final LinkedList<AbstractRunnableC0005a> rc = new LinkedList<>();
+    private HandlerThread rd;
+    private static a qU = null;
     private static final ThreadFactory sThreadFactory = new ThreadFactory() { // from class: com.baidu.adp.lib.asyncTask.a.1
         private final AtomicInteger mCount = new AtomicInteger(1);
 
@@ -46,20 +46,20 @@ public class a implements Executor {
     public static final Executor THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(7, 256, 30, TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory, new ThreadPoolExecutor.DiscardPolicy());
 
     a() {
-        this.agI = null;
+        this.rd = null;
         this.mHandler = null;
-        this.agI = new HandlerThread("BdAsyncTaskExecutor");
-        this.agI.start();
-        this.mHandler = new Handler(this.agI.getLooper()) { // from class: com.baidu.adp.lib.asyncTask.a.2
+        this.rd = new HandlerThread("BdAsyncTaskExecutor");
+        this.rd.start();
+        this.mHandler = new Handler(this.rd.getLooper()) { // from class: com.baidu.adp.lib.asyncTask.a.2
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 super.handleMessage(message);
                 if (message.what == 1) {
-                    if (message.obj != null && (message.obj instanceof AbstractRunnableC0016a)) {
-                        a.this.b((AbstractRunnableC0016a) message.obj);
+                    if (message.obj != null && (message.obj instanceof AbstractRunnableC0005a)) {
+                        a.this.b((AbstractRunnableC0005a) message.obj);
                     }
-                } else if (message.what == 2 && message.obj != null && (message.obj instanceof AbstractRunnableC0016a)) {
-                    a.this.e((AbstractRunnableC0016a) message.obj);
+                } else if (message.what == 2 && message.obj != null && (message.obj instanceof AbstractRunnableC0005a)) {
+                    a.this.e((AbstractRunnableC0005a) message.obj);
                     if (BdBaseApplication.getInst().isDebugMode()) {
                     }
                 }
@@ -68,28 +68,28 @@ public class a implements Executor {
     }
 
     public String toString() {
-        return "mWaitingTasks = " + this.agF.size() + " mRunningTasks = " + this.agG.size() + " mTimeOutTasks = " + this.agH.size();
+        return "mWaitingTasks = " + this.ra.size() + " mRunningTasks = " + this.rb.size() + " mTimeOutTasks = " + this.rc.size();
     }
 
-    public String lN() {
-        return this.agF.size() + "/" + this.agG.size() + "/" + this.agH.size();
+    public String dR() {
+        return this.ra.size() + "/" + this.rb.size() + "/" + this.rc.size();
     }
 
-    public static a lO() {
-        if (agz == null) {
+    public static a dS() {
+        if (qU == null) {
             synchronized (a.class) {
-                if (agz == null) {
-                    agz = new a();
+                if (qU == null) {
+                    qU = new a();
                 }
             }
         }
-        return agz;
+        return qU;
     }
 
     @Override // java.util.concurrent.Executor
     public synchronized void execute(Runnable runnable) {
         if (runnable instanceof b) {
-            AbstractRunnableC0016a abstractRunnableC0016a = new AbstractRunnableC0016a((b) runnable) { // from class: com.baidu.adp.lib.asyncTask.a.3
+            AbstractRunnableC0005a abstractRunnableC0005a = new AbstractRunnableC0005a((b) runnable) { // from class: com.baidu.adp.lib.asyncTask.a.3
                 /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [166=4] */
                 @Override // java.lang.Runnable
                 public void run() {
@@ -107,7 +107,7 @@ public class a implements Executor {
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
                         }
-                        lP();
+                        dT();
                     } finally {
                         if (!isSelfExecute()) {
                             a.this.mHandler.sendMessageDelayed(a.this.mHandler.obtainMessage(2, this), 1L);
@@ -115,10 +115,10 @@ public class a implements Executor {
                     }
                 }
             };
-            if (abstractRunnableC0016a.isSelfExecute()) {
-                new Thread(abstractRunnableC0016a).start();
+            if (abstractRunnableC0005a.isSelfExecute()) {
+                new Thread(abstractRunnableC0005a).start();
             } else {
-                a(abstractRunnableC0016a);
+                a(abstractRunnableC0005a);
                 e(null);
                 if (BdBaseApplication.getInst().isDebugMode()) {
                 }
@@ -126,26 +126,26 @@ public class a implements Executor {
         }
     }
 
-    private synchronized void a(AbstractRunnableC0016a abstractRunnableC0016a) {
-        if (abstractRunnableC0016a != null) {
-            int size = this.agF.size();
+    private synchronized void a(AbstractRunnableC0005a abstractRunnableC0005a) {
+        if (abstractRunnableC0005a != null) {
+            int size = this.ra.size();
             int i = 0;
-            while (i < size && this.agF.get(i).getPriority() >= abstractRunnableC0016a.getPriority()) {
+            while (i < size && this.ra.get(i).getPriority() >= abstractRunnableC0005a.getPriority()) {
                 i++;
             }
-            this.agF.add(i, abstractRunnableC0016a);
+            this.ra.add(i, abstractRunnableC0005a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void b(AbstractRunnableC0016a abstractRunnableC0016a) {
-        AbstractRunnableC0016a poll;
-        c(abstractRunnableC0016a);
-        if (!abstractRunnableC0016a.isCancelled()) {
-            abstractRunnableC0016a.setTimeout(true);
-            this.agH.add(abstractRunnableC0016a);
-            if (this.agH.size() > 242 && (poll = this.agH.poll()) != null) {
-                poll.lM();
+    public synchronized void b(AbstractRunnableC0005a abstractRunnableC0005a) {
+        AbstractRunnableC0005a poll;
+        c(abstractRunnableC0005a);
+        if (!abstractRunnableC0005a.isCancelled()) {
+            abstractRunnableC0005a.setTimeout(true);
+            this.rc.add(abstractRunnableC0005a);
+            if (this.rc.size() > 242 && (poll = this.rc.poll()) != null) {
+                poll.dQ();
             }
         } else {
             BdLog.e("task TimeOut but it's cancelled()");
@@ -153,34 +153,34 @@ public class a implements Executor {
         e(null);
     }
 
-    private synchronized void c(AbstractRunnableC0016a abstractRunnableC0016a) {
-        if (abstractRunnableC0016a != null) {
-            if (abstractRunnableC0016a.lR()) {
-                this.agH.remove(abstractRunnableC0016a);
+    private synchronized void c(AbstractRunnableC0005a abstractRunnableC0005a) {
+        if (abstractRunnableC0005a != null) {
+            if (abstractRunnableC0005a.dV()) {
+                this.rc.remove(abstractRunnableC0005a);
             } else {
-                this.agG.remove(abstractRunnableC0016a);
-                this.mHandler.removeMessages(1, abstractRunnableC0016a);
-                switch (abstractRunnableC0016a.getPriority()) {
+                this.rb.remove(abstractRunnableC0005a);
+                this.mHandler.removeMessages(1, abstractRunnableC0005a);
+                switch (abstractRunnableC0005a.getPriority()) {
                     case 1:
-                        this.agD--;
+                        this.qY--;
                         break;
                     case 2:
-                        this.agC--;
+                        this.qX--;
                         break;
                     case 3:
-                        this.agB--;
+                        this.qW--;
                         break;
                     case 4:
-                        this.agA--;
+                        this.qV--;
                         break;
                 }
-                int lS = abstractRunnableC0016a.lS();
-                if (lS != 0) {
-                    int i = this.agE.get(lS) - 1;
+                int dW = abstractRunnableC0005a.dW();
+                if (dW != 0) {
+                    int i = this.qZ.get(dW) - 1;
                     if (i <= 0) {
-                        this.agE.delete(lS);
+                        this.qZ.delete(dW);
                     } else {
-                        this.agE.put(lS, i);
+                        this.qZ.put(dW, i);
                     }
                     if (i < 0) {
                         BdLog.e("removeTask error < 0");
@@ -190,78 +190,78 @@ public class a implements Executor {
         }
     }
 
-    private synchronized void d(AbstractRunnableC0016a abstractRunnableC0016a) {
-        if (abstractRunnableC0016a != null) {
-            this.agG.add(abstractRunnableC0016a);
-            this.agF.remove(abstractRunnableC0016a);
-            THREAD_POOL_EXECUTOR.execute(abstractRunnableC0016a);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1, abstractRunnableC0016a), 180000L);
-            switch (abstractRunnableC0016a.getPriority()) {
+    private synchronized void d(AbstractRunnableC0005a abstractRunnableC0005a) {
+        if (abstractRunnableC0005a != null) {
+            this.rb.add(abstractRunnableC0005a);
+            this.ra.remove(abstractRunnableC0005a);
+            THREAD_POOL_EXECUTOR.execute(abstractRunnableC0005a);
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1, abstractRunnableC0005a), 180000L);
+            switch (abstractRunnableC0005a.getPriority()) {
                 case 1:
-                    this.agD++;
+                    this.qY++;
                     break;
                 case 2:
-                    this.agC++;
+                    this.qX++;
                     break;
                 case 3:
-                    this.agB++;
+                    this.qW++;
                     break;
                 case 4:
-                    this.agA++;
-                    if (this.agA >= 7) {
-                        BdLog.e("SuperHight Task too much num = " + this.agA);
+                    this.qV++;
+                    if (this.qV >= 7) {
+                        BdLog.e("SuperHight Task too much num = " + this.qV);
                         break;
                     }
                     break;
             }
-            int lS = abstractRunnableC0016a.lS();
-            if (lS != 0) {
-                this.agE.put(lS, this.agE.get(lS, 0) + 1);
+            int dW = abstractRunnableC0005a.dW();
+            if (dW != 0) {
+                this.qZ.put(dW, this.qZ.get(dW, 0) + 1);
             }
         }
     }
 
-    private boolean a(int i, AbstractRunnableC0016a abstractRunnableC0016a) {
-        if (abstractRunnableC0016a == null) {
+    private boolean a(int i, AbstractRunnableC0005a abstractRunnableC0005a) {
+        if (abstractRunnableC0005a == null) {
             return false;
         }
-        BdAsyncTaskParallel.BdAsyncTaskParallelType lT = abstractRunnableC0016a.lT();
-        return lT == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL ? i < 1 : lT == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : lT == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : lT == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL ? i < 4 : lT != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < abstractRunnableC0016a.lU();
+        BdAsyncTaskParallel.BdAsyncTaskParallelType dX = abstractRunnableC0005a.dX();
+        return dX == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL ? i < 1 : dX == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : dX == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : dX == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL ? i < 4 : dX != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < abstractRunnableC0005a.dY();
     }
 
-    protected synchronized void e(AbstractRunnableC0016a abstractRunnableC0016a) {
-        c(abstractRunnableC0016a);
+    protected synchronized void e(AbstractRunnableC0005a abstractRunnableC0005a) {
+        c(abstractRunnableC0005a);
         int i = 0;
         while (true) {
-            if (i < this.agF.size()) {
-                AbstractRunnableC0016a abstractRunnableC0016a2 = this.agF.get(i);
-                if (abstractRunnableC0016a2 != null) {
-                    int lS = abstractRunnableC0016a2.lS();
-                    switch (abstractRunnableC0016a2.getPriority()) {
+            if (i < this.ra.size()) {
+                AbstractRunnableC0005a abstractRunnableC0005a2 = this.ra.get(i);
+                if (abstractRunnableC0005a2 != null) {
+                    int dW = abstractRunnableC0005a2.dW();
+                    switch (abstractRunnableC0005a2.getPriority()) {
                         case 1:
-                            if (this.agB + this.agC + this.agD >= 5) {
+                            if (this.qW + this.qX + this.qY >= 5) {
                                 break;
                             }
                             break;
                         case 2:
-                            if (this.agB + this.agC + this.agD >= 6) {
+                            if (this.qW + this.qX + this.qY >= 6) {
                                 break;
                             }
                             break;
                         case 3:
-                            if (this.agB + this.agC + this.agD >= 7) {
+                            if (this.qW + this.qX + this.qY >= 7) {
                                 break;
                             }
                             break;
                         case 4:
-                            if (lS == 0) {
-                                d(abstractRunnableC0016a2);
+                            if (dW == 0) {
+                                d(abstractRunnableC0005a2);
                                 break;
                             }
                             break;
                     }
-                    if (a(this.agE.get(lS), abstractRunnableC0016a2)) {
-                        d(abstractRunnableC0016a2);
+                    if (a(this.qZ.get(dW), abstractRunnableC0005a2)) {
+                        d(abstractRunnableC0005a2);
                     }
                 }
                 i++;
@@ -275,8 +275,8 @@ public class a implements Executor {
 
     public synchronized void removeAllTask(BdUniqueId bdUniqueId, String str) {
         removeAllWaitingTask(bdUniqueId, str);
-        a(this.agG, false, bdUniqueId, str);
-        a(this.agH, false, bdUniqueId, str);
+        a(this.rb, false, bdUniqueId, str);
+        a(this.rc, false, bdUniqueId, str);
     }
 
     public synchronized void removeAllWaitingTask(BdUniqueId bdUniqueId) {
@@ -284,22 +284,22 @@ public class a implements Executor {
     }
 
     public synchronized void removeAllWaitingTask(BdUniqueId bdUniqueId, String str) {
-        a(this.agF, true, bdUniqueId, str);
+        a(this.ra, true, bdUniqueId, str);
     }
 
-    private synchronized void a(LinkedList<AbstractRunnableC0016a> linkedList, boolean z, BdUniqueId bdUniqueId, String str) {
+    private synchronized void a(LinkedList<AbstractRunnableC0005a> linkedList, boolean z, BdUniqueId bdUniqueId, String str) {
         if (bdUniqueId != null) {
             int id = bdUniqueId.getId();
-            Iterator<AbstractRunnableC0016a> it = linkedList.iterator();
+            Iterator<AbstractRunnableC0005a> it = linkedList.iterator();
             while (it.hasNext()) {
-                AbstractRunnableC0016a next = it.next();
+                AbstractRunnableC0005a next = it.next();
                 int tag = next.getTag();
                 String key = next.getKey();
                 if ((str != null && tag == id && str.equals(key)) || (str == null && id != 0 && tag == id)) {
                     if (z) {
                         it.remove();
                     }
-                    next.lM();
+                    next.dQ();
                 }
             }
         }
@@ -312,32 +312,32 @@ public class a implements Executor {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        Iterator<AbstractRunnableC0016a> it = this.agF.iterator();
+        Iterator<AbstractRunnableC0005a> it = this.ra.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            AbstractRunnableC0016a next = it.next();
-            if (next != null && next.lQ() == bdAsyncTask) {
+            AbstractRunnableC0005a next = it.next();
+            if (next != null && next.dU() == bdAsyncTask) {
                 break;
             }
         }
     }
 
     public int getTaskNum(String str, BdUniqueId bdUniqueId) {
-        return a(this.agF, str, bdUniqueId) + a(this.agG, str, bdUniqueId) + a(this.agH, str, bdUniqueId);
+        return a(this.ra, str, bdUniqueId) + a(this.rb, str, bdUniqueId) + a(this.rc, str, bdUniqueId);
     }
 
-    private synchronized int a(LinkedList<AbstractRunnableC0016a> linkedList, String str, BdUniqueId bdUniqueId) {
+    private synchronized int a(LinkedList<AbstractRunnableC0005a> linkedList, String str, BdUniqueId bdUniqueId) {
         int i = 0;
         synchronized (this) {
             if (linkedList != null && bdUniqueId != null) {
                 int id = bdUniqueId.getId();
-                Iterator<AbstractRunnableC0016a> it = linkedList.iterator();
+                Iterator<AbstractRunnableC0005a> it = linkedList.iterator();
                 while (it.hasNext()) {
-                    AbstractRunnableC0016a next = it.next();
+                    AbstractRunnableC0005a next = it.next();
                     int tag = next.getTag();
-                    i = (!((str != null && tag == id && str.equals(next.getKey())) || (str == null && id != 0 && tag == id)) || next.lQ() == null || next.lQ().isCancelled()) ? i : i + 1;
+                    i = (!((str != null && tag == id && str.equals(next.getKey())) || (str == null && id != 0 && tag == id)) || next.dU() == null || next.dU().isCancelled()) ? i : i + 1;
                 }
             }
         }
@@ -346,12 +346,12 @@ public class a implements Executor {
 
     public synchronized BdAsyncTask<?, ?, ?> searchTask(String str) {
         BdAsyncTask<?, ?, ?> a;
-        a = a(this.agF, str);
+        a = a(this.ra, str);
         if (a == null) {
-            a = a(this.agG, str);
+            a = a(this.rb, str);
         }
         if (a == null) {
-            a = a(this.agH, str);
+            a = a(this.rc, str);
         }
         return a;
     }
@@ -363,15 +363,15 @@ public class a implements Executor {
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(BdUniqueId bdUniqueId, String str) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
         linkedList = new LinkedList<>();
-        LinkedList<BdAsyncTask<?, ?, ?>> a = a(this.agF, bdUniqueId, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> a = a(this.ra, bdUniqueId, str);
         if (a != null) {
             linkedList.addAll(a);
         }
-        LinkedList<BdAsyncTask<?, ?, ?>> a2 = a(this.agG, bdUniqueId, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> a2 = a(this.rb, bdUniqueId, str);
         if (a2 != null) {
             linkedList.addAll(a2);
         }
-        LinkedList<BdAsyncTask<?, ?, ?>> a3 = a(this.agH, bdUniqueId, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> a3 = a(this.rc, bdUniqueId, str);
         if (a3 != null) {
             linkedList.addAll(a3);
         }
@@ -379,13 +379,13 @@ public class a implements Executor {
     }
 
     public synchronized BdAsyncTask<?, ?, ?> searchWaitingTask(String str) {
-        return a(this.agF, str);
+        return a(this.ra, str);
     }
 
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask(BdUniqueId bdUniqueId) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
         linkedList = new LinkedList<>();
-        LinkedList<BdAsyncTask<?, ?, ?>> a = a(this.agF, bdUniqueId, (String) null);
+        LinkedList<BdAsyncTask<?, ?, ?>> a = a(this.ra, bdUniqueId, (String) null);
         if (a != null) {
             linkedList.addAll(a);
         }
@@ -393,27 +393,27 @@ public class a implements Executor {
     }
 
     public synchronized BdAsyncTask<?, ?, ?> searchActivTask(String str) {
-        return a(this.agG, str);
+        return a(this.rb, str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002f, code lost:
-        r0 = r0.lQ();
+        r0 = r0.dU();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized BdAsyncTask<?, ?, ?> a(LinkedList<AbstractRunnableC0016a> linkedList, String str) {
+    public synchronized BdAsyncTask<?, ?, ?> a(LinkedList<AbstractRunnableC0005a> linkedList, String str) {
         BdAsyncTask<?, ?, ?> bdAsyncTask;
         if (linkedList != null && str != null) {
-            Iterator<AbstractRunnableC0016a> it = linkedList.iterator();
+            Iterator<AbstractRunnableC0005a> it = linkedList.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     bdAsyncTask = null;
                     break;
                 }
-                AbstractRunnableC0016a next = it.next();
+                AbstractRunnableC0005a next = it.next();
                 String key = next.getKey();
-                if (key != null && key.equals(str) && !next.lQ().isCancelled()) {
+                if (key != null && key.equals(str) && !next.dU().isCancelled()) {
                     break;
                 }
             }
@@ -423,21 +423,21 @@ public class a implements Executor {
         return bdAsyncTask;
     }
 
-    public synchronized LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<AbstractRunnableC0016a> linkedList, BdUniqueId bdUniqueId, String str) {
+    public synchronized LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<AbstractRunnableC0005a> linkedList, BdUniqueId bdUniqueId, String str) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList2;
         if (linkedList == null || bdUniqueId == null) {
             linkedList2 = null;
         } else {
             int id = bdUniqueId.getId();
             LinkedList<BdAsyncTask<?, ?, ?>> linkedList3 = new LinkedList<>();
-            Iterator<AbstractRunnableC0016a> it = linkedList.iterator();
+            Iterator<AbstractRunnableC0005a> it = linkedList.iterator();
             while (it.hasNext()) {
-                AbstractRunnableC0016a next = it.next();
+                AbstractRunnableC0005a next = it.next();
                 int tag = next.getTag();
                 String key = next.getKey();
                 if ((str != null && tag == id && str.equals(key)) || (str == null && id != 0 && tag == id)) {
-                    if (next.lQ() != null && !next.lQ().isCancelled()) {
-                        linkedList3.add(next.lQ());
+                    if (next.dU() != null && !next.dU().isCancelled()) {
+                        linkedList3.add(next.dU());
                     }
                 }
             }
@@ -449,77 +449,77 @@ public class a implements Executor {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.adp.lib.asyncTask.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static abstract class AbstractRunnableC0016a implements Runnable {
-        private b<?> agK;
+    public static abstract class AbstractRunnableC0005a implements Runnable {
+        private b<?> rf;
 
-        public AbstractRunnableC0016a(b<?> bVar) {
-            this.agK = null;
-            if (bVar == null || bVar.lQ() == null) {
+        public AbstractRunnableC0005a(b<?> bVar) {
+            this.rf = null;
+            if (bVar == null || bVar.dU() == null) {
                 throw new InvalidParameterException("parameter is null");
             }
-            this.agK = bVar;
+            this.rf = bVar;
         }
 
-        public void lP() {
+        public void dT() {
             try {
-                this.agK.run();
+                this.rf.run();
             } catch (OutOfMemoryError e) {
                 BdBaseApplication.getInst().onAppMemoryLow();
             }
         }
 
-        public void lM() {
-            this.agK.lM();
+        public void dQ() {
+            this.rf.dQ();
         }
 
         public boolean isCancelled() {
-            return this.agK.isCancelled();
+            return this.rf.isCancelled();
         }
 
-        public BdAsyncTask<?, ?, ?> lQ() {
-            return this.agK.lQ();
+        public BdAsyncTask<?, ?, ?> dU() {
+            return this.rf.dU();
         }
 
         public int getPriority() {
-            return this.agK.lQ().getPriority();
+            return this.rf.dU().getPriority();
         }
 
         public void setTimeout(boolean z) {
-            this.agK.lQ().setTimeout(z);
+            this.rf.dU().setTimeout(z);
         }
 
-        public boolean lR() {
-            return this.agK.lQ().isTimeout();
+        public boolean dV() {
+            return this.rf.dU().isTimeout();
         }
 
         public int getTag() {
-            return this.agK.lQ().getTag();
+            return this.rf.dU().getTag();
         }
 
-        public int lS() {
-            if (this.agK.lQ().getParallel() != null) {
-                return this.agK.lQ().getParallel().getTag();
+        public int dW() {
+            if (this.rf.dU().getParallel() != null) {
+                return this.rf.dU().getParallel().getTag();
             }
             return 0;
         }
 
         public String getKey() {
-            return this.agK.lQ().getKey();
+            return this.rf.dU().getKey();
         }
 
-        public BdAsyncTaskParallel.BdAsyncTaskParallelType lT() {
-            return this.agK.lQ().getParallel() != null ? this.agK.lQ().getParallel().lW() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+        public BdAsyncTaskParallel.BdAsyncTaskParallelType dX() {
+            return this.rf.dU().getParallel() != null ? this.rf.dU().getParallel().ea() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
         }
 
-        public int lU() {
-            if (this.agK.lQ().getParallel() != null) {
-                return this.agK.lQ().getParallel().lV();
+        public int dY() {
+            if (this.rf.dU().getParallel() != null) {
+                return this.rf.dU().getParallel().dZ();
             }
             return 1;
         }
 
         public boolean isSelfExecute() {
-            return this.agK.lQ().isSelfExecute();
+            return this.rf.dU().isSelfExecute();
         }
     }
 }

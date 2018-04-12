@@ -1,7 +1,7 @@
 package com.xiaomi.push.thrift;
 
 import com.tencent.connect.common.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum a {
     TCP_CONN_FAIL(1),
     TCP_CONN_TIME(2),

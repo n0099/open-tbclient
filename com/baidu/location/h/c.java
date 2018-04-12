@@ -8,7 +8,7 @@ import com.tencent.connect.common.Constants;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c aEl = null;
+    private static c Qu = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -23,11 +23,11 @@ public class c {
         }
     }
 
-    public static c vn() {
-        if (aEl == null) {
-            aEl = new c();
+    public static c nT() {
+        if (Qu == null) {
+            Qu = new c();
         }
-        return aEl;
+        return Qu;
     }
 
     public String a(boolean z) {
@@ -83,7 +83,7 @@ public class c {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float e2 = com.baidu.location.a.f.uq().e();
+        float e2 = com.baidu.location.a.f.mW().e();
         if (e2 != 0.0f) {
             stringBuffer.append("&altv=");
             stringBuffer.append(String.format(Locale.US, "%.2f", Float.valueOf(e2)));

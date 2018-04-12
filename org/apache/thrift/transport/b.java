@@ -1,5 +1,5 @@
 package org.apache.thrift.transport;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends d {
     private org.apache.thrift.d a;
     private int b;

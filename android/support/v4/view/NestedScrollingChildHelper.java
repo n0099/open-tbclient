@@ -9,8 +9,8 @@ public class NestedScrollingChildHelper {
     private int[] mTempNestedScrollConsumed;
     private final View mView;
 
-    public NestedScrollingChildHelper(View view) {
-        this.mView = view;
+    public NestedScrollingChildHelper(View view2) {
+        this.mView = view2;
     }
 
     public void setNestedScrollingEnabled(boolean z) {
@@ -33,15 +33,15 @@ public class NestedScrollingChildHelper {
             return true;
         }
         if (isNestedScrollingEnabled()) {
-            View view = this.mView;
+            View view2 = this.mView;
             for (ViewParent parent = this.mView.getParent(); parent != null; parent = parent.getParent()) {
-                if (ViewParentCompat.onStartNestedScroll(parent, view, this.mView, i)) {
+                if (ViewParentCompat.onStartNestedScroll(parent, view2, this.mView, i)) {
                     this.mNestedScrollingParent = parent;
-                    ViewParentCompat.onNestedScrollAccepted(parent, view, this.mView, i);
+                    ViewParentCompat.onNestedScrollAccepted(parent, view2, this.mView, i);
                     return true;
                 }
                 if (parent instanceof View) {
-                    view = (View) parent;
+                    view2 = (View) parent;
                 }
             }
         }
@@ -144,7 +144,7 @@ public class NestedScrollingChildHelper {
         ViewCompat.stopNestedScroll(this.mView);
     }
 
-    public void onStopNestedScroll(View view) {
+    public void onStopNestedScroll(View view2) {
         ViewCompat.stopNestedScroll(this.mView);
     }
 }

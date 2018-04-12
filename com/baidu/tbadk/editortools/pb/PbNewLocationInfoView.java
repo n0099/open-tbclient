@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PbNewLocationInfoView extends TextView {
@@ -20,25 +20,25 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, l.t(context, d.e.ds24));
-        j(0, null);
+        setTextSize(0, l.e(context, d.e.ds24));
+        setState(0, null);
     }
 
-    public void j(int i, String str) {
+    public void setState(int i, String str) {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(d.j.location_loading);
+                str = getResources().getString(d.k.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(d.j.location_default);
+                str = getResources().getString(d.k.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(d.j.location_default);
+                str = getResources().getString(d.k.location_default);
             }
             setText(str);
         }
@@ -49,6 +49,6 @@ public class PbNewLocationInfoView extends TextView {
     }
 
     public void onChangeSkinType() {
-        setTextColor(aj.getColor(d.C0141d.cp_cont_f));
+        setTextColor(ak.getColor(d.C0126d.cp_cont_f));
     }
 }

@@ -14,13 +14,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class an extends at.a implements HostManager.HostManagerFactory {
     private XMPushService a;
     private long b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements HostManager.HttpGet {
         a() {
         }
@@ -48,7 +48,7 @@ public class an extends at.a implements HostManager.HostManagerFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     static class b extends HostManagerV2 {
         protected b(Context context, HostFilter hostFilter, HostManager.HttpGet httpGet, String str) {
             super(context, hostFilter, httpGet, str);
@@ -88,15 +88,15 @@ public class an extends at.a implements HostManager.HostManagerFactory {
     }
 
     @Override // com.xiaomi.push.service.at.a
-    public void a(a.C0290a c0290a) {
+    public void a(a.C0272a c0272a) {
     }
 
     @Override // com.xiaomi.push.service.at.a
-    public void a(b.C0291b c0291b) {
+    public void a(b.C0273b c0273b) {
         Fallback fallbacksByHost;
         boolean z;
-        if (c0291b.e() && c0291b.d() && System.currentTimeMillis() - this.b > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0291b.d());
+        if (c0273b.e() && c0273b.d() && System.currentTimeMillis() - this.b > 3600000) {
+            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0273b.d());
             this.b = System.currentTimeMillis();
             HostManager hostManager = HostManager.getInstance();
             hostManager.clear();

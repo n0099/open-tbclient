@@ -28,10 +28,10 @@ public class a implements IARCallback {
 
     /* renamed from: com.baidu.ar.external.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0039a implements SharePluginManager.PluginShareResultListener {
+    private static class C0028a implements SharePluginManager.PluginShareResultListener {
         e a;
 
-        C0039a(e eVar) {
+        C0028a(e eVar) {
             this.a = eVar;
         }
 
@@ -252,7 +252,7 @@ public class a implements IARCallback {
     public void shareSyncForPlugin(Context context, String str, String str2, String str3, Bitmap bitmap, String str4, String str5, boolean z, boolean z2, e eVar) {
         if (this.a != null) {
             b.a("GraphExternalCallbackClient: bdbox graph callback shareSyncForPlugin");
-            this.a.pluginInvokerProxy().shareSyncForPlugin(context, str, str2, str3, bitmap, str4, str5, z, z2, new C0039a(eVar));
+            this.a.pluginInvokerProxy().shareSyncForPlugin(context, str, str2, str3, bitmap, str4, str5, z, z2, new C0028a(eVar));
         }
     }
 

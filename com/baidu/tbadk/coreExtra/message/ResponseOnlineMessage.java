@@ -53,7 +53,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
                 for (int i2 = 0; i2 < size; i2++) {
                     GroupInfo groupInfo = updateClientInfoResIdl.data.groupInfo.get(i2);
                     GroupUpdateMessage groupUpdateMessage = new GroupUpdateMessage();
-                    groupUpdateMessage.setGroupId(groupInfo.groupId.intValue());
+                    groupUpdateMessage.setGroupId(groupInfo.groupId.longValue());
                     groupUpdateMessage.setGroupType(groupInfo.groupType.intValue());
                     groupUpdateMessage.setLastMsgId(groupInfo.lastMsgId.longValue());
                     groupUpdateMessage.setName(groupInfo.name);

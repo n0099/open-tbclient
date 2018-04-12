@@ -1,5 +1,5 @@
 package com.google.protobuf.micro;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class f {
     static final int a = a(1, 3);
     static final int b = a(1, 4);

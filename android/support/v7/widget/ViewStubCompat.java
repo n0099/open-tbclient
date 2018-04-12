@@ -11,18 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import java.lang.ref.WeakReference;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public final class ViewStubCompat extends View {
-    private int Yl;
-    private int Ym;
-    private WeakReference<View> Yn;
-    private OnInflateListener Yo;
+    private OnInflateListener mInflateListener;
+    private int mInflatedId;
+    private WeakReference<View> mInflatedViewRef;
     private LayoutInflater mInflater;
+    private int mLayoutResource;
 
     /* loaded from: classes2.dex */
     public interface OnInflateListener {
-        void onInflate(ViewStubCompat viewStubCompat, View view);
+        void onInflate(ViewStubCompat viewStubCompat, View view2);
     }
 
     public ViewStubCompat(Context context, AttributeSet attributeSet) {
@@ -31,10 +31,10 @@ public final class ViewStubCompat extends View {
 
     public ViewStubCompat(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Yl = 0;
+        this.mLayoutResource = 0;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ViewStubCompat, i, 0);
-        this.Ym = obtainStyledAttributes.getResourceId(R.styleable.ViewStubCompat_android_inflatedId, -1);
-        this.Yl = obtainStyledAttributes.getResourceId(R.styleable.ViewStubCompat_android_layout, 0);
+        this.mInflatedId = obtainStyledAttributes.getResourceId(R.styleable.ViewStubCompat_android_inflatedId, -1);
+        this.mLayoutResource = obtainStyledAttributes.getResourceId(R.styleable.ViewStubCompat_android_layout, 0);
         setId(obtainStyledAttributes.getResourceId(R.styleable.ViewStubCompat_android_id, -1));
         obtainStyledAttributes.recycle();
         setVisibility(8);
@@ -42,19 +42,19 @@ public final class ViewStubCompat extends View {
     }
 
     public int getInflatedId() {
-        return this.Ym;
+        return this.mInflatedId;
     }
 
     public void setInflatedId(int i) {
-        this.Ym = i;
+        this.mInflatedId = i;
     }
 
     public int getLayoutResource() {
-        return this.Yl;
+        return this.mLayoutResource;
     }
 
     public void setLayoutResource(int i) {
-        this.Yl = i;
+        this.mLayoutResource = i;
     }
 
     public void setLayoutInflater(LayoutInflater layoutInflater) {
@@ -80,10 +80,10 @@ public final class ViewStubCompat extends View {
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (this.Yn != null) {
-            View view = this.Yn.get();
-            if (view != null) {
-                view.setVisibility(i);
+        if (this.mInflatedViewRef != null) {
+            View view2 = this.mInflatedViewRef.get();
+            if (view2 != null) {
+                view2.setVisibility(i);
                 return;
             }
             throw new IllegalStateException("setVisibility called on un-referenced view");
@@ -98,16 +98,16 @@ public final class ViewStubCompat extends View {
         LayoutInflater from;
         ViewParent parent = getParent();
         if (parent != null && (parent instanceof ViewGroup)) {
-            if (this.Yl != 0) {
+            if (this.mLayoutResource != 0) {
                 ViewGroup viewGroup = (ViewGroup) parent;
                 if (this.mInflater != null) {
                     from = this.mInflater;
                 } else {
                     from = LayoutInflater.from(getContext());
                 }
-                View inflate = from.inflate(this.Yl, viewGroup, false);
-                if (this.Ym != -1) {
-                    inflate.setId(this.Ym);
+                View inflate = from.inflate(this.mLayoutResource, viewGroup, false);
+                if (this.mInflatedId != -1) {
+                    inflate.setId(this.mInflatedId);
                 }
                 int indexOfChild = viewGroup.indexOfChild(this);
                 viewGroup.removeViewInLayout(this);
@@ -117,9 +117,9 @@ public final class ViewStubCompat extends View {
                 } else {
                     viewGroup.addView(inflate, indexOfChild);
                 }
-                this.Yn = new WeakReference<>(inflate);
-                if (this.Yo != null) {
-                    this.Yo.onInflate(this, inflate);
+                this.mInflatedViewRef = new WeakReference<>(inflate);
+                if (this.mInflateListener != null) {
+                    this.mInflateListener.onInflate(this, inflate);
                 }
                 return inflate;
             }
@@ -129,6 +129,6 @@ public final class ViewStubCompat extends View {
     }
 
     public void setOnInflateListener(OnInflateListener onInflateListener) {
-        this.Yo = onInflateListener;
+        this.mInflateListener = onInflateListener;
     }
 }

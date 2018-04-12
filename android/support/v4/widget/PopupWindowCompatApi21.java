@@ -5,14 +5,18 @@ import android.widget.PopupWindow;
 import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 class PopupWindowCompatApi21 {
+    private static final String TAG = "PopupWindowCompatApi21";
     private static Field sOverlapAnchorField;
+
+    PopupWindowCompatApi21() {
+    }
 
     static {
         try {
             sOverlapAnchorField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
             sOverlapAnchorField.setAccessible(true);
         } catch (NoSuchFieldException e) {
-            Log.i("PopupWindowCompatApi21", "Could not fetch mOverlapAnchor field from PopupWindow", e);
+            Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e);
         }
     }
 
@@ -22,7 +26,7 @@ class PopupWindowCompatApi21 {
             try {
                 sOverlapAnchorField.set(popupWindow, Boolean.valueOf(z));
             } catch (IllegalAccessException e) {
-                Log.i("PopupWindowCompatApi21", "Could not set overlap anchor field in PopupWindow", e);
+                Log.i(TAG, "Could not set overlap anchor field in PopupWindow", e);
             }
         }
     }
@@ -33,7 +37,7 @@ class PopupWindowCompatApi21 {
             try {
                 return ((Boolean) sOverlapAnchorField.get(popupWindow)).booleanValue();
             } catch (IllegalAccessException e) {
-                Log.i("PopupWindowCompatApi21", "Could not get overlap anchor field in PopupWindow", e);
+                Log.i(TAG, "Could not get overlap anchor field in PopupWindow", e);
             }
         }
         return false;

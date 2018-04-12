@@ -12,56 +12,60 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 class MediaBrowserServiceCompatApi24 {
-    private static Field yf;
+    private static final String TAG = "MBSCompatApi24";
+    private static Field sResultFlags;
 
     /* loaded from: classes2.dex */
     public interface ServiceCompatProxy extends MediaBrowserServiceCompatApi23.ServiceCompatProxy {
-        void onLoadChildren(String str, b bVar, Bundle bundle);
+        void onLoadChildren(String str, ResultWrapper resultWrapper, Bundle bundle);
+    }
+
+    MediaBrowserServiceCompatApi24() {
     }
 
     static {
         try {
-            yf = MediaBrowserService.Result.class.getDeclaredField("mFlags");
-            yf.setAccessible(true);
+            sResultFlags = MediaBrowserService.Result.class.getDeclaredField("mFlags");
+            sResultFlags.setAccessible(true);
         } catch (NoSuchFieldException e) {
-            Log.w("MBSCompatApi24", e);
+            Log.w(TAG, e);
         }
     }
 
-    public static Object a(Context context, ServiceCompatProxy serviceCompatProxy) {
-        return new a(context, serviceCompatProxy);
+    public static Object createService(Context context, ServiceCompatProxy serviceCompatProxy) {
+        return new MediaBrowserServiceAdaptor(context, serviceCompatProxy);
     }
 
-    public static void a(Object obj, String str, Bundle bundle) {
+    public static void notifyChildrenChanged(Object obj, String str, Bundle bundle) {
         ((MediaBrowserService) obj).notifyChildrenChanged(str, bundle);
     }
 
-    public static Bundle t(Object obj) {
+    public static Bundle getBrowserRootHints(Object obj) {
         return ((MediaBrowserService) obj).getBrowserRootHints();
     }
 
     /* loaded from: classes2.dex */
-    static class b {
-        MediaBrowserService.Result ye;
+    static class ResultWrapper {
+        MediaBrowserService.Result mResultObj;
 
-        b(MediaBrowserService.Result result) {
-            this.ye = result;
+        ResultWrapper(MediaBrowserService.Result result) {
+            this.mResultObj = result;
         }
 
-        public void c(List<Parcel> list, int i) {
+        public void sendResult(List<Parcel> list, int i) {
             try {
-                MediaBrowserServiceCompatApi24.yf.setInt(this.ye, i);
+                MediaBrowserServiceCompatApi24.sResultFlags.setInt(this.mResultObj, i);
             } catch (IllegalAccessException e) {
-                Log.w("MBSCompatApi24", e);
+                Log.w(MediaBrowserServiceCompatApi24.TAG, e);
             }
-            this.ye.sendResult(h(list));
+            this.mResultObj.sendResult(parcelListToItemList(list));
         }
 
         public void detach() {
-            this.ye.detach();
+            this.mResultObj.detach();
         }
 
-        List<MediaBrowser.MediaItem> h(List<Parcel> list) {
+        List<MediaBrowser.MediaItem> parcelListToItemList(List<Parcel> list) {
             if (list == null) {
                 return null;
             }
@@ -76,14 +80,14 @@ class MediaBrowserServiceCompatApi24 {
     }
 
     /* loaded from: classes2.dex */
-    static class a extends MediaBrowserServiceCompatApi23.a {
-        a(Context context, ServiceCompatProxy serviceCompatProxy) {
+    static class MediaBrowserServiceAdaptor extends MediaBrowserServiceCompatApi23.MediaBrowserServiceAdaptor {
+        MediaBrowserServiceAdaptor(Context context, ServiceCompatProxy serviceCompatProxy) {
             super(context, serviceCompatProxy);
         }
 
         @Override // android.service.media.MediaBrowserService
         public void onLoadChildren(String str, MediaBrowserService.Result<List<MediaBrowser.MediaItem>> result, Bundle bundle) {
-            ((ServiceCompatProxy) this.mServiceProxy).onLoadChildren(str, new b(result), bundle);
+            ((ServiceCompatProxy) this.mServiceProxy).onLoadChildren(str, new ResultWrapper(result), bundle);
         }
     }
 }

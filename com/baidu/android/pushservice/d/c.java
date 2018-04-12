@@ -10,22 +10,22 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.android.pushservice.h.h;
-import com.baidu.android.pushservice.h.q;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.h.g;
+import com.baidu.android.pushservice.h.o;
+import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private static C0032c a = null;
+    private static C0021c a = null;
     private static b b = null;
     private static final Object c = new Object();
-    private static int d = 100;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         actionId,
         actionName,
@@ -38,7 +38,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements DatabaseErrorHandler {
         private b() {
         }
@@ -109,18 +109,19 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0032c extends SQLiteOpenHelper {
-        private static final String a = "CREATE TABLE PushShareInfo (" + e.PushInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.PushPriority.name() + " LONG NOT NULL DEFAULT ((0)), " + e.PushVersion.name() + " INTEGER DEFAULT ((0)), " + e.PushChannelID.name() + " TEXT, " + e.PushCurPkgName.name() + " TEXT, " + e.PushWebAppBindInfo.name() + " TEXT, " + e.PushLightAppBindInfo.name() + " TEXT, " + e.PushSDKClientBindInfo.name() + " TEXT, " + e.PushClientsBindInfo.name() + " TEXT, " + e.PushSelfBindInfo.name() + " TEXT);";
+    /* loaded from: classes3.dex */
+    public static class C0021c extends SQLiteOpenHelper {
+        private static final String a = "CREATE TABLE PushShareInfo (" + e.PushInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.PushPriority.name() + " LONG NOT NULL DEFAULT ((0)), " + e.PushVersion.name() + " INTEGER DEFAULT ((0)), " + e.PushChannelID.name() + " TEXT, " + e.PushNewChannelID.name() + " TEXT, " + e.PushCurPkgName.name() + " TEXT, " + e.PushWebAppBindInfo.name() + " TEXT, " + e.PushLightAppBindInfo.name() + " TEXT, " + e.PushSDKClientBindInfo.name() + " TEXT, " + e.PushClientsBindInfo.name() + " TEXT, " + e.PushSelfBindInfo.name() + " TEXT);";
         private static final String b = "CREATE TABLE PushVerifInfo (" + f.verifId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + f.msgId.name() + " TEXT NOT NULL, " + f.md5Infos.name() + " TEXT NOT NULL, " + f.appId.name() + " TEXT, " + f.time.name() + " TEXT);";
         private static final String c = "CREATE TABLE PushMsgInfos (" + d.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + d.appId.name() + "  TEXT, " + d.msgType.name() + "  INTEGER NOT NULL, " + d.msgId.name() + " LONG NOT NULL, " + d.secureInfo.name() + " TEXT, " + d.msgBody.name() + "  TEXT, " + d.expireTime.name() + "  LONG, " + d.ackRet.name() + "  INTEGER, " + d.arriveTime.name() + " LONG NOT NULL);";
         private static final String d = "CREATE TABLE PushAppStatus (" + a.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + a.actionName.name() + " TEXT NOT NULL, " + a.timeStamp.name() + " LONG NOT NULL, " + a.pkgName.name() + " TEXT, " + a.versionCode.name() + " INTEGER, " + a.versionName.name() + " TEXT, " + a.status.name() + " INTEGER);";
+        private static final String e = "ALTER TABLE PushShareInfo ADD COLUMN " + e.PushNewChannelID.name() + " TEXT";
 
-        public C0032c(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
+        public C0021c(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
             super(context, str, null, i, databaseErrorHandler);
         }
 
-        public C0032c(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
+        public C0021c(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
             super(context, str, cursorFactory, i);
         }
 
@@ -129,7 +130,7 @@ public class c {
                 sQLiteDatabase.execSQL("DROP TABLE IF EXISTS PushShareInfo");
                 sQLiteDatabase.execSQL("DROP TABLE IF EXISTS PushVerifyInfo");
                 sQLiteDatabase.execSQL("DROP TABLE IF EXISTS PushMsgInfo");
-            } catch (Exception e) {
+            } catch (Exception e2) {
             }
         }
 
@@ -140,7 +141,7 @@ public class c {
                 sQLiteDatabase.execSQL(b);
                 sQLiteDatabase.execSQL(c);
                 sQLiteDatabase.execSQL(d);
-            } catch (Exception e) {
+            } catch (Exception e2) {
             }
         }
 
@@ -152,13 +153,17 @@ public class c {
             } else if (i == 2) {
                 sQLiteDatabase.execSQL(c);
                 sQLiteDatabase.execSQL(d);
+                sQLiteDatabase.execSQL(e);
             } else if (i == 3) {
                 sQLiteDatabase.execSQL(d);
+                sQLiteDatabase.execSQL(e);
+            } else if (i == 4) {
+                sQLiteDatabase.execSQL(e);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum d {
         MsgInfoId,
         appId,
@@ -171,12 +176,13 @@ public class c {
         ackRet
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum e {
         PushInfoId,
         PushPriority,
         PushVersion,
         PushChannelID,
+        PushNewChannelID,
         PushCurPkgName,
         PushWebAppBindInfo,
         PushLightAppBindInfo,
@@ -185,7 +191,7 @@ public class c {
         PushSelfBindInfo
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum f {
         verifId,
         msgId,
@@ -194,10 +200,6 @@ public class c {
         time
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00ed A[Catch: all -> 0x00f4, TryCatch #4 {, blocks: (B:4:0x0006, B:5:0x0008, B:6:0x0009, B:8:0x000f, B:12:0x0013, B:20:0x00e2, B:22:0x00e8, B:24:0x00ed, B:25:0x00f1, B:37:0x010c, B:39:0x0112, B:41:0x0117, B:44:0x011f, B:46:0x0125, B:48:0x012a, B:49:0x012d), top: B:59:0x0006 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static synchronized long a(Context context, com.baidu.android.pushservice.d.b bVar) {
         Cursor cursor;
         long j;
@@ -213,12 +215,198 @@ public class c {
                     contentValues.put(e.PushPriority.name(), Long.valueOf(bVar.a));
                     contentValues.put(e.PushVersion.name(), Long.valueOf(bVar.b));
                     contentValues.put(e.PushChannelID.name(), bVar.c);
-                    contentValues.put(e.PushCurPkgName.name(), bVar.d);
-                    contentValues.put(e.PushLightAppBindInfo.name(), bVar.f);
-                    contentValues.put(e.PushWebAppBindInfo.name(), bVar.e);
-                    contentValues.put(e.PushSDKClientBindInfo.name(), bVar.g);
-                    contentValues.put(e.PushClientsBindInfo.name(), bVar.h);
-                    contentValues.put(e.PushSelfBindInfo.name(), bVar.i);
+                    contentValues.put(e.PushNewChannelID.name(), bVar.d);
+                    contentValues.put(e.PushCurPkgName.name(), bVar.e);
+                    contentValues.put(e.PushLightAppBindInfo.name(), bVar.g);
+                    contentValues.put(e.PushWebAppBindInfo.name(), bVar.f);
+                    contentValues.put(e.PushSDKClientBindInfo.name(), bVar.h);
+                    contentValues.put(e.PushClientsBindInfo.name(), bVar.i);
+                    contentValues.put(e.PushSelfBindInfo.name(), bVar.j);
+                    try {
+                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
+                    } catch (Exception e2) {
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    if (cursor != null) {
+                        try {
+                        } catch (Exception e3) {
+                            if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            a2.close();
+                            j = j2;
+                            return j;
+                        } catch (Throwable th2) {
+                            cursor2 = cursor;
+                            th = th2;
+                            if (cursor2 != null && !cursor2.isClosed()) {
+                                cursor2.close();
+                            }
+                            a2.close();
+                            throw th;
+                        }
+                        if (cursor.getCount() != 0) {
+                            j2 = a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
+                            m.b("pushadvertiseinfo:  update into database", context);
+                            m.b("updatePushInfo pushinfo:  insert into database,  clientinfo = " + bVar.a().toString(), context);
+                            if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            a2.close();
+                            j = j2;
+                        }
+                    }
+                    j2 = a2.insert("PushShareInfo", null, contentValues);
+                    m.b("pushadvertiseinfo:  insert into database", context);
+                    m.b("updatePushInfo pushinfo:  insert into database,  clientinfo = " + bVar.a().toString(), context);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    a2.close();
+                    j = j2;
+                }
+            }
+        }
+        return j;
+    }
+
+    public static SQLiteDatabase a(Context context) {
+        C0021c h = h(context);
+        if (h == null) {
+            return null;
+        }
+        try {
+            return h.getWritableDatabase();
+        } catch (Throwable th) {
+            o.a(context, th);
+            return null;
+        }
+    }
+
+    public static Object a() {
+        return c;
+    }
+
+    public static String a(Context context, boolean z) {
+        Cursor cursor;
+        String str;
+        Cursor cursor2 = null;
+        String str2 = null;
+        synchronized (c) {
+            SQLiteDatabase a2 = a(context);
+            if (a2 == null) {
+                return null;
+            }
+            try {
+                cursor = a2.query("PushShareInfo", new String[]{e.PushChannelID.name(), e.PushNewChannelID.name()}, null, null, null, null, null);
+                try {
+                    if (cursor.moveToFirst()) {
+                        str2 = cursor.getString(cursor.getColumnIndex(z ? e.PushNewChannelID.name() : e.PushChannelID.name()));
+                    }
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
+                    }
+                    a2.close();
+                    str = str2;
+                } catch (Exception e2) {
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
+                    }
+                    a2.close();
+                    str = null;
+                    return str;
+                } catch (Throwable th) {
+                    cursor2 = cursor;
+                    th = th;
+                    if (cursor2 != null && !cursor2.isClosed()) {
+                        cursor2.close();
+                    }
+                    a2.close();
+                    throw th;
+                }
+            } catch (Exception e3) {
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            return str;
+        }
+    }
+
+    public static synchronized void a(Context context, long j) {
+        Cursor cursor;
+        Cursor cursor2 = null;
+        synchronized (c.class) {
+            synchronized (c) {
+                SQLiteDatabase a2 = a(context);
+                if (a2 != null) {
+                    try {
+                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
+                    } catch (Exception e2) {
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    if (cursor != null) {
+                        try {
+                        } catch (Exception e3) {
+                            if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            a2.close();
+                        } catch (Throwable th2) {
+                            cursor2 = cursor;
+                            th = th2;
+                            if (cursor2 != null && !cursor2.isClosed()) {
+                                cursor2.close();
+                            }
+                            a2.close();
+                            throw th;
+                        }
+                        if (cursor.getCount() != 0) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put(e.PushPriority.name(), Long.valueOf(j));
+                            a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
+                            if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            a2.close();
+                        }
+                    }
+                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
+                    bVar.a = j;
+                    bVar.b = 0L;
+                    bVar.c = null;
+                    bVar.d = null;
+                    bVar.e = null;
+                    bVar.g = null;
+                    bVar.f = null;
+                    bVar.h = null;
+                    bVar.i = null;
+                    bVar.j = null;
+                    a(context, bVar);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    a2.close();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0061 A[Catch: all -> 0x0066, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0056, B:19:0x005c, B:21:0x0061, B:22:0x0064, B:34:0x0097, B:36:0x009d, B:38:0x00a2, B:41:0x00a9, B:43:0x00af, B:45:0x00b4, B:46:0x00b7), top: B:51:0x0004 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized void a(Context context, String str) {
+        Cursor cursor;
+        Cursor cursor2 = null;
+        synchronized (c.class) {
+            synchronized (c) {
+                SQLiteDatabase a2 = a(context);
+                if (a2 != null) {
                     try {
                         cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
                     } catch (Exception e2) {
@@ -234,11 +422,7 @@ public class c {
                             }
                             if (a2 != null) {
                                 a2.close();
-                                j = j2;
-                                return j;
                             }
-                            j = j2;
-                            return j;
                         } catch (Throwable th2) {
                             cursor2 = cursor;
                             th = th2;
@@ -251,49 +435,260 @@ public class c {
                             throw th;
                         }
                         if (cursor.getCount() != 0) {
-                            j2 = a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
-                            p.b("pushadvertiseinfo:  update into database", context);
-                            p.b("updatePushInfo pushinfo:  insert into database,  clientinfo = " + bVar.a().toString(), context);
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put(e.PushCurPkgName.name(), str);
+                            a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
                             if (cursor != null && !cursor.isClosed()) {
                                 cursor.close();
                             }
                             if (a2 != null) {
                                 a2.close();
-                                j = j2;
                             }
-                            j = j2;
                         }
                     }
-                    j2 = a2.insert("PushShareInfo", null, contentValues);
-                    p.b("pushadvertiseinfo:  insert into database", context);
-                    p.b("updatePushInfo pushinfo:  insert into database,  clientinfo = " + bVar.a().toString(), context);
+                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
+                    bVar.a = 0L;
+                    bVar.b = 0L;
+                    bVar.c = null;
+                    bVar.d = null;
+                    bVar.e = str;
+                    bVar.g = null;
+                    bVar.f = null;
+                    bVar.h = null;
+                    bVar.i = null;
+                    bVar.j = null;
+                    a(context, bVar);
                     if (cursor != null) {
                         cursor.close();
                     }
                     if (a2 != null) {
                     }
-                    j = j2;
                 }
             }
         }
-        return j;
     }
 
-    public static SQLiteDatabase a(Context context) {
-        C0032c i = i(context);
-        if (i == null) {
-            return null;
-        }
-        try {
-            return i.getWritableDatabase();
-        } catch (Throwable th) {
-            q.a(context, th);
-            return null;
+    public static void a(Context context, String str, int i, long j, byte[] bArr, byte[] bArr2, long j2, int i2) {
+        synchronized (c) {
+            SQLiteDatabase a2 = a(context);
+            if (a2 == null) {
+                return;
+            }
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(d.appId.name(), str);
+                contentValues.put(d.msgId.name(), Long.valueOf(j));
+                contentValues.put(d.msgType.name(), Integer.valueOf(i));
+                if (bArr != null && bArr.length > 0) {
+                    contentValues.put(d.msgBody.name(), BaiduAppSSOJni.getEncrypted(context, str, bArr));
+                    contentValues.put(d.secureInfo.name(), bArr2);
+                    contentValues.put(d.expireTime.name(), Long.valueOf(j2));
+                }
+                contentValues.put(d.arriveTime.name(), Long.valueOf(System.currentTimeMillis()));
+                contentValues.put(d.ackRet.name(), Integer.valueOf(i2));
+                a2.insert("PushMsgInfos", null, contentValues);
+                a2.close();
+            } catch (Exception e2) {
+                a2.close();
+            }
         }
     }
 
-    public static Object a() {
-        return c;
+    public static synchronized void a(Context context, String str, String str2) {
+        Cursor cursor;
+        Cursor cursor2 = null;
+        synchronized (c.class) {
+            synchronized (c) {
+                SQLiteDatabase a2 = a(context);
+                if (a2 != null) {
+                    try {
+                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
+                    } catch (Exception e2) {
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    if (cursor != null) {
+                        try {
+                        } catch (Exception e3) {
+                            if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            a2.close();
+                        } catch (Throwable th2) {
+                            cursor2 = cursor;
+                            th = th2;
+                            if (cursor2 != null && !cursor2.isClosed()) {
+                                cursor2.close();
+                            }
+                            a2.close();
+                            throw th;
+                        }
+                        if (cursor.getCount() != 0) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put(e.PushChannelID.name(), str);
+                            if (!TextUtils.isEmpty(str2)) {
+                                contentValues.put(e.PushNewChannelID.name(), str2);
+                            }
+                            a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
+                            if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            a2.close();
+                        }
+                    }
+                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
+                    bVar.a = 0L;
+                    bVar.b = 0L;
+                    bVar.c = str;
+                    bVar.d = str2;
+                    bVar.e = null;
+                    bVar.g = null;
+                    bVar.f = null;
+                    bVar.h = null;
+                    bVar.i = null;
+                    bVar.j = null;
+                    a(context, bVar);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    a2.close();
+                }
+            }
+        }
+    }
+
+    public static synchronized void a(Context context, List<g> list) {
+        synchronized (c.class) {
+            synchronized (c) {
+                SQLiteDatabase a2 = a(context);
+                if (a2 != null) {
+                    try {
+                        a2.beginTransaction();
+                        a2.delete("PushAppStatus", null, null);
+                        for (g gVar : list) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put(a.actionName.name(), gVar.d);
+                            contentValues.put(a.pkgName.name(), gVar.j);
+                            contentValues.put(a.timeStamp.name(), Long.valueOf(gVar.e));
+                            contentValues.put(a.versionCode.name(), Integer.valueOf(gVar.b));
+                            contentValues.put(a.versionName.name(), gVar.a);
+                            contentValues.put(a.status.name(), Integer.valueOf(gVar.c));
+                            a2.insert("PushAppStatus", null, contentValues);
+                        }
+                        a2.setTransactionSuccessful();
+                        a2.endTransaction();
+                        a2.close();
+                    } catch (Exception e2) {
+                        a2.endTransaction();
+                        a2.close();
+                    } catch (Throwable th) {
+                        a2.endTransaction();
+                        a2.close();
+                        throw th;
+                    }
+                }
+            }
+        }
+    }
+
+    public static synchronized boolean a(Context context, com.baidu.android.pushservice.d.e eVar) {
+        Cursor cursor;
+        Throwable th;
+        boolean z;
+        Cursor rawQuery;
+        synchronized (c.class) {
+            synchronized (c) {
+                SQLiteDatabase a2 = a(context);
+                if (a2 == null) {
+                    z = false;
+                } else {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(f.msgId.name(), eVar.a);
+                    contentValues.put(f.md5Infos.name(), eVar.b);
+                    contentValues.put(f.appId.name(), eVar.d);
+                    contentValues.put(f.time.name(), System.currentTimeMillis() + "");
+                    long j = -1;
+                    Cursor cursor2 = null;
+                    try {
+                        try {
+                            j = a2.insert("PushVerifInfo", null, contentValues);
+                            rawQuery = a2.rawQuery("SELECT COUNT(*) FROM PushVerifInfo;", null);
+                        } catch (Throwable th2) {
+                            cursor = null;
+                            th = th2;
+                        }
+                    } catch (Exception e2) {
+                        if (0 != 0 && !cursor2.isClosed()) {
+                            cursor2.close();
+                        }
+                        a2.close();
+                    }
+                    try {
+                        if (rawQuery.moveToFirst() && rawQuery.getInt(0) > 200) {
+                            a2.delete("PushVerifInfo", " msgId IS NOT ?", new String[]{eVar.a});
+                        }
+                        if (rawQuery != null && !rawQuery.isClosed()) {
+                            rawQuery.close();
+                        }
+                        a2.close();
+                        z = j != -1;
+                    } catch (Throwable th3) {
+                        cursor = rawQuery;
+                        th = th3;
+                        if (cursor != null && !cursor.isClosed()) {
+                            cursor.close();
+                        }
+                        a2.close();
+                        throw th;
+                    }
+                }
+            }
+        }
+        return z;
+    }
+
+    public static int b(Context context) {
+        Cursor cursor;
+        int i;
+        Cursor cursor2 = null;
+        synchronized (c) {
+            SQLiteDatabase a2 = a(context);
+            if (a2 == null) {
+                return 0;
+            }
+            try {
+                cursor = a2.query("PushShareInfo", new String[]{e.PushPriority.name()}, null, null, null, null, null);
+                try {
+                    int i2 = cursor.moveToFirst() ? cursor.getInt(cursor.getColumnIndex(e.PushPriority.name())) : 0;
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
+                    }
+                    a2.close();
+                    i = i2;
+                } catch (Exception e2) {
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
+                    }
+                    a2.close();
+                    i = 0;
+                    return i;
+                } catch (Throwable th) {
+                    cursor2 = cursor;
+                    th = th;
+                    if (cursor2 != null && !cursor2.isClosed()) {
+                        cursor2.close();
+                    }
+                    a2.close();
+                    throw th;
+                }
+            } catch (Exception e3) {
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            return i;
+        }
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -304,10 +699,10 @@ public class c {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    public static java.lang.String a(android.content.Context r8, java.lang.String r9, java.lang.String r10) {
+    public static java.lang.String b(android.content.Context r8, java.lang.String r9, java.lang.String r10) {
         /*
             r6 = 0
-            int r0 = com.baidu.android.pushservice.j.p.m(r8, r9)     // Catch: java.lang.Throwable -> L83
+            int r0 = com.baidu.android.pushservice.j.m.m(r8, r9)     // Catch: java.lang.Throwable -> L83
             r1 = 52
             if (r0 < r1) goto La4
             android.content.ContentResolver r0 = r8.getContentResolver()     // Catch: java.lang.Throwable -> L83
@@ -401,14 +796,10 @@ public class c {
             r0 = r6
             goto L7d
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.pushservice.d.c.a(android.content.Context, java.lang.String, java.lang.String):java.lang.String");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.pushservice.d.c.b(android.content.Context, java.lang.String, java.lang.String):java.lang.String");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0065 A[Catch: all -> 0x006a, TryCatch #5 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x005a, B:19:0x0060, B:21:0x0065, B:22:0x0068, B:34:0x0097, B:36:0x009d, B:38:0x00a2, B:41:0x00a9, B:43:0x00af, B:45:0x00b4, B:46:0x00b7), top: B:51:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized void a(Context context, long j) {
+    public static synchronized void b(Context context, long j) {
         Cursor cursor;
         Cursor cursor2 = null;
         synchronized (c.class) {
@@ -428,64 +819,58 @@ public class c {
                             if (cursor != null && !cursor.isClosed()) {
                                 cursor.close();
                             }
-                            if (a2 != null) {
-                                a2.close();
-                            }
+                            a2.close();
                         } catch (Throwable th2) {
                             cursor2 = cursor;
                             th = th2;
                             if (cursor2 != null && !cursor2.isClosed()) {
                                 cursor2.close();
                             }
-                            if (a2 != null) {
-                                a2.close();
-                            }
+                            a2.close();
                             throw th;
                         }
                         if (cursor.getCount() != 0) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put(e.PushPriority.name(), Long.valueOf(j));
+                            contentValues.put(e.PushVersion.name(), Long.valueOf(j));
                             a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
                             if (cursor != null && !cursor.isClosed()) {
                                 cursor.close();
                             }
-                            if (a2 != null) {
-                                a2.close();
-                            }
+                            a2.close();
                         }
                     }
                     com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
-                    bVar.a = j;
-                    bVar.b = 0L;
+                    bVar.a = 0L;
+                    bVar.b = j;
                     bVar.c = null;
                     bVar.d = null;
-                    bVar.f = null;
                     bVar.e = null;
                     bVar.g = null;
+                    bVar.f = null;
                     bVar.h = null;
                     bVar.i = null;
+                    bVar.j = null;
                     a(context, bVar);
                     if (cursor != null) {
                         cursor.close();
                     }
-                    if (a2 != null) {
-                    }
+                    a2.close();
                 }
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0061 A[Catch: all -> 0x0066, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0056, B:19:0x005c, B:21:0x0061, B:22:0x0064, B:34:0x0094, B:36:0x009a, B:38:0x009f, B:41:0x00a6, B:43:0x00ac, B:45:0x00b1, B:46:0x00b4), top: B:51:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0063 A[Catch: all -> 0x0068, TryCatch #5 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:35:0x0099, B:37:0x009f, B:39:0x00a4, B:42:0x00ab, B:44:0x00b1, B:46:0x00b6, B:47:0x00b9, B:9:0x000f), top: B:52:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized void a(Context context, String str) {
+    public static synchronized void b(Context context, String str) {
         Cursor cursor;
         Cursor cursor2 = null;
         synchronized (c.class) {
             synchronized (c) {
                 SQLiteDatabase a2 = a(context);
-                if (a2 != null) {
+                if (a2 != null && str != null) {
                     try {
                         cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
                     } catch (Exception e2) {
@@ -515,7 +900,7 @@ public class c {
                         }
                         if (cursor.getCount() != 0) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put(e.PushChannelID.name(), str);
+                            contentValues.put(e.PushSDKClientBindInfo.name(), str);
                             a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
                             if (cursor != null && !cursor.isClosed()) {
                                 cursor.close();
@@ -528,13 +913,14 @@ public class c {
                     com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
                     bVar.a = 0L;
                     bVar.b = 0L;
-                    bVar.c = str;
+                    bVar.c = null;
                     bVar.d = null;
-                    bVar.f = null;
                     bVar.e = null;
                     bVar.g = null;
-                    bVar.h = null;
+                    bVar.f = null;
+                    bVar.h = str;
                     bVar.i = null;
+                    bVar.j = null;
                     a(context, bVar);
                     if (cursor != null) {
                         cursor.close();
@@ -546,124 +932,7 @@ public class c {
         }
     }
 
-    public static void a(Context context, String str, int i, long j, byte[] bArr, byte[] bArr2, long j2, int i2) {
-        synchronized (c) {
-            SQLiteDatabase a2 = a(context);
-            if (a2 == null) {
-                return;
-            }
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(d.appId.name(), str);
-                contentValues.put(d.msgId.name(), Long.valueOf(j));
-                contentValues.put(d.msgType.name(), Integer.valueOf(i));
-                if (bArr != null && bArr.length > 0) {
-                    contentValues.put(d.msgBody.name(), BaiduAppSSOJni.getEncrypted(context, str, bArr));
-                    contentValues.put(d.secureInfo.name(), bArr2);
-                    contentValues.put(d.expireTime.name(), Long.valueOf(j2));
-                }
-                contentValues.put(d.arriveTime.name(), Long.valueOf(System.currentTimeMillis()));
-                contentValues.put(d.ackRet.name(), Integer.valueOf(i2));
-                a2.insert("PushMsgInfos", null, contentValues);
-                a2.close();
-            } catch (Exception e2) {
-                a2.close();
-            }
-        }
-    }
-
-    public static synchronized void a(Context context, List<h> list) {
-        synchronized (c.class) {
-            synchronized (c) {
-                SQLiteDatabase a2 = a(context);
-                if (a2 != null) {
-                    try {
-                        a2.beginTransaction();
-                        a2.delete("PushAppStatus", null, null);
-                        for (h hVar : list) {
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put(a.actionName.name(), hVar.d);
-                            contentValues.put(a.pkgName.name(), hVar.j);
-                            contentValues.put(a.timeStamp.name(), Long.valueOf(hVar.e));
-                            contentValues.put(a.versionCode.name(), Integer.valueOf(hVar.b));
-                            contentValues.put(a.versionName.name(), hVar.a);
-                            contentValues.put(a.status.name(), Integer.valueOf(hVar.c));
-                            a2.insert("PushAppStatus", null, contentValues);
-                        }
-                        a2.setTransactionSuccessful();
-                        a2.endTransaction();
-                        a2.close();
-                    } catch (Exception e2) {
-                        a2.endTransaction();
-                        a2.close();
-                    } catch (Throwable th) {
-                        a2.endTransaction();
-                        a2.close();
-                        throw th;
-                    }
-                }
-            }
-        }
-    }
-
-    public static synchronized boolean a(Context context, com.baidu.android.pushservice.d.e eVar) {
-        Cursor cursor;
-        Throwable th;
-        boolean z;
-        Cursor rawQuery;
-        synchronized (c.class) {
-            synchronized (c) {
-                SQLiteDatabase a2 = a(context);
-                if (a2 == null) {
-                    z = false;
-                } else {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put(f.msgId.name(), eVar.a);
-                    contentValues.put(f.md5Infos.name(), eVar.b);
-                    contentValues.put(f.appId.name(), eVar.d);
-                    contentValues.put(f.time.name(), System.currentTimeMillis() + "");
-                    long j = -1;
-                    Cursor cursor2 = null;
-                    try {
-                        try {
-                            j = a2.insert("PushVerifInfo", null, contentValues);
-                            rawQuery = a2.rawQuery("SELECT COUNT(*) FROM PushVerifInfo;", null);
-                        } catch (Throwable th2) {
-                            cursor = null;
-                            th = th2;
-                        }
-                        try {
-                            rawQuery.moveToFirst();
-                            if (rawQuery.getInt(0) > d) {
-                                a2.delete("PushVerifInfo", " msgId IS NOT ?", new String[]{eVar.a});
-                            }
-                            if (rawQuery != null && !rawQuery.isClosed()) {
-                                rawQuery.close();
-                            }
-                            a2.close();
-                        } catch (Throwable th3) {
-                            cursor = rawQuery;
-                            th = th3;
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            a2.close();
-                            throw th;
-                        }
-                    } catch (Exception e2) {
-                        if (0 != 0 && !cursor2.isClosed()) {
-                            cursor2.close();
-                        }
-                        a2.close();
-                    }
-                    z = j != -1;
-                }
-            }
-        }
-        return z;
-    }
-
-    public static int b(Context context) {
+    public static int c(Context context) {
         Cursor cursor;
         int i;
         Cursor cursor2 = null;
@@ -673,22 +942,20 @@ public class c {
                 return 0;
             }
             try {
-                cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
+                cursor = a2.query("PushShareInfo", new String[]{e.PushVersion.name()}, null, null, null, null, null);
                 try {
-                    r8 = cursor.moveToFirst() ? cursor.getInt(cursor.getColumnIndex(e.PushPriority.name())) : 0;
+                    int i2 = cursor.moveToFirst() ? cursor.getInt(cursor.getColumnIndex(e.PushVersion.name())) : 0;
                     if (cursor != null && !cursor.isClosed()) {
                         cursor.close();
                     }
+                    a2.close();
+                    i = i2;
                 } catch (Exception e2) {
                     if (cursor != null && !cursor.isClosed()) {
                         cursor.close();
                     }
-                    if (a2 != null) {
-                        a2.close();
-                        i = 0;
-                        return i;
-                    }
-                    i = r8;
+                    a2.close();
+                    i = 0;
                     return i;
                 } catch (Throwable th) {
                     cursor2 = cursor;
@@ -696,9 +963,7 @@ public class c {
                     if (cursor2 != null && !cursor2.isClosed()) {
                         cursor2.close();
                     }
-                    if (a2 != null) {
-                        a2.close();
-                    }
+                    a2.close();
                     throw th;
                 }
             } catch (Exception e3) {
@@ -706,12 +971,6 @@ public class c {
             } catch (Throwable th2) {
                 th = th2;
             }
-            if (a2 != null) {
-                a2.close();
-                i = r8;
-                return i;
-            }
-            i = r8;
             return i;
         }
     }
@@ -724,10 +983,10 @@ public class c {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    public static java.lang.String b(android.content.Context r8, java.lang.String r9, java.lang.String r10) {
+    public static java.lang.String c(android.content.Context r8, java.lang.String r9, java.lang.String r10) {
         /*
             r6 = 0
-            int r0 = com.baidu.android.pushservice.j.p.m(r8, r9)     // Catch: java.lang.Throwable -> L83
+            int r0 = com.baidu.android.pushservice.j.m.m(r8, r9)     // Catch: java.lang.Throwable -> L83
             r1 = 52
             if (r0 < r1) goto La4
             android.content.ContentResolver r0 = r8.getContentResolver()     // Catch: java.lang.Throwable -> L83
@@ -821,208 +1080,9 @@ public class c {
             r0 = r6
             goto L7d
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.pushservice.d.c.b(android.content.Context, java.lang.String, java.lang.String):java.lang.String");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.pushservice.d.c.c(android.content.Context, java.lang.String, java.lang.String):java.lang.String");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0065 A[Catch: all -> 0x006a, TryCatch #5 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x005a, B:19:0x0060, B:21:0x0065, B:22:0x0068, B:34:0x0097, B:36:0x009d, B:38:0x00a2, B:41:0x00a9, B:43:0x00af, B:45:0x00b4, B:46:0x00b7), top: B:51:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized void b(Context context, long j) {
-        Cursor cursor;
-        Cursor cursor2 = null;
-        synchronized (c.class) {
-            synchronized (c) {
-                SQLiteDatabase a2 = a(context);
-                if (a2 != null) {
-                    try {
-                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
-                    } catch (Exception e2) {
-                        cursor = null;
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    if (cursor != null) {
-                        try {
-                        } catch (Exception e3) {
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                        } catch (Throwable th2) {
-                            cursor2 = cursor;
-                            th = th2;
-                            if (cursor2 != null && !cursor2.isClosed()) {
-                                cursor2.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                            throw th;
-                        }
-                        if (cursor.getCount() != 0) {
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put(e.PushVersion.name(), Long.valueOf(j));
-                            a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                        }
-                    }
-                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
-                    bVar.a = 0L;
-                    bVar.b = j;
-                    bVar.c = null;
-                    bVar.d = null;
-                    bVar.f = null;
-                    bVar.e = null;
-                    bVar.g = null;
-                    bVar.h = null;
-                    bVar.i = null;
-                    a(context, bVar);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0061 A[Catch: all -> 0x0066, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0056, B:19:0x005c, B:21:0x0061, B:22:0x0064, B:34:0x0094, B:36:0x009a, B:38:0x009f, B:41:0x00a6, B:43:0x00ac, B:45:0x00b1, B:46:0x00b4), top: B:51:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized void b(Context context, String str) {
-        Cursor cursor;
-        Cursor cursor2 = null;
-        synchronized (c.class) {
-            synchronized (c) {
-                SQLiteDatabase a2 = a(context);
-                if (a2 != null) {
-                    try {
-                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
-                    } catch (Exception e2) {
-                        cursor = null;
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    if (cursor != null) {
-                        try {
-                        } catch (Exception e3) {
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                        } catch (Throwable th2) {
-                            cursor2 = cursor;
-                            th = th2;
-                            if (cursor2 != null && !cursor2.isClosed()) {
-                                cursor2.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                            throw th;
-                        }
-                        if (cursor.getCount() != 0) {
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put(e.PushCurPkgName.name(), str);
-                            a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                        }
-                    }
-                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
-                    bVar.a = 0L;
-                    bVar.b = 0L;
-                    bVar.c = null;
-                    bVar.d = str;
-                    bVar.f = null;
-                    bVar.e = null;
-                    bVar.g = null;
-                    bVar.h = null;
-                    bVar.i = null;
-                    a(context, bVar);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                    }
-                }
-            }
-        }
-    }
-
-    public static int c(Context context) {
-        Cursor cursor;
-        int i;
-        Cursor cursor2 = null;
-        synchronized (c) {
-            SQLiteDatabase a2 = a(context);
-            if (a2 == null) {
-                return 0;
-            }
-            try {
-                cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
-                try {
-                    r8 = cursor.moveToFirst() ? cursor.getInt(cursor.getColumnIndex(e.PushVersion.name())) : 0;
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                } catch (Exception e2) {
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                        a2.close();
-                        i = 0;
-                        return i;
-                    }
-                    i = r8;
-                    return i;
-                } catch (Throwable th) {
-                    cursor2 = cursor;
-                    th = th;
-                    if (cursor2 != null && !cursor2.isClosed()) {
-                        cursor2.close();
-                    }
-                    if (a2 != null) {
-                        a2.close();
-                    }
-                    throw th;
-                }
-            } catch (Exception e3) {
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            if (a2 != null) {
-                a2.close();
-                i = r8;
-                return i;
-            }
-            i = r8;
-            return i;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0063 A[Catch: all -> 0x0068, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:35:0x0096, B:37:0x009c, B:39:0x00a1, B:42:0x00a8, B:44:0x00ae, B:46:0x00b3, B:47:0x00b6, B:9:0x000f), top: B:52:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static synchronized void c(Context context, String str) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -1043,30 +1103,24 @@ public class c {
                             if (cursor != null && !cursor.isClosed()) {
                                 cursor.close();
                             }
-                            if (a2 != null) {
-                                a2.close();
-                            }
+                            a2.close();
                         } catch (Throwable th2) {
                             cursor2 = cursor;
                             th = th2;
                             if (cursor2 != null && !cursor2.isClosed()) {
                                 cursor2.close();
                             }
-                            if (a2 != null) {
-                                a2.close();
-                            }
+                            a2.close();
                             throw th;
                         }
                         if (cursor.getCount() != 0) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put(e.PushSDKClientBindInfo.name(), str);
+                            contentValues.put(e.PushClientsBindInfo.name(), str);
                             a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
                             if (cursor != null && !cursor.isClosed()) {
                                 cursor.close();
                             }
-                            if (a2 != null) {
-                                a2.close();
-                            }
+                            a2.close();
                         }
                     }
                     com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
@@ -1074,17 +1128,17 @@ public class c {
                     bVar.b = 0L;
                     bVar.c = null;
                     bVar.d = null;
-                    bVar.f = null;
                     bVar.e = null;
-                    bVar.g = str;
+                    bVar.g = null;
+                    bVar.f = null;
                     bVar.h = null;
-                    bVar.i = null;
+                    bVar.i = str;
+                    bVar.j = null;
                     a(context, bVar);
                     if (cursor != null) {
                         cursor.close();
                     }
-                    if (a2 != null) {
-                    }
+                    a2.close();
                 }
             }
         }
@@ -1099,7 +1153,7 @@ public class c {
                 return false;
             }
             try {
-                cursor = a2.query("PushMsgInfos", null, d.msgId.name() + " =? ", new String[]{String.valueOf(j)}, null, null, null);
+                cursor = a2.query("PushMsgInfos", new String[]{d.msgId.name()}, d.msgId.name() + " =? ", new String[]{String.valueOf(j)}, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.getCount() > 0) {
@@ -1148,43 +1202,39 @@ public class c {
                 return null;
             }
             try {
-                cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
-                try {
-                    String string = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(e.PushChannelID.name())) : null;
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                    a2.close();
-                    str = string;
-                } catch (Exception e2) {
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                    a2.close();
-                    str = null;
-                    return str;
-                } catch (Throwable th) {
-                    cursor2 = cursor;
-                    th = th;
-                    if (cursor2 != null && !cursor2.isClosed()) {
-                        cursor2.close();
-                    }
-                    a2.close();
-                    throw th;
-                }
-            } catch (Exception e3) {
+                cursor = a2.query("PushShareInfo", new String[]{e.PushSDKClientBindInfo.name()}, null, null, null, null, null);
+            } catch (Exception e2) {
                 cursor = null;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                String string = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(e.PushSDKClientBindInfo.name())) : null;
+                if (cursor != null && !cursor.isClosed()) {
+                    cursor.close();
+                }
+                a2.close();
+                str = string;
+            } catch (Exception e3) {
+                if (cursor != null && !cursor.isClosed()) {
+                    cursor.close();
+                }
+                a2.close();
+                str = null;
+                return str;
             } catch (Throwable th2) {
+                cursor2 = cursor;
                 th = th2;
+                if (cursor2 != null && !cursor2.isClosed()) {
+                    cursor2.close();
+                }
+                a2.close();
+                throw th;
             }
             return str;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0063 A[Catch: all -> 0x0068, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:35:0x0096, B:37:0x009c, B:39:0x00a1, B:42:0x00a8, B:44:0x00ae, B:46:0x00b3, B:47:0x00b6, B:9:0x000f), top: B:52:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static synchronized void d(Context context, String str) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -1205,142 +1255,14 @@ public class c {
                             if (cursor != null && !cursor.isClosed()) {
                                 cursor.close();
                             }
-                            if (a2 != null) {
-                                a2.close();
-                            }
+                            a2.close();
                         } catch (Throwable th2) {
                             cursor2 = cursor;
                             th = th2;
                             if (cursor2 != null && !cursor2.isClosed()) {
                                 cursor2.close();
                             }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                            throw th;
-                        }
-                        if (cursor.getCount() != 0) {
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put(e.PushClientsBindInfo.name(), str);
-                            a2.update("PushShareInfo", contentValues, e.PushInfoId.name() + "=1", null);
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                        }
-                    }
-                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
-                    bVar.a = 0L;
-                    bVar.b = 0L;
-                    bVar.c = null;
-                    bVar.d = null;
-                    bVar.f = null;
-                    bVar.e = null;
-                    bVar.g = null;
-                    bVar.h = str;
-                    bVar.i = null;
-                    a(context, bVar);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                    }
-                }
-            }
-        }
-    }
-
-    public static String e(Context context) {
-        Cursor cursor;
-        String str;
-        Cursor cursor2 = null;
-        synchronized (c) {
-            SQLiteDatabase a2 = a(context);
-            if (a2 == null) {
-                return null;
-            }
-            try {
-                cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
-                try {
-                    String string = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(e.PushSDKClientBindInfo.name())) : null;
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                        a2.close();
-                        str = string;
-                    } else {
-                        str = string;
-                    }
-                } catch (Exception e2) {
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                        a2.close();
-                        str = null;
-                    } else {
-                        str = null;
-                    }
-                    return str;
-                } catch (Throwable th) {
-                    cursor2 = cursor;
-                    th = th;
-                    if (cursor2 != null && !cursor2.isClosed()) {
-                        cursor2.close();
-                    }
-                    if (a2 != null) {
-                        a2.close();
-                    }
-                    throw th;
-                }
-            } catch (Exception e3) {
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            return str;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0063 A[Catch: all -> 0x0068, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:35:0x0096, B:37:0x009c, B:39:0x00a1, B:42:0x00a8, B:44:0x00ae, B:46:0x00b3, B:47:0x00b6, B:9:0x000f), top: B:52:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized void e(Context context, String str) {
-        Cursor cursor;
-        Cursor cursor2 = null;
-        synchronized (c.class) {
-            synchronized (c) {
-                SQLiteDatabase a2 = a(context);
-                if (a2 != null && str != null) {
-                    try {
-                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
-                    } catch (Exception e2) {
-                        cursor = null;
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    if (cursor != null) {
-                        try {
-                        } catch (Exception e3) {
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                        } catch (Throwable th2) {
-                            cursor2 = cursor;
-                            th = th2;
-                            if (cursor2 != null && !cursor2.isClosed()) {
-                                cursor2.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
+                            a2.close();
                             throw th;
                         }
                         if (cursor.getCount() != 0) {
@@ -1350,9 +1272,7 @@ public class c {
                             if (cursor != null && !cursor.isClosed()) {
                                 cursor.close();
                             }
-                            if (a2 != null) {
-                                a2.close();
-                            }
+                            a2.close();
                         }
                     }
                     com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
@@ -1360,85 +1280,75 @@ public class c {
                     bVar.b = 0L;
                     bVar.c = null;
                     bVar.d = null;
-                    bVar.f = null;
                     bVar.e = null;
                     bVar.g = null;
+                    bVar.f = null;
                     bVar.h = null;
-                    bVar.i = str;
+                    bVar.i = null;
+                    bVar.j = str;
                     a(context, bVar);
                     if (cursor != null) {
                         cursor.close();
                     }
-                    if (a2 != null) {
-                    }
+                    a2.close();
                 }
             }
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.lang.String */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.lang.String */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.lang.String */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.lang.String */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static String f(Context context) {
+    public static String e(Context context) {
         Cursor cursor;
         String str;
         synchronized (c) {
             SQLiteDatabase a2 = a(context);
+            if (a2 == null) {
+                return null;
+            }
             try {
-                if (a2 == null) {
-                    return null;
-                }
+                cursor = a2.query("PushShareInfo", new String[]{e.PushClientsBindInfo.name()}, null, null, null, null, null);
                 try {
-                    cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
                     try {
-                        r8 = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(e.PushClientsBindInfo.name())) : null;
+                        String string = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(e.PushClientsBindInfo.name())) : null;
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
                         }
-                        if (a2 != null) {
-                            a2.close();
-                            str = r8;
-                        } else {
-                            str = r8;
-                        }
+                        a2.close();
+                        str = string;
                     } catch (Exception e2) {
                         e = e2;
-                        p.b("PushInfoDataBase*BBind*" + com.baidu.android.pushservice.g.a.a(e), context);
+                        m.b("PushInfoDataBase*BBind*" + com.baidu.android.pushservice.g.a.a(e), context);
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
                         }
-                        if (a2 != null) {
-                            a2.close();
-                            str = null;
-                        } else {
-                            str = null;
-                        }
+                        a2.close();
+                        str = null;
                         return str;
                     }
-                } catch (Exception e3) {
-                    e = e3;
-                    cursor = null;
                 } catch (Throwable th) {
                     th = th;
-                    if (0 != 0 && !r8.isClosed()) {
-                        r8.close();
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
                     }
-                    if (a2 != null) {
-                        a2.close();
-                    }
+                    a2.close();
                     throw th;
                 }
-                return str;
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
             } catch (Throwable th2) {
                 th = th2;
+                cursor = null;
+                if (cursor != null) {
+                    cursor.close();
+                }
+                a2.close();
+                throw th;
             }
+            return str;
         }
     }
 
-    public static String g(Context context) {
+    public static String f(Context context) {
         Cursor cursor;
         String str;
         Cursor cursor2 = null;
@@ -1448,50 +1358,40 @@ public class c {
                 return null;
             }
             try {
-                cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
-                try {
-                    String string = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(e.PushSelfBindInfo.name())) : null;
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                        a2.close();
-                        str = string;
-                    } else {
-                        str = string;
-                    }
-                } catch (Exception e2) {
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                        a2.close();
-                        str = null;
-                    } else {
-                        str = null;
-                    }
-                    return str;
-                } catch (Throwable th) {
-                    cursor2 = cursor;
-                    th = th;
-                    if (cursor2 != null && !cursor2.isClosed()) {
-                        cursor2.close();
-                    }
-                    if (a2 != null) {
-                        a2.close();
-                    }
-                    throw th;
-                }
-            } catch (Exception e3) {
+                cursor = a2.query("PushShareInfo", new String[]{e.PushSelfBindInfo.name()}, null, null, null, null, null);
+            } catch (Exception e2) {
                 cursor = null;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                String string = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(e.PushSelfBindInfo.name())) : null;
+                if (cursor != null && !cursor.isClosed()) {
+                    cursor.close();
+                }
+                a2.close();
+                str = string;
+            } catch (Exception e3) {
+                if (cursor != null && !cursor.isClosed()) {
+                    cursor.close();
+                }
+                a2.close();
+                str = null;
+                return str;
             } catch (Throwable th2) {
+                cursor2 = cursor;
                 th = th2;
+                if (cursor2 != null && !cursor2.isClosed()) {
+                    cursor2.close();
+                }
+                a2.close();
+                throw th;
             }
             return str;
         }
     }
 
-    public static synchronized List<com.baidu.android.pushservice.h.e> h(Context context) {
+    public static synchronized List<com.baidu.android.pushservice.h.e> g(Context context) {
         ArrayList arrayList;
         Cursor cursor = null;
         synchronized (c.class) {
@@ -1539,7 +1439,7 @@ public class c {
         return arrayList;
     }
 
-    private static C0032c i(Context context) {
+    private static C0021c h(Context context) {
         SQLiteDatabase sQLiteDatabase;
         Throwable th;
         SQLiteDatabase sQLiteDatabase2 = null;
@@ -1552,9 +1452,9 @@ public class c {
                 String str = file.getAbsolutePath() + File.separator + "pushinfo.db";
                 if (Build.VERSION.SDK_INT >= 11) {
                     b = new b();
-                    a = new C0032c(context, str, 4, b);
+                    a = new C0021c(context, str, 5, b);
                 } else {
-                    a = new C0032c(context, str, (SQLiteDatabase.CursorFactory) null, 4);
+                    a = new C0021c(context, str, (SQLiteDatabase.CursorFactory) null, 5);
                 }
                 try {
                     try {

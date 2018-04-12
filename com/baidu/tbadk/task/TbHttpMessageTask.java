@@ -7,6 +7,7 @@ public class TbHttpMessageTask extends HttpMessageTask {
     private boolean mIsBaiduServer;
     private boolean mIsFromCDN;
     private boolean mIsNeedAddCommenParam;
+    private boolean mIsNeedAddStatisticsParam;
     private boolean mIsNeedLogin;
     private boolean mIsNeedTbs;
     private boolean mIsUseCurrentBDUSS;
@@ -15,6 +16,7 @@ public class TbHttpMessageTask extends HttpMessageTask {
         super(i, str);
         this.mIsNeedTbs = false;
         this.mIsUseCurrentBDUSS = true;
+        this.mIsNeedAddStatisticsParam = true;
         this.mIsNeedAddCommenParam = true;
         this.mIsBaiduServer = true;
         this.mIsNeedLogin = false;
@@ -58,6 +60,14 @@ public class TbHttpMessageTask extends HttpMessageTask {
 
     public void setIsNeedAddCommenParam(boolean z) {
         this.mIsNeedAddCommenParam = z;
+    }
+
+    public boolean isNeedAddStatisticsParam() {
+        return this.mIsNeedAddStatisticsParam;
+    }
+
+    public void setIsNeedAddStatisticsParam(boolean z) {
+        this.mIsNeedAddStatisticsParam = z;
     }
 
     public boolean isBaiduServer() {

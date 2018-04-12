@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
+import android.support.annotation.CallSuper;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityCompatApi23;
@@ -72,8 +75,8 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
     final FragmentController mFragments = FragmentController.createController(new HostCallbacks());
 
     @Override // android.support.v4.app.BaseFragmentActivityHoneycomb, android.app.Activity, android.view.LayoutInflater.Factory2
-    public /* bridge */ /* synthetic */ View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return super.onCreateView(view, str, context, attributeSet);
+    public /* bridge */ /* synthetic */ View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(view2, str, context, attributeSet);
     }
 
     @Override // android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity, android.view.LayoutInflater.Factory
@@ -82,17 +85,17 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
     }
 
     @Override // android.support.v4.app.BaseFragmentActivityJB, android.app.Activity
-    public /* bridge */ /* synthetic */ void startActivityForResult(Intent intent, int i, Bundle bundle) {
+    public /* bridge */ /* synthetic */ void startActivityForResult(Intent intent, int i, @Nullable Bundle bundle) {
         super.startActivityForResult(intent, i, bundle);
     }
 
     @Override // android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
-    public /* bridge */ /* synthetic */ void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+    public /* bridge */ /* synthetic */ void startIntentSenderForResult(IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
     }
 
     @Override // android.support.v4.app.BaseFragmentActivityJB, android.app.Activity
-    public /* bridge */ /* synthetic */ void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+    public /* bridge */ /* synthetic */ void startIntentSenderForResult(IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
         super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
     }
 
@@ -170,11 +173,13 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
     }
 
     @Override // android.app.Activity
+    @CallSuper
     public void onMultiWindowModeChanged(boolean z) {
         this.mFragments.dispatchMultiWindowModeChanged(z);
     }
 
     @Override // android.app.Activity
+    @CallSuper
     public void onPictureInPictureModeChanged(boolean z) {
         this.mFragments.dispatchPictureInPictureModeChanged(z);
     }
@@ -187,7 +192,7 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         this.mFragments.attachHost(null);
         super.onCreate(bundle);
         NonConfigurationInstances nonConfigurationInstances = (NonConfigurationInstances) getLastNonConfigurationInstance();
@@ -231,8 +236,8 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.v4.app.BaseFragmentActivityGingerbread
-    public final View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.mFragments.onCreateView(view, str, context, attributeSet);
+    public final View dispatchFragmentsOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+        return this.mFragments.onCreateView(view2, str, context, attributeSet);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -322,21 +327,21 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view2, Menu menu) {
         if (i != 0 || menu == null) {
-            return super.onPreparePanel(i, view, menu);
+            return super.onPreparePanel(i, view2, menu);
         }
         if (this.mOptionsMenuInvalidated) {
             this.mOptionsMenuInvalidated = false;
             menu.clear();
             onCreatePanelMenu(i, menu);
         }
-        return onPrepareOptionsPanel(view, menu) | this.mFragments.dispatchPrepareOptionsMenu(menu);
+        return onPrepareOptionsPanel(view2, menu) | this.mFragments.dispatchPrepareOptionsMenu(menu);
     }
 
-    @RestrictTo
-    protected boolean onPrepareOptionsPanel(View view, Menu menu) {
-        return super.onPreparePanel(0, view, menu);
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    protected boolean onPrepareOptionsPanel(View view2, Menu menu) {
+        return super.onPreparePanel(0, view2, menu);
     }
 
     @Override // android.app.Activity
@@ -457,14 +462,14 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
         dumpViewHierarchy(str + "  ", printWriter, getWindow().getDecorView());
     }
 
-    private static String viewToString(View view) {
+    private static String viewToString(View view2) {
         String resourcePackageName;
         StringBuilder sb = new StringBuilder(128);
-        sb.append(view.getClass().getName());
+        sb.append(view2.getClass().getName());
         sb.append('{');
-        sb.append(Integer.toHexString(System.identityHashCode(view)));
+        sb.append(Integer.toHexString(System.identityHashCode(view2)));
         sb.append(' ');
-        switch (view.getVisibility()) {
+        switch (view2.getVisibility()) {
             case 0:
                 sb.append('V');
                 break;
@@ -478,30 +483,30 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
                 sb.append('.');
                 break;
         }
-        sb.append(view.isFocusable() ? 'F' : '.');
-        sb.append(view.isEnabled() ? 'E' : '.');
-        sb.append(view.willNotDraw() ? '.' : 'D');
-        sb.append(view.isHorizontalScrollBarEnabled() ? 'H' : '.');
-        sb.append(view.isVerticalScrollBarEnabled() ? 'V' : '.');
-        sb.append(view.isClickable() ? 'C' : '.');
-        sb.append(view.isLongClickable() ? 'L' : '.');
+        sb.append(view2.isFocusable() ? 'F' : '.');
+        sb.append(view2.isEnabled() ? 'E' : '.');
+        sb.append(view2.willNotDraw() ? '.' : 'D');
+        sb.append(view2.isHorizontalScrollBarEnabled() ? 'H' : '.');
+        sb.append(view2.isVerticalScrollBarEnabled() ? 'V' : '.');
+        sb.append(view2.isClickable() ? 'C' : '.');
+        sb.append(view2.isLongClickable() ? 'L' : '.');
         sb.append(' ');
-        sb.append(view.isFocused() ? 'F' : '.');
-        sb.append(view.isSelected() ? 'S' : '.');
-        sb.append(view.isPressed() ? 'P' : '.');
+        sb.append(view2.isFocused() ? 'F' : '.');
+        sb.append(view2.isSelected() ? 'S' : '.');
+        sb.append(view2.isPressed() ? 'P' : '.');
         sb.append(' ');
-        sb.append(view.getLeft());
+        sb.append(view2.getLeft());
         sb.append(',');
-        sb.append(view.getTop());
+        sb.append(view2.getTop());
         sb.append('-');
-        sb.append(view.getRight());
+        sb.append(view2.getRight());
         sb.append(',');
-        sb.append(view.getBottom());
-        int id = view.getId();
+        sb.append(view2.getBottom());
+        int id = view2.getId();
         if (id != -1) {
             sb.append(" #");
             sb.append(Integer.toHexString(id));
-            Resources resources = view.getResources();
+            Resources resources = view2.getResources();
             if (id != 0 && resources != null) {
                 switch ((-16777216) & id) {
                     case 16777216:
@@ -548,16 +553,16 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
         return sb.toString();
     }
 
-    private void dumpViewHierarchy(String str, PrintWriter printWriter, View view) {
+    private void dumpViewHierarchy(String str, PrintWriter printWriter, View view2) {
         ViewGroup viewGroup;
         int childCount;
         printWriter.print(str);
-        if (view == null) {
+        if (view2 == null) {
             printWriter.println("null");
             return;
         }
-        printWriter.println(viewToString(view));
-        if ((view instanceof ViewGroup) && (childCount = (viewGroup = (ViewGroup) view).getChildCount()) > 0) {
+        printWriter.println(viewToString(view2));
+        if ((view2 instanceof ViewGroup) && (childCount = (viewGroup = (ViewGroup) view2).getChildCount()) > 0) {
             String str2 = str + "  ";
             for (int i = 0; i < childCount; i++) {
                 dumpViewHierarchy(str2, printWriter, viewGroup.getChildAt(i));
@@ -609,7 +614,7 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
     }
 
     @Override // android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i2 = (i >> 16) & SupportMenu.USER_MASK;
         if (i2 != 0) {
             int i3 = i2 - 1;
@@ -632,7 +637,7 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
         startActivityFromFragment(fragment, intent, i, (Bundle) null);
     }
 
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i, @Nullable Bundle bundle) {
         this.mStartedActivityFromFragment = true;
         try {
             if (i == -1) {
@@ -647,7 +652,7 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
         }
     }
 
-    public void startIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+    public void startIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
         this.mStartedIntentSenderFromFragment = true;
         try {
             if (i == -1) {
@@ -728,22 +733,22 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
         }
 
         @Override // android.support.v4.app.FragmentHostCallback
-        public void onStartActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
+        public void onStartActivityFromFragment(Fragment fragment, Intent intent, int i, @Nullable Bundle bundle) {
             FragmentActivity.this.startActivityFromFragment(fragment, intent, i, bundle);
         }
 
         @Override // android.support.v4.app.FragmentHostCallback
-        public void onStartIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+        public void onStartIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
             FragmentActivity.this.startIntentSenderFromFragment(fragment, intentSender, i, intent, i2, i3, i4, bundle);
         }
 
         @Override // android.support.v4.app.FragmentHostCallback
-        public void onRequestPermissionsFromFragment(Fragment fragment, String[] strArr, int i) {
+        public void onRequestPermissionsFromFragment(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
             FragmentActivity.this.requestPermissionsFromFragment(fragment, strArr, i);
         }
 
         @Override // android.support.v4.app.FragmentHostCallback
-        public boolean onShouldShowRequestPermissionRationale(String str) {
+        public boolean onShouldShowRequestPermissionRationale(@NonNull String str) {
             return ActivityCompat.shouldShowRequestPermissionRationale(FragmentActivity.this, str);
         }
 
@@ -767,6 +772,7 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
         }
 
         @Override // android.support.v4.app.FragmentHostCallback, android.support.v4.app.FragmentContainer
+        @Nullable
         public View onFindViewById(int i) {
             return FragmentActivity.this.findViewById(i);
         }

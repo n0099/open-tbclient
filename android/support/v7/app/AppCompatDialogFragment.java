@@ -12,7 +12,7 @@ public class AppCompatDialogFragment extends DialogFragment {
     }
 
     @Override // android.support.v4.app.DialogFragment
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void setupDialog(Dialog dialog, int i) {
         if (dialog instanceof AppCompatDialog) {
             AppCompatDialog appCompatDialog = (AppCompatDialog) dialog;

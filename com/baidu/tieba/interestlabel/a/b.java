@@ -7,51 +7,51 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
-import com.baidu.tieba.interestlabel.view.d;
+import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private d eXu;
-    private List<com.baidu.tieba.interestlabel.b.a> eXw;
-    private List<Integer> eXx = new ArrayList();
+    private LabelSettingView esc;
+    private List<com.baidu.tieba.interestlabel.b.a> ese;
+    private List<Integer> esf = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
-    public b(d dVar) {
-        this.eXu = dVar;
+    public b(LabelSettingView labelSettingView) {
+        this.esc = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.E(bVar.aOL())) {
+        if (bVar != null && !v.w(bVar.aJN())) {
             this.mLabelDataSet = bVar;
-            this.eXw = bVar.aOL();
-            if (!v.E(bVar.aOM())) {
-                this.eXx = new ArrayList(bVar.aOM());
+            this.ese = bVar.aJN();
+            if (!v.w(bVar.aJO())) {
+                this.esf = new ArrayList(bVar.aJO());
             }
         }
     }
 
-    public List<Integer> aOI() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aOM();
+    public List<Integer> aJK() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aJO();
     }
 
-    public List<Integer> aOJ() {
-        return this.eXx;
+    public List<Integer> aJL() {
+        return this.esf;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.D(this.eXw);
+        return v.v(this.ese);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qS */
+    /* renamed from: oo */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.f(this.eXw, i);
+        return (com.baidu.tieba.interestlabel.b.a) v.c(this.ese, i);
     }
 
     @Override // android.widget.Adapter
@@ -64,22 +64,22 @@ public class b extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        C0187b c0187b;
-        View view2;
-        if (view == null) {
-            view2 = LayoutInflater.from(this.eXu.getContext()).inflate(d.h.item_label_layout, (ViewGroup) null);
-            C0187b c0187b2 = new C0187b();
-            c0187b2.eXz = (TextView) view2;
-            view2.setTag(c0187b2);
-            c0187b = c0187b2;
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        C0170b c0170b;
+        View view3;
+        if (view2 == null) {
+            view3 = LayoutInflater.from(this.esc.getContext()).inflate(d.i.item_label_layout, (ViewGroup) null);
+            C0170b c0170b2 = new C0170b();
+            c0170b2.esh = (TextView) view3;
+            view3.setTag(c0170b2);
+            c0170b = c0170b2;
         } else {
-            c0187b = (C0187b) view.getTag();
-            view2 = view;
+            c0170b = (C0170b) view2.getTag();
+            view3 = view2;
         }
-        c0187b.eXz.setOnClickListener(new a(i));
-        a(c0187b.eXz, getItem(i));
-        return view2;
+        c0170b.esh.setOnClickListener(new a(i));
+        a(c0170b.esh, getItem(i));
+        return view3;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,11 +92,11 @@ public class b extends BaseAdapter {
             }
             textView.setText(str);
             if (aVar.isFollow) {
-                aj.r(textView, d.C0141d.cp_link_tip_a);
-                drawable = aj.getDrawable(d.f.icon_lable_confirm_s);
+                ak.h(textView, d.C0126d.cp_link_tip_a);
+                drawable = ak.getDrawable(d.f.icon_lable_confirm_s);
             } else {
-                aj.r(textView, d.C0141d.cp_cont_b);
-                drawable = aj.getDrawable(d.f.icon_lable_confirm_n);
+                ak.h(textView, d.C0126d.cp_cont_b);
+                drawable = ak.getDrawable(d.f.icon_lable_confirm_n);
             }
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
         }
@@ -104,10 +104,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    class C0187b {
-        TextView eXz;
+    class C0170b {
+        TextView esh;
 
-        C0187b() {
+        C0170b() {
         }
     }
 
@@ -120,20 +120,20 @@ public class b extends BaseAdapter {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             com.baidu.tieba.interestlabel.b.a item = b.this.getItem(this.index);
             if (item != null) {
                 item.isFollow = !item.isFollow;
-                if (view instanceof TextView) {
-                    b.this.a((TextView) view, item);
+                if (view2 instanceof TextView) {
+                    b.this.a((TextView) view2, item);
                 }
                 if (item.isFollow) {
-                    b.this.eXx.add(Integer.valueOf(item.labelId));
+                    b.this.esf.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.eXx.remove(Integer.valueOf(item.labelId));
+                    b.this.esf.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.eXu != null) {
-                    b.this.eXu.it(v.D(b.this.eXx) > 0);
+                if (b.this.esc != null) {
+                    b.this.esc.hR(v.v(b.this.esf) > 0);
                 }
             }
         }

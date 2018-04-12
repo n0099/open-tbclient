@@ -4,6 +4,8 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.widget.CompoundButton;
 /* loaded from: classes2.dex */
 public final class CompoundButtonCompat {
@@ -104,23 +106,26 @@ public final class CompoundButtonCompat {
     private CompoundButtonCompat() {
     }
 
-    public static void setButtonTintList(CompoundButton compoundButton, ColorStateList colorStateList) {
+    public static void setButtonTintList(@NonNull CompoundButton compoundButton, @Nullable ColorStateList colorStateList) {
         IMPL.setButtonTintList(compoundButton, colorStateList);
     }
 
-    public static ColorStateList getButtonTintList(CompoundButton compoundButton) {
+    @Nullable
+    public static ColorStateList getButtonTintList(@NonNull CompoundButton compoundButton) {
         return IMPL.getButtonTintList(compoundButton);
     }
 
-    public static void setButtonTintMode(CompoundButton compoundButton, PorterDuff.Mode mode) {
+    public static void setButtonTintMode(@NonNull CompoundButton compoundButton, @Nullable PorterDuff.Mode mode) {
         IMPL.setButtonTintMode(compoundButton, mode);
     }
 
-    public static PorterDuff.Mode getButtonTintMode(CompoundButton compoundButton) {
+    @Nullable
+    public static PorterDuff.Mode getButtonTintMode(@NonNull CompoundButton compoundButton) {
         return IMPL.getButtonTintMode(compoundButton);
     }
 
-    public static Drawable getButtonDrawable(CompoundButton compoundButton) {
+    @Nullable
+    public static Drawable getButtonDrawable(@NonNull CompoundButton compoundButton) {
         return IMPL.getButtonDrawable(compoundButton);
     }
 }

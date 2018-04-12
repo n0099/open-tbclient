@@ -1,20 +1,20 @@
 package com.baidu.tieba.forumMember.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.i;
+import com.baidu.adp.widget.ListView.h;
 import tbclient.User;
 /* loaded from: classes3.dex */
-public class e implements i {
-    public static final BdUniqueId dBc = BdUniqueId.gen();
-    private String dBd;
+public class e implements h {
+    public static final BdUniqueId cTO = BdUniqueId.gen();
+    private String cTP;
     private int fansNum;
     private String intro;
     private String name;
     private String userId;
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dBc;
+        return cTO;
     }
 
     public String getUserId() {
@@ -25,12 +25,12 @@ public class e implements i {
         this.userId = str;
     }
 
-    public String atR() {
-        return this.dBd;
+    public String aog() {
+        return this.cTP;
     }
 
-    public void lx(String str) {
-        this.dBd = str;
+    public void lA(String str) {
+        this.cTP = str;
     }
 
     public String getName() {
@@ -60,7 +60,7 @@ public class e implements i {
     public void a(User user, int i) {
         if (user != null && user.god_data != null) {
             setUserId(user.id + "");
-            lx(user.portrait);
+            lA(user.portrait);
             setName(user.name);
             setIntro(user.god_data.intro);
             setFansNum(user.fans_num.intValue());

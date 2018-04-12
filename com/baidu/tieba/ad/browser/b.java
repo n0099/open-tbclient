@@ -2,50 +2,49 @@ package com.baidu.tieba.ad.browser;
 
 import android.os.Build;
 import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.hybrid.m;
+import com.baidu.tbadk.core.hybrid.l;
+import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
-import com.baidu.tbadk.core.hybrid.p;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-class b extends o {
+class b extends n {
     /* JADX INFO: Access modifiers changed from: protected */
-    public b(m mVar) {
-        super(mVar);
+    public b(l lVar) {
+        super(lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.o
-    public String ww() {
+    @Override // com.baidu.tbadk.core.hybrid.n
+    public String pg() {
         return "TBHY_COMMON_Utils";
     }
 
-    @p(BD = false, value = "showToast")
+    @o(ul = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString("message")).Bd();
+            BdToast.a(getContext(), jSONObject.optString("message")).tL();
         }
     }
 
-    @p(BD = false, value = "showNetStatus")
+    @o(ul = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (j.oK()) {
+        if (j.gQ()) {
             i = 1;
             str = "WIFI";
-        } else if (j.oO()) {
+        } else if (j.gU()) {
             i = 3;
             str = "2G";
-        } else if (j.oN()) {
+        } else if (j.gT()) {
             i = 4;
             str = "3G";
-        } else if (j.oM()) {
+        } else if (j.gS()) {
             i = 5;
             str = "4G";
         }
@@ -57,13 +56,13 @@ class b extends o {
         return jSONObject;
     }
 
-    @p(BD = false, value = "showDeviceInfo")
+    @o(ul = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(l.ao(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(l.aq(getContext()));
+        String str3 = String.valueOf(com.baidu.adp.lib.util.l.af(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(com.baidu.adp.lib.util.l.ah(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", com.baidu.ar.util.Constants.OS_TYPE_VALUE);

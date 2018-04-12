@@ -123,7 +123,7 @@ public class ShareActivity extends Activity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             ShareActivity.this.loginFail(String.format(ShareActivity.REASON_CANCLE, ShareActivity.this.currentAppName));
         }
     }
@@ -135,7 +135,7 @@ public class ShareActivity extends Activity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             ShareActivity.this.loginSuccess();
         }
     }

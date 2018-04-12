@@ -7,7 +7,9 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.data.k;
-import com.baidu.tieba.card.data.m;
+import com.baidu.tieba.card.data.l;
+import com.baidu.tieba.homepage.concern.a.c;
+import com.baidu.tieba.homepage.concern.a.d;
 import com.baidu.tieba.homepage.concern.a.e;
 import com.baidu.tieba.homepage.concern.a.f;
 import com.baidu.tieba.homepage.concern.a.g;
@@ -16,52 +18,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> efA = new ArrayList();
-    private BdTypeListView efB;
-    private com.baidu.tieba.a.a efC;
-    private f efD;
-    private com.baidu.tieba.homepage.concern.a.d efE;
-    private com.baidu.tieba.homepage.concern.a.b efF;
-    private com.baidu.tieba.homepage.concern.a.a efG;
-    private e efH;
-    private h efI;
-    private h efJ;
-    private com.baidu.tieba.homepage.concern.a.c efK;
-    private g efL;
+    private List<com.baidu.adp.widget.ListView.a> dAg = new ArrayList();
+    private BdTypeListView dAh;
+    private com.baidu.tieba.b.a dAi;
+    private f dAj;
+    private d dAk;
+    private com.baidu.tieba.homepage.concern.a.b dAl;
+    private com.baidu.tieba.homepage.concern.a.a dAm;
+    private e dAn;
+    private h dAo;
+    private h dAp;
+    private c dAq;
+    private g dAr;
     private TbPageContext<?> mPageContext;
 
     public a(Context context, BdTypeListView bdTypeListView) {
-        this.efB = bdTypeListView;
-        this.mPageContext = (TbPageContext) i.ak(context);
-        bB(context);
-        bdTypeListView.addAdapters(this.efA);
+        this.dAh = bdTypeListView;
+        this.mPageContext = (TbPageContext) i.ab(context);
+        bp(context);
+        bdTypeListView.addAdapters(this.dAg);
     }
 
-    private void bB(Context context) {
-        this.efC = new com.baidu.tieba.a.a(this.mPageContext, com.baidu.tbadk.data.b.bqJ);
-        this.efH = new e(this.mPageContext, k.TYPE);
-        this.efI = new h(this.mPageContext, m.dah);
-        this.efJ = new h(this.mPageContext, m.dai);
-        this.efD = new f(this.mPageContext.getContext());
-        this.efE = new com.baidu.tieba.homepage.concern.a.d(this.mPageContext.getContext());
-        this.efF = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.egL);
-        this.efG = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.egM);
-        this.efK = new com.baidu.tieba.homepage.concern.a.c(this.mPageContext, j.TYPE);
-        this.efL = new g(this.mPageContext, k.aOr);
-        this.efA.add(this.efC);
-        this.efA.add(this.efH);
-        this.efA.add(this.efI);
-        this.efA.add(this.efJ);
-        this.efA.add(this.efD);
-        this.efA.add(this.efE);
-        this.efA.add(this.efF);
-        this.efA.add(this.efG);
-        this.efA.add(this.efK);
-        this.efA.add(this.efL);
+    private void bp(Context context) {
+        this.dAi = new com.baidu.tieba.b.a(this.mPageContext, com.baidu.tbadk.data.b.aBi);
+        this.dAn = new e(this.mPageContext, k.TYPE);
+        this.dAo = new h(this.mPageContext, l.csc);
+        this.dAp = new h(this.mPageContext, l.csd);
+        this.dAj = new f(this.mPageContext.getContext());
+        this.dAk = new d(this.mPageContext.getContext());
+        this.dAl = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.dBr);
+        this.dAm = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.dBs);
+        this.dAq = new c(this.mPageContext, j.TYPE);
+        this.dAr = new g(this.mPageContext, k.ZO);
+        this.dAg.add(this.dAi);
+        this.dAg.add(this.dAn);
+        this.dAg.add(this.dAo);
+        this.dAg.add(this.dAp);
+        this.dAg.add(this.dAj);
+        this.dAg.add(this.dAk);
+        this.dAg.add(this.dAl);
+        this.dAg.add(this.dAm);
+        this.dAg.add(this.dAq);
+        this.dAg.add(this.dAr);
+        hY("page_concern");
     }
 
-    public void ao(List<com.baidu.adp.widget.ListView.i> list) {
-        this.efB.setData(list);
+    public void af(List<com.baidu.adp.widget.ListView.h> list) {
+        this.dAh.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -69,29 +72,29 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.efB != null && (this.efB.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            this.efB.getAdapter().notifyDataSetChanged();
+        if (this.dAh != null && (this.dAh.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.dAh.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.efK.bIy = bdUniqueId;
-        this.efH.bIy = bdUniqueId;
-        this.efI.bIy = bdUniqueId;
-        this.efJ.bIy = bdUniqueId;
-        this.efF.bIy = bdUniqueId;
-        this.efG.bIy = bdUniqueId;
-        this.efK.bIy = bdUniqueId;
-        this.efL.bIy = bdUniqueId;
+        this.dAq.aTr = bdUniqueId;
+        this.dAn.aTr = bdUniqueId;
+        this.dAo.aTr = bdUniqueId;
+        this.dAp.aTr = bdUniqueId;
+        this.dAl.aTr = bdUniqueId;
+        this.dAm.aTr = bdUniqueId;
+        this.dAq.aTr = bdUniqueId;
+        this.dAr.aTr = bdUniqueId;
     }
 
-    public void setCardShowType(int i) {
-        this.efF.cardShowType = i;
-        this.efG.cardShowType = i;
-        this.efH.cardShowType = i;
-        this.efI.cardShowType = i;
-        this.efJ.cardShowType = i;
-        this.efK.cardShowType = i;
-        this.efL.cardShowType = i;
+    private void hY(String str) {
+        if (this.dAg != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.dAg) {
+                if (aVar instanceof com.baidu.tieba.a.f) {
+                    ((com.baidu.tieba.a.f) aVar).hY(str);
+                }
+            }
+        }
     }
 }

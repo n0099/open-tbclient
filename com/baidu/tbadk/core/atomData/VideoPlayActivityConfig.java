@@ -8,7 +8,13 @@ import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VideoPlayActivityConfig extends IntentConfig {
+    public static final String FROM_NANI_VIDEO = "from_nani_video";
+    public static final String FROM_VIDEO_MIDDLE_VIDEO = "from_video_middle_video";
+    public static final String OBJ_ID = "obj_id";
+    public static final String PAGE_FIRST_IN = "page_first_in";
     public static final String PAGE_FROM = "page_from";
+    public static final String PARAM_ST_TYPE = "st_type";
+    public static final String PARAM_YUELAOU_LACATION = "yuelaou_locate";
     public static final String VIDEO_COVER_RECT = "video_cover_rect";
     public static final String VIDEO_DATA = "video_data";
     public static final String VIDEO_INDEX = "video_index";
@@ -24,6 +30,16 @@ public class VideoPlayActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra(VIDEO_LIST, (Serializable) list);
         getIntent().putExtra(VIDEO_INDEX, i);
+        getIntent().setSourceBounds(rect);
+    }
+
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3) {
+        super(context);
+        getIntent().putExtra(VIDEO_LIST, (Serializable) list);
+        getIntent().putExtra(VIDEO_INDEX, i);
+        getIntent().putExtra(PAGE_FROM, str);
+        getIntent().putExtra("st_type", str2);
+        getIntent().putExtra("yuelaou_locate", str3);
         getIntent().setSourceBounds(rect);
     }
 }

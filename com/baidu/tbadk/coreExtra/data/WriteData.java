@@ -45,6 +45,7 @@ public class WriteData extends OrmObject implements Serializable {
     private int mCategoryTo;
     private String mContent;
     private int mDuringTime;
+    private String mFirstDir;
     private String mFloor;
     private int mFloorNum;
     private String mForumId;
@@ -57,7 +58,6 @@ public class WriteData extends OrmObject implements Serializable {
     private boolean mIsGiftPost;
     private boolean mIsInterviewLivew;
     private boolean mIsNoTitle;
-    private int mIsStory;
     private String mLat;
     private String mLng;
     private String mMemeContSign;
@@ -67,6 +67,7 @@ public class WriteData extends OrmObject implements Serializable {
     private String mReplyUid;
     private String mRepostId;
     private String mReturnVoiceMd5;
+    private String mSecondDir;
     private String mShareApiKey;
     private String mShareAppName;
     private int mShareImageType;
@@ -94,10 +95,10 @@ public class WriteData extends OrmObject implements Serializable {
     private VideoInfo mVideoInfo;
     private int mVideoReviewType;
     private String mVoiceMd5;
-    private VoteInfo mVoteInfo;
     private String originalThreadId;
     private String originalVideoCover;
     private String originalVideoTitle;
+    private String postPrefix;
     public String sourceFrom;
     private String transmitForumData;
     private String vForumId;
@@ -110,6 +111,14 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setBabaoPosted(boolean z) {
         this.isBabaoPosted = z;
+    }
+
+    public void setPostPrefix(String str) {
+        this.postPrefix = str;
+    }
+
+    public String getPostPrefix() {
+        return this.postPrefix;
     }
 
     public void setMemeContSign(String str) {
@@ -157,6 +166,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.mType = 0;
         this.mForumId = null;
         this.mForumName = null;
+        this.mFirstDir = "";
+        this.mSecondDir = "";
         this.mThreadId = null;
         this.mFloor = null;
         this.mFloorNum = 0;
@@ -184,7 +195,6 @@ public class WriteData extends OrmObject implements Serializable {
         this.mIsGiftPost = false;
         this.mIsBarrage = false;
         this.mBarrageTime = 0L;
-        this.mIsStory = 0;
         this.isPrivacy = false;
         this.isShareThread = false;
         this.originalThreadId = "";
@@ -405,22 +415,6 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setIsAd(boolean z) {
         this.isAd = z;
-    }
-
-    public void setIsInterviewLive(boolean z) {
-        this.mIsInterviewLivew = z;
-    }
-
-    public boolean getIsInterviewLive() {
-        return this.mIsInterviewLivew;
-    }
-
-    public int getIsStory() {
-        return this.mIsStory;
-    }
-
-    public void setIsStory(int i) {
-        this.mIsStory = i;
     }
 
     public void setVoice(String str) {
@@ -681,14 +675,6 @@ public class WriteData extends OrmObject implements Serializable {
         this.mIsGiftPost = z;
     }
 
-    public void setVoteInfo(VoteInfo voteInfo) {
-        this.mVoteInfo = voteInfo;
-    }
-
-    public VoteInfo getVoteInfo() {
-        return this.mVoteInfo;
-    }
-
     public int getCategoryFrom() {
         return this.mCategoryFrom;
     }
@@ -903,5 +889,21 @@ public class WriteData extends OrmObject implements Serializable {
 
     public int getEntranceType() {
         return this.entranceType;
+    }
+
+    public String getFirstDir() {
+        return this.mFirstDir;
+    }
+
+    public void setFirstDir(String str) {
+        this.mFirstDir = str;
+    }
+
+    public String getSecondDir() {
+        return this.mSecondDir;
+    }
+
+    public void setSecondDir(String str) {
+        this.mSecondDir = str;
     }
 }

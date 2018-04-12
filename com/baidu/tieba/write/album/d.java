@@ -1,107 +1,115 @@
 package com.baidu.tieba.write.album;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
-import java.util.List;
-/* loaded from: classes2.dex */
-public class d extends BaseAdapter {
-    private String dwS;
-    private int dwT;
-    private AlbumActivity hEV;
-    private LayoutInflater kh;
-    private List<com.baidu.tbadk.album.a> mList;
-
-    public d(AlbumActivity albumActivity) {
-        this.hEV = albumActivity;
-        this.kh = LayoutInflater.from(this.hEV.getPageContext().getPageActivity());
-        this.dwT = com.baidu.adp.lib.util.l.ao(this.hEV.getPageContext().getPageActivity()) / 2;
-    }
-
-    public void e(List<com.baidu.tbadk.album.a> list, String str) {
-        this.mList = list;
-        this.dwS = str;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return v.D(this.mList);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: mA */
-    public com.baidu.tbadk.album.a getItem(int i) {
-        return (com.baidu.tbadk.album.a) v.f(this.mList, i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        a aVar;
-        if (view != null && (view.getTag() instanceof a)) {
-            aVar = (a) view.getTag();
-        } else {
-            view = this.kh.inflate(d.h.album_list_item, viewGroup, false);
-            aVar = new a();
-            aVar.hFg = (TbImageView) view.findViewById(d.g.item_head);
-            aVar.dwW = (TextView) view.findViewById(d.g.item_name);
-            aVar.dwX = (ImageView) view.findViewById(d.g.item_arrow);
-            aVar.hFg.setGifIconSupport(false);
-            aVar.hFg.setLongIconSupport(false);
-            view.setTag(aVar);
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes3.dex */
+public class d {
+    private static d hbR;
+    private ContentObserver hbS;
+    private BroadcastReceiver mReceiver;
+    private Handler mHandler = new Handler(Looper.getMainLooper());
+    private ArrayList<a> mListeners = new ArrayList<>();
+    private Handler handler = new Handler();
+    private Runnable hbT = new Runnable() { // from class: com.baidu.tieba.write.album.d.1
+        @Override // java.lang.Runnable
+        public void run() {
+            d.this.no(false);
         }
-        com.baidu.tbadk.album.a item = getItem(i);
-        if (item == null) {
-            view.setVisibility(4);
-        } else {
-            view.setVisibility(0);
-            if (!TextUtils.isEmpty(item.getName())) {
-                aVar.dwW.setText(com.baidu.adp.lib.util.l.a(aVar.dwW.getPaint(), item.getName(), this.dwT) + "(" + item.getCount() + ")");
-            } else {
-                aVar.dwW.setText("");
-            }
-            String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.dwS)) {
-                aj.c(aVar.dwX, d.f.icon_list_select_ok_n);
-                aVar.dwX.setVisibility(0);
-            } else {
-                aVar.dwX.setVisibility(8);
-            }
-            MediaFileInfo vO = item.vO();
-            if (vO instanceof VideoFileInfo) {
-                aVar.hFg.startLoad(((VideoFileInfo) vO).videoPath, 37, false);
-            } else if (vO instanceof ImageFileInfo) {
-                aVar.hFg.startLoad(((ImageFileInfo) vO).getFilePath(), 35, false);
-            }
-            aj.r(aVar.dwW, d.C0141d.cp_cont_b);
-            aj.s(view, d.f.addresslist_item_bg);
-        }
-        return view;
+    };
+
+    /* loaded from: classes3.dex */
+    public interface a {
+        void np(boolean z);
     }
 
-    /* loaded from: classes2.dex */
-    private class a {
-        TextView dwW;
-        ImageView dwX;
-        TbImageView hFg;
-
-        private a() {
+    public static d bBL() {
+        if (hbR == null) {
+            synchronized (d.class) {
+                if (hbR == null) {
+                    hbR = new d();
+                    hbR.init(TbadkCoreApplication.getInst());
+                }
+            }
         }
+        return hbR;
+    }
+
+    private d() {
+    }
+
+    private void init(Context context) {
+        this.mReceiver = new BroadcastReceiver() { // from class: com.baidu.tieba.write.album.d.2
+            @Override // android.content.BroadcastReceiver
+            public void onReceive(Context context2, Intent intent) {
+                d.this.ad(intent);
+            }
+        };
+        this.hbS = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.d.3
+            @Override // android.database.ContentObserver
+            public void onChange(boolean z) {
+                d.this.handler.removeCallbacks(d.this.hbT);
+                d.this.handler.postDelayed(d.this.hbT, 2000L);
+            }
+        };
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
+        intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
+        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
+        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
+        intentFilter.addAction("android.intent.action.MEDIA_EJECT");
+        intentFilter.addDataScheme("file");
+        context.registerReceiver(this.mReceiver, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.hbS);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ad(Intent intent) {
+        if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
+            no(true);
+            return;
+        }
+        this.handler.removeCallbacks(this.hbT);
+        this.handler.postDelayed(this.hbT, 2000L);
+    }
+
+    public void no(boolean z) {
+        Iterator<a> it = this.mListeners.iterator();
+        while (it.hasNext()) {
+            it.next().np(z);
+        }
+    }
+
+    public void a(a aVar) {
+        if (aVar != null && !this.mListeners.contains(aVar)) {
+            this.mListeners.add(aVar);
+        }
+    }
+
+    public void b(a aVar) {
+        if (this.mListeners.contains(aVar)) {
+            this.mListeners.remove(aVar);
+        }
+    }
+
+    public void removeAllListeners() {
+        this.mListeners.clear();
+    }
+
+    public void destory() {
+        removeAllListeners();
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        inst.unregisterReceiver(this.mReceiver);
+        inst.getContentResolver().unregisterContentObserver(this.hbS);
+        this.handler.removeCallbacks(this.hbT);
+        hbR = null;
     }
 }

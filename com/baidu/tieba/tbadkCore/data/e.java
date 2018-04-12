@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class e {
-    private SparseIntArray haB = new SparseIntArray();
-    private String haC;
-    private final int[] haD;
-    public static final int[] hax = {3, 8, 13};
-    public static final int[] hay = {2, 12};
-    public static final int[] haz = {20};
-    public static final int[] haA = {3, 13, 23};
+    public static final int[] gvU = {3, 8, 13};
+    public static final int[] gvV = {2, 12};
+    public static final int[] gvW = {20};
+    public static final int[] gvX = {3, 13, 23};
+    private SparseIntArray gvY = new SparseIntArray();
+    private String gvZ;
+    private final int[] gwa;
 
     public e(String str, int[] iArr) {
-        this.haD = iArr;
-        this.haC = str;
+        this.gwa = iArr;
+        this.gvZ = str;
     }
 
-    public void vI(int i) {
+    public void tl(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.haB != null) {
-            this.haB.clear();
-            if (this.haD != null) {
-                for (int i2 : this.haD) {
+        if (this.gvY != null) {
+            this.gvY.clear();
+            if (this.gwa != null) {
+                for (int i2 : this.gwa) {
                     if (i2 >= 0) {
-                        this.haB.append(i2 + i, i2);
+                        this.gvY.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void bwA() {
-        vI(0);
+    public void brC() {
+        tl(0);
     }
 
-    public void cG(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.haB != null) {
-            this.haB.append(i2, i);
+    public void bI(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.gvY != null) {
+            this.gvY.append(i2, i);
         }
     }
 
-    public int vJ(int i) {
-        if (i >= 0 && this.haB != null) {
-            return this.haB.get(i, -1);
+    public int tm(int i) {
+        if (i >= 0 && this.gvY != null) {
+            return this.gvY.get(i, -1);
         }
         return -1;
     }
 
-    public void vK(int i) {
-        if (this.haB != null) {
-            this.haB.delete(i);
+    public void tn(int i) {
+        if (this.gvY != null) {
+            this.gvY.delete(i);
         }
     }
 }

@@ -9,72 +9,72 @@ import com.baidu.tieba.write.transmit.model.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.SimpleForum;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements com.baidu.tieba.d.a {
-    private a.InterfaceC0139a dpN;
-    private com.baidu.tieba.write.transmit.model.a hDC;
-    private List<SimpleForum> hDD;
-    private boolean hDE;
+    private a.InterfaceC0124a cIf;
+    private com.baidu.tieba.write.transmit.model.a hae;
+    private List<SimpleForum> haf;
+    private boolean hag;
     private int mPrivateThread;
-    private ArrayList<TransmitForumData> cry = new ArrayList<>();
-    private a.InterfaceC0254a hDF = new a.InterfaceC0254a() { // from class: com.baidu.tieba.write.a.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0254a
+    private ArrayList<TransmitForumData> bHH = new ArrayList<>();
+    private a.InterfaceC0236a hah = new a.InterfaceC0236a() { // from class: com.baidu.tieba.write.a.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0236a
         public void onError() {
-            a.this.bFF();
+            a.this.bAT();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0254a
-        public void t(List<SimpleForum> list, int i) {
-            a.this.hDD = list;
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0236a
+        public void p(List<SimpleForum> list, int i) {
+            a.this.haf = list;
             a.this.mPrivateThread = i;
-            a.this.anm();
+            a.this.ahk();
         }
     };
 
     public a() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.hDC = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.hDC.a(this.hDF);
-        this.hDC.setRequestId(gen);
+        this.hae = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.hae.a(this.hah);
+        this.hae.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anm() {
-        this.cry.clear();
-        if (v.D(this.hDD) > 0) {
-            for (SimpleForum simpleForum : this.hDD) {
+    public void ahk() {
+        this.bHH.clear();
+        if (v.v(this.haf) > 0) {
+            for (SimpleForum simpleForum : this.haf) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
-                    this.cry.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
+                    this.bHH.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
                 }
             }
         }
-        if (this.dpN != null) {
-            this.dpN.a(this.cry, true, 2, this.mPrivateThread);
+        if (this.cIf != null) {
+            this.cIf.a(this.bHH, true, 2, this.mPrivateThread);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFF() {
-        if (!this.hDE) {
-            if (this.dpN != null) {
-                this.dpN.a(null, false, 2, 0);
+    public void bAT() {
+        if (!this.hag) {
+            if (this.cIf != null) {
+                this.cIf.a(null, false, 2, 0);
             }
-            this.hDE = true;
+            this.hag = true;
         }
     }
 
     @Override // com.baidu.tieba.d.a
-    public void ane() {
-        if (this.dpN != null && this.hDC != null) {
-            this.hDE = false;
-            this.hDC.setThreadTitle(null);
-            this.hDC.setThreadContent(null);
-            this.hDC.Wt();
+    public void ahc() {
+        if (this.cIf != null && this.hae != null) {
+            this.hag = false;
+            this.hae.setThreadTitle(null);
+            this.hae.setThreadContent(null);
+            this.hae.OT();
         }
     }
 
     @Override // com.baidu.tieba.d.a
-    public void a(a.InterfaceC0139a interfaceC0139a) {
-        this.dpN = interfaceC0139a;
+    public void a(a.InterfaceC0124a interfaceC0124a) {
+        this.cIf = interfaceC0124a;
     }
 }

@@ -6,7 +6,7 @@ import android.util.Base64;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j {
     private static Context a;
 

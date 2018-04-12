@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public final class LocalBroadcastManager {
+    private static final boolean DEBUG = false;
+    static final int MSG_EXEC_PENDING_BROADCASTS = 1;
+    private static final String TAG = "LocalBroadcastManager";
     private static LocalBroadcastManager mInstance;
     private static final Object mLock = new Object();
     private final Context mAppContext;
@@ -149,31 +152,31 @@ public final class LocalBroadcastManager {
             Set<String> categories = intent.getCategories();
             boolean z = (intent.getFlags() & 8) != 0;
             if (z) {
-                Log.v("LocalBroadcastManager", "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent);
+                Log.v(TAG, "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent);
             }
             ArrayList<ReceiverRecord> arrayList2 = this.mActions.get(intent.getAction());
             if (arrayList2 != null) {
                 if (z) {
-                    Log.v("LocalBroadcastManager", "Action list: " + arrayList2);
+                    Log.v(TAG, "Action list: " + arrayList2);
                 }
                 ArrayList arrayList3 = null;
                 int i = 0;
                 while (i < arrayList2.size()) {
                     ReceiverRecord receiverRecord = arrayList2.get(i);
                     if (z) {
-                        Log.v("LocalBroadcastManager", "Matching against filter " + receiverRecord.filter);
+                        Log.v(TAG, "Matching against filter " + receiverRecord.filter);
                     }
                     if (receiverRecord.broadcasting) {
                         if (z) {
-                            Log.v("LocalBroadcastManager", "  Filter's target already added");
+                            Log.v(TAG, "  Filter's target already added");
                             arrayList = arrayList3;
                         }
                         arrayList = arrayList3;
                     } else {
-                        int match = receiverRecord.filter.match(action, resolveTypeIfNeeded, scheme, data, categories, "LocalBroadcastManager");
+                        int match = receiverRecord.filter.match(action, resolveTypeIfNeeded, scheme, data, categories, TAG);
                         if (match >= 0) {
                             if (z) {
-                                Log.v("LocalBroadcastManager", "  Filter matched!  match=0x" + Integer.toHexString(match));
+                                Log.v(TAG, "  Filter matched!  match=0x" + Integer.toHexString(match));
                             }
                             arrayList = arrayList3 == null ? new ArrayList() : arrayList3;
                             arrayList.add(receiverRecord);
@@ -197,7 +200,7 @@ public final class LocalBroadcastManager {
                                         str = "unknown reason";
                                         break;
                                 }
-                                Log.v("LocalBroadcastManager", "  Filter did not match: " + str);
+                                Log.v(TAG, "  Filter did not match: " + str);
                             }
                             arrayList = arrayList3;
                         }

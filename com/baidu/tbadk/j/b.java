@@ -5,12 +5,12 @@ import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class b implements c {
     @Override // com.baidu.tbadk.j.c
-    public void a(View view, View view2, boolean z) {
-        FrameLayout frameLayout = (FrameLayout) view;
+    public void a(View view2, View view3, boolean z) {
+        FrameLayout frameLayout = (FrameLayout) view2;
         if (z) {
-            frameLayout.addView(view2, 0);
+            frameLayout.addView(view3, 0);
         } else {
-            frameLayout.addView(view2);
+            frameLayout.addView(view3);
         }
     }
 }

@@ -38,7 +38,12 @@ public final class NotificationManagerCompat {
     public static final int IMPORTANCE_MIN = 1;
     public static final int IMPORTANCE_NONE = 0;
     public static final int IMPORTANCE_UNSPECIFIED = -1000;
+    static final int MAX_SIDE_CHANNEL_SDK_VERSION = 19;
+    private static final String SETTING_ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
     static final int SIDE_CHANNEL_BIND_FLAGS;
+    private static final int SIDE_CHANNEL_RETRY_BASE_INTERVAL_MS = 1000;
+    private static final int SIDE_CHANNEL_RETRY_MAX_COUNT = 6;
+    private static final String TAG = "NotifManCompat";
     private static String sEnabledNotificationListeners;
     private static SideChannelManager sSideChannelManager;
     private final Context mContext;
@@ -199,7 +204,7 @@ public final class NotificationManagerCompat {
 
     public static Set<String> getEnabledListenerPackages(Context context) {
         Set<String> set;
-        String string = Settings.Secure.getString(context.getContentResolver(), "enabled_notification_listeners");
+        String string = Settings.Secure.getString(context.getContentResolver(), SETTING_ENABLED_NOTIFICATION_LISTENERS);
         synchronized (sEnabledNotificationListenersLock) {
             if (string != null) {
                 if (!string.equals(sEnabledNotificationListeners)) {
@@ -237,6 +242,11 @@ public final class NotificationManagerCompat {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class SideChannelManager implements ServiceConnection, Handler.Callback {
+        private static final String KEY_BINDER = "binder";
+        private static final int MSG_QUEUE_TASK = 0;
+        private static final int MSG_RETRY_LISTENER_QUEUE = 3;
+        private static final int MSG_SERVICE_CONNECTED = 1;
+        private static final int MSG_SERVICE_DISCONNECTED = 2;
         private final Context mContext;
         private final Handler mHandler;
         private final Map<ComponentName, ListenerRecord> mRecordMap = new HashMap();
@@ -307,16 +317,16 @@ public final class NotificationManagerCompat {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            if (Log.isLoggable("NotifManCompat", 3)) {
-                Log.d("NotifManCompat", "Connected to service " + componentName);
+            if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
+                Log.d(NotificationManagerCompat.TAG, "Connected to service " + componentName);
             }
             this.mHandler.obtainMessage(1, new ServiceConnectedEvent(componentName, iBinder)).sendToTarget();
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            if (Log.isLoggable("NotifManCompat", 3)) {
-                Log.d("NotifManCompat", "Disconnected from service " + componentName);
+            if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
+                Log.d(NotificationManagerCompat.TAG, "Disconnected from service " + componentName);
             }
             this.mHandler.obtainMessage(2, componentName).sendToTarget();
         }
@@ -331,7 +341,7 @@ public final class NotificationManagerCompat {
                     if (enabledListenerPackages.contains(resolveInfo.serviceInfo.packageName)) {
                         ComponentName componentName = new ComponentName(resolveInfo.serviceInfo.packageName, resolveInfo.serviceInfo.name);
                         if (resolveInfo.serviceInfo.permission != null) {
-                            Log.w("NotifManCompat", "Permission present on component " + componentName + ", not adding listener record.");
+                            Log.w(NotificationManagerCompat.TAG, "Permission present on component " + componentName + ", not adding listener record.");
                         } else {
                             hashSet.add(componentName);
                         }
@@ -339,8 +349,8 @@ public final class NotificationManagerCompat {
                 }
                 for (ComponentName componentName2 : hashSet) {
                     if (!this.mRecordMap.containsKey(componentName2)) {
-                        if (Log.isLoggable("NotifManCompat", 3)) {
-                            Log.d("NotifManCompat", "Adding listener record for " + componentName2);
+                        if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
+                            Log.d(NotificationManagerCompat.TAG, "Adding listener record for " + componentName2);
                         }
                         this.mRecordMap.put(componentName2, new ListenerRecord(componentName2));
                     }
@@ -349,8 +359,8 @@ public final class NotificationManagerCompat {
                 while (it.hasNext()) {
                     Map.Entry<ComponentName, ListenerRecord> next = it.next();
                     if (!hashSet.contains(next.getKey())) {
-                        if (Log.isLoggable("NotifManCompat", 3)) {
-                            Log.d("NotifManCompat", "Removing listener record for " + next.getKey());
+                        if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
+                            Log.d(NotificationManagerCompat.TAG, "Removing listener record for " + next.getKey());
                         }
                         ensureServiceUnbound(next.getValue());
                         it.remove();
@@ -367,7 +377,7 @@ public final class NotificationManagerCompat {
             if (listenerRecord.bound) {
                 listenerRecord.retryCount = 0;
             } else {
-                Log.w("NotifManCompat", "Unable to bind to listener " + listenerRecord.componentName);
+                Log.w(NotificationManagerCompat.TAG, "Unable to bind to listener " + listenerRecord.componentName);
                 this.mContext.unbindService(this);
             }
             return listenerRecord.bound;
@@ -385,21 +395,21 @@ public final class NotificationManagerCompat {
             if (!this.mHandler.hasMessages(3, listenerRecord.componentName)) {
                 listenerRecord.retryCount++;
                 if (listenerRecord.retryCount > 6) {
-                    Log.w("NotifManCompat", "Giving up on delivering " + listenerRecord.taskQueue.size() + " tasks to " + listenerRecord.componentName + " after " + listenerRecord.retryCount + " retries");
+                    Log.w(NotificationManagerCompat.TAG, "Giving up on delivering " + listenerRecord.taskQueue.size() + " tasks to " + listenerRecord.componentName + " after " + listenerRecord.retryCount + " retries");
                     listenerRecord.taskQueue.clear();
                     return;
                 }
                 int i = (1 << (listenerRecord.retryCount - 1)) * 1000;
-                if (Log.isLoggable("NotifManCompat", 3)) {
-                    Log.d("NotifManCompat", "Scheduling retry for " + i + " ms");
+                if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
+                    Log.d(NotificationManagerCompat.TAG, "Scheduling retry for " + i + " ms");
                 }
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3, listenerRecord.componentName), i);
             }
         }
 
         private void processListenerQueue(ListenerRecord listenerRecord) {
-            if (Log.isLoggable("NotifManCompat", 3)) {
-                Log.d("NotifManCompat", "Processing component " + listenerRecord.componentName + ", " + listenerRecord.taskQueue.size() + " queued tasks");
+            if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
+                Log.d(NotificationManagerCompat.TAG, "Processing component " + listenerRecord.componentName + ", " + listenerRecord.taskQueue.size() + " queued tasks");
             }
             if (!listenerRecord.taskQueue.isEmpty()) {
                 if (!ensureServiceBound(listenerRecord) || listenerRecord.service == null) {
@@ -412,17 +422,17 @@ public final class NotificationManagerCompat {
                         break;
                     }
                     try {
-                        if (Log.isLoggable("NotifManCompat", 3)) {
-                            Log.d("NotifManCompat", "Sending task " + peek);
+                        if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
+                            Log.d(NotificationManagerCompat.TAG, "Sending task " + peek);
                         }
                         peek.send(listenerRecord.service);
                         listenerRecord.taskQueue.remove();
                     } catch (DeadObjectException e) {
-                        if (Log.isLoggable("NotifManCompat", 3)) {
-                            Log.d("NotifManCompat", "Remote service has died: " + listenerRecord.componentName);
+                        if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
+                            Log.d(NotificationManagerCompat.TAG, "Remote service has died: " + listenerRecord.componentName);
                         }
                     } catch (RemoteException e2) {
-                        Log.w("NotifManCompat", "RemoteException communicating with " + listenerRecord.componentName, e2);
+                        Log.w(NotificationManagerCompat.TAG, "RemoteException communicating with " + listenerRecord.componentName, e2);
                     }
                 }
                 if (!listenerRecord.taskQueue.isEmpty()) {

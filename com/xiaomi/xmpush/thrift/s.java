@@ -9,14 +9,14 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class s implements Serializable, Cloneable, org.apache.thrift.a<s, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> b;
     private static final org.apache.thrift.protocol.j c = new org.apache.thrift.protocol.j("RegisteredGeoFencing");
     private static final org.apache.thrift.protocol.b d = new org.apache.thrift.protocol.b("geoFencings", (byte) 14, 1);
     public Set<j> a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         GEO_FENCINGS(1, "geoFencings");
         

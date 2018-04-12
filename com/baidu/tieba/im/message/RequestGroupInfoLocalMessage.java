@@ -71,7 +71,7 @@ public class RequestGroupInfoLocalMessage extends CustomMessage<Object> {
         builder.smallHeight = Integer.valueOf(getSmallHeight());
         builder.smallWidth = Integer.valueOf(getSmallWidth());
         builder.from = getFrom();
-        builder.groupId = Integer.valueOf((int) getGroupId());
+        builder.groupId = Long.valueOf(getGroupId());
         QueryGroupDetailReqIdl.Builder builder2 = new QueryGroupDetailReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

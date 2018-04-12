@@ -9,10 +9,11 @@ import android.util.Log;
 /* loaded from: classes2.dex */
 public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
     public static final String EXTRA_RESULTS_DATA = "android.remoteinput.resultsData";
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public static final RemoteInputCompatBase.RemoteInput.Factory FACTORY;
     private static final Impl IMPL;
     public static final String RESULTS_CLIP_LABEL = "android.remoteinput.results";
+    private static final String TAG = "RemoteInput";
     private final boolean mAllowFreeFormInput;
     private final CharSequence[] mChoices;
     private final Bundle mExtras;
@@ -120,13 +121,13 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
 
         @Override // android.support.v4.app.RemoteInput.Impl
         public Bundle getResultsFromIntent(Intent intent) {
-            Log.w("RemoteInput", "RemoteInput is only supported from API Level 16");
+            Log.w(RemoteInput.TAG, "RemoteInput is only supported from API Level 16");
             return null;
         }
 
         @Override // android.support.v4.app.RemoteInput.Impl
         public void addResultsToIntent(RemoteInput[] remoteInputArr, Intent intent, Bundle bundle) {
-            Log.w("RemoteInput", "RemoteInput is only supported from API Level 16");
+            Log.w(RemoteInput.TAG, "RemoteInput is only supported from API Level 16");
         }
     }
 

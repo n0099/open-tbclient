@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.DelGroupUsers.DataReq;
 import protobuf.DelGroupUsers.DelGroupUsersReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestRemoveMembersMessage extends TbSocketMessage {
     private long groupId;
     private String userIds;
@@ -31,7 +31,7 @@ public class RequestRemoveMembersMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.groupId = Integer.valueOf((int) getGroupId());
+        builder.groupId = Long.valueOf(getGroupId());
         builder.userIds = getUserIds();
         DelGroupUsersReqIdl.Builder builder2 = new DelGroupUsersReqIdl.Builder();
         builder2.data = builder.build(false);

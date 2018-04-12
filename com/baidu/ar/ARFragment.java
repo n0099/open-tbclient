@@ -2,6 +2,7 @@ package com.baidu.ar;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,7 +101,7 @@ public class ARFragment extends BaseFragment {
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (this.d != null) {
             this.d.a(i, strArr, iArr);

@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDLocManager {
     private static Method e = null;
     private static Method f = null;
@@ -38,7 +38,7 @@ public class BDLocManager {
     private int p = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class WifiList {
         public List<ScanResult> _WifiList;
         private long b;
@@ -155,7 +155,7 @@ public class BDLocManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a {
         public int a;
         public int b;

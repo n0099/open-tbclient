@@ -23,10 +23,10 @@ public class InviteFriendListActivityConfig extends IntentConfig {
         intent.putExtra(KEY_FINISH_ACTIVITY, z2);
     }
 
-    public InviteFriendListActivityConfig(Context context, int i, int i2) {
+    public InviteFriendListActivityConfig(Context context, long j, long j2) {
         super(context);
         Intent intent = getIntent();
-        intent.putExtra("gid", i);
-        intent.putExtra(GROUP_ID, i2);
+        intent.putExtra("gid", j);
+        intent.putExtra(GROUP_ID, j2);
     }
 }

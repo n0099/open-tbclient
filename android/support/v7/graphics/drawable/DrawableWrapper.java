@@ -9,10 +9,10 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
-@RestrictTo
+@RestrictTo({RestrictTo.Scope.GROUP_ID})
 /* loaded from: classes2.dex */
 public class DrawableWrapper extends Drawable implements Drawable.Callback {
-    private Drawable wy;
+    private Drawable mDrawable;
 
     public DrawableWrapper(Drawable drawable) {
         setWrappedDrawable(drawable);
@@ -20,107 +20,107 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        this.wy.draw(canvas);
+        this.mDrawable.draw(canvas);
     }
 
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        this.wy.setBounds(rect);
+        this.mDrawable.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setChangingConfigurations(int i) {
-        this.wy.setChangingConfigurations(i);
+        this.mDrawable.setChangingConfigurations(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getChangingConfigurations() {
-        return this.wy.getChangingConfigurations();
+        return this.mDrawable.getChangingConfigurations();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setDither(boolean z) {
-        this.wy.setDither(z);
+        this.mDrawable.setDither(z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setFilterBitmap(boolean z) {
-        this.wy.setFilterBitmap(z);
+        this.mDrawable.setFilterBitmap(z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.wy.setAlpha(i);
+        this.mDrawable.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.wy.setColorFilter(colorFilter);
+        this.mDrawable.setColorFilter(colorFilter);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        return this.wy.isStateful();
+        return this.mDrawable.isStateful();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setState(int[] iArr) {
-        return this.wy.setState(iArr);
+        return this.mDrawable.setState(iArr);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int[] getState() {
-        return this.wy.getState();
+        return this.mDrawable.getState();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void jumpToCurrentState() {
-        DrawableCompat.jumpToCurrentState(this.wy);
+        DrawableCompat.jumpToCurrentState(this.mDrawable);
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable getCurrent() {
-        return this.wy.getCurrent();
+        return this.mDrawable.getCurrent();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        return super.setVisible(z, z2) || this.wy.setVisible(z, z2);
+        return super.setVisible(z, z2) || this.mDrawable.setVisible(z, z2);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return this.wy.getOpacity();
+        return this.mDrawable.getOpacity();
     }
 
     @Override // android.graphics.drawable.Drawable
     public Region getTransparentRegion() {
-        return this.wy.getTransparentRegion();
+        return this.mDrawable.getTransparentRegion();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.wy.getIntrinsicWidth();
+        return this.mDrawable.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.wy.getIntrinsicHeight();
+        return this.mDrawable.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getMinimumWidth() {
-        return this.wy.getMinimumWidth();
+        return this.mDrawable.getMinimumWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getMinimumHeight() {
-        return this.wy.getMinimumHeight();
+        return this.mDrawable.getMinimumHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean getPadding(Rect rect) {
-        return this.wy.getPadding(rect);
+        return this.mDrawable.getPadding(rect);
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
@@ -140,53 +140,53 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onLevelChange(int i) {
-        return this.wy.setLevel(i);
+        return this.mDrawable.setLevel(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAutoMirrored(boolean z) {
-        DrawableCompat.setAutoMirrored(this.wy, z);
+        DrawableCompat.setAutoMirrored(this.mDrawable, z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isAutoMirrored() {
-        return DrawableCompat.isAutoMirrored(this.wy);
+        return DrawableCompat.isAutoMirrored(this.mDrawable);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setTint(int i) {
-        DrawableCompat.setTint(this.wy, i);
+        DrawableCompat.setTint(this.mDrawable, i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setTintList(ColorStateList colorStateList) {
-        DrawableCompat.setTintList(this.wy, colorStateList);
+        DrawableCompat.setTintList(this.mDrawable, colorStateList);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setTintMode(PorterDuff.Mode mode) {
-        DrawableCompat.setTintMode(this.wy, mode);
+        DrawableCompat.setTintMode(this.mDrawable, mode);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setHotspot(float f, float f2) {
-        DrawableCompat.setHotspot(this.wy, f, f2);
+        DrawableCompat.setHotspot(this.mDrawable, f, f2);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setHotspotBounds(int i, int i2, int i3, int i4) {
-        DrawableCompat.setHotspotBounds(this.wy, i, i2, i3, i4);
+        DrawableCompat.setHotspotBounds(this.mDrawable, i, i2, i3, i4);
     }
 
     public Drawable getWrappedDrawable() {
-        return this.wy;
+        return this.mDrawable;
     }
 
     public void setWrappedDrawable(Drawable drawable) {
-        if (this.wy != null) {
-            this.wy.setCallback(null);
+        if (this.mDrawable != null) {
+            this.mDrawable.setCallback(null);
         }
-        this.wy = drawable;
+        this.mDrawable = drawable;
         if (drawable != null) {
             drawable.setCallback(this);
         }

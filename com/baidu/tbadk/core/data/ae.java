@@ -1,55 +1,88 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.LinkThreadContent;
+import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class ae {
-    private ArrayList<String> aNb;
-    private int aNc = 0;
-    private UserData aMZ = new UserData();
-    private AntiData aNa = new AntiData();
+    public static int Yu = 1;
+    private String Yv;
+    private String Yw;
+    private String Yx;
+    private int Yy = 0;
+    private boolean Yz = false;
+    private String linkUrl;
 
-    public ae() {
-        this.aNb = null;
-        this.aNb = new ArrayList<>();
-        eD(0);
-    }
-
-    public UserData getUser() {
-        return this.aMZ;
-    }
-
-    public AntiData yn() {
-        return this.aNa;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void a(LinkThreadInfo linkThreadInfo) {
+        if (linkThreadInfo != null) {
+            this.linkUrl = linkThreadInfo.link_url;
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.v.c(linkThreadInfo.link_content, 0);
+            if (linkThreadContent != null) {
+                this.Yv = linkThreadContent.link_title;
+                this.Yw = linkThreadContent.link_abstract;
+                this.Yx = linkThreadContent.link_head_small_pic;
+                this.Yy = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.an.isEmpty(this.Yv) && com.baidu.tbadk.core.util.an.isEmpty(this.Yw)) {
+                    this.Yz = true;
+                    return;
+                }
+                return;
+            }
+            this.Yz = true;
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
-        try {
-            this.aMZ.parserJson(jSONObject.optJSONObject("user"));
-            this.aNa.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aNb.add(optJSONArray.optString(i, null));
+        if (jSONObject != null) {
+            this.linkUrl = jSONObject.optString("link_url");
+            JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                try {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
+                    if (jSONObject2 != null) {
+                        this.Yv = jSONObject2.optString("link_title");
+                        this.Yw = jSONObject2.optString("link_abstract");
+                        this.Yx = jSONObject2.optString("link_head_small_pic");
+                        this.Yy = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.an.isEmpty(this.Yv) && com.baidu.tbadk.core.util.an.isEmpty(this.Yw)) {
+                            this.Yz = true;
+                        }
+                    } else {
+                        this.Yz = true;
+                    }
+                    return;
+                } catch (JSONException e) {
+                    this.Yz = true;
+                    return;
                 }
             }
-            eD(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.Yz = true;
         }
     }
 
-    public void eD(int i) {
-        this.aNc = i;
+    public String getLinkUrl() {
+        return this.linkUrl;
+    }
+
+    public String qO() {
+        return this.Yv;
+    }
+
+    public String qP() {
+        return this.Yw;
+    }
+
+    public String qQ() {
+        return this.Yx;
+    }
+
+    public int qR() {
+        return this.Yy;
+    }
+
+    public boolean qS() {
+        return this.Yz;
     }
 }

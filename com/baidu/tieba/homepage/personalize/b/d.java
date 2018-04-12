@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.personalize.b;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.i;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.util.u;
@@ -10,22 +10,22 @@ import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class d {
-    public static long ela;
-    private String ekZ;
+    public static long dFF;
+    private String dFE;
 
-    public void bQ(List<i> list) {
+    public void bK(List<h> list) {
         com.baidu.tieba.card.data.c cVar;
         int i = 0;
         if (TbadkCoreApplication.isLogin()) {
-            if (this.ekZ == null) {
-                this.ekZ = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (this.dFE == null) {
+                this.dFE = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            if (!StringUtils.isNull(this.ekZ)) {
-                String[] split = this.ekZ.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (!StringUtils.isNull(this.dFE)) {
+                String[] split = this.dFE.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split.length == 2) {
                     String str = split[0];
                     long c = com.baidu.adp.lib.g.b.c(split[1], 0L);
-                    if (c == 0 || StringUtils.isNull(str) || v.E(list)) {
+                    if (c == 0 || StringUtils.isNull(str) || v.w(list)) {
                         return;
                     }
                     while (true) {
@@ -35,7 +35,7 @@ public class d {
                                 i = i2 + 1;
                             } else {
                                 c cVar2 = new c();
-                                cVar2.ekY = c;
+                                cVar2.dFD = c;
                                 if (i2 + 1 < list.size()) {
                                     list.add(i2 + 1, cVar2);
                                     return;
@@ -53,16 +53,16 @@ public class d {
 
     public void a(boolean z, int i, List<ThreadInfo> list, List<ThreadInfo> list2) {
         ThreadInfo threadInfo;
-        if (TbadkCoreApplication.isLogin() && !v.E(list) && i == v.D(list2) - 1 && z && (threadInfo = (ThreadInfo) v.f(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
+        if (TbadkCoreApplication.isLogin() && !v.w(list) && i == v.v(list2) - 1 && z && (threadInfo = (ThreadInfo) v.c(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
             System.currentTimeMillis();
-            this.ekZ = null;
-            ela = threadInfo.tid.longValue();
+            this.dFE = null;
+            dFF = threadInfo.tid.longValue();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
-    public static void a(long j, int i, List<ThreadInfo> list, List<i> list2) {
-        if (j == ela && !v.E(list) && !v.E(list2)) {
+    public static void a(long j, int i, List<ThreadInfo> list, List<h> list2) {
+        if (j == dFF && !v.w(list) && !v.w(list2)) {
             if (i == 0) {
                 int i2 = 0;
                 while (true) {
@@ -81,7 +81,7 @@ public class d {
             } else {
                 final ThreadInfo threadInfo = list.get(i - 1);
                 if (threadInfo != null && threadInfo.tid.longValue() != 0) {
-                    ela = threadInfo.tid.longValue();
+                    dFF = threadInfo.tid.longValue();
                     com.baidu.tbadk.util.v.a(new u<Object>() { // from class: com.baidu.tieba.homepage.personalize.b.d.1
                         @Override // com.baidu.tbadk.util.u
                         public Object doInBackground() {

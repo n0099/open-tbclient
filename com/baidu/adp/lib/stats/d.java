@@ -8,13 +8,13 @@ public class d {
         if (context == null) {
             return null;
         }
-        if (j.oK()) {
+        if (j.gQ()) {
             return "WIFI";
         }
-        if (j.oL()) {
-            int oS = j.oS();
+        if (j.gR()) {
+            int gY = j.gY();
             StringBuilder sb = new StringBuilder();
-            switch (oS) {
+            switch (gY) {
                 case 1:
                     sb.append('M');
                     break;
@@ -33,11 +33,11 @@ public class d {
             } else {
                 sb.append("_NET_");
             }
-            if (j.oN()) {
+            if (j.gT()) {
                 sb.append("3G");
-            } else if (j.oM()) {
+            } else if (j.gS()) {
                 sb.append("4G");
-            } else if (j.oO()) {
+            } else if (j.gU()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

@@ -8,21 +8,21 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public class BaselineLayout extends ViewGroup {
-    private int jl;
+    private int mBaseline;
 
     public BaselineLayout(Context context) {
         super(context, null, 0);
-        this.jl = -1;
+        this.mBaseline = -1;
     }
 
     public BaselineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet, 0);
-        this.jl = -1;
+        this.mBaseline = -1;
     }
 
     public BaselineLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jl = -1;
+        this.mBaseline = -1;
     }
 
     @Override // android.view.View
@@ -54,7 +54,7 @@ public class BaselineLayout extends ViewGroup {
         }
         if (i5 != -1) {
             i6 = Math.max(i6, i8 + i5);
-            this.jl = i5;
+            this.mBaseline = i5;
         }
         setMeasuredDimension(ViewCompat.resolveSizeAndState(Math.max(i7, getSuggestedMinimumWidth()), i, i4), ViewCompat.resolveSizeAndState(Math.max(i6, getSuggestedMinimumHeight()), i2, i4 << 16));
     }
@@ -71,7 +71,7 @@ public class BaselineLayout extends ViewGroup {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 int i6 = paddingLeft + ((paddingRight - measuredWidth) / 2);
-                int baseline = (this.jl == -1 || childAt.getBaseline() == -1) ? paddingTop : (this.jl + paddingTop) - childAt.getBaseline();
+                int baseline = (this.mBaseline == -1 || childAt.getBaseline() == -1) ? paddingTop : (this.mBaseline + paddingTop) - childAt.getBaseline();
                 childAt.layout(i6, baseline, measuredWidth + i6, measuredHeight + baseline);
             }
         }
@@ -79,6 +79,6 @@ public class BaselineLayout extends ViewGroup {
 
     @Override // android.view.View
     public int getBaseline() {
-        return this.jl;
+        return this.mBaseline;
     }
 }

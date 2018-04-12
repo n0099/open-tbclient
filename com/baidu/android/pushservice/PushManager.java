@@ -6,19 +6,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.android.pushservice.j.o;
-import com.baidu.android.pushservice.j.p;
 import com.baidu.ar.util.Constants;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PushManager {
     private static final String TAG = "PushManager";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface SyncCallback {
         void onSyncResult(int i);
     }
@@ -56,9 +55,9 @@ public class PushManager {
 
     public static void enableHuaweiProxy(Context context, boolean z) {
         if (z) {
-            m.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", 1);
+            com.baidu.android.pushservice.j.j.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", 1);
         } else {
-            m.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", 0);
+            com.baidu.android.pushservice.j.j.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", 0);
         }
     }
 
@@ -66,7 +65,7 @@ public class PushManager {
         if (f.l(context)) {
             return;
         }
-        PushSettings.a(context, true);
+        PushSettings.a(context, false);
     }
 
     public static void enableMeizuProxy(Context context, boolean z, String str, String str2) {
@@ -74,13 +73,13 @@ public class PushManager {
             return;
         }
         f.f = str;
-        m.a(context, "BD_MEIZU_PROXY_APPID_KEY", str);
+        com.baidu.android.pushservice.j.j.a(context, "BD_MEIZU_PROXY_APPID_KEY", str);
         f.g = str2;
-        m.a(context, "BD_MEIZU_PROXY_APPKEY_KEY", str2);
+        com.baidu.android.pushservice.j.j.a(context, "BD_MEIZU_PROXY_APPKEY_KEY", str2);
         if (z) {
-            m.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", 1);
+            com.baidu.android.pushservice.j.j.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", 1);
         } else {
-            m.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", 0);
+            com.baidu.android.pushservice.j.j.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", 0);
         }
     }
 
@@ -89,40 +88,40 @@ public class PushManager {
             return;
         }
         f.h = str;
-        m.a(context, "BD_OPPO_PROXY_APPKEY_KEY", str);
+        com.baidu.android.pushservice.j.j.a(context, "BD_OPPO_PROXY_APPKEY_KEY", str);
         f.i = str2;
-        m.a(context, "BD_OPPO_PROXY_APPSECRET_KEY", str2);
-        m.a(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", z ? 1 : 0);
+        com.baidu.android.pushservice.j.j.a(context, "BD_OPPO_PROXY_APPSECRET_KEY", str2);
+        com.baidu.android.pushservice.j.j.a(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableXiaomiProxy(Context context, boolean z, String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             f.d = str;
-            m.a(context, "BD_PROXY_APPID_KEY", str);
+            com.baidu.android.pushservice.j.j.a(context, "BD_PROXY_APPID_KEY", str);
         }
         if (!TextUtils.isEmpty(str2)) {
             f.e = str2;
-            m.a(context, "BD_PROXY_APPKEY_KEY", str2);
+            com.baidu.android.pushservice.j.j.a(context, "BD_PROXY_APPKEY_KEY", str2);
         }
         if (z) {
-            m.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", 1);
+            com.baidu.android.pushservice.j.j.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", 1);
         } else {
-            m.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", 0);
+            com.baidu.android.pushservice.j.j.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", 0);
         }
     }
 
     public static int getBindType(Context context) {
         if (context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false)) {
-            if (com.baidu.android.pushservice.c.d.d(context)) {
+            if (com.baidu.android.pushservice.c.e.e(context)) {
                 return 2;
             }
-            if (com.baidu.android.pushservice.c.d.c(context)) {
+            if (com.baidu.android.pushservice.c.e.d(context)) {
                 return 3;
             }
-            if (com.baidu.android.pushservice.c.d.b(context)) {
+            if (com.baidu.android.pushservice.c.e.c(context)) {
                 return 4;
             }
-            return com.baidu.android.pushservice.c.d.e(context) ? 5 : 1;
+            return com.baidu.android.pushservice.c.e.f(context) ? 5 : 1;
         }
         return 0;
     }
@@ -167,7 +166,7 @@ public class PushManager {
         try {
             Intent intent = new Intent();
             if (intent != null) {
-                String packageName = com.baidu.android.pushservice.c.d.g(context) ? context.getPackageName() : p.v(context);
+                String packageName = com.baidu.android.pushservice.c.e.h(context) ? context.getPackageName() : m.v(context);
                 if (packageName != null) {
                     com.baidu.android.pushservice.g.a.a(TAG, "PassThroughMessageClick  : " + packageName, context.getApplicationContext());
                     intent.putExtra(Constants.HTTP_APP_ID, str2);
@@ -189,7 +188,7 @@ public class PushManager {
         try {
             Intent intent = new Intent();
             if (intent != null) {
-                String packageName = com.baidu.android.pushservice.c.d.g(context) ? context.getPackageName() : p.v(context);
+                String packageName = com.baidu.android.pushservice.c.e.h(context) ? context.getPackageName() : m.v(context);
                 if (packageName != null) {
                     com.baidu.android.pushservice.g.a.a(TAG, "PassThroughMessageDelete  : " + packageName, context.getApplicationContext());
                     intent.putExtra(Constants.HTTP_APP_ID, str2);
@@ -210,7 +209,7 @@ public class PushManager {
         }
         try {
             Intent intent = new Intent();
-            String packageName = com.baidu.android.pushservice.c.d.g(context) ? context.getPackageName() : p.v(context);
+            String packageName = com.baidu.android.pushservice.c.e.h(context) ? context.getPackageName() : m.v(context);
             if (packageName != null) {
                 com.baidu.android.pushservice.g.a.a(TAG, "PassThroughMessageNotified  : " + packageName, context.getApplicationContext());
                 intent.putExtra(Constants.HTTP_APP_ID, str2);
@@ -231,7 +230,7 @@ public class PushManager {
     }
 
     public static boolean isPushEnabled(Context context) {
-        return (f.l(context) || p.c(context)) ? false : true;
+        return (f.l(context) || m.c(context)) ? false : true;
     }
 
     public static void listTags(Context context) {
@@ -249,9 +248,9 @@ public class PushManager {
             return;
         }
         a.b(context, true);
-        p.a(context, true, true);
+        m.a(context, true, true);
         a.a(context, true);
-        o.a(context);
+        l.a(context);
         f.b(context, 0);
     }
 
@@ -326,11 +325,11 @@ public class PushManager {
         f.a = i;
         f.b = str;
         h.b(context);
-        String l = p.l(context, str);
-        m.a(context, "com.baidu.android.pushservice.CHECK_SDK", l);
+        String l = m.l(context, str);
+        com.baidu.android.pushservice.j.j.a(context, "com.baidu.android.pushservice.CHECK_SDK", l);
         com.baidu.android.pushservice.g.a.a(TAG, "startWork from " + context.getPackageName() + " checkResult: " + l, context.getApplicationContext());
-        p.b("startWork from " + context.getPackageName() + " checkResult: " + l, context);
-        if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", l) || !PushSettings.c(context)) && i == 0) {
+        m.b("startWork from " + context.getPackageName() + " checkResult: " + l, context);
+        if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", l) || !PushSettings.d(context)) && i == 0) {
             f.a(context, i, f.b, true);
         } else {
             if (i != 0) {
@@ -338,26 +337,30 @@ public class PushManager {
             }
             f.d(context, 10101, l);
         }
-        p.A(context);
+        m.A(context);
     }
 
     public static void stopWork(Context context) {
         if (f.l(context)) {
             return;
         }
-        p.b("stopWork from" + context.getPackageName() + " at time of " + System.currentTimeMillis(), context);
-        if (!p.y(context) && !com.baidu.android.pushservice.c.d.g(context)) {
+        com.baidu.android.pushservice.g.a.a(TAG, "stopWork from" + context.getPackageName(), context.getApplicationContext());
+        m.b("stopWork from" + context.getPackageName() + " at time of " + System.currentTimeMillis(), context);
+        if (!m.y(context) && !com.baidu.android.pushservice.c.e.h(context)) {
             f.h(context);
             return;
         }
         f.f(context);
         a.b(context, false);
-        p.a(context, true, true);
+        m.a(context, true, true);
         a.a(context, true);
-        p.f(context, context.getPackageName());
+        m.f(context, context.getPackageName());
         SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
         edit.putBoolean("bind_status", false);
         edit.commit();
+        if (a.d(context)) {
+            a.c(context, false);
+        }
     }
 
     public static void syncPushEnabled(Context context, String str, boolean z, int i, SyncCallback syncCallback) {
@@ -376,7 +379,7 @@ public class PushManager {
                 f.a(context, str, z, i, System.currentTimeMillis() + ((new Random().nextInt(30) + 1) * 24 * 3600 * 1000));
                 return;
             case 2:
-                if (com.baidu.android.pushservice.c.d.g(context)) {
+                if (com.baidu.android.pushservice.c.e.h(context)) {
                     return;
                 }
                 f.a(context, str, z, i, System.currentTimeMillis() + 21600000);

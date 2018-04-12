@@ -2,11 +2,11 @@ package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class VCacheSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.d.mA().f(VCacheSwitchStatic.class);
+        com.baidu.adp.lib.b.d.eE().f(VCacheSwitchStatic.class);
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void cQ(int i) {
+    protected void Q(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -15,22 +15,22 @@ public class VCacheSwitchStatic extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] mr() {
+    protected String[] ev() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ms() {
+    protected int ew() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mt() {
+    protected int ex() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mu() {
+    protected int ey() {
         return 10;
     }
 }

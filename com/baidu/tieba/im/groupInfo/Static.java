@@ -38,12 +38,12 @@ public class Static {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (longValue != 0) {
                         RequestGroupInfoMessage requestGroupInfoMessage = new RequestGroupInfoMessage();
-                        LocalViewSize.ImageSize Cu = LocalViewSize.Cs().Cu();
-                        LocalViewSize.ImageSize Cv = LocalViewSize.Cs().Cv();
-                        requestGroupInfoMessage.setBigHeight(Cv.height);
-                        requestGroupInfoMessage.setBigWidth(Cv.width);
-                        requestGroupInfoMessage.setSmallHeight(Cu.height);
-                        requestGroupInfoMessage.setSmallWidth(Cu.width);
+                        LocalViewSize.ImageSize ve = LocalViewSize.vc().ve();
+                        LocalViewSize.ImageSize vf = LocalViewSize.vc().vf();
+                        requestGroupInfoMessage.setBigHeight(vf.height);
+                        requestGroupInfoMessage.setBigWidth(vf.width);
+                        requestGroupInfoMessage.setSmallHeight(ve.height);
+                        requestGroupInfoMessage.setSmallWidth(ve.width);
                         requestGroupInfoMessage.setGroupId(longValue);
                         MessageManager.getInstance().sendMessage(requestGroupInfoMessage);
                     }

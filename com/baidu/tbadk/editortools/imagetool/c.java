@@ -6,26 +6,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.editortools.s;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.d;
-import com.baidu.tieba.tbadkCore.imgView.e;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static s x(Context context, int i) {
+    public static l i(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
-        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.h.editor_tool_container_image, (ViewGroup) null);
+        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.i.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
         if (multiImgToolView == null || multiImgToolView.getDragLayer() == null || multiImgToolView.getDragHorizonScrollView() == null || multiImgToolView.getMutiImageTips() == null) {
             return null;
         }
         multiImgToolView.setAsyncLocalImageLoader(bVar);
-        com.baidu.tieba.tbadkCore.imgView.b bVar2 = new com.baidu.tieba.tbadkCore.imgView.b(context);
-        bVar2.a(multiImgToolView.getDragLayer());
-        bVar2.a((e) multiImgToolView.getDragHorizonScrollView());
-        bVar2.a((com.baidu.tieba.tbadkCore.imgView.d) multiImgToolView.getDragHorizonScrollView());
+        com.baidu.tieba.tbadkCore.imgView.a aVar = new com.baidu.tieba.tbadkCore.imgView.a(context);
+        aVar.a(multiImgToolView.getDragLayer());
+        aVar.a((com.baidu.tieba.tbadkCore.imgView.d) multiImgToolView.getDragHorizonScrollView());
+        aVar.a((com.baidu.tieba.tbadkCore.imgView.c) multiImgToolView.getDragHorizonScrollView());
         if (i > 1) {
             multiImgToolView.getDragHorizonScrollView().setAddView(a(context, multiImgToolView));
         } else {
@@ -33,23 +31,23 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        aj.e(multiImgToolView.getMutiImageTips(), d.C0141d.cp_cont_c, 1);
+        ak.c(multiImgToolView.getMutiImageTips(), d.C0126d.cp_cont_c, 1);
         return multiImgToolView;
     }
 
-    private static View a(Context context, final s sVar) {
+    private static View a(Context context, final l lVar) {
         ImageView imageView = new ImageView(context);
-        aj.c(imageView, d.f.btn_add_photo_selector);
+        ak.c(imageView, d.f.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
-        imageView.setContentDescription(context.getString(d.j.add));
-        int dip2px = l.dip2px(context, 3.0f);
-        imageView.setPadding(dip2px, l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(d.e.ds30) + dip2px, context.getResources().getDimensionPixelSize(d.e.ds32) + dip2px, dip2px);
+        imageView.setContentDescription(context.getString(d.k.add));
+        int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 3.0f);
+        imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(d.e.ds30) + dip2px, context.getResources().getDimensionPixelSize(d.e.ds32) + dip2px, dip2px);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (s.this != null) {
-                    s.this.b(new com.baidu.tbadk.editortools.a(14, -1, true));
+            public void onClick(View view2) {
+                if (l.this != null) {
+                    l.this.b(new com.baidu.tbadk.editortools.a(14, -1, true));
                 }
             }
         });

@@ -6,6 +6,10 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.os.BuildCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -21,34 +25,39 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
 public abstract class AppCompatDelegate {
-    private static int Ci = -1;
-    private static boolean Cj = false;
     public static final int FEATURE_ACTION_MODE_OVERLAY = 10;
     public static final int FEATURE_SUPPORT_ACTION_BAR = 108;
     public static final int FEATURE_SUPPORT_ACTION_BAR_OVERLAY = 109;
     public static final int MODE_NIGHT_AUTO = 0;
     public static final int MODE_NIGHT_FOLLOW_SYSTEM = -1;
     public static final int MODE_NIGHT_NO = 1;
+    static final int MODE_NIGHT_UNSPECIFIED = -100;
     public static final int MODE_NIGHT_YES = 2;
+    static final String TAG = "AppCompatDelegate";
+    private static int sDefaultNightMode = -1;
+    private static boolean sCompatVectorFromResourcesEnabled = false;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     /* loaded from: classes2.dex */
     public @interface NightMode {
     }
 
-    public abstract void addContentView(View view, ViewGroup.LayoutParams layoutParams);
+    public abstract void addContentView(View view2, ViewGroup.LayoutParams layoutParams);
 
     public abstract boolean applyDayNight();
 
-    public abstract View createView(View view, String str, Context context, AttributeSet attributeSet);
+    public abstract View createView(@Nullable View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet);
 
-    public abstract View findViewById(int i);
+    @Nullable
+    public abstract View findViewById(@IdRes int i);
 
+    @Nullable
     public abstract ActionBarDrawerToggle.Delegate getDrawerToggleDelegate();
 
     public abstract MenuInflater getMenuInflater();
 
+    @Nullable
     public abstract ActionBar getSupportActionBar();
 
     public abstract boolean hasWindowFeature(int i);
@@ -77,43 +86,44 @@ public abstract class AppCompatDelegate {
 
     public abstract boolean requestWindowFeature(int i);
 
-    public abstract void setContentView(int i);
+    public abstract void setContentView(@LayoutRes int i);
 
-    public abstract void setContentView(View view);
+    public abstract void setContentView(View view2);
 
-    public abstract void setContentView(View view, ViewGroup.LayoutParams layoutParams);
+    public abstract void setContentView(View view2, ViewGroup.LayoutParams layoutParams);
 
     public abstract void setHandleNativeActionModesEnabled(boolean z);
 
     public abstract void setLocalNightMode(int i);
 
-    public abstract void setSupportActionBar(Toolbar toolbar);
+    public abstract void setSupportActionBar(@Nullable Toolbar toolbar);
 
-    public abstract void setTitle(CharSequence charSequence);
+    public abstract void setTitle(@Nullable CharSequence charSequence);
 
-    public abstract ActionMode startSupportActionMode(ActionMode.Callback callback);
+    @Nullable
+    public abstract ActionMode startSupportActionMode(@NonNull ActionMode.Callback callback);
 
     public static AppCompatDelegate create(Activity activity, AppCompatCallback appCompatCallback) {
-        return a(activity, activity.getWindow(), appCompatCallback);
+        return create(activity, activity.getWindow(), appCompatCallback);
     }
 
     public static AppCompatDelegate create(Dialog dialog, AppCompatCallback appCompatCallback) {
-        return a(dialog.getContext(), dialog.getWindow(), appCompatCallback);
+        return create(dialog.getContext(), dialog.getWindow(), appCompatCallback);
     }
 
-    private static AppCompatDelegate a(Context context, Window window, AppCompatCallback appCompatCallback) {
+    private static AppCompatDelegate create(Context context, Window window, AppCompatCallback appCompatCallback) {
         int i = Build.VERSION.SDK_INT;
         if (BuildCompat.isAtLeastN()) {
-            return new c(context, window, appCompatCallback);
+            return new AppCompatDelegateImplN(context, window, appCompatCallback);
         }
         if (i >= 23) {
-            return new f(context, window, appCompatCallback);
+            return new AppCompatDelegateImplV23(context, window, appCompatCallback);
         }
         if (i >= 14) {
-            return new e(context, window, appCompatCallback);
+            return new AppCompatDelegateImplV14(context, window, appCompatCallback);
         }
         if (i >= 11) {
-            return new d(context, window, appCompatCallback);
+            return new AppCompatDelegateImplV11(context, window, appCompatCallback);
         }
         return new AppCompatDelegateImplV9(context, window, appCompatCallback);
     }
@@ -124,23 +134,23 @@ public abstract class AppCompatDelegate {
             case 0:
             case 1:
             case 2:
-                Ci = i;
+                sDefaultNightMode = i;
                 return;
             default:
-                Log.d("AppCompatDelegate", "setDefaultNightMode() called with an unknown mode");
+                Log.d(TAG, "setDefaultNightMode() called with an unknown mode");
                 return;
         }
     }
 
     public static int getDefaultNightMode() {
-        return Ci;
+        return sDefaultNightMode;
     }
 
     public static void setCompatVectorFromResourcesEnabled(boolean z) {
-        Cj = z;
+        sCompatVectorFromResourcesEnabled = z;
     }
 
     public static boolean isCompatVectorFromResourcesEnabled() {
-        return Cj;
+        return sCompatVectorFromResourcesEnabled;
     }
 }

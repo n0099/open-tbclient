@@ -38,27 +38,27 @@ public final class RimGlobalUtils {
         }
     }
 
-    public static boolean showInputMethod(final Context context, final View view) {
-        if (context == null || view == null) {
+    public static boolean showInputMethod(final Context context, final View view2) {
+        if (context == null || view2 == null) {
             return false;
         }
-        view.requestFocusFromTouch();
-        view.postDelayed(new Runnable() { // from class: com.baidu.fsg.base.utils.RimGlobalUtils.1
+        view2.requestFocusFromTouch();
+        view2.postDelayed(new Runnable() { // from class: com.baidu.fsg.base.utils.RimGlobalUtils.1
             @Override // java.lang.Runnable
             public void run() {
-                ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view, 0);
+                ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view2, 0);
             }
         }, 100L);
         return true;
     }
 
-    public static boolean hideInputMethod(Context context, View view) {
-        if (context == null || view == null) {
+    public static boolean hideInputMethod(Context context, View view2) {
+        if (context == null || view2 == null) {
             return false;
         }
         InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
         if (inputMethodManager != null) {
-            return inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            return inputMethodManager.hideSoftInputFromWindow(view2.getWindowToken(), 0);
         }
         return false;
     }

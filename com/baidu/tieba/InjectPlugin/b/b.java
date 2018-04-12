@@ -1,110 +1,110 @@
 package com.baidu.tieba.InjectPlugin.b;
 
-import com.baidu.adp.widget.ListView.i;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private Object bNF;
-    private List<i> bNG;
-    private List<i> bNH;
-    private List<Object> bNI;
-    private boolean bNJ;
-    private boolean bNK;
-    private int bNL;
-    private boolean bNM;
-    private String bNN;
-    private String bNO;
-    private String bNP;
-    private int bfC;
+    private Object aXD;
+    private List<h> aXE;
+    private List<h> aXF;
+    private List<Object> aXG;
+    private boolean aXH;
+    private boolean aXI;
+    private boolean aXJ;
+    private String aXK;
+    private String aXL;
+    private String aXM;
+    private int aqQ;
+    private int currentPage;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.bNJ = false;
-        this.bNK = false;
-        this.bNL = 0;
-        this.bNM = false;
+        this.aXH = false;
+        this.aXI = false;
+        this.currentPage = 0;
+        this.aXJ = false;
     }
 
-    public Object Sy() {
-        return this.bNF;
+    public Object KW() {
+        return this.aXD;
     }
 
     public void setExtraData(Object obj) {
-        this.bNF = obj;
+        this.aXD = obj;
     }
 
-    public List<i> getThreadList() {
-        return this.bNG;
+    public List<h> getThreadList() {
+        return this.aXE;
     }
 
-    public void X(List<i> list) {
-        this.bNG = list;
+    public void O(List<h> list) {
+        this.aXE = list;
     }
 
-    public List<Object> Sz() {
-        return this.bNI;
+    public List<Object> KX() {
+        return this.aXG;
     }
 
-    public void Y(List<Object> list) {
-        this.bNI = list;
+    public void P(List<Object> list) {
+        this.aXG = list;
     }
 
-    public List<i> SA() {
-        return this.bNH;
+    public List<h> KY() {
+        return this.aXF;
     }
 
-    public void Z(List<i> list) {
-        this.bNH = list;
+    public void Q(List<h> list) {
+        this.aXF = list;
     }
 
-    public boolean SB() {
-        return this.bNJ;
+    public boolean KZ() {
+        return this.aXH;
     }
 
-    public void cP(boolean z) {
-        this.bNJ = z;
+    public void cg(boolean z) {
+        this.aXH = z;
     }
 
     public boolean isRefresh() {
-        return this.bNK;
+        return this.aXI;
     }
 
-    public void cQ(boolean z) {
-        this.bNK = z;
+    public void ch(boolean z) {
+        this.aXI = z;
     }
 
-    public int SC() {
-        return this.bNL;
+    public int La() {
+        return this.currentPage;
     }
 
-    public void eW(int i) {
-        this.bNL = i;
+    public void bV(int i) {
+        this.currentPage = i;
     }
 
     public int getSkinType() {
-        return this.bfC;
+        return this.aqQ;
     }
 
     public void setSkinType(int i) {
-        this.bfC = i;
+        this.aqQ = i;
     }
 
-    public boolean SD() {
-        return this.bNM;
+    public boolean Lb() {
+        return this.aXJ;
     }
 
-    public void cR(boolean z) {
-        this.bNM = z;
+    public void ci(boolean z) {
+        this.aXJ = z;
     }
 
     public int getPageNum() {
         return this.pageNum;
     }
 
-    public void je(int i) {
+    public void gd(int i) {
         this.pageNum = i;
     }
 
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String SE() {
-        return this.bNN;
+    public String Lc() {
+        return this.aXK;
     }
 
-    public void hC(String str) {
-        this.bNN = str;
+    public void hv(String str) {
+        this.aXK = str;
     }
 
-    public String SF() {
-        return this.bNO;
+    public String Ld() {
+        return this.aXL;
     }
 
-    public void hD(String str) {
-        this.bNO = str;
+    public void hw(String str) {
+        this.aXL = str;
     }
 
-    public String SG() {
-        return this.bNP;
+    public String Le() {
+        return this.aXM;
     }
 
-    public void hE(String str) {
-        this.bNP = str;
+    public void hx(String str) {
+        this.aXM = str;
     }
 }

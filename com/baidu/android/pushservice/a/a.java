@@ -6,13 +6,13 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.android.pushservice.a.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.android.pushservice.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC0029a extends Binder implements a {
-        public AbstractBinderC0029a() {
+    /* loaded from: classes3.dex */
+    public static abstract class AbstractBinderC0018a extends Binder implements a {
+        public AbstractBinderC0018a() {
             attachInterface(this, "com.baidu.android.pushservice.aidl.IPushService");
         }
 

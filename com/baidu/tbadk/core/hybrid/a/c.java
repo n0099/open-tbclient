@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.hybrid.m;
+import com.baidu.tbadk.core.hybrid.l;
+import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
-import com.baidu.tbadk.core.hybrid.p;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -18,22 +18,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c extends o {
-    private m aTE;
+public class c extends n {
+    private l aeY;
 
-    public c(m mVar) {
-        super(mVar);
-        this.aTE = mVar;
+    public c(l lVar) {
+        super(lVar);
+        this.aeY = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.o
-    public String ww() {
+    @Override // com.baidu.tbadk.core.hybrid.n
+    public String pg() {
         return "TBHY_COMMON_Image";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @p(BD = false, value = "scanBigImages")
+    @o(ul = false, value = "scanBigImages")
     public void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
@@ -57,11 +57,11 @@ public class c extends o {
                     }
                 }
             }
-            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.aTE.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
+            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.aeY.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
         }
     }
 
-    @p("selectPhotos")
+    @o("selectPhotos")
     protected void selectPhotos(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();

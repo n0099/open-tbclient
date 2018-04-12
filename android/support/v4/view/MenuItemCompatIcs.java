@@ -11,6 +11,9 @@ class MenuItemCompatIcs {
         boolean onMenuItemActionExpand(MenuItem menuItem);
     }
 
+    MenuItemCompatIcs() {
+    }
+
     public static boolean expandActionView(MenuItem menuItem) {
         return menuItem.expandActionView();
     }

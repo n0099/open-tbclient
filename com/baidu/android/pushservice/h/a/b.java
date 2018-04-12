@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.android.pushservice.j.k;
+import com.baidu.android.pushservice.j.h;
 import com.baidu.android.pushservice.k.e;
 import com.baidu.fsg.base.utils.PhoneUtils;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
@@ -22,10 +22,10 @@ import java.net.NetworkInterface;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public int a;
         public int b;
@@ -209,7 +209,7 @@ public class b {
     }
 
     public static String b(Context context) {
-        return k.d(context);
+        return h.d(context);
     }
 
     public static String c() {
@@ -218,7 +218,7 @@ public class b {
     }
 
     public static boolean c(Context context) {
-        return k.a(context);
+        return h.a(context);
     }
 
     public static String d() {

@@ -3,65 +3,65 @@ package com.baidu.tieba.im.frsgroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes3.dex */
-public class h implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId eDL = BdUniqueId.gen();
-    private Object bNF;
-    private NoDataViewFactory.ImgType eDM;
-    private String eDN;
-    private String eDO;
-    private String eDP;
-    private int eDQ;
+public class h implements com.baidu.adp.widget.ListView.h {
+    public static final BdUniqueId dYp = BdUniqueId.gen();
+    private Object aXD;
+    private NoDataViewFactory.ImgType dYq;
+    private String dYr;
+    private String dYs;
+    private String dYt;
+    private int dYu;
 
-    @Override // com.baidu.adp.widget.ListView.i
+    @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return eDL;
+        return dYp;
     }
 
-    public String aIL() {
-        return this.eDN;
+    public String aDI() {
+        return this.dYr;
     }
 
-    public void nt(String str) {
-        this.eDN = str;
+    public void nx(String str) {
+        this.dYr = str;
     }
 
-    public String aIM() {
-        return this.eDO;
+    public String aDJ() {
+        return this.dYs;
     }
 
-    public void nu(String str) {
-        this.eDO = str;
+    public void ny(String str) {
+        this.dYs = str;
     }
 
-    public String aIN() {
-        return this.eDP;
+    public String aDK() {
+        return this.dYt;
     }
 
-    public void nv(String str) {
-        this.eDP = str;
+    public void nz(String str) {
+        this.dYt = str;
     }
 
-    public int aIO() {
-        return this.eDQ;
+    public int aDL() {
+        return this.dYu;
     }
 
-    public void qa(int i) {
-        this.eDQ = i;
+    public void ny(int i) {
+        this.dYu = i;
     }
 
-    public Object Sy() {
-        return this.bNF;
+    public Object KW() {
+        return this.aXD;
     }
 
     public void setExtraData(Object obj) {
-        this.bNF = obj;
+        this.aXD = obj;
     }
 
-    public NoDataViewFactory.ImgType aIP() {
-        return this.eDM;
+    public NoDataViewFactory.ImgType aDM() {
+        return this.dYq;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.eDM = imgType;
+        this.dYq = imgType;
     }
 }

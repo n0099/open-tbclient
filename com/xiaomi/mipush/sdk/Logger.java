@@ -2,7 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Logger {
     private static boolean sDisablePushLog = false;
     private static LoggerInterface sUserLogger = null;

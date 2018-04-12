@@ -1,7 +1,7 @@
 package com.xiaomi.smack;
 
 import com.xiaomi.network.HostManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class k implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ h b;

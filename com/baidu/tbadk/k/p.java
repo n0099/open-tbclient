@@ -7,54 +7,54 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class p {
-    private static String bAY = "tb_perfor_samllflow_time";
-    private static volatile p bBb;
-    private long bBa;
-    private boolean bAW = false;
-    private long bAZ = 86400;
-    private long bAX = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bAY, 0);
+    private static volatile p aLA;
+    private static String aLx = "tb_perfor_samllflow_time";
+    private long aLz;
+    private boolean aLv = false;
+    private long aLy = 86400;
+    private long aLw = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aLx, 0);
 
-    public static p Ow() {
-        if (bBb == null) {
+    public static p Ha() {
+        if (aLA == null) {
             synchronized (p.class) {
-                if (bBb == null) {
-                    bBb = new p();
+                if (aLA == null) {
+                    aLA = new p();
                 }
             }
         }
-        return bBb;
+        return aLA;
     }
 
     private p() {
-        this.bBa = 0L;
-        this.bBa = this.bAZ;
+        this.aLz = 0L;
+        this.aLz = this.aLy;
     }
 
-    public boolean Ox() {
-        if (!this.bAW || (System.currentTimeMillis() - this.bAX) / 1000 <= this.bBa) {
-            return this.bAW;
+    public boolean Hb() {
+        if (!this.aLv || (System.currentTimeMillis() - this.aLw) / 1000 <= this.aLz) {
+            return this.aLv;
         }
         return false;
     }
 
-    public void cA(boolean z) {
+    public void bS(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.bAX || currentTimeMillis - this.bAX >= this.bBa) {
-                this.bAX = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bAY, this.bAX);
+            if (0 == this.aLw || currentTimeMillis - this.aLw >= this.aLz) {
+                this.aLw = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aLx, this.aLw);
             }
         } else {
-            this.bAX = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bAY, this.bAX);
+            this.aLw = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aLx, this.aLw);
         }
-        this.bAW = z;
+        this.aLv = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            q.OB().OC();
+            q.Hf().Hg();
         }
     }
 
-    public String Oy() {
+    public String Hc() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -69,25 +69,25 @@ public class p {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.j.oJ()) {
+        if (!com.baidu.adp.lib.util.j.gP()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.j.oK()) {
+        if (com.baidu.adp.lib.util.j.gQ()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.j.oM()) {
+        if (com.baidu.adp.lib.util.j.gS()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.j.oN()) {
+        if (com.baidu.adp.lib.util.j.gT()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.j.oO()) {
+        if (!com.baidu.adp.lib.util.j.gU()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String ik(int i) {
+    public static String fl(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -100,8 +100,8 @@ public class p {
         return "WIFI";
     }
 
-    public o il(int i) {
-        if (Ox()) {
+    public o fm(int i) {
+        if (Hb()) {
             switch (i) {
                 case 1000:
                     r rVar = new r();
@@ -131,9 +131,9 @@ public class p {
         return null;
     }
 
-    public void ad(long j) {
+    public void V(long j) {
         if (j > 0) {
-            this.bBa = j;
+            this.aLz = j;
         }
     }
 
@@ -146,7 +146,7 @@ public class p {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Oz() {
+    public int Hd() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;
@@ -201,7 +201,7 @@ public class p {
                             str2 = str;
                             if (str2 != null) {
                             }
-                            return com.baidu.adp.lib.g.b.h(str2, -1);
+                            return com.baidu.adp.lib.g.b.g(str2, -1);
                         } catch (Throwable th) {
                             th = th;
                             process = process2;
@@ -259,6 +259,6 @@ public class p {
                 str2 = split2[0];
             }
         }
-        return com.baidu.adp.lib.g.b.h(str2, -1);
+        return com.baidu.adp.lib.g.b.g(str2, -1);
     }
 }

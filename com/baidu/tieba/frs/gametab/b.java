@@ -10,37 +10,37 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
-import com.baidu.tieba.e.a;
+import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.e.b cof;
-    private boolean dQL;
+    private com.baidu.tieba.f.b byy;
+    private boolean dkZ;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean bDl = false;
-    private a.InterfaceC0143a cog = new a.InterfaceC0143a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int cKd = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
+    private boolean aNI = false;
+    private a.InterfaceC0131a byz = new a.InterfaceC0131a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        final int can = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0143a
-        public void aY(int i, int i2) {
-            if (Math.abs(i) <= Math.abs(i2) && af(i2)) {
-                b.this.fW(false);
+        @Override // com.baidu.tieba.f.a.InterfaceC0131a
+        public void W(int i, int i2) {
+            if (Math.abs(i) <= Math.abs(i2) && T(i2)) {
+                b.this.fB(false);
             }
         }
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0143a
-        public void aZ(int i, int i2) {
-            if (Math.abs(i) <= Math.abs(i2) && af(i2)) {
-                b.this.fW(true);
+        @Override // com.baidu.tieba.f.a.InterfaceC0131a
+        public void X(int i, int i2) {
+            if (Math.abs(i) <= Math.abs(i2) && T(i2)) {
+                b.this.fB(true);
             }
         }
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0143a
-        public void ba(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0131a
+        public void Y(int i, int i2) {
         }
 
-        private boolean af(float f) {
+        private boolean T(float f) {
             return Math.abs(f) >= 10.0f;
         }
     };
@@ -48,14 +48,14 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.dQL = z;
-        if (this.dQL) {
-            this.cof = new com.baidu.tieba.e.b(context);
-            this.cof.a(this.cog);
+        this.dkZ = z;
+        if (this.dkZ) {
+            this.byy = new com.baidu.tieba.f.b(context);
+            this.byy.a(this.byz);
         }
     }
 
-    public void f(View view, MotionEvent motionEvent) {
+    public void d(View view2, MotionEvent motionEvent) {
         if (this.mVelocityTracker == null) {
             this.mVelocityTracker = VelocityTracker.obtain();
         }
@@ -63,24 +63,24 @@ public class b {
         switch (motionEvent.getAction()) {
             case 1:
             case 3:
-                iJ();
+                releaseVelocityTracker();
                 break;
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.dQL = false;
+                    this.dkZ = false;
                     break;
                 } else {
-                    this.dQL = true;
+                    this.dkZ = true;
                     break;
                 }
         }
-        if (this.dQL && this.cof != null) {
-            this.cof.onTouchEvent(motionEvent);
+        if (this.dkZ && this.byy != null) {
+            this.byy.onTouchEvent(motionEvent);
         }
     }
 
-    private void iJ() {
+    private void releaseVelocityTracker() {
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.clear();
             this.mVelocityTracker.recycle();
@@ -89,14 +89,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fW(boolean z) {
-        this.bDl = z;
-        if (this.dQL) {
-            p(!this.bDl, true);
+    public void fB(boolean z) {
+        this.aNI = z;
+        if (this.dkZ) {
+            l(!this.aNI, true);
         }
     }
 
-    private void p(boolean z, boolean z2) {
+    private void l(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(2001617);
             customMessage.setTag(this.mPageId);

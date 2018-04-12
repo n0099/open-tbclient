@@ -4,8 +4,10 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class TbWebViewActivityConfig extends WebViewActivityConfig {
     public static String GOD_INVITE_JUMP_URL = "http://c.tieba.baidu.com/mo/q/god/inviteGod";
-    public static final String JUMP_PARAMS = "?jump=open_full_screen_opacity_web_page";
-    public static final String PARAMS_KEY = "jump";
+    public static final String JUMP_PARAMS_PAGE_TYPE = "?page_type=open_full_screen_opacity_web_page";
+    public static final String PAGE_TYPE_BLACK_TRANSLUCENT = "open_full_screen_opacity_web_page";
+    public static final String PAGE_TYPE_NORMAL = "normal";
+    public static final String PARAMS_KEY_PAGE_TYPE = "page_type";
 
     public TbWebViewActivityConfig(Context context, String str, String str2, boolean z) {
         super(context, str, str2, z);

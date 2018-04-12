@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.util.Pair;
 import android.view.View;
 /* loaded from: classes2.dex */
@@ -30,57 +31,57 @@ public class ActivityOptionsCompat {
         return new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeScaleUpAnimation(View view, int i, int i2, int i3, int i4) {
+    public static ActivityOptionsCompat makeScaleUpAnimation(View view2, int i, int i2, int i3, int i4) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeScaleUpAnimation(view, i, i2, i3, i4));
+            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeScaleUpAnimation(view2, i, i2, i3, i4));
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeScaleUpAnimation(view, i, i2, i3, i4));
+            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeScaleUpAnimation(view2, i, i2, i3, i4));
         }
         if (Build.VERSION.SDK_INT >= 21) {
-            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeScaleUpAnimation(view, i, i2, i3, i4));
+            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeScaleUpAnimation(view2, i, i2, i3, i4));
         }
         if (Build.VERSION.SDK_INT >= 16) {
-            return new ActivityOptionsImplJB(ActivityOptionsCompatJB.makeScaleUpAnimation(view, i, i2, i3, i4));
+            return new ActivityOptionsImplJB(ActivityOptionsCompatJB.makeScaleUpAnimation(view2, i, i2, i3, i4));
         }
         return new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeClipRevealAnimation(View view, int i, int i2, int i3, int i4) {
+    public static ActivityOptionsCompat makeClipRevealAnimation(View view2, int i, int i2, int i3, int i4) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeClipRevealAnimation(view, i, i2, i3, i4));
+            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeClipRevealAnimation(view2, i, i2, i3, i4));
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeClipRevealAnimation(view, i, i2, i3, i4));
+            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeClipRevealAnimation(view2, i, i2, i3, i4));
         }
         return new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(View view, Bitmap bitmap, int i, int i2) {
+    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(View view2, Bitmap bitmap, int i, int i2) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeThumbnailScaleUpAnimation(view, bitmap, i, i2));
+            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeThumbnailScaleUpAnimation(view, bitmap, i, i2));
+            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
         }
         if (Build.VERSION.SDK_INT >= 21) {
-            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeThumbnailScaleUpAnimation(view, bitmap, i, i2));
+            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
         }
         if (Build.VERSION.SDK_INT >= 16) {
-            return new ActivityOptionsImplJB(ActivityOptionsCompatJB.makeThumbnailScaleUpAnimation(view, bitmap, i, i2));
+            return new ActivityOptionsImplJB(ActivityOptionsCompatJB.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
         }
         return new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeSceneTransitionAnimation(Activity activity, View view, String str) {
+    public static ActivityOptionsCompat makeSceneTransitionAnimation(Activity activity, View view2, String str) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeSceneTransitionAnimation(activity, view, str));
+            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeSceneTransitionAnimation(activity, view2, str));
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeSceneTransitionAnimation(activity, view, str));
+            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeSceneTransitionAnimation(activity, view2, str));
         }
         if (Build.VERSION.SDK_INT >= 21) {
-            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeSceneTransitionAnimation(activity, view, str));
+            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeSceneTransitionAnimation(activity, view2, str));
         }
         return new ActivityOptionsCompat();
     }
@@ -230,7 +231,7 @@ public class ActivityOptionsCompat {
         }
 
         @Override // android.support.v4.app.ActivityOptionsCompat
-        public ActivityOptionsCompat setLaunchBounds(Rect rect) {
+        public ActivityOptionsCompat setLaunchBounds(@Nullable Rect rect) {
             return new ActivityOptionsImpl24(this.mImpl.setLaunchBounds(rect));
         }
 
@@ -248,10 +249,11 @@ public class ActivityOptionsCompat {
     protected ActivityOptionsCompat() {
     }
 
-    public ActivityOptionsCompat setLaunchBounds(Rect rect) {
+    public ActivityOptionsCompat setLaunchBounds(@Nullable Rect rect) {
         return null;
     }
 
+    @Nullable
     public Rect getLaunchBounds() {
         return null;
     }

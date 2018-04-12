@@ -3,7 +3,7 @@ package com.xiaomi.network;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends Fallback {
     Fallback i;
     final /* synthetic */ Fallback j;

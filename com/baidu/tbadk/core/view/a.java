@@ -1,74 +1,124 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class a extends RelativeLayout {
-    private TextView aZv;
-    private RadioButton aZw;
-    private Context mContext;
+public class a {
+    private TbPageContext<?> adf;
+    private AlertDialog alb;
+    private DialogInterface.OnCancelListener ald;
+    private Activity mActivity;
+    private String alc = null;
+    private TextView adw = null;
+    private boolean ale = true;
 
-    public a(Context context) {
-        super(context);
-        this.mContext = context;
-        init();
+    public a(TbPageContext<?> tbPageContext) {
+        this.adf = null;
+        this.mActivity = null;
+        this.adf = tbPageContext;
+        if (this.adf != null && this.adf.getPageActivity() != null) {
+            this.mActivity = this.adf.getPageActivity();
+        }
     }
 
-    private void init() {
-        LayoutInflater.from(this.mContext).inflate(d.h.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.aZv = (TextView) findViewById(d.g.custom_check_radio_button_tv);
-        this.aZw = (RadioButton) findViewById(d.g.custom_check_radio_button_rb);
-        DQ();
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.a.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (a.this.aZw != null) {
-                    a.this.aZw.setButtonDrawable(d.f.chx_tips_list_ok_selector);
-                    a.this.aZw.toggle();
+    private a b(DialogInterface.OnCancelListener onCancelListener) {
+        if (this.mActivity != null) {
+            this.alb = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.g.g.a(this.alb, this.mActivity);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(d.i.custom_loading_toast, (ViewGroup) null);
+            this.adw = (TextView) inflate.findViewById(d.g.custom_loading_text);
+            if (!StringUtils.isNull(this.alc) && this.adw != null) {
+                this.adw.setText(this.alc);
+            }
+            if (this.alb != null && this.alb.getWindow() != null) {
+                this.alb.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.alb.setCancelable(true);
+                    this.alb.setCanceledOnTouchOutside(true);
+                    this.alb.setOnCancelListener(onCancelListener);
+                } else {
+                    this.alb.setCanceledOnTouchOutside(false);
+                    this.alb.setCancelable(false);
                 }
             }
-        });
+        }
+        return this;
     }
 
-    public void DQ() {
-        if (this.aZv != null) {
-            aj.a(this.aZv, "cp_link_tip_a");
+    private a c(DialogInterface.OnCancelListener onCancelListener) {
+        if (this.mActivity != null) {
+            this.alb = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.g.g.a(this.alb, this.mActivity);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(d.i.custom_loading_toast, (ViewGroup) null);
+            this.adw = (TextView) inflate.findViewById(d.g.custom_loading_text);
+            if (!StringUtils.isNull(this.alc) && this.adw != null) {
+                this.adw.setText(this.alc);
+            }
+            if (this.alb != null && this.alb.getWindow() != null) {
+                this.alb.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.alb.setOnCancelListener(onCancelListener);
+                }
+            }
+        }
+        return this;
+    }
+
+    public void aI(boolean z) {
+        if (z) {
+            if (this.ale) {
+                b(this.ald);
+                return;
+            } else {
+                c(this.ald);
+                return;
+            }
+        }
+        com.baidu.adp.lib.g.g.b(this.alb, this.mActivity);
+    }
+
+    public void da(int i) {
+        if (this.mActivity != null) {
+            this.alc = this.mActivity.getString(i);
         }
     }
 
-    public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.aZw != null) {
-            this.aZw.setOnCheckedChangeListener(onCheckedChangeListener);
+    public void eJ(String str) {
+        this.alc = str;
+        if (this.adw != null) {
+            this.adw.setText(str);
         }
     }
 
-    public void setText(String str) {
-        if (this.aZv != null) {
-            this.aZv.setText(str);
+    public void d(DialogInterface.OnCancelListener onCancelListener) {
+        this.ald = onCancelListener;
+    }
+
+    public boolean isShowing() {
+        return this.alb != null && this.alb.isShowing();
+    }
+
+    public void aJ(boolean z) {
+        this.ale = z;
+    }
+
+    public void setCancelable(boolean z) {
+        if (this.alb != null) {
+            this.alb.setCancelable(z);
         }
     }
 
-    @Override // android.view.View
-    public void setTag(Object obj) {
-        if (this.aZw != null) {
-            this.aZw.setTag(obj);
+    public void setCanceledOnTouchOutside(boolean z) {
+        if (this.alb != null) {
+            this.alb.setCanceledOnTouchOutside(z);
         }
-    }
-
-    @Override // android.view.View
-    public Object getTag() {
-        return this.aZw.getTag();
-    }
-
-    public void setChecked(boolean z) {
-        this.aZw.setChecked(z);
     }
 }

@@ -43,7 +43,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
             if (bawuTeamRequestMessage != null) {
                 this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
             }
-            new d().l(this.cacheKey, bArr);
+            new d().k(this.cacheKey, bArr);
         }
     }
 

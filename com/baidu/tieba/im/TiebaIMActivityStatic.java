@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.OfficialMsgImageActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.OfficialMsgImageActivity;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity;
@@ -29,12 +29,12 @@ public class TiebaIMActivityStatic {
         TbadkApplication.getInst().RegisterIntent(OfficialHistoryImageActivityConfig.class, OfficialHistoryImageActivity.class);
         TbadkApplication.getInst().RegisterIntent(PersonGroupActivityConfig.class, PersonGroupActivity.class);
         TbadkApplication.getInst().RegisterIntent(AddGroupActivityConfig.class, AddGroupActivity.class);
-        aFj();
+        aAj();
     }
 
-    private static void aFj() {
-        aw.Du().a(new aw.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
-            @Override // com.baidu.tbadk.core.util.aw.a
+    private static void aAj() {
+        ax.wg().a(new ax.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
+            @Override // com.baidu.tbadk.core.util.ax.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;

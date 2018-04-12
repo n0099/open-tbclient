@@ -177,7 +177,7 @@ public class WeiboSdkBrowser extends Activity implements BrowserRequestCallBack 
         this.mTitleText.setText(this.mSpecifyTitle);
         this.mLeftBtn.setOnClickListener(new View.OnClickListener() { // from class: com.sina.weibo.sdk.component.WeiboSdkBrowser.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 if (WeiboSdkBrowser.this.mRequestParam != null) {
                     WeiboSdkBrowser.this.mRequestParam.execRequest(WeiboSdkBrowser.this, 3);
                 }
@@ -256,7 +256,7 @@ public class WeiboSdkBrowser extends Activity implements BrowserRequestCallBack 
         this.mLoadErrorRetryBtn.setLayoutParams(layoutParams4);
         this.mLoadErrorRetryBtn.setOnClickListener(new View.OnClickListener() { // from class: com.sina.weibo.sdk.component.WeiboSdkBrowser.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 WeiboSdkBrowser.this.openUrl(WeiboSdkBrowser.this.mUrl);
                 WeiboSdkBrowser.this.isErrorPage = false;
             }

@@ -5,8 +5,8 @@ import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.e;
-import com.meizu.cloud.pushsdk.util.d;
-/* loaded from: classes2.dex */
+import com.meizu.cloud.pushsdk.util.c;
+/* loaded from: classes3.dex */
 public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -45,6 +45,6 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: a */
     public void b(MessageV3 messageV3) {
-        d.b(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        c.b(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
     }
 }

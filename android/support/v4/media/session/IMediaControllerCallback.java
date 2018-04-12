@@ -52,7 +52,7 @@ public interface IMediaControllerCallback extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof IMediaControllerCallback)) {
                 return (IMediaControllerCallback) queryLocalInterface;
             }
-            return new a(iBinder);
+            return new Proxy(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -104,16 +104,20 @@ public interface IMediaControllerCallback extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        private static class a implements IMediaControllerCallback {
+        private static class Proxy implements IMediaControllerCallback {
             private IBinder mRemote;
 
-            a(IBinder iBinder) {
+            Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 return this.mRemote;
+            }
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback

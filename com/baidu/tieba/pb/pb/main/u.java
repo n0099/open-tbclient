@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickListener {
@@ -18,9 +18,9 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bq */
+    /* renamed from: bn */
     public v onCreateViewHolder(ViewGroup viewGroup) {
-        v vVar = new v(LayoutInflater.from(this.mContext).inflate(d.h.god_card_list_item, (ViewGroup) null));
+        v vVar = new v(LayoutInflater.from(this.mContext).inflate(d.i.god_card_list_item, (ViewGroup) null));
         a(vVar);
         return vVar;
     }
@@ -29,7 +29,7 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
         if (vVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (vVar.mSkinType != skinType) {
-                com.baidu.tbadk.n.a.a(this.fNg.getPageContext(), vVar.getView());
+                com.baidu.tbadk.n.a.a(this.fgM.getPageContext(), vVar.getView());
             }
             vVar.mSkinType = skinType;
         }
@@ -39,32 +39,32 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, v vVar) {
-        super.onFillViewHolder(i, view, viewGroup, aVar, vVar);
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, v vVar) {
+        super.onFillViewHolder(i, view2, viewGroup, aVar, vVar);
         a(vVar);
-        vVar.fPO.setOnClickListener(this);
-        vVar.fPN.setOnClickListener(this);
-        vVar.fPO.setTag(aVar);
-        vVar.fPN.setTag(aVar);
+        vVar.fjN.setOnClickListener(this);
+        vVar.fjM.setOnClickListener(this);
+        vVar.fjN.setTag(aVar);
+        vVar.fjM.setTag(aVar);
         if (aVar != null) {
-            vVar.fPM.startLoad(aVar.getPortrait(), 28, false);
-            vVar.cql.setText(aVar.getUserName());
-            vVar.exx.setText(aVar.bam());
+            vVar.fjL.startLoad(aVar.getPortrait(), 28, false);
+            vVar.bGp.setText(aVar.getUserName());
+            vVar.dSc.setText(aVar.aVl());
             vVar.text.setText(aVar.getText());
-            vVar.fPN.startLoad(aVar.getPicUrl(), 10, false);
-            vVar.fPO.setText(aVar.ban());
+            vVar.fjM.startLoad(aVar.getPicUrl(), 10, false);
+            vVar.fjN.setText(aVar.aVm());
         }
-        return view;
+        return view2;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ay.ba(this.mContext)) {
-            String bao = ((com.baidu.tieba.pb.data.a) view.getTag()).bao();
-            if (!StringUtils.isNull(bao)) {
-                com.baidu.tbadk.core.util.aw.Du().c(this.fNg.getPageContext(), new String[]{bao});
+    public void onClick(View view2) {
+        if ((view2.getTag() instanceof com.baidu.tieba.pb.data.a) && az.aK(this.mContext)) {
+            String aVn = ((com.baidu.tieba.pb.data.a) view2.getTag()).aVn();
+            if (!StringUtils.isNull(aVn)) {
+                com.baidu.tbadk.core.util.ax.wg().c(this.fgM.getPageContext(), new String[]{aVn});
             }
         }
     }

@@ -2,14 +2,14 @@ package com.meizu.cloud.pushsdk.common.base;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.meizu.cloud.pushsdk.common.b.c;
+import com.meizu.cloud.pushsdk.common.util.Logger;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
-public class c implements c.a {
+/* loaded from: classes3.dex */
+public class c implements Logger.Callback {
     private String a;
     private BufferedWriter b;
     private b c = new b("lo");
@@ -56,8 +56,8 @@ public class c implements c.a {
         }
     }
 
-    @Override // com.meizu.cloud.pushsdk.common.b.c.a
-    public void a(c.a.EnumC0269a enumC0269a, String str, String str2) {
+    @Override // com.meizu.cloud.pushsdk.common.util.Logger.Callback
+    public void a(Logger.Callback.Level level, String str, String str2) {
         String str3;
         try {
             a();
@@ -65,10 +65,10 @@ public class c implements c.a {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 sb.append("/");
-                if (enumC0269a == c.a.EnumC0269a.DEBUG) {
+                if (level == Logger.Callback.Level.DEBUG) {
                     str3 = "D";
                 } else {
-                    str3 = enumC0269a == c.a.EnumC0269a.INFO ? "I" : enumC0269a == c.a.EnumC0269a.WARN ? "W" : "E";
+                    str3 = level == Logger.Callback.Level.INFO ? "I" : level == Logger.Callback.Level.WARN ? "W" : "E";
                 }
                 sb.append(str3);
                 sb.append(": ");

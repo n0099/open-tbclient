@@ -1,5 +1,10 @@
 package android.support.v4.app;
 
+import android.support.annotation.AnimRes;
+import android.support.annotation.IdRes;
+import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
+import android.support.annotation.StyleRes;
 import android.view.View;
 /* loaded from: classes2.dex */
 public abstract class FragmentTransaction {
@@ -11,15 +16,15 @@ public abstract class FragmentTransaction {
     public static final int TRANSIT_NONE = 0;
     public static final int TRANSIT_UNSET = -1;
 
-    public abstract FragmentTransaction add(int i, Fragment fragment);
+    public abstract FragmentTransaction add(@IdRes int i, Fragment fragment);
 
-    public abstract FragmentTransaction add(int i, Fragment fragment, String str);
+    public abstract FragmentTransaction add(@IdRes int i, Fragment fragment, @Nullable String str);
 
     public abstract FragmentTransaction add(Fragment fragment, String str);
 
-    public abstract FragmentTransaction addSharedElement(View view, String str);
+    public abstract FragmentTransaction addSharedElement(View view2, String str);
 
-    public abstract FragmentTransaction addToBackStack(String str);
+    public abstract FragmentTransaction addToBackStack(@Nullable String str);
 
     public abstract FragmentTransaction attach(Fragment fragment);
 
@@ -43,25 +48,25 @@ public abstract class FragmentTransaction {
 
     public abstract FragmentTransaction remove(Fragment fragment);
 
-    public abstract FragmentTransaction replace(int i, Fragment fragment);
+    public abstract FragmentTransaction replace(@IdRes int i, Fragment fragment);
 
-    public abstract FragmentTransaction replace(int i, Fragment fragment, String str);
+    public abstract FragmentTransaction replace(@IdRes int i, Fragment fragment, @Nullable String str);
 
-    public abstract FragmentTransaction setBreadCrumbShortTitle(int i);
+    public abstract FragmentTransaction setBreadCrumbShortTitle(@StringRes int i);
 
     public abstract FragmentTransaction setBreadCrumbShortTitle(CharSequence charSequence);
 
-    public abstract FragmentTransaction setBreadCrumbTitle(int i);
+    public abstract FragmentTransaction setBreadCrumbTitle(@StringRes int i);
 
     public abstract FragmentTransaction setBreadCrumbTitle(CharSequence charSequence);
 
-    public abstract FragmentTransaction setCustomAnimations(int i, int i2);
+    public abstract FragmentTransaction setCustomAnimations(@AnimRes int i, @AnimRes int i2);
 
-    public abstract FragmentTransaction setCustomAnimations(int i, int i2, int i3, int i4);
+    public abstract FragmentTransaction setCustomAnimations(@AnimRes int i, @AnimRes int i2, @AnimRes int i3, @AnimRes int i4);
 
     public abstract FragmentTransaction setTransition(int i);
 
-    public abstract FragmentTransaction setTransitionStyle(int i);
+    public abstract FragmentTransaction setTransitionStyle(@StyleRes int i);
 
     public abstract FragmentTransaction show(Fragment fragment);
 }

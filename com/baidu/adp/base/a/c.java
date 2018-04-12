@@ -7,26 +7,26 @@ import com.baidu.adp.base.a.a;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class c extends SQLiteOpenHelper implements a {
-    private a.InterfaceC0014a abF;
-    private final String abG;
+    private a.InterfaceC0003a lS;
+    private final String lT;
 
-    public abstract void d(SQLiteDatabase sQLiteDatabase);
+    public abstract void g(SQLiteDatabase sQLiteDatabase);
 
-    public abstract void e(SQLiteDatabase sQLiteDatabase);
+    public abstract void h(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
-    public void a(a.InterfaceC0014a interfaceC0014a) {
-        this.abF = interfaceC0014a;
+    public void a(a.InterfaceC0003a interfaceC0003a) {
+        this.lS = interfaceC0003a;
     }
 
     public c(Context context, String str, int i) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-        this.abG = str;
+        this.lT = str;
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean al(Context context) {
-        return context.deleteDatabase(this.abG);
+    public boolean ac(Context context) {
+        return context.deleteDatabase(this.lT);
     }
 
     public boolean b(SQLiteDatabase sQLiteDatabase, String str) {
@@ -41,19 +41,19 @@ public abstract class c extends SQLiteOpenHelper implements a {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        d(sQLiteDatabase);
-        f(sQLiteDatabase);
+        g(sQLiteDatabase);
+        i(sQLiteDatabase);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        e(sQLiteDatabase);
-        d(sQLiteDatabase);
+        h(sQLiteDatabase);
+        g(sQLiteDatabase);
     }
 
-    private void f(SQLiteDatabase sQLiteDatabase) {
-        if (this.abF != null) {
-            this.abF.c(sQLiteDatabase);
+    private void i(SQLiteDatabase sQLiteDatabase) {
+        if (this.lS != null) {
+            this.lS.f(sQLiteDatabase);
         }
     }
 }

@@ -22,20 +22,20 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
         super(jSONObject);
         JSONObject jSONObject2;
         JSONObject jSONObject3 = null;
-        this.goodsStyle = b.h(jSONObject.optString("goods_style"), -1);
+        this.goodsStyle = b.g(jSONObject.optString("goods_style"), -1);
         try {
             jSONObject2 = jSONObject.getJSONObject("feed_content");
         } catch (JSONException e) {
             e.printStackTrace();
             jSONObject2 = null;
         }
-        this.feedData = PostAdBaseData.b.S(jSONObject2);
+        this.feedData = PostAdBaseData.b.V(jSONObject2);
         try {
             jSONObject3 = jSONObject.getJSONObject("ad_content");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.adData = PostAdBaseData.a.R(jSONObject3);
+        this.adData = PostAdBaseData.a.U(jSONObject3);
         try {
             this.preloadLegoCardStr = jSONObject.getString(LegoListActivityConfig.PRE_LOAD);
         } catch (JSONException e3) {
@@ -76,7 +76,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.ur(i);
+            return this.adData.rP(i);
         }
         return 0;
     }

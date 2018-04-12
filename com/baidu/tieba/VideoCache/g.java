@@ -1,7 +1,7 @@
 package com.baidu.tieba.VideoCache;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,15 +14,15 @@ import java.util.Collections;
 /* loaded from: classes2.dex */
 public class g implements Runnable {
     private static final String TAG = g.class.getSimpleName();
-    private String bQL;
+    private String baI;
 
     public synchronized void setVideoUrl(String str) {
-        this.bQL = str;
+        this.baI = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        TJ();
+        Mf();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -52,7 +52,7 @@ public class g implements Runnable {
         if (r10 == r14) goto L86;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x01a1, code lost:
-        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12027").ab("errormsg", "准备合并文件时文件片段错误").ab("url", r18.bQL));
+        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.al("c12027").ac("errormsg", "准备合并文件时文件片段错误").ac("url", r18.baI));
      */
     /* JADX WARN: Code restructure failed: missing block: B:75:0x01cd, code lost:
         if (a(r12.getAbsolutePath(), r13) == false) goto L89;
@@ -65,24 +65,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void TJ() {
+    private synchronized void Mf() {
         File file;
-        long hO;
+        long hH;
         File[] fileArr;
         int i;
         long j;
-        long i2;
+        long h;
         long j2;
         j.au(TAG, "merge ...");
-        String hU = m.hU(this.bQL);
-        if (hU != null && !hU.isEmpty() && ((file = new File(i.bRx + hU + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.bRx + hU + "/completed.temp");
+        String hN = m.hN(this.baI);
+        if (hN != null && !hN.isEmpty() && ((file = new File(i.bbu + hN + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.bbu + hN + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.bRx + hU + "/segments");
+            File file3 = new File(i.bbu + hN + "/segments");
             if (file3 != null && file3.exists()) {
-                hO = hO(hU);
+                hH = hH(hN);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -100,26 +100,26 @@ public class g implements Runnable {
                     }
                     Collections.sort(arrayList, new StartPositionComparator());
                     fileArr = new File[arrayList.size()];
-                    int i3 = 0;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= fileArr.length) {
+                        if (i2 >= fileArr.length) {
                             break;
                         }
-                        fileArr[i3] = (File) arrayList.get(i3);
-                        if (fileArr[i3] == null) {
+                        fileArr[i2] = (File) arrayList.get(i2);
+                        if (fileArr[i2] == null) {
                             break;
                         }
-                        j.au(TAG, "file name " + fileArr[i3].getName());
-                        i3++;
+                        j.au(TAG, "file name " + fileArr[i2].getName());
+                        i2++;
                     }
                 }
             }
         }
-        if (j + i2 == j2) {
+        if (j + h == j2) {
         }
         i++;
-        i2 = m.i(fileArr[i]);
-        long j3 = j3 + i2;
+        h = m.h(fileArr[i]);
+        long j3 = j3 + h;
         if (i + 1 < fileArr.length) {
             try {
                 j2 = Integer.parseInt(fileArr[i + 1].getName());
@@ -127,9 +127,9 @@ public class g implements Runnable {
                 e2.printStackTrace();
                 j2 = 0;
             }
-            if (j + i2 == j2) {
+            if (j + h == j2) {
             }
-        } else if (m.i(fileArr[i]) + j == hO) {
+        } else if (m.h(fileArr[i]) + j == hH) {
             i++;
         }
     }
@@ -181,7 +181,7 @@ public class g implements Runnable {
                 e = e3;
                 fileChannel = channel;
                 try {
-                    TiebaStatic.log(new ak("c12027").ab("errormsg", "合并文件出现异常").ab("error", e.getMessage()).ab("url", this.bQL));
+                    TiebaStatic.log(new al("c12027").ac("errormsg", "合并文件出现异常").ac("error", e.getMessage()).ac("url", this.baI));
                     e.printStackTrace();
                     if (fileChannel != null) {
                         try {
@@ -243,12 +243,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long hO(String str) {
+    private long hH(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.bRx + str + "/content_length");
+        File file = new File(i.bbu + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

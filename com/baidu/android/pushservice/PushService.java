@@ -9,27 +9,28 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.a.a;
-import com.baidu.android.pushservice.j.p;
+import com.baidu.android.pushservice.h.o;
+import com.baidu.android.pushservice.j.m;
 import com.baidu.ar.util.Constants;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PushService extends Service {
     private SDcardRemovedReceiver c;
     private boolean a = false;
     private Handler b = new Handler();
     private boolean d = false;
-    private Runnable e = new Runnable() { // from class: com.baidu.android.pushservice.PushService.1
+    private final Runnable e = new Runnable() { // from class: com.baidu.android.pushservice.PushService.1
         @Override // java.lang.Runnable
         public void run() {
             PushService.this.stopSelf();
             g.b();
-            if ((PushService.this.f > 0) && (PushService.this.getPackageName().equals(p.v(PushService.this.getApplicationContext())) ? false : true)) {
+            if ((PushService.this.f > 0) && (PushService.this.getPackageName().equals(m.v(PushService.this.getApplicationContext())) ? false : true)) {
                 PushService.this.onDestroy();
             }
         }
     };
     private int f = 0;
-    private final a.AbstractBinderC0029a g = new a.AbstractBinderC0029a() { // from class: com.baidu.android.pushservice.PushService.2
+    private final a.AbstractBinderC0018a g = new a.AbstractBinderC0018a() { // from class: com.baidu.android.pushservice.PushService.2
         @Override // com.baidu.android.pushservice.a.a
         public int a(String str, int i) throws RemoteException {
             return 0;
@@ -166,7 +167,7 @@ public class PushService extends Service {
             return;
         }
         this.b.removeCallbacks(this.e);
-        this.b.postDelayed(this.e, 3000L);
+        this.b.postDelayed(this.e, 1000L);
     }
 
     @Override // android.app.Service
@@ -182,7 +183,7 @@ public class PushService extends Service {
     public void onCreate() {
         super.onCreate();
         com.baidu.android.pushservice.g.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
-        p.b("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
+        m.b("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         this.d = g.a(this).a();
         if (!this.d) {
             a(true, false);
@@ -201,9 +202,9 @@ public class PushService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.android.pushservice.d.c.b(getApplicationContext(), (String) null);
+        com.baidu.android.pushservice.d.c.a(getApplicationContext(), (String) null);
         com.baidu.android.pushservice.g.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
-        p.b("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
+        m.b("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         if (this.c != null) {
             try {
                 unregisterReceiver(this.c);
@@ -223,7 +224,11 @@ public class PushService extends Service {
             com.baidu.android.pushservice.g.a.c("PushService", "--- onStart by null intent!", getApplicationContext());
         } else {
             try {
-                p.b("PushService onStartCommand from " + getPackageName() + " Intent " + intent.toUri(0) + " at Time " + System.currentTimeMillis(), getApplicationContext());
+                m.b("PushService onStartCommand from " + getPackageName() + " Intent " + intent.toUri(0) + " at Time " + System.currentTimeMillis(), getApplicationContext());
+                String stringExtra = intent.getStringExtra("source");
+                if (!TextUtils.isEmpty(stringExtra)) {
+                    o.b(this, "011002", stringExtra);
+                }
             } catch (Exception e) {
             }
         }
@@ -232,17 +237,17 @@ public class PushService extends Service {
             if (a.b() > 0) {
                 intent.putExtra("bd.message.rate.BACK", System.currentTimeMillis());
             }
-            com.baidu.android.pushservice.j.d.a(getApplicationContext(), intent);
+            com.baidu.android.pushservice.j.c.a(getApplicationContext(), intent);
         }
         try {
             this.d = g.a(this).a(intent);
             if (this.d) {
                 return 1;
             }
-            a(true, false);
+            a(true, true);
             return 2;
         } catch (Exception e2) {
-            a(true, false);
+            a(true, true);
             return 2;
         }
     }

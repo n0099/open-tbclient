@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
+import android.support.annotation.RestrictTo;
 import android.util.Log;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
@@ -16,10 +17,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
 abstract class ModernAsyncTask<Params, Progress, Result> {
+    private static final int CORE_POOL_SIZE = 5;
+    private static final int KEEP_ALIVE = 1;
+    private static final String LOG_TAG = "AsyncTask";
+    private static final int MAXIMUM_POOL_SIZE = 128;
+    private static final int MESSAGE_POST_PROGRESS = 2;
+    private static final int MESSAGE_POST_RESULT = 1;
     private static InternalHandler sHandler;
     private static final ThreadFactory sThreadFactory = new ThreadFactory() { // from class: android.support.v4.content.ModernAsyncTask.1
         private final AtomicInteger mCount = new AtomicInteger(1);
@@ -56,7 +64,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
             try {
                 ModernAsyncTask.this.postResultIfNotInvoked(get());
             } catch (InterruptedException e) {
-                Log.w("AsyncTask", e);
+                Log.w(ModernAsyncTask.LOG_TAG, e);
             } catch (CancellationException e2) {
                 ModernAsyncTask.this.postResultIfNotInvoked(null);
             } catch (ExecutionException e3) {
@@ -87,6 +95,11 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         return internalHandler;
     }
 
+    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    public static void setDefaultExecutor(Executor executor) {
+        sDefaultExecutor = executor;
+    }
+
     void postResultIfNotInvoked(Result result) {
         if (!this.mTaskInvoked.get()) {
             postResult(result);
@@ -96,6 +109,10 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
     Result postResult(Result result) {
         getHandler().obtainMessage(1, new AsyncTaskResult(this, result)).sendToTarget();
         return result;
+    }
+
+    public final Status getStatus() {
+        return this.mStatus;
     }
 
     protected void onPreExecute() {
@@ -123,6 +140,18 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         return this.mFuture.cancel(z);
     }
 
+    public final Result get() throws InterruptedException, ExecutionException {
+        return this.mFuture.get();
+    }
+
+    public final Result get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        return this.mFuture.get(j, timeUnit);
+    }
+
+    public final ModernAsyncTask<Params, Progress, Result> execute(Params... paramsArr) {
+        return executeOnExecutor(sDefaultExecutor, paramsArr);
+    }
+
     public final ModernAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
         if (this.mStatus != Status.PENDING) {
             switch (this.mStatus) {
@@ -137,6 +166,16 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         this.mWorker.mParams = paramsArr;
         executor.execute(this.mFuture);
         return this;
+    }
+
+    public static void execute(Runnable runnable) {
+        sDefaultExecutor.execute(runnable);
+    }
+
+    protected final void publishProgress(Progress... progressArr) {
+        if (!isCancelled()) {
+            getHandler().obtainMessage(2, new AsyncTaskResult(this, progressArr)).sendToTarget();
+        }
     }
 
     void finish(Result result) {
@@ -173,8 +212,9 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    private static abstract class WorkerRunnable<Params, Result> implements Callable<Result> {
+    public static abstract class WorkerRunnable<Params, Result> implements Callable<Result> {
         Params[] mParams;
 
         WorkerRunnable() {

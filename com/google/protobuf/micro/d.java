@@ -1,7 +1,7 @@
 package com.google.protobuf.micro;
 
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends IOException {
     public d(String str) {
         super(str);

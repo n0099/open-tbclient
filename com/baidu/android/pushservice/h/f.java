@@ -2,15 +2,15 @@ package com.baidu.android.pushservice.h;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class f extends n {
+/* loaded from: classes3.dex */
+public class f extends l {
     public String a;
 
     public f() {
     }
 
-    public f(n nVar) {
-        super(nVar);
+    public f(l lVar) {
+        super(lVar);
     }
 
     public JSONObject a() throws JSONException {

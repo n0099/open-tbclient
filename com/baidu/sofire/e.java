@@ -11,11 +11,11 @@ import java.util.List;
 /* loaded from: classes.dex */
 public final class e {
     public SharedPreferences a;
-    public SharedPreferences.Editor aGC;
     public SharedPreferences b;
     public SharedPreferences.Editor c;
     public SharedPreferences.Editor d;
     public SharedPreferences e;
+    public SharedPreferences.Editor f;
     private Context g;
 
     public e(Context context) {
@@ -26,7 +26,7 @@ public final class e {
             this.b = context.getSharedPreferences("leroadcfg", 4);
             this.d = this.b.edit();
             this.e = context.getSharedPreferences("re_po_rt", 4);
-            this.aGC = this.e.edit();
+            this.f = this.e.edit();
         } catch (Throwable th) {
             th.getMessage();
         }
@@ -69,7 +69,7 @@ public final class e {
         return arrayList;
     }
 
-    public final void k(int... iArr) {
+    public final void a(int... iArr) {
         if (iArr == null || iArr.length == 0) {
             this.c.putString("hcpk", "");
         } else {
@@ -174,12 +174,12 @@ public final class e {
     }
 
     public final void a(com.baidu.sofire.rp.a.a aVar) {
-        this.aGC.putString("re_con", this.e.getString("re_con", "") + "||" + com.baidu.sofire.rp.a.a.b(aVar));
-        this.aGC.commit();
+        this.f.putString("re_con", this.e.getString("re_con", "") + "||" + com.baidu.sofire.rp.a.a.a(aVar));
+        this.f.commit();
     }
 
     public final List<com.baidu.sofire.rp.a.a> d() {
-        com.baidu.sofire.rp.a.a cn;
+        com.baidu.sofire.rp.a.a a;
         String string = this.e.getString("re_con", "");
         if (TextUtils.isEmpty(string)) {
             return null;
@@ -187,8 +187,8 @@ public final class e {
         ArrayList arrayList = new ArrayList();
         String[] split = string.split("\\|\\|");
         for (String str : split) {
-            if (!TextUtils.isEmpty(str) && (cn = com.baidu.sofire.rp.a.a.cn(str)) != null) {
-                arrayList.add(cn);
+            if (!TextUtils.isEmpty(str) && (a = com.baidu.sofire.rp.a.a.a(str)) != null) {
+                arrayList.add(a);
             }
         }
         return arrayList;

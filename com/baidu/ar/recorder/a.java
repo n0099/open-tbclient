@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import com.baidu.ar.audio.AudioParams;
 import com.baidu.ar.recorder.encoder.EncoderParams;
@@ -26,7 +27,7 @@ public class a implements com.baidu.ar.audio.a {
     private AudioParams f;
     private EncoderParams g;
     private b h;
-    private HandlerC0042a i;
+    private HandlerC0031a i;
     private c j;
     private d k;
     private e l;
@@ -44,8 +45,8 @@ public class a implements com.baidu.ar.audio.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.recorder.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class HandlerC0042a extends Handler {
-        public HandlerC0042a(Looper looper) {
+    public class HandlerC0031a extends Handler {
+        public HandlerC0031a(Looper looper) {
             super(looper);
         }
 
@@ -151,7 +152,7 @@ public class a implements com.baidu.ar.audio.a {
         this.n = com.baidu.ar.recorder.d.a.a();
         this.q = com.baidu.ar.recorder.d.b.a();
         this.c = 0;
-        this.i = new HandlerC0042a(context.getMainLooper());
+        this.i = new HandlerC0031a(context.getMainLooper());
         this.j = new c(encoderParams.c());
     }
 
@@ -327,6 +328,7 @@ public class a implements com.baidu.ar.audio.a {
         b(context);
     }
 
+    @RequiresApi(api = 17)
     public void a(EGLContext eGLContext, int i) {
         if (eGLContext == null || this.t == null) {
             return;

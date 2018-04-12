@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.BookInfo;
 import tbclient.TbBookrack;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public String booktown;
-    public int gin;
-    public List<b> gio;
+    public int fCK;
+    public List<b> fCL;
     public String icon;
     public String tip;
     public String title;
@@ -16,17 +16,17 @@ public class a {
     public void a(TbBookrack tbBookrack) {
         if (tbBookrack != null) {
             this.booktown = tbBookrack.booktown;
-            this.gin = tbBookrack.num.intValue();
+            this.fCK = tbBookrack.num.intValue();
             this.title = tbBookrack.title;
             this.icon = tbBookrack.icon;
             this.tip = tbBookrack.tip;
-            this.gio = new ArrayList();
+            this.fCL = new ArrayList();
             if (tbBookrack.book_list != null) {
                 for (BookInfo bookInfo : tbBookrack.book_list) {
                     if (bookInfo != null) {
                         b bVar = new b();
                         bVar.a(bookInfo);
-                        this.gio.add(bVar);
+                        this.fCL.add(bVar);
                     }
                 }
             }

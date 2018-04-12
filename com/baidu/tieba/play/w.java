@@ -1,84 +1,70 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ar.util.Constants;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import java.util.Iterator;
-import tbclient.VideoDesc;
-import tbclient.VideoInfo;
+import android.animation.ObjectAnimator;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.tieba.d;
+import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class w {
-    private int duration;
-    private String gvy;
-    private String videoMd5;
-    private long videoSize;
-    private String videoUrl;
+    private ViewGroup fQl;
+    private ImageView fQm;
+    private VideoLoadingProgressView fQn;
+    ObjectAnimator fQo;
+    ObjectAnimator fQp;
+    ObjectAnimator fQq;
 
-    public void a(VideoInfo videoInfo, boolean z) {
-        String str;
-        if (videoInfo != null) {
-            String str2 = videoInfo.video_url;
-            videoInfo.video_width.toString();
-            videoInfo.video_height.toString();
-            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.v.E(videoInfo.video_desc)) {
-                VideoDesc videoDesc = null;
-                Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    VideoDesc next = it.next();
-                    if (next != null && !StringUtils.isNull(next.video_url)) {
-                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.oK()) {
-                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.oL()) {
-                                videoDesc = next;
-                                break;
-                            }
-                        } else {
-                            videoDesc = next;
-                            break;
-                        }
-                    }
-                }
-                if (videoDesc != null) {
-                    str = videoDesc.video_url;
-                    String str3 = videoDesc.video_width;
-                    String str4 = videoDesc.video_height;
-                    this.videoUrl = str;
-                    this.videoSize = videoInfo.video_length.intValue();
-                    this.duration = videoInfo.video_duration.intValue();
-                    this.gvy = videoInfo.video_width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + videoInfo.video_height;
-                    this.videoMd5 = videoInfo.video_md5;
-                }
-            }
-            str = str2;
-            this.videoUrl = str;
-            this.videoSize = videoInfo.video_length.intValue();
-            this.duration = videoInfo.video_duration.intValue();
-            this.gvy = videoInfo.video_width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + videoInfo.video_height;
-            this.videoMd5 = videoInfo.video_md5;
+    public w(ViewGroup viewGroup) {
+        this.fQl = viewGroup;
+        this.fQm = (ImageView) viewGroup.findViewById(d.g.auto_video_loading_image);
+        this.fQn = (VideoLoadingProgressView) viewGroup.findViewById(d.g.auto_video_loading_progress);
+        init();
+    }
+
+    private void init() {
+        this.fQo = ObjectAnimator.ofFloat(this.fQm, "alpha", 1.0f, 0.5f);
+        this.fQp = ObjectAnimator.ofFloat(this.fQm, "alpha", 0.5f, 0.0f);
+        this.fQq = ObjectAnimator.ofFloat(this.fQn, "alpha", 1.0f, 0.0f);
+        this.fQo.setDuration(300L);
+        this.fQp.setDuration(300L);
+        this.fQq.setDuration(300L);
+    }
+
+    public void startLoading() {
+        bgY();
+        this.fQm.setAlpha(1.0f);
+        this.fQn.setAlpha(1.0f);
+        this.fQl.setVisibility(0);
+        this.fQn.startLoading();
+        this.fQo.start();
+    }
+
+    public void bgV() {
+        bgY();
+        this.fQn.bgV();
+    }
+
+    public void bgW() {
+        bgY();
+        this.fQp.start();
+        this.fQq.start();
+    }
+
+    public void bgX() {
+        bgY();
+        this.fQl.setVisibility(8);
+        this.fQn.bgX();
+    }
+
+    private void bgY() {
+        this.fQo.cancel();
+        this.fQp.cancel();
+        this.fQq.cancel();
+    }
+
+    public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
+        if (this.fQn != null) {
+            this.fQn.setLoadingAnimationListener(aVar);
         }
-    }
-
-    public void d(VideoInfo videoInfo) {
-        a(videoInfo, false);
-    }
-
-    public void b(AlaInfoData alaInfoData) {
-        if (alaInfoData != null) {
-            this.videoUrl = alaInfoData.hls_url;
-        }
-    }
-
-    public long blN() {
-        return this.videoSize;
-    }
-
-    public int getDuration() {
-        return this.duration;
-    }
-
-    public String blO() {
-        return this.gvy;
     }
 }

@@ -3,13 +3,10 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.widget.ListView.i;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ab;
-import com.baidu.tbadk.core.data.ar;
+import com.baidu.tbadk.core.data.ac;
 import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.v;
 import com.squareup.wire.Wire;
@@ -22,14 +19,14 @@ import tbclient.User;
 /* loaded from: classes2.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private BannerListData bannerListData;
-    private ArrayList<i> threadList;
+    private ArrayList<h> threadList;
     private HashMap<String, MetaData> userMap;
 
     public LoadMoreHttpResponseMessage(int i) {
         super(i);
     }
 
-    public ArrayList<i> getThreadList() {
+    public ArrayList<h> getThreadList() {
         return this.threadList;
     }
 
@@ -42,7 +39,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (v.D(threadListResIdl.data.user_list) > 0) {
+                if (v.v(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -56,7 +53,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         }
                     }
                 }
-                if (v.D(threadListResIdl.data.thread_list) > 0) {
+                if (v.v(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
@@ -64,18 +61,12 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bd bdVar = new bd();
                             bdVar.setUserMap(this.userMap);
                             bdVar.a(list2.get(i3));
-                            bdVar.eW(3);
-                            bdVar.zW();
-                            if (bdVar.getThreadType() == 33) {
-                                ar arVar = new ar();
-                                arVar.a(bdVar, 0);
-                                if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                    this.threadList.add(arVar);
-                                }
-                            } else if (!TextUtils.isEmpty(bdVar.Af())) {
-                                ab abVar = new ab();
-                                abVar.cU(bdVar.Af());
-                                this.threadList.add(abVar);
+                            bdVar.bV(3);
+                            bdVar.sx();
+                            if (!TextUtils.isEmpty(bdVar.sH())) {
+                                ac acVar = new ac();
+                                acVar.cI(bdVar.sH());
+                                this.threadList.add(acVar);
                             } else {
                                 this.threadList.add(bdVar);
                             }

@@ -10,34 +10,34 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
 
     protected abstract void initView();
 
-    protected abstract boolean q(Bundle bundle);
+    protected abstract boolean n(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void aFQ() {
-        aFs();
+    public void aAQ() {
+        aAs();
     }
 
-    public void aFs() {
+    public void aAs() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!q(bundle)) {
+        if (!n(bundle)) {
             finish();
             return;
         }
         initView();
-        adjustResizeForSoftInput(d.C0141d.common_color_10022, false);
-        if (this.ewV != null) {
-            this.ewV.setImageUploadUIProgressCallback(this.exa);
+        adjustResizeForSoftInput(d.C0126d.common_color_10022, false);
+        if (this.dRB != null) {
+            this.dRB.setImageUploadUIProgressCallback(this.dRG);
         }
-        aFW();
+        aAW();
         if (a((d) this)) {
             loadDraft();
-            aFq();
-            j.ewT = com.baidu.tbadk.util.i.OZ();
+            aAq();
+            j.dRz = com.baidu.tbadk.util.i.HC();
         }
     }
 
@@ -45,17 +45,17 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.ewV != null) {
-            this.ewV.onDestroy();
+        if (this.dRB != null) {
+            this.dRB.onDestroy();
         }
         setIntent(intent);
-        if (!q(null)) {
+        if (!n(null)) {
             finish();
             return;
         }
         initView();
-        adjustResizeForSoftInput(d.C0141d.common_color_10022, false);
-        aFW();
+        adjustResizeForSoftInput(d.C0126d.common_color_10022, false);
+        aAW();
         if (a((d) this)) {
             loadDraft();
         }
@@ -65,8 +65,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ewU != null) {
-            this.ewU.onChangeSkinType(i);
+        if (this.dRA != null) {
+            this.dRA.onChangeSkinType(i);
         }
     }
 
@@ -74,37 +74,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.ewU != null) {
-            this.ewU.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            aFn();
+        if (this.dRA != null) {
+            this.dRA.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            aAn();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aFn() {
+    public void aAn() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.ewU.showReceiver();
+            this.dRA.showReceiver();
         } else {
-            this.ewU.closeReceiver();
+            this.dRA.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.ewV.loadDraft();
+        return this.dRB.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        aFr();
+        aAr();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aFq() {
+    public void aAq() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aFr() {
+    public void aAr() {
     }
 }

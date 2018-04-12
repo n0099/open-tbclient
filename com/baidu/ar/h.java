@@ -344,9 +344,9 @@ public class h {
                     if (h.this.o == null || h.this.o.get() == null) {
                         return;
                     }
-                    a.C0050a c0050a = new a.C0050a((Activity) h.this.o.get());
-                    c0050a.a(Res.getString("bdar_download_timeout_error"));
-                    c0050a.a(Res.getString("bdar_ok"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.7.1
+                    a.C0039a c0039a = new a.C0039a((Activity) h.this.o.get());
+                    c0039a.a(Res.getString("bdar_download_timeout_error"));
+                    c0039a.a(Res.getString("bdar_ok"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.7.1
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i) {
                             if (com.baidu.ar.external.a.a.a.a().b() != 3) {
@@ -360,13 +360,13 @@ public class h {
                             }
                         }
                     });
-                    c0050a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.7.2
+                    c0039a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.7.2
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i) {
                             h.this.t.u();
                         }
                     });
-                    h.this.h = c0050a.a();
+                    h.this.h = c0039a.a();
                     h.this.h.setCanceledOnTouchOutside(false);
                 }
                 if (h.this.h.isShowing()) {
@@ -469,9 +469,9 @@ public class h {
                     if (h.this.o == null || h.this.o.get() == null) {
                         return;
                     }
-                    a.C0050a c0050a = new a.C0050a((Activity) h.this.o.get());
-                    c0050a.a(Res.getString("bdar_error_network_tips"));
-                    c0050a.a(Res.getString("bdar_retry"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.5.1
+                    a.C0039a c0039a = new a.C0039a((Activity) h.this.o.get());
+                    c0039a.a(Res.getString("bdar_error_network_tips"));
+                    c0039a.a(Res.getString("bdar_retry"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.5.1
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i) {
                             if (h.this.t != null) {
@@ -479,13 +479,13 @@ public class h {
                             }
                         }
                     });
-                    c0050a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.5.2
+                    c0039a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.5.2
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i) {
                             h.this.t.u();
                         }
                     });
-                    h.this.f = c0050a.a();
+                    h.this.f = c0039a.a();
                     h.this.f.setCanceledOnTouchOutside(false);
                 }
                 if (h.this.f.isShowing()) {
@@ -504,9 +504,9 @@ public class h {
                     if (h.this.o == null || h.this.o.get() == null) {
                         return;
                     }
-                    a.C0050a c0050a = new a.C0050a((Activity) h.this.o.get());
-                    c0050a.a(Res.getString("bdar_non_wifi_tips"));
-                    c0050a.a(Res.getString("bdar_ok"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.6.1
+                    a.C0039a c0039a = new a.C0039a((Activity) h.this.o.get());
+                    c0039a.a(Res.getString("bdar_non_wifi_tips"));
+                    c0039a.a(Res.getString("bdar_ok"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.6.1
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i) {
                             h.this.j();
@@ -514,14 +514,14 @@ public class h {
                             com.baidu.ar.h.a.a().a("no_wifi_permission_granted");
                         }
                     });
-                    c0050a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.6.2
+                    c0039a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.h.6.2
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i) {
                             com.baidu.ar.h.a.a().a("no_wifi_permission_deny");
                             h.this.t.u();
                         }
                     });
-                    h.this.g = c0050a.a();
+                    h.this.g = c0039a.a();
                     h.this.g.setCanceledOnTouchOutside(false);
                     h.this.g.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.ar.h.6.3
                         @Override // android.content.DialogInterface.OnKeyListener

@@ -10,10 +10,10 @@ public class AccessTimeComparator implements Serializable, Comparator<d> {
         if (dVar == null || dVar2 == null) {
             return 0;
         }
-        long TF = dVar.TF();
-        long TF2 = dVar2.TF();
-        int i = TF > TF2 ? 1 : 0;
-        if (TF < TF2) {
+        long accessTime = dVar.getAccessTime();
+        long accessTime2 = dVar2.getAccessTime();
+        int i = accessTime > accessTime2 ? 1 : 0;
+        if (accessTime < accessTime2) {
             return -1;
         }
         return i;

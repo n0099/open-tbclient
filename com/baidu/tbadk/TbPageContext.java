@@ -19,5 +19,5 @@ public interface TbPageContext<T> extends e<T> {
 
     void startAnimatable(Animatable animatable);
 
-    void startAnimation(View view, Animation animation, Animation.AnimationListener animationListener);
+    void startAnimation(View view2, Animation animation, Animation.AnimationListener animationListener);
 }

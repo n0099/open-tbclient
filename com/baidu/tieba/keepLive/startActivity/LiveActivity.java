@@ -17,7 +17,7 @@ public class LiveActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.activity_live);
+        setContentView(d.i.activity_live);
         Window window = getWindow();
         window.setGravity(8388659);
         WindowManager.LayoutParams attributes = window.getAttributes();
@@ -32,7 +32,7 @@ public class LiveActivity extends Activity {
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.keepLive.startActivity.LiveActivity.1
+        e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.keepLive.startActivity.LiveActivity.1
             @Override // java.lang.Runnable
             public void run() {
                 LiveActivity.this.finish();

@@ -12,53 +12,53 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<PluginNetConfigInfos.PluginConfig, com.baidu.tbadk.mvc.d.b> {
-    private TextView bMr;
-    private TbImageView gxa;
-    private TextView gxb;
-    private ImageView gxc;
+    private TextView duh;
+    private TbImageView fRM;
+    private TextView fRN;
+    private ImageView fRO;
     private TextView title;
 
-    public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view, viewEventCenter);
-        this.gxa = (TbImageView) view.findViewById(d.g.icon);
-        this.title = (TextView) view.findViewById(d.g.title);
-        this.bMr = (TextView) view.findViewById(d.g.desc);
-        this.gxb = (TextView) view.findViewById(d.g.status);
-        this.gxc = (ImageView) view.findViewById(d.g.new_mark);
+    public a(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, view2, viewEventCenter);
+        this.fRM = (TbImageView) view2.findViewById(d.g.icon);
+        this.title = (TextView) view2.findViewById(d.g.title);
+        this.duh = (TextView) view2.findViewById(d.g.desc);
+        this.fRN = (TextView) view2.findViewById(d.g.status);
+        this.fRO = (ImageView) view2.findViewById(d.g.new_mark);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void aI(PluginNetConfigInfos.PluginConfig pluginConfig) {
-        super.aI(pluginConfig);
+    public void D(PluginNetConfigInfos.PluginConfig pluginConfig) {
+        super.D(pluginConfig);
         if (pluginConfig != null) {
             if (!StringUtils.isNull(pluginConfig.icon)) {
-                this.gxa.startLoad(pluginConfig.icon, 10, false);
+                this.fRM.startLoad(pluginConfig.icon, 10, false);
             }
             this.title.setText(pluginConfig.display_name);
-            this.bMr.setText(pluginConfig.verbose);
-            if (PluginPackageManager.qS().bv(pluginConfig.package_name)) {
-                if (PluginPackageManager.qS().bx(pluginConfig.package_name)) {
-                    this.gxc.setVisibility(0);
-                    this.gxb.setText(d.j.download_update);
+            this.duh.setText(pluginConfig.verbose);
+            if (PluginPackageManager.iX().bs(pluginConfig.package_name)) {
+                if (PluginPackageManager.iX().bu(pluginConfig.package_name)) {
+                    this.fRO.setVisibility(0);
+                    this.fRN.setText(d.k.download_update);
                     return;
                 }
-                this.gxc.setVisibility(8);
-                if (PluginPackageManager.qS().bw(pluginConfig.package_name)) {
-                    this.gxb.setText(d.j.plugin_unenabled);
+                this.fRO.setVisibility(8);
+                if (PluginPackageManager.iX().bt(pluginConfig.package_name)) {
+                    this.fRN.setText(d.k.plugin_unenabled);
                     return;
                 } else {
-                    this.gxb.setText(d.j.plugin_enabled);
+                    this.fRN.setText(d.k.plugin_enabled);
                     return;
                 }
             }
-            this.gxc.setVisibility(8);
-            this.gxb.setText(d.j.plugin_disabled);
+            this.fRO.setVisibility(8);
+            this.fRN.setText(d.k.plugin_disabled);
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.p
+    @Override // com.baidu.tieba.tbadkCore.o
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.n.a.a(tbPageContext, getRootView());
         return true;

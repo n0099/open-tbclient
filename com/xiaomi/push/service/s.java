@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class s {
     public static Intent a(byte[] bArr, long j) {
         com.xiaomi.xmpush.thrift.ab a = a(bArr);

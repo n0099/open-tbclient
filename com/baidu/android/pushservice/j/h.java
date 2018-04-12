@@ -1,57 +1,94 @@
 package com.baidu.android.pushservice.j;
 
-import java.io.DataInputStream;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-/* loaded from: classes2.dex */
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import java.util.HashMap;
+/* loaded from: classes3.dex */
 public class h {
-    byte[] a = new byte[8];
-    private DataInputStream b;
+    private static ConnectivityManager a = null;
 
-    public h(InputStream inputStream) {
-        this.b = new DataInputStream(inputStream);
+    public static boolean a(Context context) {
+        NetworkInfo c = c(context);
+        if (c != null) {
+            return c.isConnectedOrConnecting();
+        }
+        return false;
     }
 
-    private int a(int i) throws IOException {
-        int i2 = 0;
-        while (i2 < i) {
-            int read = this.b.read(this.a, i2, i - i2);
-            if (read == -1) {
-                return read;
+    public static boolean b(Context context) {
+        NetworkInfo c = c(context);
+        return c != null && c.getType() == 1;
+    }
+
+    public static NetworkInfo c(Context context) {
+        NetworkInfo networkInfo = null;
+        try {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext == null) {
             }
-            i2 += read;
+            ConnectivityManager f = f(applicationContext);
+            if (f != null) {
+                networkInfo = f.getActiveNetworkInfo();
+                if (networkInfo == null) {
+                }
+            }
+        } catch (Exception e) {
         }
-        return i2;
+        return networkInfo;
     }
 
-    public void a() throws IOException {
-        this.b.close();
-    }
-
-    public final void a(byte[] bArr) throws IOException {
-        this.b.readFully(bArr, 0, bArr.length);
-    }
-
-    public final int b() throws IOException {
-        if (a(4) < 0) {
-            throw new EOFException();
+    public static String d(Context context) {
+        if (a(context)) {
+            NetworkInfo c = c(context);
+            switch (c != null ? c.getType() : -1) {
+                case 0:
+                    return "mobile";
+                case 1:
+                    return "wifi";
+                case 2:
+                    return "mobile_mms";
+                case 3:
+                    return "mobile_supl";
+                case 4:
+                    return "mobile_dun";
+                case 5:
+                    return "mobile_hipri";
+                case 6:
+                    return "wimax";
+                default:
+                    return "connectionless";
+            }
         }
-        return ((this.a[3] & 255) << 24) | ((this.a[2] & 255) << 16) | ((this.a[1] & 255) << 8) | (this.a[0] & 255);
+        return "connectionless";
     }
 
-    public final short c() throws IOException {
-        if (a(2) < 0) {
-            throw new EOFException();
+    public static boolean e(Context context) {
+        boolean a2 = a(context);
+        if (a2 || !m.u(context, "android.permission.INTERNET")) {
+            return a2;
         }
-        return (short) (((this.a[1] & 255) << 8) | (this.a[0] & 255));
+        try {
+            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(com.baidu.android.pushservice.h.a(), "GET", (HashMap<String, String>) null);
+            if (a3.b() != 0) {
+                if (a3.a() != null) {
+                    return true;
+                }
+                return a2;
+            }
+            return a2;
+        } catch (Exception e) {
+            return a2;
+        }
     }
 
-    public final long d() throws IOException {
-        if (a(8) < 0) {
-            throw new EOFException();
+    private static ConnectivityManager f(Context context) {
+        if (context == null) {
+            return a;
         }
-        int i = ((this.a[7] & 255) << 24) | ((this.a[6] & 255) << 16) | ((this.a[5] & 255) << 8) | (this.a[4] & 255);
-        return ((((this.a[3] & 255) << 24) | ((this.a[2] & 255) << 16) | ((this.a[1] & 255) << 8) | (this.a[0] & 255)) & 4294967295L) | ((i & 4294967295L) << 32);
+        if (a == null) {
+            a = (ConnectivityManager) context.getSystemService("connectivity");
+        }
+        return a;
     }
 }
