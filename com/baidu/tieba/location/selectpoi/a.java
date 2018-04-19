@@ -94,7 +94,7 @@ public class a extends BaseAdapter {
 
     public View bg(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eBy = NoDataViewFactory.a(this.eBx.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.dp(d.k.text_try_to_chage_location), null);
+        this.eBy = NoDataViewFactory.a(this.eBx.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.m16do(d.k.text_try_to_chage_location), null);
         this.eBy.onChangeSkinType(this.eBx.getPageContext(), skinType);
         this.eBy.setVisibility(0);
         return this.eBy;

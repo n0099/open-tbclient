@@ -498,11 +498,11 @@ public class e {
             if (i == 2) {
                 com.baidu.tbadk.coreExtra.messageCenter.a.zx().fh(str);
             } else if (i == 4) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.zx().dR(com.baidu.adp.lib.g.b.g(str, 0));
+                com.baidu.tbadk.coreExtra.messageCenter.a.zx().dQ(com.baidu.adp.lib.g.b.g(str, 0));
             } else if (i == -3) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(2);
+                com.baidu.tbadk.coreExtra.messageCenter.a.zx().dR(2);
             } else if (i == -4) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(1);
+                com.baidu.tbadk.coreExtra.messageCenter.a.zx().dR(1);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.a.zx().fg(str);
             }

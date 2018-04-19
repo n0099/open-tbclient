@@ -25,7 +25,7 @@ public class PersonTabView extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void rm(int i);
+        void rl(int i);
     }
 
     public PersonTabView(Context context) {
@@ -42,7 +42,7 @@ public class PersonTabView extends LinearLayout {
                     PersonTabView.this.setCurrentTab(1);
                 }
                 if (PersonTabView.this.fNE != null) {
-                    PersonTabView.this.fNE.rm(PersonTabView.this.dlZ);
+                    PersonTabView.this.fNE.rl(PersonTabView.this.dlZ);
                 }
             }
         };
@@ -63,7 +63,7 @@ public class PersonTabView extends LinearLayout {
                     PersonTabView.this.setCurrentTab(1);
                 }
                 if (PersonTabView.this.fNE != null) {
-                    PersonTabView.this.fNE.rm(PersonTabView.this.dlZ);
+                    PersonTabView.this.fNE.rl(PersonTabView.this.dlZ);
                 }
             }
         };
@@ -84,7 +84,7 @@ public class PersonTabView extends LinearLayout {
                     PersonTabView.this.setCurrentTab(1);
                 }
                 if (PersonTabView.this.fNE != null) {
-                    PersonTabView.this.fNE.rm(PersonTabView.this.dlZ);
+                    PersonTabView.this.fNE.rl(PersonTabView.this.dlZ);
                 }
             }
         };

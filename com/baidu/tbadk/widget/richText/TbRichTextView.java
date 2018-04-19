@@ -1251,9 +1251,9 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = this.aWm.aVb;
         linearLayout.setClickable(true);
-        Bitmap cO = ak.cO(this.aWm.aVi);
-        if (cO != null) {
-            linearLayout.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(), cO));
+        Bitmap cN = ak.cN(this.aWm.aVi);
+        if (cN != null) {
+            linearLayout.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(), cN));
         }
         linearLayout.setFocusable(false);
         linearLayout.setLayoutParams(layoutParams);

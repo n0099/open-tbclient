@@ -199,7 +199,7 @@ class a implements EGL11 {
         kr("eglGetError");
         end();
         int eglGetError = this.cld.eglGetError();
-        ks(iG(eglGetError));
+        ks(iF(eglGetError));
         return eglGetError;
     }
 
@@ -237,7 +237,7 @@ class a implements EGL11 {
         S("attribute", i);
         end();
         boolean eglQueryContext = this.cld.eglQueryContext(eGLDisplay, eGLContext, i, iArr);
-        iE(iArr[0]);
+        iD(iArr[0]);
         ej(eglQueryContext);
         checkError();
         return eglQueryContext;
@@ -263,7 +263,7 @@ class a implements EGL11 {
         S("attribute", i);
         end();
         boolean eglQuerySurface = this.cld.eglQuerySurface(eGLDisplay, eGLSurface, i, iArr);
-        iE(iArr[0]);
+        iD(iArr[0]);
         ej(eglQuerySurface);
         checkError();
         return eglQuerySurface;
@@ -317,7 +317,7 @@ class a implements EGL11 {
     private void checkError() {
         int eglGetError = this.cld.eglGetError();
         if (eglGetError != 12288) {
-            String str = "eglError: " + iG(eglGetError);
+            String str = "eglError: " + iF(eglGetError);
             kq(str);
             if (this.clg) {
                 throw new GLException(eglGetError, str);
@@ -405,7 +405,7 @@ class a implements EGL11 {
         flush();
     }
 
-    private void iE(int i) {
+    private void iD(int i) {
         ks(Integer.toString(i));
     }
 
@@ -473,11 +473,11 @@ class a implements EGL11 {
         return sb.toString();
     }
 
-    private static String iF(int i) {
+    private static String iE(int i) {
         return "0x" + Integer.toHexString(i);
     }
 
-    public static String iG(int i) {
+    public static String iF(int i) {
         switch (i) {
             case 12288:
                 return "EGL_SUCCESS";
@@ -510,7 +510,7 @@ class a implements EGL11 {
             case 12302:
                 return "EGL_CONTEXT_LOST";
             default:
-                return iF(i);
+                return iE(i);
         }
     }
 }

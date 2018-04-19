@@ -179,7 +179,7 @@ public class b implements KeyboardEventLayout.a {
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             if (az.aK(b.this.fuc.getPageContext().getPageActivity())) {
-                if (b.this.fuc.enV == null || b.this.ftF == null || b.this.ftF.aWk() == null || b.this.fuc.enV.cK(b.this.ftF.aWk().replyPrivateFlag)) {
+                if (b.this.fuc.enV == null || b.this.ftF == null || b.this.ftF.aWk() == null || b.this.fuc.enV.cJ(b.this.ftF.aWk().replyPrivateFlag)) {
                     if (b.this.ftT != null) {
                         b.this.ftT.asZ();
                     }
@@ -485,7 +485,7 @@ public class b implements KeyboardEventLayout.a {
             }
         }
         this.foU = new com.baidu.tbadk.core.dialog.a(this.fuc.getPageContext().getPageActivity());
-        this.foU.ca(i3);
+        this.foU.bZ(i3);
         this.foU.z(sparseArray);
         this.foU.a(d.k.dialog_ok, new a.b() { // from class: com.baidu.tieba.pb.pb.sub.b.6
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -535,7 +535,7 @@ public class b implements KeyboardEventLayout.a {
             string = this.fuc.getResources().getString(d.k.mark);
         }
         this.fpd = new com.baidu.tbadk.core.dialog.b(this.fuc.getPageContext().getPageActivity());
-        this.fpd.cd(d.k.operation);
+        this.fpd.cc(d.k.operation);
         this.fpd.a(new String[]{this.fuc.getResources().getString(d.k.copy), string}, interfaceC0086b);
         this.fpd.d(this.fuc.getPageContext());
         this.fpd.tG();
@@ -757,7 +757,7 @@ public class b implements KeyboardEventLayout.a {
                 i4 = 0;
             } else {
                 int size = this.fux.size() - ftZ;
-                qH(size);
+                qG(size);
                 int firstVisiblePosition = this.FL.getFirstVisiblePosition() - size;
                 View childAt = this.FL.getChildAt(0);
                 i2 = childAt == null ? 0 : childAt.getTop();
@@ -778,7 +778,7 @@ public class b implements KeyboardEventLayout.a {
         }
     }
 
-    private void qH(int i) {
+    private void qG(int i) {
         if (this.fux != null) {
             if (this.fux.size() <= i) {
                 this.fux.clear();
@@ -954,7 +954,7 @@ public class b implements KeyboardEventLayout.a {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void ik(int i) {
+    public void ij(int i) {
         b(NoDataViewFactory.d.C(i, d.k.refresh_view_title_text));
         if (this.ftT != null) {
             this.ftT.bh(this.bDx);
@@ -1166,7 +1166,7 @@ public class b implements KeyboardEventLayout.a {
         if (this.eod != null && this.eod.DF() != null) {
             this.eod.DF().onChangeSkinType(i);
         }
-        this.fuq.dw(i);
+        this.fuq.dv(i);
         this.coU.aIT();
         ak.h(this.dkA, d.C0126d.cp_cont_e);
         ak.h(this.fol, d.C0126d.cp_link_tip_a);
@@ -1215,13 +1215,13 @@ public class b implements KeyboardEventLayout.a {
     }
 
     @Override // com.baidu.tieba.pb.view.KeyboardEventLayout.a
-    public void qI(int i) {
+    public void qH(int i) {
     }
 
     public void qO(String str) {
         int qP = this.fub.qP(str);
         if (qP > -1) {
-            this.fub.qJ(qP);
+            this.fub.qI(qP);
             if (qP > 2) {
                 this.FL.setSelection(qP - 2);
             } else {

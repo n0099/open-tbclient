@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.x;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean lU(int i) {
+    public static boolean lT(int i) {
         switch (i) {
             case 202001:
             case 205001:

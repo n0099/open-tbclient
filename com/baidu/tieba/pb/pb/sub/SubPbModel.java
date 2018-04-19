@@ -492,11 +492,11 @@ public class SubPbModel extends DataModel {
     }
 
     public boolean FY() {
-        return qK(0);
+        return qJ(0);
     }
 
     public boolean bbR() {
-        return qK(2);
+        return qJ(2);
     }
 
     public void bbS() {
@@ -513,10 +513,10 @@ public class SubPbModel extends DataModel {
     }
 
     public boolean bbT() {
-        return qK(1);
+        return qJ(1);
     }
 
-    public boolean qK(int i) {
+    public boolean qJ(int i) {
         if (this.isLoading) {
             return false;
         }
@@ -536,7 +536,7 @@ public class SubPbModel extends DataModel {
     public void e(k kVar) {
         ArrayList<PostData> aWg = kVar.aWg();
         if (aWg == null || aWg.size() == 0) {
-            kVar.bV(this.fsE.La());
+            kVar.bU(this.fsE.La());
         }
         if (this.mLoadType == 1) {
             this.fsE = kVar;

@@ -126,7 +126,7 @@ public class a extends c<ForumDetailActivity> {
     public void aDG() {
         if (this.dWY == null) {
             this.dWY = new com.baidu.tbadk.core.dialog.a(this.dWN.getPageContext().getPageActivity());
-            this.dWY.ca(d.k.officical_bar_info_clean_alert);
+            this.dWY.bZ(d.k.officical_bar_info_clean_alert);
             this.dWY.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.im.forum.detail.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -166,12 +166,12 @@ public class a extends c<ForumDetailActivity> {
         }
     }
 
-    public void ik(int i) {
+    public void ij(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.dWN.getPageContext().getPageActivity(), this.dWQ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 100), NoDataViewFactory.d.dp(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.dWN.getPageContext().getPageActivity(), this.dWQ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 100), NoDataViewFactory.d.m16do(i), null);
             this.mNoDataView.setOnClickListener(this.Tt);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(i));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(i));
         this.mNoDataView.onChangeSkinType(this.dWN.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }

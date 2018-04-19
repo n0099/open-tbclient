@@ -24,7 +24,7 @@ public class b {
                         com.baidu.tbadk.coreExtra.messageCenter.a.zx().c(new e());
                         com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgChat(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgAtme(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dT(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgFans(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgGiftNum(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.zx().zP();

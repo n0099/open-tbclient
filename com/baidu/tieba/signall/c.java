@@ -158,9 +158,9 @@ public class c {
     public void a(SignData signData) {
         d dVar;
         if (signData != null && (dVar = this.gmK.get(signData.forumId)) != null) {
-            dVar.sQ(1);
-            dVar.sR(signData.count_sign_num);
-            dVar.sT(signData.sign_bonus_point);
+            dVar.sP(1);
+            dVar.sQ(signData.count_sign_num);
+            dVar.sS(signData.sign_bonus_point);
             dVar.ma(true);
             dVar.mb(false);
             dVar.mc(false);
@@ -181,7 +181,7 @@ public class c {
         this.gmK.remove(String.valueOf(dVar.getForumId()));
         this.gmJ.remove(dVar);
         if (dVar.boA() + dVar.boE() >= dVar.boB()) {
-            dVar.sS(dVar.boz() + 1);
+            dVar.sR(dVar.boz() + 1);
             dVar.md(true);
             if (dVar.boz() == this.level) {
                 this.gmv++;
@@ -217,9 +217,9 @@ public class c {
             if (dVar != null) {
                 if (iVar.boQ() != 0) {
                     this.gmF++;
-                    dVar.sQ(1);
-                    dVar.sR(iVar.boR());
-                    dVar.sT(iVar.getCurScore());
+                    dVar.sP(1);
+                    dVar.sQ(iVar.boR());
+                    dVar.sS(iVar.getCurScore());
                     dVar.ma(true);
                     dVar.mb(false);
                     dVar.mc(false);

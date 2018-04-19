@@ -51,7 +51,7 @@ public class c extends com.baidu.adp.base.c<UpdatesActivity> {
         this.edB.setOnClickListener(this.edm);
         this.edC = (Button) this.edF.findViewById(d.g.btn_cancel);
         this.edC.setOnClickListener(this.edm);
-        nK(0);
+        nJ(0);
         hp(false);
     }
 
@@ -82,7 +82,7 @@ public class c extends com.baidu.adp.base.c<UpdatesActivity> {
         this.ebq.setVisibility(0);
         this.edC.setVisibility(8);
         this.edE.setVisibility(8);
-        nK(0);
+        nJ(0);
         aEf();
     }
 
@@ -98,7 +98,7 @@ public class c extends com.baidu.adp.base.c<UpdatesActivity> {
         }
     }
 
-    public void nK(int i) {
+    public void nJ(int i) {
         if (this.edD != null && this.edm != null) {
             this.edD.setText(String.format(this.edm.getPageContext().getString(d.k.del_count), Integer.valueOf(i)));
             if (i == 0) {

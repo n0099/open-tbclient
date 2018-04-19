@@ -214,7 +214,7 @@ public class g {
     public void onChangeSkinType(int i) {
         ak.j(this.mParent, d.C0126d.cp_bg_line_d);
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
         aSO();
         if (this.mNoDataView != null) {

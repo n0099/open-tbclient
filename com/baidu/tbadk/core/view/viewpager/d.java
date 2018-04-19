@@ -52,7 +52,7 @@ public class d {
         return arrayList;
     }
 
-    public int dF(int i) {
+    public int dE(int i) {
         if (this.arn) {
             int size = this.arm.size();
             if (i == 0) {
@@ -66,7 +66,7 @@ public class d {
         return i;
     }
 
-    public int dG(int i) {
+    public int dF(int i) {
         if (this.arn) {
             return i - this.arq;
         }
@@ -87,12 +87,12 @@ public class d {
         return 0;
     }
 
-    public void dH(int i) {
+    public void dG(int i) {
         this.ard = i;
         x(this.arl);
     }
 
-    public void dI(int i) {
+    public void dH(int i) {
         this.arp = i;
         x(this.arl);
     }
@@ -101,7 +101,7 @@ public class d {
         return this.arm;
     }
 
-    public void dJ(int i) {
+    public void dI(int i) {
         this.arq = i;
         x(this.arl);
     }

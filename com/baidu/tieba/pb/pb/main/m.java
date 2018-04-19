@@ -47,7 +47,7 @@ public class m {
         this.fgb = aVar;
     }
 
-    public void ql(int i) {
+    public void qk(int i) {
         if (this.feN != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
             httpMessage.addParam("thread_id", this.feN.aYj());

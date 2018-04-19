@@ -214,8 +214,8 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public String getErrMsg() {
-        if (this.dUT.no(this.dUU - 1) != null) {
-            return this.dUT.no(this.dUU - 1).getErrMsg();
+        if (this.dUT.nn(this.dUU - 1) != null) {
+            return this.dUT.nn(this.dUU - 1).getErrMsg();
         }
         return null;
     }
@@ -478,8 +478,8 @@ public class j extends com.baidu.adp.base.c {
     }
 
     private void updateTitle() {
-        if (this.dUT.no(this.dUU - 1) != null) {
-            this.mNavigationBar.setTitleText(this.dUT.no(this.dUU - 1).getTitle());
+        if (this.dUT.nn(this.dUU - 1) != null) {
+            this.mNavigationBar.setTitleText(this.dUT.nn(this.dUU - 1).getTitle());
         }
     }
 
@@ -497,7 +497,7 @@ public class j extends com.baidu.adp.base.c {
                 oVar.aBE();
             }
         }
-        if (this.dUT.no(this.dUU - 1) != null && this.dUT.no(this.dUU - 1).aBI()) {
+        if (this.dUT.nn(this.dUU - 1) != null && this.dUT.nn(this.dUU - 1).aBI()) {
             gT(true);
         }
     }
@@ -518,7 +518,7 @@ public class j extends com.baidu.adp.base.c {
             if (i == 0) {
                 this.dVa.aBL().setTextColor(this.dUf.getResources().getColor(d.C0126d.common_color_10170));
             } else if (i < 0) {
-                this.dVa.nn(300);
+                this.dVa.nm(300);
             } else {
                 this.dVa.aBM();
             }

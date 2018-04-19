@@ -38,7 +38,7 @@ public class a {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            a.this.pI(i);
+            a.this.pH(i);
             a.this.iO(false);
         }
 
@@ -128,12 +128,12 @@ public class a {
                     a(bVar, (FragmentTabIndicator) bVar.aT(this.eSU.getPageContext().getPageActivity()));
                 }
             }
-            this.eSQ.cv(0);
+            this.eSQ.cu(0);
             this.eSQ.setCurrentTab(0);
             if (arrayList.size() == 1) {
                 this.eSQ.getFragmentTabWidget().setVisibility(8);
             }
-            pI(0);
+            pH(0);
         }
     }
 
@@ -142,10 +142,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pI(int i) {
-        FragmentTabHost.b cx = this.eSQ.cx(i);
-        this.eSR = cx.mType;
-        this.eSS = cx.afJ;
+    public void pH(int i) {
+        FragmentTabHost.b cw = this.eSQ.cw(i);
+        this.eSR = cw.mType;
+        this.eSS = cw.afJ;
     }
 
     private void a(com.baidu.tbadk.mainTab.b bVar, FragmentTabIndicator fragmentTabIndicator) {
@@ -157,7 +157,7 @@ public class a {
             fragmentTabIndicator.setText(Fy.aIn);
             fragmentTabIndicator.setTextSize(0, this.eSU.getResources().getDimension(d.e.fontsize32));
             fragmentTabIndicator.setTextColorResId(d.C0126d.s_actionbar_text_color);
-            fragmentTabIndicator.dA(TbadkCoreApplication.getInst().getSkinType());
+            fragmentTabIndicator.dz(TbadkCoreApplication.getInst().getSkinType());
             fragmentTabIndicator.setTipPosType(1);
             bVar2.afI = fragmentTabIndicator;
             bVar2.afK = bVar;

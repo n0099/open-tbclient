@@ -182,7 +182,7 @@ public class MultiImageView extends RelativeLayout {
         };
     }
 
-    public void di(int i) {
+    public void dh(int i) {
         if (this.mSkinType != i && this.ayS != null) {
             int childCount = this.ayS.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
@@ -232,7 +232,7 @@ public class MultiImageView extends RelativeLayout {
         }
     }
 
-    public void ep(int i) {
+    public void eo(int i) {
         View findViewWithTag = this.ayS.findViewWithTag(String.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof UrlDragImageView)) {
             ((UrlDragImageView) findViewWithTag).i(this.ayi, true);

@@ -258,7 +258,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.anchorLevel;
     }
 
-    public void bL(int i) {
+    public void bK(int i) {
         this.anchorLevel = i;
     }
 
@@ -266,11 +266,11 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.abn;
     }
 
-    public void bM(int i) {
+    public void bL(int i) {
         this.abn = i;
     }
 
-    public void bN(int i) {
+    public void bM(int i) {
         this.aaS = i;
     }
 
@@ -362,7 +362,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.title;
     }
 
-    public void bO(int i) {
+    public void bN(int i) {
         this.reply_num = i;
     }
 
@@ -374,7 +374,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.view_num;
     }
 
-    public void bP(int i) {
+    public void bO(int i) {
         this.view_num = i;
     }
 
@@ -390,7 +390,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.aaa;
     }
 
-    public void bQ(int i) {
+    public void bP(int i) {
         this.aaa = i;
     }
 
@@ -398,7 +398,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.aab;
     }
 
-    public void bR(int i) {
+    public void bQ(int i) {
         this.aab = i;
     }
 
@@ -536,7 +536,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.aan;
     }
 
-    public void bS(int i) {
+    public void bR(int i) {
         this.aan = i;
     }
 
@@ -584,7 +584,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.aat;
     }
 
-    public void bT(int i) {
+    public void bS(int i) {
         this.aat = i;
     }
 
@@ -776,7 +776,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         for (int i5 = 0; i5 < size3; i5++) {
                             if (zhiBoInfoTW.labelInfo.get(i5) != null) {
                                 com.baidu.tbadk.coreExtra.view.b bVar = new com.baidu.tbadk.coreExtra.view.b();
-                                bVar.eo(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
+                                bVar.en(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
                                 bVar.fD(zhiBoInfoTW.labelInfo.get(i5).labelId);
                                 bVar.setLabelName(zhiBoInfoTW.labelInfo.get(i5).labelContent);
                                 this.aax.add(bVar);
@@ -1235,10 +1235,10 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                 if (i4 >= arrayList.size()) {
                     break;
                 }
-                Bitmap cO = com.baidu.tbadk.core.util.ak.cO(((Integer) arrayList.get(i4)).intValue());
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
-                if (cO != null) {
-                    bitmapDrawable.setBounds(0, 0, cO.getWidth(), cO.getHeight());
+                Bitmap cN = com.baidu.tbadk.core.util.ak.cN(((Integer) arrayList.get(i4)).intValue());
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
+                if (cN != null) {
+                    bitmapDrawable.setBounds(0, 0, cN.getWidth(), cN.getHeight());
                 }
                 com.baidu.tbadk.core.view.h hVar = new com.baidu.tbadk.core.view.h(bitmapDrawable);
                 hVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.ZV));
@@ -1276,9 +1276,9 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
             return null;
         }
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d.e.ds8);
-        Bitmap cO = com.baidu.tbadk.core.util.ak.cO(d.f.icon_card_video_jump);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
-        bitmapDrawable.setBounds(0, 0, cO.getWidth(), cO.getHeight());
+        Bitmap cN = com.baidu.tbadk.core.util.ak.cN(d.f.icon_card_video_jump);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
+        bitmapDrawable.setBounds(0, 0, cN.getWidth(), cN.getHeight());
         com.baidu.tbadk.core.view.i iVar = new com.baidu.tbadk.core.view.i(bitmapDrawable, -100, dimensionPixelOffset, dimensionPixelOffset);
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nani_key_show_tail_txt", TbadkCoreApplication.getInst().getApplicationContext().getString(d.k.nani_tail_default_postfix));
         if (StringUtils.isNull(string)) {
@@ -1701,7 +1701,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.abr;
     }
 
-    public void bU(int i) {
+    public void bT(int i) {
         this.abt = i + 1;
     }
 
@@ -1729,7 +1729,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         this.aaz = bjVar;
     }
 
-    public void bV(int i) {
+    public void bU(int i) {
         if (this.aaz != null) {
             this.aaz.mCurrentPage = i;
         }
@@ -1787,11 +1787,11 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.abC;
     }
 
-    public void bW(int i) {
+    public void bV(int i) {
         this.abC = i;
     }
 
-    public void bX(int i) {
+    public void bW(int i) {
         this.abB = i;
     }
 

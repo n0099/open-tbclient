@@ -17,7 +17,7 @@ public class b {
         this.mContext = context;
     }
 
-    public void vn(int i) {
+    public void vm(int i) {
         this.hjs = BitmapHelper.getResBitmap(this.mContext, i);
     }
 

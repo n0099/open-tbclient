@@ -46,14 +46,14 @@ public class a extends e {
     }
 
     private void init() {
-        this.dxn = (HeadImageView) rZ(d.g.user_portrait);
+        this.dxn = (HeadImageView) rY(d.g.user_portrait);
         this.dxn.setDefaultErrorResource(d.f.icon_default_avatar100);
         this.dxn.setDefaultResource(d.f.icon_default_avatar100);
         this.dxn.setDefaultBgResource(d.C0126d.cp_bg_line_e);
         this.dxn.setIsRound(true);
-        this.aqm = (TextView) rZ(d.g.user_name);
-        this.gcG = (TextView) rZ(d.g.action);
-        this.fZF = (ApkDownloadView) rZ(d.g.download_view);
+        this.aqm = (TextView) rY(d.g.user_name);
+        this.gcG = (TextView) rY(d.g.action);
+        this.fZF = (ApkDownloadView) rY(d.g.download_view);
         MessageManager.getInstance().registerListener(this.fYV);
     }
 

@@ -203,7 +203,7 @@ public class a extends com.baidu.tieba.card.a<j> implements com.baidu.tieba.a.e 
         this.coh.setText(String.format(this.mContext.getResources().getString(d.k.ala_audience_count_prefix), an.B(this.cod.threadData.si().audience_count)));
         setPageUniqueId(getTag());
         this.coj.startPlayAnimation();
-        hc(gn(1));
+        hb(gm(1));
         if (Pe.si().mChallengeInfoData != null && Pe.si().mChallengeInfoData.challenge_id > 0) {
             this.bwY.setVisibility(0);
         } else {
@@ -251,7 +251,7 @@ public class a extends com.baidu.tieba.card.a<j> implements com.baidu.tieba.a.e 
     public void onClick(View view2) {
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.cod != null && this.cod.threadData != null) {
             this.mStType = o.rG();
             if (i == 1) {
@@ -273,7 +273,7 @@ public class a extends com.baidu.tieba.card.a<j> implements com.baidu.tieba.a.e 
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

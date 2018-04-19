@@ -133,7 +133,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
         initData();
         this.dPS.setGroupName(this.dPT.getGroupName());
         this.dPS.a(this.dPX);
-        this.dPS.gF(nf(this.dPT.getFlag()));
+        this.dPS.gF(ne(this.dPT.getFlag()));
         this.dPS.initListener();
         this.dPW = new com.baidu.tbadk.util.h<Boolean>() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -210,7 +210,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
                 finish();
             } else if (view2.equals(this.dPS.aAD())) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                aVar.ca(d.k.alert_clear_cache_group);
+                aVar.bZ(d.k.alert_clear_cache_group);
                 aVar.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -267,7 +267,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     if (!com.baidu.tbadk.coreExtra.messageCenter.c.Ae().Ag() || !com.baidu.tbadk.coreExtra.messageCenter.c.Ae().At()) {
                         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-                        aVar.ca(d.k.error_open_group_single_alloff);
+                        aVar.bZ(d.k.error_open_group_single_alloff);
                         aVar.b(getResources().getString(d.k.signallforum_signnow), new a.b() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.4
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -287,9 +287,9 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
                 this.dPT.gD(BdSwitchView.SwitchState.ON == switchState);
             } else if (view2.equals(this.dPS.aAL())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    ng(v(this.dPT.getFlag(), true));
+                    nf(v(this.dPT.getFlag(), true));
                 } else {
-                    ng(v(this.dPT.getFlag(), false));
+                    nf(v(this.dPT.getFlag(), false));
                 }
             }
         }
@@ -299,11 +299,11 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
         return z ? i & (-3) : i | 2;
     }
 
-    private boolean nf(int i) {
+    private boolean ne(int i) {
         return ((i & 2) >> 1) != 1;
     }
 
-    private void ng(int i) {
+    private void nf(int i) {
         if (this.dPU != null) {
             this.dPU.setGroupId(this.dPT.aAx());
             this.dPU.setFlag(i);

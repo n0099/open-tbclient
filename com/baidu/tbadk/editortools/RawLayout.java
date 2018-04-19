@@ -464,7 +464,7 @@ public class RawLayout extends ViewGroup {
             this.aDy = 0;
         }
 
-        public void eK(int i) {
+        public void eJ(int i) {
             this.aDy = i;
         }
     }

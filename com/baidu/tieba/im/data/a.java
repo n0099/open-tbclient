@@ -52,7 +52,7 @@ public class a {
         return this.dVX;
     }
 
-    public void np(int i) {
+    public void no(int i) {
         this.dVX = i;
     }
 }

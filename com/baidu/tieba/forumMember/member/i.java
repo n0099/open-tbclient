@@ -136,7 +136,7 @@ public class i extends com.baidu.tieba.frs.f<j, k> {
                 @Override // com.baidu.adp.base.d
                 public void f(Object obj) {
                     if (!(obj instanceof r) || i.this.bmW.getErrorCode() != 0) {
-                        if (AntiHelper.tu(i.this.bmW.getErrorCode())) {
+                        if (AntiHelper.tt(i.this.bmW.getErrorCode())) {
                             AntiHelper.am(i.this.mPageContext.getPageActivity(), i.this.bmW.getErrorString());
                             return;
                         } else {

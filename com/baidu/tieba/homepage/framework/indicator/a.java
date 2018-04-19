@@ -31,7 +31,7 @@ public class a {
         }
     }
 
-    public int mi(int i) {
+    public int mh(int i) {
         switch (i) {
             case 0:
                 return this.dCV;

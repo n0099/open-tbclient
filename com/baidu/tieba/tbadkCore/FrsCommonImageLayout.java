@@ -68,7 +68,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes.dex */
     public interface b {
-        void dB(int i);
+        void dA(int i);
     }
 
     /* loaded from: classes.dex */
@@ -173,7 +173,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             Context pageActivity;
             MediaData[] mediaDataArr2;
             if (FrsCommonImageLayout.this.gtu != null) {
-                FrsCommonImageLayout.this.gtu.dB(this.mIndex);
+                FrsCommonImageLayout.this.gtu.dA(this.mIndex);
             } else if (FrsCommonImageLayout.this.gsV != null && this.mIndex < FrsCommonImageLayout.this.gsV.length) {
                 if (FrsCommonImageLayout.this.gsV[this.mIndex].getType() == 5) {
                     if (FrsCommonImageLayout.this.gtC instanceof TbPageContext) {

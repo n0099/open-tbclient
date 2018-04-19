@@ -23,7 +23,7 @@ public class f extends e {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (f.this.isDone) {
-                    f.this.dw(TbadkCoreApplication.getInst().getSkinType());
+                    f.this.dv(TbadkCoreApplication.getInst().getSkinType());
                 }
             }
         };
@@ -31,7 +31,7 @@ public class f extends e {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                f.this.anX.setBackgroundColor(af.vx().cI(TbadkCoreApplication.getInst().getSkinType()));
+                f.this.anX.setBackgroundColor(af.vx().cH(TbadkCoreApplication.getInst().getSkinType()));
             }
         };
         c(tbPageContext);
@@ -53,7 +53,7 @@ public class f extends e {
             if (this.mSkinType != Integer.MIN_VALUE) {
                 skinType = this.mSkinType;
             }
-            dw(skinType);
+            dv(skinType);
         }
     }
 
@@ -64,20 +64,20 @@ public class f extends e {
     }
 
     @Override // com.baidu.tbadk.core.view.e
-    public void dw(int i) {
-        super.dw(i);
+    public void dv(int i) {
+        super.dv(i);
         if (this.anX != null && this.anY != null) {
             this.aon = false;
             if (!vF()) {
-                this.aoc = af.vx().cG(i);
+                this.aoc = af.vx().cF(i);
                 if (this.aoc != null) {
                     this.aon = true;
                 } else {
                     this.aoc = new AnimationDrawable();
                 }
-                this.anX.setBackgroundColor(af.vx().cI(i));
+                this.anX.setBackgroundColor(af.vx().cH(i));
                 if (!this.aon) {
-                    this.aoc = af.vx().cH(i);
+                    this.aoc = af.vx().cG(i);
                 }
                 this.aoc.setOneShot(false);
                 this.anY.setBackgroundDrawable(this.aoc);

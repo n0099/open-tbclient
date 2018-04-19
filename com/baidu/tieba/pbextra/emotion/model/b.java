@@ -51,13 +51,13 @@ class b {
     }
 
     void e(OutputStream outputStream) throws IOException {
-        qU(this.fAP);
+        qT(this.fAP);
         this.fAQ = this.fAT + 2;
         this.fAR = true;
         b(this.fAT, outputStream);
     }
 
-    void qU(int i) {
+    void qT(int i) {
         for (int i2 = 0; i2 < i; i2++) {
             this.fAN[i2] = -1;
         }
@@ -68,7 +68,7 @@ class b {
         this.fAS = i;
         this.fAR = false;
         this.fAJ = this.fAS;
-        this.fAL = qV(this.fAJ);
+        this.fAL = qU(this.fAJ);
         this.fAT = 1 << (i - 1);
         this.fAU = this.fAT + 1;
         this.fAQ = this.fAT + 2;
@@ -79,7 +79,7 @@ class b {
         }
         int i4 = 8 - i2;
         int i5 = this.fAP;
-        qU(i5);
+        qT(i5);
         b(this.fAT, outputStream);
         while (true) {
             int bdd2 = bdd();
@@ -143,7 +143,7 @@ class b {
         }
     }
 
-    final int qV(int i) {
+    final int qU(int i) {
         return (1 << i) - 1;
     }
 
@@ -175,14 +175,14 @@ class b {
             if (this.fAR) {
                 int i2 = this.fAS;
                 this.fAJ = i2;
-                this.fAL = qV(i2);
+                this.fAL = qU(i2);
                 this.fAR = false;
             } else {
                 this.fAJ++;
                 if (this.fAJ == this.fAK) {
                     this.fAL = this.fAM;
                 } else {
-                    this.fAL = qV(this.fAJ);
+                    this.fAL = qU(this.fAJ);
                 }
             }
         }

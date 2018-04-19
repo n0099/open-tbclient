@@ -80,7 +80,7 @@ public final class c {
             return this;
         }
 
-        public a vq(int i) {
+        public a vp(int i) {
             this.hku = i * 60 * 1000;
             return this;
         }
@@ -95,7 +95,7 @@ public final class c {
             return this;
         }
 
-        public a vr(int i) {
+        public a vq(int i) {
             int i2 = i <= 0 ? 0 : i;
             this.hkx = i2 < 1000 ? i2 : 1000;
             return this;

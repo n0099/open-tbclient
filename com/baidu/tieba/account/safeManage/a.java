@@ -86,7 +86,7 @@ public class a implements View.OnClickListener {
 
     public void onChangeSkinType(int i) {
         if (this.bcK != null) {
-            this.bcK.eq(i);
+            this.bcK.ep(i);
         }
     }
 

@@ -114,10 +114,10 @@ public class o {
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap cO = ak.cO(aVar.coS);
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
-                    if (cO != null) {
-                        bitmapDrawable.setBounds(0, 0, cO.getWidth(), cO.getHeight());
+                    Bitmap cN = ak.cN(aVar.coS);
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
+                    if (cN != null) {
+                        bitmapDrawable.setBounds(0, 0, cN.getWidth(), cN.getHeight());
                     }
                     com.baidu.tbadk.core.view.h hVar = new com.baidu.tbadk.core.view.h(bitmapDrawable);
                     if (aVar.coT != 0) {

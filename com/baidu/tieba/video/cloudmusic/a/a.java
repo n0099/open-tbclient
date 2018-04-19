@@ -48,7 +48,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: un */
+    /* renamed from: um */
     public CloudMusicData.MusicTagList.MusicList getItem(int i) {
         return this.gKP.get(i);
     }
@@ -83,13 +83,13 @@ public class a extends BaseAdapter {
         } else {
             c0221a = (C0221a) view2.getTag();
         }
-        c0221a.dA(TbadkCoreApplication.getInst().getSkinType());
+        c0221a.dz(TbadkCoreApplication.getInst().getSkinType());
         final CloudMusicData.MusicTagList.MusicList musicList = this.gKP.get(i);
         if (musicList != null) {
             c0221a.gKV.setText(musicList.name);
             c0221a.gKS.startLoad(musicList.image, 10, false);
             c0221a.gKW.setText(musicList.author);
-            c0221a.gKX.setText(an.cV(musicList.duration * 1000));
+            c0221a.gKX.setText(an.cU(musicList.duration * 1000));
             if (musicList.isLoading) {
                 c0221a.gKU.setVisibility(0);
             } else {
@@ -139,7 +139,7 @@ public class a extends BaseAdapter {
         public TextView gKX;
         public TextView gKY;
 
-        public void dA(int i) {
+        public void dz(int i) {
             ak.h(this.gKV, d.C0126d.cp_cont_b);
             ak.h(this.gKW, d.C0126d.cp_cont_j);
             ak.h(this.gKX, d.C0126d.cp_cont_j);

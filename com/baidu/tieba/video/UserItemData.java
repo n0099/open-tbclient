@@ -15,7 +15,7 @@ public class UserItemData implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: uh */
+        /* renamed from: ug */
         public UserItemData[] newArray(int i) {
             return new UserItemData[i];
         }

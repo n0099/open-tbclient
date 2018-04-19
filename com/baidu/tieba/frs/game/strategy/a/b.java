@@ -196,9 +196,9 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         }
         this.bjL = i;
         if (i == 0 && i2 == 0) {
-            e kD = kD(i);
-            if (kD != null && (kD.extra instanceof LabelDataList)) {
-                LabelDataList labelDataList = (LabelDataList) kD.extra;
+            e kC = kC(i);
+            if (kC != null && (kC.extra instanceof LabelDataList)) {
+                LabelDataList labelDataList = (LabelDataList) kC.extra;
                 if (!labelDataList.isEmpty() && (aVar = labelDataList.get(0)) != null) {
                     this.dgD = aVar.labelId;
                 }
@@ -246,7 +246,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.tab.a
-    public e kC(int i) {
+    public e kB(int i) {
         if (v.w(this.dgB)) {
             return null;
         }
@@ -258,7 +258,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         return null;
     }
 
-    private e kD(int i) {
+    private e kC(int i) {
         if (v.w(this.dgB)) {
             return null;
         }

@@ -26,7 +26,7 @@ public class g {
     private String mForumId = "";
     private f.a hil = new f.a() { // from class: com.baidu.tieba.write.write.g.1
         @Override // com.baidu.tieba.write.write.f.a
-        public void ve(int i) {
+        public void vd(int i) {
             if (g.this.mWriteImagesInfo != null && g.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < g.this.mWriteImagesInfo.getChosedFiles().size()) {
                 ImageFileInfo remove = g.this.mWriteImagesInfo.getChosedFiles().remove(i);
                 if (remove.isTempFile()) {
@@ -41,7 +41,7 @@ public class g {
         }
 
         @Override // com.baidu.tieba.write.write.f.a
-        public void vl(int i) {
+        public void vk(int i) {
             int v;
             if (g.this.mWriteImagesInfo != null && (v = v.v(g.this.mWriteImagesInfo.getChosedFiles())) != 0 && i >= 0 && i < v) {
                 g.this.adf.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(g.this.adf.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, g.this.mWriteImagesInfo, i)));

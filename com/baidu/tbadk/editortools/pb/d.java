@@ -178,34 +178,34 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
         this.aCA = editorTools;
     }
 
-    public void eO(int i) {
+    public void eN(int i) {
         if (this.aEH == null && DF() != null) {
-            this.aEH = (e) DF().eI(27);
+            this.aEH = (e) DF().eH(27);
         }
         if (this.aEH != null) {
             this.aEH.setType(i);
         }
     }
 
-    public void eP(int i) {
+    public void eO(int i) {
         if (this.aEH == null && DF() != null) {
-            this.aEH = (e) DF().eI(27);
+            this.aEH = (e) DF().eH(27);
         }
         if (this.aEH != null) {
-            this.aEH.eQ(i);
+            this.aEH.eP(i);
         }
     }
 
     public e Ee() {
         if (this.aEH == null && DF() != null) {
-            this.aEH = (e) DF().eI(27);
+            this.aEH = (e) DF().eH(27);
         }
         return this.aEH;
     }
 
     public void gk(String str) {
         if (this.aEH == null && DF() != null) {
-            this.aEH = (e) DF().eI(27);
+            this.aEH = (e) DF().eH(27);
         }
         if (this.aEH != null) {
             this.aEH.setHint(str);
@@ -214,21 +214,21 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
 
     public void bB(boolean z) {
         BLauncher bLauncher;
-        if (DF() != null && (bLauncher = (BLauncher) DF().eF(5)) != null) {
+        if (DF() != null && (bLauncher = (BLauncher) DF().eE(5)) != null) {
             bLauncher.setOutSetVisibilty(z);
         }
     }
 
     public void bC(boolean z) {
         BLauncher bLauncher;
-        if (DF() != null && (bLauncher = (BLauncher) DF().eF(23)) != null) {
+        if (DF() != null && (bLauncher = (BLauncher) DF().eE(23)) != null) {
             bLauncher.setOutSetVisibilty(z);
         }
     }
 
     public void bD(boolean z) {
         BLauncher bLauncher;
-        if (DF() != null && (bLauncher = (BLauncher) DF().eF(2)) != null) {
+        if (DF() != null && (bLauncher = (BLauncher) DF().eE(2)) != null) {
             bLauncher.setOutSetVisibilty(z);
         }
     }
@@ -425,7 +425,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
 
     private void Ei() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getActivity());
-        aVar.ca(d.k.location_app_permission_prompt).a(d.k.isopen, new a.b() { // from class: com.baidu.tbadk.editortools.pb.d.4
+        aVar.bZ(d.k.location_app_permission_prompt).a(d.k.isopen, new a.b() { // from class: com.baidu.tbadk.editortools.pb.d.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (j.gP()) {
@@ -816,7 +816,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
 
     private void Es() {
         if (this.aEH == null && DF() != null) {
-            this.aEH = (e) DF().eI(27);
+            this.aEH = (e) DF().eH(27);
         }
     }
 

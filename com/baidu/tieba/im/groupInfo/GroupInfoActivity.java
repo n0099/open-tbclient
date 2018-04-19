@@ -693,7 +693,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                                     for (String str : split) {
                                         if (id.equals(str)) {
                                             ResponseGroupInfoLocalMessage.a data = GroupInfoActivity.this.ebF.getData();
-                                            data.nP(data.aFR() + 1);
+                                            data.nO(data.aFR() + 1);
                                             data.hs(false);
                                             GroupInfoActivity.this.ebF.setHasRecentJoin(false);
                                             GroupInfoActivity.this.ebE.a(data, true);

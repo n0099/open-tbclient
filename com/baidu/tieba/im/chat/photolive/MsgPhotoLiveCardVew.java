@@ -83,14 +83,14 @@ public class MsgPhotoLiveCardVew extends g {
                             MsgPhotoLiveCardVew.this.postId = photoLiveReadThreadHistory.tb(String.valueOf(MsgPhotoLiveCardVew.this.threadId));
                         }
                     }
-                    MsgPhotoLiveCardVew.this.nl(MsgPhotoLiveCardVew.this.messageType);
+                    MsgPhotoLiveCardVew.this.nk(MsgPhotoLiveCardVew.this.messageType);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nl(int i) {
+    public void nk(int i) {
         if (i == 5 || i == 6) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(String.valueOf(this.threadId), null, "message_tab")));
         }
@@ -190,13 +190,13 @@ public class MsgPhotoLiveCardVew extends g {
             return null;
         }
         int indexOf = str.indexOf(String.valueOf(i));
-        int nm = nm(i);
+        int nl = nl(i);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(new ForegroundColorSpan(ak.getColor(d.C0126d.cp_link_tip_d)), indexOf, nm + indexOf, 33);
+        spannableStringBuilder.setSpan(new ForegroundColorSpan(ak.getColor(d.C0126d.cp_link_tip_d)), indexOf, nl + indexOf, 33);
         return spannableStringBuilder;
     }
 
-    private int nm(int i) {
+    private int nl(int i) {
         int i2 = 0;
         do {
             i /= 10;

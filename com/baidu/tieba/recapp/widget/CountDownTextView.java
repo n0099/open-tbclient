@@ -54,7 +54,7 @@ public class CountDownTextView extends TextView {
     }
 
     public void startCountDown() {
-        gx(1);
+        gw(1);
     }
 
     public void setTimeoutListener(b bVar) {
@@ -78,13 +78,13 @@ public class CountDownTextView extends TextView {
         public void run() {
             CountDownTextView countDownTextView = this.bfX.get();
             if (countDownTextView != null) {
-                countDownTextView.gx(1);
+                countDownTextView.gw(1);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gx(int i) {
+    public void gw(int i) {
         if (i > 0) {
             if (this.aKb == 0) {
                 if (this.gen != null && this.gep && getVisibility() == 0) {
@@ -106,7 +106,7 @@ public class CountDownTextView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        gx(0);
+        gw(0);
     }
 
     @Override // android.view.View

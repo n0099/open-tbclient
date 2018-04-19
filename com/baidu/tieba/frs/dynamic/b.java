@@ -61,7 +61,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
                         bd bdVar = new bd();
                         bdVar.setUserMap(this.userMap);
                         bdVar.a(threadInfo);
-                        bdVar.bV(3);
+                        bdVar.bU(3);
                         bdVar.sx();
                         if (bdVar.getType() == bd.ZH || bdVar.getType() == bd.ZJ || bdVar.getType() == bd.ZO || bdVar.getType() == bd.ZK || bdVar.getType() == bd.ZP || bdVar.getType() == bd.ZQ) {
                             this.threadList.add(bdVar);

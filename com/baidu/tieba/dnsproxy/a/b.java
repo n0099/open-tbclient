@@ -38,7 +38,7 @@ public class b {
         return builder.build(true);
     }
 
-    public void jn(int i) {
+    public void jm(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);

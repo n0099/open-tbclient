@@ -70,19 +70,19 @@ public class a {
         this.aVe = i2;
     }
 
-    public void fL(int i) {
+    public void fK(int i) {
         this.aVi = i;
     }
 
-    public void fM(int i) {
+    public void fL(int i) {
         this.aVf = i;
     }
 
-    public void fN(int i) {
+    public void fM(int i) {
         this.aVg = i;
     }
 
-    public void fO(int i) {
+    public void fN(int i) {
         this.aVh = i;
     }
 
@@ -100,23 +100,23 @@ public class a {
         this.aVp = i2;
     }
 
-    public void fP(int i) {
+    public void fO(int i) {
         this.aVq = i;
     }
 
-    public void fQ(int i) {
+    public void fP(int i) {
         this.aVr = i;
     }
 
-    public void fR(int i) {
+    public void fQ(int i) {
         this.aVs = i;
     }
 
-    public void fS(int i) {
+    public void fR(int i) {
         this.aVt = i;
     }
 
-    public void fT(int i) {
+    public void fS(int i) {
         this.aVu = i;
     }
 

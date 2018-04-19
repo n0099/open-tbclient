@@ -39,7 +39,7 @@ public class RecordingYearBox extends AbstractFullBox {
     }
 
     public void setRecordingYear(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wk(i)));
         this.recordingYear = i;
     }
 

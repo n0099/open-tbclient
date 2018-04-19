@@ -151,7 +151,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
         if (kVar == null || aVar == null || aVar.afY() == null) {
             return null;
         }
-        kVar.iO(i + 1);
+        kVar.iN(i + 1);
         v.afy().a(kVar.kC("c12351"));
         if (aVar.afY() instanceof com.baidu.tieba.a.e) {
             aVar.afY().setPage(this.bvX);

@@ -79,9 +79,9 @@ public class d {
         }
     }
 
-    public void gs(int i) {
+    public void gr(int i) {
         if (this.bbQ != null) {
-            this.bbQ.gs(i);
+            this.bbQ.gr(i);
         }
     }
 }

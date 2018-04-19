@@ -66,16 +66,16 @@ public class FatalErrorService extends BdBaseService {
             this.intent = intent;
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [139=4, 140=4, 143=4, 144=4, 148=4, 149=4, 152=4, 153=4, 157=4, 158=4, 161=4, 162=4] */
-        /* JADX WARN: Removed duplicated region for block: B:123:0x0114 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:125:0x0057 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:127:0x0119 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:129:0x0070 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [141=4, 142=4, 145=4, 146=4, 150=4, 151=4, 154=4, 155=4, 159=4, 160=4, 163=4, 164=4] */
+        /* JADX WARN: Removed duplicated region for block: B:123:0x0130 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:125:0x0070 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:127:0x0052 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:129:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:132:0x005c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:134:0x0052 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:138:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:142:0x007a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:146:0x011e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:134:0x0057 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:136:0x007a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:140:0x0135 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:146:0x012b A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:160:? A[RETURN, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:163:? A[RETURN, SYNTHETIC] */
         /*
@@ -137,7 +137,9 @@ public class FatalErrorService extends BdBaseService {
                                         }
                                         return;
                                     }
-                                    this.mNetwork = new x(TbConfig.SERVER_ADDRESS + str);
+                                    this.mNetwork = new x("http://st01-rdqa-dev001-zhangluxin01.epc.baidu.com:8793/" + str);
+                                    this.mNetwork.n("jenkisjob_name", "Tieba_Android_Gradle_9_4_0_2_RELEASE_BRANCH");
+                                    this.mNetwork.n("jenkisbuild_num", "80");
                                     this.mNetwork.d("logfile", byteArray);
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                         this.mNetwork.n(FatalErrorService.ERROR_TYPE_KEY, str2);
@@ -158,19 +160,52 @@ public class FatalErrorService extends BdBaseService {
                                             byteArrayOutputStream2 = byteArrayOutputStream3;
                                             BdLog.e(e.getMessage());
                                             if (byteArrayOutputStream2 != null) {
+                                                try {
+                                                    byteArrayOutputStream2.close();
+                                                } catch (Exception e5) {
+                                                    BdLog.e(e5.getMessage());
+                                                }
                                             }
                                             if (fileInputStream != null) {
+                                                try {
+                                                    fileInputStream.close();
+                                                } catch (Exception e6) {
+                                                    BdLog.e(e6.getMessage());
+                                                }
                                             }
                                             if (fileWriter == null) {
+                                                try {
+                                                    fileWriter.close();
+                                                    return;
+                                                } catch (Exception e7) {
+                                                    BdLog.e(e7.getMessage());
+                                                    return;
+                                                }
                                             }
+                                            return;
                                         } catch (Throwable th) {
                                             th = th;
                                             byteArrayOutputStream = byteArrayOutputStream3;
                                             if (byteArrayOutputStream != null) {
+                                                try {
+                                                    byteArrayOutputStream.close();
+                                                } catch (Exception e8) {
+                                                    BdLog.e(e8.getMessage());
+                                                }
                                             }
                                             if (fileInputStream != null) {
+                                                try {
+                                                    fileInputStream.close();
+                                                } catch (Exception e9) {
+                                                    BdLog.e(e9.getMessage());
+                                                }
                                             }
                                             if (fileWriter != null) {
+                                                try {
+                                                    fileWriter.close();
+                                                } catch (Exception e10) {
+                                                    BdLog.e(e10.getMessage());
+                                                }
                                             }
                                             throw th;
                                         }
@@ -193,61 +228,28 @@ public class FatalErrorService extends BdBaseService {
                                                 }
                                                 if (!file.delete()) {
                                                 }
-                                            } catch (Exception e5) {
-                                                e = e5;
+                                            } catch (Exception e11) {
+                                                e = e11;
                                                 fileWriter = fileWriter3;
                                                 fileInputStream = fileInputStream2;
                                                 byteArrayOutputStream2 = byteArrayOutputStream3;
                                                 BdLog.e(e.getMessage());
                                                 if (byteArrayOutputStream2 != null) {
-                                                    try {
-                                                        byteArrayOutputStream2.close();
-                                                    } catch (Exception e6) {
-                                                        BdLog.e(e6.getMessage());
-                                                    }
                                                 }
                                                 if (fileInputStream != null) {
-                                                    try {
-                                                        fileInputStream.close();
-                                                    } catch (Exception e7) {
-                                                        BdLog.e(e7.getMessage());
-                                                    }
                                                 }
                                                 if (fileWriter == null) {
-                                                    try {
-                                                        fileWriter.close();
-                                                        return;
-                                                    } catch (Exception e8) {
-                                                        BdLog.e(e8.getMessage());
-                                                        return;
-                                                    }
                                                 }
-                                                return;
                                             } catch (Throwable th2) {
                                                 th = th2;
                                                 fileWriter = fileWriter3;
                                                 fileInputStream = fileInputStream2;
                                                 byteArrayOutputStream = byteArrayOutputStream3;
                                                 if (byteArrayOutputStream != null) {
-                                                    try {
-                                                        byteArrayOutputStream.close();
-                                                    } catch (Exception e9) {
-                                                        BdLog.e(e9.getMessage());
-                                                    }
                                                 }
                                                 if (fileInputStream != null) {
-                                                    try {
-                                                        fileInputStream.close();
-                                                    } catch (Exception e10) {
-                                                        BdLog.e(e10.getMessage());
-                                                    }
                                                 }
                                                 if (fileWriter != null) {
-                                                    try {
-                                                        fileWriter.close();
-                                                    } catch (Exception e11) {
-                                                        BdLog.e(e11.getMessage());
-                                                    }
                                                 }
                                                 throw th;
                                             }
@@ -319,7 +321,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [182=4] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [184=4] */
         /* JADX WARN: Removed duplicated region for block: B:35:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.

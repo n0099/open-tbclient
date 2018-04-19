@@ -74,16 +74,16 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
                 switch (i) {
                     case 0:
                         i.pY().al(true);
-                        i.pY().bz(0);
+                        i.pY().by(0);
                         break;
                     case 1:
                         i.pY().al(true);
-                        i.pY().bz(1);
+                        i.pY().by(1);
                         TiebaStatic.log(new al("c10415").r("obj_type", 1));
                         break;
                     case 2:
                         i.pY().al(true);
-                        i.pY().bz(2);
+                        i.pY().by(2);
                         TiebaStatic.log(new al("c10415").r("obj_type", 3));
                         break;
                     case 3:
@@ -115,8 +115,8 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
                         i2 = 0;
                         break;
                 }
-                i.pY().by(i2);
-                b.this.sw(i2);
+                i.pY().bx(i2);
+                b.this.sv(i2);
             }
         };
         this.gie = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.b.3
@@ -126,15 +126,15 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
                 switch (i) {
                     case 0:
                         TiebaStatic.log(new al("set_viewnophoto").r("obj_index", 2));
-                        i.pY().bx(0);
+                        i.pY().bw(0);
                         break;
                     case 1:
                         TiebaStatic.log(new al("set_viewnophoto").r("obj_index", 1));
-                        i.pY().bx(1);
+                        i.pY().bw(1);
                         break;
                     case 2:
                         TiebaStatic.log(new al("set_viewnophoto").r("obj_index", 3));
-                        i.pY().bx(2);
+                        i.pY().bw(2);
                         break;
                 }
                 b.this.blM();
@@ -189,7 +189,7 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
     public void onChangeSkinType(int i) {
         this.ghI.getLayoutMode().setNightMode(i == 1);
         this.ghI.getLayoutMode().u(this.mParent);
-        this.ghL.setBackgroundRes(ak.cO(d.f.bg_switch_open), ak.cO(d.f.bg_switch_close), ak.cO(d.f.btn_handle));
+        this.ghL.setBackgroundRes(ak.cN(d.f.bg_switch_open), ak.cN(d.f.bg_switch_close), ak.cN(d.f.btn_handle));
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 
@@ -294,7 +294,7 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.ghX.add(new h(this.ghI.getPageContext().getString(d.k.view_low), this.ghI.getPageContext().getString(d.k.view_image_quality_low_menu_desc), qe && viewImageQuality == 2));
         this.ghX.add(new h(this.ghI.getPageContext().getString(d.k.close), this.ghI.getPageContext().getString(d.k.view_image_quality_close_menu_desc), qe ? false : true));
         this.ghR = new com.baidu.tbadk.core.dialog.e(this.ghI.getPageContext());
-        this.ghR.cj(d.k.browser_image_quality);
+        this.ghR.ci(d.k.browser_image_quality);
         this.ghR.a(this.ghX, this.gib).tH();
     }
 
@@ -304,7 +304,7 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.ghZ.add(new h(this.ghI.getPageContext().getString(d.k.image_water_show_user_name), null, qc == 1));
         this.ghZ.add(new h(this.ghI.getPageContext().getString(d.k.image_water_show_forum_name), null, qc == 2));
         this.ghZ.add(new h(this.ghI.getPageContext().getString(d.k.image_water_show_none), null, qc == 0));
-        this.ghS = new com.baidu.tbadk.core.dialog.e(this.ghI.getPageContext()).cj(d.k.add_image_water);
+        this.ghS = new com.baidu.tbadk.core.dialog.e(this.ghI.getPageContext()).ci(d.k.add_image_water);
         this.ghS.a(this.ghZ, this.gic).tH();
     }
 
@@ -314,7 +314,7 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.ghY.add(new h(this.ghI.getPageContext().getString(d.k.view_image_quality_auto_menu), this.ghI.getPageContext().getString(d.k.is_wifiopen_dialog), pZ == 0));
         this.ghY.add(new h(this.ghI.getPageContext().getString(d.k.is_alwaysopen), null, pZ == 1));
         this.ghY.add(new h(this.ghI.getPageContext().getString(d.k.is_close), null, pZ == 2));
-        this.ghT = new com.baidu.tbadk.core.dialog.e(this.ghI.getPageContext()).cj(d.k.show_photo);
+        this.ghT = new com.baidu.tbadk.core.dialog.e(this.ghI.getPageContext()).ci(d.k.show_photo);
         this.ghT.a(this.ghY, this.gie).tH();
     }
 
@@ -326,7 +326,7 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.ghW.add(new h(this.ghI.getPageContext().getString(d.k.font_size_big), null, fontSize == 1));
         this.ghW.add(new h(this.ghI.getPageContext().getString(d.k.font_size_mid), null, fontSize == 2));
         this.ghW.add(new h(this.ghI.getPageContext().getString(d.k.font_size_small), null, fontSize == 3));
-        this.ghU.cj(d.k.font_size);
+        this.ghU.ci(d.k.font_size);
         this.ghU.a(this.ghW, this.gif);
         this.ghU.tH();
     }
@@ -339,15 +339,15 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.gia.add(new h(this.ghI.getPageContext().getString(d.k.video_auto_play_in_wifi), null, videoAutoPlay == 0));
         this.gia.add(new h(this.ghI.getPageContext().getString(d.k.close), null, videoAutoPlay == 1));
         if (an.fz()) {
-            this.ghV.cj(d.k.video_gif_auto_play);
+            this.ghV.ci(d.k.video_gif_auto_play);
         } else {
-            this.ghV.cj(d.k.video_auto_play);
+            this.ghV.ci(d.k.video_auto_play);
         }
         this.ghV.a(this.gia, this.gig);
         this.ghV.tH();
     }
 
-    public void sv(int i) {
+    public void su(int i) {
         if (i == 1) {
             if (TbadkCoreApplication.getInst().getSkinType() != 1) {
                 onChangeSkinType(i);
@@ -400,11 +400,11 @@ public class b extends com.baidu.adp.base.c<BrowseSettingActivity> {
     }
 
     private void blL() {
-        sw(i.pY().qc());
+        sv(i.pY().qc());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sw(int i) {
+    public void sv(int i) {
         switch (i) {
             case 0:
                 this.ghN.setTip(this.mContext.getString(d.k.image_water_show_none));

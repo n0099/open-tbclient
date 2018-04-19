@@ -147,7 +147,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dC(int i) {
+    public void dB(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b

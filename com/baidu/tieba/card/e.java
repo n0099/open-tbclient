@@ -80,13 +80,13 @@ public class e extends a<com.baidu.tieba.e.a> {
         }
     }
 
-    public void iJ(int i) {
+    public void iI(int i) {
         if (this.cmn != null) {
             this.cmn.setVisibility(i);
         }
     }
 
-    public void iK(int i) {
+    public void iJ(int i) {
         if (this.cms != null) {
             this.cms.setVisibility(i);
         }
@@ -126,7 +126,7 @@ public class e extends a<com.baidu.tieba.e.a> {
                 this.cml.setVisibility(0);
                 this.cmm.setVisibility(0);
                 if (aVar.Pe().sh() != null) {
-                    this.cmm.setText(an.cV(aVar.Pe().sh().video_duration.intValue() * 1000));
+                    this.cmm.setText(an.cU(aVar.Pe().sh().video_duration.intValue() * 1000));
                     str = aVar.Pe().sh().thumbnail_url;
                 }
             } else {

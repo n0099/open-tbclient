@@ -151,7 +151,7 @@ public class a {
             if (threadInfo != null) {
                 bd bdVar = new bd();
                 bdVar.a(threadInfo);
-                bdVar.bV(1);
+                bdVar.bU(1);
                 if (!TextUtils.isEmpty(bdVar.sH())) {
                     ac acVar = new ac();
                     acVar.cI(bdVar.sH());

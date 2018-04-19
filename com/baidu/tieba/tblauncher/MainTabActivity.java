@@ -153,11 +153,11 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
                 int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
                 if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
                     if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-                        MainTabActivity.this.gAN.btV().cw(1);
+                        MainTabActivity.this.gAN.btV().cv(1);
                     } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-                        MainTabActivity.this.gAN.btV().cw(2);
+                        MainTabActivity.this.gAN.btV().cv(2);
                     } else {
-                        MainTabActivity.this.gAN.btV().cw(1);
+                        MainTabActivity.this.gAN.btV().cv(1);
                     }
                 }
             }
@@ -1026,7 +1026,7 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
     }
 
     protected void F(Activity activity) {
-        new com.baidu.tbadk.core.dialog.a(activity).bZ(d.k.confirm_title).ar(false).ca(d.k.background_process_permission).a(d.k.now_goto_setting, new a.b() { // from class: com.baidu.tieba.tblauncher.MainTabActivity.14
+        new com.baidu.tbadk.core.dialog.a(activity).bY(d.k.confirm_title).ar(false).bZ(d.k.background_process_permission).a(d.k.now_goto_setting, new a.b() { // from class: com.baidu.tieba.tblauncher.MainTabActivity.14
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 try {
@@ -1219,7 +1219,7 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
             final Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(getPageContext().getPageActivity());
             thread2GroupShareView.setData(shareFromPBMsgData);
-            aVar.cc(1);
+            aVar.cb(1);
             aVar.w(thread2GroupShareView);
             aVar.a(d.k.share, new a.b() { // from class: com.baidu.tieba.tblauncher.MainTabActivity.17
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -1252,7 +1252,7 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         this.gAN.onChangeSkinType(i);
-        bv(i);
+        bu(i);
         if (this.dld != null) {
             this.dld.onChangeSkinType();
         }

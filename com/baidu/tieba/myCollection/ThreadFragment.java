@@ -164,7 +164,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                     e.printStackTrace();
                     BdLog.d(e.getMessage());
                 }
-                ThreadFragment.this.ba(1);
+                ThreadFragment.this.aZ(1);
             }
         });
         return inflate;
@@ -190,7 +190,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         if (this.eTG != null) {
             this.eTG.ai(this.eTd);
             this.TU = (this.eTd == null || this.eTd.isEmpty()) ? false : true;
-            ba(1);
+            aZ(1);
             refresh();
         }
     }
@@ -232,7 +232,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
             al alVar = new al("c12529");
             if (view2.getId() == this.eTG.iU(isShareThread)) {
                 this.eTG.alR();
-                if (!this.eTa.pM(intValue)) {
+                if (!this.eTa.pL(intValue)) {
                     this.eTG.atM();
                 }
             } else if (view2.getId() == this.eTG.iV(isShareThread)) {
@@ -296,9 +296,9 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                     com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgBookmark(0);
                 }
                 if (aSX > 0) {
-                    this.eTa.pL(aSX - 1);
+                    this.eTa.pK(aSX - 1);
                 } else {
-                    this.eTa.pL(0);
+                    this.eTa.pK(0);
                 }
             }
             markData.setNewCounts(0);

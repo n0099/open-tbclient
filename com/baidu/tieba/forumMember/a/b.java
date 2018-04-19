@@ -17,13 +17,13 @@ public class b implements h {
         return this.cTM;
     }
 
-    public void jR(int i) {
+    public void jQ(int i) {
         this.cTM = i;
     }
 
     public void a(MemberGodInfo memberGodInfo) {
         if (memberGodInfo != null && memberGodInfo.forum_god_list != null && memberGodInfo.forum_god_list.size() > 0) {
-            jR(memberGodInfo.forum_god_num.intValue());
+            jQ(memberGodInfo.forum_god_num.intValue());
         }
     }
 }

@@ -35,7 +35,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: nW */
+    /* renamed from: nV */
     public GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
         if (itemId < 0 || itemId >= this.ega.size()) {

@@ -20,7 +20,7 @@ public class ChooseColorLayout extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void qR(int i);
+        void qQ(int i);
     }
 
     public ChooseColorLayout(Context context) {
@@ -46,7 +46,7 @@ public class ChooseColorLayout extends LinearLayout {
                     ChooseColorLayout.this.fBm = ((ChooseColorView) view2).getChooseColor();
                     ((ChooseColorView) view2).setIsChooseView(true);
                     if (ChooseColorLayout.this.fBo != null) {
-                        ChooseColorLayout.this.fBo.qR(ChooseColorLayout.this.fBm);
+                        ChooseColorLayout.this.fBo.qQ(ChooseColorLayout.this.fBm);
                     }
                 }
             }

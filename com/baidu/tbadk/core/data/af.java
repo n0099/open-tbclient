@@ -15,7 +15,7 @@ public class af {
     public af() {
         this.YC = null;
         this.YC = new ArrayList<>();
-        bC(0);
+        bB(0);
     }
 
     public UserData getUser() {
@@ -44,13 +44,13 @@ public class af {
                     this.YC.add(optJSONArray.optString(i, null));
                 }
             }
-            bC(jSONObject.optInt("retrytime"));
+            bB(jSONObject.optInt("retrytime"));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void bC(int i) {
+    public void bB(int i) {
         this.YD = i;
     }
 }

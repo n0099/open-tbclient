@@ -49,7 +49,7 @@ public class c {
         b(activity, i, z);
     }
 
-    public void di(int i) {
+    public void dh(int i) {
         if (this.amI) {
             if (i != this.mSkinType && this.amG != null) {
                 ak.j(this.amG, this.amH);
@@ -112,7 +112,7 @@ public class c {
                     wH();
                 } else {
                     this.amE.height = i - i2;
-                    dj(200);
+                    di(200);
                     if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
                         TbadkCoreApplication.getInst().setKeyboardHeight(i2);
                     }
@@ -137,7 +137,7 @@ public class c {
         this.amC.requestLayout();
     }
 
-    private void dj(int i) {
+    private void di(int i) {
         if (this.amF != null) {
             com.baidu.adp.lib.g.e.fw().removeCallbacks(this.amF);
             this.amF = null;

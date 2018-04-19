@@ -66,7 +66,7 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         if (this.cvT != null) {
             this.mNavigationBar.getTopCoverBgView().setVisibility(0);
             this.mNavigationBar.getBackground().mutate().setAlpha(0);
-            this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cP(d.f.s_navbar_bg)));
+            this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cO(d.f.s_navbar_bg)));
         }
     }
 
@@ -91,7 +91,7 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         this.cvU.setVisibility(8);
     }
 
-    public void ja(int i) {
+    public void iZ(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cvU.getLayoutParams();
         if (layoutParams.leftMargin != i) {
             layoutParams.leftMargin = i;
@@ -207,7 +207,7 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         public void a(boolean z, float f) {
             b(z, f);
             this.cvY.setVisibility(8);
-            this.cvX.ja(this.mContext.getResources().getDimensionPixelSize(d.e.ds60));
+            this.cvX.iZ(this.mContext.getResources().getDimensionPixelSize(d.e.ds60));
         }
 
         private void b(boolean z, float f) {

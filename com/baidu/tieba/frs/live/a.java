@@ -64,7 +64,7 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.dmC != null) {
-                a.this.dmC.kU(a.this.mForumId);
+                a.this.dmC.kT(a.this.mForumId);
             }
         }
     };
@@ -107,7 +107,7 @@ public class a {
 
     public void atS() {
         if (this.cYF != null) {
-            this.cYF.apl().lt(49);
+            this.cYF.apl().ls(49);
         }
     }
 

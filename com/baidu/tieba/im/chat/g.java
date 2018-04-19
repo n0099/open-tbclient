@@ -232,7 +232,7 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ni(int i) {
+    public void nh(int i) {
         this.dRe.setVisibility(i);
     }
 
@@ -305,7 +305,7 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
         this.dRg = z;
     }
 
-    public void nh(int i) {
+    public void ng(int i) {
         this.dQJ = i;
     }
 }

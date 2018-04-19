@@ -293,7 +293,7 @@ public class UtilHelper {
     }
 
     public static void quitDialog(final Activity activity) {
-        new com.baidu.tbadk.core.dialog.a(activity).bZ(d.k.inform).ar(false).ca(d.k.alert_quit_confirm).a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tbadk.core.util.UtilHelper.2
+        new com.baidu.tbadk.core.dialog.a(activity).bY(d.k.inform).ar(false).bZ(d.k.alert_quit_confirm).a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tbadk.core.util.UtilHelper.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
@@ -1059,9 +1059,9 @@ public class UtilHelper {
             if (i == 2) {
                 int statusBarHeight = getStatusBarHeight();
                 int af = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst());
-                Bitmap cO = ak.cO(d.f.s_navbar_bg);
-                if (cO != null) {
-                    Bitmap resizeBitmap = BitmapHelper.resizeBitmap(cO, af, statusBarHeight, false);
+                Bitmap cN = ak.cN(d.f.s_navbar_bg);
+                if (cN != null) {
+                    Bitmap resizeBitmap = BitmapHelper.resizeBitmap(cN, af, statusBarHeight, false);
                     if (resizeBitmap != null) {
                         view2.setBackgroundDrawable(new BitmapDrawable(resizeBitmap));
                         return;
@@ -1361,10 +1361,10 @@ public class UtilHelper {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        Bitmap cO = ak.cO(i);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
-        if (cO != null) {
-            bitmapDrawable.setBounds(0, 0, cO.getWidth(), cO.getHeight());
+        Bitmap cN = ak.cN(i);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
+        if (cN != null) {
+            bitmapDrawable.setBounds(0, 0, cN.getWidth(), cN.getHeight());
         }
         com.baidu.tbadk.core.view.h hVar = new com.baidu.tbadk.core.view.h(bitmapDrawable);
         hVar.setOffset(com.baidu.adp.lib.util.l.e(context, d.e.ds4));
@@ -1387,10 +1387,10 @@ public class UtilHelper {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        Bitmap cO = ak.cO(i);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
-        if (cO != null) {
-            bitmapDrawable.setBounds(0, 0, cO.getWidth(), cO.getHeight());
+        Bitmap cN = ak.cN(i);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
+        if (cN != null) {
+            bitmapDrawable.setBounds(0, 0, cN.getWidth(), cN.getHeight());
         }
         com.baidu.tbadk.core.view.k kVar = new com.baidu.tbadk.core.view.k(bitmapDrawable);
         int length = spannableStringBuilder.length();
@@ -1489,7 +1489,7 @@ public class UtilHelper {
                 boolean z6 = intExtra9 == 25 && intExtra2 > 0;
                 if (z4) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AgreeMeActivityConfig(context)));
-                    com.baidu.tbadk.coreExtra.messageCenter.a.zx().dT(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(0);
                     Intent intent2 = new Intent();
                     intent2.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016321, intent2));

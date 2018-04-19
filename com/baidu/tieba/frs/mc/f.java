@@ -33,7 +33,7 @@ public class f extends h {
                     bd bdVar = (bd) customResponsedMessage.getData();
                     f.this.dcw = bdVar.getId();
                     if (!TextUtils.isEmpty(f.this.dcw) && bdVar.rF() != null) {
-                        f.this.kt(bdVar.rF().getIsLike());
+                        f.this.ks(bdVar.rF().getIsLike());
                     }
                 }
             }
@@ -52,7 +52,7 @@ public class f extends h {
                         if (f.this.dnS != null && f.this.dnS.rF().getIsLike() == 1) {
                             i = 0;
                         }
-                        f.this.kt(i);
+                        f.this.ks(i);
                     }
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
                 }
@@ -60,7 +60,7 @@ public class f extends h {
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void R(int i, String str) {
                     if (f.this.dmZ != null && f.this.dmZ.getPageContext() != null && f.this.dnT && !TextUtils.isEmpty(str)) {
-                        if (AntiHelper.tu(i)) {
+                        if (AntiHelper.tt(i)) {
                             AntiHelper.am(f.this.dmZ.getPageContext().getPageActivity(), str);
                         } else {
                             f.this.dmZ.showToast(str);
@@ -72,7 +72,7 @@ public class f extends h {
         return this.dnU;
     }
 
-    public void kt(int i) {
+    public void ks(int i) {
         ArrayList<com.baidu.adp.widget.ListView.h> threadList;
         l apE = this.dmZ.apE();
         if (apE != null && this.cXk != null && (threadList = apE.getThreadList()) != null) {

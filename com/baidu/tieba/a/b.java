@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class b {
     private HashMap<Integer, Integer> bbR = new HashMap<>();
 
-    public int gn(int i) {
+    public int gm(int i) {
         if (this.bbR != null && this.bbR.containsKey(Integer.valueOf(i))) {
             return this.bbR.get(Integer.valueOf(i)).intValue();
         }

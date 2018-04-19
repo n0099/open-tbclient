@@ -46,7 +46,7 @@ public class g extends a {
         this.aHW.setText(str);
     }
 
-    public void fa(int i) {
+    public void eZ(int i) {
         ((LinearLayout.LayoutParams) this.aHZ.getLayoutParams()).topMargin = i;
     }
 
@@ -76,7 +76,7 @@ public class g extends a {
         this.aHV.setImageResource(0);
     }
 
-    public void fb(int i) {
+    public void fa(int i) {
         ViewGroup.LayoutParams layoutParams = this.aHV.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;

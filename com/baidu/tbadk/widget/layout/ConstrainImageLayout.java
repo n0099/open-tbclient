@@ -301,7 +301,7 @@ public class ConstrainImageLayout extends ViewGroup {
         this.aTG = new Paint();
         this.aTG.setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0126d.black_alpha40));
         this.aTG.setAntiAlias(true);
-        this.aTJ = ak.cO(d.f.icon_image_home_n);
+        this.aTJ = ak.cN(d.f.icon_image_home_n);
     }
 
     public void setImageClickListener(c cVar) {
@@ -359,7 +359,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public void setUrls(List<MediaData> list, int i, boolean z) {
         int v;
         if (this.aTB != null && (v = v.v(list)) > 0) {
-            fH(v);
+            fG(v);
             int childCount = getChildCount();
             int i2 = this.akC ? 13 : 14;
             int i3 = 0;
@@ -456,7 +456,7 @@ public class ConstrainImageLayout extends ViewGroup {
         this.aTC = i;
     }
 
-    private void fH(int i) {
+    private void fG(int i) {
         int childCount = getChildCount() - i;
         if (childCount > 0) {
             removeViews(i, childCount);

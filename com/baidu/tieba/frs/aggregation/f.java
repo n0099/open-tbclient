@@ -97,12 +97,12 @@ public class f implements a {
         this.dbs.onConfigurationChanged(configuration);
     }
 
-    public boolean kr(int i) {
-        return this.dbs.kr(i);
+    public boolean kq(int i) {
+        return this.dbs.kq(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
-    public void kq(int i) {
+    public void kp(int i) {
         this.dbu = i;
         if (!v.w(this.mDatas) && this.mListView != null) {
             for (com.baidu.adp.widget.ListView.h hVar : this.mDatas) {

@@ -193,11 +193,11 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        dA(TbadkCoreApplication.getInst().getSkinType());
+        dz(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void dA(int i) {
+    public void dz(int i) {
         ak.c(this.aIi, this.aIf, 1);
         if (this.aIi != null) {
             if (this.aIi.getText() != null && an.isEmpty(this.aIi.getText().toString())) {
@@ -207,7 +207,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             }
         }
         for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.aIl.entrySet()) {
-            entry.getValue().dA(i);
+            entry.getValue().dz(i);
         }
     }
 

@@ -39,7 +39,7 @@ public class a extends f<n, C0135a> {
         TiebaStatic.log(new al("c10835"));
         if (nVar != null) {
             nVar.bjq = i + 1;
-            c0135a.dfH.iM(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0135a.dfH.iL(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
             c0135a.dfH.showBottomLine(this.dfG);
             c0135a.dfH.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }

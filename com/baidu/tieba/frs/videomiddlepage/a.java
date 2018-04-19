@@ -314,7 +314,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             this.daY.lo(false);
             this.daY.lr(true);
             this.daY.K(false, false);
-            this.daY.rp(i);
+            this.daY.ro(i);
             this.daY.a(new c.b() { // from class: com.baidu.tieba.frs.videomiddlepage.a.6
                 @Override // com.baidu.tieba.play.c.b
                 public void aqV() {
@@ -407,7 +407,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                 @Override // com.baidu.tieba.play.c.InterfaceC0201c
                 public void fG(boolean z) {
                     if (!a.this.daY.bga()) {
-                        a.this.lx(0);
+                        a.this.lw(0);
                         a.this.drj.setVisibility(0);
                         a.this.dri.setVisibility(0);
                         a.this.drh.setVisibility(0);
@@ -422,7 +422,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                         if (a.this.drh.getVisibility() == 8) {
                             a.this.drh.setVisibility(0);
                         }
-                        a.this.lx(1);
+                        a.this.lw(1);
                     } else {
                         if (a.this.drj.getVisibility() == 0) {
                             a.this.drj.setVisibility(8);
@@ -434,13 +434,13 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                         if (a.this.drh.getVisibility() == 0) {
                             a.this.drh.setVisibility(8);
                         }
-                        a.this.lx(0);
+                        a.this.lw(0);
                     }
                 }
 
                 @Override // com.baidu.tieba.play.c.InterfaceC0201c
                 public void aqZ() {
-                    a.this.lx(1);
+                    a.this.lw(1);
                     if (!a.this.daY.bga()) {
                         a.this.drj.setVisibility(0);
                         a.this.dri.setVisibility(0);
@@ -466,7 +466,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                         a.this.dbd = false;
                     }
                     if (aVar != null && !a.this.isFullScreen) {
-                        aVar.kq(i);
+                        aVar.kp(i);
                         a.this.daY.ayA();
                     }
                 }
@@ -522,7 +522,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lx(int i) {
+    public void lw(int i) {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921317);
         CustomMessage customMessage = new CustomMessage(2921317);
         if (i == 1) {
@@ -554,8 +554,8 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         }
     }
 
-    public boolean kr(int i) {
-        return this.daY.ro(i);
+    public boolean kq(int i) {
+        return this.daY.rn(i);
     }
 
     public void aqS() {
@@ -773,12 +773,12 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             xd();
         } else if (view2 == this.drg && this.drg.getVisibility() == 0) {
             if (this.drk != null) {
-                this.drk.ly(this.mPosition);
+                this.drk.lx(this.mPosition);
             }
         } else if (view2 == this.dri || view2 == this.drj || view2 == this.drh) {
             if (this.drg.getVisibility() == 0) {
                 if (this.drk != null) {
-                    this.drk.ly(this.mPosition);
+                    this.drk.lx(this.mPosition);
                     return;
                 }
                 return;
@@ -793,7 +793,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             if (this.drh.getVisibility() == 0) {
                 this.drh.setVisibility(8);
             }
-            lx(0);
+            lw(0);
         }
     }
 

@@ -66,7 +66,7 @@ public class v {
                 this.aua = jSONObject.optInt("localvideo_open", 2);
                 this.aub = jSONObject.optInt("card_show_statistic", 200);
                 this.auc = jSONObject.optString("clean_smart_frs_cookie");
-                com.baidu.tbadk.pageStayDuration.e.Gt().ff(jSONObject.optInt("statlog_path_max", 3));
+                com.baidu.tbadk.pageStayDuration.e.Gt().fe(jSONObject.optInt("statlog_path_max", 3));
                 this.atW = jSONObject.optInt("photo_cache_num", 30);
                 this.uegVoiceWarning = jSONObject.optString("ueg_voice_warning");
                 this.aud = jSONObject.optString("nickname_activity_link");
@@ -83,7 +83,7 @@ public class v {
                     this.auh = new q();
                     this.auh.parse(optJSONObject2);
                 }
-                com.baidu.tieba.im.db.n.nu(jSONObject.optInt("android_max_stranger"));
+                com.baidu.tieba.im.db.n.nt(jSONObject.optInt("android_max_stranger"));
                 this.auj = jSONObject.optInt("style_ab_switch", 0);
                 this.auk = jSONObject.optInt("abstract_ab_switch", 0);
                 this.aui = jSONObject.optString("android_splash_video");

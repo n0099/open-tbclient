@@ -35,7 +35,7 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view2, viewGroup, chatMessage, aVar);
         MsgrightView aAU = aVar.aAU();
-        aAU.nh(this.dQJ);
+        aAU.ng(this.dQJ);
         aAU.gJ(this.dQS);
         chatMessage.getCacheData().setIs_left(0);
         aAU.a(this.dQz);

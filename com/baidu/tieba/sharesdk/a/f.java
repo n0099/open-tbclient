@@ -90,7 +90,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
         if (shareEntity == null || this.gkM == null) {
-            sB(2);
+            sA(2);
             if (bVar != null) {
                 bVar.bC(0, 2);
                 return;
@@ -160,7 +160,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             if (f.this.gkI != null) {
                 f.this.gkI.bC(f.this.gkw, 3);
             }
-            f.this.sB(3);
+            f.this.sA(3);
         }
     }
 
@@ -319,18 +319,18 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
                     if (f.this.gkI != null) {
                         f.this.gkI.bC(f.this.gkw, 1);
                     }
-                    f.this.sB(1);
+                    f.this.sA(1);
                 } else if (intExtra == -2) {
                     if (f.this.gkI != null) {
                         f.this.gkI.bC(f.this.gkw, 3);
                     }
-                    f.this.sB(3);
+                    f.this.sA(3);
                 } else {
                     f.this.ak(intExtra, intent.getStringExtra("weixin_result_errMsg"));
                     if (f.this.gkI != null) {
                         f.this.gkI.bC(f.this.gkw, 2);
                     }
-                    f.this.sB(2);
+                    f.this.sA(2);
                 }
             }
         }

@@ -350,7 +350,7 @@ public class VideoPlayFragment extends BaseFragment implements VerticalViewPager
         this.gUX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                VideoPlayFragment.this.uD(VideoPlayFragment.this.gUS);
+                VideoPlayFragment.this.uC(VideoPlayFragment.this.gUS);
             }
         });
         this.gUZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.4
@@ -510,7 +510,7 @@ public class VideoPlayFragment extends BaseFragment implements VerticalViewPager
                     if (z) {
                         VideoPlayFragment.this.gVq.setText(d.k.reply_something);
                     } else {
-                        VideoPlayFragment.this.gVq.setText(StringUtils.isNull(((c) VideoPlayFragment.this.gVy.DF().eI(28)).getInputView().getText().toString()) ? d.k.reply_something : d.k.draft_to_replay);
+                        VideoPlayFragment.this.gVq.setText(StringUtils.isNull(((c) VideoPlayFragment.this.gVy.DF().eH(28)).getInputView().getText().toString()) ? d.k.reply_something : d.k.draft_to_replay);
                     }
                     if (VideoPlayFragment.this.gVk != null && z) {
                         VideoPlayFragment.this.gVd.setText(an.B(com.baidu.adp.lib.g.b.c(VideoPlayFragment.this.gVk.comment_num, 0L) + 1));
@@ -647,7 +647,7 @@ public class VideoPlayFragment extends BaseFragment implements VerticalViewPager
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uD(int i) {
+    public void uC(int i) {
         int i2;
         if (az.aK(getActivity()) && this.gVk != null) {
             if (i == this.gUS) {
@@ -725,7 +725,7 @@ public class VideoPlayFragment extends BaseFragment implements VerticalViewPager
             this.gVy.DF().hide();
         }
         this.gVp.setVisibility(0);
-        this.gVq.setText(StringUtils.isNull(((c) this.gVy.DF().eI(28)).getInputView().getText().toString()) ? d.k.reply_something : d.k.draft_to_replay);
+        this.gVq.setText(StringUtils.isNull(((c) this.gVy.DF().eH(28)).getInputView().getText().toString()) ? d.k.reply_something : d.k.draft_to_replay);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -935,7 +935,7 @@ public class VideoPlayFragment extends BaseFragment implements VerticalViewPager
                     public void onClick() {
                         VideoPlayFragment.this.cpy.dismiss();
                         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(VideoPlayFragment.this.getActivity());
-                        aVar.ca(d.k.del_thread_confirm);
+                        aVar.bZ(d.k.del_thread_confirm);
                         aVar.a(d.k.dialog_ok, new a.b() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.17.1
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1050,8 +1050,8 @@ public class VideoPlayFragment extends BaseFragment implements VerticalViewPager
                     aVar.dismiss();
                 }
             });
-            this.gVz.cc(1);
-            this.gVz.cb(d.C0126d.cp_cont_b);
+            this.gVz.cb(1);
+            this.gVz.ca(d.C0126d.cp_cont_b);
             this.gVz.ar(true);
             this.gVz.b(getPageContext());
             this.gVz.tD();
@@ -1117,7 +1117,7 @@ public class VideoPlayFragment extends BaseFragment implements VerticalViewPager
         if (az.aK(getActivity()) && !this.gVu) {
             bzJ();
             if (this.gVk != null && "0".equals(this.gVk.is_agreed)) {
-                uD(this.gUT);
+                uC(this.gUT);
             }
         }
     }
@@ -1193,8 +1193,8 @@ public class VideoPlayFragment extends BaseFragment implements VerticalViewPager
         }
         this.gVy.DF().hide();
         this.gVp.setVisibility(0);
-        if ((this.gVy.DF().eI(28) instanceof c) && ((c) this.gVy.DF().eI(28)).getInputView() != null && ((c) this.gVy.DF().eI(28)).getInputView().getText() != null) {
-            this.gVq.setText(StringUtils.isNull(((c) this.gVy.DF().eI(28)).getInputView().getText().toString()) ? d.k.reply_something : d.k.draft_to_replay);
+        if ((this.gVy.DF().eH(28) instanceof c) && ((c) this.gVy.DF().eH(28)).getInputView() != null && ((c) this.gVy.DF().eH(28)).getInputView().getText() != null) {
+            this.gVq.setText(StringUtils.isNull(((c) this.gVy.DF().eH(28)).getInputView().getText().toString()) ? d.k.reply_something : d.k.draft_to_replay);
         }
         return true;
     }

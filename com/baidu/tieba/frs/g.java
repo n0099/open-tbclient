@@ -24,7 +24,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
         return this.cWW;
     }
 
-    public void ka(int i) {
+    public void jZ(int i) {
         this.cWW = i;
     }
 }

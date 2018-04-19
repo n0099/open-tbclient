@@ -36,7 +36,7 @@ public class l {
 
     public l(ImageView imageView, int i, int i2, int i3) {
         this.mBitmap = null;
-        this.agn = cA(i);
+        this.agn = cz(i);
         this.agp = new SoftReference<>(imageView);
         this.agq = 1000 / i2;
         this.ags = i3;
@@ -129,7 +129,7 @@ public class l {
         this.agr = aVar;
     }
 
-    private int[] cA(int i) {
+    private int[] cz(int i) {
         TypedArray obtainTypedArray = TbadkCoreApplication.getInst().getResources().obtainTypedArray(i);
         int length = obtainTypedArray.length();
         int[] iArr = new int[obtainTypedArray.length()];

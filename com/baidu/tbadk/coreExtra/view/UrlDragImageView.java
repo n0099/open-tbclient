@@ -1051,7 +1051,7 @@ public class UrlDragImageView extends RelativeLayout implements View.OnClickList
                 } else {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("original_img_down_tip", true);
                     final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(ab.getPageActivity());
-                    aVar.ca(d.k.original_img_down_no_wifi_tip);
+                    aVar.bZ(d.k.original_img_down_no_wifi_tip);
                     aVar.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.4
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

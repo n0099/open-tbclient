@@ -78,7 +78,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
             com.baidu.tbadk.n.a.a(this.fSQ.getPageContext(), this.mRootView);
         }
         if (this.blb != null) {
-            this.blb.dw(i);
+            this.blb.dv(i);
         }
         if (this.fTh != null) {
             this.fTh.notifyDataSetChanged();
@@ -191,7 +191,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
 
     private void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.fSQ.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.fSQ.getActivity(), d.e.ds320)), NoDataViewFactory.d.dp(d.k.text_no_search_result), null);
+            this.mNoDataView = NoDataViewFactory.a(this.fSQ.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.fSQ.getActivity(), d.e.ds320)), NoDataViewFactory.d.m16do(d.k.text_no_search_result), null);
             this.mNoDataView.onChangeSkinType(this.fSQ.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);

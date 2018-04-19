@@ -213,11 +213,11 @@ public class e implements ag {
         a(memberGodInfo, arrayList);
         p pVar = new p();
         if (managerApplyInfo != null) {
-            pVar.jT(managerApplyInfo.manager_left_num.intValue());
+            pVar.jS(managerApplyInfo.manager_left_num.intValue());
             pVar.lC(managerApplyInfo.manager_apply_url);
-            pVar.jV(managerApplyInfo.assist_left_num.intValue());
+            pVar.jU(managerApplyInfo.assist_left_num.intValue());
             pVar.lD(managerApplyInfo.assist_apply_url);
-            pVar.jU(managerApplyInfo.manager_apply_status.intValue());
+            pVar.jT(managerApplyInfo.manager_apply_status.intValue());
         }
         arrayList.add(pVar);
         b bVar = new b();
@@ -274,7 +274,7 @@ public class e implements ag {
             e = com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds200);
         }
         gVar.setHeight(ah - ((e + (e2 + e3)) + (e4 * size)));
-        gVar.ka(d.f.transparent_bg);
+        gVar.jZ(d.f.transparent_bg);
         return gVar;
     }
 

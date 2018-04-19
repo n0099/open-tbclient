@@ -103,7 +103,7 @@ public class af {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("pull_image_url", "");
         final int g = com.baidu.adp.lib.g.b.g(str3, 0);
         if (str.equals(string)) {
-            if (cJ(g)) {
+            if (cI(g)) {
                 vy();
                 return;
             } else if (vC()) {
@@ -113,7 +113,7 @@ public class af {
                         File vB = af.this.vB();
                         if (af.this.d(vB, str2)) {
                             af.this.s(vB);
-                            if (af.this.cJ(g)) {
+                            if (af.this.cI(g)) {
                                 af.this.vz();
                                 return;
                             }
@@ -140,7 +140,7 @@ public class af {
         });
     }
 
-    public AnimationDrawable cG(int i) {
+    public AnimationDrawable cF(int i) {
         Drawable[] drawableArr;
         if (this.ahS != null) {
             boolean z = i == 1;
@@ -156,7 +156,7 @@ public class af {
         return null;
     }
 
-    public AnimationDrawable cH(int i) {
+    public AnimationDrawable cG(int i) {
         a[] aVarArr;
         if (this.ahT == null) {
             this.ahT = new a[this.ahU.length];
@@ -168,13 +168,13 @@ public class af {
         if (z && !this.ahV) {
             this.ahV = true;
             for (int i3 = 0; i3 < this.ahU.length; i3++) {
-                this.ahT[i3].aij = new BitmapDrawable(ak.cQ(this.ahU[i3]));
+                this.ahT[i3].aij = new BitmapDrawable(ak.cP(this.ahU[i3]));
             }
         }
         if (!z && !this.ahW) {
             this.ahW = true;
             for (int i4 = 0; i4 < this.ahU.length; i4++) {
-                this.ahT[i4].aii = new BitmapDrawable(ak.cQ(this.ahU[i4]));
+                this.ahT[i4].aii = new BitmapDrawable(ak.cP(this.ahU[i4]));
             }
         }
         AnimationDrawable animationDrawable = new AnimationDrawable();
@@ -189,7 +189,7 @@ public class af {
         return animationDrawable;
     }
 
-    public int cI(int i) {
+    public int cH(int i) {
         if (i == 1) {
             return this.ahZ;
         }
@@ -204,7 +204,7 @@ public class af {
         this.ahY = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pullview_background_color_day", -1315344);
         this.ahZ = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pullview_background_color_night", -14670029);
         if (!TextUtils.isEmpty(string)) {
-            if (i > 0 && cJ(i)) {
+            if (i > 0 && cI(i)) {
                 this.ahS = new Drawable[i];
                 File vA = vA();
                 if (vA != null) {
@@ -270,7 +270,7 @@ public class af {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cJ(int i) {
+    public boolean cI(int i) {
         File vA = vA();
         if (vA == null) {
             return false;

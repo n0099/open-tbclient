@@ -10,7 +10,7 @@ public class k implements com.baidu.adp.widget.ListView.h {
         return this.cZB;
     }
 
-    public void kk(int i) {
+    public void kj(int i) {
         this.cZB = i;
     }
 

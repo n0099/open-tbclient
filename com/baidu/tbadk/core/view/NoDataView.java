@@ -68,13 +68,13 @@ public class NoDataView extends LinearLayout {
             ((TbPageContext) eVar).getLayoutMode().u(this);
         }
         if (this.anf == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.amV.setImageBitmap(ak.cQ(d.f.pic_emotion08));
+            this.amV.setImageBitmap(ak.cP(d.f.pic_emotion08));
         } else if (this.anf == NoDataViewFactory.ImgType.NODATA) {
-            this.amV.setImageBitmap(ak.cQ(d.f.no_data_image));
+            this.amV.setImageBitmap(ak.cP(d.f.no_data_image));
         } else if (this.anf == NoDataViewFactory.ImgType.LOCAL) {
-            this.amV.setImageBitmap(ak.cQ(this.ang));
+            this.amV.setImageBitmap(ak.cP(this.ang));
         } else if (this.anf == NoDataViewFactory.ImgType.ANTI) {
-            this.amV.setImageBitmap(ak.cQ(d.f.pic_emotion05));
+            this.amV.setImageBitmap(ak.cP(d.f.pic_emotion05));
         } else if (i == 1) {
             this.amV.startLoad(this.and, 29, false);
         } else {

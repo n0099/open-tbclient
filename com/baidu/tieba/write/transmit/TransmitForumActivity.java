@@ -153,18 +153,18 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 25005) {
-            HotTopicBussinessData vb = this.hdX.vb(intent.getIntExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, 0));
-            if (vb != null) {
+            HotTopicBussinessData va = this.hdX.va(intent.getIntExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, 0));
+            if (va != null) {
                 for (h hVar : this.mDataList) {
-                    if ((hVar instanceof TransmitForumData) && TextUtils.equals(vb.mForumName, ((TransmitForumData) hVar).forumName)) {
+                    if ((hVar instanceof TransmitForumData) && TextUtils.equals(va.mForumName, ((TransmitForumData) hVar).forumName)) {
                         return;
                     }
                 }
                 if (this.hec.bCm()) {
-                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(vb.mForumId, vb.mForumName, false, 0));
+                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(va.mForumId, va.mForumName, false, 0));
                     showToast(d.k.transmit_max_commit);
                 } else {
-                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(vb.mForumId, vb.mForumName, true, 0));
+                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(va.mForumId, va.mForumName, true, 0));
                 }
                 aTQ();
                 this.mListView.setData(this.mDataList);

@@ -61,8 +61,8 @@ public class l {
                 this.ati.parserJson(jSONObject.optJSONObject("webview_checkurl"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("log_together");
                 if (optJSONObject != null) {
-                    com.baidu.tbadk.distribute.a.Dq().ey(optJSONObject.optInt("distance", 60));
-                    com.baidu.tbadk.distribute.a.Dq().ez(optJSONObject.optInt("items_num", 10));
+                    com.baidu.tbadk.distribute.a.Dq().ex(optJSONObject.optInt("distance", 60));
+                    com.baidu.tbadk.distribute.a.Dq().ey(optJSONObject.optInt("items_num", 10));
                     com.baidu.tbadk.distribute.a.Dq().bt(1 == optJSONObject.optInt("ad_show", 1));
                 }
                 TbadkCoreApplication.getInst().setYijianfankuiFname(this.mYijianfankuiFname);
@@ -84,9 +84,9 @@ public class l {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("movideo");
                 if (optJSONObject2 != null) {
-                    com.baidu.tieba.tbadkCore.videoupload.a.tA(optJSONObject2.optInt("chunk_size"));
-                    com.baidu.tieba.tbadkCore.videoupload.a.tB(optJSONObject2.optInt("block_size"));
-                    com.baidu.tieba.tbadkCore.videoupload.a.tz(optJSONObject2.optInt("data_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.tz(optJSONObject2.optInt("chunk_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.tA(optJSONObject2.optInt("block_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.ty(optJSONObject2.optInt("data_size"));
                 }
                 com.baidu.tbadk.k.p.Ha().V(jSONObject.optLong("small_flow_time_out"));
                 TbadkCoreApplication.getInst().setInterviewLivePollingInterval(jSONObject.optLong("interview_pulling_interval"));
@@ -129,7 +129,7 @@ public class l {
                     com.baidu.adp.lib.b.d.eE().f(this.mSwitchs);
                 }
                 com.baidu.tieba.play.s.bgS();
-                CustomPlayerSwitchStatic.rn(com.baidu.adp.lib.b.d.eE().ak("android_custom_player_enabled_2"));
+                CustomPlayerSwitchStatic.rm(com.baidu.adp.lib.b.d.eE().ak("android_custom_player_enabled_2"));
                 this.atc = jSONObject.optInt("is_pushservice_open", 1) == 1;
                 TbadkCoreApplication.getInst().setIsPushServiceOpen(this.atc);
                 if (!this.atc) {

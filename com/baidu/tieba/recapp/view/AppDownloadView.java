@@ -102,15 +102,15 @@ public class AppDownloadView extends LinearLayout {
             }
             int al = com.baidu.tieba.recapp.download.d.bjr().al(downloadData.getId(), downloadData.getName());
             if (al >= 0) {
-                sa(al);
+                rZ(al);
             } else {
-                sa(0);
+                rZ(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sa(int i) {
+    public void rZ(int i) {
         int max = Math.max(0, i);
         this.gdy.setProgress(max);
         this.gdA.setText(max + "%");
@@ -199,7 +199,7 @@ public class AppDownloadView extends LinearLayout {
                         }
                         downloadData = null;
                         if (downloadData != null) {
-                            AppDownloadView.this.sa(com.baidu.tieba.recapp.download.d.bjr().al(downloadData.getId(), downloadData.getName()));
+                            AppDownloadView.this.rZ(com.baidu.tieba.recapp.download.d.bjr().al(downloadData.getId(), downloadData.getName()));
                             AppDownloadView.this.postInvalidate();
                         }
                     }

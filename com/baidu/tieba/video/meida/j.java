@@ -198,7 +198,7 @@ public class j {
         return (int) l;
     }
 
-    private void ut(int i) {
+    private void us(int i) {
     }
 
     private double m(double d) {
@@ -1535,7 +1535,7 @@ public class j {
             System.err.printf("\n", new Object[0]);
         }
         if (i9 != 0) {
-            ut(i5);
+            us(i5);
         }
         if (dArr[0] > 1.0d && !this.gQa) {
             System.err.printf("clipping detected : %gdB\n", Double.valueOf(20.0d * Math.log10(dArr[0])));

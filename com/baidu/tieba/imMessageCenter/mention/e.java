@@ -97,29 +97,29 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
                 if (i >= 0) {
-                    ImMessageCenterShowItemData nj = e.this.emT.getItem(i);
+                    ImMessageCenterShowItemData ni = e.this.emT.getItem(i);
                     TiebaStatic.eventStat(e.this.emP.getPageContext().getPageActivity(), "list_to_chat", "chatlistclick", 1, new Object[0]);
-                    String ownerName = nj.getOwnerName();
+                    String ownerName = ni.getOwnerName();
                     if (TextUtils.isEmpty(ownerName)) {
-                        e(nj);
+                        e(ni);
                     } else if (ownerName.equals("1")) {
                         if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.emP.getPageContext().getOrignalPage(), GroupChatActivityConfig.class)) {
                             TiebaStatic.eventStat(e.this.emP.getPageContext().getContext(), "chat_list_to_group", "click", 1, new Object[0]);
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(e.this.emP.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(nj.getFriendId(), 0L), nj.getFriendName(), 0L, "msg_lstb")));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(e.this.emP.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(ni.getFriendId(), 0L), ni.getFriendName(), 0L, "msg_lstb")));
                         }
-                    } else if (nj.getOwnerName().equals("2")) {
+                    } else if (ni.getOwnerName().equals("2")) {
                         if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.d(e.this.emP.getPageContext().getOrignalPage(), 2008021)) {
-                            d(nj);
+                            d(ni);
                             if (com.baidu.tbadk.coreExtra.messageCenter.a.zx().zT() != null) {
-                                com.baidu.tbadk.coreExtra.messageCenter.a.zx().zT().dZ(0);
+                                com.baidu.tbadk.coreExtra.messageCenter.a.zx().zT().dY(0);
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage(2008021, new ValidateActivityConfig(e.this.emP.getPageContext().getPageActivity())));
                         }
-                    } else if (nj.getOwnerName().equals("3")) {
+                    } else if (ni.getOwnerName().equals("3")) {
                         if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.d(e.this.emP.getPageContext().getOrignalPage(), 2008013)) {
-                            d(nj);
+                            d(ni);
                             if (com.baidu.tbadk.coreExtra.messageCenter.a.zx().zT() != null) {
-                                com.baidu.tbadk.coreExtra.messageCenter.a.zx().zT().dY(0);
+                                com.baidu.tbadk.coreExtra.messageCenter.a.zx().zT().dX(0);
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage(2008013, new UpdatesActivityConfig(e.this.emP.getPageContext().getPageActivity())));
                         }
@@ -130,13 +130,13 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
                         }
                     } else if (ownerName.equals(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO)) {
                         if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.d(e.this.emP.getPageContext().getOrignalPage(), 2002006)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(e.this.emP.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(nj.getFriendId(), 0L), nj.getFriendName(), nj.getFriendPortrait(), 0, nj.getUserType())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(e.this.emP.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(ni.getFriendId(), 0L), ni.getFriendName(), ni.getFriendPortrait(), 0, ni.getUserType())));
                         }
                     } else if (ownerName.equals("7")) {
                         TiebaStatic.log(new al("c12614"));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(e.this.emP.getPageContext().getPageActivity())));
                     } else {
-                        e(nj);
+                        e(ni);
                     }
                 }
             }
@@ -417,7 +417,7 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
                 }
             }));
         }
-        this.mNoDataView = NoDataViewFactory.a(this.emP.getPageContext().getPageActivity(), this.cTG, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.emP.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.dp(d.k.no_recent_chat), bVar);
+        this.mNoDataView = NoDataViewFactory.a(this.emP.getPageContext().getPageActivity(), this.cTG, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.emP.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.m16do(d.k.no_recent_chat), bVar);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -460,7 +460,7 @@ public class e extends com.baidu.adp.base.c<ChatAggregationFragment> implements 
         };
         String string = this.emP.getPageContext().getPageActivity().getString(d.k.delete_user_chat);
         this.emV = new com.baidu.tbadk.core.dialog.b(this.emP.getPageContext().getPageActivity());
-        this.emV.cd(d.k.operation);
+        this.emV.cc(d.k.operation);
         this.emV.a(new String[]{string}, this.emW);
         this.emV.d(this.emP.getPageContext());
     }

@@ -432,8 +432,8 @@ public class a extends com.baidu.tieba.card.a<bd> implements com.baidu.tieba.a.e
                         aVar2.dismiss();
                     }
                 });
-                aVar.cc(1);
-                aVar.cb(d.C0126d.cp_cont_b);
+                aVar.cb(1);
+                aVar.ca(d.C0126d.cp_cont_b);
                 aVar.ar(true);
                 aVar.b(this.mTbPageContext).tD();
             } else {
@@ -672,8 +672,8 @@ public class a extends com.baidu.tieba.card.a<bd> implements com.baidu.tieba.a.e
         layoutParams.rightMargin = 0;
         this.bwk.setLayoutParams(layoutParams);
         this.bwj.setUserAfterClickListener(this.apj);
-        hc(gn(1));
-        this.coq.setText(an.cV(this.alf.sh().video_duration.intValue() * 1000));
+        hb(gm(1));
+        this.coq.setText(an.cU(this.alf.sh().video_duration.intValue() * 1000));
         this.coh.setText(String.format(this.adf.getResources().getString(d.k.play_count), an.B(this.alf.sh().play_count.intValue())));
         this.cma.setData(this.alf.tc());
         this.cma.onChangeSkinType();
@@ -843,7 +843,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements com.baidu.tieba.a.e
         }
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.alf != null) {
             if (i == 1) {
                 this.bwk.setVisibility(8);
@@ -866,7 +866,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements com.baidu.tieba.a.e
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

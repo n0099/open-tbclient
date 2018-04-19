@@ -299,11 +299,11 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
         this.mTool.C(arrayList);
-        k eI = this.mTool.eI(5);
-        if (eI != null) {
-            eI.bA(false);
-            eI.aDB = 3;
-            eI.aDz = d.f.btn_pb_add_expression;
+        k eH = this.mTool.eH(5);
+        if (eH != null) {
+            eH.bA(false);
+            eH.aDB = 3;
+            eH.aDz = d.f.btn_pb_add_expression;
         }
         com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(talkableActivity.getActivity(), false, false);
         aVar.setIsOnlyLocalEmotion(true);
@@ -562,7 +562,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
     public void showDiaItemContentOperate(int i, String[] strArr) {
         if (strArr != null && strArr.length > 0) {
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mContext.getPageContext().getPageActivity());
-            bVar.cd(d.k.operation);
+            bVar.cc(d.k.operation);
             bVar.a(strArr, this.mContext);
             this.mMsgItemOperation = bVar;
             this.mMsgItemOperation.d(this.mContext.getPageContext());
@@ -712,10 +712,10 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
         if (this.mTool == null) {
             return "";
         }
-        k eI = this.mTool.eI(3);
-        if (eI == null || eI.aCM == null || !(eI.aCM instanceof View)) {
+        k eH = this.mTool.eH(3);
+        if (eH == null || eH.aCM == null || !(eH.aCM instanceof View)) {
             str = "input_text";
-        } else if (((View) eI.aCM).getVisibility() == 0) {
+        } else if (((View) eH.aCM).getVisibility() == 0) {
             str = "input_text";
         } else {
             str = "input_voice";

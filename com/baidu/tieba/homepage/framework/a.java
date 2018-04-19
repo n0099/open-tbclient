@@ -25,7 +25,7 @@ public class a {
         this.dCa = j;
     }
 
-    public long lW(int i) {
+    public long lV(int i) {
         Long l = this.dCc.get(i);
         if (l == null) {
             return -1L;
@@ -37,7 +37,7 @@ public class a {
         this.dCc.put(i, Long.valueOf(j));
     }
 
-    public long lX(int i) {
+    public long lW(int i) {
         Long l = this.dCb.get(i);
         if (l == null) {
             return -1L;
@@ -49,7 +49,7 @@ public class a {
         this.dCb.put(i, Long.valueOf(j));
     }
 
-    public long lY(int i) {
+    public long lX(int i) {
         Long l = this.dCd.get(i);
         if (l == null) {
             return -1L;
@@ -61,7 +61,7 @@ public class a {
         this.dCd.put(i, Long.valueOf(j));
     }
 
-    public long lZ(int i) {
+    public long lY(int i) {
         Long l = this.dCe.get(i);
         if (l == null) {
             return -1L;

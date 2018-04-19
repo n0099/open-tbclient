@@ -31,7 +31,7 @@ public class b {
         this.level = i;
     }
 
-    public void nq(int i) {
+    public void np(int i) {
         this.dVY = i;
     }
 
@@ -47,7 +47,7 @@ public class b {
         return this.dVZ;
     }
 
-    public void nr(int i) {
+    public void nq(int i) {
         this.dVZ = i;
     }
 

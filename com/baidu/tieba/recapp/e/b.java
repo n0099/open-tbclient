@@ -19,13 +19,13 @@ public class b extends e {
     }
 
     private void init() {
-        this.dxn = (HeadImageView) rZ(d.g.user_portrait);
+        this.dxn = (HeadImageView) rY(d.g.user_portrait);
         this.dxn.setDefaultResource(d.f.icon_default_avatar100);
         this.dxn.setDefaultErrorResource(d.f.icon_default_avatar100);
         this.dxn.setDefaultBgResource(d.C0126d.cp_bg_line_e);
         this.dxn.setIsRound(true);
-        this.aqm = (TextView) rZ(d.g.user_name);
-        this.gcG = (TextView) rZ(d.g.action);
+        this.aqm = (TextView) rY(d.g.user_name);
+        this.gcG = (TextView) rY(d.g.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
@@ -39,7 +39,7 @@ public class b extends e {
             public void onClick(View view2) {
                 s.ak(b.this.mRootView.getContext(), fVar.scheme);
                 if (b.this.gcP != null) {
-                    b.this.gcP.rT(302);
+                    b.this.gcP.rS(302);
                     com.baidu.tieba.recapp.report.b.bke().a(b.this.gcP);
                 }
             }

@@ -12,7 +12,7 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     private final Class<?>[] aJr;
     private final int[] aJs;
 
-    public abstract int fc(int i);
+    public abstract int fb(int i);
 
     public b(TbPageContext<?> tbPageContext, Class<?>[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
         super(tbPageContext, viewEventCenter);
@@ -28,7 +28,7 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         if (this.aJx && Gm()) {
             return -1;
         }
-        return fc(i);
+        return fb(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

@@ -100,12 +100,12 @@ public class d {
             this.blb = new PbListView(this.adf.getPageActivity());
             this.blb.getView();
             this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
-            this.blb.du(d.C0126d.cp_cont_e);
-            this.blb.dv(d.C0126d.cp_bg_line_d);
+            this.blb.dt(d.C0126d.cp_cont_e);
+            this.blb.du(d.C0126d.cp_bg_line_d);
             this.blb.setHeight(l.e(this.adf.getPageActivity(), d.e.ds140));
-            this.blb.dt(l.e(this.adf.getPageActivity(), d.e.ds12));
+            this.blb.ds(l.e(this.adf.getPageActivity(), d.e.ds12));
             this.blb.wN();
-            this.blb.ds(d.C0126d.cp_bg_line_e);
+            this.blb.dr(d.C0126d.cp_bg_line_e);
             this.fIw.setNextPage(this.blb);
             this.fIz = (PersonExpandImageView) this.mRootView.findViewById(d.g.person_polymeric_header_expand_img);
             this.fIz.setInitHeight(this.adf.getResources().getDimensionPixelSize(d.e.tbds496));
@@ -210,7 +210,7 @@ public class d {
             this.mNavigationBar.onChangeSkinType(null, i);
             this.fID.onChangeSkinType(null, i);
             this.mNavigationBar.getBackground().mutate().setAlpha(0);
-            this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cP(d.f.s_navbar_bg)));
+            this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cO(d.f.s_navbar_bg)));
             if (this.fIw.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
                 this.fIw.getAdapter().notifyDataSetChanged();
             }
@@ -259,7 +259,7 @@ public class d {
         }
     }
 
-    public void ri(int i) {
+    public void rh(int i) {
         this.fIw.setVisibility(i);
     }
 
@@ -279,7 +279,7 @@ public class d {
                     }
                 });
             }
-            this.refreshView.fb(this.adf.getResources().getDimensionPixelSize(d.e.ds280));
+            this.refreshView.fa(this.adf.getResources().getDimensionPixelSize(d.e.ds280));
             this.refreshView.setSubText(str);
             this.refreshView.d(this.mRootView, z);
             this.refreshView.Fu();
@@ -346,18 +346,18 @@ public class d {
         }
     }
 
-    public void rj(int i) {
+    public void ri(int i) {
         if (i == 0) {
-            this.blb.dv(d.C0126d.cp_bg_line_d);
-            this.blb.ds(d.C0126d.cp_bg_line_e);
-            this.blb.du(d.C0126d.cp_cont_e);
+            this.blb.du(d.C0126d.cp_bg_line_d);
+            this.blb.dr(d.C0126d.cp_bg_line_e);
+            this.blb.dt(d.C0126d.cp_cont_e);
             this.blb.wN();
         } else if (i == 1) {
-            this.blb.dv(d.C0126d.cp_bg_line_c);
-            this.blb.du(d.C0126d.cp_cont_d);
+            this.blb.du(d.C0126d.cp_bg_line_c);
+            this.blb.dt(d.C0126d.cp_cont_d);
             this.blb.wO();
         }
-        this.blb.dw(TbadkCoreApplication.getInst().getSkinType());
+        this.blb.dv(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void cU(List<com.baidu.adp.widget.ListView.h> list) {
@@ -402,7 +402,7 @@ public class d {
         this.fIA.setVisibility(0);
         String bg_pic = userData != null ? userData.getBg_pic() : null;
         if (StringUtils.isNull(bg_pic)) {
-            com.baidu.tbadk.imageManager.c.Fa().eY(1152000);
+            com.baidu.tbadk.imageManager.c.Fa().eX(1152000);
             Bitmap logoBitmap = BitmapHelper.getLogoBitmap(this.adf.getPageActivity().getApplicationContext(), d.f.bg_pic_mine);
             if (logoBitmap == null) {
                 BitmapFactory.Options options = new BitmapFactory.Options();

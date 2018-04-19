@@ -24,7 +24,7 @@ public class a {
                 bVar2.hx(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
             bVar2.ci(z);
-            bVar2.gd(i);
+            bVar2.gc(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
         }
     }

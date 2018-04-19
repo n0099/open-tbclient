@@ -21,7 +21,7 @@ public abstract class a {
         return this.ckl;
     }
 
-    public void iC(int i) {
+    public void iB(int i) {
         this.ckl = i;
     }
 }

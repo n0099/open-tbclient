@@ -378,7 +378,7 @@ public class k {
 
     public void l(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            if (AntiHelper.tu(postWriteCallBackData.getErrorCode())) {
+            if (AntiHelper.tt(postWriteCallBackData.getErrorCode())) {
                 AntiHelper.am(this.hiU.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
             } else if (postWriteCallBackData.getErrorCode() != 0) {
                 String errorString = postWriteCallBackData.getErrorString();
@@ -392,7 +392,7 @@ public class k {
 
     public void showLoadingDialog() {
         this.aNc.d(null);
-        this.aNc.da(d.k.sending);
+        this.aNc.cZ(d.k.sending);
         this.aNc.aI(true);
     }
 

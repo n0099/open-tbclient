@@ -188,8 +188,8 @@ public class j {
         bEa();
         this.hiH.b(this.aEK);
         this.ftU = new com.baidu.tieba.write.b();
-        this.ftU.uL(d.C0126d.cp_cont_i);
-        this.ftU.uM(d.C0126d.cp_cont_h_alpha85);
+        this.ftU.uK(d.C0126d.cp_cont_i);
+        this.ftU.uL(d.C0126d.cp_cont_h_alpha85);
     }
 
     private void bEa() {

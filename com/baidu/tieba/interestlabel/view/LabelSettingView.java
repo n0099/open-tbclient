@@ -180,7 +180,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
                     }
                 });
             }
-            this.mRefreshView.fb(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds380));
+            this.mRefreshView.fa(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds380));
             this.mRefreshView.d(this, z);
             this.mRefreshView.Fu();
             this.esL.setVisibility(8);

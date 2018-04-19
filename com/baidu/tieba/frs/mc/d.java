@@ -139,14 +139,14 @@ public class d extends h {
             builder.fname = apE.aVq().getName();
             builder.fid = Long.valueOf(com.baidu.adp.lib.g.b.c(apE.aVq().getId(), 0L));
             ajVar.a(builder.build(true));
-            ajVar.bV(3);
+            ajVar.bU(3);
             this.cXs.a(ajVar);
             ArrayList<com.baidu.adp.widget.ListView.h> a = this.dnY.a(false, true, apE.getThreadList(), null);
             if (a != null) {
                 apE.av(a);
                 apE.bqU();
                 this.cXk.a(a, apE);
-                this.cXk.kj(0);
+                this.cXk.ki(0);
             }
         }
     }
@@ -171,7 +171,7 @@ public class d extends h {
         if (this.cXs != null) {
             if (this.cXs.aun() == 2 || this.cXs.aun() == 3 || this.cXs.aun() == 7) {
                 int auf = this.cXs.auf();
-                if (w.aqF().kl(1) == null) {
+                if (w.aqF().kk(1) == null) {
                     auf = 0;
                 }
                 if (auf == 0 && postWriteCallBackData != null) {

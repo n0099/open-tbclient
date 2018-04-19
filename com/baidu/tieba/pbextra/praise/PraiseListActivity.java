@@ -30,7 +30,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             this.pageType = bundle.getInt(IntentConfig.LIST_TYPE, 0);
             boolean z2 = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
             this.fBP = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-            this.fBP.qX(bundle.getInt("KeyIntentPraiseId"));
+            this.fBP.qW(bundle.getInt("KeyIntentPraiseId"));
             z = z2;
         } else if (getIntent() != null) {
             this.pageType = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
@@ -46,7 +46,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         this.fBP.setIsAuthor(z);
         this.fBO = new e(this, this.fBP.bds());
         this.fBO.kQ(false);
-        this.fBP.qZ(this.pageType);
+        this.fBP.qY(this.pageType);
     }
 
     @Override // android.app.Activity
@@ -70,15 +70,15 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             m.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.fBP.getThreadId(), null, "praise_list"));
         } else if (view2 == this.fBO.bdw() && !this.fBO.wX()) {
             this.fBO.kQ(true);
-            this.fBP.qZ(this.pageType);
+            this.fBP.qY(this.pageType);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        a qY = this.fBP.qY(i);
-        if (qY != null) {
-            m.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), qY.getUserId(), qY.bdo(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        a qX = this.fBP.qX(i);
+        if (qX != null) {
+            m.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), qX.getUserId(), qX.bdo(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 

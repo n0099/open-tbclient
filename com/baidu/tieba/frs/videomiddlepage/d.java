@@ -209,10 +209,10 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
         }
     }
 
-    public boolean kr(int i) {
+    public boolean kq(int i) {
         if (this.drF == null) {
             return false;
         }
-        return this.drF.kr(i);
+        return this.drF.kq(i);
     }
 }

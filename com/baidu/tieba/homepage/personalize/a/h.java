@@ -85,7 +85,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         this.cmc = kVar;
-        kVar.iO(i + 1);
+        kVar.iN(i + 1);
         v.afy().a(kVar.kG("c12641"));
         if (kVar.YI != null && kVar.YI.size() > 0) {
             kVar.Pe().a(kVar.YI);

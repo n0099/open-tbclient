@@ -195,7 +195,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (kVar == null || aVar == null || aVar.afY() == null) {
             return null;
         }
-        kVar.iO(i + 1);
+        kVar.iN(i + 1);
         v.afy().a(kVar.afS());
         com.baidu.tieba.a.d.MH().a("page_recommend", "show_", kVar.afS());
         if (aVar.afY() instanceof com.baidu.tieba.a.e) {

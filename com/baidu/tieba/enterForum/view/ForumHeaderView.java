@@ -59,7 +59,7 @@ public class ForumHeaderView extends LinearLayout {
         ak.j(this.cJS, d.C0126d.cp_bg_line_e);
     }
 
-    public void jC(int i) {
+    public void jB(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cJS.getLayoutParams();
         layoutParams.topMargin = i;
         this.cJS.setLayoutParams(layoutParams);

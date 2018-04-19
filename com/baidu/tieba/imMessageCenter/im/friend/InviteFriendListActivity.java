@@ -151,7 +151,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     private void initView() {
         this.ekZ = new d(this, this.isFromInviteChat);
-        this.ekZ.oe(100);
+        this.ekZ.od(100);
     }
 
     private void OT() {

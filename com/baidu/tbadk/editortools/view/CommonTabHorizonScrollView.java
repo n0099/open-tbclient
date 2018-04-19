@@ -116,7 +116,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         this.aFF.removeAllViews();
     }
 
-    public void dA(int i) {
+    public void dz(int i) {
         if (this.aFL != null) {
             ak.i(this.aFL, d.f.icon_news_head_prompt_one);
             this.aFL.setTextColor(i == 1 ? Color.parseColor("#ffd2d2d2") : -1);
@@ -157,7 +157,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            CommonTabHorizonScrollView.this.aFH.eT(this.agb);
+            CommonTabHorizonScrollView.this.aFH.eS(this.agb);
         }
     }
 }

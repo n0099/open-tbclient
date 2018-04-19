@@ -52,18 +52,18 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         this.currentIndex = -1;
         this.mContext = context;
         this.dCO = new a();
-        if (this.dCO.mi(0) != -1) {
+        if (this.dCO.mh(0) != -1) {
             this.dCE = new ConcernFragment(context);
             this.dCE.setCallback(aVar);
         }
-        if (this.dCO.mi(1) != -1) {
+        if (this.dCO.mh(1) != -1) {
             this.dCF = new PersonalizeFragment(context);
             this.dCF.setCallback(bVar);
         }
-        if (this.dCO.mi(2) != -1 && (runTask2 = MessageManager.getInstance().runTask(2921010, BaseFragment.class)) != null) {
+        if (this.dCO.mh(2) != -1 && (runTask2 = MessageManager.getInstance().runTask(2921010, BaseFragment.class)) != null) {
             this.dCG = (BaseFragment) runTask2.getData();
         }
-        if (this.dCO.mi(3) != -1 && (runTask = MessageManager.getInstance().runTask(2921303, BaseFragment.class)) != null) {
+        if (this.dCO.mh(3) != -1 && (runTask = MessageManager.getInstance().runTask(2921303, BaseFragment.class)) != null) {
             this.dCH = (BaseFragment) runTask.getData();
         }
     }
@@ -92,12 +92,12 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         return super.getItemPosition(obj);
     }
 
-    public int mc(int i) {
+    public int mb(int i) {
         return this.dCO.getType(i);
     }
 
-    public int md(int i) {
-        return this.dCO.mi(i);
+    public int mc(int i) {
+        return this.dCO.mh(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -113,16 +113,16 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
 
     private int axw() {
         int i = 0;
-        if (this.dCO.mi(0) != -1 && this.dCE != null) {
+        if (this.dCO.mh(0) != -1 && this.dCE != null) {
             i = 1;
         }
-        if (this.dCO.mi(1) != -1 && this.dCF != null) {
+        if (this.dCO.mh(1) != -1 && this.dCF != null) {
             i++;
         }
-        if (this.dCO.mi(2) != -1 && this.dCG != null) {
+        if (this.dCO.mh(2) != -1 && this.dCG != null) {
             i++;
         }
-        if (this.dCO.mi(3) != -1 && this.dCH != null) {
+        if (this.dCO.mh(3) != -1 && this.dCH != null) {
             return i + 1;
         }
         return i;
@@ -167,9 +167,9 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             if (!z) {
                 int a = v.a(xp(), (BaseFragment) this.dCI);
                 if (a < 0) {
-                    a = md(1);
+                    a = mc(1);
                 }
-                me(a);
+                md(a);
                 completePullRefresh();
             }
             ((BaseFragment) this.dCI).setPrimary(z);
@@ -193,7 +193,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void me(final int i) {
+    public void md(final int i) {
         com.baidu.tbadk.util.v.a(new u<Object>() { // from class: com.baidu.tieba.homepage.framework.indicator.NewScrollFragmentAdapter.1
             @Override // com.baidu.tbadk.util.u
             public Object doInBackground() {
@@ -210,7 +210,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void a(d dVar) {
         if (!this.dCL) {
             this.dCL = true;
-            dVar.ma(1);
+            dVar.lZ(1);
         }
     }
 
@@ -272,7 +272,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void dA(int i) {
+    public void dz(int i) {
         if (this.dCI != null) {
             this.dCI.wY();
         }
@@ -289,7 +289,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     }
 
     public void Ql() {
-        switch (mc(this.currentIndex)) {
+        switch (mb(this.currentIndex)) {
             case 0:
                 if (this.dCE != null) {
                     this.dCE.Ql();
@@ -307,13 +307,13 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void mf(int i) {
+    public void me(int i) {
         if (i == 1 && this.dCF != null) {
             this.dCF.axF();
         }
     }
 
-    public void mg(int i) {
+    public void mf(int i) {
         if (this.currentIndex == i) {
             this.dCM = -1;
         } else {

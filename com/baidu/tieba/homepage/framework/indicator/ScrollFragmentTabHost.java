@@ -55,7 +55,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void mk(int i);
+        void mj(int i);
     }
 
     public ScrollFragmentTabHost(Context context) {
@@ -71,14 +71,14 @@ public class ScrollFragmentTabHost extends FrameLayout {
         this.dDg = new b();
         this.dDh = new e() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.3
             @Override // com.baidu.tieba.homepage.framework.e
-            public void mb(int i) {
-                ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.dDe.md(i), false);
-                ScrollFragmentTabHost.this.dDe.mf(i);
+            public void ma(int i) {
+                ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.dDe.mc(i), false);
+                ScrollFragmentTabHost.this.dDe.me(i);
             }
         };
         this.dDi = new com.baidu.tieba.homepage.framework.d() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.4
             @Override // com.baidu.tieba.homepage.framework.d
-            public void ma(int i) {
+            public void lZ(int i) {
                 ScrollFragmentTabHost.this.dDg.a(i, ScrollFragmentTabHost.this.dDh);
             }
         };
@@ -98,14 +98,14 @@ public class ScrollFragmentTabHost extends FrameLayout {
         this.dDg = new b();
         this.dDh = new e() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.3
             @Override // com.baidu.tieba.homepage.framework.e
-            public void mb(int i) {
-                ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.dDe.md(i), false);
-                ScrollFragmentTabHost.this.dDe.mf(i);
+            public void ma(int i) {
+                ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.dDe.mc(i), false);
+                ScrollFragmentTabHost.this.dDe.me(i);
             }
         };
         this.dDi = new com.baidu.tieba.homepage.framework.d() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.4
             @Override // com.baidu.tieba.homepage.framework.d
-            public void ma(int i) {
+            public void lZ(int i) {
                 ScrollFragmentTabHost.this.dDg.a(i, ScrollFragmentTabHost.this.dDh);
             }
         };
@@ -137,9 +137,9 @@ public class ScrollFragmentTabHost extends FrameLayout {
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
                 if (ScrollFragmentTabHost.this.dDf != null) {
-                    ScrollFragmentTabHost.this.dDf.mk(i);
+                    ScrollFragmentTabHost.this.dDf.mj(i);
                 }
-                if (ScrollFragmentTabHost.this.mj(i) == 3) {
+                if (ScrollFragmentTabHost.this.mi(i) == 3) {
                     al alVar = new al("c12478");
                     alVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "0");
                     TiebaStatic.log(alVar);
@@ -208,7 +208,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
         this.dDe.setScrollFragmentTabHost(this);
         this.afB.setOffscreenPageLimit(2);
         this.afB.setAdapter(this.dDe);
-        this.afB.setCurrentItem(this.dDe.md(HomePageStatic.dAf ? 0 : 1));
+        this.afB.setCurrentItem(this.dDe.mc(HomePageStatic.dAf ? 0 : 1));
         this.dDc.setViewPager(this.afB);
         if (this.dCZ != null) {
             this.dDe.setRecommendFrsNavigationAnimDispatcher(this.dCZ);
@@ -222,13 +222,13 @@ public class ScrollFragmentTabHost extends FrameLayout {
     public void setCurrentTab(int i, boolean z) {
         if (i >= 0 && i < this.dDe.getCount()) {
             this.dDc.setTabItemClicked(z);
-            this.dDe.mg(i);
+            this.dDe.mf(i);
             this.afB.setCurrentItem(i);
         }
     }
 
     public void setCurrentTab(int i) {
-        setCurrentTab(this.dDe.md(i), false);
+        setCurrentTab(this.dDe.mc(i), false);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -244,21 +244,21 @@ public class ScrollFragmentTabHost extends FrameLayout {
     }
 
     public int getCurrentTabType() {
-        return this.dDe.mc(this.afB.getCurrentItem());
+        return this.dDe.mb(this.afB.getCurrentItem());
     }
 
     public int getVideoRecommendIndex() {
         int count = this.afB.getAdapter().getCount();
         for (int i = 0; i < count; i++) {
-            if (this.dDe.mc(i) == 3) {
+            if (this.dDe.mb(i) == 3) {
                 return i;
             }
         }
         return -1;
     }
 
-    public int mj(int i) {
-        return this.dDe.mc(i);
+    public int mi(int i) {
+        return this.dDe.mb(i);
     }
 
     public af getCurrentFragment() {
@@ -273,7 +273,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
             this.bla.onChangeSkinType(this.mPageContext, i);
         }
         if (this.dDe != null) {
-            this.dDe.dA(i);
+            this.dDe.dz(i);
         }
         if (this.mPageContext != null && this.cHC != null) {
             this.cHC.onChangeSkinType(this.mPageContext, i);

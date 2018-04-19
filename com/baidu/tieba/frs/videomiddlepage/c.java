@@ -148,7 +148,7 @@ public class c {
             this.daY.lo(false);
             this.daY.K(false, true);
             this.daY.lr(true);
-            this.daY.rp(i);
+            this.daY.ro(i);
             this.daY.ll(false);
             this.daY.getVideoView().setBusiness(this.bkR);
             this.daY.aLy();

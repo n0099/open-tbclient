@@ -43,7 +43,7 @@ public class e extends BaseAdapter {
             return 0;
         }
         int i = size - fTy;
-        rC(i);
+        rB(i);
         this.mData.addAll(list);
         return i;
     }
@@ -52,7 +52,7 @@ public class e extends BaseAdapter {
         this.mData.clear();
     }
 
-    private void rC(int i) {
+    private void rB(int i) {
         if (this.mData.size() <= i) {
             this.mData.clear();
         }

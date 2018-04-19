@@ -243,7 +243,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         };
         this.dPv = new BaseViewPager.a() { // from class: com.baidu.tieba.im.chat.AbsMsgImageActivity.3
             @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-            public void cZ(int i) {
+            public void cY(int i) {
                 if (i == 0) {
                 }
             }

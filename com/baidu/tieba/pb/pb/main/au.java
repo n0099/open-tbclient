@@ -13,11 +13,11 @@ public class au {
     private EditText fqU;
 
     public au() {
-        this.fqR.uL(d.C0126d.cp_cont_i);
-        this.fqR.uM(d.C0126d.cp_cont_h_alpha85);
+        this.fqR.uK(d.C0126d.cp_cont_i);
+        this.fqR.uL(d.C0126d.cp_cont_h_alpha85);
         this.fqS = new com.baidu.tieba.write.b();
-        this.fqS.uL(d.C0126d.cp_cont_i);
-        this.fqS.uM(d.C0126d.cp_cont_h_alpha85);
+        this.fqS.uK(d.C0126d.cp_cont_i);
+        this.fqS.uL(d.C0126d.cp_cont_h_alpha85);
     }
 
     public void kr(boolean z) {

@@ -568,7 +568,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
 
     private void Ei() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.ca(d.k.location_app_permission_prompt).a(d.k.isopen, new a.b() { // from class: com.baidu.tieba.write.write.WriteActivity.2
+        aVar.bZ(d.k.location_app_permission_prompt).a(d.k.isopen, new a.b() { // from class: com.baidu.tieba.write.write.WriteActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (com.baidu.adp.lib.util.j.gP()) {
@@ -614,12 +614,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
     }
 
     private void K(int i, boolean z) {
-        com.baidu.tbadk.editortools.g eF;
-        if (this.aCS != null && (eF = this.aCS.eF(i)) != null) {
+        com.baidu.tbadk.editortools.g eE;
+        if (this.aCS != null && (eE = this.aCS.eE(i)) != null) {
             if (z) {
-                eF.lN();
+                eE.lN();
             } else {
-                eF.hide();
+                eE.hide();
             }
         }
     }
@@ -688,7 +688,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
         initData(bundle);
         if (this.mData.getType() == 0) {
-            vj(this.hbs);
+            vi(this.hbs);
         }
         initUI();
         bDE();
@@ -732,9 +732,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         }
         bDb();
         this.aCS.lN();
-        com.baidu.tbadk.editortools.g eF = this.aCS.eF(6);
-        if (eF != null && !TextUtils.isEmpty(this.aEA)) {
-            ((View) eF).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteActivity.4
+        com.baidu.tbadk.editortools.g eE = this.aCS.eE(6);
+        if (eE != null && !TextUtils.isEmpty(this.aEA)) {
+            ((View) eE).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteActivity.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     WriteActivity.this.showToast(WriteActivity.this.aEA);
@@ -807,7 +807,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         this.hhw.setOnClickListener(this.hgV);
         this.hhs.setOnClickListener(this.hgV);
         this.hhr = new com.baidu.tieba.write.view.PhotoLiveView.a(this, this.writeImagesInfo, this.hhq);
-        this.hhr.vd(6);
+        this.hhr.vc(6);
         this.hhq.setAdapter((ListAdapter) this.hhr);
         View findViewById = this.hht.findViewById(d.g.live_post_content_container);
         findViewById.bringToFront();
@@ -840,10 +840,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         if (this.aCS.DI()) {
             this.aCS.Ca();
         }
-        vj(0);
+        vi(0);
     }
 
-    private void vj(int i) {
+    private void vi(int i) {
         if (this.writeImagesInfo != null && this.mData != null) {
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) getPageContext().getPageActivity(), this.writeImagesInfo.toJsonString(), true, true);
             albumActivityConfig.getIntent().putExtra("forum_id", this.mData.getForumId());
@@ -862,10 +862,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         arrayList.add(10);
         arrayList.add(5);
         this.aCS.C(arrayList);
-        com.baidu.tbadk.editortools.k eI = this.aCS.eI(5);
-        if (eI != null) {
-            eI.aDB = 2;
-            eI.aDz = d.f.write_emotion;
+        com.baidu.tbadk.editortools.k eH = this.aCS.eH(5);
+        if (eH != null) {
+            eH.aDB = 2;
+            eH.aDz = d.f.write_emotion;
         }
         com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(getActivity(), 3);
         aVar.aDz = d.f.write_at;
@@ -931,10 +931,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
             this.aCS.b(this.hgP);
         }
         this.aCS.C(arrayList);
-        com.baidu.tbadk.editortools.k eI = this.aCS.eI(5);
-        if (eI != null) {
-            eI.aDB = 1;
-            eI.aDz = d.f.write_emotion;
+        com.baidu.tbadk.editortools.k eH = this.aCS.eH(5);
+        if (eH != null) {
+            eH.aDB = 1;
+            eH.aDz = d.f.write_emotion;
         }
     }
 
@@ -986,7 +986,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
                         WriteActivity.this.bnS();
                     } else if (aVar.code == 15 || aVar.code == 47) {
                         if (aVar.data != null && (aVar.data instanceof Integer)) {
-                            WriteActivity.this.vk(((Integer) aVar.data).intValue());
+                            WriteActivity.this.vj(((Integer) aVar.data).intValue());
                         }
                     } else if (aVar.code == 18) {
                         TiebaStatic.log(new al("c12612").r("obj_locate", 3));
@@ -1115,7 +1115,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vk(int i) {
+    public void vj(int i) {
         int size;
         if (this.writeImagesInfo != null && this.writeImagesInfo.getChosedFiles() != null && (size = this.writeImagesInfo.getChosedFiles().size()) >= 1 && i >= 0 && i < size) {
             sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(getPageContext().getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, this.writeImagesInfo, i)));
@@ -1500,9 +1500,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         this.fjt.setVisibility(8);
         this.fju.aza();
         this.fju.setVoiceModel(null);
-        com.baidu.tbadk.editortools.k eI = this.aCS.eI(6);
-        if (eI != null && eI.aCM != null) {
-            eI.aCM.a(new com.baidu.tbadk.editortools.a(52, 0, null));
+        com.baidu.tbadk.editortools.k eH = this.aCS.eH(6);
+        if (eH != null && eH.aCM != null) {
+            eH.aCM.a(new com.baidu.tbadk.editortools.a(52, 0, null));
         }
         bnS();
     }
@@ -1511,9 +1511,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         this.hgE = null;
         this.hgG = -1;
         this.hgI = -1;
-        x kl = w.aqF().kl(1);
-        if (kl != null) {
-            this.hgE = kl.dad;
+        x kk = w.aqF().kk(1);
+        if (kk != null) {
+            this.hgE = kk.dad;
             this.hgG = getIntent().getIntExtra("category_id", -1);
             if (this.hgE != null && !this.hgE.isEmpty() && this.hgG >= 0) {
                 this.hgF = new v();
@@ -1612,11 +1612,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         this.glW = findViewById(d.g.post_prefix_layout);
         if (this.hhP == null) {
             this.hhP = new com.baidu.tieba.d.c(getPageContext(), this.glW);
-            this.hhP.je(d.f.bg_tip_blue_up_left);
-            this.hhP.jd(16);
+            this.hhP.jd(d.f.bg_tip_blue_up_left);
+            this.hhP.jc(16);
             this.hhP.eF(true);
             this.hhP.B(true);
-            this.hhP.jh(l.e(getActivity(), d.e.ds32));
+            this.hhP.jg(l.e(getActivity(), d.e.ds32));
         }
         this.glT = (TextView) findViewById(d.g.post_prefix);
         this.hgw = findViewById(d.g.prefix_divider);
@@ -1683,7 +1683,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
             }
             this.glU.setCurrentIndex(0);
             this.glT.setText(prefixs.get(0));
-            vi(0);
+            vh(0);
             return;
         }
         this.glW.setVisibility(8);
@@ -2181,7 +2181,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         this.aNc.d(null);
-        this.aNc.da(d.k.sending);
+        this.aNc.cZ(d.k.sending);
         this.aNc.aI(true);
     }
 
@@ -3088,7 +3088,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bDO() {
-        if (this.aCS.eI(10) != null && this.writeImagesInfo.getChosedFiles() != null && this.writeImagesInfo.getChosedFiles().size() != 0) {
+        if (this.aCS.eH(10) != null && this.writeImagesInfo.getChosedFiles() != null && this.writeImagesInfo.getChosedFiles().size() != 0) {
         }
     }
 
@@ -3134,7 +3134,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
     public void c(boolean z, PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             String errorString = postWriteCallBackData.getErrorString();
-            if (AntiHelper.tu(postWriteCallBackData.getErrorCode())) {
+            if (AntiHelper.tt(postWriteCallBackData.getErrorCode())) {
                 if (AntiHelper.a(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getErrorCode(), this.cYh) != null) {
                     TiebaStatic.log(new al("c12534").r("obj_locate", ar.a.ajb));
                 }
@@ -3182,7 +3182,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         }
     }
 
-    private void vi(int i) {
+    private void vh(int i) {
         if (i < this.hgx.size()) {
             for (int i2 = 0; i2 < this.hgx.size(); i2++) {
                 this.hgx.get(i2).nm(false);
@@ -3192,7 +3192,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
     }
 
     @Override // com.baidu.tieba.write.d.a
-    public void sP(int i) {
+    public void sO(int i) {
         if (i == com.baidu.tbadk.core.util.v.v(this.mPrefixData.getPrefixs()) - 1) {
             TiebaStatic.log(new al("c13014").r("obj_type", 1));
         } else {
@@ -3200,7 +3200,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         }
         this.glw = i;
         this.glU.setCurrentIndex(i);
-        vi(i);
+        vh(i);
         this.glT.setText(this.mPrefixData.getPrefixs().get(i));
         bnS();
         com.baidu.adp.lib.g.g.a(this.glU, getPageContext().getPageActivity());

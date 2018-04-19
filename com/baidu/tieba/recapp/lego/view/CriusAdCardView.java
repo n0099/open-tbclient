@@ -277,8 +277,8 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
                 if (this.fZK) {
                     this.fZK = false;
                 }
-                bdVar.bO(aVar.Ma);
-                bdVar.bX(aVar.Mb);
+                bdVar.bN(aVar.Ma);
+                bdVar.bW(aVar.Mb);
                 bdVar.o(aVar.LZ);
             }
         }

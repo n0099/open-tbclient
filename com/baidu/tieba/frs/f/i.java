@@ -217,7 +217,7 @@ public class i {
                         i2 = apE.getUserData().getIsMem();
                     }
                     WriteActivityConfig writeActivityConfig = new WriteActivityConfig(frsFragment.getPageContext().getPageActivity(), i, apE.aVq().getId(), frsFragment.getForumName(), null, null, 0, apE.qT(), 13003, false, false, null, false, false, null, null, apE.aVq().getPrefixData(), i2);
-                    if (w.aqF().kl(1) != null) {
+                    if (w.aqF().kk(1) != null) {
                         writeActivityConfig.setCategroyId(aph.auf());
                     }
                     ForumData aVq = apE.aVq();

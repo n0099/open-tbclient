@@ -129,7 +129,7 @@ public class ai {
         return this.fmY;
     }
 
-    public void qw(int i) {
+    public void qv(int i) {
         this.fmY = i;
     }
 

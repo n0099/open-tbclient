@@ -15,11 +15,11 @@ public abstract class a extends BaseAdapter {
 
     public abstract View c(int i, View view2, ViewGroup viewGroup);
 
-    public abstract Object kH(int i);
+    public abstract Object kG(int i);
 
-    public abstract long kI(int i);
+    public abstract long kH(int i);
 
-    public abstract void kJ(int i);
+    public abstract void kI(int i);
 
     @Override // android.widget.Adapter
     public int getCount() {
@@ -38,9 +38,21 @@ public abstract class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         if (asF()) {
-            int kK = kK(i);
-            if (kK >= 0) {
-                return kH(kK);
+            int kJ = kJ(i);
+            if (kJ >= 0) {
+                return kG(kJ);
+            }
+            return kG(i);
+        }
+        return kG(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        if (asF()) {
+            int kJ = kJ(i);
+            if (kJ >= 0) {
+                return kH(kJ);
             }
             return kH(i);
         }
@@ -48,20 +60,8 @@ public abstract class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        if (asF()) {
-            int kK = kK(i);
-            if (kK >= 0) {
-                return kI(kK);
-            }
-            return kI(i);
-        }
-        return kI(i);
-    }
-
-    @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
-        return getItemViewType(i) == 0 ? c(kK(i), view2, viewGroup) : au(view2);
+        return getItemViewType(i) == 0 ? c(kJ(i), view2, viewGroup) : au(view2);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -92,7 +92,7 @@ public abstract class a extends BaseAdapter {
         return view2;
     }
 
-    public int kK(int i) {
+    public int kJ(int i) {
         int arrowIndex;
         if (this.dhn != null && this.dhn.asD() && i >= (arrowIndex = this.dhn.getArrowIndex())) {
             if (i == arrowIndex) {

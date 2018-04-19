@@ -145,6 +145,6 @@ public class ItemMsgManage extends LinearLayout {
     public void a(ForumDetailActivity forumDetailActivity, int i) {
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().u(this);
-        this.dXy.eq(i);
+        this.dXy.ep(i);
     }
 }

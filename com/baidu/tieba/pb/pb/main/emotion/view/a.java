@@ -114,7 +114,7 @@ public class a extends BaseAdapter {
         return view2;
     }
 
-    public void qC(int i) {
+    public void qB(int i) {
         if (this.fsc != i) {
             this.fsc = i;
             notifyDataSetChanged();

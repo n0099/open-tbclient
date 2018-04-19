@@ -441,8 +441,8 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                     aVar2.dismiss();
                 }
             });
-            aVar.cc(1);
-            aVar.cb(d.C0126d.cp_cont_b);
+            aVar.cb(1);
+            aVar.ca(d.C0126d.cp_cont_b);
             aVar.ar(true);
             aVar.b(this.mTbPageContext).tD();
         } else {
@@ -660,7 +660,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                 this.bwV.setData(this.cov.Pe());
             }
         }
-        this.coq.setText(an.cV(this.cov.bji.sh().video_duration.intValue() * 1000));
+        this.coq.setText(an.cU(this.cov.bji.sh().video_duration.intValue() * 1000));
         this.coh.setText(String.format(this.adf.getResources().getString(d.k.play_count), an.B(this.cov.bji.sh().play_count.intValue())));
         if (this.bww != null && this.cov.Pe() != null) {
             ai aiVar = new ai();
@@ -672,7 +672,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
             this.bww.setVisibility(this.coA ? 0 : 8);
         }
         this.cma.setData(this.cov.Pe().tc());
-        hc(gn(1));
+        hb(gm(1));
         d(this.adf, TbadkCoreApplication.getInst().getSkinType());
         if (o.kw(this.cov.bji.getId())) {
             ak.c(this.mTextTitle, d.C0126d.cp_cont_d, 1);
@@ -859,7 +859,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
         this.coA = z;
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.cov != null && this.cov.bji != null) {
             if (i == 1) {
                 if (this.cov.bji.abJ > 0) {
@@ -902,7 +902,7 @@ public class n extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

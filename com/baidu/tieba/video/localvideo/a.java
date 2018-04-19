@@ -60,7 +60,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ur */
+    /* renamed from: uq */
     public d getItem(int i) {
         if (this.gOW == null || this.gOW.isEmpty() || i < 0 || i >= this.gOW.size()) {
             return null;

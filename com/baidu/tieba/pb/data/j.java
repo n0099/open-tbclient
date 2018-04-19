@@ -70,9 +70,9 @@ public class j implements com.baidu.adp.widget.ListView.h {
         return this.fcL;
     }
 
-    public void pW(int i) {
+    public void pV(int i) {
         if (!this.fcK) {
-            pY(i);
+            pX(i);
             return;
         }
         this.fcG = i;
@@ -90,7 +90,7 @@ public class j implements com.baidu.adp.widget.ListView.h {
         }
     }
 
-    public void pX(int i) {
+    public void pW(int i) {
         this.fcO = i;
     }
 
@@ -98,7 +98,7 @@ public class j implements com.baidu.adp.widget.ListView.h {
         return this.fcO;
     }
 
-    public void pY(int i) {
+    public void pX(int i) {
         if (TbadkCoreApplication.isLogin()) {
             MuteUser muteUser = new MuteUser();
             muteUser.setUserId(TbadkCoreApplication.getCurrentAccount());

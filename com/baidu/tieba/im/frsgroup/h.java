@@ -45,7 +45,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         return this.dYu;
     }
 
-    public void ny(int i) {
+    public void nx(int i) {
         this.dYu = i;
     }
 

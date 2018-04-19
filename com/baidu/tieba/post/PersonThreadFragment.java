@@ -273,18 +273,18 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
             ak.j(this.aJH, this.bgColor);
             this.aJH.setVisibility(8);
             this.mProgressBar = (ProgressBar) this.Tl.findViewById(d.g.progress);
-            eq(TbadkCoreApplication.getInst().getSkinType());
+            ep(TbadkCoreApplication.getInst().getSkinType());
             ak.h(this.mTextView, d.C0126d.common_color_10039);
             this.aJH.setLayoutParams(new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.e(this.bea.getPageContext().getPageActivity(), d.e.ds120)));
             return this.Tl;
         }
 
-        public void eq(int i) {
+        public void ep(int i) {
             this.bea.getLayoutMode().u(this.aJH);
         }
 
         @SuppressLint({"ResourceAsColor"})
-        public void dw(int i) {
+        public void dv(int i) {
             if (this.mSkinType != i) {
                 ak.h(this.mTextView, d.C0126d.common_color_10039);
                 ak.e(this.Tl, this.bgColor, i);
@@ -334,13 +334,13 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
                 this.fSu.mNoDataView.e(getPageContext());
             }
             if (this.mPullView != null) {
-                this.mPullView.dw(i);
+                this.mPullView.dv(i);
             }
             if (this.fSw != null) {
                 this.fSw.notifyDataSetChanged();
             }
             if (this.fSy != null) {
-                this.fSy.dw(i);
+                this.fSy.dv(i);
             }
             ak.j(this.fSu.fSE, d.C0126d.cp_bg_line_d);
         }

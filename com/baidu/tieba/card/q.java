@@ -176,7 +176,7 @@ public class q extends a<com.baidu.tieba.card.data.n> {
         }
     }
 
-    public void iM(int i) {
+    public void iL(int i) {
         ViewGroup.LayoutParams layoutParams = this.cpq.getLayoutParams();
         layoutParams.height = i;
         this.cpq.setLayoutParams(layoutParams);

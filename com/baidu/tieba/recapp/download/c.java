@@ -465,7 +465,7 @@ public class c implements q {
                     if (i2 > 0) {
                         if (BdLog.isDebugMode()) {
                         }
-                        if (!com.baidu.tbadk.imageManager.c.Fa().eY(i2)) {
+                        if (!com.baidu.tbadk.imageManager.c.Fa().eX(i2)) {
                             BdLog.d("Image download cacelled. out of memory. url:[" + this.ahl.wi().wl().mUrl + "], size:" + i2);
                             this.ahl.wj().tX = -16;
                             TiebaStatic.net(this.ahl);

@@ -200,7 +200,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         this.gwE--;
     }
 
-    public void to(int i) {
+    public void tn(int i) {
         this.gwE = i;
     }
 
@@ -232,7 +232,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
         return this.floor_num;
     }
 
-    public void tp(int i) {
+    public void to(int i) {
         this.floor_num = i;
     }
 
@@ -372,10 +372,10 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
                 spannableString.setSpan(arrayList.get(i2), i2, i2 + 1, 17);
             }
             if (!StringUtils.isNull(this.aae.getSealPrefix())) {
-                Bitmap cO = ak.cO(d.f.pic_smalldot_title);
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
-                if (cO != null) {
-                    bitmapDrawable.setBounds(0, 0, cO.getWidth(), cO.getHeight());
+                Bitmap cN = ak.cN(d.f.pic_smalldot_title);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
+                if (cN != null) {
+                    bitmapDrawable.setBounds(0, 0, cN.getWidth(), cN.getHeight());
                 }
                 com.baidu.tbadk.core.view.h hVar = new com.baidu.tbadk.core.view.h(bitmapDrawable);
                 hVar.setOffset(com.baidu.adp.lib.util.l.e(tbPageContext.getPageActivity(), d.e.ds2));
@@ -402,7 +402,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
                         }
                         this.gxh = false;
                     }
-                    tbRichTextData2.fV(sb.length());
+                    tbRichTextData2.fU(sb.length());
                     tbRichTextData2.JQ().insert(0, (CharSequence) spannableString);
                     return;
                 }
@@ -427,7 +427,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
                 } else {
                     tbRichTextData = new TbRichTextData(1);
                 }
-                tbRichTextData.fV(sb.length());
+                tbRichTextData.fU(sb.length());
                 tbRichTextData.append(spannableString);
                 JJ.add(0, tbRichTextData);
             }
@@ -605,7 +605,7 @@ public class PostData implements com.baidu.adp.widget.ListView.h, ae {
                 this.gwI = TbRichTextView.a(context, post.content, true);
                 if (this.gwI != null) {
                     this.gwI.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
-                    this.gwI.fU(this.floor_num);
+                    this.gwI.fT(this.floor_num);
                     if (this.aae != null) {
                         this.gwI.setAuthorId(this.aae.getUserId());
                     }

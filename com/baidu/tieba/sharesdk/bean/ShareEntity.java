@@ -19,7 +19,7 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.sz(parcel.readInt());
+            shareEntity.sy(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.g((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
@@ -30,7 +30,7 @@ public class ShareEntity implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: sA */
+        /* renamed from: sz */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
@@ -105,7 +105,7 @@ public class ShareEntity implements Parcelable {
         return this.gkB;
     }
 
-    public void sz(int i) {
+    public void sy(int i) {
         this.gkB = i;
     }
 

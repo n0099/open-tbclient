@@ -55,7 +55,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         this.dQI = z;
     }
 
-    public void nh(int i) {
+    public void ng(int i) {
         this.dQJ = i;
     }
 

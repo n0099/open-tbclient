@@ -31,7 +31,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vc */
+    /* renamed from: vb */
     public VideoTitleData getItem(int i) {
         return (VideoTitleData) v.c(this.heB, i);
     }

@@ -53,12 +53,12 @@ public class QuickWebView extends BaseWebView {
                     QuickWebView.this.fVx = QuickWebView.this.mProgressBar.getProgress();
                     if (i < 100 || QuickWebView.this.fVw) {
                         QuickWebView.this.mProgressBar.setVisibility(0);
-                        QuickWebView.this.rL(i);
+                        QuickWebView.this.rK(i);
                         return;
                     }
                     QuickWebView.this.fVw = true;
                     QuickWebView.this.mProgressBar.setProgress(i);
-                    QuickWebView.this.rM(QuickWebView.this.mProgressBar.getProgress());
+                    QuickWebView.this.rL(QuickWebView.this.mProgressBar.getProgress());
                 }
             }
         };
@@ -79,12 +79,12 @@ public class QuickWebView extends BaseWebView {
                     QuickWebView.this.fVx = QuickWebView.this.mProgressBar.getProgress();
                     if (i < 100 || QuickWebView.this.fVw) {
                         QuickWebView.this.mProgressBar.setVisibility(0);
-                        QuickWebView.this.rL(i);
+                        QuickWebView.this.rK(i);
                         return;
                     }
                     QuickWebView.this.fVw = true;
                     QuickWebView.this.mProgressBar.setProgress(i);
-                    QuickWebView.this.rM(QuickWebView.this.mProgressBar.getProgress());
+                    QuickWebView.this.rL(QuickWebView.this.mProgressBar.getProgress());
                 }
             }
         };
@@ -120,7 +120,7 @@ public class QuickWebView extends BaseWebView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rL(int i) {
+    public void rK(int i) {
         if (this.fVy != null) {
             this.fVy.cancel();
             this.fVy = null;
@@ -132,7 +132,7 @@ public class QuickWebView extends BaseWebView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rM(final int i) {
+    public void rL(final int i) {
         if (this.fVz != null) {
             this.fVz.cancel();
             this.fVz = null;

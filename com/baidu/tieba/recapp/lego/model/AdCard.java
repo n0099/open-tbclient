@@ -515,8 +515,8 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
     public void updataThreadData(bd bdVar) {
         if (bdVar != null) {
             bdVar.n(this.time / 1000);
-            bdVar.bO(this.reply_num);
-            bdVar.bX(this.agree_num);
+            bdVar.bN(this.reply_num);
+            bdVar.bW(this.agree_num);
             bdVar.o(this.share_num);
             bdVar.setAddress(this.localAdsAddress);
             bdVar.setTitle(this.threadTitle);

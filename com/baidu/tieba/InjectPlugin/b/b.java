@@ -80,7 +80,7 @@ public class b extends g {
         return this.currentPage;
     }
 
-    public void bV(int i) {
+    public void bU(int i) {
         this.currentPage = i;
     }
 
@@ -104,7 +104,7 @@ public class b extends g {
         return this.pageNum;
     }
 
-    public void gd(int i) {
+    public void gc(int i) {
         this.pageNum = i;
     }
 

@@ -16,11 +16,11 @@ public class aa {
         public long mTime;
     }
 
-    public static int cE(int i) {
+    public static int cD(int i) {
         return ahE.getAndSet(i);
     }
 
-    public static int cF(int i) {
+    public static int cE(int i) {
         return ahE.addAndGet(i);
     }
 

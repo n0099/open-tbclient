@@ -44,11 +44,11 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo pO(int i) {
+    public ImageFileInfo pN(int i) {
         return (ImageFileInfo) v.c(this.mList, i);
     }
 
-    public boolean uS(int i) {
+    public boolean uR(int i) {
         if (this.hbK.get(Integer.valueOf(i)) == null) {
             return false;
         }
@@ -72,10 +72,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView2.setDefaultErrorResource(0);
         tbImageView2.setGifIconSupport(false);
         tbImageView2.setLongIconSupport(false);
-        ImageFileInfo pO = pO(i);
-        if (pO != null) {
-            tbImageView2.startLoad(pO.getFilePath(), 35, false, true);
-            tbImageView.startLoad(pO.getFilePath(), 36, false);
+        ImageFileInfo pN = pN(i);
+        if (pN != null) {
+            tbImageView2.startLoad(pN.getFilePath(), 35, false, true);
+            tbImageView.startLoad(pN.getFilePath(), 36, false);
             this.hbK.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);

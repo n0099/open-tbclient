@@ -11,7 +11,7 @@ public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.largeImag
         return this.aSB;
     }
 
-    public void fE(int i) {
+    public void fD(int i) {
         this.aSB = i;
     }
 

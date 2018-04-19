@@ -97,8 +97,8 @@ public class EditorDesk extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eD(int i) {
-        if (eH(i)) {
+    public void eC(int i) {
+        if (eG(i)) {
             if (DJ()) {
                 this.aCQ = true;
             } else {
@@ -136,7 +136,7 @@ public class EditorDesk extends FrameLayout {
         }
     }
 
-    private boolean eH(int i) {
+    private boolean eG(int i) {
         Iterator<l> it = this.aCO.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
@@ -146,7 +146,7 @@ public class EditorDesk extends FrameLayout {
         return false;
     }
 
-    public g eF(int i) {
+    public g eE(int i) {
         Iterator<g> it = this.aCN.iterator();
         while (it.hasNext()) {
             g next = it.next();

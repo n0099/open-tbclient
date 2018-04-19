@@ -14,11 +14,11 @@ public class z {
         return daf;
     }
 
-    public void kn(int i) {
+    public void km(int i) {
         this.dae.put(i, "1");
     }
 
-    public boolean ko(int i) {
+    public boolean kn(int i) {
         if (i > 100) {
             i = 100;
         }

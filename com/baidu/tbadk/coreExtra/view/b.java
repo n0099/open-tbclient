@@ -17,7 +17,7 @@ public class b {
         this.labelName = str;
     }
 
-    public void eo(int i) {
+    public void en(int i) {
         this.ayJ = i;
     }
 

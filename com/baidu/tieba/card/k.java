@@ -68,7 +68,7 @@ public class k extends b<com.baidu.tieba.card.data.h> {
         if (this.cnT != null && this.cnK != null) {
             ak.h(this.clR, d.C0126d.cp_cont_d);
             ak.h(this.clQ, d.C0126d.cp_cont_d);
-            this.cnK.di(i);
+            this.cnK.dh(i);
         }
     }
 

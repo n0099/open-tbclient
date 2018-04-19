@@ -63,7 +63,7 @@ public class h {
         if (this.fwg != null && bdVar != null && bdVar.sQ() != null && bdVar.sQ().ach == 2) {
             if (this.fwh == null) {
                 this.fwh = new com.baidu.tieba.d.c(this.bcJ.getPageContext(), this.fwg.bck());
-                this.fwh.jf(5000);
+                this.fwh.je(5000);
             }
             this.fwh.h(this.bcJ.getResources().getString(d.k.pb_order_channel_tip), "pb_show_order_channel_tip", true);
         }

@@ -51,7 +51,7 @@ public class an extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String cR(int i) {
+    public static String cQ(int i) {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;
@@ -340,7 +340,7 @@ public class an extends com.baidu.adp.lib.util.k {
     }
 
     @Deprecated
-    public static String cS(int i) {
+    public static String cR(int i) {
         if (i > 9999) {
             return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
         }
@@ -516,7 +516,7 @@ public class an extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String cT(int i) {
+    public static String cS(int i) {
         return new DecimalFormat("#,###").format(i);
     }
 
@@ -907,7 +907,7 @@ public class an extends com.baidu.adp.lib.util.k {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static String cU(int i) {
+    public static String cT(int i) {
         switch (i) {
             case 1:
                 return TbadkCoreApplication.getInst().getContext().getString(d.k.he);
@@ -922,7 +922,7 @@ public class an extends com.baidu.adp.lib.util.k {
         return str != null ? str.trim() : "";
     }
 
-    public static String cV(int i) {
+    public static String cU(int i) {
         if (i < 1000) {
             i = 1000;
         }

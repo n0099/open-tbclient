@@ -66,12 +66,12 @@ public class c {
         });
         this.blb = new PbListView(this.dcg.getPageContext().getPageActivity());
         this.blb.kA();
-        this.blb.dv(d.C0126d.cp_bg_line_e);
+        this.blb.du(d.C0126d.cp_bg_line_e);
         this.blb.setHeight(l.e(this.dcg.getActivity(), d.e.tbds182));
         this.blb.wO();
         this.blb.setTextSize(d.e.tbfontsize33);
         this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
-        this.blb.du(d.C0126d.cp_cont_e);
+        this.blb.dt(d.C0126d.cp_cont_e);
         this.cYQ.setOnSrollToBottomListener(this.dcg);
         if (this.bnR == null) {
             this.bnR = (BdSwipeRefreshLayout) view2.findViewById(d.g.frs_dynamic_pull_refresh_layout);
@@ -133,13 +133,13 @@ public class c {
     /* JADX INFO: Access modifiers changed from: protected */
     public void Qo() {
         this.cYQ.setNextPage(this.blb);
-        this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.blb.wR();
     }
 
     public void Qp() {
         this.cYQ.setNextPage(this.blb);
-        this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.blb.wS();
         this.blb.setText(this.dcg.getResources().getString(d.k.list_no_more));
     }
@@ -164,7 +164,7 @@ public class c {
 
     public void onChangeSkinType(int i) {
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
         if (this.dcF != null) {
             this.dcF.notifyDataSetChanged();
@@ -173,7 +173,7 @@ public class c {
         this.dcg.getBaseFragmentActivity().getLayoutMode().u(this.bbY);
         if (this.blb != null) {
             this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
-            this.blb.dw(i);
+            this.blb.dv(i);
         }
         ak.j(this.bnR, d.C0126d.cp_bg_line_c);
         ak.j(this.cYQ, d.C0126d.cp_bg_line_e);

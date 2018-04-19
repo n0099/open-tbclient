@@ -25,7 +25,7 @@ public class i {
         return this.asW;
     }
 
-    public void dO(int i) {
+    public void dN(int i) {
         this.asW = i;
     }
 }

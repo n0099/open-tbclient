@@ -36,8 +36,8 @@ public class b extends q.a implements View.OnClickListener {
         this.fiN.getLayoutStrategy().setSupportNoImage();
         this.fiN.getLayoutStrategy().ce(true);
         int min = Math.min(((((l.af(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.fiN.getPaddingLeft()) - this.fiN.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds60)), i);
-        this.fiN.getLayoutStrategy().fM(min);
-        this.fiN.getLayoutStrategy().fN((int) (min * 1.618f));
+        this.fiN.getLayoutStrategy().fL(min);
+        this.fiN.getLayoutStrategy().fM((int) (min * 1.618f));
         this.fiN.setTextSize(TbConfig.getContentSize());
         this.fiN.setDisplayImage(z2, false);
         this.fiN.setVoiceViewRes(d.i.voice_play_btn);

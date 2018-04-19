@@ -171,7 +171,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         ak.i(this.mPost, d.f.s_navbar_button_bg);
         ak.h(this.mPost, d.C0126d.cp_cont_g);
         if (i == 1) {
-            i2 = ak.cL(i);
+            i2 = ak.cK(i);
         } else {
             i2 = -12895429;
         }
@@ -181,7 +181,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void showDialog() {
         this.mWaitingDialog = new com.baidu.tbadk.core.view.a(getPageContext());
-        this.mWaitingDialog.da(d.k.sending);
+        this.mWaitingDialog.cZ(d.k.sending);
         this.mWaitingDialog.d(this.mDialogCancelListener);
         this.mWaitingDialog.aJ(false);
         this.mWaitingDialog.setCanceledOnTouchOutside(false);

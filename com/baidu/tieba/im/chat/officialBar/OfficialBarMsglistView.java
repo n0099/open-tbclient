@@ -129,10 +129,10 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         arrayList.add(10);
         arrayList.add(5);
         this.mTool.C(arrayList);
-        k eI = this.mTool.eI(5);
-        if (eI != null) {
-            eI.aDB = 3;
-            eI.aDz = d.f.btn_pb_add_expression;
+        k eH = this.mTool.eH(5);
+        if (eH != null) {
+            eH.aDB = 3;
+            eH.aDz = d.f.btn_pb_add_expression;
         }
         com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(talkableActivity.getActivity(), false);
         aVar.setIsOnlyLocalEmotion(true);
@@ -310,7 +310,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         return false;
     }
 
-    public void nk(int i) {
+    public void nj(int i) {
         if (this.dPQ != null) {
             this.dPQ.setText(i);
         }

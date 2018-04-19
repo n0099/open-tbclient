@@ -59,7 +59,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void sB(int i) {
+    public void sA(int i) {
         aj(i, null);
     }
 

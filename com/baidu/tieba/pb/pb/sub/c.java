@@ -50,7 +50,7 @@ public class c extends BaseAdapter {
         this.mIsFromCDN = z;
     }
 
-    public void qJ(int i) {
+    public void qI(int i) {
         this.mSelectedPosition = i;
     }
 
@@ -209,9 +209,9 @@ public class c extends BaseAdapter {
         bVar.fiN.getLayoutStrategy().setSupportNoImage();
         if (!this.fuM) {
             bVar.fiN.getLayoutStrategy().setLineSpacing(l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds12), 1.0f);
-            bVar.fiN.getLayoutStrategy().fT(0);
-            bVar.fiN.getLayoutStrategy().fR(l.e(this.mContext, d.e.tbds20));
-            bVar.fiN.getLayoutStrategy().fS(l.e(this.mContext, d.e.tbds3));
+            bVar.fiN.getLayoutStrategy().fS(0);
+            bVar.fiN.getLayoutStrategy().fQ(l.e(this.mContext, d.e.tbds20));
+            bVar.fiN.getLayoutStrategy().fR(l.e(this.mContext, d.e.tbds3));
         }
         bVar.fiN.setSubPbPost(true);
         bVar.fiN.setTextColor(ak.getColor(d.C0126d.cp_cont_f));

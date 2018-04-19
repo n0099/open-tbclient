@@ -10,7 +10,7 @@ public class KeyboardEventLayout extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void qI(int i);
+        void qH(int i);
     }
 
     public void setOnKeyStateChangedListener(a aVar) {
@@ -41,9 +41,9 @@ public class KeyboardEventLayout extends RelativeLayout {
         this.maxHeight = Math.max(Math.max(i4, i2), this.maxHeight);
         if (i4 != 0 && this.fwY != null) {
             if (i4 > i2) {
-                this.fwY.qI(0);
+                this.fwY.qH(0);
             } else if (i4 < i2 && i2 >= this.maxHeight) {
-                this.fwY.qI(1);
+                this.fwY.qH(1);
             }
         }
     }

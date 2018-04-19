@@ -46,7 +46,7 @@ public class PersonBarModel extends BdBaseModel {
         return this.mIsHost;
     }
 
-    public void rf(int i) {
+    public void re(int i) {
         this.fGl = i;
     }
 

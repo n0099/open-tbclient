@@ -45,9 +45,9 @@ public class ao {
 
     public void c(ImageView imageView, int i, int i2) {
         Drawable u;
-        ColorStateList cN;
-        if (imageView != null && i != 0 && i2 != 0 && (u = u(i, 1)) != null && (cN = ak.cN(i2)) != null) {
-            DrawableCompat.setTintList(u, cN);
+        ColorStateList cM;
+        if (imageView != null && i != 0 && i2 != 0 && (u = u(i, 1)) != null && (cM = ak.cM(i2)) != null) {
+            DrawableCompat.setTintList(u, cM);
             imageView.setImageDrawable(u);
         }
     }
@@ -65,19 +65,19 @@ public class ao {
             }
             switch (i2) {
                 case 1:
-                    VectorDrawableCompat cW = this.aiT.cW(a2);
+                    VectorDrawableCompat cV = this.aiT.cV(a2);
+                    if (cV == null) {
+                        return ak.c(skinType, this.mResources, ak.g(this.mResources, i));
+                    }
+                    com.baidu.tbadk.core.d.a.a("img", -1L, 0, "svg_load_success", 0, "", new Object[0]);
+                    return cV;
+                case 2:
+                    AnimatedVectorDrawableCompat cW = this.aiT.cW(a2);
                     if (cW == null) {
                         return ak.c(skinType, this.mResources, ak.g(this.mResources, i));
                     }
                     com.baidu.tbadk.core.d.a.a("img", -1L, 0, "svg_load_success", 0, "", new Object[0]);
                     return cW;
-                case 2:
-                    AnimatedVectorDrawableCompat cX = this.aiT.cX(a2);
-                    if (cX == null) {
-                        return ak.c(skinType, this.mResources, ak.g(this.mResources, i));
-                    }
-                    com.baidu.tbadk.core.d.a.a("img", -1L, 0, "svg_load_success", 0, "", new Object[0]);
-                    return cX;
                 case 3:
                     StateListDrawable a3 = this.aiT.a(a2, this.mResources);
                     if (a3 == null) {
@@ -108,7 +108,7 @@ public class ao {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public VectorDrawableCompat cW(int i) {
+        public VectorDrawableCompat cV(int i) {
             Drawable.ConstantState constantState;
             Throwable th;
             VectorDrawableCompat vectorDrawableCompat;
@@ -220,7 +220,7 @@ public class ao {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public AnimatedVectorDrawableCompat cX(int i) {
+        public AnimatedVectorDrawableCompat cW(int i) {
             AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
             Drawable.ConstantState constantState = this.aiV.get(Integer.valueOf(i));
             if (constantState == null) {

@@ -37,7 +37,7 @@ public class ConcernSelectView extends FrameLayout {
     public interface a {
         void iL(boolean z);
 
-        void le(int i);
+        void ld(int i);
     }
 
     public ConcernSelectView(Context context) {
@@ -85,7 +85,7 @@ public class ConcernSelectView extends FrameLayout {
                 ak.h(ConcernSelectView.this.eRR, d.C0126d.cp_cont_j);
                 ConcernSelectView.this.eRP.setText(d.k.all_concerned);
                 if (ConcernSelectView.this.eRW != null) {
-                    ConcernSelectView.this.eRW.le(0);
+                    ConcernSelectView.this.eRW.ld(0);
                 }
                 ConcernSelectView.this.t(ConcernSelectView.this.eRS, 1);
             }
@@ -98,7 +98,7 @@ public class ConcernSelectView extends FrameLayout {
                 ak.h(ConcernSelectView.this.eRR, d.C0126d.cp_cont_b);
                 ConcernSelectView.this.eRP.setText(d.k.each_concerned);
                 if (ConcernSelectView.this.eRW != null) {
-                    ConcernSelectView.this.eRW.le(1);
+                    ConcernSelectView.this.eRW.ld(1);
                 }
                 ConcernSelectView.this.t(ConcernSelectView.this.eRS, 1);
             }

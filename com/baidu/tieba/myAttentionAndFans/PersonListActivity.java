@@ -349,9 +349,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             }
 
             @Override // com.baidu.tieba.myAttentionAndFans.ConcernSelectView.a
-            public void le(int i) {
+            public void ld(int i) {
                 PersonListActivity.this.eSn.setSelection(0);
-                PersonListActivity.this.mModel.gN(i);
+                PersonListActivity.this.mModel.gM(i);
             }
         });
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_my_concerned_person_tip", 0) < 2 && z && this.mModel.aOw()) {
@@ -374,11 +374,11 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public void aSs() {
         if (this.eSz == null) {
             this.eSz = new com.baidu.tieba.d.c(getPageContext(), this.eSy.eRS);
-            this.eSz.je(d.f.bg_tip_blue_up);
-            this.eSz.jg(2);
-            this.eSz.jf(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
-            this.eSz.jh(-10);
-            this.eSz.ji(-16);
+            this.eSz.jd(d.f.bg_tip_blue_up);
+            this.eSz.jf(2);
+            this.eSz.je(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
+            this.eSz.jg(-10);
+            this.eSz.jh(-16);
             this.eSz.j(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivity.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
@@ -442,7 +442,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                         string4 = getPageContext().getString(d.k.each_concerned);
                     }
                     String string5 = getPageContext().getString(d.k.person);
-                    this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.not_have_attention));
+                    this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.not_have_attention));
                     z = false;
                     string = string4;
                     textView = textView2;
@@ -455,13 +455,13 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     this.eSy.setVisibility(8);
                     if (this.eSw == 2) {
                         string3 = getPageContext().getString(d.k.she_attention_prefix);
-                        this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.her_no_attention_other));
+                        this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.her_no_attention_other));
                     } else if (this.eSw == 1) {
                         string3 = getPageContext().getString(d.k.he_attention_prefix);
-                        this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.him_no_attention_other));
+                        this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.him_no_attention_other));
                     } else {
                         string3 = getPageContext().getString(d.k.he_attention_prefix);
-                        this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.him_no_attention_other));
+                        this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.him_no_attention_other));
                     }
                     String string6 = getPageContext().getString(d.k.person);
                     string = string3;
@@ -478,22 +478,22 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 if (this.mModel.getId() != null && this.mModel.getId().equals(TbadkCoreApplication.getCurrentAccount())) {
                     string = getPageContext().getString(d.k.my_fans_prefix);
                     string2 = getPageContext().getString(d.k.fans_suffix);
-                    this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.not_have_fans));
+                    this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.not_have_fans));
                     z = false;
                 } else if (this.eSw == 2) {
                     string = getPageContext().getString(d.k.her_fans_prefix);
                     string2 = getPageContext().getString(d.k.fans_suffix);
-                    this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.her_no_fan_other));
+                    this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.her_no_fan_other));
                     z = false;
                 } else if (this.eSw == 1) {
                     string = getPageContext().getString(d.k.his_fans_prefix);
                     string2 = getPageContext().getString(d.k.fans_suffix);
-                    this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.him_no_fan_other));
+                    this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.him_no_fan_other));
                     z = false;
                 } else {
                     string = getPageContext().getString(d.k.his_fans_prefix);
                     string2 = getPageContext().getString(d.k.fans_suffix);
-                    this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.him_no_fan_other));
+                    this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.him_no_fan_other));
                     z = false;
                 }
             }
@@ -525,33 +525,33 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     string = getPageContext().getString(d.k.each_concerned);
                 }
                 String string2 = getPageContext().getString(d.k.person);
-                this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(this.mModel.getLoadType() == 0 ? d.k.not_have_attention : d.k.not_have_each_attention));
+                this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(this.mModel.getLoadType() == 0 ? d.k.not_have_attention : d.k.not_have_each_attention));
                 this.eSq.setText(string + 0 + string2);
                 return;
             }
             this.eSy.setVisibility(8);
             this.eSq.setVisibility(8);
             if (this.eSw == 2) {
-                this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.her_no_attention_other));
+                this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.her_no_attention_other));
                 return;
             } else if (this.eSw == 1) {
-                this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.him_no_attention_other));
+                this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.him_no_attention_other));
                 return;
             } else {
-                this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.him_no_attention_other));
+                this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.him_no_attention_other));
                 return;
             }
         }
         this.eSy.setVisibility(8);
         this.eSq.setVisibility(8);
         if (this.mModel.getId() != null && this.mModel.getId().equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.not_have_fans));
+            this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.not_have_fans));
         } else if (this.eSw == 2) {
-            this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.her_no_fan_other));
+            this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.her_no_fan_other));
         } else if (this.eSw == 1) {
-            this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.him_no_fan_other));
+            this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.him_no_fan_other));
         } else {
-            this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.him_no_fan_other));
+            this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.him_no_fan_other));
         }
     }
 

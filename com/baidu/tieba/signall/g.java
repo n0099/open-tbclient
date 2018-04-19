@@ -86,7 +86,7 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
         return i;
     }
 
-    private View sU(int i) {
+    private View sT(int i) {
         if (i == 0) {
             View inflate = LayoutInflater.from(this.gnr.getPageContext().getPageActivity()).inflate(d.i.signallforum_item, (ViewGroup) null);
             b bVar = new b();
@@ -227,15 +227,15 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
             return amF();
         }
         int itemViewType = getItemViewType(i);
-        View sU = view2 == null ? sU(itemViewType) : view2;
+        View sT = view2 == null ? sT(itemViewType) : view2;
         if (itemViewType == 1) {
-            if (sU.getTag() != null && (sU.getTag() instanceof a)) {
-                view3 = sU;
-                aVar = (a) sU.getTag();
+            if (sT.getTag() != null && (sT.getTag() instanceof a)) {
+                view3 = sT;
+                aVar = (a) sT.getTag();
             } else {
-                View sU2 = sU(itemViewType);
-                view3 = sU2;
-                aVar = (a) sU2.getTag();
+                View sT2 = sT(itemViewType);
+                view3 = sT2;
+                aVar = (a) sT2.getTag();
             }
             this.gnr.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
             this.gnr.getLayoutMode().u(view3.findViewById(d.g.sign_all_forum_tip));
@@ -243,11 +243,11 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
             n(aVar.gnx, i);
             return view3;
         }
-        if (sU.getTag() == null || !(sU.getTag() instanceof b)) {
-            sU = sU(itemViewType);
+        if (sT.getTag() == null || !(sT.getTag() instanceof b)) {
+            sT = sT(itemViewType);
         }
-        a(sU, viewGroup, i);
-        return sU;
+        a(sT, viewGroup, i);
+        return sT;
     }
 
     private void n(TextView textView, int i) {
@@ -379,9 +379,9 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
                 dVar.mb(!z);
                 dVar.mc(false);
                 if (z) {
-                    dVar.sR(signData.count_sign_num);
-                    dVar.sT(signData.sign_bonus_point);
-                    dVar.sQ(1);
+                    dVar.sQ(signData.count_sign_num);
+                    dVar.sS(signData.sign_bonus_point);
+                    dVar.sP(1);
                     TbadkApplication.getInst().addSignedForum(dVar.getForumName(), signData.sign_bonus_point, -1);
                     ArrayList<d> bop = this.gmY.bop();
                     if (bop.contains(dVar)) {

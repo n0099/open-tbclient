@@ -172,7 +172,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                                                 break;
                                         }
                                         int parseColor = com.baidu.tieba.lego.card.d.a.parseColor(FormCardView.this.gaW.backgroundInfo.color);
-                                        if (!com.baidu.tieba.lego.card.d.a.ow(parseColor)) {
+                                        if (!com.baidu.tieba.lego.card.d.a.ov(parseColor)) {
                                             FormCardView.this.mRootView.setBackgroundColor(parseColor);
                                         }
                                         aVar.a(FormCardView.this.gaT);

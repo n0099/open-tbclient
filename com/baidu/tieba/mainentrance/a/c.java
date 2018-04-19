@@ -122,15 +122,15 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ih(boolean z) {
-        NoDataViewFactory.d dp;
+        NoDataViewFactory.d m16do;
         if (!z) {
             this.eDe.aMG();
             if (j.gP()) {
-                dp = NoDataViewFactory.d.dp(d.k.text_no_search_record);
+                m16do = NoDataViewFactory.d.m16do(d.k.text_no_search_record);
             } else {
-                dp = NoDataViewFactory.d.dp(d.k.neterror);
+                m16do = NoDataViewFactory.d.m16do(d.k.neterror);
             }
-            this.eDe.a(dp);
+            this.eDe.a(m16do);
             return;
         }
         this.eDe.aMV();

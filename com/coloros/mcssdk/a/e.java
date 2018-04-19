@@ -17,7 +17,7 @@ public final class e extends c {
     public final com.coloros.mcssdk.e.c ak(Intent intent) {
         try {
             com.coloros.mcssdk.e.d dVar = new com.coloros.mcssdk.e.d();
-            dVar.vy(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
+            dVar.vx(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
             dVar.vA(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
             dVar.setAppPackage(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             dVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));

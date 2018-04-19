@@ -483,11 +483,11 @@ public class PersonalizePageView extends FrameLayout {
         this.dAh.setSelector(17170445);
         this.blb = new PbListView(context);
         this.blb.getView();
-        this.blb.dv(d.C0126d.cp_bg_line_e);
+        this.blb.du(d.C0126d.cp_bg_line_e);
         this.blb.wO();
         this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
         this.blb.setTextSize(d.e.tbfontsize33);
-        this.blb.du(d.C0126d.cp_cont_e);
+        this.blb.dt(d.C0126d.cp_cont_e);
         this.blb.setHeight(com.baidu.adp.lib.util.l.e(context, d.e.tbds182));
         this.blb.setOnClickListener(this.dAC);
         this.dAh.setNextPage(this.blb);
@@ -598,7 +598,7 @@ public class PersonalizePageView extends FrameLayout {
     public void d(DataRes dataRes, boolean z, boolean z2) {
         if (this.blb != null) {
             this.blb.wS();
-            this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.dDI.a(z, z2, dataRes, 0, null);
     }
@@ -658,11 +658,11 @@ public class PersonalizePageView extends FrameLayout {
                 this.refreshView.onChangeSkinType();
             }
             if (this.mPullView != null) {
-                this.mPullView.dw(i);
+                this.mPullView.dv(i);
             }
             if (this.blb != null) {
                 this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
-                this.blb.dw(i);
+                this.blb.dv(i);
             }
             this.dDG.onChangeSkinType(i);
             ak.j(this, d.C0126d.cp_bg_line_d);
@@ -673,7 +673,7 @@ public class PersonalizePageView extends FrameLayout {
     public void Y(String str, int i) {
         if (this.blb != null) {
             this.blb.wS();
-            this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.dDI.a(true, false, null, i, str);
     }
@@ -690,7 +690,7 @@ public class PersonalizePageView extends FrameLayout {
                 }
             });
         }
-        this.refreshView.fb(getContext().getResources().getDimensionPixelSize(d.e.ds280));
+        this.refreshView.fa(getContext().getResources().getDimensionPixelSize(d.e.ds280));
         this.refreshView.setSubText(str);
         this.refreshView.d(view2, z);
         this.refreshView.Fu();
@@ -838,7 +838,7 @@ public class PersonalizePageView extends FrameLayout {
         com.baidu.tieba.homepage.framework.a.axq().i(System.currentTimeMillis(), 1);
         if (this.blb != null && !this.blb.wX()) {
             this.blb.wR();
-            this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.dDI.Po();
     }

@@ -111,7 +111,7 @@ public class d {
         });
         this.cJV.a(new RecentlyVisitedForumModel.a() { // from class: com.baidu.tieba.enterForum.view.d.7
             @Override // com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.a
-            public void jy(int i) {
+            public void jx(int i) {
                 d.this.notifyItemRemoved(i);
             }
 

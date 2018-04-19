@@ -49,7 +49,7 @@ public class a {
             bd bdVar = new bd();
             bVar.T(bdVar);
             bdVar.a(list.get(i2));
-            bdVar.bV(3);
+            bdVar.bU(3);
             bdVar.sx();
             if (!TextUtils.isEmpty(bdVar.sH())) {
                 ac acVar = new ac();

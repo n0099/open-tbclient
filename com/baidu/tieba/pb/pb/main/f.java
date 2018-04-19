@@ -248,7 +248,7 @@ public class f {
             if (this.fgN != null) {
                 this.fgN.b(dVar);
                 this.fgN.setFromCDN(this.mIsFromCDN);
-                this.fgN.qb(this.fhj);
+                this.fgN.qa(this.fhj);
                 this.fgN.jq(this.fhc);
                 this.fgN.n(this.mCommonClickListener);
                 this.fgN.F(this.fhk);
@@ -277,7 +277,7 @@ public class f {
                         next.b(dVar);
                         next.setFromCDN(this.mIsFromCDN);
                         next.setHostId(this.mHostId);
-                        next.qb(this.fhj);
+                        next.qa(this.fhj);
                         next.jq(this.fhc);
                         next.jr(this.fhd);
                         next.js(this.fhi);
@@ -634,7 +634,7 @@ public class f {
         return this.postList;
     }
 
-    public BdUniqueId qj(int i) {
+    public BdUniqueId qi(int i) {
         if (this.mListView.getItem(i) != null) {
             return this.mListView.getItem(i).getType();
         }
@@ -785,7 +785,7 @@ public class f {
 
     private void a(com.baidu.tieba.tbadkCore.data.l lVar, int i) {
         com.baidu.tieba.recapp.report.a c = com.baidu.tieba.recapp.report.e.c(lVar, 5);
-        c.rV(i);
+        c.rU(i);
         com.baidu.tieba.recapp.report.b.bke().a(c);
         if (lVar != null && lVar.brP() != null) {
             lVar.brP().mDiscardReason = i;
@@ -872,9 +872,9 @@ public class f {
         this.mCommonClickListener = onClickListener;
     }
 
-    public void qk(int i) {
+    public void qj(int i) {
         if (this.fgO != null) {
-            this.fgO.qk(i);
+            this.fgO.qj(i);
         }
         switch (i) {
             case 1:

@@ -119,15 +119,15 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
         if (i >= this.mListData.size()) {
             return null;
         }
-        View dE = dE(i);
-        if (dE != null && dE.getParent() != viewGroup) {
-            viewGroup.addView(dE);
-            return dE;
+        View dD = dD(i);
+        if (dD != null && dD.getParent() != viewGroup) {
+            viewGroup.addView(dD);
+            return dD;
         }
-        return dE;
+        return dD;
     }
 
-    public View dE(int i) {
+    public View dD(int i) {
         if (i >= this.aqP.size() || i >= this.mListData.size()) {
             return null;
         }

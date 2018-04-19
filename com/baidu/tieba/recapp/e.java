@@ -118,7 +118,7 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                         } else {
                             com.baidu.tieba.InjectPlugin.FrsFeedAd.c cVar = new com.baidu.tieba.InjectPlugin.FrsFeedAd.c();
                             cVar.F(advertAppInfo);
-                            cVar.ga(advertAppInfo.getType().getId());
+                            cVar.fZ(advertAppInfo.getType().getId());
                             cVar.setThreadType(3);
                             if (advertAppInfo.qt()) {
                                 if (s.isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.VU)) {
@@ -243,7 +243,7 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                         } else {
                             com.baidu.tieba.InjectPlugin.FrsFeedAd.c cVar = new com.baidu.tieba.InjectPlugin.FrsFeedAd.c();
                             cVar.F(advertAppInfo);
-                            cVar.ga(advertAppInfo.getType().getId());
+                            cVar.fZ(advertAppInfo.getType().getId());
                             cVar.setThreadType(3);
                             if (advertAppInfo.qt()) {
                                 if (s.isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.VU)) {

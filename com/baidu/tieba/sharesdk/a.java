@@ -35,7 +35,7 @@ public class a implements com.baidu.tbadk.coreExtra.c.b {
             }
             shareEntity.setLinkUrl(str);
             shareEntity.setLocation(dVar.awW);
-            shareEntity.sz(i);
+            shareEntity.sy(i);
             shareEntity.f(dVar.BL());
             shareEntity.lW(dVar.axd);
             Bundle bundle = new Bundle();

@@ -11,5 +11,5 @@ public interface c {
 
     void onConvertSuccess();
 
-    void ug(int i);
+    void uf(int i);
 }

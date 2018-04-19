@@ -71,7 +71,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.dPu.setBackgroundColor(ak.cM(i));
+            this.dPu.setBackgroundColor(ak.cL(i));
         } else {
             this.dPu.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
@@ -160,7 +160,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         };
         this.dPv = new BaseViewPager.a() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.4
             @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-            public void cZ(int i) {
+            public void cY(int i) {
                 if (i == 0) {
                 }
             }

@@ -101,8 +101,8 @@ public class g extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
         this.gjP.getLayoutMode().setNightMode(i == 1);
         this.gjP.getLayoutMode().u(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gjS.setBackgroundRes(ak.cO(d.f.bg_switch_open), ak.cO(d.f.bg_switch_close), ak.cO(d.f.btn_handle));
-        this.gjT.setBackgroundRes(ak.cO(d.f.bg_switch_open), ak.cO(d.f.bg_switch_close), ak.cO(d.f.btn_handle));
+        this.gjS.setBackgroundRes(ak.cN(d.f.bg_switch_open), ak.cN(d.f.bg_switch_close), ak.cN(d.f.btn_handle));
+        this.gjT.setBackgroundRes(ak.cN(d.f.bg_switch_open), ak.cN(d.f.bg_switch_close), ak.cN(d.f.btn_handle));
         ak.i(this.gjQ, d.f.more_all);
     }
 

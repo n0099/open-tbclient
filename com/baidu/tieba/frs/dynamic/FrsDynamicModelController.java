@@ -53,7 +53,7 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
 
     private void a(FrsDynamicRequestData frsDynamicRequestData, int i) {
         if (this.dcz != null && this.dcz.isAdded() && this.dcz.getPageContext() != null) {
-            this.dcz.cYk.ke(i);
+            this.dcz.cYk.kd(i);
             this.dcB.a(frsDynamicRequestData);
             this.mType = i;
             int af = l.af(this.dcz.getPageContext().getPageActivity());

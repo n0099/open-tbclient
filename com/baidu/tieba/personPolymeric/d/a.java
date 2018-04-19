@@ -71,7 +71,7 @@ public class a extends q.a implements View.OnClickListener {
         this.fKI.setOnClickListener(this);
     }
 
-    public void dw(int i) {
+    public void dv(int i) {
         ak.i(this.fKI, d.C0126d.cp_bg_line_e);
         ak.j(getView(), d.C0126d.cp_bg_line_c);
         ak.i(this.fKJ, d.f.daily_recommend_item_selector);

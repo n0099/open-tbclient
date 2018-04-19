@@ -114,7 +114,7 @@ public class a extends k<PostData, b> implements View.OnClickListener, com.baidu
                         bVar.fzd.setVisibility(0);
                         bVar.fzc.setIsFromPb(true);
                         bVar.fzc.setData(rF, this.fhb.aVs().getId(), rF.getPostId(), true);
-                        bVar.fzc.dA(this.mSkinType);
+                        bVar.fzc.dz(this.mSkinType);
                     } else {
                         bVar.fzc.setVisibility(8);
                         bVar.fzb.setVisibility(8);
@@ -132,14 +132,14 @@ public class a extends k<PostData, b> implements View.OnClickListener, com.baidu
             } else {
                 bVar.fiO.setVisibility(8);
             }
-            bVar.fiN.getLayoutStrategy().fL(d.f.pic_video);
+            bVar.fiN.getLayoutStrategy().fK(d.f.pic_video);
             bVar.fiN.setTextColor(ak.getColor(d.C0126d.common_color_10039));
             bVar.fiN.setLinkTextColor(ak.getColor(d.C0126d.cp_link_tip_c));
             bVar.fiN.setLinkTextColor(ak.getColor(d.C0126d.cp_link_tip_c));
             if (this.fhc) {
-                bVar.fiN.getLayoutStrategy().fO(d.f.transparent_bg);
+                bVar.fiN.getLayoutStrategy().fN(d.f.transparent_bg);
             } else {
-                bVar.fiN.getLayoutStrategy().fO(d.f.icon_click);
+                bVar.fiN.getLayoutStrategy().fN(d.f.icon_click);
             }
             bVar.fiN.setIsFromCDN(this.mIsFromCDN);
             TbRichText tbRichText = null;
@@ -192,7 +192,7 @@ public class a extends k<PostData, b> implements View.OnClickListener, com.baidu
         if (tbRichTextView != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
             layoutParams.leftMargin = i;
-            tbRichTextView.getLayoutStrategy().fM(this.fyY - (i - this.fyX));
+            tbRichTextView.getLayoutStrategy().fL(this.fyY - (i - this.fyX));
             tbRichTextView.setLayoutParams(layoutParams);
         }
     }
@@ -218,7 +218,7 @@ public class a extends k<PostData, b> implements View.OnClickListener, com.baidu
     }
 
     @Override // com.baidu.tieba.pb.pb.a.a
-    public void qb(int i) {
+    public void qa(int i) {
         this.fhj = i;
     }
 

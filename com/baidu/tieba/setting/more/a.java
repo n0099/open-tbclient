@@ -73,13 +73,13 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
         }
         this.ghn.setText(this.ghl.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.ghl.getPageContext().getString(d.k.setting_version_text) + " " + version);
         this.ghu = (TextView) this.ghl.findViewById(d.g.text_version_protoco);
-        eq(TbadkCoreApplication.getInst().getSkinType());
+        ep(TbadkCoreApplication.getInst().getSkinType());
         if (MessageManager.getInstance().findTask(2015001) == null) {
             this.ghq.setVisibility(8);
             this.ghl.findViewById(d.g.line_about_guide).setVisibility(8);
         }
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("debug_plugin_switcher", false)) {
-            su(0);
+            st(0);
         }
     }
 
@@ -100,14 +100,14 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
                 } else if (view2 != a.this.gho) {
                     if (view2 != a.this.ghq) {
                         if (view2 == a.this.ghp) {
-                            cVar.st(4);
+                            cVar.ss(4);
                             return;
                         }
                         return;
                     }
-                    cVar.st(2);
+                    cVar.ss(2);
                 } else {
-                    cVar.st(1);
+                    cVar.ss(1);
                 }
             }
         };
@@ -119,7 +119,7 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
         this.ghp.setOnClickListener(onClickListener);
     }
 
-    private void su(int i) {
+    private void st(int i) {
         this.ghl.findViewById(d.g.line0).setVisibility(i);
     }
 
@@ -129,7 +129,7 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
         }
     }
 
-    public void eq(int i) {
+    public void ep(int i) {
         ak.j(this.ghm, d.C0126d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.ghl.getLayoutMode().setNightMode(i == 1);

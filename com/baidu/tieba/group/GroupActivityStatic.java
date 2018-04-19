@@ -78,7 +78,7 @@ public class GroupActivityStatic {
     }
 
     private static void awN() {
-        z.aqG().kn(4);
+        z.aqG().km(4);
         MessageManager.getInstance().registerListener(new CustomMessageListener(2003008) { // from class: com.baidu.tieba.group.GroupActivityStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

@@ -20,7 +20,7 @@ public class ab {
         this.mContext = context;
     }
 
-    public boolean kp(int i) {
+    public boolean ko(int i) {
         if (i < 100 && !com.baidu.tbadk.core.util.v.w(this.cWG)) {
             for (FrsTabInfo frsTabInfo : this.cWG) {
                 if (frsTabInfo.tab_id.intValue() == i) {

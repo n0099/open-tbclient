@@ -120,7 +120,7 @@ public class d {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: lG */
+        /* renamed from: lF */
         public StarTaskInfo getItem(int i) {
             return (StarTaskInfo) v.c(this.data, i);
         }

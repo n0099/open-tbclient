@@ -256,7 +256,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                                     a(State.REFRESHING, true);
                                     return true;
                                 } else if (isRefreshing()) {
-                                    fK(0);
+                                    fJ(0);
                                     return true;
                                 } else {
                                     a(State.RESET, new boolean[0]);
@@ -506,7 +506,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                         return;
                 }
             }
-            fK(0);
+            fJ(0);
             return;
         }
         JA();
@@ -530,7 +530,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         this.aUn = true;
         this.aUq.reset();
         this.aUr.reset();
-        fK(0);
+        fJ(0);
     }
 
     @Override // android.view.View
@@ -689,7 +689,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    protected final void fK(int i) {
+    protected final void fJ(int i) {
         f(i, getPullToRefreshScrollDuration());
     }
 

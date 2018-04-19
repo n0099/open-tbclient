@@ -39,7 +39,7 @@ public class f implements View.OnClickListener {
                     f.this.gCD.showToast(d.k.neterror);
                 } else if (obj instanceof r) {
                     int g = com.baidu.adp.lib.g.b.g(((r) obj).getFid(), 0);
-                    f.this.gCE.tK(g);
+                    f.this.gCE.tJ(g);
                     f.this.E(g, true);
                     f.this.gCD.mF(true);
                     f.this.gCD.mE(true);
@@ -52,7 +52,7 @@ public class f implements View.OnClickListener {
             @Override // com.baidu.tieba.tbadkCore.w.a
             public void m(String str, long j) {
                 int g = com.baidu.adp.lib.g.b.g(String.valueOf(j), 0);
-                f.this.gCE.tL(g);
+                f.this.gCE.tK(g);
                 f.this.E(g, false);
             }
 

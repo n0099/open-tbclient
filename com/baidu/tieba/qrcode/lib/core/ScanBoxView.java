@@ -455,7 +455,7 @@ public class ScanBoxView extends View {
         this.fVa = f2;
     }
 
-    public Rect rK(int i) {
+    public Rect rJ(int i) {
         if (this.fVj) {
             Rect rect = new Rect(this.fUt);
             float measuredHeight = (1.0f * i) / getMeasuredHeight();

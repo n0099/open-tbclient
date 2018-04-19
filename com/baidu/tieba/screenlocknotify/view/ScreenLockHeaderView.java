@@ -61,7 +61,7 @@ public class ScreenLockHeaderView extends LinearLayout {
         this.gfH.setText(eVar.groupName);
         this.gfK.setText(cR(eVar.dok));
         this.gfL.setText(eVar.content);
-        this.gfM.setText(si(eVar.gfD));
+        this.gfM.setText(sh(eVar.gfD));
     }
 
     public void lK(boolean z) {
@@ -78,7 +78,7 @@ public class ScreenLockHeaderView extends LinearLayout {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String si(int i) {
+    public String sh(int i) {
         return i < 100 ? "" + i : "99+";
     }
 

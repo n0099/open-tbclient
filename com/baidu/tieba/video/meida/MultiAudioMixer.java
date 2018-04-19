@@ -16,7 +16,7 @@ public abstract class MultiAudioMixer {
 
         void bxO();
 
-        void us(int i);
+        void ur(int i);
     }
 
     abstract byte[] b(byte[][] bArr);
@@ -46,7 +46,7 @@ public abstract class MultiAudioMixer {
                 } catch (Exception e) {
                     e.printStackTrace();
                     if (this.gPF != null) {
-                        this.gPF.us(1);
+                        this.gPF.ur(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;

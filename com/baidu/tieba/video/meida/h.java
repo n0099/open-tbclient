@@ -235,7 +235,7 @@ public class h {
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void us(int i2) {
+                public void ur(int i2) {
                     try {
                         if (this.gPH != null) {
                             this.gPH.close();

@@ -184,7 +184,7 @@ public class b {
         int G = MessageManager.getInstance().getSocketClient().G(202003);
         if (a2 || G > 0) {
             m.d(false, false, true);
-            nU(i);
+            nT(i);
             return;
         }
         aGj();
@@ -287,8 +287,8 @@ public class b {
     public void aGc() {
         int[] socketGetMsgStratgy = TbadkCoreApplication.getInst().getSocketGetMsgStratgy();
         if (socketGetMsgStratgy.length == 2) {
-            nR(socketGetMsgStratgy[0] * 1000);
-            nS(socketGetMsgStratgy[1] * 1000);
+            nQ(socketGetMsgStratgy[0] * 1000);
+            nR(socketGetMsgStratgy[1] * 1000);
         }
     }
 
@@ -309,13 +309,13 @@ public class b {
         aGb().efq = aGb().efo;
     }
 
-    public void nR(int i) {
+    public void nQ(int i) {
         if (i > 0) {
             this.efp = i;
         }
     }
 
-    public void nS(int i) {
+    public void nR(int i) {
         if (i > 0) {
             this.efo = i;
         }
@@ -448,11 +448,11 @@ public class b {
     }
 
     public synchronized void aGg() {
-        nT(2);
+        nS(2);
     }
 
     public synchronized void aGh() {
-        nT(3);
+        nS(3);
     }
 
     public void aGi() {
@@ -471,13 +471,13 @@ public class b {
         }
     }
 
-    private synchronized void nT(int i) {
+    private synchronized void nS(int i) {
         this.efB = true;
         this.efy = i;
         a((LongSparseArray<Long>) null, i);
     }
 
-    private void nU(int i) {
+    private void nT(int i) {
         if (i == 1) {
             if (this.efu != 2) {
                 this.efu = 1;

@@ -171,7 +171,7 @@ public class AddressListFragment extends BaseFragment implements e.b, a.Interfac
 
     private void R(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
         this.bdW.setContacts(list);
-        this.bdW.gv(this.bdZ);
+        this.bdW.gu(this.bdZ);
         this.bdW.notifyDataSetChanged();
         if (list == null || list.size() == 0) {
             this.bdT.setVisibility(8);
@@ -197,7 +197,7 @@ public class AddressListFragment extends BaseFragment implements e.b, a.Interfac
         ak.i(this.bdX, d.f.enter_forum_inputbox_top);
         ak.c(this.bdX, d.C0126d.cp_cont_d, 1);
         ak.i(this.bdY, d.f.icon_head_bar_search);
-        this.mPullView.dw(i);
+        this.mPullView.dv(i);
         this.bdW.notifyDataSetChanged();
         this.bdT.invalidate();
     }
@@ -229,7 +229,7 @@ public class AddressListFragment extends BaseFragment implements e.b, a.Interfac
         if (i == 0) {
             sendMessage(new CustomMessage(2002001, new NewFriendsActivityConfig(getActivity())));
             this.bdZ = 0;
-            this.bdW.gv(this.bdZ);
+            this.bdW.gu(this.bdZ);
             this.bdW.notifyDataSetChanged();
             TiebaStatic.log("contacts_new");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
@@ -367,7 +367,7 @@ public class AddressListFragment extends BaseFragment implements e.b, a.Interfac
                     return;
                 }
                 AddressListFragment.this.bdZ = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
-                AddressListFragment.this.bdW.gv(AddressListFragment.this.bdZ);
+                AddressListFragment.this.bdW.gu(AddressListFragment.this.bdZ);
                 AddressListFragment.this.bdW.notifyDataSetChanged();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
             }

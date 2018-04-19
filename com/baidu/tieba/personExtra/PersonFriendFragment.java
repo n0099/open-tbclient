@@ -271,7 +271,7 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
                 ak.i(this.mNoDataView, d.C0126d.cp_bg_line_d);
             }
             if (this.mPullView != null) {
-                this.mPullView.dw(i);
+                this.mPullView.dv(i);
             }
         }
     }

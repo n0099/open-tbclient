@@ -33,7 +33,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         MessageManager.getInstance().registerListener(0, this);
     }
 
-    public boolean es(int i) {
+    public boolean er(int i) {
         this.aAt = 0;
         if (this.aAn) {
             this.aAt = 3;
@@ -77,7 +77,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         }
     }
 
-    public void et(int i) {
+    public void es(int i) {
         a aVar = this.aAq.get(i);
         if (aVar == null) {
             aVar = new a();
@@ -89,7 +89,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         this.aAt = 5;
     }
 
-    public void eu(int i) {
+    public void et(int i) {
         this.aAq.remove(i);
     }
 
@@ -106,7 +106,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         }
     }
 
-    public void ev(int i) {
+    public void eu(int i) {
         this.aAo = i;
     }
 

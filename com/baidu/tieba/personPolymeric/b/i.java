@@ -332,10 +332,10 @@ public class i implements com.baidu.tieba.model.a, com.baidu.tieba.personPolymer
         if (aVar == null) {
             this.fJt.E(TbadkCoreApplication.getInst().getString(d.k.neterror), true);
             this.fJt.Qq();
-            this.fJt.ri(8);
+            this.fJt.rh(8);
         } else if (aVar.aWk() != null && ((aVar.aWk().getHide_stat() == 1 && aVar.aWk().getBlock_stat() == 1) || (aVar.aWk().getHide_stat() == 1 && aVar.aWk().getBlock_stat() == 2))) {
             this.fJt.ld(this.mIsHost);
-            this.fJt.ri(8);
+            this.fJt.rh(8);
             this.fJt.Qn();
         } else {
             this.fJt.Qn();
@@ -362,7 +362,7 @@ public class i implements com.baidu.tieba.model.a, com.baidu.tieba.personPolymer
             com.baidu.tieba.person.data.e eVar = this.mList.get(0);
             eVar.ap(aVar.azn());
             eVar.kR(z);
-            this.fJt.ri(0);
+            this.fJt.rh(0);
             this.fJq.a(aVar, z);
             bft();
         }

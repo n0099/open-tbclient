@@ -53,15 +53,15 @@ public class d implements ae {
         return this.gmS;
     }
 
-    public void sQ(int i) {
+    public void sP(int i) {
         this.gmQ = i;
     }
 
-    public void sR(int i) {
+    public void sQ(int i) {
         this.bnC = i;
     }
 
-    public void sS(int i) {
+    public void sR(int i) {
         this.cAA = i;
     }
 
@@ -95,7 +95,7 @@ public class d implements ae {
         return this.gmX;
     }
 
-    public void sT(int i) {
+    public void sS(int i) {
         this.gmX = i;
     }
 

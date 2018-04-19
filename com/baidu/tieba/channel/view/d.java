@@ -134,7 +134,7 @@ public class d extends com.baidu.adp.base.c<ChannelFansActivity> {
         this.ctR.getLayoutMode().u(this.mFooterView);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.bla.onChangeSkinType(getPageContext(), i);
-        this.mPullView.dw(i);
+        this.mPullView.dv(i);
         if (this.cvE != null) {
             this.cvE.notifyDataSetChanged();
         }

@@ -34,9 +34,9 @@ public class f extends BaseAdapter {
     public interface a {
         void bDS();
 
-        void ve(int i);
+        void vd(int i);
 
-        void vl(int i);
+        void vk(int i);
     }
 
     private String getString(int i) {
@@ -167,7 +167,7 @@ public class f extends BaseAdapter {
                         f.this.aEd.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
                     }
                     if (f.this.hih != null) {
-                        f.this.hih.vl(i);
+                        f.this.hih.vk(i);
                     }
                 }
             }
@@ -176,7 +176,7 @@ public class f extends BaseAdapter {
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
                 if (f.this.hih != null) {
-                    f.this.hih.ve(i);
+                    f.this.hih.vd(i);
                 }
             }
         });

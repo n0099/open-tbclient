@@ -16,7 +16,7 @@ public interface a {
 
     void n(View.OnClickListener onClickListener);
 
-    void qb(int i);
+    void qa(int i);
 
     void setFromCDN(boolean z);
 

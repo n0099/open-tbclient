@@ -15,14 +15,14 @@ abstract class a extends d implements org.aspectj.lang.reflect.a {
 
     public Class[] getParameterTypes() {
         if (this.hyW == null) {
-            this.hyW = wp(3);
+            this.hyW = wo(3);
         }
         return this.hyW;
     }
 
     public Class[] getExceptionTypes() {
         if (this.hyY == null) {
-            this.hyY = wp(5);
+            this.hyY = wo(5);
         }
         return this.hyY;
     }

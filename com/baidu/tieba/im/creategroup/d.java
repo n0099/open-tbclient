@@ -50,7 +50,7 @@ public class d implements o {
         return this.dUq;
     }
 
-    public void nn(int i) {
+    public void nm(int i) {
         String a;
         if (getLength() / 2 > i && (a = com.baidu.adp.lib.util.k.a(this.dUp.getText(), null)) != null && a.length() > 2) {
             while (com.baidu.tieba.im.util.f.hk(a) / 2 > i) {

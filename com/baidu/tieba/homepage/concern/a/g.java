@@ -84,7 +84,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
             return null;
         }
         this.cmc = kVar;
-        kVar.iO(i + 1);
+        kVar.iN(i + 1);
         v.afy().a(kVar.kC("c12351"));
         be beVar = new be(kVar.Pe());
         beVar.stType = "personalize_page";

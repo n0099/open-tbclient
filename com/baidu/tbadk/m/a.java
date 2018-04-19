@@ -164,10 +164,10 @@ public class a extends com.baidu.adp.framework.a.d {
             httpMessage.addParam("stMode", String.valueOf(vu.mMode));
             httpMessage.addParam("stMethod", String.valueOf(vu.ahF));
         }
-        int cE = aa.cE(0);
-        if (cE == 0 && vu != null) {
-            cE = vu.ahH;
+        int cD = aa.cD(0);
+        if (cD == 0 && vu != null) {
+            cD = vu.ahH;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cE));
+        httpMessage.addParam("stErrorNums", String.valueOf(cD));
     }
 }

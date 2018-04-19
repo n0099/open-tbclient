@@ -37,7 +37,7 @@ public class q {
     public interface a {
         void c(CustomDialogData customDialogData);
 
-        void qi(int i);
+        void qh(int i);
     }
 
     /* loaded from: classes2.dex */
@@ -112,7 +112,7 @@ public class q {
             if (aVar != null) {
                 PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage;
                 if (!pbFloorAgreeResponseMessage.hasError()) {
-                    aVar.qi(pbFloorAgreeResponseMessage.getScore());
+                    aVar.qh(pbFloorAgreeResponseMessage.getScore());
                     if (this.ffs != null && pbFloorAgreeResponseMessage.getContriInfo() != null && pbFloorAgreeResponseMessage.getContriInfo().isShowToast()) {
                         this.ffs.c(pbFloorAgreeResponseMessage.getContriInfo());
                     } else if (pbFloorAgreeResponseMessage.getActivityDialogData() != null) {

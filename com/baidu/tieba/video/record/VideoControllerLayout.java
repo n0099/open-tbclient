@@ -120,7 +120,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     public void setRecordController(i iVar) {
         this.gQh = iVar;
-        uC(1);
+        uB(1);
     }
 
     public void setEffectChoosedListener(VideoEffectLayout.a aVar) {
@@ -129,7 +129,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public void uC(int i) {
+    public void uB(int i) {
         this.gQh.setStatus(i);
         if (this.gSY != null) {
             this.gSY.byX();
@@ -168,15 +168,15 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                     dE(this.gTc);
                     dE(this.gTd);
                     if (this.gQh.getVideoDuration() >= 3000.0f) {
-                        uC(4);
+                        uB(4);
                         return;
                     } else {
-                        uC(this.gQh.getVideoDuration() > 0 ? 3 : 1);
+                        uB(this.gQh.getVideoDuration() > 0 ? 3 : 1);
                         return;
                     }
                 }
                 this.gQh.byw();
-                uC(5);
+                uB(5);
             }
         } else if (view2 == this.gSU) {
             TiebaStatic.log("c12300");
@@ -214,7 +214,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         if (this.gTf.getCurrentStickItem() != null) {
             this.gTd.add(this.gTf.getCurrentStickItem());
         }
-        uC(2);
+        uB(2);
         if (this.gTf.getVisibility() == 0) {
             a(new m() { // from class: com.baidu.tieba.video.record.VideoControllerLayout.1
                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
@@ -255,11 +255,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void bza() {
         if (this.gQh != null) {
             if (this.gQh.getVideoDuration() >= 3000.0f) {
-                uC(4);
+                uB(4);
             } else if (this.gQh.getVideoDuration() > 0) {
-                uC(3);
+                uB(3);
             } else {
-                uC(1);
+                uB(1);
             }
         }
     }
@@ -423,7 +423,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void bzc() {
         if (this.gQh.getStatus() == 6) {
             if (this.dlZ == 2) {
-                uC(7);
+                uB(7);
                 this.gST.setAlpha(1.0f);
                 this.gSR.setVisibility(8);
                 this.gSU.setVisibility(8);
@@ -551,7 +551,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.gSR.setVisibility(8);
                 this.gSU.setVisibility(8);
             } else {
-                uC(this.gQh.getStatus());
+                uB(this.gQh.getStatus());
             }
             int i = 0;
             while (true) {

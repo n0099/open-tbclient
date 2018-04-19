@@ -42,7 +42,7 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void gv(int i) {
+    public void gu(int i) {
         this.bdZ = i;
     }
 
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: gu */
+    /* renamed from: gt */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
         int i2 = this.bev ? 3 : 2;
         if (i < i2 || i >= getCount()) {

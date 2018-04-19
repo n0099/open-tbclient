@@ -226,7 +226,7 @@ public abstract class c extends com.baidu.tieba.card.a<bd> implements com.baidu.
                 this.bwV.setData(bdVar);
             }
         }
-        hc(gn(1));
+        hb(gm(1));
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -324,7 +324,7 @@ public abstract class c extends com.baidu.tieba.card.a<bd> implements com.baidu.
         return this.bwZ.apG;
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.alf != null) {
             if (i == 1) {
                 this.bwk.setVisibility(8);
@@ -341,7 +341,7 @@ public abstract class c extends com.baidu.tieba.card.a<bd> implements com.baidu.
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

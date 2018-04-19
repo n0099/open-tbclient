@@ -159,13 +159,13 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         this.aOY.seekTo(i);
     }
 
-    public void up(int i) {
+    public void uo(int i) {
         this.aOY.seekTo(i);
-        uq(i);
+        up(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uq(final int i) {
+    public void up(final int i) {
         e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.3
             @Override // java.lang.Runnable
             public void run() {
@@ -178,7 +178,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                     }
                     MaskVideoView.this.requestRender();
                     MaskVideoView.f(MaskVideoView.this);
-                    MaskVideoView.this.uq(i);
+                    MaskVideoView.this.up(i);
                     return;
                 }
                 MaskVideoView.this.gNP = 0;

@@ -99,9 +99,9 @@ public class a {
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.bcJ.getPageContext(), i);
-        this.blb.dv(d.C0126d.cp_bg_line_c);
+        this.blb.du(d.C0126d.cp_bg_line_c);
         this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
-        this.blb.dw(i);
+        this.blb.dv(i);
         this.cHB.onChangeSkinType(this.bcJ.getPageContext(), i);
     }
 

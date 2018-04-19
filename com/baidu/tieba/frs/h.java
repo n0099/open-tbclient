@@ -18,14 +18,14 @@ public class h {
                     if (bVar.getView() != null) {
                         listView.removeHeaderView(bVar.getView());
                         listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
-                        this.cYD.apk().ls(8);
+                        this.cYD.apk().lr(8);
                         return;
                     }
                     return;
                 case 3:
                     if (bVar.getView() != null) {
                         listView.removeHeaderView(bVar.getView());
-                        this.cYD.apk().ls(0);
+                        this.cYD.apk().lr(0);
                         return;
                     }
                     return;

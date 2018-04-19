@@ -75,13 +75,13 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
         if (this.screenWidth == 0 || this.dmq == 0) {
             return l.e(this.adf.getPageActivity(), d.e.ds278);
         }
-        if (Float.compare(kT(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE), 0.0f) == 0 || Float.compare(kT(1080), 0.0f) == 0) {
+        if (Float.compare(kS(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE), 0.0f) == 0 || Float.compare(kS(1080), 0.0f) == 0) {
             return l.e(this.adf.getPageActivity(), d.e.ds278);
         }
-        return (int) ((kT(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE) / kT(1080)) * kT(this.screenWidth));
+        return (int) ((kS(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE) / kS(1080)) * kS(this.screenWidth));
     }
 
-    private float kT(int i) {
+    private float kS(int i) {
         return i * 1.0f;
     }
 

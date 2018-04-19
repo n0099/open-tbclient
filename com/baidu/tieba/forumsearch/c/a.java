@@ -47,7 +47,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     public void onClick(View view2) {
         if (view2 == this.cWm) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-            aVar.bZ(d.k.confirm_delete_all_history);
+            aVar.bY(d.k.confirm_delete_all_history);
             aVar.as(true);
             aVar.a(d.k.confirm, new a.b() { // from class: com.baidu.tieba.forumsearch.c.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b

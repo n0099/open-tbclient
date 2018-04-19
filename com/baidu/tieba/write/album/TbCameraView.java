@@ -250,7 +250,7 @@ public class TbCameraView extends TextureView {
                                 if (i <= maxZoom) {
                                     maxZoom = i;
                                 }
-                                uU(maxZoom);
+                                uT(maxZoom);
                                 this.hcx = this.hcw;
                                 break;
                             } else if (f < (-this.hcz)) {
@@ -258,7 +258,7 @@ public class TbCameraView extends TextureView {
                                 if (i2 < 0) {
                                     i2 = 0;
                                 }
-                                uU(i2);
+                                uT(i2);
                                 this.hcx = this.hcw;
                                 break;
                             }
@@ -290,7 +290,7 @@ public class TbCameraView extends TextureView {
         return (float) Math.sqrt((x * x) + (y * y));
     }
 
-    public void uU(int i) {
+    public void uT(int i) {
         if (this.mCamera != null) {
             this.hcs = this.mCamera.getParameters();
             if (this.hcs != null) {

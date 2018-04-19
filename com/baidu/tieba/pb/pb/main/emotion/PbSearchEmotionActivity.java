@@ -256,7 +256,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     /* JADX INFO: Access modifiers changed from: private */
     public void aTL() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.mActivity, this.frj, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.mActivity, d.e.ds320)), NoDataViewFactory.d.dp(d.k.no_search_emotion), null);
+            this.mNoDataView = NoDataViewFactory.a(this.mActivity, this.frj, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.mActivity, d.e.ds320)), NoDataViewFactory.d.m16do(d.k.no_search_emotion), null);
             this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);

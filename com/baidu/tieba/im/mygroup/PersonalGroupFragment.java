@@ -324,7 +324,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         }
         if (isAdded()) {
             aGs().getLayoutMode().u(this.egi);
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
     }
 

@@ -21,7 +21,7 @@ public class h extends com.baidu.tbadk.editortools.view.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public DLauncher eJ(int i) {
+    public DLauncher eI(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
@@ -38,16 +38,16 @@ public class h extends com.baidu.tbadk.editortools.view.a {
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void init(Context context) {
-        eR(4);
-        eS(2);
+        eQ(4);
+        eR(2);
         a(new a.InterfaceC0096a() { // from class: com.baidu.tbadk.editortools.h.1
             @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0096a
             public View getView(int i, View view2, ViewGroup viewGroup) {
-                DLauncher eJ = h.this.eJ(i);
-                if (eJ.getLayoutParams() == null) {
-                    eJ.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+                DLauncher eI = h.this.eI(i);
+                if (eI.getLayoutParams() == null) {
+                    eI.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
-                return eJ;
+                return eI;
             }
         });
         EJ().c(this);

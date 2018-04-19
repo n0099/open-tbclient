@@ -27,7 +27,7 @@ public abstract class c {
         this.hms = str;
     }
 
-    public void vy(int i) {
+    public void vx(int i) {
         this.hmr = i;
     }
 }

@@ -55,7 +55,7 @@ public class c implements View.OnClickListener {
                         c.this.aqG.setIsFromNetWork(false);
                         c.this.aqG.setFansNum(fansNum);
                         if (c.this.aqH != null) {
-                            c.this.aqH.dC(fansNum);
+                            c.this.aqH.dB(fansNum);
                             if (z) {
                                 if (c.this.aqK != null) {
                                     c.this.aqK.aR(data.isAttention);
@@ -121,7 +121,7 @@ public class c implements View.OnClickListener {
         this.aqG = aVar;
         if (this.aqH != null && this.aqG != null) {
             this.aqH.d(aVar.getIsLike(), aVar.getLikeStatus());
-            this.aqH.dC(aVar.getFansNum());
+            this.aqH.dB(aVar.getFansNum());
         }
     }
 

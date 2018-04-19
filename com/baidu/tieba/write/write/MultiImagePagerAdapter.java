@@ -102,18 +102,18 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 this.hga.J(i, z);
             }
         } else if (z) {
-            vh(i);
+            vg(i);
         } else if (checkValid() && (bVar = this.hgb[this.aFG]) != null && (imageFileInfo = this.hfZ[this.aFG]) != null && bVar.bCX()) {
-            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.e.eZ(i));
+            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.e.eY(i));
             this.hfY.bDT();
             bVar.h(imageFileInfo);
         }
     }
 
-    private void vh(final int i) {
+    private void vg(final int i) {
         if (this.hgf == null) {
             this.hgf = new com.baidu.tbadk.core.dialog.a(this.hfY);
-            this.hgf.ca(d.k.rorate_tip);
+            this.hgf.bZ(d.k.rorate_tip);
             this.hgf.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

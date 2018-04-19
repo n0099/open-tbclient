@@ -31,7 +31,7 @@ public class b {
         return this.cGB;
     }
 
-    public void eS(int i) {
+    public void eR(int i) {
         this.row = i;
     }
 
@@ -39,7 +39,7 @@ public class b {
         return this.row;
     }
 
-    public void eR(int i) {
+    public void eQ(int i) {
         this.column = i;
     }
 
@@ -47,7 +47,7 @@ public class b {
         return this.column;
     }
 
-    public void jr(int i) {
+    public void jq(int i) {
         this.cGG = i;
     }
 
@@ -55,7 +55,7 @@ public class b {
         return this.cGG;
     }
 
-    public void js(int i) {
+    public void jr(int i) {
         this.cGF = i;
     }
 
@@ -63,7 +63,7 @@ public class b {
         return this.cGF;
     }
 
-    public void jt(int i) {
+    public void js(int i) {
         this.cGC = i;
     }
 
@@ -71,7 +71,7 @@ public class b {
         return this.cGC;
     }
 
-    public void ju(int i) {
+    public void jt(int i) {
         this.startIndex = i;
     }
 
@@ -91,7 +91,7 @@ public class b {
         return this.index;
     }
 
-    public void jv(int i) {
+    public void ju(int i) {
         this.cGD = i;
     }
 

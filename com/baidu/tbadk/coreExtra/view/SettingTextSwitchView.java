@@ -26,14 +26,14 @@ public class SettingTextSwitchView extends FrameLayout {
         this.mContext = context;
         Cb();
         c(attributeSet);
-        eq(TbadkCoreApplication.getInst().getSkinType());
+        ep(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
         Cb();
-        eq(TbadkCoreApplication.getInst().getSkinType());
+        ep(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
@@ -41,15 +41,15 @@ public class SettingTextSwitchView extends FrameLayout {
         this.mContext = context;
         Cb();
         c(attributeSet);
-        eq(TbadkCoreApplication.getInst().getSkinType());
+        ep(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public View getView() {
         return this.ayZ;
     }
 
-    public void eq(int i) {
-        this.azc.setBackgroundRes(ak.cO(d.f.bg_switch_open), ak.cO(d.f.bg_switch_close), ak.cO(d.f.btn_handle));
+    public void ep(int i) {
+        this.azc.setBackgroundRes(ak.cN(d.f.bg_switch_open), ak.cN(d.f.bg_switch_close), ak.cN(d.f.btn_handle));
         ak.c(this.aza, d.C0126d.cp_cont_b, 1);
         if (this.azb != null) {
             ak.c(this.azb, d.C0126d.cp_cont_d, 1);

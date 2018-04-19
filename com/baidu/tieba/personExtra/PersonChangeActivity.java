@@ -229,7 +229,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         } else if (view2 == this.fGX) {
             beB();
         } else if (view2 == this.mEdit) {
-            rg(800);
+            rf(800);
         } else if (view2 == this.fHl) {
             if (Build.VERSION.SDK_INT < 19) {
                 showToast(getPageContext().getPageActivity().getString(d.k.support_modify_nickname));
@@ -339,12 +339,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.mEdit.setSelection(this.mEdit.getText().length());
             this.mEdit.requestFocus();
             ShowSoftKeyPad(this.mInputManager, this.mEdit);
-            rg(800);
+            rf(800);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rg(int i) {
+    public void rf(int i) {
         this.fGT.postDelayed(new Runnable() { // from class: com.baidu.tieba.personExtra.PersonChangeActivity.13
             @Override // java.lang.Runnable
             public void run() {
@@ -477,7 +477,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 int length = replaceAll.length();
                 PersonChangeActivity.this.fGZ.setText(String.valueOf(length));
                 PersonChangeActivity.this.fGY.setVisibility(0);
-                PersonChangeActivity.this.rg(0);
+                PersonChangeActivity.this.rf(0);
                 PersonChangeActivity.this.beE();
                 if (length > 500) {
                     PersonChangeActivity.this.showToast(d.k.over_limit_tip);
@@ -562,7 +562,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public void beD() {
         String[] strArr = {getPageContext().getString(d.k.change_photo), getPageContext().getString(d.k.change_system_photo)};
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-        bVar.cd(d.k.operation);
+        bVar.cc(d.k.operation);
         bVar.a(strArr, new b.InterfaceC0086b() { // from class: com.baidu.tieba.personExtra.PersonChangeActivity.5
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
             public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view2) {
@@ -589,10 +589,10 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         } else {
             color = ak.getColor(d.C0126d.common_color_10077);
         }
-        rh(color);
+        rg(color);
     }
 
-    private void rh(int i) {
+    private void rg(int i) {
         this.fGZ.setTextColor(i);
         this.fHa.setTextColor(i);
         this.fHb.setTextColor(i);
@@ -621,7 +621,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.fHh = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
             final String string = getPageContext().getString(d.k.male);
             final String string2 = getPageContext().getString(d.k.female);
-            this.fHh.cd(d.k.choose_sex);
+            this.fHh.cc(d.k.choose_sex);
             this.fHh.a(new String[]{string, string2}, new b.InterfaceC0086b() { // from class: com.baidu.tieba.personExtra.PersonChangeActivity.6
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
                 public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view2) {

@@ -134,13 +134,13 @@ public class CardPersonDynamicThreadData extends b {
             this.threadData.a(threadInfo);
             this.threadData.cJ(this.threadId);
             this.threadData.setFid(threadInfo.fid.longValue());
-            this.threadData.bO(this.Ma);
-            this.threadData.bP(this.csv);
+            this.threadData.bN(this.Ma);
+            this.threadData.bO(this.csv);
             this.threadData.n(this.css);
             if (threadInfo.agree != null) {
-                this.threadData.bX((int) threadInfo.agree.agree_num.longValue());
+                this.threadData.bW((int) threadInfo.agree.agree_num.longValue());
             }
-            this.threadData.bT(threadInfo.is_ntitle.intValue());
+            this.threadData.bS(threadInfo.is_ntitle.intValue());
         }
     }
 
@@ -228,8 +228,8 @@ public class CardPersonDynamicThreadData extends b {
                 this.csv = postInfoList.view_num.intValue();
             }
             if (postInfoList.agree != null) {
-                this.threadData.bW(postInfoList.agree.has_agree.intValue());
-                this.threadData.bX((int) postInfoList.agree.agree_num.longValue());
+                this.threadData.bV(postInfoList.agree.has_agree.intValue());
+                this.threadData.bW((int) postInfoList.agree.agree_num.longValue());
             }
             if (postInfoList.is_share_thread.intValue() == 1) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
@@ -241,8 +241,8 @@ public class CardPersonDynamicThreadData extends b {
             this.threadData.cJ(this.threadId);
             this.threadData.setFid(postInfoList.forum_id.longValue());
             this.threadData.cN(this.forumName);
-            this.threadData.bO(this.Ma);
-            this.threadData.bP(this.csv);
+            this.threadData.bN(this.Ma);
+            this.threadData.bO(this.csv);
             this.threadData.n(this.css);
             this.threadData.setTitle(this.title);
             this.threadData.r(this.rich_title);
@@ -252,7 +252,7 @@ public class CardPersonDynamicThreadData extends b {
             if (this.csB != null) {
                 this.threadData.j(new ArrayList<>(Arrays.asList(this.csB)));
             }
-            this.threadData.bT(postInfoList.is_ntitle.intValue());
+            this.threadData.bS(postInfoList.is_ntitle.intValue());
         }
     }
 

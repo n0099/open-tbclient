@@ -156,7 +156,7 @@ public class a {
         this.mRefreshView.setSubText(string);
         this.mRefreshView.d(this.mRootView, false);
         this.mRefreshView.Fu();
-        this.mRefreshView.fb(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds280));
+        this.mRefreshView.fa(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds280));
     }
 
     public void Qn() {

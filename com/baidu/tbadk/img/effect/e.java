@@ -13,7 +13,7 @@ public class e extends b {
         return "rotate";
     }
 
-    public static ImageOperation eZ(int i) {
+    public static ImageOperation eY(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -32,7 +32,7 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Fa().eY(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.Fa().eX(BitmapHelper.getBitmapSize(bitmap) * 2);
         if (this.aHK == 0 || this.aHK == 1) {
             return BitmapHelper.rotateBitmap(bitmap, this.aHK);
         }

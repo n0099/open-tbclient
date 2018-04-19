@@ -30,7 +30,7 @@ public class n {
                 }
             }
             j.au(n.TAG, "service port " + i);
-            n.this.gj(i);
+            n.this.gi(i);
             e.Md();
             k.Mm();
             while (!n.this.bbD.isClosed()) {
@@ -127,7 +127,7 @@ public class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void gj(int i) {
+    public void gi(int i) {
         BufferedWriter bufferedWriter = i.bbv;
         try {
             try {

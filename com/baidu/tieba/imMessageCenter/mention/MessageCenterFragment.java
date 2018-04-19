@@ -55,7 +55,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
                     }
                     com.baidu.tbadk.coreExtra.messageCenter.a.zx().zE();
                 }
-                MessageCenterFragment.this.og(eVar.getId());
+                MessageCenterFragment.this.of(eVar.getId());
             }
         }
 
@@ -74,7 +74,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
                     MessageManager.getInstance().runTask(2016322, (Class) null);
                     com.baidu.adp.lib.util.l.b(MessageCenterFragment.this.getContext(), MessageCenterFragment.this.enh.aIx());
                 }
-                MessageCenterFragment.this.og(eVar.getId());
+                MessageCenterFragment.this.of(eVar.getId());
             }
         }
     };
@@ -197,13 +197,13 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
             this.auP = newsRemindMessage.getNotificationCount();
             this.auQ = newsRemindMessage.hasNotificationRemind();
             if (this.enh != null) {
-                if (this.enh.oi(1) && this.auM && this.enk > 0) {
+                if (this.enh.oh(1) && this.auM && this.enk > 0) {
                     com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgReplyme(0);
                     return;
                 }
                 this.enh.f(1, this.auL, this.auM);
                 this.enh.f(2, this.auN, this.auO);
-                if (this.enh.oi(3)) {
+                if (this.enh.oh(3)) {
                     if (this.auQ) {
                         aIw();
                         return;
@@ -231,7 +231,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void og(int i) {
+    public void of(int i) {
         if (i == 1) {
             TiebaStatic.log(new al("c12937").r("obj_type", 1));
         } else if (i == 2) {

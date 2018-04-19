@@ -74,7 +74,7 @@ public class TBGLWriteView extends LinearLayout {
     @Override // android.view.View
     public void setBackgroundColor(int i) {
         if (this.clB != null) {
-            this.clB.iD(i);
+            this.clB.iC(i);
         }
     }
 
@@ -96,7 +96,7 @@ public class TBGLWriteView extends LinearLayout {
         return this.clB.getViewStatus();
     }
 
-    public boolean iH(int i) {
+    public boolean iG(int i) {
         return this.clB.getViewStatus() == i;
     }
 

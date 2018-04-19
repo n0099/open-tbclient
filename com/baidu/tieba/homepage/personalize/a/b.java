@@ -91,7 +91,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, a aVar) {
         if (jVar != null) {
-            jVar.iO(i + 1);
+            jVar.iN(i + 1);
         }
         if (aVar.dEx instanceof com.baidu.tieba.a.e) {
             aVar.dEx.setPage(this.bvX);

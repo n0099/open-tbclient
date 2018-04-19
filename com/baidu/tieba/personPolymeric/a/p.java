@@ -76,7 +76,7 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
             ak.c(aVar.fKI, d.C0126d.common_color_10039, 1);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds20);
             aVar.fKI.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-            aVar.dw(TbadkCoreApplication.getInst().getSkinType());
+            aVar.dv(TbadkCoreApplication.getInst().getSkinType());
         }
         return view2;
     }

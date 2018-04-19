@@ -69,7 +69,7 @@ public class g extends BaseAdapter {
         }
         aVar.ady.setChecked(hVar.isChecked());
         aVar.ady.setButtonDrawable(hVar.isChecked() ? ak.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0126d.common_color_10022));
-        if (cp(i)) {
+        if (co(i)) {
             aVar.divider.setVisibility(8);
             ak.i(view2, d.f.dialog_single_button_bg_selector);
         } else {
@@ -82,7 +82,7 @@ public class g extends BaseAdapter {
         return view2;
     }
 
-    private boolean cp(int i) {
+    private boolean co(int i) {
         return this.adv != null && i == this.adv.size() + (-1);
     }
 

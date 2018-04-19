@@ -79,7 +79,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0141a
             public void a(boolean z, int i, String str, boolean z2, boolean z3, com.baidu.tieba.frs.gamesubpb.model.b bVar, List<h> list) {
                 if (FrsGameSubPbActivity.this.djM != null && FrsGameSubPbActivity.this.djM.atb()) {
-                    FrsGameSubPbActivity.this.djM.kM(d.C0126d.cp_bg_line_k_alpha10_1);
+                    FrsGameSubPbActivity.this.djM.kL(d.C0126d.cp_bg_line_k_alpha10_1);
                 }
                 if (z) {
                     FrsGameSubPbActivity.this.hideNetRefreshView(FrsGameSubPbActivity.this.djL.getRootView());

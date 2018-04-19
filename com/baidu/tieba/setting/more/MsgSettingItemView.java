@@ -131,7 +131,7 @@ public class MsgSettingItemView extends LinearLayout {
     public void d(TbPageContext<?> tbPageContext, int i) {
         tbPageContext.getLayoutMode().setNightMode(i == 1);
         tbPageContext.getLayoutMode().u(this);
-        this.gjD.setBackgroundRes(ak.cO(d.f.bg_switch_open), ak.cO(d.f.bg_switch_close), ak.cO(d.f.btn_handle));
+        this.gjD.setBackgroundRes(ak.cN(d.f.bg_switch_open), ak.cN(d.f.bg_switch_close), ak.cN(d.f.btn_handle));
         ak.j(this, d.C0126d.cp_bg_line_d);
         if (this.gjE != 0) {
             ak.c(this.gjB, this.gjE);

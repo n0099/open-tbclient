@@ -67,9 +67,9 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
         this.gKv.a(this);
         this.blb = new PbListView(getPageContext().getPageActivity());
         this.blb.kA();
-        this.blb.dv(d.C0126d.cp_bg_line_d);
-        this.blb.dw(TbadkCoreApplication.getInst().getSkinType());
-        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(d.e.ds200)), NoDataViewFactory.d.dp(d.k.no_data_text), null);
+        this.blb.du(d.C0126d.cp_bg_line_d);
+        this.blb.dv(TbadkCoreApplication.getInst().getSkinType());
+        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(d.e.ds200)), NoDataViewFactory.d.m16do(d.k.no_data_text), null);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         if (this.gKx != null && this.gKw != null && this.gKx.page != null) {
             this.tagId = this.gKx.tag_id;
@@ -95,7 +95,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
         if (!j.gP()) {
             l.showToast(getPageContext().getPageActivity(), d.k.neterror);
         } else if (this.gKw != null && this.cuI != 0) {
-            this.gKw.um(this.tagId);
+            this.gKw.ul(this.tagId);
         }
     }
 
@@ -103,7 +103,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mSkinType = i;
-        this.blb.dw(i);
+        this.blb.dv(i);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
@@ -157,17 +157,17 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
-    public void uj(int i) {
+    public void ui(int i) {
         this.gKv.F(i, true);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
-    public void uk(int i) {
+    public void uj(int i) {
         this.gKv.F(i, false);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
-    public void ul(int i) {
+    public void uk(int i) {
         this.gKv.F(i, false);
         if (getPageContext() != null || getPageContext().getPageActivity() != null) {
             l.showToast(getPageContext().getPageActivity(), d.k.download_error);

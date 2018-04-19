@@ -92,12 +92,12 @@ public class b {
     public void onChangeSkinType(int i) {
         ak.j(this.mListView, d.C0126d.cp_bg_line_c);
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
         if (this.blb != null) {
-            this.blb.dv(d.C0126d.cp_bg_line_c);
+            this.blb.du(d.C0126d.cp_bg_line_c);
             this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
-            this.blb.dw(i);
+            this.blb.dv(i);
         }
         if (this.dZQ != null) {
             this.dZQ.onChangeSkinType();
@@ -143,7 +143,7 @@ public class b {
     public void a(String str, View.OnClickListener onClickListener) {
         if (this.dZQ == null) {
             this.dZQ = new g(this.adf.getPageActivity(), onClickListener);
-            this.dZQ.fb(BdListViewHelper.aNm);
+            this.dZQ.fa(BdListViewHelper.aNm);
             this.dZQ.onChangeSkinType();
         }
         if (!this.dZQ.Fm()) {

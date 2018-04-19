@@ -34,7 +34,7 @@ public class AntiHelper {
         void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar);
     }
 
-    public static boolean tu(int i) {
+    public static boolean tt(int i) {
         return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004;
     }
 
@@ -281,14 +281,14 @@ public class AntiHelper {
     }
 
     public static boolean e(Context context, int i, String str) {
-        if (tv(i)) {
+        if (tu(i)) {
             an(context, str);
             return true;
         }
         return false;
     }
 
-    public static boolean tv(int i) {
+    public static boolean tu(int i) {
         return i == 3250012;
     }
 

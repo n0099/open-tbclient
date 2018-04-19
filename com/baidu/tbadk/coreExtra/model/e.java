@@ -75,7 +75,7 @@ public class e {
         return this.avI;
     }
 
-    public void dX(int i) {
+    public void dW(int i) {
         this.avI = i;
     }
 
@@ -83,7 +83,7 @@ public class e {
         return this.avL;
     }
 
-    public void dY(int i) {
+    public void dX(int i) {
         this.avL = i;
     }
 
@@ -95,7 +95,7 @@ public class e {
         return this.avO;
     }
 
-    public void dZ(int i) {
+    public void dY(int i) {
         this.avO = i;
     }
 
@@ -103,7 +103,7 @@ public class e {
         return this.avS;
     }
 
-    public void ea(int i) {
+    public void dZ(int i) {
         this.avS = i;
     }
 
@@ -111,7 +111,7 @@ public class e {
         return this.avR;
     }
 
-    public void eb(int i) {
+    public void ea(int i) {
         this.avR = i;
     }
 
@@ -123,7 +123,7 @@ public class e {
         return this.avK;
     }
 
-    public void ec(int i) {
+    public void eb(int i) {
         this.avK = i;
     }
 
@@ -159,7 +159,7 @@ public class e {
         return this.avJ;
     }
 
-    public void ed(int i) {
+    public void ec(int i) {
         this.avJ = i;
     }
 
@@ -183,7 +183,7 @@ public class e {
         return this.avN;
     }
 
-    public void ee(int i) {
+    public void ed(int i) {
         this.avN = i;
     }
 
@@ -191,7 +191,7 @@ public class e {
         return this.avP;
     }
 
-    public void ef(int i) {
+    public void ee(int i) {
         this.avP = i;
     }
 
@@ -199,7 +199,7 @@ public class e {
         return this.avT;
     }
 
-    public void eg(int i) {
+    public void ef(int i) {
         this.avT = i;
     }
 
@@ -215,7 +215,7 @@ public class e {
         return this.avQ;
     }
 
-    public void eh(int i) {
+    public void eg(int i) {
         this.avQ = i;
     }
 
@@ -243,7 +243,7 @@ public class e {
         return this.avV;
     }
 
-    public void ei(int i) {
+    public void eh(int i) {
         this.avV = i;
     }
 
@@ -251,7 +251,7 @@ public class e {
         return this.avW;
     }
 
-    public void ej(int i) {
+    public void ei(int i) {
         this.avW = i;
     }
 
@@ -263,7 +263,7 @@ public class e {
         return this.avX;
     }
 
-    public void ek(int i) {
+    public void ej(int i) {
         this.avX = i;
     }
 }

@@ -40,7 +40,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tC(int i) {
+    public void tB(int i) {
         if (this.gzr != null) {
             this.gzr.as(i / 100.0f);
         }

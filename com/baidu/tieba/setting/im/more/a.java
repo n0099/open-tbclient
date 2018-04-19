@@ -56,7 +56,7 @@ public class a {
         TbadkCoreApplication.getInst().setLocationShared(this.ggd);
     }
 
-    public void sj(int i) {
+    public void si(int i) {
         this.ggb = i;
     }
 
@@ -64,7 +64,7 @@ public class a {
         return this.ggc;
     }
 
-    public void sk(int i) {
+    public void sj(int i) {
         if (i <= 3 && i >= 1) {
             this.ggc = i;
         }
@@ -74,7 +74,7 @@ public class a {
         return this.aBH;
     }
 
-    public void sl(int i) {
+    public void sk(int i) {
         if (i <= 3 && i >= 1) {
             this.aBH = i;
         }
@@ -84,7 +84,7 @@ public class a {
         return this.aBE;
     }
 
-    public void sm(int i) {
+    public void sl(int i) {
         if (i <= 3 && i >= 1) {
             this.aBE = i;
         }
@@ -94,7 +94,7 @@ public class a {
         return this.ggd;
     }
 
-    public void sn(int i) {
+    public void sm(int i) {
         switch (i) {
             case 1:
                 this.ggd = true;
@@ -113,11 +113,11 @@ public class a {
         this.ggf = simpleUser;
     }
 
-    public void so(int i) {
+    public void sn(int i) {
         this.ggg = i;
     }
 
-    public void sp(int i) {
+    public void so(int i) {
         if (i == 0) {
             this.gge = 1;
         } else {

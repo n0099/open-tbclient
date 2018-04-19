@@ -137,7 +137,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 if (ChangeSystemPhotoActivity.this.aMW != null && ChangeSystemPhotoActivity.this.aMW.size() > 0 && ChangeSystemPhotoActivity.this.aMW.size() > i && ChangeSystemPhotoActivity.this.aMW.get(i) != null) {
                     ChangeSystemPhotoActivity.this.aMX = i;
                     ChangeSystemPhotoActivity.this.bW(true);
-                    ChangeSystemPhotoActivity.this.aMV.fo(i);
+                    ChangeSystemPhotoActivity.this.aMV.fn(i);
                     ChangeSystemPhotoActivity.this.aMV.notifyDataSetChanged();
                 }
             }
@@ -164,7 +164,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                                 b bVar = new b();
                                 bVar.setUrl(popularPortraitsInfo.url);
                                 bVar.setNum(popularPortraitsInfo.num);
-                                bVar.fp(popularPortraitsInfo.myItem);
+                                bVar.fo(popularPortraitsInfo.myItem);
                                 bVar.gW(popularPortraitsInfo.series);
                                 ChangeSystemPhotoActivity.this.aMW.add(bVar);
                             }
@@ -205,7 +205,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
 
     public void showDialog() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.ca(d.k.enter_forum_cancel_change_tip);
+        aVar.bZ(d.k.enter_forum_cancel_change_tip);
         aVar.b(d.k.cancel, new a.b() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

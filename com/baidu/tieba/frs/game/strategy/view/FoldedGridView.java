@@ -143,9 +143,9 @@ public class FoldedGridView extends BdGridView implements AdapterView.OnItemClic
                 asE();
             }
         } else if (this.dhk != null && this.dhj != null) {
-            int kK = this.dhj.kK(i);
-            this.dhj.kJ(kK);
-            this.dhk.c(kK, this.dhj.getItem(i));
+            int kJ = this.dhj.kJ(i);
+            this.dhj.kI(kJ);
+            this.dhk.c(kJ, this.dhj.getItem(i));
         }
     }
 

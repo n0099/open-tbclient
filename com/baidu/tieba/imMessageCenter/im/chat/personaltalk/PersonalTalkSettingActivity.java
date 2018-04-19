@@ -178,7 +178,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         if (z) {
             if (!com.baidu.tbadk.coreExtra.messageCenter.c.Ae().Ag() || !com.baidu.tbadk.coreExtra.messageCenter.c.Ae().Am()) {
                 final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-                aVar.ca(d.k.error_open_personal_single_alloff);
+                aVar.bZ(d.k.error_open_personal_single_alloff);
                 aVar.b(getResources().getString(d.k.group_create_private_isee), new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.8
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

@@ -45,8 +45,8 @@ public class h {
         this.adf = tbPageContext;
         this.mListView = bdTypeListView;
         initAdapters();
-        this.dRo.nh(i);
-        this.dRp.nh(i);
+        this.dRo.ng(i);
+        this.dRp.ng(i);
     }
 
     private void initAdapters() {

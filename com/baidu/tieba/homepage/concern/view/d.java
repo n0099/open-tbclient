@@ -179,7 +179,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
                 }
             }
             Y(this.bjU);
-            hc(gn(1));
+            hb(gm(1));
         }
     }
 
@@ -210,7 +210,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
     public void onClick(View view2) {
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.bjU != null) {
             if (i == 1) {
                 this.bwk.setVisibility(8);
@@ -229,7 +229,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

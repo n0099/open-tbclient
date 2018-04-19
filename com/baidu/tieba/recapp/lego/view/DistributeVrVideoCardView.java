@@ -164,7 +164,7 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
                     long bjG = (this.fZU == null || !this.fwm.video_url.equalsIgnoreCase(this.fZU.getVideoPath())) ? 0L : this.fZU.bjG();
                     this.fZU = new a(this);
                     if (bjG > 0) {
-                        this.fZU.oH((int) bjG);
+                        this.fZU.oG((int) bjG);
                     }
                     ViewGroup.LayoutParams layoutParams = this.cTG.getLayoutParams();
                     if (layoutParams != null) {
@@ -376,7 +376,7 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
             this.mHandler.removeMessages(30001);
             this.mHandler = null;
             if (this.fZU != null) {
-                this.fZU.oH(0);
+                this.fZU.oG(0);
                 this.fZU.destroy();
             }
         }

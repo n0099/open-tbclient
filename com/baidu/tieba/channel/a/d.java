@@ -54,7 +54,7 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
         aVar.cub.startLoad(hVar.getThumbnailUrl(), 10, false);
         aVar.cue.setText(this.mContext.getResources().getString(d.k.channel_home_play_count, an.v(hVar.agp())));
         aVar.cuf.setText(com.baidu.tieba.channel.c.c.bj(hVar.getCreateTime()));
-        aVar.cug.setText(an.cR(hVar.getVideoDuration() * 1000));
+        aVar.cug.setText(an.cQ(hVar.getVideoDuration() * 1000));
         if (this.ctY != null) {
             aVar.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.d.1
                 @Override // android.view.View.OnClickListener

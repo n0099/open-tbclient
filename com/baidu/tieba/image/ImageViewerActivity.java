@@ -210,7 +210,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     };
     private BaseViewPager.a eqD = new BaseViewPager.a() { // from class: com.baidu.tieba.image.ImageViewerActivity.6
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-        public void cZ(int i) {
+        public void cY(int i) {
             if (i == 0) {
                 ImageViewerActivity.this.eql.aJj();
             } else if (ImageViewerActivity.this.aJt() != 1) {
@@ -230,7 +230,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
             ImageViewerActivity.this.aJu();
             ImageViewerActivity.this.aJz();
             if (ImageViewerActivity.this.eqm.aJA() < ImageViewerActivity.this.mIndex) {
-                ImageViewerActivity.this.eqm.on(ImageViewerActivity.this.mIndex);
+                ImageViewerActivity.this.eqm.om(ImageViewerActivity.this.mIndex);
             }
             if (ImageViewerActivity.this.aJv()) {
                 ImageViewerActivity.this.eqp.aIY();
@@ -318,7 +318,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
                 ImageViewerActivity.this.eqg.setHasNext(z3);
                 ImageViewerActivity.this.eqg.setNextTitle(str2);
                 if (i < 0 || i >= ImageViewerActivity.this.eqg.getItemNum()) {
-                    ImageViewerActivity.this.eqg.ep(ImageViewerActivity.this.eqg.getCurrentItem());
+                    ImageViewerActivity.this.eqg.eo(ImageViewerActivity.this.eqg.getCurrentItem());
                 } else {
                     ImageViewerActivity.this.eqg.setCurrentItem(i, false);
                 }
@@ -391,7 +391,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.eqg.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        this.eqg.di(i);
+        this.eqg.dh(i);
         super.onChangeSkinType(i);
         this.eqv = i;
         if (UtilHelper.isFlyMeOs()) {
@@ -432,7 +432,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
             this.eqk = null;
         }
         com.baidu.adp.lib.g.e.fw().removeCallbacks(this.eqy);
-        com.baidu.tbadk.download.e.Dy().eA(13);
+        com.baidu.tbadk.download.e.Dy().ez(13);
         TbadkCoreApplication.getInst().setSkinTypeValue(this.eqv);
         super.onDestroy();
     }

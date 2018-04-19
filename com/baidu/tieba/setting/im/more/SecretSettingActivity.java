@@ -149,7 +149,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                SecretSettingActivity.this.ggi.sj(((Integer) customResponsedMessage.getData()).intValue());
+                SecretSettingActivity.this.ggi.si(((Integer) customResponsedMessage.getData()).intValue());
                 SecretSettingActivity.this.ggh.d(SecretSettingActivity.this.ggi);
             }
         }
@@ -203,15 +203,15 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     public void bU(final String str, String str2) {
         if (this.ggj) {
             if ("group".equals(str)) {
-                this.ggk = sq(this.ggn);
+                this.ggk = sp(this.ggn);
             } else if ("post".equals(str)) {
-                this.ggk = sq(this.ggm);
+                this.ggk = sp(this.ggm);
             } else if ("like".equals(str)) {
-                this.ggk = sq(this.ggl);
+                this.ggk = sp(this.ggl);
             } else if ("live".equals(str)) {
-                this.ggk = sr(this.ggo);
+                this.ggk = sq(this.ggo);
             } else if ("reply".equals(str)) {
-                this.ggk = ss(this.ggp);
+                this.ggk = sr(this.ggp);
             }
             if (this.ggq != null) {
                 this.ggq.dismiss();
@@ -258,7 +258,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         }
     }
 
-    private ArrayList<h> sq(int i) {
+    private ArrayList<h> sp(int i) {
         ArrayList<h> arrayList = new ArrayList<>();
         arrayList.add(new h(getPageContext().getString(d.k.info_privacy_all), "", i == 1, "showAll"));
         arrayList.add(new h(getPageContext().getString(d.k.info_privacy_friend), "", i == 2, "friendOnly"));
@@ -266,14 +266,14 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         return arrayList;
     }
 
-    private ArrayList<h> sr(int i) {
+    private ArrayList<h> sq(int i) {
         ArrayList<h> arrayList = new ArrayList<>();
         arrayList.add(new h(getPageContext().getString(d.k.info_privacy_all), "", i == 1, "showAll"));
         arrayList.add(new h(getPageContext().getString(d.k.info_privacy_hide), "", i == 3, "hideAll"));
         return arrayList;
     }
 
-    private ArrayList<h> ss(int i) {
+    private ArrayList<h> sr(int i) {
         ArrayList<h> arrayList = new ArrayList<>();
         arrayList.add(new h(getPageContext().getString(d.k.all_person), "", i == 1, "showAll"));
         arrayList.add(new h(getPageContext().getString(d.k.my_fans), "", i == 5, "my_fans_reply"));

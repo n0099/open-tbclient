@@ -19,7 +19,7 @@ public class g {
         this.totalCount = i;
     }
 
-    public void iU(int i) {
+    public void iT(int i) {
         this.cuJ = i;
     }
 
@@ -28,7 +28,7 @@ public class g {
             return null;
         }
         g gVar = new g();
-        gVar.iU(channelPage.total_page.intValue());
+        gVar.iT(channelPage.total_page.intValue());
         gVar.setHasMore(channelPage.has_more.intValue());
         gVar.setTotalCount(channelPage.total_count.intValue());
         return gVar;

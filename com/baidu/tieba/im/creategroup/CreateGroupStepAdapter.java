@@ -18,7 +18,7 @@ public class CreateGroupStepAdapter extends PagerAdapter {
         return this.dUR;
     }
 
-    public o no(int i) {
+    public o nn(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }

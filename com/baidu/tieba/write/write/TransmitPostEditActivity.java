@@ -433,7 +433,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
 
     private void Ei() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.ca(d.k.location_app_permission_prompt).a(d.k.isopen, new a.b() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.26
+        aVar.bZ(d.k.location_app_permission_prompt).a(d.k.isopen, new a.b() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.26
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (com.baidu.adp.lib.util.j.gP()) {
@@ -528,9 +528,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         }
         bDb();
         this.aCS.lN();
-        com.baidu.tbadk.editortools.g eF = this.aCS.eF(6);
-        if (eF != null && !TextUtils.isEmpty(this.aEA)) {
-            ((View) eF).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.3
+        com.baidu.tbadk.editortools.g eE = this.aCS.eE(6);
+        if (eE != null && !TextUtils.isEmpty(this.aEA)) {
+            ((View) eE).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     TransmitPostEditActivity.this.showToast(TransmitPostEditActivity.this.aEA);
@@ -583,10 +583,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             this.aCS.b(this.hgP);
         }
         this.aCS.C(arrayList);
-        com.baidu.tbadk.editortools.k eI = this.aCS.eI(5);
-        if (eI != null) {
-            eI.aDB = 1;
-            eI.aDz = d.f.write_emotion;
+        com.baidu.tbadk.editortools.k eH = this.aCS.eH(5);
+        if (eH != null) {
+            eH.aDB = 1;
+            eH.aDz = d.f.write_emotion;
         }
     }
 
@@ -1017,9 +1017,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         this.hgE = null;
         this.hgG = -1;
         this.hgI = -1;
-        x kl = w.aqF().kl(1);
-        if (kl != null) {
-            this.hgE = kl.dad;
+        x kk = w.aqF().kk(1);
+        if (kk != null) {
+            this.hgE = kk.dad;
             this.hgG = getIntent().getIntExtra("category_id", -1);
             if (this.hgE != null && !this.hgE.isEmpty() && this.hgG >= 0) {
                 this.hgF = new v();
@@ -1175,7 +1175,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             }
             this.glU.setCurrentIndex(0);
             this.glT.setText(prefixs.get(1));
-            vi(1);
+            vh(1);
             return;
         }
         this.glW.setVisibility(8);
@@ -1407,7 +1407,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         this.aNc.d(null);
-        this.aNc.da(d.k.sending);
+        this.aNc.cZ(d.k.sending);
         this.aNc.aI(true);
     }
 
@@ -1823,7 +1823,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public void c(boolean z, PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             String errorString = postWriteCallBackData.getErrorString();
-            if (AntiHelper.tu(postWriteCallBackData.getErrorCode())) {
+            if (AntiHelper.tt(postWriteCallBackData.getErrorCode())) {
                 if (AntiHelper.a(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getErrorCode(), this.cYh) != null) {
                     TiebaStatic.log(new al("c12534").r("obj_locate", ar.a.ajb));
                 }
@@ -1868,7 +1868,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         }
     }
 
-    private void vi(int i) {
+    private void vh(int i) {
         if (i < this.hgx.size()) {
             for (int i2 = 0; i2 < this.hgx.size(); i2++) {
                 this.hgx.get(i2).nm(false);
@@ -1878,10 +1878,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     }
 
     @Override // com.baidu.tieba.write.d.a
-    public void sP(int i) {
+    public void sO(int i) {
         this.glw = i;
         this.glU.setCurrentIndex(i);
-        vi(i);
+        vh(i);
         this.glT.setText(this.mPrefixData.getPrefixs().get(i));
         bnS();
         com.baidu.adp.lib.g.g.a(this.glU, getPageContext().getPageActivity());

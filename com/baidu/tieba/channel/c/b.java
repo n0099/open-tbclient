@@ -47,7 +47,7 @@ public class b {
     public static void a(final BaseActivity baseActivity, boolean z, final boolean z2, final com.baidu.tieba.channel.view.b bVar) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
         if (z) {
-            aVar.ca(d.k.channel_close_push_message);
+            aVar.bZ(d.k.channel_close_push_message);
             aVar.a(d.k.confirm, new a.b() { // from class: com.baidu.tieba.channel.c.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -64,7 +64,7 @@ public class b {
                 }
             });
         } else {
-            aVar.ca(d.k.channel_open_push_message);
+            aVar.bZ(d.k.channel_open_push_message);
             aVar.a(d.k.need_channel_push, new a.b() { // from class: com.baidu.tieba.channel.c.b.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

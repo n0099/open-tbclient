@@ -20,7 +20,7 @@ public class i {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void uy(int i);
+        void ux(int i);
     }
 
     public i(RecordVideoActivity recordVideoActivity) {
@@ -46,7 +46,7 @@ public class i {
         }
 
         @Override // com.baidu.tieba.video.record.ProgressView.a
-        public void ux(int i) {
+        public void uw(int i) {
             h hVar;
             final g byc;
             i.this.mProgress = i;
@@ -98,7 +98,7 @@ public class i {
             if (this.gQO != null && this.gQO.gQq != null) {
                 this.gQO.gQq.startRecord();
                 if (this.gQO.gSq != null) {
-                    this.gQO.gSq.uz(this.gRy);
+                    this.gQO.gSq.uy(this.gRy);
                 }
             }
         }
@@ -119,7 +119,7 @@ public class i {
             this.gRB = false;
             this.gRy = (int) (this.gRy + (System.currentTimeMillis() - this.Js));
             if (this.gRz != null && this.gRz.getLastProgress() != this.gRy) {
-                this.gRz.uw(this.gRy);
+                this.gRz.uv(this.gRy);
             }
             if (this.gQO != null && this.gQO.gQq != null) {
                 this.gQO.gQq.stopRecord();
@@ -169,7 +169,7 @@ public class i {
         }
         if (this.gRA != null) {
             for (a aVar : this.gRA) {
-                aVar.uy(this.mStatus);
+                aVar.ux(this.mStatus);
             }
         }
     }

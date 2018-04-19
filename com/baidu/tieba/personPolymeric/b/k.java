@@ -97,7 +97,7 @@ public class k {
         bfv();
         this.fJJ = str;
         this.fJG = new com.baidu.tbadk.core.dialog.f(this.mPageContext);
-        this.fJG.cj(d.k.report_dialog_title);
+        this.fJG.ci(d.k.report_dialog_title);
         this.fJG.a(this.fJH, this.mOnItemClickListener);
         this.fJG.a(d.k.confirm, this.adj);
         this.fJG.b(d.k.cancel, this.fJL);

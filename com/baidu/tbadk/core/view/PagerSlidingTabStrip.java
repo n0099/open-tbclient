@@ -52,7 +52,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     /* loaded from: classes.dex */
     public interface a {
-        int db(int i);
+        int da(int i);
     }
 
     public PagerSlidingTabStrip(Context context) {
@@ -132,7 +132,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 int i2 = i;
                 if (i2 < this.alq) {
                     if (this.alp.getAdapter() instanceof a) {
-                        w(i2, ((a) this.alp.getAdapter()).db(i2));
+                        w(i2, ((a) this.alp.getAdapter()).da(i2));
                     } else {
                         h(i2, this.alp.getAdapter().getPageTitle(i2).toString());
                     }
@@ -301,7 +301,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: dr */
+            /* renamed from: dq */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

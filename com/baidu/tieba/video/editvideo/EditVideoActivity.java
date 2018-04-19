@@ -123,7 +123,7 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
         this.gLs.bwS();
         this.gLt.bwT();
         this.drT = new com.baidu.tbadk.core.view.a(getPageContext());
-        this.drT.da(d.k.mixing);
+        this.drT.cZ(d.k.mixing);
         registerListener(this.gLA);
         bwo();
         registerListener(this.gLz);

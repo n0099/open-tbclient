@@ -56,7 +56,7 @@ public class e extends com.baidu.adp.base.c<PraiseListActivity> {
         this.fCb = praiseListActivity.findViewById(d.g.zan_list_page_parent);
         this.fCc = (NavigationBar) praiseListActivity.findViewById(d.g.zan_list_page_navigationbar);
         this.fCd = praiseListActivity.findViewById(d.g.zan_list_page_frame);
-        this.fCe = NoDataViewFactory.a(this.fCa.getPageContext().getContext(), this.fCb, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.fCa.getActivity(), d.e.ds320)), NoDataViewFactory.d.dp(d.k.praise_list_no_data), null);
+        this.fCe = NoDataViewFactory.a(this.fCa.getPageContext().getContext(), this.fCb, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.fCa.getActivity(), d.e.ds320)), NoDataViewFactory.d.m16do(d.k.praise_list_no_data), null);
         this.fCh = (BdListView) praiseListActivity.findViewById(d.g.zan_list_page_list);
         TextView textView = new TextView(this.fCa.getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
@@ -171,9 +171,9 @@ public class e extends com.baidu.adp.base.c<PraiseListActivity> {
         if (!StringUtils.isNull(str)) {
             this.fCe.setTextOption(NoDataViewFactory.d.eL(str));
         } else if (1 == i) {
-            this.fCe.setTextOption(NoDataViewFactory.d.dp(d.k.graffiti_list_no_data));
+            this.fCe.setTextOption(NoDataViewFactory.d.m16do(d.k.graffiti_list_no_data));
         } else {
-            this.fCe.setTextOption(NoDataViewFactory.d.dp(d.k.praise_list_no_data));
+            this.fCe.setTextOption(NoDataViewFactory.d.m16do(d.k.praise_list_no_data));
         }
     }
 

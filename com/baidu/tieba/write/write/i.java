@@ -224,7 +224,7 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
         if (this.mPageContext != null && this.mPageContext.getPageActivity() != null) {
             if (this.hgf == null) {
                 this.hgf = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-                this.hgf.ca(d.k.orginal_tip);
+                this.hgf.bZ(d.k.orginal_tip);
                 this.hgf.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.i.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -256,7 +256,7 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
         }
         if (this.hgf == null) {
             this.hgf = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            this.hgf.ca(d.k.orginal_tip);
+            this.hgf.bZ(d.k.orginal_tip);
             this.hgf.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.i.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

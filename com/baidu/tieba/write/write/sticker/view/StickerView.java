@@ -211,6 +211,6 @@ public class StickerView extends ImageView {
     }
 
     public void setRemoveRes(int i) {
-        this.hjD.vn(i);
+        this.hjD.vm(i);
     }
 }

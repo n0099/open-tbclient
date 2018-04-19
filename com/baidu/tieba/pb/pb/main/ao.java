@@ -92,12 +92,12 @@ public class ao extends k<com.baidu.tieba.pb.data.j, ap> {
         this.aWx = cVar;
     }
 
-    public void qk(int i) {
+    public void qj(int i) {
         if (i == 3 && this.fgM != null && this.bmh != null) {
             this.bmh.removeAllViews();
             ((FrameLayout) this.fgM.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.bmh);
         }
-        this.fnC.qk(i);
+        this.fnC.qj(i);
     }
 
     public void j(boolean z, int i) {

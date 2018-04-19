@@ -29,20 +29,20 @@ public class b implements e {
         if (f.Bt()) {
             if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.fy(this.mLocalPath)) {
                 if (this.eRz != null) {
-                    this.eRz.pD(2);
+                    this.eRz.pC(2);
                     return;
                 }
                 return;
             }
             a.a(this.mLocalPath, new a.b() { // from class: com.baidu.tieba.k.b.1
                 @Override // com.baidu.tieba.k.a.b
-                public void pH(int i) {
+                public void pG(int i) {
                     if (i == 1) {
                         b.this.eRx = true;
                         b.this.aSh();
                     }
                     if (b.this.eRz != null) {
-                        b.this.eRz.pD(i);
+                        b.this.eRz.pC(i);
                     }
                 }
             });
@@ -111,7 +111,7 @@ public class b implements e {
     public void aRH() {
         if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.fy(this.mLocalPath)) {
             if (this.eRz != null) {
-                this.eRz.pD(2);
+                this.eRz.pC(2);
                 return;
             }
             return;
@@ -151,7 +151,7 @@ public class b implements e {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
                         if (b.this.eRz != null) {
-                            b.this.eRz.pD(cVar.value);
+                            b.this.eRz.pC(cVar.value);
                         }
                     } else if (cVar.type == 2) {
                         if (b.this.eRz != null) {

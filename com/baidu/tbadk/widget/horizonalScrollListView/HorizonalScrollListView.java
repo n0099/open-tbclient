@@ -125,7 +125,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                                     r rVar = (r) obj;
                                     rVar.setLike(1);
                                     HorizonalScrollListView.this.a(entelechyUserLikeButton, rVar.isLike() == 1);
-                                } else if (AntiHelper.tu(likeModel.getErrorCode())) {
+                                } else if (AntiHelper.tt(likeModel.getErrorCode())) {
                                     AntiHelper.am(HorizonalScrollListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
                                 } else {
                                     HorizonalScrollListView.this.mTbPageContext.showToast(likeModel.getErrorString());
@@ -196,7 +196,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                                     r rVar = (r) obj;
                                     rVar.setLike(1);
                                     HorizonalScrollListView.this.a(entelechyUserLikeButton, rVar.isLike() == 1);
-                                } else if (AntiHelper.tu(likeModel.getErrorCode())) {
+                                } else if (AntiHelper.tt(likeModel.getErrorCode())) {
                                     AntiHelper.am(HorizonalScrollListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
                                 } else {
                                     HorizonalScrollListView.this.mTbPageContext.showToast(likeModel.getErrorString());
@@ -267,7 +267,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                                     r rVar = (r) obj;
                                     rVar.setLike(1);
                                     HorizonalScrollListView.this.a(entelechyUserLikeButton, rVar.isLike() == 1);
-                                } else if (AntiHelper.tu(likeModel.getErrorCode())) {
+                                } else if (AntiHelper.tt(likeModel.getErrorCode())) {
                                     AntiHelper.am(HorizonalScrollListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
                                 } else {
                                     HorizonalScrollListView.this.mTbPageContext.showToast(likeModel.getErrorString());
@@ -345,7 +345,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                 this.aSk.setTag(getTag());
                 this.aSl.setTag(getTag());
             }
-            di(this.mSkinType);
+            dh(this.mSkinType);
         }
     }
 
@@ -430,7 +430,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         }
     }
 
-    public void di(int i) {
+    public void dh(int i) {
         if (this.mSkinType != i) {
             Iterator<a> it = this.aSf.iterator();
             while (it.hasNext()) {

@@ -73,7 +73,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
 
     /* loaded from: classes.dex */
     public interface b {
-        void jq(int i);
+        void jp(int i);
     }
 
     public EmotionTabContentView(Context context, AttributeSet attributeSet) {
@@ -300,14 +300,14 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                             i = emotionsCount - ((DX * DY) * (i4 - 1));
                         }
                         bVar.e(cVar);
-                        bVar.jv(i3);
+                        bVar.ju(i3);
                         bVar.b(cVar.DU());
-                        bVar.eS(DY);
-                        bVar.eR(DX);
-                        bVar.jr(i4);
-                        bVar.js(i5);
-                        bVar.jt(i);
-                        bVar.ju(i5 * DX * DY);
+                        bVar.eR(DY);
+                        bVar.eQ(DX);
+                        bVar.jq(i4);
+                        bVar.jr(i5);
+                        bVar.js(i);
+                        bVar.jt(i5 * DX * DY);
                         bVar.setEndIndex((i + i2) - 1);
                         this.cFO.add(bVar);
                     }
@@ -322,7 +322,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         }
     }
 
-    private void jo(int i) {
+    private void jn(int i) {
         if (this.cFO != null) {
             int size = this.cFO.size();
             if (i >= 0 && i < size) {
@@ -342,19 +342,19 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             int size = list.size();
             if (i >= 0 && i < size) {
                 aF(list);
-                jo(i);
+                jn(i);
                 this.cFB = new EmotionViewPagerAdapter();
                 this.mViewPager.setAdapter(this.cFB);
                 this.mViewPager.setCurrentItem(this.cFS, true);
                 if (this.cFR != null) {
-                    this.cFR.jq(i);
+                    this.cFR.jp(i);
                     this.cFQ = i;
                 }
             }
         }
     }
 
-    public void jp(int i) {
+    public void jo(int i) {
         int i2;
         if (this.mViewPager != null) {
             int size = this.cFO.size();
@@ -383,12 +383,12 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         a aVar;
         if (this.cFL != i && gridView != null && (aVar = (a) gridView.getAdapter()) != null && aVar.aka() != null) {
             com.baidu.tieba.emotion.editortool.b aka = aVar.aka();
-            String eL = aka.akd().eL(aVar.ajZ() + i);
-            if (aka.ake() != EmotionGroupType.USER_COLLECT || !eL.equals(com.baidu.tbadk.imageManager.d.aGY)) {
-                this.cFF.setTag(eL);
+            String eK = aka.akd().eK(aVar.ajZ() + i);
+            if (aka.ake() != EmotionGroupType.USER_COLLECT || !eK.equals(com.baidu.tbadk.imageManager.d.aGY)) {
+                this.cFF.setTag(eK);
                 GifInfo gifInfo = new GifInfo();
-                gifInfo.mSharpText = eL;
-                if (eL.startsWith("#(meme,")) {
+                gifInfo.mSharpText = eK;
+                if (eK.startsWith("#(meme,")) {
                     this.cFF.setShowStaticDrawable(false);
                 } else {
                     this.cFF.setShowStaticDrawable(true);
@@ -511,7 +511,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                         if (this.cFM != null && this.cFM.akk() != this.cFQ) {
                             this.cFQ = this.cFM.akk();
                             if (this.cFR != null) {
-                                this.cFR.jq(this.cFM.akk());
+                                this.cFR.jp(this.cFM.akk());
                             }
                         }
                     }
@@ -640,10 +640,10 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 ak.d(tbImageView, d.f.btn_choose_face_selector, EmotionTabContentView.this.aqQ);
                 tbImageView.setPadding(0, 0, 0, 0);
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                String eL = this.cFW.akd().eL(akj);
-                tbImageView.setTag(eL);
-                if (!TextUtils.isEmpty(eL)) {
-                    Object a = com.baidu.adp.lib.f.c.fp().a(eL, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabContentView.a.1
+                String eK = this.cFW.akd().eK(akj);
+                tbImageView.setTag(eK);
+                if (!TextUtils.isEmpty(eK)) {
+                    Object a = com.baidu.adp.lib.f.c.fp().a(eK, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabContentView.a.1
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
@@ -655,7 +655,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                                 tbImageView2.setTag(null);
                             }
                         }
-                    }, 0, 0, null, null, eL, false, null);
+                    }, 0, 0, null, null, eK, false, null);
                     if (a == null || !(a instanceof com.baidu.adp.widget.ImageView.a)) {
                         aVar = null;
                     } else {
@@ -668,8 +668,8 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 }
                 TextView textView = (TextView) linearLayout3.findViewById(d.g.emotion_tab_content_tip);
                 if (this.cFW.ake() == EmotionGroupType.BIG_EMOTION) {
-                    String eL2 = this.cFW.akd().eL(akj);
-                    if (!TextUtils.isEmpty(eL2) && !eL2.startsWith("#(meme,")) {
+                    String eK2 = this.cFW.akd().eK(akj);
+                    if (!TextUtils.isEmpty(eK2) && !eK2.startsWith("#(meme,")) {
                         if (EmotionTabContentView.this.aqQ == 0) {
                             color = EmotionTabContentView.this.getContext().getResources().getColor(d.C0126d.cp_cont_c);
                         } else {
@@ -677,15 +677,15 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                         }
                         textView.setVisibility(0);
                         textView.setTextColor(color);
-                        textView.setText(eL2.substring(eL2.lastIndexOf("_") + 1, eL2.length() - 1));
+                        textView.setText(eK2.substring(eK2.lastIndexOf("_") + 1, eK2.length() - 1));
                     } else {
                         textView.setVisibility(8);
                     }
                 } else {
                     textView.setVisibility(8);
                 }
-                if (eL != null && eL.length() > 3) {
-                    linearLayout3.setContentDescription(eL.substring(2, eL.length() - 1));
+                if (eK != null && eK.length() > 3) {
+                    linearLayout3.setContentDescription(eK.substring(2, eK.length() - 1));
                 }
             }
             return linearLayout3;
@@ -755,12 +755,12 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                                 com.baidu.tieba.emotion.editortool.b aka = aVar.aka();
                                 int ajZ = aVar.ajZ();
                                 com.baidu.tbadk.editortools.emotiontool.c akd = aka.akd();
-                                String eL = aka.akd().eL(ajZ + i2);
-                                if (akd.DU() == EmotionGroupType.USER_COLLECT && com.baidu.tbadk.imageManager.d.aGY.equals(eL)) {
+                                String eK = aka.akd().eK(ajZ + i2);
+                                if (akd.DU() == EmotionGroupType.USER_COLLECT && com.baidu.tbadk.imageManager.d.aGY.equals(eK)) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UserCollectManageActivityConfig(EmotionTabContentView.this.mContext)));
                                     return;
                                 }
-                                nVar.setName(eL);
+                                nVar.setName(eK);
                                 nVar.a(akd.DU());
                                 nVar.eZ(akd.getGroupName());
                                 nVar.fa(akd.getGroupId());
@@ -793,7 +793,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                     if (bVar != null && bVar.akk() != EmotionTabContentView.this.cFQ) {
                         EmotionTabContentView.this.cFQ = bVar.akk();
                         if (EmotionTabContentView.this.cFR != null) {
-                            EmotionTabContentView.this.cFR.jq(bVar.akk());
+                            EmotionTabContentView.this.cFR.jp(bVar.akk());
                         }
                     }
                 }

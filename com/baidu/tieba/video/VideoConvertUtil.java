@@ -100,7 +100,7 @@ public class VideoConvertUtil {
             if (i == 0) {
                 this.gKg.bvR();
             } else {
-                this.gKg.ug(i);
+                this.gKg.uf(i);
             }
         }
     }

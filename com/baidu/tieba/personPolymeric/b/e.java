@@ -104,7 +104,7 @@ public class e implements com.baidu.tieba.personPolymeric.mode.b {
             this.fIL.cM(this.mUserId);
         } else {
             this.fIK.Ou();
-            this.fIK.ri(8);
+            this.fIK.rh(8);
             this.fIK.E(this.fII.getString(d.k.neterror), true);
         }
     }

@@ -156,7 +156,7 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void bmk() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-        aVar.ca(d.k.tip_draft_no_publish);
+        aVar.bZ(d.k.tip_draft_no_publish);
         aVar.b(d.k.cancel, new a.b() { // from class: com.baidu.tieba.write.write.WriteUrlActivity.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

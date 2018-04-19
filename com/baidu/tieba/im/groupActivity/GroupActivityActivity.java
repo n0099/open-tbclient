@@ -97,13 +97,13 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
             this.eaz.setUniqueId(getUniqueId());
         }
         if (bundle != null) {
-            this.eaz.nE(bundle.getInt(GroupActivityActivityConfig.ACTIVITY_ID, 0));
+            this.eaz.nD(bundle.getInt(GroupActivityActivityConfig.ACTIVITY_ID, 0));
             this.eaz.bV(bundle.getLong("group_id", 0L));
-            this.eaz.nD(bundle.getInt("from", 0));
+            this.eaz.nC(bundle.getInt("from", 0));
         } else if (getIntent() != null) {
-            this.eaz.nE(getIntent().getIntExtra(GroupActivityActivityConfig.ACTIVITY_ID, 0));
+            this.eaz.nD(getIntent().getIntExtra(GroupActivityActivityConfig.ACTIVITY_ID, 0));
             this.eaz.bV(getIntent().getLongExtra("group_id", 0L));
-            this.eaz.nD(getIntent().getIntExtra("from", 0));
+            this.eaz.nC(getIntent().getIntExtra("from", 0));
         }
         initUI();
         startLoading();
@@ -121,9 +121,9 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
             intent = getIntent();
         }
         if (intent != null) {
-            this.eaz.nE(intent.getIntExtra(GroupActivityActivityConfig.ACTIVITY_ID, 0));
+            this.eaz.nD(intent.getIntExtra(GroupActivityActivityConfig.ACTIVITY_ID, 0));
             this.eaz.bV(intent.getLongExtra("group_id", 0L));
-            this.eaz.nD(intent.getIntExtra("from", 0));
+            this.eaz.nC(intent.getIntExtra("from", 0));
         }
         startLoading();
     }
@@ -168,7 +168,7 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
 
     private void startLoading() {
         showProgressBar();
-        this.eaz.nH(this.eaz.aEw());
+        this.eaz.nG(this.eaz.aEw());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

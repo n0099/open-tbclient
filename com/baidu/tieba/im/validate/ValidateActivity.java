@@ -143,7 +143,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(1);
+        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dR(1);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a("-1003", -4)));
     }
 
@@ -278,7 +278,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             }
         };
         this.edd = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-        this.edd.cd(d.k.operation);
+        this.edd.cc(d.k.operation);
         this.edd.a(new String[]{string}, interfaceC0086b);
         this.edd.d(getPageContext());
     }

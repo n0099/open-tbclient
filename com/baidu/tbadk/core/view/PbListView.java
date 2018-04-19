@@ -65,7 +65,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.anR = z;
     }
 
-    public void ds(int i) {
+    public void dr(int i) {
         this.anO = i;
     }
 
@@ -90,7 +90,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.anP.setLayoutParams(layoutParams);
     }
 
-    public void dt(int i) {
+    public void ds(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.anP.getLayoutParams();
         layoutParams.height = i;
         this.anP.setLayoutParams(layoutParams);
@@ -107,7 +107,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     public void wR() {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(this.mContext.getText(d.k.loading));
-        dw(TbadkCoreApplication.getInst().getSkinType());
+        dv(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void wS() {
@@ -117,7 +117,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         } else {
             this.mTextView.setText(this.mContext.getText(d.k.pb_load_more));
         }
-        dw(TbadkCoreApplication.getInst().getSkinType());
+        dv(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void wT() {
@@ -149,14 +149,14 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     public void setText(String str) {
         this.anL = str;
         this.mTextView.setText(str);
-        dw(TbadkCoreApplication.getInst().getSkinType());
+        dv(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setTextColor(int i) {
         this.mTextColor = i;
     }
 
-    public void du(int i) {
+    public void dt(int i) {
         this.anN = i;
     }
 
@@ -171,12 +171,12 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         }
     }
 
-    public void dv(int i) {
+    public void du(int i) {
         this.anS = i;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void dw(int i) {
+    public void dv(int i) {
         int color;
         boolean z = false;
         if (this.mSkinType != -1) {
@@ -215,7 +215,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         }
     }
 
-    public void dx(int i) {
+    public void dw(int i) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.anJ.getLayoutParams());
         layoutParams.height = i;
         this.anJ.setLayoutParams(layoutParams);
@@ -235,7 +235,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         wV();
     }
 
-    public void dy(int i) {
+    public void dx(int i) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.anJ.getLayoutParams());
         layoutParams.height = i;
         this.anJ.setLayoutParams(layoutParams);

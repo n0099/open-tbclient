@@ -152,8 +152,8 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             if (this.alf.ta() != 0) {
                 a(this.gdu.getThreadData(), "nozan", 0);
                 a(this.gdu.getThreadData(), "1", "2");
-                this.alf.bX(this.alf.sZ() - 1);
-                this.alf.bW(0);
+                this.alf.bW(this.alf.sZ() - 1);
+                this.alf.bV(0);
                 if (this.aot != null) {
                     ak.h(this.aot, d.C0126d.cp_cont_f);
                     z = true;
@@ -163,8 +163,8 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             } else {
                 a(this.gdu.getThreadData(), FeedData.TYPE_ZAN, 0);
                 a(this.gdu.getThreadData(), "1", "1");
-                this.alf.bW(1);
-                this.alf.bX(this.alf.sZ() + 1);
+                this.alf.bV(1);
+                this.alf.bW(this.alf.sZ() + 1);
                 if (this.aot != null) {
                     ak.h(this.aot, d.C0126d.cp_cont_h);
                 }

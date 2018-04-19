@@ -178,7 +178,7 @@ public class TbRichTextData extends OrmObject {
         return this.aVQ;
     }
 
-    public void fV(int i) {
+    public void fU(int i) {
         this.aVQ = i;
     }
 

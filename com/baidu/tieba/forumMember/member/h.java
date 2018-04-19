@@ -12,7 +12,7 @@ public class h extends q.a {
         this.cUf = view2;
     }
 
-    public void jS(int i) {
+    public void jR(int i) {
         if (i < 0) {
             this.cUf.setMinimumHeight(0);
         } else {

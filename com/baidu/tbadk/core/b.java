@@ -37,7 +37,7 @@ public class b {
         return this.Um;
     }
 
-    public void bb(int i) {
+    public void ba(int i) {
         this.Um = i;
     }
 
@@ -45,7 +45,7 @@ public class b {
         return this.Un;
     }
 
-    public void bc(int i) {
+    public void bb(int i) {
         this.Un = i;
     }
 
@@ -53,7 +53,7 @@ public class b {
         return this.Uk;
     }
 
-    public void bd(int i) {
+    public void bc(int i) {
         this.Uk = i;
     }
 
@@ -61,7 +61,7 @@ public class b {
         return this.Ul;
     }
 
-    public void be(int i) {
+    public void bd(int i) {
         this.Ul = i;
     }
 
@@ -69,7 +69,7 @@ public class b {
         return this.Ui;
     }
 
-    public void bf(int i) {
+    public void be(int i) {
         this.Ui = i;
     }
 
@@ -77,7 +77,7 @@ public class b {
         return this.Uj;
     }
 
-    public void bg(int i) {
+    public void bf(int i) {
         this.Uj = i;
     }
 
@@ -89,7 +89,7 @@ public class b {
         return this.Uo;
     }
 
-    public void bh(int i) {
+    public void bg(int i) {
         this.Uo = i;
     }
 
@@ -97,7 +97,7 @@ public class b {
         return this.Up;
     }
 
-    public void bi(int i) {
+    public void bh(int i) {
         this.Up = i;
     }
 
@@ -113,7 +113,7 @@ public class b {
         return this.TY;
     }
 
-    public void bj(int i) {
+    public void bi(int i) {
         this.TY = i;
     }
 
@@ -121,7 +121,7 @@ public class b {
         return this.TZ;
     }
 
-    public void bk(int i) {
+    public void bj(int i) {
         this.TZ = i;
     }
 
@@ -129,7 +129,7 @@ public class b {
         return this.Uc;
     }
 
-    public void bl(int i) {
+    public void bk(int i) {
         this.Uc = i;
     }
 
@@ -137,7 +137,7 @@ public class b {
         return this.Ud;
     }
 
-    public void bm(int i) {
+    public void bl(int i) {
         this.Ud = i;
     }
 
@@ -145,7 +145,7 @@ public class b {
         return this.Ua;
     }
 
-    public void bn(int i) {
+    public void bm(int i) {
         this.Ua = i;
     }
 
@@ -153,7 +153,7 @@ public class b {
         return this.Ub;
     }
 
-    public void bo(int i) {
+    public void bn(int i) {
         this.Ub = i;
     }
 
@@ -165,11 +165,11 @@ public class b {
         return this.Ue;
     }
 
-    public void bp(int i) {
+    public void bo(int i) {
         this.Ue = i;
     }
 
-    public void bq(int i) {
+    public void bp(int i) {
         this.Uf = i;
     }
 
@@ -177,7 +177,7 @@ public class b {
         return this.Uh;
     }
 
-    public void br(int i) {
+    public void bq(int i) {
         this.Uh = i;
     }
 
@@ -185,7 +185,7 @@ public class b {
         return this.Ug;
     }
 
-    public void bs(int i) {
+    public void br(int i) {
         this.Ug = i;
     }
 
@@ -193,7 +193,7 @@ public class b {
         return this.Uq;
     }
 
-    public void bt(int i) {
+    public void bs(int i) {
         this.Uq = i;
     }
 
@@ -201,7 +201,7 @@ public class b {
         return this.Ur;
     }
 
-    public void bu(int i) {
+    public void bt(int i) {
         this.Ur = i;
     }
 }

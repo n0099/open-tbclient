@@ -35,7 +35,7 @@ public class e {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void lh(int i);
+        void lg(int i);
     }
 
     /* loaded from: classes2.dex */
@@ -91,7 +91,7 @@ public class e {
         this.dpa = asVar;
         this.dpd = this.dpc.get(this.dpa.dac);
         if (this.dpd == null) {
-            this.dpd = h.ll(this.dpa.dac);
+            this.dpd = h.lk(this.dpa.dac);
             this.dpd.a(this.mContext, this);
             this.dpc.put(this.dpa.dac, this.dpd);
         }
@@ -106,7 +106,7 @@ public class e {
                 int auK = this.dpd.auK();
                 int measuredHeight = (ah - iArr[1]) - horizontalTabView.getMeasuredHeight();
                 if (measuredHeight < auK) {
-                    horizontalTabView.getmShowMenuCallBack().li(auK - measuredHeight);
+                    horizontalTabView.getmShowMenuCallBack().lh(auK - measuredHeight);
                 }
             }
         }

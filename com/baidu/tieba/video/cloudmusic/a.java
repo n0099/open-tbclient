@@ -22,7 +22,7 @@ public class a implements d.a {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void um(int i) {
+    public void ul(int i) {
         this.gKB.mR(true);
         this.gKA.a(i, new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData.MusicTagList>() { // from class: com.baidu.tieba.video.cloudmusic.a.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +61,7 @@ public class a implements d.a {
         if (musicList != null && !TextUtils.isEmpty(musicList.resource)) {
             final String tU = com.baidu.tieba.video.editvideo.model.a.bwN().tU(musicList.resource);
             if (TextUtils.isEmpty(tU)) {
-                this.gKB.uj(i);
+                this.gKB.ui(i);
                 com.baidu.tieba.video.editvideo.model.a.bwN().a(String.valueOf(musicList.music_id), musicList.resource, new a.InterfaceC0223a() { // from class: com.baidu.tieba.video.cloudmusic.a.2
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0223a
                     public void ci(final String str, String str2) {
@@ -86,12 +86,12 @@ public class a implements d.a {
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0223a
                     public void tL(String str) {
-                        a.this.gKB.ul(i);
+                        a.this.gKB.uk(i);
                     }
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0223a
                     public void bwb() {
-                        a.this.gKB.uk(i);
+                        a.this.gKB.uj(i);
                     }
                 });
                 return;

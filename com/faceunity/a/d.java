@@ -62,7 +62,7 @@ public class d {
         void byz();
     }
 
-    public boolean wg(int i) {
+    public boolean wf(int i) {
         return this.huC == i;
     }
 
@@ -251,7 +251,7 @@ public class d {
                         return;
                     case 3:
                         if (dVar.huN) {
-                            dVar.wh(message.arg1);
+                            dVar.wg(message.arg1);
                             return;
                         }
                         return;
@@ -330,7 +330,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wh(int i) {
+    public void wg(int i) {
         this.mTextureId = i;
     }
 

@@ -66,7 +66,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
         this.fMd.startLoad(fVar.avatar, 10, false);
         this.cIW.setText(an.f(fVar.forumName, 7, "...") + this.mContext.getString(d.k.forum));
         this.fMf.setText(an.v(fVar.fKt));
-        this.fMe.setText(String.format(this.mContext.getString(d.k.person_has_posted), an.cU(fVar.sex)));
+        this.fMe.setText(String.format(this.mContext.getString(d.k.person_has_posted), an.cT(fVar.sex)));
         if (getRootView() != null) {
             getRootView().setOnClickListener(this.mOnClickListener);
         }

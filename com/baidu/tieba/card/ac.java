@@ -133,7 +133,7 @@ public class ac extends com.baidu.tieba.person.e {
                 } else if (i == 4) {
                     ac.this.t(ac.this.cra, true);
                 }
-                ac.this.iN(i);
+                ac.this.iM(i);
             }
         };
         this.mPageContext = tbPageContext;
@@ -212,7 +212,7 @@ public class ac extends com.baidu.tieba.person.e {
         if (this.mPageContext != null) {
             if (this.cpA == null) {
                 this.cpA = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-                this.cpA.ca(d.k.del_thread_confirm);
+                this.cpA.bZ(d.k.del_thread_confirm);
                 this.cpA.a(d.k.dialog_ok, new a.b() { // from class: com.baidu.tieba.card.ac.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -325,16 +325,16 @@ public class ac extends com.baidu.tieba.person.e {
         if (this.bjU != null && gVar != null && gVar.yR) {
             String str = "";
             if (i == 2) {
-                this.bjU.bR(1);
+                this.bjU.bQ(1);
                 str = T(gVar.gyO, d.k.operation_success);
             } else if (i == 3) {
-                this.bjU.bR(0);
+                this.bjU.bQ(0);
                 str = T(gVar.gyO, d.k.operation_success);
             } else if (i == 4) {
-                this.bjU.bQ(1);
+                this.bjU.bP(1);
                 str = T(gVar.gyO, d.k.top_success);
             } else if (i == 5) {
-                this.bjU.bQ(0);
+                this.bjU.bP(0);
                 str = T(gVar.gyO, d.k.operation_success);
             }
             ForumManageModel.e eVar = new ForumManageModel.e();
@@ -365,7 +365,7 @@ public class ac extends com.baidu.tieba.person.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iN(int i) {
+    public void iM(int i) {
         int i2 = 1;
         if (i != 1) {
             if (i == 2) {

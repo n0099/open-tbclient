@@ -476,7 +476,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             if (this.mCurrentDefaultId > 0) {
                 if (this.mAutoChangeStyle) {
                     if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                        bitmap = ak.cO(this.mCurrentDefaultId);
+                        bitmap = ak.cN(this.mCurrentDefaultId);
                         if (bitmap == null) {
                             bitmap = BitmapHelper.getCashBitmap(this.mCurrentDefaultId);
                         }
@@ -877,7 +877,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
 
     public void setTagColor(int i) {
         if (this.mTagDrawer != null) {
-            this.mTagDrawer.fs(i);
+            this.mTagDrawer.fr(i);
         }
     }
 }

@@ -17,7 +17,7 @@ public class c {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    c.tq(1);
+                    c.tp(1);
                 }
             }
         });
@@ -48,7 +48,7 @@ public class c {
     public static void bsr() {
     }
 
-    public static void tq(int i) {
+    public static void tp(int i) {
         for (String str : gxG.keySet()) {
             a(gxG.get(str), i);
         }

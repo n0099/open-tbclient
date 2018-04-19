@@ -20,7 +20,7 @@ public class p implements com.baidu.adp.widget.ListView.h {
         return this.cUP;
     }
 
-    public void jT(int i) {
+    public void jS(int i) {
         this.cUP = i;
     }
 
@@ -28,7 +28,7 @@ public class p implements com.baidu.adp.widget.ListView.h {
         return this.cUT;
     }
 
-    public void jU(int i) {
+    public void jT(int i) {
         this.cUT = i;
     }
 
@@ -36,7 +36,7 @@ public class p implements com.baidu.adp.widget.ListView.h {
         return this.cUQ;
     }
 
-    public void jV(int i) {
+    public void jU(int i) {
         this.cUQ = i;
     }
 

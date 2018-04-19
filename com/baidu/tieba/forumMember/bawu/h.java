@@ -38,7 +38,7 @@ public class h extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: jQ */
+    /* renamed from: jP */
     public i getItem(int i) {
         if (this.cTC == null || i >= this.cTC.size()) {
             return null;

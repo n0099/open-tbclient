@@ -133,7 +133,7 @@ public class EC3SpecificBox extends AbstractBox {
     }
 
     public void setDataRate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.wl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.wk(i)));
         this.dataRate = i;
     }
 
@@ -143,7 +143,7 @@ public class EC3SpecificBox extends AbstractBox {
     }
 
     public void setNumIndSub(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.wl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.wk(i)));
         this.numIndSub = i;
     }
 

@@ -69,7 +69,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
             }
         });
         this.emE = new com.baidu.tbadk.mvc.f.d<>(this.emx.getPageContext(), a.class, d.i.mention_atme_item, this.emx.Gn());
-        this.emE.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.emx.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.dp(d.k.mention_atme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.emE.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.emx.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.m16do(d.k.mention_atme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
         this.emF.setAdapter((ListAdapter) this.emE);
         return this.rootView;
     }
@@ -92,7 +92,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
             this.cwJ.b(tbPageContext, i);
         }
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
         this.emG.onChangeSkinType(tbPageContext, i);
     }
@@ -122,11 +122,11 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
                 if (aVar.Gh()) {
                     this.cwJ.lN();
                     if (aVar.Gf()) {
-                        this.cwJ.fd(d.k.loading);
+                        this.cwJ.fc(d.k.loading);
                     } else if (aVar.Gg()) {
-                        this.cwJ.fd(d.k.loading);
+                        this.cwJ.fc(d.k.loading);
                     } else {
-                        this.cwJ.fe(d.k.no_more_msg);
+                        this.cwJ.fd(d.k.no_more_msg);
                     }
                 } else {
                     this.cwJ.hide();

@@ -290,13 +290,13 @@ public class b {
             com.baidu.tieba.homepage.concern.b.b a2 = a(userList);
             switch (this.dAK) {
                 case 2:
-                    a2.lV(2);
+                    a2.lU(2);
                     break;
                 case 3:
-                    a2.lV(3);
+                    a2.lU(3);
                     break;
                 case 4:
-                    a2.lV(4);
+                    a2.lU(4);
                     break;
             }
             if (a2 != null) {
@@ -345,7 +345,7 @@ public class b {
                 this.mDataList.add(aVar);
             }
             com.baidu.tieba.homepage.concern.b.b a2 = a(dataRes.top_user_info);
-            a2.lV(1);
+            a2.lU(1);
             this.mDataList.add(a2);
         }
         List<h> a3 = a(z, builder, z2);

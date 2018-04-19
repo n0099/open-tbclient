@@ -151,9 +151,9 @@ public class b {
                         dVar = null;
                         break;
                     }
-                    d gi = this.baH.gi((this.baH.LV() - 1) - i);
-                    if (gi != null && gi.getFileName() != null && gi.getFileName().equals(hN)) {
-                        dVar = gi;
+                    d gh = this.baH.gh((this.baH.LV() - 1) - i);
+                    if (gh != null && gh.getFileName() != null && gh.getFileName().equals(hN)) {
+                        dVar = gh;
                         break;
                     }
                     i++;
@@ -186,11 +186,11 @@ public class b {
     }
 
     private boolean LX() {
-        d gi = this.baH.gi(0);
-        if (gi == null || !(e.Md().hC(gi.getFileName()) || e.Md().hE(gi.getFileName()))) {
+        d gh = this.baH.gh(0);
+        if (gh == null || !(e.Md().hC(gh.getFileName()) || e.Md().hE(gh.getFileName()))) {
             this.baH.remove(0);
-            if (gi != null) {
-                File file = new File(i.bbu + gi.getFileName());
+            if (gh != null) {
+                File file = new File(i.bbu + gh.getFileName());
                 j.au(TAG, "delete file " + file.getName());
                 m.y(file);
             }
@@ -221,12 +221,12 @@ public class b {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < this.baH.LV() - 2; i++) {
-                d gi = this.baH.gi(i);
-                if (gi != null) {
-                    if (currentTimeMillis - gi.getAccessTime() < 86400000) {
+                d gh = this.baH.gh(i);
+                if (gh != null) {
+                    if (currentTimeMillis - gh.getAccessTime() < 86400000) {
                         break;
                     }
-                    arrayList.add(gi);
+                    arrayList.add(gh);
                 }
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {

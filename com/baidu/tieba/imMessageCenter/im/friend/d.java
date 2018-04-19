@@ -111,7 +111,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         this.els.setOnClickListener(this.eln);
         wY();
         aHT();
-        od(0);
+        oc(0);
     }
 
     private void are() {
@@ -301,7 +301,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
     public void g(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
             this.elq.d(aVar);
-            od(this.elq.getItemLength());
+            oc(this.elq.getItemLength());
             aIc();
         }
     }
@@ -309,7 +309,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
     public void h(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
             this.elq.f(aVar);
-            od(this.elq.getItemLength());
+            oc(this.elq.getItemLength());
             aIc();
         }
     }
@@ -326,7 +326,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         l.b(this.eln.getPageContext().getPageActivity(), this.mEditText);
     }
 
-    private void od(int i) {
+    private void oc(int i) {
         this.els.setText(String.format(this.eln.getPageContext().getString(d.k.invite_friend_candidate_send), Integer.valueOf(i)));
     }
 
@@ -334,7 +334,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         return this.elt;
     }
 
-    public void oe(int i) {
+    public void od(int i) {
         this.elt = i;
         this.elq.setMaxCount(i);
     }

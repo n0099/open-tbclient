@@ -33,9 +33,9 @@ public class e {
                     }
                     p pVar = new p();
                     if (e.this.mManagerApplyInfo != null) {
-                        pVar.jT(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                        pVar.jS(e.this.mManagerApplyInfo.manager_left_num.intValue());
                         pVar.lC(e.this.mManagerApplyInfo.manager_apply_url);
-                        pVar.jV(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                        pVar.jU(e.this.mManagerApplyInfo.assist_left_num.intValue());
                         pVar.lD(e.this.mManagerApplyInfo.assist_apply_url);
                     }
                     if (e.this.cTv != null) {
@@ -55,9 +55,9 @@ public class e {
                 e.this.mManagerApplyInfo = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
                 p pVar = new p();
                 if (e.this.mManagerApplyInfo != null) {
-                    pVar.jT(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                    pVar.jS(e.this.mManagerApplyInfo.manager_left_num.intValue());
                     pVar.lC(e.this.mManagerApplyInfo.manager_apply_url);
-                    pVar.jV(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                    pVar.jU(e.this.mManagerApplyInfo.assist_left_num.intValue());
                     pVar.lD(e.this.mManagerApplyInfo.assist_apply_url);
                 }
                 if (e.this.cTv != null) {

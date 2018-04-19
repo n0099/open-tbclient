@@ -29,9 +29,9 @@ public interface i {
 
     void iJ(boolean z);
 
-    void pE(int i);
+    void pD(int i);
 
-    void pF(int i);
+    void pE(int i);
 
     void pI(String str);
 

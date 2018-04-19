@@ -40,7 +40,7 @@ public class az {
         }
     }
 
-    private static int cY(int i) {
+    private static int cX(int i) {
         return aG(i == 1);
     }
 
@@ -203,13 +203,13 @@ public class az {
 
     public static void b(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cY(i));
+            textView.setTextColor(cX(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cY(i));
+            checkBox.setTextColor(cX(i));
         }
     }
 

@@ -24,7 +24,7 @@ public class f extends b {
             return null;
         }
         if (this.aHL > 0.0f) {
-            com.baidu.tbadk.imageManager.c.Fa().eY(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.Fa().eX(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.getRoundedCornerBitmap(bitmap, this.aHL, z);
         }
         return bitmap;

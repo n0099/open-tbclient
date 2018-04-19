@@ -137,7 +137,7 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
         this.cuq.getLayoutMode().u(this.mFooterView);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.bla.onChangeSkinType(getPageContext(), i);
-        this.mPullView.dw(i);
+        this.mPullView.dv(i);
         if (this.cwo != null) {
             this.cwo.notifyDataSetChanged();
         }

@@ -211,7 +211,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
         int v;
         super.setUrls(list, i, z);
         if (this.aTB != null && (v = v.v(list)) > 0) {
-            sg(v);
+            sf(v);
             int childCount = getChildCount();
             int i2 = 0;
             while (i2 < childCount) {
@@ -249,7 +249,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
         }
     }
 
-    private void sg(int i) {
+    private void sf(int i) {
         int childCount = getChildCount() - i;
         if (childCount > 0) {
             removeViews(i, childCount);

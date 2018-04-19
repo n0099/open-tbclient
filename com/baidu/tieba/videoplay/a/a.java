@@ -10,7 +10,7 @@ public class a {
     private int dsi = b.getInstance().getInt("nani_key_download_show_position", 3);
     private Set<Integer> dsj = new HashSet();
 
-    public void uG(int i) {
+    public void uF(int i) {
         this.dsj.add(Integer.valueOf(i));
         if (this.dsi == this.dsj.size()) {
             this.dsl = i;

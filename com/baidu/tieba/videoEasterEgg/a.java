@@ -66,7 +66,7 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
             }
         };
         initContentView();
-        cc(1);
+        cb(1);
         as(false);
         ar(false);
     }

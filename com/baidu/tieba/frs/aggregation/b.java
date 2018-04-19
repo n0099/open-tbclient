@@ -159,7 +159,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             this.daN.setVisibility(0);
             this.daN.setText(gVar.title);
             this.daO.setVisibility(0);
-            this.daO.setText(an.cV(gVar.dbz.videoDuration * 1000));
+            this.daO.setText(an.cU(gVar.dbz.videoDuration * 1000));
             if (gVar.dbz.videoSize == 0) {
                 format = this.mPageContext.getString(d.k.video_mobile_play_tips);
             } else {
@@ -296,7 +296,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                         b.this.dbd = false;
                     }
                     if (aVar != null && !b.this.isFullScreen) {
-                        aVar.kq(i);
+                        aVar.kp(i);
                         b.this.daY.ayA();
                     }
                 }
@@ -352,8 +352,8 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         }
     }
 
-    public boolean kr(int i) {
-        return this.daY.ro(i);
+    public boolean kq(int i) {
+        return this.daY.rn(i);
     }
 
     public void aqS() {

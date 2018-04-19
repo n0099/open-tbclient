@@ -127,12 +127,12 @@ public class b implements TabLayout.OnTabSelectedListener {
         });
         this.blb = new PbListView(this.dlH.getPageContext().getPageActivity());
         this.blb.kA();
-        this.blb.dv(d.C0126d.cp_bg_line_e);
+        this.blb.du(d.C0126d.cp_bg_line_e);
         this.blb.setHeight(l.e(this.dlH.getActivity(), d.e.tbds182));
         this.blb.wO();
         this.blb.setTextSize(d.e.tbfontsize33);
         this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
-        this.blb.du(d.C0126d.cp_cont_e);
+        this.blb.dt(d.C0126d.cp_cont_e);
         this.cYQ.setOnSrollToBottomListener(this.dlH);
         if (this.bnR == null) {
             this.bnR = (BdSwipeRefreshLayout) view2.findViewById(d.g.frs_pull_refresh_layout);
@@ -374,7 +374,7 @@ public class b implements TabLayout.OnTabSelectedListener {
 
     public void onChangeSkinType(int i) {
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
         if (this.dlV != null) {
             this.dlV.arN();
@@ -388,7 +388,7 @@ public class b implements TabLayout.OnTabSelectedListener {
         }
         if (this.blb != null) {
             this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
-            this.blb.dw(i);
+            this.blb.dv(i);
         }
         ak.j(this.bnR, d.C0126d.cp_bg_line_c);
         ak.j(this.cYQ, d.C0126d.cp_bg_line_e);
@@ -421,7 +421,7 @@ public class b implements TabLayout.OnTabSelectedListener {
                     m mVar = (m) childAt.getTag();
                     if (mVar.cZE != null) {
                         com.baidu.tbadk.k.k perfLog = mVar.cZE.getPerfLog();
-                        perfLog.fj(1000);
+                        perfLog.fi(1000);
                         perfLog.aKM = true;
                         if (lastVisiblePosition == i) {
                             int[] iArr = new int[2];
@@ -438,7 +438,7 @@ public class b implements TabLayout.OnTabSelectedListener {
                             if (childAt2 instanceof TbImageView) {
                                 TbImageView tbImageView = (TbImageView) childAt2;
                                 com.baidu.tbadk.k.k perfLog2 = tbImageView.getPerfLog();
-                                perfLog2.fj(1000);
+                                perfLog2.fi(1000);
                                 perfLog2.aKM = true;
                                 if (lastVisiblePosition == i) {
                                     int[] iArr2 = new int[2];
@@ -458,13 +458,13 @@ public class b implements TabLayout.OnTabSelectedListener {
     /* JADX INFO: Access modifiers changed from: protected */
     public void Qo() {
         this.cYQ.setNextPage(this.blb);
-        this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.blb.wR();
     }
 
     public void Qp() {
         this.cYQ.setNextPage(this.blb);
-        this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.blb.wS();
         this.blb.setText(this.dlH.getResources().getString(d.k.list_no_more));
     }
@@ -487,7 +487,7 @@ public class b implements TabLayout.OnTabSelectedListener {
                 if (!this.dlY) {
                     this.dlZ = intValue;
                     a(intValue, this.dlU, false);
-                    this.dlH.kR(this.dlZ);
+                    this.dlH.kQ(this.dlZ);
                     com.baidu.tieba.card.v.afy().et(false);
                 }
             }
@@ -508,7 +508,7 @@ public class b implements TabLayout.OnTabSelectedListener {
         if (tab != null && tab.getCustomView() != null) {
             if (!this.dlY && (tab.getTag() instanceof Integer)) {
                 this.dlZ = ((Integer) tab.getTag()).intValue();
-                this.dlH.kR(this.dlZ);
+                this.dlH.kQ(this.dlZ);
             }
             a(tab);
         }

@@ -26,7 +26,7 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a mA(int i) {
+    public static a mz(int i) {
         return s(2, i, 0, 0);
     }
 

@@ -41,7 +41,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iQ */
+    /* renamed from: iP */
     public com.baidu.tieba.channel.data.b getItem(int i) {
         if (this.mData != null) {
             return this.mData.get(i);
@@ -86,7 +86,7 @@ public class a extends BaseAdapter {
                 c0122a.ctM.startLoad(item.getThumbnailUrl(), 10, false);
                 c0122a.ctM.invalidate();
             }
-            c0122a.ctN.setText(an.cR(item.getVideoDuration() * 1000));
+            c0122a.ctN.setText(an.cQ(item.getVideoDuration() * 1000));
             if (!TextUtils.isEmpty(item.getTitle())) {
                 c0122a.title.setText(item.getTitle());
             }

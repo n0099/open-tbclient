@@ -82,7 +82,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(PbHistoryActivity.this.getPageContext().getPageActivity());
-                aVar.ca(d.k.pb_history_clear_tip);
+                aVar.bZ(d.k.pb_history_clear_tip);
                 aVar.a(d.k.confirm, new a.b() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.2.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

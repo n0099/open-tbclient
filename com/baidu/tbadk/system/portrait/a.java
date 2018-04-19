@@ -67,9 +67,9 @@ public class a extends BaseAdapter {
         } else {
             c0104a = (C0104a) view2.getTag();
         }
-        if (fn(i) == 1) {
+        if (fm(i) == 1) {
             c0104a.ayZ.setPadding(0, this.padding, 0, 0);
-        } else if (fn(i) == 2) {
+        } else if (fm(i) == 2) {
             c0104a.ayZ.setPadding(0, 0, 0, this.padding);
         } else {
             c0104a.ayZ.setPadding(0, 0, 0, 0);
@@ -91,7 +91,7 @@ public class a extends BaseAdapter {
         return view2;
     }
 
-    public int fn(int i) {
+    public int fm(int i) {
         if (i / 4 == 0) {
             return 1;
         }
@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void fo(int i) {
+    public void fn(int i) {
         this.aMX = i;
     }
 

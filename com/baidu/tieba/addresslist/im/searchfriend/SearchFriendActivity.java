@@ -146,7 +146,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.bfy.onChangeSkinType(getPageContext(), i);
-        this.bfx.dw(i);
+        this.bfx.dv(i);
         getLayoutMode().u(this.bfz);
         getLayoutMode().u(this.bee);
     }

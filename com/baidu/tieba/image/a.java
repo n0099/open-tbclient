@@ -130,7 +130,7 @@ public class a implements ImagePagerAdapter.a {
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View g(ViewGroup viewGroup, int i) {
-        if (om(i)) {
+        if (ol(i)) {
             this.epv = new b(viewGroup);
             aIV();
             viewGroup.addView(this.epv.getView());
@@ -139,7 +139,7 @@ public class a implements ImagePagerAdapter.a {
         return null;
     }
 
-    private boolean om(int i) {
+    private boolean ol(int i) {
         return aIU() && this.eps != 0 && i == this.eps;
     }
 

@@ -134,7 +134,7 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     }
 
     @Override // com.baidu.tieba.video.record.i.a
-    public void uy(int i) {
+    public void ux(int i) {
         if (i == 1) {
             this.gTk.setImageResource(d.f.icon_video_music);
         } else {

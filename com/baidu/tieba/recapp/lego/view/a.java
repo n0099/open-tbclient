@@ -47,7 +47,7 @@ public class a extends com.baidu.tieba.recapp.a {
                     a.this.fWb.setSeekBarTime(0, a.this.mDuration);
                     if (a.this.bjG() > 0) {
                         mediaPlayer.seekTo((int) a.this.bjG());
-                        a.this.oH(0);
+                        a.this.oG(0);
                     }
                     a.this.fWb.play();
                     a.this.isPrepared = true;
@@ -191,13 +191,13 @@ public class a extends com.baidu.tieba.recapp.a {
         this.fZS = getCurrentPos();
     }
 
-    public void oH(int i) {
+    public void oG(int i) {
         this.fZS = i;
     }
 
     private void showDialog() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.adf.getPageActivity());
-        aVar.bZ(d.k.confirm_title);
+        aVar.bY(d.k.confirm_title);
         aVar.dc(this.adf.getPageActivity().getResources().getString(d.k.now_is_not_wifi));
         aVar.a(this.adf.getPageActivity().getResources().getString(d.k.confirm), this.fWf);
         aVar.b(this.adf.getPageActivity().getResources().getString(d.k.cancel), new a.b() { // from class: com.baidu.tieba.recapp.lego.view.a.8

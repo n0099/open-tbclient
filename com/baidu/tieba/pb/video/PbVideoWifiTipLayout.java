@@ -51,7 +51,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     public void setData(VideoInfo videoInfo) {
         if (videoInfo != null) {
             if (videoInfo.video_duration.intValue() > 0) {
-                this.fwS.setText(String.format(getResources().getString(d.k.pb_video_duration), an.cV(videoInfo.video_duration.intValue() * 1000)));
+                this.fwS.setText(String.format(getResources().getString(d.k.pb_video_duration), an.cU(videoInfo.video_duration.intValue() * 1000)));
             } else {
                 this.fwS.setVisibility(8);
                 this.fwV.setVisibility(8);

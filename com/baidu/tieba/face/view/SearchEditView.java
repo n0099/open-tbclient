@@ -96,10 +96,10 @@ public class SearchEditView extends RelativeLayout {
                 SearchEditView.this.cKK.setText("");
             }
         });
-        dA(TbadkCoreApplication.getInst().getSkinType());
+        dz(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void dA(int i) {
+    public void dz(int i) {
         if (i == 0) {
             this.cKK.setHintTextColor(getResources().getColor(d.C0126d.cp_cont_d));
         } else {

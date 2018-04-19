@@ -446,7 +446,7 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
             } else {
                 if (this.gRX == null) {
                     this.gRX = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                    this.gRX.ca(d.k.video_quit_confirm);
+                    this.gRX.bZ(d.k.video_quit_confirm);
                     this.gRX.a(d.k.dialog_ok, new a.b() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.9
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -823,12 +823,12 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
             if (iVar != null && iVar.result == 0) {
                 if (!XiaoyingUtil.isXiaoyingInstalled() || XiaoyingUtil.isXiaoyingForbidden()) {
                     RecordVideoActivity.this.byF();
-                    RecordVideoActivity.this.uA(102);
+                    RecordVideoActivity.this.uz(102);
                     RecordVideoActivity.this.gSc.setVisibility(8);
                     return;
                 }
                 RecordVideoActivity.this.byF();
-                RecordVideoActivity.this.uA(102);
+                RecordVideoActivity.this.uz(102);
                 RecordVideoActivity.this.gSc.setVisibility(8);
             } else {
                 com.baidu.adp.lib.util.l.showToast(RecordVideoActivity.this, RecordVideoActivity.this.getString(d.k.mix_fail));
@@ -1089,7 +1089,7 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
                     this.gQq.setFilter("nature");
                     this.gSa.setViewChoosed(0, false);
                     this.gSa.setViewChoosed(3, false);
-                    this.gRS.uC(1);
+                    this.gRS.uB(1);
                     this.gSa.setViewVisibility(0, 8);
                     this.gSa.setViewVisibility(3, 8);
                     break;
@@ -1124,7 +1124,7 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uA(int i) {
+    public void uz(int i) {
         if (this.gxw != null) {
             this.gxw.ad(i, "record");
         }

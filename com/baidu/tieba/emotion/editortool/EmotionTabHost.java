@@ -272,9 +272,9 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
     }
 
     @Override // com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.a
-    public void eT(int i) {
+    public void eS(int i) {
         if (i >= 0 && i < this.cGo.size() && i != this.aFG && this.cGl != null) {
-            this.cGl.jp(i);
+            this.cGl.jo(i);
             this.aFG = i;
         }
     }
@@ -287,7 +287,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
     }
 
     @Override // com.baidu.tieba.emotion.editortool.EmotionTabContentView.b
-    public void jq(int i) {
+    public void jp(int i) {
         if (this.cGm != null && i != this.aFG) {
             this.cGm.setCurrentTab(i);
             this.aFG = i;

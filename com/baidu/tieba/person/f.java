@@ -99,7 +99,7 @@ public class f extends com.baidu.adp.base.c {
         return this.fCA;
     }
 
-    public void ra(int i) {
+    public void qZ(int i) {
         this.fCu.setVisibility(0);
         this.fCz.setVisibility(0);
         if (i == 0) {

@@ -163,7 +163,7 @@ public class g implements View.OnClickListener {
         if (this.mPageContext != null) {
             String[] strArr = {this.mPageContext.getString(d.k.choose_local_photo), this.mPageContext.getString(d.k.change_system_photo)};
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-            bVar.cd(d.k.operation);
+            bVar.cc(d.k.operation);
             bVar.a(strArr, new b.InterfaceC0086b() { // from class: com.baidu.tieba.personPolymeric.b.g.1
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view2) {
@@ -188,7 +188,7 @@ public class g implements View.OnClickListener {
         if (this.mPageContext != null) {
             String[] strArr = {this.mPageContext.getString(d.k.hd_photo), this.mPageContext.getString(d.k.change_photo), this.mPageContext.getString(d.k.change_system_photo), this.mPageContext.getString(d.k.check_headpendant)};
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-            bVar.cd(d.k.operation);
+            bVar.cc(d.k.operation);
             bVar.a(strArr, new b.InterfaceC0086b() { // from class: com.baidu.tieba.personPolymeric.b.g.2
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i2, View view2) {
@@ -220,7 +220,7 @@ public class g implements View.OnClickListener {
         if (this.mPageContext != null) {
             String[] strArr = {this.mPageContext.getString(d.k.hd_photo), this.mPageContext.getString(d.k.check_headpendant)};
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-            bVar.cd(d.k.operation);
+            bVar.cc(d.k.operation);
             bVar.a(strArr, new b.InterfaceC0086b() { // from class: com.baidu.tieba.personPolymeric.b.g.3
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i2, View view2) {
@@ -244,7 +244,7 @@ public class g implements View.OnClickListener {
     private void c(final com.baidu.tbadk.data.i iVar, final List<com.baidu.adp.widget.ListView.h> list, final int i) {
         String[] strArr = {this.mPageContext.getString(d.k.look_big_photo), this.mPageContext.getString(d.k.set_as_portrait_photo), this.mPageContext.getString(d.k.delete)};
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-        bVar.cd(d.k.operation);
+        bVar.cc(d.k.operation);
         bVar.a(strArr, new b.InterfaceC0086b() { // from class: com.baidu.tieba.personPolymeric.b.g.4
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
             public void a(com.baidu.tbadk.core.dialog.b bVar2, int i2, View view2) {

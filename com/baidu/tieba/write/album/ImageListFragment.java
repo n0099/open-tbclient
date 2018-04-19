@@ -108,7 +108,7 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
             if (mediaFileInfo != null && ImageListFragment.this.hbn != null) {
                 if (mediaFileInfo instanceof ImageFileInfo) {
                     ImageListFragment.this.hbn.f((ImageFileInfo) mediaFileInfo);
-                    ImageListFragment.this.hbA.uP(1);
+                    ImageListFragment.this.hbA.uO(1);
                     return;
                 }
                 if (mediaFileInfo instanceof VideoFileInfo) {
@@ -232,7 +232,7 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
             this.aNc = new com.baidu.tbadk.core.view.a(getPageContext());
         }
         this.aNc.d(null);
-        this.aNc.da(d.k.loading);
+        this.aNc.cZ(d.k.loading);
         this.aNc.aI(true);
     }
 

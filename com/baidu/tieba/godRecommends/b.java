@@ -43,10 +43,10 @@ public class b implements com.baidu.tbadk.h.b {
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.godRecommends.b.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            MetaData lQ = b.this.dyq.lQ(i);
-            if (lQ != null) {
-                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), String.valueOf(lQ.getUserId()), lQ.getUserName());
-                TiebaStatic.log(new al("c12525").ac(VideoPlayActivityConfig.OBJ_ID, lQ.getUserId()).ac("obj_locate", "1"));
+            MetaData lP = b.this.dyq.lP(i);
+            if (lP != null) {
+                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), String.valueOf(lP.getUserId()), lP.getUserName());
+                TiebaStatic.log(new al("c12525").ac(VideoPlayActivityConfig.OBJ_ID, lP.getUserId()).ac("obj_locate", "1"));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
             }
             b.this.dyq.Vl();

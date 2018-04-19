@@ -55,7 +55,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
     }
 
-    public HotTopicBussinessData vb(int i) {
+    public HotTopicBussinessData va(int i) {
         if (v.w(this.mForumList)) {
             return null;
         }

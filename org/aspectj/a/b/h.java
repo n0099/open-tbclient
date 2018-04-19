@@ -52,7 +52,7 @@ class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String wq(int i) {
+    public String wp(int i) {
         if (this.hzv) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();

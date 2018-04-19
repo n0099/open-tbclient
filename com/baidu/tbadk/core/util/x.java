@@ -95,7 +95,7 @@ public class x {
             this.ahm.n("stMode", String.valueOf(this.aho.mMode));
             this.ahm.n("stMethod", String.valueOf(this.aho.ahF));
         }
-        this.ahp = aa.cE(0);
+        this.ahp = aa.cD(0);
         if (this.ahp == 0 && this.aho != null) {
             this.ahp = this.aho.ahH;
         }
@@ -237,7 +237,7 @@ public class x {
         this.ahm.n("sign", com.baidu.adp.lib.util.s.aX(stringBuffer.toString()));
     }
 
-    private String cB(int i) {
+    private String cA(int i) {
         String uO;
         com.baidu.tbadk.coreExtra.a.c xN;
         switch (i) {
@@ -273,7 +273,7 @@ public class x {
         }
         if (!this.ahl.wj().vm()) {
             aa.a(this.aho);
-            aa.cF(this.ahp);
+            aa.cE(this.ahp);
             return uO;
         } else if (!this.ahl.wj().isRequestSuccess()) {
             if (this.ahl.wj().ajG == 1 && this.ahl.wi().ajD) {
@@ -304,7 +304,7 @@ public class x {
                     this.ahl.wj().mErrorString = str;
                     return uO;
                 }
-                uO = cC(i);
+                uO = cB(i);
             }
             com.baidu.tieba.i.a.a(this);
             return uO;
@@ -313,7 +313,7 @@ public class x {
         }
     }
 
-    private String cC(int i) {
+    private String cB(int i) {
         String uO;
         vk();
         switch (i) {
@@ -352,15 +352,15 @@ public class x {
     }
 
     public String uL() {
-        return cB(2);
+        return cA(2);
     }
 
     public String uN() {
-        return cB(1);
+        return cA(1);
     }
 
     public String uO() {
-        return cB(3);
+        return cA(3);
     }
 
     public String ea(String str) throws IOException {

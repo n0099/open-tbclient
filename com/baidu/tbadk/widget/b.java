@@ -86,7 +86,7 @@ public class b {
         invalidate();
     }
 
-    public void fs(int i) {
+    public void fr(int i) {
         this.aPz = i;
         this.aPv.setColor(i);
         invalidate();

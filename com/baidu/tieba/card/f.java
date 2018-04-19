@@ -61,7 +61,7 @@ public class f extends a<com.baidu.tieba.e.b> {
         getView().setOnClickListener(this);
     }
 
-    public void iK(int i) {
+    public void iJ(int i) {
         if (this.cms != null) {
             this.cms.setVisibility(i);
         }
@@ -106,7 +106,7 @@ public class f extends a<com.baidu.tieba.e.b> {
                 this.cml.setVisibility(0);
                 this.cmu.setVisibility(0);
                 if (bVar.Pe().sh() != null) {
-                    this.cmu.setText(an.cV(bVar.Pe().sh().video_duration.intValue() * 1000));
+                    this.cmu.setText(an.cU(bVar.Pe().sh().video_duration.intValue() * 1000));
                     str = bVar.Pe().sh().thumbnail_url;
                 }
             } else {
@@ -149,7 +149,7 @@ public class f extends a<com.baidu.tieba.e.b> {
         return an.e(str, 14, "...");
     }
 
-    public void iL(int i) {
+    public void iK(int i) {
         this.cmo.setVisibility(i);
     }
 

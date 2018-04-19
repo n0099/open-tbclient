@@ -40,9 +40,9 @@ public class EditorTools extends LinearLayout {
     private List<Integer> aDm;
 
     public void DK() {
-        k eI = eI(3);
-        if (eI != null && (eI.aCM instanceof View)) {
-            View view2 = (View) eI.aCM;
+        k eH = eH(3);
+        if (eH != null && (eH.aCM instanceof View)) {
+            View view2 = (View) eH.aCM;
             view2.requestFocus();
             com.baidu.adp.lib.util.l.c(getContext(), view2);
         }
@@ -146,17 +146,17 @@ public class EditorTools extends LinearLayout {
         HashSet<Integer> hashSet;
         boolean z;
         g gVar;
-        k eI;
+        k eH;
         if (aVar != null) {
             if (aVar.code == 2) {
-                g eF = this.aCV.eF(aVar.id);
-                if (eF != null) {
+                g eE = this.aCV.eE(aVar.id);
+                if (eE != null) {
                     z = false;
                 } else {
-                    eF = this.aCW.eF(aVar.id);
+                    eE = this.aCW.eE(aVar.id);
                     z = true;
                 }
-                if (eF == null) {
+                if (eE == null) {
                     Iterator<g> it = this.aDh.iterator();
                     while (it.hasNext()) {
                         gVar = it.next();
@@ -165,11 +165,11 @@ public class EditorTools extends LinearLayout {
                         }
                     }
                 }
-                gVar = eF;
+                gVar = eE;
                 if (gVar != null) {
                     gVar.a(aVar);
-                    if (z && (eI = eI(2)) != null && eI.aCM != null) {
-                        eI.aCM.a(aVar);
+                    if (z && (eH = eH(2)) != null && eH.aCM != null) {
+                        eH.aCM.a(aVar);
                     }
                 }
             } else if (aVar.code == 5) {
@@ -179,14 +179,14 @@ public class EditorTools extends LinearLayout {
                 b bVar = this.aCY.get(aVar.id);
                 if (bVar != null) {
                     if (aVar.code != 19 && aVar.code != 20 && aVar.id != 27) {
-                        this.aCV.eD(aVar.id);
+                        this.aCV.eC(aVar.id);
                     }
-                    k eI2 = eI(aVar.id);
-                    if (eI2 != null && eI2.aDC == 5) {
+                    k eH2 = eH(aVar.id);
+                    if (eH2 != null && eH2.aDC == 5) {
                         Ca();
                         DN();
                     } else {
-                        this.aCW.eD(aVar.id);
+                        this.aCW.eC(aVar.id);
                     }
                     bVar.a(aVar);
                 }
@@ -226,13 +226,13 @@ public class EditorTools extends LinearLayout {
             z = false;
         }
         if (!z) {
-            k eI = eI(3);
-            if (eI != null && (eI.aCM instanceof View)) {
-                com.baidu.adp.lib.util.l.b(getContext(), (View) eI.aCM);
+            k eH = eH(3);
+            if (eH != null && (eH.aCM instanceof View)) {
+                com.baidu.adp.lib.util.l.b(getContext(), (View) eH.aCM);
             }
-            k eI2 = eI(28);
-            if (eI2 != null && (eI2.aCM instanceof View)) {
-                com.baidu.adp.lib.util.l.b(getContext(), (View) eI2.aCM);
+            k eH2 = eH(28);
+            if (eH2 != null && (eH2.aCM instanceof View)) {
+                com.baidu.adp.lib.util.l.b(getContext(), (View) eH2.aCM);
             }
         }
     }
@@ -296,7 +296,7 @@ public class EditorTools extends LinearLayout {
                         this.aCW.a(kVar.aCM);
                     } else if (kVar.aDC == 1 || kVar.aDC == 2 || kVar.aDC == 3 || kVar.aDC == 4 || kVar.aDC == 5) {
                         this.aCV.a(kVar.aCM, kVar.aDC, !kVar.aDD);
-                        if (kVar.aDC == 5 && eI(1) == null) {
+                        if (kVar.aDC == 5 && eH(1) == null) {
                             z = true;
                         }
                     }
@@ -385,7 +385,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public k eI(int i) {
+    public k eH(int i) {
         for (k kVar : this.aCX) {
             if (kVar.id == i) {
                 return kVar;
@@ -398,12 +398,12 @@ public class EditorTools extends LinearLayout {
         return this.aCX;
     }
 
-    public g eF(int i) {
-        g eF = this.aCV.eF(i);
-        if (eF == null) {
-            return this.aCW.eF(i);
+    public g eE(int i) {
+        g eE = this.aCV.eE(i);
+        if (eE == null) {
+            return this.aCW.eE(i);
         }
-        return eF;
+        return eE;
     }
 
     public void DO() {
@@ -509,17 +509,17 @@ public class EditorTools extends LinearLayout {
         if (view2 instanceof g) {
             g gVar = (g) view2;
             int toolId = gVar.getToolId();
-            k eI = eI(toolId);
-            if (eI.mb()) {
+            k eH = eH(toolId);
+            if (eH.mb()) {
                 b(new a(31, 0, Integer.valueOf(gVar.getToolId())));
-                this.aCV.a(eI);
+                this.aCV.a(eH);
                 if (gVar.getToolId() == 1) {
                     gVar.hide();
                     lN();
                     b(new a(1, 3, null));
-                } else if (eI.aCM == null) {
-                    if (eI.aDE != null && eI.aDE.length > 0) {
-                        b(new a(eI.aDE[0], -1, null));
+                } else if (eH.aCM == null) {
+                    if (eH.aDE != null && eH.aDE.length > 0) {
+                        b(new a(eH.aDE[0], -1, null));
                     }
                 } else {
                     b(new a(1, toolId, null));

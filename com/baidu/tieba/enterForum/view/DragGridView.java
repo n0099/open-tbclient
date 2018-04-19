@@ -52,7 +52,7 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
     private void aw(int i, int i2) {
         int pointToPosition = pointToPosition(i, i2);
         if (pointToPosition != this.cJa && pointToPosition != -1) {
-            this.cJd.jw(pointToPosition);
+            this.cJd.jv(pointToPosition);
             this.cJd.as(this.cJa, pointToPosition);
             this.cJa = pointToPosition;
         }
@@ -68,7 +68,7 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
                 case 3:
                     e.fw().removeCallbacks(this.mScrollRunnable);
                     com.baidu.tieba.enterForum.model.a.akX().alb();
-                    this.cJd.jw(-1);
+                    this.cJd.jv(-1);
                     this.cJd.agD();
                     break;
                 case 2:
@@ -87,7 +87,7 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
         TiebaStatic.eventStat(getContext(), "list_drag_order", null);
         this.cJa = i;
         com.baidu.tieba.enterForum.model.a.akX().a(getContext(), view2, this.cJb, this.cJc);
-        this.cJd.jw(i);
+        this.cJd.jv(i);
         this.cJd.agD();
         this.cJe = view2.getHeight();
         e.fw().postDelayed(this.mScrollRunnable, 200L);

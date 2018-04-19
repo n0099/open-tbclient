@@ -50,7 +50,7 @@ public class a {
         return 0;
     }
 
-    public d gi(int i) {
+    public d gh(int i) {
         if (this.baF != null) {
             return this.baF.get(i);
         }

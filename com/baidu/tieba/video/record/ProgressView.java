@@ -36,7 +36,7 @@ public class ProgressView extends View {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void ux(int i);
+        void uw(int i);
     }
 
     public ProgressView(Context context) {
@@ -197,7 +197,7 @@ public class ProgressView extends View {
                 }
                 if (measuredWidth != this.mProgress) {
                     this.mProgress = measuredWidth;
-                    this.gRi.ux(this.mProgress);
+                    this.gRi.uw(this.mProgress);
                 }
             }
         } else {
@@ -208,7 +208,7 @@ public class ProgressView extends View {
                 }
                 if (measuredWidth2 != this.mProgress) {
                     this.mProgress = measuredWidth2;
-                    this.gRi.ux(this.mProgress);
+                    this.gRi.uw(this.mProgress);
                 }
             }
             if (this.gRv == 0 || currentTimeMillis - this.gRv >= 800) {
@@ -237,7 +237,7 @@ public class ProgressView extends View {
         return this.gRr;
     }
 
-    public void uw(int i) {
+    public void uv(int i) {
         this.gRp.add(Integer.valueOf(i));
     }
 

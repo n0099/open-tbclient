@@ -86,7 +86,7 @@ public class c {
                     this.dnb.atY();
                     int pn = this.dnb.getPn();
                     this.dnb.setPn(pn);
-                    this.cXs.kS(pn + 1);
+                    this.cXs.kR(pn + 1);
                 }
             } else if (this.cXs.auh() == 1) {
                 if (!this.dna.isLoading && !this.cXs.wX()) {
@@ -98,7 +98,7 @@ public class c {
                     } else if (this.dna.apo() == 1) {
                         this.dna.atY();
                         this.dna.setPn(pn2);
-                        this.cXs.kS(pn2 + 1);
+                        this.cXs.kR(pn2 + 1);
                         this.dna.loadingDone = false;
                         this.dna.loadIndex = 0;
                     }

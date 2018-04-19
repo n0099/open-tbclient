@@ -78,11 +78,11 @@ public class b extends c {
         return "type:4105,messageID:" + this.hmr + ",taskID:" + this.hms + ",appPackage:" + this.appPackage + ",appKey:" + this.hmn + ",appSecret:" + this.hmo + ",registerID:" + this.hmp + ",sdkVersion:" + this.hmq + ",command:" + this.oj + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
-    public void vw(int i) {
+    public void vv(int i) {
         this.oj = i;
     }
 
-    public void vx(int i) {
+    public void vw(int i) {
         this.responseCode = i;
     }
 

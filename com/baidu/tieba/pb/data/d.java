@@ -194,17 +194,17 @@ public class d {
     }
 
     public void a(am amVar, int i) {
-        this.enA.bG(amVar.ra());
-        this.enA.bE(amVar.qq());
-        this.enA.bD(amVar.qX());
-        this.enA.bH(amVar.rb());
-        this.enA.bF(amVar.qZ());
+        this.enA.bF(amVar.ra());
+        this.enA.bD(amVar.qq());
+        this.enA.bC(amVar.qX());
+        this.enA.bG(amVar.rb());
+        this.enA.bE(amVar.qZ());
         if (i == 0) {
             this.enA = amVar;
         } else if (i == 1) {
-            this.enA.bI(amVar.rc());
+            this.enA.bH(amVar.rc());
         } else if (i == 2) {
-            this.enA.bJ(amVar.rd());
+            this.enA.bI(amVar.rd());
         }
     }
 
@@ -223,9 +223,9 @@ public class d {
     public void ae(boolean z) {
         if (this.bji != null) {
             if (z) {
-                this.bji.bS(1);
+                this.bji.bR(1);
             } else {
-                this.bji.bS(0);
+                this.bji.bR(0);
             }
         }
     }
@@ -270,12 +270,12 @@ public class d {
                         }
                     }
                 }
-                pV(dataRes.is_new_url.intValue());
+                pU(dataRes.is_new_url.intValue());
                 this.fbO.parserProtobuf(dataRes.forum);
                 this.fbP.parserProtobuf(dataRes.display_forum);
                 this.bji.setUserMap(this.userMap);
                 this.bji.a(dataRes.thread);
-                this.bji.bV(2);
+                this.bji.bU(2);
                 this.fbW.a(dataRes.news_info);
                 switch (this.fbW.YS) {
                     case 1:
@@ -356,7 +356,7 @@ public class d {
                         }
                     }
                 }
-                this.bji.bO(this.bji.rI() > 0 ? this.bji.rI() - 1 : 0);
+                this.bji.bN(this.bji.rI() > 0 ? this.bji.rI() - 1 : 0);
                 List<AppData> bjj = r.bjl().bjj();
                 if (bjj != null) {
                     bjj.clear();
@@ -495,7 +495,7 @@ public class d {
         return this.fbU;
     }
 
-    public void pV(int i) {
+    public void pU(int i) {
         this.fbU = i;
     }
 

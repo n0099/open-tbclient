@@ -59,14 +59,14 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
             @Override // com.baidu.adp.widget.ListView.n
             public void a(View view2, h hVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 bd Pe;
-                com.baidu.tieba.frs.game.strategy.tab.e kC;
+                com.baidu.tieba.frs.game.strategy.tab.e kB;
                 if (hVar != null && (hVar instanceof com.baidu.tieba.frs.game.strategy.data.b) && (Pe = ((com.baidu.tieba.frs.game.strategy.data.b) hVar).Pe()) != null) {
-                    if (FrsGameStrategyItemListView.this.dgM != null && (kC = FrsGameStrategyItemListView.this.dgM.kC(FrsGameStrategyItemListView.this.bjL)) != null && (kC.extra instanceof LabelDataList)) {
-                        String labelName = ((LabelDataList) kC.extra).getLabelName(FrsGameStrategyItemListView.this.dhq);
+                    if (FrsGameStrategyItemListView.this.dgM != null && (kB = FrsGameStrategyItemListView.this.dgM.kB(FrsGameStrategyItemListView.this.bjL)) != null && (kB.extra instanceof LabelDataList)) {
+                        String labelName = ((LabelDataList) kB.extra).getLabelName(FrsGameStrategyItemListView.this.dhq);
                         if (labelName == null) {
                             labelName = "";
                         }
-                        TiebaStatic.log(new al("c12388").ac(ImageViewerConfig.FORUM_ID, FrsGameStrategyItemListView.this.dgM.getForumId()).ac("tid", Pe.getId()).ac(VideoPlayActivityConfig.OBJ_ID, kC.tabName).ac("obj_locate", labelName));
+                        TiebaStatic.log(new al("c12388").ac(ImageViewerConfig.FORUM_ID, FrsGameStrategyItemListView.this.dgM.getForumId()).ac("tid", Pe.getId()).ac(VideoPlayActivityConfig.OBJ_ID, kB.tabName).ac("obj_locate", labelName));
                     }
                     if (Pe.sz() == null || Pe.sz().getGroup_id() == 0 || az.aK(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
                         if (Pe.ss() != 1 || az.aK(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
@@ -157,7 +157,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
             this.blb = new PbListView(this.mPageContext.getPageActivity());
             this.blb.kA();
         }
-        this.blb.dv(d.C0126d.cp_bg_line_c);
+        this.blb.du(d.C0126d.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.tab.b
@@ -269,7 +269,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
     public void onChangeSkinType(int i) {
         ak.j(this.mListView, d.C0126d.cp_bg_line_c);
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.mPageContext, i);

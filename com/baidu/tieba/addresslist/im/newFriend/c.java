@@ -43,7 +43,7 @@ public class c extends com.baidu.adp.base.c<NewFriendsActivity> {
         this.mPullView = new f(newFriendsActivity.getPageContext());
         this.bfp.setPullRefresh(this.mPullView);
         BdListViewHelper.a(this.bfo.getActivity(), this.bfp, BdListViewHelper.HeadType.DEFAULT);
-        this.mNoDataView = NoDataViewFactory.a(this.bfo.getPageContext().getPageActivity(), this.Tl, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.bfo.getActivity(), d.e.ds320)), NoDataViewFactory.d.dp(d.k.no_new_friend_hint), null);
+        this.mNoDataView = NoDataViewFactory.a(this.bfo.getPageContext().getPageActivity(), this.Tl, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.bfo.getActivity(), d.e.ds320)), NoDataViewFactory.d.m16do(d.k.no_new_friend_hint), null);
     }
 
     public void startPullRefresh() {
@@ -65,7 +65,7 @@ public class c extends com.baidu.adp.base.c<NewFriendsActivity> {
     public void a(com.baidu.tbadk.core.c cVar, int i) {
         cVar.setNightMode(i == 1);
         this.mNavigationBar.onChangeSkinType(this.bfo.getPageContext(), i);
-        this.mPullView.dw(i);
+        this.mPullView.dv(i);
         cVar.u(this.Tl);
         this.mNoDataView.onChangeSkinType(this.bfo.getPageContext(), i);
         ak.a(this.mSearchButton, d.f.icon_search_bg_s, d.f.icon_search_bg);

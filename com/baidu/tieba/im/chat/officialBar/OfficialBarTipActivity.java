@@ -176,9 +176,9 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         this.dTj.aBt().setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                ImMessageCenterShowItemData nj = OfficialBarTipActivity.this.dTj.aBu().getItem(i);
-                if (nj != null && view2 != null) {
-                    ImMessageCenterShowItemData imMessageCenterShowItemData = nj;
+                ImMessageCenterShowItemData ni = OfficialBarTipActivity.this.dTj.aBu().getItem(i);
+                if (ni != null && view2 != null) {
+                    ImMessageCenterShowItemData imMessageCenterShowItemData = ni;
                     if (OfficialBarTipActivity.this.dTj.aBu().aBe()) {
                         ImageView imageView = (ImageView) view2.findViewById(d.g.select_status);
                         if (imMessageCenterShowItemData.isSelected()) {
@@ -220,9 +220,9 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
         public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            ImMessageCenterShowItemData nj = OfficialBarTipActivity.this.dTj.aBu().getItem(i);
-            if (nj != null) {
-                final ImMessageCenterShowItemData imMessageCenterShowItemData = nj;
+            ImMessageCenterShowItemData ni = OfficialBarTipActivity.this.dTj.aBu().getItem(i);
+            if (ni != null) {
+                final ImMessageCenterShowItemData imMessageCenterShowItemData = ni;
                 if (OfficialBarTipActivity.this.dTj.aBu().aBe()) {
                     ImageView imageView = (ImageView) view2.findViewById(d.g.select_status);
                     if (imMessageCenterShowItemData.isSelected()) {

@@ -166,7 +166,7 @@ public class l {
     public void onChangeSkinType(int i) {
         notifyDataSetChanged();
         this.dEL.onChangeSkinType(i);
-        this.dEQ.mo(i);
+        this.dEQ.mn(i);
     }
 
     public void notifyDataSetChanged() {

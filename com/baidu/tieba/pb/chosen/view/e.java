@@ -51,7 +51,7 @@ public class e {
         this.fbz = aVar;
     }
 
-    public void pU(int i) {
+    public void pT(int i) {
         if (this.fbv != null) {
             this.fbv.setText(i);
         }
@@ -78,7 +78,7 @@ public class e {
 
     public void a(final ExcellentPbThreadInfo excellentPbThreadInfo) {
         if (excellentPbThreadInfo != null) {
-            pU(d.k.chosen_pb_copyright);
+            pT(d.k.chosen_pb_copyright);
             cH(excellentPbThreadInfo.zan.zansum.longValue());
             jn(excellentPbThreadInfo.zan.is_zan.booleanValue());
             this.fbw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1

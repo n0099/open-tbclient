@@ -99,7 +99,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         return true;
     }
 
-    public void kS(int i) {
+    public void kR(int i) {
         if (!this.dme.wX()) {
             FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.dmf), FrsRequestData.class);
             frsRequestData.setPn(i);
@@ -109,7 +109,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
 
     private void a(FrsRequestData frsRequestData, int i) {
         if (this.dmd != null && this.dmd.isAdded() && this.dmd.getPageContext() != null) {
-            this.dmd.cYk.ke(i);
+            this.dmd.cYk.kd(i);
             this.dme.a(frsRequestData);
             this.mType = i;
             frsRequestData.setKw(this.cXd);
@@ -297,7 +297,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         return this.dme.wX();
     }
 
-    public void gN(int i) {
+    public void gM(int i) {
         this.dmh = i;
         arj();
     }

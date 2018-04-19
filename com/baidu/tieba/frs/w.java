@@ -13,7 +13,7 @@ public class w {
         return dab;
     }
 
-    public x kl(int i) {
+    public x kk(int i) {
         return this.daa.get(i);
     }
 }

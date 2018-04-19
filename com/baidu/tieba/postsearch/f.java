@@ -29,16 +29,16 @@ public class f {
         return this.bgN.getCurrentTabType();
     }
 
-    public void rD(int i) {
+    public void rC(int i) {
         if (this.bgN == null) {
-            rE(1);
+            rD(1);
             return;
         }
         bim();
         if (this.bgN.getCurrentTabType() == i) {
-            PostSearchListFragment rG = rG(i);
-            if (rG != null) {
-                rG.lA(true);
+            PostSearchListFragment rF = rF(i);
+            if (rF != null) {
+                rF.lA(true);
                 return;
             }
             return;
@@ -58,9 +58,9 @@ public class f {
 
     public void a(int i, b bVar, boolean z) {
         eM(true);
-        PostSearchListFragment rG = rG(i);
-        if (rG != null) {
-            rG.a(bVar, z);
+        PostSearchListFragment rF = rF(i);
+        if (rF != null) {
+            rF.a(bVar, z);
         }
     }
 
@@ -70,7 +70,7 @@ public class f {
         }
     }
 
-    private void rE(int i) {
+    private void rD(int i) {
         View inflate = ((ViewStub) this.mRootView.findViewById(d.g.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
         this.bgN = (FragmentTabHost) inflate.findViewById(d.g.post_search_tab_host);
@@ -78,7 +78,7 @@ public class f {
         this.bgN.setTabWidgetViewHeight((int) this.fSQ.getResources().getDimension(d.e.ds80));
         this.bgN.setShouldDrawIndicatorLine(true);
         bil();
-        this.bgN.cv(3);
+        this.bgN.cu(3);
         this.bgN.setCurrentTabByType(i);
         this.bgN.setNeedShowThemeStyle(false);
         this.bgN.getFragmentTabWidget().setBackGroundDrawableResId(0);
@@ -97,24 +97,24 @@ public class f {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         this.fTF = new PostSearchListFragment(1);
         bVar.afJ = this.fTF;
-        bVar.afI = rF(d.k.searching_time_tab);
+        bVar.afI = rE(d.k.searching_time_tab);
         bVar.mType = 1;
         this.bgN.a(bVar);
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
         this.fTG = new PostSearchListFragment(2);
         bVar2.afJ = this.fTG;
-        bVar2.afI = rF(d.k.searching_relative_tab);
+        bVar2.afI = rE(d.k.searching_relative_tab);
         bVar2.mType = 2;
         this.bgN.a(bVar2);
         FragmentTabHost.b bVar3 = new FragmentTabHost.b();
         this.fTH = new PostSearchListFragment(3);
         bVar3.afJ = this.fTH;
-        bVar3.afI = rF(d.k.searching_only_thread_tab);
+        bVar3.afI = rE(d.k.searching_only_thread_tab);
         bVar3.mType = 3;
         this.bgN.a(bVar3);
     }
 
-    private FragmentTabIndicator rF(int i) {
+    private FragmentTabIndicator rE(int i) {
         int af = (l.af(this.fSQ.getPageContext().getContext()) - (this.fSQ.getResources().getDimensionPixelSize(d.e.ds34) * 2)) / 3;
         FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.fSQ.getPageContext().getPageActivity()).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
@@ -125,7 +125,7 @@ public class f {
         return fragmentTabIndicator;
     }
 
-    private PostSearchListFragment rG(int i) {
+    private PostSearchListFragment rF(int i) {
         switch (i) {
             case 1:
                 return this.fTF;

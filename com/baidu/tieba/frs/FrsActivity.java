@@ -120,9 +120,9 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
-    public com.baidu.tieba.InjectPlugin.a.a gb(int i) {
+    public com.baidu.tieba.InjectPlugin.a.a ga(int i) {
         if (this.cWA instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            return this.cWA.gb(i);
+            return this.cWA.ga(i);
         }
         return null;
     }

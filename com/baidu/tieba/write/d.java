@@ -20,7 +20,7 @@ public class d extends PopupWindow {
 
     /* loaded from: classes.dex */
     public interface a {
-        void sP(int i);
+        void sO(int i);
     }
 
     public d(Context context) {
@@ -101,7 +101,7 @@ public class d extends PopupWindow {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             if (this.hba != null) {
-                this.hba.sP(this.position);
+                this.hba.sO(this.position);
             }
         }
     }

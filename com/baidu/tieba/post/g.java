@@ -142,42 +142,42 @@ public class g extends BaseAdapter {
         return view2;
     }
 
-    public PersonPostModel.PostInfoList rw(int i) {
+    public PersonPostModel.PostInfoList rv(int i) {
         return (PersonPostModel.PostInfoList) this.fJu.postList.get(i);
     }
 
     private void a(int i, a aVar, ViewGroup viewGroup) {
-        PersonPostModel.PostInfoList rw = rw(i);
+        PersonPostModel.PostInfoList rv = rv(i);
         if (this.mPortraitUrl == null) {
-            this.mPortraitUrl = rw.user_portrait;
+            this.mPortraitUrl = rv.user_portrait;
         }
-        aVar.a(rw, false, this.mPortraitUrl);
+        aVar.a(rv, false, this.mPortraitUrl);
         ArrayList<String[]> arrayList = new ArrayList<>();
-        int length = rw.content.length;
+        int length = rv.content.length;
         for (int i2 = 0; i2 < length; i2++) {
-            if (rw.content[i2].post_content.length != 0) {
+            if (rv.content[i2].post_content.length != 0) {
                 StringBuffer stringBuffer = new StringBuffer();
-                if (!rw.content[i2].post_content[0].text.startsWith("回复 ")) {
+                if (!rv.content[i2].post_content[0].text.startsWith("回复 ")) {
                     stringBuffer.append("回复：");
                 }
-                int length2 = rw.content[i2].post_content.length;
+                int length2 = rv.content[i2].post_content.length;
                 for (int i3 = 0; i3 < length2; i3++) {
-                    stringBuffer.append(rw.content[i2].post_content[i3].text);
+                    stringBuffer.append(rv.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(rw.thread_id), String.valueOf(rw.content[i2].post_id), String.valueOf(rw.content[i2].post_type), an.s(rw.content[i2].create_time * 1000), String.valueOf(rw.thread_type)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(rv.thread_id), String.valueOf(rv.content[i2].post_id), String.valueOf(rv.content[i2].post_type), an.s(rv.content[i2].create_time * 1000), String.valueOf(rv.thread_type)});
             }
         }
         aVar.fSg.setContent(arrayList);
-        if (Pattern.compile("^回复：").matcher(rw.title).find()) {
-            aVar.fKI.setText(rw.title.replaceFirst("回复：", "原贴："));
+        if (Pattern.compile("^回复：").matcher(rv.title).find()) {
+            aVar.fKI.setText(rv.title.replaceFirst("回复：", "原贴："));
         } else {
-            aVar.fKI.setText(rw.title);
+            aVar.fKI.setText(rv.title);
         }
-        if (rw.originalThreadInfo != null && !StringUtils.isNull(rw.originalThreadInfo.showText)) {
-            aVar.fKI.setText("分享：" + rw.originalThreadInfo.showText);
+        if (rv.originalThreadInfo != null && !StringUtils.isNull(rv.originalThreadInfo.showText)) {
+            aVar.fKI.setText("分享：" + rv.originalThreadInfo.showText);
         }
-        aVar.fKI.setTag(new String[]{String.valueOf(rw.thread_id), null, null, String.valueOf(rw.thread_type)});
-        if (rw.thread_type == 33) {
+        aVar.fKI.setTag(new String[]{String.valueOf(rv.thread_id), null, null, String.valueOf(rv.thread_type)});
+        if (rv.thread_type == 33) {
             aVar.fKI.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
         } else {
             aVar.fKI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
@@ -187,7 +187,7 @@ public class g extends BaseAdapter {
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(d.e.ds20);
         aVar.fKI.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
         aVar.a(this.fSe);
-        aVar.dw(TbadkCoreApplication.getInst().getSkinType());
+        aVar.dv(TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -209,8 +209,8 @@ public class g extends BaseAdapter {
         }
 
         @Override // com.baidu.tieba.post.a
-        public void dw(int i) {
-            super.dw(i);
+        public void dv(int i) {
+            super.dv(i);
             ak.i(this.fKI, d.C0126d.cp_bg_line_e);
             ak.c(this.fKI, d.C0126d.cp_cont_b, 1);
             ak.i(this.cpq, d.C0126d.cp_bg_line_b);

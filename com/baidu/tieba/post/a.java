@@ -139,7 +139,7 @@ public class a implements View.OnClickListener {
         this.fKQ.startLoad(str, 12, this.fKO, this.fKO, false);
     }
 
-    public void dw(int i) {
+    public void dv(int i) {
         ak.c(this.apV, d.C0126d.cp_cont_d, 1);
         ak.c(this.aos, d.C0126d.cp_cont_d, 1);
         ak.c(this.apg, d.C0126d.cp_cont_f, 1);

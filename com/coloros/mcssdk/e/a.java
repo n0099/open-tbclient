@@ -53,15 +53,15 @@ public class a extends c {
         return sb.toString();
     }
 
-    public void vt(int i) {
+    public void vs(int i) {
         this.hmh = i;
     }
 
-    public void vu(int i) {
+    public void vt(int i) {
         this.hmk = i;
     }
 
-    public void vv(int i) {
+    public void vu(int i) {
         this.hml = i;
     }
 

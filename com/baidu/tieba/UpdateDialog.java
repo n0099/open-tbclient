@@ -314,7 +314,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             } else {
                 int intExtra = intent.getIntExtra("action_update_download_progress", 0);
                 if (UpdateDialog.this.baB != null) {
-                    UpdateDialog.this.baB.gh(intExtra);
+                    UpdateDialog.this.baB.gg(intExtra);
                 }
             }
         }

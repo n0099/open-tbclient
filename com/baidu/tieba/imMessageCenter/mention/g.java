@@ -165,9 +165,9 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
     }
 
     public void selectTab(int i) {
-        TbTabLayout.e oh = oh(i);
-        if (oh != null) {
-            oh.select();
+        TbTabLayout.e og = og(i);
+        if (og != null) {
+            og.select();
         }
     }
 
@@ -178,7 +178,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
         return this.dqK.aP(this.dqK.getSelectedTabPosition());
     }
 
-    public TbTabLayout.e oh(int i) {
+    public TbTabLayout.e og(int i) {
         int tabCount;
         if (this.dqK != null && (tabCount = this.dqK.getTabCount()) > 0) {
             for (int i2 = 0; i2 < tabCount; i2++) {
@@ -192,16 +192,16 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
         return null;
     }
 
-    public boolean oi(int i) {
+    public boolean oh(int i) {
         int selectedTabPosition;
         TbTabLayout.e aP;
         return this.dqK != null && (selectedTabPosition = this.dqK.getSelectedTabPosition()) >= 0 && selectedTabPosition <= this.dqK.getTabCount() + (-1) && (aP = this.dqK.aP(selectedTabPosition)) != null && aP.getId() == i;
     }
 
     public void f(int i, int i2, boolean z) {
-        TbTabLayout.e oh = oh(i);
-        if (oh != null) {
-            oh.g(i2, z);
+        TbTabLayout.e og = og(i);
+        if (og != null) {
+            og.g(i2, z);
         }
     }
 
@@ -209,7 +209,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
     public void onChangeSkinType(int i) {
         if (this.dxy != null) {
             this.dxy.onChangeSkinType(getPageContext(), i);
-            this.dxy.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cP(d.f.s_navbar_bg)).mutate());
+            this.dxy.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cO(d.f.s_navbar_bg)).mutate());
         }
         if (this.bla != null) {
             this.bla.onChangeSkinType(getPageContext(), i);

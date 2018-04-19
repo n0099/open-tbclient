@@ -25,7 +25,7 @@ public class a {
         if (bVar == null) {
             return 0;
         }
-        return bVar.gn(i);
+        return bVar.gm(i);
     }
 
     public void hW(String str) {

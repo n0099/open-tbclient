@@ -52,8 +52,8 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.dQm.eq(i);
-        this.dQn.eq(i);
+        this.dQm.ep(i);
+        this.dQn.ep(i);
         this.dQj.getLayoutMode().setNightMode(i == 1);
         this.dQj.getLayoutMode().u(this.mParent);
         this.mNavigationBar.onChangeSkinType(this.dQj.getPageContext(), i);
@@ -119,8 +119,8 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
     public void aAE() {
         if (this.dQl == null) {
             this.dQl = new com.baidu.tbadk.core.dialog.a(this.dQj.getPageContext().getPageActivity());
-            this.dQl.bZ(d.k.inform);
-            this.dQl.ca(d.k.group_quit_alert);
+            this.dQl.bY(d.k.inform);
+            this.dQl.bZ(d.k.group_quit_alert);
             this.dQl.ar(false);
             this.dQl.a(d.k.alert_yes_button, this.dQj);
             this.dQl.b(d.k.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.1
@@ -142,7 +142,7 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
     public void xg() {
         if (this.dQk == null) {
             this.dQk = new com.baidu.tbadk.core.dialog.b(this.dQj.getPageContext().getPageActivity());
-            this.dQk.cd(d.k.group_report);
+            this.dQk.cc(d.k.group_report);
             this.dQk.a(new CharSequence[]{new SpannableString(this.dQj.getPageContext().getString(d.k.group_report_ad)), new SpannableString(this.dQj.getPageContext().getString(d.k.group_report_sex)), new SpannableString(this.dQj.getPageContext().getString(d.k.group_report_lllegal))}, this.dPX);
             this.dQk.d(this.dQj.getPageContext());
         }
@@ -210,7 +210,7 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
     public void aAN() {
         if (this.dQt == null) {
             this.dQt = new com.baidu.tbadk.core.dialog.a(this.dQj.getPageContext().getPageActivity());
-            this.dQt.ca(d.k.group_dismiss_alert);
+            this.dQt.bZ(d.k.group_dismiss_alert);
             this.dQt.ar(false);
             this.dQt.a(d.k.alert_yes_button, this.dQj);
             this.dQt.b(d.k.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.2

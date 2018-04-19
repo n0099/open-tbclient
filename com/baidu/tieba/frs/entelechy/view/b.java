@@ -36,8 +36,8 @@ public class b extends a {
         this.mSkinType = 3;
         this.deN = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.frs.entelechy.view.b.1
             @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
-            public void dD(int i) {
-                b.this.kA(i);
+            public void dC(int i) {
+                b.this.kz(i);
             }
         };
         this.deO = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
@@ -80,7 +80,7 @@ public class b extends a {
             this.alf = bdVar;
             if (bdVar.rQ() != null) {
                 this.coa.a(bdVar.rQ());
-                kA(bdVar.rQ().getFansNum());
+                kz(bdVar.rQ().getFansNum());
                 if (!this.alf.rT()) {
                     this.deM.setVisibility(8);
                 } else if (this.alf.rQ().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.alf.rQ().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -123,7 +123,7 @@ public class b extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kA(int i) {
+    public void kz(int i) {
         if (this.deL != null) {
             String string = this.mPageContext.getResources().getString(d.k.fans_default_name_god_user);
             if (this.alf != null && !StringUtils.isNull(this.alf.rV()) && this.alf.rV().equals(this.mForumName)) {

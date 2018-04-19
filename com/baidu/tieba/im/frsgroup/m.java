@@ -93,7 +93,7 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
         this.dZF = (TextView) membersActivity.findViewById(d.g.edit_num);
         this.dZG = (TextView) membersActivity.findViewById(d.g.members_edit);
         this.mProgressBar = (ProgressBar) membersActivity.findViewById(d.g.progress_loading);
-        nB(0);
+        nA(0);
     }
 
     public void hg(boolean z) {
@@ -123,7 +123,7 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
         return this.dZF;
     }
 
-    public void nB(int i) {
+    public void nA(int i) {
         this.dZF.setText(this.dZe.getPageContext().getPageActivity().getString(d.k.members_delete_num, new Object[]{Integer.valueOf(i)}));
     }
 

@@ -544,11 +544,11 @@ public class i {
         }
     }
 
-    public boolean kr(int i) {
+    public boolean kq(int i) {
         if (this.daY == null) {
             return false;
         }
-        return this.daY.ro(i);
+        return this.daY.rn(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -572,15 +572,15 @@ public class i {
         }
     }
 
-    public void qG(int i) {
+    public void qF(int i) {
         if (this.fwj != null) {
-            this.fwj.qG(i);
+            this.fwj.qF(i);
         }
         if (this.fwH != null) {
             this.fwH.onChangeSkinType(i);
         }
         if (this.fwo != null) {
-            this.fwo.dA(i);
+            this.fwo.dz(i);
         }
     }
 
@@ -595,7 +595,7 @@ public class i {
                         new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.video.i.9
                             @Override // java.lang.Runnable
                             public void run() {
-                                i.this.qN(i.this.bcw().getHeight());
+                                i.this.qM(i.this.bcw().getHeight());
                             }
                         }, 100L);
                     }
@@ -606,7 +606,7 @@ public class i {
         }
     }
 
-    private void qM(int i) {
+    private void qL(int i) {
         if (bcw().getHeight() + i > 0) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fwk.getLayoutParams();
             if ((layoutParams.width != -1 || layoutParams.height != -1) && i != 0) {
@@ -631,21 +631,21 @@ public class i {
                 if (childAt.getHeight() == 0 || bcw().getHeight() == 0) {
                     bottom = 0;
                 }
-                qM(bottom);
+                qL(bottom);
             } else {
-                qM((-this.fwB) + 2);
+                qL((-this.fwB) + 2);
             }
         }
         if (!bcv() && this.fwG) {
             if (this.fww == 1) {
-                qN(bcw().getHeight());
+                qM(bcw().getHeight());
             } else if (this.fww == 2) {
                 int y = (int) bcw().getY();
                 if (this.fwx == y) {
-                    qN(bcw().getHeight());
+                    qM(bcw().getHeight());
                 } else {
                     this.fwx = y;
-                    qN(bcw().getHeight());
+                    qM(bcw().getHeight());
                 }
                 if (i == 0 && this.fwA) {
                     this.fwA = false;
@@ -657,18 +657,18 @@ public class i {
                     }, 100L);
                 }
             } else if (this.fww == 0) {
-                qN(bcw().getHeight());
+                qM(bcw().getHeight());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qN(int i) {
-        qO(i);
+    public void qM(int i) {
+        qN(i);
         bct();
     }
 
-    private void qO(int i) {
+    private void qN(int i) {
         if (this.fwo != null) {
             if (i == 0) {
                 i = this.fwB;

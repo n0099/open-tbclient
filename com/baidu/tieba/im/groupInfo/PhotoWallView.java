@@ -118,9 +118,9 @@ public class PhotoWallView extends FrameLayout {
         }
         this.ecU.removeAllViews();
         this.ecV.removeAllViews();
-        LinearLayout.LayoutParams nJ = nJ(0);
-        LinearLayout.LayoutParams nJ2 = nJ(1);
-        LinearLayout.LayoutParams nJ3 = nJ(2);
+        LinearLayout.LayoutParams nI = nI(0);
+        LinearLayout.LayoutParams nI2 = nI(1);
+        LinearLayout.LayoutParams nI3 = nI(2);
         if (list != null && list.size() > 0) {
             int size2 = list.size();
             for (final int i2 = 0; i2 < size2 && i2 < 8; i2++) {
@@ -161,18 +161,18 @@ public class PhotoWallView extends FrameLayout {
                 }
                 if (i2 < 4) {
                     if (i2 == 0) {
-                        this.ecU.addView(tbImageView, nJ2);
+                        this.ecU.addView(tbImageView, nI2);
                     } else if (i2 == 3) {
-                        this.ecU.addView(tbImageView, nJ3);
+                        this.ecU.addView(tbImageView, nI3);
                     } else {
-                        this.ecU.addView(tbImageView, nJ);
+                        this.ecU.addView(tbImageView, nI);
                     }
                 } else if (i2 == 4) {
-                    this.ecV.addView(tbImageView, nJ2);
+                    this.ecV.addView(tbImageView, nI2);
                 } else if (i2 == 7) {
-                    this.ecV.addView(tbImageView, nJ3);
+                    this.ecV.addView(tbImageView, nI3);
                 } else {
-                    this.ecV.addView(tbImageView, nJ);
+                    this.ecV.addView(tbImageView, nI);
                 }
             }
         }
@@ -205,18 +205,18 @@ public class PhotoWallView extends FrameLayout {
             tbImageView4.setOnLongClickListener(null);
             if (size3 < 4) {
                 if (size3 == 0) {
-                    this.ecU.addView(tbImageView4, nJ2);
+                    this.ecU.addView(tbImageView4, nI2);
                 } else if (size3 == 3) {
-                    this.ecU.addView(tbImageView4, nJ3);
+                    this.ecU.addView(tbImageView4, nI3);
                 } else {
-                    this.ecU.addView(tbImageView4, nJ);
+                    this.ecU.addView(tbImageView4, nI);
                 }
             } else if (size3 == 4) {
-                this.ecV.addView(tbImageView4, nJ2);
+                this.ecV.addView(tbImageView4, nI2);
             } else if (size3 == 7) {
-                this.ecV.addView(tbImageView4, nJ3);
+                this.ecV.addView(tbImageView4, nI3);
             } else {
-                this.ecV.addView(tbImageView4, nJ);
+                this.ecV.addView(tbImageView4, nI);
             }
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ecU.getLayoutParams();
@@ -234,7 +234,7 @@ public class PhotoWallView extends FrameLayout {
         tbImageView.startLoad(str, 10, false);
     }
 
-    private LinearLayout.LayoutParams nJ(int i) {
+    private LinearLayout.LayoutParams nI(int i) {
         LinearLayout.LayoutParams layoutParams;
         int e = l.e(this.mContext, d.e.ds54);
         int i2 = (this.mScreenWidth - e) / 4;

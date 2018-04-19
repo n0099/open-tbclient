@@ -37,12 +37,12 @@ public class d {
             if ((httpResponsedMessage instanceof PostSearchHttpResponseMessage) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
                 HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
                 int intValue = httpMessage.getExtra() instanceof Integer ? ((Integer) httpMessage.getExtra()).intValue() : 0;
-                d.this.rB(intValue);
-                boolean z = d.this.rA(intValue) > 1;
+                d.this.rA(intValue);
+                boolean z = d.this.rz(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
                     d.this.fSQ.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
-                    d.this.rz(intValue);
+                    d.this.ry(intValue);
                     d.this.bih();
                     d.this.bik();
                     return;
@@ -99,7 +99,7 @@ public class d {
         }
         this.cVN = str;
         this.fTu = 1;
-        this.fSQ.sendMessage(ry(this.fTu));
+        this.fSQ.sendMessage(rx(this.fTu));
         this.fTq = true;
         return true;
     }
@@ -110,7 +110,7 @@ public class d {
         }
         this.cVN = str;
         this.fTu = 2;
-        this.fSQ.sendMessage(ry(this.fTu));
+        this.fSQ.sendMessage(rx(this.fTu));
         this.fTr = true;
         return true;
     }
@@ -121,7 +121,7 @@ public class d {
         }
         this.cVN = str;
         this.fTu = 3;
-        this.fSQ.sendMessage(ry(this.fTu));
+        this.fSQ.sendMessage(rx(this.fTu));
         this.fTs = true;
         return true;
     }
@@ -170,7 +170,7 @@ public class d {
         }
     }
 
-    private HttpMessage ry(int i) {
+    private HttpMessage rx(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
         httpMessage.addParam("word", this.cVN);
         httpMessage.addParam(LegoListActivityConfig.RN, 30);
@@ -197,7 +197,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rz(int i) {
+    public void ry(int i) {
         switch (i) {
             case 1:
                 this.fTn++;
@@ -214,7 +214,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int rA(int i) {
+    public int rz(int i) {
         switch (i) {
             case 1:
                 return this.fTn;
@@ -228,7 +228,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rB(int i) {
+    public void rA(int i) {
         switch (i) {
             case 1:
                 this.fTq = false;

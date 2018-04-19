@@ -63,7 +63,7 @@ public class VideoPlatformStatic {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static int gk(int i) {
+    public static int gj(int i) {
         switch (i) {
             case SapiErrorCode.NETWORK_FAILED /* -200 */:
                 return 1;
@@ -84,7 +84,7 @@ public class VideoPlatformStatic {
         return 0;
     }
 
-    public static String gl(int i) {
+    public static String gk(int i) {
         switch (i) {
             case Integer.MIN_VALUE:
                 return TbadkCoreApplication.getInst().getString(d.k.error_extra_system_system);
@@ -252,7 +252,7 @@ public class VideoPlatformStatic {
         return "4G";
     }
 
-    public static String gm(int i) {
+    public static String gl(int i) {
         switch (i) {
             case 101:
                 return TbadkCoreApplication.getInst().getString(d.k.post_error_compress_success);

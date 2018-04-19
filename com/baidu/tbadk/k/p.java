@@ -87,7 +87,7 @@ public class p {
         return "2G";
     }
 
-    public static String fl(int i) {
+    public static String fk(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -100,7 +100,7 @@ public class p {
         return "WIFI";
     }
 
-    public o fm(int i) {
+    public o fl(int i) {
         if (Hb()) {
             switch (i) {
                 case 1000:

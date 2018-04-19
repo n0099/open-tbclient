@@ -62,21 +62,21 @@ abstract class f implements org.aspectj.lang.c {
 
     public int getModifiers() {
         if (this.hzk == -1) {
-            this.hzk = wn(0);
+            this.hzk = wm(0);
         }
         return this.hzk;
     }
 
     public String getName() {
         if (this.name == null) {
-            this.name = wm(1);
+            this.name = wl(1);
         }
         return this.name;
     }
 
     public Class bJB() {
         if (this.hzm == null) {
-            this.hzm = wo(2);
+            this.hzm = wn(2);
         }
         return this.hzm;
     }
@@ -95,7 +95,7 @@ abstract class f implements org.aspectj.lang.c {
         return this.hza;
     }
 
-    String wm(int i) {
+    String wl(int i) {
         int i2 = 0;
         int indexOf = this.hzo.indexOf(45);
         while (true) {
@@ -113,18 +113,18 @@ abstract class f implements org.aspectj.lang.c {
         return this.hzo.substring(i2, indexOf);
     }
 
-    int wn(int i) {
-        return Integer.parseInt(wm(i), 16);
+    int wm(int i) {
+        return Integer.parseInt(wl(i), 16);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Class wo(int i) {
-        return org.aspectj.a.b.b.b(wm(i), bJD());
+    public Class wn(int i) {
+        return org.aspectj.a.b.b.b(wl(i), bJD());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Class[] wp(int i) {
-        StringTokenizer stringTokenizer = new StringTokenizer(wm(i), ":");
+    public Class[] wo(int i) {
+        StringTokenizer stringTokenizer = new StringTokenizer(wl(i), ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {

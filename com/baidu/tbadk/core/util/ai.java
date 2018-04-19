@@ -59,7 +59,7 @@ public class ai {
         MessageManager.getInstance().registerListener(this.mAttentionListener);
     }
 
-    public boolean cK(int i) {
+    public boolean cJ(int i) {
         if (i == ais) {
             com.baidu.adp.lib.util.l.showToast(this.adf.getPageActivity(), d.k.reason_cannot_reply_thread);
             return false;
@@ -90,7 +90,7 @@ public class ai {
     private void vI() {
         if (this.JV == null) {
             this.JV = new com.baidu.tbadk.core.dialog.a(this.adf.getPageActivity());
-            this.JV.ca(d.k.message_privacy_fans_can_reply);
+            this.JV.bZ(d.k.message_privacy_fans_can_reply);
             this.JV.a(d.k.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.ai.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

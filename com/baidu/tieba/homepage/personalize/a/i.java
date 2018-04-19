@@ -124,7 +124,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, c cVar) {
         if (lVar != null) {
-            lVar.iO(i + 1);
+            lVar.iN(i + 1);
             lVar.sourceType = 0;
         }
         cVar.afY().setVideoStatsData(b(lVar));

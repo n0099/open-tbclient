@@ -117,7 +117,7 @@ public class c extends BaseAdapter {
         return view2;
     }
 
-    public void uo(int i) {
+    public void un(int i) {
         this.gLK = i;
         notifyDataSetChanged();
     }

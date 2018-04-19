@@ -81,7 +81,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         this.fac.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.1
             @Override // android.widget.RadioGroup.OnCheckedChangeListener
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                ForbidActivity.this.pS(ForbidActivity.this.fac.getCheckedRadioButtonId());
+                ForbidActivity.this.pR(ForbidActivity.this.fac.getCheckedRadioButtonId());
             }
         });
         initData();
@@ -115,7 +115,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pS(int i) {
+    public void pR(int i) {
         for (int i2 = 0; i2 < 3; i2++) {
             RadioButton radioButton = (RadioButton) this.fac.getChildAt(i2);
             if (radioButton.getId() == i) {

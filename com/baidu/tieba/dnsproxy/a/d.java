@@ -176,7 +176,7 @@ public class d {
                             bVar.address = str;
                             d.this.cFl.cEU.put(str, bVar);
                         }
-                        bVar.jn(z ? 1 : 0);
+                        bVar.jm(z ? 1 : 0);
                         synchronized (d.this.cFj) {
                             hashMap = new HashMap(d.this.cFk);
                         }
@@ -221,7 +221,7 @@ public class d {
                             bVar.address = str;
                             d.this.cFl.cEU.put(str, bVar);
                         }
-                        bVar.jn(z ? 1 : 0);
+                        bVar.jm(z ? 1 : 0);
                         if (z) {
                             b bVar2 = d.this.cFl.cEV.get(str);
                             if (bVar2 == null) {
@@ -229,7 +229,7 @@ public class d {
                                 bVar2.address = str;
                                 d.this.cFl.cEV.put(str, bVar2);
                             }
-                            bVar2.jn(i);
+                            bVar2.jm(i);
                         }
                         synchronized (d.this.cFj) {
                             hashMap = new HashMap(d.this.cFk);

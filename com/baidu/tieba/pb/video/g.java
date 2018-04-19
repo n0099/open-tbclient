@@ -221,7 +221,7 @@ public class g {
         return this.fvS;
     }
 
-    public void dA(int i) {
+    public void dz(int i) {
         if (this.fvX != null) {
             this.fvX.onChangeSkinType(i);
         }

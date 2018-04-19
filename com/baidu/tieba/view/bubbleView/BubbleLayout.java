@@ -130,7 +130,7 @@ public class BubbleLayout extends FrameLayout {
         return this;
     }
 
-    public BubbleLayout uI(int i) {
+    public BubbleLayout uH(int i) {
         this.mBubbleColor = i;
         requestLayout();
         return this;

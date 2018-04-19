@@ -48,7 +48,7 @@ public class d implements b {
         if (StringUtils.isNull(str) || this.gzn <= 0 || StringUtils.isNull(this.gzo) || i <= 0 || this.mCancelled) {
             return null;
         }
-        tC(10);
+        tB(10);
         a a2 = a(this.gzq, i, false, null);
         if (a2 == null || this.mCancelled) {
             return null;
@@ -60,7 +60,7 @@ public class d implements b {
             h(302, a2.dcD, a2.mErrorMessage);
             return videoFinishResult;
         }
-        tC(30);
+        tB(30);
         if (!StringUtils.isNull(a2.baI)) {
             VideoFinishResult videoFinishResult2 = new VideoFinishResult();
             videoFinishResult2.setVideoMd5(this.gzo);
@@ -89,7 +89,7 @@ public class d implements b {
                 h(303, b.errorNo, b.errorMessage);
                 return videoFinishResult3;
             }
-            tC(85);
+            tB(85);
             if (!StringUtils.isNull(b.videoUrl)) {
                 VideoFinishResult videoFinishResult4 = new VideoFinishResult();
                 videoFinishResult4.setVideoUrl(b.videoUrl);
@@ -110,13 +110,13 @@ public class d implements b {
                     h(304, a.dcD, a.mErrorMessage);
                     TiebaStatic.log(new al("c12024").ac(LegoListActivityConfig.PARAMS, a.mErrorMessage));
                 }
-                tC(100);
+                tB(100);
                 return videoFinishResult5;
             }
         }
     }
 
-    private void tC(int i) {
+    private void tB(int i) {
         if (this.gzr != null) {
             this.gzr.as(i / 100.0f);
         }

@@ -84,7 +84,7 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
         this.got.getLayoutMode().u(this.gov);
         ak.j(this.gou, d.C0126d.common_color_10163);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mPullView.dw(i);
+        this.mPullView.dv(i);
         this.gox.notifyDataSetChanged();
     }
 

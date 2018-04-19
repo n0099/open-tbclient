@@ -84,7 +84,7 @@ public class a {
             }
         };
         this.bfE.addTextChangedListener(this.mTextWatcher);
-        dw(TbadkCoreApplication.getInst().getSkinType());
+        dv(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void ND() {
@@ -99,7 +99,7 @@ public class a {
         this.bfH = interfaceC0118a;
     }
 
-    public void dw(int i) {
+    public void dv(int i) {
         ak.c(this.bfF, d.C0126d.cp_cont_g, 1);
         this.bfE.setHintTextColor(ak.getColor(d.C0126d.cp_cont_e));
         ak.c(this.bfG, d.f.icon_search_close);

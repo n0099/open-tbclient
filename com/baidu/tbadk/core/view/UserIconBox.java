@@ -95,7 +95,7 @@ public class UserIconBox extends LinearLayout {
         this.aqj = i4;
         this.aqk = z;
         this.mIconWidth = i2;
-        if (!dz(min)) {
+        if (!dy(min)) {
             setVisibility(8);
         } else if (min > 0) {
             setVisibility(0);
@@ -129,7 +129,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    private boolean dz(int i) {
+    private boolean dy(int i) {
         if (i <= 0) {
             return false;
         }
@@ -177,7 +177,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void dA(int i) {
+    public void dz(int i) {
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);

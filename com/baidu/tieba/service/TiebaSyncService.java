@@ -273,7 +273,7 @@ public class TiebaSyncService extends BdBaseService {
                     b.getInstance().putInt("key_card_show_type", AL.zu());
                     TbadkCoreApplication.getInst().setCardShowType(AL.zu());
                     b.getInstance().putInt("key_card_abstract_switch", AL.zv());
-                    com.baidu.tieba.a.d.MH().gs(b.getInstance().getInt("key_abtest_channel", 0));
+                    com.baidu.tieba.a.d.MH().gr(b.getInstance().getInt("key_abtest_channel", 0));
                     q zw = AL.zw();
                     if (zw != null) {
                         b.getInstance().putBoolean("nani_key_is_show_download_nani_panel", zw.atq);

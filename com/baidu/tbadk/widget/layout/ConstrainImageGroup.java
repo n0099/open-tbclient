@@ -148,7 +148,7 @@ public class ConstrainImageGroup extends LinearLayout {
     public void setImageMediaList(List<MediaData> list) {
         int i;
         if (!v.w(list) && this.aTs != null) {
-            fG(v.v(list));
+            fF(v.v(list));
             int childCount = getChildCount();
             int i2 = 0;
             int i3 = 0;
@@ -176,11 +176,11 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    private void fG(int i) {
-        int fF = this.aTu.fF(i);
-        int childCount = getChildCount() - fF;
+    private void fF(int i) {
+        int fE = this.aTu.fE(i);
+        int childCount = getChildCount() - fE;
         if (childCount > 0) {
-            removeViews(fF, childCount);
+            removeViews(fE, childCount);
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {

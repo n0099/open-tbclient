@@ -75,19 +75,19 @@ public class a implements View.OnClickListener {
         this.mContext = context;
         this.mIsLandscape = z;
         this.gkR.setOnClickListener(this);
-        if (!sE(i)) {
+        if (!sD(i)) {
             bD(d.k.share_weixin, d.f.icon_weixin);
         }
-        if (!sF(i)) {
+        if (!sE(i)) {
             bD(d.k.share_weixin_timeline, d.f.icon_weixin_q);
         }
-        if (!sG(i)) {
+        if (!sF(i)) {
             bD(d.k.share_qzone, d.f.icon_qq_zone);
         }
-        if (!sH(i)) {
+        if (!sG(i)) {
             bD(d.k.share_qq_friends, d.f.icon_qq_share);
         }
-        if (!sI(i)) {
+        if (!sH(i)) {
             bD(d.k.share_sina_weibo, d.f.icon_sina);
         }
         this.gkT = (LinearLayout) this.mRootView.findViewById(d.g.share_dialog_line_1);
@@ -318,7 +318,7 @@ public class a implements View.OnClickListener {
             if (view2.getId() == d.g.btnShareCancel || !this.gkY) {
                 this.gkY = true;
                 e eVar = new e(this.mContext, null);
-                com.baidu.tbadk.coreExtra.c.d sC = sC(1);
+                com.baidu.tbadk.coreExtra.c.d sB = sB(1);
                 if (id == d.g.btnShareCancel) {
                     l("share_cancel", new Object[0]);
                     dismiss();
@@ -328,11 +328,11 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_weixin", new Object[0]);
-                    sD(3);
-                    com.baidu.tbadk.coreExtra.c.d sC2 = sC(3);
-                    b(sC2, 4);
-                    if (sC2 != null) {
-                        eVar.b(sC2);
+                    sC(3);
+                    com.baidu.tbadk.coreExtra.c.d sB2 = sB(3);
+                    b(sB2, 4);
+                    if (sB2 != null) {
+                        eVar.b(sB2);
                     }
                 } else if (i == d.f.icon_weixin_q) {
                     if (!j.gP()) {
@@ -340,25 +340,25 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_pyq", new Object[0]);
-                    sD(2);
-                    com.baidu.tbadk.coreExtra.c.d sC3 = sC(2);
-                    b(sC3, 3);
-                    if (sC3 != null) {
-                        if (sC3.awM) {
-                            sC3.content = "【" + sC3.title + "】 " + sC3.content;
+                    sC(2);
+                    com.baidu.tbadk.coreExtra.c.d sB3 = sB(2);
+                    b(sB3, 3);
+                    if (sB3 != null) {
+                        if (sB3.awM) {
+                            sB3.content = "【" + sB3.title + "】 " + sB3.content;
                         }
-                        eVar.c(sC3);
+                        eVar.c(sB3);
                     }
                 } else if (i == d.f.icon_qq_zone) {
                     if (!j.gP()) {
                         l.showToast(TbadkCoreApplication.getInst().getContext(), d.k.share_on_no_network);
                     } else if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                         l("share_to_qzone", new Object[0]);
-                        sD(4);
-                        com.baidu.tbadk.coreExtra.c.d sC4 = sC(4);
-                        b(sC4, 5);
-                        if (sC4 != null) {
-                            eVar.e(sC4);
+                        sC(4);
+                        com.baidu.tbadk.coreExtra.c.d sB4 = sB(4);
+                        b(sB4, 5);
+                        if (sB4 != null) {
+                            eVar.e(sB4);
                         }
                     } else {
                         BdToast.a(this.mContext, this.mContext.getText(d.k.share_qq_not_install)).tL();
@@ -369,14 +369,14 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_qweibo", new Object[0]);
-                    sD(5);
-                    com.baidu.tbadk.coreExtra.c.d sC5 = sC(5);
-                    b(sC5, 6);
-                    if (sC5 != null) {
-                        if (!sC5.awL) {
-                            sC5.content = k(sC5);
+                    sC(5);
+                    com.baidu.tbadk.coreExtra.c.d sB5 = sB(5);
+                    b(sB5, 6);
+                    if (sB5 != null) {
+                        if (!sB5.awL) {
+                            sB5.content = k(sB5);
                         }
-                        eVar.f(sC5);
+                        eVar.f(sB5);
                     }
                 } else if (i == d.f.icon_sina) {
                     if (!j.gP()) {
@@ -384,14 +384,14 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_sweibo", new Object[0]);
-                    sD(6);
-                    com.baidu.tbadk.coreExtra.c.d sC6 = sC(6);
-                    b(sC6, 7);
-                    if (sC6 != null) {
-                        if (!sC6.awL) {
-                            sC6.content = k(sC6);
+                    sC(6);
+                    com.baidu.tbadk.coreExtra.c.d sB6 = sB(6);
+                    b(sB6, 7);
+                    if (sB6 != null) {
+                        if (!sB6.awL) {
+                            sB6.content = k(sB6);
                         }
-                        eVar.g(sC6);
+                        eVar.g(sB6);
                     }
                 } else if (i == d.f.icon_renren) {
                     if (!j.gP()) {
@@ -399,40 +399,40 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_renren", new Object[0]);
-                    sD(7);
-                    com.baidu.tbadk.coreExtra.c.d sC7 = sC(7);
-                    b(sC7, 8);
-                    if (sC7 != null) {
-                        if (!sC7.awL) {
-                            sC7.content = k(sC7);
+                    sC(7);
+                    com.baidu.tbadk.coreExtra.c.d sB7 = sB(7);
+                    b(sB7, 8);
+                    if (sB7 != null) {
+                        if (!sB7.awL) {
+                            sB7.content = k(sB7);
                         }
-                        eVar.h(sC7);
+                        eVar.h(sB7);
                     }
                 } else if (i == d.f.icon_qq_share) {
                     if (!j.gP()) {
                         l.showToast(TbadkCoreApplication.getInst().getContext(), d.k.share_on_no_network);
                     } else if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                         l("share_to_qq_friend", new Object[0]);
-                        sD(8);
-                        com.baidu.tbadk.coreExtra.c.d sC8 = sC(8);
-                        b(sC8, 9);
-                        if (sC8 != null) {
-                            eVar.d(sC8);
+                        sC(8);
+                        com.baidu.tbadk.coreExtra.c.d sB8 = sB(8);
+                        b(sB8, 9);
+                        if (sB8 != null) {
+                            eVar.d(sB8);
                         }
                     } else {
                         BdToast.a(this.mContext, this.mContext.getText(d.k.share_qq_not_install)).tL();
                     }
                 } else if (i == d.f.icon_copy_link) {
-                    b(sC, 10);
+                    b(sB, 10);
                     if (this.gkW != null) {
                         this.gkW.onClick(view2);
                     } else {
-                        com.baidu.adp.lib.util.a.aB(sC.linkUrl);
+                        com.baidu.adp.lib.util.a.aB(sB.linkUrl);
                         l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(d.k.copy_pb_url_success));
                     }
-                    j(sC);
-                    if (sC != null && sC.awL) {
-                        al(8, sC.awX);
+                    j(sB);
+                    if (sB != null && sB.awL) {
+                        al(8, sB.awX);
                     }
                 }
             }
@@ -455,7 +455,7 @@ public class a implements View.OnClickListener {
         TiebaStatic.log(r);
     }
 
-    private com.baidu.tbadk.coreExtra.c.d sC(int i) {
+    private com.baidu.tbadk.coreExtra.c.d sB(int i) {
         com.baidu.tbadk.coreExtra.c.d dVar = this.gkX.get(i);
         if (dVar == null) {
             return this.gkX.get(1);
@@ -463,7 +463,7 @@ public class a implements View.OnClickListener {
         return dVar;
     }
 
-    private void sD(int i) {
+    private void sC(int i) {
         if (i <= 8 && i > 0) {
             this.gkY = true;
             if (this.gla != null) {
@@ -517,8 +517,8 @@ public class a implements View.OnClickListener {
         }
         ak.i(this.mRootView, d.C0126d.cp_bg_line_e);
         ak.c(this.gkP, d.C0126d.cp_cont_j, 1);
-        com.baidu.tbadk.coreExtra.c.d sC = sC(1);
-        if (sC != null && StringUtils.isNull(sC.awS)) {
+        com.baidu.tbadk.coreExtra.c.d sB = sB(1);
+        if (sB != null && StringUtils.isNull(sB.awS)) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.gkP.getText().toString());
             spannableStringBuilder.setSpan(new ForegroundColorSpan(this.mContext.getResources().getColor(d.C0126d.cp_cont_h)), 23, 30, 33);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
@@ -545,23 +545,23 @@ public class a implements View.OnClickListener {
         return str;
     }
 
-    private boolean sE(int i) {
+    private boolean sD(int i) {
         return (i & 1) > 0;
     }
 
-    private boolean sF(int i) {
+    private boolean sE(int i) {
         return (i & 2) > 0;
     }
 
-    private boolean sG(int i) {
+    private boolean sF(int i) {
         return (i & 4) > 0;
     }
 
-    private boolean sH(int i) {
+    private boolean sG(int i) {
         return (i & 8) > 0;
     }
 
-    private boolean sI(int i) {
+    private boolean sH(int i) {
         return (i & 16) > 0;
     }
 }

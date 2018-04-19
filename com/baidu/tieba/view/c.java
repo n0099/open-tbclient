@@ -28,19 +28,19 @@ public class c extends LinkMovementMethod {
             this.aQn = (int) motionEvent.getY();
             this.gXg = System.currentTimeMillis();
             if (this.gXf != null) {
-                this.gXf.fW(1);
+                this.gXf.fV(1);
                 Selection.setSelection(spannable, spannable.getSpanStart(this.gXf), spannable.getSpanEnd(this.gXf));
             }
             textView.invalidate();
         } else if (motionEvent.getAction() == 2) {
             if (this.gXf != null && (Math.abs(this.aQm - motionEvent.getX()) > 20.0f || Math.abs(this.aQn - motionEvent.getY()) > 20.0f)) {
-                this.gXf.fW(2);
+                this.gXf.fV(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
             if (this.gXf != null) {
-                this.gXf.fW(2);
+                this.gXf.fV(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }

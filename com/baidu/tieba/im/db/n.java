@@ -31,7 +31,7 @@ public class n {
         }
     }
 
-    public static void nu(int i) {
+    public static void nt(int i) {
         if (i < dWE) {
             i = dWE;
         }

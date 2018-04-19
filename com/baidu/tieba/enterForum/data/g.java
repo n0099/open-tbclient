@@ -18,7 +18,7 @@ public class g {
     public void akz() {
         Iterator<f> it = this.cHr.iterator();
         while (it.hasNext()) {
-            it.next().jx(0);
+            it.next().jw(0);
         }
     }
 

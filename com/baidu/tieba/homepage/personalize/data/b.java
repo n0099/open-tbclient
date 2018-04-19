@@ -63,7 +63,7 @@ public class b extends com.baidu.tieba.card.data.g implements p {
         return false;
     }
 
-    public static boolean mp(int i) {
+    public static boolean mo(int i) {
         return i == 1;
     }
 }

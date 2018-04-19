@@ -164,9 +164,9 @@ public class SettingStatic {
                             boolean z6 = (intValue & 4096) == 0;
                             com.baidu.tbadk.coreExtra.messageCenter.c.Ae().aZ(z6);
                             if (z3 || z4 || z5 || z2 || z || z6) {
-                                com.baidu.tbadk.coreExtra.messageCenter.c.Ae().dV(300);
+                                com.baidu.tbadk.coreExtra.messageCenter.c.Ae().dU(300);
                             } else {
-                                com.baidu.tbadk.coreExtra.messageCenter.c.Ae().dV(0);
+                                com.baidu.tbadk.coreExtra.messageCenter.c.Ae().dU(0);
                             }
                         }
                         h.fx().d(new Runnable() { // from class: com.baidu.tieba.setting.more.SettingStatic.4
