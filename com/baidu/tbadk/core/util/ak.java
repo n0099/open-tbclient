@@ -168,14 +168,14 @@ public class ak {
         }
     }
 
-    public static int cL(int i) {
+    public static int cK(int i) {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(d.C0126d.common_color_10004);
         }
         throw new IllegalArgumentException(aiy);
     }
 
-    public static int cM(int i) {
+    public static int cL(int i) {
         Application app = BdBaseApplication.getInst().getApp();
         return i == 1 ? app.getResources().getColor(d.C0126d.common_color_10150) : app.getResources().getColor(d.C0126d.common_color_10163);
     }
@@ -437,7 +437,7 @@ public class ak {
         return b(TbadkCoreApplication.getInst().getSkinType(), resources, i);
     }
 
-    public static ColorStateList cN(int i) {
+    public static ColorStateList cM(int i) {
         return b(TbadkCoreApplication.getInst().getSkinType(), (Resources) null, i);
     }
 
@@ -579,11 +579,11 @@ public class ak {
         }
     }
 
-    public static Bitmap cO(int i) {
+    public static Bitmap cN(int i) {
         return a((Resources) null, i, new BitmapFactory.Options());
     }
 
-    public static Bitmap cP(int i) {
+    public static Bitmap cO(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 2;
         return a((Resources) null, i, options);
@@ -595,7 +595,7 @@ public class ak {
         return a((Resources) null, i, options, i2);
     }
 
-    public static Bitmap cQ(int i) {
+    public static Bitmap cP(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
         return a((Resources) null, i, options);

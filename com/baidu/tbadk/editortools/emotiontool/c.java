@@ -12,7 +12,7 @@ public abstract class c {
 
     public abstract EmotionGroupType DU();
 
-    public abstract String eL(int i);
+    public abstract String eK(int i);
 
     public abstract boolean ge(String str);
 
@@ -57,7 +57,7 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eM(int i) {
+    public void eL(int i) {
         this.cols = i;
     }
 
@@ -66,7 +66,7 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eN(int i) {
+    public void eM(int i) {
         this.rows = i;
     }
 }

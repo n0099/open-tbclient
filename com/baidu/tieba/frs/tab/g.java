@@ -19,7 +19,7 @@ public class g implements a {
             if (g.this.dpk != null) {
                 g.this.dpk.auM();
             }
-            g.this.dpn.lh(arVar.cZZ);
+            g.this.dpn.lg(arVar.cZZ);
         }
     };
     private e dpk;

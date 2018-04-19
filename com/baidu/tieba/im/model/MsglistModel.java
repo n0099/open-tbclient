@@ -744,7 +744,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             if (responseCommitMessage.getError() != 0) {
                 com.baidu.tbadk.core.d.a.a("im", chatMessage.getClientLogID(), responseCommitMessage.getCmd(), "ack", responseCommitMessage.getError(), responseCommitMessage.getErrorString(), ClientCookie.COMMENT_ATTR, createMsgLog(chatMessage) + "rid" + chatMessage.getRecordId());
                 if (responseCommitMessage.getError() > 0) {
-                    if (AntiHelper.tu(responseCommitMessage.getError())) {
+                    if (AntiHelper.tt(responseCommitMessage.getError())) {
                         if (this.mAntiDialog != null) {
                             if (!this.mAntiDialog.isShowing()) {
                                 TiebaStatic.log(new al("c12534").r("obj_locate", ar.a.ajg));
@@ -929,7 +929,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 this.mLoadDataCallBack.f(this.mDatas);
             }
             if (this.mSendCallback != null) {
-                this.mSendCallback.nX(0);
+                this.mSendCallback.nW(0);
             }
         }
     }

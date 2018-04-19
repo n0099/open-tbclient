@@ -69,7 +69,7 @@ public class a extends h {
         l apE = this.dmZ.apE();
         switch (i) {
             case 11001:
-                this.dmZ.kd(0);
+                this.dmZ.kc(0);
                 return;
             case IEventCenterService.EventId.EventMode.SAPIWEBVIEW_INITED /* 11002 */:
                 this.cXt.fX(true);
@@ -124,7 +124,7 @@ public class a extends h {
                 String stringExtra = intent.getStringExtra("tid");
                 if (stringExtra != null && (lT = apE.lT(stringExtra)) != null) {
                     if (intExtra == 2) {
-                        lT.bR(intent.getIntExtra("good_data", 0));
+                        lT.bQ(intent.getIntExtra("good_data", 0));
                         lT.sx();
                     }
                     a(apE, intent, stringExtra);
@@ -218,7 +218,7 @@ public class a extends h {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dmZ.getActivity());
             final Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.dmZ.getActivity());
             thread2GroupShareView.setData(shareFromPBMsgData);
-            aVar.cc(1);
+            aVar.cb(1);
             aVar.w(thread2GroupShareView);
             aVar.a(d.k.share, new a.b() { // from class: com.baidu.tieba.frs.mc.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b

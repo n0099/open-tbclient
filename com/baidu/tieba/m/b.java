@@ -64,8 +64,8 @@ public class b extends c.a {
         }
         try {
             jSONObject.put("player", string);
-            jSONObject.put("what", i2 + "  " + VideoPlatformStatic.gl(i2));
-            jSONObject.put("extra", i3 + "  " + VideoPlatformStatic.gl(i3));
+            jSONObject.put("what", i2 + "  " + VideoPlatformStatic.gk(i2));
+            jSONObject.put("extra", i3 + "  " + VideoPlatformStatic.gk(i3));
             if (j != 0) {
                 jSONObject.put("speed", j);
             }

@@ -173,7 +173,7 @@ public class ItemFootNavView extends LinearLayout {
                 if (ItemFootNavView.this.bmW.getErrorCode() == 22) {
                     ItemFootNavView.this.gZ(true);
                     ItemFootNavView.this.ha(true);
-                } else if (!AntiHelper.tu(ItemFootNavView.this.bmW.getErrorCode())) {
+                } else if (!AntiHelper.tt(ItemFootNavView.this.bmW.getErrorCode())) {
                     if (ItemFootNavView.this.bmW.getErrorCode() != 0) {
                         forumDetailActivity.showToast(ItemFootNavView.this.bmW.getErrorString());
                         return;
@@ -199,7 +199,7 @@ public class ItemFootNavView extends LinearLayout {
     private void a(final BaseActivity<ForumDetailActivity> baseActivity, boolean z) {
         if (this.dXg == null) {
             this.dXg = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
-            this.dXg.ca(d.k.forum_info_unlike_msg);
+            this.dXg.bZ(d.k.forum_info_unlike_msg);
             this.dXg.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

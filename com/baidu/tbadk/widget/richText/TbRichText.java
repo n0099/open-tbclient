@@ -33,7 +33,7 @@ public class TbRichText extends OrmObject {
         this.aVC = str;
     }
 
-    public void fU(int i) {
+    public void fT(int i) {
         this.aVB = i;
     }
 

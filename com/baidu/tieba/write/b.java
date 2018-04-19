@@ -95,12 +95,12 @@ public class b {
         return this.haj;
     }
 
-    public void uL(int i) {
+    public void uK(int i) {
         this.hal = i;
         this.han = ak.getColor(this.hal);
     }
 
-    public void uM(int i) {
+    public void uL(int i) {
         this.ham = i;
         this.bgColor = ak.getColor(this.ham);
     }

@@ -308,10 +308,10 @@ public class f extends com.baidu.tbadk.editortools.c {
             DF.b(kVar);
         }
         DF.C(arrayList);
-        k eI = DF.eI(5);
-        if (eI != null) {
-            eI.aDB = 1;
-            eI.aDz = d.f.new_pbeditor_face_button;
+        k eH = DF.eH(5);
+        if (eH != null) {
+            eH.aDB = 1;
+            eH.aDz = d.f.new_pbeditor_face_button;
         }
         DF.DG();
     }

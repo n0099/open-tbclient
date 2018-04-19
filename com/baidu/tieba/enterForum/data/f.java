@@ -19,7 +19,7 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
         return this.mName;
     }
 
-    public void jx(int i) {
+    public void jw(int i) {
         this.cHp = i;
     }
 

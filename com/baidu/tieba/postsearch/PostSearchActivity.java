@@ -23,7 +23,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.rx(i);
+            PostSearchActivity.this.rw(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -44,7 +44,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
     public void rC(String str) {
         this.cVN = str;
-        this.fSU.rD(1);
+        this.fSU.rC(1);
         this.fSV.bij();
         this.fSU.showLoadingView();
     }
@@ -108,7 +108,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rx(int i) {
+    public void rw(int i) {
         int i2 = 0;
         switch (i) {
             case 0:

@@ -90,7 +90,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005017 && BaseFragmentActivity.this.mLayoutMode != null) {
                 BaseFragmentActivity.this.mLayoutMode.b(null);
                 if (BaseFragmentActivity.this.mKeyboardAdjust != null) {
-                    BaseFragmentActivity.this.mKeyboardAdjust.di(TbadkCoreApplication.getInst().getSkinType());
+                    BaseFragmentActivity.this.mKeyboardAdjust.dh(TbadkCoreApplication.getInst().getSkinType());
                 }
                 BaseFragmentActivity.this.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
@@ -264,9 +264,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bv(int i) {
+    public void bu(int i) {
         if (this.mKeyboardAdjust != null) {
-            this.mKeyboardAdjust.di(i);
+            this.mKeyboardAdjust.dh(i);
         }
     }
 
@@ -447,7 +447,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (str != null) {
                 this.mWaitingDialog.eJ(str);
             } else {
-                this.mWaitingDialog.da(d.k.Waiting);
+                this.mWaitingDialog.cZ(d.k.Waiting);
             }
             this.mWaitingDialog.aJ(false);
             this.mWaitingDialog.setCancelable(false);
@@ -793,8 +793,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("key_is_window_permission_dialog_shown", false)) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
                     aVar.as(false);
-                    aVar.bZ(d.k.request_permission_default_title);
-                    aVar.ca(d.k.request_window_permission_default_text);
+                    aVar.bY(d.k.request_permission_default_title);
+                    aVar.bZ(d.k.request_window_permission_default_text);
                     aVar.a(d.k.isopen, new a.b() { // from class: com.baidu.tbadk.core.BaseFragmentActivity.7
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

@@ -46,7 +46,7 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public a dk(int i) {
+            public a dj(int i) {
                 this.anl = i;
                 return this;
             }
@@ -65,7 +65,7 @@ public class NoDataViewFactory {
         public static b a(a aVar, int i) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            aVar2.dk(i);
+            aVar2.dj(i);
             return aVar2.wI();
         }
     }
@@ -110,23 +110,22 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public a dl(int i) {
+            public a dk(int i) {
                 this.ann = i;
                 return this;
             }
 
-            public a dm(int i) {
+            public a dl(int i) {
                 this.ang = i;
                 return this;
             }
 
-            public a dn(int i) {
+            public a dm(int i) {
                 this.mHeight = i;
                 return this;
             }
 
-            /* renamed from: do  reason: not valid java name */
-            public a m16do(int i) {
+            public a dn(int i) {
                 this.mWidth = i;
                 return this;
             }
@@ -139,17 +138,17 @@ public class NoDataViewFactory {
         public static c a(ImgType imgType, int i) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.dl(i);
+            aVar.dk(i);
             return aVar.wJ();
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.dm(i);
-            aVar.dl(i2);
-            aVar.dn(i3);
-            aVar.m16do(i4);
+            aVar.dl(i);
+            aVar.dk(i2);
+            aVar.dm(i3);
+            aVar.dn(i4);
             return aVar.wJ();
         }
 
@@ -194,7 +193,7 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public a dq(int i) {
+            public a dp(int i) {
                 this.anr = i;
                 return this;
             }
@@ -207,11 +206,12 @@ public class NoDataViewFactory {
         public static d B(int i, int i2) {
             a aVar = new a();
             aVar.eN(TbadkCoreApplication.getInst().getResources().getString(i));
-            aVar.dq(i2);
+            aVar.dp(i2);
             return aVar.wK();
         }
 
-        public static d dp(int i) {
+        /* renamed from: do  reason: not valid java name */
+        public static d m16do(int i) {
             return eL(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 

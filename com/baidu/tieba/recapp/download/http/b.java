@@ -389,7 +389,7 @@ class b {
                 }
                 this.tm = System.currentTimeMillis();
                 int responseCode = this.tk.getResponseCode();
-                while (rO(responseCode) && this.fXO <= 5) {
+                while (rN(responseCode) && this.fXO <= 5) {
                     this.tk = a(this.tk, i2, i);
                     this.fXP.bjA().d(this.tk);
                     this.tk.addRequestProperty("Range", "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -505,7 +505,7 @@ class b {
         return a;
     }
 
-    private boolean rO(int i) {
+    private boolean rN(int i) {
         return i == 302 || i == 301 || i == 304 || i == 300 || i == 307 || i == 308 || i == 303;
     }
 

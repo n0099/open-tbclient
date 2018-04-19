@@ -50,13 +50,13 @@ public class a<T> {
         aor();
     }
 
-    public void jW(int i) {
+    public void jV(int i) {
         GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
         getLevelInfoRequestMessage.setForumId(i);
         this.bcJ.sendMessage(getLevelInfoRequestMessage);
     }
 
-    public void jX(int i) {
+    public void jW(int i) {
         GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
         getLevelInfoReadCacheRequestMessage.setCacheKey("" + i);
         this.bcJ.sendMessage(getLevelInfoReadCacheRequestMessage);

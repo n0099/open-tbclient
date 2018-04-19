@@ -30,7 +30,7 @@ public class a {
     protected boolean fAp = false;
     protected int fAq = 10;
 
-    public void qS(int i) {
+    public void qR(int i) {
         if (i >= 0) {
             this.fAf = i;
         }
@@ -147,11 +147,11 @@ public class a {
         this.fAi = 8;
         this.fAl = 7;
         if (this.transparent != -1) {
-            this.fAe = qT(this.transparent);
+            this.fAe = qS(this.transparent);
         }
     }
 
-    protected int qT(int i) {
+    protected int qS(int i) {
         int i2;
         int i3 = 0;
         if (this.fAj == null) {

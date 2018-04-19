@@ -29,7 +29,7 @@ public class b implements h, com.baidu.tieba.InjectPlugin.a {
         return this.aXt;
     }
 
-    public void ga(int i) {
+    public void fZ(int i) {
         this.aXt = i;
     }
 

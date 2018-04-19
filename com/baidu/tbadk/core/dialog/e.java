@@ -57,7 +57,7 @@ public class e {
         return this;
     }
 
-    public e cj(int i) {
+    public e ci(int i) {
         return de(this.adf.getResources().getString(i));
     }
 

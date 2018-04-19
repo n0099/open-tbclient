@@ -43,7 +43,7 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void fW(int i) {
+    public void fV(int i) {
         this.aWf = i;
     }
 
@@ -55,7 +55,7 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void fX(int i) {
+    public void fW(int i) {
         this.urlType = i;
     }
 

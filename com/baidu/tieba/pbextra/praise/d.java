@@ -203,18 +203,18 @@ public class d {
         return this.fBR;
     }
 
-    public void qX(int i) {
+    public void qW(int i) {
         this.fBT = i;
     }
 
-    public com.baidu.tieba.pbextra.praise.a qY(int i) {
+    public com.baidu.tieba.pbextra.praise.a qX(int i) {
         if (i <= -1 || i >= this.fBV.size()) {
             return null;
         }
         return this.fBV.get(i);
     }
 
-    public void qZ(int i) {
+    public void qY(int i) {
         bdt();
     }
 

@@ -436,11 +436,11 @@ public class ImMemoryCacheRegister {
                     if (data.customGroupType == 2) {
                         com.baidu.tbadk.coreExtra.messageCenter.a.zx().fh(data.id);
                     } else if (data.customGroupType == 4) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dR(com.baidu.adp.lib.g.b.g(data.id, 0));
+                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dQ(com.baidu.adp.lib.g.b.g(data.id, 0));
                     } else if (data.customGroupType == -3) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(2);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dR(2);
                     } else if (data.customGroupType == -4) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(1);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dR(1);
                     } else {
                         com.baidu.tbadk.coreExtra.messageCenter.a.zx().fg(data.id);
                     }
@@ -1071,7 +1071,7 @@ public class ImMemoryCacheRegister {
                     BdLog.i("gid-serverMaxMid:" + groupUpdateMessage.getGroupId() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + groupUpdateMessage.getLastMsgId());
                     ImMessageCenterPojo imMessageCenterPojo5 = new ImMessageCenterPojo();
                     imMessageCenterPojo5.setGid(String.valueOf(groupUpdateMessage.getGroupId()));
-                    imMessageCenterPojo5.setCustomGroupType(com.baidu.tieba.im.a.a.nQ(groupUpdateMessage.getGroupType()));
+                    imMessageCenterPojo5.setCustomGroupType(com.baidu.tieba.im.a.a.nP(groupUpdateMessage.getGroupType()));
                     imMessageCenterPojo5.setGroup_head(groupUpdateMessage.getPortrait());
                     imMessageCenterPojo5.setGroup_name(groupUpdateMessage.getName());
                     imMessageCenterPojo5.setPulled_msgId(com.baidu.tieba.im.util.d.ci(groupUpdateMessage.getLastMsgId()));
@@ -1115,7 +1115,7 @@ public class ImMemoryCacheRegister {
                             break;
                         }
                         GroupUpdateMessage next = it.next();
-                        if (com.baidu.tieba.im.a.a.nQ(next.getGroupType()) == 1 && imMessageCenterPojo10.getGid().equals(String.valueOf(next.getGroupId()))) {
+                        if (com.baidu.tieba.im.a.a.nP(next.getGroupType()) == 1 && imMessageCenterPojo10.getGid().equals(String.valueOf(next.getGroupId()))) {
                             z = false;
                         }
                         z2 = z;

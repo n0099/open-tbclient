@@ -181,18 +181,18 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        dA(TbadkCoreApplication.getInst().getSkinType());
+        dz(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void dA(int i) {
-        super.dA(i);
+    public void dz(int i) {
+        super.dz(i);
         Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.aIl.entrySet();
         if (entrySet != null && (r1 = entrySet.iterator()) != null) {
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : entrySet) {
                 TbFragmentTabIndicator.a value = entry.getValue();
                 if (value != null) {
-                    value.dA(i);
+                    value.dz(i);
                 }
             }
         }

@@ -77,7 +77,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: gw */
+    /* renamed from: gv */
     public com.baidu.tieba.im.data.a getItem(int i) {
         return this.data.get(i);
     }

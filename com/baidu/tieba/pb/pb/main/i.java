@@ -293,14 +293,14 @@ public class i extends k<PostData, j> implements View.OnClickListener {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) jVar.mBottomLine.getLayoutParams();
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) jVar.fin.getLayoutParams();
         if (z) {
-            jVar.fhX.getLayoutStrategy().fS(0);
+            jVar.fhX.getLayoutStrategy().fR(0);
             if (z2) {
-                jVar.fhX.getLayoutStrategy().fR(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
+                jVar.fhX.getLayoutStrategy().fQ(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
                 if (layoutParams2 != null) {
                     layoutParams2.topMargin = com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds26);
                 }
             } else {
-                jVar.fhX.getLayoutStrategy().fR(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds8));
+                jVar.fhX.getLayoutStrategy().fQ(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds8));
                 if (layoutParams2 != null) {
                     layoutParams2.topMargin = 0;
                 }
@@ -313,8 +313,8 @@ public class i extends k<PostData, j> implements View.OnClickListener {
             }
             return;
         }
-        jVar.fhX.getLayoutStrategy().fR(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
-        jVar.fhX.getLayoutStrategy().fS(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds12));
+        jVar.fhX.getLayoutStrategy().fQ(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
+        jVar.fhX.getLayoutStrategy().fR(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds12));
         if (layoutParams != null) {
             layoutParams.topMargin = com.baidu.adp.lib.util.l.e(this.mContext, d.e.tbds44);
             jVar.mBottomLine.setLayoutParams(layoutParams);
@@ -714,13 +714,13 @@ public class i extends k<PostData, j> implements View.OnClickListener {
             layoutParams.bottomMargin = 0;
             jVar.fhX.setPadding(e, 0, e, 0);
             if (!this.fhc) {
-                jVar.fhX.getLayoutStrategy().fO(d.f.icon_click);
+                jVar.fhX.getLayoutStrategy().fN(d.f.icon_click);
             } else {
                 jVar.fhX.hu(null);
                 jVar.fhX.setBackgroundDrawable(null);
-                jVar.fhX.getLayoutStrategy().fO(d.f.transparent_bg);
+                jVar.fhX.getLayoutStrategy().fN(d.f.transparent_bg);
             }
-            jVar.fhX.getLayoutStrategy().fL(d.f.pic_video);
+            jVar.fhX.getLayoutStrategy().fK(d.f.pic_video);
             a(jVar.fhX, view2, !StringUtils.isNull(postData.getBimg_url()));
             jVar.fhX.setLayoutParams(layoutParams);
             jVar.fhX.setLinkTextColor(com.baidu.tbadk.core.util.ak.getColor(d.C0126d.cp_link_tip_c));
@@ -744,8 +744,8 @@ public class i extends k<PostData, j> implements View.OnClickListener {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) tbRichTextView.getLayoutParams();
                 af = (af - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin;
             }
-            tbRichTextView.getLayoutStrategy().fM(af - (z ? getDimensionPixelSize(d.e.tbds90) : 0));
-            tbRichTextView.getLayoutStrategy().fN((int) (af * 1.618f));
+            tbRichTextView.getLayoutStrategy().fL(af - (z ? getDimensionPixelSize(d.e.tbds90) : 0));
+            tbRichTextView.getLayoutStrategy().fM((int) (af * 1.618f));
         }
     }
 

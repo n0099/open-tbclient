@@ -34,7 +34,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean kw(int i) {
+    public boolean kv(int i) {
         return false;
     }
 

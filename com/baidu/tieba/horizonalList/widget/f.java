@@ -232,7 +232,7 @@ public class f {
             this.mCurrentPosition = this.mStart + Math.round((this.dHH - this.mStart) * f);
         }
 
-        private static float mE(int i) {
+        private static float mD(int i) {
             return i > 0 ? -2000.0f : 2000.0f;
         }
 
@@ -282,7 +282,7 @@ public class f {
             this.mStart = i;
             this.dHH = i2;
             int i4 = i - i2;
-            this.dHK = mE(i4);
+            this.dHK = mD(i4);
             this.dHI = -i4;
             this.dHN = Math.abs(i4);
             this.mDuration = (int) (Math.sqrt((i4 * (-2.0d)) / this.dHK) * 1000.0d);
@@ -305,10 +305,10 @@ public class f {
             this.mState = 0;
             double d = 0.0d;
             if (i2 != 0) {
-                int mH = mH(i2);
-                this.dHL = mH;
-                this.mDuration = mH;
-                d = mG(i2);
+                int mG = mG(i2);
+                this.dHL = mG;
+                this.mDuration = mG;
+                d = mF(i2);
             }
             this.dHM = (int) (d * Math.signum(i2));
             this.dHH = this.dHM + i;
@@ -322,16 +322,16 @@ public class f {
             }
         }
 
-        private double mF(int i) {
+        private double mE(int i) {
             return Math.log((0.35f * Math.abs(i)) / (this.dHO * this.dHP));
         }
 
-        private double mG(int i) {
-            return Math.exp(mF(i) * (dHQ / (dHQ - 1.0d))) * this.dHO * this.dHP;
+        private double mF(int i) {
+            return Math.exp(mE(i) * (dHQ / (dHQ - 1.0d))) * this.dHO * this.dHP;
         }
 
-        private int mH(int i) {
-            return (int) (Math.exp(mF(i) / (dHQ - 1.0d)) * 1000.0d);
+        private int mG(int i) {
+            return (int) (Math.exp(mE(i) / (dHQ - 1.0d)) * 1000.0d);
         }
 
         private void J(int i, int i2, int i3) {
@@ -343,7 +343,7 @@ public class f {
         }
 
         private void K(int i, int i2, int i3) {
-            this.dHK = mE(i3 == 0 ? i - i2 : i3);
+            this.dHK = mD(i3 == 0 ? i - i2 : i3);
             J(i, i2, i3);
             ayw();
         }
@@ -359,7 +359,7 @@ public class f {
             int i6 = i - i5;
             if (i6 * i4 >= 0) {
                 K(i, i5, i4);
-            } else if (mG(i4) > Math.abs(i6)) {
+            } else if (mF(i4) > Math.abs(i6)) {
                 a(i, i4, z ? i2 : i, z ? i : i3, this.dHN);
             } else {
                 I(i, i5, i4);
@@ -397,7 +397,7 @@ public class f {
                     if (this.mDuration < this.dHL) {
                         this.mStart = this.dHH;
                         this.dHI = (int) this.dHJ;
-                        this.dHK = mE(this.dHI);
+                        this.dHK = mD(this.dHI);
                         this.mStartTime += this.mDuration;
                         ayw();
                         break;

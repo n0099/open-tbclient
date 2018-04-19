@@ -38,7 +38,7 @@ public class i {
         this.UT = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_images", true);
     }
 
-    public void bx(int i) {
+    public void bw(int i) {
         this.UQ = i;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("new_display_photo", i);
     }
@@ -63,7 +63,7 @@ public class i {
         return this.UR;
     }
 
-    public void by(int i) {
+    public void bx(int i) {
         if (this.US != i) {
             this.US = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
@@ -94,7 +94,7 @@ public class i {
         }
     }
 
-    public void bz(int i) {
+    public void by(int i) {
         if (this.mViewImageQuality != i) {
             this.mViewImageQuality = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("view_image_quality", i);

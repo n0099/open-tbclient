@@ -163,10 +163,10 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
         }
     }
 
-    public boolean kr(int i) {
+    public boolean kq(int i) {
         if (this.dbm == null) {
             return false;
         }
-        return this.dbm.kr(i);
+        return this.dbm.kq(i);
     }
 }

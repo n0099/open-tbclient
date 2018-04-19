@@ -52,7 +52,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.forumsearch.b.a aVar) {
         if (aVar != null && !v.w(aVar.aoE())) {
-            jY(aVar.aoE().size());
+            jX(aVar.aoE().size());
             int size = this.cWp.size();
             for (int i = 0; i < size; i++) {
                 a aVar2 = this.cWp.get(i);
@@ -65,7 +65,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
         }
     }
 
-    private void jY(int i) {
+    private void jX(int i) {
         int size = this.cWp.size();
         if (size != i) {
             if (size < i) {

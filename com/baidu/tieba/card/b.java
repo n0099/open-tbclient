@@ -141,7 +141,7 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
         return d.i.card_group;
     }
 
-    public void iI(int i) {
+    public void iH(int i) {
         if (this.clT != null && this.clT.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.clT.getLayoutParams();
             layoutParams.height = i;

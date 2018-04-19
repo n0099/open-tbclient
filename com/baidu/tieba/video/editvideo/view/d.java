@@ -102,7 +102,7 @@ public class d extends com.baidu.adp.base.c {
                     a(i, view2, musicData);
                     return;
                 case 1:
-                    this.gOm.uo(i);
+                    this.gOm.un(i);
                     bgx();
                     this.gLr.replay();
                     return;
@@ -212,7 +212,7 @@ public class d extends com.baidu.adp.base.c {
                 this.gKL.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.editvideo.view.d.4
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
-                        d.this.gOm.uo(i);
+                        d.this.gOm.un(i);
                         d.this.gKL.setLooping(true);
                         d.this.gKL.start();
                         d.this.gLr.replay();
@@ -314,7 +314,7 @@ public class d extends com.baidu.adp.base.c {
                         @Override // java.lang.Runnable
                         public void run() {
                             d.this.gOi.setSelection(d.this.gOu);
-                            d.this.gOi.dg(d.this.gOt * l.e(d.this.getPageContext().getContext(), d.e.ds122));
+                            d.this.gOi.df(d.this.gOt * l.e(d.this.getPageContext().getContext(), d.e.ds122));
                         }
                     }, 300L);
                     return;

@@ -390,10 +390,10 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
         this.aFG = -1;
         this.cFZ.removeAllViews();
         akb();
-        dA(this.aqQ);
+        dz(this.aqQ);
     }
 
-    public void dA(int i) {
+    public void dz(int i) {
         int color;
         this.aqQ = i;
         if (this.cGd != null) {
@@ -472,7 +472,7 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
                 EmotionTabHorizonScrollView.this.cGf = (TbImageView) view2;
             }
             EmotionTabHorizonScrollView.this.setCurrentTab(this.agb);
-            EmotionTabHorizonScrollView.this.cGb.eT(this.agb);
+            EmotionTabHorizonScrollView.this.cGb.eS(this.agb);
         }
     }
 

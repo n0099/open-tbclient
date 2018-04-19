@@ -17,7 +17,7 @@ public class g {
         return this.aBI;
     }
 
-    public void ex(int i) {
+    public void ew(int i) {
         this.aBI = i;
     }
 

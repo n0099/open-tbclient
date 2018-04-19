@@ -7,5 +7,5 @@ public interface j {
 
     void avu();
 
-    boolean lt(int i);
+    boolean ls(int i);
 }

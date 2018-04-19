@@ -89,7 +89,7 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        eq(i);
+        ep(i);
         if (this.giw != null) {
             this.git.getLayoutMode().setNightMode(i == 1);
             this.git.getLayoutMode().u(this.giw);
@@ -98,10 +98,10 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: com.baidu.tieba.setting.more.MoreActivity */
     /* JADX WARN: Multi-variable type inference failed */
-    public void eq(int i) {
+    public void ep(int i) {
         ak.j(this.giK, d.C0126d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.giy.eq(i);
+        this.giy.ep(i);
         this.git.getLayoutMode().setNightMode(i == 1);
         this.git.getLayoutMode().u(this.giK);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
@@ -149,7 +149,7 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
         bmg();
         bmf();
         this.giy.bnf();
-        eq(TbadkCoreApplication.getInst().getSkinType());
+        ep(TbadkCoreApplication.getInst().getSkinType());
         R(clickListener);
         if (!blD()) {
             this.giB.setTip(this.git.getResources().getString(d.k.browsing_settings_tip_no_night));
@@ -198,14 +198,14 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 d.this.Vl();
-                d.this.giu.st(11);
+                d.this.giu.ss(11);
             }
         });
         ((TextView) this.giw.findViewById(d.g.id_quit_tv)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 d.this.Vl();
-                d.this.giu.st(12);
+                d.this.giu.ss(12);
             }
         });
         this.giv = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
@@ -240,31 +240,31 @@ public class d extends com.baidu.adp.base.c<MoreActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (view2 == d.this.giL) {
-                    d.this.giu.st(0);
+                    d.this.giu.ss(0);
                 } else if (view2 == d.this.giy) {
-                    d.this.giu.st(1);
+                    d.this.giu.ss(1);
                 } else if (view2 == d.this.giz) {
-                    d.this.giu.st(15);
+                    d.this.giu.ss(15);
                 } else if (view2 == d.this.giA) {
-                    d.this.giu.st(2);
+                    d.this.giu.ss(2);
                 } else if (view2 == d.this.giB) {
-                    d.this.giu.st(3);
+                    d.this.giu.ss(3);
                 } else if (view2 == d.this.giD) {
-                    d.this.giu.st(4);
+                    d.this.giu.ss(4);
                 } else if (view2 == d.this.giE) {
-                    d.this.giu.st(9);
+                    d.this.giu.ss(9);
                 } else if (view2 == d.this.giF) {
-                    d.this.giu.st(6);
+                    d.this.giu.ss(6);
                 } else if (view2 == d.this.giG) {
-                    d.this.giu.st(7);
+                    d.this.giu.ss(7);
                 } else if (view2 == d.this.giH) {
-                    d.this.giu.st(8);
+                    d.this.giu.ss(8);
                 } else if (view2 == d.this.giI) {
-                    d.this.giu.st(5);
+                    d.this.giu.ss(5);
                 } else if (view2 == d.this.giJ) {
-                    d.this.giu.st(10);
+                    d.this.giu.ss(10);
                 } else if (view2 == d.this.gix) {
-                    d.this.giu.st(13);
+                    d.this.giu.ss(13);
                 }
             }
         };

@@ -75,7 +75,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                         forumSearchActivityConfig.setIntentAction(IntentAction.ActivityForResult);
                         SelectForumActivity.this.sendMessage(new CustomMessage(2002001, forumSearchActivityConfig));
                         TiebaStatic.log("c12259");
-                        SelectForumActivity.this.va(1);
+                        SelectForumActivity.this.uZ(1);
                         return;
                     }
                     return;
@@ -95,7 +95,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 if (SelectForumActivity.this.mFrom != 1 || SelectForumActivity.this.mLiveId <= 0) {
                     if (SelectForumActivity.this.mFrom == 2) {
                         SelectForumActivity.this.a(transmitForumData, SelectForumActivity.this.mPrivateThread);
-                        SelectForumActivity.this.va(2);
+                        SelectForumActivity.this.uZ(2);
                         SelectForumActivity.this.finish();
                         return;
                     }
@@ -199,7 +199,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void va(int i) {
+    public void uZ(int i) {
         TiebaStatic.log(new al("c12610").r("obj_locate", i));
     }
 

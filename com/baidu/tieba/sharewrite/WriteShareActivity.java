@@ -232,9 +232,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         initUI();
         if (!bnF) {
             if (TextUtils.isEmpty(this.mAppKey)) {
-                sN(d.k.share_parameter_invalid_tip);
+                sM(d.k.share_parameter_invalid_tip);
             } else {
-                sN(d.k.share_content_empty_tip);
+                sM(d.k.share_content_empty_tip);
             }
         } else if (TbadkCoreApplication.isLogin()) {
             bnG();
@@ -312,8 +312,8 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         if (this.glB == null) {
             this.glB = new com.baidu.tieba.sharewrite.a(getActivity());
             this.glB.lX(false);
-            this.glB.sJ(d.f.icon_send_ok);
-            this.glB.sM(d.k.share_alert_success);
+            this.glB.sI(d.f.icon_send_ok);
+            this.glB.sL(d.k.share_alert_success);
             this.glB.a(d.k.share_stay_in_tieba, this.glD);
             this.glB.b(d.k.back, this.glF);
             this.glB.a(this.glI);
@@ -325,10 +325,10 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public void bnJ() {
         if (this.glC == null) {
             this.glC = new com.baidu.tieba.sharewrite.a(getActivity());
-            this.glC.sJ(d.f.icon_send_error);
-            this.glC.sK(d.f.btn_w_square);
-            this.glC.sL(d.C0126d.common_color_10039);
-            this.glC.sM(d.k.share_alert_fail);
+            this.glC.sI(d.f.icon_send_error);
+            this.glC.sJ(d.f.btn_w_square);
+            this.glC.sK(d.C0126d.common_color_10039);
+            this.glC.sL(d.k.share_alert_fail);
             this.glC.a(d.k.share_keep_sending, this.glE);
             this.glC.b(d.k.back, this.glF);
             this.glC.a(this.glI);
@@ -436,7 +436,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    public void sN(int i) {
+    public void sM(int i) {
         l.showLongToast(getPageContext().getContext(), i);
         new Handler().postDelayed(new a(getPageContext().getPageActivity()), 3500L);
     }
@@ -550,7 +550,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    public void sO(int i) {
+    public void sN(int i) {
         this.glw = i;
     }
 

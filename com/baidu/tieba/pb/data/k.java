@@ -58,7 +58,7 @@ public class k {
             setPageSize(kVar.aWi());
             T(kVar.Pe());
             setTotalCount(kVar.getTotalCount());
-            iU(kVar.aWh());
+            iT(kVar.aWh());
             this.fcQ.addAll(0, kVar.aWg());
         }
     }
@@ -70,10 +70,10 @@ public class k {
             d(kVar.aWc());
             T(kVar.Pe());
             if (kVar.aWg() != null && kVar.aWg().size() > 0) {
-                bV(kVar.La());
+                bU(kVar.La());
                 setPageSize(kVar.aWi());
                 setTotalCount(kVar.getTotalCount());
-                iU(kVar.aWh());
+                iT(kVar.aWh());
             }
             int size = this.fcQ.size();
             if (z && size % this.fcS != 0) {
@@ -92,10 +92,10 @@ public class k {
             d(kVar.aWc());
             T(kVar.Pe());
             if (kVar.aWg() != null && kVar.aWg().size() > 0) {
-                bV(kVar.La());
+                bU(kVar.La());
                 setPageSize(kVar.aWi());
                 setTotalCount(kVar.getTotalCount());
-                iU(kVar.aWh());
+                iT(kVar.aWh());
             }
             int size = this.fcQ.size();
             if (z && size % this.fcS != 0) {
@@ -119,10 +119,10 @@ public class k {
             d(kVar.aWc());
             T(kVar.Pe());
             if (kVar.aWg() != null && kVar.aWg().size() > 0) {
-                bV(kVar.La());
+                bU(kVar.La());
                 setPageSize(kVar.aWi());
                 setTotalCount(kVar.getTotalCount());
-                iU(kVar.aWh());
+                iT(kVar.aWh());
                 this.fcT = (this.mCurrentPage - (((kVar.aWg().size() - 1) + this.fcS) / this.fcS)) + 1;
                 if (this.fcT < 0) {
                     this.fcT = 0;
@@ -152,7 +152,7 @@ public class k {
         return this.fcR;
     }
 
-    public void iU(int i) {
+    public void iT(int i) {
         this.fcR = i;
     }
 
@@ -178,7 +178,7 @@ public class k {
         return this.mCurrentPage;
     }
 
-    public void bV(int i) {
+    public void bU(int i) {
         this.mCurrentPage = i;
     }
 
@@ -229,7 +229,7 @@ public class k {
             kVar.b(antiData);
             bd bdVar = new bd();
             bdVar.a(dataRes.thread);
-            bdVar.bV(2);
+            bdVar.bU(2);
             kVar.T(bdVar);
             ForumData forumData = new ForumData();
             forumData.parserProtobuf(dataRes.forum);
@@ -255,10 +255,10 @@ public class k {
                 int intValue2 = page.page_size.intValue() == 0 ? 20 : page.page_size.intValue();
                 int intValue3 = page.current_page.intValue();
                 int intValue4 = page.total_count.intValue();
-                kVar.bV(intValue3);
+                kVar.bU(intValue3);
                 kVar.setPageSize(intValue2);
                 kVar.setTotalCount(intValue4);
-                kVar.iU(intValue);
+                kVar.iT(intValue);
             }
             return kVar;
         } catch (Exception e) {

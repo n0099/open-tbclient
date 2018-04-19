@@ -40,7 +40,7 @@ public class ChannelHomeVideoList<E extends h> extends ArrayList<E> {
 
     public void setTop(h hVar) {
         hVar.setType(a.C0123a.cuw);
-        hVar.iZ(1);
+        hVar.iY(1);
         int i = 0;
         while (true) {
             if (i >= size()) {
@@ -63,7 +63,7 @@ public class ChannelHomeVideoList<E extends h> extends ArrayList<E> {
             h hVar = (h) get(0);
             hVar.setType(a.C0123a.cux);
             if (hVar.sp()) {
-                hVar.iZ(0);
+                hVar.iY(0);
                 int size = size() - 1;
                 int i = 0;
                 while (true) {

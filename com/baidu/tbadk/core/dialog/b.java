@@ -79,7 +79,7 @@ public class b {
         return this;
     }
 
-    public b cd(int i) {
+    public b cc(int i) {
         return dd(this.mActivity.getResources().getString(i));
     }
 
@@ -100,12 +100,12 @@ public class b {
         return this;
     }
 
-    public b ce(int i) {
+    public b cd(int i) {
         this.acQ = i;
         return this;
     }
 
-    public b cf(int i) {
+    public b ce(int i) {
         this.acp = i;
         return this;
     }
@@ -125,7 +125,7 @@ public class b {
             if (this.mItems != null && this.mItems.size() > 0) {
                 int size = this.mItems.size();
                 for (int i = 0; i < size; i++) {
-                    ch(i);
+                    cg(i);
                 }
             }
             c(eVar);
@@ -182,11 +182,11 @@ public class b {
         }
     }
 
-    public void cg(int i) {
+    public void cf(int i) {
         this.acS = i;
     }
 
-    private View ch(final int i) {
+    private View cg(final int i) {
         View inflate = LayoutInflater.from(this.mActivity).inflate(this.acP, this.mContentView, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
         final TextView textView = (TextView) inflate.findViewById(d.g.dialog_item_btn);
@@ -229,7 +229,7 @@ public class b {
         return inflate;
     }
 
-    public View ci(int i) {
+    public View ch(int i) {
         if (this.mContentView == null) {
             return null;
         }

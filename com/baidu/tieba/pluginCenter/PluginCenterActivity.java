@@ -107,11 +107,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     private void PM() {
         this.mRootView = findViewById(d.g.parent);
         this.FL = (BdListView) findViewById(d.g.list);
-        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(d.g.list_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(getActivity(), d.e.ds220)), NoDataViewFactory.d.dp(d.k.plugin_no_plugins), null);
+        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(d.g.list_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(getActivity(), d.e.ds220)), NoDataViewFactory.d.m16do(d.k.plugin_no_plugins), null);
         this.FL.setEmptyView(this.mNoDataView);
         this.fRp = new com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>>(getPageContext(), new Class[]{com.baidu.tieba.pluginCenter.a.a.class, com.baidu.tieba.pluginCenter.a.b.class}, new int[]{d.i.plugin_center_list_function_item, d.i.plugin_center_list_desc_item}, this.cGR) { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.1
             @Override // com.baidu.tbadk.mvc.f.b
-            public int fc(int i) {
+            public int fb(int i) {
                 return getItem(i) instanceof String ? 1 : 0;
             }
         };

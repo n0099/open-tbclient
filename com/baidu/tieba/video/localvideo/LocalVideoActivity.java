@@ -210,7 +210,7 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
         }
 
         @Override // com.baidu.tieba.video.c
-        public void ug(int i) {
+        public void uf(int i) {
             LocalVideoActivity.this.gOL.sendEmptyMessage(2);
         }
 

@@ -91,7 +91,7 @@ public abstract class f<T, V extends q.a> extends com.baidu.adp.widget.ListView.
         this.cWP = bVar;
     }
 
-    public void jZ(int i) {
+    public void jY(int i) {
         this.cWR = i;
     }
 

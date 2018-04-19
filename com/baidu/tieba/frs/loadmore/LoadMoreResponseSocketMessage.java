@@ -57,7 +57,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     bd bdVar = new bd();
                     bdVar.setUserMap(this.userMap);
                     bdVar.a(list2.get(i3));
-                    bdVar.bV(3);
+                    bdVar.bU(3);
                     bdVar.sx();
                     if (!TextUtils.isEmpty(bdVar.sH())) {
                         ac acVar = new ac();

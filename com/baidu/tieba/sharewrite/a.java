@@ -52,17 +52,17 @@ public class a {
         void a(a aVar);
     }
 
-    public a sJ(int i) {
+    public a sI(int i) {
         this.mIconResId = i;
         return this;
     }
 
-    public a sK(int i) {
+    public a sJ(int i) {
         this.gle = i;
         return this;
     }
 
-    public a sL(int i) {
+    public a sK(int i) {
         this.glf = i;
         return this;
     }
@@ -72,7 +72,7 @@ public class a {
         return this;
     }
 
-    public a sM(int i) {
+    public a sL(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }

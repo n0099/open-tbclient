@@ -131,7 +131,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     protected void aKX() {
     }
 
-    protected final void oy(int i) {
+    protected final void ox(int i) {
         switch (i) {
             case -1:
             case 0:
@@ -158,7 +158,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     protected final void c(T t) {
         this.ewi.setVisibility(t.isShowCover() ? 0 : 8);
         int showSpace = t.getShowSpace();
-        oy(showSpace != 0 ? -1 : t.getShowLine());
+        ox(showSpace != 0 ? -1 : t.getShowLine());
         switch (showSpace) {
             case 0:
                 this.ewj.setVisibility(8);
@@ -285,7 +285,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     protected final void a(TextView textView, int i, int i2, int i3) {
-        if (com.baidu.tieba.lego.card.d.a.ow(i) || com.baidu.tieba.lego.card.d.a.ow(i2)) {
+        if (com.baidu.tieba.lego.card.d.a.ov(i) || com.baidu.tieba.lego.card.d.a.ov(i2)) {
             ak.h(textView, i3);
             return;
         }
@@ -296,7 +296,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     protected final void c(View view2, int i, int i2, int i3) {
-        if (com.baidu.tieba.lego.card.d.a.ow(i) || com.baidu.tieba.lego.card.d.a.ow(i2)) {
+        if (com.baidu.tieba.lego.card.d.a.ov(i) || com.baidu.tieba.lego.card.d.a.ov(i2)) {
             ak.j(view2, i3);
             return;
         }

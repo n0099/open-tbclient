@@ -31,15 +31,15 @@ public class FrsBannerAdStatic {
             TbPageContext pageContext;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.a) && (pageContext = (aVar = (com.baidu.tieba.InjectPlugin.b.a) customResponsedMessage.getData()).getPageContext()) != null && (pageContext.getPageActivity() instanceof b)) {
                 b bVar = (b) pageContext.getPageActivity();
-                com.baidu.tieba.InjectPlugin.a.a gb = bVar.gb(2);
-                if (gb == null) {
-                    d gc = e.KR().gc(2);
-                    if (gc != null) {
-                        gb = gc.KQ();
-                        bVar.a(2, gb);
-                        gb.G(new c(pageContext));
-                        if (gb instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
-                            ((com.baidu.tieba.InjectPlugin.FrsBannerAd.a) gb).a(new a.InterfaceC0108a() { // from class: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic.a.1
+                com.baidu.tieba.InjectPlugin.a.a ga = bVar.ga(2);
+                if (ga == null) {
+                    d gb = e.KR().gb(2);
+                    if (gb != null) {
+                        ga = gb.KQ();
+                        bVar.a(2, ga);
+                        ga.G(new c(pageContext));
+                        if (ga instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
+                            ((com.baidu.tieba.InjectPlugin.FrsBannerAd.a) ga).a(new a.InterfaceC0108a() { // from class: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic.a.1
                                 @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a.InterfaceC0108a
                                 public void a(c cVar, View view2) {
                                     b a = h.a(cVar);
@@ -69,7 +69,7 @@ public class FrsBannerAdStatic {
                         return;
                     }
                 }
-                com.baidu.tieba.InjectPlugin.a.a aVar2 = gb;
+                com.baidu.tieba.InjectPlugin.a.a aVar2 = ga;
                 if (aVar2 instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
                     com.baidu.tieba.InjectPlugin.FrsBannerAd.a aVar3 = (com.baidu.tieba.InjectPlugin.FrsBannerAd.a) aVar2;
                     if (aVar.KT() == 1) {

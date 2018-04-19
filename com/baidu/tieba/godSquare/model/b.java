@@ -50,12 +50,12 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (b.this.dyV != null) {
                 if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
-                    b.this.lR(1);
+                    b.this.lQ(1);
                     return;
                 }
                 GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = (GodSquareCacheResponsedMsg) customResponsedMessage;
                 if (godSquareCacheResponsedMsg.getResult() == null || v.w(godSquareCacheResponsedMsg.getResult().user_list)) {
-                    b.this.lR(1);
+                    b.this.lQ(1);
                 } else {
                     b.this.dyV.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.dyW, true, godSquareCacheResponsedMsg.getErrorString());
                 }
@@ -78,19 +78,19 @@ public class b {
         this.dyX = 1;
         this.dyW = true;
         if (j.gD()) {
-            lR(1);
+            lQ(1);
         } else {
-            lS(1);
+            lR(1);
         }
     }
 
     public void Po() {
         this.dyW = false;
-        lR(this.pn + 1);
+        lQ(this.pn + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lR(int i) {
+    public void lQ(int i) {
         if (this.bcJ != null) {
             this.pn = i;
             GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
@@ -99,7 +99,7 @@ public class b {
         }
     }
 
-    private void lS(int i) {
+    private void lR(int i) {
         if (this.bcJ != null) {
             GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
             godSquareCacheRequestMsg.cacheKey = i + "";

@@ -464,7 +464,7 @@ public class a {
         if (a != null) {
             a.setFlags(268435456);
             PendingIntent service = PendingIntent.getService(this.aus, i, a, 134217728);
-            a(dU(i), i);
+            a(dT(i), i);
             NotificationHelper.showNotification(this.aus, i, aVar.title, aVar.content, aVar.awn, service, false);
         }
     }
@@ -473,9 +473,9 @@ public class a {
         Intent k;
         if (this.auE) {
             if (i == 23 && this.auz > 0) {
-                k = dP(i);
+                k = dO(i);
             } else if (i == 26 && this.auy > 0) {
-                k = dQ(i);
+                k = dP(i);
             } else if (i == 18) {
                 k = zA();
             } else if (i == 24) {
@@ -492,12 +492,12 @@ public class a {
             }
             k.setFlags(268435456);
             PendingIntent service = PendingIntent.getService(this.aus, i, k, 134217728);
-            a(dU(i), i);
+            a(dT(i), i);
             NotificationHelper.showNotification(this.aus, i, str, str2, str3, service, false);
         }
     }
 
-    public Intent dP(int i) {
+    public Intent dO(int i) {
         Intent intent = new Intent(this.aus, DealIntentService.class);
         intent.putExtra("class", 24);
         intent.putExtra("KeyOfNotiId", i);
@@ -511,7 +511,7 @@ public class a {
         return intent;
     }
 
-    public Intent dQ(int i) {
+    public Intent dP(int i) {
         Intent intent = new Intent(this.aus, DealIntentService.class);
         intent.putExtra("class", 35);
         intent.putExtra("KeyOfNotiId", i);
@@ -685,7 +685,7 @@ public class a {
         NotificationHelper.cancelNotification(this.aus, 19);
     }
 
-    public void dR(int i) {
+    public void dQ(int i) {
         NotificationHelper.cancelNotification(this.aus, i);
     }
 
@@ -741,7 +741,7 @@ public class a {
         NotificationHelper.cancelNotification(this.aus, 17);
     }
 
-    public void dS(int i) {
+    public void dR(int i) {
         e zT = zT();
         if (zT == null) {
             zH();
@@ -848,7 +848,7 @@ public class a {
         return this.aut;
     }
 
-    public void dT(int i) {
+    public void dS(int i) {
         if (i >= 0) {
             a(i, this.auu, this.auv, this.auw, this.auy, this.aux, this.auz);
         }
@@ -960,7 +960,7 @@ public class a {
         return this.auC;
     }
 
-    public int dU(int i) {
+    public int dT(int i) {
         switch (i) {
             case 12:
             case 13:

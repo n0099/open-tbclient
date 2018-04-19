@@ -5,5 +5,5 @@ public interface c {
 
     void as(int i, int i2);
 
-    void jw(int i);
+    void jv(int i);
 }

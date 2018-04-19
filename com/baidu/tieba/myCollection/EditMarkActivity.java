@@ -104,7 +104,7 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
         } else if (view2.getId() == this.eTb.aSM()) {
             int intValue = ((Integer) view2.getTag()).intValue();
             this.eTb.alR();
-            if (!this.eTa.pM(intValue)) {
+            if (!this.eTa.pL(intValue)) {
                 this.eTb.atM();
             }
         }
@@ -127,9 +127,9 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
                     com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgBookmark(0);
                 }
                 if (aSX > 0) {
-                    this.eTa.pL(aSX - 1);
+                    this.eTa.pK(aSX - 1);
                 } else {
-                    this.eTa.pL(0);
+                    this.eTa.pK(0);
                 }
             }
             markData2.setNewCounts(0);

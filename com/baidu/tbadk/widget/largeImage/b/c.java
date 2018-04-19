@@ -42,7 +42,7 @@ public class c {
     public c(com.baidu.tbadk.widget.largeImage.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder) {
         this.aSP = bVar;
         this.aTk = bitmapRegionDecoder;
-        com.baidu.tbadk.imageManager.c.Fa().eW((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
+        com.baidu.tbadk.imageManager.c.Fa().eV((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
         this.aTm = new com.baidu.adp.lib.e.a<a.C0106a, com.baidu.tbadk.widget.largeImage.a.a>((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f)) { // from class: com.baidu.tbadk.widget.largeImage.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -66,7 +66,7 @@ public class c {
                 }
             }
         };
-        this.aGS = com.baidu.tbadk.imageManager.c.Fa().eU(this.aSP.getBlockSize());
+        this.aGS = com.baidu.tbadk.imageManager.c.Fa().eT(this.aSP.getBlockSize());
         this.aGS.af(6);
     }
 

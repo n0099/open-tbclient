@@ -185,7 +185,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.mRefreshView == null) {
             this.mRefreshView = new com.baidu.tbadk.j.g(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.fb(i);
+        this.mRefreshView.fa(i);
     }
 
     public View.OnClickListener getNetRefreshListener() {
@@ -198,7 +198,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     /* JADX INFO: Access modifiers changed from: protected */
     public void setNetRefreshViewEmotionMarginTop(int i) {
         if (this.mRefreshView != null && this.mRefreshView.Fm()) {
-            this.mRefreshView.fb(i);
+            this.mRefreshView.fa(i);
         }
     }
 

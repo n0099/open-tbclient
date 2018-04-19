@@ -34,7 +34,7 @@ public class b {
         this.bcQ.setOnClickListener(this.mOnClickListener);
     }
 
-    public void eq(int i) {
+    public void ep(int i) {
         this.bcJ.getLayoutMode().setNightMode(i == 1);
         this.bcJ.getLayoutMode().u(this.mRootLayout);
     }

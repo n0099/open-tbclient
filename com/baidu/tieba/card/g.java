@@ -53,8 +53,8 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
             this.cmV = new e(this.mTbPageContext, null, null);
         }
         this.cmV.m(0, 0, 0, 0);
+        this.cmV.iI(8);
         this.cmV.iJ(8);
-        this.cmV.iK(8);
         if (this.cmV.getView().getParent() != null) {
             ((ViewGroup) this.cmV.getView().getParent()).removeView(this.cmV.getView());
         }
@@ -64,7 +64,7 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
         if (this.cmW == null) {
             this.cmW = new f(this.mTbPageContext);
         }
-        this.cmW.iK(8);
+        this.cmW.iJ(8);
         this.cmW.n(0, dimensionPixelSize, 0, 0);
         if (this.cmW.getView().getParent() != null) {
             ((ViewGroup) this.cmW.getView().getParent()).removeView(this.cmW.getView());
@@ -75,7 +75,7 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
         if (this.cmX == null) {
             this.cmX = new f(this.mTbPageContext);
         }
-        this.cmX.iK(8);
+        this.cmX.iJ(8);
         this.cmX.n(0, dimensionPixelSize, 0, 0);
         if (this.cmX.getView().getParent() != null) {
             ((ViewGroup) this.cmX.getView().getParent()).removeView(this.cmX.getView());
@@ -126,14 +126,14 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
                 this.cmZ.setData(list.get(1));
                 this.cmW.getView().setVisibility(0);
                 this.cmW.a(this.cmZ);
-                this.cmW.iL(8);
+                this.cmW.iK(8);
             }
             if (com.baidu.tbadk.core.util.v.v(list) >= 3) {
                 this.cna = new com.baidu.tieba.e.b();
                 this.cna.setData(list.get(2));
                 this.cmX.getView().setVisibility(0);
                 this.cmX.a(this.cna);
-                this.cmX.iL(8);
+                this.cmX.iK(8);
             }
         }
     }

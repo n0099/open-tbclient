@@ -341,7 +341,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                     pVar.fiS.setVisibility(8);
                 }
             }
-            pVar.fiN.getLayoutStrategy().fL(d.f.pic_video);
+            pVar.fiN.getLayoutStrategy().fK(d.f.pic_video);
             SparseArray sparseArray = new SparseArray();
             sparseArray.put(d.g.tag_clip_board, postData);
             sparseArray.put(d.g.tag_load_sub_data, postData);
@@ -362,9 +362,9 @@ public class o extends k<PostData, p> implements View.OnClickListener {
             }
             pVar.fiN.setLinkTextColor(com.baidu.tbadk.core.util.ak.getColor(d.C0126d.cp_link_tip_c));
             if (this.fhc) {
-                pVar.fiN.getLayoutStrategy().fO(d.f.transparent_bg);
+                pVar.fiN.getLayoutStrategy().fN(d.f.transparent_bg);
             } else {
-                pVar.fiN.getLayoutStrategy().fO(d.f.icon_click);
+                pVar.fiN.getLayoutStrategy().fN(d.f.icon_click);
             }
             pVar.fiN.setIsFromCDN(this.mIsFromCDN);
             if (this.fhb != null && this.fhb.aVs() != null && this.fhb.aVs().isLinkThread()) {
@@ -542,7 +542,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
         if (pVar != null && postData != null) {
             if (postData.bsm() == null) {
                 pVar.cqk.setVisibility(8);
-                pVar.fiN.getLayoutStrategy().fS(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds44));
+                pVar.fiN.getLayoutStrategy().fR(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds44));
                 return;
             }
             pVar.cqk.b(postData.bsm());
@@ -552,7 +552,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                 layoutParams.bottomMargin = this.bXU;
                 pVar.cqk.setLayoutParams(layoutParams);
             }
-            pVar.fiN.getLayoutStrategy().fS(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds34));
+            pVar.fiN.getLayoutStrategy().fR(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds34));
         }
     }
 
@@ -563,7 +563,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                 pVar.fjb.setVisibility(8);
                 return;
             }
-            pVar.fiN.getLayoutStrategy().fS(com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds48));
+            pVar.fiN.getLayoutStrategy().fR(com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds48));
             pVar.fja.setVisibility(0);
             com.baidu.tbadk.core.util.ak.j(pVar.fja, d.C0126d.cp_bg_line_c);
             pVar.fjb.setVisibility(0);
@@ -613,8 +613,8 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                 i = getDimensionPixelSize(d.e.ds80);
             }
             int min = Math.min(af - i, this.fhj);
-            tbRichTextView.getLayoutStrategy().fM(min);
-            tbRichTextView.getLayoutStrategy().fN((int) (min * 1.618f));
+            tbRichTextView.getLayoutStrategy().fL(min);
+            tbRichTextView.getLayoutStrategy().fM((int) (min * 1.618f));
         }
     }
 
@@ -649,7 +649,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
         this.fhb = dVar;
     }
 
-    public void qb(int i) {
+    public void qa(int i) {
         this.fhj = i;
     }
 

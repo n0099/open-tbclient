@@ -117,7 +117,7 @@ public class a extends com.baidu.tbadk.j.a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: lD */
+        /* renamed from: lC */
         public RecmForumInfo getItem(int i) {
             return this.dss.get(i);
         }

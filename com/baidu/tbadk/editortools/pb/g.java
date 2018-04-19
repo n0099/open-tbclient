@@ -87,7 +87,7 @@ public class g extends com.baidu.tbadk.editortools.d {
                     if (writeData2 != null && writeData2 != null && writeData2.getType() == 2) {
                         g.this.aFf.DZ();
                     }
-                } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.tu(i)) {
+                } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.tt(i)) {
                     g.this.j(i, str);
                 } else if (tVar != null && writeData != null && !StringUtils.isNull(tVar.getVcode_pic_url())) {
                     writeData.setVcodeMD5(tVar.getVcode_md5());
@@ -273,7 +273,7 @@ public class g extends com.baidu.tbadk.editortools.d {
     }
 
     public void j(int i, String str) {
-        if (AntiHelper.tu(i)) {
+        if (AntiHelper.tt(i)) {
             if (AntiHelper.a(this.adf.getPageActivity(), str, i, this.mInjectListener) != null) {
                 TiebaStatic.log(new al("c12534").r("obj_locate", ar.a.ajd));
             }
@@ -296,12 +296,12 @@ public class g extends com.baidu.tbadk.editortools.d {
     }
 
     public void a(AntiData antiData) {
-        com.baidu.tbadk.editortools.g eF;
+        com.baidu.tbadk.editortools.g eE;
         this.aFi = antiData;
         if (antiData != null) {
             this.aEA = antiData.getVoice_message();
-            if (!StringUtils.isNull(this.aEA) && DF() != null && (eF = DF().eF(6)) != null && !TextUtils.isEmpty(this.aEA)) {
-                ((View) eF).setOnClickListener(this.aFk);
+            if (!StringUtils.isNull(this.aEA) && DF() != null && (eE = DF().eE(6)) != null && !TextUtils.isEmpty(this.aEA)) {
+                ((View) eE).setOnClickListener(this.aFk);
             }
         }
     }
@@ -362,13 +362,13 @@ public class g extends com.baidu.tbadk.editortools.d {
     public void EB() {
         bG(true);
         DF().lN();
-        DF().M((View) DF().eF(5));
+        DF().M((View) DF().eE(5));
     }
 
     public void EC() {
         bG(true);
         DF().lN();
-        DF().M((View) DF().eF(2));
+        DF().M((View) DF().eE(2));
     }
 
     public void ED() {
@@ -429,7 +429,7 @@ public class g extends com.baidu.tbadk.editortools.d {
 
     public e EE() {
         if (this.aFj == null && DF() != null) {
-            this.aFj = (e) DF().eI(27);
+            this.aFj = (e) DF().eH(27);
         }
         return this.aFj;
     }

@@ -149,9 +149,9 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         }
         if (this.aSU.computeScrollOffset()) {
             int currX = this.aSU.getCurrX();
-            this.aSU.fC(currX);
+            this.aSU.fB(currX);
             int currY = this.aSU.getCurrY();
-            this.aSU.fD(currY);
+            this.aSU.fC(currY);
             moveTo(-((currX - this.aSU.Jk()) * 2.0f), -((currY - this.aSU.Jl()) * 2.0f));
             this.aSM.invalidate();
             return true;
@@ -588,11 +588,11 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
             this.aTh = 0;
         }
 
-        public void fC(int i) {
+        public void fB(int i) {
             this.aTg = i;
         }
 
-        public void fD(int i) {
+        public void fC(int i) {
             this.aTh = i;
         }
 

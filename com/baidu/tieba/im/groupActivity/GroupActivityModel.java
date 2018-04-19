@@ -26,7 +26,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return this.mFrom;
     }
 
-    public void nD(int i) {
+    public void nC(int i) {
         this.mFrom = i;
     }
 
@@ -34,7 +34,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return this.Vk;
     }
 
-    public void nE(int i) {
+    public void nD(int i) {
         this.Vk = i;
     }
 
@@ -56,14 +56,14 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return false;
     }
 
-    private RequestGetGroupActivityMessage nF(int i) {
+    private RequestGetGroupActivityMessage nE(int i) {
         RequestGetGroupActivityMessage requestGetGroupActivityMessage = new RequestGetGroupActivityMessage();
         requestGetGroupActivityMessage.setActivityId(i);
         requestGetGroupActivityMessage.setFrom(this.mFrom);
         return requestGetGroupActivityMessage;
     }
 
-    private RequestGetGroupActivityLocalMessage nG(int i) {
+    private RequestGetGroupActivityLocalMessage nF(int i) {
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = new RequestGetGroupActivityLocalMessage();
         requestGetGroupActivityLocalMessage.setActivityId(i);
         requestGetGroupActivityLocalMessage.setFrom(this.mFrom);
@@ -71,7 +71,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.eaB = nF(i);
+        this.eaB = nE(i);
         this.eaE.sendMessage(this.eaB);
     }
 
@@ -79,8 +79,8 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     public void cancelMessage() {
     }
 
-    public void nH(int i) {
-        this.eaC = nG(i);
+    public void nG(int i) {
+        this.eaC = nF(i);
         this.eaE.sendMessage(this.eaC);
     }
 

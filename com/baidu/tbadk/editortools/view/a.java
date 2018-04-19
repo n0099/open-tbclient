@@ -75,7 +75,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         return this.column;
     }
 
-    public void eR(int i) {
+    public void eQ(int i) {
         this.column = i;
     }
 
@@ -83,7 +83,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         return this.row;
     }
 
-    public void eS(int i) {
+    public void eR(int i) {
         this.row = i;
     }
 

@@ -591,7 +591,7 @@ public class b implements q {
             }
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
                 if (aVar instanceof com.baidu.tieba.frs.f) {
-                    ((com.baidu.tieba.frs.f) aVar).jZ(i);
+                    ((com.baidu.tieba.frs.f) aVar).jY(i);
                 }
             }
         }

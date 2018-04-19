@@ -25,14 +25,14 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T rZ(int i) {
+    public final <T> T rY(int i) {
         return (T) this.mRootView.findViewById(i);
     }
 
     public void bkj() {
         this.mRootView.setVisibility(0);
         if (this.gcP != null) {
-            this.gcP.rT(303);
+            this.gcP.rS(303);
             com.baidu.tieba.recapp.report.b.bke().a(this.gcP);
         }
     }

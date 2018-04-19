@@ -207,8 +207,8 @@ public class PostAdBaseData implements ICardInfo {
                 bdVar.setTitle(this.title);
                 bdVar.n(this.time);
                 bdVar.cN(this.forum_name);
-                bdVar.bO(this.reply_num);
-                bdVar.bX(this.agree_num);
+                bdVar.bN(this.reply_num);
+                bdVar.bW(this.agree_num);
                 bdVar.rQ().setName_show(this.username);
                 bdVar.rQ().setPortrait(this.portrait);
             }
@@ -246,7 +246,7 @@ public class PostAdBaseData implements ICardInfo {
             public C0209a fYp;
         }
 
-        public int rP(int i) {
+        public int rO(int i) {
             if (!"jump".equals(this.style) && i != 1 && !"apk_download".equals(this.style) && i != 3) {
                 return 37;
             }

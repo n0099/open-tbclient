@@ -128,7 +128,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     com.baidu.tieba.tbadkCore.writeModel.c.e(PbChosenActivity.this.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                 }
             } else if (postWriteCallBackData != null && tVar == null && postWriteCallBackData.getErrorCode() != 227001) {
-                if (AntiHelper.tu(postWriteCallBackData.getErrorCode())) {
+                if (AntiHelper.tt(postWriteCallBackData.getErrorCode())) {
                     AntiHelper.am(PbChosenActivity.this.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
                 } else {
                     BdToast.a(PbChosenActivity.this.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString()).tL();
@@ -232,7 +232,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 PbChosenActivity.this.faC.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.2.1
                     @Override // com.baidu.adp.base.d
                     public void f(Object obj) {
-                        if (AntiHelper.tu(PbChosenActivity.this.faC.getErrorCode())) {
+                        if (AntiHelper.tt(PbChosenActivity.this.faC.getErrorCode())) {
                             AntiHelper.am(PbChosenActivity.this.getActivity(), PbChosenActivity.this.faC.getErrorString());
                         }
                     }

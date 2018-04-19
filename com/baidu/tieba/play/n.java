@@ -258,7 +258,7 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public void rq(int i) {
+    public void rp(int i) {
         if (bgH()) {
             s.e(this.mContext, this.fPy, i);
         }

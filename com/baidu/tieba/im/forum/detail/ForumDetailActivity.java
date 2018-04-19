@@ -71,7 +71,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             return;
         }
         this.dWF.atM();
-        this.dWF.ik(d.k.game_index_no_network_text);
+        this.dWF.ij(d.k.game_index_no_network_text);
         showToast(d.k.neterror);
     }
 
@@ -105,9 +105,9 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             showToast(str);
         }
         if (l.hg()) {
-            this.dWF.ik(d.k.no_data_text);
+            this.dWF.ij(d.k.no_data_text);
         } else {
-            this.dWF.ik(d.k.game_index_no_network_text);
+            this.dWF.ij(d.k.game_index_no_network_text);
         }
     }
 
@@ -148,7 +148,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             return;
         }
         this.dWL = false;
-        this.dWF.ik(d.k.no_data_text);
+        this.dWF.ij(d.k.no_data_text);
     }
 
     private List<SimpleThreadInfo> bZ(List<SimpleThreadInfo> list) {
@@ -228,7 +228,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             this.dWG.subscribeBar(false, this.mForumId);
         } else if (!c.Ae().Ag() || !c.Ae().Am()) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-            aVar.ca(d.k.error_open_personal_single_alloff);
+            aVar.bZ(d.k.error_open_personal_single_alloff);
             aVar.b(getResources().getString(d.k.signallforum_signnow), new a.b() { // from class: com.baidu.tieba.im.forum.detail.ForumDetailActivity.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -263,7 +263,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
                 ForumDetailActivity.this.dWF.atM();
-                ForumDetailActivity.this.dWF.ik(d.k.game_index_no_network_text);
+                ForumDetailActivity.this.dWF.ij(d.k.game_index_no_network_text);
             }
         }
     }

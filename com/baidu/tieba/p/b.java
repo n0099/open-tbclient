@@ -152,18 +152,18 @@ public class b implements View.OnClickListener {
             Integer num = (Integer) tag;
             if (num.intValue() == 100) {
                 a("1", (TransmitForumData) null, this.mPrivateThread);
-                ud(11);
+                uc(11);
             } else if (num.intValue() == 200) {
                 bvz();
-                ud(13);
+                uc(13);
             }
         } else if (tag instanceof TransmitForumData) {
             a("2", (TransmitForumData) tag, this.mPrivateThread);
-            ud(12);
+            uc(12);
         }
     }
 
-    private void ud(int i) {
+    private void uc(int i) {
         if (this.mShareItem != null) {
             TiebaStatic.log(new al("c10125").ac(ImageViewerConfig.FORUM_ID, this.mShareItem.fid).ac("tid", this.mShareItem.tid).r("obj_type", i).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mShareItem.axa).r("obj_param1", this.mShareItem.axb));
         }

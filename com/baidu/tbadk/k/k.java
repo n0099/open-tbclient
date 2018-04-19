@@ -8,14 +8,14 @@ public class k extends j {
 
     public void GR() {
         r rVar;
-        if (p.Ha().Hb() && (rVar = (r) p.Ha().fm(this.mSubType)) != null) {
+        if (p.Ha().Hb() && (rVar = (r) p.Ha().fl(this.mSubType)) != null) {
             rVar.a(this, "head");
         }
     }
 
     public void GS() {
         r rVar;
-        if (p.Ha().Hb() && (rVar = (r) p.Ha().fm(this.mSubType)) != null) {
+        if (p.Ha().Hb() && (rVar = (r) p.Ha().fl(this.mSubType)) != null) {
             rVar.a(this, "img");
         }
     }

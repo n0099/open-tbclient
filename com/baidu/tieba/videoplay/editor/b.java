@@ -27,10 +27,10 @@ public class b extends com.baidu.tbadk.editortools.c {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
             DF.C(arrayList);
-            k eI = DF.eI(5);
-            if (eI != null) {
-                eI.bA(false);
-                eI.aDz = 0;
+            k eH = DF.eH(5);
+            if (eH != null) {
+                eH.bA(false);
+                eH.aDz = 0;
             }
             DF.b(new c(DF.getContext()));
             DF.DG();

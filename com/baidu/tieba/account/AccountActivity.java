@@ -130,7 +130,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         this.bcb = new View.OnClickListener() { // from class: com.baidu.tieba.account.AccountActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(final View view2) {
-                new com.baidu.tbadk.core.dialog.b(AccountActivity.this.getPageContext().getPageActivity()).cd(d.k.inform).a(new String[]{AccountActivity.this.getPageContext().getString(d.k.delete_account_only), AccountActivity.this.getPageContext().getString(d.k.delete_account_and_group_cache), AccountActivity.this.getPageContext().getString(d.k.cancel)}, new b.InterfaceC0086b() { // from class: com.baidu.tieba.account.AccountActivity.2.1
+                new com.baidu.tbadk.core.dialog.b(AccountActivity.this.getPageContext().getPageActivity()).cc(d.k.inform).a(new String[]{AccountActivity.this.getPageContext().getString(d.k.delete_account_only), AccountActivity.this.getPageContext().getString(d.k.delete_account_and_group_cache), AccountActivity.this.getPageContext().getString(d.k.cancel)}, new b.InterfaceC0086b() { // from class: com.baidu.tieba.account.AccountActivity.2.1
                     @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
                     public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view3) {
                         if (view2 != null) {

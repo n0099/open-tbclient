@@ -153,11 +153,11 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         });
         if (this.mIsHost && this.efK != 23003 && !this.fEW) {
             this.efH = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.widget_nb_item_privacy, (View.OnClickListener) null);
-            ak.a(this.efH, fEY[com.baidu.tbadk.core.a.f.bA(bea()) - 1], efM[com.baidu.tbadk.core.a.f.bA(bea()) - 1]);
+            ak.a(this.efH, fEY[com.baidu.tbadk.core.a.f.bz(bea()) - 1], efM[com.baidu.tbadk.core.a.f.bz(bea()) - 1]);
             this.efH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    BasePersonInfoActivity.this.efF = com.baidu.tbadk.core.a.f.bA(BasePersonInfoActivity.this.bea()) % 3;
+                    BasePersonInfoActivity.this.efF = com.baidu.tbadk.core.a.f.bz(BasePersonInfoActivity.this.bea()) % 3;
                     String str = "";
                     switch (BasePersonInfoActivity.this.bea()) {
                         case 2:
@@ -199,16 +199,16 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             int i = this.mIsHost ? 1 : 2;
             for (int i2 = 0; i2 < i; i2++) {
                 Fragment item = this.fEZ.getItem(i2);
-                int nV = this.fEZ.nV(i2);
+                int nU = this.fEZ.nU(i2);
                 String bdS = bdS();
-                if (nV == 1) {
+                if (nU == 1) {
                     bdS = bdT();
                 }
                 if (item != null) {
-                    a(item, nV, bdS);
+                    a(item, nU, bdS);
                 }
             }
-            this.bgN.cv(3);
+            this.bgN.cu(3);
         }
     }
 
@@ -233,13 +233,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     public void bg(int i, int i2) {
         if (!this.mIsHost && this.fEZ != null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.bgN.cy(0).afI;
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.bgN.cx(0).afI;
             if (i <= 0) {
                 fragmentTabIndicator.setText(bdS());
             } else {
                 fragmentTabIndicator.setText(String.format(bdU(), Integer.valueOf(i)));
             }
-            FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.bgN.cy(1).afI;
+            FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.bgN.cx(1).afI;
             if (i2 <= 0) {
                 fragmentTabIndicator2.setText(bdT());
             } else {

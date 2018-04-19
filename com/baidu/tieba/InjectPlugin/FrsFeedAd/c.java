@@ -25,7 +25,7 @@ public class c {
         return this.aXt;
     }
 
-    public void ga(int i) {
+    public void fZ(int i) {
         this.aXt = i;
     }
 }

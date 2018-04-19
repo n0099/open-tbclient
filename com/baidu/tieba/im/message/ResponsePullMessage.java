@@ -310,7 +310,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 iVar.aKH = currentTimeMillis2;
                                 iVar.aKI = i3;
                                 iVar.EI = this.performanceData.oX;
-                                iVar.fj(1002);
+                                iVar.fi(1002);
                                 iVar.GP();
                                 return;
                             }
@@ -327,7 +327,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 iVar2.aKH = currentTimeMillis3;
                                 iVar2.aKI = i2;
                                 iVar2.EI = this.performanceData.oX;
-                                iVar2.fj(1002);
+                                iVar2.fi(1002);
                                 iVar2.GP();
                             }
                             throw th;
@@ -344,7 +344,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                     iVar3.aKH = currentTimeMillis4;
                     iVar3.aKI = i3;
                     iVar3.EI = this.performanceData.oX;
-                    iVar3.fj(1002);
+                    iVar3.fi(1002);
                     iVar3.GP();
                 }
             } catch (Throwable th2) {
@@ -381,7 +381,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                     GroupMsgData obtainGroupData = obtainGroupData(groupInfo);
                     if (obtainGroupData == null) {
                         BdLog.e("obtainGroupData == null !!!!");
-                    } else if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bw(obtainGroupData.getGroupInfo().getCustomType())) {
+                    } else if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bv(obtainGroupData.getGroupInfo().getCustomType())) {
                         getGroupMsg().add(obtainGroupData);
                         LinkedList<ChatMessage> linkedList = new LinkedList<>();
                         obtainGroupData.setListMessageData(linkedList);
@@ -488,7 +488,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                     BdLog.i("msg is contained in PushIdsCacheManager");
                                                 } else if (obtainMessage.getMsgType() == 99) {
                                                     BdLog.i("msg is MSG_UNSHOW_OPERATER_ACCOUNT");
-                                                } else if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bw(4)) {
+                                                } else if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bv(4)) {
                                                     if (hashMap2.get(String.valueOf(longValue2)) == null) {
                                                         GroupMsgData groupMsgData = new GroupMsgData(2012123);
                                                         groupMsgData.getGroupInfo().setUserType(i2);
@@ -523,7 +523,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                     linkedList.remove(0);
                                                     linkedList.add(obtainMessage);
                                                 }
-                                                if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bw(2)) {
+                                                if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bv(2)) {
                                                     if (hashMap.get(String.valueOf(longValue)) == null) {
                                                         GroupMsgData groupMsgData2 = new GroupMsgData(2012121);
                                                         groupMsgData2.getGroupInfo().setCustomType(2);

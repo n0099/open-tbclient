@@ -75,7 +75,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         return videoPlayFragment;
     }
 
-    public VideoPlayFragment uE(int i) {
+    public VideoPlayFragment uD(int i) {
         return this.gVJ.get(i);
     }
 
@@ -88,7 +88,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         super.setPrimaryItem(viewGroup, i, obj);
         if (this.gVG.gb(true)) {
             if (this.gVG.avH() < 0) {
-                this.gVG.uG(i);
+                this.gVG.uF(i);
             } else if (this.gVG.avH() == i) {
                 y((VideoPlayFragment) obj);
             }
@@ -114,11 +114,11 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         }
     }
 
-    public void uF(int i) {
+    public void uE(int i) {
         List<String> list;
         String str;
-        VideoPlayFragment uE;
-        VideoPlayFragment uE2;
+        VideoPlayFragment uD;
+        VideoPlayFragment uD2;
         String str2 = null;
         VideoPlayFragment videoPlayFragment = this.gVJ.get(i);
         if (videoPlayFragment != null) {
@@ -133,9 +133,9 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             list = null;
             str = null;
         }
-        String bzK = (i + (-1) < 0 || (uE2 = uE(i + (-1))) == null) ? null : uE2.bzK();
-        if (i + 1 < getCount() && (uE = uE(i + 1)) != null) {
-            str2 = uE.bzK();
+        String bzK = (i + (-1) < 0 || (uD2 = uD(i + (-1))) == null) ? null : uD2.bzK();
+        if (i + 1 < getCount() && (uD = uD(i + 1)) != null) {
+            str2 = uD.bzK();
         }
         ArrayList arrayList = new ArrayList();
         int v = v.v(list);

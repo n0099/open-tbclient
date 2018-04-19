@@ -68,7 +68,7 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
         if (jVar == null || aVar == null || aVar.afY() == null) {
             return null;
         }
-        jVar.iO(i + 1);
+        jVar.iN(i + 1);
         v.afy().a(jVar.kB("c12351"));
         if (aVar.afY() instanceof com.baidu.tieba.a.e) {
             aVar.afY().setPage(this.bvX);

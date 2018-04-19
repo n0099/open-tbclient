@@ -153,7 +153,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                 ArrayList<ForumData> bes = PersonBarFragment.this.fFX.bey().bes();
                 int bem = PersonBarFragment.this.fFX.bey().bem();
                 if (PersonBarFragment.this.eTc < bem) {
-                    PersonBarFragment.this.fFX.bey().rb(bem - 1);
+                    PersonBarFragment.this.fFX.bey().ra(bem - 1);
                 }
                 if (bes != null && PersonBarFragment.this.eTc >= 0 && PersonBarFragment.this.eTc < bes.size()) {
                     bes.remove(PersonBarFragment.this.eTc);
@@ -195,7 +195,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                         PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
                         if (personBarResponseMessage.getErrCode() == 0) {
                             com.baidu.tieba.personExtra.a personBarData = personBarResponseMessage.getPersonBarData();
-                            PersonBarFragment.this.fFX.rf(PersonBarFragment.this.fGl);
+                            PersonBarFragment.this.fFX.re(PersonBarFragment.this.fGl);
                             final String resultString = personBarResponseMessage.getResultString();
                             final PersonBarModel personBarModel = PersonBarFragment.this.fFX;
                             v.a(new u<Object>() { // from class: com.baidu.tieba.personExtra.PersonBarFragment.3.1
@@ -440,7 +440,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                             PersonBarFragment.this.sendMessage(requestGetLivableForumList);
                             return;
                         }
-                        PersonBarFragment.this.nv(PersonBarFragment.this.fGl);
+                        PersonBarFragment.this.nu(PersonBarFragment.this.fGl);
                         return;
                     }
                     return;
@@ -517,7 +517,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
         }
     }
 
-    public void nv(int i) {
+    public void nu(int i) {
         if (this.fFX != null) {
             this.fFX.a(this.mIsHost, this.fFX.getId(), i, this.pageSize);
         }
@@ -543,19 +543,19 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                         this.fGl = 1;
                         this.fFX.bey().b(aVar.beo(), aVar.bep());
                         this.fFX.bey().e(aVar.beq(), aVar.ber());
-                        this.fFX.bey().rb(aVar.bem());
-                        this.fFX.bey().rd(aVar.ben());
+                        this.fFX.bey().ra(aVar.bem());
+                        this.fFX.bey().rc(aVar.ben());
                     } else if (this.fGl == 1) {
                         this.fFX.bey().b(aVar.beo(), aVar.bep());
                         this.fFX.bey().e(aVar.beq(), aVar.ber());
-                        this.fFX.bey().rb(aVar.bem());
-                        this.fFX.bey().rd(aVar.ben());
+                        this.fFX.bey().ra(aVar.bem());
+                        this.fFX.bey().rc(aVar.ben());
                         this.fGl++;
                     } else {
                         this.fFX.bey().c(aVar.beo(), aVar.bep());
                         this.fFX.bey().d(aVar.beq(), aVar.ber());
-                        this.fFX.bey().rc(aVar.bem());
-                        this.fFX.bey().re(aVar.ben());
+                        this.fFX.bey().rb(aVar.bem());
+                        this.fFX.bey().rd(aVar.ben());
                         this.fGl++;
                     }
                 }
@@ -592,13 +592,13 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                 beu().Rg().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
             }
             if (this.mPullView != null) {
-                this.mPullView.dw(i);
+                this.mPullView.dv(i);
             }
             if (this.fGi != null) {
                 this.fGi.notifyDataSetChanged();
             }
             if (this.fGh != null) {
-                this.fGh.dw(i);
+                this.fGh.dv(i);
             }
             ak.b(this.bca, this.fGs, d.C0126d.navi_op_text_skin);
         }
@@ -640,17 +640,17 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             ak.j(this.aJH, this.bgColor);
             this.aJH.setVisibility(8);
             this.mProgressBar = (ProgressBar) this.Tl.findViewById(d.g.progress);
-            eq(TbadkCoreApplication.getInst().getSkinType());
+            ep(TbadkCoreApplication.getInst().getSkinType());
             this.aJH.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             return this.Tl;
         }
 
-        public void eq(int i) {
+        public void ep(int i) {
             this.bea.getLayoutMode().u(this.aJH);
         }
 
         @SuppressLint({"ResourceAsColor"})
-        public void dw(int i) {
+        public void dv(int i) {
             ak.e(this.Tl, this.bgColor, i);
             ak.e(this.aJH, this.bgColor, i);
         }

@@ -265,7 +265,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements com.baidu.tieba.a.e
         this.cma.setFromCDN(this.akC);
         this.cma.setData(this.alf.tc());
         this.bwj.setUserAfterClickListener(this.apj);
-        hc(gn(1));
+        hb(gm(1));
         if (this.bwj.getHeaderImg() != null) {
             if (this.bwj.getIsSimpleThread()) {
                 this.bwj.getHeaderImg().setVisibility(8);
@@ -293,7 +293,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements com.baidu.tieba.a.e
             this.coU.setTag(voiceModel);
             this.coU.aIT();
             if (voiceModel != null) {
-                this.coU.oc(voiceModel.voice_status.intValue());
+                this.coU.ob(voiceModel.voice_status.intValue());
             }
         }
         ArrayList<MediaData> sa = bdVar.sa();
@@ -562,7 +562,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements com.baidu.tieba.a.e
     }
 
     private void H(bd bdVar) {
-        if (bdVar != null && gn(2) == 1) {
+        if (bdVar != null && gm(2) == 1) {
             if (!StringUtils.isNull(this.mUrl) && !StringUtils.isNull(this.deR)) {
                 bdVar.M(this.mUrl, this.deR);
             }
@@ -593,7 +593,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements com.baidu.tieba.a.e
         }
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.alf != null) {
             if (i == 1) {
                 this.bwk.setVisibility(8);
@@ -620,7 +620,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements com.baidu.tieba.a.e
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

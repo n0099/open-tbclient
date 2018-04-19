@@ -102,11 +102,11 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void dL(int i) {
-        dN(i);
+    public void dK(int i) {
+        dM(i);
     }
 
-    public void dN(int i) {
+    public void dM(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {

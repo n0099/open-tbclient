@@ -17,7 +17,7 @@ public class a extends com.baidu.adp.a.a.a {
     /* renamed from: com.baidu.tbadk.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0101a {
-        void fg(int i);
+        void ff(int i);
     }
 
     public a(Context context) {
@@ -96,7 +96,7 @@ public class a extends com.baidu.adp.a.a.a {
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
                 if (a.this.aJZ != null) {
-                    a.this.aJZ.fg(this.aKb);
+                    a.this.aJZ.ff(this.aKb);
                 } else {
                     com.baidu.adp.a.a.d.y(this.aKb);
                 }

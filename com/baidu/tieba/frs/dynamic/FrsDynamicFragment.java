@@ -175,7 +175,7 @@ public class FrsDynamicFragment extends BaseFragment implements BdListView.e, a.
     };
     public final com.baidu.tieba.tbadkCore.n cYk = new com.baidu.tieba.tbadkCore.n() { // from class: com.baidu.tieba.frs.dynamic.FrsDynamicFragment.6
         @Override // com.baidu.tieba.tbadkCore.n
-        public void ke(int i) {
+        public void kd(int i) {
             switch (i) {
                 case 1:
                 case 2:
@@ -238,7 +238,7 @@ public class FrsDynamicFragment extends BaseFragment implements BdListView.e, a.
                 bd bdVar = (bd) customResponsedMessage.getData();
                 FrsDynamicFragment.this.dcw = bdVar.getId();
                 if (!TextUtils.isEmpty(FrsDynamicFragment.this.dcw) && bdVar.rF() != null) {
-                    FrsDynamicFragment.this.kt(bdVar.rF().getIsLike());
+                    FrsDynamicFragment.this.ks(bdVar.rF().getIsLike());
                 }
             }
         }
@@ -496,7 +496,7 @@ public class FrsDynamicFragment extends BaseFragment implements BdListView.e, a.
             this.mRefreshView.setTitle(null);
             this.mRefreshView.setButtonText(null);
             this.mRefreshView.Fu();
-            this.mRefreshView.fa(getResources().getDimensionPixelSize(d.e.ds_102));
+            this.mRefreshView.eZ(getResources().getDimensionPixelSize(d.e.ds_102));
             this.mRefreshView.Fs().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         if (aVar != null) {
@@ -537,7 +537,7 @@ public class FrsDynamicFragment extends BaseFragment implements BdListView.e, a.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kt(int i) {
+    public void ks(int i) {
         if (this.dct.threadList != null) {
             Iterator<h> it = this.dct.threadList.iterator();
             while (true) {

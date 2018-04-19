@@ -49,7 +49,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oo */
+    /* renamed from: on */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
         return (com.baidu.tieba.interestlabel.b.a) v.c(this.ese, i);
     }

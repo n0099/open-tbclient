@@ -64,7 +64,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
 
         void b(LinkedList<VisitedForumData> linkedList, boolean z);
 
-        void jy(int i);
+        void jx(int i);
     }
 
     public RecentlyVisitedForumModel() {
@@ -104,7 +104,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         int b;
         if (visitedForumData != null && (b = this.cIi.b(visitedForumData)) >= 0) {
             if (this.cIj != null) {
-                this.cIj.jy(b);
+                this.cIj.jx(b);
             }
             e(visitedForumData);
         }

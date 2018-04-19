@@ -173,7 +173,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.Im
         }
         com.baidu.adp.lib.stats.a fq2 = com.baidu.tbadk.core.util.s.fq();
         fq2.fA();
-        com.baidu.tbadk.imageManager.c.Fa().eY(TbConfig.getPbImageSize() + j2.length);
+        com.baidu.tbadk.imageManager.c.Fa().eX(TbConfig.getPbImageSize() + j2.length);
         Bitmap a2 = a(j2, rect, sb2);
         if (z && a2 == null) {
             TiebaStatic.imgError(TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str);
@@ -310,7 +310,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.Im
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.Fa().eY(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.Fa().eX(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
         }
         return bitmap;

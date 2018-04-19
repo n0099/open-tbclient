@@ -30,7 +30,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sh */
+    /* renamed from: sg */
     public e getItem(int i) {
         if (this.gfu == null || i >= this.gfu.size()) {
             return null;

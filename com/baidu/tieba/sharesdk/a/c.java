@@ -24,7 +24,7 @@ public class c extends b {
             public void onLoaded(e.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
                 if (aVar == null || aVar.akH == null || TextUtils.isEmpty(aVar.path)) {
-                    c.this.sB(2);
+                    c.this.sA(2);
                 }
                 c.this.st(aVar.path);
             }
@@ -33,7 +33,7 @@ public class c extends b {
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                c.this.sB(3);
+                c.this.sA(3);
             }
         };
         this.gkw = 4;
@@ -42,12 +42,12 @@ public class c extends b {
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
         if (shareEntity == null || this.gkC == null) {
-            sB(2);
+            sA(2);
             if (bVar != null) {
                 bVar.bC(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            sB(2);
+            sA(2);
             if (bVar != null) {
                 bVar.bC(0, 2);
             }

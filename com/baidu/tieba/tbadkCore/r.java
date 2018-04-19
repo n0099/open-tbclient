@@ -44,7 +44,7 @@ public class r {
         return this.user_level;
     }
 
-    public void sS(int i) {
+    public void sR(int i) {
         if (i >= 0) {
             this.user_level = i;
         }

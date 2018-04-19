@@ -53,7 +53,7 @@ public class e extends a {
                 if (e.this.gkI != null) {
                     e.this.gkI.bC(6, 3);
                 }
-                e.this.sB(3);
+                e.this.sA(3);
             }
         };
         this.context = context;
@@ -68,7 +68,7 @@ public class e extends a {
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
         if (shareEntity == null || this.gkJ == null) {
-            sB(2);
+            sA(2);
             if (bVar != null) {
                 bVar.bC(6, 2);
                 return;
@@ -93,7 +93,7 @@ public class e extends a {
             if (this.gkI != null) {
                 this.gkI.bC(6, 2);
             }
-            sB(2);
+            sA(2);
             return;
         }
         WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
@@ -222,31 +222,31 @@ public class e extends a {
                     if (this.gkI != null) {
                         this.gkI.bC(6, 1);
                     }
-                    sB(1);
+                    sA(1);
                     return;
                 case 1:
                     if (this.gkI != null) {
                         this.gkI.bC(6, 3);
                     }
-                    sB(3);
+                    sA(3);
                     return;
                 case 2:
                     if (this.gkI != null) {
                         this.gkI.bC(6, 2);
                     }
-                    sB(2);
+                    sA(2);
                     return;
                 default:
                     if (this.gkI != null) {
                         this.gkI.bC(6, 2);
                     }
-                    sB(2);
+                    sA(2);
                     return;
             }
         }
         if (this.gkI != null) {
             this.gkI.bC(6, 2);
         }
-        sB(2);
+        sA(2);
     }
 }

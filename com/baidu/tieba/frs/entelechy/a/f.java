@@ -26,14 +26,14 @@ public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy
         if (bdVar != null) {
             int sN = bdVar.sN();
             al alVar = new al(str);
-            alVar.ac("obj_locate", kx(sN));
+            alVar.ac("obj_locate", kw(sN));
             alVar.ac("tid", bdVar.getTid());
             alVar.r("obj_type", 2);
             TiebaStatic.log(alVar);
         }
     }
 
-    private String kx(int i) {
+    private String kw(int i) {
         if (i == ddM) {
             return "3";
         }
@@ -84,7 +84,7 @@ public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy
         y yVar = null;
         if (bdVar != null) {
             yVar = new y();
-            yVar.mLocate = kx(bdVar.sN());
+            yVar.mLocate = kw(bdVar.sN());
             yVar.crJ = doy.doo;
             yVar.aNu = bdVar.getTid();
             yVar.fQP = bdVar.mRecomAbTag;

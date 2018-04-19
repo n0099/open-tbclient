@@ -98,7 +98,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (dVar.isHost) {
             this.fLp.setText(this.mPageContext.getString(d.k.me));
         } else {
-            this.fLp.setText(an.cU(dVar.sex));
+            this.fLp.setText(an.cT(dVar.sex));
         }
         int v = v.v(dVar.users);
         if (v > 3) {

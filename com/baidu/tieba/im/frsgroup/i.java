@@ -35,12 +35,12 @@ public class i extends q.a {
         this.adx.setText(str);
         this.mTitleView.setText(str2);
         this.mButton.setText(str3);
-        fb(0);
-        nz(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds30));
+        fa(0);
+        ny(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds30));
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.dYv.setImageBitmap(ak.cQ(d.f.pic_emotion08));
+            this.dYv.setImageBitmap(ak.cP(d.f.pic_emotion08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.dYv.setImageBitmap(ak.cQ(d.f.no_data_image));
+            this.dYv.setImageBitmap(ak.cP(d.f.no_data_image));
         } else {
             d(imgType);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
@@ -51,7 +51,7 @@ public class i extends q.a {
         }
     }
 
-    public void fb(int i) {
+    public void fa(int i) {
         ViewGroup.LayoutParams layoutParams = this.dYv.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
@@ -60,7 +60,7 @@ public class i extends q.a {
         }
     }
 
-    public void nz(int i) {
+    public void ny(int i) {
         ViewGroup.LayoutParams layoutParams = this.mButton.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;

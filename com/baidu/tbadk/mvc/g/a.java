@@ -77,13 +77,13 @@ public class a extends b implements o {
         this.Tl.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void fd(int i) {
+    public void fc(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
         this.aJH.setVisibility(0);
     }
 
-    public void fe(int i) {
+    public void fd(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }

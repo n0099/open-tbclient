@@ -54,7 +54,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (keyEvent == null || this.dbl == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.dbl.kr(i)) {
+        if (this.dbl.kq(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

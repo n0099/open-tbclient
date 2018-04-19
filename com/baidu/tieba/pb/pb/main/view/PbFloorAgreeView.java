@@ -108,7 +108,7 @@ public class PbFloorAgreeView extends FrameLayout {
         ak.h(this.fsK, d.C0126d.cp_cont_j);
     }
 
-    public void qF(int i) {
+    public void qE(int i) {
         if (this.aou != null && getVisibility() == 0) {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).setClipChildren(false);

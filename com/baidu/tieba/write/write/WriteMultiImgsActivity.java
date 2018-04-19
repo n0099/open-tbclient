@@ -126,7 +126,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.hge != null) {
-            this.hge.vm(i);
+            this.hge.vl(i);
         }
     }
 

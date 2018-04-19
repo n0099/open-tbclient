@@ -97,7 +97,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                 bd bdVar = (bd) customResponsedMessage.getData();
                 FrsGoodFragment.this.dcw = bdVar.getId();
                 if (!TextUtils.isEmpty(FrsGoodFragment.this.dcw) && bdVar.rF() != null) {
-                    FrsGoodFragment.this.kt(bdVar.rF().getIsLike());
+                    FrsGoodFragment.this.ks(bdVar.rF().getIsLike());
                 }
             }
         }
@@ -126,7 +126,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
         private long dlS = 1;
 
         @Override // com.baidu.tieba.tbadkCore.n
-        public void ke(int i) {
+        public void kd(int i) {
             switch (i) {
                 case 1:
                 case 2:
@@ -266,7 +266,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
             }
             if (FrsGoodFragment.this.cXq == null) {
                 FrsGoodFragment.this.cXq = new com.baidu.tbadk.k.d();
-                FrsGoodFragment.this.cXq.fj(1000);
+                FrsGoodFragment.this.cXq.fi(1000);
             }
             FrsGoodFragment.this.cXq.GF();
             if (i == 0) {
@@ -374,7 +374,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
             this.mRefreshView.setTitle(null);
             this.mRefreshView.setButtonText(null);
             this.mRefreshView.Fu();
-            this.mRefreshView.fa(getResources().getDimensionPixelSize(d.e.ds_102));
+            this.mRefreshView.eZ(getResources().getDimensionPixelSize(d.e.ds_102));
             this.mRefreshView.Fs().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         if (aVar != null) {
@@ -402,7 +402,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
             Qn();
             showLoadingView();
         }
-        this.dlM.gN(this.mTabId);
+        this.dlM.gM(this.mTabId);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -531,7 +531,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                     if (stringExtra != null && (lT = this.cWO.lT(stringExtra)) != null) {
                         int intExtra = intent.getIntExtra("type", -1);
                         if (intExtra == 2) {
-                            lT.bR(intent.getIntExtra("good_data", 0));
+                            lT.bQ(intent.getIntExtra("good_data", 0));
                             lT.sx();
                             fH(false);
                             return;
@@ -682,7 +682,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kt(int i) {
+    public void ks(int i) {
         ArrayList<h> threadList = this.cWO.getThreadList();
         if (threadList != null) {
             Iterator<h> it = threadList.iterator();
@@ -869,7 +869,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                 } else if (this.bXj != 0) {
                     this.dlO.a(this.dlN.atX(), this.mPn, this.cWO, 0);
                     this.mPn++;
-                    this.dlM.kS(this.mPn);
+                    this.dlM.kR(this.mPn);
                     this.dlN.loadingDone = false;
                     this.dlN.loadIndex = 0;
                 }
@@ -958,7 +958,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void kR(int i) {
+    public void kQ(int i) {
         this.mTabId = i;
         if (j.gP()) {
             fH(false);

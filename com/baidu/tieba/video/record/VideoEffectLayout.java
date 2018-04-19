@@ -80,7 +80,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     private <T> e<T> c(int i, int i2, String str, T t) {
         e<T> eVar = new e<>();
         eVar.setType(i2);
-        eVar.uv(i);
+        eVar.uu(i);
         eVar.setName(str);
         eVar.setValue(t);
         return eVar;
@@ -88,7 +88,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
 
     private void bzi() {
         this.gTA = "2";
-        this.gTC = c(d.f.beauty_icon_avatar_2, 1, "2", com.baidu.tieba.video.a.uf(2));
+        this.gTC = c(d.f.beauty_icon_avatar_2, 1, "2", com.baidu.tieba.video.a.ue(2));
         this.axQ = getString(d.k.filter_nature);
         this.gTD = c(d.f.filter_icon_avatar_default, 2, getString(d.k.filter_nature), "nature");
         StickerItem stickerItem = new StickerItem();
@@ -102,12 +102,12 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     private void bzj() {
         if (this.gTx == null) {
             this.gTx = new ArrayList();
-            a("No", com.baidu.tieba.video.a.uf(0));
-            a("1", com.baidu.tieba.video.a.uf(1));
-            a("2", com.baidu.tieba.video.a.uf(2));
-            a("3", com.baidu.tieba.video.a.uf(3));
-            a("4", com.baidu.tieba.video.a.uf(4));
-            a("5", com.baidu.tieba.video.a.uf(5));
+            a("No", com.baidu.tieba.video.a.ue(0));
+            a("1", com.baidu.tieba.video.a.ue(1));
+            a("2", com.baidu.tieba.video.a.ue(2));
+            a("3", com.baidu.tieba.video.a.ue(3));
+            a("4", com.baidu.tieba.video.a.ue(4));
+            a("5", com.baidu.tieba.video.a.ue(5));
         }
     }
 

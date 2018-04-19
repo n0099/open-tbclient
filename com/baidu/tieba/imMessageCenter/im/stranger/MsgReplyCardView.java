@@ -51,36 +51,36 @@ public class MsgReplyCardView extends g {
 
     private String a(a.C0168a c0168a, String str) {
         String string;
-        String of;
+        String oe;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = of(c0168a.elZ);
-            of = this.mContext.getString(d.k.you);
+            string = oe(c0168a.elZ);
+            oe = this.mContext.getString(d.k.you);
         } else {
             string = this.mContext.getString(d.k.you);
-            of = of(c0168a.elZ);
+            oe = oe(c0168a.elZ);
         }
-        return String.format(this.mContext.getString(d.k.add_friend_card_title), string, getType(c0168a.type), of);
+        return String.format(this.mContext.getString(d.k.add_friend_card_title), string, getType(c0168a.type), oe);
     }
 
     private String b(a.C0168a c0168a, String str) {
-        String of;
+        String oe;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            of = this.mContext.getString(d.k.me);
+            oe = this.mContext.getString(d.k.me);
         } else {
-            of = of(c0168a.elZ);
+            oe = oe(c0168a.elZ);
         }
         if (c0168a.type == 1) {
-            sb.append(String.format(this.mContext.getString(d.k.add_friend_card_quote_comment), of));
+            sb.append(String.format(this.mContext.getString(d.k.add_friend_card_quote_comment), oe));
             sb.append(c0168a.emd);
         } else {
-            sb.append(String.format(this.mContext.getString(d.k.add_friend_card_quote_thread), of));
+            sb.append(String.format(this.mContext.getString(d.k.add_friend_card_quote_thread), oe));
             sb.append(c0168a.title);
         }
         return sb.toString();
     }
 
-    private String of(int i) {
+    private String oe(int i) {
         if (i == 1) {
             return this.mContext.getResources().getString(d.k.he);
         }

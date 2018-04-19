@@ -37,7 +37,7 @@ public class l extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void nA(int i);
+        void nz(int i);
     }
 
     public void a(a aVar) {
@@ -79,7 +79,7 @@ public class l extends BaseAdapter {
             }
             notifyDataSetChanged();
             if (this.dZf != null) {
-                this.dZf.nA(this.dZj.size());
+                this.dZf.nz(this.dZj.size());
             }
         }
     }
@@ -240,7 +240,7 @@ public class l extends BaseAdapter {
                                         l.this.dZj.remove(l);
                                     }
                                     if (l.this.dZf != null) {
-                                        l.this.dZf.nA(l.this.dZj.size());
+                                        l.this.dZf.nz(l.this.dZj.size());
                                     }
                                 }
                             }

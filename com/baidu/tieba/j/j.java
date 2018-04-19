@@ -101,7 +101,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.j.i
-    public void pE(int i) {
+    public void pD(int i) {
         if (this.mCurrentState != 4 && this.mCurrentState != 5 && this.mCurrentState != 7 && this.mCurrentState != 8) {
             this.eQL = i;
             this.eQZ = true;
@@ -118,7 +118,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.j.i
-    public void pF(int i) {
+    public void pE(int i) {
         if (this.mCurrentState == 5) {
             aRV();
         } else if (this.mCurrentState == 3) {
@@ -408,7 +408,7 @@ public class j implements i {
             jSONObject.put("tid", this.aNu);
             jSONObject.put("videoUrl", this.baI);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("playerType", VideoPlatformStatic.gk(this.eQL));
+            jSONObject.put("playerType", VideoPlatformStatic.gj(this.eQL));
             jSONObject.put("urlType", this.eQM);
             jSONObject.put("sub_error", this.eRe);
             jSONObject.put("current_pid", Process.myPid());

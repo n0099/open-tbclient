@@ -127,7 +127,7 @@ public class d implements View.OnClickListener {
         if (this.JV == null) {
             this.JV = new com.baidu.tbadk.core.dialog.a(this.mActivity);
             this.JV.w(this.dyw);
-            this.JV.cc(1);
+            this.JV.cb(1);
             this.JV.as(true);
         }
     }
@@ -145,7 +145,7 @@ public class d implements View.OnClickListener {
         return arrayList;
     }
 
-    public MetaData lQ(int i) {
+    public MetaData lP(int i) {
         return this.dyx.getItem(i);
     }
 

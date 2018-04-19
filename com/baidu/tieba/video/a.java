@@ -8,7 +8,7 @@ public class a {
     public float gJG;
     public int level;
 
-    public static a uf(int i) {
+    public static a ue(int i) {
         switch (i) {
             case 0:
                 return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);

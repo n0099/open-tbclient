@@ -28,7 +28,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         super.onCreate(bundle);
         this.ghh = new com.baidu.tieba.setting.more.a(this, new c() { // from class: com.baidu.tieba.setting.more.AboutActivity.1
             @Override // com.baidu.tieba.setting.more.c
-            public void st(int i) {
+            public void ss(int i) {
                 if (i == 0) {
                     AboutActivity.this.finish();
                 } else if (i == 1) {
@@ -74,7 +74,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.ghh != null) {
-            this.ghh.eq(i);
+            this.ghh.ep(i);
         }
     }
 

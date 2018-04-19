@@ -42,7 +42,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: jz */
+    /* renamed from: jy */
     public b getItem(int i) {
         return (b) v.c(this.mDatas, i);
     }

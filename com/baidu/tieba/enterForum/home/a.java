@@ -112,7 +112,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
     private com.baidu.adp.base.d cHY = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.enterForum.home.a.3
         @Override // com.baidu.adp.base.d
         public void f(Object obj) {
-            if (AntiHelper.tu(a.this.bmW.getErrorCode())) {
+            if (AntiHelper.tt(a.this.bmW.getErrorCode())) {
                 AntiHelper.am(a.this.bea.getPageContext().getPageActivity(), a.this.bmW.getErrorString());
             } else if (obj != null) {
                 a.this.cHM.fb(!StringUtils.isNull(a.this.cHQ));
@@ -305,7 +305,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
 
     public void akP() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.bea.getPageContext().getPageActivity());
-        aVar.ca(d.k.enter_forum_cancel_change_tip);
+        aVar.bZ(d.k.enter_forum_cancel_change_tip);
         aVar.a(TbadkCoreApplication.getInst().getString(d.k.enter_forum_cancel_change), new a.b() { // from class: com.baidu.tieba.enterForum.home.a.11
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -320,7 +320,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 aVar2.dismiss();
             }
         });
-        aVar.cb(d.C0126d.cp_cont_b);
+        aVar.ca(d.C0126d.cp_cont_b);
         aVar.b(this.bea.getPageContext());
         aVar.tD();
     }
@@ -347,7 +347,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                     aVar2.dismiss();
                 }
             });
-            aVar.cb(d.C0126d.cp_cont_b);
+            aVar.ca(d.C0126d.cp_cont_b);
             aVar.b(this.bea.getPageContext());
             aVar.tD();
         }
@@ -503,7 +503,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                     while (it.hasNext()) {
                         f next = it.next();
                         if (TbadkCoreApplication.getInst().hasSignedForum(next.getName())) {
-                            next.jx(1);
+                            next.jw(1);
                             int signLevelUpValue = TbadkCoreApplication.getInst().getSignLevelUpValue(next.getName());
                             if (signLevelUpValue > 0) {
                                 next.setLevel(signLevelUpValue);
@@ -695,7 +695,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007009, 2));
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("enter_forum_edit_mode", true);
-                this.cHL.jA(FG instanceof h ? ((h) FG).getPosition() : 0);
+                this.cHL.jz(FG instanceof h ? ((h) FG).getPosition() : 0);
                 this.cHS = false;
                 if (this.cHK.getView() == null || this.cHK.getView().getParent() == null) {
                     return true;

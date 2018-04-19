@@ -179,7 +179,7 @@ public class f implements View.OnClickListener {
         this.fIU = new com.baidu.tieba.person.f(this.mPageContext, this);
         this.fIU.j(z, z2, z3);
         if (i != -1) {
-            this.fIU.ra(i);
+            this.fIU.qZ(i);
         }
         if (this.fIY != null && this.fIY.getUserData() != null) {
             this.fIU.setUserName(this.fIY.getUserData().getUserName());

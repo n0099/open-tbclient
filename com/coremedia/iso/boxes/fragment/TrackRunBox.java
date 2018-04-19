@@ -128,7 +128,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setDataOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wk(i)));
         if (i == -1) {
             setFlags(getFlags() & 16777214);
         } else {

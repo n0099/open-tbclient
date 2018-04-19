@@ -27,7 +27,7 @@ public class i implements com.baidu.tieba.j.f {
         if (rz(str)) {
             if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
                 this.fSG.bhJ();
-                this.fSG.a(new com.baidu.tieba.m.d(i, str2, i, VideoPlatformStatic.gm(i)));
+                this.fSG.a(new com.baidu.tieba.m.d(i, str2, i, VideoPlatformStatic.gl(i)));
                 return;
             }
             this.fSG.a(new com.baidu.tieba.m.d(i, str2, -4399, ""));

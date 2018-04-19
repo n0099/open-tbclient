@@ -214,13 +214,13 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            List<com.baidu.tieba.personPolymeric.c.f> rl = PersonCenterAttentionBarListView.this.rl(i);
-            if (v.w(rl)) {
+            List<com.baidu.tieba.personPolymeric.c.f> rk = PersonCenterAttentionBarListView.this.rk(i);
+            if (v.w(rk)) {
                 return null;
             }
             PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(PersonCenterAttentionBarListView.this.fLX);
             personCommonForumCardView.setForumItemViewBdObjectPool(PersonCenterAttentionBarListView.this.fLc);
-            personCommonForumCardView.setData(rl);
+            personCommonForumCardView.setData(rk);
             personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.tbds42));
             personCommonForumCardView.setHorizontalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.tbds48));
             viewGroup.addView(personCommonForumCardView);
@@ -229,7 +229,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.personPolymeric.c.f> rl(int i) {
+    public List<com.baidu.tieba.personPolymeric.c.f> rk(int i) {
         if (this.fLa == null || v.w(this.fLa.fKp)) {
             return null;
         }

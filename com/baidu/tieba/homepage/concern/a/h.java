@@ -65,7 +65,7 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
         if (lVar == null || aVar == null || aVar.dBl == null) {
             return null;
         }
-        lVar.iO(i + 1);
+        lVar.iN(i + 1);
         v.afy().a(lVar.kC("c12351"));
         if (aVar.dBl instanceof com.baidu.tieba.a.e) {
             aVar.dBl.setPage(this.bvX);

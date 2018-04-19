@@ -255,8 +255,8 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
         this.dYW.setController(false);
         this.dYW.aEe().a(new l.a() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.5
             @Override // com.baidu.tieba.im.frsgroup.l.a
-            public void nA(int i) {
-                MembersActivity.this.dYW.nB(i);
+            public void nz(int i) {
+                MembersActivity.this.dYW.nA(i);
             }
         });
     }
@@ -335,7 +335,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     /* JADX INFO: Access modifiers changed from: private */
     public void aDT() {
         this.dYW.aEd().e(getPageContext());
-        this.dYW.aEd().setTextOption(NoDataViewFactory.d.dp(d.k.members_no_person));
+        this.dYW.aEd().setTextOption(NoDataViewFactory.d.m16do(d.k.members_no_person));
         this.dYW.aEd().setVisibility(0);
     }
 
@@ -343,7 +343,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.dYW.onChangeSkinType(i);
-        this.dYV.dw(i);
+        this.dYV.dv(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -384,7 +384,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     private void aDV() {
-        this.dYW.nB(0);
+        this.dYW.nA(0);
         this.dYW.hh(false);
         this.dYW.aEe().hf(false);
         this.dYW.aEe().aDY();
@@ -392,7 +392,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     private void aDW() {
-        this.dYW.nB(0);
+        this.dYW.nA(0);
         this.dYW.hh(true);
         this.dYW.aEe().hf(true);
         this.dYW.aEf();

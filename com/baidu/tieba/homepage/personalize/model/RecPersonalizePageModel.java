@@ -146,25 +146,25 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void a(boolean z, boolean z2, ResponsedMessage<?> responsedMessage) {
         if (p.Ha().Hb()) {
-            long lY = com.baidu.tieba.homepage.framework.a.axq().lY(1);
+            long lX = com.baidu.tieba.homepage.framework.a.axq().lX(1);
             long createTime = com.baidu.tieba.homepage.framework.a.axq().getCreateTime();
-            g gVar = new g(1005, z2, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.axq().lX(1), false, lY + createTime);
+            g gVar = new g(1005, z2, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.axq().lW(1), false, lX + createTime);
             gVar.pageType = 1;
             if (z) {
-                gVar.aLh = lY;
+                gVar.aLh = lX;
                 gVar.GW();
                 return;
             }
-            gVar.aLg = lY;
+            gVar.aLg = lX;
             gVar.GX();
         }
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
         if (p.Ha().Hb() && com.baidu.tieba.homepage.framework.a.axq().getCreateTime() > 0) {
-            long lY = com.baidu.tieba.homepage.framework.a.axq().lY(1);
+            long lX = com.baidu.tieba.homepage.framework.a.axq().lX(1);
             long createTime = com.baidu.tieba.homepage.framework.a.axq().getCreateTime();
-            g gVar = new g(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.axq().lX(1), false, lY + createTime);
+            g gVar = new g(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.axq().lW(1), false, lX + createTime);
             if (gVar != null) {
                 gVar.pageType = i;
                 gVar.GT();

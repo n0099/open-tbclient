@@ -220,7 +220,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     private com.baidu.tbadk.core.dialog.b a(a aVar) {
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-        bVar.cd(d.k.operation);
+        bVar.cc(d.k.operation);
         bVar.a(new String[]{getPageContext().getString(d.k.delete)}, aVar);
         return bVar;
     }

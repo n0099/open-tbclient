@@ -40,7 +40,7 @@ public class b extends c<UserMuteListActivity> {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(d.k.user_mute_list_text);
         this.FL = (BdListView) this.Tl.findViewById(d.g.mute_user_list);
-        this.mNoDataView = NoDataViewFactory.a(this.bcJ.getPageContext().getContext(), this.Tl, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aNm), NoDataViewFactory.d.dp(d.k.user_mute_list_no_data_text), null);
+        this.mNoDataView = NoDataViewFactory.a(this.bcJ.getPageContext().getContext(), this.Tl, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aNm), NoDataViewFactory.d.m16do(d.k.user_mute_list_no_data_text), null);
         wY();
     }
 
@@ -56,12 +56,12 @@ public class b extends c<UserMuteListActivity> {
     public void atN() {
         this.FL.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.user_mute_list_no_data_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.user_mute_list_no_data_text));
     }
 
     public void bnn() {
         this.FL.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.refresh_view_title_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.refresh_view_title_text));
     }
 }

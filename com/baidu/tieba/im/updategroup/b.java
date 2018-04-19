@@ -11,7 +11,7 @@ public class b extends d {
         super(updateGroupActivity);
         this.eim = null;
         setContentView(d.i.update_group_info_activity);
-        oa(d.k.group_update_info);
+        nZ(d.k.group_update_info);
         this.eim = (TextView) this.ein.findViewById(d.g.edit_count);
     }
 

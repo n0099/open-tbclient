@@ -130,7 +130,7 @@ public class a {
         return this.djZ;
     }
 
-    public void kM(int i) {
+    public void kL(int i) {
         if (this.ftB != null) {
             ak.i(this.ftB, i);
         }

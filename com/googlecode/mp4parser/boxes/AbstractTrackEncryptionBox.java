@@ -51,7 +51,7 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
     }
 
     public void setDefaultAlgorithmId(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wk(i)));
         this.defaultAlgorithmId = i;
     }
 
@@ -61,7 +61,7 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
     }
 
     public void setDefaultIvSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wl(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wk(i)));
         this.defaultIvSize = i;
     }
 

@@ -102,7 +102,7 @@ public class a extends d {
                         if (!v.w(a.this.ftU.bAU())) {
                             a.this.kF(true);
                         }
-                    } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.tu(postWriteCallBackData.getErrorCode()))) {
+                    } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.tt(postWriteCallBackData.getErrorCode()))) {
                         a.this.j(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString());
                     } else if (postWriteCallBackData != null) {
                         a.this.ut(postWriteCallBackData.getErrorString());
@@ -131,8 +131,8 @@ public class a extends d {
         };
         editorTools.bx(true);
         this.ftU = new com.baidu.tieba.write.b();
-        this.ftU.uM(d.C0126d.cp_cont_h_alpha85);
-        this.ftU.uL(d.C0126d.cp_cont_i);
+        this.ftU.uL(d.C0126d.cp_cont_h_alpha85);
+        this.ftU.uK(d.C0126d.cp_cont_i);
     }
 
     public void setContext(TbPageContext<?> tbPageContext) {
@@ -151,8 +151,8 @@ public class a extends d {
         this.mThreadId = str;
         this.mForumId = str2;
         this.mForumName = str3;
-        if (DF() != null && (DF().eI(28) instanceof c) && ((c) DF().eI(28)).getInputView() != null) {
-            EditText inputView = ((c) DF().eI(28)).getInputView();
+        if (DF() != null && (DF().eH(28) instanceof c) && ((c) DF().eH(28)).getInputView() != null) {
+            EditText inputView = ((c) DF().eH(28)).getInputView();
             inputView.removeTextChangedListener(this.mTextWatcher);
             inputView.addTextChangedListener(this.mTextWatcher);
         }
@@ -160,7 +160,7 @@ public class a extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(int i, String str) {
-        if (AntiHelper.tu(i)) {
+        if (AntiHelper.tt(i)) {
             AntiHelper.a(this.adf.getPageActivity(), str, i, (AntiHelper.a) null);
         } else if (i == 230277 || i == 230278) {
             gt(str);
@@ -241,8 +241,8 @@ public class a extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void kF(boolean z) {
-        if (DF() != null && (DF().eI(28) instanceof c) && ((c) DF().eI(28)).getInputView() != null && ((c) DF().eI(28)).getInputView().getText() != null) {
-            EditText inputView = ((c) DF().eI(28)).getInputView();
+        if (DF() != null && (DF().eH(28) instanceof c) && ((c) DF().eH(28)).getInputView() != null && ((c) DF().eH(28)).getInputView().getText() != null) {
+            EditText inputView = ((c) DF().eH(28)).getInputView();
             int selectionEnd = inputView.getSelectionEnd();
             SpannableStringBuilder b = this.ftU.b(inputView.getText());
             if (b != null) {

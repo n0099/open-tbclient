@@ -176,7 +176,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
                         }
                     }
                 }
-                pV(dataRes.is_new_url.intValue());
+                pU(dataRes.is_new_url.intValue());
                 this.gtV = dataRes.fortune_bag.intValue() == 1;
                 this.gtW = dataRes.fortune_desc;
                 if (dataRes.forum != null) {
@@ -221,7 +221,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
                     this.guN = this.guh.head.get(0);
                 }
                 this.alaLiveCount = dataRes.ala_live_count.intValue();
-                tc(dataRes.frs_tab_default.intValue());
+                tb(dataRes.frs_tab_default.intValue());
                 this.guc = dataRes.twzhibo_pos.intValue();
                 this.fEj = dataRes.trends_redpoint.intValue() == 1;
                 a(dataRes.thread_list, longValue);
@@ -252,7 +252,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
                 if (dataRes.card_shipin_info != null && dataRes.card_shipin_info.size() > 0) {
                     this.gut = new bd();
                     this.gut.ap(true);
-                    this.gut.bU(this.guc);
+                    this.gut.bT(this.guc);
                     this.gut.setUserMap(this.userMap);
                     this.gut.a(dataRes.card_shipin_info.get(0));
                     this.gut.sx();
@@ -314,7 +314,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
                     for (int i5 = 0; i5 < dataRes.card_shipin_new.size(); i5++) {
                         bd bdVar3 = new bd();
                         if (this.guA != null && this.guA.size() >= dataRes.card_shipin_new.size()) {
-                            bdVar3.bU(this.guA.get(i5).intValue());
+                            bdVar3.bT(this.guA.get(i5).intValue());
                         }
                         bdVar3.ap(true);
                         bdVar3.a(dataRes.card_shipin_new.get(i5));
@@ -377,7 +377,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.recm_forum_list;
     }
 
-    private void tc(int i) {
+    private void tb(int i) {
         this.gui = 1;
         if (this.gug != null && this.gug.size() > 0) {
             for (FrsTabInfo frsTabInfo : this.gug) {
@@ -398,7 +398,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
                     bd bdVar = new bd();
                     bdVar.setUserMap(this.userMap);
                     bdVar.a(list.get(i2));
-                    bdVar.bV(3);
+                    bdVar.bU(3);
                     bdVar.sx();
                     if (bdVar.getFid() == 0 && j != 0) {
                         bdVar.setFid(j);
@@ -426,7 +426,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.alaLiveCount;
     }
 
-    public void td(int i) {
+    public void tc(int i) {
         this.alaLiveCount = i;
     }
 
@@ -461,7 +461,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.guy;
     }
 
-    public void te(int i) {
+    public void td(int i) {
         this.guy = i;
     }
 
@@ -469,7 +469,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.guz;
     }
 
-    public void tf(int i) {
+    public void te(int i) {
         this.guz = i;
     }
 
@@ -601,7 +601,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.gub;
     }
 
-    public void pV(int i) {
+    public void pU(int i) {
         this.gub = i;
     }
 
@@ -625,7 +625,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.guc;
     }
 
-    public void tg(int i) {
+    public void tf(int i) {
         this.guc = i;
     }
 
@@ -676,7 +676,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.gui;
     }
 
-    public void th(int i) {
+    public void tg(int i) {
         this.gui = i;
     }
 
@@ -708,7 +708,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.guv;
     }
 
-    public void ti(int i) {
+    public void th(int i) {
         this.guv = i;
     }
 
@@ -792,7 +792,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         this.guI = list;
     }
 
-    public void tj(int i) {
+    public void ti(int i) {
         this.guJ = i;
     }
 

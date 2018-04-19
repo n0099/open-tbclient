@@ -93,7 +93,7 @@ public class i {
         agD();
         this.cwk.onChangeSkinType(i);
         this.cwj.onChangeSkinType(i);
-        this.blb.dw(i);
+        this.blb.dv(i);
         this.bla.onChangeSkinType(this.cwi.getPageContext(), i);
     }
 
@@ -166,7 +166,7 @@ public class i {
     }
 
     public void Qq() {
-        this.blb.dy(0);
+        this.blb.dx(0);
     }
 
     public void agE() {

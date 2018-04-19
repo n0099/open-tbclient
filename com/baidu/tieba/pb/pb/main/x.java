@@ -62,12 +62,12 @@ public class x extends com.baidu.tbadk.core.dialog.b {
             }
         });
         d(this.adf);
-        this.flp = bc(ci(0));
-        this.flq = bc(ci(1));
-        this.fll = bc(ci(2));
-        this.flm = bc(ci(3));
-        this.fln = bc(ci(4));
-        this.flo = bc(ci(5));
+        this.flp = bc(ch(0));
+        this.flq = bc(ch(1));
+        this.fll = bc(ch(2));
+        this.flm = bc(ch(3));
+        this.fln = bc(ch(4));
+        this.flo = bc(ch(5));
     }
 
     public void showDialog() {
@@ -112,18 +112,18 @@ public class x extends com.baidu.tbadk.core.dialog.b {
         ArrayList arrayList = new ArrayList();
         boolean z = true;
         for (int i = itemCount - 1; i >= 0; i--) {
-            View ci = ci(i);
-            if (ci != null) {
-                TextView bc2 = bc(ci(i));
-                View bd = bd(ci(i));
+            View ch = ch(i);
+            if (ch != null) {
+                TextView bc2 = bc(ch(i));
+                View bd = bd(ch(i));
                 if (bc2 != null) {
                     if (bc2.getVisibility() == 8) {
                         bd.setVisibility(8);
                     } else {
-                        arrayList.add(ci);
+                        arrayList.add(ch);
                         if (z) {
                             bd.setVisibility(8);
-                            com.baidu.tbadk.core.util.ak.i(ci, d.f.dialog_single_button_bg_selector);
+                            com.baidu.tbadk.core.util.ak.i(ch, d.f.dialog_single_button_bg_selector);
                             z = false;
                         } else {
                             bd.setVisibility(0);
@@ -137,11 +137,11 @@ public class x extends com.baidu.tbadk.core.dialog.b {
             if (i2 >= itemCount) {
                 break;
             }
-            View ci2 = ci(i2);
-            if (ci2 == null || (bc = bc(ci(i2))) == null || bc.getVisibility() != 0) {
+            View ch2 = ch(i2);
+            if (ch2 == null || (bc = bc(ch(i2))) == null || bc.getVisibility() != 0) {
                 i2++;
             } else {
-                com.baidu.tbadk.core.util.ak.i(ci2, d.f.dialog_single_button_first_bg_selector);
+                com.baidu.tbadk.core.util.ak.i(ch2, d.f.dialog_single_button_first_bg_selector);
                 break;
             }
         }

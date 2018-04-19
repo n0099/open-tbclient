@@ -68,21 +68,21 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         initData(bundle);
         this.hbo = new com.baidu.tieba.write.album.a(this);
         this.hbo.aTP();
-        uP(0);
+        uO(0);
     }
 
     public void showTip(View view2) {
         if (this.fnw == null && view2 != null) {
             this.fnw = new com.baidu.tieba.d.c(getPageContext(), view2);
-            this.fnw.je(d.f.bg_tip_blue_up_left);
+            this.fnw.jd(d.f.bg_tip_blue_up_left);
             this.fnw.j(new View.OnClickListener() { // from class: com.baidu.tieba.write.album.AlbumActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view3) {
                     AlbumActivity.this.fnw.ahf();
                 }
             });
-            this.fnw.jd(16);
-            this.fnw.jf(5000);
+            this.fnw.jc(16);
+            this.fnw.je(5000);
         }
         if (this.fnw != null) {
             String sharedPrefKeyWithAccount = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_show_take_photo_tip");
@@ -290,23 +290,23 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             }
             bBr();
         } else if (view2 == this.hbo.bBw()) {
-            uP(0);
+            uO(0);
         } else if (view2 == this.hbo.bBy()) {
-            uN(2);
+            uM(2);
         } else if (view2 == this.hbo.bBz()) {
-            uN(1);
+            uM(1);
+        }
+    }
+
+    private void uM(int i) {
+        if (this.hbo != null && this.hbn != null) {
+            this.hbn.setOriginalImg(!this.hbn.isOriginalImg());
+            bBn();
+            uN(i);
         }
     }
 
     private void uN(int i) {
-        if (this.hbo != null && this.hbn != null) {
-            this.hbn.setOriginalImg(!this.hbn.isOriginalImg());
-            bBn();
-            uO(i);
-        }
-    }
-
-    private void uO(int i) {
         if (this.hbn != null && this.hbn.isOriginalImg() && !StringUtils.isNull(this.from, true) && !StringUtils.isNull(this.forumId, true)) {
             TiebaStatic.log(new al("c10349").ac(ImageViewerConfig.FORUM_ID, this.forumId).ac("obj_type", this.from).r("obj_locate", i));
         }
@@ -331,18 +331,18 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void uP(int i) {
+    public void uO(int i) {
         if (!this.hbp) {
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.hbo.uR(this.mCurrentPage));
+            Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.hbo.uQ(this.mCurrentPage));
             if (findFragmentByTag != null) {
                 beginTransaction.hide(findFragmentByTag);
             }
             this.mCurrentPage = i;
-            if (getSupportFragmentManager().findFragmentByTag(this.hbo.uR(i)) != null) {
-                beginTransaction.show(this.hbo.uQ(i));
+            if (getSupportFragmentManager().findFragmentByTag(this.hbo.uQ(i)) != null) {
+                beginTransaction.show(this.hbo.uP(i));
             } else {
-                beginTransaction.add(d.g.fragment, this.hbo.uQ(i), this.hbo.uR(i));
+                beginTransaction.add(d.g.fragment, this.hbo.uP(i), this.hbo.uQ(i));
             }
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
@@ -418,7 +418,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                 bBr();
                 return true;
             } else if (this.mCurrentPage == 1) {
-                uP(0);
+                uO(0);
                 return true;
             } else {
                 return true;
@@ -429,16 +429,16 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void f(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment uQ;
-        if (this.hbo != null && (uQ = this.hbo.uQ(0)) != null && (uQ instanceof ImageListFragment)) {
-            ((ImageListFragment) uQ).h(imageFileInfo, z);
+        Fragment uP;
+        if (this.hbo != null && (uP = this.hbo.uP(0)) != null && (uP instanceof ImageListFragment)) {
+            ((ImageListFragment) uP).h(imageFileInfo, z);
         }
     }
 
     void g(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment uQ;
-        if (this.hbo != null && (uQ = this.hbo.uQ(1)) != null && (uQ instanceof AlbumImageBrowseFragment)) {
-            ((AlbumImageBrowseFragment) uQ).h(imageFileInfo, z);
+        Fragment uP;
+        if (this.hbo != null && (uP = this.hbo.uP(1)) != null && (uP instanceof AlbumImageBrowseFragment)) {
+            ((AlbumImageBrowseFragment) uP).h(imageFileInfo, z);
         }
     }
 

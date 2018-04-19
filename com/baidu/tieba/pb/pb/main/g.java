@@ -68,7 +68,7 @@ public class g {
             return null;
         }
         com.baidu.tbadk.k.l lVar = new com.baidu.tbadk.k.l();
-        lVar.fj(1001);
+        lVar.fi(1001);
         lVar.aKX = j + (System.currentTimeMillis() - currentTimeMillis);
         lVar.GU();
         return ab.value;
@@ -85,7 +85,7 @@ public class g {
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.k.l lVar = new com.baidu.tbadk.k.l();
-            lVar.fj(1001);
+            lVar.fi(1001);
             lVar.aKY = currentTimeMillis2;
             lVar.GV();
         }
@@ -98,7 +98,7 @@ public class g {
             this.fhu.a(str, bArr, 2592000000L);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.k.l lVar = new com.baidu.tbadk.k.l();
-            lVar.fj(1001);
+            lVar.fi(1001);
             lVar.aKY = currentTimeMillis2;
             lVar.GV();
         }

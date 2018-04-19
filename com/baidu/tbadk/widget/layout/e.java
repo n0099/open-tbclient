@@ -25,7 +25,7 @@ public class e implements b {
     }
 
     @Override // com.baidu.tbadk.widget.layout.b
-    public int fF(int i) {
+    public int fE(int i) {
         return 1;
     }
 
@@ -58,11 +58,11 @@ public class e implements b {
             constrainImageLayout.setExtraCenterText(null);
             i2 = v;
         }
-        constrainImageLayout.setSingleImageRatio(fJ(v));
+        constrainImageLayout.setSingleImageRatio(fI(v));
         return i2;
     }
 
-    private double fJ(int i) {
+    private double fI(int i) {
         TbadkCoreApplication.getInst();
         if (i == 1) {
             return 0.5625d;

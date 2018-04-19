@@ -54,7 +54,7 @@ public class a {
         if (!v.w(aVar.diL)) {
             for (FeatureCardHot featureCardHot : aVar.diL) {
                 if (featureCardHot != null && featureCardHot.isValid()) {
-                    kL(featureCardHot.floor.intValue());
+                    kK(featureCardHot.floor.intValue());
                     this.diW[featureCardHot.floor.intValue()] = featureCardHot;
                 }
             }
@@ -62,7 +62,7 @@ public class a {
         if (!v.w(aVar.diM)) {
             for (FeatureCardTopic featureCardTopic : aVar.diM) {
                 if (featureCardTopic != null && featureCardTopic.isValid()) {
-                    kL(featureCardTopic.floor.intValue());
+                    kK(featureCardTopic.floor.intValue());
                     this.diW[featureCardTopic.floor.intValue()] = featureCardTopic;
                 }
             }
@@ -70,7 +70,7 @@ public class a {
         if (!v.w(aVar.diN)) {
             for (b bVar : aVar.diN) {
                 if (bVar != null && bVar.isValid()) {
-                    kL(bVar.floor.intValue());
+                    kK(bVar.floor.intValue());
                     this.diW[bVar.floor.intValue()] = bVar;
                 }
             }
@@ -78,7 +78,7 @@ public class a {
         if (!v.w(aVar.diO)) {
             for (FeatureCardCompetition featureCardCompetition : aVar.diO) {
                 if (featureCardCompetition != null && featureCardCompetition.isValid()) {
-                    kL(featureCardCompetition.floor.intValue());
+                    kK(featureCardCompetition.floor.intValue());
                     this.diW[featureCardCompetition.floor.intValue()] = featureCardCompetition;
                 }
             }
@@ -86,7 +86,7 @@ public class a {
         if (!v.w(aVar.diP)) {
             for (FeatureCardGod featureCardGod : aVar.diP) {
                 if (featureCardGod != null && featureCardGod.isValid()) {
-                    kL(featureCardGod.floor.intValue());
+                    kK(featureCardGod.floor.intValue());
                     this.diW[featureCardGod.floor.intValue()] = featureCardGod;
                 }
             }
@@ -94,14 +94,14 @@ public class a {
         if (!v.w(aVar.diQ)) {
             for (FeatureCardGame featureCardGame : aVar.diQ) {
                 if (featureCardGame != null && featureCardGame.isValid()) {
-                    kL(featureCardGame.floor.intValue());
+                    kK(featureCardGame.floor.intValue());
                     this.diW[featureCardGame.floor.intValue()] = featureCardGame;
                 }
             }
         }
     }
 
-    private void kL(int i) {
+    private void kK(int i) {
         if (i >= this.diW.length) {
             this.diW = Arrays.copyOf(this.diW, i + 1);
         }

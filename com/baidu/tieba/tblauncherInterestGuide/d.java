@@ -55,12 +55,12 @@ public class d extends Dialog implements a {
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void tK(int i) {
+    public void tJ(int i) {
         this.gCc.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void tL(int i) {
+    public void tK(int i) {
         this.gCc.notifyDataSetChanged();
     }
 

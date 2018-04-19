@@ -63,7 +63,7 @@ public class f {
         }
     }
 
-    public void ol(int i) {
+    public void ok(int i) {
         if (this.mLine != null) {
             this.mLine.setVisibility(i);
         }

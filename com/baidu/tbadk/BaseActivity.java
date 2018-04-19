@@ -737,7 +737,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             this.mSwipeBackLayout.onChangeSkinType(i);
         }
         if (this.mKeyboardAdjust != null) {
-            this.mKeyboardAdjust.di(i);
+            this.mKeyboardAdjust.dh(i);
         }
         if (this.mUseStyleImmersiveSticky) {
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
@@ -1043,7 +1043,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     /* JADX INFO: Access modifiers changed from: protected */
     public void setNetRefreshViewEmotionMarginTop(int i) {
         if (this.mRefreshView != null && this.mRefreshView.Fm()) {
-            this.mRefreshView.fb(i);
+            this.mRefreshView.fa(i);
         }
     }
 
@@ -1088,7 +1088,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.mRefreshView == null) {
             this.mRefreshView = new g(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.fb(i);
+        this.mRefreshView.fa(i);
     }
 
     public View.OnClickListener getNetRefreshListener() {
@@ -1198,8 +1198,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("key_is_window_permission_dialog_shown", false)) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
                     aVar.as(false);
-                    aVar.bZ(d.k.request_permission_default_title);
-                    aVar.ca(d.k.request_window_permission_default_text);
+                    aVar.bY(d.k.request_permission_default_title);
+                    aVar.bZ(d.k.request_window_permission_default_text);
                     aVar.a(d.k.isopen, new a.b() { // from class: com.baidu.tbadk.BaseActivity.6
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

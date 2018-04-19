@@ -33,7 +33,7 @@ public class b extends com.baidu.tieba.card.data.b implements h {
         return this.dBu;
     }
 
-    public void lV(int i) {
+    public void lU(int i) {
         this.dBu = i;
     }
 }

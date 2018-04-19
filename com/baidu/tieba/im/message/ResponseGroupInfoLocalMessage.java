@@ -80,7 +80,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             return this.eff;
         }
 
-        public void nO(int i) {
+        public void nN(int i) {
             this.eff = i;
         }
 
@@ -88,7 +88,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             return this.efg;
         }
 
-        public void nP(int i) {
+        public void nO(int i) {
             this.efg = i;
         }
 
@@ -143,11 +143,11 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.nP(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.nO(this.mResData.data.canJoinGroupNum.intValue());
             this.selfData.ht(this.mResData.data.isGroupManager.intValue() != 0);
             this.selfData.hu(this.mResData.data.hideRecommendGroup.intValue() != 0);
             this.selfData.hs(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.nO(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.nN(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
             this.selfData.hv(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;

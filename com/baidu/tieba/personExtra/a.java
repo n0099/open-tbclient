@@ -31,11 +31,11 @@ public class a {
         return this.fGf;
     }
 
-    public void rb(int i) {
+    public void ra(int i) {
         this.fGf = i;
     }
 
-    public void rc(int i) {
+    public void rb(int i) {
         this.fGf += i;
     }
 
@@ -43,11 +43,11 @@ public class a {
         return this.fGg;
     }
 
-    public void rd(int i) {
+    public void rc(int i) {
         this.fGg = i;
     }
 
-    public void re(int i) {
+    public void rd(int i) {
         this.fGg += i;
     }
 

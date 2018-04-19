@@ -36,7 +36,7 @@ public class a extends BaseAdapter {
     private LinkedList<ImageFileInfo> chosedFiles = null;
     private InterfaceC0239a hfj = new InterfaceC0239a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
         @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0239a
-        public void ve(int i) {
+        public void vd(int i) {
             if (a.this.chosedFiles != null) {
                 if (a.this.chosedFiles.size() - 1 >= i) {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) a.this.chosedFiles.remove(i);
@@ -68,7 +68,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.view.PhotoLiveView.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     protected interface InterfaceC0239a {
-        void ve(int i);
+        void vd(int i);
     }
 
     public void bCG() {
@@ -242,14 +242,14 @@ public class a extends BaseAdapter {
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
                 if (a.this.hfj != null) {
-                    a.this.hfj.ve(i);
+                    a.this.hfj.vd(i);
                 }
             }
         });
         return inflate;
     }
 
-    public void vd(int i) {
+    public void vc(int i) {
         this.hfh = i;
     }
 }

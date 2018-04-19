@@ -109,13 +109,13 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            List<com.baidu.tieba.personPolymeric.c.f> rl = a.this.rl(i);
-            if (v.w(rl)) {
+            List<com.baidu.tieba.personPolymeric.c.f> rk = a.this.rk(i);
+            if (v.w(rk)) {
                 return null;
             }
             PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(a.this.mPageContext.getPageActivity());
             personCommonForumCardView.setForumItemViewBdObjectPool(a.this.fLc);
-            personCommonForumCardView.setData(rl);
+            personCommonForumCardView.setData(rk);
             personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.tbds42));
             viewGroup.addView(personCommonForumCardView);
             return personCommonForumCardView;
@@ -123,7 +123,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.personPolymeric.c.f> rl(int i) {
+    public List<com.baidu.tieba.personPolymeric.c.f> rk(int i) {
         if (this.fLa == null || v.w(this.fLa.fKp)) {
             return null;
         }

@@ -330,14 +330,14 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
         int i = 1;
         if (az.aK(this.mContext) && this.alf != null) {
             if (this.alf.ta() != 0) {
-                this.alf.bX(this.alf.sZ() - 1);
-                this.alf.bW(0);
+                this.alf.bW(this.alf.sZ() - 1);
+                this.alf.bV(0);
                 if (this.aot != null) {
                     ak.h(this.aot, d.C0126d.cp_cont_j);
                 }
             } else {
-                this.alf.bW(1);
-                this.alf.bX(this.alf.sZ() + 1);
+                this.alf.bV(1);
+                this.alf.bW(this.alf.sZ() + 1);
                 if (this.aot != null) {
                     ak.h(this.aot, d.C0126d.cp_cont_h);
                 }
@@ -756,7 +756,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
     private void xg() {
         if (this.mPageContext != null) {
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-            bVar.cd(d.k.operation);
+            bVar.cc(d.k.operation);
             bVar.a(this.aoE, new b.InterfaceC0086b() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.1
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view2) {

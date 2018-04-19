@@ -26,13 +26,13 @@ public class am {
         if (view2 != null && !StringUtils.isNull(str) && view2.getVisibility() == 0 && view2.getAlpha() >= 0.4d) {
             if (this.fnw == null) {
                 this.fnw = new com.baidu.tieba.d.c(this.fgM.getPageContext(), view2);
-                this.fnw.je(d.f.bg_tip_blue_up_left);
-                this.fnw.jd(16);
+                this.fnw.jd(d.f.bg_tip_blue_up_left);
+                this.fnw.jc(16);
                 this.fnw.eF(true);
-                this.fnw.jh(57);
-                this.fnw.ji(-10);
+                this.fnw.jg(57);
+                this.fnw.jh(-10);
             }
-            this.fnw.jf(5000);
+            this.fnw.je(5000);
             this.fnw.kJ(str);
             bH(str2, str3);
             TiebaStatic.log(new com.baidu.tbadk.core.util.al("c12504"));

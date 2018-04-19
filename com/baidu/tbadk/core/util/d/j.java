@@ -76,7 +76,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
             String em = aq.em(str2);
-            com.baidu.tbadk.imageManager.c.Fa().eY(TbConfig.getPbImageSize() + bArr.length);
+            com.baidu.tbadk.imageManager.c.Fa().eX(TbConfig.getPbImageSize() + bArr.length);
             boolean l = com.baidu.adp.lib.util.l.l(bArr);
             if (!NSGif.pD || !l) {
                 nSGif = null;

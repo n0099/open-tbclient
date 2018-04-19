@@ -276,7 +276,7 @@ public class b extends com.baidu.tieba.card.a<k> implements com.baidu.tieba.a.e 
             this.coU.setTag(voiceModel);
             this.coU.aIT();
             if (voiceModel != null) {
-                this.coU.oc(voiceModel.voice_status.intValue());
+                this.coU.ob(voiceModel.voice_status.intValue());
             }
             this.coU.btf();
             z = true;
@@ -326,7 +326,7 @@ public class b extends com.baidu.tieba.card.a<k> implements com.baidu.tieba.a.e 
         afr();
         setPageUniqueId(getTag());
         asj();
-        hc(gn(1));
+        hb(gm(1));
     }
 
     private void er(boolean z) {
@@ -468,7 +468,7 @@ public class b extends com.baidu.tieba.card.a<k> implements com.baidu.tieba.a.e 
     }
 
     private void H(bd bdVar) {
-        if (bdVar != null && gn(2) == 1) {
+        if (bdVar != null && gm(2) == 1) {
             SpannableString te = bdVar.te();
             if (te != null && !an.isEmpty(te.toString())) {
                 this.coW.setVisibility(0);
@@ -496,7 +496,7 @@ public class b extends com.baidu.tieba.card.a<k> implements com.baidu.tieba.a.e 
         }
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.cmc != null && this.cmc.threadData != null) {
             if (i == 1) {
                 this.bwk.setVisibility(8);
@@ -517,7 +517,7 @@ public class b extends com.baidu.tieba.card.a<k> implements com.baidu.tieba.a.e 
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

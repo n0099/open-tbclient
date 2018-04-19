@@ -79,16 +79,16 @@ public class g {
     }
 
     private String A(String str, int i) {
-        c eC = eC(i);
+        c eB = eB(i);
         StringBuilder sb = new StringBuilder();
-        sb.append(eC.aCl).append("/").append(eC.aCm).append("/").append(str);
-        if (!StringUtils.isNull(eC.aCn)) {
-            sb.append(Constants.DOT).append(eC.aCn);
+        sb.append(eB.aCl).append("/").append(eB.aCm).append("/").append(str);
+        if (!StringUtils.isNull(eB.aCn)) {
+            sb.append(Constants.DOT).append(eB.aCn);
         }
         return sb.toString();
     }
 
-    public void eB(int i) {
+    public void eA(int i) {
         List<DownloadData> jq = e.Dy().jq();
         if (jq != null && jq.size() != 0) {
             for (DownloadData downloadData : jq) {
@@ -131,7 +131,7 @@ public class g {
                     UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getPath());
                 }
             } else {
-                e.Dy().a(downloadData, eC(downloadData.getType()).maxSize);
+                e.Dy().a(downloadData, eB(downloadData.getType()).maxSize);
             }
             aCv = null;
             if (!aCw.isEmpty()) {
@@ -258,7 +258,7 @@ public class g {
         this.aCu.put(i, cVar);
     }
 
-    public c eC(int i) {
+    public c eB(int i) {
         c cVar = this.aCu.get(i);
         if (cVar == null) {
             return this.aCu.get(10);

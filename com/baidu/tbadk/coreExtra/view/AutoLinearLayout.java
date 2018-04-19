@@ -84,7 +84,7 @@ public class AutoLinearLayout extends LinearLayout {
         int childCount = getChildCount();
         int culumnsCount = getCulumnsCount();
         if (this.axo != 0 && this.axs != 0) {
-            en(childCount);
+            em(childCount);
         }
         if (this.axo != 0) {
             for (int i3 = 0; i3 < this.axs; i3++) {
@@ -109,7 +109,7 @@ public class AutoLinearLayout extends LinearLayout {
         }
     }
 
-    private void en(int i) {
+    private void em(int i) {
         if (this.axs <= i) {
             removeViews(this.axs, i - this.axs);
         }

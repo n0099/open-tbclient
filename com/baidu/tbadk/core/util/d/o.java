@@ -116,7 +116,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (j == null && !iVar.ff().tW) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Fa().eY(TbConfig.getPbImageSize() + j.length);
+        com.baidu.tbadk.imageManager.c.Fa().eX(TbConfig.getPbImageSize() + j.length);
         return a(str3, str2, aVar, null, a(BitmapHelper.Bytes2Bitmap(j), i, i2), iVar.isGif || com.baidu.adp.lib.util.l.l(j), iVar, j);
     }
 
@@ -125,7 +125,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.Fa().eY(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.Fa().eX(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
         }
         return bitmap;

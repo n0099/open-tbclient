@@ -110,7 +110,7 @@ public class b {
                 this.mNoDataView.onChangeSkinType(this.egS.getPageContext(), i);
             }
             if (this.egX != null) {
-                this.egX.eq(i);
+                this.egX.ep(i);
             }
             if (this.egZ != null) {
                 ak.j(this.egZ, d.C0126d.cp_bg_line_e);
@@ -127,11 +127,11 @@ public class b {
         this.egY.setVisibility(0);
     }
 
-    public void ik(int i) {
+    public void ij(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.egS.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds320)), NoDataViewFactory.d.dp(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.egS.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds320)), NoDataViewFactory.d.m16do(i), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(i));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(i));
         this.mNoDataView.onChangeSkinType(this.egS.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.egY.setVisibility(8);
         this.mNoDataView.setVisibility(0);

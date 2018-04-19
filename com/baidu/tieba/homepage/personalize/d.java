@@ -109,7 +109,7 @@ public class d {
         public void onScrollStateChanged(AbsListView absListView, int i) {
             if (d.this.dEb == null) {
                 d.this.dEb = new f();
-                d.this.dEb.fj(1005);
+                d.this.dEb.fi(1005);
                 d.this.dEb.pageType = 1;
             }
             if (d.this.aNJ != null && !d.this.mIsBackground) {
@@ -142,11 +142,11 @@ public class d {
             int i4 = (i + i2) - 1;
             if (!this.dAO && this.dAM != i4) {
                 this.dAM = i4;
-                d.this.mm(this.dAM);
+                d.this.ml(this.dAM);
             }
             if (this.dAO && this.dAM != i) {
                 this.dAM = i;
-                d.this.mm(this.dAM);
+                d.this.ml(this.dAM);
             }
             d.this.dEn = i;
             d.this.cYv = i;
@@ -296,7 +296,7 @@ public class d {
     private int dEn = 0;
     private c dEp = new c() { // from class: com.baidu.tieba.homepage.personalize.d.7
         @Override // com.baidu.tieba.homepage.personalize.c
-        public void ma(final int i) {
+        public void lZ(final int i) {
             if (d.this.dEo == null) {
                 d.this.dEo = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.d.7.1
                     @Override // java.lang.Runnable
@@ -366,8 +366,8 @@ public class d {
         if (this.dDn != null) {
             this.dDn.setOnTabSelectedListener(new ScrollFragmentTabHost.a() { // from class: com.baidu.tieba.homepage.personalize.d.1
                 @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
-                public void mk(int i) {
-                    if (d.this.dDn.mj(i) != 1 && d.this.dDZ != null) {
+                public void mj(int i) {
+                    if (d.this.dDn.mi(i) != 1 && d.this.dDZ != null) {
                         d.this.dDZ.hideTip();
                     }
                 }
@@ -559,15 +559,15 @@ public class d {
     }
 
     public void onPause() {
-        mn(this.dEn);
-        ml(2016319);
+        mm(this.dEn);
+        mk(2016319);
     }
 
     public void onResume() {
-        ml(2016318);
+        mk(2016318);
     }
 
-    private void ml(final int i) {
+    private void mk(final int i) {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(i);
         final BdUniqueId uniqueId = this.mPageContext.getUniqueId();
         customResponsedMessage.setOrginalMessage(new CustomMessage<Object>(i, uniqueId) { // from class: com.baidu.tieba.homepage.personalize.PersonalizedUpdateController$7
@@ -687,9 +687,9 @@ public class d {
             }
         }
         com.baidu.tieba.homepage.framework.a.axq().g(System.currentTimeMillis() - currentTimeMillis, 1);
-        long lZ = com.baidu.tieba.homepage.framework.a.axq().lZ(1);
-        if (lZ > 0) {
-            com.baidu.tieba.homepage.framework.a.axq().h(System.currentTimeMillis() - lZ, 1);
+        long lY = com.baidu.tieba.homepage.framework.a.axq().lY(1);
+        if (lY > 0) {
+            com.baidu.tieba.homepage.framework.a.axq().h(System.currentTimeMillis() - lY, 1);
             com.baidu.tieba.homepage.framework.a.axq().i(0L, 1);
         }
         if (dataRes != null && dataRes.anti != null && dataRes.anti.block_pop_info != null) {
@@ -1067,9 +1067,9 @@ public class d {
         }
     }
 
-    public void mm(int i) {
-        if ((this.cXg != null ? this.cXg.tm(i) : -1) >= 0 && this.mListView != null && this.mListView.getData() != null && this.mListView.getData().size() > i) {
-            this.cXg.tn(i);
+    public void ml(int i) {
+        if ((this.cXg != null ? this.cXg.tl(i) : -1) >= 0 && this.mListView != null && this.mListView.getData() != null && this.mListView.getData().size() > i) {
+            this.cXg.tm(i);
         }
     }
 
@@ -1081,7 +1081,7 @@ public class d {
         this.dEc = z;
     }
 
-    public void mn(final int i) {
+    public void mm(final int i) {
         com.baidu.tbadk.util.v.a(new u<Object>() { // from class: com.baidu.tieba.homepage.personalize.d.6
             @Override // com.baidu.tbadk.util.u
             public Object doInBackground() {
@@ -1113,7 +1113,7 @@ public class d {
             /* renamed from: mI */
             public void onReturnDataInUI(String str) {
                 if (cVar != null) {
-                    cVar.ma(com.baidu.adp.lib.g.b.g(str, 0));
+                    cVar.lZ(com.baidu.adp.lib.g.b.g(str, 0));
                 }
             }
         });

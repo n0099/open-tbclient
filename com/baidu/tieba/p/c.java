@@ -103,14 +103,14 @@ public class c implements View.OnClickListener {
             com.baidu.tbadk.coreExtra.c.d dVar = this.mShareItem;
             if (num.intValue() == 4) {
                 l("share_to_weixin", new Object[0]);
-                sD(3);
+                sC(3);
                 b(dVar, 4);
                 if (dVar != null) {
                     eVar.b(dVar);
                 }
             } else if (num.intValue() == 3) {
                 l("share_to_pyq", new Object[0]);
-                sD(2);
+                sC(2);
                 b(dVar, 3);
                 if (dVar != null) {
                     if (dVar.awM) {
@@ -121,7 +121,7 @@ public class c implements View.OnClickListener {
             } else if (num.intValue() == 5) {
                 if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     l("share_to_qzone", new Object[0]);
-                    sD(4);
+                    sC(4);
                     b(dVar, 5);
                     if (dVar != null) {
                         eVar.e(dVar);
@@ -133,7 +133,7 @@ public class c implements View.OnClickListener {
             } else if (num.intValue() == 9) {
                 if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     l("share_to_qq_friend", new Object[0]);
-                    sD(8);
+                    sC(8);
                     b(dVar, 9);
                     if (dVar != null) {
                         eVar.d(dVar);
@@ -144,7 +144,7 @@ public class c implements View.OnClickListener {
                 BdToast.a(this.mContext, this.mContext.getText(d.k.share_qq_not_install)).tL();
             } else if (num.intValue() == 7) {
                 l("share_to_sweibo", new Object[0]);
-                sD(6);
+                sC(6);
                 b(dVar, 7);
                 if (dVar != null) {
                     if (!dVar.awL) {
@@ -185,7 +185,7 @@ public class c implements View.OnClickListener {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private void sD(int i) {
+    private void sC(int i) {
         if (i <= 8 && i > 0 && this.gkZ != null) {
             String str = this.gkZ.get(i);
             if (!an.isEmpty(str)) {

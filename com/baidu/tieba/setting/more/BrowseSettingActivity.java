@@ -44,9 +44,9 @@ public class BrowseSettingActivity extends BaseActivity implements BdSwitchView.
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view2, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            this.ghH.sv(1);
+            this.ghH.su(1);
         } else {
-            this.ghH.sv(0);
+            this.ghH.su(0);
         }
     }
 }

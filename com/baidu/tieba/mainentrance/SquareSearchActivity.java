@@ -557,15 +557,15 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Z(ArrayList<String> arrayList) {
-        NoDataViewFactory.d dp;
+        NoDataViewFactory.d m16do;
         if (ab(arrayList)) {
             aMG();
             if (j.gP()) {
-                dp = NoDataViewFactory.d.dp(d.k.text_no_search_record);
+                m16do = NoDataViewFactory.d.m16do(d.k.text_no_search_record);
             } else {
-                dp = NoDataViewFactory.d.dp(d.k.neterror);
+                m16do = NoDataViewFactory.d.m16do(d.k.neterror);
             }
-            this.mNoDataView.setTextOption(dp);
+            this.mNoDataView.setTextOption(m16do);
             return;
         }
         aMF();
@@ -694,7 +694,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     SquareSearchActivity.this.aO(SquareSearchActivity.this.eCF);
                     SquareSearchActivity.this.eCo.setVisibility(8);
                     SquareSearchActivity.this.mNoDataView.setVisibility(0);
-                    SquareSearchActivity.this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.text_no_search_record));
+                    SquareSearchActivity.this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.text_no_search_record));
                     return;
                 }
                 SquareSearchActivity.this.Z(null);
@@ -845,10 +845,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         if (this.eCu != null) {
             this.eCu.onChangeSkinType(i);
         }
-        oN(i);
+        oM(i);
     }
 
-    private void oN(int i) {
+    private void oM(int i) {
         if (this.eCv != null) {
             this.eCv.setBackgroundColor(ak.getColor(d.C0126d.cp_bg_line_d));
         }
@@ -928,7 +928,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public boolean aMH() {
         if (!j.gP()) {
             aO(this.mNoDataView);
-            this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.neterror));
+            this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.neterror));
             return true;
         }
         aP(this.mNoDataView);
@@ -996,7 +996,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                 SquareSearchActivity.this.refresh();
             } else {
                 SquareSearchActivity.this.aO(SquareSearchActivity.this.mNoDataView);
-                SquareSearchActivity.this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(d.k.text_no_search_record));
+                SquareSearchActivity.this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(d.k.text_no_search_record));
             }
             SquareSearchActivity.this.eCA = null;
         }

@@ -55,7 +55,7 @@ public class b {
         BdToast.a(TbadkCoreApplication.getInst(), aWn(), d.f.icon_word_t_size, 0).tL();
     }
 
-    public static void pZ(int i) {
+    public static void pY(int i) {
         if (TbadkCoreApplication.getInst().getFontSize() != i) {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));

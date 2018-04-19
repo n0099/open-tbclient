@@ -60,7 +60,7 @@ public class b extends a {
                             }
                             synchronized (b.this) {
                                 b.b(b.this);
-                                b.this.tC((int) (30.0f + ((50.0f * b.this.erH) / size)));
+                                b.this.tB((int) (30.0f + ((50.0f * b.this.erH) / size)));
                             }
                         }
                         countDownLatch.countDown();

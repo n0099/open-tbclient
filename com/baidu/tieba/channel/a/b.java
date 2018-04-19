@@ -35,7 +35,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iR */
+    /* renamed from: iQ */
     public i getItem(int i) {
         if (this.mData != null) {
             return this.mData.get(i);

@@ -62,7 +62,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         return aVar.getView();
     }
 
-    public void mo(int i) {
+    public void mn(int i) {
         if (this.dEE != null) {
             this.dEE.d(this.mPageContext, i);
         }

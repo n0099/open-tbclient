@@ -281,7 +281,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
         if (TbadkCoreApplication.isLogin() && this.dCf.getCurrentIndex() != 0) {
             this.dCg.gp(System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_unread_tip_next_show_time"), 0L));
         }
-        a.axq().setCreateTime(System.currentTimeMillis() - a.axq().lW(1));
+        a.axq().setCreateTime(System.currentTimeMillis() - a.axq().lV(1));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment

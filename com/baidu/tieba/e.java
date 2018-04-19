@@ -242,7 +242,7 @@ public class e extends Dialog {
         }
     }
 
-    public void gh(int i) {
+    public void gg(int i) {
         this.bad.setVisibility(8);
         this.bah.setVisibility(8);
         this.bac.setVisibility(8);

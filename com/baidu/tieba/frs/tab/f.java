@@ -69,7 +69,7 @@ public class f implements a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: lk */
+        /* renamed from: lj */
         public ar getItem(int i) {
             if (f.this.mData != null) {
                 return (ar) f.this.mData.get(i);
@@ -100,7 +100,7 @@ public class f implements a {
                 ar arVar2 = (ar) f.this.dpl.getItem(i);
                 if (arVar2 != null) {
                     arVar2.isSelected = true;
-                    f.this.doO.lh(arVar2.cZZ);
+                    f.this.doO.lg(arVar2.cZZ);
                 }
             }
         }

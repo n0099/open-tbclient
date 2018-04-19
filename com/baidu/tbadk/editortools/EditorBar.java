@@ -110,7 +110,7 @@ public class EditorBar extends RawLayout {
                         aVar.bottomMargin = bLauncher.getContext().getResources().getDimensionPixelSize(d.e.ds15);
                         aVar.topMargin = bLauncher.getContext().getResources().getDimensionPixelSize(d.e.ds15);
                     }
-                    aVar.eK(2);
+                    aVar.eJ(2);
                     addView(bLauncher, aVar);
                 }
             }
@@ -179,21 +179,21 @@ public class EditorBar extends RawLayout {
                 aVar.gravity = 19;
             }
             if (z && aVar2.position == 1) {
-                aVar.eK(2);
+                aVar.eJ(2);
                 addView(view2, aVar);
             } else if (!z && aVar2.position != 1) {
                 switch (aVar2.position) {
                     case 2:
-                        aVar.eK(2);
+                        aVar.eJ(2);
                         break;
                     case 3:
-                        aVar.eK(1);
+                        aVar.eJ(1);
                         break;
                     case 4:
-                        aVar.eK(3);
+                        aVar.eJ(3);
                         break;
                     case 5:
-                        aVar.eK(2);
+                        aVar.eJ(2);
                         view2.setVisibility(8);
                         break;
                 }
@@ -300,14 +300,14 @@ public class EditorBar extends RawLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eD(int i) {
+    public void eC(int i) {
         if (i == 2 && DH() && this.aCH != null) {
             this.aCH.b(new com.baidu.tbadk.editortools.a(1, 3, null));
             return;
         }
-        a eE = eE(i);
-        if (eE != null) {
-            if (eE.position == 5) {
+        a eD = eD(i);
+        if (eD != null) {
+            if (eD.position == 5) {
                 for (g gVar : this.aCB) {
                     if (gVar.getToolId() == 2 || gVar.getToolId() == 1) {
                         gVar.lN();
@@ -352,7 +352,7 @@ public class EditorBar extends RawLayout {
         }
     }
 
-    private a eE(int i) {
+    private a eD(int i) {
         for (a aVar : this.aCC) {
             if (aVar.aCM != null && aVar.aCM.getToolId() == i) {
                 return aVar;
@@ -370,7 +370,7 @@ public class EditorBar extends RawLayout {
         return false;
     }
 
-    public g eF(int i) {
+    public g eE(int i) {
         for (g gVar : this.aCB) {
             if (gVar.getToolId() == i) {
                 return gVar;
@@ -447,7 +447,7 @@ public class EditorBar extends RawLayout {
         }
     }
 
-    public View eG(int i) {
+    public View eF(int i) {
         for (g gVar : this.aCB) {
             if (gVar instanceof View) {
                 View view2 = (View) gVar;

@@ -165,7 +165,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         this.dRA = new OfficialBarMsglistView(this, this.dRB.getIsAcceptNotify());
         this.dSy = (OfficialBarMsglistView) this.dRA;
         if (this.mUserType == 4) {
-            this.dSy.nk(d.k.more);
+            this.dSy.nj(d.k.more);
             this.dSy.closeNotNotify();
             this.dSy.closeReceiver();
             this.dSy.aBm();
@@ -221,7 +221,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         ChatStatusManager.getInst().setIsOpen(1, true);
         String curId = ChatStatusManager.getInst().getCurId(1);
         if (!TextUtils.isEmpty(curId)) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.zx().dR(19);
+            com.baidu.tbadk.coreExtra.messageCenter.a.zx().dQ(19);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 4)));
         }
     }

@@ -190,7 +190,7 @@ public class m extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
             this.bww.setData(aiVar);
             this.bww.setFirstRowSingleColumn(true);
         }
-        hc(gn(1));
+        hb(gm(1));
         d(this.adf, TbadkCoreApplication.getInst().getSkinType());
         if (o.kw(this.cod.threadData.getId())) {
             ak.c(this.mTextTitle, d.C0126d.cp_cont_d, 1);
@@ -251,7 +251,7 @@ public class m extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         }
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.cod != null && this.cod.threadData != null) {
             if (i == 1) {
                 this.bwk.setVisibility(8);
@@ -274,7 +274,7 @@ public class m extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

@@ -108,7 +108,7 @@ public class e {
         return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("page_stay_max_cost", 0) : this.aJR;
     }
 
-    public void ff(int i) {
+    public void fe(int i) {
         this.aJR = i;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("page_stay_max_cost", this.aJR);
     }

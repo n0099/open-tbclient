@@ -23,7 +23,7 @@ public class ReportUserInfoModel extends BdBaseModel {
     public interface a {
         void onError(int i, String str);
 
-        void pC(int i);
+        void pB(int i);
     }
 
     public void a(a aVar) {
@@ -40,7 +40,7 @@ public class ReportUserInfoModel extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && ReportUserInfoModel.this.eQp != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
                     ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
                     if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                        ReportUserInfoModel.this.eQp.pC(responseReportUserInfoMessage.getTimeInterval());
+                        ReportUserInfoModel.this.eQp.pB(responseReportUserInfoMessage.getTimeInterval());
                     } else {
                         ReportUserInfoModel.this.eQp.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
                     }

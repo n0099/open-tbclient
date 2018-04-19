@@ -40,7 +40,7 @@ public class d {
         return this.cuD == 0;
     }
 
-    public void iT(int i) {
+    public void iS(int i) {
         this.cuD = i;
     }
 
@@ -65,7 +65,7 @@ public class d {
         d dVar = null;
         if (dataRes != null) {
             dVar = new d();
-            dVar.iT(dataRes.is_guest.intValue());
+            dVar.iS(dataRes.is_guest.intValue());
             dVar.a(ChannelInfo.parse(dataRes.channel));
             if (dataRes.video != null) {
                 dVar.a(g.a(dataRes.video.page));

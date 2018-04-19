@@ -64,8 +64,8 @@ public class b {
         this.heM = writeVideoActivity;
         this.heM.setContentView(d.i.write_video_activity);
         this.heS = new com.baidu.tieba.write.b();
-        this.heS.uL(d.C0126d.cp_cont_i);
-        this.heS.uM(d.C0126d.cp_cont_h_alpha85);
+        this.heS.uK(d.C0126d.cp_cont_i);
+        this.heS.uL(d.C0126d.cp_cont_h_alpha85);
         bCv();
         initView();
     }

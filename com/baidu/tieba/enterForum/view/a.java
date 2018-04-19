@@ -63,12 +63,12 @@ public class a {
     }
 
     public View akN() {
-        this.cJi.jC(l.e(this.cJg.getPageContext().getPageActivity(), d.e.ds20));
+        this.cJi.jB(l.e(this.cJg.getPageContext().getPageActivity(), d.e.ds20));
         return BdListViewHelper.a(this.cJg.getPageContext().getPageActivity(), this.bVg, BdListViewHelper.HeadType.TIP);
     }
 
     public void am(View view2) {
-        this.cJi.jC(l.e(this.cJg.getPageContext().getPageActivity(), d.e.ds10));
+        this.cJi.jB(l.e(this.cJg.getPageContext().getPageActivity(), d.e.ds10));
         this.bVg.removeHeaderView(view2);
     }
 
@@ -85,7 +85,7 @@ public class a {
                 }
             });
         }
-        this.refreshView.fb(this.cJg.getPageContext().getContext().getResources().getDimensionPixelSize(d.e.ds280));
+        this.refreshView.fa(this.cJg.getPageContext().getContext().getResources().getDimensionPixelSize(d.e.ds280));
         this.refreshView.setSubText(this.cJg.getString(d.k.neterror));
         this.mRootView = view2;
         this.refreshView.d(view2, true);
@@ -122,7 +122,7 @@ public class a {
         aP(this.cJj.getDataList());
     }
 
-    public void jA(final int i) {
+    public void jz(final int i) {
         this.cJl = true;
         if (this.cJj.alj() == null) {
             this.cJj.createView();
@@ -139,7 +139,7 @@ public class a {
         e.fw().post(new Runnable() { // from class: com.baidu.tieba.enterForum.view.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.jB(i);
+                a.this.jA(i);
                 e.fw().post(new Runnable() { // from class: com.baidu.tieba.enterForum.view.a.2.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -179,7 +179,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jB(int i) {
+    public void jA(int i) {
         if (this.cJj.alj() != null && this.bVg != null && this.bVg.getChildCount() > 0) {
             int firstVisiblePosition = (this.bVg.getFirstVisiblePosition() * 2) - 1;
             if (firstVisiblePosition < 0) {
@@ -281,7 +281,7 @@ public class a {
             this.bVg.removeFooterView(this.mFooterView);
         }
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
         if (this.cJi != null) {
             this.cJi.onChangeSkinType(this.cJg.getPageContext());

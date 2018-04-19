@@ -8,7 +8,7 @@ public interface e {
 
         void onChange(boolean z);
 
-        void pD(int i);
+        void pC(int i);
     }
 
     void a(a aVar);

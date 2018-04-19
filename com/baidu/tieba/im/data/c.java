@@ -12,7 +12,7 @@ public class c {
         return this.dWa == 1;
     }
 
-    public void ns(int i) {
+    public void nr(int i) {
         this.dWa = i;
     }
 

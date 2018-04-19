@@ -94,7 +94,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     if (TextUtils.isEmpty(this.gjM.bnj().getTip())) {
                         showToast(d.k.no_cache_delete);
                     } else {
-                        this.bxQ = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).ca(d.k.alert_clear_all_cache).a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.4
+                        this.bxQ = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bZ(d.k.alert_clear_all_cache).a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.4
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                 SystemHelpSettingActivity.this.showLoadingDialog(SystemHelpSettingActivity.this.getPageContext().getString(d.k.deleting));
@@ -111,7 +111,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                 }
             } else if (view2 == this.gjM.bnk()) {
                 if (this.gjN != null) {
-                    this.bxQ = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).ca(d.k.alert_clear_cache).a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.6
+                    this.bxQ = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bZ(d.k.alert_clear_cache).a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.6
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                             aVar.dismiss();

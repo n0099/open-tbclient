@@ -118,15 +118,15 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
         this.aRK = i;
         this.aRL = i4;
         this.aRM = i5;
-        fB(i3);
-        fA(i2);
+        fA(i3);
+        fz(i2);
     }
 
     public GestureDetector IK() {
         return this.aRy;
     }
 
-    public void fA(int i) {
+    public void fz(int i) {
         this.aRt = i;
     }
 
@@ -134,7 +134,7 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
         this.aRu = z;
     }
 
-    public void fB(int i) {
+    public void fA(int i) {
         this.aRv = i;
     }
 

@@ -36,7 +36,7 @@ public class WriteThreadFrsDeleagteStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 c Fy;
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ab) customResponsedMessage.getData()).kp(99)) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ab) customResponsedMessage.getData()).ko(99)) {
                     WriteThreadFrsDeleagteStatic writeThreadFrsDeleagteStatic = new WriteThreadFrsDeleagteStatic();
                     ((ab) customResponsedMessage.getData()).b(writeThreadFrsDeleagteStatic);
                     if (((ab) customResponsedMessage.getData()).getContext() != null && (Fy = writeThreadFrsDeleagteStatic.Fy()) != null) {

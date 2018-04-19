@@ -92,7 +92,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.dPu.setBackgroundColor(ak.cM(i));
+            this.dPu.setBackgroundColor(ak.cL(i));
         } else {
             this.dPu.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
@@ -238,7 +238,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         };
         this.dPv = new BaseViewPager.a() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.3
             @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-            public void cZ(int i) {
+            public void cY(int i) {
                 if (i == 0) {
                 }
             }

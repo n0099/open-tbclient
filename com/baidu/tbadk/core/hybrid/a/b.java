@@ -28,7 +28,7 @@ public class b extends n {
             String optString = jSONObject.optString("curNum");
             g gVar = new g();
             gVar.setActivityId(optInt);
-            gVar.ex(optInt2);
+            gVar.ew(optInt2);
             gVar.fP(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, gVar));
         }

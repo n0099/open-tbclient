@@ -204,7 +204,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
         public void a(int i, int i2, ap apVar, ArrayList<com.baidu.adp.widget.ListView.h> arrayList) {
             FrsFragment.this.apq();
             if (FrsFragment.this.cXA != null) {
-                FrsFragment.this.cXt.fW(FrsFragment.this.cXA.kw(i));
+                FrsFragment.this.cXt.fW(FrsFragment.this.cXA.kv(i));
             }
             d.a aVar = new d.a();
             if (apVar != null) {
@@ -249,7 +249,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     };
     private FrsTabViewController.a cYb = new FrsTabViewController.a() { // from class: com.baidu.tieba.frs.FrsFragment.33
         @Override // com.baidu.tieba.frs.vc.FrsTabViewController.a
-        public void eT(int i) {
+        public void eS(int i) {
             if (i != 1) {
                 com.baidu.tieba.card.v.afy().et(false);
             }
@@ -263,7 +263,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                FrsFragment.this.cXu.lv(((Integer) customResponsedMessage.getData()).intValue());
+                FrsFragment.this.cXu.lu(((Integer) customResponsedMessage.getData()).intValue());
             }
         }
     };
@@ -281,7 +281,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                FrsFragment.this.cXu.lt(49);
+                FrsFragment.this.cXu.ls(49);
             }
         }
     };
@@ -377,7 +377,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
         private long startTime = 0;
 
         @Override // com.baidu.tieba.tbadkCore.n
-        public void ke(int i) {
+        public void kd(int i) {
             this.startTime = System.nanoTime();
             if (FrsFragment.this.cXk != null) {
                 switch (i) {
@@ -418,9 +418,9 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
             if (FrsFragment.this.cXs.atJ() != null) {
                 FrsFragment.this.cWO = FrsFragment.this.cXs.atJ();
             }
-            FrsFragment.this.kb(1);
+            FrsFragment.this.ka(1);
             if (i == 7) {
-                FrsFragment.this.kc(FrsFragment.this.cWO.bqs());
+                FrsFragment.this.kb(FrsFragment.this.cWO.bqs());
                 return;
             }
             if (FrsFragment.this.cWO.rg() != null) {
@@ -465,7 +465,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
             if (aVar == null || aVar.errorCode == 0) {
                 if (FrsFragment.this.cWO != null) {
                     FrsFragment.this.t(false, i == 5);
-                    FrsFragment.this.cXk.ki(i);
+                    FrsFragment.this.cXk.kh(i);
                     FrsFragment.cXl = (System.nanoTime() - this.startTime) / 1000000;
                     if (aVar != null) {
                         FrsFragment.cXm = aVar.gto;
@@ -486,7 +486,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                 FrsFragment.this.cHR = -1L;
                 FrsFragment.this.cXQ = true;
             }
-            if (FrsFragment.this.cXh && FrsFragment.this.cXu.lt(49)) {
+            if (FrsFragment.this.cXh && FrsFragment.this.cXu.ls(49)) {
                 FrsFragment.this.cXh = false;
             }
             FrsFragment.this.aKV = System.currentTimeMillis() - currentTimeMillis;
@@ -531,7 +531,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
         @Override // com.baidu.tieba.frs.mc.i
         public void a(int i, boolean z, int i2, boolean z2, ArrayList<com.baidu.adp.widget.ListView.h> arrayList, boolean z3) {
             if (FrsFragment.this.cXw != null && FrsFragment.this.cXs != null && FrsFragment.this.cXs.aur() && z && !z2 && !z3) {
-                FrsFragment.this.cXw.kY(i2);
+                FrsFragment.this.cXw.kX(i2);
             }
         }
     };
@@ -651,7 +651,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
             }
             if (FrsFragment.this.cXq == null && !FrsFragment.this.apG()) {
                 FrsFragment.this.cXq = new com.baidu.tbadk.k.d();
-                FrsFragment.this.cXq.fj(1000);
+                FrsFragment.this.cXq.fi(1000);
             }
             if (i == 0) {
                 com.baidu.tieba.card.v.afy().et(true);
@@ -901,7 +901,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
 
     public void a(View view2, String str, boolean z, List<RecmForumInfo> list) {
         this.cXk.aqf();
-        this.cXk.kg(8);
+        this.cXk.kf(8);
         if (this.cXN == null) {
             this.cXN = new com.baidu.tieba.frs.view.a(getPageContext(), getNetRefreshListener());
         }
@@ -973,7 +973,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kb(int i) {
+    public void ka(int i) {
         List<WindowToast> list;
         if (TbadkCoreApplication.isLogin() && this.cWO != null && (list = this.cWO.guP) != null && list.size() > 0) {
             int i2 = 0;
@@ -1062,21 +1062,21 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kc(int i) {
+    public void kb(int i) {
         am amVar = null;
         apt();
         apC();
         try {
             if (this.cWO != null) {
                 this.cXk.a((ArrayList<com.baidu.adp.widget.ListView.h>) null, this.cWO);
-                this.cXt.lo(1);
+                this.cXt.ln(1);
                 this.cXk.aqn();
                 this.cXu.a(this.cWO, this.cXs.aun());
-                com.baidu.tieba.frs.tab.d lu = this.cXu.lu(this.cWO.bqs());
-                if (lu != null && !TextUtils.isEmpty(lu.url)) {
+                com.baidu.tieba.frs.tab.d lt = this.cXu.lt(this.cWO.bqs());
+                if (lt != null && !TextUtils.isEmpty(lt.url)) {
                     amVar = new am();
-                    amVar.das = lu.url;
-                    amVar.stType = lu.name;
+                    amVar.das = lt.url;
+                    amVar.stType = lt.name;
                 }
                 this.cXs.a(this.cWO.bqs(), 0, amVar);
             }
@@ -1138,7 +1138,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                 this.cWR = this.cWO.auj();
                 if (this.cXg != null) {
                     this.cXf = true;
-                    this.cXg.tl(this.cWR);
+                    this.cXg.tk(this.cWR);
                     com.baidu.tieba.frs.f.a.a(this, this.cWO.aVq(), this.cWO.getThreadList(), this.cXf, getPn());
                 }
                 if (this.cXC != null) {
@@ -1350,7 +1350,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     public void onLazyLoad() {
         if (apG()) {
             showLoadingView(this.cXk.ZG(), true);
-            this.cXk.kh(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.cXk.kg(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.cXs.t(3, true);
             xj().scrollToPosition(0);
         }
@@ -1633,7 +1633,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.cXk.onChangeSkinType(i);
-        this.cXt.ln(i);
+        this.cXt.lm(i);
         this.cXu.onChangeSkinType(i);
         if (this.cXN != null) {
             this.cXN.onChangeSkinType();
@@ -1643,7 +1643,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
         }
     }
 
-    public void kd(int i) {
+    public void kc(int i) {
         if (!this.mIsLogin) {
             if (this.cWO != null && this.cWO.qT() != null) {
                 this.cWO.qT().setIfpost(1);
@@ -1714,7 +1714,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                 if (threadList != null) {
                     this.cXk.a(threadList, this.cWO);
                     com.baidu.tieba.frs.f.c.v(this.cXk);
-                    this.cXt.lo(getPageNum());
+                    this.cXt.ln(getPageNum());
                     this.cXt.f(this.cWO);
                     this.cXu.a(this.cWO, this.cXs.aun());
                     this.cXk.aqn();
@@ -2086,7 +2086,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
-    public com.baidu.tieba.InjectPlugin.a.a gb(int i) {
+    public com.baidu.tieba.InjectPlugin.a.a ga(int i) {
         return this.cXz.get(i);
     }
 
@@ -2137,32 +2137,32 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showLoadingView(View view2, boolean z) {
         super.showLoadingView(view2, z);
-        this.cXk.kg(8);
+        this.cXk.kf(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideLoadingView(View view2) {
         super.hideLoadingView(view2);
-        this.cXk.kg(0);
+        this.cXk.kf(0);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view2, String str, boolean z) {
         super.showNetRefreshView(view2, str, z);
-        this.cXk.kg(8);
+        this.cXk.kf(8);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshViewNoClick(View view2, String str, boolean z) {
         super.showNetRefreshViewNoClick(view2, str, z);
-        this.cXk.kg(8);
+        this.cXk.kf(8);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
         super.hideNetRefreshView(view2);
-        this.cXk.kg(0);
+        this.cXk.kf(0);
     }
 
     public void apI() {

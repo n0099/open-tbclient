@@ -93,9 +93,9 @@ public class c {
         this.fTd.tD();
     }
 
-    private void ik(int i) {
+    private void ij(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.fSQ.getPageContext().getPageActivity(), this.fTa, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.fSQ.getActivity(), d.e.ds320)), NoDataViewFactory.d.dp(d.k.text_no_search_record), null);
+            this.mNoDataView = NoDataViewFactory.a(this.fSQ.getPageContext().getPageActivity(), this.fTa, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.fSQ.getActivity(), d.e.ds320)), NoDataViewFactory.d.m16do(d.k.text_no_search_record), null);
             this.mNoDataView.onChangeSkinType(this.fSQ.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.mNoDataView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.postsearch.c.6
                 @Override // android.view.View.OnTouchListener
@@ -105,18 +105,18 @@ public class c {
                 }
             });
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(i));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(i));
         this.mNoDataView.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
-        ik(d.k.text_no_search_record);
+        ij(d.k.text_no_search_record);
     }
 
     public void bia() {
         this.fTb.setVisibility(8);
-        ik(d.k.text_no_search_result);
+        ij(d.k.text_no_search_result);
     }
 
     private void hideNoDataView() {

@@ -61,7 +61,7 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
             bd bdVar = new bd();
             bdVar.setTitle(top_notice_data.getTitle());
             bdVar.cJ(top_notice_data.tq());
-            bdVar.bQ(2);
+            bdVar.bP(2);
             bdVar.sx();
             this.threadList.add(0, bdVar);
         }
@@ -187,7 +187,7 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
             bVar3.O(arrayList);
             bVar3.Q(arrayList2);
             bVar3.ch(z2);
-            bVar3.bV(rg().ra());
+            bVar3.bU(rg().ra());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar3));
         }
     }
@@ -197,7 +197,7 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
         return this.recm_forum_list;
     }
 
-    private int tk(int i) {
+    private int tj(int i) {
         return Math.min((auj() + bqn()) - 1, i);
     }
 
@@ -262,7 +262,7 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
             Log.e("FrsActivity", "addCardVideoInfoToThreadList cardVideoInfo:" + bqr.getTid());
             ArrayList<com.baidu.adp.widget.ListView.h> threadList = getThreadList();
             if (threadList != null && threadList.size() > 0) {
-                threadList.add(tk(threadList.size()), bqr);
+                threadList.add(tj(threadList.size()), bqr);
             }
         }
     }
@@ -338,8 +338,8 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
         sJ(iVar.bql());
         a(iVar.bqg());
         mk(iVar.bqj());
-        pV(iVar.aVF());
-        tg(iVar.bqn());
+        pU(iVar.aVF());
+        tf(iVar.bqn());
         a(iVar.rg());
         a(iVar.bqc());
         dh(iVar.bqk());
@@ -349,18 +349,18 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
         setUserMap(iVar.getUserMap());
         a(iVar.bqd());
         di(iVar.bqm());
-        th(iVar.bqs());
+        tg(iVar.bqs());
         dk(iVar.bqp());
         sL(iVar.bqq());
         ak(iVar.bqr());
         a(iVar.bqt());
-        ti(iVar.bqw());
+        th(iVar.bqw());
         a(iVar.bqx());
         a(iVar.bqy());
-        td(iVar.bpZ());
+        tc(iVar.bpZ());
         a(iVar.bqA());
-        te(iVar.bqa());
-        tf(iVar.bqb());
+        td(iVar.bqa());
+        te(iVar.bqb());
         this.gtS = iVar.gtS;
         this.gun = iVar.gun;
         this.gur = iVar.gur;
@@ -374,7 +374,7 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
         a(iVar.bpW());
         a(iVar.bqF());
         dn(iVar.bqG());
-        tj(iVar.bqH());
+        ti(iVar.bqH());
         a(iVar.bpX());
         a(iVar.bqI());
         a(iVar.bqJ());

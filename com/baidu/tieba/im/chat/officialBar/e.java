@@ -70,7 +70,7 @@ public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
     public void bQ(List<ResponseHistoryMessage.a> list) {
         if (list == null || list.size() == 0) {
             if (this.mNoDataView == null) {
-                this.mNoDataView = NoDataViewFactory.a(this.mContext.getPageContext().getPageActivity(), this.Tl, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, HttpStatus.SC_BAD_REQUEST), NoDataViewFactory.d.dp(d.k.no_data_text), null);
+                this.mNoDataView = NoDataViewFactory.a(this.mContext.getPageContext().getPageActivity(), this.Tl, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, HttpStatus.SC_BAD_REQUEST), NoDataViewFactory.d.m16do(d.k.no_data_text), null);
             }
             this.mNoDataView.onChangeSkinType(this.mContext.getPageContext(), TbadkApplication.getInst().getSkinType());
             this.mNoDataView.setVisibility(0);

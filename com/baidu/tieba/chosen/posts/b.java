@@ -122,7 +122,7 @@ public class b extends c<ChosenPostActivity> {
                     b.this.cwG.agH().agL();
                 } else if (b.this.cwJ != null) {
                     b.this.cwJ.lN();
-                    b.this.cwJ.fe(d.k.no_more_msg);
+                    b.this.cwJ.fd(d.k.no_more_msg);
                 }
             }
         });
@@ -177,7 +177,7 @@ public class b extends c<ChosenPostActivity> {
         }
         this.cwH.completePullRefreshPostDelayed(2000L);
         if (this.cwJ != null) {
-            this.cwJ.fe(d.k.no_more_msg);
+            this.cwJ.fd(d.k.no_more_msg);
         }
     }
 
@@ -195,7 +195,7 @@ public class b extends c<ChosenPostActivity> {
             this.btV.onChangeSkinType(tbPageContext, i);
         }
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
     }
 
@@ -206,9 +206,9 @@ public class b extends c<ChosenPostActivity> {
             if (aVar.Gh()) {
                 this.cwJ.lN();
                 if (aVar.Gf()) {
-                    this.cwJ.fd(d.k.loading);
+                    this.cwJ.fc(d.k.loading);
                 } else if (!aVar.Gg()) {
-                    this.cwJ.fe(d.k.no_more_msg);
+                    this.cwJ.fd(d.k.no_more_msg);
                 }
             } else {
                 this.cwJ.hide();
@@ -236,9 +236,9 @@ public class b extends c<ChosenPostActivity> {
             this.cwI.F(agQ);
             if (agQ != null) {
                 BdToast a2 = BdToast.a(getActivity(), getActivity().getString(d.k.chosen_post_recommend, new Object[]{Integer.valueOf(agQ.size())}), 0);
-                a2.cm(48);
+                a2.cl(48);
                 a2.setOffsetY(this.paddingTop);
-                a2.ck(this.adl);
+                a2.cj(this.adl);
                 a2.tJ().tL();
             }
         }

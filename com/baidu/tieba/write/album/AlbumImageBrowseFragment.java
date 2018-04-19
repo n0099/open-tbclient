@@ -37,16 +37,16 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             if (view2 != AlbumImageBrowseFragment.this.hbG && view2 == AlbumImageBrowseFragment.this.hbF && AlbumImageBrowseFragment.this.hbE != null && AlbumImageBrowseFragment.this.hbn != null && AlbumImageBrowseFragment.this.hbA != null) {
                 if (AlbumImageBrowseFragment.this.hbn.bBF()) {
                     AlbumImageBrowseFragment.this.hbA.showToast(d.k.album_choose_switch_tip);
-                } else if (AlbumImageBrowseFragment.this.hbE.uS(AlbumImageBrowseFragment.this.aFG)) {
-                    ImageFileInfo pO = AlbumImageBrowseFragment.this.hbE.pO(AlbumImageBrowseFragment.this.aFG);
-                    if (AlbumImageBrowseFragment.this.hbn.isAdded(pO)) {
-                        if (AlbumImageBrowseFragment.this.hbA.d(pO)) {
+                } else if (AlbumImageBrowseFragment.this.hbE.uR(AlbumImageBrowseFragment.this.aFG)) {
+                    ImageFileInfo pN = AlbumImageBrowseFragment.this.hbE.pN(AlbumImageBrowseFragment.this.aFG);
+                    if (AlbumImageBrowseFragment.this.hbn.isAdded(pN)) {
+                        if (AlbumImageBrowseFragment.this.hbA.d(pN)) {
                             AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.hbF, false);
-                            AlbumImageBrowseFragment.this.hbA.f(pO, false);
+                            AlbumImageBrowseFragment.this.hbA.f(pN, false);
                         }
-                    } else if (AlbumImageBrowseFragment.this.hbA.c(pO)) {
+                    } else if (AlbumImageBrowseFragment.this.hbA.c(pN)) {
                         AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.hbF, true);
-                        AlbumImageBrowseFragment.this.hbA.f(pO, true);
+                        AlbumImageBrowseFragment.this.hbA.f(pN, true);
                     }
                     AlbumImageBrowseFragment.this.bBA();
                 }
@@ -58,13 +58,13 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         public void onPageSelected(int i) {
             AlbumImageBrowseFragment.this.aFG = i;
             if (AlbumImageBrowseFragment.this.hbE != null && AlbumImageBrowseFragment.this.hbn != null) {
-                ImageFileInfo pO = AlbumImageBrowseFragment.this.hbE.pO(AlbumImageBrowseFragment.this.aFG);
-                if (AlbumImageBrowseFragment.this.hbn.isAdded(pO)) {
+                ImageFileInfo pN = AlbumImageBrowseFragment.this.hbE.pN(AlbumImageBrowseFragment.this.aFG);
+                if (AlbumImageBrowseFragment.this.hbn.isAdded(pN)) {
                     AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.hbF, true);
                 } else {
                     AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.hbF, false);
                 }
-                if (pO == null || !pO.isGif()) {
+                if (pN == null || !pN.isGif()) {
                     AlbumImageBrowseFragment.this.hbI.setVisibility(0);
                 } else {
                     AlbumImageBrowseFragment.this.hbI.setVisibility(8);
@@ -193,8 +193,8 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     }
 
     public void h(ImageFileInfo imageFileInfo, boolean z) {
-        ImageFileInfo pO;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.hbE != null && (pO = this.hbE.pO(this.aFG)) != null && pO.getFilePath() != null && pO.getFilePath().equals(imageFileInfo.getFilePath())) {
+        ImageFileInfo pN;
+        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.hbE != null && (pN = this.hbE.pN(this.aFG)) != null && pN.getFilePath() != null && pN.getFilePath().equals(imageFileInfo.getFilePath())) {
             c(this.hbF, z);
         }
     }
@@ -215,8 +215,8 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         long j;
         if (this.hbA != null && this.hbI != null) {
             if (this.hbE != null) {
-                ImageFileInfo pO = this.hbE.pO(this.aFG);
-                j = pO != null ? k.dM(pO.getFilePath()) : 0L;
+                ImageFileInfo pN = this.hbE.pN(this.aFG);
+                j = pN != null ? k.dM(pN.getFilePath()) : 0L;
             } else {
                 j = 0;
             }

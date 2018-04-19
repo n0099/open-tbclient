@@ -210,7 +210,7 @@ public class c {
         this.mNavigationBar.onChangeSkinType(this.eTf.getPageContext(), i);
         this.eTf.getLayoutMode().u(this.cOk);
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.eTf.getPageContext(), i);

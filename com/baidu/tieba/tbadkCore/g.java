@@ -19,7 +19,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
         return this.gtJ;
     }
 
-    public void sY(int i) {
+    public void sX(int i) {
         this.gtJ = i;
     }
 
@@ -27,7 +27,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
         return this.fcy;
     }
 
-    public void sZ(int i) {
+    public void sY(int i) {
         this.fcy = i;
     }
 
@@ -39,7 +39,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
         this.icon = str;
     }
 
-    public void ta(int i) {
+    public void sZ(int i) {
         this.weight = i;
     }
 
@@ -51,7 +51,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
         this.title = str;
     }
 
-    public void tb(int i) {
+    public void ta(int i) {
         this.type = i;
     }
 
@@ -79,11 +79,11 @@ public class g implements com.baidu.adp.widget.ListView.h {
         setIcon(starEnter.icon);
         setTime(starEnter.time.intValue());
         setTitle(starEnter.title);
-        tb(starEnter.type.intValue());
+        ta(starEnter.type.intValue());
         setUrl(starEnter.url);
-        ta(starEnter.weight.intValue());
-        sZ(starEnter.rank_num.intValue());
-        sY(starEnter.bazhu_mark.intValue());
+        sZ(starEnter.weight.intValue());
+        sY(starEnter.rank_num.intValue());
+        sX(starEnter.bazhu_mark.intValue());
         this.obj_id = starEnter.obj_id;
         this.eGo = starEnter.text;
     }

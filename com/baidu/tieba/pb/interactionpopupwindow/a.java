@@ -104,7 +104,7 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
         return false;
     }
 
-    public a qa(int i) {
+    public a pZ(int i) {
         this.acp = i;
         return this;
     }

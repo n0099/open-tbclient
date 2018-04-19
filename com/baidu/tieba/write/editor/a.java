@@ -12,7 +12,7 @@ public class a {
     /* renamed from: com.baidu.tieba.write.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0233a {
-        void uY(int i);
+        void uX(int i);
     }
 
     public static void a(final String str, final int i, final InterfaceC0233a interfaceC0233a) {
@@ -37,7 +37,7 @@ public class a {
                     /* renamed from: h */
                     public void onReturnDataInUI(Integer num) {
                         if (InterfaceC0233a.this != null) {
-                            InterfaceC0233a.this.uY(num.intValue());
+                            InterfaceC0233a.this.uX(num.intValue());
                         }
                     }
                 });

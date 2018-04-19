@@ -119,7 +119,7 @@ public class p {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (p.this.blb != null && p.this.fNb != null) {
-                p.this.fIK.rj(p.this.cbx);
+                p.this.fIK.ri(p.this.cbx);
                 if (p.this.cbx == 0) {
                     p.this.blb.wR();
                     p.this.fNb.h(false, false, false);
@@ -239,7 +239,7 @@ public class p {
         ak.i(this.mRootView, d.C0126d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(null, i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
-        this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cP(d.f.s_navbar_bg)));
+        this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cO(d.f.s_navbar_bg)));
         if (this.fMZ != null) {
             this.fMZ.onChangeSkinType(i);
         }
@@ -251,7 +251,7 @@ public class p {
         if (this.fIw != null && (this.fIw.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
             this.fIw.getAdapter().notifyDataSetChanged();
         }
-        this.blb.dw(i);
+        this.blb.dv(i);
         ak.i(this.mRootView, d.C0126d.cp_bg_line_d);
         if (this.mIsHost) {
             ak.b(this.fNi, d.C0126d.cp_cont_b, d.C0126d.s_navbar_title_color);

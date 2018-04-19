@@ -98,9 +98,9 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
         }
 
         @Override // com.baidu.tieba.frs.game.strategy.tab.a
-        public com.baidu.tieba.frs.game.strategy.tab.e kC(int i) {
+        public com.baidu.tieba.frs.game.strategy.tab.e kB(int i) {
             if (FrsGameStrategyMainFragment.this.dgs != null) {
-                return FrsGameStrategyMainFragment.this.dgs.kC(i);
+                return FrsGameStrategyMainFragment.this.dgs.kB(i);
             }
             return null;
         }

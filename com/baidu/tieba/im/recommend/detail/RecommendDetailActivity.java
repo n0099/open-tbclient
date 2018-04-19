@@ -81,9 +81,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         }
         if (this.egK != null && this.egL != null && this.egL.aGJ() && !this.egL.aGI()) {
             if (l.hg()) {
-                this.egK.ik(d.k.no_data_text);
+                this.egK.ij(d.k.no_data_text);
             } else {
-                this.egK.ik(d.k.game_index_no_network_text);
+                this.egK.ij(d.k.game_index_no_network_text);
             }
         }
     }

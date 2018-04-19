@@ -89,7 +89,7 @@ public class j extends b<com.baidu.tieba.card.data.g> {
             @Override // com.baidu.adp.base.d
             public void f(Object obj) {
                 if (!(obj instanceof com.baidu.tieba.tbadkCore.r) || j.this.bmW.getErrorCode() != 0) {
-                    if (AntiHelper.tu(j.this.bmW.getErrorCode())) {
+                    if (AntiHelper.tt(j.this.bmW.getErrorCode())) {
                         AntiHelper.am(j.this.getContext(), j.this.bmW.getErrorString());
                     } else {
                         j.this.aeY().showToast(j.this.bmW.getErrorString());
@@ -118,7 +118,7 @@ public class j extends b<com.baidu.tieba.card.data.g> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
         if (this.cnJ != null && this.cnK != null) {
-            this.cnK.di(i);
+            this.cnK.dh(i);
         }
     }
 

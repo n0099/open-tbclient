@@ -39,7 +39,7 @@ public class an {
         return this.YP;
     }
 
-    public void bK(int i) {
+    public void bJ(int i) {
         this.YP = i;
     }
 

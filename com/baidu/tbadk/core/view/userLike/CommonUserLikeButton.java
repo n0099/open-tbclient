@@ -20,7 +20,7 @@ public class CommonUserLikeButton extends TextView implements b {
 
     /* loaded from: classes.dex */
     public interface a {
-        void dD(int i);
+        void dC(int i);
     }
 
     public CommonUserLikeButton(Context context) {
@@ -77,9 +77,9 @@ public class CommonUserLikeButton extends TextView implements b {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dC(int i) {
+    public void dB(int i) {
         if (this.aqD != null) {
-            this.aqD.dD(i);
+            this.aqD.dC(i);
         }
     }
 

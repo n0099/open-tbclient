@@ -47,12 +47,12 @@ public class d extends com.baidu.tieba.frs.game.strategy.view.a {
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public Object kH(int i) {
+    public Object kG(int i) {
         return v.c(this.dhc, i);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public long kI(int i) {
+    public long kH(int i) {
         return i;
     }
 
@@ -80,7 +80,7 @@ public class d extends com.baidu.tieba.frs.game.strategy.view.a {
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public void kJ(int i) {
+    public void kI(int i) {
         this.dhd = i;
         this.dhc.setSelectedIndex(i);
         notifyDataSetChanged();

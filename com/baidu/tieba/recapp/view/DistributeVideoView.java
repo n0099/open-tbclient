@@ -215,7 +215,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
                     } else {
                         i = 31;
                     }
-                    DistributeVideoView.this.X(i, DistributeVideoView.this.sc(DistributeVideoView.this.gdU), 0);
+                    DistributeVideoView.this.X(i, DistributeVideoView.this.sb(DistributeVideoView.this.gdU), 0);
                     DistributeVideoView.this.cop = gVar;
                     DistributeVideoView.this.cop.setVolume(0.0f, 0.0f);
                     DistributeVideoView.this.mHandler.removeMessages(1001);
@@ -227,7 +227,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i, int i2) {
                 DistributeVideoView.this.bkp();
-                DistributeVideoView.this.X(36, DistributeVideoView.this.sc(DistributeVideoView.this.gdU), gVar.getCurrentPosition());
+                DistributeVideoView.this.X(36, DistributeVideoView.this.sb(DistributeVideoView.this.gdU), gVar.getCurrentPosition());
                 DistributeVideoView.this.dLO.setForegroundDrawable(0);
                 DistributeVideoView.this.fZY.setVisibility(8);
                 DistributeVideoView.this.fzo.setVisibility(0);
@@ -239,7 +239,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             public void onCompletion(g gVar) {
                 DistributeVideoView.this.gdP = System.currentTimeMillis();
                 DistributeVideoView.this.gdT = true;
-                DistributeVideoView.this.X(34, DistributeVideoView.this.sc(DistributeVideoView.this.gdU), gVar.getDuration());
+                DistributeVideoView.this.X(34, DistributeVideoView.this.sb(DistributeVideoView.this.gdU), gVar.getDuration());
                 DistributeVideoView.this.bkp();
                 if (DistributeVideoView.this.gas != null) {
                     DistributeVideoView.this.gas.bkj();
@@ -258,7 +258,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             @Override // java.lang.Runnable
             public void run() {
                 if (DistributeVideoView.this.fzg != null && DistributeVideoView.this.bkP != null) {
-                    DistributeVideoView.this.sb(1);
+                    DistributeVideoView.this.sa(1);
                 }
             }
         };
@@ -389,7 +389,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
                     } else {
                         i = 31;
                     }
-                    DistributeVideoView.this.X(i, DistributeVideoView.this.sc(DistributeVideoView.this.gdU), 0);
+                    DistributeVideoView.this.X(i, DistributeVideoView.this.sb(DistributeVideoView.this.gdU), 0);
                     DistributeVideoView.this.cop = gVar;
                     DistributeVideoView.this.cop.setVolume(0.0f, 0.0f);
                     DistributeVideoView.this.mHandler.removeMessages(1001);
@@ -401,7 +401,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i, int i2) {
                 DistributeVideoView.this.bkp();
-                DistributeVideoView.this.X(36, DistributeVideoView.this.sc(DistributeVideoView.this.gdU), gVar.getCurrentPosition());
+                DistributeVideoView.this.X(36, DistributeVideoView.this.sb(DistributeVideoView.this.gdU), gVar.getCurrentPosition());
                 DistributeVideoView.this.dLO.setForegroundDrawable(0);
                 DistributeVideoView.this.fZY.setVisibility(8);
                 DistributeVideoView.this.fzo.setVisibility(0);
@@ -413,7 +413,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             public void onCompletion(g gVar) {
                 DistributeVideoView.this.gdP = System.currentTimeMillis();
                 DistributeVideoView.this.gdT = true;
-                DistributeVideoView.this.X(34, DistributeVideoView.this.sc(DistributeVideoView.this.gdU), gVar.getDuration());
+                DistributeVideoView.this.X(34, DistributeVideoView.this.sb(DistributeVideoView.this.gdU), gVar.getDuration());
                 DistributeVideoView.this.bkp();
                 if (DistributeVideoView.this.gas != null) {
                     DistributeVideoView.this.gas.bkj();
@@ -432,7 +432,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             @Override // java.lang.Runnable
             public void run() {
                 if (DistributeVideoView.this.fzg != null && DistributeVideoView.this.bkP != null) {
-                    DistributeVideoView.this.sb(1);
+                    DistributeVideoView.this.sa(1);
                 }
             }
         };
@@ -563,7 +563,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
                     } else {
                         i2 = 31;
                     }
-                    DistributeVideoView.this.X(i2, DistributeVideoView.this.sc(DistributeVideoView.this.gdU), 0);
+                    DistributeVideoView.this.X(i2, DistributeVideoView.this.sb(DistributeVideoView.this.gdU), 0);
                     DistributeVideoView.this.cop = gVar;
                     DistributeVideoView.this.cop.setVolume(0.0f, 0.0f);
                     DistributeVideoView.this.mHandler.removeMessages(1001);
@@ -575,7 +575,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i2, int i22) {
                 DistributeVideoView.this.bkp();
-                DistributeVideoView.this.X(36, DistributeVideoView.this.sc(DistributeVideoView.this.gdU), gVar.getCurrentPosition());
+                DistributeVideoView.this.X(36, DistributeVideoView.this.sb(DistributeVideoView.this.gdU), gVar.getCurrentPosition());
                 DistributeVideoView.this.dLO.setForegroundDrawable(0);
                 DistributeVideoView.this.fZY.setVisibility(8);
                 DistributeVideoView.this.fzo.setVisibility(0);
@@ -587,7 +587,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             public void onCompletion(g gVar) {
                 DistributeVideoView.this.gdP = System.currentTimeMillis();
                 DistributeVideoView.this.gdT = true;
-                DistributeVideoView.this.X(34, DistributeVideoView.this.sc(DistributeVideoView.this.gdU), gVar.getDuration());
+                DistributeVideoView.this.X(34, DistributeVideoView.this.sb(DistributeVideoView.this.gdU), gVar.getDuration());
                 DistributeVideoView.this.bkp();
                 if (DistributeVideoView.this.gas != null) {
                     DistributeVideoView.this.gas.bkj();
@@ -606,7 +606,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             @Override // java.lang.Runnable
             public void run() {
                 if (DistributeVideoView.this.fzg != null && DistributeVideoView.this.bkP != null) {
-                    DistributeVideoView.this.sb(1);
+                    DistributeVideoView.this.sa(1);
                 }
             }
         };
@@ -832,7 +832,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sb(int i) {
+    public void sa(int i) {
         if (this.gas != null) {
             this.gas.bkk();
         }
@@ -853,14 +853,14 @@ public class DistributeVideoView extends RelativeLayout implements i {
     }
 
     public void performPlay() {
-        sb(2);
+        sa(2);
     }
 
     @Override // com.baidu.tieba.recapp.i
     public void autoPlay(int i) {
         if (bcI()) {
             if (i <= 0) {
-                sb(1);
+                sa(1);
                 return;
             }
             com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fzw);
@@ -870,7 +870,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
 
     public void pausePlay(int i) {
         if (this.fzh == 1) {
-            y(32, sc(this.gdU), this.bkP.getCurrentPosition(), i);
+            y(32, sb(this.gdU), this.bkP.getCurrentPosition(), i);
             this.bkP.pause();
             y.a(this.SX, false);
             this.fZY.setVisibility(0);
@@ -888,7 +888,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
     public void continuePlay(int i) {
         if (this.fzh == 2) {
             this.gdU = i;
-            X(33, sc(i), this.bkP.getCurrentPosition());
+            X(33, sb(i), this.bkP.getCurrentPosition());
             this.gdS = this.bkP.getCurrentPosition();
             this.bkP.start();
             if (this.gdO) {
@@ -922,7 +922,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
             if (this.bkP.getDuration() == this.bkP.getCurrentPosition()) {
                 i = 34;
             }
-            e(i, sc(this.gdU), this.bkP.getCurrentPosition(), this.bkP.isPlaying());
+            e(i, sb(this.gdU), this.bkP.getCurrentPosition(), this.bkP.isPlaying());
         }
         bkp();
     }
@@ -951,7 +951,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int sc(int i) {
+    public int sb(int i) {
         if (i == 1) {
             return 0;
         }
@@ -1033,7 +1033,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
 
     private void a(AdvertAppInfo advertAppInfo, int i, String str) {
         advertAppInfo.Vt = str;
-        a a = com.baidu.tieba.recapp.report.e.a(this.gdG, 303, i, sc(this.gdU), this.fzg.video_duration.intValue(), this.mDuration, -1);
+        a a = com.baidu.tieba.recapp.report.e.a(this.gdG, 303, i, sb(this.gdU), this.fzg.video_duration.intValue(), this.mDuration, -1);
         if (this.gas != null) {
             this.gas.e(a);
         }
@@ -1080,7 +1080,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
                 } else {
                     str2 = "oth";
                 }
-                c(str, this.gdS, i3, this.mDuration, str2, sd(i2));
+                c(str, this.gdS, i3, this.mDuration, str2, sc(i2));
             }
         }
     }
@@ -1091,7 +1091,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
         }
     }
 
-    private String sd(int i) {
+    private String sc(int i) {
         if (i == 0) {
             return ActVideoSetting.ACT_URL;
         }
@@ -1136,7 +1136,7 @@ public class DistributeVideoView extends RelativeLayout implements i {
                     return;
                 } else if (!j.gQ() && this.mPageContext != null) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-                    aVar.ca(d.k.play_video_mobile_tip);
+                    aVar.bZ(d.k.play_video_mobile_tip);
                     aVar.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

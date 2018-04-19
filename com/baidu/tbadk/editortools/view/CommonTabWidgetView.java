@@ -20,7 +20,7 @@ public class CommonTabWidgetView extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void eT(int i);
+        void eS(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -80,7 +80,7 @@ public class CommonTabWidgetView extends LinearLayout {
 
     public void onChangeSkinType(int i) {
         ak.j(this, d.C0126d.common_color_10223);
-        this.aFR.dA(i);
+        this.aFR.dz(i);
         ak.c(this.aFS, d.f.but_face_close);
         ak.j(this.aFS, d.C0126d.common_color_10224);
     }

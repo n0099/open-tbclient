@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    void dL(int i);
+    void dK(int i);
 
     boolean eX(String str);
 

@@ -43,11 +43,11 @@ public class m extends a {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
         com.baidu.adp.widget.ImageView.a gG = com.baidu.tbadk.imageManager.c.Fa().gG(str3);
         if (gG == null) {
-            Bitmap cO = ak.cO(com.baidu.adp.lib.g.b.g(str2, 0));
-            if (cO == null) {
+            Bitmap cN = ak.cN(com.baidu.adp.lib.g.b.g(str2, 0));
+            if (cN == null) {
                 return null;
             }
-            com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(cO, false, str2);
+            com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(cN, false, str2);
             com.baidu.tbadk.imageManager.c.Fa().c(str3, aVar);
             return aVar;
         }

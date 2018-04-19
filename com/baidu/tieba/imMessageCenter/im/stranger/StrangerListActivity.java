@@ -144,7 +144,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     private void a(StrangerListActivity strangerListActivity) {
         this.emf = new b(strangerListActivity);
         this.emi = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
-        this.emi.ca(d.k.sure_to_delete_all_stranger_msg);
+        this.emi.bZ(d.k.sure_to_delete_all_stranger_msg);
         this.emi.a(d.k.confirm, this.emj);
         this.emi.b(d.k.cancel, this.emk);
         this.emi.b(strangerListActivity.getPageContext());
@@ -164,9 +164,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        ImMessageCenterShowItemData nj;
-        if (this.emf != null && this.emf.aIl() != null && (nj = this.emf.aIl().getItem(i)) != null) {
-            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.emh.getPageContext().getContext(), com.baidu.adp.lib.g.b.c(nj.getFriendId(), 0L), nj.getFriendName(), nj.getFriendPortrait(), 0, 0);
+        ImMessageCenterShowItemData ni;
+        if (this.emf != null && this.emf.aIl() != null && (ni = this.emf.aIl().getItem(i)) != null) {
+            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.emh.getPageContext().getContext(), com.baidu.adp.lib.g.b.c(ni.getFriendId(), 0L), ni.getFriendName(), ni.getFriendPortrait(), 0, 0);
             personalChatActivityConfig.setFollowStatus(0);
             sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
         }
@@ -174,8 +174,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        final ImMessageCenterShowItemData nj;
-        if (this.emf == null || this.emf.aIl() == null || (nj = this.emf.aIl().getItem(i)) == null) {
+        final ImMessageCenterShowItemData ni;
+        if (this.emf == null || this.emf.aIl() == null || (ni = this.emf.aIl().getItem(i)) == null) {
             return false;
         }
         final int size = this.emg.getData().size();
@@ -186,7 +186,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 if (size == 1) {
                     StrangerListActivity.this.emg.a(StrangerListActivity.this.dTp);
                 } else {
-                    StrangerListActivity.this.emg.asyncDeleteItem(nj, StrangerListActivity.this.dTp);
+                    StrangerListActivity.this.emg.asyncDeleteItem(ni, StrangerListActivity.this.dTp);
                 }
             }
         });

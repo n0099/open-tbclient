@@ -48,7 +48,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oL */
+    /* renamed from: oK */
     public ForumSuggestModel.Forum getItem(int i) {
         int count = getCount();
         if (count <= 0 || i >= count) {
@@ -95,8 +95,8 @@ public class a extends BaseAdapter {
             }
             a(c0179a.apV, str);
             c0179a.eBM.setTag(item.avatar);
-            c0179a.eBN.setText(this.bcJ.getPageContext().getString(d.k.attention) + " " + oM(item.member_num));
-            c0179a.eBO.setText(this.bcJ.getPageContext().getString(d.k.text_post) + " " + oM(item.thread_num));
+            c0179a.eBN.setText(this.bcJ.getPageContext().getString(d.k.attention) + " " + oL(item.member_num));
+            c0179a.eBO.setText(this.bcJ.getPageContext().getString(d.k.text_post) + " " + oL(item.thread_num));
             if (this.eBI || !TextUtils.isEmpty(item.slogan)) {
                 c0179a.eBP.setVisibility(0);
                 c0179a.eBP.setText(item.slogan);
@@ -115,7 +115,7 @@ public class a extends BaseAdapter {
         return view2;
     }
 
-    public String oM(int i) {
+    public String oL(int i) {
         if (i >= 100000) {
             return String.valueOf(i / 10000) + this.bcJ.getPageContext().getString(d.k.member_count_unit);
         }

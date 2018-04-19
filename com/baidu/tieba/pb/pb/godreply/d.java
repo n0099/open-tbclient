@@ -78,7 +78,7 @@ public class d {
             this.rootView = this.fbd.inflate();
             init();
             if (this.fdZ != this.fea) {
-                qd(this.fea);
+                qc(this.fea);
             }
         }
     }
@@ -172,11 +172,11 @@ public class d {
     public void onChangeSkinType(int i) {
         this.fea = i;
         if (aWB()) {
-            qd(i);
+            qc(i);
         }
     }
 
-    private void qd(int i) {
+    private void qc(int i) {
         this.fdZ = i;
         this.fdu.getLayoutMode().u(this.rootView);
         this.bfy.onChangeSkinType(this.fdu.getPageContext(), i);

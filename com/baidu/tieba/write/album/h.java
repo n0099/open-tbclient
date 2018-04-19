@@ -69,7 +69,7 @@ public class h extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uT */
+    /* renamed from: uS */
     public MediaFileInfo getItem(int i) {
         return (MediaFileInfo) v.c(this.mDataList, i);
     }
@@ -192,7 +192,7 @@ public class h extends BaseAdapter {
                 cVar = (c) view2.getTag();
             }
             cVar.hcg.startLoad(videoFileInfo.videoPath, 37, false);
-            cVar.hci.setText(an.cV(videoFileInfo.videoDuration));
+            cVar.hci.setText(an.cU(videoFileInfo.videoDuration));
             a(cVar.cKY, mediaFileInfo);
             b bVar = new b(mediaFileInfo, i);
             cVar.hcg.setOnClickListener(bVar);

@@ -98,7 +98,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         this.dTu = (BdListView) officialBarTipActivity.findViewById(d.g.msg_list);
         this.dTv = new OfficialBarTipListAdapter(officialBarTipActivity);
         this.dTu.setAdapter((ListAdapter) this.dTv);
-        this.mNoDataView = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.dp(d.k.official_message_activity_no_data), null);
+        this.mNoDataView = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.m16do(d.k.official_message_activity_no_data), null);
     }
 
     private void l(final OfficialBarTipActivity officialBarTipActivity) {

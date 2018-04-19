@@ -108,7 +108,7 @@ public class a {
         return com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs") && com.coloros.mcssdk.c.d.b(context, "com.coloros.mcs") >= 1012 && com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs", "supportOpenPush");
     }
 
-    private void vs(int i) {
+    private void vr(int i) {
         as(i, "");
     }
 
@@ -123,7 +123,7 @@ public class a {
         this.hmb = str2;
         this.mContext = context.getApplicationContext();
         this.hmd = bVar;
-        vs(12289);
+        vr(12289);
     }
 
     public List<d> bFq() {

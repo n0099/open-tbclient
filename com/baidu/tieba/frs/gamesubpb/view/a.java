@@ -157,7 +157,7 @@ public class a {
                 a.this.dkF = dVar.userId;
             }
         });
-        kN(140);
+        kM(140);
         ati();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.dkE = new ArrayList();
@@ -209,7 +209,7 @@ public class a {
     public void d(final com.baidu.tieba.frs.gamesubpb.model.d dVar) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dkc.getPageContext().getPageActivity());
         aVar.db(null);
-        aVar.ca(d.k.del_post_confirm);
+        aVar.bZ(d.k.del_post_confirm);
         aVar.as(true);
         aVar.a(d.k.dialog_ok, new a.b() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.8
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -238,7 +238,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void lY(String str) {
-        kO(0);
+        kN(0);
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_SUB_COMMENT);
         httpMessage.addParam("user_id", this.blQ);
         httpMessage.addParam("reply_user_id", this.dkF);
@@ -260,7 +260,7 @@ public class a {
         }
     }
 
-    private void kN(final int i) {
+    private void kM(final int i) {
         this.dky.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.10
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
@@ -357,7 +357,7 @@ public class a {
     }
 
     public void a(boolean z, String str, com.baidu.tieba.frs.gamesubpb.model.d dVar) {
-        kO(8);
+        kN(8);
         if (z && dVar != null) {
             BdToast.a(this.dkc.getPageContext().getPageActivity(), this.dkc.getPageContext().getString(d.k.subpb_add_comment_succ_tip), 1).tL();
             this.dky.setText((CharSequence) null);
@@ -445,7 +445,7 @@ public class a {
         }
     }
 
-    public void kO(int i) {
+    public void kN(int i) {
         this.mProgressBar.setVisibility(i);
     }
 
@@ -482,7 +482,7 @@ public class a {
         this.dkc.getLayoutMode().u(this.mRootView);
         ak.j(this.mRootView, d.C0126d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.dkc.getPageContext(), i);
-        this.dkw.dw(i);
+        this.dkw.dv(i);
         ak.h(this.dkA, d.C0126d.cp_cont_e);
         this.dkA.setAlpha(0.95f);
         ak.i(this.dkA, d.f.pb_ecomm_comment_bg);

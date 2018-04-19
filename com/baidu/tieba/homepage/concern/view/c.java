@@ -246,8 +246,8 @@ public class c extends com.baidu.tieba.card.a<l> implements com.baidu.tieba.a.e 
                     aVar2.dismiss();
                 }
             });
-            aVar.cc(1);
-            aVar.cb(d.C0126d.cp_cont_b);
+            aVar.cb(1);
+            aVar.ca(d.C0126d.cp_cont_b);
             aVar.ar(true);
             aVar.b(this.mTbPageContext).tD();
         } else {
@@ -344,7 +344,7 @@ public class c extends com.baidu.tieba.card.a<l> implements com.baidu.tieba.a.e 
                 this.bwV.setData(this.cov.Pe());
             }
         }
-        this.coq.setText(an.cV(this.cov.bji.sh().video_duration.intValue() * 1000));
+        this.coq.setText(an.cU(this.cov.bji.sh().video_duration.intValue() * 1000));
         this.coh.setText(String.format(this.adf.getResources().getString(d.k.play_count), an.B(this.cov.bji.sh().play_count.intValue())));
         this.cma.setData(this.cov.Pe().tc());
         this.cma.onChangeSkinType();
@@ -354,7 +354,7 @@ public class c extends com.baidu.tieba.card.a<l> implements com.baidu.tieba.a.e 
         } else {
             ak.c(this.mTextTitle, d.C0126d.cp_cont_b, 1);
         }
-        hc(gn(1));
+        hb(gm(1));
     }
 
     private void afn() {
@@ -406,7 +406,7 @@ public class c extends com.baidu.tieba.card.a<l> implements com.baidu.tieba.a.e 
         return null;
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.cov != null && this.cov.bji != null) {
             if (i == 1) {
                 this.bwk.setVisibility(8);
@@ -427,7 +427,7 @@ public class c extends com.baidu.tieba.card.a<l> implements com.baidu.tieba.a.e 
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

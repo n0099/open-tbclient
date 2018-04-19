@@ -48,13 +48,13 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
     private AbsListView.OnScrollListener onScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.2
         private int fdI = -1;
 
-        private boolean qc(int i) {
+        private boolean qb(int i) {
             return i == 2 || i == 1;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (!qc(this.fdI) && qc(i) && a.this.fdu != null && a.this.fdu.aWO() != null) {
+            if (!qb(this.fdI) && qb(i) && a.this.fdu != null && a.this.fdu.aWO() != null) {
                 a.this.fdu.aWO().aZI();
                 a.this.fdu.aWO().baA();
             }

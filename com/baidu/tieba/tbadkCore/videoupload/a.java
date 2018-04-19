@@ -40,7 +40,7 @@ public class a {
         }
     }
 
-    public static void tz(int i) {
+    public static void ty(int i) {
         if (i <= 0) {
             gze = 524288;
         } else {
@@ -48,7 +48,7 @@ public class a {
         }
     }
 
-    public static void tA(int i) {
+    public static void tz(int i) {
         if (i <= 0) {
             chunkLength = 524288;
         } else {
@@ -56,7 +56,7 @@ public class a {
         }
     }
 
-    public static void tB(int i) {
+    public static void tA(int i) {
         if (i <= 0) {
             gzd = 6144000;
         } else {

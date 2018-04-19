@@ -129,7 +129,7 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void oa(int i) {
+    public void nZ(int i) {
         this.mParent = this.ein.findViewById(d.g.parent);
         this.mNavigationBar = (NavigationBar) this.ein.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(this.ein.getResources().getString(i));
@@ -185,7 +185,7 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
         ak.i(this.aMR, d.f.s_navbar_button_bg);
         ak.c(this.aMR, d.C0126d.navbar_btn_color, 1);
         aCv();
-        this.mEditText.setHintTextColor(ak.cN(d.C0126d.common_color_10005));
+        this.mEditText.setHintTextColor(ak.cM(d.C0126d.common_color_10005));
         ak.i(this.mParent, d.C0126d.common_color_10041);
     }
 
@@ -213,7 +213,7 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
     @Override // com.baidu.tieba.im.updategroup.a
     public void showDialog() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.ein.getPageContext().getPageActivity());
-        aVar.ca(d.k.group_update_alert_save);
+        aVar.bZ(d.k.group_update_alert_save);
         aVar.a(d.k.group_update_canel, new a.b() { // from class: com.baidu.tieba.im.updategroup.d.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

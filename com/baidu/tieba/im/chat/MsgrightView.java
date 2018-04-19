@@ -77,7 +77,7 @@ public class MsgrightView extends g {
             this.dRw.setVisibility(8);
             this.dQX.setVisibility(0);
             this.dQX.setText(null);
-            ni(8);
+            nh(8);
             this.dRe.getImage().setTag(null);
             this.dQY.setVisibility(8);
             this.dQY.setTag(null);
@@ -134,7 +134,7 @@ public class MsgrightView extends g {
                 });
             }
             this.dQX.setVisibility(8);
-            ni(8);
+            nh(8);
             this.dQY.setVisibility(8);
             this.dQZ.setVisibility(8);
             this.dRc.setVisibility(8);

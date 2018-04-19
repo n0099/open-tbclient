@@ -80,7 +80,7 @@ public class e extends com.baidu.adp.widget.ListView.c {
             skinType = this.mSkinType;
         }
         if (!vF()) {
-            this.aoc = af.vx().cH(skinType);
+            this.aoc = af.vx().cG(skinType);
         }
         this.anY.setBackgroundDrawable(this.aoc);
         this.aoe = new GLTextureView.e() { // from class: com.baidu.tbadk.core.view.e.1
@@ -92,7 +92,7 @@ public class e extends com.baidu.adp.widget.ListView.c {
             }
         };
         this.aof = new com.baidu.tieba.animation3d.b.b(getContext());
-        dw(skinType);
+        dv(skinType);
         this.aoi = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.cube_top);
         this.aoj = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.btn_frs_post_arrow);
         this.aok = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.btn_frs_post_ok);
@@ -230,10 +230,10 @@ public class e extends com.baidu.adp.widget.ListView.c {
         this.aob = cVar;
     }
 
-    public void dw(int i) {
+    public void dv(int i) {
         if (vF() && this.aof != null) {
             if (this.aof.aqQ != i) {
-                this.aof.iD(ak.getColor(i, d.C0126d.cp_bg_line_c));
+                this.aof.iC(ak.getColor(i, d.C0126d.cp_bg_line_c));
                 this.aof.aqQ = i;
                 if (this.aod != null) {
                     this.aod.onResume();

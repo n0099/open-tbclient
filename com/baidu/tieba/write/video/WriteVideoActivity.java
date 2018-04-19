@@ -101,7 +101,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
         }
         this.eRz = new e.a() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.7
             @Override // com.baidu.tieba.j.e.a
-            public void pD(int i) {
+            public void pC(int i) {
                 if (i != 1) {
                     WriteVideoActivity.this.heI = true;
                     return;
@@ -422,7 +422,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
     public void c(boolean z, PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             postWriteCallBackData.getErrorString();
-            if (AntiHelper.tu(postWriteCallBackData.getErrorCode())) {
+            if (AntiHelper.tt(postWriteCallBackData.getErrorCode())) {
                 AntiHelper.am(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
             } else if (postWriteCallBackData.getErrorCode() != 0) {
                 String errorString = postWriteCallBackData.getErrorString();
@@ -563,7 +563,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
 
     private void bCu() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.ca(d.k.give_up_video_confirm);
+        aVar.bZ(d.k.give_up_video_confirm);
         aVar.a(d.k.dialog_ok, new a.b() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

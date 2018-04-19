@@ -24,7 +24,7 @@ public class e implements a.h {
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
-    public View fz(int i) {
+    public View fy(int i) {
         View childAt = this.mListView.getChildAt((this.mListView.getHeaderViewsCount() + i) - this.mListView.getFirstVisiblePosition());
         if (childAt == null) {
             return null;

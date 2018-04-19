@@ -53,7 +53,7 @@ public class b {
         if (dp == null) {
             dp = new i();
             dp.eY(e);
-            dp.dO(0);
+            dp.dN(0);
             dp.Q(file.length());
         }
         this.arF = new a(str, dp, TbConfig.SERVER_ADDRESS + this.arH, e);
@@ -85,7 +85,7 @@ public class b {
         }
         String uL = this.mNetwork.uL();
         if (uL == null || !this.mNetwork.vj().wj().isRequestSuccess()) {
-            iVar.dO((int) P(iVar.getTotalLength()));
+            iVar.dN((int) P(iVar.getTotalLength()));
             com.baidu.tbadk.core.util.c.a(iVar);
             this.arG.setErrorCode(this.mNetwork.vn());
             this.arG.setErrorString(this.mNetwork.getErrorString());
@@ -152,7 +152,7 @@ public class b {
                                 if (this.arL) {
                                     z = true;
                                 } else if (this.mNetWork.uO() == null || !this.mNetWork.vj().wj().isRequestSuccess()) {
-                                    this.arK.dO(i);
+                                    this.arK.dN(i);
                                     com.baidu.tbadk.core.util.c.a(this.arK);
                                     randomAccessFile.close();
                                     z = true;

@@ -370,7 +370,7 @@ public class t extends a<CardPersonDynamicThreadData> {
             this.coU.setTag(voiceModel);
             this.coU.aIT();
             if (voiceModel != null) {
-                this.coU.oc(voiceModel.voice_status.intValue());
+                this.coU.ob(voiceModel.voice_status.intValue());
             }
             this.coU.btf();
         } else {
@@ -412,7 +412,7 @@ public class t extends a<CardPersonDynamicThreadData> {
                         this.cqi.setText(String.format(this.mContext.getResources().getString(d.k.video_review_state), new Object[0]));
                     } else {
                         this.cqe.setVisibility(0);
-                        this.cqf.setText(an.cV(this.cpC.videoInfo.video_duration.intValue() * 1000));
+                        this.cqf.setText(an.cU(this.cpC.videoInfo.video_duration.intValue() * 1000));
                         this.cqg.setText(String.format(this.mContext.getResources().getString(d.k.play_count), an.B(this.cpC.videoInfo.play_count.intValue())));
                     }
                 }

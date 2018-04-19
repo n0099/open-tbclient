@@ -387,13 +387,13 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     private void aX(Context context) {
         Lk();
         if (LogoActivityConfig.mFromSpacial) {
-            ge(1);
+            gd(1);
             LogoActivityConfig.mFromSpacial = false;
         } else if (TbadkCoreApplication.isLogin()) {
             if (this.aXQ) {
                 com.baidu.adp.lib.g.e.fw().post(this.aYf);
             } else {
-                ge(1);
+                gd(1);
             }
         } else if (this.aXQ) {
             com.baidu.adp.lib.g.e.fw().post(this.aYf);
@@ -534,7 +534,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void Lq() {
         if (this.aXT >= 0) {
-            gf(this.aXT);
+            ge(this.aXT);
         } else if (this.aXT == -2) {
             finish();
         } else {
@@ -566,12 +566,12 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         }
     }
 
-    private void ge(int i) {
+    private void gd(int i) {
         this.aXT = i;
         Ll();
     }
 
-    private void gf(int i) {
+    private void ge(int i) {
         LogoActivityConfig.isFirst = false;
         sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(i)));
         finish();
@@ -585,15 +585,15 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             switch (i) {
                 case 16001:
                     if (intent == null) {
-                        ge(1);
+                        gd(1);
                         return;
                     }
                     int intExtra = intent.getIntExtra("go_to", -1);
                     if (intExtra >= 0) {
-                        ge(intExtra);
+                        gd(intExtra);
                         return;
                     } else {
-                        ge(1);
+                        gd(1);
                         return;
                     }
                 default:

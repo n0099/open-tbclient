@@ -47,7 +47,7 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int nV(int i) {
+    public int nU(int i) {
         return this.bvg[i];
     }
 }

@@ -10,7 +10,7 @@ public class f {
             if (gVar == null) {
                 gVar = new com.baidu.tbadk.j.g(context, onClickListener);
             }
-            gVar.fb(context.getResources().getDimensionPixelSize(d.e.ds280));
+            gVar.fa(context.getResources().getDimensionPixelSize(d.e.ds280));
             gVar.setSubText(str);
             gVar.d(view2, z);
             gVar.Fu();

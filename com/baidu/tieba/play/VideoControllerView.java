@@ -39,7 +39,7 @@ public class VideoControllerView extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface b {
-        void gt(int i);
+        void gs(int i);
     }
 
     public VideoControllerView(Context context) {
@@ -56,7 +56,7 @@ public class VideoControllerView extends RelativeLayout {
                         if (!VideoControllerView.this.aRI && VideoControllerView.this.bdz && VideoControllerView.this.bdw != null && VideoControllerView.this.bdw.isPlaying()) {
                             int Nf = VideoControllerView.this.Nf();
                             if (VideoControllerView.this.ezy != null) {
-                                VideoControllerView.this.ezy.gt(Nf);
+                                VideoControllerView.this.ezy.gs(Nf);
                             }
                             sendMessageDelayed(obtainMessage(1), VideoControllerView.this.bdv - (Nf % VideoControllerView.this.bdv));
                             return;
@@ -82,7 +82,7 @@ public class VideoControllerView extends RelativeLayout {
                 if (z) {
                     VideoControllerView.this.bdE = (int) ((VideoControllerView.this.bdw.getDuration() * i) / 10000);
                     if (VideoControllerView.this.bdx != null) {
-                        VideoControllerView.this.bdx.setText(an.cV(VideoControllerView.this.bdE));
+                        VideoControllerView.this.bdx.setText(an.cU(VideoControllerView.this.bdE));
                     }
                     if (VideoControllerView.this.ezz != null) {
                         VideoControllerView.this.ezz.Ng();
@@ -120,7 +120,7 @@ public class VideoControllerView extends RelativeLayout {
                         if (!VideoControllerView.this.aRI && VideoControllerView.this.bdz && VideoControllerView.this.bdw != null && VideoControllerView.this.bdw.isPlaying()) {
                             int Nf = VideoControllerView.this.Nf();
                             if (VideoControllerView.this.ezy != null) {
-                                VideoControllerView.this.ezy.gt(Nf);
+                                VideoControllerView.this.ezy.gs(Nf);
                             }
                             sendMessageDelayed(obtainMessage(1), VideoControllerView.this.bdv - (Nf % VideoControllerView.this.bdv));
                             return;
@@ -146,7 +146,7 @@ public class VideoControllerView extends RelativeLayout {
                 if (z) {
                     VideoControllerView.this.bdE = (int) ((VideoControllerView.this.bdw.getDuration() * i) / 10000);
                     if (VideoControllerView.this.bdx != null) {
-                        VideoControllerView.this.bdx.setText(an.cV(VideoControllerView.this.bdE));
+                        VideoControllerView.this.bdx.setText(an.cU(VideoControllerView.this.bdE));
                     }
                     if (VideoControllerView.this.ezz != null) {
                         VideoControllerView.this.ezz.Ng();
@@ -184,7 +184,7 @@ public class VideoControllerView extends RelativeLayout {
                         if (!VideoControllerView.this.aRI && VideoControllerView.this.bdz && VideoControllerView.this.bdw != null && VideoControllerView.this.bdw.isPlaying()) {
                             int Nf = VideoControllerView.this.Nf();
                             if (VideoControllerView.this.ezy != null) {
-                                VideoControllerView.this.ezy.gt(Nf);
+                                VideoControllerView.this.ezy.gs(Nf);
                             }
                             sendMessageDelayed(obtainMessage(1), VideoControllerView.this.bdv - (Nf % VideoControllerView.this.bdv));
                             return;
@@ -210,7 +210,7 @@ public class VideoControllerView extends RelativeLayout {
                 if (z) {
                     VideoControllerView.this.bdE = (int) ((VideoControllerView.this.bdw.getDuration() * i2) / 10000);
                     if (VideoControllerView.this.bdx != null) {
-                        VideoControllerView.this.bdx.setText(an.cV(VideoControllerView.this.bdE));
+                        VideoControllerView.this.bdx.setText(an.cU(VideoControllerView.this.bdE));
                     }
                     if (VideoControllerView.this.ezz != null) {
                         VideoControllerView.this.ezz.Ng();
@@ -258,10 +258,10 @@ public class VideoControllerView extends RelativeLayout {
         this.mHandler.removeMessages(1);
         this.bdA.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
         if (this.bdx != null) {
-            this.bdx.setText(an.cV(i));
+            this.bdx.setText(an.cU(i));
         }
         if (this.bdy != null) {
-            this.bdy.setText(an.cV(this.mDuration));
+            this.bdy.setText(an.cU(this.mDuration));
         }
     }
 
@@ -284,7 +284,7 @@ public class VideoControllerView extends RelativeLayout {
         this.mHandler.removeMessages(1);
         this.bdA.setProgress(0);
         if (this.bdx != null) {
-            this.bdx.setText(an.cV(0));
+            this.bdx.setText(an.cU(0));
         }
     }
 
@@ -305,7 +305,7 @@ public class VideoControllerView extends RelativeLayout {
             this.bdw.getBufferPercentage();
         }
         if (this.bdx != null) {
-            this.bdx.setText(an.cV(currentPosition));
+            this.bdx.setText(an.cU(currentPosition));
             return currentPosition;
         }
         return currentPosition;
@@ -322,7 +322,7 @@ public class VideoControllerView extends RelativeLayout {
         } else {
             this.bdw.seekTo(i);
             if (this.bdx != null) {
-                this.bdx.setText(an.cV(i));
+                this.bdx.setText(an.cU(i));
             }
             showProgress();
         }
@@ -331,11 +331,11 @@ public class VideoControllerView extends RelativeLayout {
         }
     }
 
-    public String rs(int i) {
+    public String rr(int i) {
         if (i < 0) {
             i = 0;
         }
-        return an.cV(i);
+        return an.cU(i);
     }
 
     public int getSeekPosition() {

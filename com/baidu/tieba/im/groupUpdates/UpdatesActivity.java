@@ -97,7 +97,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     public void onResume() {
         super.onResume();
         ChatStatusManager.getInst().setIsOpen(6, true);
-        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(2);
+        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dR(2);
         com.baidu.tbadk.coreExtra.messageCenter.a.zx().zI();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a("-1002", -3)));
     }
@@ -139,7 +139,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 UpdatesActivity.this.edc.setData(convertToUpdatesItemData);
                 UpdatesActivity.this.edj.calculateSelects(convertToUpdatesItemData);
                 UpdatesActivity.this.edc.hp(false);
-                UpdatesActivity.this.edc.nK(UpdatesActivity.this.edj.getDeleteSize());
+                UpdatesActivity.this.edc.nJ(UpdatesActivity.this.edj.getDeleteSize());
                 UpdatesActivity.this.amq();
                 ImMessageCenterPojo imMessageCenterPojo = null;
                 if (convertToUpdatesItemData != null && convertToUpdatesItemData.size() > 0) {
@@ -173,7 +173,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 UpdatesActivity.this.edc.setData(convertToUpdatesItemData);
                 UpdatesActivity.this.edj.calculateSelects(convertToUpdatesItemData);
                 UpdatesActivity.this.edc.hp(false);
-                UpdatesActivity.this.edc.nK(UpdatesActivity.this.edj.getDeleteSize());
+                UpdatesActivity.this.edc.nJ(UpdatesActivity.this.edj.getDeleteSize());
                 UpdatesActivity.this.amq();
             }
         };
@@ -200,7 +200,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             } else if (view2.equals(this.edc.aFt())) {
                 this.edj.clearSelect();
                 this.edj.calculateSelects(this.edc.aFo().getDatas());
-                this.edc.nK(this.edj.getDeleteSize());
+                this.edc.nJ(this.edj.getDeleteSize());
                 ho(true);
                 this.edc.aFp();
             } else if (view2.equals(this.edc.aFu())) {
@@ -225,7 +225,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (4 == i && keyEvent.getAction() == 0 && this.edh) {
             ho(false);
             this.edj.clearSelect();
-            this.edc.nK(this.edj.getDeleteSize());
+            this.edc.nJ(this.edj.getDeleteSize());
             this.edc.aFq();
             return true;
         }
@@ -312,7 +312,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 this.edj.cancelSelect(updatesItemData);
                 updatesItemData.setSelected(false);
             }
-            this.edc.nK(this.edj.getDeleteSize());
+            this.edc.nJ(this.edj.getDeleteSize());
             this.edc.aEf();
         }
     }
@@ -344,7 +344,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             }
         };
         this.edd = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-        this.edd.cd(d.k.operation);
+        this.edd.cc(d.k.operation);
         this.edd.a(new String[]{string}, interfaceC0086b);
         this.edd.d(getPageContext());
     }

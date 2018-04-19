@@ -59,7 +59,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vg */
+    /* renamed from: vf */
     public MetaData getItem(int i) {
         if (this.adv != null && i < this.adv.size()) {
             return this.adv.get(i);

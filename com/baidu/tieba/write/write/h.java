@@ -107,7 +107,7 @@ public class h {
             fragmentTabIndicator.setText(stringArray[i]);
             fragmentTabIndicator.setTextColorResId(d.C0126d.edit_pic_tab_title_color);
             fragmentTabIndicator.setTextSize(0, resources.getDimension(d.e.fontsize34));
-            fragmentTabIndicator.dA(TbadkCoreApplication.getInst().getSkinType());
+            fragmentTabIndicator.dz(TbadkCoreApplication.getInst().getSkinType());
             this.bHt.addView(fragmentTabIndicator, i);
         }
         this.bHt.setDiverColor(ak.getColor(d.C0126d.cp_cont_j));
@@ -153,7 +153,7 @@ public class h {
         });
     }
 
-    public void vm(int i) {
+    public void vl(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ak.i(this.cLr, d.C0126d.cp_bg_line_d);
@@ -169,7 +169,7 @@ public class h {
     public void bDU() {
         if (this.hgf == null) {
             this.hgf = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-            this.hgf.ca(d.k.orginal_conflict_tip);
+            this.hgf.bZ(d.k.orginal_conflict_tip);
             this.hgf.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.h.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

@@ -270,7 +270,7 @@ public class c extends a {
         return LayoutInflater.from(this.cYF.getPageContext().getPageActivity()).inflate(d.i.frs_normal_header, (ViewGroup) null);
     }
 
-    private void ku(int i) {
+    private void kt(int i) {
         if (i <= 0 || i > 5) {
             this.dcP.setVisibility(8);
             this.cWu.setMaxWidth(l.e(this.adf.getPageActivity(), d.e.ds370));
@@ -301,9 +301,9 @@ public class c extends a {
         this.adf.getLayoutMode().u(this.dsY);
         this.adf.getLayoutMode().u(this.dsM);
         if (this.dtu) {
-            lF(1);
+            lE(1);
         } else {
-            lF(0);
+            lE(0);
         }
         this.dtd.invalidate();
         ak.j(this.bbY, d.C0126d.cp_bg_line_d);
@@ -332,7 +332,7 @@ public class c extends a {
             this.dti.changeSkinType(i);
         }
         if (this.dte != null) {
-            this.dte.dA(i);
+            this.dte.dz(i);
         }
         Iterator<TbImageView> it = this.dcS.iterator();
         while (it.hasNext()) {
@@ -390,7 +390,7 @@ public class c extends a {
             arw();
             this.dcT.setVisibility(8);
             if (lVar != null && lVar.bpX() != null) {
-                ku(lVar.bpX().grade.intValue());
+                kt(lVar.bpX().grade.intValue());
                 this.dcU = lVar.bpX().url;
             }
             if (lVar != null && lVar.guN != null) {
@@ -583,7 +583,7 @@ public class c extends a {
             } else {
                 textView3.setVisibility(8);
             }
-            aVar.cb(d.C0126d.cp_link_tip_d);
+            aVar.ca(d.C0126d.cp_link_tip_d);
             b(aVar);
             c(aVar);
             aVar.b(this.adf);
@@ -678,7 +678,7 @@ public class c extends a {
                 this.dsK.setText(this.dtj);
                 this.dtF.setText(this.adf.getResources().getString(d.k.lv_num, Integer.valueOf(this.mLevel)));
             }
-            this.dsL.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, kv(this.mLevel)));
+            this.dsL.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, ku(this.mLevel)));
             if (this.dtv) {
                 if (f >= 1.0f) {
                     a(this.cYF.getBaseFragmentActivity(), this.dsL, this.dtw, f);
@@ -692,7 +692,7 @@ public class c extends a {
         }
     }
 
-    private int[] kv(int i) {
+    private int[] ku(int i) {
         if (i <= 3) {
             return new int[]{-8331843, -10499102};
         }

@@ -126,7 +126,7 @@ public class c {
                         c.this.gme = false;
                         c.this.bnS();
                         if (c.this.gmc != null) {
-                            c.this.gmc.sN(d.k.share_load_image_fail_tip);
+                            c.this.gmc.sM(d.k.share_load_image_fail_tip);
                         }
                     }
 
@@ -135,7 +135,7 @@ public class c {
                         c.this.gme = false;
                         c.this.bnS();
                         if (c.this.gmc != null) {
-                            c.this.gmc.sN(d.k.share_load_image_fail_tip);
+                            c.this.gmc.sM(d.k.share_load_image_fail_tip);
                         }
                     }
                 });
@@ -189,7 +189,7 @@ public class c {
             ArrayList<String> prefixs = this.mPrefixData.getPrefixs();
             int size = prefixs.size();
             this.glT.setText(prefixs.get(0));
-            this.gmc.sO(0);
+            this.gmc.sN(0);
             this.glW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sharewrite.c.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
@@ -222,8 +222,8 @@ public class c {
             this.glU.setBackgroundDrawable(ak.getDrawable(d.C0126d.cp_bg_line_b));
             this.glU.a(new d.a() { // from class: com.baidu.tieba.sharewrite.c.5
                 @Override // com.baidu.tieba.write.d.a
-                public void sP(int i) {
-                    c.this.gmc.sO(i);
+                public void sO(int i) {
+                    c.this.gmc.sN(i);
                     c.this.glT.setText(c.this.mPrefixData.getPrefixs().get(i));
                     c.this.glU.setCurrentIndex(i);
                     c.this.bnS();

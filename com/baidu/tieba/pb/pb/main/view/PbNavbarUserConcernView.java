@@ -40,7 +40,7 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dC(int i) {
+    public void dB(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b

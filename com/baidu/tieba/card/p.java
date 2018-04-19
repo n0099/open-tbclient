@@ -297,7 +297,7 @@ public class p extends a<com.baidu.tieba.card.data.k> implements com.baidu.tieba
             this.coU.setTag(voiceModel);
             this.coU.aIT();
             if (voiceModel != null) {
-                this.coU.oc(voiceModel.voice_status.intValue());
+                this.coU.ob(voiceModel.voice_status.intValue());
             }
             this.coU.btf();
             z = true;
@@ -343,7 +343,7 @@ public class p extends a<com.baidu.tieba.card.data.k> implements com.baidu.tieba
         afq();
         afr();
         setPageUniqueId(getTag());
-        hc(gn(1));
+        hb(gm(1));
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -513,7 +513,7 @@ public class p extends a<com.baidu.tieba.card.data.k> implements com.baidu.tieba
     }
 
     private void H(bd bdVar) {
-        if (bdVar != null && gn(2) == 1) {
+        if (bdVar != null && gm(2) == 1) {
             SpannableString te = bdVar.te();
             if (te != null && !an.isEmpty(te.toString())) {
                 this.coW.setVisibility(0);
@@ -538,7 +538,7 @@ public class p extends a<com.baidu.tieba.card.data.k> implements com.baidu.tieba
         this.coY = z;
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.cmc != null && this.cmc.threadData != null) {
             this.mStType = o.rG();
             if (i == 1) {
@@ -560,7 +560,7 @@ public class p extends a<com.baidu.tieba.card.data.k> implements com.baidu.tieba
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

@@ -34,7 +34,7 @@ public class f extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iS */
+    /* renamed from: iR */
     public com.baidu.tieba.channel.data.f getItem(int i) {
         if (this.mData != null) {
             return this.mData.get(i);

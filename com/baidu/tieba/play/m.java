@@ -185,7 +185,7 @@ public class m {
         aLK();
     }
 
-    public void oH(int i) {
+    public void oG(int i) {
         this.eyL = i;
     }
 
@@ -218,7 +218,7 @@ public class m {
                 if (childAt.getTag() instanceof f) {
                     f fVar = (f) childAt.getTag();
                     if (fVar.isPlayStarted()) {
-                        oH(fVar.getCurrentPosition());
+                        oG(fVar.getCurrentPosition());
                         oA(fVar.getPlayUrl());
                         this.eyN = childAt;
                         this.eyO = fVar.isPlaying();
@@ -272,8 +272,8 @@ public class m {
 
     public void b(int i, int i2, boolean z, boolean z2) {
         com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fOB);
-        this.fOB.oz(i);
-        this.fOB.oA(i2);
+        this.fOB.oy(i);
+        this.fOB.oz(i2);
         this.fOB.fy(z);
         this.fOB.ia(z2);
         this.eyQ.ia(z2);

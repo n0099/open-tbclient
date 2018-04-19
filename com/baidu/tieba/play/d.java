@@ -33,5 +33,5 @@ public interface d {
 
     void onStop();
 
-    void rq(int i);
+    void rp(int i);
 }

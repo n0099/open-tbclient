@@ -156,10 +156,10 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
         while (true) {
             int i7 = i6;
             if (i7 < this.fyr.size()) {
-                float qQ = qQ(i7);
-                Rect a = a(width, height, i5, qQ, this.fyi);
+                float qP = qP(i7);
+                Rect a = a(width, height, i5, qP, this.fyi);
                 this.fyr.get(i7).layout(a.left, a.top, a.right, a.bottom);
-                Rect a2 = a(width, height, this.fyo, qQ, this.fyj);
+                Rect a2 = a(width, height, this.fyo, qP, this.fyj);
                 float width2 = a2.left + (a2.width() / 2);
                 float height2 = ((a2.height() / 2) + a2.top) - e;
                 this.fyt.get(i7).layout((int) (width2 - (this.fyv / 2)), (int) (height2 - (this.fyw / 2)), (int) (width2 + (this.fyv / 2)), (int) (height2 + (this.fyw / 2)));
@@ -203,15 +203,15 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
     }
 
     private void f(View view2, int i, long j) {
-        float qQ = qQ(i);
-        float aj = aj(qQ);
-        float an = an(qQ);
-        float al = al(qQ);
-        float ap = ap(qQ);
-        float ai = ai(qQ);
-        float am = am(qQ);
-        float ak = ak(qQ);
-        float ao = ao(qQ);
+        float qP = qP(i);
+        float aj = aj(qP);
+        float an = an(qP);
+        float al = al(qP);
+        float ap = ap(qP);
+        float ai = ai(qP);
+        float am = am(qP);
+        float ak = ak(qP);
+        float ao = ao(qP);
         this.fyx = new AnimatorSet();
         float f = this.fyp ? 1.0f : 0.0f;
         float f2 = this.fyp ? ak : al;
@@ -493,9 +493,9 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
             int i2 = i;
             if (i2 < this.fyr.size()) {
                 ImageView imageView = this.fyr.get(i2);
-                float qQ = qQ(i2);
-                imageView.setTranslationX(ak(qQ));
-                imageView.setTranslationY(ao(qQ));
+                float qP = qP(i2);
+                imageView.setTranslationX(ak(qP));
+                imageView.setTranslationY(ao(qP));
                 imageView.setScaleX(1.0f);
                 imageView.setScaleY(1.0f);
                 imageView.invalidate();
@@ -511,7 +511,7 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
         }
     }
 
-    private float qQ(int i) {
+    private float qP(int i) {
         return (((this.fyn - this.fym) / (this.fyr.size() - 1)) * i) + this.fym;
     }
 }

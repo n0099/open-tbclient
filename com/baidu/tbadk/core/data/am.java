@@ -18,7 +18,7 @@ public class am {
         return this.YL;
     }
 
-    public void bD(int i) {
+    public void bC(int i) {
         this.YL = i;
     }
 
@@ -26,7 +26,7 @@ public class am {
         return this.total_num;
     }
 
-    public void bE(int i) {
+    public void bD(int i) {
         this.total_num = i;
     }
 
@@ -38,7 +38,7 @@ public class am {
         return this.YM;
     }
 
-    public void bF(int i) {
+    public void bE(int i) {
         this.YM = i;
     }
 
@@ -46,7 +46,7 @@ public class am {
         return this.current_page;
     }
 
-    public void bG(int i) {
+    public void bF(int i) {
         this.current_page = i;
     }
 
@@ -54,11 +54,11 @@ public class am {
         return this.YN;
     }
 
-    public void bH(int i) {
+    public void bG(int i) {
         this.YN = i;
     }
 
-    public void bI(int i) {
+    public void bH(int i) {
         this.has_more = i;
     }
 
@@ -66,7 +66,7 @@ public class am {
         return this.has_more;
     }
 
-    public void bJ(int i) {
+    public void bI(int i) {
         this.YO = i;
     }
 

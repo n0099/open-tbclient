@@ -17,14 +17,14 @@ public class e extends com.baidu.adp.a.a.a {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (e.this.aKC != null) {
-                e.this.aKC.fg(e.this.aKr);
+                e.this.aKC.ff(e.this.aKr);
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void fg(int i);
+        void ff(int i);
     }
 
     @Override // com.baidu.adp.a.a.a

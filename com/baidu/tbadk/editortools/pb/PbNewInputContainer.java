@@ -453,7 +453,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                     }
                     break;
             }
-            eQ(this.mType);
+            eP(this.mType);
         }
     }
 
@@ -461,7 +461,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         this.mType = i;
     }
 
-    public void eQ(int i) {
+    public void eP(int i) {
         if (i == ALL) {
             if (this.aET[0] || this.aET[1] || this.aET[2] || this.aET[3] || this.aET[4]) {
                 this.mSendView.setEnabled(true);

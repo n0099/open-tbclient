@@ -257,7 +257,7 @@ public class x extends a<be> implements com.baidu.tieba.a.e {
         }
         J(bdVar);
         this.cqk.b(bdVar.abL);
-        hc(gn(1));
+        hb(gm(1));
         setPageUniqueId(getTag());
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         kx(bdVar.getId());
@@ -397,7 +397,7 @@ public class x extends a<be> implements com.baidu.tieba.a.e {
         return null;
     }
 
-    public void hc(int i) {
+    public void hb(int i) {
         if (this.cqF != null && this.cqF.threadData != null) {
             if (i == 1) {
                 this.bwk.setVisibility(8);
@@ -427,7 +427,7 @@ public class x extends a<be> implements com.baidu.tieba.a.e {
         this.bvX = str;
     }
 
-    public int gn(int i) {
+    public int gm(int i) {
         return com.baidu.tieba.a.d.MH().L(this.bvX, i);
     }
 }

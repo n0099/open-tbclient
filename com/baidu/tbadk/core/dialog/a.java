@@ -64,7 +64,7 @@ public class a {
         return this;
     }
 
-    public a bZ(int i) {
+    public a bY(int i) {
         db(this.mActivity.getResources().getString(i));
         return this;
     }
@@ -101,7 +101,7 @@ public class a {
         return this;
     }
 
-    public a ca(int i) {
+    public a bZ(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }
@@ -140,7 +140,7 @@ public class a {
         this.acC = (ViewGroup) this.mRootView.findViewById(d.g.real_view);
     }
 
-    public a cb(int i) {
+    public a ca(int i) {
         if (isAutoNight()) {
             this.acv = ak.getColor(i);
         } else {
@@ -149,7 +149,7 @@ public class a {
         return this;
     }
 
-    public a cc(int i) {
+    public a cb(int i) {
         this.acw = i;
         return this;
     }

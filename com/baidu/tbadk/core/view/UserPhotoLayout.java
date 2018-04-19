@@ -28,7 +28,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface b {
-        void dB(int i);
+        void dA(int i);
     }
 
     /* loaded from: classes.dex */
@@ -197,7 +197,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.dB(this.mIndex);
+                UserPhotoLayout.this.mChildClickListener.dA(this.mIndex);
             }
         }
     }

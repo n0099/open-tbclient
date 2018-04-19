@@ -28,7 +28,7 @@ public class k extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uB */
+    /* renamed from: uA */
     public StickerItem getItem(int i) {
         return (StickerItem) v.c(this.mDataList, i);
     }

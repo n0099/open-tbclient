@@ -35,7 +35,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b my(int i) {
+    public b mx(int i) {
         int i2;
         int i3;
         int i4 = 0;
@@ -126,10 +126,10 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        b my = my(i);
-        com.baidu.tieba.horizonalList.widget.a aVar = my.dGR;
+        b mx = mx(i);
+        com.baidu.tieba.horizonalList.widget.a aVar = mx.dGR;
         boolean isChildSelectable = aVar.type == 1 ? this.dGH.isChildSelectable(aVar.dGU, aVar.dGV) : true;
-        my.recycle();
+        mx.recycle();
         return isChildSelectable;
     }
 
@@ -141,54 +141,54 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         Object child;
-        b my = my(i);
-        if (my.dGR.type == 2) {
-            child = this.dGH.getGroup(my.dGR.dGU);
-        } else if (my.dGR.type == 1) {
-            child = this.dGH.getChild(my.dGR.dGU, my.dGR.dGV);
+        b mx = mx(i);
+        if (mx.dGR.type == 2) {
+            child = this.dGH.getGroup(mx.dGR.dGU);
+        } else if (mx.dGR.type == 1) {
+            child = this.dGH.getChild(mx.dGR.dGU, mx.dGR.dGV);
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
-        my.recycle();
+        mx.recycle();
         return child;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         long combinedChildId;
-        b my = my(i);
-        long groupId = this.dGH.getGroupId(my.dGR.dGU);
-        if (my.dGR.type == 2) {
+        b mx = mx(i);
+        long groupId = this.dGH.getGroupId(mx.dGR.dGU);
+        if (mx.dGR.type == 2) {
             combinedChildId = this.dGH.getCombinedGroupId(groupId);
-        } else if (my.dGR.type == 1) {
-            combinedChildId = this.dGH.getCombinedChildId(groupId, this.dGH.getChildId(my.dGR.dGU, my.dGR.dGV));
+        } else if (mx.dGR.type == 1) {
+            combinedChildId = this.dGH.getCombinedChildId(groupId, this.dGH.getChildId(mx.dGR.dGU, mx.dGR.dGV));
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
-        my.recycle();
+        mx.recycle();
         return combinedChildId;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         View childView;
-        b my = my(i);
-        if (my.dGR.type == 2) {
-            childView = this.dGH.getGroupView(my.dGR.dGU, my.anM(), view2, viewGroup);
-        } else if (my.dGR.type == 1) {
-            childView = this.dGH.getChildView(my.dGR.dGU, my.dGR.dGV, my.dGS.dGM == i, view2, viewGroup);
+        b mx = mx(i);
+        if (mx.dGR.type == 2) {
+            childView = this.dGH.getGroupView(mx.dGR.dGU, mx.anM(), view2, viewGroup);
+        } else if (mx.dGR.type == 1) {
+            childView = this.dGH.getChildView(mx.dGR.dGU, mx.dGR.dGV, mx.dGS.dGM == i, view2, viewGroup);
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
-        my.recycle();
+        mx.recycle();
         return childView;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int i2;
-        b my = my(i);
-        com.baidu.tieba.horizonalList.widget.a aVar = my.dGR;
+        b mx = mx(i);
+        com.baidu.tieba.horizonalList.widget.a aVar = mx.dGR;
         if (this.dGH instanceof HeterogeneousExpandableList) {
             HeterogeneousExpandableList heterogeneousExpandableList = (HeterogeneousExpandableList) this.dGH;
             if (aVar.type == 2) {
@@ -201,7 +201,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         } else {
             i2 = 1;
         }
-        my.recycle();
+        mx.recycle();
         return i2;
     }
 
@@ -429,7 +429,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: mz */
+            /* renamed from: my */
             public GroupMetadata[] newArray(int i) {
                 return new GroupMetadata[i];
             }

@@ -50,7 +50,7 @@ public class a {
         return this.eTO;
     }
 
-    public void pL(int i) {
+    public void pK(int i) {
         this.eTO = i;
     }
 
@@ -333,7 +333,7 @@ public class a {
             while (it.hasNext()) {
                 if (it.next().getNewCounts() > 0) {
                     i = i2 + 1;
-                    a.this.pL(i);
+                    a.this.pK(i);
                 } else {
                     i = i2;
                 }
@@ -403,7 +403,7 @@ public class a {
                     }
                     aTb -= 20;
                 }
-                a.this.pN(aTb);
+                a.this.pM(aTb);
                 if (aTb >= 0) {
                     return false;
                 }
@@ -449,7 +449,7 @@ public class a {
         }
     }
 
-    public boolean pM(int i) {
+    public boolean pL(int i) {
         if (this.eTL != null) {
             this.eTL.cancel();
         }
@@ -533,7 +533,7 @@ public class a {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("uploac_mark_offset", 399);
     }
 
-    public void pN(int i) {
+    public void pM(int i) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("uploac_mark_offset", i);
     }
 

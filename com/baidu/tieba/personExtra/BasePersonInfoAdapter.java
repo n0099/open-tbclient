@@ -45,7 +45,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
         return this.bvg.length;
     }
 
-    public int nV(int i) {
+    public int nU(int i) {
         return this.bvg[i];
     }
 }

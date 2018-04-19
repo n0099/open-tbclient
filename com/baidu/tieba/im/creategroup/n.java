@@ -254,7 +254,7 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
     public void showDialog() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dVG.getPageContext().getPageActivity());
         aVar.ar(false);
-        aVar.ca(d.k.group_update_alert_save);
+        aVar.bZ(d.k.group_update_alert_save);
         aVar.a(d.k.group_update_canel, new a.b() { // from class: com.baidu.tieba.im.creategroup.n.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

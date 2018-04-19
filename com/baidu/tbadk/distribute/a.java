@@ -182,7 +182,7 @@ public class a {
         this.isUpload = z;
     }
 
-    public void ey(int i) {
+    public void ex(int i) {
         if (i > 3600) {
             this.aBV = ReportUserInfoModel.TIME_INTERVAL;
         } else if (i <= 0) {
@@ -192,7 +192,7 @@ public class a {
         }
     }
 
-    public void ez(int i) {
+    public void ey(int i) {
         if (i > 20) {
             this.uploadSize = 10;
         } else if (i <= 0) {

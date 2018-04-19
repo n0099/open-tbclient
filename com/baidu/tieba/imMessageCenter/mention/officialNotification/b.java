@@ -58,10 +58,10 @@ public class b {
                 public void onScrollToBottom() {
                     b.this.cbq.lN();
                     if (!b.this.epo.getHasMore() || b.this.bkp) {
-                        b.this.cbq.fe(d.k.no_more_msg);
+                        b.this.cbq.fd(d.k.no_more_msg);
                         return;
                     }
-                    b.this.cbq.fd(d.k.loading);
+                    b.this.cbq.fc(d.k.loading);
                     if (b.this.epo != null) {
                         b.this.epo.acE();
                         b.this.bkp = true;
@@ -190,7 +190,7 @@ public class b {
             }
             if (arrayList2.isEmpty()) {
                 if (this.mNoDataView == null) {
-                    this.mNoDataView = NoDataViewFactory.a(this.epn, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mPageContext.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.dp(d.k.official_notification_no_data), null);
+                    this.mNoDataView = NoDataViewFactory.a(this.epn, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mPageContext.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.m16do(d.k.official_notification_no_data), null);
                     this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                     ak.j(this.mNoDataView, d.C0126d.cp_bg_line_d);
                     this.mRootView.addView(this.mNoDataView);

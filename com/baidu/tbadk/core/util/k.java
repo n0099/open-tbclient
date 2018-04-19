@@ -1492,9 +1492,9 @@ public class k {
             return null;
         }
         File[] listFiles = agl.listFiles();
-        String cz = cz(i);
+        String cy = cy(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
-            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cz)) {
+            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cy)) {
                 if (listFiles[i2].getName().endsWith(str)) {
                     return listFiles[i2].getAbsolutePath();
                 }
@@ -1506,7 +1506,7 @@ public class k {
         return null;
     }
 
-    public static String cz(int i) {
+    public static String cy(int i) {
         switch (i) {
             case 1:
                 return "voice";
@@ -1540,7 +1540,7 @@ public class k {
         if (z) {
             sb.append(uF());
         }
-        sb.append(cz(i));
+        sb.append(cy(i));
         sb.append(File.separator);
         sb.append(str);
         return sb.toString();

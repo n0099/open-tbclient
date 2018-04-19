@@ -22,7 +22,7 @@ public class g extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Fa().eY(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.Fa().eX(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.loadResizedBitmap(this.aHM, l.af(TbadkCoreApplication.getInst()), l.ah(TbadkCoreApplication.getInst()));
     }
 

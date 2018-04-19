@@ -64,7 +64,7 @@ public class a {
                         TiebaStatic.log(alVar);
                     }
                     if (a.this.cYF.aph() != null) {
-                        a.this.cYF.aph().kX(a.this.deA);
+                        a.this.cYF.aph().kW(a.this.deA);
                         a.this.deA = vVar.cZZ;
                         bVar.dismiss();
                         if (a.this.deA != 7) {
@@ -74,7 +74,7 @@ public class a {
                             f.bsV();
                         }
                         if (a.this.cYF.aph() != null && a.this.cYF.apn() != null) {
-                            a.this.cYF.aph().kW(vVar.cZZ);
+                            a.this.cYF.aph().kV(vVar.cZZ);
                             a.this.cYF.apn().startPullRefresh();
                             a.this.cYF.aph().fS(true);
                             com.baidu.tieba.frs.smartsort.d.auC().i(a.this.cYF.aph().getForumName(), vVar.cZZ, vVar.name);
@@ -110,7 +110,7 @@ public class a {
         this.dex.setText(str);
     }
 
-    public void ky(int i) {
+    public void kx(int i) {
         this.deA = i;
     }
 
@@ -153,7 +153,7 @@ public class a {
             }
             if (!bh(arrayList)) {
                 if (!this.deB) {
-                    kz(i);
+                    ky(i);
                     return;
                 }
                 return;
@@ -168,24 +168,24 @@ public class a {
                 }
             }
             if (!this.deB) {
-                kz(i);
+                ky(i);
             }
         } else {
             ash();
         }
     }
 
-    private void kz(int i) {
+    private void ky(int i) {
         com.baidu.tieba.frs.v vVar;
         boolean z;
         com.baidu.tieba.frs.v vVar2 = null;
         if (i <= 0) {
             com.baidu.tieba.frs.v vVar3 = this.dey.get(0);
             if (vVar3 != null) {
-                ky(vVar3.cZZ);
+                kx(vVar3.cZZ);
                 lU(vVar3.name);
                 if (this.cYF != null && this.cYF.aph() != null) {
-                    this.cYF.aph().kW(vVar3.cZZ);
+                    this.cYF.aph().kV(vVar3.cZZ);
                     return;
                 }
                 return;
@@ -217,17 +217,17 @@ public class a {
             }
             com.baidu.tieba.frs.v vVar4 = this.dey.get(0);
             if (vVar4 != null) {
-                ky(vVar4.cZZ);
+                kx(vVar4.cZZ);
                 lU(vVar4.name);
                 if (this.cYF != null && this.cYF.aph() != null) {
-                    this.cYF.aph().kW(vVar4.cZZ);
+                    this.cYF.aph().kV(vVar4.cZZ);
                 }
             }
         } else if (vVar != null) {
-            ky(vVar.cZZ);
+            kx(vVar.cZZ);
             lU(vVar.name);
             if (this.cYF != null && this.cYF.aph() != null) {
-                this.cYF.aph().kW(vVar.cZZ);
+                this.cYF.aph().kV(vVar.cZZ);
             }
         }
     }

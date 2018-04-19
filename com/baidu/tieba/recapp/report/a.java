@@ -33,7 +33,7 @@ public class a {
         this.extInfo = str;
     }
 
-    public void rT(int i) {
+    public void rS(int i) {
         this.gcb = i;
         if (this.cem != null) {
             try {
@@ -44,7 +44,7 @@ public class a {
         }
     }
 
-    public void rU(int i) {
+    public void rT(int i) {
         this.gcc = i;
     }
 
@@ -60,19 +60,19 @@ public class a {
         this.gce = str;
     }
 
-    public void rV(int i) {
+    public void rU(int i) {
         this.gci = i;
     }
 
-    public void rW(int i) {
+    public void rV(int i) {
         this.gcj = i;
     }
 
-    public void rX(int i) {
+    public void rW(int i) {
         this.gck = i;
     }
 
-    public void rY(int i) {
+    public void rX(int i) {
         this.gcl = i;
     }
 

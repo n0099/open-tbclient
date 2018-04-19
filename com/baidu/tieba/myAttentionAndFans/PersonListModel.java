@@ -148,7 +148,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         registerListener(this.httpListener);
     }
 
-    public void gN(int i) {
+    public void gM(int i) {
         this.eSK = i;
         this.cbx = 0;
         aSv();

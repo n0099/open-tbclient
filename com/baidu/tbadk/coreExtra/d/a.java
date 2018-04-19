@@ -98,7 +98,7 @@ public class a {
             return null;
         }
         b bVar = new b(tbPageContext.getPageActivity());
-        bVar.cd(i);
+        bVar.cc(i);
         bVar.a(charSequenceArr, interfaceC0086b);
         bVar.d(tbPageContext);
         return bVar;

@@ -79,12 +79,12 @@ public class b {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                if (b.this.ara != null && b.this.ara.dF(i) == i) {
+                if (b.this.ara != null && b.this.ara.dE(i) == i) {
                     if (b.this.aqW != null) {
-                        b.this.aqW.setPosition(b.this.ara.dG(i));
+                        b.this.aqW.setPosition(b.this.ara.dF(i));
                     }
                     if (b.this.arf != null) {
-                        b.this.arf.onPageSelected(b.this.ara.dG(i));
+                        b.this.arf.onPageSelected(b.this.ara.dF(i));
                     }
                 }
             }
@@ -141,12 +141,12 @@ public class b {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                if (b.this.ara != null && b.this.ara.dF(i2) == i2) {
+                if (b.this.ara != null && b.this.ara.dE(i2) == i2) {
                     if (b.this.aqW != null) {
-                        b.this.aqW.setPosition(b.this.ara.dG(i2));
+                        b.this.aqW.setPosition(b.this.ara.dF(i2));
                     }
                     if (b.this.arf != null) {
-                        b.this.arf.onPageSelected(b.this.ara.dG(i2));
+                        b.this.arf.onPageSelected(b.this.ara.dF(i2));
                     }
                 }
             }
@@ -172,7 +172,7 @@ public class b {
     public void setMaxScrollCountLimit(int i) {
         this.ard = i;
         if (this.ara != null) {
-            this.ara.dH(i);
+            this.ara.dG(i);
         }
     }
 
@@ -194,8 +194,8 @@ public class b {
         if (v.v(list) != 0) {
             this.are = list;
             this.ara = new d(this.are, this.arb, this.ard);
-            this.ara.dI(2);
-            this.ara.dJ(1);
+            this.ara.dH(2);
+            this.ara.dI(1);
             this.aqZ.setDatas(this.ara.xy());
             this.aqZ.notifyDataSetChanged();
             this.mViewPager.setCurrentItem(this.ara.xx(), false);

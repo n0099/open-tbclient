@@ -84,23 +84,23 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     }
 
     public void biy() {
-        rH(0);
+        rG(0);
     }
 
-    public void rH(int i) {
+    public void rG(int i) {
         if (this.mCamera == null) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
                 Camera.getCameraInfo(i2, cameraInfo);
                 if (cameraInfo.facing == i) {
-                    rI(i2);
+                    rH(i2);
                     return;
                 }
             }
         }
     }
 
-    private void rI(int i) {
+    private void rH(int i) {
         try {
             this.mCamera = Camera.open(i);
             this.fUf.setCamera(this.mCamera);
@@ -125,10 +125,10 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     }
 
     public void biz() {
-        rJ(1000);
+        rI(1000);
     }
 
-    public void rJ(int i) {
+    public void rI(int i) {
         this.fUi = true;
         this.mHandler.removeCallbacks(this.fUk);
         this.mHandler.postDelayed(this.fUk, i);

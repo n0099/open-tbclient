@@ -70,7 +70,7 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
                         }
                         RecommendFrsDelegateStatic.this.dCB.refresh(0);
                         RecommendFrsDelegateStatic.this.dCB.setVisibility(0);
-                        gM.dA(TbadkCoreApplication.getInst().getSkinType());
+                        gM.dz(TbadkCoreApplication.getInst().getSkinType());
                     }
                 }
             }

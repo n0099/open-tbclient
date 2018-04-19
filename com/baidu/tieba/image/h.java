@@ -15,7 +15,7 @@ public class h {
     private long eqG = 0;
     private HashMap<String, Boolean> eqF = new HashMap<>();
 
-    public void on(int i) {
+    public void om(int i) {
         this.eqJ = i;
     }
 

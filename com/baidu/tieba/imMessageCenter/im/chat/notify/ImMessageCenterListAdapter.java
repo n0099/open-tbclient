@@ -42,9 +42,9 @@ public class ImMessageCenterListAdapter extends c {
 
     @Override // com.baidu.tieba.im.chat.a.c, android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
-        ImMessageCenterShowItemData nj = getItem(i);
-        if (nj != null && String.valueOf(String.valueOf(2)).equals(nj.getOwnerName())) {
-            if (nj.getUnReadCount() >= 30) {
+        ImMessageCenterShowItemData ni = getItem(i);
+        if (ni != null && String.valueOf(String.valueOf(2)).equals(ni.getOwnerName())) {
+            if (ni.getUnReadCount() >= 30) {
                 if (this.ekn != null) {
                     this.ekn.hL(true);
                 }

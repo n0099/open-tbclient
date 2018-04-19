@@ -20,7 +20,7 @@ public class b {
         fK("kLCSError=1");
     }
 
-    public void er(int i) {
+    public void eq(int i) {
         fK("kNetStatus=" + i);
     }
 

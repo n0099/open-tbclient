@@ -67,8 +67,8 @@ public class a {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
         aVar.as(false);
-        aVar.bZ(d.k.request_permission_default_title);
-        aVar.ca(ez(str));
+        aVar.bY(d.k.request_permission_default_title);
+        aVar.bZ(ez(str));
         aVar.a(d.k.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

@@ -85,7 +85,7 @@ public class a {
         com.baidu.adp.lib.g.g.b(this.alb, this.mActivity);
     }
 
-    public void da(int i) {
+    public void cZ(int i) {
         if (this.mActivity != null) {
             this.alc = this.mActivity.getString(i);
         }

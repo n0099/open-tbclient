@@ -35,11 +35,11 @@ public class d extends j {
     private int aKs = 0;
     private e.a aKt = new e.a() { // from class: com.baidu.tbadk.k.d.1
         @Override // com.baidu.tbadk.k.e.a
-        public void fg(int i) {
+        public void ff(int i) {
             d.this.aKp.a((e.a) null);
             d.this.aKp.stop();
             d.this.aKr = i;
-            r rVar = (r) p.Ha().fm(d.this.mSubType);
+            r rVar = (r) p.Ha().fl(d.this.mSubType);
             if (rVar != null) {
                 rVar.h(d.this);
             }
@@ -47,14 +47,14 @@ public class d extends j {
     };
     private a.InterfaceC0101a aJZ = new a.InterfaceC0101a() { // from class: com.baidu.tbadk.k.d.2
         @Override // com.baidu.tbadk.k.a.InterfaceC0101a
-        public void fg(int i) {
+        public void ff(int i) {
             d.this.aKs++;
             if (d.this.aKn == d.this.aKs) {
                 d.this.aKq.a((a.InterfaceC0101a) null);
                 d.this.aKq.stop();
                 d.this.GM();
             }
-            d.this.fh(i);
+            d.this.fg(i);
         }
     };
     private CustomMessageListener customNormalListener = new CustomMessageListener(2016100) { // from class: com.baidu.tbadk.k.d.4
@@ -65,7 +65,7 @@ public class d extends j {
             if (customResponsedMessage != null && (aVar = (a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == d.this.mId) {
                 d.this.aKo++;
                 d.this.gR(aVar.aKw);
-                d.this.fi(aVar.aKx);
+                d.this.fh(aVar.aKx);
                 d.this.GM();
             }
         }
@@ -115,7 +115,7 @@ public class d extends j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fh(int i) {
+    public void fg(int i) {
         String valueOf = String.valueOf(i);
         if (this.aKj == null) {
             this.aKj = new ArrayList<>();
@@ -134,7 +134,7 @@ public class d extends j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fi(int i) {
+    public void fh(int i) {
         String valueOf = String.valueOf(i);
         if (this.aKl == null) {
             this.aKl = new ArrayList<>();
@@ -180,7 +180,7 @@ public class d extends j {
     /* JADX INFO: Access modifiers changed from: private */
     public void GM() {
         r rVar;
-        if (this.aKo == this.aKn && this.aKn == this.aKs && (rVar = (r) p.Ha().fm(this.mSubType)) != null) {
+        if (this.aKo == this.aKn && this.aKn == this.aKs && (rVar = (r) p.Ha().fl(this.mSubType)) != null) {
             rVar.g(this);
         }
     }

@@ -402,12 +402,12 @@ public class c {
     };
     private VideoControllerView.b ezy = new VideoControllerView.b() { // from class: com.baidu.tieba.play.c.11
         @Override // com.baidu.tieba.play.VideoControllerView.b
-        public void gt(int i2) {
+        public void gs(int i2) {
             int duration;
             if (c.this.bkP != null && (duration = c.this.bkP.getDuration()) > 0 && c.this.fNL != null) {
                 c.this.fNL.setProgress((int) ((i2 * c.this.mMainView.getWidth()) / duration));
             }
-            c.this.oE(i2);
+            c.this.oD(i2);
         }
     };
     private SeekBar.OnSeekBarChangeListener bdD = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.c.13
@@ -797,14 +797,14 @@ public class c {
             }
         }
         aLq();
-        String rs = this.ewL.rs(this.exl);
+        String rr = this.ewL.rr(this.exl);
         if (f2 > 0.0f) {
             this.exj.setImageResource(d.f.icon_kuaitui);
         } else {
             this.exj.setImageResource(d.f.icon_kuaijin);
         }
-        if (!StringUtils.isNull(rs)) {
-            this.exg.setText(new StringBuilder().append(rs).append("/").append(this.ewL.rs(this.bkP.getDuration())));
+        if (!StringUtils.isNull(rr)) {
+            this.exg.setText(new StringBuilder().append(rr).append("/").append(this.ewL.rr(this.bkP.getDuration())));
         }
         this.ewL.setCurrentDuration(this.exl, z ? false : true);
         this.ewS.setVisibility(8);
@@ -852,7 +852,7 @@ public class c {
                 this.ewL.Q(this.mStartPosition, this.cop.getDuration());
                 if (this.mStartPosition != 0) {
                     if (this.bkP != null) {
-                        this.bkP.rr(this.mStartPosition);
+                        this.bkP.rq(this.mStartPosition);
                     } else {
                         this.cop.seekTo(this.mStartPosition);
                     }
@@ -937,7 +937,7 @@ public class c {
         return this.cop != null && this.cop.getVideoHeight() > this.cop.getVideoWidth();
     }
 
-    public boolean ro(int i2) {
+    public boolean rn(int i2) {
         switch (i2) {
             case 4:
                 if (this.dIE) {
@@ -1033,7 +1033,7 @@ public class c {
             this.fNV.aqV();
         }
         this.ewR.setImageResource(d.f.icon_video_window);
-        oC(this.exp);
+        oB(this.exp);
         aLs();
     }
 
@@ -1096,7 +1096,7 @@ public class c {
         }
     }
 
-    private void oC(int i2) {
+    private void oB(int i2) {
         if (this.ewL != null && (this.ewL.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ewL.getLayoutParams();
             layoutParams.leftMargin = i2;
@@ -1511,7 +1511,7 @@ public class c {
         this.fNV = bVar;
     }
 
-    public void oE(int i2) {
+    public void oD(int i2) {
         if (this.bkP.getDuration() - i2 <= 3000) {
             aLH();
             if (this.ewS != null) {
@@ -1611,7 +1611,7 @@ public class c {
         this.fNT = z;
     }
 
-    public void rp(int i2) {
+    public void ro(int i2) {
         this.fOn = i2;
     }
 

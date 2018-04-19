@@ -251,7 +251,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             this.gxw = hVar;
             this.gQF.start();
             this.gQG = new a(this.gQF.getLooper(), context);
-            setBeautyLevel(com.baidu.tieba.video.a.uf(2));
+            setBeautyLevel(com.baidu.tieba.video.a.ue(2));
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -372,11 +372,11 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                         e(gl10);
                         this.gQC.gQy = false;
                     }
-                    if (this.gQJ != null && this.gQJ.wg(2) && this.gQC.gQq != null) {
+                    if (this.gQJ != null && this.gQJ.wf(2) && this.gQC.gQq != null) {
                         this.gQK = this.gQC.gQq.byd();
                         this.gQJ.a(new d.b(new File(this.gQK), GLVideoPreviewView.gQo, GLVideoPreviewView.gQp, 2097152, null, this.gQB.getTimestamp()));
                     }
-                    if (this.gQJ != null && this.gQJ.wg(1)) {
+                    if (this.gQJ != null && this.gQJ.wf(1)) {
                         this.gQJ.a(this.gMj, fuDualInputToTexture, fArr);
                         if (GLVideoPreviewView.gQt) {
                             this.gQJ.c(this.gQB);

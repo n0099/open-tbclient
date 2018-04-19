@@ -35,7 +35,7 @@ public class aq extends com.baidu.tbadk.core.view.userLike.c {
         this.aNu = str;
     }
 
-    public void qx(int i) {
+    public void qw(int i) {
         this.fnP = i;
     }
 

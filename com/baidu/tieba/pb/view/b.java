@@ -91,7 +91,7 @@ public class b {
         this.fyb.setClickable(true);
     }
 
-    public void qk(int i) {
+    public void qj(int i) {
         this.fya = i;
         if (i == 2) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.view.b.4
@@ -169,12 +169,12 @@ public class b {
                             this.fxV.bcE();
                             if (bt != -1) {
                                 if (bt == 1) {
-                                    qP(1);
+                                    qO(1);
                                     i = 1;
                                 } else if (bt != 3) {
                                     if (bt == 4) {
                                         i = 4;
-                                        qP(4);
+                                        qO(4);
                                     } else {
                                         i = 2;
                                     }
@@ -226,7 +226,7 @@ public class b {
         return true;
     }
 
-    private void qP(final int i) {
+    private void qO(final int i) {
         if (TbadkCoreApplication.isLogin()) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.view.b.6
                 @Override // java.lang.Runnable

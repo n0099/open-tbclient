@@ -17,7 +17,7 @@ public class e {
         this.aXw.put(i, dVar);
     }
 
-    public d gc(int i) {
+    public d gb(int i) {
         return this.aXw.get(i);
     }
 }

@@ -184,16 +184,16 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     }
 
     public void initViewPager() {
-        cv(0);
+        cu(0);
     }
 
-    public void cv(int i) {
+    public void cu(int i) {
         if (this.afB != null) {
             removeView(this.afB);
         }
         this.afB = new CustomViewPager(this.mContext);
         this.afB.setId(d.g.tab_content);
-        cw(i);
+        cv(i);
         addView(this.afB);
         removeView(this.afE);
         addView(this.afE);
@@ -218,7 +218,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         this.afB.setAdapter(this.afD);
     }
 
-    public void cw(int i) {
+    public void cv(int i) {
         RelativeLayout.LayoutParams layoutParams;
         RelativeLayout.LayoutParams layoutParams2;
         if (this.afB.getLayoutParams() == null) {
@@ -340,14 +340,14 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         return this.afx;
     }
 
-    public b cx(int i) {
+    public b cw(int i) {
         if (i < 0 || i >= this.afA.size()) {
             return null;
         }
         return this.afA.get(i);
     }
 
-    public b cy(int i) {
+    public b cx(int i) {
         for (b bVar : this.afA) {
             if (i == bVar.mType) {
                 return bVar;
@@ -382,7 +382,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     }
 
     public void onChangeSkinType(int i) {
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(ak.cQ(d.f.s_tabbar_bg));
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(ak.cP(d.f.s_tabbar_bg));
         if (i == 2 && this.afz) {
             this.afE.setBackgroundDrawable(bitmapDrawable);
         } else {
@@ -393,7 +393,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
             ak.j(this.afG, d.C0126d.cp_bg_line_b);
         }
         for (b bVar : this.afA) {
-            bVar.afI.dA(i);
+            bVar.afI.dz(i);
         }
         if (this.afD != null) {
             int count = this.afD.getCount();

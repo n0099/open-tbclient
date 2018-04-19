@@ -33,9 +33,9 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect rK = this.fUg.rK(i2);
-                if (rK != null) {
-                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, rK.left, rK.top, rK.width(), rK.height(), false);
+                Rect rJ = this.fUg.rJ(i2);
+                if (rJ != null) {
+                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, rJ.left, rJ.top, rJ.width(), rJ.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }

@@ -131,7 +131,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         });
         this.fSi.setOnScrollListener(this);
         this.fSm = new PbListView(getActivity());
-        this.fSm.dv(d.C0126d.common_color_10022);
+        this.fSm.du(d.C0126d.common_color_10022);
         this.fSm.setTextColor(ak.getColor(d.C0126d.common_color_10039));
         this.fSi.setNextPage(this.fSm);
         this.fSn = this.fSm.getView().findViewById(d.g.pb_more_view);
@@ -191,9 +191,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         this.fSi.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.post.PersonReplyFragment.4
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                PersonPostModel.PostInfoList rw;
-                if (i >= 0 && PersonReplyFragment.this.fSj != null && i < PersonReplyFragment.this.fSj.getCount() && (rw = PersonReplyFragment.this.fSj.rw(i)) != null) {
-                    PersonReplyFragment.this.sendMessage(new CustomMessage(2004001, new PbActivityConfig(PersonReplyFragment.this.getActivity()).createCfgForPersonCenter(String.valueOf(rw.thread_id), String.valueOf(rw.post_id), "person_page", 18005)));
+                PersonPostModel.PostInfoList rv;
+                if (i >= 0 && PersonReplyFragment.this.fSj != null && i < PersonReplyFragment.this.fSj.getCount() && (rv = PersonReplyFragment.this.fSj.rv(i)) != null) {
+                    PersonReplyFragment.this.sendMessage(new CustomMessage(2004001, new PbActivityConfig(PersonReplyFragment.this.getActivity()).createCfgForPersonCenter(String.valueOf(rv.thread_id), String.valueOf(rv.post_id), "person_page", 18005)));
                 }
             }
         });
@@ -240,9 +240,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 ak.i(this.mNoDataView, d.C0126d.cp_bg_line_d);
             }
             if (this.fSm != null) {
-                this.fSm.dw(i);
+                this.fSm.dv(i);
             }
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
     }
 

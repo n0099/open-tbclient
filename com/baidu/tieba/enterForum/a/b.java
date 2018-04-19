@@ -23,7 +23,7 @@ public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.b
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void jw(int i) {
+    public void jv(int i) {
         this.cGW = i;
     }
 

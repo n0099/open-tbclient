@@ -65,7 +65,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     private final ArrayList<Bitmap> etn = new ArrayList<>();
     private final BaseViewPager.a akW = new BaseViewPager.a() { // from class: com.baidu.tieba.launcherGuide.tblauncher.GuideActivity.1
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-        public void cZ(int i) {
+        public void cY(int i) {
             if (i == 0) {
                 if (GuideActivity.this.etg != null) {
                     GuideActivity.this.etg.setOnScrollOutListener(null);
@@ -88,12 +88,12 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             if (i == GuideActivity.this.etm - 1) {
-                GuideActivity.this.op(d.e.ds180);
+                GuideActivity.this.oo(d.e.ds180);
                 GuideActivity.this.eti.setVisibility(0);
                 GuideActivity.this.eth.setVisibility(0);
             } else {
                 GuideActivity.this.eti.setVisibility(8);
-                GuideActivity.this.op(d.e.ds120);
+                GuideActivity.this.oo(d.e.ds120);
                 GuideActivity.this.eth.setVisibility(0);
             }
             if (GuideActivity.this.eti.getVisibility() == 0) {
@@ -171,7 +171,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 this.etg.setOnPageChangeListener(this.etp);
                 this.eti = findViewById(d.g.start_app);
                 if (this.etm <= 1) {
-                    op(d.e.ds90);
+                    oo(d.e.ds90);
                     this.eti.setVisibility(0);
                     this.eti.requestFocus();
                 } else {
@@ -253,7 +253,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void op(int i) {
+    public void oo(int i) {
         q(this.eti, i);
     }
 

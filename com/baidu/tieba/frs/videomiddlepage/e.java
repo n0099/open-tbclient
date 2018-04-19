@@ -123,13 +123,13 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
         this.drJ.onConfigurationChanged(configuration);
     }
 
-    public boolean kr(int i) {
-        return this.drJ.kr(i);
+    public boolean kq(int i) {
+        return this.drJ.kq(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
-    public void kq(int i) {
-        lz(i);
+    public void kp(int i) {
+        ly(i);
     }
 
     public int arb() {
@@ -160,7 +160,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
         lA();
     }
 
-    public void lz(final int i) {
+    public void ly(final int i) {
         this.dbu = i;
         this.drM = i;
         if (!v.w(this.mDatas) && this.mListView != null) {
@@ -171,8 +171,8 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
                 }
             }
             if (this.dbu < this.mDatas.size() - 1) {
-                final int lA = lA(i);
-                int i2 = this.dbu + lA;
+                final int lz = lz(i);
+                int i2 = this.dbu + lz;
                 this.dbu = i2;
                 if (this.mDatas.get(i2) instanceof com.baidu.tieba.lego.card.view.h) {
                     com.baidu.tieba.lego.card.view.h hVar2 = (com.baidu.tieba.lego.card.view.h) this.mDatas.get(i2);
@@ -186,7 +186,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
                     this.mListView.post(new Runnable() { // from class: com.baidu.tieba.frs.videomiddlepage.e.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.mListView.smoothScrollToPositionFromTop(i + e.this.mListView.getHeaderViewsCount() + lA, l.e(e.this.adf.getPageActivity(), d.e.ds88) + l.e(e.this.adf.getPageActivity(), d.e.tbds42));
+                            e.this.mListView.smoothScrollToPositionFromTop(i + e.this.mListView.getHeaderViewsCount() + lz, l.e(e.this.adf.getPageActivity(), d.e.ds88) + l.e(e.this.adf.getPageActivity(), d.e.tbds42));
                         }
                     });
                     notifyDataSetChanged();
@@ -204,7 +204,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
         }
     }
 
-    public int lA(int i) {
+    public int lz(int i) {
         int size = this.mDatas.size();
         for (int i2 = i + 1; i2 < size; i2++) {
             if (f(this.mDatas.get(i2))) {
@@ -232,7 +232,7 @@ public class e implements com.baidu.tieba.frs.aggregation.a, com.baidu.tieba.leg
         return false;
     }
 
-    public void lB(int i) {
+    public void lA(int i) {
         this.dbu = i;
         this.drM = i;
         if (!v.w(this.mDatas) && this.mListView != null) {

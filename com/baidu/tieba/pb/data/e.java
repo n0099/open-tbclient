@@ -43,7 +43,7 @@ public class e {
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
             metaData = rQ;
         }
-        postData.tp(1);
+        postData.to(1);
         postData.setId(dVar.aVs().sg());
         postData.setTitle(dVar.aVs().getTitle());
         postData.setTime(dVar.aVs().getCreateTime());

@@ -180,11 +180,11 @@ public class t extends com.baidu.tbadk.editortools.c {
             arrayList.add(8);
         }
         DF.C(arrayList);
-        com.baidu.tbadk.editortools.k eI = DF.eI(5);
-        if (eI != null) {
-            eI.bA(false);
-            eI.aDB = 1;
-            eI.aDz = d.f.new_pbeditor_face_button;
+        com.baidu.tbadk.editortools.k eH = DF.eH(5);
+        if (eH != null) {
+            eH.bA(false);
+            eH.aDB = 1;
+            eH.aDz = d.f.new_pbeditor_face_button;
         }
         DF.DG();
         if (this.fjH) {

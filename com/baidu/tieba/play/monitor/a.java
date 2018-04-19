@@ -23,7 +23,7 @@ public class a implements e.a {
     }
 
     @Override // com.baidu.tieba.j.e.a
-    public void pD(int i) {
+    public void pC(int i) {
         if (i == 1) {
             al alVar = new al("c12620");
             alVar.r("obj_locate", 1);

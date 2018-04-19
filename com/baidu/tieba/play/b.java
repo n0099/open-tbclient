@@ -15,11 +15,11 @@ public class b implements Runnable {
         this.cYX = z;
     }
 
-    public void oz(int i) {
+    public void oy(int i) {
         this.cYv = i;
     }
 
-    public void oA(int i) {
+    public void oz(int i) {
         this.bjz = i;
     }
 

@@ -60,7 +60,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dC(int i) {
+    public void dB(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b

@@ -23,10 +23,10 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 final BdSwitchView bmE = MsgRemindActivity.this.giV.bmE();
                 if (z) {
                     if (z2) {
-                        com.baidu.tbadk.coreExtra.messageCenter.c.Ae().dV(300);
+                        com.baidu.tbadk.coreExtra.messageCenter.c.Ae().dU(300);
                         MsgRemindActivity.this.giV.lT(true);
                     } else {
-                        com.baidu.tbadk.coreExtra.messageCenter.c.Ae().dV(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.c.Ae().dU(0);
                         MsgRemindActivity.this.giV.lT(false);
                     }
                     if (bmE != null) {

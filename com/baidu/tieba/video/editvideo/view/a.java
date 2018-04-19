@@ -295,7 +295,7 @@ public class a extends com.baidu.adp.base.c {
 
     public void bxh() {
         if (this.gNE != null) {
-            this.gNE.up(this.gNG.getCurrentPosition());
+            this.gNE.uo(this.gNG.getCurrentPosition());
         }
     }
 
@@ -358,8 +358,8 @@ public class a extends com.baidu.adp.base.c {
         if (this.gNF == null) {
             String[] strArr = {getPageContext().getString(d.k.save), getPageContext().getString(d.k.not_save), getPageContext().getString(d.k.cancel)};
             this.gNF = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-            this.gNF.ce(b.a.acX);
-            this.gNF.cg(17);
+            this.gNF.cd(b.a.acX);
+            this.gNF.cf(17);
             this.gNF.dd(TbadkCoreApplication.getInst().getResources().getString(d.k.save_video_title));
             this.gNF.a(strArr, this.gNK);
             this.gNF.d(getPageContext());

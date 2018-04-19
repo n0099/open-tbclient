@@ -61,7 +61,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         return this.aWk;
     }
 
-    public void iV(int i) {
+    public void iU(int i) {
         this.aWk = i;
     }
 
@@ -85,7 +85,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.videoHeight = i;
     }
 
-    public void iW(int i) {
+    public void iV(int i) {
         this.cuK = i;
     }
 
@@ -101,11 +101,11 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.thumbnailUrl = str;
     }
 
-    public void iX(int i) {
+    public void iW(int i) {
         this.cuM = i;
     }
 
-    public void iY(int i) {
+    public void iX(int i) {
         this.cuN = i;
     }
 
@@ -113,7 +113,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
         return this.cuO == 1;
     }
 
-    public void iZ(int i) {
+    public void iY(int i) {
         this.cuO = i;
     }
 
@@ -161,17 +161,17 @@ public class h implements com.baidu.adp.widget.ListView.h {
         hVar.setForumId(channelVideoInfo.forum_id.intValue());
         hVar.setForumName(channelVideoInfo.forum_name);
         hVar.setTitle(channelVideoInfo.title);
-        hVar.iV(channelVideoInfo.play_count.intValue());
+        hVar.iU(channelVideoInfo.play_count.intValue());
         hVar.setVideoUrl(channelVideoInfo.video_url);
         hVar.setVideoDuration(channelVideoInfo.video_duration.intValue());
         hVar.setVideoWidth(channelVideoInfo.video_width.intValue());
         hVar.setVideoHeight(channelVideoInfo.video_height.intValue());
-        hVar.iW(channelVideoInfo.video_length.intValue());
+        hVar.iV(channelVideoInfo.video_length.intValue());
         hVar.bi(channelVideoInfo.video_type.longValue());
         hVar.setThumbnailUrl(channelVideoInfo.thumbnail_url);
-        hVar.iX(channelVideoInfo.thumbnail_width.intValue());
-        hVar.iY(channelVideoInfo.thumbnail_height.intValue());
-        hVar.iZ(channelVideoInfo.is_top.intValue());
+        hVar.iW(channelVideoInfo.thumbnail_width.intValue());
+        hVar.iX(channelVideoInfo.thumbnail_height.intValue());
+        hVar.iY(channelVideoInfo.is_top.intValue());
         hVar.setCreateTime(channelVideoInfo.create_time.intValue());
         return hVar;
     }

@@ -44,7 +44,7 @@ public class a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             if (a.this.blb != null && a.this.eox != null) {
-                a.this.blb.dx(0);
+                a.this.blb.dw(0);
                 a.this.blb.setOnClickListener(null);
                 a.this.blb.wR();
                 a.this.eox.aIN();
@@ -94,12 +94,12 @@ public class a {
                 this.blb = new PbListView(tbPageContext.getPageActivity());
                 this.blb.getView();
             }
-            this.blb.dv(d.C0126d.cp_bg_line_e);
+            this.blb.du(d.C0126d.cp_bg_line_e);
             this.blb.setHeight(l.e(tbPageContext.getContext(), d.e.tbds182));
             this.blb.wO();
             this.blb.setTextSize(d.e.tbfontsize33);
             this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
-            this.blb.du(d.C0126d.cp_cont_e);
+            this.blb.dt(d.C0126d.cp_cont_e);
             this.blb.setOnClickListener(this.eob);
             this.bla = (NoNetworkView) this.eow.findViewById(d.g.no_networkview);
             this.bla.onChangeSkinType(this.adf, TbadkCoreApplication.getInst().getSkinType());
@@ -126,7 +126,7 @@ public class a {
                 @Override // com.baidu.adp.widget.ListView.BdListView.e
                 public void onScrollToBottom() {
                     if (a.this.blb != null && a.this.eox != null) {
-                        a.this.blb.dx(0);
+                        a.this.blb.dw(0);
                         a.this.blb.setOnClickListener(null);
                         a.this.blb.showLoading();
                         a.this.eox.aIN();
@@ -140,18 +140,18 @@ public class a {
         if (this.bnR != null && this.blb != null && this.bnQ != null && this.enQ != null) {
             this.bnR.setRefreshing(false);
             if (z) {
-                this.blb.dx(0);
+                this.blb.dw(0);
                 this.blb.wS();
                 this.blb.setOnClickListener(this.eob);
             } else {
-                this.blb.dx(0);
+                this.blb.dw(0);
                 this.blb.wS();
                 this.blb.setText(this.adf.getResources().getString(d.k.list_no_more));
                 this.blb.setOnClickListener(null);
             }
             if (v.w(arrayList)) {
                 if (this.mNoDataView == null) {
-                    this.mNoDataView = NoDataViewFactory.a(this.adf.getContext(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.adf.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.dp(d.k.agree_me_nodata), null);
+                    this.mNoDataView = NoDataViewFactory.a(this.adf.getContext(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.adf.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.m16do(d.k.agree_me_nodata), null);
                     this.mNoDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, -1));
                     ak.j(this.mNoDataView, d.C0126d.cp_bg_line_d);
                 }
@@ -180,14 +180,14 @@ public class a {
 
     public void changeSkinType(int i) {
         if (this.mPullView != null) {
-            this.mPullView.dw(i);
+            this.mPullView.dv(i);
         }
         if (this.bla != null) {
             this.bla.onChangeSkinType(this.adf, i);
         }
         if (this.blb != null) {
             this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
-            this.blb.dw(i);
+            this.blb.dv(i);
         }
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.adf, i);

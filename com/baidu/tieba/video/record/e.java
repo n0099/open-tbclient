@@ -28,7 +28,7 @@ public class e<T> {
         return this.gQn;
     }
 
-    public void uv(int i) {
+    public void uu(int i) {
         this.gQn = i;
     }
 

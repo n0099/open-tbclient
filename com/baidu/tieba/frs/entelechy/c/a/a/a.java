@@ -53,10 +53,10 @@ public class a extends b {
 
     @Override // com.baidu.tbadk.core.dialog.b
     public b tG() {
-        View ci;
+        View ch;
         super.tG();
-        if (this.mDatas != null && (ci = ci(this.mDatas.size())) != null && (ci.findViewById(d.g.dialog_item_btn) instanceof TextView)) {
-            ak.h((TextView) ci.findViewById(d.g.dialog_item_btn), d.C0126d.cp_link_tip_a);
+        if (this.mDatas != null && (ch = ch(this.mDatas.size())) != null && (ch.findViewById(d.g.dialog_item_btn) instanceof TextView)) {
+            ak.h((TextView) ch.findViewById(d.g.dialog_item_btn), d.C0126d.cp_link_tip_a);
         }
         return this;
     }

@@ -152,7 +152,7 @@ public class f extends d {
             this.coU.setTag(voiceModel);
             this.coU.aIT();
             if (voiceModel != null) {
-                this.coU.oc(voiceModel.voice_status.intValue());
+                this.coU.ob(voiceModel.voice_status.intValue());
             }
         }
         if (i.pY().qe() && v > 0) {

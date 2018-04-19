@@ -162,7 +162,7 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
     private void q(Bundle bundle) {
         this.dYx = new k(this, this.dYw.isMem());
         this.dYy = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.dYy.ca(d.k.upgrade_mem_group_if_up);
+        this.dYy.bZ(d.k.upgrade_mem_group_if_up);
         this.dYy.a(d.k.confirm, this.dYz);
         this.dYy.b(d.k.cancel, this.dYA);
         this.dYy.b(getPageContext());

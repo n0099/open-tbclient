@@ -195,7 +195,7 @@ public class s {
     public void afu() {
         if (this.cpA == null) {
             this.cpA = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            this.cpA.ca(d.k.del_thread_confirm);
+            this.cpA.bZ(d.k.del_thread_confirm);
             this.cpA.a(d.k.dialog_ok, new a.b() { // from class: com.baidu.tieba.card.s.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

@@ -55,21 +55,21 @@ public class BdToast {
         return this;
     }
 
-    public void ck(int i) {
+    public void cj(int i) {
         this.adl = i;
     }
 
-    public BdToast cl(int i) {
+    public BdToast ck(int i) {
         this.mIconResId = i;
         return this;
     }
 
-    public BdToast cm(int i) {
+    public BdToast cl(int i) {
         this.mGravity = i;
         return this;
     }
 
-    public BdToast cn(int i) {
+    public BdToast cm(int i) {
         this.mDuration = i;
         return this;
     }
@@ -95,7 +95,7 @@ public class BdToast {
         this.mTextView.setText(this.mText);
         this.xk.setGravity(this.mGravity, this.sU, this.sV);
         this.xk.setDuration(this.mDuration);
-        co(this.adl);
+        cn(this.adl);
         this.xk.setView(this.mRootView);
         return this;
     }
@@ -107,7 +107,7 @@ public class BdToast {
         adk = new SoftReference<>(this.xk);
     }
 
-    private void co(int i) {
+    private void cn(int i) {
         if (i > 0) {
             this.mRootView.setPadding(i, this.mRootView.getTop(), i, this.mRootView.getBottom());
         }
@@ -126,22 +126,22 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).h(charSequence).cn(i).tJ();
+        return new BdToast(context).h(charSequence).cm(i).tJ();
     }
 
     public static BdToast b(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).h(charSequence).cl(i).tJ();
+        return new BdToast(context).h(charSequence).ck(i).tJ();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2) {
-        return new BdToast(context).h(charSequence).cl(i).cn(i2).tJ();
+        return new BdToast(context).h(charSequence).ck(i).cm(i2).tJ();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).h(charSequence).cl(adm.get(defaultIcon).intValue()).tJ();
+        return new BdToast(context).h(charSequence).ck(adm.get(defaultIcon).intValue()).tJ();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).h(charSequence).cl(adm.get(defaultIcon).intValue()).cn(i).tJ();
+        return new BdToast(context).h(charSequence).ck(adm.get(defaultIcon).intValue()).cm(i).tJ();
     }
 }

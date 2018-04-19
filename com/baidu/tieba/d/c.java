@@ -99,11 +99,11 @@ public class c {
         }
     };
 
-    public void jc(int i) {
+    public void jb(int i) {
         this.cxX = i;
     }
 
-    public void jd(int i) {
+    public void jc(int i) {
         this.cxW = i;
     }
 
@@ -168,29 +168,29 @@ public class c {
         }
     }
 
-    public void je(int i) {
+    public void jd(int i) {
         if (i > 0) {
             this.cxN = i;
         }
     }
 
-    public void jf(int i) {
+    public void je(int i) {
         if (i > 0) {
             this.cxR = i;
         }
     }
 
-    public void jg(int i) {
+    public void jf(int i) {
         if (i > 0) {
             this.cxP = i;
         }
     }
 
-    public void jh(int i) {
+    public void jg(int i) {
         this.mXOffset = i;
     }
 
-    public void ji(int i) {
+    public void jh(int i) {
         this.mYOffset = i;
     }
 

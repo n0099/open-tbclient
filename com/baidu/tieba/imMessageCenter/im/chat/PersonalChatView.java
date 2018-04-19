@@ -38,8 +38,8 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             }
         };
         if (!this.ejY.aHx() && this.mTool != null) {
-            b(this.mTool.eF(6));
-            b(this.mTool.eF(2));
+            b(this.mTool.eE(6));
+            b(this.mTool.eE(2));
         }
     }
 

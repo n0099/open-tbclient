@@ -185,11 +185,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             int count = this.fRY.getCount();
             for (int i = 0; i < count; i++) {
                 Fragment item = this.fRY.getItem(i);
-                int nV = this.fRY.nV(i);
+                int nU = this.fRY.nU(i);
                 if (item != null) {
-                    if (nV == 0) {
+                    if (nU == 0) {
                         a(item, 0, getPageContext().getString(d.k.person_post_thread_new));
-                    } else if (nV == 1) {
+                    } else if (nU == 1) {
                         a(item, 1, getPageContext().getString(d.k.reply));
                     }
                 }

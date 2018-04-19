@@ -52,7 +52,7 @@ public class c {
                         iVar = new com.baidu.tbadk.coreExtra.data.i();
                         try {
                             iVar.eY(str);
-                            iVar.dO(cursor.getInt(3));
+                            iVar.dN(cursor.getInt(3));
                             iVar.Q(cursor.getLong(2));
                         } catch (Exception e2) {
                             e = e2;

@@ -62,7 +62,7 @@ public class ac {
                     if (eh > 0) {
                         if (z) {
                             Bitmap dH = am.vK().dH(em);
-                            com.baidu.tbadk.imageManager.c.Fa().eY(eh);
+                            com.baidu.tbadk.imageManager.c.Fa().eX(eh);
                             if (dH != null) {
                                 a(str, dH, z2, am.vK().eg(em), z3, em);
                             }

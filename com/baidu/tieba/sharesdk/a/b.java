@@ -30,7 +30,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             public void onLoaded(e.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
                 if (aVar == null || aVar.akH == null || TextUtils.isEmpty(aVar.path)) {
-                    b.this.sB(2);
+                    b.this.sA(2);
                 }
                 b.this.a(aVar.path, b.this.gkD);
             }
@@ -39,7 +39,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                b.this.sB(3);
+                b.this.sA(3);
             }
         };
         this.gkC = Tencent.createInstance("101462192", context.getApplicationContext());
@@ -48,12 +48,12 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
         if (shareEntity == null || this.gkC == null) {
-            sB(2);
+            sA(2);
             if (bVar != null) {
                 bVar.bC(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            sB(2);
+            sA(2);
             if (bVar != null) {
                 bVar.bC(0, 2);
             }
@@ -130,7 +130,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             if (bVar != null) {
                 bVar.bC(this.gkw, 2);
             }
-            sB(2);
+            sA(2);
         }
     }
 
@@ -147,7 +147,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             if (this.gkG != null) {
                 this.gkG.bC(b.this.gkw, 1);
             }
-            b.this.sB(1);
+            b.this.sA(1);
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -164,7 +164,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
                 this.gkG.bC(b.this.gkw, 3);
             }
             if (b.this.gkw != 8 && b.this.gkw == 4) {
-                b.this.sB(3);
+                b.this.sA(3);
             }
         }
     }

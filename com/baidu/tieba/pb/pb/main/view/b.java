@@ -414,7 +414,7 @@ public class b {
         ak.b(this.fsU, d.C0126d.cp_cont_b, d.C0126d.s_navbar_title_color);
     }
 
-    public void qG(int i) {
+    public void qF(int i) {
         this.mNavigationBar.onChangeSkinType(this.fgM.getPageContext(), i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
         this.mNavigationBar.getTopCoverBgView().setBackgroundResource(d.f.bg_pb_header_gradient_top);

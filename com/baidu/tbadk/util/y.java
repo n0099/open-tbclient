@@ -18,7 +18,7 @@ public class y {
         return audioManager.abandonAudioFocus(null) == 1;
     }
 
-    public static boolean fq(int i) {
+    public static boolean fp(int i) {
         boolean z = true;
         switch (i) {
             case 2:
@@ -52,6 +52,6 @@ public class y {
             }
             return (com.baidu.adp.lib.util.j.gR() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 0) ? false : true;
         }
-        return fq(i);
+        return fp(i);
     }
 }

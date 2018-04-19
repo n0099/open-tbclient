@@ -70,7 +70,7 @@ public class ApkDownloadView extends FrameLayout {
         if (downloadData != null) {
             switch (downloadData.getStatus()) {
                 case 1:
-                    sa(v(downloadData));
+                    rZ(v(downloadData));
                     return;
                 case 2:
                 case 7:
@@ -83,7 +83,7 @@ public class ApkDownloadView extends FrameLayout {
                 default:
                     return;
                 case 5:
-                    sa(v(downloadData));
+                    rZ(v(downloadData));
                     return;
                 case 6:
                     this.gel.setText(getResources().getString(d.k.install_app));
@@ -97,7 +97,7 @@ public class ApkDownloadView extends FrameLayout {
     }
 
     public void h(DownloadData downloadData) {
-        sa(v(downloadData));
+        rZ(v(downloadData));
     }
 
     public void u(DownloadData downloadData) {
@@ -105,7 +105,7 @@ public class ApkDownloadView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sa(int i) {
+    public void rZ(int i) {
         this.gel.setProgress(Math.max(0, i));
     }
 
@@ -199,7 +199,7 @@ public class ApkDownloadView extends FrameLayout {
                         if (downloadData != null) {
                             int w = ApkDownloadView.this.w(downloadData);
                             if (h.getStatus(downloadData) == 1) {
-                                ApkDownloadView.this.sa(w);
+                                ApkDownloadView.this.rZ(w);
                             } else if (h.getStatus(downloadData) == 3) {
                                 ApkDownloadView.this.gel.setText(ApkDownloadView.this.getResources().getString(d.k.install));
                             } else {

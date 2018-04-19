@@ -98,7 +98,7 @@ public class a implements ae {
     private com.baidu.adp.base.d cHY = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.frsfeedforums.a.4
         @Override // com.baidu.adp.base.d
         public void f(Object obj) {
-            if (AntiHelper.tu(a.this.bmW.getErrorCode())) {
+            if (AntiHelper.tt(a.this.bmW.getErrorCode())) {
                 AntiHelper.am(a.this.mTbPageContext.getPageActivity(), a.this.bmW.getErrorString());
             } else if (obj == null) {
                 if (!StringUtils.isNull(a.this.bmW.getErrorString())) {
@@ -221,7 +221,7 @@ public class a implements ae {
                 bVar.dgh.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 bVar.dgh.startLoad(feedForumData.getAvatar(), 15, false);
                 bVar.mTitle.setText(feedForumData.getForumName());
-                bVar.dgi.setText(String.format(this.mTbPageContext.getPageActivity().getString(d.k.attention_post_count), kB(feedForumData.getMemberCount()), kB(feedForumData.getPostNum())));
+                bVar.dgi.setText(String.format(this.mTbPageContext.getPageActivity().getString(d.k.attention_post_count), kA(feedForumData.getMemberCount()), kA(feedForumData.getPostNum())));
                 bVar.dgj.setText(feedForumData.getReason());
                 if (feedForumData.getIsLike() == 0) {
                     bVar.dgk.setClickable(true);
@@ -250,7 +250,7 @@ public class a implements ae {
         }
     }
 
-    private String kB(int i) {
+    private String kA(int i) {
         if (i < 0) {
             return "0";
         }

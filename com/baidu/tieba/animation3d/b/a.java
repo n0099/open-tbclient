@@ -80,9 +80,9 @@ public class a implements TBGLSurfaceView.m {
                 this.ckD.poll();
             } else if (peek.aeC() == -1) {
                 if (!peek.aeB()) {
-                    peek.iC(2);
+                    peek.iB(2);
                 } else {
-                    peek.iC(0);
+                    peek.iB(0);
                 }
             } else if (peek.aeC() == 0) {
                 peek.b(this.cky, this.ckz, this.ckA, this.ckB);
@@ -92,10 +92,10 @@ public class a implements TBGLSurfaceView.m {
                 this.cky = g;
                 this.ckz = h;
                 this.ckA = i;
-                peek.iC(1);
+                peek.iB(1);
             } else if (peek.aeC() == 1) {
                 if (peek.c(this.cky, this.ckz, this.ckA, this.ckB)) {
-                    peek.iC(2);
+                    peek.iB(2);
                 } else {
                     peek.d(this.cky, this.ckz, this.ckA, this.ckB);
                     float g2 = peek.g(this.cky, this.ckz, this.ckA, this.ckB);
@@ -145,21 +145,21 @@ public class a implements TBGLSurfaceView.m {
                     return;
                 } else if (peek2.aeC() == -1) {
                     if (!peek2.aeB()) {
-                        peek2.iC(2);
+                        peek2.iB(2);
                         return;
                     } else {
-                        peek2.iC(0);
+                        peek2.iB(0);
                         return;
                     }
                 } else {
                     if (peek2.aeC() == 0) {
                         peek2.b(this.ckp, this.ckq, this.ckr, this.ckB);
                         double f = peek2.f(this.ckp, this.ckq, this.ckr, this.ckB);
-                        peek2.iC(1);
+                        peek2.iB(1);
                         d = f;
                     } else if (peek2.aeC() == 1) {
                         if (peek2.c(this.ckp, this.ckq, this.ckr, this.ckB)) {
-                            peek2.iC(2);
+                            peek2.iB(2);
                             return;
                         } else {
                             peek2.d(this.ckp, this.ckq, this.ckr, this.ckB);
@@ -272,7 +272,7 @@ public class a implements TBGLSurfaceView.m {
         }
     }
 
-    public void iD(int i) {
+    public void iC(int i) {
         this.bgColor = i;
     }
 

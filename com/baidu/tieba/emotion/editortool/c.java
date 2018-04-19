@@ -13,15 +13,15 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     private void init() {
-        super.eM(7);
-        super.eN(3);
+        super.eL(7);
+        super.eM(3);
         com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), d.f.icon_face_original_s), false);
         super.d(aVar);
         super.c(aVar);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String eL(int i) {
+    public String eK(int i) {
         int i2;
         if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.aDG.size()) {
             i2 = 0;

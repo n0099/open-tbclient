@@ -180,7 +180,7 @@ public class a extends c<TbTitleActivity> {
         this.cVr.setOnClickListener(this.cVg);
     }
 
-    public void di(int i) {
+    public void dh(int i) {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(this.cVm.getPageContext(), i);
         }

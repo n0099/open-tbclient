@@ -194,19 +194,19 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
 
     private void aEj() {
         if (this.dZM) {
-            c nC = nC(1);
-            nC.b(this.dZO);
-            this.dZL.add(nC);
+            c nB = nB(1);
+            nB.b(this.dZO);
+            this.dZL.add(nB);
         }
-        c nC2 = nC(2);
+        c nB2 = nB(2);
         if (!this.dZM) {
-            nC2.b(this.dZO);
+            nB2.b(this.dZO);
         }
-        this.dZL.add(nC2);
-        this.dZL.add(nC(3));
+        this.dZL.add(nB2);
+        this.dZL.add(nB(3));
     }
 
-    private c nC(int i) {
+    private c nB(int i) {
         c cVar = new c(getPageContext());
         cVar.d(i, this.mForumId, this.mForumName);
         cVar.ce(new com.baidu.tieba.im.frsgroup.view.a.a(this).aoq());

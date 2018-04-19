@@ -69,7 +69,7 @@ public class TBGLWriteContainer extends LinearLayout {
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (i == 8 && !iH(1)) {
+        if (i == 8 && !iG(1)) {
             aeQ();
         }
         super.setVisibility(i);
@@ -134,14 +134,14 @@ public class TBGLWriteContainer extends LinearLayout {
         }
     }
 
-    public boolean iH(int i) {
+    public boolean iG(int i) {
         boolean z;
         Iterator<TBGLWriteView> it = this.clu.iterator();
         boolean z2 = true;
         while (it.hasNext()) {
             TBGLWriteView next = it.next();
             if (next != null) {
-                z = next.iH(i) && z2;
+                z = next.iG(i) && z2;
                 if (!z) {
                     return z;
                 }

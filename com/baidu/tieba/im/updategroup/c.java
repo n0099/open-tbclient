@@ -9,7 +9,7 @@ public class c extends d {
     public c(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
         setContentView(d.i.update_group_name_activity);
-        oa(d.k.group_info_name);
+        nZ(d.k.group_info_name);
         this.dUD = (ImageButton) updateGroupActivity.findViewById(d.g.button_del);
         this.dUD.setOnClickListener(updateGroupActivity);
         this.mEditText.setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});

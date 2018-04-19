@@ -175,7 +175,7 @@ public class f {
                 new d("www.baidu.com", new d.b() { // from class: com.baidu.tbadk.coreExtra.websocketBase.f.3
                     @Override // com.baidu.tbadk.coreExtra.websocketBase.d.b
                     public void bp(boolean z) {
-                        b.CF().er(z ? 2 : 1);
+                        b.CF().eq(z ? 2 : 1);
                         if (z) {
                             f.this.aAf = a.Cx().CA();
                             if (f.this.aAf != null) {

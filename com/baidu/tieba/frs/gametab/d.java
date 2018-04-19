@@ -29,7 +29,7 @@ public class d extends com.baidu.tbadk.mainTab.b {
     }
 
     public void a(ab abVar) {
-        if (abVar != null && abVar.kp(1)) {
+        if (abVar != null && abVar.ko(1)) {
             abVar.b(this);
         }
     }

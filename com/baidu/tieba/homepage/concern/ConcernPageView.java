@@ -317,12 +317,12 @@ public class ConcernPageView extends FrameLayout {
         this.dAh.setSelector(17170445);
         this.blb = new PbListView(context);
         this.blb.getView();
-        this.blb.dv(d.C0126d.cp_bg_line_e);
+        this.blb.du(d.C0126d.cp_bg_line_e);
         this.blb.setHeight(l.e(context, d.e.tbds182));
         this.blb.wO();
         this.blb.setTextSize(d.e.tbfontsize33);
         this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
-        this.blb.du(d.C0126d.cp_cont_e);
+        this.blb.dt(d.C0126d.cp_cont_e);
         this.blb.setOnClickListener(this.dAC);
         this.dAh.setNextPage(this.blb);
         e<?> ab = i.ab(context);
@@ -373,10 +373,10 @@ public class ConcernPageView extends FrameLayout {
         if (this.blb != null) {
             if (z) {
                 this.blb.wU();
-                this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 return;
             }
-            this.blb.dy(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
     }
 
@@ -387,7 +387,7 @@ public class ConcernPageView extends FrameLayout {
     public void a(DataRes dataRes, boolean z) {
         if (this.blb != null) {
             this.blb.wS();
-            this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.dAy.a(z, dataRes, 0, null);
     }
@@ -427,11 +427,11 @@ public class ConcernPageView extends FrameLayout {
                 this.refreshView.onChangeSkinType();
             }
             if (this.mPullView != null) {
-                this.mPullView.dw(i);
+                this.mPullView.dv(i);
             }
             if (this.blb != null) {
                 this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
-                this.blb.dw(i);
+                this.blb.dv(i);
             }
             this.dAw.onChangeSkinType(i);
             ak.j(this, d.C0126d.cp_bg_line_d);
@@ -446,7 +446,7 @@ public class ConcernPageView extends FrameLayout {
     public void Y(String str, int i) {
         if (this.blb != null) {
             this.blb.wS();
-            this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.dAy.a(true, null, i, str);
     }
@@ -463,7 +463,7 @@ public class ConcernPageView extends FrameLayout {
                 }
             });
         }
-        this.refreshView.fb(getContext().getResources().getDimensionPixelSize(d.e.ds280));
+        this.refreshView.fa(getContext().getResources().getDimensionPixelSize(d.e.ds280));
         this.refreshView.setSubText(str);
         this.refreshView.d(view2, z);
         this.refreshView.Fu();
@@ -575,7 +575,7 @@ public class ConcernPageView extends FrameLayout {
     public void Po() {
         if (this.blb != null && !this.blb.wX()) {
             this.blb.wR();
-            this.blb.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.dAy.Po();
     }

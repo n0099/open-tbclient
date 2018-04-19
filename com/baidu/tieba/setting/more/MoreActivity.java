@@ -139,7 +139,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     MoreActivity.this.bme();
                     return;
                 }
-                MoreActivity.this.sx(closeAdData.Db());
+                MoreActivity.this.sw(closeAdData.Db());
             }
         }
     };
@@ -163,7 +163,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     private c blP() {
         return new c() { // from class: com.baidu.tieba.setting.more.MoreActivity.4
             @Override // com.baidu.tieba.setting.more.c
-            public void st(int i) {
+            public void ss(int i) {
                 if (i == 0) {
                     MoreActivity.this.bma();
                 } else if (i == 1) {
@@ -376,10 +376,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public void a(View view2, BdSwitchView.SwitchState switchState) {
         if (BdSwitchView.SwitchState.ON == switchState) {
             TiebaStatic.log("c11143");
-            sy(1);
+            sx(1);
             return;
         }
-        sy(0);
+        sx(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -463,8 +463,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @SuppressLint({"ResourceAsColor"})
     public void bmd() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.ca(d.k.mebmer_close_ad_dialog_message);
-        aVar.cb(d.C0126d.cp_link_tip_d);
+        aVar.bZ(d.k.mebmer_close_ad_dialog_message);
+        aVar.ca(d.C0126d.cp_link_tip_d);
         aVar.a(d.k.open_now, new a.b() { // from class: com.baidu.tieba.setting.more.MoreActivity.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -508,7 +508,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sx(int i) {
+    public void sw(int i) {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (i == 0) {
             this.gii.bmi();
@@ -521,7 +521,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         this.mWaitingDialog.aI(false);
     }
 
-    public void sy(int i) {
+    public void sx(int i) {
         if (this.gip == gis) {
             if (i == 0) {
                 this.gip = giq;
@@ -531,7 +531,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             MemberCloseAdRequestMessage memberCloseAdRequestMessage = new MemberCloseAdRequestMessage(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
             memberCloseAdRequestMessage.setVipClose(i);
             MessageManager.getInstance().sendMessage(memberCloseAdRequestMessage);
-            this.mWaitingDialog.da(d.k.setting_submiting);
+            this.mWaitingDialog.cZ(d.k.setting_submiting);
             this.mWaitingDialog.aI(true);
         }
     }

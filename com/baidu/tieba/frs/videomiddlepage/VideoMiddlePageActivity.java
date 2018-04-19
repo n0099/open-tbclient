@@ -68,7 +68,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         if (keyEvent == null || this.drE == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.drE.kr(i)) {
+        if (this.drE.kq(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

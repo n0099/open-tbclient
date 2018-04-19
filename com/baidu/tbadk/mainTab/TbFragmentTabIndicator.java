@@ -27,7 +27,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         this.aID = false;
     }
 
-    public void dA(int i) {
+    public void dz(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
@@ -95,7 +95,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public boolean aIE = true;
         public int aIG = d.C0126d.common_color_10225;
 
-        public void dA(int i) {
+        public void dz(int i) {
             if (this.aIF != 0) {
                 ak.i(this.f7view, this.aIF);
             }

@@ -13,7 +13,7 @@ public class f {
     private final RemoteViews fXG = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), d.i.download_notify_view);
 
     public f(DownloadData downloadData, int i) {
-        rN(i);
+        rM(i);
         this.fXG.setTextViewText(d.g.download_status_text, TbadkCoreApplication.getInst().getResources().getString(d.k.on_downloading));
         this.fXG.setImageViewResource(d.g.download_btn, d.f.notify_pause_bg);
         this.fXG.setImageViewResource(d.g.download_cancel, d.f.notify_cancel_bg);
@@ -54,7 +54,7 @@ public class f {
         this.fXG.setImageViewResource(d.g.download_btn, d.f.notify_start_bg);
     }
 
-    public void rN(int i) {
+    public void rM(int i) {
         String str;
         if (i > 0) {
             str = i + "%";

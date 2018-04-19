@@ -215,7 +215,7 @@ public class TbRichTextItem extends OrmObject {
             }
             spannableString = new SpannableString(str);
             c cVar = new c(i, str2);
-            cVar.fX(i2);
+            cVar.fW(i2);
             if (i2 == 1) {
                 cVar.setTextColor(d.C0126d.cp_cont_d);
             } else {
@@ -231,9 +231,9 @@ public class TbRichTextItem extends OrmObject {
             return null;
         }
         SpannableString spannableString = new SpannableString("a");
-        Drawable fZ = d.fZ(this.aVO.btn_type);
-        fZ.setBounds(0, 0, fZ.getIntrinsicWidth(), fZ.getIntrinsicHeight());
-        com.baidu.tbadk.widget.c cVar = new com.baidu.tbadk.widget.c(fZ);
+        Drawable fY = d.fY(this.aVO.btn_type);
+        fY.setBounds(0, 0, fY.getIntrinsicWidth(), fY.getIntrinsicHeight());
+        com.baidu.tbadk.widget.c cVar = new com.baidu.tbadk.widget.c(fY);
         cVar.setVerticalOffset(l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds4));
         spannableString.setSpan(cVar, 0, 1, 33);
         spannableString.setSpan(new c(1024, this.aVO.link), spannableString.length() - 1, "a".length(), 33);
@@ -277,7 +277,7 @@ public class TbRichTextItem extends OrmObject {
         String str;
         int i = 0;
         try {
-            this.mType = fY(pbContent.type.intValue());
+            this.mType = fX(pbContent.type.intValue());
             switch (this.mType) {
                 case 8:
                     this.aVI = new TbRichTextImageInfo(pbContent);
@@ -356,7 +356,7 @@ public class TbRichTextItem extends OrmObject {
         String str;
         int i = 0;
         try {
-            this.mType = fY(jSONObject.optInt("type", 0));
+            this.mType = fX(jSONObject.optInt("type", 0));
             if (this.mType == 8) {
                 this.aVI = new TbRichTextImageInfo(jSONObject);
             } else if (this.mType == 512) {
@@ -409,7 +409,7 @@ public class TbRichTextItem extends OrmObject {
         }
     }
 
-    private int fY(int i) {
+    private int fX(int i) {
         switch (i) {
             case 0:
                 return 1;

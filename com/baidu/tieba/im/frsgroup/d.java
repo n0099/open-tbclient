@@ -57,7 +57,7 @@ public class d implements ag {
                 FrsGroupSocketResponseMessage frsGroupSocketResponseMessage = (FrsGroupSocketResponseMessage) socketResponsedMessage;
                 int type = d.this.dXZ.getType();
                 if (socketResponsedMessage.getError() != 0) {
-                    d.this.nv(type);
+                    d.this.nu(type);
                     if (com.baidu.adp.lib.util.j.gP()) {
                         com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), socketResponsedMessage.getErrorString());
                         return;
@@ -157,7 +157,7 @@ public class d implements ag {
         MessageManager.getInstance().sendMessage(frsGroupRequestMessage);
     }
 
-    public void lS(int i) {
+    public void lR(int i) {
         FrsGroupReadCacheRequestMessage frsGroupReadCacheRequestMessage = new FrsGroupReadCacheRequestMessage();
         if (this.aTr != null) {
             frsGroupReadCacheRequestMessage.setTag(this.aTr);
@@ -168,7 +168,7 @@ public class d implements ag {
         MessageManager.getInstance().sendMessage(frsGroupReadCacheRequestMessage);
     }
 
-    public void nv(int i) {
+    public void nu(int i) {
         GroupPermData groupPermData;
         List<GroupInfoData> list = null;
         ap apVar = new ap();
@@ -265,11 +265,11 @@ public class d implements ag {
     private com.baidu.tieba.frs.g be(int i, int i2) {
         com.baidu.tieba.frs.g gVar = new com.baidu.tieba.frs.g();
         gVar.setHeight(com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getContext()) - ((com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds100) + com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds90)) + i));
-        gVar.ka(i2);
+        gVar.jZ(i2);
         return gVar;
     }
 
-    private boolean nw(int i) {
+    private boolean nv(int i) {
         if (i == 1) {
             return this.dXW;
         }
@@ -291,7 +291,7 @@ public class d implements ag {
                 hVar.nz(TbadkCoreApplication.getInst().getResources().getString(d.k.login_see_more));
                 hVar.ny(TbadkCoreApplication.getInst().getResources().getString(d.k.not_login));
                 hVar.c(NoDataViewFactory.ImgType.NODATA);
-                hVar.ny(1);
+                hVar.nx(1);
                 hVar.setExtraData(obj);
                 arrayList.add(hVar);
             } else if (!com.baidu.adp.lib.util.j.gP()) {
@@ -301,7 +301,7 @@ public class d implements ag {
                 hVar.ny(TbadkCoreApplication.getInst().getResources().getString(d.k.frsgroup_hot_create_group_tip));
                 hVar.nx(TbadkCoreApplication.getInst().getResources().getString(d.k.frsgroup_no_hot_tip));
                 hVar.c(NoDataViewFactory.ImgType.CREATE);
-                hVar.ny(0);
+                hVar.nx(0);
                 hVar.setExtraData(obj);
                 arrayList.add(hVar);
             }
@@ -317,7 +317,7 @@ public class d implements ag {
         }
     }
 
-    private boolean nx(int i) {
+    private boolean nw(int i) {
         if (i == 1) {
             return this.dXT;
         }
@@ -339,8 +339,8 @@ public class d implements ag {
             this.ahC = i2;
             if (!TbadkCoreApplication.isLogin()) {
                 b(false, (Object) null);
-            } else if (nw(i2)) {
-                lS(i2);
+            } else if (nv(i2)) {
+                lR(i2);
             } else {
                 if (amVar.pn == -1) {
                     this.rn = 50;
@@ -356,11 +356,11 @@ public class d implements ag {
                 }
                 int a = a(i2, this.rn, i3, amVar);
                 if (a < 0) {
-                    nv(i2);
+                    nu(i2);
                 } else if (a == 0) {
                     this.aXI = true;
                     bd(i2, 0);
-                } else if (nx(i2)) {
+                } else if (nw(i2)) {
                     this.aXI = false;
                     bd(i2, a);
                 }

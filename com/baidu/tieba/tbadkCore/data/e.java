@@ -16,7 +16,7 @@ public class e {
         this.gvZ = str;
     }
 
-    public void tl(int i) {
+    public void tk(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
@@ -34,7 +34,7 @@ public class e {
     }
 
     public void brC() {
-        tl(0);
+        tk(0);
     }
 
     public void bI(int i, int i2) {
@@ -43,14 +43,14 @@ public class e {
         }
     }
 
-    public int tm(int i) {
+    public int tl(int i) {
         if (i >= 0 && this.gvY != null) {
             return this.gvY.get(i, -1);
         }
         return -1;
     }
 
-    public void tn(int i) {
+    public void tm(int i) {
         if (this.gvY != null) {
             this.gvY.delete(i);
         }

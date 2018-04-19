@@ -20,30 +20,30 @@ public class c {
             Iterator<Integer> it = arrayList.iterator();
             while (it.hasNext()) {
                 int intValue = it.next().intValue();
-                bVar.put(intValue, gn(intValue));
+                bVar.put(intValue, gm(intValue));
             }
         }
     }
 
-    private int gn(int i) {
+    private int gm(int i) {
         if (i == 1) {
-            return go(i);
+            return gn(i);
         }
         if (this.bbS == 1) {
-            return gq(i);
+            return gp(i);
         }
         if (this.bbS == 0) {
-            return go(i);
+            return gn(i);
         }
         return 0;
     }
 
-    private int go(int i) {
-        String gp = gp(i);
-        return (!an.isEmpty(gp) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(gp, 0) == 1) ? 1 : 0;
+    private int gn(int i) {
+        String go = go(i);
+        return (!an.isEmpty(go) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(go, 0) == 1) ? 1 : 0;
     }
 
-    private String gp(int i) {
+    private String go(int i) {
         if (i == 1) {
             return "key_card_show_type";
         }
@@ -53,16 +53,16 @@ public class c {
         return null;
     }
 
-    private int gq(int i) {
-        String gr = gr(i);
-        if (an.isEmpty(gr)) {
+    private int gp(int i) {
+        String gq = gq(i);
+        if (an.isEmpty(gq)) {
             return 0;
         }
-        SampleResult vc = com.baidu.ubs.analytics.a.vc(gr);
+        SampleResult vc = com.baidu.ubs.analytics.a.vc(gq);
         return (vc == SampleResult.T1 || vc == SampleResult.T2 || vc == SampleResult.T3 || vc == SampleResult.T4 || vc == SampleResult.T5) ? 1 : 0;
     }
 
-    private String gr(int i) {
+    private String gq(int i) {
         if (i == 2) {
             return "46";
         }
@@ -74,7 +74,7 @@ public class c {
         ME();
     }
 
-    public void gs(int i) {
+    public void gr(int i) {
         if (i == 1 || i == 0) {
             this.bbS = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_abtest_channel", this.bbS);
@@ -99,7 +99,7 @@ public class c {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().cl(TbadkCoreApplication.getInst()).nC(false).da(30L).vq(1).nD(false).db(15L).vr(1000).bEL());
+                com.baidu.ubs.analytics.a.a(new c.a().cl(TbadkCoreApplication.getInst()).nC(false).da(30L).vp(1).nD(false).db(15L).vq(1000).bEL());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

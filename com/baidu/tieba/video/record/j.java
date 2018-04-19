@@ -229,7 +229,7 @@ public class j implements i.a {
         }
     }
 
-    public void uz(int i) {
+    public void uy(int i) {
         if (this.aOY != null && this.aOY.getDuration() > 0) {
             if (i < 0) {
                 i = 0;
@@ -262,6 +262,6 @@ public class j implements i.a {
     }
 
     @Override // com.baidu.tieba.video.record.i.a
-    public void uy(int i) {
+    public void ux(int i) {
     }
 }

@@ -164,7 +164,7 @@ public class ThreadCommentAndPraiseInfoLayoutNew extends LinearLayout {
     public void xg() {
         if (this.mPageContext != null) {
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-            bVar.cd(d.k.operation);
+            bVar.cc(d.k.operation);
             bVar.a(this.aoE, new b.InterfaceC0086b() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayoutNew.2
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view2) {

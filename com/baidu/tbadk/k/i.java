@@ -29,7 +29,7 @@ public class i extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void GQ() {
-        m mVar = (m) p.Ha().fm(this.mSubType);
+        m mVar = (m) p.Ha().fl(this.mSubType);
         if (mVar != null) {
             mVar.c(this);
         }

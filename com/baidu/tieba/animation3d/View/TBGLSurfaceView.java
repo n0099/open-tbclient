@@ -490,7 +490,7 @@ public class TBGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
 
         public static String formatEglError(String str, int i) {
-            return str + " failed: " + com.baidu.tieba.animation3d.View.a.iG(i);
+            return str + " failed: " + com.baidu.tieba.animation3d.View.a.iF(i);
         }
     }
 

@@ -32,22 +32,22 @@ public class b {
 
     public void auB() {
         if (this.doe && this.dof >= 0) {
-            kZ(this.dof);
+            kY(this.dof);
         }
         this.doe = false;
     }
 
-    public void kY(int i) {
+    public void kX(int i) {
         if (i >= 0) {
             fU(true);
-            la(i);
+            kZ(i);
             return;
         }
         fU(false);
-        la(i);
+        kZ(i);
     }
 
-    private void kZ(int i) {
+    private void kY(int i) {
         FrameLayout frameLayout;
         String string;
         i apn = this.dmZ.apn();
@@ -85,7 +85,7 @@ public class b {
         this.doe = z;
     }
 
-    public void la(int i) {
+    public void kZ(int i) {
         this.dof = i;
     }
 

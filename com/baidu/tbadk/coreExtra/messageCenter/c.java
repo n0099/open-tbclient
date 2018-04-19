@@ -102,7 +102,7 @@ public class c {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
     }
 
-    public void dV(int i) {
+    public void dU(int i) {
         if (i == 0) {
             this.auU = i;
             a.zx().setMsgBookmark(0);
@@ -256,7 +256,7 @@ public class c {
         updateSignAlarm();
     }
 
-    public void dW(int i) {
+    public void dV(int i) {
         if (i == 0) {
             be(false);
             bc(false);

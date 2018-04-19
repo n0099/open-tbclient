@@ -251,7 +251,7 @@ public class b {
                             i(aVar);
                         }
                         aVar.setContent(cursor.getString(cursor.getColumnIndex("ucontent")));
-                        aVar.np(cursor.getInt(cursor.getColumnIndex("isread")));
+                        aVar.no(cursor.getInt(cursor.getColumnIndex("isread")));
                         aVar.setName(cursor.getString(cursor.getColumnIndex("uname")));
                         aVar.setPortrait(cursor.getString(cursor.getColumnIndex("uportrait")));
                         aVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));
@@ -322,7 +322,7 @@ public class b {
                     com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
                     aVar.setId(cursor.getLong(cursor.getColumnIndex("uid")));
                     aVar.setContent(cursor.getString(cursor.getColumnIndex("ucontent")));
-                    aVar.np(cursor.getInt(cursor.getColumnIndex("isread")));
+                    aVar.no(cursor.getInt(cursor.getColumnIndex("isread")));
                     aVar.setName(cursor.getString(cursor.getColumnIndex("uname")));
                     aVar.setPortrait(cursor.getString(cursor.getColumnIndex("uportrait")));
                     aVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));
@@ -348,7 +348,7 @@ public class b {
             try {
                 cursor = h.aDf().rawQuery("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
                 if (cursor != null && cursor.moveToNext()) {
-                    aVar.np(cursor.getInt(cursor.getColumnIndex("isread")));
+                    aVar.no(cursor.getInt(cursor.getColumnIndex("isread")));
                     aVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));
                     aVar.setContent(cursor.getString(cursor.getColumnIndex("ucontent")));
                     aVar.setName(cursor.getString(cursor.getColumnIndex("uname")));

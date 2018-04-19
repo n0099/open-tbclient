@@ -41,7 +41,7 @@ public class h extends com.baidu.tbadk.editortools.c {
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tbadk.editortools.pb.h.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar) {
-                    k eI;
+                    k eH;
                     if (aVar != null) {
                         switch (aVar.code) {
                             case 4:
@@ -77,8 +77,8 @@ public class h extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 11:
                                 gVar.setVoiceModel(null);
-                                if (DF != null && (eI = DF.eI(6)) != null && eI.aCM != null) {
-                                    eI.aCM.a(new com.baidu.tbadk.editortools.a(52, 0, null));
+                                if (DF != null && (eH = DF.eH(6)) != null && eH.aCM != null) {
+                                    eH.aCM.a(new com.baidu.tbadk.editortools.a(52, 0, null));
                                     return;
                                 }
                                 return;
@@ -112,11 +112,11 @@ public class h extends com.baidu.tbadk.editortools.c {
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
         DF.C(arrayList);
-        k eI = DF.eI(5);
-        if (eI != null) {
-            eI.bA(false);
-            eI.aDB = 1;
-            eI.aDz = d.f.new_pbeditor_face_button;
+        k eH = DF.eH(5);
+        if (eH != null) {
+            eH.bA(false);
+            eH.aDB = 1;
+            eH.aDz = d.f.new_pbeditor_face_button;
         }
         if (com.baidu.tieba.tbadkCore.voice.c.btg() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, DF.getContext()), k.class)) != null && (kVar = (k) runTask.getData()) != null) {
             kVar.aDz = d.f.new_pbeditor_voice_button;

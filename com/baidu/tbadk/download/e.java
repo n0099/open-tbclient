@@ -179,7 +179,7 @@ public class e {
         }
     }
 
-    public void eA(int i) {
+    public void ez(int i) {
         if (aCp != null && aCp.getType() == i) {
             this.aCq.cancel(true);
         }

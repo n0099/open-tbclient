@@ -38,7 +38,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: gu */
+    /* renamed from: gt */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
         if (this.bem == null || i < 0 || i >= this.bem.size()) {
             return null;

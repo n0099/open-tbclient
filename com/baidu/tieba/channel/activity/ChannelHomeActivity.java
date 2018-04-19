@@ -297,7 +297,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
             case 5:
                 if (SO() && this.cty != null && this.cty.agj() != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0084a.a(this.cty.agj().getChannelId(), getUniqueId())));
-                    iP(4);
+                    iO(4);
                     return;
                 }
                 return;
@@ -308,7 +308,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                 if (obj != null && (obj instanceof ChannelInfo)) {
                     ChannelInfo channelInfo = (ChannelInfo) obj;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), channelInfo.getUserId() + "", channelInfo.getUserName())));
-                    iP(3);
+                    iO(3);
                     return;
                 }
                 return;
@@ -324,12 +324,12 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                 return;
             case 10:
                 sendMessage(new CustomMessage(2002001, new ChannelAddVideoActivityConfig(getBaseContext(), this.ctu)));
-                iP(5);
+                iO(5);
                 return;
             case 11:
                 if (this.cty != null && this.cty.agj() != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelEditActivityConfig(getPageContext().getPageActivity(), this.cty.agj())));
-                    iP(3);
+                    iO(3);
                     return;
                 }
                 return;
@@ -366,7 +366,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
             case 17:
                 if (this.cty != null && this.cty.agj() != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.c.b(this.cty.agj().getChannelId(), getUniqueId())));
-                    iP(5);
+                    iO(5);
                     return;
                 }
                 return;
@@ -378,21 +378,21 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                     a.b a = a.b.a(channelId, isPushOpen ? false : true, getUniqueId());
                     a.Vh = booleanValue;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a));
-                    iP(isPushOpen ? 7 : 6);
+                    iO(isPushOpen ? 7 : 6);
                     return;
                 }
                 return;
             case 19:
                 if (this.cty != null && this.cty.agj() != null) {
                     kI(this.cty.agj().getChannelCover());
-                    iP(1);
+                    iO(1);
                     return;
                 }
                 return;
             case 20:
                 if (this.cty != null && this.cty.agj() != null) {
                     kI(this.cty.agj().getChannelAvatar());
-                    iP(2);
+                    iO(2);
                     return;
                 }
                 return;
@@ -400,7 +400,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                 if (this.cty != null && this.cty.agj() != null) {
                     sendMessage(new CustomMessage(2002001, new ChannelFansActivityConfig(getBaseContext(), this.ctu)));
                     if (this.cty.isHost()) {
-                        iP(4);
+                        iO(4);
                         return;
                     }
                     return;
@@ -490,7 +490,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
         TiebaStatic.logPagePV(new al("c11935").r("obj_type", dVar.isHost() ? 1 : 2).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.ctv).f(VideoPlayActivityConfig.OBJ_ID, dVar.agj().getChannelId()));
     }
 
-    private void iP(int i) {
+    private void iO(int i) {
         if (this.cty != null && this.cty.agj() != null) {
             ChannelInfo agj = this.cty.agj();
             al alVar = new al(this.cty.isHost() ? "c11937" : "c11936");

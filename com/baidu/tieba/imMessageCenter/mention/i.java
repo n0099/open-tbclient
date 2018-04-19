@@ -32,7 +32,7 @@ public class i {
                         com.baidu.tbadk.coreExtra.messageCenter.a.zx().setMsgFans(msgData.aID());
                     }
                     if (msgData.aIA() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dT(msgData.aIA());
+                        com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(msgData.aIA());
                     }
                 }
             }

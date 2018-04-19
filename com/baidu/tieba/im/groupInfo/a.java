@@ -541,7 +541,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
 
     private void b(ResponseGroupInfoLocalMessage.a aVar, boolean z) {
         if (aVar != null && aVar.getGroup() != null) {
-            if (nI(aVar.getGroup().getFlag())) {
+            if (nH(aVar.getGroup().getFlag())) {
                 hm(z);
             } else {
                 aFi();
@@ -569,7 +569,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         this.ecI.setEnabled(true);
     }
 
-    private boolean nI(int i) {
+    private boolean nH(int i) {
         return ((i & 2) >> 1) != 1;
     }
 
@@ -719,11 +719,11 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
     }
 
     public void aFk() {
-        ColorStateList cN = ak.cN(d.C0126d.cp_cont_i);
-        if (cN != null) {
+        ColorStateList cM = ak.cM(d.C0126d.cp_cont_i);
+        if (cM != null) {
             this.eco.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        this.eco.setTextColor(cN);
+        this.eco.setTextColor(cM);
     }
 
     public void changeSkinType(int i) {

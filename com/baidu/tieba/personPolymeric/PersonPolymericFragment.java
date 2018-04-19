@@ -419,7 +419,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
             final Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(getActivity());
             thread2GroupShareView.setData(shareFromPBMsgData);
-            aVar.cc(1);
+            aVar.cb(1);
             aVar.w(thread2GroupShareView);
             aVar.a(d.k.share, new a.b() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.7
                 @Override // com.baidu.tbadk.core.dialog.a.b

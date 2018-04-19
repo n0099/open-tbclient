@@ -26,17 +26,17 @@ public class SettingTextImageView extends FrameLayout {
         this.mContext = context;
         Cb();
         c(attributeSet);
-        eq(TbadkCoreApplication.getInst().getSkinType());
+        ep(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
         Cb();
-        eq(TbadkCoreApplication.getInst().getSkinType());
+        ep(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void eq(int i) {
+    public void ep(int i) {
         ak.c(this.aza, d.C0126d.common_color_10039, 1);
         ak.b(this.azf, d.f.icon_arrow_gray_right_n, i);
         this.gjL.invalidate();

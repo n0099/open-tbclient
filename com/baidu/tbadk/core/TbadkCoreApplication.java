@@ -2204,7 +2204,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             cVar.parserJson(loadString);
             com.baidu.tbadk.coreExtra.websocketBase.c CI = com.baidu.tbadk.coreExtra.websocketBase.c.CI();
             CI.bo(cVar.AA() == 1);
-            CI.ev(cVar.AB());
+            CI.eu(cVar.AB());
             CI.S(cVar.AC() * 1000);
             if (cVar.AD() != null) {
                 CI.g(cVar.AD());
@@ -2317,7 +2317,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public void setNetWorkCoreType(int i) {
-        z.cD(i);
+        z.cC(i);
         saveInt("networkcore_type", i);
     }
 
@@ -3174,10 +3174,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             BdLog.e("you cannot set CustomizedFilter again");
         }
         if (fVar != null) {
-            if (fVar.bw(2) && !fVar.bw(-1)) {
+            if (fVar.bv(2) && !fVar.bv(-1)) {
                 BdLog.e("you should add CustomGroupType.PERSONAL_GROUP in the filter");
             }
-            if (fVar.bw(4) && !fVar.bw(-9)) {
+            if (fVar.bv(4) && !fVar.bv(-9)) {
                 BdLog.e("you should add CustomGroupType.OFFICIAL_GROUP in the filter");
             }
         }
@@ -3227,7 +3227,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         if (max < Fc) {
             if (BdLog.isDebugMode()) {
             }
-            com.baidu.tbadk.imageManager.c.Fa().eW(max);
+            com.baidu.tbadk.imageManager.c.Fa().eV(max);
         }
         BitmapHelper.clearCashBitmap();
         com.baidu.adp.lib.util.d.gw().clearCashBitmap();

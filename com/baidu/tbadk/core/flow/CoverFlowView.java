@@ -85,11 +85,11 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         this.adN.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
     }
 
-    public T cq(int i) {
+    public T cp(int i) {
         if (this.adP == null) {
             return null;
         }
-        return this.adP.cq(i);
+        return this.adP.cp(i);
     }
 
     public void setData(List<T> list) {
@@ -224,7 +224,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             if (CoverFlowView.this.adP != null) {
                 int count = CoverFlowView.this.adP.getCount();
                 if (i >= 0 && i < count && CoverFlowView.this.adS != null) {
-                    CoverFlowView.this.adS.a(i, CoverFlowView.this.adP.cq(i));
+                    CoverFlowView.this.adS.a(i, CoverFlowView.this.adP.cp(i));
                 }
             }
         }
@@ -259,9 +259,9 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             int intValue;
-            com.baidu.tbadk.core.flow.a.a cq;
-            if (CoverFlowView.this.adS != null && (view2.getTag() instanceof Integer) && (cq = CoverFlowView.this.adP.cq((intValue = ((Integer) view2.getTag()).intValue()))) != null) {
-                CoverFlowView.this.adS.f(intValue, cq.qB());
+            com.baidu.tbadk.core.flow.a.a cp;
+            if (CoverFlowView.this.adS != null && (view2.getTag() instanceof Integer) && (cp = CoverFlowView.this.adP.cp((intValue = ((Integer) view2.getTag()).intValue()))) != null) {
+                CoverFlowView.this.adS.f(intValue, cp.qB());
             }
         }
     }

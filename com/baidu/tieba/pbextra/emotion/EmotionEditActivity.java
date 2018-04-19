@@ -81,7 +81,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         adjustResizeForSoftInput(d.C0126d.black_alpha40, false);
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
         this.drT = new com.baidu.tbadk.core.view.a(getPageContext());
-        this.drT.da(d.k.emotion_composition);
+        this.drT.cZ(d.k.emotion_composition);
         this.drT.d(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.1
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
@@ -100,7 +100,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         this.fzS = (ChooseColorLayout) findViewById(d.g.choose_color_layout);
         this.fzS.setOnChooseColorChangeListener(new ChooseColorLayout.a() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.2
             @Override // com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout.a
-            public void qR(int i) {
+            public void qQ(int i) {
                 EmotionEditActivity.this.fzU.setTextColor(i);
             }
         });

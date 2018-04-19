@@ -24,7 +24,7 @@ public class EmotionTabWidgetView extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void eT(int i);
+        void eS(int i);
     }
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -89,7 +89,7 @@ public class EmotionTabWidgetView extends LinearLayout {
 
     public void onChangeSkinType(int i) {
         ak.e(this, d.C0126d.common_color_10255, i);
-        this.cGw.dA(i);
+        this.cGw.dz(i);
         ak.b(this.cGx, d.f.emotion_delete, i);
         ak.e(this.cGx, d.C0126d.common_color_10255, i);
         ak.b(this.cGy, d.f.icon_sett_s, i);

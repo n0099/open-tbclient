@@ -50,7 +50,7 @@ public class e implements d.b, com.baidu.tieba.play.g {
             } else if (message.what == 4) {
                 e.this.c(e.this.aZm);
             } else if (message.what == 5) {
-                e.this.gg(message.arg1);
+                e.this.gf(message.arg1);
             } else if (message.what == 10) {
                 if (message.obj instanceof b) {
                     e.this.a((b) message.obj, message.arg1);
@@ -203,7 +203,7 @@ public class e implements d.b, com.baidu.tieba.play.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void LH() {
-        gg(getDuration());
+        gf(getDuration());
     }
 
     @Override // com.baidu.tieba.play.g
@@ -373,7 +373,7 @@ public class e implements d.b, com.baidu.tieba.play.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gg(int i) {
+    public void gf(int i) {
         if (this.aZm != null) {
             try {
                 this.aZm.seekTo(i);

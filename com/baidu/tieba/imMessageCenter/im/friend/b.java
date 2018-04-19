@@ -82,7 +82,7 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(d.k.chat_black_list_title);
         this.FL = (BdListView) this.Tl.findViewById(d.g.black_list);
-        this.mNoDataView = NoDataViewFactory.a(this.ekP.getPageContext().getContext(), this.Tl, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aNm), NoDataViewFactory.d.dp(d.k.black_list_no_data_text), null);
+        this.mNoDataView = NoDataViewFactory.a(this.ekP.getPageContext().getContext(), this.Tl, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aNm), NoDataViewFactory.d.m16do(d.k.black_list_no_data_text), null);
         this.mProgress = (ProgressBar) this.Tl.findViewById(d.g.progress);
         this.ekT = new a(this.ekP);
         this.FL.setAdapter((ListAdapter) this.ekT);

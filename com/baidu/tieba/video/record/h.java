@@ -411,7 +411,7 @@ public class h {
     private void byk() {
         if (this.gQO != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.gQO.getPageContext().getPageActivity());
-            aVar.ca(d.k.video_quit_confirm);
+            aVar.bZ(d.k.video_quit_confirm);
             aVar.a(d.k.dialog_ok, new a.b() { // from class: com.baidu.tieba.video.record.h.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

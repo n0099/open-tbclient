@@ -87,16 +87,16 @@ public class i implements Handler.Callback, com.baidu.tieba.video.c {
                 if (TextUtils.isEmpty(str2)) {
                     l.showToast(this.epn, d.k.mv_local_video_video_not_exist);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str2));
-                    uX(107);
+                    uW(107);
                 } else if (!new File(str2).exists()) {
                     l.showToast(this.epn, d.k.mv_local_video_video_not_exist);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str2));
-                    uX(106);
+                    uW(106);
                 } else if (!XiaoyingUtil.isXiaoyingInstalled() || XiaoyingUtil.isXiaoyingForbidden()) {
                     if (this.hcV != null) {
                         this.hcW = this.hcV.videoPath;
                         mT(false);
-                        uX(102);
+                        uW(102);
                     }
                 } else if (VideoConvertUtil.tK(str2) >= 1500000) {
                     if (VideoConvertUtil.bvV()) {
@@ -121,7 +121,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.c {
                         }
                         this.hcW = videoFileInfo2.videoPath;
                         mT(false);
-                        uX(102);
+                        uW(102);
                     }
                 }
             }
@@ -129,7 +129,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.c {
     }
 
     private void bxy() {
-        com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.epn).bZ(d.k.mv_local_video_too_long).a(d.k.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.write.album.i.1
+        com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.epn).bY(d.k.mv_local_video_too_long).a(d.k.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.write.album.i.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
@@ -227,7 +227,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.c {
     }
 
     @Override // com.baidu.tieba.video.c
-    public void ug(int i) {
+    public void uf(int i) {
         this.mMainThreadHandler.sendEmptyMessage(2);
     }
 
@@ -269,7 +269,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.c {
             case 2:
                 if (!this.gOG) {
                     l.showToast(this.epn, d.k.mv_local_video_compress_failed);
-                    uX(103);
+                    uW(103);
                 }
                 this.hcZ = false;
                 this.gOF = false;
@@ -295,7 +295,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.c {
                 this.hcZ = false;
                 this.gOF = false;
                 bxu();
-                uX(104);
+                uW(104);
                 break;
             case 5:
                 this.hcZ = false;
@@ -303,7 +303,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.c {
                 if (this.hcY != null && this.hcY.isConvertRunning()) {
                     bxv();
                 }
-                uX(105);
+                uW(105);
                 break;
         }
         return true;
@@ -342,7 +342,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.c {
     public void onResume() {
         if (this.gOF && !TextUtils.isEmpty(this.hcW) && new File(this.hcW).exists()) {
             mT(true);
-            uX(101);
+            uW(101);
         }
         if (this.gxw != null) {
             this.gxw.pG("album");
@@ -362,7 +362,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.c {
         MessageManager.getInstance().unRegisterListener(this.gON);
     }
 
-    private void uX(int i) {
+    private void uW(int i) {
         if (this.gxw != null) {
             this.gxw.ad(i, "album");
         }

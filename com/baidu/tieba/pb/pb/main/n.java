@@ -23,9 +23,9 @@ public class n extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes2.dex */
     protected interface a {
-        void qm(int i);
+        void ql(int i);
 
-        void qn(int i);
+        void qm(int i);
     }
 
     public n(Context context) {
@@ -121,10 +121,10 @@ public class n extends BaseAdapter implements View.OnClickListener {
         int id = view2.getId();
         if (id == d.g.layout_del && (view2.getTag() instanceof Integer)) {
             if (this.fiv != null) {
-                this.fiv.qm(((Integer) view2.getTag()).intValue());
+                this.fiv.ql(((Integer) view2.getTag()).intValue());
             }
         } else if (id == d.g.iv_photo_live && (view2.getTag(view2.getId()) instanceof Integer) && this.fiv != null) {
-            this.fiv.qn(((Integer) view2.getTag(view2.getId())).intValue());
+            this.fiv.qm(((Integer) view2.getTag(view2.getId())).intValue());
         }
     }
 

@@ -117,7 +117,7 @@ public class c {
                     }
                 });
             }
-            this.refreshView.fb(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds180) - UtilHelper.getImmersiveStickyBarHeight());
+            this.refreshView.fa(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds180) - UtilHelper.getImmersiveStickyBarHeight());
             this.refreshView.setSubText(this.mPageContext.getString(d.k.neterror));
             this.refreshView.d(this.fEH, false);
             this.refreshView.Fu();
@@ -138,7 +138,7 @@ public class c {
             ak.j(this.fEG, d.C0126d.cp_bg_line_d);
             ak.j(this.mListView, d.C0126d.cp_bg_line_d);
             this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
-            this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cP(d.f.s_navbar_bg)).mutate());
+            this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ak.cO(d.f.s_navbar_bg)).mutate());
             this.fEE.onChangeSkinType();
             this.bla.onChangeSkinType(this.mPageContext, i);
             this.cHC.onChangeSkinType(this.mPageContext, i);

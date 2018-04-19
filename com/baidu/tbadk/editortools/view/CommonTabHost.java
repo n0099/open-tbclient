@@ -196,7 +196,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabWidgetView.a
-    public void eT(int i) {
+    public void eS(int i) {
         setCurrentTab(i);
     }
 

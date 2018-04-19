@@ -31,7 +31,7 @@ public class d {
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
             frsShareCardView.setPageId(frsFragment.getUniqueId());
             frsShareCardView.setData(e);
-            aVar.cc(1);
+            aVar.cb(1);
             aVar.w(frsShareCardView);
             aVar.a(d.k.share, new a.b() { // from class: com.baidu.tieba.frs.f.d.1
                 @Override // com.baidu.tbadk.core.dialog.a.b

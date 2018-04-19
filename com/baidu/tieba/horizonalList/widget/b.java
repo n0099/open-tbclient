@@ -77,7 +77,7 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void di(int i) {
+    public void dh(int i) {
         if (v.v(this.aSf) > 0) {
             Iterator<e> it = this.aSf.iterator();
             while (it.hasNext()) {

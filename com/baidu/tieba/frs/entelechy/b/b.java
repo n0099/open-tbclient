@@ -15,5 +15,5 @@ public interface b {
 
     void ar(View view2);
 
-    boolean kw(int i);
+    boolean kv(int i);
 }

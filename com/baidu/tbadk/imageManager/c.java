@@ -71,12 +71,12 @@ public class c {
         };
     }
 
-    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> eU(int i) {
+    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> eT(int i) {
         if (this.aGS != null && this.aGT != null) {
             if (this.aGT.getBlockSize() == i) {
                 return this.aGS;
             }
-            this.aGT.fE(i);
+            this.aGT.fD(i);
             this.aGS.clear();
         }
         if (this.aGT == null) {
@@ -102,20 +102,20 @@ public class c {
     }
 
     public void F(int i, int i2) {
-        eV(i);
-        eW(i2);
-        eX(30);
+        eU(i);
+        eV(i2);
+        eW(30);
     }
 
-    public void eV(int i) {
+    public void eU(int i) {
         this.aGP.ac(i);
     }
 
-    public void eW(int i) {
+    public void eV(int i) {
         this.aGQ.ac(i);
     }
 
-    public void eX(int i) {
+    public void eW(int i) {
         this.aGR.ac(i);
     }
 
@@ -142,7 +142,7 @@ public class c {
         }
     }
 
-    public boolean eY(int i) {
+    public boolean eX(int i) {
         return this.aGQ.ab(i);
     }
 

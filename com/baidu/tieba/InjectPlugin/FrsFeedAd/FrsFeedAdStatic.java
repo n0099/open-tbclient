@@ -33,7 +33,7 @@ public class FrsFeedAdStatic {
                 cVar.F(hVar);
             } else if (hVar instanceof b) {
                 cVar.setThreadType(3);
-                cVar.ga(((b) hVar).KM());
+                cVar.fZ(((b) hVar).KM());
                 cVar.F(((b) hVar).KL());
             } else {
                 cVar.setThreadType(4);
@@ -54,7 +54,7 @@ public class FrsFeedAdStatic {
             if (cVar.getThreadType() == 3) {
                 b bVar = new b();
                 bVar.F(cVar.KL());
-                bVar.ga(cVar.KM());
+                bVar.fZ(cVar.KM());
                 arrayList.add(bVar);
             } else if (cVar.KL() instanceof h) {
                 arrayList.add((h) cVar.KL());
@@ -76,18 +76,18 @@ public class FrsFeedAdStatic {
             com.baidu.tieba.InjectPlugin.a.b KS;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.b) && (KS = (bVar = (com.baidu.tieba.InjectPlugin.b.b) customResponsedMessage.getData()).KS()) != null && (KS instanceof n)) {
                 n nVar = (n) KS;
-                com.baidu.tieba.InjectPlugin.a.a gb = KS.gb(1);
-                if (gb == null) {
-                    com.baidu.tieba.InjectPlugin.a.d gc = e.KR().gc(1);
-                    if (gc != null) {
-                        gb = gc.KQ();
-                        KS.a(1, gb);
-                        gb.G(new com.baidu.tieba.InjectPlugin.a.c(nVar));
+                com.baidu.tieba.InjectPlugin.a.a ga = KS.ga(1);
+                if (ga == null) {
+                    com.baidu.tieba.InjectPlugin.a.d gb = e.KR().gb(1);
+                    if (gb != null) {
+                        ga = gb.KQ();
+                        KS.a(1, ga);
+                        ga.G(new com.baidu.tieba.InjectPlugin.a.c(nVar));
                     } else {
                         return;
                     }
                 }
-                com.baidu.tieba.InjectPlugin.a.a aVar = gb;
+                com.baidu.tieba.InjectPlugin.a.a aVar = ga;
                 if (aVar instanceof d) {
                     d dVar = (d) aVar;
                     if (bVar.KT() == 1) {

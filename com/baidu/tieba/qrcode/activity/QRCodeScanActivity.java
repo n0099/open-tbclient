@@ -122,7 +122,7 @@ public class QRCodeScanActivity extends BaseActivity implements View.OnClickList
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.ay(true);
         aVar.ax(true);
-        aVar.bZ(d.k.confirm_title);
+        aVar.bY(d.k.confirm_title);
         aVar.dc(getString(d.k.qr_code_scan_tip));
         aVar.a(getPageContext().getString(d.k.confirm), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b

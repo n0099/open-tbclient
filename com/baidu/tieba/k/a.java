@@ -35,10 +35,10 @@ public class a {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void pH(int i);
+        void pG(int i);
     }
 
-    static long pG(int i) {
+    static long pF(int i) {
         return i & 4294967295L;
     }
 
@@ -77,7 +77,7 @@ public class a {
     public static void a(String str, final b bVar) {
         if (bVar != null) {
             if (StringUtils.isNull(str)) {
-                bVar.pH(2);
+                bVar.pG(2);
             }
             new BdAsyncTask<String, Void, Integer>() { // from class: com.baidu.tieba.k.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -97,7 +97,7 @@ public class a {
                 public void onPostExecute(Integer num) {
                     super.onPostExecute((AnonymousClass1) num);
                     if (b.this != null) {
-                        b.this.pH(num.intValue());
+                        b.this.pG(num.intValue());
                     }
                 }
             }.execute(str);
@@ -138,16 +138,16 @@ public class a {
                 i = i2;
                 break;
             }
-            long pG = pG(order.getInt());
+            long pF = pF(order.getInt());
             i = order.getInt();
             if (i == eRq) {
-                int cA = cA(pG);
+                int cA = cA(pF);
                 ByteBuffer order2 = ByteBuffer.allocate(cA).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= cA - 8) {
                     order2.flip();
-                    if ((i == eRi && i != eRj && i != eRk && i != eRl && i != eRm && i != eRn && i != eRo && i != eRp && i != eRr && i != eRq) || pG < 8) {
+                    if ((i == eRi && i != eRj && i != eRk && i != eRl && i != eRm && i != eRn && i != eRo && i != eRp && i != eRr && i != eRq) || pF < 8) {
                         break;
                     }
                     i2 = i;
@@ -155,15 +155,15 @@ public class a {
                     break;
                 }
             } else {
-                if (pG == 1) {
+                if (pF == 1) {
                     order.clear();
                     if (!a(fileChannel, order)) {
                         break;
                     }
-                    pG = cB(order.getLong());
-                    fileChannel.position((fileChannel.position() + pG) - 16);
+                    pF = cB(order.getLong());
+                    fileChannel.position((fileChannel.position() + pF) - 16);
                 } else {
-                    fileChannel.position((fileChannel.position() + pG) - 8);
+                    fileChannel.position((fileChannel.position() + pF) - 8);
                 }
                 if (i == eRi) {
                 }
@@ -265,7 +265,7 @@ public class a {
                 j = j4;
                 break;
             }
-            j2 = pG(order.getInt());
+            j2 = pF(order.getInt());
             i2 = order.getInt();
             if (i2 == eRq) {
                 int cA = cA(j2);
@@ -332,7 +332,7 @@ public class a {
             int i3 = order2.getInt(position + 4);
             if (i3 != eRt && i3 != eRu) {
                 order2.position(order2.position() + 1);
-            } else if (pG(order2.getInt(position)) > order2.remaining()) {
+            } else if (pF(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
             } else {
                 order2.position(position + 12);

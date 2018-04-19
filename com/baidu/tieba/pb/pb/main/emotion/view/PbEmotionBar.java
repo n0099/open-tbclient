@@ -286,8 +286,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
             this.mParent = relativeLayout;
             this.mData = aVar;
             this.frN.setData(aVar.alA());
-            qC(this.frQ);
-            qD(this.frP);
+            qB(this.frQ);
+            qC(this.frP);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = this.frP;
             layoutParams.addRule(12);
@@ -407,11 +407,11 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 }
                 if (layoutParams.leftMargin != i) {
                     layoutParams.leftMargin = i;
-                    int qB = qB(i);
-                    if (qB <= this.frR && qB >= this.frQ) {
-                        qD(i);
-                        qC(qB);
-                        qE(layoutParams.leftMargin);
+                    int qA = qA(i);
+                    if (qA <= this.frR && qA >= this.frQ) {
+                        qC(i);
+                        qB(qA);
+                        qD(layoutParams.leftMargin);
                     }
                     setLayoutParams(layoutParams);
                     break;
@@ -426,18 +426,18 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int qB(int i) {
+    public int qA(int i) {
         return (int) ((this.frO * i) + this.frR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qC(int i) {
+    public void qB(int i) {
         this.frM.getLayoutParams().height = (this.ekU * 2) + i;
-        this.frN.qC(i);
+        this.frN.qB(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qD(int i) {
+    public void qC(int i) {
         float f = 1.0f - ((i * 1.0f) / this.frP);
         this.frU.getLayoutParams().height = (int) (this.frS * f);
         this.frU.setAlpha(f);
@@ -455,10 +455,10 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                     layoutParams.leftMargin = intValue;
-                    PbEmotionBar.this.qD(intValue);
-                    PbEmotionBar.this.qC(PbEmotionBar.this.qB(layoutParams.leftMargin));
+                    PbEmotionBar.this.qC(intValue);
+                    PbEmotionBar.this.qB(PbEmotionBar.this.qA(layoutParams.leftMargin));
                     PbEmotionBar.this.setLayoutParams(layoutParams);
-                    PbEmotionBar.this.qE(layoutParams.leftMargin);
+                    PbEmotionBar.this.qD(layoutParams.leftMargin);
                 }
             });
             ofInt.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.6
@@ -548,7 +548,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qE(int i) {
+    public void qD(int i) {
         if (this.frT != null) {
             this.frT.onMove((this.frP - i) * (1.0f / this.frP));
         }

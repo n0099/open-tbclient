@@ -35,7 +35,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         public void a(DataRes dataRes, boolean z, int i, String str) {
             if (z) {
                 if (i != 0 || dataRes == null) {
-                    TbTitleActivity.this.cVe.jX(b.g(TbTitleActivity.this.mForumId, 0));
+                    TbTitleActivity.this.cVe.jW(b.g(TbTitleActivity.this.mForumId, 0));
                     return;
                 }
                 TbTitleActivity.this.cVd.aov();
@@ -70,7 +70,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         public void aM(boolean z) {
             if (z) {
                 TbTitleActivity.this.cVd.showLoadingView();
-                TbTitleActivity.this.cVe.jW(b.g(TbTitleActivity.this.mForumId, 0));
+                TbTitleActivity.this.cVe.jV(b.g(TbTitleActivity.this.mForumId, 0));
             }
             TbTitleActivity.this.cVd.fm(z);
         }
@@ -85,7 +85,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             }
             if (!z) {
                 if (TbTitleActivity.this.bmW.getErrorCode() != 22) {
-                    if (AntiHelper.tu(TbTitleActivity.this.bmW.getErrorCode())) {
+                    if (AntiHelper.tt(TbTitleActivity.this.bmW.getErrorCode())) {
                         AntiHelper.am(TbTitleActivity.this.getPageContext().getPageActivity(), TbTitleActivity.this.bmW.getErrorString());
                         return;
                     } else {
@@ -138,7 +138,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         }
         AE();
         this.cVd.showLoadingView();
-        this.cVe.jW(b.g(this.mForumId, 0));
+        this.cVe.jV(b.g(this.mForumId, 0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -166,7 +166,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cVd.di(i);
+        this.cVd.dh(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -192,7 +192,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public void onNetRefreshButtonClicked() {
         if (j.gP()) {
             this.cVd.showLoadingView();
-            this.cVe.jW(b.g(this.mForumId, 0));
+            this.cVe.jV(b.g(this.mForumId, 0));
         }
     }
 }

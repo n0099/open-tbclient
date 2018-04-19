@@ -14,7 +14,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     /* loaded from: classes.dex */
     public interface a {
-        void cZ(int i);
+        void cY(int i);
     }
 
     public BaseViewPager(Context context) {
@@ -65,10 +65,10 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         if (this.akV != null) {
             if (f < 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.akV.cZ(0);
+                this.akV.cY(0);
                 return true;
             } else if (f > 0.0f && getCurrentItem() == 0) {
-                this.akV.cZ(1);
+                this.akV.cY(1);
                 return true;
             }
         }
@@ -85,12 +85,12 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
             if (f > 10.0d && getAdapter().getCount() == getCurrentItem() + 1) {
                 if (this.akX) {
                     this.akX = false;
-                    this.akW.cZ(0);
+                    this.akW.cY(0);
                     return true;
                 }
                 this.akX = true;
             } else if (f < 0.0f && getCurrentItem() == 0) {
-                this.akW.cZ(1);
+                this.akW.cY(1);
                 return true;
             } else {
                 this.akX = false;

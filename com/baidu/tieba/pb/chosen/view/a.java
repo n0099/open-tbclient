@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pT */
+    /* renamed from: pS */
     public com.baidu.tieba.pb.b.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
@@ -128,11 +128,11 @@ public class a extends BaseAdapter {
                 c0190a.etV.setVisibility(0);
                 ViewGroup.LayoutParams layoutParams = c0190a.etV.getLayoutParams();
                 int i2 = this.maxWidth;
-                int qL = eVar.qL(i2);
+                int qK = eVar.qK(i2);
                 if (layoutParams == null) {
-                    layoutParams = new AbsListView.LayoutParams(i2, qL);
+                    layoutParams = new AbsListView.LayoutParams(i2, qK);
                 } else {
-                    layoutParams.height = qL;
+                    layoutParams.height = qK;
                     layoutParams.width = i2;
                 }
                 c0190a.etV.setLayoutParams(layoutParams);

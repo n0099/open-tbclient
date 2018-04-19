@@ -88,7 +88,7 @@ public class MsgleftView extends g {
             this.mName.setText((CharSequence) null);
             this.dQX.setVisibility(0);
             this.dQX.setText(null);
-            ni(8);
+            nh(8);
             this.dRe.getImage().setTag(null);
             this.dQY.setVisibility(8);
             this.dQY.setTag(null);
@@ -117,7 +117,7 @@ public class MsgleftView extends g {
             }
             this.cZE.setContentDescription(chatMessage.getUserInfo().getName_show());
             this.dQX.setVisibility(8);
-            ni(8);
+            nh(8);
             this.dQY.setVisibility(8);
             this.dQZ.setVisibility(8);
             this.dRa.setVisibility(8);

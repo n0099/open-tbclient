@@ -33,7 +33,7 @@ public class n extends o {
             fq.append("op_spnum", String.valueOf(rVar5.agz));
             fq.append("op_costt", String.valueOf(rVar5.time));
             fq.append("op_dlsize", String.valueOf(rVar5.tB));
-            fq.append("nettype", p.fl(i));
+            fq.append("nettype", p.fk(i));
             BdStatisticsManager.getInstance().performance("image", fq);
         }
     }

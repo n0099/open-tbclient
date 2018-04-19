@@ -309,7 +309,7 @@ public abstract class b {
     protected void arF() {
     }
 
-    public void lE(int i) {
+    public void lD(int i) {
         if (i == 0) {
             this.dtr = false;
             this.dtz = false;
@@ -322,7 +322,7 @@ public abstract class b {
         this.dtD.setVisibility(0);
     }
 
-    public void lF(int i) {
+    public void lE(int i) {
         if (i == 0) {
             this.dtu = false;
             this.dsJ.setText(d.k.sign);

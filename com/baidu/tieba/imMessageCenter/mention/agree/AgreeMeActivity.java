@@ -54,7 +54,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
 
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.b.a
         public void lx(String str) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.zx().dT(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.zx().dS(0);
             if (AgreeMeActivity.this.eos != null) {
                 AgreeMeActivity.this.eos.hN(false);
                 if (v.w(AgreeMeActivity.this.eos.getDatas())) {

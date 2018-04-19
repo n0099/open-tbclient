@@ -119,16 +119,16 @@ public class WebViewContainer extends FrameLayout {
                     this.gef.computeCurrentVelocity(1000);
                     int yVelocity = (int) this.gef.getYVelocity();
                     if (Math.abs(yVelocity) > 2000 && ((yVelocity > 0 && this.topMargin < this.geh) || (yVelocity < 0 && this.topMargin > 0))) {
-                        se(-yVelocity);
+                        sd(-yVelocity);
                     }
                     this.gef.recycle();
                     this.gef = null;
                     break;
                 case 2:
                     this.ged = motionEvent.getRawY();
-                    int sf = sf((int) (this.gee - this.ged));
-                    scrollBy(0, sf);
-                    this.gee -= sf;
+                    int se = se((int) (this.gee - this.ged));
+                    scrollBy(0, se);
+                    this.gee -= se;
                     break;
             }
             return true;
@@ -136,14 +136,14 @@ public class WebViewContainer extends FrameLayout {
         return false;
     }
 
-    private void se(int i) {
+    private void sd(int i) {
         if (this.mScroller != null) {
             this.mScroller.fling(0, (int) this.gee, 0, i, 0, 0, -500, 10000);
             invalidate();
         }
     }
 
-    private int sf(int i) {
+    private int se(int i) {
         int i2 = this.topMargin - i;
         if (i2 < 0) {
             int i3 = this.topMargin;
@@ -162,9 +162,9 @@ public class WebViewContainer extends FrameLayout {
     @Override // android.view.View
     public void computeScroll() {
         if (this.mScroller.computeScrollOffset()) {
-            int sf = sf(this.mScroller.getCurrY());
-            scrollBy(0, sf);
-            this.gee -= sf;
+            int se = se(this.mScroller.getCurrY());
+            scrollBy(0, se);
+            this.gee -= se;
             invalidate();
         }
     }

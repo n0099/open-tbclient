@@ -103,7 +103,7 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
             this.ekW = aHO();
             this.ekW.setDrawBorder(false);
         }
-        this.ekW.setImageBitmap(ak.cO(d.f.icon_add_pop));
+        this.ekW.setImageBitmap(ak.cN(d.f.icon_add_pop));
         this.mLayout.addView(this.ekW);
     }
 
