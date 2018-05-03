@@ -21,38 +21,38 @@ import java.util.Iterator;
 public class i {
     private NoNetworkView bla;
     private PbListView blb;
-    private ChannelHomeActivity cwi;
-    private g cwj;
-    private f cwk;
-    private com.baidu.tieba.channel.a.c cwl = null;
-    private FrameLayout cwm = null;
+    private ChannelHomeActivity cwf;
+    private g cwg;
+    private f cwh;
+    private com.baidu.tieba.channel.a.c cwi = null;
+    private FrameLayout cwj = null;
     private BdTypeListView mListView;
     private View mNoDataView;
     private View mRootView;
 
     public i(ChannelHomeActivity channelHomeActivity) {
-        this.cwi = channelHomeActivity;
-        this.cwi.setIsAddSwipeBackLayout(true);
-        this.cwi.setSwipeBackEnabled(true);
-        this.cwi.setUseStyleImmersiveSticky(true);
+        this.cwf = channelHomeActivity;
+        this.cwf.setIsAddSwipeBackLayout(true);
+        this.cwf.setSwipeBackEnabled(true);
+        this.cwf.setUseStyleImmersiveSticky(true);
         initViews();
     }
 
     public void initViews() {
-        this.cwi.setContentView(d.i.channel_home_layout);
-        this.mRootView = this.cwi.findViewById(d.g.channel_home_rootview);
-        this.cwm = (FrameLayout) this.cwi.findViewById(d.g.channel_home_loading_view);
+        this.cwf.setContentView(d.i.channel_home_layout);
+        this.mRootView = this.cwf.findViewById(d.g.channel_home_rootview);
+        this.cwj = (FrameLayout) this.cwf.findViewById(d.g.channel_home_loading_view);
         this.bla = (NoNetworkView) this.mRootView.findViewById(d.g.channel_home_no_network_view);
-        this.cwj = new g(this.cwi.getPageContext().getPageActivity(), (NavigationBar) this.mRootView.findViewById(d.g.channel_home_navigation_bar), this.cwi);
+        this.cwg = new g(this.cwf.getPageContext().getPageActivity(), (NavigationBar) this.mRootView.findViewById(d.g.channel_home_navigation_bar), this.cwf);
         PM();
     }
 
     private void PM() {
         this.mListView = (BdTypeListView) this.mRootView.findViewById(d.g.channel_home_listview);
-        this.cwk = new f(this.cwi.getPageContext().getPageActivity(), this.cwi);
-        this.mListView.addHeaderView(this.cwk.acD());
-        this.cwl = new com.baidu.tieba.channel.a.c(this.cwi.getPageContext().getPageActivity(), this.mListView);
-        this.cwl.a(this.cwi);
+        this.cwh = new f(this.cwf.getPageContext().getPageActivity(), this.cwf);
+        this.mListView.addHeaderView(this.cwh.acD());
+        this.cwi = new com.baidu.tieba.channel.a.c(this.cwf.getPageContext().getPageActivity(), this.mListView);
+        this.cwi.a(this.cwf);
         this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.channel.view.i.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -63,8 +63,8 @@ public class i {
                 i.this.a(absListView, i, i2, i3);
             }
         });
-        this.mListView.setOnSrollToBottomListener(this.cwi);
-        this.blb = new PbListView(this.cwi.getPageContext().getPageActivity());
+        this.mListView.setOnSrollToBottomListener(this.cwf);
+        this.blb = new PbListView(this.cwf.getPageContext().getPageActivity());
         this.blb.kA();
         this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
         this.mListView.setNextPage(this.blb);
@@ -72,29 +72,29 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AbsListView absListView, int i, int i2, int i3) {
-        if (Build.VERSION.SDK_INT >= 11 && this.cwk != null) {
-            int dimension = (int) this.cwi.getResources().getDimension(d.e.ds98);
+        if (Build.VERSION.SDK_INT >= 11 && this.cwh != null) {
+            int dimension = (int) this.cwf.getResources().getDimension(d.e.ds98);
             int i4 = 0;
-            if (UtilHelper.useNavigationBarStyleImmersiveSticky(this.cwi.getPageContext().getPageActivity())) {
+            if (UtilHelper.useNavigationBarStyleImmersiveSticky(this.cwf.getPageContext().getPageActivity())) {
                 i4 = UtilHelper.getStatusBarHeight();
             }
-            int agy = this.cwk.agy() - (i4 + (-this.cwk.acD().getTop()));
-            if (this.cwj != null) {
-                this.cwj.x(agy, dimension, i);
+            int agy = this.cwh.agy() - (i4 + (-this.cwh.acD().getTop()));
+            if (this.cwg != null) {
+                this.cwg.x(agy, dimension, i);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
         if (agG() != null && agG().acD() != null) {
-            this.cwi.getLayoutMode().setNightMode(i == 1);
-            this.cwi.getLayoutMode().u(agG().acD());
+            this.cwf.getLayoutMode().setNightMode(i == 1);
+            this.cwf.getLayoutMode().u(agG().acD());
         }
         agD();
-        this.cwk.onChangeSkinType(i);
-        this.cwj.onChangeSkinType(i);
+        this.cwh.onChangeSkinType(i);
+        this.cwg.onChangeSkinType(i);
         this.blb.dv(i);
-        this.bla.onChangeSkinType(this.cwi.getPageContext(), i);
+        this.bla.onChangeSkinType(this.cwf.getPageContext(), i);
     }
 
     public void onPause() {
@@ -108,12 +108,12 @@ public class i {
 
     public void g(com.baidu.tieba.channel.data.d dVar) {
         if (dVar != null && dVar.agj() != null) {
-            this.cwk.eB(dVar.isHost());
-            this.cwk.d(dVar);
-            this.cwl.setIsHost(dVar.isHost());
+            this.cwh.eB(dVar.isHost());
+            this.cwh.d(dVar);
+            this.cwi.setIsHost(dVar.isHost());
             h(dVar);
-            this.cwj.a(dVar.isHost(), this.cwi);
-            this.cwj.O(dVar);
+            this.cwg.a(dVar.isHost(), this.cwf);
+            this.cwg.O(dVar);
         }
     }
 
@@ -121,7 +121,7 @@ public class i {
         if (dVar != null) {
             if (dVar.agk() == null || dVar.agk().size() == 0) {
                 Qq();
-                this.mNoDataView = LayoutInflater.from(this.cwi.getPageContext().getPageActivity()).inflate(d.i.channel_home_no_data, (ViewGroup) null);
+                this.mNoDataView = LayoutInflater.from(this.cwf.getPageContext().getPageActivity()).inflate(d.i.channel_home_no_data, (ViewGroup) null);
                 this.mListView.setNoData(this.mNoDataView);
             } else {
                 this.mListView.setNoData((View) null);
@@ -148,18 +148,18 @@ public class i {
     }
 
     public void e(com.baidu.tieba.channel.data.d dVar) {
-        this.cwj.O(dVar);
-        this.cwk.e(dVar);
+        this.cwg.O(dVar);
+        this.cwh.e(dVar);
     }
 
     public void f(com.baidu.tieba.channel.data.d dVar) {
-        this.cwk.f(dVar);
+        this.cwh.f(dVar);
     }
 
     public void eC(boolean z) {
         this.blb.wS();
         if (z) {
-            this.blb.setText(this.cwi.getPageContext().getPageActivity().getResources().getString(d.k.list_no_more));
+            this.blb.setText(this.cwf.getPageContext().getPageActivity().getResources().getString(d.k.list_no_more));
         } else {
             this.blb.setText("");
         }
@@ -174,30 +174,30 @@ public class i {
     }
 
     public void showLoadingView() {
-        this.cwi.showLoadingView(this.cwm);
-        this.cwm.setVisibility(0);
+        this.cwf.showLoadingView(this.cwj);
+        this.cwj.setVisibility(0);
     }
 
     public void Ou() {
-        this.cwm.setVisibility(8);
-        this.cwi.hideLoadingView(this.cwm);
+        this.cwj.setVisibility(8);
+        this.cwf.hideLoadingView(this.cwj);
     }
 
     public void showErrorView() {
-        this.cwm.setVisibility(0);
-        this.cwi.showNetRefreshView(this.cwm, this.cwi.getResources().getString(d.k.neterror));
+        this.cwj.setVisibility(0);
+        this.cwf.showNetRefreshView(this.cwj, this.cwf.getResources().getString(d.k.neterror));
     }
 
     public void agF() {
-        this.cwm.setVisibility(8);
-        this.cwi.hideNetRefreshView(this.cwm);
+        this.cwj.setVisibility(8);
+        this.cwf.hideNetRefreshView(this.cwj);
     }
 
     public f agG() {
-        return this.cwk;
+        return this.cwh;
     }
 
     public void f(ChannelInfo channelInfo) {
-        this.cwk.e(channelInfo);
+        this.cwh.e(channelInfo);
     }
 }

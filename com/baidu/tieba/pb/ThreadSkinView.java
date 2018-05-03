@@ -18,8 +18,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo faa;
-    private a.C0217a fab;
+    private SkinInfo eZX;
+    private a.C0217a eZY;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -47,16 +47,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.faa != skinInfo && c0217a != null) {
-            this.fab = c0217a;
-            this.fab.ee(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.fab.cd(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.fab.cd("obj_url", skinInfo.url);
-            this.fab.cd("obj_name", skinInfo.monitor_id);
-            this.fab.cd(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.fab.save();
+        if (this.eZX != skinInfo && c0217a != null) {
+            this.eZY = c0217a;
+            this.eZY.ee(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.eZY.cd(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.eZY.cd("obj_url", skinInfo.url);
+            this.eZY.cd("obj_name", skinInfo.monitor_id);
+            this.eZY.cd(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.eZY.save();
         }
-        this.faa = skinInfo;
+        this.eZX = skinInfo;
         int af = l.af(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = af;
@@ -83,13 +83,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (this.faa != null && !StringUtils.isNull(this.faa.url)) {
-            if (this.fab != null) {
-                this.fab.ee(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.fab.cd(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.fab.save();
+        if (this.eZX != null && !StringUtils.isNull(this.eZX.url)) {
+            if (this.eZY != null) {
+                this.eZY.ee(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.eZY.cd(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.eZY.save();
             }
-            ax.wg().c(this.mTbPageContext, new String[]{this.faa.url});
+            ax.wg().c(this.mTbPageContext, new String[]{this.eZX.url});
         }
     }
 }

@@ -47,48 +47,48 @@ public class o {
     /* loaded from: classes.dex */
     public static class a {
         public int Kq;
+        public int coN;
+        public String coO;
+        public int coP;
         public int coQ;
-        public String coR;
-        public int coS;
-        public int coT;
 
         public a(int i, int i2, int i3) {
-            this.coQ = -1;
-            this.coR = "";
+            this.coN = -1;
+            this.coO = "";
             this.Kq = d.C0126d.cp_link_tip_c;
-            this.coS = d.f.pic_dot_title;
-            this.coT = 0;
-            this.coQ = i;
+            this.coP = d.f.pic_dot_title;
+            this.coQ = 0;
+            this.coN = i;
             this.Kq = i2;
-            this.coS = i3;
+            this.coP = i3;
         }
 
         public a(int i) {
-            this.coQ = -1;
-            this.coR = "";
+            this.coN = -1;
+            this.coO = "";
             this.Kq = d.C0126d.cp_link_tip_c;
-            this.coS = d.f.pic_dot_title;
-            this.coT = 0;
-            this.coQ = i;
+            this.coP = d.f.pic_dot_title;
+            this.coQ = 0;
+            this.coN = i;
         }
 
         public a(String str) {
-            this.coQ = -1;
-            this.coR = "";
+            this.coN = -1;
+            this.coO = "";
             this.Kq = d.C0126d.cp_link_tip_c;
-            this.coS = d.f.pic_dot_title;
-            this.coT = 0;
-            this.coR = str;
+            this.coP = d.f.pic_dot_title;
+            this.coQ = 0;
+            this.coO = str;
         }
 
         public a(String str, int i) {
-            this.coQ = -1;
-            this.coR = "";
+            this.coN = -1;
+            this.coO = "";
             this.Kq = d.C0126d.cp_link_tip_c;
-            this.coS = d.f.pic_dot_title;
-            this.coT = 0;
-            this.coR = str;
-            this.coS = i;
+            this.coP = d.f.pic_dot_title;
+            this.coQ = 0;
+            this.coO = str;
+            this.coP = i;
         }
     }
 
@@ -104,24 +104,24 @@ public class o {
         for (int i = 0; i != arrayList.size(); i++) {
             a aVar = arrayList.get(i);
             if (aVar != null) {
-                if (aVar.coQ > 0) {
-                    aVar.coR = context.getString(aVar.coQ);
+                if (aVar.coN > 0) {
+                    aVar.coO = context.getString(aVar.coN);
                 }
-                if (!com.baidu.adp.lib.util.k.isEmpty(aVar.coR)) {
+                if (!com.baidu.adp.lib.util.k.isEmpty(aVar.coO)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.coR);
+                    spannableStringBuilder.append((CharSequence) aVar.coO);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(ak.getColor(aVar.Kq)), length, spannableStringBuilder.length(), 17);
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap cN = ak.cN(aVar.coS);
+                    Bitmap cN = ak.cN(aVar.coP);
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
                     if (cN != null) {
                         bitmapDrawable.setBounds(0, 0, cN.getWidth(), cN.getHeight());
                     }
                     com.baidu.tbadk.core.view.h hVar = new com.baidu.tbadk.core.view.h(bitmapDrawable);
-                    if (aVar.coT != 0) {
-                        hVar.setOffset(aVar.coT);
+                    if (aVar.coQ != 0) {
+                        hVar.setOffset(aVar.coQ);
                     }
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) " ");

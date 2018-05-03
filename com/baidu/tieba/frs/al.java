@@ -12,17 +12,17 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes2.dex */
 public class al {
     private com.baidu.tieba.f.b byy;
-    private ViewGroup daj;
-    private i dak;
-    private com.baidu.tieba.frs.vc.f dal;
+    private ViewGroup dag;
+    private i dah;
+    private com.baidu.tieba.frs.vc.f dai;
     private Context mContext;
     private NavigationBar mNavigationBar;
     private int aNH = 0;
-    private int dam = 0;
-    private boolean dao = true;
-    private boolean dap = true;
+    private int daj = 0;
+    private boolean dal = true;
+    private boolean dam = true;
     private boolean aNI = false;
-    private final Handler.Callback daq = new Handler.Callback() { // from class: com.baidu.tieba.frs.al.1
+    private final Handler.Callback dan = new Handler.Callback() { // from class: com.baidu.tieba.frs.al.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if ((message.what == 1 || message.what == 2) && al.this.aqO()) {
@@ -44,7 +44,7 @@ public class al {
             }
         }
     };
-    private final Handler mHandler = new Handler(this.daq);
+    private final Handler mHandler = new Handler(this.dan);
     private a.InterfaceC0131a byz = new a.InterfaceC0131a() { // from class: com.baidu.tieba.frs.al.2
         @Override // com.baidu.tieba.f.a.InterfaceC0131a
         public void W(int i, int i2) {
@@ -52,8 +52,8 @@ public class al {
                 al.this.fB(false);
                 al.this.showFloatingView();
             }
-            if (al.this.dak != null) {
-                al.this.dak.fy(true);
+            if (al.this.dah != null) {
+                al.this.dah.fy(true);
             }
         }
 
@@ -63,8 +63,8 @@ public class al {
                 al.this.fB(true);
                 al.this.hideFloatingView();
             }
-            if (al.this.dak != null) {
-                al.this.dak.fy(false);
+            if (al.this.dah != null) {
+                al.this.dah.fy(false);
             }
         }
 
@@ -76,7 +76,7 @@ public class al {
             return Math.abs(f) >= 1.0f;
         }
     };
-    private boolean dan = UtilHelper.canUseStyleImmersiveSticky();
+    private boolean dak = UtilHelper.canUseStyleImmersiveSticky();
 
     public com.baidu.tieba.f.b aqK() {
         return this.byy;
@@ -87,15 +87,15 @@ public class al {
     }
 
     public void fC(boolean z) {
-        this.dao = z;
+        this.dal = z;
     }
 
     public al(Context context, i iVar, com.baidu.tieba.frs.vc.f fVar) {
         this.mContext = context;
-        this.dak = iVar;
+        this.dah = iVar;
         this.mNavigationBar = iVar.Rg();
-        this.daj = iVar.apP();
-        this.dal = fVar;
+        this.dag = iVar.apP();
+        this.dai = fVar;
         Qd();
         this.byy = new com.baidu.tieba.f.b(context);
         this.byy.a(this.byz);
@@ -110,13 +110,13 @@ public class al {
     }
 
     public void v(boolean z, boolean z2) {
-        if (this.daj != null && this.dak != null && this.dak.aqd() != null && this.dak.aqd().arX()) {
+        if (this.dag != null && this.dah != null && this.dah.aqd() != null && this.dah.aqd().arX()) {
             u(false, true);
         }
     }
 
     public void aqN() {
-        if (this.daj != null && this.dak != null && this.dak.aqd() != null && !this.dak.aqd().arX()) {
+        if (this.dag != null && this.dah != null && this.dah.aqd() != null && !this.dah.aqd().arX()) {
             u(true, true);
         }
     }
@@ -140,7 +140,7 @@ public class al {
     }
 
     public boolean aqO() {
-        return aq(this.daj);
+        return aq(this.dag);
     }
 
     private boolean aq(View view2) {
@@ -149,27 +149,27 @@ public class al {
     }
 
     private void u(boolean z, boolean z2) {
-        if (this.dak != null) {
-            this.dak.u(z, z2);
+        if (this.dah != null) {
+            this.dah.u(z, z2);
         }
     }
 
     public void hideFloatingView() {
-        if (this.dao && this.dap && this.daj != null && this.aNH >= this.dam) {
+        if (this.dal && this.dam && this.dag != null && this.aNH >= this.daj) {
             HL();
         }
     }
 
     public void showFloatingView() {
-        if (this.dao && this.dap && this.daj != null) {
+        if (this.dal && this.dam && this.dag != null) {
             HK();
         }
     }
 
     private void Qd() {
-        if (this.dak != null && this.dak.apQ() != null) {
-            View apQ = this.dak.apQ();
-            if (this.dan && apQ.getLayoutParams() != null) {
+        if (this.dah != null && this.dah.apQ() != null) {
+            View apQ = this.dah.apQ();
+            if (this.dak && apQ.getLayoutParams() != null) {
                 ViewGroup.LayoutParams layoutParams = apQ.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
                 apQ.setLayoutParams(layoutParams);
@@ -181,9 +181,9 @@ public class al {
     }
 
     private void fD(boolean z) {
-        if (this.dak != null && this.dak.apQ() != null) {
-            View apQ = this.dak.apQ();
-            if (this.dan && z && apQ.getVisibility() != 0) {
+        if (this.dah != null && this.dah.apQ() != null) {
+            View apQ = this.dah.apQ();
+            if (this.dak && z && apQ.getVisibility() != 0) {
                 apQ.setVisibility(0);
             } else if (!z && apQ.getVisibility() != 8) {
                 apQ.setVisibility(8);

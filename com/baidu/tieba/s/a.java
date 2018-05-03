@@ -16,9 +16,9 @@ public class a {
             }
         }
     };
-    private long eMG;
-    private long gWn;
-    private u gWo;
+    private long eMD;
+    private long gWk;
+    private u gWl;
     private long mInterval;
     private long mStartTime;
 
@@ -28,12 +28,12 @@ public class a {
 
     private void init() {
         bzT();
-        this.gWn = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
+        this.gWk = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
         MessageManager.getInstance().registerListener(this.UN);
     }
 
     public boolean bzS() {
-        if (this.mStartTime == 0 || this.eMG == 0 || this.mInterval == 0) {
+        if (this.mStartTime == 0 || this.eMD == 0 || this.mInterval == 0) {
             return false;
         }
         Date date = new Date();
@@ -41,26 +41,26 @@ public class a {
     }
 
     private boolean i(Date date) {
-        return date != null && date.getTime() >= this.mStartTime && date.getTime() <= this.eMG;
+        return date != null && date.getTime() >= this.mStartTime && date.getTime() <= this.eMD;
     }
 
     private boolean j(Date date) {
-        return date != null && date.getTime() - this.gWn >= this.mInterval;
+        return date != null && date.getTime() - this.gWk >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bzT() {
-        if (this.gWo == null) {
-            this.gWo = new u();
+        if (this.gWl == null) {
+            this.gWl = new u();
         }
-        this.gWo.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
-        this.mStartTime = this.gWo.yO();
-        this.eMG = this.gWo.yP();
-        this.mInterval = this.gWo.yQ();
+        this.gWl.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
+        this.mStartTime = this.gWl.yO();
+        this.eMD = this.gWl.yP();
+        this.mInterval = this.gWl.yQ();
     }
 
     public void cZ(long j) {
-        this.gWn = j;
+        this.gWk = j;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_video_splash_last_show_time", j);
     }
 }

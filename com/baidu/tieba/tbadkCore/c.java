@@ -16,7 +16,7 @@ import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class c {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static c gtm;
+    private static c gtj;
     private com.baidu.adp.lib.cache.l<byte[]> bmz;
     private i responseData = null;
 
@@ -28,10 +28,10 @@ public class c {
     public static synchronized c bpQ() {
         c cVar;
         synchronized (c.class) {
-            if (gtm == null) {
-                gtm = new c();
+            if (gtj == null) {
+                gtj = new c();
             }
-            cVar = gtm;
+            cVar = gtj;
         }
         return cVar;
     }
@@ -42,8 +42,8 @@ public class c {
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new i();
                 this.responseData.E(bArr);
-                if (this.responseData.fbO != null && this.responseData.fbO.getFrsBannerData() != null) {
-                    this.responseData.fbO.getFrsBannerData().XP = false;
+                if (this.responseData.fbL != null && this.responseData.fbL.getFrsBannerData() != null) {
+                    this.responseData.fbL.getFrsBannerData().XP = false;
                 }
                 return true;
             }

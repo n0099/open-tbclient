@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class c {
-    private AdvertAppInfo ept;
+    private AdvertAppInfo epq;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -17,17 +17,17 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.ept = advertAppInfo;
+        this.epq = advertAppInfo;
     }
 
     public void aJg() {
         oi("click");
-        com.baidu.tieba.recapp.report.b.bke().a(com.baidu.tieba.recapp.report.e.c(this.ept, 2, 0));
+        com.baidu.tieba.recapp.report.b.bke().a(com.baidu.tieba.recapp.report.e.c(this.epq, 2, 0));
     }
 
     public void aJh() {
         oi("show");
-        com.baidu.tieba.recapp.report.b.bke().a(com.baidu.tieba.recapp.report.e.c(this.ept, 3, 0));
+        com.baidu.tieba.recapp.report.b.bke().a(com.baidu.tieba.recapp.report.e.c(this.epq, 3, 0));
     }
 
     public void aJi() {
@@ -38,6 +38,6 @@ public class c {
     }
 
     public void oi(String str) {
-        com.baidu.tbadk.distribute.a.Dq().a(this.ept, this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L), "PB", str, 1);
+        com.baidu.tbadk.distribute.a.Dq().a(this.epq, this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L), "PB", str, 1);
     }
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> dHA = new ArrayList<>();
+    static final ArrayList<HListView.b> dHx = new ArrayList<>();
     boolean FI;
     private final ListAdapter mAdapter;
     ArrayList<HListView.b> mFooterViewInfos;
@@ -23,12 +23,12 @@ public class d implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = dHA;
+            this.mHeaderViewInfos = dHx;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = dHA;
+            this.mFooterViewInfos = dHx;
         } else {
             this.mFooterViewInfos = arrayList2;
         }
@@ -63,7 +63,7 @@ public class d implements Filterable, WrapperListAdapter {
     public boolean removeHeader(View view2) {
         boolean z = false;
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
-            if (this.mHeaderViewInfos.get(i).f18view == view2) {
+            if (this.mHeaderViewInfos.get(i).f16view == view2) {
                 this.mHeaderViewInfos.remove(i);
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
@@ -78,7 +78,7 @@ public class d implements Filterable, WrapperListAdapter {
     public boolean removeFooter(View view2) {
         boolean z = false;
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
-            if (this.mFooterViewInfos.get(i).f18view == view2) {
+            if (this.mFooterViewInfos.get(i).f16view == view2) {
                 this.mFooterViewInfos.remove(i);
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
@@ -153,14 +153,14 @@ public class d implements Filterable, WrapperListAdapter {
     public View getView(int i, View view2, ViewGroup viewGroup) {
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.mHeaderViewInfos.get(i).f18view;
+            return this.mHeaderViewInfos.get(i).f16view;
         }
         int i2 = i - headersCount;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
             return this.mAdapter.getView(i2, view2, viewGroup);
         }
-        return this.mFooterViewInfos.get(i2 - i3).f18view;
+        return this.mFooterViewInfos.get(i2 - i3).f16view;
     }
 
     @Override // android.widget.Adapter

@@ -17,33 +17,33 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a extends com.baidu.tieba.frs.view.b {
-    protected n cYr;
-    protected f dcH;
-    protected TextView dcI;
-    protected ViewGroup dcJ;
-    protected FrsStarRankAndTaskContainer dcK;
+    protected n cYo;
+    protected f dcE;
+    protected TextView dcF;
+    protected ViewGroup dcG;
+    protected FrsStarRankAndTaskContainer dcH;
 
     public void aro() {
-        this.dcI = (TextView) this.dsM.findViewById(d.g.top_item_type);
-        this.dcI.setText(TbadkCoreApplication.getInst().getString(d.k.game));
-        this.dsQ = new AdapterLinearLayout(this.cYF.getPageContext().getPageActivity());
-        this.dsQ.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.dsQ.setOrientation(1);
-        this.dsQ.setPadding(0, 0, 0, l.e(this.adf.getPageActivity(), d.e.tbds16));
-        this.dcH = new f(this.cYF);
-        this.dcH.a(this.dtA);
-        this.dsQ.setAdapter(this.dcH);
+        this.dcF = (TextView) this.dsJ.findViewById(d.g.top_item_type);
+        this.dcF.setText(TbadkCoreApplication.getInst().getString(d.k.game));
+        this.dsN = new AdapterLinearLayout(this.cYC.getPageContext().getPageActivity());
+        this.dsN.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.dsN.setOrientation(1);
+        this.dsN.setPadding(0, 0, 0, l.e(this.adf.getPageActivity(), d.e.tbds16));
+        this.dcE = new f(this.cYC);
+        this.dcE.a(this.dtx);
+        this.dsN.setAdapter(this.dcE);
     }
 
     public void a(n nVar) {
-        this.cYr = nVar;
+        this.cYo = nVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void bf(List<g> list) {
-        if (this.cYF != null && this.cYF.apE() != null && this.dcH != null) {
+        if (this.cYC != null && this.cYC.apE() != null && this.dcE != null) {
             ArrayList arrayList = new ArrayList();
-            List<h> bri = this.cYF.apE().bri();
+            List<h> bri = this.cYC.apE().bri();
             if (!v.w(list)) {
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).bpS() == 1) {
@@ -59,39 +59,39 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
                     }
                 }
             }
-            if (this.dcH instanceof com.baidu.tieba.frs.e.c) {
-                f fVar = this.dcH;
-                if (com.baidu.tieba.frs.e.c.doy != null && this.cYF.apE() != null) {
-                    if (this.cYF.apE().gtS == 1) {
-                        com.baidu.tieba.frs.e.c.doy.dom = true;
+            if (this.dcE instanceof com.baidu.tieba.frs.e.c) {
+                f fVar = this.dcE;
+                if (com.baidu.tieba.frs.e.c.dov != null && this.cYC.apE() != null) {
+                    if (this.cYC.apE().gtP == 1) {
+                        com.baidu.tieba.frs.e.c.dov.doj = true;
                     } else {
-                        com.baidu.tieba.frs.e.c.doy.dom = false;
+                        com.baidu.tieba.frs.e.c.dov.doj = false;
                     }
-                    if (this.cYF.apE().aVq() != null) {
-                        com.baidu.tieba.frs.e.c.doy.doo = this.cYF.apE().aVq().getId();
+                    if (this.cYC.apE().aVq() != null) {
+                        com.baidu.tieba.frs.e.c.dov.dol = this.cYC.apE().aVq().getId();
                     }
                 }
             }
             if (!v.w(list) && list.get(0).bpS() != 1) {
                 arrayList.add(list.get(0));
             }
-            this.dcH.c(this.cYr);
-            this.dcH.setData(arrayList);
-            this.dcH.notifyDataSetChanged();
+            this.dcE.c(this.cYo);
+            this.dcE.setData(arrayList);
+            this.dcE.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void arp() {
-        if (this.dcH != null) {
-            this.dcH.notifyDataSetChanged();
+        if (this.dcE != null) {
+            this.dcE.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.b
     public void arq() {
-        if (this.dcH != null) {
-            this.dcH.notifyDataSetChanged();
+        if (this.dcE != null) {
+            this.dcE.notifyDataSetChanged();
         }
     }
 }

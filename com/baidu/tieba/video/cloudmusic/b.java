@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes2.dex */
 public class b implements c.a {
-    private final CloudMusicModel gKI;
-    private final c.b gKJ;
+    private final CloudMusicModel gKF;
+    private final c.b gKG;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.gKI = cloudMusicModel;
-        this.gKJ = bVar;
+        this.gKF = cloudMusicModel;
+        this.gKG = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
     public void bwd() {
-        this.gKJ.mP(true);
-        this.gKI.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+        this.gKG.mP(true);
+        this.gKF.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void ab(CloudMusicData cloudMusicData) {
-                b.this.gKJ.mP(false);
+                b.this.gKG.mP(false);
                 if (cloudMusicData != null) {
-                    b.this.gKJ.mQ(false);
+                    b.this.gKG.mQ(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.gKJ.mQ(true);
+                        b.this.gKG.mQ(true);
                         return;
                     } else {
-                        b.this.gKJ.a(cloudMusicData);
+                        b.this.gKG.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.gKJ.mQ(true);
+                b.this.gKG.mQ(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
     public void arg() {
-        this.gKI.cancelLoadData();
+        this.gKF.cancelLoadData();
     }
 }

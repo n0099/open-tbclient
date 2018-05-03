@@ -30,17 +30,17 @@ public class ARWaveView extends View {
     private Paint e;
     private Paint f;
     private Paint g;
-    private Path hIK;
-    private Path hIL;
-    private float hIM;
-    private ViewGroup hIN;
-    private c hIO;
-    private b hIP;
-    private a hIQ;
-    private Bitmap hIR;
-    private Canvas hIS;
-    private PorterDuffXfermode hIT;
-    private LinearInterpolator hIU;
+    private Path hIH;
+    private Path hII;
+    private float hIJ;
+    private ViewGroup hIK;
+    private c hIL;
+    private b hIM;
+    private a hIN;
+    private Bitmap hIO;
+    private Canvas hIP;
+    private PorterDuffXfermode hIQ;
+    private LinearInterpolator hIR;
     private Path i;
     private int k;
     private int l;
@@ -96,7 +96,7 @@ public class ARWaveView extends View {
             while (!a()) {
                 ARWaveView aRWaveView = this.b.get();
                 if (aRWaveView != null) {
-                    aRWaveView.hIQ.sendEmptyMessage(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    aRWaveView.hIN.sendEmptyMessage(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                     try {
                         Thread.sleep(16L);
                     } catch (InterruptedException e) {
@@ -123,7 +123,7 @@ public class ARWaveView extends View {
         this.o = 0.5f;
         this.p = 2;
         this.s = 2.0f;
-        this.hIM = 1.6f;
+        this.hIJ = 1.6f;
         this.u = -0.2f;
         this.v = -0.1994f;
         this.w = 0.0f;
@@ -134,7 +134,7 @@ public class ARWaveView extends View {
         this.B = false;
         this.I = 0;
         this.L = true;
-        this.hIQ = new a(this);
+        this.hIN = new a(this);
         a();
     }
 
@@ -158,11 +158,11 @@ public class ARWaveView extends View {
         this.e.setAlpha((int) (this.o * 255.0f));
         this.f = new Paint();
         this.g = new Paint();
-        this.hIK = new Path();
+        this.hIH = new Path();
         this.i = new Path();
-        this.hIL = new Path();
-        this.hIT = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
-        this.hIU = new LinearInterpolator();
+        this.hII = new Path();
+        this.hIQ = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
+        this.hIR = new LinearInterpolator();
     }
 
     private void b() {
@@ -192,25 +192,25 @@ public class ARWaveView extends View {
         }
         this.n = (this.b / 100.0f) * 0.8f;
         this.n = Math.max(0.05f, this.n);
-        this.hIK.rewind();
+        this.hIH.rewind();
         this.i.rewind();
-        this.hIL.rewind();
-        this.hIK.moveTo(0.0f, a(0, this.q, this.r, this.m, this.n, this.s, this.w));
+        this.hII.rewind();
+        this.hIH.moveTo(0.0f, a(0, this.q, this.r, this.m, this.n, this.s, this.w));
         int i = 1;
         while (i <= this.q) {
-            this.hIK.lineTo(i, a(i, this.q, this.r, this.m, this.n, this.s, this.w));
+            this.hIH.lineTo(i, a(i, this.q, this.r, this.m, this.n, this.s, this.w));
             i = (int) (i + h(getContext(), this.p));
         }
-        this.hIK.lineTo(this.q, a(this.q, this.q, this.r, this.m, this.n, this.s, this.w));
-        this.i.moveTo(this.q, a(this.q, this.q, this.r, this.m, this.n * 0.8f, this.hIM, this.x));
+        this.hIH.lineTo(this.q, a(this.q, this.q, this.r, this.m, this.n, this.s, this.w));
+        this.i.moveTo(this.q, a(this.q, this.q, this.r, this.m, this.n * 0.8f, this.hIJ, this.x));
         int i2 = this.q - 1;
         while (i2 >= 0) {
-            this.i.lineTo(i2, a(i2, this.q, this.r, this.m, this.n * 0.8f, this.hIM, this.x));
+            this.i.lineTo(i2, a(i2, this.q, this.r, this.m, this.n * 0.8f, this.hIJ, this.x));
             i2 = (int) (i2 - h(getContext(), this.p));
         }
-        this.i.lineTo(0.0f, a(0, this.q, this.r, this.m, this.n * 0.8f, this.hIM, this.x));
-        this.hIL.addPath(this.hIK);
-        this.hIL.addPath(this.i);
+        this.i.lineTo(0.0f, a(0, this.q, this.r, this.m, this.n * 0.8f, this.hIJ, this.x));
+        this.hII.addPath(this.hIH);
+        this.hII.addPath(this.i);
     }
 
     private void e() {
@@ -223,10 +223,10 @@ public class ARWaveView extends View {
         this.B = false;
         this.L = true;
         this.I = 0;
-        if (this.hIR != null) {
-            this.hIR.recycle();
-            this.hIR = null;
-            this.hIS = null;
+        if (this.hIO != null) {
+            this.hIO.recycle();
+            this.hIO = null;
+            this.hIP = null;
         }
     }
 
@@ -237,11 +237,11 @@ public class ARWaveView extends View {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.hIP != null) {
-            this.hIP.a(true);
+        if (this.hIM != null) {
+            this.hIM.a(true);
         }
-        if (this.hIQ != null) {
-            this.hIQ.removeMessages(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        if (this.hIN != null) {
+            this.hIN.removeMessages(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         }
         e();
     }
@@ -250,42 +250,42 @@ public class ARWaveView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.L) {
-            if (this.hIN != null) {
-                this.q = this.hIN.getWidth();
-                this.r = this.hIN.getHeight();
+            if (this.hIK != null) {
+                this.q = this.hIK.getWidth();
+                this.r = this.hIK.getHeight();
             }
             if (this.q <= 0 || this.r <= 0) {
                 return;
             }
-            if (this.hIR == null) {
-                this.hIR = Bitmap.createBitmap(this.q, this.r, Bitmap.Config.ARGB_8888);
-                this.hIS = new Canvas(this.hIR);
+            if (this.hIO == null) {
+                this.hIO = Bitmap.createBitmap(this.q, this.r, Bitmap.Config.ARGB_8888);
+                this.hIP = new Canvas(this.hIO);
             }
             b();
             this.L = false;
         }
         if (this.A) {
             canvas.drawColor(0);
-            canvas.drawPath(this.hIL, this.f);
+            canvas.drawPath(this.hII, this.f);
             canvas.drawPath(this.i, this.e);
-            canvas.drawPath(this.hIK, this.d);
+            canvas.drawPath(this.hIH, this.d);
             return;
         }
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, this.q, this.r, null, 31);
         canvas.drawRect(this.I, 0.0f, this.q - this.I, this.r, this.g);
-        this.g.setXfermode(this.hIT);
-        if (this.hIR != null) {
-            this.hIS.drawColor(0, PorterDuff.Mode.CLEAR);
-            this.hIS.drawPath(this.hIL, this.f);
-            this.hIS.drawPath(this.i, this.e);
-            this.hIS.drawPath(this.hIK, this.d);
-            canvas.drawBitmap(this.hIR, 0.0f, 0.0f, this.g);
+        this.g.setXfermode(this.hIQ);
+        if (this.hIO != null) {
+            this.hIP.drawColor(0, PorterDuff.Mode.CLEAR);
+            this.hIP.drawPath(this.hII, this.f);
+            this.hIP.drawPath(this.i, this.e);
+            this.hIP.drawPath(this.hIH, this.d);
+            canvas.drawBitmap(this.hIO, 0.0f, 0.0f, this.g);
         }
         this.g.setXfermode(null);
         canvas.restoreToCount(saveLayer);
     }
 
     public void setCallBack(c cVar) {
-        this.hIO = cVar;
+        this.hIL = cVar;
     }
 }

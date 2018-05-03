@@ -17,49 +17,49 @@ public class k {
     private ForumData aEX;
     private int aFp;
     private bd bjU;
-    private AntiData fcU;
-    public Error fcW;
+    private AntiData fcR;
+    public Error fcT;
     private int mCurrentPage;
-    private int fcS = 20;
-    private int fcT = -1;
-    private boolean fcV = false;
-    private PostData fcP = null;
-    private ArrayList<PostData> fcQ = new ArrayList<>();
-    private int fcR = 1;
+    private int fcP = 20;
+    private int fcQ = -1;
+    private boolean fcS = false;
+    private PostData fcM = null;
+    private ArrayList<PostData> fcN = new ArrayList<>();
+    private int fcO = 1;
 
     public Error aWb() {
-        return this.fcW;
+        return this.fcT;
     }
 
     public PostData aWc() {
-        return this.fcP;
+        return this.fcM;
     }
 
     public void d(PostData postData) {
-        this.fcP = postData;
+        this.fcM = postData;
     }
 
     public int aWd() {
-        if (this.fcT == -1) {
-            this.fcT = this.mCurrentPage;
+        if (this.fcQ == -1) {
+            this.fcQ = this.mCurrentPage;
         }
-        return this.fcT;
+        return this.fcQ;
     }
 
     public int aWe() {
-        return this.fcT;
+        return this.fcQ;
     }
 
     public void a(k kVar, boolean z) {
         if (kVar != null) {
             b(kVar.aWk());
-            this.fcT = kVar.La();
+            this.fcQ = kVar.La();
             a(kVar.aWj());
             setPageSize(kVar.aWi());
             T(kVar.Pe());
             setTotalCount(kVar.getTotalCount());
             iT(kVar.aWh());
-            this.fcQ.addAll(0, kVar.aWg());
+            this.fcN.addAll(0, kVar.aWg());
         }
     }
 
@@ -75,13 +75,13 @@ public class k {
                 setTotalCount(kVar.getTotalCount());
                 iT(kVar.aWh());
             }
-            int size = this.fcQ.size();
-            if (z && size % this.fcS != 0) {
-                for (int i = 0; i < size % this.fcS; i++) {
-                    this.fcQ.remove(this.fcQ.size() - 1);
+            int size = this.fcN.size();
+            if (z && size % this.fcP != 0) {
+                for (int i = 0; i < size % this.fcP; i++) {
+                    this.fcN.remove(this.fcN.size() - 1);
                 }
             }
-            this.fcQ.addAll(kVar.aWg());
+            this.fcN.addAll(kVar.aWg());
         }
     }
 
@@ -97,13 +97,13 @@ public class k {
                 setTotalCount(kVar.getTotalCount());
                 iT(kVar.aWh());
             }
-            int size = this.fcQ.size();
-            if (z && size % this.fcS != 0) {
-                for (int i = 0; i < size % this.fcS; i++) {
-                    this.fcQ.remove(this.fcQ.size() - 1);
+            int size = this.fcN.size();
+            if (z && size % this.fcP != 0) {
+                for (int i = 0; i < size % this.fcP; i++) {
+                    this.fcN.remove(this.fcN.size() - 1);
                 }
             }
-            this.fcQ.addAll(kVar.aWg());
+            this.fcN.addAll(kVar.aWg());
             aWf();
         }
     }
@@ -123,37 +123,37 @@ public class k {
                 setPageSize(kVar.aWi());
                 setTotalCount(kVar.getTotalCount());
                 iT(kVar.aWh());
-                this.fcT = (this.mCurrentPage - (((kVar.aWg().size() - 1) + this.fcS) / this.fcS)) + 1;
-                if (this.fcT < 0) {
-                    this.fcT = 0;
+                this.fcQ = (this.mCurrentPage - (((kVar.aWg().size() - 1) + this.fcP) / this.fcP)) + 1;
+                if (this.fcQ < 0) {
+                    this.fcQ = 0;
                 }
             }
-            this.fcQ.addAll(kVar.aWg());
+            this.fcN.addAll(kVar.aWg());
         }
     }
 
     public void aWf() {
-        if (this.fcT < 0) {
-            this.fcT = this.mCurrentPage;
-        } else if (this.fcT > this.mCurrentPage) {
-            this.fcT = this.mCurrentPage;
+        if (this.fcQ < 0) {
+            this.fcQ = this.mCurrentPage;
+        } else if (this.fcQ > this.mCurrentPage) {
+            this.fcQ = this.mCurrentPage;
         }
     }
 
     public ArrayList<PostData> aWg() {
-        return this.fcQ;
+        return this.fcN;
     }
 
     public void al(ArrayList<PostData> arrayList) {
-        this.fcQ = arrayList;
+        this.fcN = arrayList;
     }
 
     public int aWh() {
-        return this.fcR;
+        return this.fcO;
     }
 
     public void iT(int i) {
-        this.fcR = i;
+        this.fcO = i;
     }
 
     public int getTotalCount() {
@@ -165,12 +165,12 @@ public class k {
     }
 
     public int aWi() {
-        return this.fcS;
+        return this.fcP;
     }
 
     public void setPageSize(int i) {
         if (i != 0) {
-            this.fcS = i;
+            this.fcP = i;
         }
     }
 
@@ -191,11 +191,11 @@ public class k {
     }
 
     public void b(AntiData antiData) {
-        this.fcU = antiData;
+        this.fcR = antiData;
     }
 
     public AntiData aWk() {
-        return this.fcU;
+        return this.fcR;
     }
 
     public void T(bd bdVar) {
@@ -203,15 +203,15 @@ public class k {
     }
 
     public boolean aGn() {
-        return (this.bjU == null || this.fcP == null || this.bjU.rQ() == null || this.bjU.rQ().getUserId() == null || this.fcP.rQ() == null || this.fcP.rQ().getUserId() == null || !this.bjU.rQ().getUserId().equals(this.fcP.rQ().getUserId())) ? false : true;
+        return (this.bjU == null || this.fcM == null || this.bjU.rQ() == null || this.bjU.rQ().getUserId() == null || this.fcM.rQ() == null || this.fcM.rQ().getUserId() == null || !this.bjU.rQ().getUserId().equals(this.fcM.rQ().getUserId())) ? false : true;
     }
 
     public boolean oI() {
-        return this.fcV;
+        return this.fcS;
     }
 
     public boolean hasMore() {
-        return this.mCurrentPage < this.fcR;
+        return this.mCurrentPage < this.fcO;
     }
 
     public bd Pe() {

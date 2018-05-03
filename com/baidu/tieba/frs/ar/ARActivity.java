@@ -19,8 +19,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ARActivity extends BaseFragmentActivity {
-    private ARFragment dbP;
-    private FrsArShareModel dbQ;
+    private ARFragment dbM;
+    private FrsArShareModel dbN;
     private String forumName;
     private String shareTitle;
 
@@ -50,19 +50,19 @@ public class ARActivity extends BaseFragmentActivity {
                 e.printStackTrace();
             }
             bundle2.putString(Constants.AR_VALUE, jSONObject.toString());
-            if (this.dbP != null) {
-                this.dbP.release();
-                this.dbP = null;
+            if (this.dbM != null) {
+                this.dbM.release();
+                this.dbM = null;
             }
-            this.dbP = new ARFragment();
-            this.dbP.setArguments(bundle2);
-            this.dbP.setARCallbackClient(new ARCallbackClent() { // from class: com.baidu.tieba.frs.ar.ARActivity.1
+            this.dbM = new ARFragment();
+            this.dbM.setArguments(bundle2);
+            this.dbM.setARCallbackClient(new ARCallbackClent() { // from class: com.baidu.tieba.frs.ar.ARActivity.1
                 @Override // com.baidu.ar.ARCallbackClent, com.baidu.ar.e, com.baidu.ar.external.app.IARCallback
                 public void share(String str, String str2, String str3, String str4, int i) {
                     if (i == 1) {
                         ARActivity.this.showLoadingView(ARActivity.this.pV());
-                        if (ARActivity.this.dbQ == null) {
-                            ARActivity.this.dbQ = new FrsArShareModel(ARActivity.this.getPageContext(), new FrsArShareModel.a() { // from class: com.baidu.tieba.frs.ar.ARActivity.1.1
+                        if (ARActivity.this.dbN == null) {
+                            ARActivity.this.dbN = new FrsArShareModel(ARActivity.this.getPageContext(), new FrsArShareModel.a() { // from class: com.baidu.tieba.frs.ar.ARActivity.1.1
                                 @Override // com.baidu.tieba.frs.ar.model.FrsArShareModel.a
                                 public void lS(String str5) {
                                     com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
@@ -78,7 +78,7 @@ public class ARActivity extends BaseFragmentActivity {
                                 }
                             }, ARActivity.this.forumName, str4, str4);
                         }
-                        ARActivity.this.dbQ.LoadData();
+                        ARActivity.this.dbN.LoadData();
                         return;
                     }
                     com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
@@ -94,7 +94,7 @@ public class ARActivity extends BaseFragmentActivity {
                     a.N(ARActivity.this, str);
                 }
             });
-            beginTransaction.replace(d.g.bdar_id_fragment_container, this.dbP);
+            beginTransaction.replace(d.g.bdar_id_fragment_container, this.dbM);
             beginTransaction.commitAllowingStateLoss();
         }
     }
@@ -103,8 +103,8 @@ public class ARActivity extends BaseFragmentActivity {
     public void onBackPressed() {
         getSupportFragmentManager();
         boolean z = false;
-        if (this.dbP != null) {
-            z = this.dbP.onFragmentBackPressed();
+        if (this.dbM != null) {
+            z = this.dbM.onFragmentBackPressed();
         }
         if (!z) {
             super.onBackPressed();

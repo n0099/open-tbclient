@@ -8,16 +8,16 @@ import com.meizu.cloud.pushsdk.common.util.Logger;
 import com.meizu.cloud.pushsdk.common.util.g;
 /* loaded from: classes3.dex */
 public class a {
-    private static c hwF;
-    public static boolean hwE = false;
+    private static c hwC;
+    public static boolean hwB = false;
     public static boolean debug = false;
 
     public static void cS(Context context) {
-        if (hwF == null) {
-            hwF = new c(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
-            Logger.a(hwF);
+        if (hwC == null) {
+            hwC = new c(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
+            Logger.a(hwC);
             debug = g.b(context);
-            Log.e("DebugLogger", "isOnDebug " + hwE + " debugConfig " + debug + " isDebuggable " + bIN());
+            Log.e("DebugLogger", "isOnDebug " + hwB + " debugConfig " + debug + " isDebuggable " + bIN());
             if (!bIN()) {
                 Logger.a(Logger.Out.CONSOLE, Logger.Callback.Level.NULL);
             }
@@ -25,7 +25,7 @@ public class a {
     }
 
     public static boolean bIN() {
-        return hwE || debug;
+        return hwB || debug;
     }
 
     public static void i(String str, String str2) {

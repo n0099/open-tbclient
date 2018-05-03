@@ -20,9 +20,9 @@ public class r {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> gvq = new ArrayList();
-    private int gvo = 0;
-    private int gvp = 0;
+    private List<FeedForumData> gvn = new ArrayList();
+    private int gvl = 0;
+    private int gvm = 0;
     private int user_level = 0;
 
     public r() {
@@ -63,8 +63,8 @@ public class r {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gvo = jSONObject.optInt("is_black", 0);
-                this.gvp = jSONObject.optInt("like_num", 0);
+                this.gvl = jSONObject.optInt("is_black", 0);
+                this.gvm = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
                 setLevelName(jSONObject.optString("level_name", ""));
@@ -107,7 +107,7 @@ public class r {
                     feedForumData.setReason(jSONObject.optString("reason"));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.gvq.add(feedForumData);
+                    this.gvn.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -152,7 +152,7 @@ public class r {
     }
 
     public List<FeedForumData> bpV() {
-        return this.gvq;
+        return this.gvn;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {

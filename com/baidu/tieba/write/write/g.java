@@ -18,13 +18,13 @@ import com.baidu.tieba.write.write.f;
 /* loaded from: classes3.dex */
 public class g {
     private TbPageContext<WriteActivity> adf;
-    private WriteImageGridView hij;
-    private f hik;
+    private WriteImageGridView hig;
+    private f hih;
     private WriteImagesInfo mWriteImagesInfo;
     private com.baidu.tbadk.img.b aDT = new com.baidu.tbadk.img.b();
     private String mFrom = AlbumActivityConfig.FROM_WRITE;
     private String mForumId = "";
-    private f.a hil = new f.a() { // from class: com.baidu.tieba.write.write.g.1
+    private f.a hii = new f.a() { // from class: com.baidu.tieba.write.write.g.1
         @Override // com.baidu.tieba.write.write.f.a
         public void vd(int i) {
             if (g.this.mWriteImagesInfo != null && g.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < g.this.mWriteImagesInfo.getChosedFiles().size()) {
@@ -32,8 +32,8 @@ public class g {
                 if (remove.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.dp().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                g.this.hik.a(g.this.mWriteImagesInfo);
-                g.this.hik.notifyDataSetChanged();
+                g.this.hih.a(g.this.mWriteImagesInfo);
+                g.this.hih.notifyDataSetChanged();
                 if (v.w(g.this.mWriteImagesInfo.getChosedFiles()) && g.this.adf.getOrignalPage() != 0) {
                     ((WriteActivity) g.this.adf.getOrignalPage()).nw(false);
                 }
@@ -63,17 +63,17 @@ public class g {
 
     public g(TbPageContext<WriteActivity> tbPageContext, View view2) {
         this.adf = tbPageContext;
-        this.hij = (WriteImageGridView) view2.findViewById(d.g.write_image_grid_view);
-        this.hik = new f(view2.getContext(), this.aDT, null, this.hil);
-        this.hij.setAdapter((ListAdapter) this.hik);
+        this.hig = (WriteImageGridView) view2.findViewById(d.g.write_image_grid_view);
+        this.hih = new f(view2.getContext(), this.aDT, null, this.hii);
+        this.hig.setAdapter((ListAdapter) this.hih);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
         this.mFrom = str;
         this.mForumId = str2;
         this.mWriteImagesInfo = writeImagesInfo;
-        this.hik.a(this.mWriteImagesInfo);
-        this.hik.notifyDataSetChanged();
+        this.hih.a(this.mWriteImagesInfo);
+        this.hih.notifyDataSetChanged();
     }
 
     public void destroy() {
@@ -81,6 +81,6 @@ public class g {
     }
 
     public void nq(boolean z) {
-        this.hik.nq(z);
+        this.hih.nq(z);
     }
 }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int eWW = 3;
+    private static int eWT = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -61,31 +61,31 @@ public class b extends BaseAdapter {
     /* loaded from: classes3.dex */
     public static class a {
         public TextView apV;
-        public BarImageView eWY;
-        public View hdV;
+        public BarImageView eWV;
+        public View hdS;
         public int mSkinType = 3;
 
         public a(View view2) {
             if (view2 != null) {
                 this.apV = (TextView) view2.findViewById(d.g.transmit_forum_name);
-                this.eWY = (BarImageView) view2.findViewById(d.g.forum_avatar);
-                this.hdV = view2.findViewById(d.g.divider_line);
+                this.eWV = (BarImageView) view2.findViewById(d.g.forum_avatar);
+                this.hdS = view2.findViewById(d.g.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
                 this.apV.setText(transmitForumData.forumName);
-                this.eWY.startLoad(transmitForumData.avatar, 10, false);
+                this.eWV.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void wY() {
-            if (b.eWW != this.mSkinType) {
+            if (b.eWT != this.mSkinType) {
                 ak.h(this.apV, d.C0126d.cp_cont_b);
-                ak.j(this.hdV, d.C0126d.cp_bg_line_c);
+                ak.j(this.hdS, d.C0126d.cp_bg_line_c);
             }
-            this.mSkinType = b.eWW;
+            this.mSkinType = b.eWT;
         }
     }
 
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (eWW != i) {
+        if (eWT != i) {
             notifyDataSetChanged();
         }
-        eWW = i;
+        eWT = i;
     }
 }

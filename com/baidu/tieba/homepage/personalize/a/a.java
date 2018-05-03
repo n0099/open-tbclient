@@ -11,21 +11,21 @@ import com.sina.weibo.sdk.api.CmdObject;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j>> {
     private BdUniqueId aTr;
-    private com.baidu.tieba.card.j dEu;
+    private com.baidu.tieba.card.j dEr;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.dFg);
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.dFd);
         this.mPageContext = tbPageContext;
-        this.dEu = new com.baidu.tieba.card.j(this.mPageContext);
-        this.dEu.k("c10714", "c10739", "c10712", "c10738");
-        this.dEu.setFrom(CmdObject.CMD_HOME);
+        this.dEr = new com.baidu.tieba.card.j(this.mPageContext);
+        this.dEr.k("c10714", "c10739", "c10712", "c10738");
+        this.dEr.setFrom(CmdObject.CMD_HOME);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.aTr = bdUniqueId;
-        if (this.dEu != null) {
-            this.dEu.h(this.aTr);
+        if (this.dEr != null) {
+            this.dEr.h(this.aTr);
         }
     }
 
@@ -47,17 +47,17 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        if (this.dEu == null) {
-            this.dEu = new com.baidu.tieba.card.j(this.mPageContext);
-            this.dEu.h(this.aTr);
-            this.dEu.k("c10714", "c10739", "c10712", "c10738");
+        if (this.dEr == null) {
+            this.dEr = new com.baidu.tieba.card.j(this.mPageContext);
+            this.dEr.h(this.aTr);
+            this.dEr.k("c10714", "c10739", "c10712", "c10738");
         }
-        return new com.baidu.tieba.card.a.a(this.dEu);
+        return new com.baidu.tieba.card.a.a(this.dEr);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dEu != null) {
-            this.dEu.d(this.mPageContext, i);
+        if (this.dEr != null) {
+            this.dEr.d(this.mPageContext, i);
         }
     }
 }

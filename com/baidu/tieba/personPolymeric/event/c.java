@@ -47,17 +47,17 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private com.baidu.tieba.personPolymeric.b.a fIO;
-    private e fJp;
+    private com.baidu.tieba.personPolymeric.b.a fIL;
+    private e fJm;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(e eVar) {
-        this.fJp = eVar;
-        if (this.fJp != null) {
-            this.fIO = this.fJp.bfc();
+        this.fJm = eVar;
+        if (this.fJm != null) {
+            this.fIL = this.fJm.bfc();
         }
     }
 
@@ -75,12 +75,12 @@ public class c extends a {
         int i2 = 1;
         super.a(view2, aVar);
         if (aVar != null) {
-            if (aVar.cKg == null) {
+            if (aVar.cKd == null) {
                 userData = null;
             } else {
-                userData = (UserData) aVar.cKg.getSerializable(UserData.TYPE_USER);
+                userData = (UserData) aVar.cKd.getSerializable(UserData.TYPE_USER);
             }
-            switch (aVar.cKf) {
+            switch (aVar.cKc) {
                 case 1:
                     if (userData != null) {
                         i iVar = new i();
@@ -93,7 +93,7 @@ public class c extends a {
                         iVar.bq(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(iVar);
-                        this.fJp.bfd().a((h) iVar, (List<h>) arrayList, 0);
+                        this.fJm.bfd().a((h) iVar, (List<h>) arrayList, 0);
                         return;
                     }
                     return;
@@ -117,9 +117,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.fIO != null && this.fIO.beX() != null) {
+                    if (this.fIL != null && this.fIL.beX() != null) {
                         TiebaStatic.log("c12207");
-                        this.fIO.beX().bfj();
+                        this.fIL.beX().bfj();
                         return;
                     }
                     return;
@@ -166,8 +166,8 @@ public class c extends a {
                             personChangeData.setIntro(userData.getIntro());
                             personChangeData.setNameShow(userData.getName_show());
                             personChangeData.setMem(userData.getIsMem());
-                            if (aVar.cKg != null) {
-                                personChangeData.setNickNameLeftDays(aVar.cKg.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
+                            if (aVar.cKd != null) {
+                                personChangeData.setNickNameLeftDays(aVar.cKd.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.mPageContext.getPageActivity(), 101, personChangeData, false)));
@@ -271,7 +271,7 @@ public class c extends a {
                     return;
                 case 33:
                     rj(9);
-                    ax.wg().a(this.mPageContext, new String[]{aVar.cKg.getString("book_jump_link")}, true);
+                    ax.wg().a(this.mPageContext, new String[]{aVar.cKd.getString("book_jump_link")}, true);
                     return;
                 case 34:
                     if (az.aK(this.mPageContext.getPageActivity())) {

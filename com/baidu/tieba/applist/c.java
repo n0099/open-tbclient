@@ -22,10 +22,10 @@ import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class c {
-    private static volatile c clK = null;
-    private AlarmManager clL;
-    private final int clI = 7;
-    private int clJ = PersonListModel.CACHETIME;
+    private static volatile c clH = null;
+    private AlarmManager clI;
+    private final int clF = 7;
+    private int clG = PersonListModel.CACHETIME;
     private HttpMessageListener blq = new HttpMessageListener(CmdConfigHttp.REPORT_APPLIST) { // from class: com.baidu.tieba.applist.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -52,24 +52,24 @@ public class c {
     }
 
     public static c aeU() {
-        if (clK == null) {
+        if (clH == null) {
             synchronized (c.class) {
-                if (clK == null) {
-                    clK = new c();
+                if (clH == null) {
+                    clH = new c();
                 }
             }
         }
-        return clK;
+        return clH;
     }
 
     public void aeV() {
-        if (this.clL == null) {
+        if (this.clI == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
             calendar.add(6, 7);
             PendingIntent broadcast = PendingIntent.getBroadcast(BdBaseApplication.getInst().getApp(), 0, new Intent("com.baidu.tieba.report.applist"), 134217728);
-            this.clL = (AlarmManager) BdBaseApplication.getInst().getApp().getSystemService("alarm");
-            this.clL.setRepeating(0, calendar.getTimeInMillis(), this.clJ, broadcast);
+            this.clI = (AlarmManager) BdBaseApplication.getInst().getApp().getSystemService("alarm");
+            this.clI.setRepeating(0, calendar.getTimeInMillis(), this.clG, broadcast);
         }
     }
 
@@ -77,7 +77,7 @@ public class c {
         if (d.eE().ak("applist_switch") != 0) {
             long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("applist_report_time", 0L);
             long currentTimeMillis = System.currentTimeMillis() - j;
-            if (j == 0 || z || currentTimeMillis >= this.clJ) {
+            if (j == 0 || z || currentTimeMillis >= this.clG) {
                 v.a(new u<Object>() { // from class: com.baidu.tieba.applist.c.2
                     @Override // com.baidu.tbadk.util.u
                     public Object doInBackground() {

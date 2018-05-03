@@ -28,15 +28,15 @@ public class Static {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                    if (data == null || data.ipListData == null || data.ipListData.eqO == null) {
+                    if (data == null || data.ipListData == null || data.ipListData.eqL == null) {
                         return null;
                     }
-                    if (data.eqL == null) {
-                        if (data.pos >= data.ipListData.eqO.size()) {
+                    if (data.eqI == null) {
+                        if (data.pos >= data.ipListData.eqL.size()) {
                             z = false;
                             str = "";
                         } else {
-                            ArrayList<String> arrayList = data.ipListData.eqO.get(data.pos);
+                            ArrayList<String> arrayList = data.ipListData.eqL.get(data.pos);
                             if (arrayList.size() <= 0) {
                                 str2 = "";
                             } else {
@@ -45,18 +45,18 @@ public class Static {
                             z = false;
                             str = str2;
                         }
-                    } else if (data.eqL.length() <= 0) {
+                    } else if (data.eqI.length() <= 0) {
                         return null;
                     } else {
-                        str = data.eqL;
+                        str = data.eqI;
                         z = true;
                     }
                     if (str.length() > 0) {
-                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.eqQ, data.ipListData.eqN, data.isNormal);
+                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.eqN, data.ipListData.eqK, data.isNormal);
                         data.EI = System.currentTimeMillis() - currentTimeMillis;
                         data.cdnIp = str;
                         if (z) {
-                            data.eqL = str;
+                            data.eqI = str;
                         }
                         return new CustomResponsedMessage<>(2017000, data);
                     }

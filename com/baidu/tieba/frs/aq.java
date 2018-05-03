@@ -11,37 +11,37 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class aq {
     private TranslateAnimation mTipInAnimation;
-    private View dax = null;
-    private int daz = 2000;
+    private View dau = null;
+    private int dav = 2000;
     private Runnable mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.frs.aq.1
         @Override // java.lang.Runnable
         public void run() {
             aq.this.hideTip();
         }
     };
-    private ValueAnimator daA = new ValueAnimator();
+    private ValueAnimator daw = new ValueAnimator();
 
     public aq() {
-        this.daA.setFloatValues(1.0f, 0.0f);
-        this.daA.setDuration(400L);
-        this.daA.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.aq.2
+        this.daw.setFloatValues(1.0f, 0.0f);
+        this.daw.setDuration(400L);
+        this.daw.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.aq.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (aq.this.dax != null && valueAnimator != null) {
-                    aq.this.dax.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (aq.this.dau != null && valueAnimator != null) {
+                    aq.this.dau.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.daA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.aq.3
+        this.daw.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.aq.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (aq.this.dax != null) {
+                if (aq.this.dau != null) {
                     aq.this.aqP();
-                    aq.this.dax.setAlpha(1.0f);
+                    aq.this.dau.setAlpha(1.0f);
                 }
             }
 
@@ -62,7 +62,7 @@ public class aq {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.g.e.fw().postDelayed(aq.this.mHideTipRunnable, aq.this.daz);
+                com.baidu.adp.lib.g.e.fw().postDelayed(aq.this.mHideTipRunnable, aq.this.dav);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,43 +73,43 @@ public class aq {
 
     public void a(View view2, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view2 != null) {
-            this.dax = view2;
+            this.dau = view2;
             aqP();
-            viewGroup.addView(this.dax, layoutParams);
-            this.dax.setVisibility(0);
-            this.daz = i;
+            viewGroup.addView(this.dau, layoutParams);
+            this.dau.setVisibility(0);
+            this.dav = i;
             com.baidu.adp.lib.g.e.fw().removeCallbacks(this.mHideTipRunnable);
-            com.baidu.adp.lib.g.e.fw().postDelayed(this.mHideTipRunnable, this.daz);
+            com.baidu.adp.lib.g.e.fw().postDelayed(this.mHideTipRunnable, this.dav);
         }
     }
 
     public void a(View view2, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view2 != null) {
-            this.dax = view2;
+            this.dau = view2;
             aqP();
-            viewGroup.addView(this.dax, layoutParams);
-            this.dax.setVisibility(0);
+            viewGroup.addView(this.dau, layoutParams);
+            this.dau.setVisibility(0);
         }
     }
 
     public void hideTip() {
         com.baidu.adp.lib.g.e.fw().removeCallbacks(this.mHideTipRunnable);
-        if (this.dax != null && this.dax.getParent() != null && this.dax.getVisibility() == 0 && !this.daA.isRunning()) {
-            this.daA.start();
+        if (this.dau != null && this.dau.getParent() != null && this.dau.getVisibility() == 0 && !this.daw.isRunning()) {
+            this.daw.start();
         }
     }
 
     public void aqP() {
         com.baidu.adp.lib.g.e.fw().removeCallbacks(this.mHideTipRunnable);
-        if (this.dax != null) {
-            if (this.daA != null && this.daA.isRunning()) {
-                this.daA.cancel();
+        if (this.dau != null) {
+            if (this.daw != null && this.daw.isRunning()) {
+                this.daw.cancel();
             }
-            this.dax.clearAnimation();
-            if (this.dax.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.dax.getParent()).removeView(this.dax);
+            this.dau.clearAnimation();
+            if (this.dau.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.dau.getParent()).removeView(this.dau);
             }
-            this.dax.setVisibility(8);
+            this.dau.setVisibility(8);
         }
     }
 

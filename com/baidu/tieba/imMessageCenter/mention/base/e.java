@@ -11,12 +11,12 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
     private BdTypeRecyclerView bnQ;
-    private ArrayList<h> cGa;
+    private ArrayList<h> cFX;
+    private b eoV;
+    private b eoW;
+    private b eoX;
     private b eoY;
     private b eoZ;
-    private b epa;
-    private b epb;
-    private b epc;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void o(TbPageContext tbPageContext) {
+        this.eoV = new b(tbPageContext, a.eoC);
+        this.eoW = new b(tbPageContext, a.eoD);
+        this.eoX = new b(tbPageContext, a.eoG);
         this.eoY = new b(tbPageContext, a.eoF);
-        this.eoZ = new b(tbPageContext, a.eoG);
-        this.epa = new b(tbPageContext, a.eoJ);
-        this.epb = new b(tbPageContext, a.eoI);
-        this.epc = new b(tbPageContext, a.eoH);
+        this.eoZ = new b(tbPageContext, a.eoE);
+        this.mAdapters.add(this.eoV);
+        this.mAdapters.add(this.eoW);
+        this.mAdapters.add(this.eoX);
         this.mAdapters.add(this.eoY);
         this.mAdapters.add(this.eoZ);
-        this.mAdapters.add(this.epa);
-        this.mAdapters.add(this.epb);
-        this.mAdapters.add(this.epc);
         this.bnQ.addAdapters(this.mAdapters);
     }
 
@@ -47,7 +47,7 @@ public class e {
 
     public void setData(ArrayList<h> arrayList) {
         this.bnQ.setData(arrayList);
-        this.cGa = arrayList;
+        this.cFX = arrayList;
     }
 
     public void notifyDataSetChanged() {
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void d(ab abVar) {
-        this.epc.d(abVar);
-        this.epb.d(abVar);
-        this.epa.d(abVar);
+        this.eoZ.d(abVar);
+        this.eoY.d(abVar);
+        this.eoX.d(abVar);
     }
 }

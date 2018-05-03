@@ -18,9 +18,9 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String dzG = null;
+    private String dzD = null;
     private TextView mTextView = null;
-    private TextView dzV = null;
+    private TextView dzS = null;
     LinearLayout anM = null;
 
     public static void ac(Context context, String str) {
@@ -41,9 +41,9 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     }
 
     private void initData() {
-        this.dzG = getIntent().getStringExtra("barname");
-        if (this.dzG == null) {
-            this.dzG = "";
+        this.dzD = getIntent().getStringExtra("barname");
+        if (this.dzD == null) {
+            this.dzD = "";
         }
     }
 
@@ -59,7 +59,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(d.k.create_bar));
         this.mTextView = (TextView) findViewById(d.g.text);
-        this.dzV = (TextView) findViewById(d.g.text_more);
+        this.dzS = (TextView) findViewById(d.g.text_more);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,10 +71,10 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         boolean fz = new n().fz();
         String string = fz ? getPageContext().getString(d.k.create_bar_new_tip) : getPageContext().getString(d.k.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(fz ? string + this.dzG + getPageContext().getString(d.k.create_bar_new_tip2) : string + this.dzG + getPageContext().getString(d.k.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(ak.getColor(d.C0126d.common_color_10252)), length, this.dzG.length() + length, 33);
+        SpannableString spannableString = new SpannableString(fz ? string + this.dzD + getPageContext().getString(d.k.create_bar_new_tip2) : string + this.dzD + getPageContext().getString(d.k.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(ak.getColor(d.C0126d.common_color_10252)), length, this.dzD.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.dzV.setVisibility(fz ? 0 : 8);
+        this.dzS.setVisibility(fz ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

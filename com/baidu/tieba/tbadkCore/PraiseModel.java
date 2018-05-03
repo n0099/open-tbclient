@@ -17,7 +17,7 @@ public class PraiseModel extends BdBaseModel {
     private static final String dataUrl = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
     private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, dataUrl);
     private final HttpMessageListener bfs;
-    private a gvz;
+    private a gvw;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -33,7 +33,7 @@ public class PraiseModel extends BdBaseModel {
 
     public PraiseModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gvz = null;
+        this.gvw = null;
         this.bfs = new HttpMessageListener(CmdConfigHttp.COMMON_PRAISE_Y_OR_N) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -41,22 +41,22 @@ public class PraiseModel extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                        if (PraiseModel.this.gvz != null) {
-                            PraiseModel.this.gvz.R(statusCode, null);
+                        if (PraiseModel.this.gvw != null) {
+                            PraiseModel.this.gvw.R(statusCode, null);
                             return;
                         }
                         return;
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.gvz.in(praiseResponseMessage.getErrMsg());
-                    } else if (PraiseModel.this.gvz != null) {
-                        PraiseModel.this.gvz.R(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.gvw.in(praiseResponseMessage.getErrMsg());
+                    } else if (PraiseModel.this.gvw != null) {
+                        PraiseModel.this.gvw.R(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }
                 }
             }
         };
-        this.gvz = aVar;
+        this.gvw = aVar;
     }
 
     public void registerListener() {

@@ -10,42 +10,42 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes2.dex */
 public class a {
-    private static a cIv;
-    private WindowManager.LayoutParams cIt;
-    private ImageView cIu;
-    private int cIw;
-    private boolean cIx;
+    private static a cIs;
+    private WindowManager.LayoutParams cIq;
+    private ImageView cIr;
+    private int cIt;
+    private boolean cIu;
     private int mHeight;
     private boolean mIsDragging;
     private int mWidth;
     private WindowManager mWindowManager;
 
     public static a akX() {
-        if (cIv == null) {
+        if (cIs == null) {
             synchronized (a.class) {
-                if (cIv == null) {
-                    cIv = new a();
+                if (cIs == null) {
+                    cIs = new a();
                 }
             }
         }
-        return cIv;
+        return cIs;
     }
 
     private a() {
     }
 
     public void k(Context context, int i) {
-        this.cIx = true;
+        this.cIu = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
         this.mWindowManager = (WindowManager) context.getSystemService("window");
-        this.cIw = i;
+        this.cIt = i;
     }
 
     public void destroy() {
-        this.cIx = false;
-        cIv = null;
+        this.cIu = false;
+        cIs = null;
     }
 
     public boolean akY() {
@@ -69,16 +69,16 @@ public class a {
         }
     }
 
-    public void au(int i, int i2) {
+    public void at(int i, int i2) {
         akZ();
-        av(i, i2);
+        au(i, i2);
         if (this.mWindowManager != null) {
-            this.mWindowManager.updateViewLayout(this.cIu, this.cIt);
+            this.mWindowManager.updateViewLayout(this.cIr, this.cIq);
         }
     }
 
     private void akZ() {
-        if (!this.cIx) {
+        if (!this.cIu) {
             BdLog.e("should do init first!");
         }
     }
@@ -86,15 +86,15 @@ public class a {
     private void a(Context context, Bitmap bitmap, int i, int i2) {
         akZ();
         if (bitmap != null) {
-            av(i, i2);
-            this.cIu = new ImageView(context);
-            this.cIu.setImageBitmap(bitmap);
+            au(i, i2);
+            this.cIr = new ImageView(context);
+            this.cIr.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && p(activity.getWindow().getDecorView())) {
                     try {
                         if (this.mWindowManager != null) {
-                            this.mWindowManager.addView(this.cIu, this.cIt);
+                            this.mWindowManager.addView(this.cIr, this.cIq);
                         }
                     } catch (Exception e) {
                     }
@@ -119,29 +119,29 @@ public class a {
     }
 
     private void ala() {
-        this.cIt = new WindowManager.LayoutParams();
-        this.cIt.format = -3;
-        this.cIt.gravity = 51;
-        this.cIt.alpha = 1.0f;
-        this.cIt.width = -2;
-        this.cIt.height = -2;
-        this.cIt.flags = 24;
+        this.cIq = new WindowManager.LayoutParams();
+        this.cIq.format = -3;
+        this.cIq.gravity = 51;
+        this.cIq.alpha = 1.0f;
+        this.cIq.width = -2;
+        this.cIq.height = -2;
+        this.cIq.flags = 24;
     }
 
-    private void av(int i, int i2) {
-        if (this.cIt == null) {
+    private void au(int i, int i2) {
+        if (this.cIq == null) {
             ala();
         }
-        this.cIt.x = i - (this.mWidth / 2);
-        this.cIt.y = (i2 - (this.mHeight / 2)) - this.cIw;
+        this.cIq.x = i - (this.mWidth / 2);
+        this.cIq.y = (i2 - (this.mHeight / 2)) - this.cIt;
     }
 
     public void alb() {
-        if (this.cIu != null) {
+        if (this.cIr != null) {
             if (this.mWindowManager != null) {
-                this.mWindowManager.removeView(this.cIu);
+                this.mWindowManager.removeView(this.cIr);
             }
-            this.cIu = null;
+            this.cIr = null;
         }
         this.mIsDragging = false;
     }

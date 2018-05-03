@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class o extends com.baidu.tieba.frs.f<p, q> {
-    private static final int cUL = d.g.manager_apply_tip;
-    private static final int cUM = d.g.assist_apply_tip;
+    private static final int cUI = d.g.manager_apply_tip;
+    private static final int cUJ = d.g.assist_apply_tip;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -21,9 +21,9 @@ public class o extends com.baidu.tieba.frs.f<p, q> {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                Object tag = view2.getTag(o.cUL);
+                Object tag = view2.getTag(o.cUI);
                 if (tag == null || tag.toString().equals("")) {
-                    ax.wg().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{view2.getTag(o.cUM).toString()});
+                    ax.wg().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{view2.getTag(o.cUJ).toString()});
                 } else {
                     ax.wg().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
                 }
@@ -51,69 +51,69 @@ public class o extends com.baidu.tieba.frs.f<p, q> {
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
                     ak.j(qVar.acO, d.C0126d.cp_bg_line_b);
-                    ak.c(qVar.cUW, d.C0126d.cp_cont_d, 1);
-                    ak.c(qVar.cUX, d.C0126d.cp_cont_d, 1);
-                    ak.c(qVar.cUU, d.C0126d.cp_cont_b, 1);
-                    ak.c(qVar.cUV, d.C0126d.cp_cont_b, 1);
-                    ak.i(qVar.cUY, d.f.frs_member_manito_bg);
-                    ak.i(qVar.cUZ, d.f.frs_member_manito_bg);
+                    ak.c(qVar.cUT, d.C0126d.cp_cont_d, 1);
+                    ak.c(qVar.cUU, d.C0126d.cp_cont_d, 1);
+                    ak.c(qVar.cUR, d.C0126d.cp_cont_b, 1);
+                    ak.c(qVar.cUS, d.C0126d.cp_cont_b, 1);
+                    ak.i(qVar.cUV, d.f.frs_member_manito_bg);
+                    ak.i(qVar.cUW, d.f.frs_member_manito_bg);
                 }
                 int aom = pVar.aom();
                 if (aom == -1) {
                     int aol = pVar.aol();
                     String v = an.v(aol);
                     if (aol > 0) {
-                        qVar.cUW.setText(String.format(this.mContext.getResources().getString(d.k.tbtitle_apply_left_num_tip), v));
-                        qVar.cUY.setTag(cUL, pVar.aoo());
-                        qVar.cUY.setOnClickListener(this.mClickListener);
-                        qVar.cUY.setEnabled(true);
-                        qVar.cUY.setClickable(true);
+                        qVar.cUT.setText(String.format(this.mContext.getResources().getString(d.k.tbtitle_apply_left_num_tip), v));
+                        qVar.cUV.setTag(cUI, pVar.aoo());
+                        qVar.cUV.setOnClickListener(this.mClickListener);
+                        qVar.cUV.setEnabled(true);
+                        qVar.cUV.setClickable(true);
                     } else {
-                        qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
-                        qVar.cUY.setTag(cUL, pVar.aoo());
-                        qVar.cUY.setOnClickListener(this.mClickListener);
-                        qVar.cUY.setEnabled(false);
-                        qVar.cUY.setClickable(false);
+                        qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
+                        qVar.cUV.setTag(cUI, pVar.aoo());
+                        qVar.cUV.setOnClickListener(this.mClickListener);
+                        qVar.cUV.setEnabled(false);
+                        qVar.cUV.setClickable(false);
                     }
                 } else if (aom == 0) {
-                    qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_is_bazhu));
-                    qVar.cUY.setTag(cUL, pVar.aoo());
-                    qVar.cUY.setOnClickListener(this.mClickListener);
-                    qVar.cUY.setEnabled(true);
-                    qVar.cUY.setClickable(true);
+                    qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_is_bazhu));
+                    qVar.cUV.setTag(cUI, pVar.aoo());
+                    qVar.cUV.setOnClickListener(this.mClickListener);
+                    qVar.cUV.setEnabled(true);
+                    qVar.cUV.setClickable(true);
                 } else if (aom == 1) {
-                    qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_applying));
-                    qVar.cUY.setTag(cUL, pVar.aoo());
-                    qVar.cUY.setOnClickListener(this.mClickListener);
-                    qVar.cUY.setEnabled(true);
-                    qVar.cUY.setClickable(true);
+                    qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_applying));
+                    qVar.cUV.setTag(cUI, pVar.aoo());
+                    qVar.cUV.setOnClickListener(this.mClickListener);
+                    qVar.cUV.setEnabled(true);
+                    qVar.cUV.setClickable(true);
                 } else if (aom == 2) {
-                    qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_apply_failed));
-                    qVar.cUY.setTag(cUL, pVar.aoo());
-                    qVar.cUY.setOnClickListener(this.mClickListener);
-                    qVar.cUY.setEnabled(true);
-                    qVar.cUY.setClickable(true);
+                    qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_apply_failed));
+                    qVar.cUV.setTag(cUI, pVar.aoo());
+                    qVar.cUV.setOnClickListener(this.mClickListener);
+                    qVar.cUV.setEnabled(true);
+                    qVar.cUV.setClickable(true);
                 } else {
-                    qVar.cUW.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
-                    qVar.cUY.setTag(cUL, pVar.aoo());
-                    qVar.cUY.setOnClickListener(this.mClickListener);
-                    qVar.cUY.setEnabled(false);
-                    qVar.cUY.setClickable(false);
+                    qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
+                    qVar.cUV.setTag(cUI, pVar.aoo());
+                    qVar.cUV.setOnClickListener(this.mClickListener);
+                    qVar.cUV.setEnabled(false);
+                    qVar.cUV.setClickable(false);
                 }
                 int aon = pVar.aon();
                 if (aon > 0) {
-                    qVar.cUX.setText(String.format(this.mContext.getResources().getString(d.k.apply_left_num_tip), an.v(aon)));
-                    qVar.cUZ.setTag(cUM, pVar.aop());
-                    qVar.cUZ.setOnClickListener(this.mClickListener);
-                    qVar.cUZ.setEnabled(true);
-                    qVar.cUZ.setClickable(true);
+                    qVar.cUU.setText(String.format(this.mContext.getResources().getString(d.k.apply_left_num_tip), an.v(aon)));
+                    qVar.cUW.setTag(cUJ, pVar.aop());
+                    qVar.cUW.setOnClickListener(this.mClickListener);
+                    qVar.cUW.setEnabled(true);
+                    qVar.cUW.setClickable(true);
                 } else {
-                    qVar.cUX.setText(this.mContext.getResources().getString(d.k.apply_no_left_tip));
-                    qVar.cUZ.setEnabled(false);
-                    qVar.cUZ.setClickable(false);
+                    qVar.cUU.setText(this.mContext.getResources().getString(d.k.apply_no_left_tip));
+                    qVar.cUW.setEnabled(false);
+                    qVar.cUW.setClickable(false);
                 }
-                qVar.cUX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
-                qVar.cUW.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
+                qVar.cUU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
+                qVar.cUT.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }

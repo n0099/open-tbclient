@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.az;
 /* loaded from: classes2.dex */
 public class MessageCenterActivity extends BaseFragmentActivity {
-    private MessageCenterFragment eng;
+    private MessageCenterFragment enc;
     private int mSkinType = 3;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -18,9 +18,9 @@ public class MessageCenterActivity extends BaseFragmentActivity {
             finish();
             return;
         }
-        this.eng = new MessageCenterFragment();
+        this.enc = new MessageCenterFragment();
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, this.eng);
+        beginTransaction.add(16908290, this.enc);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -35,8 +35,8 @@ public class MessageCenterActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.eng != null) {
-            this.eng.onActivityResult(i, i2, intent);
+        if (this.enc != null) {
+            this.enc.onActivityResult(i, i2, intent);
         }
     }
 
@@ -44,8 +44,8 @@ public class MessageCenterActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.eng != null) {
-            this.eng.onNewIntent(intent);
+        if (this.enc != null) {
+            this.enc.onNewIntent(intent);
         }
     }
 
@@ -53,7 +53,7 @@ public class MessageCenterActivity extends BaseFragmentActivity {
     protected void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.eng.onChangeSkinType(i);
+            this.enc.onChangeSkinType(i);
         }
     }
 }

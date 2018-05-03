@@ -15,8 +15,8 @@ public class CmdConfigHttp {
     public static final int CMD_AD_CLOSE = 1003322;
     public static final int CMD_AD_UPLOAD = 1003062;
     public static final int CMD_AFD_REQUEST_ASYNC = 1003397;
-    public static final int CMD_ALA_HTTP_BASE_CMD = 1003201;
-    public static final int CMD_ALA_HTTP_MAX_CMD = 1003301;
+    public static final int CMD_ALA_HTTP_BASE_CMD = 1021000;
+    public static final int CMD_ALA_HTTP_MAX_CMD = 1030999;
     public static final int CMD_ALA_VERIFY_STRATEGY = 1003303;
     public static final int CMD_ALL_THEME_LIST = 1003032;
     public static final int CMD_APPLY_COPY_THREAD = 1003066;

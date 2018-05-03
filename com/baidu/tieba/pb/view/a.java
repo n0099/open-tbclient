@@ -10,8 +10,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.b {
-    private TextView fwZ;
-    private View.OnClickListener fxa = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
+    private TextView fwW;
+    private View.OnClickListener fwX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             ((PbActivity) a.this.mPageContext.getOrignalPage()).skipToLoginActivity();
@@ -28,8 +28,8 @@ public class a extends com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public View kA() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.i.login_see_more_layout, (ViewGroup) null);
-        this.fwZ = (TextView) this.mRootView.findViewById(d.g.login_button);
-        this.fwZ.setOnClickListener(this.fxa);
+        this.fwW = (TextView) this.mRootView.findViewById(d.g.login_button);
+        this.fwW.setOnClickListener(this.fwX);
         dv(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
     }

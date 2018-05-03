@@ -15,22 +15,22 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class y {
-    private PbModel feN;
-    private a fft;
-    protected final com.baidu.adp.framework.listener.a flv = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446) { // from class: com.baidu.tieba.pb.pb.main.y.1
+    private PbModel feK;
+    private a ffq;
+    protected final com.baidu.adp.framework.listener.a fls = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446) { // from class: com.baidu.tieba.pb.pb.main.y.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == y.this.flu) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == y.this.flr) {
                     if (responsedMessage instanceof LookMoreHttpResMessage) {
                         LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
                         List<PostData> data = lookMoreHttpResMessage.getData();
                         String errorString = lookMoreHttpResMessage.getErrorString();
                         int error = lookMoreHttpResMessage.getError();
                         if (error != 0) {
-                            y.this.fft.g(error, errorString, "");
+                            y.this.ffq.g(error, errorString, "");
                         } else if (!com.baidu.tbadk.core.util.v.w(data)) {
-                            y.this.fft.D(data);
+                            y.this.ffq.D(data);
                         }
                     } else if (responsedMessage instanceof LookMoreSocketResMessage) {
                         LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
@@ -38,16 +38,16 @@ public class y {
                         String errorString2 = lookMoreSocketResMessage.getErrorString();
                         int error2 = lookMoreSocketResMessage.getError();
                         if (error2 != 0) {
-                            y.this.fft.g(error2, errorString2, "");
+                            y.this.ffq.g(error2, errorString2, "");
                         } else if (data2 != null) {
-                            y.this.fft.D(data2);
+                            y.this.ffq.D(data2);
                         }
                     }
                 }
             }
         }
     };
-    private final BdUniqueId flu = BdUniqueId.gen();
+    private final BdUniqueId flr = BdUniqueId.gen();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -57,18 +57,18 @@ public class y {
     }
 
     public y(PbModel pbModel, BaseActivity baseActivity) {
-        this.feN = pbModel;
+        this.feK = pbModel;
         AE();
-        MessageManager.getInstance().registerListener(this.flv);
-        this.fft = null;
+        MessageManager.getInstance().registerListener(this.fls);
+        this.ffq = null;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.flv);
+        MessageManager.getInstance().unRegisterListener(this.fls);
     }
 
     public void b(a aVar) {
-        this.fft = aVar;
+        this.ffq = aVar;
     }
 
     private void AE() {
@@ -79,17 +79,17 @@ public class y {
     }
 
     public void cN(List<Long> list) {
-        if (this.feN != null && this.feN.getPbData() != null) {
+        if (this.feK != null && this.feK.getPbData() != null) {
             int af = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst());
             int ah = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst());
             LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.g.b.c(this.feN.fjV, 0L)));
+            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.g.b.c(this.feK.fjS, 0L)));
             lookMoreReqMessage.setPost_id(list);
-            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.g.b.g(this.feN.mStType, 0));
+            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.g.b.g(this.feK.mStType, 0));
             lookMoreReqMessage.setWith_floor(1);
             lookMoreReqMessage.setScr_w(af);
             lookMoreReqMessage.setScr_h(ah);
-            lookMoreReqMessage.setTag(this.flu);
+            lookMoreReqMessage.setTag(this.flr);
             MessageManager.getInstance().sendMessage(lookMoreReqMessage);
         }
     }

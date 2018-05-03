@@ -23,10 +23,10 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(hVar.wp(getModifiers()));
-        if (hVar.hzt) {
+        if (hVar.hzq) {
             stringBuffer.append(hVar.n(getReturnType()));
         }
-        if (hVar.hzt) {
+        if (hVar.hzq) {
             stringBuffer.append(" ");
         }
         stringBuffer.append(hVar.d(bJB(), bJC()));

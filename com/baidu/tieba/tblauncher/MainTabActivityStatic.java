@@ -24,8 +24,8 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
-    private static int gBn = 0;
-    private static boolean gBo = false;
+    private static int gBk = 0;
+    private static boolean gBl = false;
 
     static {
         aoN();
@@ -80,9 +80,9 @@ public class MainTabActivityStatic {
         if (responsedMessage != null && (responsedMessage instanceof NewsRemindMessage) && (newsRemindMessage = (NewsRemindMessage) responsedMessage) != null) {
             int a = a(newsRemindMessage);
             boolean b = b(newsRemindMessage);
-            if (a != gBn || b != gBo) {
-                gBn = a;
-                gBo = b;
+            if (a != gBk || b != gBl) {
+                gBk = a;
+                gBl = b;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(a), Boolean.valueOf(b))));
             }
         }

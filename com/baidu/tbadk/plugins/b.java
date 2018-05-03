@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 public class b {
     public static String aMz = "#";
     public static String aMA = "＃";
-    private static final Pattern aMB = Pattern.compile("#([^#]+)#", 2);
+    private static final Pattern aMB = Pattern.compile("#([^#(]+)#", 2);
 
     public static boolean gS(String str) {
         return aMz.equals(str);

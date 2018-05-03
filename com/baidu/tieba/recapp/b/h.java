@@ -4,72 +4,72 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes3.dex */
 public class h extends q.a implements com.baidu.tieba.play.f {
-    private com.baidu.tieba.lego.card.view.e<?> dmu;
-    private com.baidu.tieba.recapp.i fXk;
+    private com.baidu.tieba.lego.card.view.e<?> dmr;
+    private com.baidu.tieba.recapp.i fXh;
 
     public h(com.baidu.tieba.lego.card.view.e<?> eVar) {
         super((View) eVar);
-        this.dmu = eVar;
+        this.dmr = eVar;
     }
 
     public void a(com.baidu.tieba.recapp.i iVar) {
-        this.fXk = iVar;
+        this.fXh = iVar;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.fXk == null) {
+        if (this.fXh == null) {
             return false;
         }
-        return this.fXk.isPlayStarted();
+        return this.fXh.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.fXk == null) {
+        if (this.fXh == null) {
             return false;
         }
-        return this.fXk.isPlaying();
+        return this.fXh.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.fXk != null) {
-            this.fXk.startPlay();
+        if (this.fXh != null) {
+            this.fXh.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.fXk != null) {
-            this.fXk.stopPlay();
+        if (this.fXh != null) {
+            this.fXh.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.fXk == null) {
+        if (this.fXh == null) {
             return null;
         }
-        return this.fXk.getVideoContainer();
+        return this.fXh.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        return this.fXk == null ? "" : this.fXk.getPlayUrl();
+        return this.fXh == null ? "" : this.fXh.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.fXk == null) {
+        if (this.fXh == null) {
             return 0;
         }
-        return (int) this.fXk.getCurrentPosition();
+        return (int) this.fXh.getCurrentPosition();
     }
 
     public void release() {
-        if (this.fXk != null) {
-            this.fXk.release();
+        if (this.fXh != null) {
+            this.fXh.release();
         }
     }
 }

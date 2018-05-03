@@ -2,14 +2,11 @@ package com.baidu.tieba.write.write;
 
 import android.text.Editable;
 import android.text.Spannable;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.ImageSpan;
 import android.widget.EditText;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
@@ -17,41 +14,28 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private ArrayList<String> haj;
-    private String hak;
+    private ArrayList<String> hag;
+    private String hah;
 
-    public SpannableStringBuilder i(EditText editText) {
-        Spannable text;
-        if (editText == null || (text = editText.getText()) == null) {
-            return null;
-        }
-        String obj = text.toString();
-        if (StringUtils.isNull(obj)) {
-            return null;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        a(text, spannableStringBuilder);
-        com.baidu.tbadk.plugins.b.a(spannableStringBuilder);
-        b(spannableStringBuilder);
-        return spannableStringBuilder;
-    }
-
-    private void a(Spannable spannable, Spannable spannable2) {
-        ImageSpan[] imageSpanArr;
-        if (spannable != null && spannable2 != null && (imageSpanArr = (ImageSpan[]) spannable.getSpans(0, spannable.length(), ImageSpan.class)) != null) {
-            for (ImageSpan imageSpan : imageSpanArr) {
-                if (imageSpan != null) {
-                    spannable2.setSpan(imageSpan, spannable.getSpanStart(imageSpan), spannable.getSpanEnd(imageSpan), spannable.getSpanFlags(imageSpan));
+    public void i(EditText editText) {
+        Editable text;
+        Object[] spans;
+        if (editText != null && (text = editText.getText()) != null) {
+            for (Object obj : text.getSpans(0, text.length(), Object.class)) {
+                if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
+                    text.removeSpan(obj);
                 }
             }
+            com.baidu.tbadk.plugins.b.a(text);
+            b(text);
         }
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.w(this.haj)) {
+        if (spannable != null && !v.w(this.hag)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.haj.iterator();
+                Iterator<String> it = this.hag.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -71,7 +55,7 @@ public class b {
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
                 spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
                 spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
-                indexOf = str.indexOf(str2, indexOf + 1);
+                indexOf = str.indexOf(str2, i);
             }
         }
     }
@@ -117,27 +101,24 @@ public class b {
     }
 
     public void k(EditText editText) {
-        SpannableStringBuilder i;
-        if (editText != null && (i = i(editText)) != null) {
-            int selectionEnd = editText.getSelectionEnd();
-            editText.setText(i);
-            editText.setSelection(selectionEnd);
+        if (editText != null) {
+            i(editText);
         }
     }
 
     public void ax(ArrayList<String> arrayList) {
-        this.haj = arrayList;
+        this.hag = arrayList;
     }
 
     public ArrayList<String> bAU() {
-        return this.haj;
+        return this.hag;
     }
 
     public void uB(String str) {
-        this.hak = str;
+        this.hah = str;
     }
 
     public String bAY() {
-        return this.hak;
+        return this.hah;
     }
 }

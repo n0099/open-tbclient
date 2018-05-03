@@ -12,12 +12,12 @@ public class a extends b.C0147b {
     @Override // com.baidu.tieba.horizonalList.a.b.C0147b, com.baidu.tieba.horizonalList.a.b.a
     @TargetApi(14)
     public void setScrollX(int i) {
-        this.f17view.setScrollX(i);
+        this.f15view.setScrollX(i);
     }
 
     @Override // com.baidu.tieba.horizonalList.a.b.C0147b, com.baidu.tieba.horizonalList.a.b.a
     @TargetApi(11)
     public boolean isHardwareAccelerated() {
-        return this.f17view.isHardwareAccelerated();
+        return this.f15view.isHardwareAccelerated();
     }
 }

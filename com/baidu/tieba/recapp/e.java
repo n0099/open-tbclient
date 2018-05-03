@@ -16,30 +16,30 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
     private n aXq;
-    private com.baidu.adp.widget.ListView.a dEW;
-    private com.baidu.adp.widget.ListView.a dlI;
+    private com.baidu.adp.widget.ListView.a dET;
+    private com.baidu.adp.widget.ListView.a dlF;
     private com.baidu.adp.widget.ListView.a fWA;
     private com.baidu.adp.widget.ListView.a fWB;
-    private com.baidu.adp.widget.ListView.a fWC;
-    private com.baidu.adp.widget.ListView.a fWD;
-    private com.baidu.adp.widget.ListView.a fWE;
-    private com.baidu.tieba.InjectPlugin.a.c fWw;
+    private com.baidu.tieba.InjectPlugin.a.c fWt;
+    private com.baidu.adp.widget.ListView.a fWx;
+    private com.baidu.adp.widget.ListView.a fWy;
+    private com.baidu.adp.widget.ListView.a fWz;
     private List<Object> mOriginDatas;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.InjectPlugin.a.a
     /* renamed from: b */
     public void G(com.baidu.tieba.InjectPlugin.a.c cVar) {
-        this.fWw = cVar;
-        if (this.fWw != null && (this.fWw.KP() instanceof n)) {
-            this.aXq = (n) this.fWw.KP();
-            this.dlI = new com.baidu.tieba.recapp.b.e(this.aXq, AdvertAppInfo.Vy);
-            this.dEW = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VH);
-            this.fWA = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VI);
-            this.fWB = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VJ);
-            this.fWC = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VK);
-            this.fWD = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VL);
-            this.fWE = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VM);
+        this.fWt = cVar;
+        if (this.fWt != null && (this.fWt.KP() instanceof n)) {
+            this.aXq = (n) this.fWt.KP();
+            this.dlF = new com.baidu.tieba.recapp.b.e(this.aXq, AdvertAppInfo.Vy);
+            this.dET = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VH);
+            this.fWx = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VI);
+            this.fWy = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VJ);
+            this.fWz = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VK);
+            this.fWA = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VL);
+            this.fWB = new com.baidu.tieba.recapp.b.g(this.aXq, AdvertAppInfo.VM);
         }
     }
 
@@ -300,19 +300,19 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
             BdUniqueId type = advertAppInfo.getType();
             if (type == AdvertAppInfo.VH) {
-                aVar = this.dEW;
+                aVar = this.dET;
             } else if (type == AdvertAppInfo.Vy) {
-                aVar = this.dlI;
+                aVar = this.dlF;
             } else if (type == AdvertAppInfo.VI) {
-                aVar = this.fWA;
+                aVar = this.fWx;
             } else if (type == AdvertAppInfo.VJ) {
-                aVar = this.fWB;
+                aVar = this.fWy;
             } else if (type == AdvertAppInfo.VK) {
-                aVar = this.fWC;
+                aVar = this.fWz;
             } else if (type == AdvertAppInfo.VL) {
-                aVar = this.fWD;
+                aVar = this.fWA;
             } else {
-                aVar = type == AdvertAppInfo.VM ? this.fWE : null;
+                aVar = type == AdvertAppInfo.VM ? this.fWB : null;
             }
             if (aVar != null) {
                 return aVar.getView(i, view2, viewGroup, advertAppInfo);
@@ -328,19 +328,19 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
         if (obj instanceof AdvertAppInfo) {
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
             if (type == AdvertAppInfo.VH) {
-                aVar = this.dEW;
+                aVar = this.dET;
             } else if (type == AdvertAppInfo.Vy) {
-                aVar = this.dlI;
+                aVar = this.dlF;
             } else if (type == AdvertAppInfo.VI) {
-                aVar = this.fWA;
+                aVar = this.fWx;
             } else if (type == AdvertAppInfo.VJ) {
-                aVar = this.fWB;
+                aVar = this.fWy;
             } else if (type == AdvertAppInfo.VK) {
-                aVar = this.fWC;
+                aVar = this.fWz;
             } else if (type == AdvertAppInfo.VL) {
-                aVar = this.fWD;
+                aVar = this.fWA;
             } else {
-                aVar = type == AdvertAppInfo.VM ? this.fWE : null;
+                aVar = type == AdvertAppInfo.VM ? this.fWB : null;
             }
             if (aVar != null) {
                 return aVar.onCreateViewHolder(viewGroup, obj);
@@ -356,21 +356,21 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
         if (obj instanceof AdvertAppInfo) {
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
             if (type == AdvertAppInfo.VH) {
-                aVar2 = this.dEW;
+                aVar2 = this.dET;
             } else if (type == AdvertAppInfo.Vy) {
-                aVar2 = this.dlI;
+                aVar2 = this.dlF;
             } else if (type == AdvertAppInfo.VI) {
-                aVar2 = this.fWA;
+                aVar2 = this.fWx;
             } else if (type == AdvertAppInfo.VJ) {
-                aVar2 = this.fWB;
+                aVar2 = this.fWy;
             } else if (type == AdvertAppInfo.VK) {
-                aVar2 = this.fWC;
+                aVar2 = this.fWz;
             } else if (type == AdvertAppInfo.VL) {
-                aVar2 = this.fWD;
+                aVar2 = this.fWA;
             } else if (type != AdvertAppInfo.VM) {
                 aVar2 = null;
             } else {
-                aVar2 = this.fWE;
+                aVar2 = this.fWB;
             }
             if (aVar2 != null) {
                 aVar2.onFillViewHolder(i, viewGroup, aVar, obj);

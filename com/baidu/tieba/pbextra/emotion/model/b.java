@@ -8,88 +8,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes3.dex */
 class b {
+    private int fAA;
+    private int fAB;
+    private byte[] fAC;
     private int fAD;
     private int fAE;
-    private byte[] fAF;
-    private int fAG;
-    private int fAH;
-    private int fAI;
-    int fAJ;
-    int fAL;
-    int fAS;
-    int fAT;
-    int fAU;
-    int fAY;
-    int fAK = 12;
-    int fAM = 4096;
-    int[] fAN = new int[StatusCode.ERROR_NOT_LOGIN];
-    int[] fAO = new int[StatusCode.ERROR_NOT_LOGIN];
-    int fAP = StatusCode.ERROR_NOT_LOGIN;
-    int fAQ = 0;
-    boolean fAR = false;
-    int fAV = 0;
-    int fAW = 0;
-    int[] fAX = {0, 1, 3, 7, 15, 31, 63, TransportMediator.KEYCODE_MEDIA_PAUSE, 255, 511, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] fAZ = new byte[256];
+    private int fAF;
+    int fAG;
+    int fAI;
+    int fAP;
+    int fAQ;
+    int fAR;
+    int fAV;
+    int fAH = 12;
+    int fAJ = 4096;
+    int[] fAK = new int[StatusCode.ERROR_NOT_LOGIN];
+    int[] fAL = new int[StatusCode.ERROR_NOT_LOGIN];
+    int fAM = StatusCode.ERROR_NOT_LOGIN;
+    int fAN = 0;
+    boolean fAO = false;
+    int fAS = 0;
+    int fAT = 0;
+    int[] fAU = {0, 1, 3, 7, 15, 31, 63, TransportMediator.KEYCODE_MEDIA_PAUSE, 255, 511, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] fAW = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.fAD = i;
-        this.fAE = i2;
-        this.fAF = bArr;
-        this.fAG = Math.max(2, i3);
+        this.fAA = i;
+        this.fAB = i2;
+        this.fAC = bArr;
+        this.fAD = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.fAZ;
-        int i = this.fAY;
-        this.fAY = i + 1;
+        byte[] bArr = this.fAW;
+        int i = this.fAV;
+        this.fAV = i + 1;
         bArr[i] = b;
-        if (this.fAY >= 254) {
+        if (this.fAV >= 254) {
             f(outputStream);
         }
     }
 
     void e(OutputStream outputStream) throws IOException {
-        qT(this.fAP);
-        this.fAQ = this.fAT + 2;
-        this.fAR = true;
-        b(this.fAT, outputStream);
+        qT(this.fAM);
+        this.fAN = this.fAQ + 2;
+        this.fAO = true;
+        b(this.fAQ, outputStream);
     }
 
     void qT(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.fAN[i2] = -1;
+            this.fAK[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.fAS = i;
-        this.fAR = false;
-        this.fAJ = this.fAS;
-        this.fAL = qU(this.fAJ);
-        this.fAT = 1 << (i - 1);
-        this.fAU = this.fAT + 1;
-        this.fAQ = this.fAT + 2;
-        this.fAY = 0;
+        this.fAP = i;
+        this.fAO = false;
+        this.fAG = this.fAP;
+        this.fAI = qU(this.fAG);
+        this.fAQ = 1 << (i - 1);
+        this.fAR = this.fAQ + 1;
+        this.fAN = this.fAQ + 2;
+        this.fAV = 0;
         int bdd = bdd();
-        for (int i3 = this.fAP; i3 < 65536; i3 *= 2) {
+        for (int i3 = this.fAM; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.fAP;
+        int i5 = this.fAM;
         qT(i5);
-        b(this.fAT, outputStream);
+        b(this.fAQ, outputStream);
         while (true) {
             int bdd2 = bdd();
             if (bdd2 != -1) {
-                int i6 = (bdd2 << this.fAK) + bdd;
+                int i6 = (bdd2 << this.fAH) + bdd;
                 int i7 = (bdd2 << i4) ^ bdd;
-                if (this.fAN[i7] == i6) {
-                    bdd = this.fAO[i7];
+                if (this.fAK[i7] == i6) {
+                    bdd = this.fAL[i7];
                 } else {
-                    if (this.fAN[i7] >= 0) {
+                    if (this.fAK[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -99,19 +99,19 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.fAN[i7] == i6) {
-                                bdd = this.fAO[i7];
+                            if (this.fAK[i7] == i6) {
+                                bdd = this.fAL[i7];
                                 break;
                             }
-                        } while (this.fAN[i7] >= 0);
+                        } while (this.fAK[i7] >= 0);
                     }
                     b(bdd, outputStream);
-                    if (this.fAQ < this.fAM) {
-                        int[] iArr = this.fAO;
-                        int i9 = this.fAQ;
-                        this.fAQ = i9 + 1;
+                    if (this.fAN < this.fAJ) {
+                        int[] iArr = this.fAL;
+                        int i9 = this.fAN;
+                        this.fAN = i9 + 1;
                         iArr[i7] = i9;
-                        this.fAN[i7] = i6;
+                        this.fAK[i7] = i6;
                         bdd = bdd2;
                     } else {
                         e(outputStream);
@@ -120,7 +120,7 @@ class b {
                 }
             } else {
                 b(bdd, outputStream);
-                b(this.fAU, outputStream);
+                b(this.fAR, outputStream);
                 return;
             }
         }
@@ -128,18 +128,18 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.fAG);
-        this.fAH = this.fAD * this.fAE;
-        this.fAI = 0;
-        a(this.fAG + 1, outputStream);
+        outputStream.write(this.fAD);
+        this.fAE = this.fAA * this.fAB;
+        this.fAF = 0;
+        a(this.fAD + 1, outputStream);
         outputStream.write(0);
     }
 
     void f(OutputStream outputStream) throws IOException {
-        if (this.fAY > 0) {
-            outputStream.write(this.fAY);
-            outputStream.write(this.fAZ, 0, this.fAY);
-            this.fAY = 0;
+        if (this.fAV > 0) {
+            outputStream.write(this.fAV);
+            outputStream.write(this.fAW, 0, this.fAV);
+            this.fAV = 0;
         }
     }
 
@@ -148,49 +148,49 @@ class b {
     }
 
     private int bdd() {
-        if (this.fAH == 0) {
+        if (this.fAE == 0) {
             return -1;
         }
-        this.fAH--;
-        byte[] bArr = this.fAF;
-        int i = this.fAI;
-        this.fAI = i + 1;
+        this.fAE--;
+        byte[] bArr = this.fAC;
+        int i = this.fAF;
+        this.fAF = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.fAV &= this.fAX[this.fAW];
-        if (this.fAW > 0) {
-            this.fAV |= i << this.fAW;
+        this.fAS &= this.fAU[this.fAT];
+        if (this.fAT > 0) {
+            this.fAS |= i << this.fAT;
         } else {
-            this.fAV = i;
+            this.fAS = i;
         }
-        this.fAW += this.fAJ;
-        while (this.fAW >= 8) {
-            a((byte) (this.fAV & 255), outputStream);
-            this.fAV >>= 8;
-            this.fAW -= 8;
+        this.fAT += this.fAG;
+        while (this.fAT >= 8) {
+            a((byte) (this.fAS & 255), outputStream);
+            this.fAS >>= 8;
+            this.fAT -= 8;
         }
-        if (this.fAQ > this.fAL || this.fAR) {
-            if (this.fAR) {
-                int i2 = this.fAS;
-                this.fAJ = i2;
-                this.fAL = qU(i2);
-                this.fAR = false;
+        if (this.fAN > this.fAI || this.fAO) {
+            if (this.fAO) {
+                int i2 = this.fAP;
+                this.fAG = i2;
+                this.fAI = qU(i2);
+                this.fAO = false;
             } else {
-                this.fAJ++;
-                if (this.fAJ == this.fAK) {
-                    this.fAL = this.fAM;
+                this.fAG++;
+                if (this.fAG == this.fAH) {
+                    this.fAI = this.fAJ;
                 } else {
-                    this.fAL = qU(this.fAJ);
+                    this.fAI = qU(this.fAG);
                 }
             }
         }
-        if (i == this.fAU) {
-            while (this.fAW > 0) {
-                a((byte) (this.fAV & 255), outputStream);
-                this.fAV >>= 8;
-                this.fAW -= 8;
+        if (i == this.fAR) {
+            while (this.fAT > 0) {
+                a((byte) (this.fAS & 255), outputStream);
+                this.fAS >>= 8;
+                this.fAT -= 8;
             }
             f(outputStream);
         }

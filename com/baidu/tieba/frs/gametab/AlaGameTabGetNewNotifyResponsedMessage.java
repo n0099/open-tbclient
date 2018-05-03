@@ -11,7 +11,7 @@ public class AlaGameTabGetNewNotifyResponsedMessage extends JsonHttpResponsedMes
     private List<a> mData;
 
     public AlaGameTabGetNewNotifyResponsedMessage() {
-        super(1003275);
+        super(1021074);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

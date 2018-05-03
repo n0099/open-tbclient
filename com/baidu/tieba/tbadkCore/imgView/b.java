@@ -11,9 +11,9 @@ import android.util.DisplayMetrics;
 public class b {
     private Rect Fk = new Rect();
     public Bitmap aOQ;
-    public Bundle gyw;
-    public boolean gyx;
-    public boolean gyy;
+    public Bundle gyt;
+    public boolean gyu;
+    public boolean gyv;
     private Context mContext;
     public Rect rect;
 

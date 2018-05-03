@@ -15,12 +15,12 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class a extends d {
-    private long gPt;
+    private long gPq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str) {
         super(str);
-        this.gPt = 88200L;
+        this.gPq = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:106:0x0253 A[SYNTHETIC] */
@@ -48,14 +48,14 @@ public class a extends d {
         FileInputStream fileInputStream2 = null;
         FileOutputStream fileOutputStream2 = null;
         try {
-            if (this.gPz == 0) {
-                this.gPz = 48000;
+            if (this.gPw == 0) {
+                this.gPw = 48000;
             }
             if (this.channelCount == 0) {
                 this.channelCount = 1;
             }
-            this.gPt = (this.gPz * 16) / 8;
-            fileInputStream = new FileInputStream(this.gPy);
+            this.gPq = (this.gPw * 16) / 8;
+            fileInputStream = new FileInputStream(this.gPv);
             try {
                 fileOutputStream = new FileOutputStream(str);
             } catch (Exception e) {
@@ -124,7 +124,7 @@ public class a extends d {
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
-                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.gPt);
+                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.gPq);
                         z2 = z5;
                     }
                 }
@@ -271,7 +271,7 @@ public class a extends d {
         mediaFormat.setString(IMediaFormat.KEY_MIME, "audio/mp4a-latm");
         mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, 128000);
         mediaFormat.setInteger("channel-count", this.channelCount);
-        mediaFormat.setInteger("sample-rate", this.gPz);
+        mediaFormat.setInteger("sample-rate", this.gPw);
         mediaFormat.setInteger("aac-profile", 2);
         createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
         return createEncoderByType;
@@ -284,7 +284,7 @@ public class a extends d {
             if (i2 >= iArr.length) {
                 i2 = 4;
                 break;
-            } else if (iArr[i2] == this.gPz) {
+            } else if (iArr[i2] == this.gPw) {
                 break;
             } else {
                 i2++;

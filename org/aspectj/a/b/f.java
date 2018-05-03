@@ -4,16 +4,16 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes2.dex */
 abstract class f implements org.aspectj.lang.c {
-    ClassLoader hza = null;
-    int hzk;
-    String hzl;
-    Class hzm;
-    a hzn;
-    private String hzo;
+    ClassLoader hyX = null;
+    int hzh;
+    String hzi;
+    Class hzj;
+    a hzk;
+    private String hzl;
     String name;
-    private static boolean cEA = true;
+    private static boolean cEx = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] hzp = new Class[0];
+    static Class[] hzm = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.hzk = -1;
-        this.hzk = i;
+        this.hzh = -1;
+        this.hzh = i;
         this.name = str;
-        this.hzm = cls;
+        this.hzj = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (cEA) {
-            if (this.hzn == null) {
+        if (cEx) {
+            if (this.hzk == null) {
                 try {
-                    this.hzn = new b();
+                    this.hzk = new b();
                 } catch (Throwable th) {
-                    cEA = false;
+                    cEx = false;
                 }
             } else {
-                str = this.hzn.get(hVar.hzA);
+                str = this.hzk.get(hVar.hzx);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (cEA) {
-            this.hzn.au(hVar.hzA, str);
+        if (cEx) {
+            this.hzk.au(hVar.hzx, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.hzC);
+        return a(h.hzz);
     }
 
     public int getModifiers() {
-        if (this.hzk == -1) {
-            this.hzk = wm(0);
+        if (this.hzh == -1) {
+            this.hzh = wm(0);
         }
-        return this.hzk;
+        return this.hzh;
     }
 
     public String getName() {
@@ -75,42 +75,42 @@ abstract class f implements org.aspectj.lang.c {
     }
 
     public Class bJB() {
-        if (this.hzm == null) {
-            this.hzm = wn(2);
+        if (this.hzj == null) {
+            this.hzj = wn(2);
         }
-        return this.hzm;
+        return this.hzj;
     }
 
     public String bJC() {
-        if (this.hzl == null) {
-            this.hzl = bJB().getName();
+        if (this.hzi == null) {
+            this.hzi = bJB().getName();
         }
-        return this.hzl;
+        return this.hzi;
     }
 
     private ClassLoader bJD() {
-        if (this.hza == null) {
-            this.hza = getClass().getClassLoader();
+        if (this.hyX == null) {
+            this.hyX = getClass().getClassLoader();
         }
-        return this.hza;
+        return this.hyX;
     }
 
     String wl(int i) {
         int i2 = 0;
-        int indexOf = this.hzo.indexOf(45);
+        int indexOf = this.hzl.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.hzo.indexOf(45, i2);
+            indexOf = this.hzl.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.hzo.length();
+            indexOf = this.hzl.length();
         }
-        return this.hzo.substring(i2, indexOf);
+        return this.hzl.substring(i2, indexOf);
     }
 
     int wm(int i) {
@@ -136,7 +136,7 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static final class b implements a {
-        private SoftReference hzq;
+        private SoftReference hzn;
 
         public b() {
             bJF();
@@ -161,12 +161,12 @@ abstract class f implements org.aspectj.lang.c {
         }
 
         private String[] bJE() {
-            return (String[]) this.hzq.get();
+            return (String[]) this.hzn.get();
         }
 
         private String[] bJF() {
             String[] strArr = new String[3];
-            this.hzq = new SoftReference(strArr);
+            this.hzn = new SoftReference(strArr);
             return strArr;
         }
     }

@@ -14,9 +14,9 @@ import com.baidu.tieba.d;
 import tbclient.Personalized.FloatInfo;
 /* loaded from: classes2.dex */
 public class QuizEntranceFloatingView extends FrameLayout {
-    private TbImageView dFO;
-    private TbImageView dFP;
-    private a dFQ;
+    private TbImageView dFL;
+    private TbImageView dFM;
+    private a dFN;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -36,30 +36,30 @@ public class QuizEntranceFloatingView extends FrameLayout {
 
     private void init() {
         Context context = getContext();
-        this.dFO = new TbImageView(context);
+        this.dFL = new TbImageView(context);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.e(context, d.e.tbds156), l.e(context, d.e.tbds156));
         layoutParams.gravity = 83;
         layoutParams.rightMargin = l.e(context, d.e.tbds26);
-        this.dFO.setDefaultErrorResource(d.f.icon_quiz_entrance_float_default);
-        addView(this.dFO, layoutParams);
-        this.dFP = new TbImageView(context);
+        this.dFL.setDefaultErrorResource(d.f.icon_quiz_entrance_float_default);
+        addView(this.dFL, layoutParams);
+        this.dFM = new TbImageView(context);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.e(context, d.e.tbds52), l.e(context, d.e.tbds52));
         layoutParams2.gravity = 5;
-        this.dFP.setAutoChangeStyle(false);
-        addView(this.dFP, layoutParams2);
-        this.dFO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.QuizEntranceFloatingView.1
+        this.dFM.setAutoChangeStyle(false);
+        addView(this.dFM, layoutParams2);
+        this.dFL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.QuizEntranceFloatingView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (QuizEntranceFloatingView.this.dFQ != null) {
-                    QuizEntranceFloatingView.this.dFQ.axJ();
+                if (QuizEntranceFloatingView.this.dFN != null) {
+                    QuizEntranceFloatingView.this.dFN.axJ();
                 }
             }
         });
-        this.dFP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.QuizEntranceFloatingView.2
+        this.dFM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.QuizEntranceFloatingView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (QuizEntranceFloatingView.this.dFQ != null) {
-                    QuizEntranceFloatingView.this.dFQ.axK();
+                if (QuizEntranceFloatingView.this.dFN != null) {
+                    QuizEntranceFloatingView.this.dFN.axK();
                 }
             }
         });
@@ -68,15 +68,15 @@ public class QuizEntranceFloatingView extends FrameLayout {
 
     public void setData(FloatInfo floatInfo) {
         if (floatInfo != null && !StringUtils.isNull(floatInfo.float_url)) {
-            this.dFO.startLoad(floatInfo.float_url, 10, false);
+            this.dFL.startLoad(floatInfo.float_url, 10, false);
         }
     }
 
     public void setCallback(a aVar) {
-        this.dFQ = aVar;
+        this.dFN = aVar;
     }
 
     public void onChangeSkinType() {
-        ak.c(this.dFP, d.f.icon_live_close_n);
+        ak.c(this.dFM, d.f.icon_live_close_n);
     }
 }

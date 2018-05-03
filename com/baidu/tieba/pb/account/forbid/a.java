@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class a {
-    private static final String fap = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String fam = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -28,8 +28,8 @@ public class a {
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0188a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String faq;
-        private WeakReference<b> far;
+        private String fan;
+        private WeakReference<b> fao;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -42,10 +42,10 @@ public class a {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.faq = str6;
+            this.fan = str6;
             this.yK = str7;
             this.mPostId = str5;
-            this.far = new WeakReference<>(bVar);
+            this.fao = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -54,8 +54,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: x */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.fap);
-            xVar.n("day", this.faq);
+            x xVar = new x(a.fam);
+            xVar.n("day", this.fan);
             xVar.n("un", this.mUserName);
             xVar.n(ImageViewerConfig.FORUM_ID, this.mForumId);
             xVar.n("word", this.mForumName);
@@ -87,7 +87,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.far.get();
+            b bVar = this.fao.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && an.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

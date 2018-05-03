@@ -20,46 +20,46 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 public class e {
     private View bee;
-    private ImageView den;
-    private PostWriteCallBackData fjB;
-    private View gJQ;
-    private TextView gJR;
-    private boolean gJS;
-    private TextView gJT;
-    private SendVideoSuccessShareModel gJU = new SendVideoSuccessShareModel();
+    private ImageView dek;
+    private PostWriteCallBackData fjy;
+    private View gJN;
+    private TextView gJO;
+    private boolean gJP;
+    private TextView gJQ;
+    private SendVideoSuccessShareModel gJR = new SendVideoSuccessShareModel();
     private Context mContext;
 
     public e(Context context, ViewGroup viewGroup) {
         this.mContext = context;
         this.bee = viewGroup;
         if (this.mContext != null && this.bee != null) {
-            this.gJQ = LayoutInflater.from(context).inflate(d.i.send_video_success_tip, (ViewGroup) null);
-            this.gJR = (TextView) this.gJQ.findViewById(d.g.success_tip);
-            this.den = (ImageView) this.gJQ.findViewById(d.g.video_activity_btn);
-            this.gJT = (TextView) this.gJQ.findViewById(d.g.video_share_btn);
+            this.gJN = LayoutInflater.from(context).inflate(d.i.send_video_success_tip, (ViewGroup) null);
+            this.gJO = (TextView) this.gJN.findViewById(d.g.success_tip);
+            this.dek = (ImageView) this.gJN.findViewById(d.g.video_activity_btn);
+            this.gJQ = (TextView) this.gJN.findViewById(d.g.video_share_btn);
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, l.e(context, d.e.ds128));
-            if (this.gJQ.getParent() == null) {
-                viewGroup.addView(this.gJQ, layoutParams);
+            if (this.gJN.getParent() == null) {
+                viewGroup.addView(this.gJN, layoutParams);
             }
-            this.gJQ.setVisibility(8);
-            this.gJQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.e.1
+            this.gJN.setVisibility(8);
+            this.gJN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (e.this.gJS) {
+                    if (e.this.gJP) {
                         e.this.hideTip();
-                        if (e.this.fjB != null && !StringUtils.isNull(e.this.fjB.buildVideoFakeOnWallUrl())) {
-                            com.baidu.tbadk.browser.a.f(e.this.mContext, null, e.this.fjB.buildVideoFakeOnWallUrl());
+                        if (e.this.fjy != null && !StringUtils.isNull(e.this.fjy.buildVideoFakeOnWallUrl())) {
+                            com.baidu.tbadk.browser.a.f(e.this.mContext, null, e.this.fjy.buildVideoFakeOnWallUrl());
                         }
                     }
                 }
             });
-            this.gJT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.e.2
+            this.gJQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     e.this.hideTip();
-                    if (e.this.fjB != null && !StringUtils.isNull(e.this.fjB.getVideoid())) {
-                        e.this.gJU.tI(e.this.fjB.getVideoid());
-                        e.this.gJU.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.video.e.2.1
+                    if (e.this.fjy != null && !StringUtils.isNull(e.this.fjy.getVideoid())) {
+                        e.this.gJR.tI(e.this.fjy.getVideoid());
+                        e.this.gJR.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.video.e.2.1
                             @Override // com.baidu.adp.base.d
                             public void f(Object obj) {
                                 com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
@@ -77,40 +77,40 @@ public class e {
 
     public void h(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.fjB = postWriteCallBackData;
-            this.gJS = postWriteCallBackData.mVideoTitleData != null;
-            if (this.gJQ != null && this.gJR != null && this.den != null && this.gJT != null) {
-                ak.j(this.gJQ, d.C0126d.cp_link_tip_a);
-                ak.h(this.gJR, d.C0126d.cp_cont_i);
-                ak.c(this.den, d.f.icon_arrow_more_white);
-                ak.i(this.gJT, d.f.immediately_share_background);
-                this.gJQ.setVisibility(0);
-                this.gJQ.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.e.3
+            this.fjy = postWriteCallBackData;
+            this.gJP = postWriteCallBackData.mVideoTitleData != null;
+            if (this.gJN != null && this.gJO != null && this.dek != null && this.gJQ != null) {
+                ak.j(this.gJN, d.C0126d.cp_link_tip_a);
+                ak.h(this.gJO, d.C0126d.cp_cont_i);
+                ak.c(this.dek, d.f.icon_arrow_more_white);
+                ak.i(this.gJQ, d.f.immediately_share_background);
+                this.gJN.setVisibility(0);
+                this.gJN.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.e.3
                     @Override // java.lang.Runnable
                     public void run() {
                         e.this.hideTip();
                     }
                 }, TbConfig.NOTIFY_SOUND_INTERVAL);
-                if (this.gJS) {
-                    this.gJR.setText(d.k.video_activity_tip);
+                if (this.gJP) {
+                    this.gJO.setText(d.k.video_activity_tip);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                    this.gJR.setText(postWriteCallBackData.getErrorString());
+                    this.gJO.setText(postWriteCallBackData.getErrorString());
                 } else {
-                    this.gJQ.setVisibility(8);
+                    this.gJN.setVisibility(8);
                 }
             }
         }
     }
 
     public void hideTip() {
-        if (this.gJQ != null) {
-            this.gJQ.setVisibility(8);
+        if (this.gJN != null) {
+            this.gJN.setVisibility(8);
         }
     }
 
     public void arg() {
-        if (this.gJU != null) {
-            this.gJU.cancelLoadData();
+        if (this.gJR != null) {
+            this.gJR.cancelLoadData();
         }
     }
 }

@@ -9,72 +9,72 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class h {
-    private String eqH;
-    private int eqI;
-    private int eqJ;
-    private long eqG = 0;
-    private HashMap<String, Boolean> eqF = new HashMap<>();
+    private String eqE;
+    private int eqF;
+    private int eqG;
+    private long eqD = 0;
+    private HashMap<String, Boolean> eqC = new HashMap<>();
 
     public void om(int i) {
-        this.eqJ = i;
+        this.eqG = i;
     }
 
     public int aJA() {
-        return this.eqJ;
+        return this.eqG;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.eqH = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.eqE = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.eqH = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.eqE = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.eqI = intExtra;
-            this.eqJ = intExtra;
+            this.eqF = intExtra;
+            this.eqG = intExtra;
         }
     }
 
     public void v(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.eqH);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.eqE);
         }
     }
 
     public void e(List<String> list, int i, int i2) {
-        synchronized (this.eqF) {
-            if (System.nanoTime() - this.eqG > 300000000 && list != null && i < list.size()) {
-                this.eqF.put(list.get(i), true);
+        synchronized (this.eqC) {
+            if (System.nanoTime() - this.eqD > 300000000 && list != null && i < list.size()) {
+                this.eqC.put(list.get(i), true);
             }
-            this.eqG = System.nanoTime();
-            if (list != null && i2 < list.size() && this.eqF.get(list.get(i2)) == null) {
-                this.eqF.put(list.get(i2), false);
+            this.eqD = System.nanoTime();
+            if (list != null && i2 < list.size() && this.eqC.get(list.get(i2)) == null) {
+                this.eqC.put(list.get(i2), false);
             }
         }
-        if (this.eqF.size() >= 100) {
+        if (this.eqC.size() >= 100) {
             aJB();
         }
     }
 
     public void aJB() {
-        if (this.eqF != null) {
-            synchronized (this.eqF) {
-                if (this.eqF.size() > 0) {
+        if (this.eqC != null) {
+            synchronized (this.eqC) {
+                if (this.eqC.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.eqF.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.eqC.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.eqF.size(), this.eqH, this.eqI + 1, this.eqJ + 1);
-                    this.eqF.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.eqC.size(), this.eqE, this.eqF + 1, this.eqG + 1);
+                    this.eqC.clear();
                 }
             }
         }
     }
 
     public void Z(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.eqG > 300000000) {
-            this.eqF.put(str, true);
+        if (i == 1 && System.nanoTime() - this.eqD > 300000000) {
+            this.eqC.put(str, true);
         }
     }
 }

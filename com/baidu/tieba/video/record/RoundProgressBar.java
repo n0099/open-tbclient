@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class RoundProgressBar extends View {
-    private int gSB;
+    private int gSy;
     private int mHeight;
     private Paint mPaint;
     private float mProgress;
@@ -32,7 +32,7 @@ public class RoundProgressBar extends View {
     }
 
     public void init() {
-        this.gSB = 4;
+        this.gSy = 4;
         this.mProgressColor = Color.rgb(255, 255, 255);
     }
 
@@ -47,7 +47,7 @@ public class RoundProgressBar extends View {
         }
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setStrokeWidth(this.gSB);
+        this.mPaint.setStrokeWidth(this.gSy);
         this.mPaint.setColor(this.mProgressColor);
         canvas.drawArc(new RectF(5.0f, 5.0f, this.mWidth - 5, this.mHeight - 5), 270.0f, (360.0f * this.mProgress) / 100.0f, false, this.mPaint);
     }

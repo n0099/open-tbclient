@@ -24,7 +24,7 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameCommentActivityConfig.class, FrsGameCommentActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         bd.ZR.set(true);
-        a.cWy.set(new ao());
+        a.cWv.set(new ao());
         MessageManager.getInstance().registerListener(new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.FRSExtraStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -33,8 +33,8 @@ public class FRSExtraStatic {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                     absDelegateAdapterList.add(new p(null, au.Zj, null));
                     absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.b(null, bd.ZG));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.a(null, com.baidu.tieba.card.data.n.csm, true));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.d(null, com.baidu.tieba.tbadkCore.v.gvD, null));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.a(null, com.baidu.tieba.card.data.n.csj, true));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.d(null, com.baidu.tieba.tbadkCore.v.gvA, null));
                 }
             }
         });

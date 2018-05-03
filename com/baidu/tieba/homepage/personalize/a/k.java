@@ -44,17 +44,17 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes2.dex */
     public static class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.personalize.data.g> {
-        private TbImageView dEJ;
+        private TbImageView dEG;
 
         public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
-            this.dEJ = (TbImageView) getView().findViewById(d.g.quiz_entrance_img);
-            this.dEJ.setAutoChangeStyle(true);
-            this.dEJ.setScaleType(ImageView.ScaleType.FIT_XY);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dEJ.getLayoutParams();
+            this.dEG = (TbImageView) getView().findViewById(d.g.quiz_entrance_img);
+            this.dEG.setAutoChangeStyle(true);
+            this.dEG.setScaleType(ImageView.ScaleType.FIT_XY);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dEG.getLayoutParams();
             layoutParams.height = (int) (com.baidu.adp.lib.util.l.e(tbPageContext.getPageActivity(), d.e.tbds236) * ((com.baidu.adp.lib.util.l.af(tbPageContext.getPageActivity()) * 1.0f) / 1080.0f));
-            this.dEJ.setLayoutParams(layoutParams);
-            this.dEJ.setDefaultErrorResource(d.f.pic_quiz_banner_default);
+            this.dEG.setLayoutParams(layoutParams);
+            this.dEG.setDefaultErrorResource(d.f.pic_quiz_banner_default);
             getView().setOnClickListener(this);
         }
 
@@ -70,12 +70,12 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.a
         public void a(com.baidu.tieba.homepage.personalize.data.g gVar) {
-            if (gVar.dFo >= 0 && gVar.dFn >= 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dEJ.getLayoutParams();
-                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.af(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.dFo) * gVar.dFn);
-                this.dEJ.setLayoutParams(layoutParams);
+            if (gVar.dFl >= 0 && gVar.dFk >= 0) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dEG.getLayoutParams();
+                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.af(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.dFl) * gVar.dFk);
+                this.dEG.setLayoutParams(layoutParams);
             }
-            this.dEJ.startLoad(gVar.imgUrl, 10, false);
+            this.dEG.startLoad(gVar.imgUrl, 10, false);
         }
 
         @Override // android.view.View.OnClickListener

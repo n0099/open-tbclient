@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 final class a {
-    private static final a hkL = new a();
-    private final Set<InterfaceC0244a> hkM = new LinkedHashSet();
-    private boolean hkN;
+    private static final a hkI = new a();
+    private final Set<InterfaceC0244a> hkJ = new LinkedHashSet();
+    private boolean hkK;
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -29,31 +29,31 @@ final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a bEQ() {
-        return hkL;
+        return hkI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final Set<InterfaceC0244a> bER() {
-        return this.hkM;
+        return this.hkJ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(InterfaceC0244a interfaceC0244a) {
-        synchronized (this.hkM) {
-            this.hkM.add(interfaceC0244a);
+        synchronized (this.hkJ) {
+            this.hkJ.add(interfaceC0244a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.hkM) {
-            this.hkM.clear();
+        synchronized (this.hkJ) {
+            this.hkJ.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void c(Context context) {
-        if (this.hkN || Build.VERSION.SDK_INT < 14) {
+        if (this.hkK || Build.VERSION.SDK_INT < 14) {
             return;
         }
         try {
@@ -61,6 +61,6 @@ final class a {
         } catch (Exception e) {
             com.baidu.ubs.analytics.d.j.vk("registerActivityLifecycleCallbacks encounter exception");
         }
-        this.hkN = true;
+        this.hkK = true;
     }
 }

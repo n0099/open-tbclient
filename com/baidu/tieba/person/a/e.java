@@ -11,9 +11,9 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
     private HTypeListView bdJ;
-    private c fCG;
-    private b fCH;
-    private a fCI;
+    private c fCD;
+    private b fCE;
+    private a fCF;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
@@ -24,12 +24,12 @@ public class e {
     }
 
     private void initAdapters() {
-        this.fCG = new c(this.mTbPageContext, i.aBK);
-        this.fCH = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.fCO);
-        this.fCI = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.fCp);
-        this.mAdapters.add(this.fCG);
-        this.mAdapters.add(this.fCH);
-        this.mAdapters.add(this.fCI);
+        this.fCD = new c(this.mTbPageContext, i.aBK);
+        this.fCE = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.fCL);
+        this.fCF = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.fCm);
+        this.mAdapters.add(this.fCD);
+        this.mAdapters.add(this.fCE);
+        this.mAdapters.add(this.fCF);
         this.bdJ.addAdapters(this.mAdapters);
     }
 
@@ -46,7 +46,7 @@ public class e {
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.fCG.t(onClickListener);
-        this.fCH.t(onClickListener);
+        this.fCD.t(onClickListener);
+        this.fCE.t(onClickListener);
     }
 }

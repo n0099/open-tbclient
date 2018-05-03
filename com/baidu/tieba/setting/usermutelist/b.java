@@ -16,15 +16,15 @@ public class b extends c<UserMuteListActivity> {
     private BdListView FL;
     private View Tl;
     private BaseActivity<UserMuteListActivity> bcJ;
-    private NoNetworkView cHB;
-    private a gjY;
+    private NoNetworkView cHy;
+    private a gjV;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
 
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
         this.bcJ = baseActivity;
-        this.gjY = aVar;
+        this.gjV = aVar;
         initUI();
     }
 
@@ -35,7 +35,7 @@ public class b extends c<UserMuteListActivity> {
     private void initUI() {
         this.bcJ.setContentView(d.i.user_mute_list_activity);
         this.Tl = this.bcJ.findViewById(d.g.root_view);
-        this.cHB = (NoNetworkView) this.Tl.findViewById(d.g.view_no_network);
+        this.cHy = (NoNetworkView) this.Tl.findViewById(d.g.view_no_network);
         this.mNavigationBar = (NavigationBar) this.Tl.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(d.k.user_mute_list_text);
@@ -50,7 +50,7 @@ public class b extends c<UserMuteListActivity> {
         this.bcJ.getLayoutMode().u(this.Tl);
         this.mNavigationBar.onChangeSkinType(this.bcJ.getPageContext(), skinType);
         this.mNoDataView.onChangeSkinType(this.bcJ.getPageContext(), skinType);
-        this.cHB.onChangeSkinType(this.bcJ.getPageContext(), skinType);
+        this.cHy.onChangeSkinType(this.bcJ.getPageContext(), skinType);
     }
 
     public void atN() {

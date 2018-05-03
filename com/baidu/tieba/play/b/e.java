@@ -169,7 +169,7 @@ public class e {
         }
     }
 
-    public static void bx(int i, int i2) {
+    public static void bw(int i, int i2) {
         switch (i2) {
             case -10040:
                 TiebaStatic.log(new al("c12511").r("obj_locate", 6));

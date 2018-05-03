@@ -15,29 +15,29 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b {
-    private TbImageView cNz;
-    private RelativeLayout epC;
-    public TbImageView epD;
-    public LinearLayout epE;
-    public TextView epF;
-    public boolean epG = false;
+    private TbImageView cNw;
+    public TbImageView epA;
+    public LinearLayout epB;
+    public TextView epC;
+    public boolean epD = false;
+    private RelativeLayout epz;
     private TextView mButton;
     private Context mContext;
     private ProgressBar mProgressBar;
 
     public b(ViewGroup viewGroup) {
-        this.epC = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(d.i.big_image_ad, (ViewGroup) null);
-        this.cNz = (TbImageView) this.epC.findViewById(d.g.big_image_ad_image);
-        this.mButton = (TextView) this.epC.findViewById(d.g.big_image_ad_button);
-        this.epD = (TbImageView) this.epC.findViewById(d.g.big_image_ad_label);
-        this.epE = (LinearLayout) this.epC.findViewById(d.g.big_image_ad_source_container);
-        this.epF = (TextView) this.epC.findViewById(d.g.big_image_ad_source);
+        this.epz = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(d.i.big_image_ad, (ViewGroup) null);
+        this.cNw = (TbImageView) this.epz.findViewById(d.g.big_image_ad_image);
+        this.mButton = (TextView) this.epz.findViewById(d.g.big_image_ad_button);
+        this.epA = (TbImageView) this.epz.findViewById(d.g.big_image_ad_label);
+        this.epB = (LinearLayout) this.epz.findViewById(d.g.big_image_ad_source_container);
+        this.epC = (TextView) this.epz.findViewById(d.g.big_image_ad_source);
         this.mContext = viewGroup.getContext();
         aIZ();
     }
 
     public View getView() {
-        return this.epC;
+        return this.epz;
     }
 
     public void aIZ() {
@@ -47,11 +47,11 @@ public class b {
         layoutParams.addRule(13);
         this.mProgressBar.setLayoutParams(layoutParams);
         this.mProgressBar.setIndeterminate(true);
-        this.epC.addView(this.mProgressBar);
+        this.epz.addView(this.mProgressBar);
     }
 
     public TbImageView aJa() {
-        return this.cNz;
+        return this.cNw;
     }
 
     public TextView aJb() {
@@ -81,8 +81,8 @@ public class b {
 
     public void aJe() {
         int width = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getWidth();
-        ViewGroup.LayoutParams layoutParams = this.cNz.getLayoutParams();
-        double loadedHeight = this.cNz.getLoadedHeight() / this.cNz.getLoadedWidth();
+        ViewGroup.LayoutParams layoutParams = this.cNw.getLayoutParams();
+        double loadedHeight = this.cNw.getLoadedHeight() / this.cNw.getLoadedWidth();
         if (loadedHeight > 1.0d) {
             layoutParams.height = width;
             layoutParams.width = (int) (width / loadedHeight);
@@ -90,12 +90,12 @@ public class b {
             layoutParams.height = (int) (loadedHeight * width);
             layoutParams.width = width;
         }
-        this.cNz.setLayoutParams(layoutParams);
+        this.cNw.setLayoutParams(layoutParams);
     }
 
     public void p(View.OnClickListener onClickListener) {
         this.mButton.setOnClickListener(onClickListener);
-        this.cNz.setOnClickListener(onClickListener);
+        this.cNw.setOnClickListener(onClickListener);
     }
 
     public void aJf() {

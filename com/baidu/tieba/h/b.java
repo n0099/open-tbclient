@@ -10,46 +10,46 @@ import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements h {
-    public static final BdUniqueId duW = BdUniqueId.gen();
-    private int crD;
-    private List<a> duX;
-    private String duY;
-    private String duZ;
+    public static final BdUniqueId duT = BdUniqueId.gen();
+    private int crA;
+    private List<a> duU;
+    private String duV;
+    private String duW;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.crD = esport.floor_no.intValue();
+            this.crA = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.duY = esport._static.img;
-                this.duZ = esport._static.url;
+                this.duV = esport._static.img;
+                this.duW = esport._static.url;
             }
-            this.duX = new ArrayList();
-            if (!StringUtils.isNull(this.duY)) {
+            this.duU = new ArrayList();
+            if (!StringUtils.isNull(this.duV)) {
                 a aVar = new a();
-                aVar.mw(this.duY);
-                aVar.mx(this.duZ);
-                this.duX.add(aVar);
+                aVar.mw(this.duV);
+                aVar.mx(this.duW);
+                this.duU.add(aVar);
             }
             if (!v.w(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.duX.add(aVar2);
+                    this.duU.add(aVar2);
                 }
             }
         }
     }
 
     public int awb() {
-        return this.crD;
+        return this.crA;
     }
 
     public List<a> awc() {
-        return this.duX;
+        return this.duU;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return duW;
+        return duT;
     }
 }

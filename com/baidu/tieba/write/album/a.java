@@ -6,29 +6,29 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
     private Fragment[] blD;
-    private AlbumActivity hbA;
-    private String[] hbB;
-    private ImageListFragment hbC;
-    private AlbumImageBrowseFragment hbD;
-    private String hby;
-    private String hbz;
+    private AlbumImageBrowseFragment hbA;
+    private String hbv;
+    private String hbw;
+    private AlbumActivity hbx;
+    private String[] hby;
+    private ImageListFragment hbz;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.hby = "tag_image";
-        this.hbz = "tag_b_image";
-        this.hbA = albumActivity;
+        this.hbv = "tag_image";
+        this.hbw = "tag_b_image";
+        this.hbx = albumActivity;
     }
 
     public void aTP() {
         this.blD = new Fragment[2];
-        this.hbB = new String[2];
-        this.hbC = new ImageListFragment();
-        this.blD[0] = this.hbC;
-        this.hbB[0] = this.hby;
-        this.hbD = new AlbumImageBrowseFragment();
-        this.blD[1] = this.hbD;
-        this.hbB[1] = this.hbz;
+        this.hby = new String[2];
+        this.hbz = new ImageListFragment();
+        this.blD[0] = this.hbz;
+        this.hby[0] = this.hbv;
+        this.hbA = new AlbumImageBrowseFragment();
+        this.blD[1] = this.hbA;
+        this.hby[1] = this.hbw;
     }
 
     public Fragment uP(int i) {
@@ -42,7 +42,7 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.hbB[i];
+        return this.hby[i];
     }
 
     public void onChangeSkinType(int i) {
@@ -61,10 +61,10 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
     }
 
     public TbCameraView bBt() {
-        if (this.hbC == null) {
+        if (this.hbz == null) {
             return null;
         }
-        return this.hbC.bBt();
+        return this.hbz.bBt();
     }
 
     public void stopCamera() {
@@ -81,68 +81,68 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
             bBt.setVisibility(0);
             bBt.nr(false);
         }
-        if (this.hbC != null && this.hbC.bBR() != null) {
-            this.hbC.bBR().bBW();
+        if (this.hbz != null && this.hbz.bBR() != null) {
+            this.hbz.bBR().bBW();
         }
     }
 
     public View bBu() {
-        if (this.hbC == null) {
+        if (this.hbz == null) {
             return null;
         }
-        return this.hbC.bmv();
+        return this.hbz.bmv();
     }
 
     public View bBv() {
-        if (this.hbC == null) {
+        if (this.hbz == null) {
             return null;
         }
-        return this.hbC.bBQ();
+        return this.hbz.bBQ();
     }
 
     public View bBw() {
-        if (this.hbD == null) {
+        if (this.hbA == null) {
             return null;
         }
-        return this.hbD.bmv();
+        return this.hbA.bmv();
     }
 
     public View bBx() {
-        if (this.hbD == null) {
+        if (this.hbA == null) {
             return null;
         }
-        return this.hbD.bBC();
+        return this.hbA.bBC();
     }
 
     public View bBy() {
-        if (this.hbD == null) {
+        if (this.hbA == null) {
             return null;
         }
-        return this.hbD.bBy();
+        return this.hbA.bBy();
     }
 
     public View bBz() {
-        if (this.hbC == null) {
+        if (this.hbz == null) {
             return null;
         }
-        return this.hbC.bBy();
+        return this.hbz.bBy();
     }
 
     public void onDestroy() {
     }
 
     public void nn(boolean z) {
-        if (this.hbD != null) {
-            this.hbD.nn(z);
+        if (this.hbA != null) {
+            this.hbA.nn(z);
         }
-        if (this.hbC != null) {
-            this.hbC.nn(z);
+        if (this.hbz != null) {
+            this.hbz.nn(z);
         }
     }
 
     public void a(i iVar) {
-        if (this.hbC != null) {
-            this.hbC.a(iVar);
+        if (this.hbz != null) {
+            this.hbz.a(iVar);
         }
     }
 }

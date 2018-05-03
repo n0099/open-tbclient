@@ -37,21 +37,21 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
     private TbPageContext adf;
-    private ForumWriteData gSl;
+    private ForumWriteData gSi;
     private TbImageView haA;
     private TextView haB;
-    private LinearLayout haC;
-    private TbImageView haD;
-    private TextView haE;
-    private ImageView haF;
-    private GridLayout haG;
-    private a haH;
+    private ImageView haC;
+    private GridLayout haD;
+    private a haE;
+    private Animation haL;
+    private Animation haM;
+    private Animation haN;
     private Animation haO;
-    private Animation haP;
-    private Animation haQ;
-    private Animation haR;
-    private View har;
-    private View has;
+    private View hao;
+    private View hap;
+    private LinearLayout haq;
+    private TbImageView har;
+    private TextView has;
     private LinearLayout hat;
     private TbImageView hau;
     private TextView hav;
@@ -62,23 +62,23 @@ public class c {
     private String mFrom;
     private ViewGroup mRootView;
     private String writeCallFrom;
-    private boolean haI = false;
-    private int haJ = 0;
-    private boolean haK = true;
-    private boolean haL = true;
-    private ArrayList<View> haM = new ArrayList<>();
-    private String haN = "";
-    private String haS = "0";
+    private boolean haF = false;
+    private int haG = 0;
+    private boolean haH = true;
+    private boolean haI = true;
+    private ArrayList<View> haJ = new ArrayList<>();
+    private String haK = "";
+    private String haP = "0";
 
     static /* synthetic */ int r(c cVar) {
-        int i = cVar.haJ;
-        cVar.haJ = i + 1;
+        int i = cVar.haG;
+        cVar.haG = i + 1;
         return i;
     }
 
     static /* synthetic */ int t(c cVar) {
-        int i = cVar.haJ;
-        cVar.haJ = i - 1;
+        int i = cVar.haG;
+        cVar.haG = i - 1;
         return i;
     }
 
@@ -94,11 +94,11 @@ public class c {
         if (str == null) {
             str = "";
         }
-        this.haN = str;
+        this.haK = str;
     }
 
     public void a(ForumWriteData forumWriteData) {
-        this.gSl = forumWriteData;
+        this.gSi = forumWriteData;
     }
 
     public void uD(String str) {
@@ -107,60 +107,60 @@ public class c {
         } else {
             this.writeCallFrom = str;
         }
-        this.haS = str;
+        this.haP = str;
     }
 
     private void initView() {
         if (this.adf != null && this.adf.getPageActivity() != null && this.mRootView != null) {
-            this.has = LayoutInflater.from(this.adf.getPageActivity()).inflate(d.i.bottom_write_thread, (ViewGroup) null);
-            this.haw = (LinearLayout) this.has.findViewById(d.g.home_write_article);
-            this.hax = (TbImageView) this.has.findViewById(d.g.home_write_article_icon);
-            this.hay = (TextView) this.has.findViewById(d.g.home_write_article_title);
-            this.hat = (LinearLayout) this.has.findViewById(d.g.home_write_photo);
-            this.hau = (TbImageView) this.has.findViewById(d.g.home_write_photo_icon);
-            this.hav = (TextView) this.has.findViewById(d.g.home_write_photo_title);
-            this.haz = (LinearLayout) this.has.findViewById(d.g.home_write_album);
-            this.haA = (TbImageView) this.has.findViewById(d.g.home_write_album_icon);
-            this.haB = (TextView) this.has.findViewById(d.g.home_write_album_title);
-            this.haC = (LinearLayout) this.has.findViewById(d.g.home_write_live);
-            this.haD = (TbImageView) this.has.findViewById(d.g.home_write_live_icon);
-            this.haE = (TextView) this.has.findViewById(d.g.home_write_live_title);
-            this.haF = (ImageView) this.has.findViewById(d.g.write_close_view);
-            this.har = this.has.findViewById(d.g.view_background);
-            this.haG = (GridLayout) this.has.findViewById(d.g.type_container);
-            this.haG.setMeasureAllChild(true);
-            this.haG.setVerNum(1);
+            this.hap = LayoutInflater.from(this.adf.getPageActivity()).inflate(d.i.bottom_write_thread, (ViewGroup) null);
+            this.hat = (LinearLayout) this.hap.findViewById(d.g.home_write_article);
+            this.hau = (TbImageView) this.hap.findViewById(d.g.home_write_article_icon);
+            this.hav = (TextView) this.hap.findViewById(d.g.home_write_article_title);
+            this.haq = (LinearLayout) this.hap.findViewById(d.g.home_write_photo);
+            this.har = (TbImageView) this.hap.findViewById(d.g.home_write_photo_icon);
+            this.has = (TextView) this.hap.findViewById(d.g.home_write_photo_title);
+            this.haw = (LinearLayout) this.hap.findViewById(d.g.home_write_album);
+            this.hax = (TbImageView) this.hap.findViewById(d.g.home_write_album_icon);
+            this.hay = (TextView) this.hap.findViewById(d.g.home_write_album_title);
+            this.haz = (LinearLayout) this.hap.findViewById(d.g.home_write_live);
+            this.haA = (TbImageView) this.hap.findViewById(d.g.home_write_live_icon);
+            this.haB = (TextView) this.hap.findViewById(d.g.home_write_live_title);
+            this.haC = (ImageView) this.hap.findViewById(d.g.write_close_view);
+            this.hao = this.hap.findViewById(d.g.view_background);
+            this.haD = (GridLayout) this.hap.findViewById(d.g.type_container);
+            this.haD.setMeasureAllChild(true);
+            this.haD.setVerNum(1);
             bAZ();
-            this.haM.add(this.haw);
-            this.haM.add(this.hat);
-            this.haM.add(this.haz);
-            this.haM.add(this.haC);
-            this.has.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.1
+            this.haJ.add(this.hat);
+            this.haJ.add(this.haq);
+            this.haJ.add(this.haw);
+            this.haJ.add(this.haz);
+            this.hap.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    c.this.bB(c.this.haG);
+                    c.this.bB(c.this.haD);
                 }
             });
-            this.hax.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.2
+            this.hau.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    c.this.uE(c.this.haN);
+                    c.this.uE(c.this.haK);
                 }
             });
-            this.hau.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.3
+            this.har.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     c.this.bBc();
-                    TiebaStatic.log(new al("c12611").ac("obj_locate", c.this.haS).r("obj_type", 2));
-                    if (c.this.gSl == null) {
-                        c.this.gSl = new ForumWriteData("0", null, null, null);
+                    TiebaStatic.log(new al("c12611").ac("obj_locate", c.this.haP).r("obj_type", 2));
+                    if (c.this.gSi == null) {
+                        c.this.gSi = new ForumWriteData("0", null, null, null);
                     }
-                    c.this.gSl.mFrom = c.this.mFrom;
-                    c.this.gSl.writeCallFrom = c.this.writeCallFrom;
-                    e.a(c.this.adf, "", c.this.gSl);
+                    c.this.gSi.mFrom = c.this.mFrom;
+                    c.this.gSi.writeCallFrom = c.this.writeCallFrom;
+                    e.a(c.this.adf, "", c.this.gSi);
                 }
             });
-            this.haA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.4
+            this.hax.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     String str;
@@ -173,16 +173,16 @@ public class c {
                     c.this.bBc();
                     PostPrefixData postPrefixData = null;
                     AntiData antiData = null;
-                    if (c.this.gSl != null) {
-                        String str6 = c.this.gSl.forumId;
-                        String str7 = c.this.gSl.forumName;
-                        postPrefixData = c.this.gSl.prefixData;
-                        antiData = c.this.gSl.antiData;
-                        int i3 = c.this.gSl.forumLevel;
-                        String str8 = c.this.gSl.avatar;
-                        int i4 = c.this.gSl.privateThread;
-                        String str9 = c.this.gSl.firstDir;
-                        str = c.this.gSl.secondDir;
+                    if (c.this.gSi != null) {
+                        String str6 = c.this.gSi.forumId;
+                        String str7 = c.this.gSi.forumName;
+                        postPrefixData = c.this.gSi.prefixData;
+                        antiData = c.this.gSi.antiData;
+                        int i3 = c.this.gSi.forumLevel;
+                        String str8 = c.this.gSi.avatar;
+                        int i4 = c.this.gSi.privateThread;
+                        String str9 = c.this.gSi.firstDir;
+                        str = c.this.gSi.secondDir;
                         str2 = str9;
                         i = i4;
                         str3 = str8;
@@ -198,7 +198,7 @@ public class c {
                         str4 = null;
                         str5 = "0";
                     }
-                    TiebaStatic.log(new al("c12611").ac("obj_locate", c.this.haS).r("obj_type", 3));
+                    TiebaStatic.log(new al("c12611").ac("obj_locate", c.this.haP).r("obj_type", 3));
                     WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.adf.getPageActivity(), 0, str5, str4, null, null, 0, antiData, 13003, false, false, null, false, false, null, null, postPrefixData, 0);
                     writeActivityConfig.getIntent().putExtra("from", c.this.mFrom);
                     writeActivityConfig.setCallFrom(c.this.writeCallFrom);
@@ -207,15 +207,15 @@ public class c {
                     writeActivityConfig.setAlbumThread(1);
                     writeActivityConfig.setPrivateThread(i);
                     writeActivityConfig.setForumDir(str2, str);
-                    if (!StringUtils.isNull(c.this.haN)) {
-                        writeActivityConfig.setTitle(c.this.haN, true);
+                    if (!StringUtils.isNull(c.this.haK)) {
+                        writeActivityConfig.setTitle(c.this.haK, true);
                     }
                     if (!c.H(c.this.adf.getPageActivity())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
                     }
                 }
             });
-            this.haD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.5
+            this.haA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     String str;
@@ -224,26 +224,26 @@ public class c {
                     MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
                     String str3 = "0";
                     com.baidu.adp.lib.d.a.eK().G(false);
-                    if (c.this.gSl != null) {
-                        str3 = c.this.gSl.forumId;
-                        str = c.this.gSl.forumName;
-                        str2 = c.this.gSl.specialForumType;
+                    if (c.this.gSi != null) {
+                        str3 = c.this.gSi.forumId;
+                        str = c.this.gSi.forumName;
+                        str2 = c.this.gSi.specialForumType;
                     } else {
                         str = null;
                     }
-                    TiebaStatic.log(new al("c12611").ac("obj_locate", c.this.haS).r("obj_type", 4));
+                    TiebaStatic.log(new al("c12611").ac("obj_locate", c.this.haP).r("obj_type", 4));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(TbadkCoreApplication.getInst().getApplicationContext(), str, str3, TbadkCoreApplication.getCurrentAccount(), str2)));
                 }
             });
             onChangeSkinType();
-            this.haO = AnimationUtils.loadAnimation(this.adf.getPageActivity(), d.a.write_thread_black_anim);
+            this.haL = AnimationUtils.loadAnimation(this.adf.getPageActivity(), d.a.write_thread_black_anim);
+            this.haL.setFillAfter(true);
+            this.haM = AnimationUtils.loadAnimation(this.adf.getPageActivity(), d.a.write_thread_black_hide_anim);
+            this.haM.setFillAfter(true);
+            this.haN = AnimationUtils.loadAnimation(this.adf.getPageActivity(), d.a.write_tab_bg_anim);
+            this.haN.setFillAfter(true);
+            this.haO = AnimationUtils.loadAnimation(this.adf.getPageActivity(), d.a.home_write_bgout);
             this.haO.setFillAfter(true);
-            this.haP = AnimationUtils.loadAnimation(this.adf.getPageActivity(), d.a.write_thread_black_hide_anim);
-            this.haP.setFillAfter(true);
-            this.haQ = AnimationUtils.loadAnimation(this.adf.getPageActivity(), d.a.write_tab_bg_anim);
-            this.haQ.setFillAfter(true);
-            this.haR = AnimationUtils.loadAnimation(this.adf.getPageActivity(), d.a.home_write_bgout);
-            this.haR.setFillAfter(true);
         }
     }
 
@@ -257,15 +257,15 @@ public class c {
 
     private void bAZ() {
         int af = (int) (0.15555556f * l.af(this.adf.getPageActivity()));
-        a(this.hax, af);
         a(this.hau, af);
+        a(this.har, af);
+        a(this.hax, af);
         a(this.haA, af);
-        a(this.haD, af);
         int ah = l.ah(this.adf.getPageActivity());
-        ViewGroup.LayoutParams layoutParams = this.haG.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.haD.getLayoutParams();
         if (layoutParams instanceof RelativeLayout.LayoutParams) {
             ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = ah / 5;
-            this.haG.setLayoutParams(layoutParams);
+            this.haD.setLayoutParams(layoutParams);
         }
     }
 
@@ -290,37 +290,37 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             c.this.clearAnimation();
-            c.this.haw.setVisibility(4);
             c.this.hat.setVisibility(4);
+            c.this.haq.setVisibility(4);
+            c.this.haw.setVisibility(4);
             c.this.haz.setVisibility(4);
             c.this.haC.setVisibility(4);
-            c.this.haF.setVisibility(4);
-            c.this.har.setVisibility(4);
+            c.this.hao.setVisibility(4);
             if (this.mView != null) {
                 this.mView.setVisibility(8);
             }
-            if (c.this.has.getParent() == c.this.mRootView) {
-                c.this.mRootView.removeView(c.this.has);
+            if (c.this.hap.getParent() == c.this.mRootView) {
+                c.this.mRootView.removeView(c.this.hap);
             }
-            c.this.haI = false;
+            c.this.haF = false;
         }
     }
 
     public void nk(boolean z) {
-        if (!this.haI && this.haK && this.haL && this.mRootView != null) {
-            this.haF.clearAnimation();
-            this.haI = true;
-            if (this.has.getParent() == null) {
-                com.baidu.tbadk.j.d.Q(this.mRootView).a(this.mRootView, this.has, z);
+        if (!this.haF && this.haH && this.haI && this.mRootView != null) {
+            this.haC.clearAnimation();
+            this.haF = true;
+            if (this.hap.getParent() == null) {
+                com.baidu.tbadk.j.d.Q(this.mRootView).a(this.mRootView, this.hap, z);
             }
-            this.haG.setVisibility(0);
-            this.har.setVisibility(0);
-            this.har.clearAnimation();
-            this.har.startAnimation(this.haQ);
-            this.haF.setVisibility(0);
-            this.haF.startAnimation(this.haO);
+            this.haD.setVisibility(0);
+            this.hao.setVisibility(0);
+            this.hao.clearAnimation();
+            this.hao.startAnimation(this.haN);
+            this.haC.setVisibility(0);
+            this.haC.startAnimation(this.haL);
             bBa();
-            TiebaStatic.log(new al("c12052").ac("obj_locate", this.haS));
+            TiebaStatic.log(new al("c12052").ac("obj_locate", this.haP));
             if (j.gR()) {
                 String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_baidu_sim_card_writting_tip", "");
                 if (!an.isEmpty(string)) {
@@ -333,11 +333,11 @@ public class c {
 
     private void bBa() {
         clearAnimation();
-        final int size = this.haM.size();
-        this.haK = false;
-        this.haJ = 0;
+        final int size = this.haJ.size();
+        this.haH = false;
+        this.haG = 0;
         for (int i = 0; i < size; i++) {
-            final View view2 = this.haM.get(i);
+            final View view2 = this.haJ.get(i);
             com.baidu.adp.lib.g.e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.write.c.6
                 @Override // java.lang.Runnable
                 public void run() {
@@ -351,9 +351,9 @@ public class c {
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
                             c.r(c.this);
-                            if (c.this.haJ == size) {
-                                c.this.haK = true;
-                                c.this.haJ = 0;
+                            if (c.this.haG == size) {
+                                c.this.haH = true;
+                                c.this.haG = 0;
                             }
                         }
 
@@ -368,46 +368,46 @@ public class c {
     }
 
     public void bBb() {
-        bB(this.haG);
+        bB(this.haD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bB(View view2) {
-        if (this.haK && this.haL) {
-            if (this.haH != null) {
-                com.baidu.adp.lib.g.e.fw().removeCallbacks(this.haH);
+        if (this.haH && this.haI) {
+            if (this.haE != null) {
+                com.baidu.adp.lib.g.e.fw().removeCallbacks(this.haE);
             }
-            this.har.clearAnimation();
-            this.har.startAnimation(this.haR);
-            this.haF.clearAnimation();
-            this.haF.startAnimation(this.haP);
+            this.hao.clearAnimation();
+            this.hao.startAnimation(this.haO);
+            this.haC.clearAnimation();
+            this.haC.startAnimation(this.haM);
             bBd();
-            this.haH = new a(view2);
-            com.baidu.adp.lib.g.e.fw().postDelayed(this.haH, 500L);
+            this.haE = new a(view2);
+            com.baidu.adp.lib.g.e.fw().postDelayed(this.haE, 500L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bBc() {
-        this.haK = true;
-        this.haL = true;
-        if (this.haH != null) {
-            com.baidu.adp.lib.g.e.fw().removeCallbacks(this.haH);
+        this.haH = true;
+        this.haI = true;
+        if (this.haE != null) {
+            com.baidu.adp.lib.g.e.fw().removeCallbacks(this.haE);
         }
-        if (this.haH == null) {
-            this.haH = new a(this.haG);
+        if (this.haE == null) {
+            this.haE = new a(this.haD);
         }
-        com.baidu.adp.lib.g.e.fw().postDelayed(this.haH, 500L);
+        com.baidu.adp.lib.g.e.fw().postDelayed(this.haE, 500L);
     }
 
     private void bBd() {
         clearAnimation();
-        int size = this.haM.size();
-        this.haJ = size;
-        this.haL = false;
+        int size = this.haJ.size();
+        this.haG = size;
+        this.haI = false;
         int i = size - 1;
         for (int i2 = 0; i2 < size; i2++) {
-            final View view2 = this.haM.get(i);
+            final View view2 = this.haJ.get(i);
             i--;
             com.baidu.adp.lib.g.e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.write.c.7
                 @Override // java.lang.Runnable
@@ -421,8 +421,8 @@ public class c {
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
                             view2.setVisibility(4);
-                            if (c.this.haJ == 1) {
-                                c.this.haL = true;
+                            if (c.this.haG == 1) {
+                                c.this.haI = true;
                             } else {
                                 c.t(c.this);
                             }
@@ -440,38 +440,38 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clearAnimation() {
-        this.haw.clearAnimation();
         this.hat.clearAnimation();
-        this.haC.clearAnimation();
+        this.haq.clearAnimation();
         this.haz.clearAnimation();
+        this.haw.clearAnimation();
     }
 
     public void onChangeSkinType() {
-        ak.j(this.har, d.C0126d.cp_bg_line_d_alpha98);
-        ak.c(this.hau, d.f.icon_post_type_photograph_n);
-        ak.c(this.hax, d.f.icon_post_type_text_n);
-        ak.c(this.haA, d.f.icon_post_type_image_n);
-        ak.c(this.haD, d.f.icon_post_type_live_n);
-        ak.c(this.haF, d.f.icon_tabbar_add_s);
+        ak.j(this.hao, d.C0126d.cp_bg_line_d_alpha98);
+        ak.c(this.har, d.f.icon_post_type_photograph_n);
+        ak.c(this.hau, d.f.icon_post_type_text_n);
+        ak.c(this.hax, d.f.icon_post_type_image_n);
+        ak.c(this.haA, d.f.icon_post_type_live_n);
+        ak.c(this.haC, d.f.icon_tabbar_add_s);
+        ak.h(this.has, d.C0126d.cp_cont_b);
         ak.h(this.hav, d.C0126d.cp_cont_b);
         ak.h(this.hay, d.C0126d.cp_cont_b);
         ak.h(this.haB, d.C0126d.cp_cont_b);
-        ak.h(this.haE, d.C0126d.cp_cont_b);
     }
 
     public void onDestroy() {
-        if (this.has != null && this.has.getParent() == this.mRootView) {
-            this.mRootView.removeView(this.has);
+        if (this.hap != null && this.hap.getParent() == this.mRootView) {
+            this.mRootView.removeView(this.hap);
         }
-        if (this.haH != null) {
-            com.baidu.adp.lib.g.e.fw().removeCallbacks(this.haH);
-            this.haH = null;
+        if (this.haE != null) {
+            com.baidu.adp.lib.g.e.fw().removeCallbacks(this.haE);
+            this.haE = null;
         }
-        this.haM.clear();
+        this.haJ.clear();
     }
 
     public boolean isShowing() {
-        return this.haI;
+        return this.haF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -486,7 +486,7 @@ public class c {
         bBc();
         PostPrefixData postPrefixData = null;
         AntiData antiData = null;
-        if (this.gSl == null) {
+        if (this.gSi == null) {
             str2 = "";
             str3 = "";
             i = 0;
@@ -495,15 +495,15 @@ public class c {
             str5 = null;
             str6 = "0";
         } else {
-            String str7 = this.gSl.forumId;
-            String str8 = this.gSl.forumName;
-            postPrefixData = this.gSl.prefixData;
-            antiData = this.gSl.antiData;
-            int i3 = this.gSl.forumLevel;
-            String str9 = this.gSl.avatar;
-            int i4 = this.gSl.privateThread;
-            String str10 = this.gSl.firstDir;
-            str2 = this.gSl.secondDir;
+            String str7 = this.gSi.forumId;
+            String str8 = this.gSi.forumName;
+            postPrefixData = this.gSi.prefixData;
+            antiData = this.gSi.antiData;
+            int i3 = this.gSi.forumLevel;
+            String str9 = this.gSi.avatar;
+            int i4 = this.gSi.privateThread;
+            String str10 = this.gSi.firstDir;
+            str2 = this.gSi.secondDir;
             str3 = str10;
             i = i4;
             str4 = str9;
@@ -511,7 +511,7 @@ public class c {
             str5 = str8;
             str6 = str7;
         }
-        TiebaStatic.log(new al("c12611").ac("obj_locate", this.haS).r("obj_type", 1));
+        TiebaStatic.log(new al("c12611").ac("obj_locate", this.haP).r("obj_type", 1));
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.adf.getPageActivity(), 9, str6, str5, null, null, 0, antiData, 13003, false, false, null, false, false, null, null, postPrefixData, 0);
         writeActivityConfig.getIntent().putExtra("from", this.mFrom);
         writeActivityConfig.setCallFrom(this.writeCallFrom);

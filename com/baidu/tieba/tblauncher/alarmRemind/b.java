@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private static b gBH;
-    private ClientConfigModel gBF;
-    private a gBG;
-    private boolean gBI = false;
+    private static b gBE;
+    private ClientConfigModel gBC;
+    private a gBD;
+    private boolean gBF = false;
     private final com.baidu.tbadk.clientConfig.a TQ = new com.baidu.tbadk.clientConfig.a() { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.1
         @Override // com.baidu.tbadk.clientConfig.a
         public void y(Object obj) {
-            b.this.gBI = false;
+            b.this.gBF = false;
             if (obj != null && (obj instanceof DataRes)) {
                 DataRes dataRes = (DataRes) obj;
                 if (dataRes.local_dialog != null) {
@@ -41,7 +41,7 @@ public class b {
 
         @Override // com.baidu.tbadk.clientConfig.a
         public void onError(String str) {
-            b.this.gBI = false;
+            b.this.gBF = false;
         }
     };
     CustomMessageListener mNetworkChangedListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.2
@@ -65,25 +65,25 @@ public class b {
     };
 
     public static b bub() {
-        if (gBH == null) {
+        if (gBE == null) {
             synchronized (b.class) {
-                if (gBH == null) {
-                    gBH = new b();
+                if (gBE == null) {
+                    gBE = new b();
                 }
             }
         }
-        return gBH;
+        return gBE;
     }
 
     private b() {
     }
 
     public void m(BaseFragmentActivity baseFragmentActivity) {
-        this.gBG = new a();
-        baseFragmentActivity.registerListener(this.gBG);
+        this.gBD = new a();
+        baseFragmentActivity.registerListener(this.gBD);
         baseFragmentActivity.registerListener(this.mNetworkChangedListener);
         baseFragmentActivity.registerListener(this.bnd);
-        this.gBF = new ClientConfigModel(baseFragmentActivity, this.TQ);
+        this.gBC = new ClientConfigModel(baseFragmentActivity, this.TQ);
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("tieba_last_active_time", System.currentTimeMillis());
         if (bud()) {
             mD(true);
@@ -119,9 +119,9 @@ public class b {
     }
 
     private void bue() {
-        if (this.gBF != null && !this.gBI) {
-            this.gBI = true;
-            this.gBF.cy("local_dialog");
+        if (this.gBC != null && !this.gBF) {
+            this.gBF = true;
+            this.gBC.cy("local_dialog");
         }
     }
 

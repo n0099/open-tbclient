@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
-    protected ab<T> clO;
+    protected ab<T> clL;
     public int currentPageType;
     public Context mContext;
     private String mFrom;
@@ -78,10 +78,10 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public void b(ab<T> abVar) {
-        this.clO = abVar;
+        this.clL = abVar;
     }
 
     public ab<T> aeZ() {
-        return this.clO;
+        return this.clL;
     }
 }

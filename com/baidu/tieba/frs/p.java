@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.aw;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class p extends f<au, a> {
-    private com.baidu.tieba.frs.view.c cZM;
+    private com.baidu.tieba.frs.view.c cZJ;
 
     public p(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -21,8 +21,8 @@ public class p extends f<au, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ap */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cZM = new com.baidu.tieba.frs.view.c(this.mPageContext, this.mPageId);
-        return new a(this.cZM);
+        this.cZJ = new com.baidu.tieba.frs.view.c(this.mPageContext, this.mPageId);
+        return new a(this.cZJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class p extends f<au, a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, au auVar, a aVar) {
         super.onFillViewHolder(i, view2, viewGroup, auVar, aVar);
-        this.cZM = aVar.cZN;
+        this.cZJ = aVar.cZK;
         ArrayList<aw> rl = auVar.rl();
         if (rl.size() <= 0) {
             return null;
@@ -51,18 +51,18 @@ public class p extends f<au, a> {
                 qVar.a(anVar);
             }
         }
-        this.cZM.d(this.mPageContext, this.mSkinType);
-        aVar.cZN.a(qVar);
+        this.cZJ.d(this.mPageContext, this.mSkinType);
+        aVar.cZK.a(qVar);
         return aVar.getView();
     }
 
     /* loaded from: classes3.dex */
     public class a extends q.a {
-        public com.baidu.tieba.frs.view.c cZN;
+        public com.baidu.tieba.frs.view.c cZK;
 
         public a(com.baidu.tieba.frs.view.c cVar) {
             super(cVar.getView());
-            this.cZN = cVar;
+            this.cZK = cVar;
         }
     }
 }

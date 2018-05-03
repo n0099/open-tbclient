@@ -6,19 +6,19 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private int dsl = -1;
-    private int dsi = b.getInstance().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> dsj = new HashSet();
+    private int dsi = -1;
+    private int dsf = b.getInstance().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> dsg = new HashSet();
 
     public void uF(int i) {
-        this.dsj.add(Integer.valueOf(i));
-        if (this.dsi == this.dsj.size()) {
-            this.dsl = i;
+        this.dsg.add(Integer.valueOf(i));
+        if (this.dsf == this.dsg.size()) {
+            this.dsi = i;
         }
     }
 
     public int avH() {
-        return this.dsl;
+        return this.dsi;
     }
 
     public boolean gb(boolean z) {

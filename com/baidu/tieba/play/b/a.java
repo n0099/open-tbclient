@@ -14,52 +14,52 @@ import java.io.File;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class a {
-    private c fRi;
-    private int fRj = 0;
-    private int fRk = 0;
+    private c fRf;
+    private int fRg = 0;
+    private int fRh = 0;
     private Handler mHandler = new Handler();
 
     public a(c cVar) {
-        this.fRi = cVar;
+        this.fRf = cVar;
     }
 
     public boolean a(g gVar, int i, int i2, int i3, Uri uri) {
-        if (this.fRi == null) {
+        if (this.fRf == null) {
             return false;
         }
         if (i == -300) {
-            if (this.fRk == 0) {
-                this.fRk++;
-                this.mHandler.postDelayed(new b(this.fRi, gVar, i, i2, i3, 3, bhf()), 200L);
-            } else if (this.fRk == 1) {
-                this.fRk++;
-                this.mHandler.postDelayed(new b(this.fRi, gVar, i, i2, i3, 4, bhf()), 200L);
+            if (this.fRh == 0) {
+                this.fRh++;
+                this.mHandler.postDelayed(new b(this.fRf, gVar, i, i2, i3, 3, bhf()), 200L);
+            } else if (this.fRh == 1) {
+                this.fRh++;
+                this.mHandler.postDelayed(new b(this.fRf, gVar, i, i2, i3, 4, bhf()), 200L);
             } else {
                 return false;
             }
             return true;
         }
-        this.fRj++;
-        if (this.fRj <= 2) {
+        this.fRg++;
+        if (this.fRg <= 2) {
             if (!a(gVar, i, i2, i3, uri, bhf())) {
                 if (i == -200) {
-                    this.mHandler.postDelayed(new b(this.fRi, gVar, i, i2, i3, this.fRj % 2 == 1 ? 7 : 17, bhf()), 200L);
-                    this.fRj = 2;
+                    this.mHandler.postDelayed(new b(this.fRf, gVar, i, i2, i3, this.fRg % 2 == 1 ? 7 : 17, bhf()), 200L);
+                    this.fRg = 2;
                 } else {
-                    this.mHandler.postDelayed(new b(this.fRi, gVar, i, i2, i3, this.fRj % 2 == 1 ? 8 : 18, bhf()), 200L);
-                    this.fRj = 4;
+                    this.mHandler.postDelayed(new b(this.fRf, gVar, i, i2, i3, this.fRg % 2 == 1 ? 8 : 18, bhf()), 200L);
+                    this.fRg = 4;
                     return false;
                 }
             }
             return true;
-        } else if (this.fRj <= 4) {
+        } else if (this.fRg <= 4) {
             if (i == -200) {
-                this.mHandler.postDelayed(new b(this.fRi, gVar, i, i2, i3, this.fRj % 2 == 1 ? 1 : 11, bhf()), 200L);
+                this.mHandler.postDelayed(new b(this.fRf, gVar, i, i2, i3, this.fRg % 2 == 1 ? 1 : 11, bhf()), 200L);
                 return true;
             }
             return false;
-        } else if (this.fRj <= 6 && i == -200) {
-            this.mHandler.postDelayed(new b(this.fRi, gVar, i, i2, i3, this.fRj % 2 == 1 ? 2 : 12, bhf()), 200L);
+        } else if (this.fRg <= 6 && i == -200) {
+            this.mHandler.postDelayed(new b(this.fRf, gVar, i, i2, i3, this.fRg % 2 == 1 ? 2 : 12, bhf()), 200L);
             return true;
         } else {
             return false;
@@ -67,14 +67,14 @@ public class a {
     }
 
     private int bhf() {
-        return (this.fRk * 100) + this.fRj;
+        return (this.fRh * 100) + this.fRg;
     }
 
     private boolean a(g gVar, int i, int i2, int i3, Uri uri, int i4) {
         if (!bhg() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains("127.0.0.1") || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
             return false;
         }
-        com.baidu.tieba.play.a.b.bhe().a(new C0200a(this.mHandler, this.fRi, i, uri, gVar, i2, i3, i4));
+        com.baidu.tieba.play.a.b.bhe().a(new C0200a(this.mHandler, this.fRf, i, uri, gVar, i2, i3, i4));
         return com.baidu.tieba.play.a.b.bhe().rt(uri.getHost());
     }
 
@@ -87,22 +87,22 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0200a implements b.InterfaceC0199b {
         private int agt;
-        private c fRi;
-        private g fRl;
-        private int fRm;
-        private int fRn;
+        private c fRf;
+        private g fRi;
+        private int fRj;
+        private int fRk;
         private Handler mHandler;
         private Uri mUri;
         private int what;
 
         public C0200a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
             this.mHandler = handler;
-            this.fRi = cVar;
+            this.fRf = cVar;
             this.mUri = uri;
-            this.fRl = gVar;
-            this.fRm = i;
+            this.fRi = gVar;
+            this.fRj = i;
             this.what = i2;
-            this.fRn = i3;
+            this.fRk = i3;
             this.agt = i4;
         }
 
@@ -111,24 +111,24 @@ public class a {
             try {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || this.mUri == null || !str2.equals(this.mUri.getHost())) {
                     if (this.mHandler != null) {
-                        this.mHandler.postDelayed(new b(this.fRi, this.fRl, this.fRm, this.what, this.fRn, this.agt % 2 == 1 ? 5 : 15, this.agt), 200L);
+                        this.mHandler.postDelayed(new b(this.fRf, this.fRi, this.fRj, this.what, this.fRk, this.agt % 2 == 1 ? 5 : 15, this.agt), 200L);
                     }
                 } else if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.fRi, this.fRl, this.fRm, this.what, this.fRn, str, this.agt % 2 == 1 ? 0 : 10, this.agt), 200L);
+                    this.mHandler.postDelayed(new b(this.fRf, this.fRi, this.fRj, this.what, this.fRk, str, this.agt % 2 == 1 ? 0 : 10, this.agt), 200L);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
                 if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.fRi, this.fRl, this.fRm, this.what, this.fRn, this.agt % 2 == 1 ? 6 : 16, this.agt), 200L);
+                    this.mHandler.postDelayed(new b(this.fRf, this.fRi, this.fRj, this.what, this.fRk, this.agt % 2 == 1 ? 6 : 16, this.agt), 200L);
                 }
             }
         }
     }
 
     public boolean bhh() {
-        boolean z = this.fRj > 0 || this.fRk > 0;
-        this.fRj = 0;
-        this.fRk = 0;
+        boolean z = this.fRg > 0 || this.fRh > 0;
+        this.fRg = 0;
+        this.fRh = 0;
         return z;
     }
 
@@ -136,31 +136,31 @@ public class a {
     /* loaded from: classes.dex */
     public static class b implements Runnable {
         private final int agt;
-        private c fRi;
-        private final g fRl;
-        private final int fRm;
-        private final int fRn;
+        private c fRf;
+        private final g fRi;
+        private final int fRj;
+        private final int fRk;
         private final String ip;
         private final int type;
         private final int what;
 
         public b(c cVar, g gVar, int i, int i2, int i3, int i4, int i5) {
-            this.fRi = cVar;
-            this.fRl = gVar;
-            this.fRm = i;
+            this.fRf = cVar;
+            this.fRi = gVar;
+            this.fRj = i;
             this.what = i2;
-            this.fRn = i3;
+            this.fRk = i3;
             this.type = i4;
             this.agt = i5;
             this.ip = "";
         }
 
         public b(c cVar, g gVar, int i, int i2, int i3, String str, int i4, int i5) {
-            this.fRi = cVar;
-            this.fRl = gVar;
-            this.fRm = i;
+            this.fRf = cVar;
+            this.fRi = gVar;
+            this.fRj = i;
             this.what = i2;
-            this.fRn = i3;
+            this.fRk = i3;
             this.ip = str;
             this.type = i4;
             this.agt = i5;
@@ -168,13 +168,13 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.fRi != null) {
+            if (this.fRf != null) {
                 if (this.type == 1 || this.type == 5 || this.type == 3 || this.type == 6 || this.type == 7 || this.type == 11 || this.type == 15 || this.type == 16 || this.type == 17) {
-                    this.fRi.a(this.fRl, this.fRm, this.what, this.fRn, this.agt, this.type);
+                    this.fRf.a(this.fRi, this.fRj, this.what, this.fRk, this.agt, this.type);
                 } else if (this.type == 2 || this.type == 4 || this.type == 8 || this.type == 12 || this.type == 18) {
-                    this.fRi.b(this.fRl, this.fRm, this.what, this.fRn, this.agt, this.type);
+                    this.fRf.b(this.fRi, this.fRj, this.what, this.fRk, this.agt, this.type);
                 } else if (this.type == 0 || this.type == 10) {
-                    this.fRi.a(this.fRl, this.fRm, this.what, this.fRn, this.ip, this.agt, this.type);
+                    this.fRf.a(this.fRi, this.fRj, this.what, this.fRk, this.ip, this.agt, this.type);
                 }
             }
         }

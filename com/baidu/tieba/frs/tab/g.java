@@ -13,19 +13,19 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class g implements a {
     private View aze;
-    private TabMenuPopView.a daG = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
+    private TabMenuPopView.a daD = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
         @Override // com.baidu.tieba.frs.TabMenuPopView.a
         public void a(View view2, ar arVar) {
-            if (g.this.dpk != null) {
-                g.this.dpk.auM();
+            if (g.this.dph != null) {
+                g.this.dph.auM();
             }
-            g.this.dpn.lg(arVar.cZZ);
+            g.this.dpk.lg(arVar.cZW);
         }
     };
-    private e dpk;
-    private e.b dpn;
-    private List<ar> dpo;
-    private TabMenuPopView dpp;
+    private e dph;
+    private e.b dpk;
+    private List<ar> dpl;
+    private TabMenuPopView dpm;
     private View mContentView;
     private Context mContext;
 
@@ -33,26 +33,26 @@ public class g implements a {
     public void a(Context context, e eVar) {
         if (context != null && eVar != null) {
             this.mContext = context;
-            this.dpk = eVar;
-            this.dpn = eVar.auN();
+            this.dph = eVar;
+            this.dpk = eVar.auN();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(d.i.tab_menu_multline_view, (ViewGroup) null);
             this.aze = this.mContentView.findViewById(d.g.top_line);
-            this.dpp = (TabMenuPopView) this.mContentView.findViewById(d.g.categorycontainer);
-            this.dpp.setOnItemClickCallBack(this.daG);
+            this.dpm = (TabMenuPopView) this.mContentView.findViewById(d.g.categorycontainer);
+            this.dpm.setOnItemClickCallBack(this.daD);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.a
     public void setData(List<ar> list) {
         if (list != null) {
-            this.dpo = list;
+            this.dpl = list;
             ar arVar = new ar();
-            arVar.cZZ = 0;
+            arVar.cZW = 0;
             arVar.name = this.mContext.getResources().getString(d.k.all);
             arVar.isSelected = false;
             ak.j(this.mContentView, d.C0126d.cp_bg_line_d);
             ak.j(this.aze, d.C0126d.cp_bg_line_b);
-            this.dpp.setData(this.dpo, arVar);
+            this.dpm.setData(this.dpl, arVar);
         }
     }
 

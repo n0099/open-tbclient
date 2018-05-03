@@ -17,7 +17,7 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class GameRankHorizontalLayout extends HorizontalScrollView {
     private LinearLayout bcO;
-    private a dhQ;
+    private a dhN;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -71,7 +71,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     }
 
     public void setOnCardClickListener(a aVar) {
-        this.dhQ = aVar;
+        this.dhN = aVar;
     }
 
     private View a(final com.baidu.tieba.h.a aVar, final int i) {
@@ -104,8 +104,8 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 roundAngleRelativeLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (GameRankHorizontalLayout.this.dhQ != null) {
-                            GameRankHorizontalLayout.this.dhQ.b(aVar, i);
+                        if (GameRankHorizontalLayout.this.dhN != null) {
+                            GameRankHorizontalLayout.this.dhN.b(aVar, i);
                             if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("game_rank_list_show_times", 0) != 0) {
                                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("game_rank_list_show_times", 0);
                             }

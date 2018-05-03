@@ -7,35 +7,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class h {
-    private int gmp;
-    private String gmq;
-    private int gnR;
-    private String gnS;
-    private a gmL = new a();
-    private ArrayList<i> gnT = new ArrayList<>();
+    private int gmm;
+    private String gmn;
+    private int gnO;
+    private String gnP;
+    private a gmI = new a();
+    private ArrayList<i> gnQ = new ArrayList<>();
 
     public int boM() {
-        return this.gmp;
+        return this.gmm;
     }
 
     public String bol() {
-        return this.gmq;
+        return this.gmn;
     }
 
     public a bon() {
-        return this.gmL;
+        return this.gmI;
     }
 
     public ArrayList<i> boN() {
-        return this.gnT;
+        return this.gnQ;
     }
 
     public int boO() {
-        return this.gnR;
+        return this.gnO;
     }
 
     public String boP() {
-        return this.gnS;
+        return this.gnP;
     }
 
     public void parserJson(String str) {
@@ -51,11 +51,11 @@ public class h {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gmL.parserJson(jSONObject.optJSONObject("error"));
-                this.gmp = jSONObject.optInt("show_dialog");
-                this.gmq = jSONObject.optString("sign_notice");
-                this.gnR = jSONObject.optInt("is_timeout");
-                this.gnS = jSONObject.optString("timeout_notice");
+                this.gmI.parserJson(jSONObject.optJSONObject("error"));
+                this.gmm = jSONObject.optInt("show_dialog");
+                this.gmn = jSONObject.optString("sign_notice");
+                this.gnO = jSONObject.optInt("is_timeout");
+                this.gnP = jSONObject.optString("timeout_notice");
                 JSONArray optJSONArray = jSONObject.optJSONArray(LoginActivityConfig.INFO);
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -63,7 +63,7 @@ public class h {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         i iVar = new i();
                         iVar.parserJson(jSONObject2);
-                        this.gnT.add(iVar);
+                        this.gnQ.add(iVar);
                     }
                 }
             } catch (Exception e) {

@@ -9,10 +9,10 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fKu = BdUniqueId.gen();
-    public boolean fKv;
-    public String fKw;
-    public List<com.baidu.adp.widget.ListView.h> fKx;
+    public static final BdUniqueId fKr = BdUniqueId.gen();
+    public boolean fKs;
+    public String fKt;
+    public List<com.baidu.adp.widget.ListView.h> fKu;
     public int giftNum = 0;
     public boolean mIsHost;
     public int mSex;
@@ -23,7 +23,7 @@ public class g extends com.baidu.tieba.card.data.b {
         if (user != null && !v.w(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.vb = user.name;
-            this.fKw = user.name_show;
+            this.fKt = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.fKv = false;
+                this.fKs = false;
             } else {
-                this.fKv = true;
+                this.fKs = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.fKx = new ArrayList();
+            this.fKu = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.fKx.add(oVar);
+                    this.fKu.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.w(this.fKx);
+        return !v.w(this.fKu);
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return fKu;
+        return fKr;
     }
 }

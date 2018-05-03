@@ -25,9 +25,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a egD;
+    private static volatile a egA;
     private List<ImMessageCenterPojo> mList = new LinkedList();
-    private final CustomMessageListener dTm = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.a.1
+    private final CustomMessageListener dTj = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -54,14 +54,14 @@ public class a {
     };
 
     public static a aGB() {
-        if (egD == null) {
+        if (egA == null) {
             synchronized (a.class) {
-                if (egD == null) {
-                    egD = new a();
+                if (egA == null) {
+                    egA = new a();
                 }
             }
         }
-        return egD;
+        return egA;
     }
 
     private a() {
@@ -69,11 +69,11 @@ public class a {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(2016004, this.dTm);
-        MessageManager.getInstance().registerListener(2016007, this.dTm);
-        MessageManager.getInstance().registerListener(2016001, this.dTm);
-        MessageManager.getInstance().registerListener(2016010, this.dTm);
-        MessageManager.getInstance().registerListener(2016002, this.dTm);
+        MessageManager.getInstance().registerListener(2016004, this.dTj);
+        MessageManager.getInstance().registerListener(2016007, this.dTj);
+        MessageManager.getInstance().registerListener(2016001, this.dTj);
+        MessageManager.getInstance().registerListener(2016010, this.dTj);
+        MessageManager.getInstance().registerListener(2016002, this.dTj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

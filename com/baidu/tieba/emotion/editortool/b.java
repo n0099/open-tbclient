@@ -3,12 +3,12 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class b {
-    private EmotionGroupType cGB;
+    private int cGA;
+    private com.baidu.tbadk.editortools.emotiontool.c cGB;
     private int cGC;
     private int cGD;
-    private com.baidu.tbadk.editortools.emotiontool.c cGE;
-    private int cGF;
-    private int cGG;
+    private EmotionGroupType cGy;
+    private int cGz;
     private int column;
     private int endIndex;
     private int index;
@@ -16,19 +16,19 @@ public class b {
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.cGE = cVar;
+        this.cGB = cVar;
     }
 
     public com.baidu.tbadk.editortools.emotiontool.c akd() {
-        return this.cGE;
+        return this.cGB;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.cGB = emotionGroupType;
+        this.cGy = emotionGroupType;
     }
 
     public EmotionGroupType ake() {
-        return this.cGB;
+        return this.cGy;
     }
 
     public void eR(int i) {
@@ -48,27 +48,27 @@ public class b {
     }
 
     public void jq(int i) {
-        this.cGG = i;
+        this.cGD = i;
     }
 
     public int akg() {
-        return this.cGG;
+        return this.cGD;
     }
 
     public void jr(int i) {
-        this.cGF = i;
-    }
-
-    public int akh() {
-        return this.cGF;
-    }
-
-    public void js(int i) {
         this.cGC = i;
     }
 
-    public int aki() {
+    public int akh() {
         return this.cGC;
+    }
+
+    public void js(int i) {
+        this.cGz = i;
+    }
+
+    public int aki() {
+        return this.cGz;
     }
 
     public void jt(int i) {
@@ -92,10 +92,10 @@ public class b {
     }
 
     public void ju(int i) {
-        this.cGD = i;
+        this.cGA = i;
     }
 
     public int akk() {
-        return this.cGD;
+        return this.cGA;
     }
 }

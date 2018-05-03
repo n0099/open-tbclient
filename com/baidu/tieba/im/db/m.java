@@ -9,8 +9,8 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes.dex */
 public class m extends a {
-    private static a dWB;
-    public static String dWc = "tb_private_msg_";
+    public static String dVZ = "tb_private_msg_";
+    private static a dWy;
 
     private m() {
         super("tb_private_msg_", PersonalChatMessage.class);
@@ -19,10 +19,10 @@ public class m extends a {
     public static synchronized m aDq() {
         m mVar;
         synchronized (m.class) {
-            if (dWB == null) {
-                dWB = new m();
+            if (dWy == null) {
+                dWy = new m();
             }
-            mVar = (m) dWB;
+            mVar = (m) dWy;
         }
         return mVar;
     }
@@ -48,7 +48,7 @@ public class m extends a {
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = dWc;
+            ?? r2 = dVZ;
             try {
                 try {
                     cursor = h.aDf().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});

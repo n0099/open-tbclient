@@ -12,7 +12,7 @@ public class c {
         }
         switch (iBaseDialogData.getType()) {
             case 1:
-                al alVar = new al(b.a.eZX);
+                al alVar = new al(b.a.eZU);
                 int i = 0;
                 switch (iBaseDialogData.getFrom()) {
                     case 0:

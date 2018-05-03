@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> dGQ = new ArrayList<>(5);
-    public int dGU;
-    public int dGV;
-    int dGW;
+    private static ArrayList<a> dGN = new ArrayList<>(5);
+    public int dGR;
+    public int dGS;
+    int dGT;
     public int type;
 
     private void Lz() {
-        this.dGU = 0;
-        this.dGV = 0;
-        this.dGW = 0;
+        this.dGR = 0;
+        this.dGS = 0;
+        this.dGT = 0;
         this.type = 0;
     }
 
@@ -22,7 +22,7 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long ayr() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.dGU, this.dGV) : ExpandableListView.getPackedPositionForGroup(this.dGU);
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.dGR, this.dGS) : ExpandableListView.getPackedPositionForGroup(this.dGR);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,17 +34,17 @@ class a {
     public static a s(int i, int i2, int i3, int i4) {
         a ays = ays();
         ays.type = i;
-        ays.dGU = i2;
-        ays.dGV = i3;
-        ays.dGW = i4;
+        ays.dGR = i2;
+        ays.dGS = i3;
+        ays.dGT = i4;
         return ays;
     }
 
     private static a ays() {
         a aVar;
-        synchronized (dGQ) {
-            if (dGQ.size() > 0) {
-                aVar = dGQ.remove(0);
+        synchronized (dGN) {
+            if (dGN.size() > 0) {
+                aVar = dGN.remove(0);
                 aVar.Lz();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (dGQ) {
-            if (dGQ.size() < 5) {
-                dGQ.add(this);
+        synchronized (dGN) {
+            if (dGN.size() < 5) {
+                dGN.add(this);
             }
         }
     }

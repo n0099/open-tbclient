@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends e {
-    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> gyX;
+    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> gyU;
 
     public c(int i) {
         super(i);
-        this.gyX = new HashMap<>();
+        this.gyU = new HashMap<>();
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
@@ -17,7 +17,7 @@ public class c extends e {
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {
-                this.gyX.put(valueOf, aVar);
+                this.gyU.put(valueOf, aVar);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -31,7 +31,7 @@ public class c extends e {
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.gzb.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.gyY.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -44,11 +44,11 @@ public class c extends e {
                 l2 = l;
             }
             if (l2 != null) {
-                this.gzb.remove(l2);
-                this.gyX.remove(l2);
+                this.gyY.remove(l2);
+                this.gyU.remove(l2);
             } else {
-                this.gzb.clear();
-                this.gyX.clear();
+                this.gyY.clear();
+                this.gyU.clear();
             }
         }
     }

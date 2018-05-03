@@ -24,8 +24,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String gtQ;
-    private String gtR;
+    private String gtN;
+    private String gtO;
     private int isGood;
     private String kw;
     private String lastId;
@@ -181,11 +181,11 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void sH(String str) {
-        this.gtQ = str;
+        this.gtN = str;
     }
 
     public void setObjSource(String str) {
-        this.gtR = str;
+        this.gtO = str;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -219,8 +219,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.app_pos = com.baidu.tieba.recapp.d.a.bjZ().bkc();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.gtQ;
-        builder.obj_source = this.gtR;
+        builder.obj_locate = this.gtN;
+        builder.obj_source = this.gtO;
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);

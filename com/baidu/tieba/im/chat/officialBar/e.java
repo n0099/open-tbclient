@@ -15,10 +15,10 @@ import org.apache.http.HttpStatus;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
     private View Tl;
-    private NavigationBar dSR;
-    private d dSS;
-    private View dST;
-    private BdListView dpj;
+    private NavigationBar dSO;
+    private d dSP;
+    private View dSQ;
+    private BdListView dpg;
     private BaseActivity mContext;
     private NoDataView mNoDataView;
 
@@ -31,34 +31,34 @@ public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
     private void initView() {
         this.Tl = View.inflate(this.mContext.getPageContext().getContext(), d.i.official_bar_history_activity, null);
         this.mContext.getPageContext().getPageActivity().setContentView(this.Tl);
-        this.dSR = (NavigationBar) this.Tl.findViewById(d.g.view_navigation_bar);
-        this.dSR.setTitleText(d.k.officical_bar_info_history);
-        this.dSR.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.dpj = (BdListView) this.Tl.findViewById(d.g.bar_history_list);
-        this.dSS = new d(this.mContext, this.mContext.getPageContext().getContext());
-        this.dpj.setAdapter((ListAdapter) this.dSS);
-        this.dST = View.inflate(this.mContext.getPageContext().getContext(), d.i.official_bar_history_item_occupy, null);
-        this.dpj.addHeaderView(this.dST);
-        this.dpj.addFooterView(this.dST);
+        this.dSO = (NavigationBar) this.Tl.findViewById(d.g.view_navigation_bar);
+        this.dSO.setTitleText(d.k.officical_bar_info_history);
+        this.dSO.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.dpg = (BdListView) this.Tl.findViewById(d.g.bar_history_list);
+        this.dSP = new d(this.mContext, this.mContext.getPageContext().getContext());
+        this.dpg.setAdapter((ListAdapter) this.dSP);
+        this.dSQ = View.inflate(this.mContext.getPageContext().getContext(), d.i.official_bar_history_item_occupy, null);
+        this.dpg.addHeaderView(this.dSQ);
+        this.dpg.addFooterView(this.dSQ);
     }
 
     public void setData(List<ResponseHistoryMessage.a> list) {
-        this.dSS.setData(list);
+        this.dSP.setData(list);
         bP(list);
     }
 
     public void onChangeSkinType(int i) {
         this.mContext.getLayoutMode().setNightMode(i == 1);
         this.mContext.getLayoutMode().u(this.Tl);
-        this.dSR.onChangeSkinType(this.mContext.getPageContext(), i);
+        this.dSO.onChangeSkinType(this.mContext.getPageContext(), i);
     }
 
     public void d(BdListView.e eVar) {
-        this.dpj.setOnSrollToBottomListener(eVar);
+        this.dpg.setOnSrollToBottomListener(eVar);
     }
 
     public boolean aBj() {
-        return this.dSS.getCount() != 0 && this.dpj.getLastVisiblePosition() - this.dpj.getHeaderViewsCount() < this.dSS.getCount() + (-1);
+        return this.dSP.getCount() != 0 && this.dpg.getLastVisiblePosition() - this.dpg.getHeaderViewsCount() < this.dSP.getCount() + (-1);
     }
 
     public void bP(List<ResponseHistoryMessage.a> list) {

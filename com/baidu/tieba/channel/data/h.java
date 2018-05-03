@@ -11,13 +11,13 @@ import tbclient.ChannelVideoInfo;
 public class h implements com.baidu.adp.widget.ListView.h {
     private int aWk;
     private long createTime;
+    private int cuH;
+    private long cuI;
+    private int cuJ;
     private int cuK;
-    private long cuL;
-    private int cuM;
+    private int cuL;
+    private String cuM;
     private int cuN;
-    private int cuO;
-    private String cuP;
-    private int cuQ;
     private int forumId;
     private String forumName;
     private BdUniqueId mType;
@@ -86,11 +86,11 @@ public class h implements com.baidu.adp.widget.ListView.h {
     }
 
     public void iV(int i) {
-        this.cuK = i;
+        this.cuH = i;
     }
 
     public void bi(long j) {
-        this.cuL = j;
+        this.cuI = j;
     }
 
     public String getThumbnailUrl() {
@@ -102,19 +102,19 @@ public class h implements com.baidu.adp.widget.ListView.h {
     }
 
     public void iW(int i) {
-        this.cuM = i;
+        this.cuJ = i;
     }
 
     public void iX(int i) {
-        this.cuN = i;
+        this.cuK = i;
     }
 
     public boolean sp() {
-        return this.cuO == 1;
+        return this.cuL == 1;
     }
 
     public void iY(int i) {
-        this.cuO = i;
+        this.cuL = i;
     }
 
     public long getCreateTime() {
@@ -126,7 +126,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
     }
 
     public int agq() {
-        return this.cuQ;
+        return this.cuN;
     }
 
     public void setType(BdUniqueId bdUniqueId) {
@@ -135,7 +135,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return this.mType == null ? a.C0123a.cux : this.mType;
+        return this.mType == null ? a.C0123a.cuu : this.mType;
     }
 
     public static ChannelHomeVideoList<h> aE(List<ChannelVideoInfo> list) {
@@ -182,17 +182,17 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.forumName = jSONObject.optString("forum_name");
         this.createTime = jSONObject.optLong(WBConstants.GAME_PARAMS_GAME_CREATE_TIME);
         this.title = jSONObject.optString("title");
-        this.cuP = jSONObject.optString("play_time");
+        this.cuM = jSONObject.optString("play_time");
         this.aWk = jSONObject.optInt("play_count");
         this.videoUrl = jSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
         this.videoDuration = jSONObject.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
         this.videoWidth = jSONObject.optInt("video_width");
         this.videoHeight = jSONObject.optInt("video_height");
-        this.cuK = jSONObject.optInt("video_length");
-        this.cuL = jSONObject.optInt("video_type");
+        this.cuH = jSONObject.optInt("video_length");
+        this.cuI = jSONObject.optInt("video_type");
         this.thumbnailUrl = jSONObject.optString("thumbnail_url");
-        this.cuM = jSONObject.optInt("thumbnail_width");
-        this.cuN = jSONObject.optInt("thumbnail_height");
-        this.cuQ = jSONObject.optInt("already_add");
+        this.cuJ = jSONObject.optInt("thumbnail_width");
+        this.cuK = jSONObject.optInt("thumbnail_height");
+        this.cuN = jSONObject.optInt("already_add");
     }
 }

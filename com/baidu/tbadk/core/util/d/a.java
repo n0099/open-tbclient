@@ -296,7 +296,8 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.Im
         return null;
     }
 
-    protected Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
         return BitmapHelper.Bytes2Bitmap(bArr, sb);
     }
 

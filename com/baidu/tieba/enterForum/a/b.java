@@ -8,15 +8,15 @@ import com.baidu.tieba.enterForum.data.f;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.baidu.tieba.enterForum.view.c> implements c {
-    private int cGW;
+    private int cGT;
 
     public b(TbPageContext<?> tbPageContext, Class<com.baidu.tieba.enterForum.view.c> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.cGW = -1;
+        this.cGT = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void as(int i, int i2) {
+    public void ar(int i, int i2) {
         List<f> dataList = getDataList();
         com.baidu.tieba.enterForum.model.b.d(dataList, i, i2);
         F(dataList);
@@ -24,7 +24,7 @@ public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.b
 
     @Override // com.baidu.tieba.enterForum.a.c
     public void jv(int i) {
-        this.cGW = i;
+        this.cGT = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
@@ -47,7 +47,7 @@ public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.b
     public View getView(int i, View view2, ViewGroup viewGroup) {
         View view3 = super.getView(i, view2, viewGroup);
         if (view3 != null) {
-            if (i == this.cGW) {
+            if (i == this.cGT) {
                 view3.setVisibility(4);
             } else {
                 view3.setVisibility(0);

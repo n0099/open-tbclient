@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes3.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.baidu.tieba.card.a.a<com.baidu.tieba.card.i>> {
-    private com.baidu.tieba.card.i diB;
+    private com.baidu.tieba.card.i diy;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.g.cEj);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.g.cEg);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -27,8 +27,8 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.i> onCreateViewHolder(ViewGroup viewGroup) {
-        this.diB = new com.baidu.tieba.card.i(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.diB);
+        this.diy = new com.baidu.tieba.card.i(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.diy);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

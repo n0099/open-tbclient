@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v {
-    private static v cqC;
+    private static v cqz;
     private List<al> bhf;
 
     public static v afy() {
-        if (cqC == null) {
+        if (cqz == null) {
             synchronized (v.class) {
-                if (cqC == null) {
-                    cqC = new v();
+                if (cqz == null) {
+                    cqz = new v();
                 }
             }
         }
-        return cqC;
+        return cqz;
     }
 
     public void a(al alVar) {

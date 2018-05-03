@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.frs.f<s, a> implements View.OnClickListener {
-    private boolean ddt;
-    private boolean ddv;
+    private boolean ddq;
+    private boolean ddr;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.ddt = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
-        this.ddv = z;
+        this.ddq = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+        this.ddr = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,56 +45,56 @@ public class c extends com.baidu.tieba.frs.f<s, a> implements View.OnClickListen
         if (sVar.brs()) {
             String brt = sVar.brt();
             if (brt != null) {
-                aVar.ddx.setText(brt);
-            } else if (this.cWO != null && this.cWO.aVq() != null && this.cWO.aVq().getName() != null) {
-                TextView textView = aVar.ddx;
+                aVar.ddt.setText(brt);
+            } else if (this.cWL != null && this.cWL.aVq() != null && this.cWL.aVq().getName() != null) {
+                TextView textView = aVar.ddt;
                 Context context = this.mContext;
                 int i2 = d.k.get_fortune_hint_format;
                 Object[] objArr = new Object[1];
-                objArr[0] = this.cWO == null ? "" : this.cWO.aVq().getName();
+                objArr[0] = this.cWL == null ? "" : this.cWL.aVq().getName();
                 textView.setText(context.getString(i2, objArr));
             }
-            aVar.ddw.setTag(Integer.valueOf(i));
-            aVar.ddw.setOnClickListener(this);
-            aVar.ddw.setVisibility(0);
+            aVar.dds.setTag(Integer.valueOf(i));
+            aVar.dds.setOnClickListener(this);
+            aVar.dds.setVisibility(0);
         } else {
-            aVar.ddw.setVisibility(8);
-            aVar.ddD.setVisibility(8);
+            aVar.dds.setVisibility(8);
+            aVar.ddA.setVisibility(8);
         }
         com.baidu.tieba.tbadkCore.m bru = sVar.bru();
         if (bru != null && bru.brl() && !TextUtils.isEmpty(bru.brm())) {
-            aVar.ddz.setText(bru.brm());
-            aVar.ddy.setTag(Integer.valueOf(i));
-            aVar.ddy.setOnClickListener(this);
-            aVar.ddy.setVisibility(0);
+            aVar.ddw.setText(bru.brm());
+            aVar.ddv.setTag(Integer.valueOf(i));
+            aVar.ddv.setOnClickListener(this);
+            aVar.ddv.setVisibility(0);
         } else {
-            aVar.ddy.setVisibility(8);
-            aVar.ddE.setVisibility(8);
+            aVar.ddv.setVisibility(8);
+            aVar.ddB.setVisibility(8);
         }
-        if (this.ddv) {
-            aVar.ddA.setVisibility(0);
+        if (this.ddr) {
+            aVar.ddx.setVisibility(0);
         } else {
-            aVar.ddA.setVisibility(8);
+            aVar.ddx.setVisibility(8);
         }
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().u(view2);
-        if (this.cWO == null || this.cWO.getUserData() == null || !this.cWO.getUserData().isBawu()) {
+        if (this.cWL == null || this.cWL.getUserData() == null || !this.cWL.getUserData().isBawu()) {
             z = false;
         }
         if (z) {
-            aVar.ddB.setVisibility(0);
-            ak.i(aVar.ddB, d.f.frs_top_item_bg);
-            aVar.ddA.setVisibility(0);
-            aVar.ddB.setOnClickListener(this);
-            aVar.ddB.setTag(Integer.valueOf(i));
+            aVar.ddy.setVisibility(0);
+            ak.i(aVar.ddy, d.f.frs_top_item_bg);
+            aVar.ddx.setVisibility(0);
+            aVar.ddy.setOnClickListener(this);
+            aVar.ddy.setTag(Integer.valueOf(i));
         } else {
-            aVar.ddB.setVisibility(8);
-            aVar.ddF.setVisibility(8);
+            aVar.ddy.setVisibility(8);
+            aVar.ddC.setVisibility(8);
         }
-        if (!this.ddt && !sVar.brs()) {
+        if (!this.ddq && !sVar.brs()) {
             if (z) {
-                aVar.ddw.setVisibility(8);
-                aVar.ddy.setVisibility(8);
+                aVar.dds.setVisibility(8);
+                aVar.ddv.setVisibility(8);
                 a(aVar);
                 return view2;
             }
@@ -104,7 +104,7 @@ public class c extends com.baidu.tieba.frs.f<s, a> implements View.OnClickListen
     }
 
     private void a(a aVar) {
-        List<View> list = aVar.ddG;
+        List<View> list = aVar.ddD;
         for (View view2 : list) {
             view2.setVisibility(8);
         }
@@ -113,12 +113,12 @@ public class c extends com.baidu.tieba.frs.f<s, a> implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (this.cWP != null) {
+        if (this.cWM != null) {
             int id = view2.getId();
             int intValue = ((Integer) view2.getTag()).intValue();
             if (getItem(intValue) instanceof bd) {
-                View j = j(this.cWQ.getListView(), intValue);
-                this.cWP.a(id, intValue, view2, j, (bd) getItem(intValue));
+                View j = j(this.cWN.getListView(), intValue);
+                this.cWM.a(id, intValue, view2, j, (bd) getItem(intValue));
             }
         }
     }
@@ -128,32 +128,32 @@ public class c extends com.baidu.tieba.frs.f<s, a> implements View.OnClickListen
     public static class a extends q.a {
         View ddA;
         View ddB;
-        TextView ddC;
-        View ddD;
-        View ddE;
-        View ddF;
-        List<View> ddG;
-        View ddw;
-        TextView ddx;
+        View ddC;
+        List<View> ddD;
+        View dds;
+        TextView ddt;
+        View ddv;
+        TextView ddw;
+        View ddx;
         View ddy;
         TextView ddz;
 
         a(View view2) {
             super(view2);
-            this.ddG = new ArrayList();
-            this.ddx = (TextView) view2.findViewById(d.g.frs_fortune_bag_content);
-            this.ddw = view2.findViewById(d.g.frs_fortune_bag_item);
-            this.ddy = view2.findViewById(d.g.frs_my_service_item);
-            this.ddz = (TextView) view2.findViewById(d.g.frs_my_service_content);
-            this.ddA = view2.findViewById(d.g.frs_list_item_official_buttom_line);
-            this.ddB = view2.findViewById(d.g.frs_bawu_center);
-            this.ddC = (TextView) view2.findViewById(d.g.frs_bawu_center_inner);
-            this.ddD = view2.findViewById(d.g.official_account_text_divider_fortune_top);
-            this.ddE = view2.findViewById(d.g.official_account_text_divider_service_top);
-            this.ddF = view2.findViewById(d.g.official_account_text_divider_bawucenter_top);
-            this.ddG.add(this.ddD);
-            this.ddG.add(this.ddE);
-            this.ddG.add(this.ddF);
+            this.ddD = new ArrayList();
+            this.ddt = (TextView) view2.findViewById(d.g.frs_fortune_bag_content);
+            this.dds = view2.findViewById(d.g.frs_fortune_bag_item);
+            this.ddv = view2.findViewById(d.g.frs_my_service_item);
+            this.ddw = (TextView) view2.findViewById(d.g.frs_my_service_content);
+            this.ddx = view2.findViewById(d.g.frs_list_item_official_buttom_line);
+            this.ddy = view2.findViewById(d.g.frs_bawu_center);
+            this.ddz = (TextView) view2.findViewById(d.g.frs_bawu_center_inner);
+            this.ddA = view2.findViewById(d.g.official_account_text_divider_fortune_top);
+            this.ddB = view2.findViewById(d.g.official_account_text_divider_service_top);
+            this.ddC = view2.findViewById(d.g.official_account_text_divider_bawucenter_top);
+            this.ddD.add(this.ddA);
+            this.ddD.add(this.ddB);
+            this.ddD.add(this.ddC);
         }
     }
 }

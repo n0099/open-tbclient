@@ -15,10 +15,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private static b gJo = new b();
+    private static b gJl = new b();
 
     public static b bvE() {
-        return gJo;
+        return gJl;
     }
 
     public void bvF() {
@@ -32,7 +32,7 @@ public class b {
                     int size = bvH.size();
                     for (int i = 0; i < size; i++) {
                         a aVar = (a) bvH.get(i);
-                        b.this.d(aVar.uuid, aVar.cem);
+                        b.this.d(aVar.uuid, aVar.cej);
                     }
                     return null;
                 }
@@ -41,7 +41,7 @@ public class b {
     }
 
     private static File[] bvG() {
-        File file = new File(g.a.eQI);
+        File file = new File(g.a.eQF);
         if (file.exists()) {
             return file.listFiles();
         }
@@ -55,11 +55,11 @@ public class b {
         if (bvG != null) {
             for (File file : bvG) {
                 String name = file.getName();
-                JSONObject tD = tD(file.getAbsolutePath() + g.a.eQz + "kpi");
+                JSONObject tD = tD(file.getAbsolutePath() + g.a.eQw + "kpi");
                 if (tD == null) {
                     com.baidu.tieba.j.d.pA(name);
                 } else {
-                    JSONObject tE = tE(file.getAbsolutePath() + g.a.eQz + BuildConfig.BUILD_TYPE);
+                    JSONObject tE = tE(file.getAbsolutePath() + g.a.eQw + BuildConfig.BUILD_TYPE);
                     if (tE == null) {
                         com.baidu.tieba.j.d.pA(name);
                     } else {
@@ -159,7 +159,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar) {
         try {
-            c.f(c.Y(aVar.cem), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+            c.f(c.Y(aVar.cej), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
             com.baidu.tieba.j.d.pA(aVar.uuid);
         } catch (Exception e) {
             e.printStackTrace();

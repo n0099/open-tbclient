@@ -26,10 +26,10 @@ import com.sina.weibo.sdk.utils.Utility;
 /* loaded from: classes3.dex */
 public class e extends a {
     private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> aGy;
-    private com.baidu.tieba.sharesdk.b.b gkI;
-    private IWeiboShareAPI gkJ;
-    private IWeiboHandler.Response gkK;
-    private ShareEntity gkx;
+    private com.baidu.tieba.sharesdk.b.b gkF;
+    private IWeiboShareAPI gkG;
+    private IWeiboHandler.Response gkH;
+    private ShareEntity gku;
 
     public e(Context context, com.baidu.tieba.sharesdk.b.b bVar, IWeiboHandler.Response response) {
         super(context);
@@ -40,58 +40,58 @@ public class e extends a {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass1) aVar, str, i);
                 if (aVar == null) {
-                    e.this.a(e.this.gkx, (Bitmap) null);
+                    e.this.a(e.this.gku, (Bitmap) null);
                     return;
                 }
-                e.this.a(e.this.gkx, aVar.km());
+                e.this.a(e.this.gku, aVar.km());
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                if (e.this.gkI != null) {
-                    e.this.gkI.bC(6, 3);
+                if (e.this.gkF != null) {
+                    e.this.gkF.bB(6, 3);
                 }
                 e.this.sA(3);
             }
         };
         this.context = context;
-        this.gkI = bVar;
-        this.gkK = response;
-        this.gkJ = WeiboShareSDK.createWeiboAPI(getAppContext(), "3826995480");
-        if (this.gkJ != null) {
-            this.gkJ.registerApp();
+        this.gkF = bVar;
+        this.gkH = response;
+        this.gkG = WeiboShareSDK.createWeiboAPI(getAppContext(), "3826995480");
+        if (this.gkG != null) {
+            this.gkG.registerApp();
         }
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gkJ == null) {
+        if (shareEntity == null || this.gkG == null) {
             sA(2);
             if (bVar != null) {
-                bVar.bC(6, 2);
+                bVar.bB(6, 2);
                 return;
             }
             return;
         }
-        this.gkx = shareEntity;
-        this.gkI = bVar;
+        this.gku = shareEntity;
+        this.gkF = bVar;
         String qG = shareEntity.qG();
         if (!TextUtils.isEmpty(qG) && (qG.startsWith("http://") || qG.startsWith("https://"))) {
             com.baidu.adp.lib.f.c.fp().a(qG, 10, this.aGy, 0, 0, getPageId(), new Object[0]);
         } else if (i(shareEntity.bnq())) {
-            a(this.gkx, h(shareEntity.bnq()));
+            a(this.gku, h(shareEntity.bnq()));
         } else {
-            a(this.gkx, bnt());
+            a(this.gku, bnt());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareEntity shareEntity, Bitmap bitmap) {
-        if (this.gkx == null || this.gkJ == null || !(this.context instanceof Activity)) {
-            if (this.gkI != null) {
-                this.gkI.bC(6, 2);
+        if (this.gku == null || this.gkG == null || !(this.context instanceof Activity)) {
+            if (this.gkF != null) {
+                this.gkF.bB(6, 2);
             }
             sA(2);
             return;
@@ -113,11 +113,11 @@ public class e extends a {
         Activity activity = (Activity) this.context;
         AuthInfo authInfo = new AuthInfo(this.context, "3826995480", "https://tieba.baidu.com", "invitation_write");
         Oauth2AccessToken bV = com.baidu.tieba.sharesdk.c.c.bV(getAppContext());
-        this.gkJ.sendRequest(activity, sendMultiMessageToWeiboRequest, authInfo, bV != null ? bV.getToken() : "", new WeiboAuthListener() { // from class: com.baidu.tieba.sharesdk.a.e.2
+        this.gkG.sendRequest(activity, sendMultiMessageToWeiboRequest, authInfo, bV != null ? bV.getToken() : "", new WeiboAuthListener() { // from class: com.baidu.tieba.sharesdk.a.e.2
             @Override // com.sina.weibo.sdk.auth.WeiboAuthListener
             public void onWeiboException(WeiboException weiboException) {
-                if (e.this.gkI != null) {
-                    e.this.gkI.bC(6, 2);
+                if (e.this.gkF != null) {
+                    e.this.gkF.bB(6, 2);
                 }
                 e.this.sp(e.this.getString(d.k.share_weibosdk_auth_failed, new Object[0]));
             }
@@ -130,8 +130,8 @@ public class e extends a {
 
             @Override // com.sina.weibo.sdk.auth.WeiboAuthListener
             public void onCancel() {
-                if (e.this.gkI != null) {
-                    e.this.gkI.bC(6, 3);
+                if (e.this.gkF != null) {
+                    e.this.gkF.bB(6, 3);
                 }
                 e.this.sp(e.this.getString(d.k.share_weibosdk_auth_failed, new Object[0]));
             }
@@ -188,12 +188,12 @@ public class e extends a {
     }
 
     private TextObject bnu() {
-        if (this.gkx == null) {
+        if (this.gku == null) {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = su(this.gkx.getTitle());
-        textObject.text = su(this.gkx.getContent());
+        textObject.title = su(this.gku.getTitle());
+        textObject.text = su(this.gku.getContent());
         return textObject;
     }
 
@@ -210,8 +210,8 @@ public class e extends a {
 
     @Override // com.baidu.tieba.sharesdk.a.a
     public void D(Intent intent) {
-        if (this.gkJ != null && this.gkK != null) {
-            this.gkJ.handleWeiboResponse(intent, this.gkK);
+        if (this.gkG != null && this.gkH != null) {
+            this.gkG.handleWeiboResponse(intent, this.gkH);
         }
     }
 
@@ -219,33 +219,33 @@ public class e extends a {
         if (baseResponse != null) {
             switch (baseResponse.errCode) {
                 case 0:
-                    if (this.gkI != null) {
-                        this.gkI.bC(6, 1);
+                    if (this.gkF != null) {
+                        this.gkF.bB(6, 1);
                     }
                     sA(1);
                     return;
                 case 1:
-                    if (this.gkI != null) {
-                        this.gkI.bC(6, 3);
+                    if (this.gkF != null) {
+                        this.gkF.bB(6, 3);
                     }
                     sA(3);
                     return;
                 case 2:
-                    if (this.gkI != null) {
-                        this.gkI.bC(6, 2);
+                    if (this.gkF != null) {
+                        this.gkF.bB(6, 2);
                     }
                     sA(2);
                     return;
                 default:
-                    if (this.gkI != null) {
-                        this.gkI.bC(6, 2);
+                    if (this.gkF != null) {
+                        this.gkF.bB(6, 2);
                     }
                     sA(2);
                     return;
             }
         }
-        if (this.gkI != null) {
-            this.gkI.bC(6, 2);
+        if (this.gkF != null) {
+            this.gkF.bB(6, 2);
         }
         sA(2);
     }

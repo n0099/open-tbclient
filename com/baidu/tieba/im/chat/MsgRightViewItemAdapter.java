@@ -8,15 +8,15 @@ import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends e<MsgrightView> {
-    private boolean dQS;
+    private boolean dQP;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dQS = false;
+        this.dQP = false;
     }
 
     public void gJ(boolean z) {
-        this.dQS = z;
+        this.dQP = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,13 +35,13 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view2, viewGroup, chatMessage, aVar);
         MsgrightView aAU = aVar.aAU();
-        aAU.ng(this.dQJ);
-        aAU.gJ(this.dQS);
+        aAU.ng(this.dQG);
+        aAU.gJ(this.dQP);
         chatMessage.getCacheData().setIs_left(0);
-        aAU.a(this.dQz);
-        aAU.setOnItemViewLongClickListener(this.dQA);
+        aAU.a(this.dQw);
+        aAU.setOnItemViewLongClickListener(this.dQx);
         aAU.setPosition(i);
-        aAU.bQ(this.dQG);
+        aAU.bQ(this.dQD);
         aAU.bP(chatMessage.getCacheData().getLastMsgTime());
         aAU.a(viewGroup, chatMessage);
         aAU.b(viewGroup, chatMessage);

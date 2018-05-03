@@ -8,30 +8,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ap extends q.a {
-    public View dFw;
-    public ImageView fnF;
-    public TextView fnG;
-    public TextView fnH;
-    public View fnI;
-    public View fnJ;
-    public ImageView fnK;
-    public TextView fnL;
-    private boolean fnM;
+    public View dFt;
+    public ImageView fnC;
+    public TextView fnD;
+    public TextView fnE;
+    public View fnF;
+    public View fnG;
+    public ImageView fnH;
+    public TextView fnI;
+    private boolean fnJ;
     public View mRootView;
 
     public ap(View view2) {
         super(view2);
-        this.fnM = false;
+        this.fnJ = false;
         if (view2 != null) {
             this.mRootView = view2.findViewById(d.g.thread_praise_root);
-            this.fnF = (ImageView) view2.findViewById(d.g.view_main_thread_praise_state);
-            this.fnG = (TextView) view2.findViewById(d.g.view_main_thread_praise_num);
-            this.fnL = (TextView) view2.findViewById(d.g.tv_share);
-            this.fnH = (TextView) view2.findViewById(d.g.tv_praise);
-            this.fnI = view2.findViewById(d.g.praise_container);
-            this.fnJ = view2.findViewById(d.g.share_container);
-            this.fnK = (ImageView) view2.findViewById(d.g.view_main_thread_share_state);
-            this.dFw = view2.findViewById(d.g.bottom_divider_line);
+            this.fnC = (ImageView) view2.findViewById(d.g.view_main_thread_praise_state);
+            this.fnD = (TextView) view2.findViewById(d.g.view_main_thread_praise_num);
+            this.fnI = (TextView) view2.findViewById(d.g.tv_share);
+            this.fnE = (TextView) view2.findViewById(d.g.tv_praise);
+            this.fnF = view2.findViewById(d.g.praise_container);
+            this.fnG = view2.findViewById(d.g.share_container);
+            this.fnH = (ImageView) view2.findViewById(d.g.view_main_thread_share_state);
+            this.dFt = view2.findViewById(d.g.bottom_divider_line);
         }
     }
 
@@ -43,73 +43,73 @@ public class ap extends q.a {
     public void b(com.baidu.tieba.pb.data.j jVar) {
         if (jVar != null) {
             if (jVar.aVW()) {
-                if (jVar.fcG == 1) {
-                    com.baidu.tbadk.core.util.ak.c(this.fnF, d.f.icon_floor_big_praised);
-                } else if (jVar.fcG == 3) {
-                    com.baidu.tbadk.core.util.ak.c(this.fnF, d.f.icon_floor_trample);
-                } else if (jVar.fcG == 4) {
-                    com.baidu.tbadk.core.util.ak.c(this.fnF, d.f.icon_floor_big_trample);
+                if (jVar.fcD == 1) {
+                    com.baidu.tbadk.core.util.ak.c(this.fnC, d.f.icon_floor_big_praised);
+                } else if (jVar.fcD == 3) {
+                    com.baidu.tbadk.core.util.ak.c(this.fnC, d.f.icon_floor_trample);
+                } else if (jVar.fcD == 4) {
+                    com.baidu.tbadk.core.util.ak.c(this.fnC, d.f.icon_floor_big_trample);
                 } else if (jVar.aVY() == 1) {
-                    com.baidu.tbadk.core.util.ak.c(this.fnF, xf() ? d.f.icon_card_liked_n_xmas : d.f.icon_card_liked_n);
+                    com.baidu.tbadk.core.util.ak.c(this.fnC, xf() ? d.f.icon_card_liked_n_xmas : d.f.icon_card_liked_n);
                 } else {
-                    com.baidu.tbadk.core.util.ak.c(this.fnF, xf() ? d.f.icon_floor_bigpraised_xmas : d.f.icon_floor_bigpraised);
+                    com.baidu.tbadk.core.util.ak.c(this.fnC, xf() ? d.f.icon_floor_bigpraised_xmas : d.f.icon_floor_bigpraised);
                 }
-                com.baidu.tbadk.core.util.ak.h(this.fnH, d.C0126d.text_conth_50_color);
-                this.fnI.setBackgroundDrawable(com.baidu.tbadk.core.util.ak.getDrawable(d.f.bg_first_floor_praise_border_selector_orange));
+                com.baidu.tbadk.core.util.ak.h(this.fnE, d.C0126d.text_conth_50_color);
+                this.fnF.setBackgroundDrawable(com.baidu.tbadk.core.util.ak.getDrawable(d.f.bg_first_floor_praise_border_selector_orange));
             } else {
-                com.baidu.tbadk.core.util.ak.c(this.fnF, xf() ? d.f.icon_card_like_n_xmas : d.f.icon_card_like_n);
-                com.baidu.tbadk.core.util.ak.h(this.fnH, d.C0126d.text_contf_50_color);
-                this.fnI.setBackgroundDrawable(com.baidu.tbadk.core.util.ak.getDrawable(d.f.bg_first_floor_praise_border_selector));
+                com.baidu.tbadk.core.util.ak.c(this.fnC, xf() ? d.f.icon_card_like_n_xmas : d.f.icon_card_like_n);
+                com.baidu.tbadk.core.util.ak.h(this.fnE, d.C0126d.text_contf_50_color);
+                this.fnF.setBackgroundDrawable(com.baidu.tbadk.core.util.ak.getDrawable(d.f.bg_first_floor_praise_border_selector));
             }
-            this.fnM = jVar.aVV();
+            this.fnJ = jVar.aVV();
             aZz();
             if (jVar.shareNum > 0) {
                 if (com.baidu.tbadk.core.util.an.ej(com.baidu.tbadk.core.util.an.x(jVar.shareNum)) >= 6) {
-                    this.fnL.setPadding((int) getView().getResources().getDimension(d.e.ds40), 0, (int) getView().getResources().getDimension(d.e.ds40), 0);
+                    this.fnI.setPadding((int) getView().getResources().getDimension(d.e.ds40), 0, (int) getView().getResources().getDimension(d.e.ds40), 0);
                 }
-                this.fnL.setText(com.baidu.tbadk.core.util.an.x(jVar.shareNum));
+                this.fnI.setText(com.baidu.tbadk.core.util.an.x(jVar.shareNum));
             } else {
-                this.fnL.setText(getView().getResources().getString(d.k.share));
+                this.fnI.setText(getView().getResources().getString(d.k.share));
             }
-            com.baidu.tbadk.core.util.ak.h(this.fnG, d.C0126d.cp_link_tip_c);
-            this.fnF.setTag(d.g.pb_main_thread_praise_data, jVar);
-            this.fnH.setTag(d.g.pb_main_thread_praise_data, jVar);
+            com.baidu.tbadk.core.util.ak.h(this.fnD, d.C0126d.cp_link_tip_c);
+            this.fnC.setTag(d.g.pb_main_thread_praise_data, jVar);
+            this.fnE.setTag(d.g.pb_main_thread_praise_data, jVar);
             if (jVar.aWa()) {
-                com.baidu.tbadk.core.util.ak.j(this.dFw, d.C0126d.cp_bg_line_c);
-                this.dFw.setVisibility(0);
+                com.baidu.tbadk.core.util.ak.j(this.dFt, d.C0126d.cp_bg_line_c);
+                this.dFt.setVisibility(0);
             } else {
-                this.dFw.setVisibility(8);
+                this.dFt.setVisibility(8);
             }
             if (jVar.aVU() <= 0 || com.baidu.tbadk.core.util.v.w(jVar.aVX())) {
-                this.fnG.setText(d.k.no_praise_tip);
-                this.fnH.setText(d.k.action_praise_default);
-                com.baidu.tbadk.core.util.ak.h(this.fnG, d.C0126d.cp_cont_f);
-                this.fnG.setTag(false);
-                this.fnI.setBackgroundDrawable(com.baidu.tbadk.core.util.ak.getDrawable(d.f.bg_first_floor_praise_border_selector));
-                com.baidu.tbadk.core.util.ak.h(this.fnH, d.C0126d.text_contf_50_color);
-                com.baidu.tbadk.core.util.ak.c(this.fnF, xf() ? d.f.icon_card_like_n_xmas : d.f.icon_card_like_n);
+                this.fnD.setText(d.k.no_praise_tip);
+                this.fnE.setText(d.k.action_praise_default);
+                com.baidu.tbadk.core.util.ak.h(this.fnD, d.C0126d.cp_cont_f);
+                this.fnD.setTag(false);
+                this.fnF.setBackgroundDrawable(com.baidu.tbadk.core.util.ak.getDrawable(d.f.bg_first_floor_praise_border_selector));
+                com.baidu.tbadk.core.util.ak.h(this.fnE, d.C0126d.text_contf_50_color);
+                com.baidu.tbadk.core.util.ak.c(this.fnC, xf() ? d.f.icon_card_like_n_xmas : d.f.icon_card_like_n);
                 return;
             }
-            this.fnG.setTag(true);
-            this.fnG.setText(String.format(TbadkCoreApplication.getInst().getString(d.k.count_main_thread_praise), com.baidu.tbadk.core.util.an.x(jVar.aVU())));
-            this.fnH.setText(com.baidu.tbadk.core.util.an.x(jVar.aVU()));
+            this.fnD.setTag(true);
+            this.fnD.setText(String.format(TbadkCoreApplication.getInst().getString(d.k.count_main_thread_praise), com.baidu.tbadk.core.util.an.x(jVar.aVU())));
+            this.fnE.setText(com.baidu.tbadk.core.util.an.x(jVar.aVU()));
         }
     }
 
     private void aZz() {
-        if (this.fnM) {
-            com.baidu.tbadk.core.util.ak.i(this.fnJ, d.f.bg_gray_round_border_shape_s);
-            com.baidu.tbadk.core.util.ak.i(this.fnK, d.f.icon_topbar_share_d);
-            com.baidu.tbadk.core.util.ak.h(this.fnL, d.C0126d.cp_cont_e);
-            this.fnJ.setClickable(false);
-            this.fnL.setClickable(false);
+        if (this.fnJ) {
+            com.baidu.tbadk.core.util.ak.i(this.fnG, d.f.bg_gray_round_border_shape_s);
+            com.baidu.tbadk.core.util.ak.i(this.fnH, d.f.icon_topbar_share_d);
+            com.baidu.tbadk.core.util.ak.h(this.fnI, d.C0126d.cp_cont_e);
+            this.fnG.setClickable(false);
+            this.fnI.setClickable(false);
             return;
         }
-        com.baidu.tbadk.core.util.ak.i(this.fnJ, d.f.bg_first_floor_praise_border_selector);
-        com.baidu.tbadk.core.util.ak.i(this.fnK, d.f.icon_pb_first_floor_share_selector);
-        com.baidu.tbadk.core.util.ak.h(this.fnL, d.C0126d.text_contf_50_color);
-        this.fnJ.setClickable(true);
-        this.fnL.setClickable(true);
+        com.baidu.tbadk.core.util.ak.i(this.fnG, d.f.bg_first_floor_praise_border_selector);
+        com.baidu.tbadk.core.util.ak.i(this.fnH, d.f.icon_pb_first_floor_share_selector);
+        com.baidu.tbadk.core.util.ak.h(this.fnI, d.C0126d.text_contf_50_color);
+        this.fnG.setClickable(true);
+        this.fnI.setClickable(true);
     }
 
     public void aZA() {

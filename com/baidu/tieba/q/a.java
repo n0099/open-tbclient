@@ -8,8 +8,8 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static BlockPopInfo gJk;
-    private static BlockPopInfo gJl;
+    private static BlockPopInfo gJh;
+    private static BlockPopInfo gJi;
     private TbPageContext adf;
     private CustomMessageListener bnd = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.a.3
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,11 +43,11 @@ public class a {
     }
 
     public boolean bvC() {
-        return a(gJk);
+        return a(gJh);
     }
 
     public boolean bvD() {
-        return a(gJl);
+        return a(gJi);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
@@ -78,10 +78,10 @@ public class a {
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        gJk = blockPopInfo;
+        gJh = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        gJl = blockPopInfo;
+        gJi = blockPopInfo;
     }
 }

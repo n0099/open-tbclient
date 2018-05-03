@@ -28,32 +28,32 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
     private int Dh;
     private int Di;
     private int Dj;
-    private TextView dzQ;
-    private String gaM;
-    private ImageView gbv;
-    private String[] gbw;
-    private DialogInterface.OnClickListener gbx;
+    private TextView dzN;
+    private String gaJ;
+    private ImageView gbs;
+    private String[] gbt;
+    private DialogInterface.OnClickListener gbu;
     private String mContent;
     private int mType;
 
     public PickerView(Context context) {
         super(context);
-        this.dzQ = null;
-        this.gbv = null;
+        this.dzN = null;
+        this.gbs = null;
         this.mType = -1;
         this.Df = 0;
         this.Dg = 0;
         this.Dh = 0;
         this.Dj = 0;
         this.Di = 0;
-        this.gbw = null;
+        this.gbt = null;
         this.mContent = "";
-        this.gaM = "";
-        this.gbx = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.1
+        this.gaJ = "";
+        this.gbu = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                PickerView.this.gaM = PickerView.this.gbw[i];
-                PickerView.this.dzQ.setText(PickerView.this.gaM);
+                PickerView.this.gaJ = PickerView.this.gbt[i];
+                PickerView.this.dzN.setText(PickerView.this.gaJ);
             }
         };
         init();
@@ -61,22 +61,22 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
 
     public PickerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dzQ = null;
-        this.gbv = null;
+        this.dzN = null;
+        this.gbs = null;
         this.mType = -1;
         this.Df = 0;
         this.Dg = 0;
         this.Dh = 0;
         this.Dj = 0;
         this.Di = 0;
-        this.gbw = null;
+        this.gbt = null;
         this.mContent = "";
-        this.gaM = "";
-        this.gbx = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.1
+        this.gaJ = "";
+        this.gbu = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                PickerView.this.gaM = PickerView.this.gbw[i];
-                PickerView.this.dzQ.setText(PickerView.this.gaM);
+                PickerView.this.gaJ = PickerView.this.gbt[i];
+                PickerView.this.dzN.setText(PickerView.this.gaJ);
             }
         };
         init();
@@ -84,22 +84,22 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
 
     public PickerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dzQ = null;
-        this.gbv = null;
+        this.dzN = null;
+        this.gbs = null;
         this.mType = -1;
         this.Df = 0;
         this.Dg = 0;
         this.Dh = 0;
         this.Dj = 0;
         this.Di = 0;
-        this.gbw = null;
+        this.gbt = null;
         this.mContent = "";
-        this.gaM = "";
-        this.gbx = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.1
+        this.gaJ = "";
+        this.gbu = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                PickerView.this.gaM = PickerView.this.gbw[i2];
-                PickerView.this.dzQ.setText(PickerView.this.gaM);
+                PickerView.this.gaJ = PickerView.this.gbt[i2];
+                PickerView.this.dzN.setText(PickerView.this.gaJ);
             }
         };
         init();
@@ -113,23 +113,23 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
     }
 
     private void initContentView() {
-        this.dzQ = new TextView(this.mContext);
-        this.dzQ.setTextSize(0, this.gbm);
-        this.dzQ.setTextColor(this.gbl);
+        this.dzN = new TextView(this.mContext);
+        this.dzN.setTextSize(0, this.gbj);
+        this.dzN.setTextColor(this.gbi);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(15);
         layoutParams.addRule(9);
-        addView(this.dzQ, layoutParams);
+        addView(this.dzN, layoutParams);
     }
 
     private void bjV() {
         Drawable drawable = this.mResources.getDrawable(d.f.form_picker_arrow);
-        this.gbv = new ImageView(this.mContext);
-        this.gbv.setBackgroundDrawable(drawable);
+        this.gbs = new ImageView(this.mContext);
+        this.gbs.setBackgroundDrawable(drawable);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(11);
         layoutParams.addRule(15);
-        addView(this.gbv, layoutParams);
+        addView(this.gbs, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
@@ -138,16 +138,16 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
             FormCard.e eVar = (FormCard.e) bVar;
             this.mType = eVar.type;
             this.mContent = eVar.content;
-            this.dzQ.setText(this.mContent);
-            this.dzQ.setTextSize(0, this.gbm);
-            ((ViewGroup.MarginLayoutParams) this.dzQ.getLayoutParams()).leftMargin = this.gbe;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gbv.getLayoutParams();
-            marginLayoutParams.width = this.gbe;
-            marginLayoutParams.rightMargin = this.gbe;
+            this.dzN.setText(this.mContent);
+            this.dzN.setTextSize(0, this.gbj);
+            ((ViewGroup.MarginLayoutParams) this.dzN.getLayoutParams()).leftMargin = this.gbb;
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gbs.getLayoutParams();
+            marginLayoutParams.width = this.gbb;
+            marginLayoutParams.rightMargin = this.gbb;
             switch (this.mType) {
                 case 6:
-                    if (eVar.fYl != null && eVar.fYl.length > 0) {
-                        this.gbw = eVar.fYl;
+                    if (eVar.fYi != null && eVar.fYi.length > 0) {
+                        this.gbt = eVar.fYi;
                         break;
                     } else {
                         return false;
@@ -180,7 +180,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public int bjU() {
-        return this.gbh;
+        return this.gbe;
     }
 
     @Override // android.app.DatePickerDialog.OnDateSetListener
@@ -190,22 +190,22 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
         this.Dh = datePicker.getDayOfMonth();
         StringBuilder sb = new StringBuilder();
         sb.append(this.Df).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.Dg + 1).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.Dh);
-        this.gaM = sb.toString();
-        this.dzQ.setText(this.gaM);
+        this.gaJ = sb.toString();
+        this.dzN.setText(this.gaJ);
     }
 
     @Override // android.widget.TimePicker.OnTimeChangedListener
     public void onTimeChanged(TimePicker timePicker, int i, int i2) {
-        this.gaM = bB(i, i2);
+        this.gaJ = bA(i, i2);
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == -1) {
-            if (TextUtils.isEmpty(this.gaM)) {
-                this.gaM = bB(this.Di, this.Dj);
+            if (TextUtils.isEmpty(this.gaJ)) {
+                this.gaJ = bA(this.Di, this.Dj);
             }
-            this.dzQ.setText(this.gaM);
+            this.dzN.setText(this.gaJ);
         }
     }
 
@@ -213,8 +213,8 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
     public void onClick(View view2) {
         switch (this.mType) {
             case 6:
-                if (this.gbw != null && this.gbw.length > 0) {
-                    b(new AlertDialog.Builder(this.mContext).setTitle(this.mContent).setItems(this.gbw, this.gbx).show());
+                if (this.gbt != null && this.gbt.length > 0) {
+                    b(new AlertDialog.Builder(this.mContext).setTitle(this.mContent).setItems(this.gbt, this.gbu).show());
                     return;
                 }
                 return;
@@ -253,20 +253,20 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
     public boolean bjL() {
-        return !TextUtils.isEmpty(this.gaM);
+        return !TextUtils.isEmpty(this.gaJ);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
     public String getResult() {
-        return this.gaM;
+        return this.gaJ;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     protected void reset() {
-        this.gaM = "";
+        this.gaJ = "";
     }
 
-    private String bB(int i, int i2) {
+    private String bA(int i, int i2) {
         this.Di = i;
         this.Dj = i2;
         String num = Integer.toString(this.Dj);

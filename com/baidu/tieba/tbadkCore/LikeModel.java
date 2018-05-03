@@ -19,9 +19,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class LikeModel extends BdBaseModel {
     private String from;
-    private String gvk;
-    private String gvl;
-    private a gvm;
+    private String gvh;
+    private String gvi;
+    private a gvj;
     private BlockPopInfoData mBlockPopInfoData;
     private String mForumId;
     private String mForumName;
@@ -31,8 +31,8 @@ public class LikeModel extends BdBaseModel {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.gvk = null;
-        this.gvm = null;
+        this.gvh = null;
+        this.gvj = null;
         this.mPageContext = tbPageContext;
     }
 
@@ -55,29 +55,29 @@ public class LikeModel extends BdBaseModel {
     }
 
     public void brp() {
-        if (this.gvm != null) {
-            this.gvm.cancel();
-            this.gvm = null;
+        if (this.gvj != null) {
+            this.gvj.cancel();
+            this.gvj = null;
         }
     }
 
     public void I(String str, String str2, String str3) {
         cb(str, str2);
-        this.gvk = str3;
+        this.gvh = str3;
     }
 
     public void cb(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gvm == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gvj == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.gvm = new a();
-            this.gvm.setPriority(2);
-            this.gvm.execute(new Object[0]);
+            this.gvj = new a();
+            this.gvj.setPriority(2);
+            this.gvj.execute(new Object[0]);
         }
     }
 
     public boolean brq() {
-        return this.gvm != null;
+        return this.gvj != null;
     }
 
     public Context getContext() {
@@ -106,11 +106,11 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.n("kw", LikeModel.this.mForumName);
                 this.mNetwork.n(ImageViewerConfig.FORUM_ID, LikeModel.this.mForumId);
                 this.mNetwork.n("st_type", LikeModel.this.from);
-                if (!StringUtils.isNull(LikeModel.this.gvl)) {
-                    this.mNetwork.n("dev_id", LikeModel.this.gvl);
+                if (!StringUtils.isNull(LikeModel.this.gvi)) {
+                    this.mNetwork.n("dev_id", LikeModel.this.gvi);
                 }
-                if (!TextUtils.isEmpty(LikeModel.this.gvk)) {
-                    this.mNetwork.n("pagefrom", LikeModel.this.gvk);
+                if (!TextUtils.isEmpty(LikeModel.this.gvh)) {
+                    this.mNetwork.n("pagefrom", LikeModel.this.gvh);
                 }
                 this.mNetwork.n("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.n("user_id", TbadkCoreApplication.getCurrentAccount());
@@ -147,7 +147,7 @@ public class LikeModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(r rVar) {
-            LikeModel.this.gvm = null;
+            LikeModel.this.gvj = null;
             if (this.mNetwork != null && rVar != null && !AntiHelper.e(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), rVar.brr())) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = com.baidu.adp.lib.g.b.c(rVar.getFid(), 0L);
@@ -174,7 +174,7 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.eW();
                 this.mNetwork = null;
             }
-            LikeModel.this.gvm = null;
+            LikeModel.this.gvj = null;
             super.cancel(true);
             if (LikeModel.this.mLoadDataCallBack != null) {
                 LikeModel.this.mLoadDataCallBack.f(null);

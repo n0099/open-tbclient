@@ -16,8 +16,8 @@ import java.util.LinkedList;
 public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
     private boolean bmx;
     private boolean bvq;
-    private a cuZ;
-    private e cva;
+    private a cuW;
+    private e cuX;
     public HttpMessageListener httpListener;
     private boolean mHasMore;
     private int mPageNum;
@@ -40,8 +40,8 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
                     if (httpResponsedMessage.getError() == 0) {
                         ChannelListModel.this.a((ResponseNetChannelListMessage) httpResponsedMessage);
                     }
-                    if (ChannelListModel.this.cuZ != null) {
-                        ChannelListModel.this.cuZ.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelListModel.this.bvq, ChannelListModel.this.cva);
+                    if (ChannelListModel.this.cuW != null) {
+                        ChannelListModel.this.cuW.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelListModel.this.bvq, ChannelListModel.this.cuX);
                     }
                     ChannelListModel.this.bvq = false;
                 }
@@ -50,7 +50,7 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
         this.mUserId = str;
     }
 
-    public HttpMessage al(int i, int i2) {
+    public HttpMessage ak(int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_SUBSCRIBE_CHANNEL_LIST);
         httpMessage.addParam("user_id", this.mUserId);
         httpMessage.addParam("pn", i);
@@ -62,13 +62,13 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ResponseNetChannelListMessage responseNetChannelListMessage) {
         if (responseNetChannelListMessage != null) {
-            if (this.cva == null) {
-                this.cva = new e();
+            if (this.cuX == null) {
+                this.cuX = new e();
             }
             e data = responseNetChannelListMessage.getData();
             if (data != null) {
-                this.cva.getItems().addAll(data.getItems());
-                this.cva.setHasMore(data.hasMore());
+                this.cuX.getItems().addAll(data.getItems());
+                this.cuX.setHasMore(data.hasMore());
                 this.mHasMore = data.hasMore();
             }
         }
@@ -92,16 +92,16 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
     }
 
     private void agt() {
-        HttpMessage al;
+        HttpMessage ak;
         LinkedList<HttpMessage> findHttpMessage = MessageManager.getInstance().findHttpMessage(getUniqueId());
         if (findHttpMessage == null || findHttpMessage.size() == 0) {
             if (!this.bmx) {
-                al = al(1, 8);
-                this.cva = null;
+                ak = ak(1, 8);
+                this.cuX = null;
             } else {
-                al = al(this.mPageNum + 1, 8);
+                ak = ak(this.mPageNum + 1, 8);
             }
-            sendMessage(al);
+            sendMessage(ak);
         }
     }
 
@@ -119,6 +119,6 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
     }
 
     public void a(a aVar) {
-        this.cuZ = aVar;
+        this.cuW = aVar;
     }
 }

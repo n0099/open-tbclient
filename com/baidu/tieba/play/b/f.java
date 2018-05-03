@@ -28,13 +28,13 @@ public class f {
     /* loaded from: classes.dex */
     private static class a {
         public final String error;
-        public final String fRo;
+        public final String fRl;
         public final String uuid;
 
         public a(String str, String str2, String str3) {
             this.uuid = str;
             this.error = str2;
-            this.fRo = str3;
+            this.fRl = str3;
         }
 
         public JSONObject bhk() {
@@ -42,7 +42,7 @@ public class f {
             try {
                 jSONObject.put(UserBox.TYPE, this.uuid);
                 jSONObject.put("error", this.error);
-                jSONObject.put("sub_error", this.fRo);
+                jSONObject.put("sub_error", this.fRl);
             } catch (Exception e) {
                 e.printStackTrace();
             }

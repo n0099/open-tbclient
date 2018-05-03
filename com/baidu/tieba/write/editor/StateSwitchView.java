@@ -9,12 +9,12 @@ import com.baidu.tieba.d.c;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 /* loaded from: classes3.dex */
 public class StateSwitchView extends EditorInfoView {
-    private c fnw;
-    private int hdA;
-    private int hdB;
-    private int hdC;
-    private String hdy;
-    private String hdz;
+    private c fnt;
+    private String hdv;
+    private String hdw;
+    private int hdx;
+    private int hdy;
+    private int hdz;
     private int mSkinType;
     private int mState;
 
@@ -52,9 +52,9 @@ public class StateSwitchView extends EditorInfoView {
 
     private void YT() {
         if (this.mState == 1) {
-            setText(this.hdz);
+            setText(this.hdw);
         } else {
-            setText(this.hdy);
+            setText(this.hdv);
         }
     }
 
@@ -67,26 +67,26 @@ public class StateSwitchView extends EditorInfoView {
     }
 
     public void setStateString(String str, String str2) {
-        this.hdy = str;
-        this.hdz = str2;
+        this.hdv = str;
+        this.hdw = str2;
         YT();
     }
 
     public void setLeftStateDrawable(int i, int i2) {
-        this.hdA = i;
-        this.hdB = i2;
+        this.hdx = i;
+        this.hdy = i2;
         bCg();
     }
 
     private void bCg() {
         int dimensionPixelSize = getResources().getDimensionPixelSize(d.e.ds48);
-        if (this.mState == 1 && this.hdB > 0) {
-            Drawable drawable = ak.getDrawable(this.hdB);
+        if (this.mState == 1 && this.hdy > 0) {
+            Drawable drawable = ak.getDrawable(this.hdy);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             setCompoundDrawables(drawable, null, null, null);
             setCompoundDrawablePadding(getResources().getDimensionPixelSize(d.e.ds8));
-        } else if (this.mState == 0 && this.hdA > 0) {
-            Drawable drawable2 = ak.getDrawable(this.hdA);
+        } else if (this.mState == 0 && this.hdx > 0) {
+            Drawable drawable2 = ak.getDrawable(this.hdx);
             drawable2.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             setCompoundDrawables(drawable2, null, null, null);
             setCompoundDrawablePadding(getResources().getDimensionPixelSize(d.e.ds8));
@@ -98,15 +98,15 @@ public class StateSwitchView extends EditorInfoView {
     }
 
     public void hideTip() {
-        if (this.fnw != null) {
-            this.fnw.ahf();
+        if (this.fnt != null) {
+            this.fnt.ahf();
         }
     }
 
     public void setBackgroundId(int i) {
-        this.hdC = i;
-        if (this.hdC > 0) {
-            ak.i(this, this.hdC);
+        this.hdz = i;
+        if (this.hdz > 0) {
+            ak.i(this, this.hdz);
         }
     }
 
@@ -115,8 +115,8 @@ public class StateSwitchView extends EditorInfoView {
         super.onChangeSkinType(i);
         if (this.mSkinType != i) {
             ak.h(this, d.C0126d.cp_cont_f);
-            if (this.hdC > 0) {
-                ak.i(this, this.hdC);
+            if (this.hdz > 0) {
+                ak.i(this, this.hdz);
             }
             bCg();
             this.mSkinType = i;

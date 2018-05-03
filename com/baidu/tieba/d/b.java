@@ -10,16 +10,16 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    private ImageView cxI;
-    private MessageRedDotView cxJ;
+    private ImageView cxF;
+    private MessageRedDotView cxG;
     private Context mContext;
     private View mRootView;
 
     public b(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(d.i.widget_message_entrance, (ViewGroup) null);
-        this.cxI = (ImageView) this.mRootView.findViewById(d.g.img_message);
-        this.cxJ = (MessageRedDotView) this.mRootView.findViewById(d.g.img_red_tip);
+        this.cxF = (ImageView) this.mRootView.findViewById(d.g.img_message);
+        this.cxG = (MessageRedDotView) this.mRootView.findViewById(d.g.img_red_tip);
     }
 
     public View getView() {
@@ -27,20 +27,20 @@ public class b {
     }
 
     public ImageView ahd() {
-        return this.cxI;
+        return this.cxF;
     }
 
     public void f(boolean z, int i) {
         if (z) {
-            this.cxJ.refresh(i);
-            this.cxJ.setVisibility(0);
+            this.cxG.refresh(i);
+            this.cxG.setVisibility(0);
             return;
         }
-        this.cxJ.setVisibility(8);
+        this.cxG.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.cxJ.onChangeSkinType();
-        ao.vP().c(this.cxI, d.f.icon_topbar_remind_n_svg, d.f.select_topbar_icon_color_tint);
+        this.cxG.onChangeSkinType();
+        ao.vP().c(this.cxF, d.f.icon_topbar_remind_n_svg, d.f.select_topbar_icon_color_tint);
     }
 }

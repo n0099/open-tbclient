@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private TranslateAnimation fsR;
-    private ObjectAnimator fsS;
+    private TranslateAnimation fsO;
+    private ObjectAnimator fsP;
 
     public PbNavbarUserConcernView(Context context) {
         super(context);
@@ -58,11 +58,11 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
             setVisibility(0);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         } else if (z) {
-            if (this.fsR == null) {
-                this.fsR = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
-                this.fsR.setDuration(300L);
-                this.fsR.setFillAfter(true);
-                this.fsR.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
+            if (this.fsO == null) {
+                this.fsO = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
+                this.fsO.setDuration(300L);
+                this.fsO.setFillAfter(true);
+                this.fsO.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -77,15 +77,15 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
                     }
                 });
             }
-            startAnimation(this.fsR);
+            startAnimation(this.fsO);
         } else {
-            if (this.fsS == null) {
-                this.fsS = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
-                this.fsS.setDuration(200L);
-                this.fsS.setRepeatCount(1);
-                this.fsS.setRepeatMode(2);
+            if (this.fsP == null) {
+                this.fsP = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
+                this.fsP.setDuration(200L);
+                this.fsP.setRepeatCount(1);
+                this.fsP.setRepeatMode(2);
             }
-            this.fsS.start();
+            this.fsP.start();
         }
     }
 

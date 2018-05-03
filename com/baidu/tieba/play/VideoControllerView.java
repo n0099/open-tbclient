@@ -26,8 +26,8 @@ public class VideoControllerView extends RelativeLayout {
     private TextView bdx;
     private TextView bdy;
     private boolean bdz;
-    private b ezy;
-    private a ezz;
+    private b ezv;
+    private a ezw;
     private Context mContext;
     private int mDuration;
     private Handler mHandler;
@@ -55,8 +55,8 @@ public class VideoControllerView extends RelativeLayout {
                     case 1:
                         if (!VideoControllerView.this.aRI && VideoControllerView.this.bdz && VideoControllerView.this.bdw != null && VideoControllerView.this.bdw.isPlaying()) {
                             int Nf = VideoControllerView.this.Nf();
-                            if (VideoControllerView.this.ezy != null) {
-                                VideoControllerView.this.ezy.gs(Nf);
+                            if (VideoControllerView.this.ezv != null) {
+                                VideoControllerView.this.ezv.gs(Nf);
                             }
                             sendMessageDelayed(obtainMessage(1), VideoControllerView.this.bdv - (Nf % VideoControllerView.this.bdv));
                             return;
@@ -84,8 +84,8 @@ public class VideoControllerView extends RelativeLayout {
                     if (VideoControllerView.this.bdx != null) {
                         VideoControllerView.this.bdx.setText(an.cU(VideoControllerView.this.bdE));
                     }
-                    if (VideoControllerView.this.ezz != null) {
-                        VideoControllerView.this.ezz.Ng();
+                    if (VideoControllerView.this.ezw != null) {
+                        VideoControllerView.this.ezw.Ng();
                     }
                     if (VideoControllerView.this.bdD != null) {
                         VideoControllerView.this.bdD.onProgressChanged(seekBar, VideoControllerView.this.bdE, z);
@@ -119,8 +119,8 @@ public class VideoControllerView extends RelativeLayout {
                     case 1:
                         if (!VideoControllerView.this.aRI && VideoControllerView.this.bdz && VideoControllerView.this.bdw != null && VideoControllerView.this.bdw.isPlaying()) {
                             int Nf = VideoControllerView.this.Nf();
-                            if (VideoControllerView.this.ezy != null) {
-                                VideoControllerView.this.ezy.gs(Nf);
+                            if (VideoControllerView.this.ezv != null) {
+                                VideoControllerView.this.ezv.gs(Nf);
                             }
                             sendMessageDelayed(obtainMessage(1), VideoControllerView.this.bdv - (Nf % VideoControllerView.this.bdv));
                             return;
@@ -148,8 +148,8 @@ public class VideoControllerView extends RelativeLayout {
                     if (VideoControllerView.this.bdx != null) {
                         VideoControllerView.this.bdx.setText(an.cU(VideoControllerView.this.bdE));
                     }
-                    if (VideoControllerView.this.ezz != null) {
-                        VideoControllerView.this.ezz.Ng();
+                    if (VideoControllerView.this.ezw != null) {
+                        VideoControllerView.this.ezw.Ng();
                     }
                     if (VideoControllerView.this.bdD != null) {
                         VideoControllerView.this.bdD.onProgressChanged(seekBar, VideoControllerView.this.bdE, z);
@@ -183,8 +183,8 @@ public class VideoControllerView extends RelativeLayout {
                     case 1:
                         if (!VideoControllerView.this.aRI && VideoControllerView.this.bdz && VideoControllerView.this.bdw != null && VideoControllerView.this.bdw.isPlaying()) {
                             int Nf = VideoControllerView.this.Nf();
-                            if (VideoControllerView.this.ezy != null) {
-                                VideoControllerView.this.ezy.gs(Nf);
+                            if (VideoControllerView.this.ezv != null) {
+                                VideoControllerView.this.ezv.gs(Nf);
                             }
                             sendMessageDelayed(obtainMessage(1), VideoControllerView.this.bdv - (Nf % VideoControllerView.this.bdv));
                             return;
@@ -212,8 +212,8 @@ public class VideoControllerView extends RelativeLayout {
                     if (VideoControllerView.this.bdx != null) {
                         VideoControllerView.this.bdx.setText(an.cU(VideoControllerView.this.bdE));
                     }
-                    if (VideoControllerView.this.ezz != null) {
-                        VideoControllerView.this.ezz.Ng();
+                    if (VideoControllerView.this.ezw != null) {
+                        VideoControllerView.this.ezw.Ng();
                     }
                     if (VideoControllerView.this.bdD != null) {
                         VideoControllerView.this.bdD.onProgressChanged(seekBar, VideoControllerView.this.bdE, z);
@@ -356,11 +356,11 @@ public class VideoControllerView extends RelativeLayout {
     }
 
     public void setOnProgressUpdatedListener(b bVar) {
-        this.ezy = bVar;
+        this.ezv = bVar;
     }
 
     public void setOnDragingListener(a aVar) {
-        this.ezz = aVar;
+        this.ezw = aVar;
     }
 
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {

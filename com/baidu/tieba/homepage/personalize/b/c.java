@@ -5,7 +5,7 @@ import com.baidu.tieba.card.data.p;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tieba.card.data.b implements p {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public long dFD;
+    public long dFA;
     public boolean showBottomDivider = false;
 
     @Override // com.baidu.adp.widget.ListView.h

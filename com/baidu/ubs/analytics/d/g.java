@@ -8,21 +8,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public final class g {
-    private static String[] hlA = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File hlB = null;
-    private static RandomAccessFile hlC = null;
+    private static String[] hlx = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File hly = null;
+    private static RandomAccessFile hlz = null;
 
     public static synchronized boolean K(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
             if (bFm() && cp(str2, str3)) {
                 try {
-                    hlB = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(hlB, "rwd");
-                    hlC = randomAccessFile;
-                    randomAccessFile.seek(hlB.length());
-                    hlC.write((str + "\r\n").getBytes("UTF-8"));
-                    hlC.close();
+                    hly = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(hly, "rwd");
+                    hlz = randomAccessFile;
+                    randomAccessFile.seek(hly.length());
+                    hlz.write((str + "\r\n").getBytes("UTF-8"));
+                    hlz.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -38,11 +38,11 @@ public final class g {
             if (bFm()) {
                 if (vo(str + str2)) {
                     try {
-                        hlB = new File(str + str2);
-                        hlC = new RandomAccessFile(hlB, "r");
+                        hly = new File(str + str2);
+                        hlz = new RandomAccessFile(hly, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = hlC.readLine();
+                            String readLine = hlz.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -50,14 +50,14 @@ public final class g {
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            hlC.close();
+                            hlz.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            hlC.close();
+                            hlz.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -73,37 +73,37 @@ public final class g {
 
     private static boolean bFm() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.bEN().getContext().checkCallingOrSelfPermission(hlA[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.bEN().getContext().checkCallingOrSelfPermission(hlx[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
     public static boolean vo(String str) {
         File file = new File(str);
-        hlB = file;
+        hly = file;
         return file.exists();
     }
 
     public static boolean vp(String str) {
         File file = new File(str);
-        hlB = file;
+        hly = file;
         return file.delete();
     }
 
     private static boolean cp(String str, String str2) {
         try {
-            hlB = new File(str);
+            hly = new File(str);
             if (!vo(str)) {
-                hlB.mkdirs();
+                hly.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            hlB = file;
+            hly = file;
             if (file.exists()) {
                 return true;
             }
-            return hlB.createNewFile();
+            return hly.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

@@ -6,15 +6,15 @@ import java.io.File;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 public class b {
-    private String gKd;
-    private a gLP;
-    private String gLQ;
-    private f gLR;
-    private d gLS;
-    private e gLT;
-    private volatile boolean gLU;
-    private volatile boolean gLV;
-    private volatile boolean gLW;
+    private String gKa;
+    private a gLM;
+    private String gLN;
+    private f gLO;
+    private d gLP;
+    private e gLQ;
+    private volatile boolean gLR;
+    private volatile boolean gLS;
+    private volatile boolean gLT;
     private Context mContext;
     private String mFilterName;
     private boolean mIsRunning = false;
@@ -30,78 +30,78 @@ public class b {
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
-        this.gLQ = str;
-        this.gKd = str2;
+        this.gLN = str;
+        this.gKa = str2;
         this.mFilterName = str3;
     }
 
     public void bwA() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
-            this.gLU = false;
-            this.gLV = false;
-            this.gLW = false;
+            this.gLR = false;
+            this.gLS = false;
+            this.gLT = false;
             try {
-                File file = new File(new File(this.gKd).getParent());
+                File file = new File(new File(this.gKa).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.gLP != null) {
-                    this.gLP.ap(222, com.baidu.tieba.j.a.g(e));
+                if (this.gLM != null) {
+                    this.gLM.ap(222, com.baidu.tieba.j.a.g(e));
                 }
             }
             try {
-                this.gLT = new e(this.gKd);
-                this.gLR = new f(this.mContext, this.gLQ, this.mFilterName, this.gLT, this.gLP) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.gLQ = new e(this.gKa);
+                this.gLO = new f(this.mContext, this.gLN, this.mFilterName, this.gLQ, this.gLM) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.gLU = true;
+                        b.this.gLR = true;
                         b.this.bwC();
                     }
                 };
-                this.gLR.start();
-                this.gLS = new d(this.mContext, this.gLQ, this.gLT, this.gLP) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.gLO.start();
+                this.gLP = new d(this.mContext, this.gLN, this.gLQ, this.gLM) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.gLV = true;
+                        b.this.gLS = true;
                         b.this.bwC();
                     }
                 };
-                this.gLS.start();
+                this.gLP.start();
             } catch (Exception e2) {
             }
         }
     }
 
     public void bwB() {
-        if (this.gLR != null) {
-            this.gLR.interrupt();
-            this.gLR = null;
+        if (this.gLO != null) {
+            this.gLO.interrupt();
+            this.gLO = null;
         }
-        if (this.gLS != null) {
-            this.gLS.interrupt();
-            this.gLS = null;
+        if (this.gLP != null) {
+            this.gLP.interrupt();
+            this.gLP = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bwC() {
-        if (this.gLU && this.gLV && !this.gLW) {
-            this.gLT.stop();
-            this.gLW = true;
+        if (this.gLR && this.gLS && !this.gLT) {
+            this.gLQ.stop();
+            this.gLT = true;
             bwD();
         }
     }
 
     private void bwD() {
-        if (this.gLP != null) {
-            File file = new File(this.gKd);
+        if (this.gLM != null) {
+            File file = new File(this.gKa);
             if (file.exists() && file.length() > 0) {
-                this.gLP.tN(this.gKd);
+                this.gLM.tN(this.gKa);
             } else {
-                this.gLP.ap(223, "Err empty outputFile");
+                this.gLM.ap(223, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;
@@ -112,6 +112,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.gLP = aVar;
+        this.gLM = aVar;
     }
 }

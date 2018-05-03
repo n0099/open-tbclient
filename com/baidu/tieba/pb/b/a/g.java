@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder fvA;
-    private int fvB;
+    private SpannableStringBuilder fvx;
+    private int fvy;
     private int textSize;
 
     public g() {
-        this.fvB = 0;
+        this.fvy = 0;
         this.textSize = -1;
-        this.fvA = new SpannableStringBuilder();
+        this.fvx = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.fvB = 0;
+        this.fvy = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.fvA = new SpannableStringBuilder();
+            this.fvx = new SpannableStringBuilder();
             if (excContent != null) {
-                this.fvA.append((CharSequence) excContent.text);
+                this.fvx.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.fvB = excContent.align.intValue();
+                this.fvy = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void k(CharSequence charSequence) {
         if (charSequence != null) {
-            this.fvA.append(charSequence);
+            this.fvx.append(charSequence);
         }
     }
 
@@ -53,11 +53,11 @@ public class g implements c {
 
     @Override // com.baidu.tieba.pb.b.a.c
     public CharSequence bcg() {
-        return this.fvA;
+        return this.fvx;
     }
 
     public int bci() {
-        return this.fvB;
+        return this.fvy;
     }
 
     public String bcj() {
@@ -66,7 +66,7 @@ public class g implements c {
 
     @Override // com.baidu.tieba.pb.b.a.c
     public boolean bch() {
-        return (this.fvB > 0 && this.fvB < 3) || !StringUtils.isNull(this.color);
+        return (this.fvy > 0 && this.fvy < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

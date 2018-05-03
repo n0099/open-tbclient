@@ -13,29 +13,29 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a implements View.OnClickListener {
-    private PopupWindow cIo;
-    private boolean dpG;
+    private PopupWindow cIl;
+    private boolean dpD;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int dpF = d.k.attention_post_update_tip;
+    private int dpC = d.k.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable dpH = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable dpE = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int e = l.e(pageActivity, d.e.ds64);
-                View f = a.this.f(pageActivity, a.this.dpF);
+                View f = a.this.f(pageActivity, a.this.dpC);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int e2 = l.e(pageActivity, d.e.ds32);
                 int e3 = l.e(pageActivity, d.e.ds16) + (iArr[1] - e);
-                a.this.cIo = new PopupWindow(f, -2, e);
-                a.this.cIo.showAtLocation(a.this.mAnchor, 53, e2, e3);
+                a.this.cIl = new PopupWindow(f, -2, e);
+                a.this.cIl.showAtLocation(a.this.mAnchor, 53, e2, e3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.cIo != null) {
+                        if (a.this.cIl != null) {
                             a.this.auR();
                         }
                     }
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.dpG = z;
+        this.dpD = z;
     }
 
     public void ax(View view2) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view2 != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view2;
-            if (this.dpG) {
-                this.dpF = d.k.attention_post_update_tip;
+            if (this.dpD) {
+                this.dpC = d.k.attention_post_update_tip;
                 String str = currentAccount + "frs_god_new_post_tip_count";
                 int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
                 if (i >= 3) {
-                    this.dpG = false;
+                    this.dpD = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
-                this.dpG = false;
-                this.mHandler.postDelayed(this.dpH, 500L);
+                this.dpD = false;
+                this.mHandler.postDelayed(this.dpE, 500L);
             }
         }
     }
@@ -90,9 +90,9 @@ public class a implements View.OnClickListener {
     }
 
     public void auR() {
-        if (this.cIo != null) {
-            this.cIo.dismiss();
-            this.cIo = null;
+        if (this.cIl != null) {
+            this.cIl.dismiss();
+            this.cIl = null;
         }
     }
 

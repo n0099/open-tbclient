@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class b {
-    private static b egF = null;
-    private String egH;
-    private ArrayList<CustomMessageListener> egG = new ArrayList<>();
-    private c dPL = new c(202006) { // from class: com.baidu.tieba.im.pushNotify.b.1
+    private static b egC = null;
+    private String egE;
+    private ArrayList<CustomMessageListener> egD = new ArrayList<>();
+    private c dPI = new c(202006) { // from class: com.baidu.tieba.im.pushNotify.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -39,7 +39,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener egI = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
+    private CustomMessageListener egF = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -56,10 +56,10 @@ public class b {
     public static synchronized b aGC() {
         b bVar;
         synchronized (b.class) {
-            if (egF == null) {
-                egF = new b();
+            if (egC == null) {
+                egC = new b();
             }
-            bVar = egF;
+            bVar = egC;
         }
         return bVar;
     }
@@ -72,8 +72,8 @@ public class b {
     }
 
     private void aGD() {
-        MessageManager.getInstance().registerListener(this.dPL);
-        MessageManager.getInstance().registerListener(2016014, this.egI);
+        MessageManager.getInstance().registerListener(this.dPI);
+        MessageManager.getInstance().registerListener(2016014, this.egF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,10 +116,10 @@ public class b {
     }
 
     public String aGE() {
-        return this.egH;
+        return this.egE;
     }
 
     public void nN(String str) {
-        this.egH = str;
+        this.egE = str;
     }
 }

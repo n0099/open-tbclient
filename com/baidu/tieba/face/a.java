@@ -8,8 +8,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern cKh = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern cKi = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern cKe = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern cKf = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
     public static String kV(String str) {
         String replaceAll = str.replaceAll(d.aHa, "meme,");
@@ -46,7 +46,7 @@ public class a {
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = cKh.matcher(str);
+        Matcher matcher = cKe.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {

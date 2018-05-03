@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class j extends f<k, l> {
-    private final int cZz;
+    private final int cZw;
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cZz = (com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
+        this.cZw = (com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class j extends f<k, l> {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.i.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.cZz;
+        generateLayoutParamsByParent.height = this.cZw;
         inflate.setLayoutParams(generateLayoutParamsByParent);
         return new l(inflate);
     }
@@ -36,11 +36,11 @@ public class j extends f<k, l> {
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, k kVar, l lVar) {
         super.onFillViewHolder(i, view2, viewGroup, kVar, lVar);
         if (kVar.aqC() == 6) {
-            lVar.cZC.setText(d.k.attention_no_post_tip);
+            lVar.cZz.setText(d.k.attention_no_post_tip);
         } else {
-            lVar.cZC.setText(d.k.no_data_text);
+            lVar.cZz.setText(d.k.no_data_text);
         }
-        com.baidu.tbadk.core.util.ak.c(lVar.cZC, d.C0126d.cp_cont_b, 1);
+        com.baidu.tbadk.core.util.ak.c(lVar.cZz, d.C0126d.cp_cont_b, 1);
         return view2;
     }
 }

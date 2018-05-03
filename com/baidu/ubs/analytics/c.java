@@ -6,11 +6,11 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes.dex */
 public final class c {
     private long e;
+    private boolean hkq;
+    private long hkr;
+    private long hks;
     private boolean hkt;
-    private long hku;
-    private long hkv;
-    private boolean hkw;
-    private int hkx;
+    private int hku;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -19,12 +19,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
+        this.hkq = aVar.hkq;
+        this.e = aVar.hkv;
+        this.hkr = aVar.hkr;
         this.hkt = aVar.hkt;
-        this.e = aVar.hky;
+        this.hks = aVar.hks;
         this.hku = aVar.hku;
-        this.hkw = aVar.hkw;
-        this.hkv = aVar.hkv;
-        this.hkx = aVar.hkx;
     }
 
     public final Context ns() {
@@ -32,7 +32,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.hkt;
+        return this.hkq;
     }
 
     public final long d() {
@@ -40,30 +40,30 @@ public final class c {
     }
 
     public final long e() {
-        return this.hku;
+        return this.hkr;
     }
 
     public final long f() {
-        return this.hkv;
+        return this.hks;
     }
 
     public final boolean g() {
-        return this.hkw;
+        return this.hkt;
     }
 
     public final int h() {
-        return this.hkx;
+        return this.hku;
     }
 
     /* loaded from: classes.dex */
     public static class a {
         private Context mContext;
-        private boolean hkt = true;
-        private long hky = StatisticConfig.MIN_UPLOAD_INTERVAL;
-        private long hku = 60000;
-        private long hkv = 10000;
-        private boolean hkw = false;
-        private int hkx = 1000;
+        private boolean hkq = true;
+        private long hkv = StatisticConfig.MIN_UPLOAD_INTERVAL;
+        private long hkr = 60000;
+        private long hks = 10000;
+        private boolean hkt = false;
+        private int hku = 1000;
 
         public a cl(Context context) {
             this.mContext = context;
@@ -71,33 +71,33 @@ public final class c {
         }
 
         public a nC(boolean z) {
-            this.hkt = z;
+            this.hkq = z;
             return this;
         }
 
         public a da(long j) {
-            this.hky = 1000 * j;
-            return this;
-        }
-
-        public a vp(int i) {
-            this.hku = i * 60 * 1000;
-            return this;
-        }
-
-        public a db(long j) {
             this.hkv = 1000 * j;
             return this;
         }
 
+        public a vp(int i) {
+            this.hkr = i * 60 * 1000;
+            return this;
+        }
+
+        public a db(long j) {
+            this.hks = 1000 * j;
+            return this;
+        }
+
         public a nD(boolean z) {
-            this.hkw = z;
+            this.hkt = z;
             return this;
         }
 
         public a vq(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.hkx = i2 < 1000 ? i2 : 1000;
+            this.hku = i2 < 1000 ? i2 : 1000;
             return this;
         }
 

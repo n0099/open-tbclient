@@ -1,8 +1,8 @@
 package com.baidu.tieba.video.record;
 /* loaded from: classes2.dex */
 public class e<T> {
-    private T gQm;
-    private int gQn;
+    private T gQj;
+    private int gQk;
     private String mName;
     private int mType;
 
@@ -12,8 +12,8 @@ public class e<T> {
     public e(int i, String str, T t, int i2) {
         this.mType = i;
         this.mName = str;
-        this.gQm = t;
-        this.gQn = i2;
+        this.gQj = t;
+        this.gQk = i2;
     }
 
     public String getName() {
@@ -25,19 +25,19 @@ public class e<T> {
     }
 
     public int bxV() {
-        return this.gQn;
+        return this.gQk;
     }
 
     public void uu(int i) {
-        this.gQn = i;
+        this.gQk = i;
     }
 
     public T getValue() {
-        return this.gQm;
+        return this.gQj;
     }
 
     public void setValue(T t) {
-        this.gQm = t;
+        this.gQj = t;
     }
 
     public int getType() {

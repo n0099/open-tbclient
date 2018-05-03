@@ -3,11 +3,11 @@ package com.baidu.ubs.analytics.d;
 import android.os.Environment;
 /* loaded from: classes.dex */
 public final class a {
-    private static final String hlo = Environment.getExternalStorageDirectory().getPath();
-    static final String aQ = hlo + "/baidu/ab/crash/";
-    static final String aR = hlo + "/baidu/ab/sdklog/";
-    public static final String hlp = hlo + "/baidu/ab/sdkupdata/" + bFi() + "/";
-    private static int hlq = EnumC0246a.aV;
+    private static final String hll = Environment.getExternalStorageDirectory().getPath();
+    static final String aQ = hll + "/baidu/ab/crash/";
+    static final String aR = hll + "/baidu/ab/sdklog/";
+    public static final String hlm = hll + "/baidu/ab/sdkupdata/" + bFi() + "/";
+    private static int hln = EnumC0246a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -16,12 +16,12 @@ public final class a {
     public static final class EnumC0246a {
         public static final int aV = 1;
         public static final int aW = 2;
-        private static final /* synthetic */ int[] hlr = {aV, aW};
+        private static final /* synthetic */ int[] hlo = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean as() {
-        return hlq == EnumC0246a.aV;
+        return hln == EnumC0246a.aV;
     }
 
     public static String u() {

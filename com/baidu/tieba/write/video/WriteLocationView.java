@@ -24,7 +24,7 @@ public class WriteLocationView extends LocationInfoView {
     private int aEB;
     private final LocationModel.a aEI;
     private LocationModel aEv;
-    private final CustomMessageListener gyH;
+    private final CustomMessageListener gyE;
     private BaseActivity<?> mBaseActivity;
 
     public WriteLocationView(Context context) {
@@ -60,7 +60,7 @@ public class WriteLocationView extends LocationInfoView {
                 }
             }
         };
-        this.gyH = new CustomMessageListener(2001226) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
+        this.gyE = new CustomMessageListener(2001226) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -81,7 +81,7 @@ public class WriteLocationView extends LocationInfoView {
 
     public void d(BaseActivity<?> baseActivity) {
         this.mBaseActivity = baseActivity;
-        this.mBaseActivity.registerListener(this.gyH);
+        this.mBaseActivity.registerListener(this.gyE);
         this.aEv = new LocationModel(this.mBaseActivity);
         this.aEv.a(this.aEI);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.video.WriteLocationView.1

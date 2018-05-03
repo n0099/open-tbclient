@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class w {
-    public int flk;
+    public int flh;
 
     public w(PbModel pbModel, BaseActivity baseActivity) {
     }
@@ -29,7 +29,7 @@ public class w {
         }
         Map<String, String> ep = com.baidu.tbadk.core.util.ax.ep(str);
         if (ep != null) {
-            this.flk = 5;
+            this.flh = 5;
             com.baidu.tbadk.core.util.al alVar = new com.baidu.tbadk.core.util.al("c10320");
             alVar.ac("obj_locate", ep.get("obj_locate"));
             alVar.r("obj_type", 1);

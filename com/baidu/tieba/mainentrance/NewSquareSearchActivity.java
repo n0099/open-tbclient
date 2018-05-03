@@ -26,20 +26,20 @@ import com.baidu.tieba.mainentrance.searchSuggestList.SearchListSocketResMessage
 import java.util.List;
 /* loaded from: classes3.dex */
 public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivity> implements HotForumModel.a {
-    private HotForumModel eBX;
-    private com.baidu.tieba.mainentrance.a.e eCa;
-    private HotSearchInfoData eCd;
+    private HotForumModel eBU;
+    private com.baidu.tieba.mainentrance.a.e eBX;
+    private HotSearchInfoData eCa;
     private HotSearchInfoData mHotSearchInfo;
-    private boolean eBY = false;
-    private boolean eBZ = false;
-    private com.baidu.adp.framework.listener.a eCb = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_LIST, 309438) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.1
+    private boolean eBV = false;
+    private boolean eBW = false;
+    private com.baidu.adp.framework.listener.a eBY = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_LIST, 309438) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if ((responsedMessage instanceof SearchListHttpResMessage) || (responsedMessage instanceof SearchListSocketResMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (!NewSquareSearchActivity.this.eBY) {
+                    if (!NewSquareSearchActivity.this.eBV) {
                         NewSquareSearchActivity.this.showToast(NewSquareSearchActivity.this.getActivity().getString(d.k.neterror));
-                        NewSquareSearchActivity.this.eBY = true;
+                        NewSquareSearchActivity.this.eBV = true;
                         return;
                     }
                     return;
@@ -50,11 +50,11 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 } else if (responsedMessage instanceof SearchListSocketResMessage) {
                     list = ((SearchListSocketResMessage) responsedMessage).suggests;
                 }
-                NewSquareSearchActivity.this.eCa.ct(list);
+                NewSquareSearchActivity.this.eBX.ct(list);
             }
         }
     };
-    private CustomMessageListener eCc = new CustomMessageListener(2001608) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.2
+    private CustomMessageListener eBZ = new CustomMessageListener(2001608) { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -70,17 +70,17 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         super.onCreate(bundle);
         initData();
         getWindow().setSoftInputMode(4);
-        registerListener(this.eCb);
-        registerListener(this.eCc);
-        this.eCa = new com.baidu.tieba.mainentrance.a.e(this);
-        this.eBX = new HotForumModel(getPageContext(), this);
-        this.eBX.aMn();
+        registerListener(this.eBY);
+        registerListener(this.eBZ);
+        this.eBX = new com.baidu.tieba.mainentrance.a.e(this);
+        this.eBU = new HotForumModel(getPageContext(), this);
+        this.eBU.aMn();
         aMq();
     }
 
     private void initData() {
         if (getIntent() != null) {
-            this.eBZ = getIntent().getBooleanExtra(SquareSearchActivityConfig.IS_FROM_ENTER_FROUM, false);
+            this.eBW = getIntent().getBooleanExtra(SquareSearchActivityConfig.IS_FROM_ENTER_FROUM, false);
         }
     }
 
@@ -88,15 +88,15 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.eCa != null) {
-            this.eCa.onDestroy();
+        if (this.eBX != null) {
+            this.eBX.onDestroy();
         }
     }
 
     private void aMq() {
-        this.eCd = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("hot_search_info", ""), HotSearchInfoData.class);
-        if (this.eCd != null) {
-            this.mHotSearchInfo = this.eCd;
+        this.eCa = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("hot_search_info", ""), HotSearchInfoData.class);
+        if (this.eCa != null) {
+            this.mHotSearchInfo = this.eCa;
         }
     }
 
@@ -107,11 +107,11 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
     public void a(List<b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         a(hotSearchInfoData);
-        this.eCa.b(this.mHotSearchInfo);
+        this.eBX.b(this.mHotSearchInfo);
     }
 
     private void a(HotSearchInfoData hotSearchInfoData) {
-        if (!this.eBZ && hotSearchInfoData != null) {
+        if (!this.eBW && hotSearchInfoData != null) {
             this.mHotSearchInfo = hotSearchInfoData;
         }
     }
@@ -119,13 +119,13 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.eCa.onChangeSkinType(i);
+        this.eBX.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            BaseWebView aNi = this.eCa.aNi();
+            BaseWebView aNi = this.eBX.aNi();
             if (i == 4 && aNi != null && aNi.canGoBack()) {
                 aNi.goBack();
                 return true;

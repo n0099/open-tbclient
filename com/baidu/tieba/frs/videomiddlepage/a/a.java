@@ -6,21 +6,21 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class a {
-    private int dsl = -1;
-    private long dsm = -1;
-    private int dsi = b.getInstance().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> dsj = new HashSet();
-    private Set<String> dsk = new HashSet();
+    private int dsi = -1;
+    private long dsj = -1;
+    private int dsf = b.getInstance().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> dsg = new HashSet();
+    private Set<String> dsh = new HashSet();
 
     public void S(int i, String str) {
-        this.dsk.add(str);
-        if (this.dsl < 0 && this.dsi == this.dsk.size()) {
-            this.dsl = i;
+        this.dsh.add(str);
+        if (this.dsi < 0 && this.dsf == this.dsh.size()) {
+            this.dsi = i;
         }
     }
 
     public int avH() {
-        return this.dsl;
+        return this.dsi;
     }
 
     public boolean gb(boolean z) {
@@ -66,13 +66,13 @@ public class a {
     }
 
     public void bF(long j) {
-        this.dsm = j;
+        this.dsj = j;
     }
 
     public void avI() {
         int i = b.getInstance().getInt("nani_key_download_show_rate", 2);
-        if (this.dsm > 0 && i != 1) {
-            b.getInstance().putLong("key_horizontal_shown_time", this.dsm);
+        if (this.dsj > 0 && i != 1) {
+            b.getInstance().putLong("key_horizontal_shown_time", this.dsj);
         }
     }
 }

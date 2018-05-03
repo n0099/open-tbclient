@@ -13,15 +13,15 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends b {
     private b.InterfaceC0086b acN;
-    private FrsFragment cYF;
-    private int deF;
+    private FrsFragment cYC;
+    private int deC;
     private List<v> mDatas;
 
     public a(FrsFragment frsFragment, b.InterfaceC0086b interfaceC0086b) {
         super(frsFragment.getActivity());
-        this.deF = 0;
+        this.deC = 0;
         if (frsFragment != null && interfaceC0086b != null) {
-            this.cYF = frsFragment;
+            this.cYC = frsFragment;
             this.acN = interfaceC0086b;
         }
     }
@@ -32,8 +32,8 @@ public class a extends b {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 v vVar = new v();
-                vVar.name = this.cYF.getResources().getString(d.k.attention_users_thread);
-                vVar.cZZ = 6;
+                vVar.name = this.cYC.getResources().getString(d.k.attention_users_thread);
+                vVar.cZW = 6;
                 this.mDatas.add(vVar);
             }
             ArrayList arrayList = new ArrayList();

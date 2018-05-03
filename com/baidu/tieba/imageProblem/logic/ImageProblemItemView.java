@@ -19,8 +19,8 @@ public class ImageProblemItemView extends FrameLayout {
     protected TextView aza;
     protected TextView azb;
     protected ImageView azf;
-    protected LinearLayout erw;
-    protected TextView erx;
+    protected LinearLayout ert;
+    protected TextView eru;
     protected Context mContext;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
@@ -68,19 +68,19 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.erw.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ert.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(d.e.ds26);
-            this.erw.setLayoutParams(layoutParams);
-            this.erx.setText("");
-            this.erx.setVisibility(8);
+            this.ert.setLayoutParams(layoutParams);
+            this.eru.setText("");
+            this.eru.setVisibility(8);
             return;
         }
-        this.erw.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.erw.getLayoutParams();
+        this.ert.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.ert.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(d.e.ds10);
-        this.erw.setLayoutParams(layoutParams2);
-        this.erx.setText(str);
-        this.erx.setVisibility(0);
+        this.ert.setLayoutParams(layoutParams2);
+        this.eru.setText(str);
+        this.eru.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -120,8 +120,8 @@ public class ImageProblemItemView extends FrameLayout {
         this.aza = (TextView) findViewById(d.g.text);
         this.azb = (TextView) findViewById(d.g.tip);
         this.azf = (ImageView) findViewById(d.g.arrow2);
-        this.erw = (LinearLayout) findViewById(d.g.ll_container);
-        this.erx = (TextView) findViewById(d.g.tv_help);
+        this.ert = (LinearLayout) findViewById(d.g.ll_container);
+        this.eru = (TextView) findViewById(d.g.tv_help);
     }
 
     protected void c(AttributeSet attributeSet) {

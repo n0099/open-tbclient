@@ -12,45 +12,45 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.base.c<UpdatesActivity> {
-    private View ebm;
-    private View ebq;
-    private ProgressBar edA;
-    private Button edB;
-    private Button edC;
-    private Button edD;
-    private View edE;
-    private View edF;
-    private UpdatesActivity edm;
-    private BdListView edy;
-    private a edz;
+    private View ebj;
+    private View ebn;
+    private Button edA;
+    private View edB;
+    private View edC;
+    private UpdatesActivity edj;
+    private BdListView edv;
+    private a edw;
+    private ProgressBar edx;
+    private Button edy;
+    private Button edz;
     private NavigationBar mNavigationBar;
 
     public c(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext());
-        this.edm = updatesActivity;
+        this.edj = updatesActivity;
         initView();
-        this.edz = new a(this.edm);
-        this.edy.setAdapter((ListAdapter) this.edz);
-        this.edy.setOnScrollListener(this.edm);
+        this.edw = new a(this.edj);
+        this.edv.setAdapter((ListAdapter) this.edw);
+        this.edv.setOnScrollListener(this.edj);
     }
 
     void initView() {
-        this.ebm = View.inflate(this.edm.getPageContext().getPageActivity(), d.i.updates_activity, null);
-        this.edm.setContentView(this.ebm);
-        this.mNavigationBar = (NavigationBar) this.edm.findViewById(d.g.view_navigation_bar);
-        this.ebq = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.edm.getPageContext().getString(d.k.updates_activity_title));
-        this.edE = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.i.updates_activity_nav_left, (View.OnClickListener) null);
-        this.edF = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.updates_activity_nav_right, (View.OnClickListener) null);
-        this.edD = (Button) this.edE.findViewById(d.g.btn_delete);
-        this.edD.setOnClickListener(this.edm);
-        this.ebq.setOnClickListener(this.edm);
-        this.edy = (BdListView) this.ebm.findViewById(d.g.updates_list);
-        this.edA = (ProgressBar) this.ebm.findViewById(d.g.pro_load);
-        this.edB = (Button) this.edF.findViewById(d.g.btn_edit);
-        this.edB.setOnClickListener(this.edm);
-        this.edC = (Button) this.edF.findViewById(d.g.btn_cancel);
-        this.edC.setOnClickListener(this.edm);
+        this.ebj = View.inflate(this.edj.getPageContext().getPageActivity(), d.i.updates_activity, null);
+        this.edj.setContentView(this.ebj);
+        this.mNavigationBar = (NavigationBar) this.edj.findViewById(d.g.view_navigation_bar);
+        this.ebn = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(this.edj.getPageContext().getString(d.k.updates_activity_title));
+        this.edB = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.i.updates_activity_nav_left, (View.OnClickListener) null);
+        this.edC = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.updates_activity_nav_right, (View.OnClickListener) null);
+        this.edA = (Button) this.edB.findViewById(d.g.btn_delete);
+        this.edA.setOnClickListener(this.edj);
+        this.ebn.setOnClickListener(this.edj);
+        this.edv = (BdListView) this.ebj.findViewById(d.g.updates_list);
+        this.edx = (ProgressBar) this.ebj.findViewById(d.g.pro_load);
+        this.edy = (Button) this.edC.findViewById(d.g.btn_edit);
+        this.edy.setOnClickListener(this.edj);
+        this.edz = (Button) this.edC.findViewById(d.g.btn_cancel);
+        this.edz.setOnClickListener(this.edj);
         nJ(0);
         hp(false);
     }
@@ -58,85 +58,85 @@ public class c extends com.baidu.adp.base.c<UpdatesActivity> {
     @Override // com.baidu.adp.base.c
     public void destroy() {
         super.destroy();
-        if (this.edz != null) {
-            this.edz.destroy();
-            this.edz = null;
+        if (this.edw != null) {
+            this.edw.destroy();
+            this.edw = null;
         }
-        this.edm = null;
+        this.edj = null;
     }
 
     public a aFo() {
-        return this.edz;
+        return this.edw;
     }
 
     public void aFp() {
-        this.edB.setVisibility(8);
-        this.ebq.setVisibility(8);
-        this.edC.setVisibility(0);
-        this.edE.setVisibility(0);
+        this.edy.setVisibility(8);
+        this.ebn.setVisibility(8);
+        this.edz.setVisibility(0);
+        this.edB.setVisibility(0);
         aEf();
     }
 
     public void aFq() {
-        this.edB.setVisibility(0);
-        this.ebq.setVisibility(0);
-        this.edC.setVisibility(8);
-        this.edE.setVisibility(8);
+        this.edy.setVisibility(0);
+        this.ebn.setVisibility(0);
+        this.edz.setVisibility(8);
+        this.edB.setVisibility(8);
         nJ(0);
         aEf();
     }
 
     public void aEf() {
-        if (this.edz != null) {
-            this.edz.notifyDataSetChanged();
+        if (this.edw != null) {
+            this.edw.notifyDataSetChanged();
         }
     }
 
     public void setData(List<UpdatesItemData> list) {
-        if (this.edz != null) {
-            this.edz.setData(list);
+        if (this.edw != null) {
+            this.edw.setData(list);
         }
     }
 
     public void nJ(int i) {
-        if (this.edD != null && this.edm != null) {
-            this.edD.setText(String.format(this.edm.getPageContext().getString(d.k.del_count), Integer.valueOf(i)));
+        if (this.edA != null && this.edj != null) {
+            this.edA.setText(String.format(this.edj.getPageContext().getString(d.k.del_count), Integer.valueOf(i)));
             if (i == 0) {
-                this.edD.setEnabled(false);
+                this.edA.setEnabled(false);
             } else {
-                this.edD.setEnabled(true);
+                this.edA.setEnabled(true);
             }
         }
     }
 
     public void hp(boolean z) {
-        this.edA.setVisibility(z ? 0 : 8);
+        this.edx.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        this.edm.getLayoutMode().setNightMode(i == 1);
-        this.edm.getLayoutMode().u(this.ebm);
-        this.mNavigationBar.onChangeSkinType(this.edm.getPageContext(), i);
-        ak.i(this.edD, d.f.btn_delete_groupupdates);
+        this.edj.getLayoutMode().setNightMode(i == 1);
+        this.edj.getLayoutMode().u(this.ebj);
+        this.mNavigationBar.onChangeSkinType(this.edj.getPageContext(), i);
+        ak.i(this.edA, d.f.btn_delete_groupupdates);
     }
 
     public View aFr() {
-        return this.ebq;
+        return this.ebn;
     }
 
     public BdListView aFs() {
-        return this.edy;
+        return this.edv;
     }
 
     public Button aFt() {
-        return this.edB;
+        return this.edy;
     }
 
     public Button aFu() {
-        return this.edC;
+        return this.edz;
     }
 
     public Button aFv() {
-        return this.edD;
+        return this.edA;
     }
 }

@@ -1378,12 +1378,12 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         BitmapDrawable bitmapDrawable;
         if (!StringUtils.isNull(this.mUrl) && !StringUtils.isNull(this.abb) && !StringUtils.isNull(str)) {
             Bitmap bitmap = com.baidu.tbadk.imageManager.c.Fa().getBitmap(this.mUrl);
-            if ((bitmap == null || !com.baidu.tbadk.core.util.d.s.v(this.mUrl, 10)) && (w = com.baidu.tbadk.core.util.d.s.w(this.mUrl, 10)) != null) {
+            if ((bitmap == null || !com.baidu.tbadk.core.util.d.u.v(this.mUrl, 10)) && (w = com.baidu.tbadk.core.util.d.u.w(this.mUrl, 10)) != null) {
                 bitmap = w.km();
                 com.baidu.tbadk.imageManager.c.Fa().b(this.mUrl, bitmap);
             }
             Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.Fa().getBitmap(this.abb);
-            if ((bitmap2 == null || !com.baidu.tbadk.core.util.d.s.v(this.abb, 10)) && (w2 = com.baidu.tbadk.core.util.d.s.w(this.abb, 10)) != null) {
+            if ((bitmap2 == null || !com.baidu.tbadk.core.util.d.u.v(this.abb, 10)) && (w2 = com.baidu.tbadk.core.util.d.u.w(this.abb, 10)) != null) {
                 bitmap2 = w2.km();
                 com.baidu.tbadk.imageManager.c.Fa().b(this.abb, bitmap2);
             }

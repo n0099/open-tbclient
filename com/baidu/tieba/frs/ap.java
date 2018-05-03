@@ -5,6 +5,6 @@ public class ap extends am {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean dav = true;
-    public boolean daw = true;
+    public boolean dar = true;
+    public boolean das = true;
 }

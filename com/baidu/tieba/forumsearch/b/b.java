@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId cWi = BdUniqueId.gen();
-    private String cHq;
-    private String cVN;
-    private String cWe;
-    private String cWf;
-    private String cWg;
-    private boolean cWh;
+    public static final BdUniqueId cWf = BdUniqueId.gen();
+    private String cHn;
+    private String cVK;
+    private String cWb;
+    private String cWc;
+    private String cWd;
+    private boolean cWe;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.cVN = str;
+        this.cVK = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return cWi;
+        return cWf;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.cHq = searchForum.avatar;
-            this.cWe = searchForum.post_num;
-            this.cWf = searchForum.concern_num;
-            this.cWg = searchForum.slogan;
+            this.cHn = searchForum.avatar;
+            this.cWb = searchForum.post_num;
+            this.cWc = searchForum.concern_num;
+            this.cWd = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.cWh = searchForum.has_concerned.intValue() != 0;
+            this.cWe = searchForum.has_concerned.intValue() != 0;
         }
     }
 
     public String getAvatar() {
-        return this.cHq;
+        return this.cHn;
     }
 
     public String aoF() {
-        return this.cWf;
+        return this.cWc;
     }
 
     public String aoG() {
-        return this.cWe;
+        return this.cWb;
     }
 
     public String getForumName() {
@@ -58,6 +58,6 @@ public class b extends com.baidu.tieba.card.data.b {
     }
 
     public String aoH() {
-        return this.cVN;
+        return this.cVK;
     }
 }

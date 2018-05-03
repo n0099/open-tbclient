@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean gyV = true;
-    private static Boolean gyW = true;
+    private static Boolean gyS = true;
+    private static Boolean gyT = true;
 
     public static void sW(String str) {
         am(13, str);
@@ -192,7 +192,7 @@ public class a {
     }
 
     public static void g(Boolean bool) {
-        gyV = bool;
+        gyS = bool;
     }
 
     public static void Af() {

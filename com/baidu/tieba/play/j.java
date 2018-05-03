@@ -8,28 +8,28 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class j {
     private MediaController.MediaPlayerControl bdw;
-    private a coM;
-    private c fOx;
-    private b fOy;
-    private int fOv = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
-    private int fOw = 0;
+    private a coJ;
+    private c fOu;
+    private b fOv;
+    private int fOs = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+    private int fOt = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.j.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message != null && message.what == 1 && j.this.bdw != null && j.this.bdw.isPlaying()) {
                 int currentPosition = j.this.bdw.getCurrentPosition();
                 int duration = j.this.bdw.getDuration();
-                if (currentPosition < j.this.fOw) {
-                    if (j.this.coM != null) {
-                        j.this.coM.afo();
+                if (currentPosition < j.this.fOt) {
+                    if (j.this.coJ != null) {
+                        j.this.coJ.afo();
                     }
-                } else if (currentPosition == j.this.fOw && j.this.fOx != null) {
-                    j.this.fOx.Pz();
+                } else if (currentPosition == j.this.fOt && j.this.fOu != null) {
+                    j.this.fOu.Pz();
                 }
-                if (j.this.fOy != null) {
-                    j.this.fOy.bw(duration, currentPosition);
+                if (j.this.fOv != null) {
+                    j.this.fOv.bv(duration, currentPosition);
                 }
-                j.this.fOw = currentPosition;
+                j.this.fOt = currentPosition;
                 j.this.bgt();
             }
         }
@@ -42,7 +42,7 @@ public class j {
 
     /* loaded from: classes.dex */
     public interface b {
-        void bw(int i, int i2);
+        void bv(int i, int i2);
     }
 
     /* loaded from: classes.dex */
@@ -55,7 +55,7 @@ public class j {
     }
 
     public void start() {
-        this.fOw = 0;
+        this.fOt = 0;
         bgt();
     }
 
@@ -65,14 +65,14 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bgt() {
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fOv);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fOs);
     }
 
     public void a(a aVar) {
-        this.coM = aVar;
+        this.coJ = aVar;
     }
 
     public void a(c cVar) {
-        this.fOx = cVar;
+        this.fOu = cVar;
     }
 }

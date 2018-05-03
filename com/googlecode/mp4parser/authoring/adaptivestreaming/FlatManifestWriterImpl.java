@@ -100,7 +100,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.hvC));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.hvz));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -462,7 +462,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.hvC = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.hvz = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -494,43 +494,43 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a {
-        private EC3SpecificBox.Entry hvA;
-        private byte hvy;
-        private byte hvz;
+        private byte hvv;
+        private byte hvw;
+        private EC3SpecificBox.Entry hvx;
 
         public a(byte b, byte b2, EC3SpecificBox.Entry entry) {
-            this.hvy = b;
-            this.hvz = b2;
-            this.hvA = entry;
+            this.hvv = b;
+            this.hvw = b2;
+            this.hvx = entry;
         }
 
         public byte bIA() {
-            return this.hvy;
+            return this.hvv;
         }
 
         public byte bIB() {
-            return this.hvz;
+            return this.hvw;
         }
 
         public a bIC() {
-            switch (this.hvA.chan_loc) {
+            switch (this.hvx.chan_loc) {
                 case 0:
-                    this.hvy = (byte) (this.hvy | 3);
+                    this.hvv = (byte) (this.hvv | 3);
                     break;
                 case 1:
-                    this.hvy = (byte) (this.hvy | 12);
+                    this.hvv = (byte) (this.hvv | 12);
                     break;
                 case 2:
-                    this.hvz = (byte) (this.hvz | 128);
+                    this.hvw = (byte) (this.hvw | 128);
                     break;
                 case 3:
-                    this.hvz = (byte) (this.hvz | 8);
+                    this.hvw = (byte) (this.hvw | 8);
                     break;
                 case 6:
-                    this.hvz = (byte) (this.hvz | 5);
+                    this.hvw = (byte) (this.hvw | 5);
                     break;
                 case 7:
-                    this.hvz = (byte) (this.hvz | 2);
+                    this.hvw = (byte) (this.hvw | 2);
                     break;
             }
             return this;

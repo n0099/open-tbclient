@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c dWg;
+    private static c dWd;
 
     private c() {
     }
@@ -28,10 +28,10 @@ public class c {
     public static synchronized c aCY() {
         c cVar;
         synchronized (c.class) {
-            if (dWg == null) {
-                dWg = new c();
+            if (dWd == null) {
+                dWd = new c();
             }
-            cVar = dWg;
+            cVar = dWd;
         }
         return cVar;
     }

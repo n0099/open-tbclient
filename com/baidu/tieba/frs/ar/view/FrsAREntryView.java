@@ -19,7 +19,7 @@ import tbclient.ForumArIno;
 /* loaded from: classes3.dex */
 public class FrsAREntryView extends View {
     private AnimationDrawable aIC;
-    private ForumArIno dce;
+    private ForumArIno dcb;
     private String forumName;
 
     public FrsAREntryView(Context context) {
@@ -53,12 +53,12 @@ public class FrsAREntryView extends View {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ar.view.FrsAREntryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (FrsAREntryView.this.dce != null) {
+                if (FrsAREntryView.this.dcb != null) {
                     al alVar = new al("c12836");
                     alVar.ac(ImageViewerConfig.FORUM_NAME, FrsAREntryView.this.forumName == null ? "" : FrsAREntryView.this.forumName);
-                    alVar.r(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.dce.ar_id.intValue());
+                    alVar.r(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.dcb.ar_id.intValue());
                     TiebaStatic.log(alVar);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.dce.ar_id), String.valueOf(FrsAREntryView.this.dce.ar_type), FrsAREntryView.this.dce.title)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.dcb.ar_id), String.valueOf(FrsAREntryView.this.dcb.ar_type), FrsAREntryView.this.dcb.title)));
                 }
             }
         });
@@ -79,7 +79,7 @@ public class FrsAREntryView extends View {
     }
 
     public void setForumArIno(ForumArIno forumArIno) {
-        this.dce = forumArIno;
+        this.dcb = forumArIno;
     }
 
     public void setForumName(String str) {

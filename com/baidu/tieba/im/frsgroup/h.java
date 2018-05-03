@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dYp = BdUniqueId.gen();
+    public static final BdUniqueId dYm = BdUniqueId.gen();
     private Object aXD;
-    private NoDataViewFactory.ImgType dYq;
-    private String dYr;
-    private String dYs;
-    private String dYt;
-    private int dYu;
+    private NoDataViewFactory.ImgType dYn;
+    private String dYo;
+    private String dYp;
+    private String dYq;
+    private int dYr;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dYp;
+        return dYm;
     }
 
     public String aDI() {
-        return this.dYr;
+        return this.dYo;
     }
 
     public void nx(String str) {
-        this.dYr = str;
+        this.dYo = str;
     }
 
     public String aDJ() {
-        return this.dYs;
+        return this.dYp;
     }
 
     public void ny(String str) {
-        this.dYs = str;
+        this.dYp = str;
     }
 
     public String aDK() {
-        return this.dYt;
+        return this.dYq;
     }
 
     public void nz(String str) {
-        this.dYt = str;
+        this.dYq = str;
     }
 
     public int aDL() {
-        return this.dYu;
+        return this.dYr;
     }
 
     public void nx(int i) {
-        this.dYu = i;
+        this.dYr = i;
     }
 
     public Object KW() {
@@ -58,10 +58,10 @@ public class h implements com.baidu.adp.widget.ListView.h {
     }
 
     public NoDataViewFactory.ImgType aDM() {
-        return this.dYq;
+        return this.dYn;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.dYq = imgType;
+        this.dYn = imgType;
     }
 }

@@ -10,22 +10,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a dob;
-    private boolean dnZ = false;
-    private final HashMap<String, ArrayList<e>> doa = new HashMap<>();
+    private static volatile a dnY;
+    private boolean dnW = false;
+    private final HashMap<String, ArrayList<e>> dnX = new HashMap<>();
 
     private a() {
     }
 
     public static a auw() {
-        if (dob == null) {
+        if (dnY == null) {
             synchronized (a.class) {
-                if (dob == null) {
-                    dob = new a();
+                if (dnY == null) {
+                    dnY = new a();
                 }
             }
         }
-        return dob;
+        return dnY;
     }
 
     public String aux() {
@@ -35,25 +35,25 @@ public class a {
     public synchronized long mm(String str) {
         e mn;
         mn = mn(str);
-        return mn != null ? mn.dok : 0L;
+        return mn != null ? mn.doh : 0L;
     }
 
     public synchronized void l(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
             String aux = aux();
-            ArrayList<e> arrayList = this.doa.get(aux);
+            ArrayList<e> arrayList = this.dnX.get(aux);
             ArrayList<e> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
             e mn = mn(str);
             boolean z = false;
             if (mn != null) {
-                if (mn.dok != j) {
-                    mn.dok = j;
+                if (mn.doh != j) {
+                    mn.doh = j;
                     z = true;
                 }
             } else {
                 e eVar = new e();
                 eVar.forumName = str;
-                eVar.dok = j;
+                eVar.doh = j;
                 arrayList2.add(eVar);
                 z = true;
             }
@@ -78,8 +78,8 @@ public class a {
                 }
             }
             if (!v.w(arrayList2)) {
-                this.doa.put(str, arrayList2);
-                if (!this.dnZ) {
+                this.dnX.put(str, arrayList2);
+                if (!this.dnW) {
                     auy();
                 } else {
                     mo(jSONArray.toString());
@@ -91,7 +91,7 @@ public class a {
     private synchronized e mn(String str) {
         e eVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<e> arrayList = this.doa.get(aux());
+            ArrayList<e> arrayList = this.dnX.get(aux());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -132,9 +132,9 @@ public class a {
                 public void g(String str, String str2) {
                     if (str2 != null) {
                         ArrayList mp = a.this.mp(str2);
-                        a.this.doa.put(a.this.aux(), mp);
+                        a.this.dnX.put(a.this.aux(), mp);
                     }
-                    a.this.dnZ = true;
+                    a.this.dnW = true;
                 }
             });
         }

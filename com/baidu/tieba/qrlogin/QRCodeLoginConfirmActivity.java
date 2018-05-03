@@ -21,11 +21,11 @@ import com.baidu.tieba.d;
 public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnClickListener, b {
     private View aMS;
     private LinearLayout bxk;
-    private View dax;
-    private TextView fVn;
-    private TextView fVo;
-    private TextView fVp;
-    private a fVq;
+    private View dau;
+    private TextView fVk;
+    private TextView fVl;
+    private TextView fVm;
+    private a fVn;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,12 +37,12 @@ public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnC
         this.mNavigationBar.setCenterTextTitle(getString(d.k.login_confirm));
         this.aMS = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.aMS.setOnClickListener(this);
-        this.fVn = (TextView) findViewById(d.g.qrlogin_login_info);
-        this.fVo = (TextView) findViewById(d.g.qrlogin_confirm_btn);
-        this.fVp = (TextView) findViewById(d.g.qrlogin_cancel_btn);
-        this.dax = findViewById(d.g.qrlogin_tip_view);
-        this.fVo.setOnClickListener(this);
-        this.fVp.setOnClickListener(this);
+        this.fVk = (TextView) findViewById(d.g.qrlogin_login_info);
+        this.fVl = (TextView) findViewById(d.g.qrlogin_confirm_btn);
+        this.fVm = (TextView) findViewById(d.g.qrlogin_cancel_btn);
+        this.dau = findViewById(d.g.qrlogin_tip_view);
+        this.fVl.setOnClickListener(this);
+        this.fVm.setOnClickListener(this);
         this.bxk = (LinearLayout) findViewById(d.g.qrlogin_content_layout);
         this.bxk.setVisibility(8);
         String str = null;
@@ -54,8 +54,8 @@ public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnC
             finish();
             return;
         }
-        this.fVq = new a(this, this);
-        this.fVq.start(str);
+        this.fVn = new a(this, this);
+        this.fVn.start(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -63,12 +63,12 @@ public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnC
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ak.h(this.fVo, d.C0126d.cp_cont_i);
-        ak.i(this.fVo, d.f.selector_qr_login_confirm_btn);
-        ak.h(this.fVp, d.C0126d.selector_qr_login_cancel_tv);
-        ak.i(this.fVp, d.f.selector_qr_login_cancel_btn);
-        ak.i(this.dax, d.f.pc_scan_login_confirm);
-        ak.h(this.fVn, d.C0126d.cp_cont_b);
+        ak.h(this.fVl, d.C0126d.cp_cont_i);
+        ak.i(this.fVl, d.f.selector_qr_login_confirm_btn);
+        ak.h(this.fVm, d.C0126d.selector_qr_login_cancel_tv);
+        ak.i(this.fVm, d.f.selector_qr_login_cancel_btn);
+        ak.i(this.dau, d.f.pc_scan_login_confirm);
+        ak.h(this.fVk, d.C0126d.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.qrlogin.b
@@ -79,12 +79,12 @@ public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnC
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.fVp) {
+        if (view2 == this.fVm) {
             TiebaStatic.log(new al("c12709"));
-            this.fVq.biL();
-        } else if (view2 == this.fVo) {
+            this.fVn.biL();
+        } else if (view2 == this.fVl) {
             TiebaStatic.log(new al("c12710"));
-            this.fVq.biK();
+            this.fVn.biK();
         } else if (view2 == this.aMS) {
             finish();
         }
@@ -95,7 +95,7 @@ public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnC
     public void onDestroy() {
         super.onDestroy();
         TiebaStatic.log(new al("c12708"));
-        this.fVq.onDestory();
+        this.fVn.onDestory();
     }
 
     private void biJ() {
@@ -104,7 +104,7 @@ public class QRCodeLoginConfirmActivity extends BaseActivity implements View.OnC
             String e = an.e(accountNameShow, 30, "...");
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.format(getString(d.k.about_to_login_with_name), e));
             spannableStringBuilder.setSpan(new ForegroundColorSpan(ak.getColor(d.C0126d.cp_link_tip_a)), 4, e.length() + 4, 33);
-            this.fVn.setText(spannableStringBuilder);
+            this.fVk.setText(spannableStringBuilder);
         }
     }
 }

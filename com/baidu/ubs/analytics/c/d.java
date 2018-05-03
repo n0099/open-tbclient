@@ -5,36 +5,36 @@ import java.lang.ref.WeakReference;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public final class d {
-    private Stack<WeakReference<Activity>> hkQ;
+    private Stack<WeakReference<Activity>> hkN;
 
     /* synthetic */ d(byte b) {
         this();
     }
 
     private d() {
-        this.hkQ = new Stack<>();
+        this.hkN = new Stack<>();
     }
 
     public final Stack<WeakReference<Activity>> bES() {
-        return this.hkQ;
+        return this.hkN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(WeakReference<Activity> weakReference) {
-        this.hkQ.add(weakReference);
+        this.hkN.add(weakReference);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(Activity activity) {
-        if (this.hkQ != null) {
+        if (this.hkN != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.hkQ.size()) {
+                if (i2 >= this.hkN.size()) {
                     break;
                 }
-                if (this.hkQ.get(i2).get() == activity) {
-                    this.hkQ.remove(this.hkQ.get(i2));
+                if (this.hkN.get(i2).get() == activity) {
+                    this.hkN.remove(this.hkN.get(i2));
                 }
                 i = i2 + 1;
             }
@@ -45,8 +45,8 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final String bET() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.hkQ.size(); i++) {
-            Activity activity = this.hkQ.get(i).get();
+        for (int i = 0; i < this.hkN.size(); i++) {
+            Activity activity = this.hkN.get(i).get();
             if (activity != null) {
                 sb.append(activity.getClass().getSimpleName());
                 sb.append("->");
@@ -58,6 +58,6 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final d hkR = new d((byte) 0);
+        private static final d hkO = new d((byte) 0);
     }
 }

@@ -5,94 +5,94 @@ import java.util.HashMap;
 import java.util.UUID;
 /* loaded from: classes2.dex */
 public class j implements com.baidu.tieba.j.h {
-    private String eQJ;
-    private String eQK;
-    private HashMap<String, com.baidu.tieba.j.f> fSH;
+    private String eQG;
+    private String eQH;
+    private HashMap<String, com.baidu.tieba.j.f> fSE;
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static final com.baidu.tieba.j.h fSI = new j();
+        private static final com.baidu.tieba.j.h fSF = new j();
     }
 
     public static com.baidu.tieba.j.h bhD() {
-        return a.fSI;
+        return a.fSF;
     }
 
     private j() {
-        this.fSH = new HashMap<>();
+        this.fSE = new HashMap<>();
     }
 
     @Override // com.baidu.tieba.j.h
     public void aRI() {
-        this.eQJ = UUID.randomUUID().toString();
+        this.eQG = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.j.h
     public void ac(int i, String str) {
-        bhE().j(this.eQJ, i, str);
+        bhE().j(this.eQG, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void ad(int i, String str) {
-        bhE().k(this.eQJ, i, str);
+        bhE().k(this.eQG, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void ae(int i, String str) {
-        bhE().l(this.eQJ, i, str);
+        bhE().l(this.eQG, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void aRJ() {
-        bhE().pB(this.eQJ);
+        bhE().pB(this.eQG);
     }
 
     @Override // com.baidu.tieba.j.h
     public void e(int i, int i2, String str) {
-        bhE().e(this.eQJ, i, i2, str);
+        bhE().e(this.eQG, i, i2, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void aRK() {
-        bhE().pC(this.eQJ);
-        pD(this.eQJ);
+        bhE().pC(this.eQG);
+        pD(this.eQG);
     }
 
     @Override // com.baidu.tieba.j.h
     public void af(int i, String str) {
-        bhE().m(this.eQJ, i, str);
+        bhE().m(this.eQG, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void pG(String str) {
-        if (!StringUtils.isNull(this.eQK)) {
-            if (pE(this.eQK) || pF(this.eQK)) {
-                pD(this.eQK);
+        if (!StringUtils.isNull(this.eQH)) {
+            if (pE(this.eQH) || pF(this.eQH)) {
+                pD(this.eQH);
             } else {
-                com.baidu.tieba.j.d.pA(this.eQK);
-                this.fSH.remove(this.eQJ);
+                com.baidu.tieba.j.d.pA(this.eQH);
+                this.fSE.remove(this.eQG);
             }
             aRI();
-            bhE().bz(this.eQK, str);
-            this.eQK = null;
+            bhE().bz(this.eQH, str);
+            this.eQH = null;
         }
     }
 
     @Override // com.baidu.tieba.j.h
     public void aRL() {
-        this.eQK = this.eQJ;
+        this.eQH = this.eQG;
     }
 
     @Override // com.baidu.tieba.j.h
     public void pH(String str) {
-        bhE().bA(this.eQJ, str);
-        if (pE(this.eQJ) || pF(this.eQJ)) {
-            pD(this.eQJ);
+        bhE().bA(this.eQG, str);
+        if (pE(this.eQG) || pF(this.eQG)) {
+            pD(this.eQG);
         } else {
-            com.baidu.tieba.j.d.pA(this.eQJ);
-            this.fSH.remove(this.eQJ);
+            com.baidu.tieba.j.d.pA(this.eQG);
+            this.fSE.remove(this.eQG);
         }
-        this.eQJ = null;
+        this.eQG = null;
     }
 
     public boolean pE(String str) {
@@ -104,15 +104,15 @@ public class j implements com.baidu.tieba.j.h {
     }
 
     public void pD(String str) {
-        com.baidu.tieba.j.f fVar = this.fSH.get(str);
+        com.baidu.tieba.j.f fVar = this.fSE.get(str);
         if (fVar != null) {
             fVar.pD(str);
-            this.fSH.remove(str);
+            this.fSE.remove(str);
         }
     }
 
     private com.baidu.tieba.j.f bhE() {
-        com.baidu.tieba.j.f fVar = this.fSH.get(this.eQJ);
+        com.baidu.tieba.j.f fVar = this.fSE.get(this.eQG);
         if (fVar == null) {
             return bhF();
         }
@@ -120,8 +120,8 @@ public class j implements com.baidu.tieba.j.h {
     }
 
     private com.baidu.tieba.j.f bhF() {
-        i iVar = new i(this.eQJ);
-        this.fSH.put(this.eQJ, iVar);
+        i iVar = new i(this.eQG);
+        this.fSE.put(this.eQG, iVar);
         return iVar;
     }
 }

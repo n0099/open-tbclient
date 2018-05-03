@@ -20,14 +20,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    private String dWc;
-    private Class<? extends ChatMessage> dWd;
-    List<String> dWe = null;
+    private String dVZ;
+    private Class<? extends ChatMessage> dWa;
+    List<String> dWb = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str, Class<? extends ChatMessage> cls) {
-        this.dWc = str;
-        this.dWd = cls;
+        this.dVZ = str;
+        this.dWa = cls;
     }
 
     public int ne(String str) {
@@ -35,7 +35,7 @@ public abstract class a {
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
-                cursor = h.aDf().rawQuery("select count(*) from " + (this.dWc + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                cursor = h.aDf().rawQuery("select count(*) from " + (this.dVZ + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.n.e(cursor);
                 } else {
@@ -59,7 +59,7 @@ public abstract class a {
         Cursor cursor = null;
         if (!TextUtils.isEmpty(str)) {
             try {
-                cursor = h.aDf().rawQuery("select max(mid) from " + (this.dWc + str), null);
+                cursor = h.aDf().rawQuery("select max(mid) from " + (this.dVZ + str), null);
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.n.e(cursor);
                 } else {
@@ -100,7 +100,7 @@ public abstract class a {
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = this.dWc;
+            ?? r2 = this.dVZ;
             try {
                 try {
                     cursor = h.aDf().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
@@ -183,7 +183,7 @@ public abstract class a {
             i2 = 20;
         }
         LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
-        ?? r2 = this.dWc + str;
+        ?? r2 = this.dVZ + str;
         try {
             try {
                 if (TextUtils.isEmpty(str2)) {
@@ -254,7 +254,7 @@ public abstract class a {
         }
         LinkedList<ChatMessage> linkedList = new LinkedList<>();
         ?? sb = new StringBuilder();
-        ?? r5 = this.dWc;
+        ?? r5 = this.dVZ;
         String sb2 = sb.append(r5).append(valueOf).toString();
         try {
             try {
@@ -270,8 +270,8 @@ public abstract class a {
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.dWd.newInstance();
-                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.ehn));
+                            ChatMessage newInstance = this.dWa.newInstance();
+                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.ehk));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex(WBConstants.GAME_PARAMS_GAME_CREATE_TIME)));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -342,7 +342,7 @@ public abstract class a {
         if (TbadkCoreApplication.getCurrentAccount().equals(valueOf)) {
             valueOf = String.valueOf(j2);
         }
-        String str3 = this.dWc + valueOf;
+        String str3 = this.dVZ + valueOf;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mid", str2);
@@ -361,7 +361,7 @@ public abstract class a {
     }
 
     public void e(long j, boolean z) {
-        String str = this.dWc + j;
+        String str = this.dVZ + j;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", Integer.valueOf(z ? 1 : 0));
@@ -377,13 +377,13 @@ public abstract class a {
             return false;
         }
         String valueOf = String.valueOf(j);
-        String str = this.dWc + valueOf;
-        if (this.dWe == null) {
-            this.dWe = aCU();
+        String str = this.dVZ + valueOf;
+        if (this.dWb == null) {
+            this.dWb = aCU();
         }
-        if (!this.dWe.contains(valueOf)) {
+        if (!this.dWb.contains(valueOf)) {
             nk(valueOf);
-            this.dWe.add(valueOf);
+            this.dWb.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
         try {
@@ -500,7 +500,7 @@ public abstract class a {
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", (Integer) 1);
-            h.aDf().update(this.dWc + str, contentValues, "mid=?", new String[]{str2});
+            h.aDf().update(this.dVZ + str, contentValues, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.markDeleteMsgByMid", new Object[0]);
@@ -513,7 +513,7 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            h.aDf().b(this.dWc + str, "mid=?", new String[]{str2});
+            h.aDf().b(this.dVZ + str, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.deleteMsgByMid", new Object[0]);
@@ -525,46 +525,46 @@ public abstract class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.dWe == null) {
-            this.dWe = aCU();
+        if (this.dWb == null) {
+            this.dWb = aCU();
         }
-        if (this.dWe != null && this.dWe.contains(str)) {
-            Iterator<String> it = this.dWe.iterator();
+        if (this.dWb != null && this.dWb.contains(str)) {
+            Iterator<String> it = this.dWb.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.dWe.remove(next);
+                    this.dWb.remove(next);
                     break;
                 }
             }
         }
-        return h.aDf().nt("DROP TABLE IF EXISTS " + (this.dWc + str));
+        return h.aDf().nt("DROP TABLE IF EXISTS " + (this.dVZ + str));
     }
 
     public boolean ni(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.dWe == null) {
-            this.dWe = aCU();
+        if (this.dWb == null) {
+            this.dWb = aCU();
         }
-        if (this.dWe != null && this.dWe.contains(str)) {
-            Iterator<String> it = this.dWe.iterator();
+        if (this.dWb != null && this.dWb.contains(str)) {
+            Iterator<String> it = this.dWb.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.dWe.remove(next);
+                    this.dWb.remove(next);
                     break;
                 }
             }
         }
-        return h.aDf().nt("delete from " + (this.dWc + str));
+        return h.aDf().nt("delete from " + (this.dVZ + str));
     }
 
     public boolean nj(String str) {
@@ -579,7 +579,7 @@ public abstract class a {
 
     public synchronized void nk(String str) {
         if (!TextUtils.isEmpty(str)) {
-            h.aDf().nt("CREATE TABLE IF NOT EXISTS " + (this.dWc + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, " + WBConstants.GAME_PARAMS_GAME_CREATE_TIME + " BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
+            h.aDf().nt("CREATE TABLE IF NOT EXISTS " + (this.dVZ + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, " + WBConstants.GAME_PARAMS_GAME_CREATE_TIME + " BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
         }
     }
 
@@ -592,8 +592,8 @@ public abstract class a {
                 cursor.moveToFirst();
                 while (cursor.moveToNext()) {
                     String string = cursor.getString(cursor.getColumnIndex("name"));
-                    if (string.startsWith(this.dWc)) {
-                        linkedList.add(string.subSequence(this.dWc.length(), string.length()).toString());
+                    if (string.startsWith(this.dVZ)) {
+                        linkedList.add(string.subSequence(this.dVZ.length(), string.length()).toString());
                     }
                 }
             }
@@ -607,14 +607,14 @@ public abstract class a {
     }
 
     public void aCV() {
-        this.dWe = null;
+        this.dWb = null;
     }
 
     public boolean ae(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
-            String str2 = this.dWc + str;
+            String str2 = this.dVZ + str;
             if (i < 1000) {
                 i = 1000;
             }

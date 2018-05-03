@@ -13,28 +13,28 @@ import com.baidu.tieba.d;
 public class FrsAllThreadFragment extends BaseFragment implements ah {
     private static final String TAG = FrsAllThreadFragment.class.getSimpleName();
     private BdSwipeRefreshLayout bnR;
-    private View cWI;
-    private RecyclerView cWJ;
+    private View cWF;
+    private RecyclerView cWG;
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.cWI != null && this.cWI.getParent() != null) {
-            ((ViewGroup) this.cWI.getParent()).removeView(this.cWI);
+        if (this.cWF != null && this.cWF.getParent() != null) {
+            ((ViewGroup) this.cWF.getParent()).removeView(this.cWF);
         }
-        return this.cWI;
+        return this.cWF;
     }
 
     public void setView(View view2) {
-        this.cWI = view2;
-        this.cWJ = (RecyclerView) this.cWI.findViewById(d.g.frs_lv_thread);
-        this.bnR = (BdSwipeRefreshLayout) this.cWI.findViewById(d.g.frs_pull_refresh_layout);
+        this.cWF = view2;
+        this.cWG = (RecyclerView) this.cWF.findViewById(d.g.frs_lv_thread);
+        this.bnR = (BdSwipeRefreshLayout) this.cWF.findViewById(d.g.frs_pull_refresh_layout);
     }
 
     @Override // com.baidu.tieba.frs.ah
     public void aoY() {
-        if (this.cWJ != null) {
-            this.cWJ.scrollToPosition(0);
+        if (this.cWG != null) {
+            this.cWG.scrollToPosition(0);
         }
     }
 

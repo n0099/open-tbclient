@@ -14,17 +14,17 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
+    protected RelativeLayout fZh;
+    protected TbImageView fZi;
+    protected TextView fZj;
     protected RelativeLayout fZk;
     protected TbImageView fZl;
     protected TextView fZm;
     protected RelativeLayout fZn;
     protected TbImageView fZo;
     protected TextView fZp;
-    protected RelativeLayout fZq;
-    protected TbImageView fZr;
-    protected TextView fZs;
-    protected View fZt;
-    protected TextView fZu;
+    protected View fZq;
+    protected TextView fZr;
 
     public AdCardMultiPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -42,23 +42,23 @@ public class AdCardMultiPicView extends AdCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void br(View view2) {
-        this.fZk = (RelativeLayout) view2.findViewById(d.g.rl_img_left);
-        this.fZl = (TbImageView) view2.findViewById(d.g.advert_app_img_left);
-        this.fZm = (TextView) view2.findViewById(d.g.txt_left);
-        this.fZn = (RelativeLayout) view2.findViewById(d.g.rl_img_center);
-        this.fZo = (TbImageView) view2.findViewById(d.g.advert_app_img_center);
-        this.fZp = (TextView) view2.findViewById(d.g.txt_center);
-        this.fZq = (RelativeLayout) view2.findViewById(d.g.rl_img_right);
-        this.fZr = (TbImageView) view2.findViewById(d.g.advert_app_img_right);
-        this.fZs = (TextView) view2.findViewById(d.g.txt_right);
-        this.fZu = (TextView) view2.findViewById(d.g.advert_source_right);
+        this.fZh = (RelativeLayout) view2.findViewById(d.g.rl_img_left);
+        this.fZi = (TbImageView) view2.findViewById(d.g.advert_app_img_left);
+        this.fZj = (TextView) view2.findViewById(d.g.txt_left);
+        this.fZk = (RelativeLayout) view2.findViewById(d.g.rl_img_center);
+        this.fZl = (TbImageView) view2.findViewById(d.g.advert_app_img_center);
+        this.fZm = (TextView) view2.findViewById(d.g.txt_center);
+        this.fZn = (RelativeLayout) view2.findViewById(d.g.rl_img_right);
+        this.fZo = (TbImageView) view2.findViewById(d.g.advert_app_img_right);
+        this.fZp = (TextView) view2.findViewById(d.g.txt_right);
+        this.fZr = (TextView) view2.findViewById(d.g.advert_source_right);
+        this.fZi.setDrawBorder(true);
+        this.fZi.setBorderWidth(1);
         this.fZl.setDrawBorder(true);
         this.fZl.setBorderWidth(1);
         this.fZo.setDrawBorder(true);
         this.fZo.setBorderWidth(1);
-        this.fZr.setDrawBorder(true);
-        this.fZr.setBorderWidth(1);
-        this.fZt = view2.findViewById(d.g.channel_ad_right);
+        this.fZq = view2.findViewById(d.g.channel_ad_right);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
@@ -67,87 +67,87 @@ public class AdCardMultiPicView extends AdCardBaseView {
         int length = dVarArr != null ? dVarArr.length : 0;
         int dimensionPixelSize = (int) ((this.mMaxWidth - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds20) * 2)) / 3.0f);
         if (length <= 0) {
-            this.fYs.setVisibility(8);
+            this.fYp.setVisibility(8);
             return;
         }
+        this.fZj.setVisibility(8);
+        this.fZi.setVisibility(8);
         this.fZm.setVisibility(8);
         this.fZl.setVisibility(8);
         this.fZp.setVisibility(8);
         this.fZo.setVisibility(8);
-        this.fZs.setVisibility(8);
-        this.fZr.setVisibility(8);
+        a(this.fZi, dimensionPixelSize, dimensionPixelSize);
         a(this.fZl, dimensionPixelSize, dimensionPixelSize);
         a(this.fZo, dimensionPixelSize, dimensionPixelSize);
-        a(this.fZr, dimensionPixelSize, dimensionPixelSize);
         if (length == 1) {
-            this.fZl.startLoad(dVarArr[0].pic, 30, false);
-            this.fZl.setVisibility(0);
-            a(this.fZl, dVarArr[0].fYc);
+            this.fZi.startLoad(dVarArr[0].pic, 30, false);
+            this.fZi.setVisibility(0);
+            a(this.fZi, dVarArr[0].fXZ);
             if (StringUtils.isNull(dVarArr[0].desc, true)) {
-                this.fZm.setVisibility(8);
+                this.fZj.setVisibility(8);
             } else {
-                this.fZm.setVisibility(0);
-                this.fZm.setText(dVarArr[0].desc);
+                this.fZj.setVisibility(0);
+                this.fZj.setText(dVarArr[0].desc);
             }
         } else if (length == 2) {
-            this.fZl.startLoad(dVarArr[0].pic, 30, false);
+            this.fZi.startLoad(dVarArr[0].pic, 30, false);
+            this.fZi.setVisibility(0);
             this.fZl.setVisibility(0);
-            this.fZo.setVisibility(0);
-            a(this.fZl, dVarArr[0].fYc);
+            a(this.fZi, dVarArr[0].fXZ);
             if (StringUtils.isNull(dVarArr[0].desc, true)) {
+                this.fZj.setVisibility(8);
+            } else {
+                this.fZj.setVisibility(0);
+                this.fZj.setText(dVarArr[0].desc);
+            }
+            this.fZl.startLoad(dVarArr[1].pic, 30, false);
+            a(this.fZl, dVarArr[1].fXZ);
+            if (StringUtils.isNull(dVarArr[1].desc, true)) {
                 this.fZm.setVisibility(8);
             } else {
                 this.fZm.setVisibility(0);
-                this.fZm.setText(dVarArr[0].desc);
-            }
-            this.fZo.startLoad(dVarArr[1].pic, 30, false);
-            a(this.fZo, dVarArr[1].fYc);
-            if (StringUtils.isNull(dVarArr[1].desc, true)) {
-                this.fZp.setVisibility(8);
-            } else {
-                this.fZp.setVisibility(0);
-                this.fZp.setText(dVarArr[1].desc);
+                this.fZm.setText(dVarArr[1].desc);
             }
         } else if (length >= 3) {
-            this.fZl.startLoad(dVarArr[0].pic, 30, false);
+            this.fZi.startLoad(dVarArr[0].pic, 30, false);
+            this.fZi.setVisibility(0);
             this.fZl.setVisibility(0);
             this.fZo.setVisibility(0);
-            this.fZr.setVisibility(0);
-            a(this.fZl, dVarArr[0].fYc);
+            a(this.fZi, dVarArr[0].fXZ);
             if (StringUtils.isNull(dVarArr[0].desc, true)) {
+                this.fZj.setVisibility(8);
+            } else {
+                this.fZj.setVisibility(0);
+                this.fZj.setText(dVarArr[0].desc);
+            }
+            this.fZl.startLoad(dVarArr[1].pic, 30, false);
+            a(this.fZl, dVarArr[1].fXZ);
+            if (StringUtils.isNull(dVarArr[1].desc, true)) {
                 this.fZm.setVisibility(8);
             } else {
                 this.fZm.setVisibility(0);
-                this.fZm.setText(dVarArr[0].desc);
+                this.fZm.setText(dVarArr[1].desc);
             }
-            this.fZo.startLoad(dVarArr[1].pic, 30, false);
-            a(this.fZo, dVarArr[1].fYc);
-            if (StringUtils.isNull(dVarArr[1].desc, true)) {
+            this.fZo.startLoad(dVarArr[2].pic, 30, false);
+            a(this.fZo, dVarArr[2].fXZ);
+            if (StringUtils.isNull(dVarArr[2].desc, true)) {
                 this.fZp.setVisibility(8);
             } else {
                 this.fZp.setVisibility(0);
-                this.fZp.setText(dVarArr[1].desc);
-            }
-            this.fZr.startLoad(dVarArr[2].pic, 30, false);
-            a(this.fZr, dVarArr[2].fYc);
-            if (StringUtils.isNull(dVarArr[2].desc, true)) {
-                this.fZs.setVisibility(8);
-            } else {
-                this.fZs.setVisibility(0);
-                this.fZs.setText(dVarArr[2].desc);
+                this.fZp.setText(dVarArr[2].desc);
             }
         }
         AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
         if (!StringUtils.isNull(adCard.adSource, true)) {
-            this.fZu.setText(adCard.adSource);
-            this.fZt.setVisibility(0);
+            this.fZr.setText(adCard.adSource);
+            this.fZq.setVisibility(0);
         } else if (advertAppInfo != null && advertAppInfo.Wb != null && !TextUtils.isEmpty(advertAppInfo.Wb.adSource)) {
-            this.fZu.setText(advertAppInfo.Wb.adSource);
-            this.fZt.setVisibility(0);
+            this.fZr.setText(advertAppInfo.Wb.adSource);
+            this.fZq.setVisibility(0);
         } else {
-            this.fZt.setVisibility(8);
+            this.fZq.setVisibility(8);
         }
-        this.fYs.setVisibility(0);
+        this.fYp.setVisibility(0);
     }
 
     private void a(TbImageView tbImageView, int i, int i2) {

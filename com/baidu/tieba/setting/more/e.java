@@ -11,81 +11,81 @@ import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrange
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.base.c<MsgReceiveActivity> {
     private View asg;
-    private MsgSettingItemView giR;
-    private MsgSettingItemView giS;
-    private MsgSettingItemView giT;
-    private MsgReceiveActivity giU;
+    private MsgSettingItemView giO;
+    private MsgSettingItemView giP;
+    private MsgSettingItemView giQ;
+    private MsgReceiveActivity giR;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
     public e(MsgReceiveActivity msgReceiveActivity) {
         super(msgReceiveActivity.getPageContext());
-        this.giU = msgReceiveActivity;
+        this.giR = msgReceiveActivity;
     }
 
     public void init() {
-        if (this.giU != null) {
+        if (this.giR != null) {
             initUI();
         }
     }
 
     private void initUI() {
-        if (this.giU != null) {
-            this.giU.setContentView(d.i.msg_receive_activity);
-            this.mRootView = (ViewGroup) this.giU.findViewById(d.g.msg_receive_root_view);
-            this.mNavigationBar = (NavigationBar) this.giU.findViewById(d.g.navigation_bar_msg_receive);
-            this.mNavigationBar.setCenterTextTitle(this.giU.getPageContext().getString(d.k.receive_message));
+        if (this.giR != null) {
+            this.giR.setContentView(d.i.msg_receive_activity);
+            this.mRootView = (ViewGroup) this.giR.findViewById(d.g.msg_receive_root_view);
+            this.mNavigationBar = (NavigationBar) this.giR.findViewById(d.g.navigation_bar_msg_receive);
+            this.mNavigationBar.setCenterTextTitle(this.giR.getPageContext().getString(d.k.receive_message));
             this.mNavigationBar.showBottomLine();
             this.asg = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.giR = (MsgSettingItemView) this.giU.findViewById(d.g.item_view_friend_msg);
-            this.giR.setText(d.k.friend_msg_switch);
-            this.giR.setOnSwitchStateChangeListener(this.giU);
-            this.giS = (MsgSettingItemView) this.giU.findViewById(d.g.item_view_stranger_msg);
-            this.giS.setText(d.k.stranger_msg_switch);
-            this.giS.setOnSwitchStateChangeListener(this.giU);
-            this.giS.setLineVisibility(false);
+            this.giO = (MsgSettingItemView) this.giR.findViewById(d.g.item_view_friend_msg);
+            this.giO.setText(d.k.friend_msg_switch);
+            this.giO.setOnSwitchStateChangeListener(this.giR);
+            this.giP = (MsgSettingItemView) this.giR.findViewById(d.g.item_view_stranger_msg);
+            this.giP.setText(d.k.stranger_msg_switch);
+            this.giP.setOnSwitchStateChangeListener(this.giR);
+            this.giP.setLineVisibility(false);
             bml();
-            this.giT = (MsgSettingItemView) this.giU.findViewById(d.g.item_view_forum_broadcast_msg);
-            this.giT.setText(d.k.receive_forum_broadcast_message);
-            this.giT.setOnSwitchStateChangeListener(this.giU);
-            this.giT.setLineVisibility(false);
+            this.giQ = (MsgSettingItemView) this.giR.findViewById(d.g.item_view_forum_broadcast_msg);
+            this.giQ.setText(d.k.receive_forum_broadcast_message);
+            this.giQ.setOnSwitchStateChangeListener(this.giR);
+            this.giQ.setLineVisibility(false);
             bmm();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void bml() {
-        if (this.giR == null || this.giS == null) {
+        if (this.giO == null || this.giP == null) {
             return;
         }
         switch (GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE) {
             case 0:
                 return;
             case 1:
-                this.giR.getSwitchView().jM();
-                this.giR.setLineVisibility(true);
-                this.giS.getSwitchView().jN();
+                this.giO.getSwitchView().jM();
+                this.giO.setLineVisibility(true);
+                this.giP.getSwitchView().jN();
                 return;
             default:
-                this.giR.getSwitchView().jN();
-                this.giR.setLineVisibility(false);
-                this.giS.setVisibility(8);
-                this.giS.getSwitchView().jN();
+                this.giO.getSwitchView().jN();
+                this.giO.setLineVisibility(false);
+                this.giP.setVisibility(8);
+                this.giP.getSwitchView().jN();
                 return;
         }
     }
 
     private void bmm() {
-        if (this.giT != null) {
-            this.giT.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.c.Ae().Ax());
+        if (this.giQ != null) {
+            this.giQ.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.c.Ae().Ax());
         }
     }
 
     public void lP(boolean z) {
         if (z) {
-            this.giS.setVisibility(0);
+            this.giP.setVisibility(0);
         } else {
-            this.giS.setVisibility(8);
+            this.giP.setVisibility(8);
         }
     }
 
@@ -95,10 +95,10 @@ public class e extends com.baidu.adp.base.c<MsgReceiveActivity> {
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
         ak.e(this.mRootView, d.C0126d.cp_bg_line_e, i);
-        this.mNavigationBar.onChangeSkinType(this.giU.getPageContext(), i);
-        this.giR.d(this.giU.getPageContext(), i);
-        this.giS.d(this.giU.getPageContext(), i);
-        this.giT.d(this.giU.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.giR.getPageContext(), i);
+        this.giO.d(this.giR.getPageContext(), i);
+        this.giP.d(this.giR.getPageContext(), i);
+        this.giQ.d(this.giR.getPageContext(), i);
     }
 
     public View aFr() {
@@ -106,18 +106,18 @@ public class e extends com.baidu.adp.base.c<MsgReceiveActivity> {
     }
 
     public BdSwitchView bmn() {
-        return this.giR.getSwitchView();
+        return this.giO.getSwitchView();
     }
 
     public BdSwitchView bmo() {
-        return this.giS.getSwitchView();
+        return this.giP.getSwitchView();
     }
 
     public BdSwitchView bmp() {
-        return this.giT.getSwitchView();
+        return this.giQ.getSwitchView();
     }
 
     public void lQ(boolean z) {
-        this.giR.setLineVisibility(z);
+        this.giO.setLineVisibility(z);
     }
 }

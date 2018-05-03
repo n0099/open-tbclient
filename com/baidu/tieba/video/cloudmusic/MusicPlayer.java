@@ -7,9 +7,9 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class MusicPlayer {
-    private static MusicPlayer gKM = null;
-    private MediaPlayer gKL;
-    private MusicPlayerState gKN = MusicPlayerState.WAIT;
+    private static MusicPlayer gKJ = null;
+    private MediaPlayer gKI;
+    private MusicPlayerState gKK = MusicPlayerState.WAIT;
 
     /* loaded from: classes2.dex */
     public enum MusicPlayerState {
@@ -32,38 +32,38 @@ public class MusicPlayer {
     public static synchronized MusicPlayer bwe() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (gKM == null) {
-                gKM = new MusicPlayer();
+            if (gKJ == null) {
+                gKJ = new MusicPlayer();
             }
-            musicPlayer = gKM;
+            musicPlayer = gKJ;
         }
         return musicPlayer;
     }
 
     public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.gKN != MusicPlayerState.PAUSE) {
-            if (this.gKL == null) {
-                this.gKL = new MediaPlayer();
-                this.gKL.setAudioStreamType(3);
+        if (this.gKK != MusicPlayerState.PAUSE) {
+            if (this.gKI == null) {
+                this.gKI = new MediaPlayer();
+                this.gKI.setAudioStreamType(3);
             }
             try {
-                this.gKL.reset();
-                this.gKL.setDataSource(str);
-                this.gKL.prepare();
-                this.gKN = MusicPlayerState.WAIT;
-                this.gKL.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
+                this.gKI.reset();
+                this.gKI.setDataSource(str);
+                this.gKI.prepare();
+                this.gKK = MusicPlayerState.WAIT;
+                this.gKI.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
                         com.baidu.tieba.video.cloudmusic.data.a.bwh().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-                        MusicPlayer.this.gKL.setLooping(true);
-                        MusicPlayer.this.gKL.start();
-                        MusicPlayer.this.gKN = MusicPlayerState.PREPARED;
+                        MusicPlayer.this.gKI.setLooping(true);
+                        MusicPlayer.this.gKI.start();
+                        MusicPlayer.this.gKK = MusicPlayerState.PREPARED;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
-                this.gKN = MusicPlayerState.ERROR;
+                this.gKK = MusicPlayerState.ERROR;
                 if (aVar != null) {
                     aVar.bwc();
                 }
@@ -72,27 +72,27 @@ public class MusicPlayer {
     }
 
     public void bwf() {
-        if (this.gKL != null && this.gKL.isPlaying()) {
-            this.gKL.pause();
+        if (this.gKI != null && this.gKI.isPlaying()) {
+            this.gKI.pause();
         }
-        this.gKN = MusicPlayerState.PAUSE;
+        this.gKK = MusicPlayerState.PAUSE;
     }
 
     public void bwg() {
-        if (this.gKL != null) {
-            this.gKL.start();
-            this.gKL.seekTo(0);
+        if (this.gKI != null) {
+            this.gKI.start();
+            this.gKI.seekTo(0);
         }
-        this.gKN = MusicPlayerState.RESUME;
+        this.gKK = MusicPlayerState.RESUME;
     }
 
     public void bgx() {
-        if (this.gKL != null) {
-            if (this.gKL.isPlaying()) {
-                this.gKL.stop();
+        if (this.gKI != null) {
+            if (this.gKI.isPlaying()) {
+                this.gKI.stop();
             }
-            this.gKL.release();
-            this.gKL = null;
+            this.gKI.release();
+            this.gKI = null;
         }
     }
 }

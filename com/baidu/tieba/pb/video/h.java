@@ -11,9 +11,9 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class h {
     private BaseActivity bcJ;
-    private d fwf;
-    private e fwg;
-    private com.baidu.tieba.d.c fwh;
+    private d fwc;
+    private e fwd;
+    private com.baidu.tieba.d.c fwe;
     private int mSkinType = 3;
 
     public h(BaseActivity baseActivity) {
@@ -27,72 +27,72 @@ public class h {
 
     private void ah(bd bdVar) {
         if (bdVar != null) {
-            if (this.fwf == null) {
-                this.fwf = new d(LayoutInflater.from(this.bcJ.getPageContext().getPageActivity()).inflate(d.i.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.fwc == null) {
+                this.fwc = new d(LayoutInflater.from(this.bcJ.getPageContext().getPageActivity()).inflate(d.i.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.fwf.ae(bdVar);
+            this.fwc.ae(bdVar);
         }
     }
 
     public View bcn() {
-        if (this.fwf == null) {
+        if (this.fwc == null) {
             return null;
         }
-        return this.fwf.mRootView;
+        return this.fwc.mRootView;
     }
 
     private void b(bj bjVar, bd bdVar, int i) {
         if (bjVar != null && bdVar != null) {
-            if (this.fwg == null) {
-                this.fwg = new e(this.bcJ, LayoutInflater.from(this.bcJ.getPageContext().getPageActivity()).inflate(d.i.video_pb_video_channel_info_layout, (ViewGroup) null));
+            if (this.fwd == null) {
+                this.fwd = new e(this.bcJ, LayoutInflater.from(this.bcJ.getPageContext().getPageActivity()).inflate(d.i.video_pb_video_channel_info_layout, (ViewGroup) null));
             }
             bjVar.ach = i;
-            this.fwg.af(bdVar);
+            this.fwd.af(bdVar);
             bdVar.a(bjVar);
         }
     }
 
     public View bco() {
-        if (this.fwg == null) {
+        if (this.fwd == null) {
             return null;
         }
-        return this.fwg.getRootView();
+        return this.fwd.getRootView();
     }
 
     public void ai(bd bdVar) {
-        if (this.fwg != null && bdVar != null && bdVar.sQ() != null && bdVar.sQ().ach == 2) {
-            if (this.fwh == null) {
-                this.fwh = new com.baidu.tieba.d.c(this.bcJ.getPageContext(), this.fwg.bck());
-                this.fwh.je(5000);
+        if (this.fwd != null && bdVar != null && bdVar.sQ() != null && bdVar.sQ().ach == 2) {
+            if (this.fwe == null) {
+                this.fwe = new com.baidu.tieba.d.c(this.bcJ.getPageContext(), this.fwd.bck());
+                this.fwe.je(5000);
             }
-            this.fwh.h(this.bcJ.getResources().getString(d.k.pb_order_channel_tip), "pb_show_order_channel_tip", true);
+            this.fwe.h(this.bcJ.getResources().getString(d.k.pb_order_channel_tip), "pb_show_order_channel_tip", true);
         }
     }
 
     public void z(long j, int i) {
-        if (this.fwg != null && j > 0) {
-            this.fwg.n(i, j);
+        if (this.fwd != null && j > 0) {
+            this.fwd.n(i, j);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.fwf != null) {
-                this.fwf.BR();
+            if (this.fwc != null) {
+                this.fwc.BR();
             }
-            if (this.fwg != null) {
-                this.fwg.BR();
+            if (this.fwd != null) {
+                this.fwd.BR();
             }
             this.mSkinType = i;
         }
     }
 
     public void b(BdTypeListView bdTypeListView) {
-        if (this.fwf != null) {
-            bdTypeListView.removeHeaderView(this.fwf.mRootView);
+        if (this.fwc != null) {
+            bdTypeListView.removeHeaderView(this.fwc.mRootView);
         }
-        if (this.fwg != null) {
-            bdTypeListView.removeHeaderView(this.fwg.getRootView());
+        if (this.fwd != null) {
+            bdTypeListView.removeHeaderView(this.fwd.getRootView());
         }
     }
 
@@ -101,8 +101,8 @@ public class h {
     }
 
     public void bcp() {
-        if (this.fwh != null) {
-            this.fwh.ahf();
+        if (this.fwe != null) {
+            this.fwe.ahf();
         }
     }
 }

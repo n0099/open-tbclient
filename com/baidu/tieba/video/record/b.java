@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 class b {
-    private float gQf;
-    private int gQg;
-    private i gQh;
+    private float gQc;
+    private int gQd;
+    private i gQe;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.gQh = iVar;
+        this.gQe = iVar;
     }
 
     public boolean i(MotionEvent motionEvent) {
-        if (this.gQh == null || !this.gQh.isRecording()) {
+        if (this.gQe == null || !this.gQe.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float r = r(motionEvent);
-                        int i = (int) ((r - this.gQf) / 10.0f);
+                        int i = (int) ((r - this.gQc) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.gQg;
+                            int i2 = i + this.gQd;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.gQf = r;
+                            this.gQc = r;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.gQf = r(motionEvent);
+                    this.gQc = r(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.gQg = i;
+                this.gQd = i;
             }
         }
     }

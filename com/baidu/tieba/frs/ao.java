@@ -22,7 +22,7 @@ class ao implements ad {
 
     @Override // com.baidu.tieba.frs.ad
     public com.baidu.adp.widget.ListView.a<? extends bd, ? extends q.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        if (bdUniqueId == com.baidu.tieba.tbadkCore.s.gvr) {
+        if (bdUniqueId == com.baidu.tieba.tbadkCore.s.gvo) {
             return new com.baidu.tieba.frs.entelechy.a.c(tbPageContext, bdUniqueId, z);
         }
         if (bdUniqueId == bd.aaV) {

@@ -37,9 +37,9 @@ import protobuf.MaskInfo;
 /* loaded from: classes3.dex */
 public class SettingStatic {
     private static MaskInfo maskInfo;
-    private static boolean gjG = false;
-    private static boolean gjH = false;
-    private static final com.baidu.adp.framework.listener.c eeg = new com.baidu.adp.framework.listener.c(1001) { // from class: com.baidu.tieba.setting.more.SettingStatic.1
+    private static boolean gjD = false;
+    private static boolean gjE = false;
+    private static final com.baidu.adp.framework.listener.c eed = new com.baidu.adp.framework.listener.c(1001) { // from class: com.baidu.tieba.setting.more.SettingStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -54,16 +54,16 @@ public class SettingStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.gjH = false;
+            boolean unused = SettingStatic.gjE = false;
             MaskInfo unused2 = SettingStatic.maskInfo = null;
-            boolean unused3 = SettingStatic.gjG = false;
+            boolean unused3 = SettingStatic.gjD = false;
         }
     };
-    private static final CustomMessageListener gjI = new CustomMessageListener(2001311) { // from class: com.baidu.tieba.setting.more.SettingStatic.3
+    private static final CustomMessageListener gjF = new CustomMessageListener(2001311) { // from class: com.baidu.tieba.setting.more.SettingStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.gjG = true;
+            boolean unused = SettingStatic.gjD = true;
             SettingStatic.bnb();
         }
     };
@@ -92,8 +92,8 @@ public class SettingStatic {
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(bcB);
-        MessageManager.getInstance().registerListener(eeg);
-        MessageManager.getInstance().registerListener(gjI);
+        MessageManager.getInstance().registerListener(eed);
+        MessageManager.getInstance().registerListener(gjF);
         com.baidu.tieba.tbadkCore.a.a.c(104101, ResponseUpdateMaskMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.c(104106, ResponseUpdateForumMask.class, false);
         bnc();
@@ -113,7 +113,7 @@ public class SettingStatic {
         String[] split;
         String[] split2;
         String[] split3;
-        if (gjG && maskInfo != null && !gjH) {
+        if (gjD && maskInfo != null && !gjE) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
                 if ((maskInfo.remindMask == null || maskInfo.shieldStatus == null || maskInfo.remindMask.intValue() != 0 || maskInfo.shieldStatus.intValue() != 0 || com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(new StringBuilder().append("had_sync_setting_switch").append(currentAccount).toString(), false)) ? false : true) {
@@ -202,7 +202,7 @@ public class SettingStatic {
                         com.baidu.tieba.im.settingcache.e.aGX().a(currentAccount, str3, false, null);
                     }
                 }
-                gjH = true;
+                gjE = true;
             }
         }
     }

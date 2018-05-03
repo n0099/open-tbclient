@@ -15,24 +15,24 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CloudMusicModel extends BdBaseModel {
-    private a<CloudMusicData> gLb;
-    private final HttpMessageListener gLe;
+    private a<CloudMusicData> gKY;
+    private final HttpMessageListener gLb;
 
     public CloudMusicModel(e eVar) {
         super(eVar);
-        this.gLe = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicModel.1
+        this.gLb = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003371 && (httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) && CloudMusicModel.this.gLb != null) {
-                    CloudMusicModel.this.gLb.ab(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003371 && (httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) && CloudMusicModel.this.gKY != null) {
+                    CloudMusicModel.this.gKY.ab(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
                 }
             }
         };
         bwj();
-        this.gLe.setTag(getUniqueId());
-        this.gLe.setSelfListener(true);
-        registerListener(this.gLe);
+        this.gLb.setTag(getUniqueId());
+        this.gLb.setSelfListener(true);
+        registerListener(this.gLb);
     }
 
     private void bwj() {
@@ -62,7 +62,7 @@ public class CloudMusicModel extends BdBaseModel {
     public void a(a<CloudMusicData> aVar) {
         if (aVar != null) {
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-            this.gLb = aVar;
+            this.gKY = aVar;
         }
     }
 

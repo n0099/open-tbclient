@@ -8,27 +8,27 @@ import com.baidu.tbadk.a.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b implements e {
-    private final HashMap<String, f> euk;
+    private final HashMap<String, f> euh;
 
     private b() {
-        this.euk = new HashMap<>();
+        this.euh = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0206b {
-        private static b fWR = new b();
+        private static b fWO = new b();
     }
 
     public static b bjm() {
-        return C0206b.fWR;
+        return C0206b.fWO;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
             a rQ = a.rQ(str);
-            f fVar = this.euk.get(rQ.getKey());
+            f fVar = this.euh.get(rQ.getKey());
             if (fVar != null && rQ.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
                     rQ.aKs().putAll(hashMap);
@@ -39,7 +39,7 @@ public class b implements e {
     }
 
     public void a(String str, f fVar) {
-        this.euk.put(str, fVar);
+        this.euh.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.a.a aVar) {
@@ -49,7 +49,7 @@ public class b implements e {
     /* loaded from: classes3.dex */
     public static class a {
         private boolean Ys;
-        HashMap<String, String> eul;
+        HashMap<String, String> eui;
         String key;
 
         public boolean isValid() {
@@ -61,7 +61,7 @@ public class b implements e {
         }
 
         public HashMap<String, String> aKs() {
-            return this.eul;
+            return this.eui;
         }
 
         private a(String str) {
@@ -70,14 +70,14 @@ public class b implements e {
             this.Ys = TextUtils.isEmpty(parse.getScheme()) ? false : true;
             if (this.Ys) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.eul = new HashMap<>();
+                this.eui = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.eul.put(str2, parse.getQueryParameter(str2));
+                    this.eui.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.eul = new HashMap<>();
+            this.eui = new HashMap<>();
         }
 
         public static a rQ(String str) {

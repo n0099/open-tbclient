@@ -18,32 +18,32 @@ public abstract class a {
     public TbPageContext<?> adf;
     public String bdl;
     public a.InterfaceC0112a bdm;
-    public IVrPlayView fWb;
-    public com.b.a.g fWc;
-    public com.baidu.tieba.ad.play.a fWd;
-    public MediaPlayer.OnCompletionListener fWe;
-    public a.b fWf;
+    public IVrPlayView fVY;
+    public com.b.a.g fVZ;
+    public com.baidu.tieba.ad.play.a fWa;
+    public MediaPlayer.OnCompletionListener fWb;
+    public a.b fWc;
     public int mStatus = -1;
 
     public a(IVrPlayView iVrPlayView) {
-        this.fWb = iVrPlayView;
-        this.adf = this.fWb.getPageContext();
+        this.fVY = iVrPlayView;
+        this.adf = this.fVY.getPageContext();
         biU();
         initListener();
     }
 
     private void biU() {
         if (this.mStatus == -1) {
-            this.fWc = com.b.a.g.f(this.adf.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
+            this.fVZ = com.b.a.g.f(this.adf.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
                 public void b(Surface surface) {
-                    a.this.fWd = new com.baidu.tieba.ad.play.a(surface);
-                    a.this.fWb.setPlayer(a.this.fWd);
+                    a.this.fWa = new com.baidu.tieba.ad.play.a(surface);
+                    a.this.fVY.setPlayer(a.this.fWa);
                 }
             }).m(3).b(new g.d() { // from class: com.baidu.tieba.recapp.a.1
                 public void j(MotionEvent motionEvent) {
                 }
-            }).b(this.fWb.getGLView());
-            this.fWc.onResume(this.adf.getPageActivity());
+            }).b(this.fVY.getGLView());
+            this.fVZ.onResume(this.adf.getPageActivity());
         }
     }
 
@@ -62,13 +62,13 @@ public abstract class a {
     }
 
     public void playVideo() {
-        if (this.fWd != null && !StringUtils.isNull(this.bdl)) {
-            this.fWd.a(this.bdm);
-            this.fWd.setVideoPath(this.bdl);
-            this.fWd.start();
-            this.fWd.a(this.aZF);
-            this.fWd.setOnErrorListener(this.aZJ);
-            this.fWd.a(this.fWe);
+        if (this.fWa != null && !StringUtils.isNull(this.bdl)) {
+            this.fWa.a(this.bdm);
+            this.fWa.setVideoPath(this.bdl);
+            this.fWa.start();
+            this.fWa.a(this.aZF);
+            this.fWa.setOnErrorListener(this.aZJ);
+            this.fWa.a(this.fWb);
             this.mStatus = 0;
         }
     }
@@ -80,10 +80,10 @@ public abstract class a {
     }
 
     public void stopPlay() {
-        if (this.mStatus != -1 && this.fWd != null) {
-            this.fWd.seekTo(0);
-            this.fWd.onDestroy();
-            this.fWb.onDestroy();
+        if (this.mStatus != -1 && this.fWa != null) {
+            this.fWa.seekTo(0);
+            this.fWa.onDestroy();
+            this.fVY.onDestroy();
             this.mStatus = -1;
             finishStopPlay();
         }
@@ -93,14 +93,14 @@ public abstract class a {
     }
 
     public void destroy() {
-        this.fWb.onDestroy();
-        if (this.fWd != null && this.mStatus != -1) {
-            this.fWd.onDestroy();
-            this.fWd = null;
+        this.fVY.onDestroy();
+        if (this.fWa != null && this.mStatus != -1) {
+            this.fWa.onDestroy();
+            this.fWa = null;
         }
-        if (this.fWc != null) {
-            this.fWc.onDestroy();
-            this.fWc = null;
+        if (this.fVZ != null) {
+            this.fVZ.onDestroy();
+            this.fVZ = null;
         }
         this.mStatus = -1;
     }
@@ -114,9 +114,9 @@ public abstract class a {
     }
 
     public long getCurrentPos() {
-        if (this.fWd == null) {
+        if (this.fWa == null) {
             return 0L;
         }
-        return this.fWd.getCurrentPosition();
+        return this.fWa.getCurrentPosition();
     }
 }

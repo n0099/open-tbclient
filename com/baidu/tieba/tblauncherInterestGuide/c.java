@@ -59,28 +59,28 @@ public class c extends BaseAdapter {
         if (view2 == null) {
             view2 = LayoutInflater.from(this.mContext).inflate(d.i.new_user_img_item, viewGroup, false);
             aVar = new a();
-            aVar.cKX = (TbImageView) view2.findViewById(d.g.pic);
-            aVar.cKY = (ImageView) view2.findViewById(d.g.select_icon);
-            aVar.gBZ = (RelativeLayout) view2.findViewById(d.g.lay_select);
+            aVar.cKU = (TbImageView) view2.findViewById(d.g.pic);
+            aVar.cKV = (ImageView) view2.findViewById(d.g.select_icon);
+            aVar.gBW = (RelativeLayout) view2.findViewById(d.g.lay_select);
             aVar.aza = (TextView) view2.findViewById(d.g.tv_fname);
-            aVar.gBY = (FrameLayout) view2.findViewById(d.g.pic_layout);
-            aVar.gBY.setOnClickListener(this.ani);
+            aVar.gBV = (FrameLayout) view2.findViewById(d.g.pic_layout);
+            aVar.gBV.setOnClickListener(this.ani);
             view2.setTag(aVar);
         } else {
             aVar = (a) view2.getTag();
         }
-        aVar.cKX.setTag(null);
-        aVar.gBZ.setTag(null);
+        aVar.cKU.setTag(null);
+        aVar.gBW.setTag(null);
         aVar.aza.setText("");
-        aVar.gBY.setTag(null);
+        aVar.gBV.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
-            b(aVar.cKY, card.getIs_like() == 1);
-            aVar.gBZ.setTag(card);
-            aVar.gBY.setTag(card);
-            aVar.cKX.setTag(card.getIcon_url());
-            aVar.cKX.startLoad(card.getIcon_url(), 21, false);
+            b(aVar.cKV, card.getIs_like() == 1);
+            aVar.gBW.setTag(card);
+            aVar.gBV.setTag(card);
+            aVar.cKU.setTag(card.getIcon_url());
+            aVar.cKU.startLoad(card.getIcon_url(), 21, false);
             aVar.aza.setText(card.getFname());
         }
         return view2;
@@ -97,10 +97,10 @@ public class c extends BaseAdapter {
     /* loaded from: classes3.dex */
     private class a {
         TextView aza;
-        TbImageView cKX;
-        ImageView cKY;
-        FrameLayout gBY;
-        RelativeLayout gBZ;
+        TbImageView cKU;
+        ImageView cKV;
+        FrameLayout gBV;
+        RelativeLayout gBW;
 
         private a() {
         }

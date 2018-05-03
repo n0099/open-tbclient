@@ -17,15 +17,15 @@ import java.util.regex.Pattern;
 public class k {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern gwq = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern gwn = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String gwo = null;
-    private SpannableStringBuilder gwp = null;
-    private boolean gwn = false;
+    private String gwl = null;
+    private SpannableStringBuilder gwm = null;
+    private boolean gwk = false;
 
-    public static boolean bJ(int i, int i2) {
+    public static boolean bI(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -46,15 +46,15 @@ public class k {
     }
 
     public SpannableStringBuilder brM() {
-        return this.gwp;
+        return this.gwm;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.gwp == null) {
-            this.gwp = new SpannableStringBuilder();
+        if (this.gwm == null) {
+            this.gwm = new SpannableStringBuilder();
         }
-        this.gwp.append((CharSequence) spannableString);
-        return this.gwp;
+        this.gwm.append((CharSequence) spannableString);
+        return this.gwm;
     }
 
     public SpannableString bW(Context context) {
@@ -80,7 +80,7 @@ public class k {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.gwq.matcher(k.this.link);
+                        Matcher matcher2 = k.gwn.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();

@@ -14,7 +14,7 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0222a gLC;
+    private InterfaceC0222a gLz;
     private List<PendantData> mList;
     private e mPageContext;
 
@@ -59,21 +59,21 @@ public class a extends BaseAdapter {
         if (view2 == null) {
             view2 = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.i.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.gLE = (TextView) view2.findViewById(d.g.cover_text);
-            bVar.gLF = (TbImageView) view2.findViewById(d.g.pendant_image);
-            bVar.gLG = (ProgressBar) view2.findViewById(d.g.pendant_progressbar);
-            bVar.gLF.setDefaultBgResource(d.C0126d.transparent);
-            bVar.gLF.setDefaultErrorResource(d.C0126d.cp_cont_i);
-            bVar.gLF.setDefaultResource(d.C0126d.cp_cont_i);
+            bVar.gLB = (TextView) view2.findViewById(d.g.cover_text);
+            bVar.gLC = (TbImageView) view2.findViewById(d.g.pendant_image);
+            bVar.gLD = (ProgressBar) view2.findViewById(d.g.pendant_progressbar);
+            bVar.gLC.setDefaultBgResource(d.C0126d.transparent);
+            bVar.gLC.setDefaultErrorResource(d.C0126d.cp_cont_i);
+            bVar.gLC.setDefaultResource(d.C0126d.cp_cont_i);
             view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view3) {
-                    if (a.this.gLC != null) {
+                    if (a.this.gLz != null) {
                         b bVar2 = (b) view3.getTag();
-                        if (bVar2.gLF.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.gLF.getTag();
+                        if (bVar2.gLC.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.gLC.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.gLC.a(view3, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.gLz.a(view3, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -86,45 +86,45 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.gLF.setTag(Integer.valueOf(i));
+            bVar.gLC.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.gLE.setVisibility(0);
-                    bVar.gLF.setVisibility(8);
-                    bVar.gLG.setVisibility(8);
-                    bVar.gLE.setTextColor(ak.getColor(d.C0126d.cp_cont_e));
-                    bVar.gLE.setText("No");
-                    bVar.gLE.setBackgroundDrawable(ak.getDrawable(d.f.bg_cover_text_border));
+                    bVar.gLB.setVisibility(0);
+                    bVar.gLC.setVisibility(8);
+                    bVar.gLD.setVisibility(8);
+                    bVar.gLB.setTextColor(ak.getColor(d.C0126d.cp_cont_e));
+                    bVar.gLB.setText("No");
+                    bVar.gLB.setBackgroundDrawable(ak.getDrawable(d.f.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.gLE.setVisibility(0);
-                    bVar.gLF.setVisibility(8);
-                    bVar.gLG.setVisibility(8);
-                    bVar.gLE.setTextColor(ak.getColor(d.C0126d.cp_cont_g));
-                    bVar.gLE.setText("T");
-                    bVar.gLE.setBackgroundColor(ak.getColor(d.C0126d.cp_link_tip_a));
+                    bVar.gLB.setVisibility(0);
+                    bVar.gLC.setVisibility(8);
+                    bVar.gLD.setVisibility(8);
+                    bVar.gLB.setTextColor(ak.getColor(d.C0126d.cp_cont_g));
+                    bVar.gLB.setText("T");
+                    bVar.gLB.setBackgroundColor(ak.getColor(d.C0126d.cp_link_tip_a));
                     break;
                 case 2:
-                    bVar.gLE.setVisibility(0);
-                    bVar.gLF.setVisibility(8);
-                    bVar.gLG.setVisibility(8);
-                    bVar.gLE.setTextColor(ak.getColor(d.C0126d.cp_cont_g));
-                    bVar.gLE.setText("T");
-                    bVar.gLE.setBackgroundColor(ak.getColor(d.C0126d.cp_cont_d));
+                    bVar.gLB.setVisibility(0);
+                    bVar.gLC.setVisibility(8);
+                    bVar.gLD.setVisibility(8);
+                    bVar.gLB.setTextColor(ak.getColor(d.C0126d.cp_cont_g));
+                    bVar.gLB.setText("T");
+                    bVar.gLB.setBackgroundColor(ak.getColor(d.C0126d.cp_cont_d));
                     break;
                 case 3:
-                    bVar.gLE.setVisibility(0);
-                    bVar.gLF.setVisibility(8);
-                    bVar.gLG.setVisibility(8);
-                    bVar.gLE.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
-                    bVar.gLE.setText("T");
-                    bVar.gLE.setBackgroundDrawable(ak.getDrawable(d.f.bg_cover_text_border));
+                    bVar.gLB.setVisibility(0);
+                    bVar.gLC.setVisibility(8);
+                    bVar.gLD.setVisibility(8);
+                    bVar.gLB.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
+                    bVar.gLB.setText("T");
+                    bVar.gLB.setBackgroundDrawable(ak.getDrawable(d.f.bg_cover_text_border));
                     break;
                 default:
-                    bVar.gLE.setVisibility(8);
-                    bVar.gLF.setVisibility(0);
-                    bVar.gLG.setVisibility(8);
-                    bVar.gLF.startLoad(pendantData.img, 10, false);
+                    bVar.gLB.setVisibility(8);
+                    bVar.gLC.setVisibility(0);
+                    bVar.gLD.setVisibility(8);
+                    bVar.gLC.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
@@ -132,14 +132,14 @@ public class a extends BaseAdapter {
     }
 
     public void a(InterfaceC0222a interfaceC0222a) {
-        this.gLC = interfaceC0222a;
+        this.gLz = interfaceC0222a;
     }
 
     /* loaded from: classes2.dex */
     public class b {
-        public TextView gLE;
-        public TbImageView gLF;
-        public ProgressBar gLG;
+        public TextView gLB;
+        public TbImageView gLC;
+        public ProgressBar gLD;
 
         public b() {
         }

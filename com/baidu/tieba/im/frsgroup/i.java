@@ -14,13 +14,13 @@ public class i extends q.a {
     public TextView adx;
     private String anc;
     private String and;
-    public TbImageView dYv;
+    public TbImageView dYs;
     public TextView mButton;
     public TextView mTitleView;
 
     public i(View view2, View.OnClickListener onClickListener) {
         super(view2);
-        this.dYv = (TbImageView) view2.findViewById(d.g.net_refresh_image);
+        this.dYs = (TbImageView) view2.findViewById(d.g.net_refresh_image);
         this.adx = (TextView) view2.findViewById(d.g.net_refresh_desc);
         this.mTitleView = (TextView) view2.findViewById(d.g.net_refresh_title);
         this.mButton = (TextView) view2.findViewById(d.g.net_refresh_button);
@@ -38,25 +38,25 @@ public class i extends q.a {
         fa(0);
         ny(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds30));
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.dYv.setImageBitmap(ak.cP(d.f.pic_emotion08));
+            this.dYs.setImageBitmap(ak.cP(d.f.pic_emotion08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.dYv.setImageBitmap(ak.cP(d.f.no_data_image));
+            this.dYs.setImageBitmap(ak.cP(d.f.no_data_image));
         } else {
             d(imgType);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.dYv.startLoad(this.and, 29, false);
+                this.dYs.startLoad(this.and, 29, false);
             } else {
-                this.dYv.startLoad(this.anc, 29, false);
+                this.dYs.startLoad(this.anc, 29, false);
             }
         }
     }
 
     public void fa(int i) {
-        ViewGroup.LayoutParams layoutParams = this.dYv.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.dYs.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.dYv.setLayoutParams(marginLayoutParams);
+            this.dYs.setLayoutParams(marginLayoutParams);
         }
     }
 

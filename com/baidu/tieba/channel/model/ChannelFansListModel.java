@@ -17,9 +17,9 @@ import java.util.LinkedList;
 public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
     private boolean bmx;
     private boolean bvq;
-    private long ctu;
-    private a cuV;
-    private c cuW;
+    private long ctr;
+    private a cuS;
+    private c cuT;
     public HttpMessageListener httpListener;
     private boolean mHasMore;
     private int mPageNum;
@@ -41,26 +41,26 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
                     if (httpResponsedMessage.getError() == 0) {
                         ChannelFansListModel.this.a((ResponseChannelFansListMessage) httpResponsedMessage);
                     }
-                    if (ChannelFansListModel.this.cuV != null) {
-                        ChannelFansListModel.this.cuV.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelFansListModel.this.bvq, ChannelFansListModel.this.cuW);
+                    if (ChannelFansListModel.this.cuS != null) {
+                        ChannelFansListModel.this.cuS.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelFansListModel.this.bvq, ChannelFansListModel.this.cuT);
                     }
                     ChannelFansListModel.this.bvq = false;
                 }
             }
         };
-        this.ctu = j;
+        this.ctr = j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ResponseChannelFansListMessage responseChannelFansListMessage) {
         if (responseChannelFansListMessage != null) {
-            if (this.cuW == null) {
-                this.cuW = new c();
+            if (this.cuT == null) {
+                this.cuT = new c();
             }
             c data = responseChannelFansListMessage.getData();
             if (data != null) {
-                this.cuW.getItems().addAll(data.getItems());
-                this.cuW.setHasMore(data.hasMore());
+                this.cuT.getItems().addAll(data.getItems());
+                this.cuT.setHasMore(data.hasMore());
                 this.mHasMore = data.hasMore();
             }
         }
@@ -88,12 +88,12 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
         if (findHttpMessage == null || findHttpMessage.size() == 0) {
             if (!this.bmx) {
                 this.mPageNum = 1;
-                this.cuW = null;
+                this.cuT = null;
             } else {
                 this.mPageNum++;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_FANS_LIST);
-            httpMessage.addParam("channel_id", this.ctu);
+            httpMessage.addParam("channel_id", this.ctr);
             httpMessage.addParam("pn", this.mPageNum);
             httpMessage.addParam("ps", 20);
             sendMessage(httpMessage);
@@ -114,6 +114,6 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
     }
 
     public void a(a aVar) {
-        this.cuV = aVar;
+        this.cuS = aVar;
     }
 }

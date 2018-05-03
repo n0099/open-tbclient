@@ -10,17 +10,17 @@ import com.baidu.tieba.im.message.RequestDismissGroupMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 /* loaded from: classes3.dex */
 public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
-    private RequestRemoveMembersMessage dQe;
-    private RequestDismissGroupMessage dQf;
-    private GroupSettingActivity dQg;
+    private RequestRemoveMembersMessage dQb;
+    private RequestDismissGroupMessage dQc;
+    private GroupSettingActivity dQd;
     private int flag;
     private String groupId;
     private String groupName;
 
     public GroupSettingModel(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity.getPageContext());
-        this.dQg = null;
-        this.dQg = groupSettingActivity;
+        this.dQd = null;
+        this.dQd = groupSettingActivity;
     }
 
     public void h(String str, String str2, int i) {
@@ -49,8 +49,8 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.dQe != null) {
-            this.dQe = null;
+        if (this.dQb != null) {
+            this.dQb = null;
         }
     }
 
@@ -86,23 +86,23 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
     }
 
     public void bN(long j) {
-        this.dQe = new RequestRemoveMembersMessage();
-        this.dQe.setGroupId(j);
-        this.dQe.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
-        if (this.dQg != null) {
-            this.dQg.sendMessage(this.dQe);
+        this.dQb = new RequestRemoveMembersMessage();
+        this.dQb.setGroupId(j);
+        this.dQb.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
+        if (this.dQd != null) {
+            this.dQd.sendMessage(this.dQb);
         } else {
-            sendMessage(this.dQe);
+            sendMessage(this.dQb);
         }
     }
 
     public void bO(long j) {
-        this.dQf = new RequestDismissGroupMessage();
-        this.dQf.setGroupId(j);
-        if (this.dQg != null) {
-            this.dQg.sendMessage(this.dQf);
+        this.dQc = new RequestDismissGroupMessage();
+        this.dQc.setGroupId(j);
+        if (this.dQd != null) {
+            this.dQd.sendMessage(this.dQc);
         } else {
-            sendMessage(this.dQf);
+            sendMessage(this.dQc);
         }
     }
 

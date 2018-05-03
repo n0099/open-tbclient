@@ -39,7 +39,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
     private boolean aEm;
     private int aEn;
     private int aqQ;
-    private ImageView gWf;
+    private ImageView gWc;
     private View mBottomLine;
     private TextView mSendView;
 
@@ -76,10 +76,10 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
     }
 
     private void ce(Context context) {
-        this.gWf = new ImageView(context);
-        this.gWf.setEnabled(true);
-        this.gWf.setPadding(0, 0, com.baidu.adp.lib.util.l.e(context, d.e.tbds30), com.baidu.adp.lib.util.l.e(context, d.e.tbds24));
-        this.gWf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
+        this.gWc = new ImageView(context);
+        this.gWc.setEnabled(true);
+        this.gWc.setPadding(0, 0, com.baidu.adp.lib.util.l.e(context, d.e.tbds30), com.baidu.adp.lib.util.l.e(context, d.e.tbds24));
+        this.gWc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(1, 5, null));
@@ -87,7 +87,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        this.aER.addView(this.gWf, layoutParams);
+        this.aER.addView(this.gWc, layoutParams);
     }
 
     private void aS(Context context) {
@@ -177,7 +177,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
                 case 3:
                     if (this.aEN.getSelectionStart() > 0) {
                         String substring = this.aEN.getText().toString().substring(0, this.aEN.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.cKi.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.cKf.matcher(substring);
                         if (matcher.find()) {
                             this.aEN.getText().delete(this.aEN.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.aEN.getSelectionStart());
                             return;
@@ -312,7 +312,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
             this.aEN.setHintTextColor(ak.getColor(i, d.C0126d.cp_cont_d));
         }
         bzR();
-        ak.c(this.gWf, d.f.pbeditor_face_button);
+        ak.c(this.gWc, d.f.pbeditor_face_button);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

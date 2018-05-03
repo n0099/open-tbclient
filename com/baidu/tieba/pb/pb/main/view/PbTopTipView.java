@@ -19,7 +19,7 @@ import com.baidu.tieba.f.a;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes2.dex */
 public class PbTopTipView extends TextView {
-    private Animation bQG;
+    private Animation bQF;
     private com.baidu.tieba.f.b byy;
     private a.InterfaceC0131a byz;
     private int mDuration;
@@ -161,7 +161,7 @@ public class PbTopTipView extends TextView {
             }
         });
         setupPaddings();
-        this.bQG = AnimationUtils.loadAnimation(getContext(), d.a.push_top_in);
+        this.bQF = AnimationUtils.loadAnimation(getContext(), d.a.push_top_in);
         this.mTipOutAnimation = AnimationUtils.loadAnimation(getContext(), d.a.push_top_out);
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.fontsize30));
         this.mTipOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.4
@@ -180,8 +180,8 @@ public class PbTopTipView extends TextView {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.bQG.setDuration(400L);
-        this.bQG.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
+        this.bQF.setDuration(400L);
+        this.bQF.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -236,7 +236,7 @@ public class PbTopTipView extends TextView {
             layoutParams.addRule(10);
             relativeLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.bQG);
+            startAnimation(this.bQF);
             this.mIsShowing = true;
         }
     }

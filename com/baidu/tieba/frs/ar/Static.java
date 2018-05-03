@@ -24,10 +24,10 @@ public class Static {
             public CustomResponsedMessage<?> run(CustomMessage<FrsFragment> customMessage) {
                 FrsARAnimView frsARAnimView = null;
                 boolean z = true;
-                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().apE() == null || customMessage.getData().apE().dce == null) {
+                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().apE() == null || customMessage.getData().apE().dcb == null) {
                     return null;
                 }
-                ForumArIno forumArIno = customMessage.getData().apE().dce;
+                ForumArIno forumArIno = customMessage.getData().apE().dcb;
                 if (forumArIno._switch.intValue() != 0) {
                     FrsAREntryView frsAREntryView = new FrsAREntryView(customMessage.getData().getPageContext().getPageActivity());
                     frsAREntryView.setForumArIno(forumArIno);

@@ -6,7 +6,7 @@ import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.entelechy.a.q;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.a {
-    private a dcL;
+    private a dcI;
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
     public com.baidu.tieba.frs.entelechy.b.b arr() {
@@ -18,9 +18,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         if (frsFragment == null) {
             return null;
         }
-        this.dcL = new c(frsFragment, null, null, i);
-        this.dcL.a(frsFragment.ape());
-        return this.dcL;
+        this.dcI = new c(frsFragment, null, null, i);
+        this.dcI.a(frsFragment.ape());
+        return this.dcI;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
@@ -44,8 +44,8 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     }
 
     public c ars() {
-        if (this.dcL instanceof c) {
-            return (c) this.dcL;
+        if (this.dcI instanceof c) {
+            return (c) this.dcI;
         }
         return null;
     }

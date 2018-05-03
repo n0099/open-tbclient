@@ -3,61 +3,61 @@ package com.baidu.tieba.channel.data;
 import tbclient.GetChannelInfo.DataRes;
 /* loaded from: classes3.dex */
 public class d {
-    private int cuD = 1;
-    private g cuE;
-    private ChannelInfo cuF;
-    private ChannelHomeVideoList<h> cuG;
+    private int cuA = 1;
+    private g cuB;
+    private ChannelInfo cuC;
+    private ChannelHomeVideoList<h> cuD;
 
     public g agh() {
-        return this.cuE;
+        return this.cuB;
     }
 
     public boolean agi() {
-        return this.cuG == null || this.cuG.size() == 0;
+        return this.cuD == null || this.cuD.size() == 0;
     }
 
     public void a(g gVar) {
-        this.cuE = gVar;
+        this.cuB = gVar;
     }
 
     public ChannelInfo agj() {
-        return this.cuF;
+        return this.cuC;
     }
 
     public void a(ChannelInfo channelInfo) {
-        this.cuF = channelInfo;
+        this.cuC = channelInfo;
     }
 
     public ChannelHomeVideoList<h> agk() {
-        return this.cuG;
+        return this.cuD;
     }
 
     public void a(ChannelHomeVideoList<h> channelHomeVideoList) {
-        this.cuG = channelHomeVideoList;
+        this.cuD = channelHomeVideoList;
     }
 
     public boolean isHost() {
-        return this.cuD == 0;
+        return this.cuA == 0;
     }
 
     public void iS(int i) {
-        this.cuD = i;
+        this.cuA = i;
     }
 
     public boolean agl() {
-        return this.cuE != null && this.cuE.isHasMore();
+        return this.cuB != null && this.cuB.isHasMore();
     }
 
     public void b(ChannelHomeVideoList<h> channelHomeVideoList) {
-        if (this.cuG != null && channelHomeVideoList != null) {
-            this.cuG.addAll(channelHomeVideoList);
+        if (this.cuD != null && channelHomeVideoList != null) {
+            this.cuD.addAll(channelHomeVideoList);
             checkBigVideoType();
         }
     }
 
     public void checkBigVideoType() {
-        if (this.cuG != null) {
-            this.cuG.checkBigVideoType();
+        if (this.cuD != null) {
+            this.cuD.checkBigVideoType();
         }
     }
 

@@ -17,11 +17,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class MsgSettingItemView extends LinearLayout {
-    private TextView gjA;
-    private TbImageView gjB;
-    private TextView gjC;
-    private BdSwitchView gjD;
-    private int gjE;
+    private BdSwitchView gjA;
+    private int gjB;
+    private TextView gjx;
+    private TbImageView gjy;
+    private TextView gjz;
     private View mBottomLine;
 
     public MsgSettingItemView(Context context) {
@@ -37,34 +37,34 @@ public class MsgSettingItemView extends LinearLayout {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(d.i.msg_setting_item_view, (ViewGroup) this, true);
-        this.gjA = (TextView) findViewById(d.g.setting_text);
-        this.gjB = (TbImageView) findViewById(d.g.setting_tip_image);
-        this.gjC = (TextView) findViewById(d.g.setting_tip);
-        this.gjD = (BdSwitchView) findViewById(d.g.setting_switch);
-        l.a(context, this.gjD, 10, 10, 10, 10);
+        this.gjx = (TextView) findViewById(d.g.setting_text);
+        this.gjy = (TbImageView) findViewById(d.g.setting_tip_image);
+        this.gjz = (TextView) findViewById(d.g.setting_tip);
+        this.gjA = (BdSwitchView) findViewById(d.g.setting_switch);
+        l.a(context, this.gjA, 10, 10, 10, 10);
         this.mBottomLine = findViewById(d.g.bottom_line_ll);
     }
 
     public void setTipImageResource(int i) {
-        this.gjE = i;
-        ak.c(this.gjB, this.gjE);
-        this.gjB.setVisibility(0);
+        this.gjB = i;
+        ak.c(this.gjy, this.gjB);
+        this.gjy.setVisibility(0);
     }
 
     public void setTipImageListener(View.OnClickListener onClickListener) {
-        this.gjB.setOnClickListener(onClickListener);
+        this.gjy.setOnClickListener(onClickListener);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.gjA.setText(str);
+        this.gjx.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.gjA.setText(i);
+            this.gjx.setText(i);
         }
     }
 
@@ -72,43 +72,43 @@ public class MsgSettingItemView extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.gjC.setVisibility(0);
-        this.gjC.setText(str);
+        this.gjz.setVisibility(0);
+        this.gjz.setText(str);
     }
 
     public void setTipText(int i) {
         if (i != 0) {
-            this.gjC.setVisibility(0);
-            this.gjC.setText(i);
+            this.gjz.setVisibility(0);
+            this.gjz.setText(i);
         }
     }
 
     public void jP() {
-        this.gjD.jP();
+        this.gjA.jP();
     }
 
     public void jO() {
-        this.gjD.jO();
+        this.gjA.jO();
     }
 
     public void jN() {
-        this.gjD.jN();
+        this.gjA.jN();
     }
 
     public void jM() {
-        this.gjD.jM();
+        this.gjA.jM();
     }
 
     public void setSwitchStateNoCallback(boolean z) {
         if (z) {
-            this.gjD.jM();
+            this.gjA.jM();
         } else {
-            this.gjD.jN();
+            this.gjA.jN();
         }
     }
 
     public boolean fz() {
-        return this.gjD.fz();
+        return this.gjA.fz();
     }
 
     public void setLineVisibility(boolean z) {
@@ -120,21 +120,21 @@ public class MsgSettingItemView extends LinearLayout {
     }
 
     public BdSwitchView getSwitchView() {
-        return this.gjD;
+        return this.gjA;
     }
 
     public void setOnSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.gjD.setOnSwitchStateChangeListener(aVar);
+        this.gjA.setOnSwitchStateChangeListener(aVar);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void d(TbPageContext<?> tbPageContext, int i) {
         tbPageContext.getLayoutMode().setNightMode(i == 1);
         tbPageContext.getLayoutMode().u(this);
-        this.gjD.setBackgroundRes(ak.cN(d.f.bg_switch_open), ak.cN(d.f.bg_switch_close), ak.cN(d.f.btn_handle));
+        this.gjA.setBackgroundRes(ak.cN(d.f.bg_switch_open), ak.cN(d.f.bg_switch_close), ak.cN(d.f.btn_handle));
         ak.j(this, d.C0126d.cp_bg_line_d);
-        if (this.gjE != 0) {
-            ak.c(this.gjB, this.gjE);
+        if (this.gjB != 0) {
+            ak.c(this.gjy, this.gjB);
         }
     }
 }

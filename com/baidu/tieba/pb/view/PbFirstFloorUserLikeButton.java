@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
-    private AlphaAnimation fxc;
+    private AlphaAnimation fwZ;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -61,11 +61,11 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
             this.aqC = z;
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.fxc == null) {
-                        this.fxc = new AlphaAnimation(1.0f, 0.0f);
-                        this.fxc.setDuration(500L);
-                        this.fxc.setFillAfter(true);
-                        this.fxc.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.fwZ == null) {
+                        this.fwZ = new AlphaAnimation(1.0f, 0.0f);
+                        this.fwZ.setDuration(500L);
+                        this.fwZ.setFillAfter(true);
+                        this.fwZ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -81,10 +81,10 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                             }
                         });
                     } else {
-                        this.fxc.cancel();
+                        this.fwZ.cancel();
                     }
                     if (isShown()) {
-                        startAnimation(this.fxc);
+                        startAnimation(this.fwZ);
                         return;
                     } else {
                         setVisibility(8);

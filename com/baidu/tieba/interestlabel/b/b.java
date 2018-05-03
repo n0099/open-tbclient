@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes3.dex */
 public class b {
-    private List<a> ese;
-    private List<Integer> esf;
-    private List<a> esi;
+    private List<a> esb;
+    private List<Integer> esc;
+    private List<a> esf;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.w(dataRes.sex_taglist)) {
-                this.esi = new ArrayList();
-                n(this.esi, dataRes.sex_taglist);
+                this.esf = new ArrayList();
+                n(this.esf, dataRes.sex_taglist);
             }
             if (!v.w(dataRes.taglist)) {
-                this.ese = new ArrayList();
-                this.esf = new ArrayList();
-                n(this.ese, dataRes.taglist);
+                this.esb = new ArrayList();
+                this.esc = new ArrayList();
+                n(this.esb, dataRes.taglist);
             }
         }
     }
@@ -33,8 +33,8 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.esf != null && aVar.isFollow) {
-                        this.esf.add(Integer.valueOf(aVar.labelId));
+                    if (this.esc != null && aVar.isFollow) {
+                        this.esc.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
@@ -42,14 +42,14 @@ public class b {
     }
 
     public List<a> aJM() {
-        return this.esi;
+        return this.esf;
     }
 
     public List<a> aJN() {
-        return this.ese;
+        return this.esb;
     }
 
     public List<Integer> aJO() {
-        return this.esf;
+        return this.esc;
     }
 }

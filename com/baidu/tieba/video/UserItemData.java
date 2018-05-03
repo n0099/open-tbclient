@@ -22,10 +22,10 @@ public class UserItemData implements Parcelable {
     };
     public String agree_num;
     public String fans_num;
+    public String gJU;
+    public String gJV;
+    public String gJW;
     public String gJX;
-    public String gJY;
-    public String gJZ;
-    public String gKa;
     public String intro;
     public String is_follow;
     public String name_show;
@@ -49,14 +49,14 @@ public class UserItemData implements Parcelable {
         parcel.writeString(this.user_name);
         parcel.writeString(this.name_show);
         parcel.writeString(this.portrait);
-        parcel.writeString(this.gJX);
-        parcel.writeString(this.gJY);
+        parcel.writeString(this.gJU);
+        parcel.writeString(this.gJV);
         parcel.writeString(this.fans_num);
         parcel.writeString(this.video_num);
         parcel.writeString(this.agree_num);
         parcel.writeString(this.intro);
-        parcel.writeString(this.gJZ);
-        parcel.writeString(this.gKa);
+        parcel.writeString(this.gJW);
+        parcel.writeString(this.gJX);
         parcel.writeString(this.is_follow);
     }
 
@@ -68,14 +68,14 @@ public class UserItemData implements Parcelable {
         this.user_name = parcel.readString();
         this.name_show = parcel.readString();
         this.portrait = parcel.readString();
-        this.gJX = parcel.readString();
-        this.gJY = parcel.readString();
+        this.gJU = parcel.readString();
+        this.gJV = parcel.readString();
         this.fans_num = parcel.readString();
         this.video_num = parcel.readString();
         this.agree_num = parcel.readString();
         this.intro = parcel.readString();
-        this.gJZ = parcel.readString();
-        this.gKa = parcel.readString();
+        this.gJW = parcel.readString();
+        this.gJX = parcel.readString();
         this.is_follow = parcel.readString();
     }
 }

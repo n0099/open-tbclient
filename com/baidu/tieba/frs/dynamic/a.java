@@ -21,16 +21,16 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private FrsDynamicFragment dcg;
-    private BdTypeRecyclerView dch;
-    private i dci;
-    private i dcj;
-    private l dck;
-    private p dcl;
-    private d dcm;
-    private j dcn;
+    private FrsDynamicFragment dcd;
+    private BdTypeRecyclerView dce;
+    private i dcf;
+    private i dcg;
+    private l dch;
+    private p dci;
+    private d dcj;
+    private j dck;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
-    private CustomMessageListener dco = new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.dynamic.a.1
+    private CustomMessageListener dcl = new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.dynamic.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,7 +39,7 @@ public class a {
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
                     if ((aVar instanceof z) && "FrsHottopicDelegateAdapter".equals(((z) aVar).afC()) && a.this.mAdapters != null) {
-                        ((z) aVar).a(a.this.dcg.getPageContext(), a.this.dcg.getUniqueId());
+                        ((z) aVar).a(a.this.dcd.getPageContext(), a.this.dcd.getUniqueId());
                         ((z) aVar).setFrom("c13010");
                         a.this.mAdapters.add(aVar);
                     }
@@ -50,43 +50,43 @@ public class a {
 
     public a(FrsDynamicFragment frsDynamicFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         a(frsDynamicFragment, bdTypeRecyclerView);
-        this.dch = bdTypeRecyclerView;
+        this.dce = bdTypeRecyclerView;
     }
 
     public void a(FrsDynamicFragment frsDynamicFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.dcg = frsDynamicFragment;
-        this.dco.setPriority(1);
-        this.dco.setSelfListener(true);
-        this.dcg.registerListener(this.dco);
-        this.dci = new i(frsDynamicFragment.getPageContext(), bd.ZH, this.dcg.getUniqueId());
-        this.dci.setVoiceManager(frsDynamicFragment.getVoiceManager());
+        this.dcd = frsDynamicFragment;
+        this.dcl.setPriority(1);
+        this.dcl.setSelfListener(true);
+        this.dcd.registerListener(this.dcl);
+        this.dcf = new i(frsDynamicFragment.getPageContext(), bd.ZH, this.dcd.getUniqueId());
+        this.dcf.setVoiceManager(frsDynamicFragment.getVoiceManager());
+        this.dcf.setFrom("c13010");
+        this.dcg = new i(frsDynamicFragment.getPageContext(), bd.ZJ, this.dcd.getUniqueId());
+        this.dcg.setVoiceManager(frsDynamicFragment.getVoiceManager());
+        this.dcg.setFrom("c13010");
+        this.dch = new l(frsDynamicFragment.getPageContext(), bd.ZO, this.dcd.getUniqueId());
+        this.dch.setFrom("c13010");
+        this.dci = new p(frsDynamicFragment.getPageContext(), bd.ZK, this.dcd.getUniqueId());
         this.dci.setFrom("c13010");
-        this.dcj = new i(frsDynamicFragment.getPageContext(), bd.ZJ, this.dcg.getUniqueId());
-        this.dcj.setVoiceManager(frsDynamicFragment.getVoiceManager());
+        this.dcj = new d(frsDynamicFragment.getPageContext(), bd.ZP, this.dcd.getUniqueId());
         this.dcj.setFrom("c13010");
-        this.dck = new l(frsDynamicFragment.getPageContext(), bd.ZO, this.dcg.getUniqueId());
-        this.dck.setFrom("c13010");
-        this.dcl = new p(frsDynamicFragment.getPageContext(), bd.ZK, this.dcg.getUniqueId());
-        this.dcl.setFrom("c13010");
-        this.dcm = new d(frsDynamicFragment.getPageContext(), bd.ZP, this.dcg.getUniqueId());
-        this.dcm.setFrom("c13010");
-        this.dcn = new j(frsDynamicFragment.getPageContext(), k.cZA);
+        this.dck = new j(frsDynamicFragment.getPageContext(), k.cZx);
+        this.mAdapters.add(this.dcf);
+        this.mAdapters.add(this.dcg);
+        this.mAdapters.add(this.dch);
         this.mAdapters.add(this.dci);
         this.mAdapters.add(this.dcj);
         this.mAdapters.add(this.dck);
-        this.mAdapters.add(this.dcl);
-        this.mAdapters.add(this.dcm);
-        this.mAdapters.add(this.dcn);
         bdTypeRecyclerView.addAdapters(this.mAdapters);
         hY("page_frs_dynamic");
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.dch.setData(arrayList);
+        this.dce.setData(arrayList);
     }
 
     public void notifyDataSetChanged() {
-        this.dch.getAdapter().notifyDataSetChanged();
+        this.dce.getAdapter().notifyDataSetChanged();
     }
 
     public void setFromCDN(boolean z) {

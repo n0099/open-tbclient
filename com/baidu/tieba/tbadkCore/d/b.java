@@ -6,10 +6,10 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a gxC;
-    private final int gxD = 10;
-    private final int gxE = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
-    public String gxF = null;
+    private com.baidu.adp.lib.stats.a gxz;
+    private final int gxA = 10;
+    private final int gxB = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+    public String gxC = null;
     public boolean akf = false;
 
     public b(String str) {
@@ -17,49 +17,49 @@ public class b {
     }
 
     public void U(String str, boolean z) {
-        this.gxF = str;
+        this.gxC = str;
         this.akf = z;
-        this.gxC = new com.baidu.adp.lib.stats.a("dbg");
+        this.gxz = new com.baidu.adp.lib.stats.a("dbg");
         c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.gxC.fA();
+        this.gxz.fA();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
         e bsq;
-        if (this.gxC != null && (bsq = bsq()) != null) {
+        if (this.gxz != null && (bsq = bsq()) != null) {
             if (z) {
-                if (bsq.gxK != null) {
-                    bsq.gxK.num++;
+                if (bsq.gxH != null) {
+                    bsq.gxH.num++;
                     if (z2) {
-                        bsq.gxK.gxH += j2;
-                        bsq.gxK.size += j;
+                        bsq.gxH.gxE += j2;
+                        bsq.gxH.size += j;
                     } else {
-                        bsq.gxK.gxI++;
+                        bsq.gxH.gxF++;
                     }
                 } else {
                     return;
                 }
-            } else if (bsq.gxL != null) {
-                bsq.gxL.num++;
+            } else if (bsq.gxI != null) {
+                bsq.gxI.num++;
                 if (z2) {
-                    bsq.gxL.gxH += j3;
-                    bsq.gxL.size += j;
+                    bsq.gxI.gxE += j3;
+                    bsq.gxI.size += j;
                     j2 = j3;
                 } else {
-                    bsq.gxL.gxI++;
+                    bsq.gxI.gxF++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.gxC = null;
+            this.gxz = null;
             if (z2) {
                 c.a(bsq, 10);
             }
-            if (this.gxF == "frsStat") {
+            if (this.gxC == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append(SocialConstants.PARAM_ACT, "frs");
@@ -77,19 +77,19 @@ public class b {
 
     public void destory() {
         e bsq;
-        if (this.gxC != null && (bsq = bsq()) != null && bsq.gxM != null) {
-            long fB = this.gxC.fB();
+        if (this.gxz != null && (bsq = bsq()) != null && bsq.gxJ != null) {
+            long fB = this.gxz.fB();
             if (fB > 3000) {
-                d dVar = bsq.gxM;
-                dVar.gxH = fB + dVar.gxH;
-                bsq.gxM.num++;
+                d dVar = bsq.gxJ;
+                dVar.gxE = fB + dVar.gxE;
+                bsq.gxJ.num++;
                 c.a(bsq, 10);
             }
         }
     }
 
     private e bsq() {
-        return c.l(this.gxF, getNetType(), this.akf);
+        return c.l(this.gxC, getNetType(), this.akf);
     }
 
     private String getNetType() {

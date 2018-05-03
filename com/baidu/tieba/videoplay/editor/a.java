@@ -35,8 +35,8 @@ public class a extends d {
     private String aEt;
     private NewWriteModel aEw;
     private TbPageContext<?> adf;
-    private com.baidu.tieba.write.b ftU;
-    private InterfaceC0231a gWb;
+    private com.baidu.tieba.write.b ftR;
+    private InterfaceC0231a gVY;
     private String mForumId;
     private String mForumName;
     private TextWatcher mTextWatcher;
@@ -61,14 +61,14 @@ public class a extends d {
                     if (a.this.DF() != null) {
                         a.this.DF().hide();
                     }
-                    if (a.this.gWb != null) {
-                        a.this.gWb.ne(false);
+                    if (a.this.gVY != null) {
+                        a.this.gVY.ne(false);
                     }
                     WriteData writeData2 = writeData == null ? a.this.aEw.getWriteData() : writeData;
                     if (z) {
-                        a.this.ftU.uB(null);
-                        a.this.ftU.ax(null);
-                        a.this.ftU.ni(false);
+                        a.this.ftR.uB(null);
+                        a.this.ftR.ax(null);
+                        a.this.ftR.ni(false);
                         a.this.bzP();
                         a.this.resetData();
                         if (writeData2 != null) {
@@ -97,9 +97,9 @@ public class a extends d {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.adf.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData2, postWriteCallBackData.getAccessState())));
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
                         a.this.ut(postWriteCallBackData.getErrorString());
-                        a.this.ftU.ax(postWriteCallBackData.getSensitiveWords());
-                        a.this.ftU.uB(postWriteCallBackData.getErrorString());
-                        if (!v.w(a.this.ftU.bAU())) {
+                        a.this.ftR.ax(postWriteCallBackData.getSensitiveWords());
+                        a.this.ftR.uB(postWriteCallBackData.getErrorString());
+                        if (!v.w(a.this.ftR.bAU())) {
                             a.this.kF(true);
                         }
                     } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.tt(postWriteCallBackData.getErrorCode()))) {
@@ -121,18 +121,18 @@ public class a extends d {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (a.this.ftU != null) {
-                    if (!a.this.ftU.bAX()) {
+                if (a.this.ftR != null) {
+                    if (!a.this.ftR.bAX()) {
                         a.this.kF(false);
                     }
-                    a.this.ftU.nj(false);
+                    a.this.ftR.nj(false);
                 }
             }
         };
         editorTools.bx(true);
-        this.ftU = new com.baidu.tieba.write.b();
-        this.ftU.uL(d.C0126d.cp_cont_h_alpha85);
-        this.ftU.uK(d.C0126d.cp_cont_i);
+        this.ftR = new com.baidu.tieba.write.b();
+        this.ftR.uL(d.C0126d.cp_cont_h_alpha85);
+        this.ftR.uK(d.C0126d.cp_cont_i);
     }
 
     public void setContext(TbPageContext<?> tbPageContext) {
@@ -188,8 +188,8 @@ public class a extends d {
             DF().b(new com.baidu.tbadk.editortools.a(4, -1, ""));
             DF().hide();
         }
-        if (this.gWb != null) {
-            this.gWb.ne(true);
+        if (this.gVY != null) {
+            this.gVY.ne(true);
         }
     }
 
@@ -244,17 +244,17 @@ public class a extends d {
         if (DF() != null && (DF().eH(28) instanceof c) && ((c) DF().eH(28)).getInputView() != null && ((c) DF().eH(28)).getInputView().getText() != null) {
             EditText inputView = ((c) DF().eH(28)).getInputView();
             int selectionEnd = inputView.getSelectionEnd();
-            SpannableStringBuilder b = this.ftU.b(inputView.getText());
+            SpannableStringBuilder b = this.ftR.b(inputView.getText());
             if (b != null) {
-                this.ftU.nj(true);
+                this.ftR.nj(true);
                 inputView.setText(b);
-                if (z && this.ftU.bAV() >= 0) {
+                if (z && this.ftR.bAV() >= 0) {
                     inputView.requestFocus();
-                    inputView.setSelection(this.ftU.bAV());
+                    inputView.setSelection(this.ftR.bAV());
                 } else {
                     inputView.setSelection(selectionEnd);
                 }
-                this.ftU.ni(this.ftU.bAV() >= 0);
+                this.ftR.ni(this.ftR.bAV() >= 0);
             }
         }
     }
@@ -267,7 +267,7 @@ public class a extends d {
     }
 
     public void a(InterfaceC0231a interfaceC0231a) {
-        this.gWb = interfaceC0231a;
+        this.gVY = interfaceC0231a;
     }
 
     public void bzQ() {

@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.util.al;
 public class y {
     public String XM;
     public String aNu;
-    public String crJ;
+    public String crG;
+    public String fQJ;
+    public String fQK;
+    public String fQL;
     public String fQM;
     public String fQN;
     public String fQO;
     public String fQP;
-    public String fQQ;
-    public String fQR;
-    public String fQS;
     public String mExtra;
     public String mLocate;
     public String mSource;
@@ -31,8 +31,8 @@ public class y {
             if (!StringUtils.isNull(this.aNu)) {
                 alVar.ac("tid", this.aNu);
             }
-            if (!StringUtils.isNull(this.crJ)) {
-                alVar.ac(ImageViewerConfig.FORUM_ID, this.crJ);
+            if (!StringUtils.isNull(this.crG)) {
+                alVar.ac(ImageViewerConfig.FORUM_ID, this.crG);
             }
             if (!StringUtils.isNull(this.mUid)) {
                 alVar.ac("uid", this.mUid);
@@ -40,29 +40,29 @@ public class y {
             if (!StringUtils.isNull(this.mSource)) {
                 alVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             }
-            if (!StringUtils.isNull(this.fQM)) {
-                alVar.ac("obj_param1", this.fQM);
+            if (!StringUtils.isNull(this.fQJ)) {
+                alVar.ac("obj_param1", this.fQJ);
             }
-            if (!StringUtils.isNull(this.fQN)) {
-                alVar.ac("obj_param2", this.fQN);
+            if (!StringUtils.isNull(this.fQK)) {
+                alVar.ac("obj_param2", this.fQK);
             }
-            if (!StringUtils.isNull(this.fQO)) {
-                alVar.ac("obj_param3", this.fQO);
+            if (!StringUtils.isNull(this.fQL)) {
+                alVar.ac("obj_param3", this.fQL);
             }
             if (!StringUtils.isNull(this.XM)) {
                 alVar.ac(VideoPlayActivityConfig.OBJ_ID, this.XM);
             }
-            if (!StringUtils.isNull(this.fQP)) {
-                alVar.ac("ab_tag", this.fQP);
+            if (!StringUtils.isNull(this.fQM)) {
+                alVar.ac("ab_tag", this.fQM);
             }
-            if (!StringUtils.isNull(this.fQR)) {
-                alVar.ac("topic_type", this.fQR);
+            if (!StringUtils.isNull(this.fQO)) {
+                alVar.ac("topic_type", this.fQO);
             }
             if (!StringUtils.isNull(this.mExtra)) {
                 alVar.ac("extra", this.mExtra);
             }
-            if (!StringUtils.isNull(this.fQS)) {
-                alVar.ac("is_vertical", this.fQS);
+            if (!StringUtils.isNull(this.fQP)) {
+                alVar.ac("is_vertical", this.fQP);
             }
         }
         return alVar;
@@ -73,16 +73,16 @@ public class y {
         yVar.mLocate = this.mLocate;
         yVar.mType = this.mType;
         yVar.aNu = this.aNu;
-        yVar.crJ = this.crJ;
+        yVar.crG = this.crG;
         yVar.mUid = this.mUid;
         yVar.mSource = this.mSource;
+        yVar.fQJ = this.fQJ;
+        yVar.fQK = this.fQK;
+        yVar.fQL = this.fQL;
+        yVar.XM = this.XM;
         yVar.fQM = this.fQM;
         yVar.fQN = this.fQN;
         yVar.fQO = this.fQO;
-        yVar.XM = this.XM;
-        yVar.fQP = this.fQP;
-        yVar.fQQ = this.fQQ;
-        yVar.fQR = this.fQR;
         return yVar;
     }
 }

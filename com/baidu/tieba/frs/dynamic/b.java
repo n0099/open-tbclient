@@ -22,7 +22,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
     public boolean hasMore;
     public ArrayList<h> threadList = new ArrayList<>();
     public HashMap<String, MetaData> userMap = new HashMap<>();
-    public int dcD = 0;
+    public int dcA = 0;
 
     public StarTrendsResIdl B(byte[] bArr) {
         if (bArr == null) {

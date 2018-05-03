@@ -11,12 +11,12 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private IUiListener gkD;
-    private final com.baidu.adp.lib.f.b<e.a> gkE;
+    private IUiListener gkA;
+    private final com.baidu.adp.lib.f.b<e.a> gkB;
 
     public c(Context context) {
         super(context);
-        this.gkE = new com.baidu.adp.lib.f.b<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.gkB = new com.baidu.adp.lib.f.b<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
@@ -36,23 +36,23 @@ public class c extends b {
                 c.this.sA(3);
             }
         };
-        this.gkw = 4;
+        this.gkt = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gkC == null) {
+        if (shareEntity == null || this.gkz == null) {
             sA(2);
             if (bVar != null) {
-                bVar.bC(0, 2);
+                bVar.bB(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
             sA(2);
             if (bVar != null) {
-                bVar.bC(0, 2);
+                bVar.bB(0, 2);
             }
         } else {
-            this.gkD = new b.a(bVar);
+            this.gkA = new b.a(bVar);
             if (shareEntity.bns()) {
                 a(shareEntity);
             } else {
@@ -65,7 +65,7 @@ public class c extends b {
         if (i(shareEntity.bnq())) {
             st(shareEntity.bnq().getPath());
         } else {
-            com.baidu.adp.lib.f.c.fp().a(shareEntity.qG(), 34, this.gkE, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.f.c.fp().a(shareEntity.qG(), 34, this.gkB, 0, 0, getPageId(), new Object[0]);
         }
     }
 
@@ -75,8 +75,8 @@ public class c extends b {
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.gkD != null) {
-            this.gkC.shareToQQ((Activity) this.context, bundle, this.gkD);
+        if (this.gkA != null) {
+            this.gkz.shareToQQ((Activity) this.context, bundle, this.gkA);
         }
     }
 
@@ -91,8 +91,8 @@ public class c extends b {
             arrayList.add(shareEntity.qG());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.gkD != null) {
-            this.gkC.shareToQzone((Activity) this.context, bundle, this.gkD);
+        if (this.gkA != null) {
+            this.gkz.shareToQzone((Activity) this.context, bundle, this.gkA);
         }
     }
 }

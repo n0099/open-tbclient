@@ -117,8 +117,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
         aVar.limit = 10;
-        aVar.eeZ = null;
-        aVar.efa = null;
+        aVar.eeW = null;
+        aVar.eeX = null;
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
@@ -144,8 +144,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             j = this.mDatas.getChatMessages().get(0).getMsgId();
             j2 = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        aVar.eeZ = String.valueOf(j);
-        aVar.efa = String.valueOf(j2);
+        aVar.eeW = String.valueOf(j);
+        aVar.eeX = String.valueOf(j2);
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
@@ -333,6 +333,6 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
-        return b.aFy().as(String.valueOf(a.eho), -9);
+        return b.aFy().as(String.valueOf(a.ehl), -9);
     }
 }

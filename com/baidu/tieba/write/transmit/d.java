@@ -29,18 +29,18 @@ import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<e, a> {
-    private com.baidu.tieba.likedForum.a bHG;
-    private a.InterfaceC0174a bHJ;
-    private List<TransmitForumData> haf;
-    private n heh;
+    private com.baidu.tieba.likedForum.a bHF;
+    private a.InterfaceC0174a bHI;
+    private List<TransmitForumData> hac;
+    private n hee;
     private ArrayList<HotTopicBussinessData> mForumList;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean bn(long j) {
-        if (this.haf == null) {
+        if (this.hac == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.haf) {
+        for (TransmitForumData transmitForumData : this.hac) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -65,7 +65,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.heh = new n() { // from class: com.baidu.tieba.write.transmit.d.1
+        this.hee = new n() { // from class: com.baidu.tieba.write.transmit.d.1
             @Override // com.baidu.adp.widget.ListView.n
             public void a(View view2, h hVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.gP()) {
@@ -76,12 +76,12 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                     d.this.bvz();
                     return;
                 }
-                d.this.bHG = new com.baidu.tieba.likedForum.a(d.this.mPageId);
-                d.this.bHG.a(d.this.bHJ);
-                d.this.bHG.FY();
+                d.this.bHF = new com.baidu.tieba.likedForum.a(d.this.mPageId);
+                d.this.bHF.a(d.this.bHI);
+                d.this.bHF.FY();
             }
         };
-        this.bHJ = new a.InterfaceC0174a() { // from class: com.baidu.tieba.write.transmit.d.2
+        this.bHI = new a.InterfaceC0174a() { // from class: com.baidu.tieba.write.transmit.d.2
             @Override // com.baidu.tieba.likedForum.a.InterfaceC0174a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
@@ -106,8 +106,8 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                 }
             }
         };
-        setOnAdapterItemClickListener(this.heh);
-        this.haf = list;
+        setOnAdapterItemClickListener(this.hee);
+        this.hac = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -123,26 +123,26 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e eVar, a aVar) {
-        ak.h(aVar.hej, d.C0126d.cp_link_tip_a);
-        ak.c(aVar.cRa, d.f.icon_post_add_ba_n);
+        ak.h(aVar.heg, d.C0126d.cp_link_tip_a);
+        ak.c(aVar.cQX, d.f.icon_post_add_ba_n);
         return view2;
     }
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        public ImageView cRa;
-        public TextView hej;
+        public ImageView cQX;
+        public TextView heg;
 
         public a(View view2) {
             super(view2);
-            this.hej = (TextView) view2.findViewById(d.g.select_by_self);
-            this.cRa = (ImageView) view2.findViewById(d.g.add_icon);
+            this.heg = (TextView) view2.findViewById(d.g.select_by_self);
+            this.cQX = (ImageView) view2.findViewById(d.g.add_icon);
         }
     }
 
     public void destroy() {
-        if (this.bHG != null) {
-            this.bHG.destroy();
+        if (this.bHF != null) {
+            this.bHF.destroy();
         }
     }
 }

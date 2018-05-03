@@ -4,22 +4,22 @@ import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
     private String bcG;
+    private String duO;
+    private String duP;
+    private String duQ;
     private String duR;
     private String duS;
-    private String duT;
-    private String duU;
-    private String duV;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.duR = String.valueOf(esportRank.rank);
-            this.duS = esportRank.text;
+            this.duO = String.valueOf(esportRank.rank);
+            this.duP = esportRank.text;
             this.bcG = esportRank.url;
             if (esportRank.user != null) {
-                this.duT = esportRank.user.steam_name;
-                this.duU = esportRank.user.steam_portrait;
+                this.duQ = esportRank.user.steam_name;
+                this.duR = esportRank.user.steam_portrait;
             }
         }
     }
@@ -29,27 +29,27 @@ public class a {
     }
 
     public String avV() {
-        return this.duR;
+        return this.duO;
     }
 
     public String avW() {
-        return this.duS;
+        return this.duP;
     }
 
     public String avX() {
-        return this.duT;
+        return this.duQ;
     }
 
     public String avY() {
-        return this.duU;
+        return this.duR;
     }
 
     public String avZ() {
-        return this.duV;
+        return this.duS;
     }
 
     public void mw(String str) {
-        this.duV = str;
+        this.duS = str;
     }
 
     public String awa() {

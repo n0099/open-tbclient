@@ -21,10 +21,10 @@ public class PbChudianProcessBar extends RelativeLayout {
     private int bdv;
     private MediaController.MediaPlayerControl bdw;
     private boolean bdz;
-    private Formatter dOh;
-    private TextView fzA;
-    private TextView fzB;
-    private StringBuilder fzC;
+    private Formatter dOe;
+    private TextView fzx;
+    private TextView fzy;
+    private StringBuilder fzz;
     private Handler mHandler;
     private View mRootView;
     private SeekBar mSeekBar;
@@ -97,25 +97,25 @@ public class PbChudianProcessBar extends RelativeLayout {
 
     private void init(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(d.i.chudian_process_bar, (ViewGroup) this, true);
-        this.fzA = (TextView) this.mRootView.findViewById(d.g.textview_cur_time);
-        this.fzB = (TextView) this.mRootView.findViewById(d.g.textview_duration);
+        this.fzx = (TextView) this.mRootView.findViewById(d.g.textview_cur_time);
+        this.fzy = (TextView) this.mRootView.findViewById(d.g.textview_duration);
         this.mSeekBar = (SeekBar) this.mRootView.findViewById(d.g.chudian_seek_bar);
         this.mSeekBar.setEnabled(false);
         this.mSeekBar.setThumb(null);
-        this.fzC = new StringBuilder();
-        this.dOh = new Formatter(this.fzC, Locale.getDefault());
+        this.fzz = new StringBuilder();
+        this.dOe = new Formatter(this.fzz, Locale.getDefault());
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
         this.bdw = mediaPlayerControl;
     }
 
-    public void m(long j, long j2) {
+    public void o(long j, long j2) {
         this.bdz = false;
         this.mHandler.removeMessages(1);
         this.mSeekBar.setProgress(0);
-        this.fzA.setText(cJ(j));
-        this.fzB.setText(cJ(j2));
+        this.fzx.setText(cJ(j));
+        this.fzy.setText(cJ(j2));
     }
 
     public void bcK() {
@@ -143,23 +143,23 @@ public class PbChudianProcessBar extends RelativeLayout {
             }
             this.bdw.getBufferPercentage();
         }
-        if (this.fzA != null && duration > 0) {
-            this.fzA.setText(cJ(currentPosition));
+        if (this.fzx != null && duration > 0) {
+            this.fzx.setText(cJ(currentPosition));
         }
-        if (this.fzB != null) {
-            this.fzB.setText(cJ(duration));
+        if (this.fzy != null) {
+            this.fzy.setText(cJ(duration));
             return currentPosition;
         }
         return currentPosition;
     }
 
     private String cJ(long j) {
-        this.fzC.setLength(0);
+        this.fzz.setLength(0);
         long seconds = TimeUnit.MILLISECONDS.toSeconds(j);
         long seconds2 = seconds % TimeUnit.MINUTES.toSeconds(1L);
         long seconds3 = (seconds / TimeUnit.MINUTES.toSeconds(1L)) % TimeUnit.HOURS.toMinutes(1L);
         long seconds4 = seconds / TimeUnit.HOURS.toSeconds(1L);
-        return seconds4 > 0 ? this.dOh.format("%d:%02d:%02d", Long.valueOf(seconds4), Long.valueOf(seconds3), Long.valueOf(seconds2)).toString() : this.dOh.format("%02d:%02d", Long.valueOf(seconds3), Long.valueOf(seconds2)).toString();
+        return seconds4 > 0 ? this.dOe.format("%d:%02d:%02d", Long.valueOf(seconds4), Long.valueOf(seconds3), Long.valueOf(seconds2)).toString() : this.dOe.format("%02d:%02d", Long.valueOf(seconds3), Long.valueOf(seconds2)).toString();
     }
 
     public void destroy() {

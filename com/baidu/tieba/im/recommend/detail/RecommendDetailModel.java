@@ -20,11 +20,11 @@ import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes3.dex */
 public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     private TbPageContext<RecommendDetailActivity> adf;
-    private boolean dWL;
-    private a egN;
-    private boolean egO;
-    private com.baidu.adp.framework.listener.a egP;
-    private CustomMessageListener egQ;
+    private boolean dWI;
+    private a egK;
+    private boolean egL;
+    private com.baidu.adp.framework.listener.a egM;
+    private CustomMessageListener egN;
     private long mUserId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,41 +41,41 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
 
     public RecommendDetailModel(TbPageContext<RecommendDetailActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.dWL = false;
-        this.egO = false;
-        this.egP = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.1
+        this.dWI = false;
+        this.egL = false;
+        this.egM = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                RecommendDetailModel.this.egO = true;
-                if (RecommendDetailModel.this.adf != null && RecommendDetailModel.this.egN != null) {
+                RecommendDetailModel.this.egL = true;
+                if (RecommendDetailModel.this.adf != null && RecommendDetailModel.this.egK != null) {
                     if (responsedMessage == null) {
-                        RecommendDetailModel.this.egN.lx(RecommendDetailModel.this.adf.getString(d.k.neterror));
+                        RecommendDetailModel.this.egK.lx(RecommendDetailModel.this.adf.getString(d.k.neterror));
                     } else if (responsedMessage.getError() != 0) {
                         if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            RecommendDetailModel.this.egN.lx(RecommendDetailModel.this.adf.getString(d.k.neterror));
+                            RecommendDetailModel.this.egK.lx(RecommendDetailModel.this.adf.getString(d.k.neterror));
                         } else {
-                            RecommendDetailModel.this.egN.lx(responsedMessage.getErrorString());
+                            RecommendDetailModel.this.egK.lx(responsedMessage.getErrorString());
                         }
                     } else {
                         if (responsedMessage instanceof RecommendDetailHttpResponseMessage) {
                             RecommendDetailHttpResponseMessage recommendDetailHttpResponseMessage = (RecommendDetailHttpResponseMessage) responsedMessage;
                             if (recommendDetailHttpResponseMessage.getDetailInfo() != null) {
-                                RecommendDetailModel.this.dWL = true;
-                                RecommendDetailModel.this.egN.a(recommendDetailHttpResponseMessage.getDetailInfo(), true);
+                                RecommendDetailModel.this.dWI = true;
+                                RecommendDetailModel.this.egK.a(recommendDetailHttpResponseMessage.getDetailInfo(), true);
                             }
                         }
                         if (responsedMessage instanceof RecommendDetailSocketResponseMessage) {
                             RecommendDetailSocketResponseMessage recommendDetailSocketResponseMessage = (RecommendDetailSocketResponseMessage) responsedMessage;
                             if (recommendDetailSocketResponseMessage.getDetailInfo() != null) {
-                                RecommendDetailModel.this.dWL = true;
-                                RecommendDetailModel.this.egN.a(recommendDetailSocketResponseMessage.getDetailInfo(), true);
+                                RecommendDetailModel.this.dWI = true;
+                                RecommendDetailModel.this.egK.a(recommendDetailSocketResponseMessage.getDetailInfo(), true);
                             }
                         }
                     }
                 }
             }
         };
-        this.egQ = new CustomMessageListener(2001306) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.3
+        this.egN = new CustomMessageListener(2001306) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -84,17 +84,17 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     return;
                 }
                 UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
-                if (RecommendDetailModel.this.egN != null && userInfoBigVip != null) {
-                    RecommendDetailModel.this.dWL = true;
-                    RecommendDetailModel.this.egN.a(userInfoBigVip, false);
+                if (RecommendDetailModel.this.egK != null && userInfoBigVip != null) {
+                    RecommendDetailModel.this.dWI = true;
+                    RecommendDetailModel.this.egK.a(userInfoBigVip, false);
                 }
                 RecommendDetailModel.this.aGH();
             }
         };
         this.adf = tbPageContext;
-        this.egN = aVar;
-        MessageManager.getInstance().registerListener(this.egP);
-        MessageManager.getInstance().registerListener(this.egQ);
+        this.egK = aVar;
+        MessageManager.getInstance().registerListener(this.egM);
+        MessageManager.getInstance().registerListener(this.egN);
         aDB();
     }
 
@@ -113,7 +113,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     Message<?> orginalMessage = responseUpdateMaskInfoMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestUpdateMaskInfoMessage) {
                         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
-                        if (requestUpdateMaskInfoMessage.getMaskType() == 6 && RecommendDetailModel.this.adf != null && RecommendDetailModel.this.egN != null) {
+                        if (requestUpdateMaskInfoMessage.getMaskType() == 6 && RecommendDetailModel.this.adf != null && RecommendDetailModel.this.egK != null) {
                             if (responseUpdateMaskInfoMessage.getError() != 0) {
                                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
                                     RecommendDetailModel.this.adf.showToast(d.k.neterror);
@@ -121,14 +121,14 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                                     RecommendDetailModel.this.adf.showToast(responseUpdateMaskInfoMessage.getErrorString());
                                 }
                                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                    RecommendDetailModel.this.egN.hw(false);
+                                    RecommendDetailModel.this.egK.hw(false);
                                 } else {
-                                    RecommendDetailModel.this.egN.hx(false);
+                                    RecommendDetailModel.this.egK.hx(false);
                                 }
                             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                RecommendDetailModel.this.egN.hw(true);
+                                RecommendDetailModel.this.egK.hw(true);
                             } else {
-                                RecommendDetailModel.this.egN.hx(true);
+                                RecommendDetailModel.this.egK.hx(true);
                             }
                         }
                     }
@@ -157,11 +157,11 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     public boolean aGI() {
-        return this.dWL;
+        return this.dWI;
     }
 
     public boolean aGJ() {
-        return this.egO;
+        return this.egL;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -175,7 +175,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.egQ);
-        MessageManager.getInstance().unRegisterListener(this.egP);
+        MessageManager.getInstance().unRegisterListener(this.egN);
+        MessageManager.getInstance().unRegisterListener(this.egM);
     }
 }

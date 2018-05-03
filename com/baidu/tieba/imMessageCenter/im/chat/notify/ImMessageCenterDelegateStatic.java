@@ -17,8 +17,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 /* loaded from: classes2.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView ekk;
-    private CustomMessageListener ekl;
+    private MessageRedDotView ekh;
+    private CustomMessageListener eki;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -40,13 +40,13 @@ public class ImMessageCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator aT(Context context) {
         this.aId = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.i.maintab_bottom_indicator, (ViewGroup) null);
-        this.ekk = new MessageRedDotView(context);
+        this.ekh = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
         aVar.aIH = this.aId;
-        aVar.f7view = this.ekk;
+        aVar.f7view = this.ekh;
         aVar.aIE = true;
         this.aId.b("msg", aVar);
-        this.ekk.setVisibility(4);
+        this.ekh.setVisibility(4);
         return this.aId;
     }
 
@@ -66,7 +66,7 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void Fw() {
-        this.ekl = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.eki = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -91,24 +91,24 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.ekl);
+        MessageManager.getInstance().registerListener(this.eki);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(boolean z, int i) {
-        if (this.ekk != null) {
+        if (this.ekh != null) {
             if (z) {
-                this.ekk.refresh(i);
-                this.ekk.setVisibility(0);
+                this.ekh.refresh(i);
+                this.ekh.setVisibility(0);
                 return;
             }
-            this.ekk.setVisibility(8);
+            this.ekh.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void ck() {
         super.ck();
-        MessageManager.getInstance().unRegisterListener(this.ekl);
+        MessageManager.getInstance().unRegisterListener(this.eki);
     }
 }

@@ -22,7 +22,7 @@ public class b {
     private TbPageContext<?> adf;
     private f bha;
     private PbListView blb;
-    private g dZQ;
+    private g dZN;
     private View mHeaderView;
     private BdTypeListView mListView;
     private com.baidu.tbadk.core.view.f mPullView;
@@ -99,8 +99,8 @@ public class b {
             this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
             this.blb.dv(i);
         }
-        if (this.dZQ != null) {
-            this.dZQ.onChangeSkinType();
+        if (this.dZN != null) {
+            this.dZN.onChangeSkinType();
         }
         if (this.bha != null) {
             this.bha.onChangeSkinType();
@@ -141,26 +141,26 @@ public class b {
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        if (this.dZQ == null) {
-            this.dZQ = new g(this.adf.getPageActivity(), onClickListener);
-            this.dZQ.fa(BdListViewHelper.aNm);
-            this.dZQ.onChangeSkinType();
+        if (this.dZN == null) {
+            this.dZN = new g(this.adf.getPageActivity(), onClickListener);
+            this.dZN.fa(BdListViewHelper.aNm);
+            this.dZN.onChangeSkinType();
         }
-        if (!this.dZQ.Fm()) {
+        if (!this.dZN.Fm()) {
             this.mListView.setVisibility(8);
             if (StringUtils.isNull(str)) {
                 str = this.adf.getString(d.k.invite_friend_no_data_now);
             }
-            this.dZQ.setTitle(str);
-            this.dZQ.d(this.mRootView, true);
-            this.dZQ.Fu();
+            this.dZN.setTitle(str);
+            this.dZN.d(this.mRootView, true);
+            this.dZN.Fu();
         }
     }
 
     public void Qn() {
-        if (this.dZQ != null && this.dZQ.Fm()) {
+        if (this.dZN != null && this.dZN.Fm()) {
             this.mListView.setVisibility(0);
-            this.dZQ.P(this.mRootView);
+            this.dZN.P(this.mRootView);
         }
     }
 }

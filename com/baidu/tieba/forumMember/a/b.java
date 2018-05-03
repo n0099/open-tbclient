@@ -5,20 +5,20 @@ import com.baidu.adp.widget.ListView.h;
 import tbclient.GetMemberInfo.MemberGodInfo;
 /* loaded from: classes3.dex */
 public class b implements h {
-    public static final BdUniqueId cTL = BdUniqueId.gen();
-    private int cTM;
+    public static final BdUniqueId cTI = BdUniqueId.gen();
+    private int cTJ;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return cTL;
+        return cTI;
     }
 
     public int aof() {
-        return this.cTM;
+        return this.cTJ;
     }
 
     public void jQ(int i) {
-        this.cTM = i;
+        this.cTJ = i;
     }
 
     public void a(MemberGodInfo memberGodInfo) {

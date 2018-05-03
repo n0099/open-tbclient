@@ -13,53 +13,53 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class g implements o {
     private int FN;
-    EditText dUC;
-    private ImageButton dUD;
-    private int dUE;
-    CreateGroupStepActivity dUf;
-    TbImageView dUg;
+    private ImageButton dUA;
+    private int dUB;
+    CreateGroupStepActivity dUc;
+    TbImageView dUd;
+    EditText dUz;
     private int mIndex;
     View mView;
 
     public EditText aBQ() {
-        return this.dUC;
+        return this.dUz;
     }
 
     public View aBR() {
-        return this.dUD;
+        return this.dUA;
     }
 
     public void aBS() {
-        this.dUC.setText("");
+        this.dUz.setText("");
     }
 
     public int getLength() {
-        return com.baidu.tieba.im.util.f.e(this.dUC);
+        return com.baidu.tieba.im.util.f.e(this.dUz);
     }
 
     public void gR(boolean z) {
         if (z) {
-            this.dUD.setVisibility(0);
+            this.dUA.setVisibility(0);
         } else {
-            this.dUD.setVisibility(8);
+            this.dUA.setVisibility(8);
         }
     }
 
     public g(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.dUf = null;
+        this.dUc = null;
         this.mView = null;
-        this.dUg = null;
-        this.dUC = null;
-        this.dUD = null;
-        this.dUf = createGroupStepActivity;
+        this.dUd = null;
+        this.dUz = null;
+        this.dUA = null;
+        this.dUc = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(d.i.create_group_step1_view, (ViewGroup) null);
-        this.dUC = (EditText) this.mView.findViewById(d.g.step1_group_name);
-        this.dUg = (TbImageView) this.mView.findViewById(d.g.step1_img_bg);
-        this.dUD = (ImageButton) this.mView.findViewById(d.g.button_del);
-        this.dUD.setOnClickListener(createGroupStepActivity);
+        this.dUz = (EditText) this.mView.findViewById(d.g.step1_group_name);
+        this.dUd = (TbImageView) this.mView.findViewById(d.g.step1_img_bg);
+        this.dUA = (ImageButton) this.mView.findViewById(d.g.button_del);
+        this.dUA.setOnClickListener(createGroupStepActivity);
         this.mIndex = i;
         this.FN = i2;
-        this.dUE = i3;
+        this.dUB = i3;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -69,35 +69,35 @@ public class g implements o {
 
     @Override // com.baidu.tieba.im.creategroup.o
     public View getView() {
-        TiebaStatic.eventStat(this.dUf.getPageContext().getPageActivity(), "create_g_name", "pv", 1, new Object[0]);
+        TiebaStatic.eventStat(this.dUc.getPageContext().getPageActivity(), "create_g_name", "pv", 1, new Object[0]);
         return this.mView;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public void aBE() {
-        this.dUg.setBackgroundDrawable(null);
+        this.dUd.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public void aBF() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.dUf.getLayoutMode().setNightMode(z);
-        this.dUf.getLayoutMode().u(this.mView);
-        this.dUg.startLoad(c.a(this.dUf.getPageContext().getPageActivity(), c.dUn, z), 29, false);
-        this.dUC.setHintTextColor(ak.getColor(d.C0126d.common_color_10005));
+        this.dUc.getLayoutMode().setNightMode(z);
+        this.dUc.getLayoutMode().u(this.mView);
+        this.dUd.startLoad(c.a(this.dUc.getPageContext().getPageActivity(), c.dUk, z), 29, false);
+        this.dUz.setHintTextColor(ak.getColor(d.C0126d.common_color_10005));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.dUf.getPageContext().getString(d.k.group_create_step_name), Integer.valueOf(this.FN));
+        return String.format(this.dUc.getPageContext().getString(d.k.group_create_step_name), Integer.valueOf(this.FN));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String aBH() {
-        if (this.mIndex != this.dUE) {
-            return this.dUf.getPageContext().getString(d.k.next_step);
+        if (this.mIndex != this.dUB) {
+            return this.dUc.getPageContext().getString(d.k.next_step);
         }
-        return this.dUf.getPageContext().getString(d.k.group_create_step_done_tip);
+        return this.dUc.getPageContext().getString(d.k.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -107,7 +107,7 @@ public class g implements o {
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getErrMsg() {
-        return this.dUf.getPageContext().getString(d.k.group_step_name_error);
+        return this.dUc.getPageContext().getString(d.k.group_step_name_error);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o

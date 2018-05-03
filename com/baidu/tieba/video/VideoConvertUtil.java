@@ -15,51 +15,51 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes.dex */
 public class VideoConvertUtil {
-    private IVideoConvertService gKb;
-    private String gKc;
-    private String gKd;
-    private File gKe;
-    private File gKf;
-    private c gKg;
+    private IVideoConvertService gJY;
+    private String gJZ;
+    private String gKa;
+    private File gKb;
+    private File gKc;
+    private c gKd;
     private Context mContext;
-    public static final String gJO = b.gJJ;
+    public static final String gJL = b.gJG;
     private static final String TAG = VideoConvertUtil.class.getSimpleName();
-    private int gKi = -3;
-    private boolean gKj = false;
-    private boolean gKk = false;
-    private int gKl = 1;
-    private ServiceConnection gKm = new ServiceConnection() { // from class: com.baidu.tieba.video.VideoConvertUtil.1
+    private int gKf = -3;
+    private boolean gKg = false;
+    private boolean gKh = false;
+    private int gKi = 1;
+    private ServiceConnection gKj = new ServiceConnection() { // from class: com.baidu.tieba.video.VideoConvertUtil.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            VideoConvertUtil.this.gKb = IVideoConvertService.Stub.asInterface(iBinder);
-            if (VideoConvertUtil.this.gKk) {
+            VideoConvertUtil.this.gJY = IVideoConvertService.Stub.asInterface(iBinder);
+            if (VideoConvertUtil.this.gKh) {
                 VideoConvertUtil.this.bvU();
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            if (VideoConvertUtil.this.gKk) {
-                if (!VideoConvertUtil.this.gKj && VideoConvertUtil.this.gKi == -3 && VideoConvertUtil.this.gKg != null) {
-                    VideoConvertUtil.this.gKg.onConvertFailed();
+            if (VideoConvertUtil.this.gKh) {
+                if (!VideoConvertUtil.this.gKg && VideoConvertUtil.this.gKf == -3 && VideoConvertUtil.this.gKd != null) {
+                    VideoConvertUtil.this.gKd.onConvertFailed();
                 }
-                VideoConvertUtil.this.gKk = false;
+                VideoConvertUtil.this.gKh = false;
             }
-            VideoConvertUtil.this.gKb = null;
+            VideoConvertUtil.this.gJY = null;
         }
     };
-    private IntenalConvertListener gKh = new IntenalConvertListener();
+    private IntenalConvertListener gKe = new IntenalConvertListener();
 
     public VideoConvertUtil(Context context) {
         this.mContext = context;
     }
 
     public void setConvertType(int i) {
-        this.gKl = i;
+        this.gKi = i;
     }
 
     public void destroy() {
-        this.gKj = true;
+        this.gKg = true;
         abortConvert();
         bvT();
     }
@@ -76,13 +76,13 @@ public class VideoConvertUtil {
         if (this.mContext != null) {
             Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
             intent.setPackage("com.baidu.tieba");
-            this.mContext.bindService(intent, this.gKm, 1);
+            this.mContext.bindService(intent, this.gKj, 1);
         }
     }
 
     private void bvT() {
-        if (this.gKb != null && this.mContext != null) {
-            this.mContext.unbindService(this.gKm);
+        if (this.gJY != null && this.mContext != null) {
+            this.mContext.unbindService(this.gKj);
         }
     }
 
@@ -90,30 +90,30 @@ public class VideoConvertUtil {
     public void bvU() {
         int i = -1;
         try {
-            this.gKb.setIVideoConvertListener(this.gKh);
-            this.gKb.setConvertType(this.gKl);
-            i = this.gKb.doConvert(this.gKc, this.gKd);
+            this.gJY.setIVideoConvertListener(this.gKe);
+            this.gJY.setConvertType(this.gKi);
+            i = this.gJY.doConvert(this.gJZ, this.gKa);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        if (this.gKg != null) {
+        if (this.gKd != null) {
             if (i == 0) {
-                this.gKg.bvR();
+                this.gKd.bvR();
             } else {
-                this.gKg.uf(i);
+                this.gKd.uf(i);
             }
         }
     }
 
     public void ch(String str, String str2) {
-        this.gKk = true;
-        this.gKj = false;
-        this.gKi = -3;
-        this.gKc = str;
-        this.gKd = str2;
-        this.gKe = new File(this.gKc);
-        this.gKf = new File(this.gKd);
-        if (this.gKb == null) {
+        this.gKh = true;
+        this.gKg = false;
+        this.gKf = -3;
+        this.gJZ = str;
+        this.gKa = str2;
+        this.gKb = new File(this.gJZ);
+        this.gKc = new File(this.gKa);
+        if (this.gJY == null) {
             startService();
             LC();
             return;
@@ -123,8 +123,8 @@ public class VideoConvertUtil {
 
     public boolean isConvertRunning() {
         try {
-            if (this.gKb != null) {
-                if (this.gKb.isConvertRunning()) {
+            if (this.gJY != null) {
+                if (this.gJY.isConvertRunning()) {
                     return true;
                 }
             }
@@ -135,9 +135,9 @@ public class VideoConvertUtil {
     }
 
     public void abortConvert() {
-        if (this.gKb != null) {
+        if (this.gJY != null) {
             try {
-                this.gKb.abortConvert();
+                this.gJY.abortConvert();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -152,39 +152,39 @@ public class VideoConvertUtil {
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertSuccess() throws RemoteException {
-            VideoConvertUtil.this.gKi = 1;
-            if (VideoConvertUtil.this.gKg != null) {
-                VideoConvertUtil.this.gKg.onConvertSuccess();
+            VideoConvertUtil.this.gKf = 1;
+            if (VideoConvertUtil.this.gKd != null) {
+                VideoConvertUtil.this.gKd.onConvertSuccess();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertFailed() throws RemoteException {
-            if (VideoConvertUtil.this.gKg != null) {
-                VideoConvertUtil.this.gKg.onConvertFailed();
+            if (VideoConvertUtil.this.gKd != null) {
+                VideoConvertUtil.this.gKd.onConvertFailed();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertProgress(int i) throws RemoteException {
-            if (VideoConvertUtil.this.gKg != null) {
-                VideoConvertUtil.this.gKg.onConvertProgress(i);
+            if (VideoConvertUtil.this.gKd != null) {
+                VideoConvertUtil.this.gKd.onConvertProgress(i);
             }
-            if ((VideoConvertUtil.this.gKe != null && !VideoConvertUtil.this.gKe.exists()) || (VideoConvertUtil.this.gKf != null && !VideoConvertUtil.this.gKf.exists())) {
+            if ((VideoConvertUtil.this.gKb != null && !VideoConvertUtil.this.gKb.exists()) || (VideoConvertUtil.this.gKc != null && !VideoConvertUtil.this.gKc.exists())) {
                 VideoConvertUtil.this.abortConvert();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertAborted() throws RemoteException {
-            if (VideoConvertUtil.this.gKg != null) {
-                VideoConvertUtil.this.gKg.onConvertAborted();
+            if (VideoConvertUtil.this.gKd != null) {
+                VideoConvertUtil.this.gKd.onConvertAborted();
             }
         }
     }
 
     public void a(c cVar) {
-        this.gKg = cVar;
+        this.gKd = cVar;
     }
 
     public static String tJ(String str) {
@@ -237,7 +237,7 @@ public class VideoConvertUtil {
     }
 
     public static boolean bvV() {
-        File file = new File(gJO);
+        File file = new File(gJL);
         if (file != null) {
             if (file.exists() && !file.isDirectory()) {
                 file.delete();

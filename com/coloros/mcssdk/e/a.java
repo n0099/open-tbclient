@@ -5,21 +5,21 @@ import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long hmf;
-    long hmg;
-    int hmh;
-    String hmj;
+    long hmc;
+    long hmd;
+    int hme;
+    String hmg;
     String title;
-    String hmi = "08:00-22:00";
-    int hmk = 0;
-    int hml = 0;
+    String hmf = "08:00-22:00";
+    int hmh = 0;
+    int hmi = 0;
 
     public void dc(long j) {
-        this.hmf = j;
+        this.hmc = j;
     }
 
     public void dd(long j) {
-        this.hmg = j;
+        this.hmd = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -37,42 +37,42 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.hmr);
-        sb.append(",taskID:" + this.hms);
+        sb.append("messageID:" + this.hmo);
+        sb.append(",taskID:" + this.hmp);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.hmj);
+        sb.append(",rule:" + this.hmg);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.hmh);
-        sb.append(",startTime:" + this.hmf);
-        sb.append(",endTime:" + this.hmg);
-        sb.append(",balanceTime:" + this.hmh);
-        sb.append(",timeRanges:" + this.hmi);
-        sb.append(",forcedDelivery:" + this.hmk);
-        sb.append(",distinctBycontent:" + this.hml);
+        sb.append(",balanceTime:" + this.hme);
+        sb.append(",startTime:" + this.hmc);
+        sb.append(",endTime:" + this.hmd);
+        sb.append(",balanceTime:" + this.hme);
+        sb.append(",timeRanges:" + this.hmf);
+        sb.append(",forcedDelivery:" + this.hmh);
+        sb.append(",distinctBycontent:" + this.hmi);
         return sb.toString();
     }
 
     public void vs(int i) {
-        this.hmh = i;
+        this.hme = i;
     }
 
     public void vt(int i) {
-        this.hmk = i;
+        this.hmh = i;
     }
 
     public void vu(int i) {
-        this.hml = i;
+        this.hmi = i;
     }
 
     public void vx(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.hmi = str;
+        this.hmf = str;
     }
 
     public void vy(String str) {
-        this.hmj = str;
+        this.hmg = str;
     }
 }

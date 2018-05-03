@@ -58,11 +58,11 @@ public class ShareStatic {
                             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                             while (it.hasNext()) {
                                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                                TextView bE = aVar.bE(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
+                                TextView bD = aVar.bD(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                                 if (data.isInsertBack) {
-                                    aVar.a(bE, aVar.bnA(), (View.OnClickListener) ((Pair) next.second).second);
+                                    aVar.a(bD, aVar.bnA(), (View.OnClickListener) ((Pair) next.second).second);
                                 } else {
-                                    aVar.b(bE, (View.OnClickListener) ((Pair) next.second).second);
+                                    aVar.b(bD, (View.OnClickListener) ((Pair) next.second).second);
                                 }
                             }
                         }

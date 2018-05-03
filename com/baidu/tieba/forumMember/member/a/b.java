@@ -16,9 +16,9 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     private BaseActivity bcJ;
-    private NoNetworkView cHB;
-    private View cVa;
-    private a cVb;
+    private NoNetworkView cHy;
+    private View cUX;
+    private a cUY;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     private f mPullView;
@@ -38,7 +38,7 @@ public class b {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
         this.bcJ.setNetRefreshViewTopMargin(BdListViewHelper.aNm);
-        this.cHB = (NoNetworkView) this.bcJ.findViewById(d.g.view_no_network);
+        this.cHy = (NoNetworkView) this.bcJ.findViewById(d.g.view_no_network);
         this.mListView = (BdTypeListView) this.bcJ.findViewById(d.g.forum_member_listview);
         this.mPullView = new f(this.bcJ.getPageContext());
         this.mPullView.setTag(this.bcJ.getUniqueId());
@@ -49,9 +49,9 @@ public class b {
             this.mListView.setOnSrollToBottomListener((BdListView.e) this.bcJ);
         }
         this.mListView.setPullRefresh(this.mPullView);
-        this.cVa = BdListViewHelper.a(this.bcJ.getPageContext().getPageActivity(), this.mListView, BdListViewHelper.HeadType.DEFAULT);
-        this.cVb = new a(this.bcJ, this.mListView);
-        this.mListView.addAdapters(this.cVb.aoq());
+        this.cUX = BdListViewHelper.a(this.bcJ.getPageContext().getPageActivity(), this.mListView, BdListViewHelper.HeadType.DEFAULT);
+        this.cUY = new a(this.bcJ, this.mListView);
+        this.mListView.addAdapters(this.cUY.aoq());
     }
 
     public void showLoadingView() {
@@ -81,7 +81,7 @@ public class b {
     }
 
     public void notifyDataSetChanged() {
-        this.cVb.notifyDataSetChanged();
+        this.cUY.notifyDataSetChanged();
     }
 
     public void completePullRefresh() {
@@ -94,18 +94,18 @@ public class b {
 
     public void g(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.cHB.a(aVar);
+            this.cHy.a(aVar);
         }
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.bcJ.getPageContext(), i);
-        this.cHB.onChangeSkinType(this.bcJ.getPageContext(), i);
+        this.cHy.onChangeSkinType(this.bcJ.getPageContext(), i);
         notifyDataSetChanged();
         ak.j(this.mRootView, d.C0126d.cp_bg_line_c);
     }
 
     public void fl(boolean z) {
-        BdListViewHelper.a(this.cVa, BdListViewHelper.HeadType.DEFAULT, z);
+        BdListViewHelper.a(this.cUX, BdListViewHelper.HeadType.DEFAULT, z);
     }
 }

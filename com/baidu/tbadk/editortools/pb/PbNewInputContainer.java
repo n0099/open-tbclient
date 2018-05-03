@@ -322,7 +322,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                 case 3:
                     if (this.aEN.getSelectionStart() > 0) {
                         String substring = this.aEN.getText().toString().substring(0, this.aEN.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.cKi.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.cKf.matcher(substring);
                         if (matcher.find()) {
                             this.aEN.getText().delete(this.aEN.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.aEN.getSelectionStart());
                             break;

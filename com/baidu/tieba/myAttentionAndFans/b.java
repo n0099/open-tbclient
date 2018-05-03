@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public abstract class b extends BaseAdapter {
     protected ArrayList<UserData> adv = null;
-    boolean eSc = false;
+    boolean eRZ = false;
     private boolean mHasMore = false;
 
     public abstract void a(ar arVar);
@@ -19,9 +19,9 @@ public abstract class b extends BaseAdapter {
     }
 
     public void aSq() {
-        this.eSc = false;
+        this.eRZ = false;
         if (this.adv != null && this.adv.size() == 0) {
-            this.eSc = true;
+            this.eRZ = true;
         }
     }
 

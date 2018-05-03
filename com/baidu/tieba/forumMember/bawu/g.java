@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class g {
     private BdListView FL;
     private View Tl;
-    private NoNetworkView cTA;
-    private boolean cTB = false;
-    private BawuTeamInfoActivity cTy;
-    private h cTz;
+    private BawuTeamInfoActivity cTv;
+    private h cTw;
+    private NoNetworkView cTx;
+    private boolean cTy = false;
     private NavigationBar mNavigationBar;
     private View mParent;
 
@@ -26,59 +26,59 @@ public class g {
     }
 
     public g(BawuTeamInfoActivity bawuTeamInfoActivity) {
-        this.cTy = bawuTeamInfoActivity;
-        this.Tl = LayoutInflater.from(this.cTy.getPageContext().getPageActivity()).inflate(d.i.bawu_team_info_activity_layout, (ViewGroup) null);
-        this.cTy.setContentView(this.Tl);
+        this.cTv = bawuTeamInfoActivity;
+        this.Tl = LayoutInflater.from(this.cTv.getPageContext().getPageActivity()).inflate(d.i.bawu_team_info_activity_layout, (ViewGroup) null);
+        this.cTv.setContentView(this.Tl);
         this.mParent = this.Tl.findViewById(d.g.root_bawu_team_info);
         this.mNavigationBar = (NavigationBar) this.Tl.findViewById(d.g.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.cTy.getString(d.k.bawu_manager_team));
+        this.mNavigationBar.setCenterTextTitle(this.cTv.getString(d.k.bawu_manager_team));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.cTA = (NoNetworkView) this.Tl.findViewById(d.g.view_no_network);
+        this.cTx = (NoNetworkView) this.Tl.findViewById(d.g.view_no_network);
         this.FL = (BdListView) this.Tl.findViewById(d.g.listview_bawu_team_info);
-        this.cTz = new h(this.cTy.getPageContext());
-        this.FL.setAdapter((ListAdapter) this.cTz);
+        this.cTw = new h(this.cTv.getPageContext());
+        this.FL.setAdapter((ListAdapter) this.cTw);
     }
 
     public void a(ArrayList<i> arrayList, p pVar, boolean z) {
         if (arrayList == null || arrayList.size() <= 0) {
-            this.cTB = true;
+            this.cTy = true;
         } else {
-            this.cTB = false;
+            this.cTy = false;
         }
-        if (z && this.cTB) {
+        if (z && this.cTy) {
             aod();
             return;
         }
         aoe();
-        this.cTz.I(arrayList);
-        this.cTz.a(pVar);
-        this.cTz.notifyDataSetChanged();
+        this.cTw.I(arrayList);
+        this.cTw.a(pVar);
+        this.cTw.notifyDataSetChanged();
     }
 
     public boolean aoc() {
-        return this.cTB;
+        return this.cTy;
     }
 
     public void onChangeSkinType(int i) {
-        this.cTy.getLayoutMode().setNightMode(i == 1);
-        this.cTy.getLayoutMode().u(this.Tl);
-        this.mNavigationBar.onChangeSkinType(this.cTy.getPageContext(), i);
-        this.cTA.onChangeSkinType(this.cTy.getPageContext(), i);
-        this.cTz.notifyDataSetChanged();
+        this.cTv.getLayoutMode().setNightMode(i == 1);
+        this.cTv.getLayoutMode().u(this.Tl);
+        this.mNavigationBar.onChangeSkinType(this.cTv.getPageContext(), i);
+        this.cTx.onChangeSkinType(this.cTv.getPageContext(), i);
+        this.cTw.notifyDataSetChanged();
     }
 
     public void aod() {
         this.FL.setVisibility(8);
-        this.cTy.showNetRefreshView(this.Tl, this.cTy.getPageContext().getResources().getString(d.k.no_data_text), true);
+        this.cTv.showNetRefreshView(this.Tl, this.cTv.getPageContext().getResources().getString(d.k.no_data_text), true);
     }
 
     public void aoe() {
-        this.cTy.hideNetRefreshView(this.Tl);
+        this.cTv.hideNetRefreshView(this.Tl);
         this.FL.setVisibility(0);
     }
 
     public void f(NoNetworkView.a aVar) {
-        this.cTA.a(aVar);
+        this.cTx.a(aVar);
     }
 }

@@ -67,15 +67,15 @@ public class e extends com.baidu.tieba.frs.f<GroupInfoData, f> {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
             ak.i(fVar.rootView, d.f.frs_group_item_bg);
-            ak.c(fVar.dYg, d.C0126d.cp_cont_b, 1);
-            ak.c(fVar.dYh, d.C0126d.cp_cont_b, 1);
-            ak.i(fVar.dYh, d.f.bg_jinqun_meizi);
-            fVar.dYh.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
-            ak.c(fVar.dYi, d.C0126d.cp_cont_b, 1);
-            ak.i(fVar.dYk, d.f.icon_grade_small_star);
-            ak.i(fVar.dYl, d.f.icon_grade_small_star);
-            ak.i(fVar.dYm, d.f.icon_grade_small_star);
-            ak.c(fVar.dYj, d.C0126d.cp_cont_c, 1);
+            ak.c(fVar.dYd, d.C0126d.cp_cont_b, 1);
+            ak.c(fVar.dYe, d.C0126d.cp_cont_b, 1);
+            ak.i(fVar.dYe, d.f.bg_jinqun_meizi);
+            fVar.dYe.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            ak.c(fVar.dYf, d.C0126d.cp_cont_b, 1);
+            ak.i(fVar.dYh, d.f.icon_grade_small_star);
+            ak.i(fVar.dYi, d.f.icon_grade_small_star);
+            ak.i(fVar.dYj, d.f.icon_grade_small_star);
+            ak.c(fVar.dYg, d.C0126d.cp_cont_c, 1);
             ak.j(fVar.bae, d.C0126d.cp_bg_line_b);
         }
         return view2;

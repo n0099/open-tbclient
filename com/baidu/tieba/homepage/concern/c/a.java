@@ -14,7 +14,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes2.dex */
 public class a {
-    private final c dBz = new c();
+    private final c dBw = new c();
     private final int bmy = b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -69,8 +69,8 @@ public class a {
                 }
             }
         }
-        this.dBz.aXE = linkedList;
-        return this.dBz;
+        this.dBw.aXE = linkedList;
+        return this.dBw;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -97,7 +97,7 @@ public class a {
                     }
                 }
             }
-            this.dBz.dFs = v.v(list) - v;
+            this.dBw.dFp = v.v(list) - v;
         }
     }
 

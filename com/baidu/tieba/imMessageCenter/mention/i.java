@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes2.dex */
 public class i {
-    private static i enw = null;
-    private final HttpMessageListener bZv = new HttpMessageListener(CmdConfigHttp.MSG_REMINDER_CMD) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
+    private static i ent = null;
+    private final HttpMessageListener bZs = new HttpMessageListener(CmdConfigHttp.MSG_REMINDER_CMD) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -38,13 +38,13 @@ public class i {
             }
         }
     };
-    private long enx = 0;
+    private long enu = 0;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.imMessageCenter.mention.i.2
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
                 int i = message.arg1;
-                i.this.enx = System.currentTimeMillis();
+                i.this.enu = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().isValid();
                 if (i == 2 || (z && com.baidu.adp.lib.util.j.gP())) {
                     i.this.aIG();
@@ -64,16 +64,16 @@ public class i {
     public static synchronized i aIF() {
         i iVar;
         synchronized (i.class) {
-            if (enw == null) {
-                enw = new i();
+            if (ent == null) {
+                ent = new i();
             }
-            iVar = enw;
+            iVar = ent;
         }
         return iVar;
     }
 
     public i() {
-        MessageManager.getInstance().registerListener(this.bZv);
+        MessageManager.getInstance().registerListener(this.bZs);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -82,7 +82,7 @@ public class i {
     }
 
     public void restart() {
-        this.enx = 0L;
+        this.enu = 0L;
         destroy();
         start();
     }
@@ -90,7 +90,7 @@ public class i {
     public void start() {
         int i;
         long j;
-        long currentTimeMillis = System.currentTimeMillis() - this.enx;
+        long currentTimeMillis = System.currentTimeMillis() - this.enu;
         long j2 = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j2 >= 600000) {
             i = 2;
@@ -100,7 +100,7 @@ public class i {
             j = 600000 - j2;
         }
         l(i, j);
-        this.enx = System.currentTimeMillis();
+        this.enu = System.currentTimeMillis();
     }
 
     public void destroy() {

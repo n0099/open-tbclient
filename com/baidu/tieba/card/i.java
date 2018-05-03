@@ -12,19 +12,19 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class i extends a<com.baidu.tieba.e.g> {
     private View bae;
-    private TextView cnA;
-    private com.baidu.tieba.e.g cnB;
-    private TbImageView cno;
-    private LinearLayout cnp;
-    private TextView cnq;
-    private TextView cnr;
-    private TextView cns;
-    private LinearLayout cnu;
+    private TbImageView cnl;
+    private LinearLayout cnm;
+    private TextView cnn;
+    private TextView cno;
+    private TextView cnp;
+    private LinearLayout cnq;
+    private ImageView cnr;
+    private ImageView cns;
+    private ImageView cnu;
     private ImageView cnv;
     private ImageView cnw;
-    private ImageView cnx;
-    private ImageView cny;
-    private ImageView cnz;
+    private TextView cnx;
+    private com.baidu.tieba.e.g cny;
 
     public i(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -32,25 +32,25 @@ public class i extends a<com.baidu.tieba.e.g> {
     }
 
     private void init(View view2) {
-        this.cno = (TbImageView) view2.findViewById(d.g.card_frs_game_score_img);
-        this.cnp = (LinearLayout) view2.findViewById(d.g.card_frs_game_score_info);
-        this.cnq = (TextView) view2.findViewById(d.g.card_frs_game_score_title);
-        this.cnr = (TextView) view2.findViewById(d.g.card_frs_game_score_info_dsc);
-        this.cns = (TextView) view2.findViewById(d.g.card_frs_game_score_num);
-        this.cnu = (LinearLayout) view2.findViewById(d.g.card_frs_game_score_star_container);
-        this.cnv = (ImageView) view2.findViewById(d.g.card_frs_game_score_star1);
-        this.cnw = (ImageView) view2.findViewById(d.g.card_frs_game_score_star2);
-        this.cnx = (ImageView) view2.findViewById(d.g.card_frs_game_score_star3);
-        this.cny = (ImageView) view2.findViewById(d.g.card_frs_game_score_star4);
-        this.cnz = (ImageView) view2.findViewById(d.g.card_frs_game_score_star5);
-        this.cnA = (TextView) view2.findViewById(d.g.card_frs_game_score_audience_num);
-        this.cno.setDefaultResource(17170445);
-        this.cno.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.cno.setDefaultBgResource(d.C0126d.cp_bg_line_e);
-        this.cno.setDrawBorder(true);
-        this.cno.setBorderColor(ak.getColor(d.C0126d.common_color_10043));
-        this.cno.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(d.e.tbds1));
-        this.cno.setRadius(getContext().getResources().getDimensionPixelSize(d.e.tbds26));
+        this.cnl = (TbImageView) view2.findViewById(d.g.card_frs_game_score_img);
+        this.cnm = (LinearLayout) view2.findViewById(d.g.card_frs_game_score_info);
+        this.cnn = (TextView) view2.findViewById(d.g.card_frs_game_score_title);
+        this.cno = (TextView) view2.findViewById(d.g.card_frs_game_score_info_dsc);
+        this.cnp = (TextView) view2.findViewById(d.g.card_frs_game_score_num);
+        this.cnq = (LinearLayout) view2.findViewById(d.g.card_frs_game_score_star_container);
+        this.cnr = (ImageView) view2.findViewById(d.g.card_frs_game_score_star1);
+        this.cns = (ImageView) view2.findViewById(d.g.card_frs_game_score_star2);
+        this.cnu = (ImageView) view2.findViewById(d.g.card_frs_game_score_star3);
+        this.cnv = (ImageView) view2.findViewById(d.g.card_frs_game_score_star4);
+        this.cnw = (ImageView) view2.findViewById(d.g.card_frs_game_score_star5);
+        this.cnx = (TextView) view2.findViewById(d.g.card_frs_game_score_audience_num);
+        this.cnl.setDefaultResource(17170445);
+        this.cnl.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.cnl.setDefaultBgResource(d.C0126d.cp_bg_line_e);
+        this.cnl.setDrawBorder(true);
+        this.cnl.setBorderColor(ak.getColor(d.C0126d.common_color_10043));
+        this.cnl.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(d.e.tbds1));
+        this.cnl.setRadius(getContext().getResources().getDimensionPixelSize(d.e.tbds26));
         getView().setOnClickListener(this);
         this.bae = view2.findViewById(d.g.divider_line);
     }
@@ -60,11 +60,11 @@ public class i extends a<com.baidu.tieba.e.g> {
         if (this.mSkinType != i) {
             ak.i(getView(), d.C0126d.cp_bg_line_d);
             ak.i(this.bae, d.C0126d.cp_bg_line_e);
-            ak.c(this.cnq, d.C0126d.cp_cont_b, 1);
-            ak.c(this.cnr, d.C0126d.cp_cont_j, 1);
-            ak.c(this.cns, d.C0126d.cp_cont_f, 1);
-            ak.c(this.cnA, d.C0126d.cp_cont_j, 1);
-            b(this.cnB);
+            ak.c(this.cnn, d.C0126d.cp_cont_b, 1);
+            ak.c(this.cno, d.C0126d.cp_cont_j, 1);
+            ak.c(this.cnp, d.C0126d.cp_cont_f, 1);
+            ak.c(this.cnx, d.C0126d.cp_cont_j, 1);
+            b(this.cny);
         }
         this.mSkinType = i;
     }
@@ -78,64 +78,64 @@ public class i extends a<com.baidu.tieba.e.g> {
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.g gVar) {
         if (gVar != null && gVar.ajz() != null) {
-            this.cnB = gVar;
-            this.cno.startLoad(gVar.ajz().avatar, 10, false);
-            this.cnq.setText(gVar.ajz().game_name);
-            this.cnr.setText(gVar.ajz().title_small);
-            this.cns.setText(String.valueOf(gVar.ajz().game_score));
+            this.cny = gVar;
+            this.cnl.startLoad(gVar.ajz().avatar, 10, false);
+            this.cnn.setText(gVar.ajz().game_name);
+            this.cno.setText(gVar.ajz().title_small);
+            this.cnp.setText(String.valueOf(gVar.ajz().game_score));
             b(gVar);
-            this.cnA.setText(this.mContext.getResources().getString(d.k.frs_game_score_user_score_num, an.x(gVar.ajz().game_score_num)));
+            this.cnx.setText(this.mContext.getResources().getString(d.k.frs_game_score_user_score_num, an.x(gVar.ajz().game_score_num)));
         }
     }
 
     private void b(com.baidu.tieba.e.g gVar) {
         if (gVar != null) {
+            ak.c(this.cnr, d.f.game_comment_score_btn_small_empty_bg);
+            ak.c(this.cns, d.f.game_comment_score_btn_small_empty_bg);
+            ak.c(this.cnu, d.f.game_comment_score_btn_small_empty_bg);
             ak.c(this.cnv, d.f.game_comment_score_btn_small_empty_bg);
             ak.c(this.cnw, d.f.game_comment_score_btn_small_empty_bg);
-            ak.c(this.cnx, d.f.game_comment_score_btn_small_empty_bg);
-            ak.c(this.cny, d.f.game_comment_score_btn_small_empty_bg);
-            ak.c(this.cnz, d.f.game_comment_score_btn_small_empty_bg);
             if (gVar.ajz().game_score > 0.0d) {
                 if (gVar.ajz().game_score < 2.0d) {
-                    ak.c(this.cnv, d.f.game_comment_score_btn_small_half_bg);
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_half_bg);
                 } else if (gVar.ajz().game_score == 2.0d) {
-                    ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_full_bg);
                 } else if (gVar.ajz().game_score < 4.0d) {
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cns, d.f.game_comment_score_btn_small_half_bg);
+                } else if (gVar.ajz().game_score == 4.0d) {
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cns, d.f.game_comment_score_btn_small_full_bg);
+                } else if (gVar.ajz().game_score < 6.0d) {
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cns, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cnu, d.f.game_comment_score_btn_small_half_bg);
+                } else if (gVar.ajz().game_score == 6.0d) {
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cns, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cnu, d.f.game_comment_score_btn_small_full_bg);
+                } else if (gVar.ajz().game_score < 8.0d) {
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cns, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cnu, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cnv, d.f.game_comment_score_btn_small_half_bg);
+                } else if (gVar.ajz().game_score == 8.0d) {
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cns, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cnu, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
+                } else if (gVar.ajz().game_score < 10.0d) {
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cns, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cnu, d.f.game_comment_score_btn_small_full_bg);
                     ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
                     ak.c(this.cnw, d.f.game_comment_score_btn_small_half_bg);
-                } else if (gVar.ajz().game_score == 4.0d) {
-                    ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnw, d.f.game_comment_score_btn_small_full_bg);
-                } else if (gVar.ajz().game_score < 6.0d) {
-                    ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnw, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnx, d.f.game_comment_score_btn_small_half_bg);
-                } else if (gVar.ajz().game_score == 6.0d) {
-                    ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnw, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnx, d.f.game_comment_score_btn_small_full_bg);
-                } else if (gVar.ajz().game_score < 8.0d) {
-                    ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnw, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnx, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cny, d.f.game_comment_score_btn_small_half_bg);
-                } else if (gVar.ajz().game_score == 8.0d) {
-                    ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnw, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnx, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cny, d.f.game_comment_score_btn_small_full_bg);
-                } else if (gVar.ajz().game_score < 10.0d) {
-                    ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnw, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnx, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cny, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnz, d.f.game_comment_score_btn_small_half_bg);
                 } else if (gVar.ajz().game_score == 10.0d) {
+                    ak.c(this.cnr, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cns, d.f.game_comment_score_btn_small_full_bg);
+                    ak.c(this.cnu, d.f.game_comment_score_btn_small_full_bg);
                     ak.c(this.cnv, d.f.game_comment_score_btn_small_full_bg);
                     ak.c(this.cnw, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnx, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cny, d.f.game_comment_score_btn_small_full_bg);
-                    ak.c(this.cnz, d.f.game_comment_score_btn_small_full_bg);
                 }
             }
         }
@@ -144,7 +144,7 @@ public class i extends a<com.baidu.tieba.e.g> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (aeZ() != null) {
-            aeZ().a(getView(), this.cnB);
+            aeZ().a(getView(), this.cny);
         }
     }
 }

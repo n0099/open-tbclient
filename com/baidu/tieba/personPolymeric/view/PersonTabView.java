@@ -12,14 +12,14 @@ import com.baidu.tieba.d;
 public class PersonTabView extends LinearLayout {
     private int alu;
     private int alv;
-    private int dlZ;
+    private int dlW;
     private View fNA;
-    private View fNB;
-    private View fNC;
-    private View fND;
-    private a fNE;
-    private TextView fNy;
-    private TextView fNz;
+    private a fNB;
+    private TextView fNv;
+    private TextView fNw;
+    private View fNx;
+    private View fNy;
+    private View fNz;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -30,7 +30,7 @@ public class PersonTabView extends LinearLayout {
 
     public PersonTabView(Context context) {
         super(context);
-        this.dlZ = 0;
+        this.dlW = 0;
         this.alu = ak.getColor(d.C0126d.cp_cont_b);
         this.alv = ak.getColor(d.C0126d.cp_cont_f);
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonTabView.1
@@ -41,8 +41,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view2.getId() == d.g.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.fNE != null) {
-                    PersonTabView.this.fNE.rl(PersonTabView.this.dlZ);
+                if (PersonTabView.this.fNB != null) {
+                    PersonTabView.this.fNB.rl(PersonTabView.this.dlW);
                 }
             }
         };
@@ -51,7 +51,7 @@ public class PersonTabView extends LinearLayout {
 
     public PersonTabView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dlZ = 0;
+        this.dlW = 0;
         this.alu = ak.getColor(d.C0126d.cp_cont_b);
         this.alv = ak.getColor(d.C0126d.cp_cont_f);
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonTabView.1
@@ -62,8 +62,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view2.getId() == d.g.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.fNE != null) {
-                    PersonTabView.this.fNE.rl(PersonTabView.this.dlZ);
+                if (PersonTabView.this.fNB != null) {
+                    PersonTabView.this.fNB.rl(PersonTabView.this.dlW);
                 }
             }
         };
@@ -72,7 +72,7 @@ public class PersonTabView extends LinearLayout {
 
     public PersonTabView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dlZ = 0;
+        this.dlW = 0;
         this.alu = ak.getColor(d.C0126d.cp_cont_b);
         this.alv = ak.getColor(d.C0126d.cp_cont_f);
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonTabView.1
@@ -83,8 +83,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view2.getId() == d.g.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.fNE != null) {
-                    PersonTabView.this.fNE.rl(PersonTabView.this.dlZ);
+                if (PersonTabView.this.fNB != null) {
+                    PersonTabView.this.fNB.rl(PersonTabView.this.dlW);
                 }
             }
         };
@@ -94,35 +94,35 @@ public class PersonTabView extends LinearLayout {
     private void init(Context context) {
         this.mContext = context;
         LayoutInflater.from(this.mContext).inflate(d.i.person_button_header_view, this);
-        this.fNy = (TextView) findViewById(d.g.main_thread_btn);
-        this.fNy.setOnClickListener(this.mOnClickListener);
-        this.fNz = (TextView) findViewById(d.g.reply_btn);
-        this.fNz.setOnClickListener(this.mOnClickListener);
-        this.fNA = findViewById(d.g.main_thread_divider);
-        this.fNB = findViewById(d.g.reply_btn_divider);
-        this.fNC = findViewById(d.g.main_thread_bottom_divider);
-        this.fND = findViewById(d.g.reply_btn_bottom_divider);
+        this.fNv = (TextView) findViewById(d.g.main_thread_btn);
+        this.fNv.setOnClickListener(this.mOnClickListener);
+        this.fNw = (TextView) findViewById(d.g.reply_btn);
+        this.fNw.setOnClickListener(this.mOnClickListener);
+        this.fNx = findViewById(d.g.main_thread_divider);
+        this.fNy = findViewById(d.g.reply_btn_divider);
+        this.fNz = findViewById(d.g.main_thread_bottom_divider);
+        this.fNA = findViewById(d.g.reply_btn_bottom_divider);
         setCurrentTab(0);
     }
 
     public void setCurrentTab(int i) {
-        if (i != this.dlZ) {
-            this.dlZ = i;
+        if (i != this.dlW) {
+            this.dlW = i;
             if (i == 0) {
-                this.fNA.setVisibility(0);
-                this.fNB.setVisibility(4);
-                this.fNy.setTextColor(this.alu);
-                this.fNz.setTextColor(this.alv);
+                this.fNx.setVisibility(0);
+                this.fNy.setVisibility(4);
+                this.fNv.setTextColor(this.alu);
+                this.fNw.setTextColor(this.alv);
             } else if (i == 1) {
-                this.fNA.setVisibility(4);
-                this.fNB.setVisibility(0);
-                this.fNy.setTextColor(this.alv);
-                this.fNz.setTextColor(this.alu);
+                this.fNx.setVisibility(4);
+                this.fNy.setVisibility(0);
+                this.fNv.setTextColor(this.alv);
+                this.fNw.setTextColor(this.alu);
             }
         }
     }
 
     public void setOnTabSelectListener(a aVar) {
-        this.fNE = aVar;
+        this.fNB = aVar;
     }
 }

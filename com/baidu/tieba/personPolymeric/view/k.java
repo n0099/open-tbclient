@@ -30,18 +30,18 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class k implements View.OnClickListener {
-    private View cJP;
-    private FrameLayout fLM;
-    private TbImageView fLN;
-    private TbImageView fLO;
+    private View cJM;
+    private FrameLayout fLJ;
+    private TbImageView fLK;
+    private TbImageView fLL;
+    private TextView fLM;
+    private LinearLayout fLN;
+    private TextView fLO;
     private TextView fLP;
     private LinearLayout fLQ;
-    private TextView fLR;
-    private TextView fLS;
-    private LinearLayout fLT;
-    private LinearLayout fLU;
-    private LinearLayout fLV;
-    private ImageView fLW;
+    private LinearLayout fLR;
+    private LinearLayout fLS;
+    private ImageView fLT;
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -53,43 +53,43 @@ public class k implements View.OnClickListener {
     }
 
     private void Y(View view2) {
-        this.fLM = (FrameLayout) view2.findViewById(d.g.ala_entrance_root);
-        this.fLN = (TbImageView) view2.findViewById(d.g.entrance_background);
-        this.fLN.setAutoChangeStyle(false);
-        this.fLN.setDrawerType(1);
-        this.fLN.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds10));
-        this.fLO = (TbImageView) view2.findViewById(d.g.live_level_img);
-        this.fLO.setAutoChangeStyle(false);
-        this.fLO.setDrawerType(1);
-        this.fLO.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds10));
-        this.fLP = (TextView) view2.findViewById(d.g.live_level_text);
-        this.fLQ = (LinearLayout) view2.findViewById(d.g.replay_root);
-        this.fLS = (TextView) this.fLQ.findViewById(d.g.tv_replay_more);
-        this.fLW = (ImageView) this.fLQ.findViewById(d.g.replay_more_arrow);
-        this.fLR = (TextView) this.fLQ.findViewById(d.g.tv_replay_tile);
-        this.fLT = (LinearLayout) this.fLQ.findViewById(d.g.replay_item_one);
-        this.fLU = (LinearLayout) this.fLQ.findViewById(d.g.replay_item_two);
-        this.fLV = (LinearLayout) this.fLQ.findViewById(d.g.replay_item_three);
-        e(this.fLT);
-        e(this.fLU);
-        e(this.fLV);
-        this.fLM.setOnClickListener(this);
-        this.fLT.setOnClickListener(this);
-        this.fLU.setOnClickListener(this);
-        this.fLV.setOnClickListener(this);
+        this.fLJ = (FrameLayout) view2.findViewById(d.g.ala_entrance_root);
+        this.fLK = (TbImageView) view2.findViewById(d.g.entrance_background);
+        this.fLK.setAutoChangeStyle(false);
+        this.fLK.setDrawerType(1);
+        this.fLK.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds10));
+        this.fLL = (TbImageView) view2.findViewById(d.g.live_level_img);
+        this.fLL.setAutoChangeStyle(false);
+        this.fLL.setDrawerType(1);
+        this.fLL.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds10));
+        this.fLM = (TextView) view2.findViewById(d.g.live_level_text);
+        this.fLN = (LinearLayout) view2.findViewById(d.g.replay_root);
+        this.fLP = (TextView) this.fLN.findViewById(d.g.tv_replay_more);
+        this.fLT = (ImageView) this.fLN.findViewById(d.g.replay_more_arrow);
+        this.fLO = (TextView) this.fLN.findViewById(d.g.tv_replay_tile);
+        this.fLQ = (LinearLayout) this.fLN.findViewById(d.g.replay_item_one);
+        this.fLR = (LinearLayout) this.fLN.findViewById(d.g.replay_item_two);
+        this.fLS = (LinearLayout) this.fLN.findViewById(d.g.replay_item_three);
+        e(this.fLQ);
+        e(this.fLR);
+        e(this.fLS);
+        this.fLJ.setOnClickListener(this);
+        this.fLQ.setOnClickListener(this);
+        this.fLR.setOnClickListener(this);
         this.fLS.setOnClickListener(this);
-        this.cJP = view2.findViewById(d.g.divider_view);
+        this.fLP.setOnClickListener(this);
+        this.cJM = view2.findViewById(d.g.divider_view);
     }
 
     public void onChangeSkinType(int i) {
         ak.j(this.mRootView, d.C0126d.cp_bg_line_d);
-        ak.h(this.fLR, d.C0126d.cp_cont_b);
-        ak.h(this.fLS, d.C0126d.cp_cont_d);
-        ak.j(this.cJP, d.C0126d.cp_bg_line_e);
-        ak.c(this.fLW, d.f.icon_mine_list_arrow);
-        f(this.fLT);
-        f(this.fLU);
-        f(this.fLV);
+        ak.h(this.fLO, d.C0126d.cp_cont_b);
+        ak.h(this.fLP, d.C0126d.cp_cont_d);
+        ak.j(this.cJM, d.C0126d.cp_bg_line_e);
+        ak.c(this.fLT, d.f.icon_mine_list_arrow);
+        f(this.fLQ);
+        f(this.fLR);
+        f(this.fLS);
     }
 
     public View acD() {
@@ -109,56 +109,56 @@ public class k implements View.OnClickListener {
 
     private void a(AlaLiveInfoCoreData alaLiveInfoCoreData, boolean z, UserData userData) {
         if (z || alaLiveInfoCoreData == null || alaLiveInfoCoreData.liveStatus != 1 || userData == null || userData.alaUserData == null || StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.fLM.setVisibility(8);
+            this.fLJ.setVisibility(8);
             return;
         }
-        this.fLM.setVisibility(0);
-        this.fLM.setTag(alaLiveInfoCoreData);
+        this.fLJ.setVisibility(0);
+        this.fLJ.setTag(alaLiveInfoCoreData);
         if (!StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.fLN.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
+            this.fLK.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
         }
         int i = userData.alaUserData.level_id;
         if (i <= 10) {
-            this.fLO.setBackgroundResource(d.f.shape_ala_grade_1_green);
+            this.fLL.setBackgroundResource(d.f.shape_ala_grade_1_green);
         } else if (i <= 20) {
-            this.fLO.setBackgroundResource(d.f.shape_ala_grade_2_blue);
+            this.fLL.setBackgroundResource(d.f.shape_ala_grade_2_blue);
         } else if (i <= 30) {
-            this.fLO.setBackgroundResource(d.f.shape_ala_grade_3_yellow);
+            this.fLL.setBackgroundResource(d.f.shape_ala_grade_3_yellow);
         } else if (i <= 40) {
-            this.fLO.setBackgroundResource(d.f.shape_ala_grade_4_orange);
+            this.fLL.setBackgroundResource(d.f.shape_ala_grade_4_orange);
         } else {
-            this.fLO.setBackgroundResource(d.f.shape_ala_grade_5_purple);
+            this.fLL.setBackgroundResource(d.f.shape_ala_grade_5_purple);
         }
-        this.fLP.setText(rl(String.valueOf(i)));
+        this.fLM.setText(rl(String.valueOf(i)));
     }
 
     private void cY(List<AlaLiveInfoCoreData> list) {
         if (v.w(list)) {
-            this.fLQ.setVisibility(8);
+            this.fLN.setVisibility(8);
             return;
         }
+        this.fLN.setVisibility(0);
+        this.fLR.setVisibility(0);
+        this.fLS.setVisibility(0);
         this.fLQ.setVisibility(0);
-        this.fLU.setVisibility(0);
-        this.fLV.setVisibility(0);
-        this.fLT.setVisibility(0);
         int size = list.size();
         if (size >= 4) {
-            this.fLS.setVisibility(0);
-            this.fLW.setVisibility(0);
+            this.fLP.setVisibility(0);
+            this.fLT.setVisibility(0);
         } else {
-            this.fLS.setVisibility(4);
-            this.fLW.setVisibility(4);
+            this.fLP.setVisibility(4);
+            this.fLT.setVisibility(4);
         }
-        a(list.get(0), this.fLT);
+        a(list.get(0), this.fLQ);
         if (size >= 3) {
-            a(list.get(1), this.fLU);
-            a(list.get(2), this.fLV);
+            a(list.get(1), this.fLR);
+            a(list.get(2), this.fLS);
         } else if (size >= 2) {
-            a(list.get(1), this.fLU);
-            this.fLV.setVisibility(4);
+            a(list.get(1), this.fLR);
+            this.fLS.setVisibility(4);
         } else {
-            this.fLU.setVisibility(4);
-            this.fLV.setVisibility(4);
+            this.fLR.setVisibility(4);
+            this.fLS.setVisibility(4);
         }
     }
 
@@ -212,22 +212,22 @@ public class k implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.fLM) {
-            if (this.fLM.getTag() != null && (this.fLM.getTag() instanceof AlaLiveInfoCoreData)) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.fLM.getTag();
+        if (view2 == this.fLJ) {
+            if (this.fLJ.getTag() != null && (this.fLJ.getTag() instanceof AlaLiveInfoCoreData)) {
+                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.fLJ.getTag();
                 if (alaLiveInfoCoreData.liveID > 0) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921315, Long.valueOf(alaLiveInfoCoreData.liveID)));
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, TbadkCoreApplication.getCurrentAccount(), this.mIsHost, "")));
                 TiebaStatic.log(new al("c12544"));
             }
-        } else if (view2 == this.fLT) {
-            bo(this.fLT);
-        } else if (view2 == this.fLU) {
-            bo(this.fLU);
-        } else if (view2 == this.fLV) {
-            bo(this.fLV);
+        } else if (view2 == this.fLQ) {
+            bo(this.fLQ);
+        } else if (view2 == this.fLR) {
+            bo(this.fLR);
         } else if (view2 == this.fLS) {
+            bo(this.fLS);
+        } else if (view2 == this.fLP) {
             bfI();
         }
     }

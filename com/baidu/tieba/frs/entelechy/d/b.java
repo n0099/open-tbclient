@@ -6,77 +6,77 @@ import com.baidu.tieba.frs.entelechy.view.g;
 import com.baidu.tieba.play.f;
 /* loaded from: classes3.dex */
 public class b extends q.a implements f {
-    private com.baidu.tieba.frs.entelechy.a.a dfD;
-    private a dfE;
-    private g dfF;
+    private com.baidu.tieba.frs.entelechy.a.a dfA;
+    private a dfB;
+    private g dfC;
 
     public b(g gVar) {
         super(gVar.ask());
-        this.dfD = new com.baidu.tieba.frs.entelechy.a.a(gVar.asm());
-        this.dfE = new a(gVar.asl());
-        this.dfF = gVar;
+        this.dfA = new com.baidu.tieba.frs.entelechy.a.a(gVar.asm());
+        this.dfB = new a(gVar.asl());
+        this.dfC = gVar;
     }
 
     public g asr() {
-        return this.dfF;
+        return this.dfC;
     }
 
     public com.baidu.tieba.frs.entelechy.a.a ass() {
-        return this.dfD;
+        return this.dfA;
     }
 
     public a ast() {
-        return this.dfE;
+        return this.dfB;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.dfD == null) {
+        if (this.dfA == null) {
             return false;
         }
-        return this.dfD.isPlayStarted();
+        return this.dfA.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.dfD == null) {
+        if (this.dfA == null) {
             return false;
         }
-        return this.dfD.isPlaying();
+        return this.dfA.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.dfD != null) {
-            this.dfD.startPlay();
+        if (this.dfA != null) {
+            this.dfA.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.dfD != null) {
-            this.dfD.stopPlay();
+        if (this.dfA != null) {
+            this.dfA.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.dfD == null) {
+        if (this.dfA == null) {
             return null;
         }
-        return this.dfD.getVideoContainer();
+        return this.dfA.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        return this.dfD == null ? "" : this.dfD.getPlayUrl();
+        return this.dfA == null ? "" : this.dfA.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.dfD == null) {
+        if (this.dfA == null) {
             return 0;
         }
-        return this.dfD.getCurrentPosition();
+        return this.dfA.getCurrentPosition();
     }
 }

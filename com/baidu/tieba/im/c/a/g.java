@@ -9,7 +9,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
-    private com.baidu.tieba.im.db.c eih;
+    private com.baidu.tieba.im.db.c eie;
     private int mCmd;
 
     public g() {
@@ -17,7 +17,7 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {
-        this.eih = cVar;
+        this.eie = cVar;
         this.mCmd = i;
     }
 
@@ -26,17 +26,17 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage)) {
             return nY(this.mCmd);
         }
-        if (this.eih == null) {
+        if (this.eie == null) {
             return nY(this.mCmd);
         }
         LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
-        LinkedList<ChatMessage> a = this.eih.a(data.id, data.eeZ, data.efa, data.limit);
+        LinkedList<ChatMessage> a = this.eie.a(data.id, data.eeW, data.eeX, data.limit);
         if (a == null) {
             return nY(this.mCmd);
         }
         LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-        if (data.eeZ == null) {
+        if (data.eeW == null) {
             aVar.isFirst = true;
         } else {
             aVar.isFirst = false;

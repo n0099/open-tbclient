@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 public class f extends j implements com.baidu.tbadk.mvc.b.l {
     public void a(j jVar) {
         aIH().addAll(jVar.aIH());
-        this.enA = jVar.enA;
-        this.enB = jVar.enB;
+        this.enx = jVar.enx;
+        this.eny = jVar.eny;
     }
 }

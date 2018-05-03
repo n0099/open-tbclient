@@ -35,10 +35,10 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public class e implements b {
     private BaseActivity bcJ;
-    private String cVN;
-    private d eDe;
-    private boolean eDp = true;
-    private c eDq;
+    private String cVK;
+    private d eDb;
+    private boolean eDm = true;
+    private c eDn;
     private HotSearchInfoData mHotSearchInfo;
     private View mRootView;
 
@@ -87,15 +87,15 @@ public class e implements b {
             this.bcJ.finish();
             return;
         }
-        this.eDe = new d(this.mRootView, this.bcJ.getPageContext().getPageActivity());
-        this.eDq = new c(this.bcJ, this, this.eDe);
+        this.eDb = new d(this.mRootView, this.bcJ.getPageContext().getPageActivity());
+        this.eDn = new c(this.bcJ, this, this.eDb);
         aNc();
         aNd();
         aNe();
         aMy();
         aNh();
-        z.a(this.eDe.aMZ(), this.bcJ.getUniqueId());
-        z.a(this.eDe.aNa(), this.bcJ.getUniqueId());
+        z.a(this.eDb.aMZ(), this.bcJ.getUniqueId());
+        z.a(this.eDb.aNa(), this.bcJ.getUniqueId());
     }
 
     public void aNc() {
@@ -113,12 +113,12 @@ public class e implements b {
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    if (StringUtils.isNull(e.this.cVN)) {
+                    if (StringUtils.isNull(e.this.cVK)) {
                         l.b(e.this.bcJ.getPageContext().getPageActivity(), textView);
                         e.this.aNf();
                     } else {
-                        e.this.H(e.this.cVN, false);
-                        TiebaStatic.log(new al("c12842").ac("obj_name", e.this.cVN).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1").ac("obj_type", "1"));
+                        e.this.H(e.this.cVK, false);
+                        TiebaStatic.log(new al("c12842").ac("obj_name", e.this.cVK).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1").ac("obj_type", "1"));
                     }
                     return true;
                 }
@@ -137,21 +137,21 @@ public class e implements b {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
-                    if (e.this.eDp) {
-                        e.this.cVN = editable.toString();
+                    if (e.this.eDm) {
+                        e.this.cVK = editable.toString();
                         e.this.aNh();
                     }
-                    e.this.eDe.gB(!StringUtils.isNull(editable.toString()));
+                    e.this.eDb.gB(!StringUtils.isNull(editable.toString()));
                 }
             }
         };
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (view2 == e.this.eDe.aMX()) {
+                if (view2 == e.this.eDb.aMX()) {
                     e.this.aNg();
-                } else if (view2 == e.this.eDe.aMY()) {
-                    l.b(e.this.bcJ.getPageContext().getPageActivity(), e.this.eDe.aMX());
+                } else if (view2 == e.this.eDb.aMY()) {
+                    l.b(e.this.bcJ.getPageContext().getPageActivity(), e.this.eDb.aMX());
                     com.baidu.adp.lib.g.e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.a.e.5.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -161,10 +161,10 @@ public class e implements b {
                 }
             }
         };
-        this.eDe.a(onFocusChangeListener);
-        this.eDe.a(onEditorActionListener);
-        this.eDe.d(textWatcher);
-        this.eDe.setOnClickListener(onClickListener);
+        this.eDb.a(onFocusChangeListener);
+        this.eDb.a(onEditorActionListener);
+        this.eDb.d(textWatcher);
+        this.eDb.setOnClickListener(onClickListener);
     }
 
     private void aNd() {
@@ -179,7 +179,7 @@ public class e implements b {
                         String str = (String) item;
                         e.this.H(str, true);
                         TiebaStatic.eventStat(e.this.bcJ.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
-                        TiebaStatic.log(new al("c12842").ac("obj_name", str).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "2").ac("obj_type", "1").r("obj_locate", i + 1).ac("obj_param1", e.this.cVN));
+                        TiebaStatic.log(new al("c12842").ac("obj_name", str).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "2").ac("obj_type", "1").r("obj_locate", i + 1).ac("obj_param1", e.this.cVK));
                     }
                 }
             }
@@ -196,12 +196,12 @@ public class e implements b {
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         };
-        this.eDe.c(onItemClickListener);
-        this.eDe.a(onScrollListener);
+        this.eDb.c(onItemClickListener);
+        this.eDb.a(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.eDe.onChangeSkinType(this.bcJ.getPageContext(), i);
+        this.eDb.onChangeSkinType(this.bcJ.getPageContext(), i);
     }
 
     private void aNe() {
@@ -228,9 +228,9 @@ public class e implements b {
                 return true;
             }
         };
-        this.eDe.a(cVar);
-        this.eDe.a(fVar);
-        this.eDe.a(bVar);
+        this.eDb.a(cVar);
+        this.eDb.a(fVar);
+        this.eDb.a(bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -253,19 +253,19 @@ public class e implements b {
             this.bcJ.showToast(d.k.neterror);
         } else if (!StringUtils.isNull(str)) {
             if (z) {
-                this.eDp = false;
-                this.eDe.oQ(str);
-                this.eDp = true;
+                this.eDm = false;
+                this.eDb.oQ(str);
+                this.eDm = true;
             }
-            l.b(this.bcJ.getPageContext().getPageActivity(), this.eDe.aMX());
-            this.eDe.aMW();
+            l.b(this.bcJ.getPageContext().getPageActivity(), this.eDb.aMX());
+            this.eDb.aMW();
             String str2 = TbConfig.SQUARE_SEARCH_PAGE + str;
             try {
                 str2 = TbConfig.SQUARE_SEARCH_PAGE + URLEncoder.encode(str, "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.eDe.aMZ().loadUrl(str2);
+            this.eDb.aMZ().loadUrl(str2);
             v.a(new u<Boolean>() { // from class: com.baidu.tieba.mainentrance.a.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
@@ -275,26 +275,26 @@ public class e implements b {
                     return true;
                 }
             }, null);
-            this.eDq.oM(str);
+            this.eDn.oM(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aNg() {
-        if (StringUtils.isNull(this.cVN)) {
+        if (StringUtils.isNull(this.cVK)) {
             aMQ();
-        } else if (!this.eDe.aNb()) {
+        } else if (!this.eDb.aNb()) {
             aMD();
         }
     }
 
     private void aMQ() {
-        this.eDq.aMQ();
+        this.eDn.aMQ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aNh() {
-        if (!StringUtils.isNull(this.cVN)) {
+        if (!StringUtils.isNull(this.cVK)) {
             aMD();
         } else {
             aMQ();
@@ -302,9 +302,9 @@ public class e implements b {
     }
 
     private void aMD() {
-        if (!StringUtils.isNull(this.cVN)) {
+        if (!StringUtils.isNull(this.cVK)) {
             SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
-            searchListNetMessage.mKey = this.cVN.trim();
+            searchListNetMessage.mKey = this.cVK.trim();
             this.bcJ.sendMessage(searchListNetMessage);
         }
     }
@@ -315,24 +315,24 @@ public class e implements b {
     }
 
     public BaseWebView aNi() {
-        return this.eDe.aMZ();
+        return this.eDb.aMZ();
     }
 
     private void aMy() {
         if (this.mHotSearchInfo == null) {
-            this.eDe.oP(this.bcJ.getResources().getString(d.k.search_bar));
+            this.eDb.oP(this.bcJ.getResources().getString(d.k.search_bar));
         } else {
-            this.eDe.oP(this.mHotSearchInfo.akw());
+            this.eDb.oP(this.mHotSearchInfo.akw());
         }
     }
 
     public void ct(List<String> list) {
-        this.eDe.j(list, this.cVN);
+        this.eDb.j(list, this.cVK);
     }
 
     public void onDestroy() {
-        if (this.eDe != null) {
-            this.eDe.onDestroy();
+        if (this.eDb != null) {
+            this.eDb.onDestroy();
         }
     }
 }

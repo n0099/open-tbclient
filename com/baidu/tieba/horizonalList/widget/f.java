@@ -7,17 +7,17 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
 public class f {
-    private static float dHF = 8.0f;
-    private static float dHG;
-    private final a dHC;
-    private final a dHD;
-    private final boolean dHE;
+    private static float dHC = 8.0f;
+    private static float dHD;
+    private final a dHA;
+    private final boolean dHB;
+    private final a dHz;
     private Interpolator mInterpolator;
     private int mMode;
 
     static {
-        dHG = 1.0f;
-        dHG = 1.0f / ab(1.0f);
+        dHD = 1.0f;
+        dHD = 1.0f / ab(1.0f);
     }
 
     public f(Context context) {
@@ -26,13 +26,13 @@ public class f {
 
     public static float ab(float f) {
         float exp;
-        float f2 = dHF * f;
+        float f2 = dHC * f;
         if (f2 < 1.0f) {
             exp = f2 - (1.0f - ((float) Math.exp(-f2)));
         } else {
             exp = ((1.0f - ((float) Math.exp(1.0f - f2))) * (1.0f - 0.36787945f)) + 0.36787945f;
         }
-        return exp * dHG;
+        return exp * dHD;
     }
 
     public f(Context context, Interpolator interpolator) {
@@ -41,9 +41,9 @@ public class f {
 
     public f(Context context, Interpolator interpolator, boolean z) {
         this.mInterpolator = interpolator;
-        this.dHE = z;
-        this.dHC = new a(context);
-        this.dHD = new a(context);
+        this.dHB = z;
+        this.dHz = new a(context);
+        this.dHA = new a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,20 +52,20 @@ public class f {
     }
 
     public final void setFriction(float f) {
-        this.dHC.setFriction(f);
-        this.dHD.setFriction(f);
+        this.dHz.setFriction(f);
+        this.dHA.setFriction(f);
     }
 
     public final boolean isFinished() {
-        return this.dHC.mFinished && this.dHD.mFinished;
+        return this.dHz.mFinished && this.dHA.mFinished;
     }
 
     public final int getCurrX() {
-        return this.dHC.mCurrentPosition;
+        return this.dHz.mCurrentPosition;
     }
 
     public float getCurrVelocity() {
-        return (float) Math.sqrt((this.dHC.dHJ * this.dHC.dHJ) + (this.dHD.dHJ * this.dHD.dHJ));
+        return (float) Math.sqrt((this.dHz.dHG * this.dHz.dHG) + (this.dHA.dHG * this.dHA.dHG));
     }
 
     public boolean computeScrollOffset() {
@@ -75,8 +75,8 @@ public class f {
         }
         switch (this.mMode) {
             case 0:
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.dHC.mStartTime;
-                int i = this.dHC.mDuration;
+                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.dHz.mStartTime;
+                int i = this.dHz.mDuration;
                 if (currentAnimationTimeMillis < i) {
                     float f = ((float) currentAnimationTimeMillis) / i;
                     if (this.mInterpolator == null) {
@@ -84,19 +84,19 @@ public class f {
                     } else {
                         interpolation = this.mInterpolator.getInterpolation(f);
                     }
-                    this.dHC.ac(interpolation);
-                    this.dHD.ac(interpolation);
+                    this.dHz.ac(interpolation);
+                    this.dHA.ac(interpolation);
                     break;
                 } else {
                     abortAnimation();
                     break;
                 }
             case 1:
-                if (!this.dHC.mFinished && !this.dHC.update() && !this.dHC.ayx()) {
-                    this.dHC.finish();
+                if (!this.dHz.mFinished && !this.dHz.update() && !this.dHz.ayx()) {
+                    this.dHz.finish();
                 }
-                if (!this.dHD.mFinished && !this.dHD.update() && !this.dHD.ayx()) {
-                    this.dHD.finish();
+                if (!this.dHA.mFinished && !this.dHA.update() && !this.dHA.ayx()) {
+                    this.dHA.finish();
                     break;
                 }
                 break;
@@ -106,13 +106,13 @@ public class f {
 
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
         this.mMode = 0;
-        this.dHC.G(i, i3, i5);
-        this.dHD.G(i2, i4, i5);
+        this.dHz.G(i, i3, i5);
+        this.dHA.G(i2, i4, i5);
     }
 
     public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         this.mMode = 1;
-        return this.dHC.H(i, i3, i4) || this.dHD.H(i2, i5, i6);
+        return this.dHz.H(i, i3, i4) || this.dHA.H(i2, i5, i6);
     }
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
@@ -121,55 +121,55 @@ public class f {
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         int i11;
-        if (this.dHE && !isFinished()) {
-            float f = this.dHC.dHJ;
-            float f2 = this.dHD.dHJ;
+        if (this.dHB && !isFinished()) {
+            float f = this.dHz.dHG;
+            float f2 = this.dHA.dHG;
             if (Math.signum(i3) == Math.signum(f) && Math.signum(i4) == Math.signum(f2)) {
                 i4 = (int) (i4 + f2);
                 i11 = (int) (f + i3);
                 this.mMode = 1;
-                this.dHC.a(i, i11, i5, i6, i9);
-                this.dHD.a(i2, i4, i7, i8, i10);
+                this.dHz.a(i, i11, i5, i6, i9);
+                this.dHA.a(i2, i4, i7, i8, i10);
             }
         }
         i11 = i3;
         this.mMode = 1;
-        this.dHC.a(i, i11, i5, i6, i9);
-        this.dHD.a(i2, i4, i7, i8, i10);
+        this.dHz.a(i, i11, i5, i6, i9);
+        this.dHA.a(i2, i4, i7, i8, i10);
     }
 
     public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
-        this.dHC.L(i, i2, i3);
+        this.dHz.L(i, i2, i3);
     }
 
     public void abortAnimation() {
-        this.dHC.finish();
-        this.dHD.finish();
+        this.dHz.finish();
+        this.dHA.finish();
     }
 
     public boolean m(float f, float f2) {
-        return !isFinished() && Math.signum(f) == Math.signum((float) (this.dHC.dHH - this.dHC.mStart)) && Math.signum(f2) == Math.signum((float) (this.dHD.dHH - this.dHD.mStart));
+        return !isFinished() && Math.signum(f) == Math.signum((float) (this.dHz.dHE - this.dHz.mStart)) && Math.signum(f2) == Math.signum((float) (this.dHA.dHE - this.dHA.mStart));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static float dHQ = (float) (Math.log(0.78d) / Math.log(0.9d));
-        private static final float[] dHR = new float[101];
-        private static final float[] dHS = new float[101];
-        private int dHH;
+        private static float dHN = (float) (Math.log(0.78d) / Math.log(0.9d));
+        private static final float[] dHO = new float[101];
+        private static final float[] dHP = new float[101];
+        private int dHE;
+        private int dHF;
+        private float dHG;
+        private float dHH;
         private int dHI;
-        private float dHJ;
-        private float dHK;
-        private int dHL;
-        private int dHM;
-        private int dHN;
-        private float dHP;
+        private int dHJ;
+        private int dHK;
+        private float dHM;
         private int mCurrentPosition;
         private int mDuration;
         private int mStart;
         private long mStartTime;
-        private float dHO = ViewConfiguration.getScrollFriction();
+        private float dHL = ViewConfiguration.getScrollFriction();
         private int mState = 0;
         private boolean mFinished = true;
 
@@ -197,7 +197,7 @@ public class f {
                         f9 = f;
                     }
                 }
-                dHR[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
+                dHO[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
                 float f11 = 1.0f;
                 while (true) {
                     f3 = ((f11 - f5) / 2.0f) + f5;
@@ -211,25 +211,25 @@ public class f {
                         f5 = f3;
                     }
                 }
-                dHS[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
+                dHP[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
                 i++;
                 f6 = f9;
             }
-            float[] fArr = dHR;
-            dHS[100] = 1.0f;
+            float[] fArr = dHO;
+            dHP[100] = 1.0f;
             fArr[100] = 1.0f;
         }
 
         void setFriction(float f) {
-            this.dHO = f;
+            this.dHL = f;
         }
 
         a(Context context) {
-            this.dHP = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
+            this.dHM = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
         }
 
         void ac(float f) {
-            this.mCurrentPosition = this.mStart + Math.round((this.dHH - this.mStart) * f);
+            this.mCurrentPosition = this.mStart + Math.round((this.dHE - this.mStart) * f);
         }
 
         private static float mD(int i) {
@@ -241,31 +241,31 @@ public class f {
             int i4 = (int) (100.0f * abs);
             if (i4 < 100) {
                 float f = i4 / 100.0f;
-                float f2 = dHS[i4];
-                this.mDuration = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (dHS[i4 + 1] - f2)) + f2) * this.mDuration);
+                float f2 = dHP[i4];
+                this.mDuration = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (dHP[i4 + 1] - f2)) + f2) * this.mDuration);
             }
         }
 
         void G(int i, int i2, int i3) {
             this.mFinished = false;
             this.mStart = i;
-            this.dHH = i + i2;
+            this.dHE = i + i2;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mDuration = i3;
-            this.dHK = 0.0f;
-            this.dHI = 0;
+            this.dHH = 0.0f;
+            this.dHF = 0;
         }
 
         void finish() {
-            this.mCurrentPosition = this.dHH;
+            this.mCurrentPosition = this.dHE;
             this.mFinished = true;
         }
 
         boolean H(int i, int i2, int i3) {
             this.mFinished = true;
-            this.dHH = i;
+            this.dHE = i;
             this.mStart = i;
-            this.dHI = 0;
+            this.dHF = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mDuration = 0;
             if (i < i2) {
@@ -280,20 +280,20 @@ public class f {
             this.mFinished = false;
             this.mState = 1;
             this.mStart = i;
-            this.dHH = i2;
+            this.dHE = i2;
             int i4 = i - i2;
-            this.dHK = mD(i4);
-            this.dHI = -i4;
-            this.dHN = Math.abs(i4);
-            this.mDuration = (int) (Math.sqrt((i4 * (-2.0d)) / this.dHK) * 1000.0d);
+            this.dHH = mD(i4);
+            this.dHF = -i4;
+            this.dHK = Math.abs(i4);
+            this.mDuration = (int) (Math.sqrt((i4 * (-2.0d)) / this.dHH) * 1000.0d);
         }
 
         void a(int i, int i2, int i3, int i4, int i5) {
-            this.dHN = i5;
+            this.dHK = i5;
             this.mFinished = false;
-            this.dHI = i2;
-            this.dHJ = i2;
-            this.dHL = 0;
+            this.dHF = i2;
+            this.dHG = i2;
+            this.dHI = 0;
             this.mDuration = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mStart = i;
@@ -306,44 +306,44 @@ public class f {
             double d = 0.0d;
             if (i2 != 0) {
                 int mG = mG(i2);
-                this.dHL = mG;
+                this.dHI = mG;
                 this.mDuration = mG;
                 d = mF(i2);
             }
-            this.dHM = (int) (d * Math.signum(i2));
-            this.dHH = this.dHM + i;
-            if (this.dHH < i3) {
-                F(this.mStart, this.dHH, i3);
-                this.dHH = i3;
+            this.dHJ = (int) (d * Math.signum(i2));
+            this.dHE = this.dHJ + i;
+            if (this.dHE < i3) {
+                F(this.mStart, this.dHE, i3);
+                this.dHE = i3;
             }
-            if (this.dHH > i4) {
-                F(this.mStart, this.dHH, i4);
-                this.dHH = i4;
+            if (this.dHE > i4) {
+                F(this.mStart, this.dHE, i4);
+                this.dHE = i4;
             }
         }
 
         private double mE(int i) {
-            return Math.log((0.35f * Math.abs(i)) / (this.dHO * this.dHP));
+            return Math.log((0.35f * Math.abs(i)) / (this.dHL * this.dHM));
         }
 
         private double mF(int i) {
-            return Math.exp(mE(i) * (dHQ / (dHQ - 1.0d))) * this.dHO * this.dHP;
+            return Math.exp(mE(i) * (dHN / (dHN - 1.0d))) * this.dHL * this.dHM;
         }
 
         private int mG(int i) {
-            return (int) (Math.exp(mE(i) / (dHQ - 1.0d)) * 1000.0d);
+            return (int) (Math.exp(mE(i) / (dHN - 1.0d)) * 1000.0d);
         }
 
         private void J(int i, int i2, int i3) {
-            float f = (-i3) / this.dHK;
-            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.dHK)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.dHK));
+            float f = (-i3) / this.dHH;
+            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.dHH)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.dHH));
             this.mStartTime -= (int) ((sqrt - f) * 1000.0f);
             this.mStart = i2;
-            this.dHI = (int) ((-this.dHK) * sqrt);
+            this.dHF = (int) ((-this.dHH) * sqrt);
         }
 
         private void K(int i, int i2, int i3) {
-            this.dHK = mD(i3 == 0 ? i - i2 : i3);
+            this.dHH = mD(i3 == 0 ? i - i2 : i3);
             J(i, i2, i3);
             ayw();
         }
@@ -360,7 +360,7 @@ public class f {
             if (i6 * i4 >= 0) {
                 K(i, i5, i4);
             } else if (mF(i4) > Math.abs(i6)) {
-                a(i, i4, z ? i2 : i, z ? i : i3, this.dHN);
+                a(i, i4, z ? i2 : i, z ? i : i3, this.dHK);
             } else {
                 I(i, i5, i4);
             }
@@ -368,36 +368,36 @@ public class f {
 
         void L(int i, int i2, int i3) {
             if (this.mState == 0) {
-                this.dHN = i3;
+                this.dHK = i3;
                 this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
-                t(i, i2, i2, (int) this.dHJ);
+                t(i, i2, i2, (int) this.dHG);
             }
         }
 
         private void ayw() {
-            float abs = (this.dHI * this.dHI) / (Math.abs(this.dHK) * 2.0f);
-            float signum = Math.signum(this.dHI);
-            if (abs > this.dHN) {
-                this.dHK = (((-signum) * this.dHI) * this.dHI) / (this.dHN * 2.0f);
-                abs = this.dHN;
+            float abs = (this.dHF * this.dHF) / (Math.abs(this.dHH) * 2.0f);
+            float signum = Math.signum(this.dHF);
+            if (abs > this.dHK) {
+                this.dHH = (((-signum) * this.dHF) * this.dHF) / (this.dHK * 2.0f);
+                abs = this.dHK;
             }
-            this.dHN = (int) abs;
+            this.dHK = (int) abs;
             this.mState = 2;
             int i = this.mStart;
-            if (this.dHI <= 0) {
+            if (this.dHF <= 0) {
                 abs = -abs;
             }
-            this.dHH = ((int) abs) + i;
-            this.mDuration = -((int) ((1000.0f * this.dHI) / this.dHK));
+            this.dHE = ((int) abs) + i;
+            this.mDuration = -((int) ((1000.0f * this.dHF) / this.dHH));
         }
 
         boolean ayx() {
             switch (this.mState) {
                 case 0:
-                    if (this.mDuration < this.dHL) {
-                        this.mStart = this.dHH;
-                        this.dHI = (int) this.dHJ;
-                        this.dHK = mD(this.dHI);
+                    if (this.mDuration < this.dHI) {
+                        this.mStart = this.dHE;
+                        this.dHF = (int) this.dHG;
+                        this.dHH = mD(this.dHF);
                         this.mStartTime += this.mDuration;
                         ayw();
                         break;
@@ -408,7 +408,7 @@ public class f {
                     return false;
                 case 2:
                     this.mStartTime += this.mDuration;
-                    I(this.dHH, this.mStart, 0);
+                    I(this.dHE, this.mStart, 0);
                     break;
             }
             update();
@@ -423,30 +423,30 @@ public class f {
             double d = 0.0d;
             switch (this.mState) {
                 case 0:
-                    float f = ((float) currentAnimationTimeMillis) / this.dHL;
+                    float f = ((float) currentAnimationTimeMillis) / this.dHI;
                     int i = (int) (100.0f * f);
                     float f2 = 1.0f;
                     float f3 = 0.0f;
                     if (i < 100) {
                         float f4 = i / 100.0f;
-                        float f5 = dHR[i];
-                        f3 = (dHR[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
+                        float f5 = dHO[i];
+                        f3 = (dHO[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
                         f2 = ((f - f4) * f3) + f5;
                     }
-                    this.dHJ = ((f3 * this.dHM) / this.dHL) * 1000.0f;
-                    d = f2 * this.dHM;
+                    this.dHG = ((f3 * this.dHJ) / this.dHI) * 1000.0f;
+                    d = f2 * this.dHJ;
                     break;
                 case 1:
                     float f6 = ((float) currentAnimationTimeMillis) / this.mDuration;
                     float f7 = f6 * f6;
-                    float signum = Math.signum(this.dHI);
-                    d = this.dHN * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
-                    this.dHJ = ((-f6) + f7) * signum * this.dHN * 6.0f;
+                    float signum = Math.signum(this.dHF);
+                    d = this.dHK * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
+                    this.dHG = ((-f6) + f7) * signum * this.dHK * 6.0f;
                     break;
                 case 2:
                     float f8 = ((float) currentAnimationTimeMillis) / 1000.0f;
-                    this.dHJ = this.dHI + (this.dHK * f8);
-                    d = ((f8 * (this.dHK * f8)) / 2.0f) + (this.dHI * f8);
+                    this.dHG = this.dHF + (this.dHH * f8);
+                    d = ((f8 * (this.dHH * f8)) / 2.0f) + (this.dHF * f8);
                     break;
             }
             this.mCurrentPosition = ((int) Math.round(d)) + this.mStart;

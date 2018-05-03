@@ -9,17 +9,17 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class h {
-    private static h dWt;
+    private static h dWq;
 
     public static h aDf() {
-        if (dWt == null) {
+        if (dWq == null) {
             synchronized (h.class) {
-                if (dWt == null) {
-                    dWt = new h();
+                if (dWq == null) {
+                    dWq = new h();
                 }
             }
         }
-        return dWt;
+        return dWq;
     }
 
     public void aDg() {

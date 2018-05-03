@@ -24,9 +24,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends BaseAdapter {
-    private static final int fTy = TbadkCoreApplication.getInst().getListItemRule().yE();
+    private static final int fTv = TbadkCoreApplication.getInst().getListItemRule().yE();
     private TbPageContext<?> adf;
-    private int bWY = -1;
+    private int bWV = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
@@ -38,11 +38,11 @@ public class e extends BaseAdapter {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= fTy) {
+        if (size <= fTv) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - fTy;
+        int i = size - fTv;
         rB(i);
         this.mData.addAll(list);
         return i;
@@ -94,11 +94,11 @@ public class e extends BaseAdapter {
         if (view2 == null) {
             view2 = LayoutInflater.from(this.adf.getPageActivity()).inflate(d.i.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.fTB = (TextView) view2.findViewById(d.g.title_text);
-            aVar.fTC = (TextView) view2.findViewById(d.g.content_text);
-            aVar.fTD = (TextView) view2.findViewById(d.g.label_text);
-            aVar.bXz = (TextView) view2.findViewById(d.g.user_name);
-            aVar.fTE = (TextView) view2.findViewById(d.g.time_text);
+            aVar.fTy = (TextView) view2.findViewById(d.g.title_text);
+            aVar.fTz = (TextView) view2.findViewById(d.g.content_text);
+            aVar.fTA = (TextView) view2.findViewById(d.g.label_text);
+            aVar.bXw = (TextView) view2.findViewById(d.g.user_name);
+            aVar.fTB = (TextView) view2.findViewById(d.g.time_text);
             view2.setTag(aVar);
         }
         a aVar2 = (a) view2.getTag();
@@ -108,17 +108,17 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.fTB.setText(Html.fromHtml(an.ad(aVar3.title, str)));
-            aVar2.fTC.setText(Html.fromHtml(an.ad(aVar3.content, str)));
-            aVar2.bXz.setText(aVar3.name_show);
-            aVar2.fTE.setText(an.s(aVar3.time));
-            aVar2.fTD.setVisibility(0);
+            aVar2.fTy.setText(Html.fromHtml(an.ad(aVar3.title, str)));
+            aVar2.fTz.setText(Html.fromHtml(an.ad(aVar3.content, str)));
+            aVar2.bXw.setText(aVar3.name_show);
+            aVar2.fTB.setText(an.s(aVar3.time));
+            aVar2.fTA.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.fTD.setText(d.k.floor_text);
-            } else if (aVar3.fSZ == 1) {
-                aVar2.fTD.setText(d.k.reply_post);
+                aVar2.fTA.setText(d.k.floor_text);
+            } else if (aVar3.fSW == 1) {
+                aVar2.fTA.setText(d.k.reply_post);
             } else {
-                aVar2.fTD.setVisibility(8);
+                aVar2.fTA.setVisibility(8);
             }
             view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
@@ -143,17 +143,17 @@ public class e extends BaseAdapter {
     }
 
     public void setTabType(int i) {
-        this.bWY = i;
+        this.bWV = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
         al ac = new al("c12405").ac(ImageViewerConfig.FORUM_NAME, aVar.fname).ac("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.bWY > 0) {
-            ac.r(MyBookrackActivityConfig.TAB_ID, this.bWY);
+        if (this.bWV > 0) {
+            ac.r(MyBookrackActivityConfig.TAB_ID, this.bWV);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.fSZ == 1) {
+            if (aVar.is_floor == 1 || aVar.fSW == 1) {
                 ac.f(Info.kBaiduPIDKey, aVar.pid);
             } else {
                 ac.f("tid", aVar.tid);
@@ -164,11 +164,11 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private static class a {
-        TextView bXz;
+        TextView bXw;
+        TextView fTA;
         TextView fTB;
-        TextView fTC;
-        TextView fTD;
-        TextView fTE;
+        TextView fTy;
+        TextView fTz;
 
         private a() {
         }

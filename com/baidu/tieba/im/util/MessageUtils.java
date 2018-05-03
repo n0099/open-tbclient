@@ -309,7 +309,7 @@ public class MessageUtils {
                                 Long aGw = com.baidu.tieba.im.push.c.aGv().aGw();
                                 if (aGw == null || msgInfo.msgId == null || aGw.longValue() < msgInfo.msgId.longValue()) {
                                     chatMessage.setIsPushForOperateAccount(true);
-                                    com.baidu.tieba.im.push.c.aGv().k(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                                    com.baidu.tieba.im.push.c.aGv().m(msgInfo.groupId.longValue(), chatMessage.getMsgId());
                                 } else {
                                     return;
                                 }

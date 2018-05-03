@@ -22,15 +22,15 @@ import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class c {
-    private static c cFb = null;
+    private static c cEY = null;
     private Wire wire = new Wire(new Class[0]);
-    private Map<String, a> cFc = null;
-    private Runnable cFd = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
+    private Map<String, a> cEZ = null;
+    private Runnable cFa = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
         @Override // java.lang.Runnable
         public void run() {
             final Map map;
             synchronized (c.class) {
-                map = c.this.cFc;
+                map = c.this.cEZ;
             }
             if (map != null) {
                 v.a(new u<Void>() { // from class: com.baidu.tieba.dnsproxy.a.c.1.1
@@ -48,7 +48,7 @@ public class c {
                         }
                         c.this.A(builder.build(true).toByteArray());
                         synchronized (c.class) {
-                            c.this.cFc = null;
+                            c.this.cEZ = null;
                         }
                         return null;
                     }
@@ -58,14 +58,14 @@ public class c {
     };
 
     public static final c ajQ() {
-        if (cFb == null) {
+        if (cEY == null) {
             synchronized (c.class) {
-                if (cFb == null) {
-                    cFb = new c();
+                if (cEY == null) {
+                    cEY = new c();
                 }
             }
         }
-        return cFb;
+        return cEY;
     }
 
     private c() {
@@ -180,16 +180,16 @@ public class c {
 
     public void ajS() {
         e.fw().removeMessages(0, this);
-        e.fw().post(this.cFd);
+        e.fw().post(this.cFa);
     }
 
     public void h(Map<String, a> map) {
         if (TbadkCoreApplication.getInst().isMainProcess(false) && map != null) {
             synchronized (c.class) {
-                this.cFc = map;
+                this.cEZ = map;
             }
             if (!e.fw().hasMessages(0, this)) {
-                Message obtain = Message.obtain(e.fw(), this.cFd);
+                Message obtain = Message.obtain(e.fw(), this.cFa);
                 obtain.what = 0;
                 obtain.obj = this;
                 e.fw().sendMessageDelayed(obtain, StatisticConfig.MIN_UPLOAD_INTERVAL);

@@ -15,8 +15,8 @@ import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class n extends BaseAdapter implements View.OnClickListener {
     private com.baidu.tbadk.img.b aDT = new com.baidu.tbadk.img.b();
-    private LinkedList<ImageFileInfo> fiu = null;
-    private a fiv;
+    private LinkedList<ImageFileInfo> fir = null;
+    private a fis;
     private Context mContext;
     private int mScreenWidth;
     private int mWidth;
@@ -37,19 +37,19 @@ public class n extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fiu == null) {
+        if (this.fir == null) {
             return 0;
         }
-        return this.fiu.size();
+        return this.fir.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.fiu == null) {
+        if (this.fir == null) {
             return null;
         }
-        if (this.fiu.size() - 1 >= i) {
-            return this.fiu.get(i);
+        if (this.fir.size() - 1 >= i) {
+            return this.fir.get(i);
         }
         return 0;
     }
@@ -60,7 +60,7 @@ public class n extends BaseAdapter implements View.OnClickListener {
     }
 
     public void u(LinkedList<ImageFileInfo> linkedList) {
-        this.fiu = linkedList;
+        this.fir = linkedList;
     }
 
     @Override // android.widget.Adapter
@@ -70,13 +70,13 @@ public class n extends BaseAdapter implements View.OnClickListener {
             bVar = new b();
             view2 = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.pb_editor_imgs_item, (ViewGroup) null);
             bVar.aru = (TbImageView) view2.findViewById(d.g.iv_photo_live);
-            bVar.fiy = (LinearLayout) view2.findViewById(d.g.layout_del);
-            bVar.fiz = (ImageView) view2.findViewById(d.g.delete_photo_live);
+            bVar.fiu = (LinearLayout) view2.findViewById(d.g.layout_del);
+            bVar.fiv = (ImageView) view2.findViewById(d.g.delete_photo_live);
             bVar.aru.setOnClickListener(this);
-            bVar.fiy.setOnClickListener(this);
+            bVar.fiu.setOnClickListener(this);
             bVar.aru.setGifIconSupport(true);
             bVar.aru.setLongIconSupport(true);
-            com.baidu.tbadk.core.util.ak.i(bVar.fiz, d.f.icon_delete_img);
+            com.baidu.tbadk.core.util.ak.i(bVar.fiv, d.f.icon_delete_img);
             bVar.aru.setTagPaddingDis(com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds16), com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds10));
             ViewGroup.LayoutParams layoutParams = bVar.aru.getLayoutParams();
             layoutParams.width = this.mWidth;
@@ -85,8 +85,8 @@ public class n extends BaseAdapter implements View.OnClickListener {
         } else {
             bVar = (b) view2.getTag();
         }
-        if (this.fiu != null && this.fiu.size() - 1 >= i) {
-            ImageFileInfo imageFileInfo = this.fiu.get(i);
+        if (this.fir != null && this.fir.size() - 1 >= i) {
+            ImageFileInfo imageFileInfo = this.fir.get(i);
             if (imageFileInfo != null) {
                 ImageOperation G = com.baidu.tbadk.img.effect.d.G(this.mWidth, this.mWidth);
                 imageFileInfo.clearPageActions();
@@ -111,7 +111,7 @@ public class n extends BaseAdapter implements View.OnClickListener {
             bVar.aru.setTag(bVar.aru.getId(), Integer.valueOf(i));
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.ds8);
             bVar.aru.setTagPaddingDis(dimensionPixelSize, dimensionPixelSize);
-            bVar.fiy.setTag(Integer.valueOf(i));
+            bVar.fiu.setTag(Integer.valueOf(i));
         }
         return view2;
     }
@@ -120,23 +120,23 @@ public class n extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view2) {
         int id = view2.getId();
         if (id == d.g.layout_del && (view2.getTag() instanceof Integer)) {
-            if (this.fiv != null) {
-                this.fiv.ql(((Integer) view2.getTag()).intValue());
+            if (this.fis != null) {
+                this.fis.ql(((Integer) view2.getTag()).intValue());
             }
-        } else if (id == d.g.iv_photo_live && (view2.getTag(view2.getId()) instanceof Integer) && this.fiv != null) {
-            this.fiv.qm(((Integer) view2.getTag(view2.getId())).intValue());
+        } else if (id == d.g.iv_photo_live && (view2.getTag(view2.getId()) instanceof Integer) && this.fis != null) {
+            this.fis.qm(((Integer) view2.getTag(view2.getId())).intValue());
         }
     }
 
     public void a(a aVar) {
-        this.fiv = aVar;
+        this.fis = aVar;
     }
 
     /* loaded from: classes2.dex */
     class b {
         public TbImageView aru;
-        public LinearLayout fiy;
-        private ImageView fiz;
+        public LinearLayout fiu;
+        private ImageView fiv;
 
         b() {
         }

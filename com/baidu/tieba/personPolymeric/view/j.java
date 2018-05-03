@@ -15,15 +15,15 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.m> {
     private HTypeListView bdJ;
-    private View.OnClickListener fLG;
-    private com.baidu.tieba.personPolymeric.a.o fLy;
+    private View.OnClickListener fLD;
+    private com.baidu.tieba.personPolymeric.a.o fLv;
     private View mRootView;
     private TextView mTitleView;
     private long uid;
 
     public j(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fLG = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
+        this.fLD = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 j.this.bfG();
@@ -33,7 +33,7 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mTitleView = (TextView) this.mRootView.findViewById(d.g.card_person_vedio_list_title);
         this.bdJ = (HTypeListView) this.mRootView.findViewById(d.g.card_person_vedio_view_pager);
-        this.fLy = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.bdJ);
+        this.fLv = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.bdJ);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -53,14 +53,14 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.m mVar) {
-        if (mVar == null || v.w(mVar.fKD)) {
+        if (mVar == null || v.w(mVar.fKA)) {
             this.mRootView.setVisibility(8);
             return;
         }
         this.uid = mVar.uid;
         this.mTitleView.setText(d.k.video_title_str);
-        this.bdJ.setData(cX(mVar.fKD));
-        this.fLy.P(this.fLG);
+        this.bdJ.setData(cX(mVar.fKA));
+        this.fLv.P(this.fLD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

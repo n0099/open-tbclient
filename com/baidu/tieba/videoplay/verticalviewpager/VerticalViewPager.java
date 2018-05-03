@@ -9,12 +9,12 @@ import android.view.ViewConfiguration;
 import com.baidu.tieba.videoplay.verticalviewpager.transforms.DefaultTransformer;
 /* loaded from: classes2.dex */
 public class VerticalViewPager extends ViewPager {
-    private float bTq;
-    private boolean gUJ;
-    private a gWh;
-    private long gWi;
-    private long gWj;
-    private boolean gWk;
+    private float bTm;
+    private boolean gUG;
+    private a gWe;
+    private long gWf;
+    private long gWg;
+    private boolean gWh;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -80,41 +80,41 @@ public class VerticalViewPager extends ViewPager {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX();
-                this.bTq = motionEvent.getY();
-                this.gWi = System.currentTimeMillis();
-                this.gWk = true;
+                this.bTm = motionEvent.getY();
+                this.gWf = System.currentTimeMillis();
+                this.gWh = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.gWi < 100 && currentTimeMillis - this.gWj < 500) {
-                    this.gUJ = true;
+                if (currentTimeMillis - this.gWf < 100 && currentTimeMillis - this.gWg < 500) {
+                    this.gUG = true;
                 } else {
-                    this.gUJ = false;
+                    this.gUG = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.bTq - motionEvent.getY()) > 50.0f) {
-                    this.gUJ = false;
-                    this.gWk = false;
+                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.bTm - motionEvent.getY()) > 50.0f) {
+                    this.gUG = false;
+                    this.gWh = false;
                 }
-                if (this.gUJ) {
-                    if (this.gWh != null) {
-                        this.gWh.n(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.gUG) {
+                    if (this.gWe != null) {
+                        this.gWe.n(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.bTq - motionEvent.getY()) && this.gWh != null) {
-                    this.gWh.bzx();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.bTm - motionEvent.getY()) && this.gWe != null) {
+                    this.gWe.bzx();
                 }
-                if (!this.gUJ && this.gWk && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.bTq - motionEvent.getY()) < 30.0f) {
+                if (!this.gUG && this.gWh && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.bTm - motionEvent.getY()) < 30.0f) {
                     postDelayed(new Runnable() { // from class: com.baidu.tieba.videoplay.verticalviewpager.VerticalViewPager.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!VerticalViewPager.this.gUJ && VerticalViewPager.this.gWk && Math.abs(VerticalViewPager.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(VerticalViewPager.this.bTq - motionEvent.getY()) < 30.0f && VerticalViewPager.this.gWh != null) {
-                                VerticalViewPager.this.gWh.bzv();
+                            if (!VerticalViewPager.this.gUG && VerticalViewPager.this.gWh && Math.abs(VerticalViewPager.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(VerticalViewPager.this.bTm - motionEvent.getY()) < 30.0f && VerticalViewPager.this.gWe != null) {
+                                VerticalViewPager.this.gWe.bzv();
                             }
                         }
                     }, 300L);
                 }
-                this.gWj = currentTimeMillis;
+                this.gWg = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -135,6 +135,6 @@ public class VerticalViewPager extends ViewPager {
     }
 
     public void setOnViewClickListener(a aVar) {
-        this.gWh = aVar;
+        this.gWe = aVar;
     }
 }

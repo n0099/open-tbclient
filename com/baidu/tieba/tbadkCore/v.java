@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.data.bf;
 import com.baidu.tbadk.core.data.bi;
 /* loaded from: classes.dex */
 public class v extends bd {
-    public static final BdUniqueId gvD = BdUniqueId.gen();
+    public static final BdUniqueId gvA = BdUniqueId.gen();
     private boolean bnv = false;
-    private bf gvE;
-    private bi gvF;
+    private bf gvB;
+    private bi gvC;
 
     @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gvD;
+        return gvA;
     }
 
     public boolean brv() {
@@ -21,10 +21,10 @@ public class v extends bd {
     }
 
     public bf brw() {
-        return this.gvE;
+        return this.gvB;
     }
 
     public bi brx() {
-        return this.gvF;
+        return this.gvC;
     }
 }

@@ -10,15 +10,15 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class f extends h implements p {
-    private CardGod dFm;
+    private CardGod dFj;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.dFm = cardGod;
-            this.mGroupTitle = this.dFm.card_title;
-            if (!v.w(this.dFm.gods)) {
+            this.dFj = cardGod;
+            this.mGroupTitle = this.dFj.card_title;
+            if (!v.w(this.dFj.gods)) {
                 int i = 0;
-                for (User user : this.dFm.gods) {
+                for (User user : this.dFj.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
@@ -42,10 +42,10 @@ public class f extends h implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.dFm == null || this.dFm.position == null) {
+        if (this.dFj == null || this.dFj.position == null) {
             return 0;
         }
-        return this.dFm.position.intValue();
+        return this.dFj.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.p

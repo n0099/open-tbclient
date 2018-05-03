@@ -24,11 +24,11 @@ import java.util.List;
 public class b {
     private boolean bkp;
     private BdTypeRecyclerView bnQ;
-    private com.baidu.tbadk.mvc.g.a cbq;
-    private boolean enT;
-    private BaseFragmentActivity epn;
-    private OfficialNotificationFragment epo;
-    private OfficialNotificationTextItemAdapter epp;
+    private com.baidu.tbadk.mvc.g.a cbn;
+    private boolean enQ;
+    private BaseFragmentActivity epk;
+    private OfficialNotificationFragment epl;
+    private OfficialNotificationTextItemAdapter epm;
     private NoDataView mNoDataView;
     private TbPageContext mPageContext;
     private ViewGroup mRootView;
@@ -38,32 +38,32 @@ public class b {
     public b(TbPageContext tbPageContext, OfficialNotificationFragment officialNotificationFragment, ViewGroup viewGroup) {
         if (tbPageContext != null) {
             this.mPageContext = tbPageContext;
-            this.epn = (BaseFragmentActivity) this.mPageContext.getPageActivity();
-            this.epo = officialNotificationFragment;
-            this.mRootView = (ViewGroup) LayoutInflater.from(this.epn).inflate(d.i.fragment_official_notification, viewGroup, false);
+            this.epk = (BaseFragmentActivity) this.mPageContext.getPageActivity();
+            this.epl = officialNotificationFragment;
+            this.mRootView = (ViewGroup) LayoutInflater.from(this.epk).inflate(d.i.fragment_official_notification, viewGroup, false);
             this.bnQ = (BdTypeRecyclerView) this.mRootView.findViewById(d.g.rv_official_notification);
-            this.bnQ.setLayoutManager(new LinearLayoutManager(this.epn));
+            this.bnQ.setLayoutManager(new LinearLayoutManager(this.epk));
             this.bnQ.setFadingEdgeLength(0);
             this.bnQ.setOverScrollMode(2);
-            this.epp = new OfficialNotificationTextItemAdapter(this.mPageContext, ChatMessage.TYPE_MSG_TEXT_OFFICAL_NOTIFICATION);
-            this.epp.setOnClickListener(officialNotificationFragment);
-            this.mAdapters.add(this.epp);
+            this.epm = new OfficialNotificationTextItemAdapter(this.mPageContext, ChatMessage.TYPE_MSG_TEXT_OFFICAL_NOTIFICATION);
+            this.epm.setOnClickListener(officialNotificationFragment);
+            this.mAdapters.add(this.epm);
             this.bnQ.addAdapters(this.mAdapters);
-            this.cbq = new com.baidu.tbadk.mvc.g.a(this.epn, this.bnQ);
-            this.cbq.setHeight(l.e(this.epn, d.e.tbds182));
-            this.cbq.kA();
-            this.bnQ.setNextPage(this.cbq);
+            this.cbn = new com.baidu.tbadk.mvc.g.a(this.epk, this.bnQ);
+            this.cbn.setHeight(l.e(this.epk, d.e.tbds182));
+            this.cbn.kA();
+            this.bnQ.setNextPage(this.cbn);
             this.bnQ.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.b.1
                 @Override // com.baidu.adp.widget.ListView.BdListView.e
                 public void onScrollToBottom() {
-                    b.this.cbq.lN();
-                    if (!b.this.epo.getHasMore() || b.this.bkp) {
-                        b.this.cbq.fd(d.k.no_more_msg);
+                    b.this.cbn.lN();
+                    if (!b.this.epl.getHasMore() || b.this.bkp) {
+                        b.this.cbn.fd(d.k.no_more_msg);
                         return;
                     }
-                    b.this.cbq.fc(d.k.loading);
-                    if (b.this.epo != null) {
-                        b.this.epo.acE();
+                    b.this.cbn.fc(d.k.loading);
+                    if (b.this.epl != null) {
+                        b.this.epl.acE();
                         b.this.bkp = true;
                     }
                 }
@@ -77,16 +77,16 @@ public class b {
     }
 
     public void onChangeSkinType() {
-        if (this.epp != null) {
-            this.epp.notifyDataSetChanged();
+        if (this.epm != null) {
+            this.epm.notifyDataSetChanged();
         }
         ak.j(this.bnQ, d.C0126d.cp_bg_line_d);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
             ak.j(this.mNoDataView, d.C0126d.cp_bg_line_d);
         }
-        if (this.cbq != null) {
-            this.cbq.b(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        if (this.cbn != null) {
+            this.cbn.b(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -190,13 +190,13 @@ public class b {
             }
             if (arrayList2.isEmpty()) {
                 if (this.mNoDataView == null) {
-                    this.mNoDataView = NoDataViewFactory.a(this.epn, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mPageContext.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.m16do(d.k.official_notification_no_data), null);
+                    this.mNoDataView = NoDataViewFactory.a(this.epk, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mPageContext.getResources().getDimension(d.e.ds80)), NoDataViewFactory.d.m16do(d.k.official_notification_no_data), null);
                     this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                     ak.j(this.mNoDataView, d.C0126d.cp_bg_line_d);
                     this.mRootView.addView(this.mNoDataView);
                 }
-                if (!this.enT) {
-                    this.enT = true;
+                if (!this.enQ) {
+                    this.enQ = true;
                     this.bnQ.setVisibility(8);
                     this.mNoDataView.setVisibility(0);
                     this.mNoDataView.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -207,7 +207,7 @@ public class b {
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(8);
             }
-            this.enT = false;
+            this.enQ = false;
             this.bnQ.setData(arrayList2);
             this.bnQ.setVisibility(0);
         }

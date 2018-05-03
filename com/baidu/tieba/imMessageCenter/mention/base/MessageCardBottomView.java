@@ -16,9 +16,9 @@ import com.baidu.tieba.d;
 public class MessageCardBottomView extends LinearLayout {
     private TextView aor;
     private String awT;
-    private ViewGroup epd;
-    private ImageView epe;
-    private TextView epf;
+    private ViewGroup epa;
+    private ImageView epb;
+    private TextView epc;
 
     public MessageCardBottomView(Context context) {
         super(context);
@@ -33,9 +33,9 @@ public class MessageCardBottomView extends LinearLayout {
     private void bo(Context context) {
         View inflate = LayoutInflater.from(context).inflate(d.i.message_card_bottom_layout, (ViewGroup) this, true);
         this.aor = (TextView) inflate.findViewById(d.g.message_bottom_bar_name);
-        this.epd = (ViewGroup) inflate.findViewById(d.g.message_bottom_reply_container);
-        this.epe = (ImageView) inflate.findViewById(d.g.message_bottom_reply_img);
-        this.epf = (TextView) inflate.findViewById(d.g.message_bottom_reply);
+        this.epa = (ViewGroup) inflate.findViewById(d.g.message_bottom_reply_container);
+        this.epb = (ImageView) inflate.findViewById(d.g.message_bottom_reply_img);
+        this.epc = (TextView) inflate.findViewById(d.g.message_bottom_reply);
     }
 
     public void setData(String str, boolean z) {
@@ -44,7 +44,7 @@ public class MessageCardBottomView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.epd.setVisibility(z ? 0 : 8);
+        this.epa.setVisibility(z ? 0 : 8);
         if (an.isEmpty(str)) {
             this.aor.setVisibility(8);
             return;
@@ -56,11 +56,11 @@ public class MessageCardBottomView extends LinearLayout {
 
     public void onChangeSkinType() {
         ak.h(this.aor, d.C0126d.cp_cont_d);
-        ak.h(this.epf, d.f.selector_comment_and_prise_item_text_color);
-        ak.c(this.epe, d.f.icon_home_card_comment);
+        ak.h(this.epc, d.f.selector_comment_and_prise_item_text_color);
+        ak.c(this.epb, d.f.icon_home_card_comment);
     }
 
     public View getReplyContainer() {
-        return this.epd;
+        return this.epa;
     }
 }

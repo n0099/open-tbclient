@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tieba.card.divider.a dyM;
-    private c dyN;
-    private b dyO;
+    private com.baidu.tieba.card.divider.a dyJ;
+    private c dyK;
+    private b dyL;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -19,12 +19,12 @@ public class a {
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
-        this.dyM = new com.baidu.tieba.card.divider.a(tbPageContext);
-        this.dyN = new c(tbPageContext);
-        this.dyO = new b(tbPageContext);
-        this.mAdapters.add(this.dyM);
-        this.mAdapters.add(this.dyN);
-        this.mAdapters.add(this.dyO);
+        this.dyJ = new com.baidu.tieba.card.divider.a(tbPageContext);
+        this.dyK = new c(tbPageContext);
+        this.dyL = new b(tbPageContext);
+        this.mAdapters.add(this.dyJ);
+        this.mAdapters.add(this.dyK);
+        this.mAdapters.add(this.dyL);
     }
 
     public void notifyDataSetChanged() {

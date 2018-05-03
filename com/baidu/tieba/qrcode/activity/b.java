@@ -11,27 +11,27 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 /* loaded from: classes3.dex */
 public class b implements QRCodeView.a {
-    private final com.baidu.tieba.qrcode.activity.a fTS;
-    private a fTT;
+    private final com.baidu.tieba.qrcode.activity.a fTP;
+    private a fTQ;
     private final TbPageContext mTbPageContext;
 
     public b(com.baidu.tieba.qrcode.activity.a aVar, TbPageContext tbPageContext) {
-        this.fTS = aVar;
+        this.fTP = aVar;
         this.mTbPageContext = tbPageContext;
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
     public void rG(String str) {
-        this.fTS.biq();
+        this.fTP.biq();
         if (StringUtils.isNull(str)) {
-            this.fTS.bio();
+            this.fTP.bio();
         } else if (SapiUtils.isQrLoginSchema(str)) {
             if (SapiUtils.QR_LOGIN_LP_PC.equals(SapiUtils.parseQrLoginSchema(str).get(SapiUtils.KEY_QR_LOGIN_LP))) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921339, str));
                 this.mTbPageContext.getPageActivity().finish();
             }
         } else {
-            this.fTS.bir();
+            this.fTP.bir();
         }
     }
 
@@ -43,18 +43,18 @@ public class b implements QRCodeView.a {
 
     public void rH(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.fTT != null) {
-                this.fTT.cancel();
+            if (this.fTQ != null) {
+                this.fTQ.cancel();
             }
-            this.fTT = new a();
-            this.fTT.execute(str);
+            this.fTQ = new a();
+            this.fTQ.execute(str);
         }
     }
 
     public void onDestroy() {
-        if (this.fTT != null) {
-            this.fTT.cancel();
-            this.fTT = null;
+        if (this.fTQ != null) {
+            this.fTQ.cancel();
+            this.fTQ = null;
         }
     }
 
@@ -67,7 +67,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.fTS.bip();
+            b.this.fTP.bip();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,7 +86,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            b.this.fTS.biq();
+            b.this.fTP.biq();
             b.this.rG(str);
         }
     }

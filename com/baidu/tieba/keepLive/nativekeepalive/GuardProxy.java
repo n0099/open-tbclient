@@ -56,7 +56,7 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class c implements IGuard {
-        private Parcel esW;
+        private Parcel esT;
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -145,20 +145,20 @@ public class GuardProxy {
         private void af(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.esW = Parcel.obtain();
-            this.esW.writeInterfaceToken("android.app.IActivityManager");
-            this.esW.writeStrongBinder(null);
-            intent.writeToParcel(this.esW, 0);
-            this.esW.writeString(null);
-            this.esW.writeInt(0);
+            this.esT = Parcel.obtain();
+            this.esT.writeInterfaceToken("android.app.IActivityManager");
+            this.esT.writeStrongBinder(null);
+            intent.writeToParcel(this.esT, 0);
+            this.esT.writeString(null);
+            this.esT.writeInt(0);
         }
 
         private boolean aKb() {
             try {
-                if (this.mRemote == null || this.esW == null) {
+                if (this.mRemote == null || this.esT == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.esW, null, 0);
+                this.mRemote.transact(34, this.esT, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -170,7 +170,7 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b implements IGuard {
-        private AlarmManager esR;
+        private AlarmManager esO;
         private PendingIntent mPendingIntent;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -227,7 +227,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.esR.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.mPendingIntent);
+                this.esO.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.mPendingIntent);
                 if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                     GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
@@ -238,8 +238,8 @@ public class GuardProxy {
         }
 
         private void ae(Context context, String str) {
-            if (this.esR == null) {
-                this.esR = (AlarmManager) context.getSystemService("alarm");
+            if (this.esO == null) {
+                this.esO = (AlarmManager) context.getSystemService("alarm");
             }
             if (this.mPendingIntent == null) {
                 Intent intent = new Intent();
@@ -247,16 +247,16 @@ public class GuardProxy {
                 intent.setFlags(16);
                 this.mPendingIntent = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.esR.cancel(this.mPendingIntent);
+            this.esO.cancel(this.mPendingIntent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements IGuard {
-        private final String esP = "bin";
-        private final String esQ = "daemon";
-        private AlarmManager esR;
+        private final String esM = "bin";
+        private final String esN = "daemon";
+        private AlarmManager esO;
         private PendingIntent mPendingIntent;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -302,14 +302,14 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.esR.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.mPendingIntent);
+                this.esO.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.mPendingIntent);
                 Process.killProcess(Process.myPid());
             }
         }
 
         private void ae(Context context, String str) {
-            if (this.esR == null) {
-                this.esR = (AlarmManager) context.getSystemService("alarm");
+            if (this.esO == null) {
+                this.esO = (AlarmManager) context.getSystemService("alarm");
             }
             if (this.mPendingIntent == null) {
                 Intent intent = new Intent();
@@ -317,7 +317,7 @@ public class GuardProxy {
                 intent.setFlags(16);
                 this.mPendingIntent = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.esR.cancel(this.mPendingIntent);
+            this.esO.cancel(this.mPendingIntent);
         }
 
         private boolean bA(Context context) {
@@ -375,9 +375,9 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class d implements IGuard {
-        private final String esP = "bin";
-        private final String esQ = "daemon";
-        private Parcel esW;
+        private final String esM = "bin";
+        private final String esN = "daemon";
+        private Parcel esT;
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -454,20 +454,20 @@ public class GuardProxy {
         private void af(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.esW = Parcel.obtain();
-            this.esW.writeInterfaceToken("android.app.IActivityManager");
-            this.esW.writeStrongBinder(null);
-            intent.writeToParcel(this.esW, 0);
-            this.esW.writeString(null);
-            this.esW.writeInt(0);
+            this.esT = Parcel.obtain();
+            this.esT.writeInterfaceToken("android.app.IActivityManager");
+            this.esT.writeStrongBinder(null);
+            intent.writeToParcel(this.esT, 0);
+            this.esT.writeString(null);
+            this.esT.writeInt(0);
         }
 
         private boolean aKb() {
             try {
-                if (this.mRemote == null || this.esW == null) {
+                if (this.mRemote == null || this.esT == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.esW, null, 0);
+                this.mRemote.transact(34, this.esT, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();

@@ -31,13 +31,13 @@ public class d extends com.baidu.tieba.frs.f<bd, a<Object>> implements com.baidu
                         TiebaStatic.log(new al("c13010").r("obj_type", 2).f(ImageViewerConfig.FORUM_ID, bdVar.getFid()).ac("tid", bdVar.getTid()));
                     }
                     if (view2.getId() == d.g.frame_video) {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 4);
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 4);
                     } else if (view2.getId() == d.g.layout_root) {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 1);
                     } else if (view2.getId() == d.g.image_user) {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 2);
                     } else if (view2.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.doy, bdVar.sn());
+                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dov, bdVar.sn());
                     }
                 }
             }
@@ -62,11 +62,11 @@ public class d extends com.baidu.tieba.frs.f<bd, a<Object>> implements com.baidu
         }
         y yVar = new y();
         yVar.mLocate = bdVar.sG() ? "3" : "2";
-        yVar.crJ = doy.doo;
+        yVar.crG = dov.dol;
         yVar.aNu = bdVar.getTid();
-        yVar.fQP = bdVar.mRecomAbTag;
+        yVar.fQM = bdVar.mRecomAbTag;
         if (bdVar.sh() != null) {
-            yVar.fQQ = bdVar.sh().video_md5;
+            yVar.fQN = bdVar.sh().video_md5;
         }
         bdVar.sK();
         return yVar;
@@ -83,11 +83,11 @@ public class d extends com.baidu.tieba.frs.f<bd, a<Object>> implements com.baidu
         if (aVar.afY() instanceof com.baidu.tieba.a.e) {
             aVar.afY().setPage(this.bvX);
         }
-        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWO);
+        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWL);
         aVar.afY().setVideoStatsData(Q(bdVar));
         aVar.afY().a(bdVar);
         aVar.afY().b(this.bvY);
-        com.baidu.tieba.frs.e.b.auH().a(doy, bdVar);
+        com.baidu.tieba.frs.e.b.auH().a(dov, bdVar);
         return aVar.getView();
     }
 

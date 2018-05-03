@@ -27,72 +27,72 @@ import java.util.ArrayList;
 public class d implements View.OnClickListener, a {
     private LinearLayout aMU;
     private AlertDialog acB;
-    private View gIY;
-    private View gIZ;
-    private FlexibleHorizontalScrollView gJa;
-    private FlexibleHorizontalScrollView gJb;
-    private b gJc;
-    private c gJd;
-    private boolean gJe;
-    private TextView gkR;
+    private View gIV;
+    private View gIW;
+    private FlexibleHorizontalScrollView gIX;
+    private FlexibleHorizontalScrollView gIY;
+    private b gIZ;
+    private c gJa;
+    private boolean gJb;
+    private TextView gkO;
     private Context mContext;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private com.baidu.tbadk.coreExtra.c.d mShareItem;
     private TextView mTitle;
-    private static final int gJf = l.e(TbadkCoreApplication.getInst(), d.e.ds90);
-    private static final int gJg = l.e(TbadkCoreApplication.getInst(), d.e.ds96);
+    private static final int gJc = l.e(TbadkCoreApplication.getInst(), d.e.ds90);
+    private static final int gJd = l.e(TbadkCoreApplication.getInst(), d.e.ds96);
     private static final int bqz = l.e(TbadkCoreApplication.getInst(), d.e.ds32);
-    private static final int gJh = l.e(TbadkCoreApplication.getInst(), d.e.ds50);
-    private static final int gJi = l.e(TbadkCoreApplication.getInst(), d.e.fontsize24);
-    private static final int cVE = l.e(TbadkCoreApplication.getInst(), d.e.ds1);
+    private static final int gJe = l.e(TbadkCoreApplication.getInst(), d.e.ds50);
+    private static final int gJf = l.e(TbadkCoreApplication.getInst(), d.e.fontsize24);
+    private static final int cVB = l.e(TbadkCoreApplication.getInst(), d.e.ds1);
 
     public d(Context context) {
         this.mContext = context;
         this.aMU = new LinearLayout(context);
         this.aMU.setOrientation(1);
         this.mTitle = new TextView(context);
-        this.mTitle.setTextSize(0, gJi);
-        this.mTitle.setPadding(gJh, 0, gJh, 0);
+        this.mTitle.setTextSize(0, gJf);
+        this.mTitle.setPadding(gJe, 0, gJe, 0);
         this.mTitle.setGravity(17);
         this.mTitle.setText(d.k.transmit_share_add_experience);
-        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, gJf));
+        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, gJc));
         this.aMU.addView(this.mTitle);
-        this.gIY = new View(this.mContext);
-        this.gIY.setLayoutParams(new LinearLayout.LayoutParams(-1, cVE));
+        this.gIV = new View(this.mContext);
+        this.gIV.setLayoutParams(new LinearLayout.LayoutParams(-1, cVB));
+        this.aMU.addView(this.gIV);
+        this.gIX = new FlexibleHorizontalScrollView(this.mContext);
+        this.gIX.setFillViewport(true);
+        this.gIX.setHorizontalScrollBarEnabled(false);
+        this.gIX.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.gIX.setVerticalScrollBarEnabled(false);
+        this.aMU.addView(this.gIX);
+        this.gIW = new View(this.mContext);
+        this.gIW.setLayoutParams(new LinearLayout.LayoutParams(-1, cVB));
+        this.aMU.addView(this.gIW);
+        this.gIY = new FlexibleHorizontalScrollView(this.mContext);
+        this.gIY.setFillViewport(true);
+        this.gIY.setHorizontalScrollBarEnabled(false);
+        this.gIY.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.gIY.setVerticalScrollBarEnabled(false);
         this.aMU.addView(this.gIY);
-        this.gJa = new FlexibleHorizontalScrollView(this.mContext);
-        this.gJa.setFillViewport(true);
-        this.gJa.setHorizontalScrollBarEnabled(false);
-        this.gJa.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.gJa.setVerticalScrollBarEnabled(false);
-        this.aMU.addView(this.gJa);
-        this.gIZ = new View(this.mContext);
-        this.gIZ.setLayoutParams(new LinearLayout.LayoutParams(-1, cVE));
-        this.aMU.addView(this.gIZ);
-        this.gJb = new FlexibleHorizontalScrollView(this.mContext);
-        this.gJb.setFillViewport(true);
-        this.gJb.setHorizontalScrollBarEnabled(false);
-        this.gJb.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.gJb.setVerticalScrollBarEnabled(false);
-        this.aMU.addView(this.gJb);
-        this.gkR = new TextView(context);
-        this.gkR.setTextSize(0, bqz);
-        this.gkR.setGravity(17);
-        this.gkR.setText(d.k.cancel);
-        this.gkR.setLayoutParams(new LinearLayout.LayoutParams(-1, gJg));
-        this.gkR.setOnClickListener(this);
-        this.aMU.addView(this.gkR);
-        this.gJc = new b(context);
-        this.gJd = new c(context);
-        this.gJc.setShareItemClickListener(this);
-        this.gJd.setShareItemClickListener(this);
+        this.gkO = new TextView(context);
+        this.gkO.setTextSize(0, bqz);
+        this.gkO.setGravity(17);
+        this.gkO.setText(d.k.cancel);
+        this.gkO.setLayoutParams(new LinearLayout.LayoutParams(-1, gJd));
+        this.gkO.setOnClickListener(this);
+        this.aMU.addView(this.gkO);
+        this.gIZ = new b(context);
+        this.gJa = new c(context);
+        this.gIZ.setShareItemClickListener(this);
+        this.gJa.setShareItemClickListener(this);
     }
 
     public void a(ArrayList<TransmitForumData> arrayList, com.baidu.tbadk.coreExtra.c.d dVar, int i) {
         this.mShareItem = dVar;
-        this.gJc.a(dVar, arrayList, i);
+        this.gIZ.a(dVar, arrayList, i);
         if (this.mShareItem.axg) {
-            this.gJd.setShareData(dVar);
+            this.gJa.setShareData(dVar);
         }
     }
 
@@ -101,7 +101,7 @@ public class d implements View.OnClickListener, a {
     }
 
     public void mO(boolean z) {
-        this.gJe = z;
+        this.gJb = z;
     }
 
     public void show() {
@@ -116,8 +116,8 @@ public class d implements View.OnClickListener, a {
                     d.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(2001450);
-                if (d.this.gJc != null) {
-                    d.this.gJc.release();
+                if (d.this.gIZ != null) {
+                    d.this.gIZ.release();
                 }
             }
         });
@@ -133,18 +133,18 @@ public class d implements View.OnClickListener, a {
     }
 
     private void bvB() {
-        if (this.gJe) {
-            this.gJa.addView(this.gJc.getView());
-            this.gJa.setVisibility(0);
-            this.gIY.setVisibility(0);
+        if (this.gJb) {
+            this.gIX.addView(this.gIZ.getView());
+            this.gIX.setVisibility(0);
+            this.gIV.setVisibility(0);
         } else {
-            this.gJa.setVisibility(8);
-            this.gIY.setVisibility(8);
+            this.gIX.setVisibility(8);
+            this.gIV.setVisibility(8);
         }
         if (this.mShareItem.axg) {
-            this.gJb.addView(this.gJd.bvA());
+            this.gIY.addView(this.gJa.bvA());
         } else {
-            this.gJb.setVisibility(8);
+            this.gIY.setVisibility(8);
         }
     }
 
@@ -163,10 +163,10 @@ public class d implements View.OnClickListener, a {
         } else {
             this.mTitle.setText(d.k.transmit_share_not_include_outer);
         }
-        ak.j(this.gIY, d.C0126d.cp_bg_line_b);
-        ak.j(this.gIZ, d.C0126d.cp_bg_line_b);
-        ak.c(this.gkR, d.C0126d.cp_cont_b, 1);
-        ak.i(this.gkR, d.f.dialog_share_cancel_button_bg_selector);
+        ak.j(this.gIV, d.C0126d.cp_bg_line_b);
+        ak.j(this.gIW, d.C0126d.cp_bg_line_b);
+        ak.c(this.gkO, d.C0126d.cp_cont_b, 1);
+        ak.i(this.gkO, d.f.dialog_share_cancel_button_bg_selector);
     }
 
     private void Rw() {
@@ -192,7 +192,7 @@ public class d implements View.OnClickListener, a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.gkR) {
+        if (view2 == this.gkO) {
             l("share_cancel", new Object[0]);
             dismiss();
         }

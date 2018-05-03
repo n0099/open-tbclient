@@ -14,10 +14,10 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     protected NoDataView aJy;
-    private RelativeLayout bDx;
+    private RelativeLayout bDv;
     protected NavigationBar bfy;
-    protected NoNetworkView gfQ;
-    private RelativeLayout gfR;
+    protected NoNetworkView gfN;
+    private RelativeLayout gfO;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -25,7 +25,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         super.onCreate(bundle);
         super.setContentView(d.i.nevigationbar_layout);
         this.bfy = (NavigationBar) findViewById(d.g.navigation_bar);
-        this.bDx = (RelativeLayout) findViewById(d.g.navigation_bar_root);
+        this.bDv = (RelativeLayout) findViewById(d.g.navigation_bar_root);
         this.bfy.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.selectpoi.NavigationBarActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
@@ -33,7 +33,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             }
         });
         if (bkQ()) {
-            this.gfQ = (NoNetworkView) ((ViewStub) findViewById(d.g.no_network_viewstub)).inflate();
+            this.gfN = (NoNetworkView) ((ViewStub) findViewById(d.g.no_network_viewstub)).inflate();
         }
     }
 
@@ -42,9 +42,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         if (bkQ()) {
         }
-        this.gfR = new RelativeLayout(getPageContext().getContext());
-        this.gfR.addView(view2, new ViewGroup.LayoutParams(-1, -1));
-        this.bDx.addView(this.gfR, 0, layoutParams);
+        this.gfO = new RelativeLayout(getPageContext().getContext());
+        this.gfO.addView(view2, new ViewGroup.LayoutParams(-1, -1));
+        this.bDv.addView(this.gfO, 0, layoutParams);
     }
 
     protected boolean bkQ() {
@@ -59,9 +59,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         } else {
             layoutParams.addRule(3, d.g.no_network_viewstub);
         }
-        this.gfR = new RelativeLayout(getPageContext().getContext());
-        this.gfR.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
-        this.bDx.addView(this.gfR, layoutParams);
+        this.gfO = new RelativeLayout(getPageContext().getContext());
+        this.gfO.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
+        this.bDv.addView(this.gfO, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -69,13 +69,13 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.bfy.onChangeSkinType(getPageContext(), i);
-        if (this.gfQ != null) {
-            this.gfQ.onChangeSkinType(getPageContext(), i);
+        if (this.gfN != null) {
+            this.gfN.onChangeSkinType(getPageContext(), i);
         }
         if (this.aJy != null) {
             this.aJy.onChangeSkinType(getPageContext(), i);
         }
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().u(this.bDx);
+        getLayoutMode().u(this.bDv);
     }
 }

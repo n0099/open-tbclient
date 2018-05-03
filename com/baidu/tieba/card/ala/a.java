@@ -14,11 +14,11 @@ public class a implements f {
     private j bkQ;
     private n bkR;
     private AlaVideoContainer bwm;
-    private String crA;
-    private AlaInfoData crz;
+    private AlaInfoData crw;
+    private String crx;
     private String mForumName;
-    private boolean coz = false;
-    private j.a coM = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
+    private boolean cow = false;
+    private j.a coJ = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.j.a
         public void afo() {
             a.this.afi();
@@ -30,7 +30,7 @@ public class a implements f {
         if (this.bwm != null) {
             this.bkQ = new j();
             this.bkQ.setPlayer(this.bwm.getVideoView());
-            this.bkQ.a(this.coM);
+            this.bkQ.a(this.coJ);
             if (this.bwm.getVideoView() != null) {
                 this.bkR = new n(this.bwm.getVideoView().getContext());
                 this.bwm.getVideoView().setBusiness(this.bkR);
@@ -39,15 +39,15 @@ public class a implements f {
     }
 
     public void a(bd bdVar, String str, String str2, boolean z) {
-        this.crA = str2;
+        this.crx = str2;
         this.mForumName = str;
         if (bdVar != null) {
             this.bjU = bdVar;
             if (this.bwm != null && this.bjU.si() != null) {
-                this.crz = this.bjU.si();
-                this.bwm.setVideoThumbnail(this.crz.cover);
+                this.crw = this.bjU.si();
+                this.bwm.setVideoThumbnail(this.crw.cover);
                 if (this.bkR != null && this.bkR.bgF() != null) {
-                    this.bkR.bgF().b(this.crz);
+                    this.bkR.bgF().b(this.crw);
                 }
                 if (z) {
                     this.bwm.setTitle(this.bjU.getTitle());
@@ -61,7 +61,7 @@ public class a implements f {
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        return this.coz;
+        return this.cow;
     }
 
     @Override // com.baidu.tieba.play.f
@@ -82,7 +82,7 @@ public class a implements f {
                 this.bkQ.stop();
             }
         }
-        this.coz = false;
+        this.cow = false;
     }
 
     @Override // com.baidu.tieba.play.f

@@ -9,7 +9,7 @@ import com.baidu.tieba.card.ab;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a.a<c>> {
     private TbPageContext<?> adf;
-    private ab eoN;
+    private ab eoK;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getContext(), bdUniqueId);
@@ -17,7 +17,7 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     }
 
     public void d(ab abVar) {
-        this.eoN = abVar;
+        this.eoK = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,8 +26,8 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<c> onCreateViewHolder(ViewGroup viewGroup) {
         c cVar = new c(this.adf, viewGroup);
-        if (this.eoN != null) {
-            cVar.b(this.eoN);
+        if (this.eoK != null) {
+            cVar.b(this.eoK);
         }
         return new com.baidu.tieba.card.a.a<>(cVar);
     }

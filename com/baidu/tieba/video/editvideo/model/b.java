@@ -11,9 +11,9 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile b gMs;
-    private HashMap<String, String> gMn;
-    private DownloadData gMo;
+    private static volatile b gMp;
+    private HashMap<String, String> gMk;
+    private DownloadData gMl;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -28,14 +28,14 @@ public class b {
     }
 
     public static b bwQ() {
-        if (gMs == null) {
+        if (gMp == null) {
             synchronized (b.class) {
-                if (gMs == null) {
-                    gMs = new b();
+                if (gMp == null) {
+                    gMp = new b();
                 }
             }
         }
-        return gMs;
+        return gMp;
     }
 
     public String tV(String str) {
@@ -43,29 +43,29 @@ public class b {
         if (em == null) {
             return null;
         }
-        if (this.gMn == null) {
-            this.gMn = new HashMap<>();
+        if (this.gMk == null) {
+            this.gMk = new HashMap<>();
             bwR();
-            if (this.gMn.size() > 0) {
-                return this.gMn.get(em);
+            if (this.gMk.size() > 0) {
+                return this.gMk.get(em);
             }
             return null;
         }
-        return this.gMn.get(em);
+        return this.gMk.get(em);
     }
 
     public void bwR() {
-        if (this.gMn == null) {
-            this.gMn = new HashMap<>();
+        if (this.gMk == null) {
+            this.gMk = new HashMap<>();
         } else {
-            this.gMn.clear();
+            this.gMk.clear();
         }
-        File file = new File(com.baidu.tieba.video.b.gJL);
+        File file = new File(com.baidu.tieba.video.b.gJI);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.gMn.put(file2.getName().substring(0, file2.getName().lastIndexOf(Constants.DOT)), file2.getAbsolutePath());
+                    this.gMk.put(file2.getName().substring(0, file2.getName().lastIndexOf(Constants.DOT)), file2.getAbsolutePath());
                 }
             }
         }
@@ -74,10 +74,10 @@ public class b {
     public void a(String str, final String str2, final a aVar) {
         String em;
         if (!TextUtils.isEmpty(str2) && (em = aq.em(str2)) != null) {
-            if (this.gMo != null) {
-                e.Dy().l(this.gMo.getUrl(), true);
+            if (this.gMl != null) {
+                e.Dy().l(this.gMl.getUrl(), true);
             }
-            File file = new File(com.baidu.tieba.video.b.gJL);
+            File file = new File(com.baidu.tieba.video.b.gJI);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -85,7 +85,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(com.baidu.tieba.video.b.gJL + em + (Constants.DOT + str2.substring(str2.lastIndexOf(Constants.DOT) + 1)));
+            downloadData.setPath(com.baidu.tieba.video.b.gJI + em + (Constants.DOT + str2.substring(str2.lastIndexOf(Constants.DOT) + 1)));
             downloadData.setCallback(new d() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.d
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -94,8 +94,8 @@ public class b {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (b.this.gMo != null && downloadData2.getUrl().equals(b.this.gMo.getUrl())) {
-                            b.this.gMo = null;
+                        if (b.this.gMl != null && downloadData2.getUrl().equals(b.this.gMl.getUrl())) {
+                            b.this.gMl = null;
                         }
                         if (aVar != null) {
                             aVar.bwb();
@@ -116,11 +116,11 @@ public class b {
                 @Override // com.baidu.tbadk.download.d
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (b.this.gMo != null && downloadData2.getUrl().equals(b.this.gMo.getUrl())) {
-                            b.this.gMo = null;
+                        if (b.this.gMl != null && downloadData2.getUrl().equals(b.this.gMl.getUrl())) {
+                            b.this.gMl = null;
                         }
                         if (aVar != null) {
-                            b.this.gMn.put(downloadData2.getPath().substring(com.baidu.tieba.video.b.gJL.length(), downloadData2.getPath().lastIndexOf(Constants.DOT)), downloadData2.getPath());
+                            b.this.gMk.put(downloadData2.getPath().substring(com.baidu.tieba.video.b.gJI.length(), downloadData2.getPath().lastIndexOf(Constants.DOT)), downloadData2.getPath());
                             aVar.ci(str2, downloadData2.getPath());
                         }
                     }
@@ -132,15 +132,15 @@ public class b {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (b.this.gMo != null && downloadData2.getUrl().equals(b.this.gMo.getUrl())) {
-                        b.this.gMo = null;
+                    if (b.this.gMl != null && downloadData2.getUrl().equals(b.this.gMl.getUrl())) {
+                        b.this.gMl = null;
                     }
                     if (aVar != null) {
                         aVar.tL(str3);
                     }
                 }
             });
-            this.gMo = downloadData;
+            this.gMl = downloadData;
             e.Dy().f(downloadData);
         }
     }

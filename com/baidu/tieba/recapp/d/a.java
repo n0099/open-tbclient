@@ -11,9 +11,9 @@ import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a gbZ;
-    private String gbX;
-    private String gbY = b.getInstance().getString("asp_shown_info", "");
+    private static a gbW;
+    private String gbU;
+    private String gbV = b.getInstance().getString("asp_shown_info", "");
     private String latitude;
     private String longitude;
     private long rz;
@@ -22,14 +22,14 @@ public class a {
     }
 
     public static a bjZ() {
-        if (gbZ == null) {
+        if (gbW == null) {
             synchronized (c.class) {
-                if (gbZ == null) {
-                    gbZ = new a();
+                if (gbW == null) {
+                    gbW = new a();
                 }
             }
         }
-        return gbZ;
+        return gbW;
     }
 
     public void mY(String str) {
@@ -45,27 +45,27 @@ public class a {
     }
 
     private String bka() {
-        if (TextUtils.isEmpty(this.gbX)) {
+        if (TextUtils.isEmpty(this.gbU)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.gbX = connectionInfo.getBSSID();
+                this.gbU = connectionInfo.getBSSID();
             } else {
-                this.gbX = "";
+                this.gbU = "";
             }
         }
-        return this.gbX;
+        return this.gbU;
     }
 
     public void sb(String str) {
-        this.gbX = str;
+        this.gbU = str;
     }
 
     public void sc(String str) {
-        this.gbY = str;
+        this.gbV = str;
     }
 
     public void bkb() {
-        b.getInstance().putString("asp_shown_info", this.gbY);
+        b.getInstance().putString("asp_shown_info", this.gbV);
     }
 
     public AppPosInfo bkc() {
@@ -76,7 +76,7 @@ public class a {
         builder.longitude = this.longitude;
         builder.addr_timestamp = Long.valueOf(this.rz);
         builder.coordinate_type = BDLocation.BDLOCATION_GCJ02_TO_BD09LL;
-        builder.asp_shown_info = this.gbY;
+        builder.asp_shown_info = this.gbV;
         return builder.build(false);
     }
 }
