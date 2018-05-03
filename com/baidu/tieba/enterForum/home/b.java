@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.tieba.d.a {
-    private EnterForumModel cHM;
-    private a.InterfaceC0124a cIf;
-    private final EnterForumModel.b cHZ = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.b.1
+    private EnterForumModel cHJ;
+    private a.InterfaceC0124a cIc;
+    private final EnterForumModel.b cHW = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.b.1
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
-            if (b.this.cIf != null) {
-                if (aVar == null || !aVar.cIG || aVar.cIH == null || aVar.cIH.akt() == null) {
-                    b.this.cIf.a(null, false, 1, 0);
+            if (b.this.cIc != null) {
+                if (aVar == null || !aVar.cID || aVar.cIE == null || aVar.cIE.akt() == null) {
+                    b.this.cIc.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<f> aky = aVar.cIH.akt().aky();
+                ArrayList<f> aky = aVar.cIE.akt().aky();
                 if (v.v(aky) > 0) {
                     Iterator<f> it = aky.iterator();
                     while (it.hasNext()) {
@@ -34,40 +34,40 @@ public class b implements com.baidu.tieba.d.a {
                         }
                     }
                 }
-                b.this.cIf.a(arrayList, true, 1, 0);
+                b.this.cIc.a(arrayList, true, 1, 0);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a cIg = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.b.2
+    private com.baidu.adp.framework.listener.a cId = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && b.this.cHM.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && b.this.cHJ.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    b.this.cHM.a((forumRecommendSocketResponseMessage) responsedMessage);
+                    b.this.cHJ.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    b.this.cHM.a((forumRecommendHttpResponseMessage) responsedMessage);
+                    b.this.cHJ.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     };
 
     public b() {
-        this.cHM = null;
-        this.cHM = new EnterForumModel(null);
-        this.cHM.a(this.cHZ);
-        MessageManager.getInstance().registerListener(this.cIg);
+        this.cHJ = null;
+        this.cHJ = new EnterForumModel(null);
+        this.cHJ.a(this.cHW);
+        MessageManager.getInstance().registerListener(this.cId);
     }
 
     @Override // com.baidu.tieba.d.a
     public void ahc() {
-        if (this.cIf != null && this.cHM != null) {
-            this.cHM.fb(true);
+        if (this.cIc != null && this.cHJ != null) {
+            this.cHJ.fb(true);
         }
     }
 
     @Override // com.baidu.tieba.d.a
     public void a(a.InterfaceC0124a interfaceC0124a) {
-        this.cIf = interfaceC0124a;
+        this.cIc = interfaceC0124a;
     }
 }

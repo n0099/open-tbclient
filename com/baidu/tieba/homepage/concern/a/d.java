@@ -12,7 +12,7 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
     public d(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.dBn);
+        super(context, com.baidu.tieba.homepage.concern.b.a.dBk);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,12 +31,12 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (aVar.alc != null) {
             aVar2.amw.setText(aVar.alc);
         }
-        switch (aVar.dBo) {
+        switch (aVar.dBl) {
             case 2:
-                aVar2.aM(TbadkCoreApplication.getInst().getSkinType(), d.f.emotion_dashen);
+                aVar2.aL(TbadkCoreApplication.getInst().getSkinType(), d.f.emotion_dashen);
                 break;
             case 3:
-                aVar2.aM(TbadkCoreApplication.getInst().getSkinType(), d.f.emotion_dashen);
+                aVar2.aL(TbadkCoreApplication.getInst().getSkinType(), d.f.emotion_dashen);
                 break;
         }
         return aVar2.getView();
@@ -46,27 +46,27 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public class a extends q.a {
         public TextView amw;
         private int aqQ;
-        public ViewGroup dAY;
-        public ImageView dAZ;
-        public View deq;
-        public View der;
+        public ViewGroup dAV;
+        public ImageView dAW;
+        public View den;
+        public View deo;
 
         public a(View view2) {
             super(view2);
             this.aqQ = 3;
-            this.deq = view2.findViewById(d.g.concern_emotion_tip_top_line);
-            this.dAY = (ViewGroup) view2.findViewById(d.g.ll_concern_emotion_tip);
-            this.dAZ = (ImageView) view2.findViewById(d.g.iv_concern_emotion_tip_pic);
+            this.den = view2.findViewById(d.g.concern_emotion_tip_top_line);
+            this.dAV = (ViewGroup) view2.findViewById(d.g.ll_concern_emotion_tip);
+            this.dAW = (ImageView) view2.findViewById(d.g.iv_concern_emotion_tip_pic);
             this.amw = (TextView) view2.findViewById(d.g.tv_concern_emotion_tip);
-            this.der = view2.findViewById(d.g.concern_emotion_tip_bottom_line);
+            this.deo = view2.findViewById(d.g.concern_emotion_tip_bottom_line);
         }
 
-        protected void aM(int i, int i2) {
+        protected void aL(int i, int i2) {
             if (this.aqQ != i) {
-                ak.j(this.deq, d.C0126d.cp_bg_line_c);
-                ak.c(this.dAZ, i2);
+                ak.j(this.den, d.C0126d.cp_bg_line_c);
+                ak.c(this.dAW, i2);
                 ak.h(this.amw, d.C0126d.cp_cont_b);
-                ak.j(this.der, d.C0126d.cp_bg_line_c);
+                ak.j(this.deo, d.C0126d.cp_bg_line_c);
             }
             this.aqQ = i;
         }

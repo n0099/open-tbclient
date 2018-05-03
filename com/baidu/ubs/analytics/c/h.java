@@ -8,17 +8,17 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a hla;
+    private a hkX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.hla = aVar;
+        this.hkX = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.hla.bER()) {
-            for (a.InterfaceC0244a interfaceC0244a : this.hla.bER()) {
+        synchronized (this.hkX.bER()) {
+            for (a.InterfaceC0244a interfaceC0244a : this.hkX.bER()) {
                 interfaceC0244a.T();
             }
         }
@@ -26,8 +26,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.hla.bER()) {
-            for (a.InterfaceC0244a interfaceC0244a : this.hla.bER()) {
+        synchronized (this.hkX.bER()) {
+            for (a.InterfaceC0244a interfaceC0244a : this.hkX.bER()) {
                 interfaceC0244a.U();
             }
         }
@@ -35,8 +35,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.hla.bER()) {
-            for (a.InterfaceC0244a interfaceC0244a : this.hla.bER()) {
+        synchronized (this.hkX.bER()) {
+            for (a.InterfaceC0244a interfaceC0244a : this.hkX.bER()) {
                 interfaceC0244a.a(activity);
             }
         }
@@ -44,8 +44,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.hla.bER()) {
-            Iterator<a.InterfaceC0244a> it = this.hla.bER().iterator();
+        synchronized (this.hkX.bER()) {
+            Iterator<a.InterfaceC0244a> it = this.hkX.bER().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.hla.bER()) {
-            Iterator<a.InterfaceC0244a> it = this.hla.bER().iterator();
+        synchronized (this.hkX.bER()) {
+            Iterator<a.InterfaceC0244a> it = this.hkX.bER().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.hla.bER()) {
-            Iterator<a.InterfaceC0244a> it = this.hla.bER().iterator();
+        synchronized (this.hkX.bER()) {
+            Iterator<a.InterfaceC0244a> it = this.hkX.bER().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,8 +74,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.hla.bER()) {
-            for (a.InterfaceC0244a interfaceC0244a : this.hla.bER()) {
+        synchronized (this.hkX.bER()) {
+            for (a.InterfaceC0244a interfaceC0244a : this.hkX.bER()) {
                 interfaceC0244a.onActivityDestroyed(activity);
             }
         }

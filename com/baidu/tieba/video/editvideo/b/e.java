@@ -9,32 +9,32 @@ import java.nio.ByteBuffer;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 class e {
-    private final MediaMuxer gMa;
-    private volatile boolean gMc;
-    private volatile boolean gMd;
-    private int gMb = 2;
+    private final MediaMuxer gLX;
+    private volatile boolean gLZ;
+    private volatile boolean gMa;
+    private int gLY = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.gMa = new MediaMuxer(str, 0);
+        this.gLX = new MediaMuxer(str, 0);
     }
 
     public void bwH() {
-        this.gMc = true;
+        this.gLZ = true;
     }
 
     public void bwI() {
-        this.gMd = true;
+        this.gMa = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.gMd || !this.gMc) {
+        if (!this.gMa || !this.gLZ) {
             z = false;
         } else {
-            if (this.gMb > 0 && this.gMd && this.gMc) {
-                this.gMa.start();
+            if (this.gLY > 0 && this.gMa && this.gLZ) {
+                this.gLX.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.gMb > 0) {
+        if (this.gLY > 0) {
             try {
-                this.gMa.stop();
-                this.gMa.release();
+                this.gLX.stop();
+                this.gLX.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,13 +61,13 @@ class e {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.gMa.addTrack(mediaFormat);
+        return this.gLX.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.gMa.writeSampleData(i, byteBuffer, bufferInfo);
+            this.gLX.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

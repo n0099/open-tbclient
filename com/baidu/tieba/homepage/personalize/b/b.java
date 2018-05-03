@@ -45,17 +45,17 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c cVar, a aVar) {
         v.afy().a(new al("c11272"));
-        aVar.dFC.a(cVar);
+        aVar.dFz.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes2.dex */
     public class a extends q.a {
-        public com.baidu.tieba.homepage.personalize.b.a dFC;
+        public com.baidu.tieba.homepage.personalize.b.a dFz;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.dFC = aVar;
+            this.dFz = aVar;
         }
     }
 }

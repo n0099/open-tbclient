@@ -48,7 +48,7 @@ import org.json.JSONObject;
 public class a {
     private f bha;
     private ShareFromPBMsgData bvx;
-    private QuickWebView cEr;
+    private QuickWebView cEo;
     TbPageContext<BaseFragmentActivity> mPageContext;
     private g mRefreshView;
     private View mRootView;
@@ -70,8 +70,8 @@ public class a {
     }
 
     public void onDestroy() {
-        if (this.cEr != null) {
-            this.cEr.destroy();
+        if (this.cEo != null) {
+            this.cEo.destroy();
         }
         MessageManager.getInstance().unRegisterTask(2921015);
     }
@@ -84,7 +84,7 @@ public class a {
 
     public void i(TbPageContext<BaseFragmentActivity> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.cEr = (QuickWebView) this.mRootView.findViewById(d.g.webview);
+        this.cEo = (QuickWebView) this.mRootView.findViewById(d.g.webview);
         View findViewById = this.mRootView.findViewById(d.g.statebar_view);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             findViewById.getLayoutParams().height = UtilHelper.getStatusBarHeight();
@@ -93,31 +93,31 @@ public class a {
     }
 
     public BaseWebView getWebView() {
-        return this.cEr;
+        return this.cEo;
     }
 
     public void loadUrl(String str) {
         this.mUrl = str;
-        this.cEr.loadUrl(str);
+        this.cEo.loadUrl(str);
     }
 
     public void Rs() {
         if (this.wI) {
-            this.cEr.loadUrl("javascript:window.reload_page()");
+            this.cEo.loadUrl("javascript:window.reload_page()");
         } else {
-            this.cEr.loadUrl(this.mUrl);
+            this.cEo.loadUrl(this.mUrl);
         }
     }
 
     public void ajB() {
-        if (this.cEr != null) {
-            this.cEr.loadUrl("javascript:__js_bridge_discovery_enter_action()");
+        if (this.cEo != null) {
+            this.cEo.loadUrl("javascript:__js_bridge_discovery_enter_action()");
         }
     }
 
     public void ajC() {
-        if (this.cEr != null) {
-            this.cEr.loadUrl("javascript:__js_bridge_discovery_leave_action()");
+        if (this.cEo != null) {
+            this.cEo.loadUrl("javascript:__js_bridge_discovery_leave_action()");
         }
     }
 
@@ -138,7 +138,7 @@ public class a {
 
     public void Rt() {
         Qn();
-        this.cEr.setVisibility(0);
+        this.cEo.setVisibility(0);
     }
 
     public void Qm() {
@@ -152,7 +152,7 @@ public class a {
             });
             this.mRefreshView.onChangeSkinType();
         }
-        this.cEr.setVisibility(8);
+        this.cEo.setVisibility(8);
         this.mRefreshView.setSubText(string);
         this.mRefreshView.d(this.mRootView, false);
         this.mRefreshView.Fu();
@@ -167,8 +167,8 @@ public class a {
     }
 
     private void Ru() {
-        if (this.cEr != null) {
-            this.cEr.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.discover.a.3
+        if (this.cEo != null) {
+            this.cEo.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.discover.a.3
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                 public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                     a.this.iX(str);
@@ -182,13 +182,13 @@ public class a {
                     return true;
                 }
             });
-            this.cEr.setOnPageStartedListener(new BaseWebView.d() { // from class: com.baidu.tieba.discover.a.4
+            this.cEo.setOnPageStartedListener(new BaseWebView.d() { // from class: com.baidu.tieba.discover.a.4
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
                 public void b(WebView webView, String str) {
                     a.this.showLoadingView();
                 }
             });
-            this.cEr.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.discover.a.5
+            this.cEo.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.discover.a.5
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
                 public void onPageFinished(WebView webView, String str) {
                     a.this.Ou();
@@ -199,7 +199,7 @@ public class a {
                     }
                 }
             });
-            this.cEr.setOnReceivedErrorListener(new BaseWebView.f() { // from class: com.baidu.tieba.discover.a.6
+            this.cEo.setOnReceivedErrorListener(new BaseWebView.f() { // from class: com.baidu.tieba.discover.a.6
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str, String str2) {
                     a.this.Qm();

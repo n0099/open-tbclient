@@ -21,18 +21,18 @@ import java.util.HashSet;
 public class l extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<x>> implements com.baidu.tieba.a.f, aa, com.baidu.tieba.frs.e.c {
     private ab<be> bvU;
     private String bvX;
-    private HashSet<String> ddV;
-    private x dea;
+    private HashSet<String> ddS;
+    private x ddX;
     private String mForumName;
     private String mFrom;
     private TbPageContext<?> mPageContext;
 
     private void R(bd bdVar) {
-        if (this.ddV == null) {
-            this.ddV = new HashSet<>();
+        if (this.ddS == null) {
+            this.ddS = new HashSet<>();
         }
-        if (bdVar.getTid() != null && !this.ddV.contains(bdVar.getTid())) {
-            this.ddV.add(bdVar.getTid());
+        if (bdVar.getTid() != null && !this.ddS.contains(bdVar.getTid())) {
+            this.ddS.add(bdVar.getTid());
             TiebaStatic.log(new al("c11662").r("obj_param1", 1).ac("post_id", bdVar.getTid()));
         }
     }
@@ -49,9 +49,9 @@ public class l extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<x>> im
                         TiebaStatic.log(new al("c13010").r("obj_type", 3).f(ImageViewerConfig.FORUM_ID, bdVar.getFid()).ac("tid", bdVar.getTid()));
                     }
                     if (view2.getId() == d.g.card_home_page_normal_thread_user_name || (view2 instanceof HeadImageView) || (view2 instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 2);
                     } else {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 1);
                     }
                     if (view2.getId() == d.g.thread_user_pendant_header || view2.getId() == d.g.card_home_page_normal_thread_user_name || view2.getId() == d.g.card_home_page_normal_thread_user_header) {
                         al alVar = new al("c12940");
@@ -76,20 +76,20 @@ public class l extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<x>> im
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<x> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dea = new x(this.mPageContext);
-        this.dea.j(this.mPageId);
-        this.dea.currentPageType = 3;
-        this.dea.eq(false);
-        if (this.dea.bwk != null) {
-            this.dea.bwk.abV = 3;
+        this.ddX = new x(this.mPageContext);
+        this.ddX.j(this.mPageId);
+        this.ddX.currentPageType = 3;
+        this.ddX.eq(false);
+        if (this.ddX.bwk != null) {
+            this.ddX.bwk.abV = 3;
         }
-        if (this.dea.cqk != null) {
-            this.dea.cqk.cqV = 3;
+        if (this.ddX.cqh != null) {
+            this.ddX.cqh.cqS = 3;
         }
-        if (this.dea.bwZ != null) {
-            this.dea.bwZ.setHideBarName(true);
+        if (this.ddX.bwZ != null) {
+            this.ddX.bwZ.setHideBarName(true);
         }
-        return new com.baidu.tieba.card.a.a<>(this.dea);
+        return new com.baidu.tieba.card.a.a<>(this.ddX);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -111,14 +111,14 @@ public class l extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<x>> im
         beVar.abT = 2;
         beVar.abU = 1;
         beVar.abV = 3;
-        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWO);
-        com.baidu.tieba.frs.e.a(aVar.afY().afA(), this.cWO);
-        if (this.cWO != null && this.cWO.aVq() != null && !StringUtils.isNull(this.cWO.aVq().getTopic_special_icon()) && !StringUtils.isNull(this.cWO.aVq().getTopic_special_icon_right())) {
-            aVar.afY().M(this.cWO.aVq().getTopic_special_icon(), this.cWO.aVq().getTopic_special_icon_right());
+        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWL);
+        com.baidu.tieba.frs.e.a(aVar.afY().afA(), this.cWL);
+        if (this.cWL != null && this.cWL.aVq() != null && !StringUtils.isNull(this.cWL.aVq().getTopic_special_icon()) && !StringUtils.isNull(this.cWL.aVq().getTopic_special_icon_right())) {
+            aVar.afY().M(this.cWL.aVq().getTopic_special_icon(), this.cWL.aVq().getTopic_special_icon_right());
         }
         aVar.afY().a(beVar);
         aVar.afY().b(this.bvU);
-        com.baidu.tieba.frs.e.b.auH().a(doy, bdVar);
+        com.baidu.tieba.frs.e.b.auH().a(dov, bdVar);
         if (bdVar != null) {
             bdVar.sK();
         }

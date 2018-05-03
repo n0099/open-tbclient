@@ -6,37 +6,37 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator gWC;
-    private boolean gWD;
-    private boolean gWE;
+    private boolean gWA;
+    private boolean gWB;
+    private ObjectAnimator gWz;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.gWD = false;
-        this.gWE = false;
+        this.gWA = false;
+        this.gWB = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gWD = false;
-        this.gWE = false;
+        this.gWA = false;
+        this.gWB = false;
         init();
     }
 
     private void init() {
-        this.gWC = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.gWC.setRepeatMode(1);
-        this.gWC.setRepeatCount(-1);
-        this.gWC.setDuration(700L);
+        this.gWz = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.gWz.setRepeatMode(1);
+        this.gWz.setRepeatCount(-1);
+        this.gWz.setDuration(700L);
         setVisibility(8);
-        this.gWD = false;
+        this.gWA = false;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.gWE) {
+        if (this.gWB) {
             startPlayAnimation();
         }
     }
@@ -48,26 +48,26 @@ public class AlaPlayAnimationView extends ImageView {
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.gWE = z;
+        this.gWB = z;
     }
 
     public void startPlayAnimation() {
-        if (!this.gWD) {
-            this.gWD = true;
-            if (this.gWC != null) {
+        if (!this.gWA) {
+            this.gWA = true;
+            if (this.gWz != null) {
                 setVisibility(0);
-                this.gWC.start();
+                this.gWz.start();
             }
         }
     }
 
     public void bAa() {
-        if (this.gWC != null) {
-            this.gWC.setRepeatCount(-1);
-            this.gWC.cancel();
+        if (this.gWz != null) {
+            this.gWz.setRepeatCount(-1);
+            this.gWz.cancel();
             clearAnimation();
         }
-        this.gWD = false;
+        this.gWA = false;
         setVisibility(8);
     }
 }

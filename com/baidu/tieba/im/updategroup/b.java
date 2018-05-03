@@ -5,14 +5,14 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b extends d {
-    protected TextView eim;
+    protected TextView eij;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.eim = null;
+        this.eij = null;
         setContentView(d.i.update_group_info_activity);
         nZ(d.k.group_update_info);
-        this.eim = (TextView) this.ein.findViewById(d.g.edit_count);
+        this.eij = (TextView) this.eik.findViewById(d.g.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -22,14 +22,14 @@ public class b extends d {
             int length = obj.length();
             u(length, length, 15, 300);
             int i = 300 - length;
-            this.eim.setText(String.valueOf(i));
+            this.eij.setText(String.valueOf(i));
             if (i <= 50) {
-                this.eim.setVisibility(0);
+                this.eij.setVisibility(0);
             } else {
-                this.eim.setVisibility(8);
+                this.eij.setVisibility(8);
             }
             if (i == 0) {
-                this.eim.setTextColor(this.ein.getResources().getColor(d.C0126d.common_color_10170));
+                this.eij.setTextColor(this.eik.getResources().getColor(d.C0126d.common_color_10170));
             } else {
                 aBM();
             }
@@ -37,8 +37,8 @@ public class b extends d {
     }
 
     private void aBM() {
-        this.ein.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.ein.getLayoutMode().u(this.eim);
+        this.eik.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.eik.getLayoutMode().u(this.eij);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a

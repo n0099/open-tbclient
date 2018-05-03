@@ -4,29 +4,29 @@ import android.os.Bundle;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PersonFriendActivity extends BasePersonInfoActivity {
-    private PersonFriendAdapter fHw = null;
-    private PersonFriendModel fHx = null;
+    private PersonFriendAdapter fHt = null;
+    private PersonFriendModel fHu = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fHx = new PersonFriendModel(getPageContext(), aGn());
-        this.fHx.setSex(getSex());
-        this.fHx.setId(getUid());
-        this.fHx.setUniqueId(getUniqueId());
+        this.fHu = new PersonFriendModel(getPageContext(), aGn());
+        this.fHu.setSex(getSex());
+        this.fHu.setId(getUid());
+        this.fHu.setUniqueId(getUniqueId());
     }
 
     public PersonFriendModel beK() {
-        return this.fHx;
+        return this.fHu;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.fHw == null) {
-            this.fHw = new PersonFriendAdapter(this, aGn());
+        if (this.fHt == null) {
+            this.fHt = new PersonFriendAdapter(this, aGn());
         }
-        return this.fHw;
+        return this.fHt;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity

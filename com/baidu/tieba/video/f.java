@@ -10,46 +10,46 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class f {
-    private static f gKn;
-    private VideoHolyCardModel.a eQx = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.f.2
+    private static f gKk;
+    private VideoHolyCardModel.a eQu = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.f.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void am(boolean z) {
-            f.this.gKp = z;
+            f.this.gKm = z;
         }
     };
-    private VideoHolyCardModel gKo;
-    private boolean gKp;
-    private boolean gKq;
+    private VideoHolyCardModel gKl;
+    private boolean gKm;
+    private boolean gKn;
 
     public static f bvW() {
-        if (gKn == null) {
+        if (gKk == null) {
             synchronized (f.class) {
-                if (gKn == null) {
-                    gKn = new f();
+                if (gKk == null) {
+                    gKk = new f();
                 }
             }
         }
-        return gKn;
+        return gKk;
     }
 
     public boolean bvX() {
-        return this.gKp;
+        return this.gKm;
     }
 
     public void bvY() {
         if (j.gR()) {
-            if (this.gKo == null) {
-                this.gKo = new VideoHolyCardModel();
-                this.gKo.a(this.eQx);
+            if (this.gKl == null) {
+                this.gKl = new VideoHolyCardModel();
+                this.gKl.a(this.eQu);
             }
-            this.gKo.aRE();
+            this.gKl.aRE();
         }
     }
 
     public void cb(Context context) {
-        if (this.gKp && !this.gKq) {
+        if (this.gKm && !this.gKn) {
             l.showToast(context, d.k.free_data_tips);
-            this.gKq = true;
+            this.gKn = true;
         }
     }
 

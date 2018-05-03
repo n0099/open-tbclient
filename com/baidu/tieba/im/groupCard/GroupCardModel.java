@@ -13,25 +13,25 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes3.dex */
 public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
-    private static Long ebf = 0L;
-    private static final Long ebg = Long.valueOf((long) ReportUserInfoModel.TIME_INTERVAL);
-    private final GroupCardActivity ebd;
-    private a ebe;
+    private static Long ebc = 0L;
+    private static final Long ebd = Long.valueOf((long) ReportUserInfoModel.TIME_INTERVAL);
+    private final GroupCardActivity eba;
+    private a ebb;
     private String imageUrl;
     private final long mGroupId;
 
     public static void aEF() {
-        ebf = 0L;
+        ebc = 0L;
     }
 
     public GroupCardModel(long j, GroupCardActivity groupCardActivity) {
         super(groupCardActivity.getPageContext());
-        this.ebe = null;
+        this.ebb = null;
         this.imageUrl = TbConfig.SERVER_ADDRESS + "c/p/groupShareImg?group_id=";
         this.mGroupId = j;
         this.imageUrl += this.mGroupId;
         this.imageUrl += "&w=" + LocalViewSize.vc().vd();
-        this.ebd = groupCardActivity;
+        this.eba = groupCardActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -44,16 +44,16 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
         return false;
     }
 
-    public String bf(int i, int i2) {
-        if (System.currentTimeMillis() - ebf.longValue() > ebg.longValue()) {
-            ebf = Long.valueOf(System.currentTimeMillis());
+    public String be(int i, int i2) {
+        if (System.currentTimeMillis() - ebc.longValue() > ebd.longValue()) {
+            ebc = Long.valueOf(System.currentTimeMillis());
         }
-        return this.imageUrl + "&t=" + ebf;
+        return this.imageUrl + "&t=" + ebc;
     }
 
     public void saveImage() {
-        this.ebe = new a();
-        this.ebe.execute(new String[0]);
+        this.ebb = new a();
+        this.ebb.execute(new String[0]);
     }
 
     /* loaded from: classes3.dex */
@@ -73,28 +73,28 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
             Bitmap km;
             try {
                 if (this.mUrl == null || this.mUrl.length() <= 0) {
-                    return GroupCardModel.this.ebd.getPageContext().getString(d.k.save_fail);
+                    return GroupCardModel.this.eba.getPageContext().getString(d.k.save_fail);
                 }
                 String em = aq.em(this.mUrl);
                 if (em == null) {
-                    return GroupCardModel.this.ebd.getPageContext().getString(d.k.save_fail);
+                    return GroupCardModel.this.eba.getPageContext().getString(d.k.save_fail);
                 }
                 String str = em + ".jpg";
                 for (int i = 0; k.ds(str) && i < 10000; i++) {
                     str = em + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
                 }
-                com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.fp().a(this.mUrl + "&t=" + GroupCardModel.ebf, 10, new Object[0]);
+                com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.fp().a(this.mUrl + "&t=" + GroupCardModel.ebc, 10, new Object[0]);
                 if (aVar != null && (km = aVar.km()) != null) {
                     String a = k.a((String) null, str, km, 80);
                     if (a != null) {
-                        new w(GroupCardModel.this.ebd.getPageContext().getPageActivity()).dX(a);
-                        return GroupCardModel.this.ebd.getPageContext().getString(d.k.save_image_to_album);
+                        new w(GroupCardModel.this.eba.getPageContext().getPageActivity()).dX(a);
+                        return GroupCardModel.this.eba.getPageContext().getString(d.k.save_image_to_album);
                     }
                     return k.uD();
                 }
-                return GroupCardModel.this.ebd.getPageContext().getString(d.k.save_fail);
+                return GroupCardModel.this.eba.getPageContext().getString(d.k.save_fail);
             } catch (Exception e) {
-                return GroupCardModel.this.ebd.getPageContext().getString(d.k.save_fail);
+                return GroupCardModel.this.eba.getPageContext().getString(d.k.save_fail);
             }
         }
 
@@ -103,8 +103,8 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            GroupCardModel.this.ebd.showToast(str);
-            GroupCardModel.this.ebe = null;
+            GroupCardModel.this.eba.showToast(str);
+            GroupCardModel.this.ebb = null;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -115,7 +115,7 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            GroupCardModel.this.ebe = null;
+            GroupCardModel.this.ebb = null;
             super.cancel(true);
         }
     }

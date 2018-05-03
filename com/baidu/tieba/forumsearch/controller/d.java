@@ -13,13 +13,13 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes3.dex */
 public class d {
-    private a cVT;
-    private com.baidu.adp.framework.listener.a cVY = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a cVQ;
+    private com.baidu.adp.framework.listener.a cVV = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.cVT != null) {
-                    d.this.cVT.a(false, null);
+                if (d.this.cVQ != null) {
+                    d.this.cVQ.a(false, null);
                     return;
                 }
                 return;
@@ -28,8 +28,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.cVT != null) {
-                d.this.cVT.a(searchData != null, searchData);
+            if (d.this.cVQ != null) {
+                d.this.cVQ.a(searchData != null, searchData);
             }
         }
     };
@@ -44,12 +44,12 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.cVY.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.cVY);
+        this.cVV.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.cVV);
     }
 
     public void a(a aVar) {
-        this.cVT = aVar;
+        this.cVQ = aVar;
     }
 
     public void lG(String str) {

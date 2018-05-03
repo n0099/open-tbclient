@@ -20,13 +20,13 @@ import com.baidu.tieba.im.model.SearchGroupModel;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    private a eha = null;
-    private SearchGroupModel ehb = null;
-    private c ehc = new c(103007) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
+    private a egX = null;
+    private SearchGroupModel egY = null;
+    private c egZ = new c(103007) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            AddGroupActivity.this.eha.hg(false);
+            AddGroupActivity.this.egX.hg(false);
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
                 AddGroupActivity.this.aGM();
             } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
@@ -51,31 +51,31 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eha = new a(this);
-        this.ehb = new SearchGroupModel(this);
-        registerListener(this.ehc);
+        this.egX = new a(this);
+        this.egY = new SearchGroupModel(this);
+        registerListener(this.egZ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eha.changeSkinType(i);
+        this.egX.changeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         super.onClick(view2);
-        if (view2 == this.eha.aGO()) {
+        if (view2 == this.egX.aGO()) {
             finish();
-        } else if (view2 == this.eha.aGN()) {
+        } else if (view2 == this.egX.aGN()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view2.getTag() instanceof String) {
                 nP((String) view2.getTag());
             }
-        } else if (view2 == this.eha.aCk()) {
-            this.eha.aGQ();
-        } else if (view2 == this.eha.aGP()) {
+        } else if (view2 == this.egX.aCk()) {
+            this.egX.aGQ();
+        } else if (view2 == this.egX.aGP()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new IntentConfig(getPageContext().getPageActivity())));
         }
     }
@@ -93,20 +93,20 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        if (this.ehb != null) {
-            this.ehb.cancelLoadData();
+        if (this.egY != null) {
+            this.egY.cancelLoadData();
         }
     }
 
     public void nP(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
-                this.eha.hg(true);
-                this.ehb.sendMessage(b.c(str, 0L));
+                this.egX.hg(true);
+                this.egY.sendMessage(b.c(str, 0L));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                this.eha.hg(false);
+                this.egX.hg(false);
                 showToast(d.k.groupid_error);
                 return;
             }

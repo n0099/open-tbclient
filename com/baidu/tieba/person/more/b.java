@@ -15,44 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private c fDr;
-    private List<h> fDs;
-    private PersonMoreData fDt;
+    private c fDo;
+    private List<h> fDp;
+    private PersonMoreData fDq;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, ab<e> abVar) {
         this.mPageContext = tbPageContext;
-        this.fDr = new c(tbPageContext);
-        this.fDr.b(abVar);
+        this.fDo = new c(tbPageContext);
+        this.fDo.b(abVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.fDt = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.fDq = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(d.i.person_center_more_layout);
-        this.fDr.Y(this.mPageContext.getPageActivity().findViewById(d.g.person_more_layout));
+        this.fDo.Y(this.mPageContext.getPageActivity().findViewById(d.g.person_more_layout));
         bdF();
-        this.fDr.setData(this.fDs);
+        this.fDo.setData(this.fDp);
     }
 
     public void onChangeSkinType() {
-        if (this.fDr != null) {
-            this.fDr.onChangeSkinType();
+        if (this.fDo != null) {
+            this.fDo.onChangeSkinType();
         }
     }
 
     private void bdF() {
-        this.fDs = new ArrayList();
-        if (this.fDt != null && !v.w(this.fDt.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.fDt.mUrlMaps) {
+        this.fDp = new ArrayList();
+        if (this.fDq != null && !v.w(this.fDq.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.fDq.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     e eVar = new e();
                     eVar.title = personMoreItemData.mName;
                     eVar.type = 36;
-                    eVar.dwY = personMoreItemData.mUrl;
+                    eVar.dwV = personMoreItemData.mUrl;
                     eVar.itemId = personMoreItemData.mId;
-                    this.fDs.add(eVar);
+                    this.fDp.add(eVar);
                 }
             }
         }

@@ -14,11 +14,11 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private ChannelFansActivity ctR;
+    private ChannelFansActivity ctO;
     private List<i> mData;
 
     public b(ChannelFansActivity channelFansActivity) {
-        this.ctR = channelFansActivity;
+        this.ctO = channelFansActivity;
     }
 
     public void setData(List<i> list) {
@@ -54,42 +54,42 @@ public class b extends BaseAdapter {
         if (view2 != null) {
             aVar = (a) view2.getTag();
         } else {
-            view2 = LayoutInflater.from(this.ctR.getPageContext().getPageActivity()).inflate(d.i.channel_fans_list_item_layout, viewGroup, false);
+            view2 = LayoutInflater.from(this.ctO.getPageContext().getPageActivity()).inflate(d.i.channel_fans_list_item_layout, viewGroup, false);
             a aVar2 = new a();
-            aVar2.ctS = (HeadImageView) view2.findViewById(d.g.avatar);
-            aVar2.ctS.setAutoChangeStyle(true);
-            aVar2.ctS.setIsRound(true);
-            aVar2.ctS.setClickable(false);
-            aVar2.ctT = (TextView) view2.findViewById(d.g.fans_name);
-            aVar2.ctU = (TextView) view2.findViewById(d.g.fans_intro);
+            aVar2.ctP = (HeadImageView) view2.findViewById(d.g.avatar);
+            aVar2.ctP.setAutoChangeStyle(true);
+            aVar2.ctP.setIsRound(true);
+            aVar2.ctP.setClickable(false);
+            aVar2.ctQ = (TextView) view2.findViewById(d.g.fans_name);
+            aVar2.ctR = (TextView) view2.findViewById(d.g.fans_intro);
             view2.setTag(aVar2);
             aVar = aVar2;
         }
         i item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.getPortrait())) {
-                aVar.ctS.setTag(null);
-                aVar.ctS.setDefaultResource(d.f.img_default_100);
-                aVar.ctS.startLoad(item.getPortrait(), 12, false);
-                aVar.ctS.invalidate();
+                aVar.ctP.setTag(null);
+                aVar.ctP.setDefaultResource(d.f.img_default_100);
+                aVar.ctP.startLoad(item.getPortrait(), 12, false);
+                aVar.ctP.invalidate();
             }
             if (!TextUtils.isEmpty(item.getUser_name())) {
-                aVar.ctT.setText(item.getUser_name());
+                aVar.ctQ.setText(item.getUser_name());
             }
             if (!TextUtils.isEmpty(item.getIntro())) {
-                aVar.ctU.setText(item.getIntro());
+                aVar.ctR.setText(item.getIntro());
             }
         }
-        this.ctR.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.ctR.getLayoutMode().u(view2);
+        this.ctO.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.ctO.getLayoutMode().u(view2);
         return view2;
     }
 
     /* loaded from: classes3.dex */
     private class a {
-        HeadImageView ctS;
-        TextView ctT;
-        TextView ctU;
+        HeadImageView ctP;
+        TextView ctQ;
+        TextView ctR;
 
         private a() {
         }

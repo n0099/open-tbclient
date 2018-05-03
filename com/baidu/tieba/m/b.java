@@ -10,21 +10,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends c.a {
-    private final long fRP;
-    private final String fRQ;
-    private com.baidu.tieba.j.a.e[] fRR;
-    private final int fRm;
-    private final int fRn;
+    private final long fRM;
+    private final String fRN;
+    private com.baidu.tieba.j.a.e[] fRO;
+    private final int fRj;
+    private final int fRk;
     private final int what;
 
     public b(int i, int i2, int i3, long j, String str, com.baidu.tieba.j.a.e... eVarArr) {
         super(300);
-        this.fRm = i;
+        this.fRj = i;
         this.what = i2;
-        this.fRn = i3;
-        this.fRP = j;
-        this.fRQ = str;
-        this.fRR = eVarArr;
+        this.fRk = i3;
+        this.fRM = j;
+        this.fRN = str;
+        this.fRO = eVarArr;
     }
 
     @Override // com.baidu.tieba.m.c.a, com.baidu.tieba.m.c
@@ -32,18 +32,18 @@ public class b extends c.a {
         JSONObject bhi = super.bhi();
         try {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b(this.fRm, this.what, this.fRn, this.fRP).toString()));
-            if (this.fRR != null) {
-                int length = this.fRR.length;
+            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b(this.fRj, this.what, this.fRk, this.fRM).toString()));
+            if (this.fRO != null) {
+                int length = this.fRO.length;
                 for (int i = 0; i < length; i++) {
-                    com.baidu.tieba.j.a.e eVar = this.fRR[i];
+                    com.baidu.tieba.j.a.e eVar = this.fRO[i];
                     if (eVar != null) {
                         jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.j.d.pz(eVar.url).toString()));
                     }
                 }
             }
-            if (!StringUtils.isNull(this.fRQ)) {
-                jSONArray.put(new JSONObject().put("error_parent", this.fRQ));
+            if (!StringUtils.isNull(this.fRN)) {
+                jSONArray.put(new JSONObject().put("error_parent", this.fRN));
             }
             bhi.put("ext", jSONArray);
         } catch (Exception e) {

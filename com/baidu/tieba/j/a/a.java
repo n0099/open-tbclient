@@ -33,7 +33,7 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         if (StringUtils.isNull(this.uuid) || !k.m15do() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.eQF + aSd();
+        String str = c.a.eQC + aSd();
         try {
             File file = new File(str);
             if (!file.exists()) {

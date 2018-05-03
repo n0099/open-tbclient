@@ -17,34 +17,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private String eBK;
-    private List<String> eCZ;
+    private String eBH;
+    private List<String> eCW;
     private Context mContext;
 
     public a(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.eCZ = arrayList;
+        this.eCW = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.eCZ = list;
-        if (this.eCZ != null) {
+        this.eCW = list;
+        if (this.eCW != null) {
             notifyDataSetChanged();
         }
     }
 
     public void oH(String str) {
         if (!StringUtils.isNull(str)) {
-            this.eBK = str.trim();
+            this.eBH = str.trim();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eCZ == null) {
+        if (this.eCW == null) {
             return 0;
         }
-        return this.eCZ.size();
+        return this.eCW.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.eCZ.get(i);
+        return this.eCW.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,8 +69,8 @@ public class a extends BaseAdapter {
             view2 = LayoutInflater.from(this.mContext).inflate(d.i.search_suggest_item, (ViewGroup) null);
             C0180a c0180a2 = new C0180a();
             c0180a2.mRootView = view2.findViewById(d.g.rootview);
-            c0180a2.eDa = (TextView) view2.findViewById(d.g.searchSuggestTitle);
-            c0180a2.cJP = view2.findViewById(d.g.searchItemSep);
+            c0180a2.eCX = (TextView) view2.findViewById(d.g.searchSuggestTitle);
+            c0180a2.cJM = view2.findViewById(d.g.searchItemSep);
             view2.setTag(c0180a2);
             c0180a = c0180a2;
         } else {
@@ -78,13 +78,13 @@ public class a extends BaseAdapter {
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            a(c0180a.eDa, item);
+            a(c0180a.eCX, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != c0180a.mSkinType) {
                 c0180a.mSkinType = skinType;
                 ak.i(c0180a.mRootView, d.f.addresslist_item_bg);
-                ak.h(c0180a.eDa, d.C0126d.cp_cont_b);
-                ak.j(c0180a.cJP, d.C0126d.cp_bg_line_c);
+                ak.h(c0180a.eCX, d.C0126d.cp_cont_b);
+                ak.j(c0180a.cJM, d.C0126d.cp_bg_line_c);
             }
         }
         return view2;
@@ -93,8 +93,8 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.mainentrance.searchSuggestList.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private class C0180a {
-        View cJP;
-        TextView eDa;
+        View cJM;
+        TextView eCX;
         View mRootView;
         int mSkinType;
 
@@ -104,9 +104,9 @@ public class a extends BaseAdapter {
     }
 
     public void a(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.eBK)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.eBH)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.eBK.toLowerCase();
+            String lowerCase2 = this.eBH.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -114,7 +114,7 @@ public class a extends BaseAdapter {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ak.getColor(d.C0126d.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.eBK.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.eBH.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

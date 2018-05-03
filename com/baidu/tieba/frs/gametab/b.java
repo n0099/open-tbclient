@@ -14,13 +14,13 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
     private com.baidu.tieba.f.b byy;
-    private boolean dkZ;
+    private boolean dkW;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
     private boolean aNI = false;
     private a.InterfaceC0131a byz = new a.InterfaceC0131a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int can = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
+        final int cak = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
 
         @Override // com.baidu.tieba.f.a.InterfaceC0131a
         public void W(int i, int i2) {
@@ -48,8 +48,8 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.dkZ = z;
-        if (this.dkZ) {
+        this.dkW = z;
+        if (this.dkW) {
             this.byy = new com.baidu.tieba.f.b(context);
             this.byy.a(this.byz);
         }
@@ -68,14 +68,14 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.dkZ = false;
+                    this.dkW = false;
                     break;
                 } else {
-                    this.dkZ = true;
+                    this.dkW = true;
                     break;
                 }
         }
-        if (this.dkZ && this.byy != null) {
+        if (this.dkW && this.byy != null) {
             this.byy.onTouchEvent(motionEvent);
         }
     }
@@ -91,7 +91,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void fB(boolean z) {
         this.aNI = z;
-        if (this.dkZ) {
+        if (this.dkW) {
             l(!this.aNI, true);
         }
     }

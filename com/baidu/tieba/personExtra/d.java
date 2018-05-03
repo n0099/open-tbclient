@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class d implements com.baidu.tieba.personPolymeric.b.b {
-    private com.baidu.tieba.post.a.a fHM;
+    private com.baidu.tieba.post.a.a fHJ;
     private BdUniqueId mId;
     private TbPageContext mTbPageContext;
     private int mStatus = 0;
@@ -36,14 +36,14 @@ public class d implements com.baidu.tieba.personPolymeric.b.b {
                     d.this.mTbPageContext.showToast(d.k.privacy_setting_toast);
                 }
                 d.this.mStatus = 1;
-                d.this.fHM.startPullRefresh();
+                d.this.fHJ.startPullRefresh();
             }
         }
     };
 
     public d(TbPageContext tbPageContext, com.baidu.tieba.post.a.a aVar, BdUniqueId bdUniqueId) {
         this.mTbPageContext = tbPageContext;
-        this.fHM = aVar;
+        this.fHJ = aVar;
         this.mId = bdUniqueId;
         CustomMessageListener customMessageListener = new CustomMessageListener(2921065) { // from class: com.baidu.tieba.personExtra.d.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -57,7 +57,7 @@ public class d implements com.baidu.tieba.personPolymeric.b.b {
                         default:
                             return;
                         case 1:
-                            d.this.fHM.startPullRefresh();
+                            d.this.fHJ.startPullRefresh();
                             return;
                     }
                 }

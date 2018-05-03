@@ -44,7 +44,7 @@ import com.baidu.tieba.im.groupInfo.GroupImageActivity;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes3.dex */
 public class GroupActivityStatic {
-    public static final BdUniqueId dzp = BdUniqueId.gen();
+    public static final BdUniqueId dzm = BdUniqueId.gen();
 
     static {
         TbadkApplication.getInst().RegisterIntent(GroupSettingActivityConfig.class, GroupSettingActivity.class);
@@ -87,7 +87,7 @@ public class GroupActivityStatic {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                     absDelegateAdapterList.add(new e(null, GroupInfoData.TYPE_FRS_GROUP));
                     absDelegateAdapterList.add(new com.baidu.tieba.im.frsgroup.a(null, GroupPermData.TYPE_FRS_CREATE_GROUP));
-                    absDelegateAdapterList.add(new g(null, h.dYp));
+                    absDelegateAdapterList.add(new g(null, h.dYm));
                 }
             }
         });
@@ -97,7 +97,7 @@ public class GroupActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof y)) {
                     d dVar = new d();
-                    dVar.setTag(GroupActivityStatic.dzp);
+                    dVar.setTag(GroupActivityStatic.dzm);
                     ((y) customResponsedMessage.getData()).a(4, dVar);
                 }
             }

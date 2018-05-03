@@ -18,8 +18,8 @@ import com.baidu.tieba.d;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a eSM;
-    private CustomMessageListener eSN = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a eSJ;
+    private CustomMessageListener eSK = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,8 +27,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.eSM.aSz()) {
-                    CollectTabActivity.this.eSM.iP(z);
+                if (i != -1 && i == CollectTabActivity.this.eSJ.aSz()) {
+                    CollectTabActivity.this.eSJ.iP(z);
                 }
             }
         }
@@ -39,8 +39,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.i.collect_tab_activity);
-        this.eSM = new a(this);
-        registerListener(this.eSN);
+        this.eSJ = new a(this);
+        registerListener(this.eSK);
         aSy();
         Q(getIntent());
     }
@@ -57,19 +57,19 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        this.eSM.ah(aVar.px());
+        this.eSJ.ah(aVar.px());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.eSM.onChangeSkinType(i);
+        this.eSJ.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.eSM.aSB()) {
-            this.eSM.iO(!this.eSM.aSC());
+        if (view2 == this.eSJ.aSB()) {
+            this.eSJ.iO(!this.eSJ.aSC());
         }
     }
 
@@ -93,7 +93,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment aSA = this.eSM.aSA();
+        Fragment aSA = this.eSJ.aSA();
         if (aSA != null) {
             aSA.onActivityResult(i, i2, intent);
         }

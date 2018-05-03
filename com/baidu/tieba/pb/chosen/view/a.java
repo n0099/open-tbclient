@@ -26,7 +26,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.pb.chosen.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0190a {
-        TbImageView etV;
+        TbImageView etS;
     }
 
     public a(Context context) {
@@ -114,7 +114,7 @@ public class a extends BaseAdapter {
         if (view2 == null || !(view2.getTag() instanceof C0190a)) {
             view2 = LayoutInflater.from(this.context).inflate(d.i.chosen_pb_image_item, (ViewGroup) null);
             c0190a = new C0190a();
-            c0190a.etV = (TbImageView) view2.findViewById(d.g.pb_chosen_list_image);
+            c0190a.etS = (TbImageView) view2.findViewById(d.g.pb_chosen_list_image);
             view2.setTag(c0190a);
         } else {
             c0190a = (C0190a) view2.getTag();
@@ -122,11 +122,11 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.fvz) || "1".equals(eVar.fvz)) {
-                c0190a.etV.setVisibility(8);
+            if (StringUtils.isNull(eVar.fvw) || "1".equals(eVar.fvw)) {
+                c0190a.etS.setVisibility(8);
             } else {
-                c0190a.etV.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0190a.etV.getLayoutParams();
+                c0190a.etS.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0190a.etS.getLayoutParams();
                 int i2 = this.maxWidth;
                 int qK = eVar.qK(i2);
                 if (layoutParams == null) {
@@ -135,8 +135,8 @@ public class a extends BaseAdapter {
                     layoutParams.height = qK;
                     layoutParams.width = i2;
                 }
-                c0190a.etV.setLayoutParams(layoutParams);
-                c0190a.etV.startLoad(eVar.getSrc(), 17, false);
+                c0190a.etS.setLayoutParams(layoutParams);
+                c0190a.etS.startLoad(eVar.getSrc(), 17, false);
             }
         }
         return view2;

@@ -4,59 +4,59 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId cUO = BdUniqueId.gen();
-    private String cUR;
-    private String cUS;
-    private int cUP = -1;
+    public static final BdUniqueId cUL = BdUniqueId.gen();
+    private String cUO;
+    private String cUP;
+    private int cUM = -1;
+    private int cUN = -1;
     private int cUQ = -1;
-    private int cUT = -1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return cUO;
+        return cUL;
     }
 
     public int aol() {
-        return this.cUP;
+        return this.cUM;
     }
 
     public void jS(int i) {
-        this.cUP = i;
+        this.cUM = i;
     }
 
     public int aom() {
-        return this.cUT;
-    }
-
-    public void jT(int i) {
-        this.cUT = i;
-    }
-
-    public int aon() {
         return this.cUQ;
     }
 
-    public void jU(int i) {
+    public void jT(int i) {
         this.cUQ = i;
     }
 
+    public int aon() {
+        return this.cUN;
+    }
+
+    public void jU(int i) {
+        this.cUN = i;
+    }
+
     public String aoo() {
-        return this.cUR;
+        return this.cUO;
     }
 
     public void lC(String str) {
-        this.cUR = str;
+        this.cUO = str;
     }
 
     public String aop() {
-        return this.cUS;
+        return this.cUP;
     }
 
     public void lD(String str) {
-        this.cUS = str;
+        this.cUP = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.cUR) || StringUtils.isNull(this.cUS) || this.cUP < 0 || this.cUQ < 0;
+        return StringUtils.isNull(this.cUO) || StringUtils.isNull(this.cUP) || this.cUM < 0 || this.cUN < 0;
     }
 }

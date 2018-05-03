@@ -13,31 +13,31 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class a {
     private String Xu;
-    private InterfaceC0234a hdD;
-    private com.baidu.tieba.write.a.a hdE;
+    private InterfaceC0234a hdA;
+    private com.baidu.tieba.write.a.a hdB;
     private BdUniqueId mBdUniqueId;
-    private HttpMessageListener hdF = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
+    private HttpMessageListener hdC = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AddLinkResponseMessage) {
                 AddLinkResponseMessage addLinkResponseMessage = (AddLinkResponseMessage) httpResponsedMessage;
                 e.fw().removeCallbacks(a.this.bdt);
-                if (a.this.hdD != null) {
+                if (a.this.hdA != null) {
                     if (addLinkResponseMessage.getAddLinkResponseData() == null) {
                         com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-                        aVar.hdb = false;
+                        aVar.hcY = false;
                         aVar.linkUrl = a.this.Xu;
-                        aVar.hdc = 1;
-                        a.this.hdE = aVar;
+                        aVar.hcZ = 1;
+                        a.this.hdB = aVar;
                     } else {
-                        a.this.hdE = addLinkResponseMessage.getAddLinkResponseData();
-                        if (!a.this.hdE.hdb) {
-                            a.this.hdE.linkUrl = a.this.Xu;
-                            a.this.hdE.hdc = 1;
+                        a.this.hdB = addLinkResponseMessage.getAddLinkResponseData();
+                        if (!a.this.hdB.hcY) {
+                            a.this.hdB.linkUrl = a.this.Xu;
+                            a.this.hdB.hcZ = 1;
                         }
                     }
-                    a.this.hdD.a(a.this.hdE);
+                    a.this.hdA.a(a.this.hdB);
                 }
             }
         }
@@ -47,12 +47,12 @@ public class a {
         public void run() {
             a.this.bCh();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-            aVar.hdb = false;
+            aVar.hcY = false;
             aVar.linkUrl = a.this.Xu;
-            aVar.hdc = 1;
-            a.this.hdE = aVar;
-            if (a.this.hdD != null) {
-                a.this.hdD.a(a.this.hdE);
+            aVar.hcZ = 1;
+            a.this.hdB = aVar;
+            if (a.this.hdA != null) {
+                a.this.hdA.a(a.this.hdB);
             }
         }
     };
@@ -65,8 +65,8 @@ public class a {
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.hdF.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.hdF);
+        this.hdC.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.hdC);
     }
 
     public void uL(String str) {
@@ -89,15 +89,15 @@ public class a {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.hdF);
+        MessageManager.getInstance().unRegisterListener(this.hdC);
         e.fw().removeCallbacks(this.bdt);
     }
 
     public void a(InterfaceC0234a interfaceC0234a) {
-        this.hdD = interfaceC0234a;
+        this.hdA = interfaceC0234a;
     }
 
     public com.baidu.tieba.write.a.a bCi() {
-        return this.hdE;
+        return this.hdB;
     }
 }

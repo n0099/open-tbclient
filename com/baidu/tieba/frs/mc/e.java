@@ -20,56 +20,56 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    private j cYD;
-    private CustomMessageListener dnL = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.frs.mc.e.3
+    private j cYA;
+    private CustomMessageListener dnI = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.frs.mc.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.i(customResponsedMessage);
         }
     };
-    private CustomMessageListener dnM = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.frs.mc.e.4
+    private CustomMessageListener dnJ = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.frs.mc.e.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.h(customResponsedMessage);
         }
     };
-    private CustomMessageListener dnN = new CustomMessageListener(2016553) { // from class: com.baidu.tieba.frs.mc.e.5
+    private CustomMessageListener dnK = new CustomMessageListener(2016553) { // from class: com.baidu.tieba.frs.mc.e.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.ml(e.this.g(customResponsedMessage));
-            e.this.cYD.apn().aqt().notifyDataSetChanged();
+            e.this.cYA.apn().aqt().notifyDataSetChanged();
         }
     };
-    private CustomMessageListener dnO = new CustomMessageListener(2016331) { // from class: com.baidu.tieba.frs.mc.e.7
+    private CustomMessageListener dnL = new CustomMessageListener(2016331) { // from class: com.baidu.tieba.frs.mc.e.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && e.this.cYD != null && e.this.cYD.aph() != null && e.this.cYD.aph().atJ() != null) {
+            if (customResponsedMessage != null && e.this.cYA != null && e.this.cYA.aph() != null && e.this.cYA.aph().atJ() != null) {
                 String str = (String) customResponsedMessage.getData();
-                e.this.f(str, e.this.cYD.aph().atJ().aVq().getBannerListData().getAllAdvertList());
-                e.this.g(str, e.this.cYD.apn().getListView().getData());
-                e.this.g(str, e.this.cYD.apj().aub().getDataList());
-                e.this.cYD.aph().mk(str);
-                if (e.this.cYD.apn() != null && e.this.cYD.apn().aqt() != null) {
-                    e.this.cYD.apn().aqt().notifyDataSetChanged();
+                e.this.f(str, e.this.cYA.aph().atJ().aVq().getBannerListData().getAllAdvertList());
+                e.this.g(str, e.this.cYA.apn().getListView().getData());
+                e.this.g(str, e.this.cYA.apj().aub().getDataList());
+                e.this.cYA.aph().mk(str);
+                if (e.this.cYA.apn() != null && e.this.cYA.apn().aqt() != null) {
+                    e.this.cYA.apn().aqt().notifyDataSetChanged();
                 }
             }
         }
     };
 
     public e(j jVar, BdUniqueId bdUniqueId) {
-        this.cYD = jVar;
-        this.dnM.setTag(bdUniqueId);
-        this.dnO.setTag(bdUniqueId);
+        this.cYA = jVar;
+        this.dnJ.setTag(bdUniqueId);
         this.dnL.setTag(bdUniqueId);
+        this.dnI.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.dnI);
+        MessageManager.getInstance().registerListener(this.dnJ);
         MessageManager.getInstance().registerListener(this.dnL);
-        MessageManager.getInstance().registerListener(this.dnM);
-        MessageManager.getInstance().registerListener(this.dnO);
-        this.dnN.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.dnN);
+        this.dnK.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.dnK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -82,10 +82,10 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(CustomResponsedMessage<?> customResponsedMessage) {
-        if (this.cYD != null && this.cYD.aph() != null && this.cYD.aph().atJ() != null) {
+        if (this.cYA != null && this.cYA.aph() != null && this.cYA.aph().atJ() != null) {
             final String g = g(customResponsedMessage);
-            if (!StringUtils.isNull(g) && this.cYD.apn() != null && this.cYD.apn().aqt() != null) {
-                final View childAt = this.cYD.apn().getListView().getChildAt(a(g, this.cYD.apn().getListView()));
+            if (!StringUtils.isNull(g) && this.cYA.apn() != null && this.cYA.apn().aqt() != null) {
+                final View childAt = this.cYA.apn().getListView().getChildAt(a(g, this.cYA.apn().getListView()));
                 if (childAt != null) {
                     a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.1
                         @Override // android.view.animation.Animation.AnimationListener
@@ -98,30 +98,30 @@ public class e {
 
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
-                            if (e.this.cYD != null && e.this.cYD.apn() != null && e.this.cYD.apn().getListView() != null && e.this.cYD.apn().aqt() != null) {
-                                e.this.cYD.apn().getListView().removeView(childAt);
+                            if (e.this.cYA != null && e.this.cYA.apn() != null && e.this.cYA.apn().getListView() != null && e.this.cYA.apn().aqt() != null) {
+                                e.this.cYA.apn().getListView().removeView(childAt);
                                 e.this.ml(g);
-                                e.this.cYD.apn().aqt().notifyDataSetChanged();
+                                e.this.cYA.apn().aqt().notifyDataSetChanged();
                             }
                         }
                     });
                     return;
                 }
                 ml(g);
-                this.cYD.apn().aqt().notifyDataSetChanged();
+                this.cYA.apn().aqt().notifyDataSetChanged();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.cYD != null && this.cYD.aph() != null && this.cYD.aph().atJ() != null) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.cYA != null && this.cYA.aph() != null && this.cYA.aph().atJ() != null) {
             JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
             final String optString = jSONObject.optString("type");
             if (!StringUtils.isNull(optString)) {
                 final String optString2 = jSONObject.optString("tid");
-                if (this.cYD.apn() != null && this.cYD.apn().aqt() != null) {
-                    final View childAt = this.cYD.apn().getListView().getChildAt(a(optString, optString2, this.cYD.apn().getListView()));
+                if (this.cYA.apn() != null && this.cYA.apn().aqt() != null) {
+                    final View childAt = this.cYA.apn().getListView().getChildAt(a(optString, optString2, this.cYA.apn().getListView()));
                     if (childAt != null) {
                         a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.2
                             @Override // android.view.animation.Animation.AnimationListener
@@ -136,15 +136,15 @@ public class e {
                             public void onAnimationEnd(Animation animation) {
                                 e.this.aW(optString, optString2);
                                 childAt.setVisibility(8);
-                                if (e.this.cYD.apn() != null && e.this.cYD.apn().aqt() != null) {
-                                    e.this.cYD.apn().aqt().notifyDataSetChanged();
+                                if (e.this.cYA.apn() != null && e.this.cYA.apn().aqt() != null) {
+                                    e.this.cYA.apn().aqt().notifyDataSetChanged();
                                 }
                             }
                         });
                         return;
                     }
                     aW(optString, optString2);
-                    this.cYD.apn().aqt().notifyDataSetChanged();
+                    this.cYA.apn().aqt().notifyDataSetChanged();
                 }
             }
         }
@@ -152,29 +152,29 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aW(String str, String str2) {
-        ArrayList<com.baidu.adp.widget.ListView.h> threadList = this.cYD.aph().atJ().getThreadList();
+        ArrayList<com.baidu.adp.widget.ListView.h> threadList = this.cYA.aph().atJ().getThreadList();
         a(str, str2, threadList);
-        a(str, str2, this.cYD.apn().getListView().getData());
+        a(str, str2, this.cYA.apn().getListView().getData());
         if (str.equals("ala_frs_stage_live_feed_back_type")) {
-            this.cYD.aph().mi(str2);
+            this.cYA.aph().mi(str2);
         } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
-            this.cYD.aph().mj(str2);
+            this.cYA.aph().mj(str2);
         }
         if (threadList != null && threadList.size() < 5) {
-            this.cYD.Po();
+            this.cYA.Po();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ml(String str) {
         if (!StringUtils.isNull(str)) {
-            ArrayList<com.baidu.adp.widget.ListView.h> threadList = this.cYD.aph().atJ().getThreadList();
+            ArrayList<com.baidu.adp.widget.ListView.h> threadList = this.cYA.aph().atJ().getThreadList();
             e(str, threadList);
-            e(str, this.cYD.apn().getListView().getData());
-            e(str, this.cYD.apj().getDataList());
-            this.cYD.aph().mj(str);
+            e(str, this.cYA.apn().getListView().getData());
+            e(str, this.cYA.apj().getDataList());
+            this.cYA.aph().mj(str);
             if (threadList != null && threadList.size() < 5) {
-                this.cYD.Po();
+                this.cYA.Po();
             }
         }
     }

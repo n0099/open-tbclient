@@ -12,8 +12,8 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String gzV;
-    private String gzW;
+    private String gzS;
+    private String gzT;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
@@ -108,19 +108,19 @@ public class b {
     }
 
     public String btm() {
-        return this.gzV;
+        return this.gzS;
     }
 
     public void ti(String str) {
-        this.gzV = str;
+        this.gzS = str;
     }
 
     public String btn() {
-        return this.gzW;
+        return this.gzT;
     }
 
     public void tj(String str) {
-        this.gzW = str;
+        this.gzT = str;
     }
 
     public CustomDialogData getActivityDialog() {

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tieba.interestlabel.b.a> ese = new ArrayList();
+    private List<com.baidu.tieba.interestlabel.b.a> esb = new ArrayList();
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -20,7 +20,7 @@ public class a extends BaseAdapter {
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
         if (!v.w(list)) {
-            this.ese = list;
+            this.esb = list;
             notifyDataSetChanged();
         }
     }
@@ -31,7 +31,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        int size = this.ese.size();
+        int size = this.esb.size();
         if (size % 3 == 0) {
             return size / 3;
         }
@@ -57,7 +57,7 @@ public class a extends BaseAdapter {
             labelItemView = (LabelItemView) view2;
         }
         int i2 = i * 3;
-        labelItemView.setData(this.ese.subList(i2, Math.min(this.ese.size(), i2 + 3)), i == getCount() + (-1));
+        labelItemView.setData(this.esb.subList(i2, Math.min(this.esb.size(), i2 + 3)), i == getCount() + (-1));
         labelItemView.setOnClickListener(this.mOnClickListener);
         return labelItemView;
     }

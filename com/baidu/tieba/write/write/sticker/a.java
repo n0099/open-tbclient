@@ -5,31 +5,31 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 /* loaded from: classes3.dex */
 public class a {
-    private Bitmap hjr;
+    private Bitmap hjo;
     private Matrix mMatrix = new Matrix();
 
     public a(Bitmap bitmap) {
-        this.hjr = bitmap;
+        this.hjo = bitmap;
     }
 
     public void draw(Canvas canvas) {
         if (canvas != null) {
-            canvas.drawBitmap(this.hjr, this.mMatrix, null);
+            canvas.drawBitmap(this.hjo, this.mMatrix, null);
         }
     }
 
     public int bEs() {
-        if (this.hjr == null) {
+        if (this.hjo == null) {
             return 0;
         }
-        return this.hjr.getWidth();
+        return this.hjo.getWidth();
     }
 
     public int bEt() {
-        if (this.hjr == null) {
+        if (this.hjo == null) {
             return 0;
         }
-        return this.hjr.getHeight();
+        return this.hjo.getHeight();
     }
 
     public Matrix getMatrix() {
@@ -37,6 +37,6 @@ public class a {
     }
 
     public Bitmap bEu() {
-        return this.hjr;
+        return this.hjo;
     }
 }

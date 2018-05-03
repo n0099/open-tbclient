@@ -18,32 +18,32 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
     private final BaseActivity<?> bcJ;
-    private final boolean eBI = true;
-    private ArrayList<ForumSuggestModel.Forum> eBJ;
-    private String eBK;
+    private final boolean eBF = true;
+    private ArrayList<ForumSuggestModel.Forum> eBG;
+    private String eBH;
 
     public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
         this.bcJ = baseActivity;
-        this.eBJ = arrayList;
+        this.eBG = arrayList;
     }
 
     public void Y(ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.eBJ = arrayList;
-        if (this.eBJ != null) {
+        this.eBG = arrayList;
+        if (this.eBG != null) {
             notifyDataSetChanged();
         }
     }
 
     public void oH(String str) {
-        this.eBK = str;
+        this.eBH = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eBJ == null) {
+        if (this.eBG == null) {
             return 0;
         }
-        return this.eBJ.size();
+        return this.eBG.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.eBJ.get(i);
+        return this.eBG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,13 +69,13 @@ public class a extends BaseAdapter {
         if (view2 == null) {
             view2 = LayoutInflater.from(this.bcJ.getPageContext().getPageActivity()).inflate(d.i.square_dialog_search_item, (ViewGroup) null);
             C0179a c0179a2 = new C0179a();
-            c0179a2.eBM = (BarImageView) view2.findViewById(d.g.forum_avatar);
-            c0179a2.eBM.setGifIconSupport(false);
+            c0179a2.eBJ = (BarImageView) view2.findViewById(d.g.forum_avatar);
+            c0179a2.eBJ.setGifIconSupport(false);
             c0179a2.apV = (TextView) view2.findViewById(d.g.name);
-            c0179a2.eBN = (TextView) view2.findViewById(d.g.forum_member_count);
-            c0179a2.eBO = (TextView) view2.findViewById(d.g.forum_thread_count);
-            c0179a2.eBP = (TextView) view2.findViewById(d.g.slogan);
-            c0179a2.eBL = view2.findViewById(d.g.offical_icon);
+            c0179a2.eBK = (TextView) view2.findViewById(d.g.forum_member_count);
+            c0179a2.eBL = (TextView) view2.findViewById(d.g.forum_thread_count);
+            c0179a2.eBM = (TextView) view2.findViewById(d.g.slogan);
+            c0179a2.eBI = view2.findViewById(d.g.offical_icon);
             view2.setTag(c0179a2);
             c0179a = c0179a2;
         } else {
@@ -85,29 +85,29 @@ public class a extends BaseAdapter {
         if (item != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             String str2 = item.avatar;
-            c0179a.eBM.setTag(str2);
-            c0179a.eBM.startLoad(str2, 10, false);
-            c0179a.eBM.invalidate();
-            if (this.eBI) {
+            c0179a.eBJ.setTag(str2);
+            c0179a.eBJ.startLoad(str2, 10, false);
+            c0179a.eBJ.invalidate();
+            if (this.eBF) {
                 str = this.bcJ.getPageContext().getPageActivity().getString(d.k.chosen_pb_original_bar, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
             a(c0179a.apV, str);
-            c0179a.eBM.setTag(item.avatar);
-            c0179a.eBN.setText(this.bcJ.getPageContext().getString(d.k.attention) + " " + oL(item.member_num));
-            c0179a.eBO.setText(this.bcJ.getPageContext().getString(d.k.text_post) + " " + oL(item.thread_num));
-            if (this.eBI || !TextUtils.isEmpty(item.slogan)) {
-                c0179a.eBP.setVisibility(0);
-                c0179a.eBP.setText(item.slogan);
+            c0179a.eBJ.setTag(item.avatar);
+            c0179a.eBK.setText(this.bcJ.getPageContext().getString(d.k.attention) + " " + oL(item.member_num));
+            c0179a.eBL.setText(this.bcJ.getPageContext().getString(d.k.text_post) + " " + oL(item.thread_num));
+            if (this.eBF || !TextUtils.isEmpty(item.slogan)) {
+                c0179a.eBM.setVisibility(0);
+                c0179a.eBM.setText(item.slogan);
             } else {
-                c0179a.eBP.setVisibility(8);
+                c0179a.eBM.setVisibility(8);
             }
             if (item.is_offical == 1) {
-                c0179a.eBL.setVisibility(0);
-                ak.i(c0179a.eBL, d.f.icon_search_official);
+                c0179a.eBI.setVisibility(0);
+                ak.i(c0179a.eBI, d.f.icon_search_official);
             } else {
-                c0179a.eBL.setVisibility(8);
+                c0179a.eBI.setVisibility(8);
             }
             this.bcJ.getLayoutMode().setNightMode(skinType == 1);
             this.bcJ.getLayoutMode().u(view2);
@@ -123,9 +123,9 @@ public class a extends BaseAdapter {
     }
 
     public void a(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.eBK)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.eBH)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.eBK.toLowerCase();
+            String lowerCase2 = this.eBH.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -133,7 +133,7 @@ public class a extends BaseAdapter {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ak.getColor(d.C0126d.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.eBK.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.eBH.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }
@@ -142,11 +142,11 @@ public class a extends BaseAdapter {
     /* loaded from: classes3.dex */
     private class C0179a {
         TextView apV;
-        View eBL;
-        BarImageView eBM;
-        TextView eBN;
-        TextView eBO;
-        TextView eBP;
+        View eBI;
+        BarImageView eBJ;
+        TextView eBK;
+        TextView eBL;
+        TextView eBM;
 
         private C0179a() {
         }

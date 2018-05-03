@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b implements c {
-    private static b eZb;
+    private static b eYY;
 
     private b() {
     }
@@ -18,10 +18,10 @@ public class b implements c {
     public static synchronized b aUD() {
         b bVar;
         synchronized (b.class) {
-            if (eZb == null) {
-                eZb = new b();
+            if (eYY == null) {
+                eYY = new b();
             }
-            bVar = eZb;
+            bVar = eYY;
         }
         return bVar;
     }

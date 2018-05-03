@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.a;
 public interface c {
     void agD();
 
-    void as(int i, int i2);
+    void ar(int i, int i2);
 
     void jv(int i);
 }

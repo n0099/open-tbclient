@@ -9,6 +9,9 @@ import com.baidu.tbadk.core.util.v;
 /* loaded from: classes2.dex */
 public class k extends c {
     public bd threadData;
+    public static String crK = "";
+    public static String crL = "";
+    public static String crM = "";
     public static String crN = "";
     public static String crO = "";
     public static String crP = "";
@@ -17,17 +20,14 @@ public class k extends c {
     public static String crS = "";
     public static String crT = "";
     public static String crU = "";
-    public static String crV = "";
-    public static String crW = "";
-    public static String crX = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId crY = BdUniqueId.gen();
+    public static final BdUniqueId crV = BdUniqueId.gen();
     public static final BdUniqueId ZI = BdUniqueId.gen();
     public static final BdUniqueId ZO = BdUniqueId.gen();
-    public static final BdUniqueId crZ = BdUniqueId.gen();
-    public boolean csa = false;
+    public static final BdUniqueId crW = BdUniqueId.gen();
+    public boolean crX = false;
     public boolean isLinkThread = false;
-    public boolean csb = false;
+    public boolean crY = false;
     public boolean aEf = true;
 
     public static boolean N(bd bdVar) {
@@ -42,8 +42,8 @@ public class k extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.csa) {
-            return crY;
+        if (this.crX) {
+            return crV;
         }
         if (this.isLinkThread) {
             return ZI;
@@ -52,7 +52,7 @@ public class k extends c {
             return ZO;
         }
         if (this.threadData.getType() == bd.ZQ) {
-            return crZ;
+            return crW;
         }
         return TYPE;
     }
@@ -68,7 +68,7 @@ public class k extends c {
 
     public al afS() {
         bd Pe;
-        if (this.csa) {
+        if (this.crX) {
             al alVar = new al("c11003");
             if (Pe() != null && (Pe = Pe()) != null) {
                 alVar.ac("tid", Pe.getTid());
@@ -78,7 +78,7 @@ public class k extends c {
             }
             return alVar;
         } else if (afR()) {
-            al kA = kA(crS);
+            al kA = kA(crP);
             if (kA != null && Pe() != null) {
                 bd Pe2 = Pe();
                 kA.r("obj_name", Pe2.tc() != null && (Pe2.tc().bsb() != null || Pe2.tc().JR() != null) ? 1 : 0);
@@ -88,7 +88,7 @@ public class k extends c {
             }
             return kA;
         } else {
-            al kA2 = kA(crN);
+            al kA2 = kA(crK);
             if (kA2 != null) {
                 kA2.ac("ab_tag", afK()).ac("ab_action", "show");
                 if (Pe() != null) {
@@ -96,7 +96,7 @@ public class k extends c {
                     boolean z = (Pe3.tc() == null || (Pe3.tc().bsb() == null && Pe3.tc().JR() == null)) ? false : true;
                     kA2.r("obj_name", z ? 1 : 0);
                     if (z && Pe3.tc().bsb() != null && Pe3.tc().bsb().JJ() != null && Pe3.tc().bsb().JJ().size() > 0) {
-                        kA2.r("obj_to", Pe3.tc().gxa ? 2 : 1);
+                        kA2.r("obj_to", Pe3.tc().gwX ? 2 : 1);
                     }
                     if (Pe3.rQ() != null) {
                         kA2.r("ab_type", Pe3.rQ().hadConcerned() ? 1 : 0);
@@ -133,7 +133,7 @@ public class k extends c {
                 boolean z = (Pe.tc() == null || (Pe.tc().bsb() == null && Pe.tc().JR() == null)) ? false : true;
                 kA.r("obj_name", z ? 1 : 0);
                 if (z && Pe.tc().bsb() != null && Pe.tc().bsb().JJ() != null && Pe.tc().bsb().JJ().size() > 0) {
-                    kA.r("obj_to", Pe.tc().gxa ? 2 : 1);
+                    kA.r("obj_to", Pe.tc().gwX ? 2 : 1);
                 }
             }
         }
@@ -150,6 +150,42 @@ public class k extends c {
 
     public al afT() {
         if (afR()) {
+            return kA(crQ);
+        }
+        al kA = kA(crL);
+        if (kA != null) {
+            kA.ac("ab_tag", afK()).ac("ab_action", "click");
+            return kA;
+        }
+        return kA;
+    }
+
+    public al afU() {
+        if (afR()) {
+            return kA(crR);
+        }
+        al U = U(crM, 0);
+        if (U != null) {
+            U.ac("ab_tag", afK()).ac("ab_action", "click");
+            return U;
+        }
+        return U;
+    }
+
+    public al afV() {
+        if (afR()) {
+            return kA(crS);
+        }
+        al kA = kA(crN);
+        if (kA != null) {
+            kA.ac("ab_tag", afK()).ac("ab_action", "click");
+            return kA;
+        }
+        return kA;
+    }
+
+    public al afW() {
+        if (afR()) {
             return kA(crT);
         }
         al kA = kA(crO);
@@ -160,44 +196,8 @@ public class k extends c {
         return kA;
     }
 
-    public al afU() {
-        if (afR()) {
-            return kA(crU);
-        }
-        al U = U(crP, 0);
-        if (U != null) {
-            U.ac("ab_tag", afK()).ac("ab_action", "click");
-            return U;
-        }
-        return U;
-    }
-
-    public al afV() {
-        if (afR()) {
-            return kA(crV);
-        }
-        al kA = kA(crQ);
-        if (kA != null) {
-            kA.ac("ab_tag", afK()).ac("ab_action", "click");
-            return kA;
-        }
-        return kA;
-    }
-
-    public al afW() {
-        if (afR()) {
-            return kA(crW);
-        }
-        al kA = kA(crR);
-        if (kA != null) {
-            kA.ac("ab_tag", afK()).ac("ab_action", "click");
-            return kA;
-        }
-        return kA;
-    }
-
     public al afX() {
-        return kA(crX);
+        return kA(crU);
     }
 
     public al kF(String str) {

@@ -8,7 +8,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes2.dex */
 public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int enO;
+    private int enL;
     private String ids;
     private int mPn = 1;
 
@@ -20,17 +20,17 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.enO = 4;
+        this.enL = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.enO = 1;
+        this.enL = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.enO;
+        return this.enL;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -42,7 +42,7 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst().getApp())));
-        if (this.enO == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.enL == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;

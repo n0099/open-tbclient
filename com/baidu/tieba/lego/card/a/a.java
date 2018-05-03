@@ -8,13 +8,13 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.f;
 /* loaded from: classes.dex */
 public abstract class a<T extends q.a> extends com.baidu.adp.widget.ListView.a<ICardInfo, T> implements f {
-    protected int evs;
+    protected int evp;
 
     protected a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
     }
 
     public void setBusinessType(int i) {
-        this.evs = i;
+        this.evp = i;
     }
 }

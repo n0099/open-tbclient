@@ -21,13 +21,13 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d dWh;
+    private static d dWe;
 
     public static d aCZ() {
-        if (dWh == null) {
-            dWh = new d();
+        if (dWe == null) {
+            dWe = new d();
         }
-        return dWh;
+        return dWe;
     }
 
     public void nl(String str) {

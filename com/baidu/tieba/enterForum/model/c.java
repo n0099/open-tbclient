@@ -12,30 +12,30 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
     private TbPageContext<?> adf;
-    private ViewEventCenter cGR;
-    private SoftReference<ForumEditView> cII;
-    private com.baidu.tieba.enterForum.a.b cIJ;
+    private ViewEventCenter cGO;
+    private SoftReference<ForumEditView> cIF;
+    private com.baidu.tieba.enterForum.a.b cIG;
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
         this.adf = tbPageContext;
-        this.cGR = viewEventCenter;
+        this.cGO = viewEventCenter;
     }
 
     public ForumEditView alj() {
-        if (this.cII == null) {
+        if (this.cIF == null) {
             return null;
         }
-        return this.cII.get();
+        return this.cIF.get();
     }
 
     public void createView() {
         ForumEditView forumEditView = new ForumEditView(this.adf.getPageActivity());
-        forumEditView.setEventCenter(this.cGR);
-        this.cII = new SoftReference<>(forumEditView);
+        forumEditView.setEventCenter(this.cGO);
+        this.cIF = new SoftReference<>(forumEditView);
     }
 
     public List<f> getDataList() {
-        return TbadkCoreApplication.getInst().getSkinType() != 2 ? f(this.cIJ.getDataList(), false) : this.cIJ.getDataList();
+        return TbadkCoreApplication.getInst().getSkinType() != 2 ? f(this.cIG.getDataList(), false) : this.cIG.getDataList();
     }
 
     public void b(f fVar) {
@@ -43,16 +43,16 @@ public class c {
         if (dataList != null) {
             dataList.remove(fVar);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.cIJ.F(f(dataList, true));
+                this.cIG.F(f(dataList, true));
             } else {
-                this.cIJ.F(dataList);
+                this.cIG.F(dataList);
             }
         }
     }
 
     public void aM(List<f> list) {
         ForumEditView forumEditView;
-        if (this.cII != null && list != null && (forumEditView = this.cII.get()) != null) {
+        if (this.cIF != null && list != null && (forumEditView = this.cIF.get()) != null) {
             forumEditView.setColumnTypeAndRefeshView();
             aN(list);
         }
@@ -80,33 +80,33 @@ public class c {
     }
 
     public void aN(List<f> list) {
-        ForumEditView forumEditView = this.cII.get();
+        ForumEditView forumEditView = this.cIF.get();
         if (forumEditView != null) {
-            if (this.cIJ == null) {
+            if (this.cIG == null) {
                 alk();
             }
-            forumEditView.setGridAdapterIfNeeded(this.cIJ);
+            forumEditView.setGridAdapterIfNeeded(this.cIG);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.cIJ.F(f(list, true));
+                this.cIG.F(f(list, true));
             } else {
-                this.cIJ.F(list);
+                this.cIG.F(list);
             }
-            this.cIJ.b(this.adf, TbadkCoreApplication.getInst().getSkinType());
+            this.cIG.b(this.adf, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void alk() {
-        this.cIJ = new com.baidu.tieba.enterForum.a.b(this.adf, com.baidu.tieba.enterForum.view.c.class, d.i.home_like_item_in_edit_grid, this.cGR);
-        this.cIJ.bP(false);
+        this.cIG = new com.baidu.tieba.enterForum.a.b(this.adf, com.baidu.tieba.enterForum.view.c.class, d.i.home_like_item_in_edit_grid, this.cGO);
+        this.cIG.bP(false);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.cII.get() != null) {
-                this.cII.get().onChangeSkinType(tbPageContext);
+            if (this.cIF.get() != null) {
+                this.cIF.get().onChangeSkinType(tbPageContext);
             }
-            if (this.cIJ != null) {
-                this.cIJ.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+            if (this.cIG != null) {
+                this.cIG.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

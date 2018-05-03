@@ -17,19 +17,19 @@ import com.baidu.tieba.card.v;
 public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baidu.tieba.a.f {
     public BdUniqueId aTr;
     private String bvX;
-    private ab dAS;
-    private com.baidu.tieba.homepage.concern.view.c dBj;
+    private ab dAP;
+    private com.baidu.tieba.homepage.concern.view.c dBg;
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dAS = new ab<l>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
+        this.dAP = new ab<l>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, l lVar) {
-                if (view2 != null && h.this.dBj != null && h.this.dBj.getView() != null && lVar != null && lVar.Pe() != null && !StringUtils.isNull(lVar.Pe().getTid())) {
+                if (view2 != null && h.this.dBg != null && h.this.dBg.getView() != null && lVar != null && lVar.Pe() != null && !StringUtils.isNull(lVar.Pe().getTid())) {
                     al alVar = new al("c12352");
-                    if ((h.this.dBj.getHeaderImg() != null && view2.getId() == h.this.dBj.getHeaderImg().getId()) || (h.this.dBj.afc() != null && view2.getId() == h.this.dBj.afc().getId())) {
+                    if ((h.this.dBg.getHeaderImg() != null && view2.getId() == h.this.dBg.getHeaderImg().getId()) || (h.this.dBg.afc() != null && view2.getId() == h.this.dBg.afc().getId())) {
                         alVar.r("obj_locate", 1);
                     } else {
                         alVar.r("obj_locate", 2);
@@ -50,11 +50,11 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aN */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.dBj = new com.baidu.tieba.homepage.concern.view.c(this.mPageContext);
+        this.dBg = new com.baidu.tieba.homepage.concern.view.c(this.mPageContext);
         if (this.aTr != null) {
-            this.dBj.j(this.aTr);
+            this.dBg.j(this.aTr);
         }
-        return new a(this.dBj);
+        return new a(this.dBg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,26 +62,26 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l lVar, a aVar) {
-        if (lVar == null || aVar == null || aVar.dBl == null) {
+        if (lVar == null || aVar == null || aVar.dBi == null) {
             return null;
         }
         lVar.iN(i + 1);
         v.afy().a(lVar.kC("c12351"));
-        if (aVar.dBl instanceof com.baidu.tieba.a.e) {
-            aVar.dBl.setPage(this.bvX);
+        if (aVar.dBi instanceof com.baidu.tieba.a.e) {
+            aVar.dBi.setPage(this.bvX);
         }
-        aVar.dBl.a(lVar);
-        aVar.dBl.b(this.dAS);
+        aVar.dBi.a(lVar);
+        aVar.dBi.b(this.dAP);
         return aVar.getView();
     }
 
     /* loaded from: classes2.dex */
     public static class a extends q.a {
-        public com.baidu.tieba.homepage.concern.view.c dBl;
+        public com.baidu.tieba.homepage.concern.view.c dBi;
 
         public a(com.baidu.tieba.homepage.concern.view.c cVar) {
             super(cVar.getView());
-            this.dBl = cVar;
+            this.dBi = cVar;
         }
     }
 

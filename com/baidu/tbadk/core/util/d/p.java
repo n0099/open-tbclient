@@ -61,8 +61,9 @@ public class p extends a {
         return null;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    protected Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
+    public Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
         return BitmapHelper.Bytes2NineBitmap(bArr, rect, sb);
     }
 

@@ -5,28 +5,28 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class s {
-    private static i fQg = null;
-    private static boolean fQh = true;
-    private static boolean fQi = true;
+    private static i fQd = null;
+    private static boolean fQe = true;
+    private static boolean fQf = true;
 
     private static i bgR() {
-        if (fQg == null) {
-            fQh = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
+        if (fQd == null) {
+            fQe = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016479, i.class);
             if (runTask != null) {
-                fQg = (i) runTask.getData();
+                fQd = (i) runTask.getData();
             }
         }
-        return fQg;
+        return fQd;
     }
 
     public static String P(String str, boolean z) {
         if (z) {
-            if (fQi && bgR() != null) {
+            if (fQf && bgR() != null) {
                 return bgR().o(str, true);
             }
             return str;
-        } else if (fQi && fQh && bgR() != null) {
+        } else if (fQf && fQe && bgR() != null) {
             return bgR().hP(str);
         } else {
             return str;
@@ -53,13 +53,13 @@ public class s {
     }
 
     public static void Z(Context context, String str) {
-        if (fQi && fQh && bgR() != null) {
+        if (fQf && fQe && bgR() != null) {
             bgR().Z(context, str);
         }
     }
 
     public static void hR(String str) {
-        if (fQi && fQh && bgR() != null) {
+        if (fQf && fQe && bgR() != null) {
             bgR().hR(str);
         }
     }
@@ -71,10 +71,10 @@ public class s {
     }
 
     public static void lv(boolean z) {
-        fQh = z;
+        fQe = z;
     }
 
     public static void bgS() {
-        fQi = com.baidu.adp.lib.b.d.eE().ak("android_video_cache_open") == 1;
+        fQf = com.baidu.adp.lib.b.d.eE().ak("android_video_cache_open") == 1;
     }
 }

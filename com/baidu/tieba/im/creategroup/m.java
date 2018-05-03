@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes3.dex */
 public class m extends BaseAdapter {
-    private GroupAddressLocateActivity dVF;
-    private String[] dVt;
+    private GroupAddressLocateActivity dVC;
+    private String[] dVq;
 
     public m(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
-        this.dVt = null;
-        this.dVF = null;
-        this.dVF = groupAddressLocateActivity;
-        this.dVt = strArr;
+        this.dVq = null;
+        this.dVC = null;
+        this.dVC = groupAddressLocateActivity;
+        this.dVq = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dVt != null) {
-            return this.dVt.length;
+        if (this.dVq != null) {
+            return this.dVq.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.dVt == null || i <= -1 || i >= this.dVt.length) ? "" : this.dVt[i];
+        return (this.dVq == null || i <= -1 || i >= this.dVq.length) ? "" : this.dVq[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,7 +38,7 @@ public class m extends BaseAdapter {
     public View getView(int i, View view2, ViewGroup viewGroup) {
         a aVar;
         if (view2 == null) {
-            aVar = new a(this.dVF);
+            aVar = new a(this.dVC);
             view2 = aVar.acD();
         } else {
             aVar = (a) view2.getTag();
@@ -51,7 +51,7 @@ public class m extends BaseAdapter {
             }
         }
         aVar.mX(getItem(i).toString());
-        if (this.dVF.getSelectedPosition() == i) {
+        if (this.dVC.getSelectedPosition() == i) {
             aVar.gQ(true);
         } else {
             aVar.gQ(false);
@@ -61,7 +61,7 @@ public class m extends BaseAdapter {
     }
 
     private void aA(View view2) {
-        this.dVF.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.dVF.getLayoutMode().u(view2);
+        this.dVC.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.dVC.getLayoutMode().u(view2);
     }
 }

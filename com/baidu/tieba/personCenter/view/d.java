@@ -35,13 +35,13 @@ import com.baidu.tieba.personCenter.data.g;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.e> {
     private TextView bmL;
-    private View dBJ;
-    private ImageView fEK;
-    private ImageView fEL;
-    private TextView fEM;
-    private TextView fEN;
-    private com.baidu.tieba.personCenter.data.e fEO;
-    private ImageView fEy;
+    private View dBG;
+    private ImageView fEH;
+    private ImageView fEI;
+    private TextView fEJ;
+    private TextView fEK;
+    private com.baidu.tieba.personCenter.data.e fEL;
+    private ImageView fEv;
     private int mSkinType;
     private UserData mUserData;
 
@@ -49,27 +49,27 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
         super(tbPageContext);
         this.mSkinType = 3;
         View view2 = getView();
-        this.fEK = (ImageView) view2.findViewById(d.g.function_icon);
-        this.fEL = (ImageView) view2.findViewById(d.g.function_right_arrow);
+        this.fEH = (ImageView) view2.findViewById(d.g.function_icon);
+        this.fEI = (ImageView) view2.findViewById(d.g.function_right_arrow);
         this.bmL = (TextView) view2.findViewById(d.g.function_title);
-        this.dBJ = view2.findViewById(d.g.function_item_bottom_divider);
-        this.fEy = (ImageView) view2.findViewById(d.g.function_red_tip);
-        this.fEM = (TextView) view2.findViewById(d.g.function_desc);
-        this.fEN = (TextView) view2.findViewById(d.g.tbean_num);
+        this.dBG = view2.findViewById(d.g.function_item_bottom_divider);
+        this.fEv = (ImageView) view2.findViewById(d.g.function_red_tip);
+        this.fEJ = (TextView) view2.findViewById(d.g.function_desc);
+        this.fEK = (TextView) view2.findViewById(d.g.tbean_num);
         view2.setOnClickListener(this);
-        this.fEN.setOnClickListener(this);
+        this.fEK.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.fEL.setImageDrawable(ak.u(i, d.f.icon_arrow_gray_right_n));
+            this.fEI.setImageDrawable(ak.u(i, d.f.icon_arrow_gray_right_n));
             ak.h(this.bmL, d.C0126d.cp_cont_b);
-            ak.j(this.dBJ, d.C0126d.cp_bg_line_e);
+            ak.j(this.dBG, d.C0126d.cp_bg_line_e);
             ak.i(getView(), d.f.person_center_action_item_selector);
-            this.fEy.setImageDrawable(ak.u(i, d.f.person_center_red_tip_shape));
-            ak.h(this.fEM, d.C0126d.cp_cont_d);
-            ak.h(this.fEN, d.C0126d.cp_cont_b);
+            this.fEv.setImageDrawable(ak.u(i, d.f.person_center_red_tip_shape));
+            ak.h(this.fEJ, d.C0126d.cp_cont_d);
+            ak.h(this.fEK, d.C0126d.cp_cont_b);
             this.mSkinType = i;
         }
     }
@@ -83,69 +83,69 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personCenter.data.e eVar) {
         if (eVar != null) {
-            this.fEO = eVar;
-            this.mUserData = eVar.fbV;
+            this.fEL = eVar;
+            this.mUserData = eVar.fbS;
             this.bmL.setText(eVar.title);
             if (eVar.iconId != 0) {
-                this.fEK.setVisibility(0);
-                this.fEK.setImageDrawable(ak.u(TbadkCoreApplication.getInst().getSkinType(), eVar.iconId));
+                this.fEH.setVisibility(0);
+                this.fEH.setImageDrawable(ak.u(TbadkCoreApplication.getInst().getSkinType(), eVar.iconId));
             } else {
-                this.fEK.setVisibility(8);
+                this.fEH.setVisibility(8);
             }
             b(eVar);
-            a(eVar.fEf);
+            a(eVar.fEc);
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void b(com.baidu.tieba.personCenter.data.e eVar) {
         LinearLayout.LayoutParams layoutParams;
-        if (this.dBJ.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            layoutParams = (LinearLayout.LayoutParams) this.dBJ.getLayoutParams();
+        if (this.dBG.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            layoutParams = (LinearLayout.LayoutParams) this.dBG.getLayoutParams();
         } else {
             layoutParams = new LinearLayout.LayoutParams(-1, -2);
         }
-        if (eVar.fEe) {
+        if (eVar.fEb) {
             layoutParams.height = (int) getContext().getResources().getDimension(d.e.ds12);
         } else {
             layoutParams.height = (int) getContext().getResources().getDimension(d.e.ds1);
         }
-        this.dBJ.setLayoutParams(layoutParams);
+        this.dBG.setLayoutParams(layoutParams);
     }
 
     private void a(g gVar) {
         if (gVar != null) {
-            if (gVar.fEj) {
-                this.fEy.setVisibility(0);
+            if (gVar.fEg) {
+                this.fEv.setVisibility(0);
             } else {
-                this.fEy.setVisibility(8);
+                this.fEv.setVisibility(8);
             }
-            if (!StringUtils.isNull(gVar.fEm)) {
-                this.fEM.setVisibility(0);
-                this.fEM.setText(gVar.fEm);
+            if (!StringUtils.isNull(gVar.fEj)) {
+                this.fEJ.setVisibility(0);
+                this.fEJ.setText(gVar.fEj);
             } else {
-                this.fEM.setVisibility(8);
+                this.fEJ.setVisibility(8);
             }
-            if (gVar.fEk) {
-                this.fEN.setVisibility(0);
-                this.fEN.setText(an.H(gVar.fEl));
-                this.fEN.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(d.f.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
+            if (gVar.fEh) {
+                this.fEK.setVisibility(0);
+                this.fEK.setText(an.H(gVar.fEi));
+                this.fEK.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(d.f.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
                 return;
             }
-            this.fEN.setVisibility(8);
+            this.fEK.setVisibility(8);
             return;
         }
-        this.fEy.setVisibility(8);
-        this.fEM.setVisibility(8);
-        this.fEN.setVisibility(8);
+        this.fEv.setVisibility(8);
+        this.fEJ.setVisibility(8);
+        this.fEK.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 != null) {
             if (view2.getId() == getView().getId()) {
-                if (this.fEO.type == 36 && "游戏".equals(this.fEO.title) && this.clO != null) {
-                    this.clO.a(view2, this.fEO);
+                if (this.fEL.type == 36 && "游戏".equals(this.fEL.title) && this.clL != null) {
+                    this.clL.a(view2, this.fEL);
                     return;
                 } else {
                     bdO();
@@ -157,7 +157,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     }
 
     private void bdO() {
-        switch (this.fEO.type) {
+        switch (this.fEL.type) {
             case 10:
                 com.baidu.tieba.n.a.bkt().b(1, false, true);
                 TiebaStatic.log(new al("c12523").r("obj_locate", 13));
@@ -168,8 +168,8 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 return;
             case 11:
                 TiebaStatic.log(new al("c12523").r("obj_locate", 16));
-                if (!StringUtils.isNull(this.fEO.dwY)) {
-                    ax.wg().c(this.mTbPageContext, new String[]{this.fEO.dwY});
+                if (!StringUtils.isNull(this.fEL.dwV)) {
+                    ax.wg().c(this.mTbPageContext, new String[]{this.fEL.dwV});
                     return;
                 }
                 return;
@@ -235,19 +235,19 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 return;
             case 33:
                 TiebaStatic.log(new al("c12523").r("obj_locate", 21));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonMoreActivityConfig(this.mTbPageContext.getPageActivity(), this.fEO.fEg)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonMoreActivityConfig(this.mTbPageContext.getPageActivity(), this.fEL.fEd)));
                 return;
             case 36:
-                TiebaStatic.log(new al("c12524").r("obj_locate", this.fEO.itemId));
-                qZ(this.fEO.dwY);
+                TiebaStatic.log(new al("c12524").r("obj_locate", this.fEL.itemId));
+                qZ(this.fEL.dwV);
                 return;
             case 37:
                 TiebaStatic.log(new al("c12523").r("obj_locate", 24));
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_has_borrow_cash_clicked", true);
-                if (this.fEO.fEf != null) {
-                    this.fEO.fEf.fEj = false;
+                if (this.fEL.fEc != null) {
+                    this.fEL.fEc.fEg = false;
                 }
-                this.fEy.setVisibility(8);
+                this.fEv.setVisibility(8);
                 if (TbadkCoreApplication.getInst().appResponseToCmd(2001447)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2001447, "https://icash.baidu.com/cloan/index?na=postbarapp&CH=postbarapp&fr=bdbar_and&hideShare=1"));
                     return;
@@ -279,7 +279,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     }
 
     private void bn(View view2) {
-        if (view2 == this.fEN) {
+        if (view2 == this.fEK) {
             BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.mTbPageContext.getPageActivity(), 0L);
             buyTBeanActivityConfig.setReferPageAndClickZone("personal_center_V8.9", "T_recharge_V8.9");
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));

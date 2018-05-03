@@ -19,6 +19,6 @@ public class a {
     public a(BaseActivity baseActivity) {
         this.mAdapters.add(new e(baseActivity.getPageContext(), GroupInfoData.TYPE_FRS_GROUP));
         this.mAdapters.add(new com.baidu.tieba.im.frsgroup.a(baseActivity.getPageContext(), GroupPermData.TYPE_FRS_CREATE_GROUP));
-        this.mAdapters.add(new g(baseActivity.getPageContext(), h.dYp));
+        this.mAdapters.add(new g(baseActivity.getPageContext(), h.dYm));
     }
 }

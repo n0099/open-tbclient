@@ -19,15 +19,15 @@ import com.baidu.tieba.card.data.f;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.card.a<f> {
-    private c coa;
-    public ClickableHeaderImageView duI;
-    public CommonUserLikeButton dza;
-    private TextView dzb;
-    private TextView dzc;
-    private TextView dzd;
-    private Drawable dze;
-    private MetaData dzf;
-    private f dzg;
+    private c cnX;
+    public ClickableHeaderImageView duF;
+    public CommonUserLikeButton dyX;
+    private TextView dyY;
+    private TextView dyZ;
+    private TextView dza;
+    private Drawable dzb;
+    private MetaData dzc;
+    private f dzd;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -35,17 +35,17 @@ public class a extends com.baidu.tieba.card.a<f> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.duI = (ClickableHeaderImageView) getView().findViewById(d.g.god_header_view);
-        this.duI.setGodIconMargin(d.e.ds4);
-        this.duI.setAfterClickListener(this);
-        this.dzc = (TextView) getView().findViewById(d.g.god_name);
-        this.dzd = (TextView) getView().findViewById(d.g.god_describe);
-        this.dza = (CommonUserLikeButton) getView().findViewById(d.g.god_like_btn);
-        this.coa = new c(tbPageContext, this.dza);
-        this.dza.setAfterOnClickListener(this);
+        this.duF = (ClickableHeaderImageView) getView().findViewById(d.g.god_header_view);
+        this.duF.setGodIconMargin(d.e.ds4);
+        this.duF.setAfterClickListener(this);
+        this.dyZ = (TextView) getView().findViewById(d.g.god_name);
+        this.dza = (TextView) getView().findViewById(d.g.god_describe);
+        this.dyX = (CommonUserLikeButton) getView().findViewById(d.g.god_like_btn);
+        this.cnX = new c(tbPageContext, this.dyX);
+        this.dyX.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(d.g.bottom_line);
-        this.dzb = (TextView) getView().findViewById(d.g.god_rank);
-        this.dze = this.mPageContext.getResources().getDrawable(d.f.transparent_bg);
+        this.dyY = (TextView) getView().findViewById(d.g.god_rank);
+        this.dzb = this.mPageContext.getResources().getDrawable(d.f.transparent_bg);
     }
 
     public void h(BdUniqueId bdUniqueId) {
@@ -57,10 +57,10 @@ public class a extends com.baidu.tieba.card.a<f> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ak.i(getView(), d.f.home_thread_card_item_bg);
-            ak.h(this.dzc, d.C0126d.cp_cont_b);
-            ak.h(this.dzd, d.C0126d.cp_cont_d);
+            ak.h(this.dyZ, d.C0126d.cp_cont_b);
+            ak.h(this.dza, d.C0126d.cp_cont_d);
             ak.j(this.mBottomLine, d.C0126d.cp_bg_line_b);
-            ak.h(this.dzb, d.C0126d.cp_cont_d);
+            ak.h(this.dyY, d.C0126d.cp_cont_d);
         }
         this.mSkinType = i;
     }
@@ -74,13 +74,13 @@ public class a extends com.baidu.tieba.card.a<f> {
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
         if (fVar != null && fVar.aae != null && fVar.aae.getGodUserData() != null) {
-            this.dzg = fVar;
-            this.dzf = fVar.aae;
+            this.dzd = fVar;
+            this.dzc = fVar.aae;
             lS(fVar.rank);
-            this.duI.setData(fVar.aae);
-            this.dzc.setText(fVar.aae.getName_show());
-            this.dzd.setText(fVar.aae.getGodUserData().getIntro());
-            this.coa.a(fVar.aae);
+            this.duF.setData(fVar.aae);
+            this.dyZ.setText(fVar.aae.getName_show());
+            this.dza.setText(fVar.aae.getGodUserData().getIntro());
+            this.cnX.a(fVar.aae);
             d(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -89,25 +89,25 @@ public class a extends com.baidu.tieba.card.a<f> {
         String str;
         switch (i) {
             case 1:
-                this.dzb.setText("");
-                ak.i(this.dzb, d.f.icon_grade_round_no1);
+                this.dyY.setText("");
+                ak.i(this.dyY, d.f.icon_grade_round_no1);
                 return;
             case 2:
-                this.dzb.setText("");
-                ak.i(this.dzb, d.f.icon_grade_round_no2);
+                this.dyY.setText("");
+                ak.i(this.dyY, d.f.icon_grade_round_no2);
                 return;
             case 3:
-                this.dzb.setText("");
-                ak.i(this.dzb, d.f.icon_grade_round_no3);
+                this.dyY.setText("");
+                ak.i(this.dyY, d.f.icon_grade_round_no3);
                 return;
             default:
-                this.dzb.setBackgroundDrawable(this.dze);
+                this.dyY.setBackgroundDrawable(this.dzb);
                 if (i < 100) {
                     str = String.format("%02d", Integer.valueOf(i));
                 } else {
                     str = i + "";
                 }
-                this.dzb.setText(str);
+                this.dyY.setText(str);
                 return;
         }
     }
@@ -115,10 +115,10 @@ public class a extends com.baidu.tieba.card.a<f> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (aeZ() != null) {
-            aeZ().a(view2, this.dzg);
+            aeZ().a(view2, this.dzd);
         }
-        if (view2 == getView() && this.dzf != null && !StringUtils.isNull(this.dzf.getName_show()) && !StringUtils.isNull(this.dzf.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(this.dzf.getUserId(), 0L), false, this.dzf.isBigV())));
+        if (view2 == getView() && this.dzc != null && !StringUtils.isNull(this.dzc.getName_show()) && !StringUtils.isNull(this.dzc.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(this.dzc.getUserId(), 0L), false, this.dzc.isBigV())));
         }
     }
 }

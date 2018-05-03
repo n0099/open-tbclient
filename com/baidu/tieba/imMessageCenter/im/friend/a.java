@@ -14,20 +14,20 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
     private ArrayList<BlackListItemData> adv;
-    private View.OnClickListener bMw = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
+    private View.OnClickListener bMv = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Object tag = view2.getTag();
             if (tag != null && (tag instanceof BlackListItemData)) {
-                a.this.ekP.a(view2, (BlackListItemData) tag);
+                a.this.ekM.a(view2, (BlackListItemData) tag);
             }
         }
     };
-    private IMBlackListActivity ekP;
+    private IMBlackListActivity ekM;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.ekP = iMBlackListActivity;
+        this.ekM = iMBlackListActivity;
     }
 
     public void setData(ArrayList<BlackListItemData> arrayList) {
@@ -78,13 +78,13 @@ public class a extends BaseAdapter {
 
     private C0166a aHI() {
         C0166a c0166a = new C0166a();
-        c0166a.rootView = LayoutInflater.from(this.ekP.getPageContext().getContext()).inflate(d.i.im_black_list_item, (ViewGroup) null);
-        c0166a.ekR = (HeadImageView) c0166a.rootView.findViewById(d.g.header_view);
-        c0166a.ekR.setIsRound(true);
-        c0166a.bGp = (TextView) c0166a.rootView.findViewById(d.g.user_name);
-        c0166a.ekS = (Button) c0166a.rootView.findViewById(d.g.remove_button);
+        c0166a.rootView = LayoutInflater.from(this.ekM.getPageContext().getContext()).inflate(d.i.im_black_list_item, (ViewGroup) null);
+        c0166a.ekO = (HeadImageView) c0166a.rootView.findViewById(d.g.header_view);
+        c0166a.ekO.setIsRound(true);
+        c0166a.bGo = (TextView) c0166a.rootView.findViewById(d.g.user_name);
+        c0166a.ekP = (Button) c0166a.rootView.findViewById(d.g.remove_button);
         c0166a.rootView.setTag(c0166a);
-        c0166a.ekS.setOnClickListener(this.bMw);
+        c0166a.ekP.setOnClickListener(this.bMv);
         return c0166a;
     }
 
@@ -96,16 +96,16 @@ public class a extends BaseAdapter {
             c0166a = (C0166a) obj;
         }
         a(c0166a, blackListItemData.aCO());
-        c0166a.bGp.setText(blackListItemData.getUserName());
-        c0166a.ekS.setTag(blackListItemData);
-        this.ekP.getLayoutMode().u(c0166a.rootView);
+        c0166a.bGo.setText(blackListItemData.getUserName());
+        c0166a.ekP.setTag(blackListItemData);
+        this.ekM.getLayoutMode().u(c0166a.rootView);
         return c0166a;
     }
 
     private void a(C0166a c0166a, String str) {
         if (str != null) {
-            c0166a.ekR.setTag(str);
-            c0166a.ekR.startLoad(str, 12, false);
+            c0166a.ekO.setTag(str);
+            c0166a.ekO.startLoad(str, 12, false);
         }
     }
 
@@ -113,9 +113,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.friend.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public class C0166a {
-        public TextView bGp;
-        public HeadImageView ekR;
-        public Button ekS;
+        public TextView bGo;
+        public HeadImageView ekO;
+        public Button ekP;
         public View rootView;
 
         private C0166a() {

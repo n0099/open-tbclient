@@ -14,19 +14,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class c extends b implements ae {
+    private int crA;
+    private String crB;
     private String crC;
-    private int crD;
-    private String crE;
-    private String crF;
+    private String crz;
     private String mExtra;
     private String mSource;
     public String tid;
-    public int crG = 0;
+    public int crD = 0;
     public SparseArray<String> YI = null;
-    private Integer crH = 0;
+    private Integer crE = 0;
 
     public void setWeight(String str) {
-        this.crC = str;
+        this.crz = str;
     }
 
     public void setSource(String str) {
@@ -34,23 +34,23 @@ public abstract class c extends b implements ae {
     }
 
     public void iN(int i) {
-        this.crD = i;
+        this.crA = i;
     }
 
     public void ky(String str) {
-        this.crE = str;
+        this.crB = str;
     }
 
     public int afI() {
-        return this.crD;
+        return this.crA;
     }
 
     public String afJ() {
-        return this.mSource + "#" + this.crD + "#" + this.crE;
+        return this.mSource + "#" + this.crA + "#" + this.crB;
     }
 
     public String getWeight() {
-        return this.crC;
+        return this.crz;
     }
 
     public String getSource() {
@@ -58,15 +58,15 @@ public abstract class c extends b implements ae {
     }
 
     public String afK() {
-        return this.crE;
+        return this.crB;
     }
 
     public String afL() {
-        return this.crF;
+        return this.crC;
     }
 
     public void kz(String str) {
-        this.crF = str;
+        this.crC = str;
     }
 
     public bd Pe() {
@@ -86,11 +86,11 @@ public abstract class c extends b implements ae {
     }
 
     public Integer afM() {
-        return this.crH;
+        return this.crE;
     }
 
     public void c(Integer num) {
-        this.crH = num;
+        this.crE = num;
     }
 
     public al kA(String str) {
@@ -115,7 +115,7 @@ public abstract class c extends b implements ae {
             ac.r("is_vertical", afM().intValue());
         }
         if (Pe.tc() != null && Pe.tc().bsb() != null && Pe.tc().bsb().JJ() != null && Pe.tc().bsb().JJ().size() > 0) {
-            ac.r("obj_to", Pe.tc().gxa ? 2 : 1);
+            ac.r("obj_to", Pe.tc().gwX ? 2 : 1);
         }
         return ac;
     }

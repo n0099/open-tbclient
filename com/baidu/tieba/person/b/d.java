@@ -19,9 +19,9 @@ import java.util.List;
 public class d extends q.a {
     public TextView Tm;
     public int aqQ;
-    public View cxw;
-    public HTypeListView fDd;
-    public e fDe;
+    public View cxt;
+    public HTypeListView fDa;
+    public e fDb;
     public TbPageContext mPageContext;
     public View rootView;
 
@@ -30,15 +30,15 @@ public class d extends q.a {
         this.aqQ = 3;
         this.rootView = view2;
         this.mPageContext = tbPageContext;
-        this.cxw = view2.findViewById(d.g.divider_view_under_photo_album);
+        this.cxt = view2.findViewById(d.g.divider_view_under_photo_album);
         this.Tm = (TextView) view2.findViewById(d.g.text_view_photo_album);
-        this.fDd = (HTypeListView) view2.findViewById(d.g.listview_photo_album);
-        this.fDe = new e(this.mPageContext, this.fDd);
+        this.fDa = (HTypeListView) view2.findViewById(d.g.listview_photo_album);
+        this.fDb = new e(this.mPageContext, this.fDa);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.fDe.setDatas(cS(fVar.getPhotoAlbum()));
+            this.fDb.setDatas(cS(fVar.getPhotoAlbum()));
         }
     }
 
@@ -57,9 +57,9 @@ public class d extends q.a {
         if (this.aqQ != TbadkCoreApplication.getInst().getSkinType()) {
             this.aqQ = TbadkCoreApplication.getInst().getSkinType();
             ak.j(this.rootView, d.C0126d.cp_bg_line_d);
-            ak.j(this.cxw, d.C0126d.cp_bg_line_c);
+            ak.j(this.cxt, d.C0126d.cp_bg_line_c);
             ak.c(this.Tm, d.C0126d.cp_cont_d, 1);
-            this.fDe.notifyDataSetChanged();
+            this.fDb.notifyDataSetChanged();
         }
     }
 }

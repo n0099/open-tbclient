@@ -4,32 +4,32 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private boolean eqa;
+    private boolean epX;
     private boolean isBlockedPic;
     private boolean isLongPic;
-    private String epX = null;
+    private String epU = null;
     private String imageUrl = null;
     private String aVW = null;
     private int width = 0;
     private int height = 0;
-    private String epY = null;
+    private String epV = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
     private int index = -1;
     private long overAllIndex = 0;
-    private String epZ = null;
+    private String epW = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
     public String aJm() {
-        return this.epX;
+        return this.epU;
     }
 
     public String aJn() {
-        return this.epZ;
+        return this.epW;
     }
 
     public int getWidth() {
@@ -49,7 +49,7 @@ public class f {
     }
 
     public String Kf() {
-        return this.epY;
+        return this.epV;
     }
 
     public long getOriginalSize() {
@@ -65,7 +65,7 @@ public class f {
     }
 
     public boolean aJo() {
-        return this.eqa;
+        return this.epX;
     }
 
     public boolean aJp() {
@@ -84,19 +84,19 @@ public class f {
         JSONObject optJSONObject;
         try {
             this.overAllIndex = jSONObject.optLong("overall_index", 0L);
-            this.epZ = jSONObject.optString("post_id");
-            this.eqa = jSONObject.optInt("show_original_btn") == 1;
+            this.epW = jSONObject.optString("post_id");
+            this.epX = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.epX = optJSONObject.optString("id");
+                this.epU = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
                 this.aVW = optJSONObject.optString("big_cdn_src", null);
-                this.epY = optJSONObject.optString("original_src");
+                this.epV = optJSONObject.optString("original_src");
                 this.originalSize = optJSONObject.optInt("size");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("pic_tagname");

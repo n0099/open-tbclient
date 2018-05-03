@@ -47,7 +47,7 @@ public class b extends f<bd, c> implements com.baidu.tieba.frs.e.c {
         } else {
             bitmapDrawable = bdVar.rL() == 2 ? (BitmapDrawable) ak.getDrawable(d.f.icon_notice) : null;
         }
-        ak.i(cVar.dfJ, d.f.frs_top_item_bg);
+        ak.i(cVar.dfG, d.f.frs_top_item_bg);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }

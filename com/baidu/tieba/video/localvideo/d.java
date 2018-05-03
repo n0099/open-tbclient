@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 /* loaded from: classes2.dex */
 public class d {
     private long duration;
-    private String gPs;
+    private String gPp;
     private boolean hasLoaded = false;
     private long lastModified;
     private String mimeType;
@@ -59,7 +59,7 @@ public class d {
     }
 
     public void uc(String str) {
-        this.gPs = str;
+        this.gPp = str;
     }
 
     public long getLastModified() {

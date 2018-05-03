@@ -10,24 +10,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> evn;
+    private final List<e> evk;
 
     private b() {
-        this.evn = new ArrayList(4);
+        this.evk = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b evo = new b();
+        private static final b evl = new b();
     }
 
     public static b aKA() {
-        return a.evo;
+        return a.evl;
     }
 
     public synchronized void a(e eVar) {
-        this.evn.add(eVar);
+        this.evk.add(eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -45,7 +45,7 @@ public class b extends e {
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.evn) {
+        for (e eVar : this.evk) {
             try {
                 ICardInfo a2 = eVar.a(jSONObject, i);
                 if (a2 != null) {
@@ -70,7 +70,7 @@ public class b extends e {
 
     private <T> com.baidu.tieba.lego.card.view.e b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         com.baidu.tieba.lego.card.view.e a2;
-        for (e eVar : this.evn) {
+        for (e eVar : this.evk) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {

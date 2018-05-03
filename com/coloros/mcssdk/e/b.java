@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends c {
-    public static final String hmm = null;
+    public static final String hmj = null;
     private String content;
+    private String hmk;
+    private String hml;
+    private String hmm;
     private String hmn;
-    private String hmo;
-    private String hmp;
-    private String hmq;
     private int oj;
     private String params;
     private int responseCode = -2;
@@ -67,7 +67,7 @@ public class b extends c {
     }
 
     public void setAppKey(String str) {
-        this.hmn = str;
+        this.hmk = str;
     }
 
     public void setContent(String str) {
@@ -75,7 +75,7 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hmr + ",taskID:" + this.hms + ",appPackage:" + this.appPackage + ",appKey:" + this.hmn + ",appSecret:" + this.hmo + ",registerID:" + this.hmp + ",sdkVersion:" + this.hmq + ",command:" + this.oj + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hmo + ",taskID:" + this.hmp + ",appPackage:" + this.appPackage + ",appKey:" + this.hmk + ",appSecret:" + this.hml + ",registerID:" + this.hmm + ",sdkVersion:" + this.hmn + ",command:" + this.oj + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
     public void vv(int i) {
@@ -87,6 +87,6 @@ public class b extends c {
     }
 
     public void vz(String str) {
-        this.hmo = str;
+        this.hml = str;
     }
 }

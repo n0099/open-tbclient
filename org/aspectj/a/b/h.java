@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 class h {
-    static h hzB = new h();
-    static h hzC;
-    static h hzD;
-    int hzA;
-    boolean hzs = true;
-    boolean hzt = true;
-    boolean hzu = false;
-    boolean hzv = false;
-    boolean hzw = false;
-    boolean hzx = true;
-    boolean hzy = true;
-    boolean hzz = true;
+    static h hzA;
+    static h hzy = new h();
+    static h hzz;
+    boolean hzp = true;
+    boolean hzq = true;
+    boolean hzr = false;
+    boolean hzs = false;
+    boolean hzt = false;
+    boolean hzu = true;
+    boolean hzv = true;
+    boolean hzw = true;
+    int hzx;
 
     h() {
     }
 
     static {
-        hzB.hzs = true;
-        hzB.hzt = false;
-        hzB.hzu = false;
-        hzB.hzv = false;
-        hzB.hzw = true;
-        hzB.hzx = false;
-        hzB.hzy = false;
-        hzB.hzA = 0;
-        hzC = new h();
-        hzC.hzs = true;
-        hzC.hzt = true;
-        hzC.hzu = false;
-        hzC.hzv = false;
-        hzC.hzw = false;
-        hzB.hzA = 1;
-        hzD = new h();
-        hzD.hzs = false;
-        hzD.hzt = true;
-        hzD.hzu = false;
-        hzD.hzv = true;
-        hzD.hzw = false;
-        hzD.hzz = false;
-        hzD.hzA = 2;
+        hzy.hzp = true;
+        hzy.hzq = false;
+        hzy.hzr = false;
+        hzy.hzs = false;
+        hzy.hzt = true;
+        hzy.hzu = false;
+        hzy.hzv = false;
+        hzy.hzx = 0;
+        hzz = new h();
+        hzz.hzp = true;
+        hzz.hzq = true;
+        hzz.hzr = false;
+        hzz.hzs = false;
+        hzz.hzt = false;
+        hzy.hzx = 1;
+        hzA = new h();
+        hzA.hzp = false;
+        hzA.hzq = true;
+        hzA.hzr = false;
+        hzA.hzs = true;
+        hzA.hzt = false;
+        hzA.hzw = false;
+        hzA.hzx = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String wp(int i) {
-        if (this.hzv) {
+        if (this.hzs) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String n(Class cls) {
-        return b(cls, cls.getName(), this.hzs);
+        return b(cls, cls.getName(), this.hzp);
     }
 
     public String d(Class cls, String str) {
-        return b(cls, str, this.hzw);
+        return b(cls, str, this.hzt);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.hzt) {
+            if (!this.hzq) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.hzu && clsArr != null && clsArr.length != 0) {
+        if (this.hzr && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

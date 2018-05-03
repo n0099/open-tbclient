@@ -19,26 +19,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements a.InterfaceC0124a {
-    private static d cye = null;
-    private a cyf;
-    private a cyg;
-    private ArrayList<TransmitForumData> cyh;
-    private ArrayList<TransmitForumData> cyj;
+    private static d cyb = null;
+    private a cyc;
+    private a cyd;
+    private ArrayList<TransmitForumData> cye;
+    private ArrayList<TransmitForumData> cyg;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean cyi = false;
-    private boolean cyk = false;
+    private boolean cyf = false;
+    private boolean cyh = false;
     private boolean isLoading = false;
 
     public static d ahh() {
-        if (cye == null) {
+        if (cyb == null) {
             synchronized (d.class) {
-                if (cye == null) {
-                    cye = new d();
+                if (cyb == null) {
+                    cyb = new d();
                 }
             }
         }
-        return cye;
+        return cyb;
     }
 
     private d() {
@@ -54,20 +54,20 @@ public class d implements a.InterfaceC0124a {
     private void ahi() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), a.class);
         if (runTask != null) {
-            this.cyg = (a) runTask.getData();
+            this.cyd = (a) runTask.getData();
         }
-        if (this.cyg != null) {
-            this.cyg.a(this);
+        if (this.cyd != null) {
+            this.cyd.a(this);
         }
     }
 
     private void ahj() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), a.class);
         if (runTask != null) {
-            this.cyf = (a) runTask.getData();
+            this.cyc = (a) runTask.getData();
         }
-        if (this.cyf != null) {
-            this.cyf.a(this);
+        if (this.cyc != null) {
+            this.cyc.a(this);
         }
     }
 
@@ -78,11 +78,11 @@ public class d implements a.InterfaceC0124a {
             }
             if (l.hg() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
                 this.isLoading = true;
-                if (this.cyf != null) {
-                    this.cyf.ahc();
+                if (this.cyc != null) {
+                    this.cyc.ahc();
                 }
-                if (this.cyg != null) {
-                    this.cyg.ahc();
+                if (this.cyd != null) {
+                    this.cyd.ahc();
                 }
             }
             shareDialogConfig.setIsShowTransmitShare(true);
@@ -96,28 +96,28 @@ public class d implements a.InterfaceC0124a {
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.cyj = arrayList;
+                this.cyg = arrayList;
             }
-            this.cyk = true;
+            this.cyh = true;
         } else if (i == 2) {
             if (z) {
-                this.cyh = arrayList;
+                this.cye = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.cyi = true;
+            this.cyf = true;
         }
         ahk();
     }
 
     private void ahk() {
-        if (this.cyf == null || this.cyi) {
-            if (this.cyg == null || this.cyk) {
-                this.cyi = false;
-                this.cyk = false;
+        if (this.cyc == null || this.cyf) {
+            if (this.cyd == null || this.cyh) {
+                this.cyf = false;
+                this.cyh = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!v.w(this.cyh)) {
-                    Iterator<TransmitForumData> it = this.cyh.iterator();
+                if (!v.w(this.cye)) {
+                    Iterator<TransmitForumData> it = this.cye.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
                         if (!bn(next.forumId)) {
@@ -125,8 +125,8 @@ public class d implements a.InterfaceC0124a {
                         }
                     }
                 }
-                if (!v.w(this.cyj)) {
-                    Iterator<TransmitForumData> it2 = this.cyj.iterator();
+                if (!v.w(this.cyg)) {
+                    Iterator<TransmitForumData> it2 = this.cyg.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
                         if (!bn(next2.forumId)) {
@@ -134,8 +134,8 @@ public class d implements a.InterfaceC0124a {
                         }
                     }
                 }
-                this.cyh = null;
-                this.cyj = null;
+                this.cye = null;
+                this.cyg = null;
                 ahl();
             }
         }

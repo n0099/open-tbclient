@@ -15,7 +15,7 @@ import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 /* loaded from: classes3.dex */
 public class a {
     private l<byte[]> bmz;
-    private InterfaceC0137a dgz;
+    private InterfaceC0137a dgw;
 
     /* renamed from: com.baidu.tieba.frs.game.strategy.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -56,8 +56,8 @@ public class a {
                         List<e> bj = com.baidu.tieba.frs.game.strategy.message.a.bj(gameForumGuideTabResIdl.data.sub_tab_list);
                         List<h> bk = com.baidu.tieba.frs.game.strategy.message.a.bk(gameForumGuideTabResIdl.data.thread_list);
                         boolean z = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
-                        if (a.this.dgz != null) {
-                            a.this.dgz.e(bj, bk, z);
+                        if (a.this.dgw != null) {
+                            a.this.dgw.e(bj, bk, z);
                         }
                     }
                 }
@@ -76,6 +76,6 @@ public class a {
     }
 
     public void a(InterfaceC0137a interfaceC0137a) {
-        this.dgz = interfaceC0137a;
+        this.dgw = interfaceC0137a;
     }
 }

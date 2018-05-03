@@ -35,7 +35,7 @@ public class g {
                             if (hVar == hVar2 && (hVar2 instanceof bd)) {
                                 a.b bVar = new a.b();
                                 bVar.aNu = ((bd) hVar2).getTid();
-                                bVar.crD = i2;
+                                bVar.crA = i2;
                                 arrayList.add(bVar);
                             }
                         }
@@ -51,7 +51,7 @@ public class g {
                                 bdVar2.aaC = 2;
                                 a.b bVar2 = new a.b();
                                 bVar2.aNu = bdVar2.getTid();
-                                bVar2.crD = i3;
+                                bVar2.crA = i3;
                                 arrayList.add(bVar2);
                             }
                         }
@@ -82,12 +82,12 @@ public class g {
                 }
                 if (lVar != null && lVar.aVq() != null) {
                     com.baidu.tieba.frs.e.a aVar = new com.baidu.tieba.frs.e.a();
-                    aVar.dom = lVar.gtS == 1;
-                    aVar.doo = lVar.aVq().getId();
-                    aVar.don = aph.aun();
-                    if (com.baidu.tieba.frs.e.c.doy != null) {
-                        aVar.dop = com.baidu.tieba.frs.e.c.doy.dop;
-                        aVar.doq = com.baidu.tieba.frs.e.c.doy.doq;
+                    aVar.doj = lVar.gtP == 1;
+                    aVar.dol = lVar.aVq().getId();
+                    aVar.dok = aph.aun();
+                    if (com.baidu.tieba.frs.e.c.dov != null) {
+                        aVar.dom = com.baidu.tieba.frs.e.c.dov.dom;
+                        aVar.don = com.baidu.tieba.frs.e.c.dov.don;
                     }
                     com.baidu.tieba.frs.e.b.auH().a(aVar, bdVar, 1);
                 }
@@ -107,15 +107,15 @@ public class g {
     }
 
     public static void a(com.baidu.tieba.frs.e.a aVar, String str) {
-        if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.doo)) {
+        if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.dol)) {
             al alVar = new al("c11942");
-            alVar.ac(ImageViewerConfig.FORUM_ID, aVar.doo);
+            alVar.ac(ImageViewerConfig.FORUM_ID, aVar.dol);
             alVar.ac("obj_name", str);
             TiebaStatic.log(alVar);
         }
     }
 
-    public static void aL(int i, int i2) {
+    public static void aK(int i, int i2) {
         TiebaStatic.log(new al("c10320").r("obj_locate", i).r("obj_type", i2));
     }
 }

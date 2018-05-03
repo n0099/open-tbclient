@@ -25,49 +25,49 @@ import com.baidu.tieba.tbadkCore.u;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements ImagePagerAdapter.a {
-    private static int epr = 7;
+    private static int epo = 7;
     private TbPageContext<?> adf;
     private boolean ayh;
-    private AdvertAppInfo ept;
-    private boolean epu;
-    private b epv;
-    private c epw;
-    private int eps = 0;
-    private boolean epx = false;
-    private final View.OnClickListener epy = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
+    private AdvertAppInfo epq;
+    private boolean epr;
+    private b eps;
+    private c ept;
+    private int epp = 0;
+    private boolean epu = false;
+    private final View.OnClickListener epv = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (a.this.ept != null) {
-                if (a.this.epv == null || !a.this.epv.epG || a.this.epv.aJa() != view2) {
+            if (a.this.epq != null) {
+                if (a.this.eps == null || !a.this.eps.epD || a.this.eps.aJa() != view2) {
                     if (u.E((Activity) view2.getContext())) {
-                        a.this.epw.aJg();
-                        int i = a.this.ept.VO;
+                        a.this.ept.aJg();
+                        int i = a.this.epq.VO;
                         if (i == 0 || i == 3) {
                             if (!j.gP() || j.gQ()) {
-                                String str = a.this.ept.VQ;
+                                String str = a.this.epq.VQ;
                                 if (StringUtils.isNull(str)) {
                                     str = a.this.adf.getString(d.k.app_name);
                                 }
-                                a.this.epw.aJi();
-                                if (s.a(a.this.adf.getPageActivity(), a.this.ept, 0, str)) {
-                                    a.this.epw.oh(a.this.ept.VU);
+                                a.this.ept.aJi();
+                                if (s.a(a.this.adf.getPageActivity(), a.this.epq, 0, str)) {
+                                    a.this.ept.oh(a.this.epq.VU);
                                     return;
                                 }
                                 return;
                             }
-                            a.this.c(a.this.ept);
+                            a.this.c(a.this.epq);
                             return;
                         } else if (i == 1) {
-                            s.e(a.this.ept);
-                            a.this.ept.VO = 3;
+                            s.e(a.this.epq);
+                            a.this.epq.VO = 3;
                             a.this.aIV();
                             return;
                         } else if (i == 2) {
-                            if (com.baidu.tieba.recapp.download.d.bjr().fV(a.this.ept.VU)) {
-                                u.aj(a.this.adf.getPageActivity(), a.this.ept.VU);
+                            if (com.baidu.tieba.recapp.download.d.bjr().fV(a.this.epq.VU)) {
+                                u.aj(a.this.adf.getPageActivity(), a.this.epq.VU);
                                 return;
                             }
-                            a.this.ept.VO = 0;
+                            a.this.epq.VO = 0;
                             a.this.aIV();
                             return;
                         } else {
@@ -79,18 +79,18 @@ public class a implements ImagePagerAdapter.a {
             }
         }
     };
-    private final View.OnClickListener epz = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
+    private final View.OnClickListener epw = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (a.this.ept != null) {
-                if (a.this.epv == null || !a.this.epv.epG || a.this.epv.aJa() != view2) {
-                    a.this.epw.aJg();
-                    r.bjl().bji().a(a.this.adf.getPageActivity(), new String[]{a.this.ept.VS}, true);
+            if (a.this.epq != null) {
+                if (a.this.eps == null || !a.this.eps.epD || a.this.eps.aJa() != view2) {
+                    a.this.ept.aJg();
+                    r.bjl().bji().a(a.this.adf.getPageActivity(), new String[]{a.this.epq.VS}, true);
                 }
             }
         }
     };
-    private final CustomMessageListener epA = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
+    private final CustomMessageListener epx = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -107,120 +107,120 @@ public class a implements ImagePagerAdapter.a {
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
         this.ayh = false;
-        this.epu = false;
+        this.epr = false;
         this.ayh = z;
-        this.epu = z2;
+        this.epr = z2;
         this.adf = tbPageContext;
-        this.adf.registerListener(2001118, this.epA);
-        this.epw = new c(tbPageContext.getPageActivity(), str, str2);
+        this.adf.registerListener(2001118, this.epx);
+        this.ept = new c(tbPageContext.getPageActivity(), str, str2);
     }
 
     public void a(AdvertAppInfo advertAppInfo, int i) {
-        this.ept = advertAppInfo;
-        this.eps = i;
-        this.epw.d(this.ept);
+        this.epq = advertAppInfo;
+        this.epp = i;
+        this.ept.d(this.epq);
     }
 
     public boolean aIU() {
-        if (!this.epu || this.ept == null) {
+        if (!this.epr || this.epq == null) {
             return false;
         }
-        return (this.ept.qu() || this.ept.qt()) && !u.isInstalledPackage(this.adf.getPageActivity(), this.ept.VU);
+        return (this.epq.qu() || this.epq.qt()) && !u.isInstalledPackage(this.adf.getPageActivity(), this.epq.VU);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View g(ViewGroup viewGroup, int i) {
         if (ol(i)) {
-            this.epv = new b(viewGroup);
+            this.eps = new b(viewGroup);
             aIV();
-            viewGroup.addView(this.epv.getView());
-            return this.epv.getView();
+            viewGroup.addView(this.eps.getView());
+            return this.eps.getView();
         }
         return null;
     }
 
     private boolean ol(int i) {
-        return aIU() && this.eps != 0 && i == this.eps;
+        return aIU() && this.epp != 0 && i == this.epp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aIV() {
-        if (this.ept != null && this.ept.Wb != null) {
+        if (this.epq != null && this.epq.Wb != null) {
             aIW();
-            if (this.ept.qu()) {
-                this.epv.aJb().setVisibility(8);
-                this.epv.p(this.epz);
-            } else if (this.ept.qt()) {
-                this.epv.aJb().setVisibility(0);
-                this.epv.p(this.epy);
+            if (this.epq.qu()) {
+                this.eps.aJb().setVisibility(8);
+                this.eps.p(this.epw);
+            } else if (this.epq.qt()) {
+                this.eps.aJb().setVisibility(0);
+                this.eps.p(this.epv);
                 aIX();
             }
-            s.a(this.ept.Wb.Wt, this.epv.epD, this.ept.Wb.tagRatio, l.e(this.adf.getPageActivity(), d.e.ds26));
-            if (!TextUtils.isEmpty(this.ept.Wb.adSource)) {
-                this.epv.epF.setText(this.ept.Wb.adSource);
-                this.epv.epE.setVisibility(0);
+            s.a(this.epq.Wb.Wt, this.eps.epA, this.epq.Wb.tagRatio, l.e(this.adf.getPageActivity(), d.e.ds26));
+            if (!TextUtils.isEmpty(this.epq.Wb.adSource)) {
+                this.eps.epC.setText(this.epq.Wb.adSource);
+                this.eps.epB.setVisibility(0);
                 return;
             }
-            this.epv.epE.setVisibility(8);
+            this.eps.epB.setVisibility(8);
         }
     }
 
     private void aIW() {
-        this.epv.aJa().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+        this.eps.aJa().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void n(String str, boolean z) {
                 if (z) {
-                    a.this.epv.aJe();
+                    a.this.eps.aJe();
                 }
-                a.this.epv.aJf();
+                a.this.eps.aJf();
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
-                a.this.epv.aJf();
+                a.this.eps.aJf();
             }
         });
-        this.epv.aJa().startLoad(this.ept.Wb.Wl, this.ayh ? 30 : 31, 720, 720, false);
+        this.eps.aJa().startLoad(this.epq.Wb.Wl, this.ayh ? 30 : 31, 720, 720, false);
     }
 
     private void aIX() {
-        if (this.ept != null) {
-            String str = this.ept.VQ;
+        if (this.epq != null) {
+            String str = this.epq.VQ;
             if (StringUtils.isNull(str)) {
                 str = this.adf.getString(d.k.app_name);
             }
-            if (com.baidu.tieba.recapp.download.d.bjr().fV(this.ept.VU)) {
-                this.ept.VO = 2;
-            } else if (com.baidu.tieba.recapp.download.d.bjr().an(this.ept.VU, str)) {
-                if (com.baidu.tieba.recapp.download.d.bjr().fT(this.ept.VU)) {
-                    this.ept.VO = 1;
+            if (com.baidu.tieba.recapp.download.d.bjr().fV(this.epq.VU)) {
+                this.epq.VO = 2;
+            } else if (com.baidu.tieba.recapp.download.d.bjr().an(this.epq.VU, str)) {
+                if (com.baidu.tieba.recapp.download.d.bjr().fT(this.epq.VU)) {
+                    this.epq.VO = 1;
                 } else {
-                    this.ept.VO = 3;
+                    this.epq.VO = 3;
                 }
             }
-            switch (this.ept.VO) {
+            switch (this.epq.VO) {
                 case 0:
                     String string = this.adf.getString(d.k.install_app);
-                    if (this.ept.Wb != null && !StringUtils.isNull(this.ept.Wb.buttonText)) {
-                        string = this.ept.Wb.buttonText;
+                    if (this.epq.Wb != null && !StringUtils.isNull(this.epq.Wb.buttonText)) {
+                        string = this.epq.Wb.buttonText;
                     }
-                    if (string.length() > epr) {
-                        string = string.substring(0, epr);
+                    if (string.length() > epo) {
+                        string = string.substring(0, epo);
                     }
-                    this.epv.og(string);
+                    this.eps.og(string);
                     return;
                 case 1:
-                    this.epv.aJc();
+                    this.eps.aJc();
                     return;
                 case 2:
-                    this.epv.aJd();
+                    this.eps.aJd();
                     return;
                 case 3:
-                    this.epv.og(this.adf.getString(d.k.pb_download_pause));
+                    this.eps.og(this.adf.getString(d.k.pb_download_pause));
                     return;
                 default:
-                    this.epv.aJb().setVisibility(8);
-                    this.epv.p(null);
+                    this.eps.aJb().setVisibility(8);
+                    this.eps.p(null);
                     return;
             }
         }
@@ -240,13 +240,13 @@ public class a implements ImagePagerAdapter.a {
             aVar.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.image.a.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    String str = a.this.ept.VQ;
+                    String str = a.this.epq.VQ;
                     if (StringUtils.isNull(str)) {
                         str = a.this.adf.getString(d.k.app_name);
                     }
-                    a.this.epw.aJi();
-                    if (s.a(a.this.adf.getPageActivity(), a.this.ept, 0, str)) {
-                        a.this.epw.oh(a.this.ept.VU);
+                    a.this.ept.aJi();
+                    if (s.a(a.this.adf.getPageActivity(), a.this.epq, 0, str)) {
+                        a.this.ept.oh(a.this.epq.VU);
                     }
                     aVar2.dismiss();
                 }
@@ -264,19 +264,19 @@ public class a implements ImagePagerAdapter.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ResponsedMessage<?> responsedMessage) {
         List<DownloadData> data;
-        if ((responsedMessage instanceof DownloadMessage) && this.ept != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
+        if ((responsedMessage instanceof DownloadMessage) && this.epq != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
             for (DownloadData downloadData : data) {
-                if (downloadData != null && TextUtils.equals(this.ept.VU, downloadData.getId())) {
+                if (downloadData != null && TextUtils.equals(this.epq.VU, downloadData.getId())) {
                     int status = downloadData.getStatus();
                     if (status == 3 || status == 0) {
-                        this.ept.VO = 2;
+                        this.epq.VO = 2;
                     } else if (status == 2 || status == 4) {
                         if (!an.isEmpty(downloadData.getStatusMsg())) {
                             this.adf.showToast(downloadData.getStatusMsg());
                         }
-                        this.ept.VO = 0;
+                        this.epq.VO = 0;
                     } else if (status == 1) {
-                        this.ept.VO = 1;
+                        this.epq.VO = 1;
                     }
                     aIV();
                 }
@@ -285,9 +285,9 @@ public class a implements ImagePagerAdapter.a {
     }
 
     public void aIY() {
-        if (!this.epx) {
-            this.epx = true;
-            this.epw.aJh();
+        if (!this.epu) {
+            this.epu = true;
+            this.ept.aJh();
         }
     }
 }

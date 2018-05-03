@@ -24,12 +24,12 @@ public class a {
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
-        this.mAdapters.add(new i(baseActivity.getPageContext(), j.cUh));
-        this.mAdapters.add(new l(baseActivity.getPageContext(), m.cUv));
-        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.g.cWV));
-        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.cTL));
-        this.mAdapters.add(new d(baseActivity.getPageContext(), e.cTO));
-        this.mAdapters.add(new o(baseActivity.getPageContext(), p.cUO));
+        this.mAdapters.add(new i(baseActivity.getPageContext(), j.cUe));
+        this.mAdapters.add(new l(baseActivity.getPageContext(), m.cUs));
+        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.g.cWS));
+        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.cTI));
+        this.mAdapters.add(new d(baseActivity.getPageContext(), e.cTL));
+        this.mAdapters.add(new o(baseActivity.getPageContext(), p.cUL));
         this.mAdapters.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
     }
 

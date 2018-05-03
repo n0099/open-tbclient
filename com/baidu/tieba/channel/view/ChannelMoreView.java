@@ -11,11 +11,11 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ChannelMoreView extends LinearLayout {
     private View.OnClickListener axG;
-    private com.baidu.tieba.channel.data.d cty;
-    private TextView cwq;
-    private TextView cwr;
-    private TextView cws;
-    private View cwt;
+    private com.baidu.tieba.channel.data.d ctu;
+    private TextView cwn;
+    private TextView cwo;
+    private TextView cwp;
+    private View cwq;
     private View.OnClickListener mClickListener;
 
     public ChannelMoreView(Context context, com.baidu.tieba.channel.data.d dVar, View.OnClickListener onClickListener) {
@@ -27,59 +27,59 @@ public class ChannelMoreView extends LinearLayout {
             }
         };
         this.mClickListener = onClickListener;
-        this.cty = dVar;
+        this.ctu = dVar;
         initView();
     }
 
     private void initView() {
         View.inflate(getContext(), d.i.channel_more_view_layout, this);
-        this.cwq = (TextView) findViewById(d.g.channel_more_cancel);
-        this.cwt = findViewById(d.g.channel_more_layer);
-        this.cwr = (TextView) findViewById(d.g.channel_up_info);
-        this.cws = (TextView) findViewById(d.g.channel_push_switch);
+        this.cwn = (TextView) findViewById(d.g.channel_more_cancel);
+        this.cwq = findViewById(d.g.channel_more_layer);
+        this.cwo = (TextView) findViewById(d.g.channel_up_info);
+        this.cwp = (TextView) findViewById(d.g.channel_push_switch);
+        this.cwn.setOnClickListener(this.mClickListener);
         this.cwq.setOnClickListener(this.mClickListener);
-        this.cwt.setOnClickListener(this.mClickListener);
-        this.cwr.setOnClickListener(this.mClickListener);
-        this.cws.setOnClickListener(this.mClickListener);
-        if (this.cty != null && this.cty.agj() != null) {
-            ChannelInfo agj = this.cty.agj();
+        this.cwo.setOnClickListener(this.mClickListener);
+        this.cwp.setOnClickListener(this.mClickListener);
+        if (this.ctu != null && this.ctu.agj() != null) {
+            ChannelInfo agj = this.ctu.agj();
             if (agj.isSubscribe()) {
-                this.cws.setVisibility(0);
+                this.cwp.setVisibility(0);
                 if (agj.isPushOpen()) {
-                    this.cws.setText(getContext().getResources().getString(d.k.channel_push_switch_close));
+                    this.cwp.setText(getContext().getResources().getString(d.k.channel_push_switch_close));
                     return;
                 } else {
-                    this.cws.setText(getContext().getResources().getString(d.k.channel_push_switch_open));
+                    this.cwp.setText(getContext().getResources().getString(d.k.channel_push_switch_open));
                     return;
                 }
             }
-            this.cws.setVisibility(8);
+            this.cwp.setVisibility(8);
         }
     }
 
     public TextView getCancelView() {
-        return this.cwq;
+        return this.cwn;
     }
 
     public View getLayerView() {
-        return this.cwt;
+        return this.cwq;
     }
 
     public TextView getUpInfoView() {
-        return this.cwr;
+        return this.cwo;
     }
 
     public TextView getPushView() {
-        return this.cws;
+        return this.cwp;
     }
 
     public void setBackGround() {
-        ak.i(this.cwq, d.f.pb_more_pop_cancle_selector);
-        ak.c(this.cwq, d.C0126d.channel_pop_cancel_text_color, 1);
-        ak.i(this.cwr, d.f.pb_more_pop_cancle_selector);
-        ak.c(this.cwr, d.C0126d.channel_pop_text_color, 1);
-        ak.i(this.cws, d.f.pb_more_pop_cancle_selector);
-        ak.c(this.cws, d.C0126d.channel_pop_text_color, 1);
+        ak.i(this.cwn, d.f.pb_more_pop_cancle_selector);
+        ak.c(this.cwn, d.C0126d.channel_pop_cancel_text_color, 1);
+        ak.i(this.cwo, d.f.pb_more_pop_cancle_selector);
+        ak.c(this.cwo, d.C0126d.channel_pop_text_color, 1);
+        ak.i(this.cwp, d.f.pb_more_pop_cancle_selector);
+        ak.c(this.cwp, d.C0126d.channel_pop_text_color, 1);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         View findViewById = findViewById(d.g.channel_devide_line);
         if (skinType == 1) {

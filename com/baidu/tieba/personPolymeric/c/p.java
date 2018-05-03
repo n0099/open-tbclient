@@ -9,15 +9,15 @@ public class p extends a {
 
     @Override // com.baidu.tieba.personPolymeric.c.a
     public void bfw() {
-        this.fJZ.clear();
+        this.fJW.clear();
         if (this.mCardNullPolymericData != null) {
-            this.fJZ.add(this.mCardNullPolymericData);
-        }
-        if (!v.w(this.fKb)) {
-            this.fJZ.addAll(this.fKb);
+            this.fJW.add(this.mCardNullPolymericData);
         }
         if (!v.w(this.fJY)) {
-            this.fJZ.addAll(this.fJY);
+            this.fJW.addAll(this.fJY);
+        }
+        if (!v.w(this.fJV)) {
+            this.fJW.addAll(this.fJV);
         }
     }
 }

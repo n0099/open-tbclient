@@ -6,8 +6,8 @@ import java.util.List;
 public class b {
     private String content;
     private long create_time;
-    private int dVY;
-    private int dVZ;
+    private int dVV;
+    private int dVW;
     private String forum_id;
     private String id;
     private int level;
@@ -32,7 +32,7 @@ public class b {
     }
 
     public void np(int i) {
-        this.dVY = i;
+        this.dVV = i;
     }
 
     public String getName() {
@@ -44,11 +44,11 @@ public class b {
     }
 
     public int aCQ() {
-        return this.dVZ;
+        return this.dVW;
     }
 
     public void nq(int i) {
-        this.dVZ = i;
+        this.dVW = i;
     }
 
     public void setCreate_time(long j) {

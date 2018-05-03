@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class r extends com.baidu.tieba.horizonalList.widget.e {
-    public HeadImageView cZP;
-    public TextView cZQ;
-    public TextView cZR;
-    public EntelechyUserLikeButton cZS;
-    private an cZT;
-    private com.baidu.tbadk.core.view.userLike.c coa;
+    public HeadImageView cZM;
+    public TextView cZN;
+    public TextView cZO;
+    public EntelechyUserLikeButton cZP;
+    private an cZQ;
+    private com.baidu.tbadk.core.view.userLike.c cnX;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
     private BdUniqueId mPageId;
@@ -32,22 +32,22 @@ public class r extends com.baidu.tieba.horizonalList.widget.e {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.r.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
-                if (r.this.cZT != null && !com.baidu.tbadk.core.util.an.isEmpty(r.this.cZT.metaData.getUserName()) && !com.baidu.tbadk.core.util.an.isEmpty(r.this.cZT.metaData.getUserId())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(r.this.getView().getContext(), r.this.cZT.metaData.getUserId(), r.this.cZT.metaData.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                if (r.this.cZQ != null && !com.baidu.tbadk.core.util.an.isEmpty(r.this.cZQ.metaData.getUserName()) && !com.baidu.tbadk.core.util.an.isEmpty(r.this.cZQ.metaData.getUserId())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(r.this.getView().getContext(), r.this.cZQ.metaData.getUserId(), r.this.cZQ.metaData.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
         this.mPageId = bdUniqueId;
         this.mPageContext = tbPageContext;
-        this.cZP = (HeadImageView) view2.findViewById(d.g.rec_usr_header);
-        this.cZP.setPageId(this.mPageId);
-        this.cZP.setIsRound(true);
-        this.cZQ = (TextView) view2.findViewById(d.g.rec_user_name);
-        this.cZR = (TextView) view2.findViewById(d.g.rec_user_describe);
-        this.cZS = (EntelechyUserLikeButton) view2.findViewById(d.g.rec_user_like);
-        this.coa = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.cZS);
-        this.coa.setFromType("1");
-        this.coa.h(bdUniqueId);
+        this.cZM = (HeadImageView) view2.findViewById(d.g.rec_usr_header);
+        this.cZM.setPageId(this.mPageId);
+        this.cZM.setIsRound(true);
+        this.cZN = (TextView) view2.findViewById(d.g.rec_user_name);
+        this.cZO = (TextView) view2.findViewById(d.g.rec_user_describe);
+        this.cZP = (EntelechyUserLikeButton) view2.findViewById(d.g.rec_user_like);
+        this.cnX = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.cZP);
+        this.cnX.setFromType("1");
+        this.cnX.h(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.e
@@ -58,14 +58,14 @@ public class r extends com.baidu.tieba.horizonalList.widget.e {
     @Override // com.baidu.tieba.horizonalList.widget.e
     public void a(com.baidu.tieba.horizonalList.widget.c cVar) {
         if (cVar instanceof an) {
-            this.cZT = (an) cVar;
-            if (!StringUtils.isNull(this.cZT.metaData.getUserId())) {
-                this.cZP.startLoad(this.cZT.metaData.getPortrait(), 28, false);
-                String t = com.baidu.tbadk.core.util.an.t(this.cZT.metaData.getUserName(), 5);
-                this.cZR.setText(com.baidu.tbadk.core.util.an.t(this.cZT.metaData.getGodUserData().getIntro(), 6));
-                this.cZQ.setText(t);
+            this.cZQ = (an) cVar;
+            if (!StringUtils.isNull(this.cZQ.metaData.getUserId())) {
+                this.cZM.startLoad(this.cZQ.metaData.getPortrait(), 28, false);
+                String t = com.baidu.tbadk.core.util.an.t(this.cZQ.metaData.getUserName(), 5);
+                this.cZO.setText(com.baidu.tbadk.core.util.an.t(this.cZQ.metaData.getGodUserData().getIntro(), 6));
+                this.cZN.setText(t);
                 getView().setOnClickListener(this.mOnClickListener);
-                this.coa.a(this.cZT.metaData);
+                this.cnX.a(this.cZQ.metaData);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }
@@ -74,9 +74,9 @@ public class r extends com.baidu.tieba.horizonalList.widget.e {
     @Override // com.baidu.tieba.horizonalList.widget.e
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.ak.h(this.cZQ, d.C0126d.cp_cont_b);
-            com.baidu.tbadk.core.util.ak.h(this.cZR, d.C0126d.cp_cont_d);
-            this.cZS.onChangeSkinType(i);
+            com.baidu.tbadk.core.util.ak.h(this.cZN, d.C0126d.cp_cont_b);
+            com.baidu.tbadk.core.util.ak.h(this.cZO, d.C0126d.cp_cont_d);
+            this.cZP.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }

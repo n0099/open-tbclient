@@ -6,39 +6,39 @@ import tbclient.SimpleUser;
 public class a {
     private int aBE;
     private int aBH;
+    private int gfY;
+    private int gfZ;
+    private boolean gga;
     private int ggb;
-    private int ggc;
-    private boolean ggd;
-    private int gge;
-    private SimpleUser ggf;
-    private int ggg;
+    private SimpleUser ggc;
+    private int ggd;
 
     public boolean bkS() {
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.ggb = bVar.getInt("post" + currentAccount, 0);
-        this.ggc = bVar.getInt("like" + currentAccount, 0);
+        this.gfY = bVar.getInt("post" + currentAccount, 0);
+        this.gfZ = bVar.getInt("like" + currentAccount, 0);
         this.aBE = bVar.getInt("group" + currentAccount, 0);
         this.aBH = bVar.getInt("live" + currentAccount, 0);
-        this.gge = bVar.getInt("reply" + currentAccount, 1);
-        this.ggd = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.ggb == 0 && this.ggc == 0 && this.aBE == 0 && this.aBH == 0 && this.gge == 1) ? false : true;
+        this.ggb = bVar.getInt("reply" + currentAccount, 1);
+        this.gga = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.gfY == 0 && this.gfZ == 0 && this.aBE == 0 && this.aBH == 0 && this.ggb == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.ggb = aVar.ggb;
-            this.ggc = aVar.ggc;
+            this.gfY = aVar.gfY;
+            this.gfZ = aVar.gfZ;
             this.aBE = aVar.aBE;
-            this.ggd = aVar.ggd;
+            this.gga = aVar.gga;
             this.aBH = aVar.aBH;
-            this.ggg = aVar.ggg;
-            this.gge = aVar.gge;
+            this.ggd = aVar.ggd;
+            this.ggb = aVar.ggb;
         }
     }
 
     public int bkT() {
-        return this.ggb;
+        return this.gfY;
     }
 
     public void aG(String str, int i) {
@@ -48,25 +48,25 @@ public class a {
     public void bkU() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
-        bVar.putInt("post" + currentAccount, this.ggb);
-        bVar.putInt("like" + currentAccount, this.ggc);
+        bVar.putInt("post" + currentAccount, this.gfY);
+        bVar.putInt("like" + currentAccount, this.gfZ);
         bVar.putInt("group" + currentAccount, this.aBE);
         bVar.putInt("live" + currentAccount, this.aBH);
-        bVar.putInt("reply" + currentAccount, this.gge);
-        TbadkCoreApplication.getInst().setLocationShared(this.ggd);
+        bVar.putInt("reply" + currentAccount, this.ggb);
+        TbadkCoreApplication.getInst().setLocationShared(this.gga);
     }
 
     public void si(int i) {
-        this.ggb = i;
+        this.gfY = i;
     }
 
     public int bkV() {
-        return this.ggc;
+        return this.gfZ;
     }
 
     public void sj(int i) {
         if (i <= 3 && i >= 1) {
-            this.ggc = i;
+            this.gfZ = i;
         }
     }
 
@@ -91,41 +91,41 @@ public class a {
     }
 
     public boolean bkX() {
-        return this.ggd;
+        return this.gga;
     }
 
     public void sm(int i) {
         switch (i) {
             case 1:
-                this.ggd = true;
+                this.gga = true;
                 return;
             default:
-                this.ggd = false;
+                this.gga = false;
                 return;
         }
     }
 
     public SimpleUser MZ() {
-        return this.ggf;
+        return this.ggc;
     }
 
     public void b(SimpleUser simpleUser) {
-        this.ggf = simpleUser;
+        this.ggc = simpleUser;
     }
 
     public void sn(int i) {
-        this.ggg = i;
+        this.ggd = i;
     }
 
     public void so(int i) {
         if (i == 0) {
-            this.gge = 1;
+            this.ggb = 1;
         } else {
-            this.gge = i;
+            this.ggb = i;
         }
     }
 
     public int bkY() {
-        return this.gge;
+        return this.ggb;
     }
 }

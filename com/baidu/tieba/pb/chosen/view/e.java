@@ -16,16 +16,16 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes3.dex */
 public class e {
     private Context context;
-    public boolean fbA;
-    private Animation fbC;
-    private View fbu;
+    private View fbr;
+    private TextView fbs;
+    private ImageView fbt;
+    private TextView fbu;
     private TextView fbv;
-    private ImageView fbw;
-    private TextView fbx;
-    private TextView fby;
-    private a fbz;
-    private long fbB = 0;
-    private boolean fbD = false;
+    private a fbw;
+    public boolean fbx;
+    private Animation fbz;
+    private long fby = 0;
+    private boolean fbA = false;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -36,42 +36,42 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.fbu = LayoutInflater.from(context).inflate(d.i.chosen_pb_post_info, (ViewGroup) null);
-        this.fbv = (TextView) this.fbu.findViewById(d.g.chosen_post_info_copyright);
-        this.fbw = (ImageView) this.fbu.findViewById(d.g.chosen_post_info_praise_icon);
-        this.fbx = (TextView) this.fbu.findViewById(d.g.chosen_post_info_praise_num);
-        this.fby = (TextView) this.fbu.findViewById(d.g.chosen_post_info_original_post);
+        this.fbr = LayoutInflater.from(context).inflate(d.i.chosen_pb_post_info, (ViewGroup) null);
+        this.fbs = (TextView) this.fbr.findViewById(d.g.chosen_post_info_copyright);
+        this.fbt = (ImageView) this.fbr.findViewById(d.g.chosen_post_info_praise_icon);
+        this.fbu = (TextView) this.fbr.findViewById(d.g.chosen_post_info_praise_num);
+        this.fbv = (TextView) this.fbr.findViewById(d.g.chosen_post_info_original_post);
     }
 
     public View aVi() {
-        return this.fbu;
+        return this.fbr;
     }
 
     public void a(a aVar) {
-        this.fbz = aVar;
+        this.fbw = aVar;
     }
 
     public void pT(int i) {
-        if (this.fbv != null) {
-            this.fbv.setText(i);
+        if (this.fbs != null) {
+            this.fbs.setText(i);
         }
     }
 
     public void C(View.OnClickListener onClickListener) {
-        if (this.fby != null) {
-            this.fby.setOnClickListener(onClickListener);
+        if (this.fbv != null) {
+            this.fbv.setOnClickListener(onClickListener);
         }
     }
 
     public void cH(long j) {
         if (j >= 0) {
-            this.fbB = j;
-            if (this.fbx != null) {
-                this.fbx.setVisibility(0);
-                this.fbx.setText(this.context.getString(d.k.chosen_pb_praise_num, an.z(j)));
+            this.fby = j;
+            if (this.fbu != null) {
+                this.fbu.setVisibility(0);
+                this.fbu.setText(this.context.getString(d.k.chosen_pb_praise_num, an.z(j)));
             }
-            if (this.fbx != null && this.fbx.getVisibility() == 8) {
-                this.fbx.setVisibility(0);
+            if (this.fbu != null && this.fbu.getVisibility() == 8) {
+                this.fbu.setVisibility(0);
             }
         }
     }
@@ -81,14 +81,14 @@ public class e {
             pT(d.k.chosen_pb_copyright);
             cH(excellentPbThreadInfo.zan.zansum.longValue());
             jn(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.fbw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.fbt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (!e.this.fbD && az.aK(e.this.context)) {
-                        e.this.fbD = true;
-                        e.this.fbw.startAnimation(e.this.aVk());
-                        if (e.this.fbz != null) {
-                            e.this.fbz.jj(e.this.fbA);
+                    if (!e.this.fbA && az.aK(e.this.context)) {
+                        e.this.fbA = true;
+                        e.this.fbt.startAnimation(e.this.aVk());
+                        if (e.this.fbw != null) {
+                            e.this.fbw.jj(e.this.fbx);
                         }
                     }
                 }
@@ -96,8 +96,8 @@ public class e {
             C(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (e.this.fbz != null) {
-                        e.this.fbz.o(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.fbw != null) {
+                        e.this.fbw.o(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
@@ -105,34 +105,34 @@ public class e {
     }
 
     public void aVj() {
-        this.fbD = false;
+        this.fbA = false;
     }
 
     public void jm(boolean z) {
         jn(z);
         if (z) {
-            this.fbB++;
+            this.fby++;
         } else {
-            this.fbB--;
+            this.fby--;
         }
-        cH(this.fbB);
+        cH(this.fby);
     }
 
     private void jn(boolean z) {
-        this.fbA = z;
+        this.fbx = z;
         if (z) {
-            ak.c(this.fbw, d.f.btn_zambia_big_s);
+            ak.c(this.fbt, d.f.btn_zambia_big_s);
         } else {
-            ak.c(this.fbw, d.f.btn_zambia_big_n);
+            ak.c(this.fbt, d.f.btn_zambia_big_n);
         }
-        this.fbw.setVisibility(0);
+        this.fbt.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Animation aVk() {
-        if (this.fbC == null) {
-            this.fbC = AnimationUtils.loadAnimation(this.context, d.a.praise_animation_scale3);
+        if (this.fbz == null) {
+            this.fbz = AnimationUtils.loadAnimation(this.context, d.a.praise_animation_scale3);
         }
-        return this.fbC;
+        return this.fbz;
     }
 }

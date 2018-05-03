@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel {
-    private BdUniqueId enG;
-    private a enH;
-    private com.baidu.adp.framework.listener.c enI;
+    private BdUniqueId enD;
+    private a enE;
+    private com.baidu.adp.framework.listener.c enF;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class ReplyMeModel extends BdBaseModel {
 
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.enG = BdUniqueId.gen();
+        this.enD = BdUniqueId.gen();
         this.mPageContext = tbPageContext;
         aIJ();
     }
@@ -42,7 +42,7 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void aIJ() {
-        this.enI = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
+        this.enF = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -66,8 +66,8 @@ public class ReplyMeModel extends BdBaseModel {
                 long repostId = checkPostResponseMessage.getRepostId();
                 String forumName = checkPostResponseMessage.getForumName();
                 if (postState == 1) {
-                    if (ReplyMeModel.this.enH != null) {
-                        ReplyMeModel.this.enH.a(forumId, quoteId, repostId, forumName);
+                    if (ReplyMeModel.this.enE != null) {
+                        ReplyMeModel.this.enE.a(forumId, quoteId, repostId, forumName);
                     }
                 } else if (postState == 0) {
                     ReplyMeModel.this.mPageContext.showToast(d.k.thread_delete_tip);
@@ -76,9 +76,9 @@ public class ReplyMeModel extends BdBaseModel {
                 }
             }
         };
-        this.enI.setTag(this.mPageContext.getUniqueId());
-        this.enI.setSelfListener(true);
-        this.mPageContext.registerListener(this.enI);
+        this.enF.setTag(this.mPageContext.getUniqueId());
+        this.enF.setSelfListener(true);
+        this.mPageContext.registerListener(this.enF);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -92,12 +92,12 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.enH = aVar;
+        this.enE = aVar;
     }
 
     public void onDestroy() {
-        if (this.enI != null) {
-            MessageManager.getInstance().unRegisterListener(this.enI);
+        if (this.enF != null) {
+            MessageManager.getInstance().unRegisterListener(this.enF);
         }
     }
 }

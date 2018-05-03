@@ -26,11 +26,11 @@ import org.apache.http.HttpHost;
 public class GroupCardActivity extends BaseActivity<GroupCardActivity> implements View.OnClickListener {
     private static String imageUrl = TbConfig.SERVER_ADDRESS + "c/p/groupShareImg?group_id=";
     private com.baidu.tbadk.core.util.b.a baD;
-    private a eaZ = null;
-    private GroupCardModel eba = null;
+    private a eaW = null;
+    private GroupCardModel eaX = null;
     private long groupId = 0;
     private String groupName = "";
-    private String ebb = "";
+    private String eaY = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -53,7 +53,7 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
         if (k.m15do()) {
             return true;
         }
-        this.eaZ.W(0, getPageContext().getString(d.k.voice_error_sdcard));
+        this.eaW.W(0, getPageContext().getString(d.k.voice_error_sdcard));
         return false;
     }
 
@@ -61,20 +61,20 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eaZ.onChangeSkinType(i);
+        this.eaW.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         super.onClick(view2);
-        if (view2 == this.eaZ.aEI()) {
+        if (view2 == this.eaW.aEI()) {
             if (aAZ()) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "group_card_save", "click", 1, new Object[0]);
-                this.eba.saveImage();
+                this.eaX.saveImage();
             }
-        } else if (view2 == this.eaZ.aEK()) {
+        } else if (view2 == this.eaW.aEK()) {
             finish();
-        } else if (view2 == this.eaZ.aEJ()) {
+        } else if (view2 == this.eaW.aEJ()) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "group_card_share", "click", 1, new Object[0]);
             xd();
         }
@@ -90,10 +90,10 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
         dVar.content = MessageFormat.format(getPageContext().getString(d.k.im_share_content), this.groupName, String.valueOf(this.groupId));
         dVar.linkUrl = TiebaIMConfig.IM_GROUP_SHARE_URL + this.groupId;
         try {
-            if (this.ebb == null || this.ebb.equals("")) {
+            if (this.eaY == null || this.eaY.equals("")) {
                 dVar.g(BitmapFactory.decodeResource(getResources(), d.f.icon));
-            } else if (this.ebb.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                dVar.awV = Uri.parse(this.ebb);
+            } else if (this.eaY.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                dVar.awV = Uri.parse(this.eaY);
             } else {
                 dVar.g(k.Y(null, TbConfig.GROUP_HEAD_FILE));
             }
@@ -114,37 +114,37 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
     }
 
     private void initView() {
-        this.eaZ = new a(this, null);
+        this.eaW = new a(this, null);
     }
 
     private void initData() {
-        this.eaZ.showProgress();
+        this.eaW.showProgress();
         Intent intent = getIntent();
         this.groupId = intent.getLongExtra("group_id", 0L);
         this.groupName = intent.getStringExtra("group_name");
-        this.ebb = intent.getStringExtra(GroupCardActivityConfig.GROUP_PORTRAIT);
-        this.eba = new GroupCardModel(this.groupId, this);
-        if (this.eba != null) {
+        this.eaY = intent.getStringExtra(GroupCardActivityConfig.GROUP_PORTRAIT);
+        this.eaX = new GroupCardModel(this.groupId, this);
+        if (this.eaX != null) {
             int af = l.af(getPageContext().getPageActivity()) - l.dip2px(getPageContext().getPageActivity(), 10.0f);
-            int ah = (l.ah(getPageContext().getPageActivity()) - this.eaZ.aEL().getHeight()) - this.eaZ.aEM().getHeight();
+            int ah = (l.ah(getPageContext().getPageActivity()) - this.eaW.aEL().getHeight()) - this.eaW.aEM().getHeight();
             b<com.baidu.adp.widget.ImageView.a> bVar = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.groupCard.GroupCardActivity.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
-                    GroupCardActivity.this.eaZ.auL();
+                    GroupCardActivity.this.eaW.auL();
                     if (aVar != null) {
-                        GroupCardActivity.this.eaZ.g(aVar);
-                        GroupCardActivity.this.eaZ.aEH();
+                        GroupCardActivity.this.eaW.g(aVar);
+                        GroupCardActivity.this.eaW.aEH();
                         return;
                     }
-                    GroupCardActivity.this.eaZ.W(0, GroupCardActivity.this.getPageContext().getString(d.k.group_card_error));
+                    GroupCardActivity.this.eaW.W(0, GroupCardActivity.this.getPageContext().getString(d.k.group_card_error));
                 }
             };
-            String bf = this.eba.bf(af, ah);
-            if (bf != null) {
-                c.fp().a(bf, 10, bVar, af, ah, getUniqueId(), new Object[0]);
+            String be = this.eaX.be(af, ah);
+            if (be != null) {
+                c.fp().a(be, 10, bVar, af, ah, getUniqueId(), new Object[0]);
             }
         }
     }

@@ -18,12 +18,12 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends n {
     private l aeY;
-    private String crJ;
+    private String crG;
 
     public a(l lVar, String str) {
         super(lVar);
         this.aeY = lVar;
-        this.crJ = str;
+        this.crG = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,7 +48,7 @@ public class a extends n {
                 } else {
                     com.baidu.tieba.recapp.download.d.bjr().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.rR(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new al("c12775").ac(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.crJ) ? "" : this.crJ));
+                TiebaStatic.log(new al("c12775").ac(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.crG) ? "" : this.crG));
             }
         }
     }

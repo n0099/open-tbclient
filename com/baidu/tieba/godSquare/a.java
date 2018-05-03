@@ -17,8 +17,8 @@ import java.util.List;
 public class a {
     private BaseActivity bcJ;
     private PbListView blb;
-    private NoNetworkView cHB;
-    private com.baidu.tieba.godSquare.a.a dyL;
+    private NoNetworkView cHy;
+    private com.baidu.tieba.godSquare.a.a dyI;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     private f mPullView;
@@ -31,7 +31,7 @@ public class a {
         this.mNavigationBar = (NavigationBar) this.bcJ.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(d.k.god_square);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.cHB = (NoNetworkView) this.bcJ.findViewById(d.g.view_no_network);
+        this.cHy = (NoNetworkView) this.bcJ.findViewById(d.g.view_no_network);
         this.blb = new PbListView(this.bcJ.getPageContext().getPageActivity());
         this.blb.kA();
         this.blb.wR();
@@ -44,8 +44,8 @@ public class a {
             this.mListView.setOnSrollToBottomListener((BdListView.e) this.bcJ);
         }
         this.mListView.setPullRefresh(this.mPullView);
-        this.dyL = new com.baidu.tieba.godSquare.a.a(this.bcJ.getPageContext(), this.mListView);
-        this.mListView.addAdapters(this.dyL.aoq());
+        this.dyI = new com.baidu.tieba.godSquare.a.a(this.bcJ.getPageContext(), this.mListView);
+        this.mListView.addAdapters(this.dyI.aoq());
         this.mListView.setNextPage(this.blb);
     }
 
@@ -80,7 +80,7 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        this.dyL.notifyDataSetChanged();
+        this.dyI.notifyDataSetChanged();
     }
 
     public void awG() {
@@ -102,7 +102,7 @@ public class a {
         this.blb.du(d.C0126d.cp_bg_line_c);
         this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_d));
         this.blb.dv(i);
-        this.cHB.onChangeSkinType(this.bcJ.getPageContext(), i);
+        this.cHy.onChangeSkinType(this.bcJ.getPageContext(), i);
     }
 
     public void startPullRefresh() {
@@ -111,7 +111,7 @@ public class a {
 
     public void g(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.cHB.a(aVar);
+            this.cHy.a(aVar);
         }
     }
 }

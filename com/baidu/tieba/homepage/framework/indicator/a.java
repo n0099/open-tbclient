@@ -4,59 +4,59 @@ import android.content.Context;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a {
+    private int dCS;
+    private int dCT;
+    private int dCU;
     private int dCV;
-    private int dCW;
-    private int dCX;
-    private int dCY;
 
     public a() {
+        this.dCS = -1;
+        this.dCT = -1;
+        this.dCU = -1;
         this.dCV = -1;
-        this.dCW = -1;
-        this.dCX = -1;
-        this.dCY = -1;
         int axC = axC();
         int i = 0;
         if ((axC & 4) > 0) {
-            this.dCV = 0;
+            this.dCS = 0;
             i = 1;
         }
-        this.dCW = i;
+        this.dCT = i;
         int i2 = i + 1;
         if ((axC & 8) > 0) {
-            this.dCX = i2;
+            this.dCU = i2;
             i2++;
         }
         if ((axC & 1) > 0) {
-            this.dCY = i2;
+            this.dCV = i2;
         }
     }
 
     public int mh(int i) {
         switch (i) {
             case 0:
-                return this.dCV;
+                return this.dCS;
             case 1:
-                return this.dCW;
+                return this.dCT;
             case 2:
-                return this.dCX;
+                return this.dCU;
             case 3:
-                return this.dCY;
+                return this.dCV;
             default:
                 return -1;
         }
     }
 
     public int getType(int i) {
-        if (i == this.dCV) {
+        if (i == this.dCS) {
             return 0;
         }
-        if (i == this.dCW) {
+        if (i == this.dCT) {
             return 1;
         }
-        if (i == this.dCX) {
+        if (i == this.dCU) {
             return 2;
         }
-        if (i == this.dCY) {
+        if (i == this.dCV) {
             return 3;
         }
         return -1;
@@ -70,16 +70,16 @@ public class a {
         if (context == null) {
             return null;
         }
-        if (i == this.dCV) {
+        if (i == this.dCS) {
             return context.getString(d.k.tab_name_concern);
         }
-        if (i == this.dCW) {
+        if (i == this.dCT) {
             return context.getString(d.k.tab_name_recommend);
         }
-        if (i == this.dCX) {
+        if (i == this.dCU) {
             return context.getString(d.k.tab_name_discover);
         }
-        if (i == this.dCY) {
+        if (i == this.dCV) {
             return context.getString(d.k.tab_name_video_recommend);
         }
         return null;

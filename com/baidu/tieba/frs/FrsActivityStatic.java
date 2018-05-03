@@ -33,34 +33,34 @@ import tbclient.FrsPage.FrsPageResIdl;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes2.dex */
 public class FrsActivityStatic {
-    public static boolean cWC = true;
-    public static boolean cWD = true;
+    public static boolean cWz = true;
+    public static boolean cWA = true;
     public static String forumName = "";
-    public static final CustomMessageListener cWE = new CustomMessageListener(2012111) { // from class: com.baidu.tieba.frs.FrsActivityStatic.6
+    public static final CustomMessageListener cWB = new CustomMessageListener(2012111) { // from class: com.baidu.tieba.frs.FrsActivityStatic.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
                 int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
                 if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
-                    FrsActivityStatic.cWD = true;
-                    FrsActivityStatic.cWC = true;
+                    FrsActivityStatic.cWA = true;
+                    FrsActivityStatic.cWz = true;
                     return;
                 }
-                FrsActivityStatic.cWD = false;
-                FrsActivityStatic.cWC = false;
+                FrsActivityStatic.cWA = false;
+                FrsActivityStatic.cWz = false;
             }
         }
     };
-    private static final CustomMessageListener cWF = new CustomMessageListener(2012112) { // from class: com.baidu.tieba.frs.FrsActivityStatic.7
+    private static final CustomMessageListener cWC = new CustomMessageListener(2012112) { // from class: com.baidu.tieba.frs.FrsActivityStatic.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                 int g = com.baidu.adp.lib.g.b.g(customResponsedMessage.getData().toString(), 1);
                 if (g == 1 || g == 0) {
-                    FrsActivityStatic.cWD = false;
-                    FrsActivityStatic.cWC = false;
+                    FrsActivityStatic.cWA = false;
+                    FrsActivityStatic.cWz = false;
                 }
             }
         }
@@ -78,8 +78,8 @@ public class FrsActivityStatic {
         aoV();
         aoT();
         aoW();
-        MessageManager.getInstance().registerListener(cWE);
-        MessageManager.getInstance().registerListener(cWF);
+        MessageManager.getInstance().registerListener(cWB);
+        MessageManager.getInstance().registerListener(cWC);
         aoU();
         com.baidu.tieba.frs.FrsHotTopic.a.apL();
     }
@@ -190,7 +190,7 @@ public class FrsActivityStatic {
                     return 1;
                 } else if (z2 && !TextUtils.isEmpty(str2)) {
                     com.baidu.adp.lib.g.f.e(TbadkCoreApplication.getInst(), com.baidu.tieba.frs.f.h.aa(TbadkCoreApplication.getInst(), str2));
-                    com.baidu.tieba.frs.f.g.aL(2, 2);
+                    com.baidu.tieba.frs.f.g.aK(2, 2);
                     return 1;
                 } else if (z) {
                     tbPageContext.showToast(d.k.page_not_found);
@@ -293,7 +293,7 @@ public class FrsActivityStatic {
                 if (customMessage == null || !(customMessage.getData() instanceof TbPageContext)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921336, new j(customMessage.getData(), k.cZA));
+                return new CustomResponsedMessage<>(2921336, new j(customMessage.getData(), k.cZx));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

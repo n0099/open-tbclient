@@ -25,16 +25,16 @@ import java.io.File;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private GridView cOF;
+    private GridView cOC;
     private BaseActivity mBaseActivity;
     private Context mContext;
     private b aDT = new b();
     private EditorTools aCA = null;
     private int aDW = 13;
-    private int hfh = 6;
-    private boolean hfi = false;
+    private int hfe = 6;
+    private boolean hff = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0239a hfj = new InterfaceC0239a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
+    private InterfaceC0239a hfg = new InterfaceC0239a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
         @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0239a
         public void vd(int i) {
             if (a.this.chosedFiles != null) {
@@ -60,7 +60,7 @@ public class a extends BaseAdapter {
                 ((WriteActivity) a.this.mBaseActivity).v(a.this.chosedFiles);
                 a.this.bCG();
                 a.this.notifyDataSetChanged();
-                a.this.cOF.invalidateViews();
+                a.this.cOC.invalidateViews();
             }
         }
     };
@@ -74,7 +74,7 @@ public class a extends BaseAdapter {
     public void bCG() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             bCH();
-        } else if (this.chosedFiles.size() < this.hfh) {
+        } else if (this.chosedFiles.size() < this.hfe) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
                 bCH();
             }
@@ -111,10 +111,10 @@ public class a extends BaseAdapter {
     public a(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
         this.mContext = null;
         this.mBaseActivity = null;
-        this.cOF = null;
+        this.cOC = null;
         this.mBaseActivity = baseActivity;
         this.mContext = this.mBaseActivity.getActivity();
-        this.cOF = gridView;
+        this.cOC = gridView;
     }
 
     @Override // android.widget.Adapter
@@ -241,8 +241,8 @@ public class a extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
-                if (a.this.hfj != null) {
-                    a.this.hfj.vd(i);
+                if (a.this.hfg != null) {
+                    a.this.hfg.vd(i);
                 }
             }
         });
@@ -250,6 +250,6 @@ public class a extends BaseAdapter {
     }
 
     public void vc(int i) {
-        this.hfh = i;
+        this.hfe = i;
     }
 }

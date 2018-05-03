@@ -17,8 +17,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.j;
 /* loaded from: classes2.dex */
 public class d {
-    public TextView fvD;
-    public TextView fvE;
+    public TextView fvA;
+    public TextView fvB;
     public View mRootView;
     public TextView mTitleView;
 
@@ -26,8 +26,8 @@ public class d {
         if (view2 != null) {
             this.mRootView = view2;
             this.mTitleView = (TextView) this.mRootView.findViewById(d.g.view_video_title);
-            this.fvD = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
-            this.fvE = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
+            this.fvA = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
+            this.fvB = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
         }
     }
 
@@ -55,15 +55,15 @@ public class d {
             this.mTitleView.setOnTouchListener(new j(spannableStringBuilder));
             this.mTitleView.setText(spannableStringBuilder);
             this.mTitleView.setLinkTextColor(ak.getColor(d.C0126d.cp_link_tip_c));
-            this.fvD.setText(String.format(TbadkCoreApplication.getInst().getString(d.k.pb_video_header_replay_num), an.y(bdVar.rI())));
-            this.fvE.setText(String.format(TbadkCoreApplication.getInst().getString(d.k.pb_video_header_play_count), an.y(bdVar.sh().play_count.intValue())));
+            this.fvA.setText(String.format(TbadkCoreApplication.getInst().getString(d.k.pb_video_header_replay_num), an.y(bdVar.rI())));
+            this.fvB.setText(String.format(TbadkCoreApplication.getInst().getString(d.k.pb_video_header_play_count), an.y(bdVar.sh().play_count.intValue())));
             BR();
         }
     }
 
     public void BR() {
         ak.c(this.mTitleView, d.C0126d.cp_cont_b, 1);
-        ak.c(this.fvD, d.C0126d.cp_cont_f, 1);
-        ak.c(this.fvE, d.C0126d.cp_cont_f, 1);
+        ak.c(this.fvA, d.C0126d.cp_cont_f, 1);
+        ak.c(this.fvB, d.C0126d.cp_cont_f, 1);
     }
 }

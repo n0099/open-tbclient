@@ -5,29 +5,29 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object hze;
-    Object hzf;
-    a.InterfaceC0278a hzg;
+    Object hzb;
+    Object hzc;
+    a.InterfaceC0278a hzd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a implements a.InterfaceC0278a {
-        String hzh;
-        org.aspectj.lang.c hzi;
-        org.aspectj.lang.reflect.d hzj;
+        String hze;
+        org.aspectj.lang.c hzf;
+        org.aspectj.lang.reflect.d hzg;
 
         public a(String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.hzh = str;
-            this.hzi = cVar;
-            this.hzj = dVar;
+            this.hze = str;
+            this.hzf = cVar;
+            this.hzg = dVar;
         }
 
         public String bJz() {
-            return this.hzh;
+            return this.hze;
         }
 
         public org.aspectj.lang.c bJA() {
-            return this.hzi;
+            return this.hzf;
         }
 
         String a(h hVar) {
@@ -40,23 +40,23 @@ public class c implements org.aspectj.lang.b {
         }
 
         public final String toString() {
-            return a(h.hzC);
+            return a(h.hzz);
         }
     }
 
     public c(a.InterfaceC0278a interfaceC0278a, Object obj, Object obj2, Object[] objArr) {
-        this.hzg = interfaceC0278a;
-        this.hze = obj;
-        this.hzf = obj2;
+        this.hzd = interfaceC0278a;
+        this.hzb = obj;
+        this.hzc = obj2;
         this.args = objArr;
     }
 
     @Override // org.aspectj.lang.a
     public Object getTarget() {
-        return this.hzf;
+        return this.hzc;
     }
 
     public final String toString() {
-        return this.hzg.toString();
+        return this.hzd.toString();
     }
 }

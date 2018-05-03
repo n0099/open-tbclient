@@ -14,31 +14,31 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b {
     private int bgColor;
-    private ArrayList<String> haj;
-    private String hak;
-    private int hal;
-    private int ham;
-    private int han;
-    private int hao = -1;
-    private boolean hap = false;
-    private boolean haq = false;
+    private ArrayList<String> hag;
+    private String hah;
+    private int hai;
+    private int haj;
+    private int hak;
+    private int hal = -1;
+    private boolean ham = false;
+    private boolean han = false;
 
     public SpannableStringBuilder b(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || v.w(this.haj)) {
+        if (editable == null || StringUtils.isNull(editable.toString()) || v.w(this.hag)) {
             return null;
         }
         String obj = editable.toString();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.hao >= 0;
-        this.hao = -1;
-        Iterator<String> it = this.haj.iterator();
+        boolean z = this.hal >= 0;
+        this.hal = -1;
+        Iterator<String> it = this.hag.iterator();
         while (it.hasNext()) {
             String next = it.next();
             if (!StringUtils.isNull(next)) {
                 a(spannableStringBuilder, obj, next);
             }
         }
-        if (this.hao >= 0 || z) {
+        if (this.hal >= 0 || z) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
             if (imageSpanArr != null) {
                 for (ImageSpan imageSpan : imageSpanArr) {
@@ -56,19 +56,19 @@ public class b {
         if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.han != 0 || this.bgColor != 0) {
+        if (this.hak != 0 || this.bgColor != 0) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             if (indexOf >= 0) {
-                if (this.hao == -1) {
-                    this.hao = indexOf + length;
-                } else if (indexOf + length < this.hao) {
-                    this.hao = indexOf + length;
+                if (this.hal == -1) {
+                    this.hal = indexOf + length;
+                } else if (indexOf + length < this.hal) {
+                    this.hal = indexOf + length;
                 }
             }
             while (indexOf >= 0) {
-                if (this.han != 0) {
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.han), indexOf, indexOf + length, 33);
+                if (this.hak != 0) {
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.hak), indexOf, indexOf + length, 33);
                 }
                 if (this.bgColor != 0) {
                     spannableStringBuilder.setSpan(new BackgroundColorSpan(this.bgColor), indexOf, indexOf + length, 33);
@@ -79,57 +79,57 @@ public class b {
     }
 
     public void onChangeSkinType() {
-        if (this.hal != 0) {
-            this.han = ak.getColor(this.hal);
+        if (this.hai != 0) {
+            this.hak = ak.getColor(this.hai);
         }
-        if (this.ham != 0) {
-            this.bgColor = ak.getColor(this.ham);
+        if (this.haj != 0) {
+            this.bgColor = ak.getColor(this.haj);
         }
     }
 
     public void ax(ArrayList<String> arrayList) {
-        this.haj = arrayList;
+        this.hag = arrayList;
     }
 
     public ArrayList<String> bAU() {
-        return this.haj;
+        return this.hag;
     }
 
     public void uK(int i) {
-        this.hal = i;
-        this.han = ak.getColor(this.hal);
+        this.hai = i;
+        this.hak = ak.getColor(this.hai);
     }
 
     public void uL(int i) {
-        this.ham = i;
-        this.bgColor = ak.getColor(this.ham);
+        this.haj = i;
+        this.bgColor = ak.getColor(this.haj);
     }
 
     public int bAV() {
-        return this.hao;
+        return this.hal;
     }
 
     public void ni(boolean z) {
-        this.hap = z;
+        this.ham = z;
     }
 
     public boolean bAW() {
-        return this.hap;
+        return this.ham;
     }
 
     public void nj(boolean z) {
-        this.haq = z;
+        this.han = z;
     }
 
     public boolean bAX() {
-        return this.haq;
+        return this.han;
     }
 
     public void uB(String str) {
-        this.hak = str;
+        this.hah = str;
     }
 
     public String bAY() {
-        return this.hak;
+        return this.hah;
     }
 }

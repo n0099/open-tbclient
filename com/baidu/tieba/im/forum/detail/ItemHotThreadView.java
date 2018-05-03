@@ -20,19 +20,19 @@ import java.util.List;
 import tbclient.SimpleThreadInfo;
 /* loaded from: classes3.dex */
 public class ItemHotThreadView extends LinearLayout {
-    private HashMap<String, View> dXo;
-    private List<SimpleThreadInfo> dXp;
+    private HashMap<String, View> dXl;
+    private List<SimpleThreadInfo> dXm;
     private Context mContext;
 
     public ItemHotThreadView(Context context) {
         super(context);
-        this.dXo = new HashMap<>();
+        this.dXl = new HashMap<>();
         init(context);
     }
 
     public ItemHotThreadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dXo = new HashMap<>();
+        this.dXl = new HashMap<>();
         init(context);
     }
 
@@ -43,7 +43,7 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     public void setData(List<SimpleThreadInfo> list) {
-        this.dXp = list;
+        this.dXm = list;
         if (list != null && list.size() != 0) {
             setVisibility(0);
             int i = 0;
@@ -55,30 +55,30 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     private void refresh() {
-        setData(this.dXp);
+        setData(this.dXm);
     }
 
     private void a(SimpleThreadInfo simpleThreadInfo, boolean z) {
         a aVar;
         View view2;
         if (simpleThreadInfo != null) {
-            if (!this.dXo.containsKey(String.valueOf(simpleThreadInfo.tid))) {
+            if (!this.dXl.containsKey(String.valueOf(simpleThreadInfo.tid))) {
                 view2 = LayoutInflater.from(this.mContext).inflate(d.i.forum_detail_hot_thread_item, (ViewGroup) this, false);
                 aVar = new a();
-                aVar.dXs = (LinearLayout) view2.findViewById(d.g.thread_item_ll);
-                aVar.dXt = (TextView) view2.findViewById(d.g.ht_item_title);
-                aVar.dXu = (TextView) view2.findViewById(d.g.ht_item_content);
-                aVar.dXv = (TextView) view2.findViewById(d.g.ht_item_reply);
-                aVar.dXw = (TextView) view2.findViewById(d.g.ht_divider_line);
+                aVar.dXp = (LinearLayout) view2.findViewById(d.g.thread_item_ll);
+                aVar.dXq = (TextView) view2.findViewById(d.g.ht_item_title);
+                aVar.dXr = (TextView) view2.findViewById(d.g.ht_item_content);
+                aVar.dXs = (TextView) view2.findViewById(d.g.ht_item_reply);
+                aVar.dXt = (TextView) view2.findViewById(d.g.ht_divider_line);
                 view2.setTag(aVar);
-                this.dXo.put(String.valueOf(simpleThreadInfo.tid), view2);
+                this.dXl.put(String.valueOf(simpleThreadInfo.tid), view2);
                 addView(view2);
             } else {
-                View view3 = this.dXo.get(String.valueOf(simpleThreadInfo.tid));
+                View view3 = this.dXl.get(String.valueOf(simpleThreadInfo.tid));
                 aVar = (a) view3.getTag();
                 view2 = view3;
             }
-            aVar.dXt.setText(simpleThreadInfo.title);
+            aVar.dXq.setText(simpleThreadInfo.title);
             StringBuilder sb = new StringBuilder();
             if (simpleThreadInfo._abstract != null && simpleThreadInfo._abstract.size() != 0) {
                 int size = simpleThreadInfo._abstract.size();
@@ -89,24 +89,24 @@ public class ItemHotThreadView extends LinearLayout {
                 }
             }
             if (!an.isEmpty(sb.toString().trim())) {
-                aVar.dXu.setText(sb.toString());
-                aVar.dXu.setVisibility(0);
+                aVar.dXr.setText(sb.toString());
+                aVar.dXr.setVisibility(0);
             } else {
-                aVar.dXu.setVisibility(8);
+                aVar.dXr.setVisibility(8);
             }
-            aVar.dXv.setText(String.valueOf(simpleThreadInfo.reply_num));
-            ak.i(aVar.dXs, d.f.live_frs_list_item_bg);
-            ak.c(aVar.dXt, d.C0126d.cp_cont_b, 1);
-            ak.c(aVar.dXu, d.C0126d.cp_cont_c, 1);
-            ak.c(aVar.dXv, d.C0126d.cp_link_tip_c, 1);
+            aVar.dXs.setText(String.valueOf(simpleThreadInfo.reply_num));
+            ak.i(aVar.dXp, d.f.live_frs_list_item_bg);
+            ak.c(aVar.dXq, d.C0126d.cp_cont_b, 1);
+            ak.c(aVar.dXr, d.C0126d.cp_cont_c, 1);
+            ak.c(aVar.dXs, d.C0126d.cp_link_tip_c, 1);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) ak.getDrawable(d.f.icon_ba_comment);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.dXv.setCompoundDrawables(bitmapDrawable, null, null, null);
-            ak.i(aVar.dXw, d.C0126d.cp_bg_line_c);
+            aVar.dXs.setCompoundDrawables(bitmapDrawable, null, null, null);
+            ak.i(aVar.dXt, d.C0126d.cp_bg_line_c);
             if (z) {
-                aVar.dXw.setVisibility(0);
+                aVar.dXt.setVisibility(0);
             } else {
-                aVar.dXw.setVisibility(8);
+                aVar.dXt.setVisibility(8);
             }
             final String valueOf = String.valueOf(simpleThreadInfo.tid);
             view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.detail.ItemHotThreadView.1
@@ -128,11 +128,11 @@ public class ItemHotThreadView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        LinearLayout dXs;
+        LinearLayout dXp;
+        TextView dXq;
+        TextView dXr;
+        TextView dXs;
         TextView dXt;
-        TextView dXu;
-        TextView dXv;
-        TextView dXw;
 
         private a() {
         }

@@ -31,14 +31,14 @@ public class a extends k<b, c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view2, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.cpe != null) {
+        if (cVar != null && cVar.cpb != null) {
             if (this.bfI != null) {
-                cVar.cpe.setOnClickListener(this.bfI);
+                cVar.cpb.setOnClickListener(this.bfI);
             }
             if (cVar.aqQ != TbadkCoreApplication.getInst().getSkinType()) {
                 cVar.aqQ = TbadkCoreApplication.getInst().getSkinType();
-                ak.h(cVar.cpe, d.C0126d.cp_cont_f);
-                ak.i(cVar.cpe, d.f.more_all);
+                ak.h(cVar.cpb, d.C0126d.cp_cont_f);
+                ak.i(cVar.cpb, d.f.more_all);
                 ak.i(cVar.bae, d.C0126d.cp_bg_line_c);
             }
         }

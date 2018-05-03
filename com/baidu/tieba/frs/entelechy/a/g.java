@@ -14,7 +14,7 @@ import com.baidu.tieba.d;
 public class g extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d>> implements com.baidu.tieba.a.f, aa, com.baidu.tieba.frs.e.c {
     private ab<bd> bvU;
     private String bvX;
-    private com.baidu.tieba.frs.entelechy.view.d ddQ;
+    private com.baidu.tieba.frs.entelechy.view.d ddN;
     private String mForumName;
     private TbPageContext<?> mPageContext;
 
@@ -26,9 +26,9 @@ public class g extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
             public void a(View view2, bd bdVar) {
                 if (view2 != null && bdVar != null) {
                     if (view2.getId() == d.g.card_home_page_normal_thread_user_name || (view2 instanceof HeadImageView) || (view2 instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 2);
                     } else {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 7);
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 7);
                     }
                 }
             }
@@ -42,9 +42,9 @@ public class g extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d> onCreateViewHolder(ViewGroup viewGroup) {
-        this.ddQ = new com.baidu.tieba.frs.entelechy.view.d(this.mPageContext, this.mPageId);
-        this.ddQ.j(this.mPageId);
-        return new com.baidu.tieba.card.a.a<>(this.ddQ);
+        this.ddN = new com.baidu.tieba.frs.entelechy.view.d(this.mPageContext, this.mPageId);
+        this.ddN.j(this.mPageId);
+        return new com.baidu.tieba.card.a.a<>(this.ddN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,12 +58,12 @@ public class g extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
         if (aVar.afY() instanceof com.baidu.tieba.a.e) {
             aVar.afY().setPage(this.bvX);
         }
-        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWO);
-        com.baidu.tieba.frs.e.a(aVar.afY().afA(), this.cWO);
+        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWL);
+        com.baidu.tieba.frs.e.a(aVar.afY().afA(), this.cWL);
         aVar.afY().a(bdVar);
         aVar.afY().setForumName(this.mForumName);
         aVar.afY().b(this.bvU);
-        com.baidu.tieba.frs.e.b.auH().a(doy, bdVar);
+        com.baidu.tieba.frs.e.b.auH().a(dov, bdVar);
         if (bdVar != null) {
             bdVar.sK();
         }

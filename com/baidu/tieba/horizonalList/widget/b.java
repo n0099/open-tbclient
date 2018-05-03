@@ -14,14 +14,14 @@ public class b extends BaseAdapter {
     private int GG;
     private List<c> Yt;
     public final ArrayList<e> aSf = new ArrayList<>();
-    private e dHz;
+    private e dHw;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
 
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
         this.GG = i;
-        this.dHz = eVar;
+        this.dHw = eVar;
     }
 
     public void setData(List<c> list) {
@@ -59,7 +59,7 @@ public class b extends BaseAdapter {
     public View getView(int i, View view2, ViewGroup viewGroup) {
         if (view2 == null) {
             view2 = this.mInflater.inflate(this.GG, viewGroup, false);
-            e ad = this.dHz.ad(view2);
+            e ad = this.dHw.ad(view2);
             ad.setOnClickListener(this.mOnClickListener);
             view2.setTag(ad);
             this.aSf.add(ad);

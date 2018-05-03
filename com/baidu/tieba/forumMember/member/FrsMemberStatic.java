@@ -19,12 +19,12 @@ public class FrsMemberStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new i(null, j.cUh));
-                    absDelegateAdapterList.add(new l(null, m.cUv));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.g.cWV));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.cTL));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.cTO));
-                    absDelegateAdapterList.add(new o(null, p.cUO));
+                    absDelegateAdapterList.add(new i(null, j.cUe));
+                    absDelegateAdapterList.add(new l(null, m.cUs));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.g.cWS));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.cTI));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.cTL));
+                    absDelegateAdapterList.add(new o(null, p.cUL));
                 }
             }
         });

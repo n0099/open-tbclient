@@ -7,7 +7,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class c {
-    private static int cvh = -1;
+    private static int cve = -1;
 
     public static final String bj(long j) {
         long j2 = 1000 * j;
@@ -21,10 +21,10 @@ public class c {
     }
 
     private static final int agv() {
-        if (cvh == -1) {
-            cvh = bk(System.currentTimeMillis());
+        if (cve == -1) {
+            cve = bk(System.currentTimeMillis());
         }
-        return cvh;
+        return cve;
     }
 
     public static void a(int i, String str, Class cls) {

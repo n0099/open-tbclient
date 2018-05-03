@@ -8,7 +8,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes.dex */
 public class HomePageStatic {
-    public static boolean dAf = false;
+    public static boolean dAc = false;
 
     static {
         awZ();

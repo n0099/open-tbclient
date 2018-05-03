@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PersonBarModel extends BdBaseModel {
     private static final String dataUrl = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
     private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, dataUrl);
-    private int fGl;
+    private int fGi;
     private a mData;
     private String mId;
     private boolean mIsHost;
@@ -47,7 +47,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void re(int i) {
-        this.fGl = i;
+        this.fGi = i;
     }
 
     public a bey() {
@@ -82,7 +82,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void rg(String str) {
-        if (this.fGl == 1 && this.mIsHost) {
+        if (this.fGi == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();

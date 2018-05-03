@@ -13,27 +13,27 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b gcs;
-    private CustomMessageListener gcu = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b gcp;
+    private CustomMessageListener gcr = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.gP() && b.this.gct != null) {
-                b.this.gct.bkg();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.gP() && b.this.gcq != null) {
+                b.this.gcq.bkg();
             }
         }
     };
-    private c gct = new f();
+    private c gcq = new f();
 
     public static b bke() {
-        if (gcs == null) {
+        if (gcp == null) {
             synchronized (b.class) {
-                if (gcs == null) {
-                    gcs = new b();
+                if (gcp == null) {
+                    gcp = new b();
                 }
             }
         }
-        return gcs;
+        return gcp;
     }
 
     private boolean bkf() {
@@ -41,15 +41,15 @@ public class b {
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.gcu);
+        MessageManager.getInstance().registerListener(this.gcr);
     }
 
     public void a(a aVar) {
-        if (bkf() && aVar != null && this.gct != null) {
+        if (bkf() && aVar != null && this.gcq != null) {
             if (j.gP()) {
-                this.gct.b(aVar);
+                this.gcq.b(aVar);
             } else {
-                this.gct.c(aVar);
+                this.gcq.c(aVar);
             }
         }
     }

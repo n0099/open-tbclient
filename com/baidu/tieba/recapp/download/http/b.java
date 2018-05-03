@@ -24,12 +24,12 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 class b {
-    private int fXO;
-    private g fXP;
+    private int fXL;
+    private g fXM;
     private HttpURLConnection tk;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static String boundary = "--------7da3d81520810*";
-    private final int fXN = 5;
+    private final int fXK = 5;
     private long tl = 0;
     private long tm = 0;
     private long mW = 0;
@@ -65,11 +65,11 @@ class b {
         if (gVar == null) {
             throw new NullPointerException("init HttpImpl's args context is null");
         }
-        this.fXP = gVar;
+        this.fXM = gVar;
     }
 
     public void eW() {
-        this.fXP.bjB().tW = true;
+        this.fXM.bjB().tW = true;
         com.baidu.adp.lib.g.a.f(this.tk);
     }
 
@@ -79,7 +79,7 @@ class b {
         if (this.ts && (bjy = a.bjy()) != null) {
             String al = bjy.al(str);
             if (!TextUtils.isEmpty(al)) {
-                this.fXP.bjA().o("Host", url.getHost());
+                this.fXM.bjA().o("Host", url.getHost());
                 URL url2 = new URL(str.replace("://" + url.getHost(), "://" + al));
                 this.tr = true;
                 eVar.tK = al;
@@ -118,7 +118,7 @@ class b {
                         sb.append(file);
                         httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
                         try {
-                            this.fXP.bjA().o("X-Online-Host", url.getHost());
+                            this.fXM.bjA().o("X-Online-Host", url.getHost());
                             httpURLConnection2 = httpURLConnection;
                         } catch (Exception e2) {
                             e = e2;
@@ -152,13 +152,13 @@ class b {
         Map<String, List<String>> map;
         List<String> list;
         eVar.tI = -1;
-        if (this.fXP.bjB().tW) {
+        if (this.fXM.bjB().tW) {
             throw new BdHttpCancelException();
         }
-        String c = this.fXP.bjA().c(eVar);
+        String c = this.fXM.bjA().c(eVar);
         eVar.url = c;
         URL a = a(c, eVar);
-        if (this.fXP.bjB().tW) {
+        if (this.fXM.bjB().tW) {
             throw new BdHttpCancelException();
         }
         eVar.tI = -2;
@@ -172,8 +172,8 @@ class b {
             this.tk.setRequestMethod("GET");
             this.tk.setConnectTimeout(i2);
             this.tk.setReadTimeout(i);
-            this.fXP.bjA().d(this.tk);
-            if (this.fXP.bjB().tW) {
+            this.fXM.bjA().d(this.tk);
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             eVar.tF = new Date().getTime() - currentTimeMillis;
@@ -185,7 +185,7 @@ class b {
             this.tm = System.currentTimeMillis();
             eVar.tI = -5;
             eVar.connectTime = (new Date().getTime() - currentTimeMillis) - eVar.tF;
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             String contentType = this.tk.getContentType();
@@ -193,22 +193,22 @@ class b {
             if (f.ap(contentType)) {
                 this.tk.disconnect();
                 this.tk.connect();
-                if (this.fXP.bjB().tW) {
+                if (this.fXM.bjB().tW) {
                     throw new BdHttpCancelException();
                 }
             }
             eVar.tI = -8;
-            this.fXP.bjB().e(this.tk);
-            if (c.contains("c.tieba.baidu.com") && (map = this.fXP.bjB().tY) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+            this.fXM.bjB().e(this.tk);
+            if (c.contains("c.tieba.baidu.com") && (map = this.fXM.bjB().tY) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
                 eVar.tL = list.get(0);
                 eVar.tM = list.get(1);
             }
-            eVar.tH = this.fXP.bjB().responseCode;
+            eVar.tH = this.fXM.bjB().responseCode;
             eVar.tB = this.tk.getHeaderFields().toString().getBytes().length;
             byte[] c2 = c(this.tk);
             if (c2 != null) {
                 eVar.tB += c2.length;
-                this.fXP.bjB().tZ = c(this.fXP.bjB().contentEncoding, c2);
+                this.fXM.bjB().tZ = c(this.fXM.bjB().contentEncoding, c2);
             }
             eVar.tI = -9;
             eVar.tC = new Date().getTime() - currentTimeMillis;
@@ -241,7 +241,7 @@ class b {
             try {
                 byte[] bArr2 = new byte[1024];
                 inputStream2 = httpURLConnection.getInputStream();
-                while (!this.fXP.bjB().tW && (read = inputStream2.read(bArr2)) != -1) {
+                while (!this.fXM.bjB().tW && (read = inputStream2.read(bArr2)) != -1) {
                     try {
                         byteArrayOutputStream.write(bArr2, 0, read);
                     } catch (Throwable th2) {
@@ -253,7 +253,7 @@ class b {
                         throw th;
                     }
                 }
-                if (this.fXP.bjB().tW) {
+                if (this.fXM.bjB().tW) {
                     throw new BdHttpCancelException();
                 }
                 bArr = byteArrayOutputStream.toByteArray();
@@ -273,10 +273,10 @@ class b {
     public void b(int i, int i2, e eVar) throws Exception {
         eVar.tI = -1;
         try {
-            String url = this.fXP.bjA().getUrl();
+            String url = this.fXM.bjA().getUrl();
             eVar.url = url;
             URL a = a(url, eVar);
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             eVar.tI = -2;
@@ -292,11 +292,11 @@ class b {
             this.tk.setConnectTimeout(i2);
             this.tk.setReadTimeout(i);
             this.tk.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
-            this.fXP.bjA().d(this.tk);
-            if (this.fXP.bjB().tW) {
+            this.fXM.bjA().d(this.tk);
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             long time = new Date().getTime();
@@ -309,36 +309,36 @@ class b {
             this.tm = System.currentTimeMillis();
             eVar.tI = -5;
             eVar.connectTime = (new Date().getTime() - time) - eVar.tF;
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             if (this.tu != null) {
                 this.tu.schedule(this.tt, 45000L);
             }
             eVar.tI = -6;
-            this.fXP.bjA().a(this.tk, boundary, eVar);
+            this.fXM.bjA().a(this.tk, boundary, eVar);
             eVar.tI = -7;
             String contentType = this.tk.getContentType();
             this.mW = System.currentTimeMillis();
             if (f.ap(contentType)) {
                 this.tk.disconnect();
                 this.tk.connect();
-                if (this.fXP.bjB().tW) {
+                if (this.fXM.bjB().tW) {
                     throw new BdHttpCancelException();
                 }
             }
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             eVar.tI = -8;
-            this.fXP.bjB().e(this.tk);
-            eVar.tH = this.fXP.bjB().responseCode;
+            this.fXM.bjB().e(this.tk);
+            eVar.tH = this.fXM.bjB().responseCode;
             eVar.tB = this.tk.getHeaderFields().toString().getBytes().length;
             byte[] c = c(this.tk);
             if (c != null) {
                 eVar.tB += c.length;
-                this.fXP.bjB().ub = c.length;
-                this.fXP.bjB().tZ = c(this.fXP.bjB().contentEncoding, c);
+                this.fXM.bjB().ub = c.length;
+                this.fXM.bjB().tZ = c(this.fXM.bjB().contentEncoding, c);
             }
             eVar.tC = new Date().getTime() - time;
             eVar.tI = -9;
@@ -355,16 +355,16 @@ class b {
         InputStream inputStream;
         String headerField;
         int indexOf;
-        this.fXO = 0;
+        this.fXL = 0;
         FileOutputStream fileOutputStream = null;
         e eVar2 = eVar == null ? new e() : eVar;
         try {
-            String url = this.fXP.bjA().getUrl();
+            String url = this.fXM.bjA().getUrl();
             eVar2.url = url;
             this.tk = a(a(url, eVar2), i2, i);
             this.tk.setInstanceFollowRedirects(true);
             HttpURLConnection.setFollowRedirects(false);
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 this.tp = System.currentTimeMillis();
                 com.baidu.adp.lib.g.a.d(null);
                 com.baidu.adp.lib.g.a.f(this.tk);
@@ -381,7 +381,7 @@ class b {
             long length = file.length();
             FileOutputStream fileOutputStream2 = new FileOutputStream(file, true);
             try {
-                this.fXP.bjA().d(this.tk);
+                this.fXM.bjA().d(this.tk);
                 this.tk.addRequestProperty("Range", "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 this.tk.connect();
                 if (this.tl <= 0) {
@@ -389,19 +389,19 @@ class b {
                 }
                 this.tm = System.currentTimeMillis();
                 int responseCode = this.tk.getResponseCode();
-                while (rN(responseCode) && this.fXO <= 5) {
+                while (rN(responseCode) && this.fXL <= 5) {
                     this.tk = a(this.tk, i2, i);
-                    this.fXP.bjA().d(this.tk);
+                    this.fXM.bjA().d(this.tk);
                     this.tk.addRequestProperty("Range", "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     this.tk.connect();
                     responseCode = this.tk.getResponseCode();
                 }
                 this.mW = System.currentTimeMillis();
-                this.fXP.bjB().responseCode = responseCode;
+                this.fXM.bjB().responseCode = responseCode;
                 if (eX()) {
                     if (this.tk.getContentType() != null && this.tk.getContentType().contains("text/vnd.wap.wml")) {
                         this.tk.disconnect();
-                        this.fXP.bjB().responseCode = 0;
+                        this.fXM.bjB().responseCode = 0;
                         boolean a = a(str, jVar, i, i2, z, eVar2, z2);
                         this.tp = System.currentTimeMillis();
                         com.baidu.adp.lib.g.a.d(null);
@@ -414,12 +414,12 @@ class b {
                     if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
                         i3 = com.baidu.adp.lib.g.b.g(headerField2.substring(indexOf + 1), 0);
                     }
-                    int g = (i3 == 0 && this.fXP.bjB().responseCode == 200 && (headerField = this.tk.getHeaderField(HTTP.CONTENT_LEN)) != null) ? com.baidu.adp.lib.g.b.g(headerField, 0) : i3;
-                    this.fXP.bjB().contentLength = String.valueOf(g);
+                    int g = (i3 == 0 && this.fXM.bjB().responseCode == 200 && (headerField = this.tk.getHeaderField(HTTP.CONTENT_LEN)) != null) ? com.baidu.adp.lib.g.b.g(headerField, 0) : i3;
+                    this.fXM.bjB().contentLength = String.valueOf(g);
                     eVar2.tA = url.getBytes().length;
                     eVar2.tB = this.tk.getHeaderFields().toString().getBytes().length;
                     eVar2.tB += g;
-                    if (this.fXP.bjB().responseCode == 416 || this.fXP.bjB().responseCode == 204) {
+                    if (this.fXM.bjB().responseCode == 416 || this.fXM.bjB().responseCode == 204) {
                         this.tp = System.currentTimeMillis();
                         com.baidu.adp.lib.g.a.d(null);
                         com.baidu.adp.lib.g.a.f(this.tk);
@@ -442,7 +442,7 @@ class b {
                             if (jVar != null && length > 0) {
                                 jVar.m((int) length, g);
                             }
-                            while (!this.fXP.bjB().tW) {
+                            while (!this.fXM.bjB().tW) {
                                 int read = inputStream2.read(bArr);
                                 if (read != -1) {
                                     try {
@@ -501,7 +501,7 @@ class b {
         URL url = httpURLConnection.getURL().toURI().resolve(httpURLConnection.getHeaderField("Location")).toURL();
         com.baidu.adp.lib.g.a.f(httpURLConnection);
         HttpURLConnection a = a(url, i, i2);
-        this.fXO++;
+        this.fXL++;
         return a;
     }
 
@@ -510,16 +510,16 @@ class b {
     }
 
     private boolean eX() {
-        return this.fXP.bjB().responseCode == 200 || this.fXP.bjB().responseCode == 206;
+        return this.fXM.bjB().responseCode == 200 || this.fXM.bjB().responseCode == 206;
     }
 
     public void c(int i, int i2, e eVar) throws Exception {
         eVar.tI = -1;
         try {
-            String url = this.fXP.bjA().getUrl();
+            String url = this.fXM.bjA().getUrl();
             eVar.url = url;
             URL a = a(url, eVar);
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             eVar.tI = -2;
@@ -535,11 +535,11 @@ class b {
             this.tk.setConnectTimeout(i2);
             this.tk.setReadTimeout(i);
             this.tk.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
-            this.fXP.bjA().d(this.tk);
-            if (this.fXP.bjB().tW) {
+            this.fXM.bjA().d(this.tk);
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             eVar.tF = System.currentTimeMillis() - currentTimeMillis;
@@ -551,13 +551,13 @@ class b {
             this.tm = System.currentTimeMillis();
             eVar.tI = -5;
             eVar.connectTime = (System.currentTimeMillis() - currentTimeMillis) - eVar.tF;
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             eVar.tI = -6;
-            this.fXP.bjA().a(this.tk, eVar);
+            this.fXM.bjA().a(this.tk, eVar);
             eVar.tI = -7;
-            if (this.fXP.bjB().tW) {
+            if (this.fXM.bjB().tW) {
                 throw new BdHttpCancelException();
             }
             String contentType = this.tk.getContentType();
@@ -565,19 +565,19 @@ class b {
             if (f.ap(contentType)) {
                 this.tk.disconnect();
                 this.tk.connect();
-                if (this.fXP.bjB().tW) {
+                if (this.fXM.bjB().tW) {
                     throw new BdHttpCancelException();
                 }
             }
-            this.fXP.bjB().e(this.tk);
+            this.fXM.bjB().e(this.tk);
             eVar.tI = -8;
-            eVar.tH = this.fXP.bjB().responseCode;
+            eVar.tH = this.fXM.bjB().responseCode;
             eVar.tB = this.tk.getHeaderFields().toString().getBytes().length;
             byte[] c = c(this.tk);
             if (c != null) {
                 eVar.tB += c.length;
-                this.fXP.bjB().ub = c.length;
-                this.fXP.bjB().tZ = c(this.fXP.bjB().contentEncoding, c);
+                this.fXM.bjB().ub = c.length;
+                this.fXM.bjB().tZ = c(this.fXM.bjB().contentEncoding, c);
             }
             eVar.tC = new Date().getTime() - currentTimeMillis;
             eVar.tI = -9;

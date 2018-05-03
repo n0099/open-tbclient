@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private static volatile List<Long> dEt = new ArrayList();
+    private static volatile List<Long> dEq = new ArrayList();
 
     public static void bJ(long j) {
-        if (dEt.size() > 300) {
-            dEt.remove(0);
+        if (dEq.size() > 300) {
+            dEq.remove(0);
         }
-        dEt.add(Long.valueOf(j));
+        dEq.add(Long.valueOf(j));
     }
 
     public static boolean bK(long j) {
-        return dEt.contains(Long.valueOf(j));
+        return dEq.contains(Long.valueOf(j));
     }
 }

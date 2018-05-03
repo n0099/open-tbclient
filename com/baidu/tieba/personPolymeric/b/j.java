@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes3.dex */
 public class j {
     private BdUniqueId aBK;
-    private HttpMessageListener bZv = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tieba.personPolymeric.b.j.1
+    private HttpMessageListener bZs = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tieba.personPolymeric.b.j.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -19,13 +19,13 @@ public class j {
             if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
                 long longValue = ((Long) orginalMessage.getExtra()).longValue();
                 boolean z = httpResponsedMessage.getOrginalMessage().getTag() == j.this.aBK;
-                if (j.this.fJD != null) {
-                    j.this.fJD.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                if (j.this.fJA != null) {
+                    j.this.fJA.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
                 }
             }
         }
     };
-    private a fJD;
+    private a fJA;
     private TbPageContext mPageContext;
 
     /* loaded from: classes3.dex */
@@ -36,8 +36,8 @@ public class j {
     public j(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.aBK = bdUniqueId;
-        this.bZv.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.bZv);
+        this.bZs.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.bZs);
     }
 
     public void cL(long j) {
@@ -49,6 +49,6 @@ public class j {
     }
 
     public void a(a aVar) {
-        this.fJD = aVar;
+        this.fJA = aVar;
     }
 }

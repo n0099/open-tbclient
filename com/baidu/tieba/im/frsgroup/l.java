@@ -26,14 +26,14 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class l extends BaseAdapter {
-    private final MembersActivity dZe;
-    private a dZf;
-    private boolean dZg;
-    private boolean dZi;
-    private final Set<Long> dZj = new HashSet();
-    private final List<UserData> dZk = new ArrayList();
-    private ArrayList<IconData> dZl = null;
-    private boolean dZh = false;
+    private final MembersActivity dZb;
+    private a dZc;
+    private boolean dZd;
+    private boolean dZf;
+    private final Set<Long> dZg = new HashSet();
+    private final List<UserData> dZh = new ArrayList();
+    private ArrayList<IconData> dZi = null;
+    private boolean dZe = false;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -41,18 +41,18 @@ public class l extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.dZf = aVar;
+        this.dZc = aVar;
     }
 
     public void cb(List<UserData> list) {
-        this.dZk.addAll(list);
+        this.dZh.addAll(list);
     }
 
     public void cc(List<Long> list) {
         if (list != null && list.size() > 0) {
             for (Long l : list) {
                 long longValue = l.longValue();
-                Iterator<UserData> it = this.dZk.iterator();
+                Iterator<UserData> it = this.dZh.iterator();
                 while (it.hasNext()) {
                     if (it.next().getUserIdLong() == longValue) {
                         it.remove();
@@ -63,64 +63,64 @@ public class l extends BaseAdapter {
     }
 
     public void aDY() {
-        this.dZj.clear();
+        this.dZg.clear();
     }
 
     public Set<Long> aDZ() {
-        return this.dZj;
+        return this.dZg;
     }
 
     public void f(Long l) {
         if (com.baidu.adp.lib.util.l.hf()) {
-            if (this.dZj.contains(l)) {
-                this.dZj.remove(l);
+            if (this.dZg.contains(l)) {
+                this.dZg.remove(l);
             } else {
-                this.dZj.add(l);
+                this.dZg.add(l);
             }
             notifyDataSetChanged();
-            if (this.dZf != null) {
-                this.dZf.nz(this.dZj.size());
+            if (this.dZc != null) {
+                this.dZc.nz(this.dZg.size());
             }
         }
     }
 
     public void reset(boolean z) {
         if (z) {
-            this.dZk.clear();
+            this.dZh.clear();
         }
-        this.dZh = false;
-        this.dZg = true;
+        this.dZe = false;
+        this.dZd = true;
     }
 
     public l(MembersActivity membersActivity) {
-        this.dZe = membersActivity;
+        this.dZb = membersActivity;
     }
 
     public void hd(boolean z) {
-        this.dZg = z;
+        this.dZd = z;
     }
 
     public boolean agl() {
-        return this.dZg;
+        return this.dZd;
     }
 
     public void he(boolean z) {
-        this.dZh = z;
+        this.dZe = z;
     }
 
     public boolean aBe() {
-        return this.dZi;
+        return this.dZf;
     }
 
     public void hf(boolean z) {
-        this.dZi = z;
+        this.dZf = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dZk != null) {
-            int size = this.dZk.size();
-            if (this.dZh) {
+        if (this.dZh != null) {
+            int size = this.dZh.size();
+            if (this.dZe) {
                 return size + 1;
             }
             return size;
@@ -130,12 +130,12 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return v.c(this.dZk, i);
+        return v.c(this.dZh, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.dZh && i == getCount() - 1) {
+        if (this.dZe && i == getCount() - 1) {
             return -2L;
         }
         return i;
@@ -155,28 +155,28 @@ public class l extends BaseAdapter {
     public View getView(int i, View view2, ViewGroup viewGroup) {
         b bVar;
         View view3;
-        if (this.dZk != null) {
+        if (this.dZh != null) {
             if (view2 == null) {
                 b bVar2 = new b();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.dZe.getPageContext().getPageActivity()).inflate(d.i.im_members_list_foot, viewGroup, false);
-                    bVar2.dZn = (LinearLayout) inflate.findViewById(d.g.list_more);
-                    bVar2.dZo = (TextView) inflate.findViewById(d.g.more_title);
-                    bVar2.dZp = (ProgressBar) inflate.findViewById(d.g.more_progress);
+                    View inflate = LayoutInflater.from(this.dZb.getPageContext().getPageActivity()).inflate(d.i.im_members_list_foot, viewGroup, false);
+                    bVar2.dZk = (LinearLayout) inflate.findViewById(d.g.list_more);
+                    bVar2.dZl = (TextView) inflate.findViewById(d.g.more_title);
+                    bVar2.dZm = (ProgressBar) inflate.findViewById(d.g.more_progress);
                     view3 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.dZe.getPageContext().getPageActivity()).inflate(d.i.im_members_list_item, viewGroup, false);
-                    bVar2.dZr = (HeadImageView) inflate2.findViewById(d.g.item_head);
-                    bVar2.dZr.setIsRound(false);
-                    bVar2.dZr.setAutoChangeStyle(true);
-                    bVar2.dYg = (TextView) inflate2.findViewById(d.g.item_name);
-                    bVar2.dZs = (ImageView) inflate2.findViewById(d.g.item_sex);
-                    bVar2.dZt = (TextView) inflate2.findViewById(d.g.item_time);
-                    bVar2.dZu = (TextView) inflate2.findViewById(d.g.item_address);
-                    bVar2.dZq = (ImageView) inflate2.findViewById(d.g.item_check);
+                    View inflate2 = LayoutInflater.from(this.dZb.getPageContext().getPageActivity()).inflate(d.i.im_members_list_item, viewGroup, false);
+                    bVar2.dZo = (HeadImageView) inflate2.findViewById(d.g.item_head);
+                    bVar2.dZo.setIsRound(false);
+                    bVar2.dZo.setAutoChangeStyle(true);
+                    bVar2.dYd = (TextView) inflate2.findViewById(d.g.item_name);
+                    bVar2.dZp = (ImageView) inflate2.findViewById(d.g.item_sex);
+                    bVar2.dZq = (TextView) inflate2.findViewById(d.g.item_time);
+                    bVar2.dZr = (TextView) inflate2.findViewById(d.g.item_address);
+                    bVar2.dZn = (ImageView) inflate2.findViewById(d.g.item_check);
                     bVar2.apM = (UserIconBox) inflate2.findViewById(d.g.user_tshow_icon_box);
-                    bVar2.dZv = inflate2.findViewById(d.g.list_line);
-                    bVar2.dZw = inflate2.findViewById(d.g.list_bottom_line);
+                    bVar2.dZs = inflate2.findViewById(d.g.list_line);
+                    bVar2.dZt = inflate2.findViewById(d.g.list_bottom_line);
                     view3 = inflate2;
                 }
                 view3.setTag(bVar2);
@@ -185,68 +185,68 @@ public class l extends BaseAdapter {
             } else {
                 bVar = (b) view2.getTag();
             }
-            bVar.dZv.setVisibility(i < getCount() + (-1) ? 0 : 8);
-            bVar.dZw.setVisibility(i < getCount() + (-1) ? 8 : 0);
+            bVar.dZs.setVisibility(i < getCount() + (-1) ? 0 : 8);
+            bVar.dZt.setVisibility(i < getCount() + (-1) ? 8 : 0);
             if (getItemViewType(i) == 1) {
-                if (this.dZg) {
-                    bVar.dZo.setText(d.k.members_load_more_person);
-                    bVar.dZp.setVisibility(0);
+                if (this.dZd) {
+                    bVar.dZl.setText(d.k.members_load_more_person);
+                    bVar.dZm.setVisibility(0);
                 } else {
-                    bVar.dZo.setText(d.k.members_no_more_person);
-                    bVar.dZp.setVisibility(8);
+                    bVar.dZl.setText(d.k.members_no_more_person);
+                    bVar.dZm.setVisibility(8);
                 }
             } else {
                 UserData userData = (UserData) getItem(i);
                 if (userData != null) {
-                    bVar.dZr.setTag(null);
+                    bVar.dZo.setTag(null);
                     String portrait = userData.getPortrait();
                     if (!an.isEmpty(portrait)) {
-                        bVar.dZr.startLoad(portrait, 12, false);
+                        bVar.dZo.startLoad(portrait, 12, false);
                     }
-                    bVar.dYg.setText(userData.getUserName());
+                    bVar.dYd.setText(userData.getUserName());
                     switch (userData.getSex()) {
                         case 1:
-                            bVar.dZs.setVisibility(0);
-                            ak.c(bVar.dZs, d.f.icon_pop_qz_boy);
+                            bVar.dZp.setVisibility(0);
+                            ak.c(bVar.dZp, d.f.icon_pop_qz_boy);
                             break;
                         case 2:
-                            bVar.dZs.setVisibility(0);
-                            ak.c(bVar.dZs, d.f.icon_pop_qz_girl);
+                            bVar.dZp.setVisibility(0);
+                            ak.c(bVar.dZp, d.f.icon_pop_qz_girl);
                             break;
                         default:
-                            bVar.dZs.setVisibility(8);
+                            bVar.dZp.setVisibility(8);
                             break;
                     }
-                    bVar.dZt.setText(d(userData));
-                    bVar.dZu.setText(userData.getPosition());
-                    this.dZl = userData.getTShowInfo();
+                    bVar.dZq.setText(d(userData));
+                    bVar.dZr.setText(userData.getPosition());
+                    this.dZi = userData.getTShowInfo();
                     if (bVar.apM != null) {
-                        bVar.apM.a(this.dZl, 2, this.dZe.getResources().getDimensionPixelSize(d.e.ds38), this.dZe.getResources().getDimensionPixelSize(d.e.ds38), this.dZe.getResources().getDimensionPixelSize(d.e.ds8), true);
+                        bVar.apM.a(this.dZi, 2, this.dZb.getResources().getDimensionPixelSize(d.e.ds38), this.dZb.getResources().getDimensionPixelSize(d.e.ds38), this.dZb.getResources().getDimensionPixelSize(d.e.ds8), true);
                     }
-                    if (this.dZi) {
-                        bVar.dZq.setVisibility(userData.getPermission().isController() ? 4 : 0);
+                    if (this.dZf) {
+                        bVar.dZn.setVisibility(userData.getPermission().isController() ? 4 : 0);
                         Long valueOf = Long.valueOf(userData.getUserIdLong());
-                        bVar.dZq.setTag(valueOf);
-                        bVar.dZq.setSelected(this.dZj.contains(valueOf));
-                        bVar.dZq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
+                        bVar.dZn.setTag(valueOf);
+                        bVar.dZn.setSelected(this.dZg.contains(valueOf));
+                        bVar.dZn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view4) {
                                 view4.setSelected(!view4.isSelected());
                                 if (view4.getTag() instanceof Long) {
                                     Long l = (Long) view4.getTag();
                                     if (view4.isSelected()) {
-                                        l.this.dZj.add(l);
+                                        l.this.dZg.add(l);
                                     } else {
-                                        l.this.dZj.remove(l);
+                                        l.this.dZg.remove(l);
                                     }
-                                    if (l.this.dZf != null) {
-                                        l.this.dZf.nz(l.this.dZj.size());
+                                    if (l.this.dZc != null) {
+                                        l.this.dZc.nz(l.this.dZg.size());
                                     }
                                 }
                             }
                         });
                     } else {
-                        bVar.dZq.setVisibility(8);
+                        bVar.dZn.setVisibility(8);
                     }
                     aA(view2);
                 }
@@ -256,13 +256,13 @@ public class l extends BaseAdapter {
     }
 
     private void aA(View view2) {
-        this.dZe.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.dZe.getLayoutMode().u(view2);
+        this.dZb.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.dZb.getLayoutMode().u(view2);
     }
 
     private String d(UserData userData) {
         long lastReplyTime;
-        MembersModel aDS = this.dZe.aDS();
+        MembersModel aDS = this.dZb.aDS();
         switch (aDS.getOrderType()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
@@ -279,7 +279,7 @@ public class l extends BaseAdapter {
         }
         if (lastReplyTime <= 0) {
             if (aDS.getOrderType() == 1) {
-                return this.dZe.getPageContext().getString(d.k.members_no_speak);
+                return this.dZb.getPageContext().getString(d.k.members_no_speak);
             }
             return "";
         }
@@ -289,17 +289,17 @@ public class l extends BaseAdapter {
     /* loaded from: classes3.dex */
     static class b {
         UserIconBox apM = null;
-        TextView dYg;
-        LinearLayout dZn;
-        TextView dZo;
-        ProgressBar dZp;
-        ImageView dZq;
-        HeadImageView dZr;
-        ImageView dZs;
-        TextView dZt;
-        TextView dZu;
-        View dZv;
-        View dZw;
+        TextView dYd;
+        LinearLayout dZk;
+        TextView dZl;
+        ProgressBar dZm;
+        ImageView dZn;
+        HeadImageView dZo;
+        ImageView dZp;
+        TextView dZq;
+        TextView dZr;
+        View dZs;
+        View dZt;
 
         b() {
         }

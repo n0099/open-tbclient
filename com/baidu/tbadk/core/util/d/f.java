@@ -74,8 +74,9 @@ public class f extends a {
         return bitmap;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    protected Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
+    public Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
         return BitmapHelper.decodeByteArray(bArr, com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst()), com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst()));
     }
 }

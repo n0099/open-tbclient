@@ -18,29 +18,29 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.data.e;
 /* loaded from: classes3.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
-    private b fDm;
-    private Bundle fDn;
-    private e fDo;
+    private b fDj;
+    private Bundle fDk;
+    private e fDl;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null && getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE) != null) {
-            this.fDn = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.fDk = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(d.i.person_center_more_layout);
-        this.fDm = new b(getPageContext(), this.fDn, new ab<e>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
+        this.fDj = new b(getPageContext(), this.fDk, new ab<e>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, e eVar) {
-                PersonCenterMoreActivity.this.fDo = eVar;
-                if (PersonCenterMoreActivity.this.fDo != null && !PersonCenterMoreActivity.this.Xn()) {
-                    PersonCenterMoreActivity.this.qZ(PersonCenterMoreActivity.this.fDo.dwY);
+                PersonCenterMoreActivity.this.fDl = eVar;
+                if (PersonCenterMoreActivity.this.fDl != null && !PersonCenterMoreActivity.this.Xn()) {
+                    PersonCenterMoreActivity.this.qZ(PersonCenterMoreActivity.this.fDl.dwV);
                 }
             }
         });
-        this.fDm.initView();
+        this.fDj.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -55,7 +55,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            qZ(this.fDo.dwY);
+            qZ(this.fDl.dwV);
         }
     }
 
@@ -92,8 +92,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.fDm != null) {
-            this.fDm.onChangeSkinType();
+        if (this.fDj != null) {
+            this.fDj.onChangeSkinType();
         }
     }
 }

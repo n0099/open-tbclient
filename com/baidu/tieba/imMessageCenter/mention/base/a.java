@@ -13,14 +13,14 @@ import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import tbclient.AgreeList;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId eoC = BdUniqueId.gen();
+    public static final BdUniqueId eoD = BdUniqueId.gen();
+    public static final BdUniqueId eoE = BdUniqueId.gen();
     public static final BdUniqueId eoF = BdUniqueId.gen();
     public static final BdUniqueId eoG = BdUniqueId.gen();
-    public static final BdUniqueId eoH = BdUniqueId.gen();
-    public static final BdUniqueId eoI = BdUniqueId.gen();
-    public static final BdUniqueId eoJ = BdUniqueId.gen();
-    private BdUniqueId eoK;
-    private boolean eoL;
-    private String eoM;
+    private BdUniqueId eoH;
+    private boolean eoI;
+    private String eoJ;
     private String fname;
     private boolean isNew;
     private long msgId;
@@ -38,7 +38,7 @@ public class a extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return this.eoK;
+        return this.eoH;
     }
 
     public void a(AgreeList agreeList) {
@@ -64,13 +64,13 @@ public class a extends com.baidu.tieba.card.data.b {
             this.fname = bdVar.rV();
             this.thread_id = bdVar.getId();
             this.threadType = bdVar.threadType;
-            this.eoM = "c12927";
+            this.eoJ = "c12927";
             if (agreeList.type.intValue() == 3) {
-                this.eoK = eoF;
+                this.eoH = eoC;
                 this.title = TbadkCoreApplication.getInst().getResources().getString(d.k.agree_my_thread);
                 return;
             }
-            this.eoK = eoG;
+            this.eoH = eoD;
             this.title = TbadkCoreApplication.getInst().getResources().getString(d.k.agree_my_post);
         }
     }
@@ -86,7 +86,7 @@ public class a extends com.baidu.tieba.card.data.b {
             this.thread_id = feedData.getThread_id();
             this.threadType = feedData.getThread_Type();
             this.title = feedData.getContent();
-            this.eoL = feedData.getIsFloor();
+            this.eoI = feedData.getIsFloor();
             this.postFrom = feedData.getPostFrom();
             this.quote_pid = feedData.getQuote_pid();
             this.isNew = feedData.isNew();
@@ -95,7 +95,7 @@ public class a extends com.baidu.tieba.card.data.b {
             this.originalThreadInfo.threadId = this.thread_id;
             this.originalThreadInfo.threadType = this.threadType;
             this.originalThreadInfo.showPicUrl = feedData.getThreadImgUrl();
-            this.eoM = "c12928";
+            this.eoJ = "c12928";
             if (feedData.getType() == 1) {
                 this.originalThreadInfo.postId = feedData.getQuote_pid();
                 String str = "";
@@ -111,9 +111,9 @@ public class a extends com.baidu.tieba.card.data.b {
                     this.originalThreadInfo.title = this.originalThreadInfo.title.replace("\n", " ");
                 }
                 if (feedData.getIsFloor()) {
-                    this.eoK = eoH;
+                    this.eoH = eoE;
                 } else {
-                    this.eoK = eoI;
+                    this.eoH = eoF;
                 }
             } else {
                 this.originalThreadInfo.postId = "0";
@@ -122,7 +122,7 @@ public class a extends com.baidu.tieba.card.data.b {
                 } else {
                     this.originalThreadInfo.title = feedData.getTitle();
                 }
-                this.eoK = eoJ;
+                this.eoH = eoG;
             }
             this.originalThreadInfo.setShowData();
         }
@@ -169,7 +169,7 @@ public class a extends com.baidu.tieba.card.data.b {
     }
 
     public boolean aIQ() {
-        return this.eoL;
+        return this.eoI;
     }
 
     public String aIR() {
@@ -185,7 +185,7 @@ public class a extends com.baidu.tieba.card.data.b {
     }
 
     public String aIS() {
-        return this.eoM;
+        return this.eoJ;
     }
 
     public MetaData getThreadAuthor() {

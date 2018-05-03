@@ -13,24 +13,24 @@ import com.baidu.tieba.d;
 public class e extends Dialog {
     private LinearLayout aMU;
     private Context context;
-    private float fCq;
+    private float fCn;
     private View mContentView;
 
     public e(Context context) {
         super(context, 16973835);
-        this.fCq = 0.3f;
+        this.fCn = 0.3f;
         this.context = context;
     }
 
     public e(Context context, View view2) {
         super(context, 16973835);
-        this.fCq = 0.3f;
+        this.fCn = 0.3f;
         this.context = context;
         this.mContentView = view2;
     }
 
     public void aq(float f) {
-        this.fCq = f;
+        this.fCn = f;
     }
 
     @Override // android.app.Dialog
@@ -48,7 +48,7 @@ public class e extends Dialog {
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
         getWindow().setBackgroundDrawableResource(d.C0126d.transparent);
-        getWindow().setDimAmount(this.fCq);
+        getWindow().setDimAmount(this.fCn);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(d.l.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);

@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class a {
     private int errorCode = -1;
     private String errorMsg = "";
-    private int fDO = 0;
+    private int fDL = 0;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
     public int Gj() {
-        return this.fDO;
+        return this.fDL;
     }
 
     public void ra(String str) {
@@ -26,7 +26,7 @@ public class a {
                 this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.fDO = optJSONObject.optInt("msg_count");
+                    this.fDL = optJSONObject.optInt("msg_count");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

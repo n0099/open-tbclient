@@ -79,26 +79,26 @@ public class i extends com.baidu.tieba.frs.f<j, k> {
             r aoj = jVar.aoj();
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (aoj.isLike() == 1 && isLogin) {
-                kVar.cUj.setVisibility(8);
-                kVar.cUk.setText(d.k.degree);
-                ak.c(kVar.cTm, BitmapHelper.getSmallGradeResourceIdNew(aoj.boz()));
+                kVar.cUg.setVisibility(8);
+                kVar.cUh.setText(d.k.degree);
+                ak.c(kVar.cTj, BitmapHelper.getSmallGradeResourceIdNew(aoj.boz()));
                 if (StringUtils.isNull(aoj.getLevelName())) {
-                    kVar.cTn.setVisibility(8);
+                    kVar.cTk.setVisibility(8);
                 } else {
-                    kVar.cTn.setText(aoj.getLevelName());
-                    kVar.cTn.setVisibility(0);
+                    kVar.cTk.setText(aoj.getLevelName());
+                    kVar.cTk.setVisibility(0);
                 }
             } else {
-                kVar.cUj.setVisibility(0);
-                kVar.cUk.setText(d.k.tbtille_just_be);
-                ak.c(kVar.cTm, BitmapHelper.getSmallGradeResourceIdNew(aoj.boz()));
-                kVar.cTn.setVisibility(8);
+                kVar.cUg.setVisibility(0);
+                kVar.cUh.setText(d.k.tbtille_just_be);
+                ak.c(kVar.cTj, BitmapHelper.getSmallGradeResourceIdNew(aoj.boz()));
+                kVar.cTk.setVisibility(8);
             }
-            kVar.cUj.setTag(Integer.valueOf(i));
-            kVar.cUl.setTag(Integer.valueOf(i));
+            kVar.cUg.setTag(Integer.valueOf(i));
+            kVar.cUi.setTag(Integer.valueOf(i));
             if (!isLogin) {
                 kVar.bwn.setVisibility(8);
-                kVar.cUm.setVisibility(8);
+                kVar.cUj.setVisibility(8);
             } else {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 SpannableString spannableString = new SpannableString(aoj.getCurScore() + "");
@@ -107,24 +107,24 @@ public class i extends com.baidu.tieba.frs.f<j, k> {
                 spannableString2.setSpan(new ForegroundColorSpan(color2), 0, spannableString2.length(), 17);
                 spannableStringBuilder.append((CharSequence) spannableString);
                 spannableStringBuilder.append((CharSequence) spannableString2);
-                kVar.cUn.setText(spannableStringBuilder);
+                kVar.cUk.setText(spannableStringBuilder);
                 kVar.bwn.setVisibility(0);
-                kVar.cUm.setVisibility(0);
+                kVar.cUj.setVisibility(0);
             }
-            ak.j(kVar.cUo, d.C0126d.cp_bg_line_d);
-            ak.j(kVar.cUp, d.C0126d.cp_bg_line_c);
-            ak.j(kVar.cUq, d.C0126d.cp_bg_line_b);
+            ak.j(kVar.cUl, d.C0126d.cp_bg_line_d);
+            ak.j(kVar.cUm, d.C0126d.cp_bg_line_c);
+            ak.j(kVar.cUn, d.C0126d.cp_bg_line_b);
             ak.j(kVar.bwn, d.C0126d.cp_bg_line_b);
-            ak.j(kVar.cUr, d.C0126d.cp_bg_line_c);
-            ak.i(kVar.cUj, d.f.frs_btn_like);
-            ak.i(kVar.cTn, d.f.bg_bawu_level_title);
-            ak.c(kVar.cUs, d.C0126d.cp_cont_c, 1);
-            ak.c(kVar.cUl, d.C0126d.cp_cont_d, 1);
-            kVar.cUl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
-            ak.c(kVar.cUj, d.C0126d.white_alpha100, 1);
-            ak.c(kVar.cUk, d.C0126d.cp_cont_b, 1);
-            ak.c(kVar.cTn, d.C0126d.cp_cont_c, 1);
-            ak.c(kVar.cUt, d.C0126d.cp_cont_b, 1);
+            ak.j(kVar.cUo, d.C0126d.cp_bg_line_c);
+            ak.i(kVar.cUg, d.f.frs_btn_like);
+            ak.i(kVar.cTk, d.f.bg_bawu_level_title);
+            ak.c(kVar.cUp, d.C0126d.cp_cont_c, 1);
+            ak.c(kVar.cUi, d.C0126d.cp_cont_d, 1);
+            kVar.cUi.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
+            ak.c(kVar.cUg, d.C0126d.white_alpha100, 1);
+            ak.c(kVar.cUh, d.C0126d.cp_cont_b, 1);
+            ak.c(kVar.cTk, d.C0126d.cp_cont_c, 1);
+            ak.c(kVar.cUq, d.C0126d.cp_cont_b, 1);
         }
         return view2;
     }

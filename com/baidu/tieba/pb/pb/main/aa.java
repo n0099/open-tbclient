@@ -1,12 +1,15 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes2.dex */
 public class aa {
-    public String fmf;
-    public boolean fmg;
-    public boolean fmh;
+    public String fmc;
+    public boolean fmd;
+    public boolean fme;
+    public boolean flN = false;
+    public boolean flO = false;
+    public boolean fcS = false;
+    public boolean flP = false;
     public boolean flQ = false;
     public boolean flR = false;
-    public boolean fcV = false;
     public boolean flS = false;
     public boolean flT = false;
     public boolean flU = false;
@@ -17,8 +20,5 @@ public class aa {
     public boolean flZ = false;
     public boolean fma = false;
     public boolean fmb = false;
-    public boolean fmc = false;
-    public boolean fmd = false;
-    public boolean fme = false;
     public boolean isHostOnly = false;
 }

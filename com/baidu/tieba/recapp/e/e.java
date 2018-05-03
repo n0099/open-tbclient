@@ -8,14 +8,14 @@ import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class e {
     public TbPageContext adf;
-    protected final String gcO;
-    protected com.baidu.tieba.recapp.report.a gcP;
-    protected AdvertAppInfo gcQ;
+    protected final String gcL;
+    protected com.baidu.tieba.recapp.report.a gcM;
+    protected AdvertAppInfo gcN;
     protected final View mRootView;
 
     public e(View view2, String str) {
         this.mRootView = view2;
-        this.gcO = str;
+        this.gcL = str;
     }
 
     public void a(AdCard.f fVar) {
@@ -31,9 +31,9 @@ public class e {
 
     public void bkj() {
         this.mRootView.setVisibility(0);
-        if (this.gcP != null) {
-            this.gcP.rS(303);
-            com.baidu.tieba.recapp.report.b.bke().a(this.gcP);
+        if (this.gcM != null) {
+            this.gcM.rS(303);
+            com.baidu.tieba.recapp.report.b.bke().a(this.gcM);
         }
     }
 
@@ -42,11 +42,11 @@ public class e {
     }
 
     public void e(com.baidu.tieba.recapp.report.a aVar) {
-        this.gcP = aVar;
+        this.gcM = aVar;
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.gcQ = advertAppInfo;
+        this.gcN = advertAppInfo;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {

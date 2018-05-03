@@ -17,8 +17,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.g> {
     private HTypeListView bdJ;
-    private View cJP;
-    private com.baidu.tieba.personPolymeric.a.o fLy;
+    private View cJM;
+    private com.baidu.tieba.personPolymeric.a.o fLv;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -27,16 +27,16 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.cJP = this.mRootView.findViewById(d.g.divider_view);
+        this.cJM = this.mRootView.findViewById(d.g.divider_view);
         this.mTitle = (TextView) this.mRootView.findViewById(d.g.gift_title);
         this.bdJ = (HTypeListView) this.mRootView.findViewById(d.g.gift_horizontal_list);
-        this.fLy = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.bdJ);
+        this.fLv = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.bdJ);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         ak.j(this.mRootView, d.C0126d.cp_bg_line_d);
-        ak.j(this.cJP, d.C0126d.cp_bg_line_b);
+        ak.j(this.cJM, d.C0126d.cp_bg_line_b);
         ak.h(this.mTitle, d.C0126d.cp_cont_d);
     }
 
@@ -58,13 +58,13 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 e.this.b(gVar);
             }
         };
-        this.fLy.O(onClickListener);
+        this.fLv.O(onClickListener);
         this.mRootView.setOnClickListener(onClickListener);
-        this.fLy.P(onClickListener);
-        this.bdJ.setData(cX(gVar.fKx));
+        this.fLv.P(onClickListener);
+        this.bdJ.setData(cX(gVar.fKu));
         if (gVar.mIsHost) {
             this.mTitle.setText(d.k.gift_received_by_me);
-        } else if (gVar.fKv) {
+        } else if (gVar.fKs) {
             this.mTitle.setText(d.k.gift_received_by_him);
         } else {
             this.mTitle.setText(d.k.gift_received_by_her);
@@ -77,7 +77,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
             this.mPageContext.showToast(d.k.gift_load_fail);
         } else if (az.aK(this.mPageContext.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.vb, gVar.fKw, gVar.mSex)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.vb, gVar.fKt, gVar.mSex)));
         }
     }
 

@@ -25,10 +25,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private RelativeLayout eRF;
-    private TextView eRG;
-    private Runnable eRH;
-    private Runnable eRI;
+    private RelativeLayout eRC;
+    private TextView eRD;
+    private Runnable eRE;
+    private Runnable eRF;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -52,73 +52,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.eRH == null) {
-                this.eRH = new Runnable() { // from class: com.baidu.tieba.l.c.1
+            if (this.eRE == null) {
+                this.eRE = new Runnable() { // from class: com.baidu.tieba.l.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.eRF != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.eRF);
+                        if (c.this.eRC != null) {
+                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.eRC);
                             c.this.aSj();
                         }
                     }
                 };
             }
-            if (this.eRI == null) {
-                this.eRI = new Runnable() { // from class: com.baidu.tieba.l.c.2
+            if (this.eRF == null) {
+                this.eRF = new Runnable() { // from class: com.baidu.tieba.l.c.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.pR(c.this.mContext.getString(d.k.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.eRI);
-            this.mHandler.postAtFrontOfQueue(this.eRI);
+            this.mHandler.removeCallbacks(this.eRF);
+            this.mHandler.postAtFrontOfQueue(this.eRF);
             this.mIsShowing = true;
-            this.mHandler.postDelayed(this.eRH, 20000L);
+            this.mHandler.postDelayed(this.eRE, 20000L);
         }
     }
 
     public void hide() {
-        if (this.eRF != null && this.eRG != null) {
-            this.mHandler.removeCallbacks(this.eRH);
-            this.mHandler.post(this.eRH);
+        if (this.eRC != null && this.eRD != null) {
+            this.mHandler.removeCallbacks(this.eRE);
+            this.mHandler.post(this.eRE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aSj() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.eRH);
-            this.mHandler.removeCallbacks(this.eRI);
-            this.eRI = null;
-            this.eRH = null;
+            this.mHandler.removeCallbacks(this.eRE);
+            this.mHandler.removeCallbacks(this.eRF);
+            this.eRF = null;
+            this.eRE = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.eRG != null) {
-            this.eRG = null;
+        if (this.eRD != null) {
+            this.eRD = null;
         }
-        if (this.eRF != null) {
-            this.eRF = null;
+        if (this.eRC != null) {
+            this.eRC = null;
         }
         this.mIsShowing = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pR(String str) {
-        if (this.eRG == null) {
-            this.eRG = new b(this.mContext);
-            this.eRG.setTextSize(1, 18.0f);
+        if (this.eRD == null) {
+            this.eRD = new b(this.mContext);
+            this.eRD.setTextSize(1, 18.0f);
         }
-        this.eRG.setText(str);
-        this.eRF = new RelativeLayout(this.mContext);
-        this.eRF.setBackgroundResource(d.f.bg_splash_logo);
+        this.eRD.setText(str);
+        this.eRC = new RelativeLayout(this.mContext);
+        this.eRC.setBackgroundResource(d.f.bg_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.eRF.addView(this.eRG, layoutParams);
+        this.eRC.addView(this.eRD, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = PushConstants.NOTIFICATIONSERVICE_SEND_MESSAGE_BROADCAST;
         layoutParams2.format = 1;
@@ -128,7 +128,7 @@ public class c {
         layoutParams2.width = -1;
         layoutParams2.height = -1;
         layoutParams2.flags = 1280;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.eRF, layoutParams2);
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.eRC, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -188,9 +188,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private LinearGradient eRK;
-        private Matrix eRL;
-        private int eRM;
+        private LinearGradient eRH;
+        private Matrix eRI;
+        private int eRJ;
         private boolean mAnimating;
         private Paint mPaint;
         private int mViewWidth;
@@ -198,20 +198,20 @@ public class c {
         public b(Context context) {
             super(context);
             this.mViewWidth = 0;
-            this.eRM = 0;
+            this.eRJ = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.eRL != null) {
-                this.eRM += this.mViewWidth / 10;
-                if (this.eRM > this.mViewWidth * 2) {
-                    this.eRM = -this.mViewWidth;
+            if (this.mAnimating && this.eRI != null) {
+                this.eRJ += this.mViewWidth / 10;
+                if (this.eRJ > this.mViewWidth * 2) {
+                    this.eRJ = -this.mViewWidth;
                 }
-                this.eRL.setTranslate(this.eRM, 0.0f);
-                this.eRK.setLocalMatrix(this.eRL);
+                this.eRI.setTranslate(this.eRJ, 0.0f);
+                this.eRH.setLocalMatrix(this.eRI);
                 postInvalidateDelayed(50L);
             }
         }
@@ -223,9 +223,9 @@ public class c {
                 this.mViewWidth = getMeasuredWidth();
                 if (this.mViewWidth > 0) {
                     this.mPaint = getPaint();
-                    this.eRK = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.eRK);
-                    this.eRL = new Matrix();
+                    this.eRH = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.eRH);
+                    this.eRI = new Matrix();
                 }
             }
         }

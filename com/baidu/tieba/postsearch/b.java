@@ -12,13 +12,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public List<a> fSX = new ArrayList();
-    public am fSY = new am();
+    public List<a> fSU = new ArrayList();
+    public am fSV = new am();
 
     /* loaded from: classes3.dex */
     public static class a {
         public String content;
-        public int fSZ;
+        public int fSW;
         public String fname;
         public int is_floor;
         public String name;
@@ -31,20 +31,20 @@ public class b {
     }
 
     public boolean aGI() {
-        return (this.fSX == null || this.fSX.size() == 0) ? false : true;
+        return (this.fSU == null || this.fSU.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.fSY != null && this.fSY.rc() == 1;
+        return this.fSV != null && this.fSV.rc() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.fSY.parserJson(jSONObject.getJSONObject(WBPageConstants.ParamKey.PAGE));
+                this.fSV.parserJson(jSONObject.getJSONObject(WBPageConstants.ParamKey.PAGE));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.fSX.clear();
+                    this.fSU.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -69,11 +69,11 @@ public class b {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.fSZ = optInt2;
+                                aVar.fSW = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.fSX.add(aVar);
+                                this.fSU.add(aVar);
                             }
                         }
                     }

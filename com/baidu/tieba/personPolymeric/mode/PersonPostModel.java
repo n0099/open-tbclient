@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int fKV = 0;
-    private static int fKW = 1;
-    private static String fKX = "";
+    private static int fKS = 0;
+    private static int fKT = 1;
+    private static String fKU = "";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        fKW = 1;
+        fKT = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(fKX)) {
-                fKV = 1;
-                fKX = str;
+            if (z || !str.equals(fKU)) {
+                fKS = 1;
+                fKU = str;
             } else {
-                fKV++;
+                fKS++;
             }
         } else {
-            if (z || !str.equals(fKX)) {
+            if (z || !str.equals(fKU)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    fKW = 1;
+                    fKT = 1;
                 } else {
-                    fKW = 0;
+                    fKT = 0;
                 }
-                fKX = str;
+                fKU = str;
             }
-            fKW++;
+            fKT++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(fKX);
+        userPostPageRequestMessage.setUid(fKU);
         if (z3) {
-            userPostPageRequestMessage.setPn(fKV);
+            userPostPageRequestMessage.setPn(fKS);
         } else {
-            userPostPageRequestMessage.setPn(fKW);
+            userPostPageRequestMessage.setPn(fKT);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.csu != 33) {
+                if (cardPersonDynamicThreadData.csr != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -510,17 +510,17 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).csG = true;
-                ((CardPersonDynamicThreadData) next).csF = true;
-                long j = ((CardPersonDynamicThreadData) next).css * 1000;
+                ((CardPersonDynamicThreadData) next).csD = true;
+                ((CardPersonDynamicThreadData) next).csC = true;
+                long j = ((CardPersonDynamicThreadData) next).csp * 1000;
                 String K2 = an.K(j);
                 String N = an.N(j);
                 String M = an.M(j);
                 if (an.equals(K2, K)) {
-                    ((CardPersonDynamicThreadData) next).csG = false;
+                    ((CardPersonDynamicThreadData) next).csD = false;
                 }
                 if (an.equals(M, str5) && an.equals(N, str4) && an.equals(K2, K)) {
-                    ((CardPersonDynamicThreadData) next).csF = false;
+                    ((CardPersonDynamicThreadData) next).csC = false;
                     str = str5;
                     str2 = str4;
                     str3 = K;

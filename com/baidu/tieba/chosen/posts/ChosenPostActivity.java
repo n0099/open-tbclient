@@ -9,49 +9,49 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.chosen.posts.a.d;
 /* loaded from: classes3.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter cwv;
-    private ChosenPostModelController cww;
-    private b cwx;
+    private ViewEventCenter cws;
+    private ChosenPostModelController cwt;
+    private b cwu;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Gn().addEventDelegate(this);
-        this.cww = agH();
-        this.cwx = agI();
+        this.cwt = agH();
+        this.cwu = agI();
         if (getIntent() != null) {
-            this.cww.i(getIntent().getExtras());
+            this.cwt.i(getIntent().getExtras());
         } else if (bundle != null) {
-            this.cww.i(bundle);
+            this.cwt.i(bundle);
         } else {
-            this.cww.i(null);
+            this.cwt.i(null);
         }
-        setContentView(this.cwx.Rn());
-        this.cwx.agN();
-        this.cwx.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        setContentView(this.cwu.Rn());
+        this.cwu.agN();
+        this.cwu.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         adjustResizeForSoftInput();
     }
 
     public ChosenPostModelController agH() {
-        if (this.cww == null) {
-            this.cww = new ChosenPostModelController(this);
+        if (this.cwt == null) {
+            this.cwt = new ChosenPostModelController(this);
         }
-        return this.cww;
+        return this.cwt;
     }
 
     public b agI() {
-        if (this.cwx == null) {
-            this.cwx = new b(this);
+        if (this.cwu == null) {
+            this.cwu = new b(this);
         }
-        return this.cwx;
+        return this.cwu;
     }
 
     public ViewEventCenter Gn() {
-        if (this.cwv == null) {
-            this.cwv = new ViewEventCenter();
+        if (this.cws == null) {
+            this.cws = new ViewEventCenter();
         }
-        return this.cwv;
+        return this.cws;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a

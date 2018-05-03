@@ -18,13 +18,13 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class k {
     private BdUniqueId aTr;
-    private com.baidu.tbadk.core.dialog.f fJG;
-    private ArrayList<com.baidu.tbadk.core.dialog.h> fJH;
-    private String fJI;
-    private String fJJ;
+    private com.baidu.tbadk.core.dialog.f fJD;
+    private ArrayList<com.baidu.tbadk.core.dialog.h> fJE;
+    private String fJF;
+    private String fJG;
     private TbPageContext mPageContext;
     private com.baidu.tbadk.core.view.a mWaitingDialog;
-    private HttpMessageListener fJK = new HttpMessageListener(CmdConfigHttp.CMD_USER_REPORT) { // from class: com.baidu.tieba.personPolymeric.b.k.1
+    private HttpMessageListener fJH = new HttpMessageListener(CmdConfigHttp.CMD_USER_REPORT) { // from class: com.baidu.tieba.personPolymeric.b.k.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -36,9 +36,9 @@ public class k {
                     errorString = k.this.mPageContext.getString(jsonHttpResponsedMessage.getError() == 0 ? d.k.report_success : d.k.neterror);
                 }
                 if (jsonHttpResponsedMessage.getError() == 0) {
-                    k.this.fJF.i(errorString);
+                    k.this.fJC.i(errorString);
                 } else {
-                    k.this.fJF.j(errorString);
+                    k.this.fJC.j(errorString);
                 }
             }
         }
@@ -46,32 +46,32 @@ public class k {
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.personPolymeric.b.k.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            com.baidu.tbadk.core.dialog.h hVar = (com.baidu.tbadk.core.dialog.h) v.c(k.this.fJH, i);
+            com.baidu.tbadk.core.dialog.h hVar = (com.baidu.tbadk.core.dialog.h) v.c(k.this.fJE, i);
             if (hVar != null) {
-                k.this.fJI = hVar.getTag();
-                k.this.fJG.setPositiveButtonEnable(true);
+                k.this.fJF = hVar.getTag();
+                k.this.fJD.setPositiveButtonEnable(true);
             }
-            k.this.fJG.refresh(i);
+            k.this.fJD.refresh(i);
         }
     };
     private View.OnClickListener adj = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.k.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_USER_REPORT, k.this.aTr);
-            httpMessage.addParam("complaint_type", k.this.fJI);
-            httpMessage.addParam("complaint_uid", k.this.fJJ);
+            httpMessage.addParam("complaint_type", k.this.fJF);
+            httpMessage.addParam("complaint_uid", k.this.fJG);
             MessageManager.getInstance().sendMessage(httpMessage);
             k.this.showLoadingDialog();
-            k.this.fJG.dismiss();
+            k.this.fJD.dismiss();
         }
     };
-    private View.OnClickListener fJL = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.k.4
+    private View.OnClickListener fJI = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.k.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            k.this.fJG.dismiss();
+            k.this.fJD.dismiss();
         }
     };
-    private com.baidu.tbadk.core.view.b fJF = new com.baidu.tbadk.core.view.b();
+    private com.baidu.tbadk.core.view.b fJC = new com.baidu.tbadk.core.view.b();
 
     public k(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
@@ -80,29 +80,29 @@ public class k {
     }
 
     private void bfv() {
-        this.fJH = new ArrayList<>();
-        this.fJH.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_bad_account_nickname), null, false, "0"));
-        this.fJH.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_illegal_content), null, false, "1"));
-        this.fJH.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_photo_problem), null, false, "2"));
-        this.fJH.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_bad_tail), null, false, "3"));
+        this.fJE = new ArrayList<>();
+        this.fJE.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_bad_account_nickname), null, false, "0"));
+        this.fJE.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_illegal_content), null, false, "1"));
+        this.fJE.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_photo_problem), null, false, "2"));
+        this.fJE.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_bad_tail), null, false, "3"));
     }
 
     private void aen() {
-        this.fJK.setTag(this.aTr);
-        this.fJK.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.fJK);
+        this.fJH.setTag(this.aTr);
+        this.fJH.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.fJH);
     }
 
     public void jN(String str) {
         bfv();
-        this.fJJ = str;
-        this.fJG = new com.baidu.tbadk.core.dialog.f(this.mPageContext);
-        this.fJG.ci(d.k.report_dialog_title);
-        this.fJG.a(this.fJH, this.mOnItemClickListener);
-        this.fJG.a(d.k.confirm, this.adj);
-        this.fJG.b(d.k.cancel, this.fJL);
-        this.fJG.tH().tI();
-        this.fJG.setPositiveButtonEnable(false);
+        this.fJG = str;
+        this.fJD = new com.baidu.tbadk.core.dialog.f(this.mPageContext);
+        this.fJD.ci(d.k.report_dialog_title);
+        this.fJD.a(this.fJE, this.mOnItemClickListener);
+        this.fJD.a(d.k.confirm, this.adj);
+        this.fJD.b(d.k.cancel, this.fJI);
+        this.fJD.tH().tI();
+        this.fJD.setPositiveButtonEnable(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

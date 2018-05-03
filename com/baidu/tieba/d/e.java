@@ -37,14 +37,14 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
     bd alf;
-    private NavigationBarCoverTip cyl;
-    private View cym;
-    private TextView cyn;
-    private TextView cyo;
-    private com.baidu.tbadk.core.view.a cyp;
-    private boolean cyq = false;
-    private boolean cyr = false;
-    private final com.baidu.adp.framework.listener.a cys = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.d.e.1
+    private NavigationBarCoverTip cyi;
+    private View cyj;
+    private TextView cyk;
+    private TextView cyl;
+    private com.baidu.tbadk.core.view.a cym;
+    private boolean cyn = false;
+    private boolean cyo = false;
+    private final com.baidu.adp.framework.listener.a cyp = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.d.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             e.this.aas();
@@ -65,59 +65,59 @@ public class e implements View.OnClickListener {
     public e(TbPageContext tbPageContext, NavigationBarCoverTip navigationBarCoverTip) {
         this.mActivity = tbPageContext.getPageActivity();
         this.mPageContext = tbPageContext;
-        this.cyl = navigationBarCoverTip;
-        this.cys.setTag(tbPageContext.getUniqueId());
-        this.cys.getHttpMessageListener().setSelfListener(true);
-        this.cys.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.cys);
+        this.cyi = navigationBarCoverTip;
+        this.cyp.setTag(tbPageContext.getUniqueId());
+        this.cyp.getHttpMessageListener().setSelfListener(true);
+        this.cyp.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.cyp);
     }
 
     public void eG(boolean z) {
-        this.cyq = z;
+        this.cyn = z;
     }
 
     public void b(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData != null && this.cyl != null) {
+        if (postWriteCallBackData != null && this.cyi != null) {
             this.postId = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getPostId(), 0L);
             this.threadId = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getThreadId(), 0L);
             if (this.postId != 0 && this.threadId != 0) {
-                this.cyr = false;
-                if (this.cym == null) {
-                    this.cyl.removeAllViews();
-                    this.cym = this.mActivity.getLayoutInflater().inflate(d.i.write_thread_share_guide, (ViewGroup) this.cyl, true);
-                    this.cyn = (TextView) this.cym.findViewById(d.g.write_thread_success_tips);
-                    this.cyo = (TextView) this.cym.findViewById(d.g.share_icon);
+                this.cyo = false;
+                if (this.cyj == null) {
+                    this.cyi.removeAllViews();
+                    this.cyj = this.mActivity.getLayoutInflater().inflate(d.i.write_thread_share_guide, (ViewGroup) this.cyi, true);
+                    this.cyk = (TextView) this.cyj.findViewById(d.g.write_thread_success_tips);
+                    this.cyl = (TextView) this.cyj.findViewById(d.g.share_icon);
                 }
-                ak.h(this.cyn, d.C0126d.cp_cont_i);
-                ak.h(this.cyo, d.C0126d.cp_cont_i);
-                ak.i(this.cyo, d.f.share_now_bg);
-                this.cyo.setOnClickListener(this);
-                this.cyl.h(this.mActivity, 5000);
+                ak.h(this.cyk, d.C0126d.cp_cont_i);
+                ak.h(this.cyl, d.C0126d.cp_cont_i);
+                ak.i(this.cyl, d.f.share_now_bg);
+                this.cyl.setOnClickListener(this);
+                this.cyi.h(this.mActivity, 5000);
             }
         }
     }
 
     private void showLoadingDialog() {
-        if (this.cyp == null) {
-            this.cyp = new com.baidu.tbadk.core.view.a(this.mPageContext);
+        if (this.cym == null) {
+            this.cym = new com.baidu.tbadk.core.view.a(this.mPageContext);
         }
-        this.cyp.aI(true);
+        this.cym.aI(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aas() {
-        if (this.cyp != null) {
-            this.cyp.aI(false);
+        if (this.cym != null) {
+            this.cym.aI(false);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (!this.cyr) {
-            this.cyr = true;
+        if (!this.cyo) {
+            this.cyo = true;
             if (!j.gP()) {
                 this.mPageContext.showToast(d.k.neterror);
-                this.cyl.hideTip();
+                this.cyi.hideTip();
                 return;
             }
             int af = l.af(TbadkCoreApplication.getInst());
@@ -129,7 +129,7 @@ public class e implements View.OnClickListener {
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, af, ah, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             showLoadingDialog();
-            this.cyl.hideTip();
+            this.cyi.hideTip();
             xc();
         }
     }
@@ -166,7 +166,7 @@ public class e implements View.OnClickListener {
             dVar.awY = str2;
             dVar.linkUrl = str;
             dVar.abU = 5;
-            dVar.awR = this.cyq;
+            dVar.awR = this.cyn;
             dVar.extData = tid;
             dVar.axb = 3;
             dVar.fid = valueOf;
@@ -229,8 +229,8 @@ public class e implements View.OnClickListener {
     }
 
     public void onDestroy() {
-        if (this.cyl != null) {
-            this.cyl.onDestroy();
+        if (this.cyi != null) {
+            this.cyi.onDestroy();
         }
     }
 }

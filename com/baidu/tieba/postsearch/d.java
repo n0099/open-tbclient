@@ -15,20 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    public String cVN;
-    private PostSearchActivity fSQ;
-    private String fTk;
-    public ArrayList<String> fTt;
-    public int fTl = 0;
-    public int fTm = 0;
-    public int fTn = 1;
-    public int fTo = 1;
-    public int fTp = 1;
-    public boolean fTq = false;
-    public boolean fTr = false;
-    public boolean fTs = false;
-    private int fTu = 0;
-    private final HttpMessageListener fTv = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.d.1
+    public String cVK;
+    private PostSearchActivity fSN;
+    private String fTh;
+    public ArrayList<String> fTq;
+    public int fTi = 0;
+    public int fTj = 0;
+    public int fTk = 1;
+    public int fTl = 1;
+    public int fTm = 1;
+    public boolean fTn = false;
+    public boolean fTo = false;
+    public boolean fTp = false;
+    private int fTr = 0;
+    private final HttpMessageListener fTs = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,7 +41,7 @@ public class d {
                 boolean z = d.this.rz(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.fSQ.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.fSN.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.ry(intValue);
                     d.this.bih();
                     d.this.bik();
@@ -49,36 +49,36 @@ public class d {
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.fSQ.getResources().getString(d.k.neterror);
+                    errorString = d.this.fSN.getResources().getString(d.k.neterror);
                 }
-                d.this.fSQ.showToast(errorString);
-                d.this.fSQ.a(intValue, null, z);
+                d.this.fSN.showToast(errorString);
+                d.this.fSN.a(intValue, null, z);
             }
         }
     };
-    private CustomMessageListener fTw = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.d.2
+    private CustomMessageListener fTt = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                d.this.fTt = (ArrayList) data;
-                d.this.fSQ.bhT();
+                d.this.fTq = (ArrayList) data;
+                d.this.fSN.bhT();
             }
         }
     };
 
     public d(PostSearchActivity postSearchActivity) {
-        this.fSQ = postSearchActivity;
-        this.fSQ.registerListener(this.fTw);
-        this.fSQ.registerListener(this.fTv);
+        this.fSN = postSearchActivity;
+        this.fSN.registerListener(this.fTt);
+        this.fSN.registerListener(this.fTs);
     }
 
     public boolean aE(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.cVN)) {
+        if (!str.equals(this.cVK)) {
             bij();
         }
         switch (i) {
@@ -94,70 +94,70 @@ public class d {
     }
 
     public boolean rD(String str) {
-        if (this.fTq) {
+        if (this.fTn) {
             return false;
         }
-        this.cVN = str;
-        this.fTu = 1;
-        this.fSQ.sendMessage(rx(this.fTu));
-        this.fTq = true;
+        this.cVK = str;
+        this.fTr = 1;
+        this.fSN.sendMessage(rx(this.fTr));
+        this.fTn = true;
         return true;
     }
 
     public boolean rE(String str) {
-        if (this.fTr) {
+        if (this.fTo) {
             return false;
         }
-        this.cVN = str;
-        this.fTu = 2;
-        this.fSQ.sendMessage(rx(this.fTu));
-        this.fTr = true;
+        this.cVK = str;
+        this.fTr = 2;
+        this.fSN.sendMessage(rx(this.fTr));
+        this.fTo = true;
         return true;
     }
 
     public boolean rF(String str) {
-        if (this.fTs) {
+        if (this.fTp) {
             return false;
         }
-        this.cVN = str;
-        this.fTu = 3;
-        this.fSQ.sendMessage(rx(this.fTu));
-        this.fTs = true;
+        this.cVK = str;
+        this.fTr = 3;
+        this.fSN.sendMessage(rx(this.fTr));
+        this.fTp = true;
         return true;
     }
 
     public void big() {
-        this.fSQ.sendMessage(new CustomMessage(2009001));
+        this.fSN.sendMessage(new CustomMessage(2009001));
     }
 
     public void bih() {
-        if (!StringUtils.isNull(this.cVN) && !this.cVN.equals(this.fTk)) {
-            this.fSQ.sendMessage(new CustomMessage(2009003, this.cVN));
-            this.fTk = this.cVN;
+        if (!StringUtils.isNull(this.cVK) && !this.cVK.equals(this.fTh)) {
+            this.fSN.sendMessage(new CustomMessage(2009003, this.cVK));
+            this.fTh = this.cVK;
         }
     }
 
     public void bii() {
-        if (this.fTt != null) {
-            this.fTt.clear();
+        if (this.fTq != null) {
+            this.fTq.clear();
         }
-        this.fSQ.sendMessage(new CustomMessage(2009004));
+        this.fSN.sendMessage(new CustomMessage(2009004));
     }
 
     public void bij() {
-        this.fTn = 1;
-        this.fTo = 1;
-        this.fTp = 1;
+        this.fTk = 1;
+        this.fTl = 1;
+        this.fTm = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bik() {
-        if (this.fTt == null) {
-            this.fTt = new ArrayList<>();
+        if (this.fTq == null) {
+            this.fTq = new ArrayList<>();
         }
-        this.fTt.remove(this.cVN);
-        this.fTt.add(0, this.cVN);
-        da(this.fTt);
+        this.fTq.remove(this.cVK);
+        this.fTq.add(0, this.cVK);
+        da(this.fTq);
     }
 
     private void da(List<String> list) {
@@ -172,25 +172,25 @@ public class d {
 
     private HttpMessage rx(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.cVN);
+        httpMessage.addParam("word", this.cVK);
         httpMessage.addParam(LegoListActivityConfig.RN, 30);
-        httpMessage.addParam("kw", this.fSQ.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.fTu));
+        httpMessage.addParam("kw", this.fSN.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.fTr));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.fTn);
+                httpMessage.addParam("pn", this.fTk);
                 break;
             case 2:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.fTo);
+                httpMessage.addParam("pn", this.fTl);
                 break;
             case 3:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam("pn", this.fTp);
+                httpMessage.addParam("pn", this.fTm);
                 break;
         }
         return httpMessage;
@@ -200,13 +200,13 @@ public class d {
     public void ry(int i) {
         switch (i) {
             case 1:
-                this.fTn++;
+                this.fTk++;
                 return;
             case 2:
-                this.fTo++;
+                this.fTl++;
                 return;
             case 3:
-                this.fTp++;
+                this.fTm++;
                 return;
             default:
                 return;
@@ -217,11 +217,11 @@ public class d {
     public int rz(int i) {
         switch (i) {
             case 1:
-                return this.fTn;
+                return this.fTk;
             case 2:
-                return this.fTo;
+                return this.fTl;
             case 3:
-                return this.fTp;
+                return this.fTm;
             default:
                 return 0;
         }
@@ -231,13 +231,13 @@ public class d {
     public void rA(int i) {
         switch (i) {
             case 1:
-                this.fTq = false;
+                this.fTn = false;
                 return;
             case 2:
-                this.fTr = false;
+                this.fTo = false;
                 return;
             case 3:
-                this.fTs = false;
+                this.fTp = false;
                 return;
             default:
                 return;

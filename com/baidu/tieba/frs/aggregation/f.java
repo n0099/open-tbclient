@@ -13,24 +13,24 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class f implements a {
     private TbPageContext adf;
-    private e dbs;
-    private boolean dbt;
+    private e dbp;
+    private boolean dbq;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.h> mDatas = new ArrayList();
     private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private int dbu = -1;
+    private int dbr = -1;
 
     public f(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
-        this.dbt = false;
+        this.dbq = false;
         this.adf = tbPageContext;
         this.mListView = bdTypeListView;
-        this.dbt = z;
+        this.dbq = z;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dbs = new e(this.adf, this, this.dbt);
-        this.mAdapters.add(this.dbs);
+        this.dbp = new e(this.adf, this, this.dbq);
+        this.mAdapters.add(this.dbp);
         this.mListView.addAdapters(this.mAdapters);
     }
 
@@ -41,7 +41,7 @@ public class f implements a {
             }
             this.mDatas.addAll(list);
             this.mListView.setData(this.mDatas);
-            if (z && list.size() > 0 && this.dbt && j.gQ()) {
+            if (z && list.size() > 0 && this.dbq && j.gQ()) {
                 ard();
                 list.get(0).autoPlay = true;
             }
@@ -59,8 +59,8 @@ public class f implements a {
                     break;
                 }
                 com.baidu.adp.widget.ListView.h next = it.next();
-                if (next != null && (next instanceof g) && ((g) next).dby != null && str.equals(((g) next).dby.userId)) {
-                    ((g) next).dby.hasFocus = z;
+                if (next != null && (next instanceof g) && ((g) next).dbv != null && str.equals(((g) next).dbv.userId)) {
+                    ((g) next).dbv.hasFocus = z;
                     z2 = true;
                 }
                 z3 = z2;
@@ -78,32 +78,32 @@ public class f implements a {
     }
 
     public void onDestroy() {
-        this.dbs.onDestroy();
+        this.dbp.onDestroy();
     }
 
     public boolean lC() {
-        return this.dbs.lC();
+        return this.dbp.lC();
     }
 
     public void lA() {
-        this.dbs.lA();
+        this.dbp.lA();
     }
 
     public void lB() {
-        this.dbs.lB();
+        this.dbp.lB();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.dbs.onConfigurationChanged(configuration);
+        this.dbp.onConfigurationChanged(configuration);
     }
 
     public boolean kq(int i) {
-        return this.dbs.kq(i);
+        return this.dbp.kq(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void kp(int i) {
-        this.dbu = i;
+        this.dbr = i;
         if (!v.w(this.mDatas) && this.mListView != null) {
             for (com.baidu.adp.widget.ListView.h hVar : this.mDatas) {
                 if (hVar instanceof g) {
@@ -111,24 +111,24 @@ public class f implements a {
                 }
             }
             if (j.gQ()) {
-                if (this.dbu < this.mDatas.size() - 1) {
+                if (this.dbr < this.mDatas.size() - 1) {
                     List<com.baidu.adp.widget.ListView.h> list = this.mDatas;
-                    int i2 = this.dbu + 1;
-                    this.dbu = i2;
+                    int i2 = this.dbr + 1;
+                    this.dbr = i2;
                     if (list.get(i2) instanceof g) {
-                        ((g) this.mDatas.get(this.dbu)).autoPlay = true;
+                        ((g) this.mDatas.get(this.dbr)).autoPlay = true;
                         this.mListView.smoothScrollToPositionFromTop(this.mListView.getHeaderViewsCount() + i + 1, 0);
                         notifyDataSetChanged();
                     }
-                } else if (this.dbu == this.mDatas.size() - 1 && (this.mDatas.get(this.dbu) instanceof g)) {
-                    ((g) this.mDatas.get(this.dbu)).autoPlay = false;
+                } else if (this.dbr == this.mDatas.size() - 1 && (this.mDatas.get(this.dbr) instanceof g)) {
+                    ((g) this.mDatas.get(this.dbr)).autoPlay = false;
                 }
             }
         }
     }
 
     public int arb() {
-        return this.dbu;
+        return this.dbr;
     }
 
     public void arc() {
@@ -147,7 +147,7 @@ public class f implements a {
 
     private void ard() {
         arc();
-        this.dbu = 0;
+        this.dbr = 0;
         lA();
     }
 }

@@ -35,25 +35,25 @@ import tbclient.FrsPage.StarContriRecord;
 import tbclient.FrsPage.StarRank;
 /* loaded from: classes2.dex */
 public class FrsStarRankAndTaskContainer extends LinearLayout implements View.OnClickListener {
-    private StarRank dtY;
-    private TextView duj;
-    private TextView duk;
-    private TextView dul;
-    private ImageView dum;
-    private ViewGroup dun;
-    private ViewGroup duo;
-    private ListView dup;
-    private a duq;
-    private d dur;
-    private int dus;
-    private Runnable dut;
+    private StarRank dtV;
+    private TextView dug;
+    private TextView duh;
+    private TextView dui;
+    private ImageView duj;
+    private ViewGroup duk;
+    private ViewGroup dul;
+    private ListView dum;
+    private a dun;
+    private d duo;
+    private int dup;
+    private Runnable duq;
     private Handler handler;
     private Runnable mRunnable;
     private TbPageContext mTbPageContext;
 
     static /* synthetic */ int b(FrsStarRankAndTaskContainer frsStarRankAndTaskContainer) {
-        int i = frsStarRankAndTaskContainer.dus + 1;
-        frsStarRankAndTaskContainer.dus = i;
+        int i = frsStarRankAndTaskContainer.dup + 1;
+        frsStarRankAndTaskContainer.dup = i;
         return i;
     }
 
@@ -64,12 +64,12 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
     public FrsStarRankAndTaskContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.handler = new Handler();
-        this.dus = 0;
-        this.dut = new Runnable() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.1
+        this.dup = 0;
+        this.duq = new Runnable() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.1
             @Override // java.lang.Runnable
             public void run() {
-                if (FrsStarRankAndTaskContainer.this.dup != null) {
-                    FrsStarRankAndTaskContainer.this.dup.smoothScrollToPositionFromTop(FrsStarRankAndTaskContainer.b(FrsStarRankAndTaskContainer.this), 0, 300);
+                if (FrsStarRankAndTaskContainer.this.dum != null) {
+                    FrsStarRankAndTaskContainer.this.dum.smoothScrollToPositionFromTop(FrsStarRankAndTaskContainer.b(FrsStarRankAndTaskContainer.this), 0, 300);
                 }
                 FrsStarRankAndTaskContainer.this.handler.removeCallbacksAndMessages(null);
                 FrsStarRankAndTaskContainer.this.handler.postDelayed(this, 3000L);
@@ -78,7 +78,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.4
             @Override // java.lang.Runnable
             public void run() {
-                FrsStarRankAndTaskContainer.this.dup.setSelection(FrsStarRankAndTaskContainer.this.dus);
+                FrsStarRankAndTaskContainer.this.dum.setSelection(FrsStarRankAndTaskContainer.this.dup);
             }
         };
         init();
@@ -103,26 +103,26 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         setOrientation(0);
         setPadding(l.e(context, d.e.tbds35), l.e(context, d.e.tbds30), l.e(context, d.e.tbds35), 0);
         LayoutInflater.from(getContext()).inflate(d.i.view_frs_star_rank_and_task, (ViewGroup) this, true);
-        this.duj = (TextView) findViewById(d.g.rank_number);
-        this.duk = (TextView) findViewById(d.g.user_contributions);
-        this.dul = (TextView) findViewById(d.g.star_task);
-        this.dum = (ImageView) findViewById(d.g.image_rank_icon);
-        this.duo = (ViewGroup) findViewById(d.g.task_container);
-        this.dun = (ViewGroup) findViewById(d.g.rank_container);
-        this.duo.setOnClickListener(this);
-        this.dun.setOnClickListener(this);
-        this.dup = (ListView) findViewById(d.g.rank_scroll);
-        this.dup.setClickable(false);
-        this.dup.setFocusable(false);
-        this.dup.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.2
+        this.dug = (TextView) findViewById(d.g.rank_number);
+        this.duh = (TextView) findViewById(d.g.user_contributions);
+        this.dui = (TextView) findViewById(d.g.star_task);
+        this.duj = (ImageView) findViewById(d.g.image_rank_icon);
+        this.dul = (ViewGroup) findViewById(d.g.task_container);
+        this.duk = (ViewGroup) findViewById(d.g.rank_container);
+        this.dul.setOnClickListener(this);
+        this.duk.setOnClickListener(this);
+        this.dum = (ListView) findViewById(d.g.rank_scroll);
+        this.dum.setClickable(false);
+        this.dum.setFocusable(false);
+        this.dum.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                if (FrsStarRankAndTaskContainer.this.dun != null) {
-                    FrsStarRankAndTaskContainer.this.dun.performClick();
+                if (FrsStarRankAndTaskContainer.this.duk != null) {
+                    FrsStarRankAndTaskContainer.this.duk.performClick();
                 }
             }
         });
-        this.dup.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.3
+        this.dum.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.3
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
@@ -135,8 +135,8 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         });
-        this.duq = new a(getContext());
-        this.dup.setAdapter((ListAdapter) this.duq);
+        this.dun = new a(getContext());
+        this.dum.setAdapter((ListAdapter) this.dun);
         onChangeSkinType();
     }
 
@@ -144,7 +144,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         String string;
         int i;
         if (starRank != null) {
-            this.dtY = starRank;
+            this.dtV = starRank;
             if (starRank.rank_ranking.intValue() > 0 && starRank.rank_ranking.intValue() <= 1000) {
                 Locale locale = Locale.CHINA;
                 String string2 = getResources().getString(d.k.star_rank_number);
@@ -155,48 +155,48 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
             } else {
                 string = getResources().getString(d.k.no_bang);
             }
-            this.duj.setText(string);
-            this.duk.setText(starRank.user_task_notice);
-            if (!v.w(this.dtY.user_task_info)) {
-                int size = this.dtY.user_task_info.size();
+            this.dug.setText(string);
+            this.duh.setText(starRank.user_task_notice);
+            if (!v.w(this.dtV.user_task_info)) {
+                int size = this.dtV.user_task_info.size();
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < size) {
-                    if (this.dtY.user_task_info.get(i2) == null) {
+                    if (this.dtV.user_task_info.get(i2) == null) {
                         i = i3;
                     } else {
-                        i = this.dtY.user_task_info.get(i2).task_status.intValue() == 1 ? i3 + 1 : i3;
+                        i = this.dtV.user_task_info.get(i2).task_status.intValue() == 1 ? i3 + 1 : i3;
                     }
                     i2++;
                     i3 = i;
                 }
-                this.dul.setText(String.format(Locale.CHINA, getResources().getString(d.k.see_task), Integer.valueOf(i3), Integer.valueOf(size)));
+                this.dui.setText(String.format(Locale.CHINA, getResources().getString(d.k.see_task), Integer.valueOf(i3), Integer.valueOf(size)));
             } else {
-                this.dul.setText(d.k.no_have_task);
+                this.dui.setText(d.k.no_have_task);
             }
-            this.duq.setData(starRank.contri_record_list);
+            this.dun.setData(starRank.contri_record_list);
             avT();
         }
     }
 
     public void avT() {
-        if (this.duq.getCount() != 0) {
-            this.handler.removeCallbacks(this.dut);
-            this.handler.postDelayed(this.dut, 3000L);
+        if (this.dun.getCount() != 0) {
+            this.handler.removeCallbacks(this.duq);
+            this.handler.postDelayed(this.duq, 3000L);
         }
     }
 
     public void onChangeSkinType() {
-        ak.h(this.duj, d.C0126d.cp_cont_i);
-        ak.c(this.dum, d.f.icon_frs_idol_ranking);
-        ak.i(this.dun, d.f.bg_fts_star_rank_entrance);
-        ak.i(this.duo, d.f.bg_frs_star_task_entrance);
-        this.dul.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow12_white_right), (Drawable) null);
-        ak.h(this.dul, d.C0126d.cp_cont_i);
-        ak.h(this.duk, d.C0126d.cp_cont_i);
-        this.duq.notifyDataSetChanged();
-        if (this.dur != null) {
-            this.dur.avS();
+        ak.h(this.dug, d.C0126d.cp_cont_i);
+        ak.c(this.duj, d.f.icon_frs_idol_ranking);
+        ak.i(this.duk, d.f.bg_fts_star_rank_entrance);
+        ak.i(this.dul, d.f.bg_frs_star_task_entrance);
+        this.dui.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow12_white_right), (Drawable) null);
+        ak.h(this.dui, d.C0126d.cp_cont_i);
+        ak.h(this.duh, d.C0126d.cp_cont_i);
+        this.dun.notifyDataSetChanged();
+        if (this.duo != null) {
+            this.duo.avS();
         }
     }
 
@@ -242,7 +242,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.mContext).inflate(d.i.item_star_rank_user_contri, viewGroup, false);
                 bVar = new b();
-                bVar.duv = (TextView) view2.findViewById(d.g.contri_desc);
+                bVar.dus = (TextView) view2.findViewById(d.g.contri_desc);
                 bVar.tvUserName = (TextView) view2.findViewById(d.g.contri_username);
                 view2.setTag(bVar);
             } else {
@@ -253,14 +253,14 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
                 return null;
             }
             bVar.tvUserName.setText(starContriRecord.user_name);
-            bVar.duv.setText(starContriRecord.record_notice);
+            bVar.dus.setText(starContriRecord.record_notice);
             bVar.tvUserName.requestLayout();
             if (UtilHelper.isCurrentAccount(String.valueOf(starContriRecord.user_id))) {
-                ak.h(bVar.duv, d.C0126d.common_color_10326);
+                ak.h(bVar.dus, d.C0126d.common_color_10326);
                 ak.h(bVar.tvUserName, d.C0126d.common_color_10326);
                 return view2;
             }
-            ak.h(bVar.duv, d.C0126d.cp_cont_i);
+            ak.h(bVar.dus, d.C0126d.cp_cont_i);
             ak.h(bVar.tvUserName, d.C0126d.cp_cont_i);
             return view2;
         }
@@ -268,7 +268,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
 
     /* loaded from: classes2.dex */
     private static class b {
-        TextView duv;
+        TextView dus;
         TextView tvUserName;
 
         private b() {
@@ -277,17 +277,17 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.duo) {
+        if (view2 == this.dul) {
             TiebaStatic.log(new al("c12880"));
             if (az.aK(getContext())) {
-                if (this.dur == null) {
-                    this.dur = new d();
+                if (this.duo == null) {
+                    this.duo = new d();
                 }
-                this.dur.a(getContext(), this.dtY);
+                this.duo.a(getContext(), this.dtV);
             }
-        } else if (view2 == this.dun) {
-            if (this.mTbPageContext != null && this.dtY != null) {
-                this.mTbPageContext.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.mTbPageContext.getContext(), "", this.dtY.url, true)));
+        } else if (view2 == this.duk) {
+            if (this.mTbPageContext != null && this.dtV != null) {
+                this.mTbPageContext.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.mTbPageContext.getContext(), "", this.dtV.url, true)));
             }
             TiebaStatic.log(new al("c12879"));
         }

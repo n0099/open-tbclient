@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private d fDD;
-    private com.baidu.tieba.personCenter.a.a fDE;
-    private com.baidu.tieba.personCenter.a.b fDF;
-    private com.baidu.tieba.personCenter.a.c fDq;
+    private d fDA;
+    private com.baidu.tieba.personCenter.a.a fDB;
+    private com.baidu.tieba.personCenter.a.b fDC;
+    private com.baidu.tieba.personCenter.a.c fDn;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -23,14 +23,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.fDD = new d(tbPageContext, f.fEi);
-        this.fDE = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.fDT);
-        this.fDF = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.fDU);
-        this.fDq = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fEh);
-        this.mAdapters.add(this.fDD);
-        this.mAdapters.add(this.fDE);
-        this.mAdapters.add(this.fDF);
-        this.mAdapters.add(this.fDq);
+        this.fDA = new d(tbPageContext, f.fEf);
+        this.fDB = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.fDQ);
+        this.fDC = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.fDR);
+        this.fDn = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fEe);
+        this.mAdapters.add(this.fDA);
+        this.mAdapters.add(this.fDB);
+        this.mAdapters.add(this.fDC);
+        this.mAdapters.add(this.fDn);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -41,10 +41,10 @@ public class a {
     }
 
     public void bdH() {
-        this.fDE.bdH();
+        this.fDB.bdH();
     }
 
     public void bdI() {
-        this.fDE.destroy();
+        this.fDB.destroy();
     }
 }

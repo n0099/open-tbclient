@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 /* loaded from: classes2.dex */
 public class m extends q.a {
-    public FrsCommonImageLayout cZD;
-    public HeadImageView cZE;
+    public FrsCommonImageLayout cZA;
+    public HeadImageView cZB;
 }

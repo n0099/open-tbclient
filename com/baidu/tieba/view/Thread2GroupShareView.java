@@ -15,19 +15,19 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class Thread2GroupShareView extends LinearLayout {
     private LinearLayout aMU;
-    private TbImageView dNO;
-    private EditText dtP;
-    private TextView duh;
-    private ShareFromPBMsgData ejm;
+    private TbImageView dNL;
+    private EditText dtM;
+    private TextView due;
+    private ShareFromPBMsgData ejj;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.dtP;
+        return this.dtM;
     }
 
     public void D(String str, boolean z) {
-        if (this.dNO != null) {
-            this.dNO.startLoad(str, z ? 17 : 18, false);
+        if (this.dNL != null) {
+            this.dNL.startLoad(str, z ? 17 : 18, false);
         }
     }
 
@@ -46,14 +46,14 @@ public final class Thread2GroupShareView extends LinearLayout {
         setOrientation(1);
         this.aMU = (LinearLayout) findViewById(d.g.share_content);
         this.title = (TextView) findViewById(d.g.share_title_view);
-        this.dtP = (EditText) findViewById(d.g.chat_msg);
-        this.dNO = (TbImageView) findViewById(d.g.chat_group_img);
-        this.duh = (TextView) findViewById(d.g.chat_group_desc);
+        this.dtM = (EditText) findViewById(d.g.chat_msg);
+        this.dNL = (TbImageView) findViewById(d.g.chat_group_img);
+        this.due = (TextView) findViewById(d.g.chat_group_desc);
         ak.c(this.title, d.C0126d.cp_cont_b, 1);
-        ak.c(this.dtP, d.C0126d.cp_cont_b, 2);
-        ak.c(this.duh, d.C0126d.cp_cont_f, 1);
-        this.dtP.setHintTextColor(ak.getColor(d.C0126d.cp_cont_e));
-        this.dtP.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        ak.c(this.dtM, d.C0126d.cp_cont_b, 2);
+        ak.c(this.due, d.C0126d.cp_cont_f, 1);
+        this.dtM.setHintTextColor(ak.getColor(d.C0126d.cp_cont_e));
+        this.dtM.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
         avQ();
     }
 
@@ -64,8 +64,8 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public String getLeaveMsg() {
-        if (this.dtP != null) {
-            return k.a(this.dtP.getText(), null);
+        if (this.dtM != null) {
+            return k.a(this.dtM.getText(), null);
         }
         return null;
     }
@@ -78,15 +78,15 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.ejm = shareFromPBMsgData;
+        this.ejj = shareFromPBMsgData;
         wL();
     }
 
     private void wL() {
-        this.title.setText(this.ejm.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.ejm.getImageUrl());
-        this.dNO.setTag(this.ejm.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.ejm.getContent());
-        this.duh.setText(this.ejm.getContent());
+        this.title.setText(this.ejj.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.ejj.getImageUrl());
+        this.dNL.setTag(this.ejj.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.ejj.getContent());
+        this.due.setText(this.ejj.getContent());
     }
 }

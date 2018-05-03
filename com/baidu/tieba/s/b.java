@@ -10,7 +10,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
     public static final String bgf = File.separator;
-    private a gWq;
+    private a gWn;
     private String mPath;
     private String mUrl;
 
@@ -22,7 +22,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.gWq = aVar;
+        this.gWn = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,11 +51,11 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.gWq != null) {
+        if (this.gWn != null) {
             if (!an.isEmpty(str)) {
-                this.gWq.b(true, str, this.mUrl);
+                this.gWn.b(true, str, this.mUrl);
             } else {
-                this.gWq.b(false, null, null);
+                this.gWn.b(false, null, null);
             }
         }
     }

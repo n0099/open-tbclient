@@ -14,28 +14,28 @@ import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes2.dex */
 public class ConcernUserLikeButton extends CommonUserLikeButton {
     private boolean aqF;
-    private boolean dBW;
-    private int dBX;
+    private boolean dBT;
+    private int dBU;
 
     public ConcernUserLikeButton(Context context) {
         super(context);
         this.aqF = false;
-        this.dBW = false;
-        this.dBX = l.e(TbadkCoreApplication.getInst(), d.e.tbds10);
+        this.dBT = false;
+        this.dBU = l.e(TbadkCoreApplication.getInst(), d.e.tbds10);
     }
 
     public ConcernUserLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.aqF = false;
-        this.dBW = false;
-        this.dBX = l.e(TbadkCoreApplication.getInst(), d.e.tbds10);
+        this.dBT = false;
+        this.dBU = l.e(TbadkCoreApplication.getInst(), d.e.tbds10);
     }
 
     public ConcernUserLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.aqF = false;
-        this.dBW = false;
-        this.dBX = l.e(TbadkCoreApplication.getInst(), d.e.tbds10);
+        this.dBT = false;
+        this.dBU = l.e(TbadkCoreApplication.getInst(), d.e.tbds10);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,7 +55,7 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
             return;
         }
         setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.btn_concern_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-        setCompoundDrawablePadding(this.dBX);
+        setCompoundDrawablePadding(this.dBU);
         ak.h(this, d.C0126d.btn_concern_like_focus_color);
         if (this.aqF) {
             ak.i(this, d.f.btn_transparent_focus_border_bg);
@@ -69,7 +69,7 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
         Drawable drawable = getCompoundDrawables()[0];
         if (drawable != null) {
             float measureText = getPaint().measureText(getText().toString());
-            canvas.translate((getMeasuredWidth() - ((drawable.getBounds().right - drawable.getBounds().left) + (measureText + (this.dBX * 3)))) / 2.0f, 0.0f);
+            canvas.translate((getMeasuredWidth() - ((drawable.getBounds().right - drawable.getBounds().left) + (measureText + (this.dBU * 3)))) / 2.0f, 0.0f);
         }
         super.onDraw(canvas);
     }
@@ -81,12 +81,12 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
             setClickable(false);
             setText(this.aqA);
             setPadding(0, 0, 0, 0);
-            this.dBW = true;
+            this.dBT = true;
         } else {
             setClickable(true);
             setText(this.aqB);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds10), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds6), 0);
-            this.dBW = false;
+            this.dBT = false;
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -95,7 +95,7 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
     public void K(View view2) {
         super.K(view2);
         if (!TbadkCoreApplication.isLogin()) {
-            HomePageStatic.dAf = true;
+            HomePageStatic.dAc = true;
         } else {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_top_user_user_like_time"), System.currentTimeMillis());
         }

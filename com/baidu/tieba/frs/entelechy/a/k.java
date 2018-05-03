@@ -17,19 +17,19 @@ import java.util.Set;
 /* loaded from: classes3.dex */
 public class k extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.frs.entelechy.d.b> implements aa, com.baidu.tieba.frs.e.c {
     private ab<bd> bvY;
-    private Set<String> ddX;
-    private boolean ddY;
+    private Set<String> ddU;
+    private boolean ddV;
 
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.ddY = false;
+        this.ddV = false;
         this.bvY = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.k.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, bd bdVar) {
                 if (view2 != null && bdVar != null) {
                     if (view2.getId() == d.g.card_home_page_normal_thread_user_header || view2.getId() == d.g.card_home_page_normal_thread_user_pendant_header) {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 2);
                     } else if (view2.getId() == d.g.card_home_page_normal_thread_root || view2.getId() == d.g.layout_root) {
                         if (bdVar.sq() == 2 && bdVar.rA() != null) {
                             String qw = bdVar.rA().qw();
@@ -38,13 +38,13 @@ public class k extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.frs.entelechy.d
                             }
                             com.baidu.tieba.tbadkCore.d.a.a("frs", "CLICK", String.valueOf(bdVar.getFid()), bdVar.rV(), bdVar.rA().getThreadId(), "tieba.baidu.com/p/" + bdVar.rA().getThreadId(), qw);
                         }
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.doy, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 1);
                     }
                 }
             }
         };
-        this.ddX = new HashSet();
-        this.ddY = z;
+        this.ddU = new HashSet();
+        this.ddV = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,14 +71,14 @@ public class k extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.frs.entelechy.d
         }
         y yVar = new y();
         yVar.mLocate = bdVar.sG() ? "3" : "2";
-        yVar.crJ = doy.doo;
+        yVar.crG = dov.dol;
         yVar.aNu = bdVar.getTid();
         yVar.mSource = bdVar.mRecomSource;
-        yVar.fQM = bdVar.abq;
-        yVar.fQN = bdVar.mRecomWeight;
-        yVar.fQP = bdVar.mRecomAbTag;
+        yVar.fQJ = bdVar.abq;
+        yVar.fQK = bdVar.mRecomWeight;
+        yVar.fQM = bdVar.mRecomAbTag;
         if (bdVar.sh() != null) {
-            yVar.fQQ = bdVar.sh().video_md5;
+            yVar.fQN = bdVar.sh().video_md5;
         }
         return yVar;
     }
@@ -93,7 +93,7 @@ public class k extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.frs.entelechy.d
         if (asr == null || bVar == null) {
             return null;
         }
-        com.baidu.tieba.frs.e.b.auH().a(doy, bdVar);
+        com.baidu.tieba.frs.e.b.auH().a(dov, bdVar);
         bb rA = bdVar.rA();
         if (rA != null) {
             String taskId = rA.getTaskId();
@@ -103,7 +103,7 @@ public class k extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.frs.entelechy.d
             }
             if (this.mPageContext.getOrignalPage() instanceof ak) {
                 ak akVar = (ak) this.mPageContext.getOrignalPage();
-                if (this.ddX.add(taskId)) {
+                if (this.ddU.add(taskId)) {
                     com.baidu.tieba.tbadkCore.d.a.a("frs", "VIEW_TRUE", akVar.getForumId(), akVar.getForumName(), rA.getThreadId(), "tieba.baidu.com/p/" + bdVar.getTid(), qw);
                 }
             }
@@ -133,7 +133,7 @@ public class k extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.frs.entelechy.d
                 if (ast != null && (asq = ast.asq()) != null) {
                     asq.setFromCDN(this.mIsFromCDN);
                     asq.a(bdVar);
-                    asq.fL(this.ddY);
+                    asq.fL(this.ddV);
                     return ast.getView();
                 }
                 return null;
@@ -145,7 +145,7 @@ public class k extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.frs.entelechy.d
     @Override // com.baidu.tieba.frs.f
     public void release() {
         super.release();
-        this.ddX.clear();
+        this.ddU.clear();
     }
 
     @Override // com.baidu.tieba.card.aa

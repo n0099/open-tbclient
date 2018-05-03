@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class e extends at {
-    private TextView fes;
+    private TextView fep;
 
     public e(BaseActivity baseActivity, View view2) {
         super(baseActivity, view2);
-        this.fes = null;
+        this.fep = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.at
     protected void a(d dVar) {
-        this.fes = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.fes.setVisibility(8);
+        this.fep = (TextView) this.mRootView.findViewById(d.g.icon_push);
+        this.fep.setVisibility(8);
     }
 
     public void jv(boolean z) {
-        if (this.fes != null) {
+        if (this.fep != null) {
             if (z) {
-                this.fes.setText(d.k.push);
-                com.baidu.tbadk.core.util.ak.h(this.fes, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.ak.i(this.fes, d.f.push_bg_selector);
-                this.fes.setClickable(true);
+                this.fep.setText(d.k.push);
+                com.baidu.tbadk.core.util.ak.h(this.fep, d.f.push_text_selector);
+                com.baidu.tbadk.core.util.ak.i(this.fep, d.f.push_bg_selector);
+                this.fep.setClickable(true);
             } else {
-                this.fes.setText(d.k.already_push);
-                com.baidu.tbadk.core.util.ak.i(this.fes, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.ak.h(this.fes, d.C0126d.cp_cont_d);
-                this.fes.setClickable(false);
+                this.fep.setText(d.k.already_push);
+                com.baidu.tbadk.core.util.ak.i(this.fep, d.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.ak.h(this.fep, d.C0126d.cp_cont_d);
+                this.fep.setClickable(false);
             }
-            this.fes.setVisibility(0);
+            this.fep.setVisibility(0);
         }
     }
 
@@ -49,6 +49,6 @@ public class e extends at {
     }
 
     public TextView aWI() {
-        return this.fes;
+        return this.fep;
     }
 }

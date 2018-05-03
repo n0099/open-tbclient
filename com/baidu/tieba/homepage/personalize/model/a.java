@@ -16,9 +16,9 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class a {
-    private int dFp = 0;
-    private com.baidu.tieba.homepage.personalize.b.d dFq = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c dBz = new c();
+    private int dFm = 0;
+    private com.baidu.tieba.homepage.personalize.b.d dFn = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c dBw = new c();
     private final int bmy = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public int ayc() {
@@ -43,10 +43,10 @@ public class a {
         List<p> b = d.b(builder);
         bH(b);
         List<h> l = l(builder.thread_list, b);
-        this.dFq.bK(l);
+        this.dFn.bK(l);
         b.a(builder, l);
-        this.dBz.aXE = l;
-        return this.dBz;
+        this.dBw.aXE = l;
+        return this.dBw;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -64,7 +64,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.dFp);
+        d.a(z, builder, builder2, i, this.dFm);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -96,7 +96,7 @@ public class a {
                 int v2 = v.v(list2) - 1;
                 i2 = 0;
                 while (v2 >= 0) {
-                    this.dFq.a(z, v2, list, list2);
+                    this.dFn.a(z, v2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, v2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (!hashSet2.contains(threadInfo3.lego_card)) {
@@ -118,8 +118,8 @@ public class a {
                 }
             }
             int v3 = v.v(list);
-            this.dBz.dFs = (v3 - v) - i2;
-            this.dFp = v3 - v;
+            this.dBw.dFp = (v3 - v) - i2;
+            this.dFm = v3 - v;
         }
     }
 

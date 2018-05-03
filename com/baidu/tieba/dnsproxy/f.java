@@ -1,17 +1,17 @@
 package com.baidu.tieba.dnsproxy;
 /* loaded from: classes3.dex */
 public class f {
-    private static f cET = null;
+    private static f cEQ = null;
 
     public static final f ajO() {
-        if (cET == null) {
+        if (cEQ == null) {
             synchronized (f.class) {
-                if (cET == null) {
-                    cET = new f();
+                if (cEQ == null) {
+                    cEQ = new f();
                 }
             }
         }
-        return cET;
+        return cEQ;
     }
 
     private f() {

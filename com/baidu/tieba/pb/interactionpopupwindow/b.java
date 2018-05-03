@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 /* loaded from: classes.dex */
 public abstract class b<D extends IBaseDialogData> implements g<D> {
-    private ViewGroup fdk;
+    private ViewGroup fdh;
     protected int mSkinType = 3;
     protected TbPageContext<?> mTbPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.fdk = (ViewGroup) LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(getLayout(), (ViewGroup) null, false);
+        this.fdh = (ViewGroup) LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(getLayout(), (ViewGroup) null, false);
         initView();
     }
 
@@ -22,6 +22,6 @@ public abstract class b<D extends IBaseDialogData> implements g<D> {
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.g
     public ViewGroup getViewGroup() {
-        return this.fdk;
+        return this.fdh;
     }
 }

@@ -40,7 +40,7 @@ public class ShareEntity implements Parcelable {
     private boolean axd;
     private Bundle axf;
     private String content;
-    private int gkB;
+    private int gky;
     private String linkUrl;
     private String title;
     private String videoUrl;
@@ -102,11 +102,11 @@ public class ShareEntity implements Parcelable {
     }
 
     public int bnr() {
-        return this.gkB;
+        return this.gky;
     }
 
     public void sy(int i) {
-        this.gkB = i;
+        this.gky = i;
     }
 
     public boolean bns() {
@@ -127,7 +127,7 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeInt(this.gkB);
+        parcel.writeInt(this.gky);
         parcel.writeString(this.videoUrl);
         parcel.writeParcelable(this.awV, i);
         parcel.writeParcelable(this.awW, i);

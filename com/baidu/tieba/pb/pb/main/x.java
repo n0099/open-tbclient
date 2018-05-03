@@ -9,46 +9,46 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class x extends com.baidu.tbadk.core.dialog.b {
     private TbPageContext<?> adf;
-    private View.OnClickListener cVg;
+    private View.OnClickListener cVd;
+    private TextView fli;
+    private TextView flj;
+    private TextView flk;
     private TextView fll;
     private TextView flm;
     private TextView fln;
-    private TextView flo;
-    private TextView flp;
-    private TextView flq;
-    private boolean flr;
-    private boolean fls;
+    private boolean flo;
+    private boolean flp;
 
     public x(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.fls = false;
+        this.flp = false;
         this.adf = tbPageContext;
-        this.cVg = onClickListener;
+        this.cVd = onClickListener;
         aZb();
     }
 
     public TextView aYV() {
-        return this.fll;
+        return this.fli;
     }
 
     public TextView aYW() {
-        return this.flm;
+        return this.flj;
     }
 
     public TextView aYX() {
-        return this.fln;
+        return this.flk;
     }
 
     public TextView aYY() {
-        return this.flo;
+        return this.fll;
     }
 
     public TextView aYZ() {
-        return this.flq;
+        return this.fln;
     }
 
     public TextView aZa() {
-        return this.flp;
+        return this.flm;
     }
 
     private void aZb() {
@@ -57,17 +57,17 @@ public class x extends com.baidu.tbadk.core.dialog.b {
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view2) {
                 if (bVar != null && view2 != null) {
                     bVar.dismiss();
-                    x.this.cVg.onClick(view2);
+                    x.this.cVd.onClick(view2);
                 }
             }
         });
         d(this.adf);
-        this.flp = bc(ch(0));
-        this.flq = bc(ch(1));
-        this.fll = bc(ch(2));
-        this.flm = bc(ch(3));
-        this.fln = bc(ch(4));
-        this.flo = bc(ch(5));
+        this.flm = bc(ch(0));
+        this.fln = bc(ch(1));
+        this.fli = bc(ch(2));
+        this.flj = bc(ch(3));
+        this.flk = bc(ch(4));
+        this.fll = bc(ch(5));
     }
 
     public void showDialog() {
@@ -86,7 +86,7 @@ public class x extends com.baidu.tbadk.core.dialog.b {
     }
 
     public void jQ(boolean z) {
-        this.fln.setVisibility(z ? 0 : 8);
+        this.flk.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {
@@ -94,15 +94,15 @@ public class x extends com.baidu.tbadk.core.dialog.b {
     }
 
     public void jR(boolean z) {
-        this.flr = z;
+        this.flo = z;
     }
 
     public boolean aZc() {
-        return this.fls;
+        return this.flp;
     }
 
     public void jS(boolean z) {
-        this.fls = z;
+        this.flp = z;
     }
 
     public void refreshUI() {

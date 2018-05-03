@@ -3,6 +3,6 @@ package com.baidu.tieba.frs;
 import java.util.List;
 /* loaded from: classes.dex */
 public class as {
-    public int dac;
-    public List<ar> dad;
+    public int cZZ;
+    public List<ar> daa;
 }

@@ -6,10 +6,10 @@ import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
     private InterfaceC0131a byz;
+    private float cFq;
+    private float cFr;
+    private float cFs;
     private float cFt;
-    private float cFu;
-    private float cFv;
-    private float cFw;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -49,41 +49,41 @@ public class a {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.cFv = motionEvent.getRawX();
-                this.cFw = motionEvent.getRawY();
+                this.cFs = motionEvent.getRawX();
+                this.cFt = motionEvent.getRawY();
                 return true;
             case 1:
             case 3:
                 if (this.byz != null) {
-                    int i = (int) (this.cFt - this.cFv);
-                    if (Math.abs(i) >= Math.abs((int) (this.cFu - this.cFw))) {
-                        ar(i, (int) this.cFv);
+                    int i = (int) (this.cFq - this.cFs);
+                    if (Math.abs(i) >= Math.abs((int) (this.cFr - this.cFt))) {
+                        aq(i, (int) this.cFs);
                     }
                 }
-                this.cFv = 0.0f;
-                this.cFw = 0.0f;
+                this.cFs = 0.0f;
+                this.cFt = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                int i2 = (int) (rawX - this.cFt);
-                int i3 = (int) (rawY - this.cFu);
+                int i2 = (int) (rawX - this.cFq);
+                int i3 = (int) (rawY - this.cFr);
                 if (this.byz != null) {
                     if (i3 > 0) {
-                        ap(i2, i3);
+                        ao(i2, i3);
                     } else {
-                        aq(i2, i3);
+                        ap(i2, i3);
                     }
                 }
-                this.cFt = rawX;
-                this.cFu = rawY;
+                this.cFq = rawX;
+                this.cFr = rawY;
                 return true;
             default:
                 return true;
         }
     }
 
-    public void ap(int i, int i2) {
+    public void ao(int i, int i2) {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(0)) {
             Message message = new Message();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public void aq(int i, int i2) {
+    public void ap(int i, int i2) {
         this.mHandler.removeMessages(0);
         if (!this.mHandler.hasMessages(1)) {
             Message message = new Message();
@@ -105,7 +105,7 @@ public class a {
         }
     }
 
-    public void ar(int i, int i2) {
+    public void aq(int i, int i2) {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(2)) {
             Message message = new Message();

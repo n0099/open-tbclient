@@ -16,11 +16,11 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ChannelAddVideoActivity ctK;
+    private ChannelAddVideoActivity ctH;
     private List<com.baidu.tieba.channel.data.b> mData;
 
     public a(ChannelAddVideoActivity channelAddVideoActivity) {
-        this.ctK = channelAddVideoActivity;
+        this.ctH = channelAddVideoActivity;
     }
 
     public List<com.baidu.tieba.channel.data.b> getData() {
@@ -60,43 +60,43 @@ public class a extends BaseAdapter {
         if (view2 != null) {
             c0122a = (C0122a) view2.getTag();
         } else {
-            view2 = LayoutInflater.from(this.ctK.getPageContext().getPageActivity()).inflate(d.i.channel_add_video_item_layout, viewGroup, false);
+            view2 = LayoutInflater.from(this.ctH.getPageContext().getPageActivity()).inflate(d.i.channel_add_video_item_layout, viewGroup, false);
             C0122a c0122a2 = new C0122a();
-            c0122a2.ctL = (TbCheckBox) view2.findViewById(d.g.item_check_box);
-            c0122a2.ctM = (TbImageView) view2.findViewById(d.g.video_cover);
-            c0122a2.ctN = (TextView) view2.findViewById(d.g.video_length);
+            c0122a2.ctI = (TbCheckBox) view2.findViewById(d.g.item_check_box);
+            c0122a2.ctJ = (TbImageView) view2.findViewById(d.g.video_cover);
+            c0122a2.ctK = (TextView) view2.findViewById(d.g.video_length);
             c0122a2.title = (TextView) view2.findViewById(d.g.title);
-            c0122a2.ctO = (TextView) view2.findViewById(d.g.forum_from);
-            c0122a2.ctP = (TextView) view2.findViewById(d.g.intro);
+            c0122a2.ctL = (TextView) view2.findViewById(d.g.forum_from);
+            c0122a2.ctM = (TextView) view2.findViewById(d.g.intro);
             view2.setTag(c0122a2);
             c0122a = c0122a2;
         }
         com.baidu.tieba.channel.data.b item = getItem(i);
         if (item != null) {
-            c0122a.ctL.setTagData(item);
+            c0122a.ctI.setTagData(item);
             if (item.agq() == 1) {
-                c0122a.ctL.setEnabled(false);
-                ak.c(c0122a.ctL, d.f.icon_choose_channel_n);
+                c0122a.ctI.setEnabled(false);
+                ak.c(c0122a.ctI, d.f.icon_choose_channel_n);
             } else {
-                c0122a.ctL.setEnabled(true);
-                c0122a.ctL.wY();
+                c0122a.ctI.setEnabled(true);
+                c0122a.ctI.wY();
             }
             if (!TextUtils.isEmpty(item.getThumbnailUrl())) {
-                c0122a.ctM.setTag(null);
-                c0122a.ctM.startLoad(item.getThumbnailUrl(), 10, false);
-                c0122a.ctM.invalidate();
+                c0122a.ctJ.setTag(null);
+                c0122a.ctJ.startLoad(item.getThumbnailUrl(), 10, false);
+                c0122a.ctJ.invalidate();
             }
-            c0122a.ctN.setText(an.cQ(item.getVideoDuration() * 1000));
+            c0122a.ctK.setText(an.cQ(item.getVideoDuration() * 1000));
             if (!TextUtils.isEmpty(item.getTitle())) {
                 c0122a.title.setText(item.getTitle());
             }
             if (!TextUtils.isEmpty(item.getForumName())) {
-                c0122a.ctO.setText(item.getForumName() + "吧");
+                c0122a.ctL.setText(item.getForumName() + "吧");
             }
-            c0122a.ctP.setText(an.v(item.agp()) + "次播放·" + com.baidu.tieba.channel.c.c.bj(item.getCreateTime()));
+            c0122a.ctM.setText(an.v(item.agp()) + "次播放·" + com.baidu.tieba.channel.c.c.bj(item.getCreateTime()));
         }
-        this.ctK.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.ctK.getLayoutMode().u(view2);
+        this.ctH.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.ctH.getLayoutMode().u(view2);
         return view2;
     }
 
@@ -108,11 +108,11 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0122a {
-        public TbCheckBox ctL;
-        public TbImageView ctM;
-        public TextView ctN;
-        public TextView ctO;
-        public TextView ctP;
+        public TbCheckBox ctI;
+        public TbImageView ctJ;
+        public TextView ctK;
+        public TextView ctL;
+        public TextView ctM;
         public TextView title;
 
         public C0122a() {

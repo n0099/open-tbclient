@@ -17,8 +17,8 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class t extends com.baidu.tbadk.editortools.c {
-    private com.baidu.tbadk.editortools.b fjG;
-    private boolean fjH = false;
+    private com.baidu.tbadk.editortools.b fjD;
+    private boolean fjE = false;
     private PbEditorData.ThreadData mThreadData;
 
     @Override // com.baidu.tbadk.editortools.c
@@ -26,7 +26,7 @@ public class t extends com.baidu.tbadk.editortools.c {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setIsFromPb(true);
         editorTools.setBarMaxLauCount(5);
-        if (this.fjH) {
+        if (this.fjE) {
             editorTools.setBarLauncherType(2);
         } else {
             editorTools.setBarLauncherType(3);
@@ -48,8 +48,8 @@ public class t extends com.baidu.tbadk.editortools.c {
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar) {
                     if (sVar != null && sVar.DF() != null && aVar != null) {
-                        if (t.this.fjG != null) {
-                            t.this.fjG.a(aVar);
+                        if (t.this.fjD != null) {
+                            t.this.fjD.a(aVar);
                         }
                         switch (aVar.code) {
                             case 16:
@@ -127,12 +127,12 @@ public class t extends com.baidu.tbadk.editortools.c {
         EditorTools DF = dVar.DF();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        if (!this.fjH) {
+        if (!this.fjE) {
             arrayList.add(10);
         }
         arrayList.add(6);
         arrayList.add(9);
-        if (!this.fjH) {
+        if (!this.fjE) {
             com.baidu.tbadk.editortools.imagetool.d dVar2 = new com.baidu.tbadk.editortools.imagetool.d(DF.getContext(), 3);
             dVar2.aDz = d.f.new_pbeditor_image_button;
             DF.b(dVar2);
@@ -149,7 +149,7 @@ public class t extends com.baidu.tbadk.editortools.c {
         com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(DF.getContext(), 5);
         aVar.aDz = d.f.new_pbeditor_at_button;
         DF.b(aVar);
-        if (!this.fjH) {
+        if (!this.fjE) {
             CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, DF.getContext()), com.baidu.tbadk.editortools.k.class);
             if (runTask2 != null && runTask2.getData() != null) {
                 com.baidu.tbadk.editortools.k kVar3 = (com.baidu.tbadk.editortools.k) runTask2.getData();
@@ -165,12 +165,12 @@ public class t extends com.baidu.tbadk.editortools.c {
                 DF.b(kVar4);
             }
         }
-        if (!"PbChosenActivity".equals(DF.getContext().getClass().getSimpleName()) && !this.fjH) {
+        if (!"PbChosenActivity".equals(DF.getContext().getClass().getSimpleName()) && !this.fjE) {
             com.baidu.tbadk.editortools.b.a aVar2 = new com.baidu.tbadk.editortools.b.a(DF.getContext(), 5);
             aVar2.aDz = d.f.new_pbeditor_gift_button;
             DF.b(aVar2);
         }
-        if (!this.fjH) {
+        if (!this.fjE) {
             CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>(2016556, DF.getContext()), com.baidu.tbadk.editortools.k.class);
             if (runTask4 != null && (kVar = (com.baidu.tbadk.editortools.k) runTask4.getData()) != null) {
                 kVar.aDB = 6;
@@ -187,7 +187,7 @@ public class t extends com.baidu.tbadk.editortools.c {
             eH.aDz = d.f.new_pbeditor_face_button;
         }
         DF.DG();
-        if (this.fjH) {
+        if (this.fjE) {
             DF.b(new com.baidu.tbadk.editortools.a(35, 5, false));
         }
     }
@@ -203,7 +203,7 @@ public class t extends com.baidu.tbadk.editortools.c {
     }
 
     public void b(com.baidu.tbadk.editortools.b bVar) {
-        this.fjG = bVar;
+        this.fjD = bVar;
     }
 
     public void setThreadData(PbEditorData.ThreadData threadData) {
@@ -211,6 +211,6 @@ public class t extends com.baidu.tbadk.editortools.c {
     }
 
     public void jL(boolean z) {
-        this.fjH = z;
+        this.fjE = z;
     }
 }

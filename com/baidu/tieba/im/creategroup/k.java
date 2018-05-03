@@ -14,11 +14,11 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     BdListView FL;
     TextView aMR;
     private View aMS;
-    TbPageContext<GroupAddressEditActivity> cNa;
-    private boolean dVq;
-    private TextView dVs;
-    private String[] dVt;
-    l dVu;
+    TbPageContext<GroupAddressEditActivity> cMX;
+    private boolean dVn;
+    private TextView dVp;
+    private String[] dVq;
+    l dVr;
     NavigationBar mNavigationBar;
     View mParent;
 
@@ -34,16 +34,16 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         super(tbPageContext);
         this.mNavigationBar = null;
         this.mParent = null;
-        this.cNa = null;
+        this.cMX = null;
         this.aMR = null;
         this.aMS = null;
         this.FL = null;
-        this.dVs = null;
-        this.dVt = null;
-        this.dVq = false;
-        this.dVu = null;
-        this.dVt = strArr;
-        this.dVq = z;
+        this.dVp = null;
+        this.dVq = null;
+        this.dVn = false;
+        this.dVr = null;
+        this.dVq = strArr;
+        this.dVn = z;
         b(tbPageContext.getOrignalPage());
         a(tbPageContext.getOrignalPage());
     }
@@ -54,21 +54,21 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     }
 
     private void b(GroupAddressEditActivity groupAddressEditActivity) {
-        this.cNa = groupAddressEditActivity.getPageContext();
+        this.cMX = groupAddressEditActivity.getPageContext();
         groupAddressEditActivity.setContentView(d.i.group_address_activity);
         this.mParent = groupAddressEditActivity.findViewById(d.g.parent);
         this.FL = (BdListView) groupAddressEditActivity.findViewById(d.g.lv_address);
-        this.dVu = new l(groupAddressEditActivity, this.dVt);
-        this.FL.setAdapter((ListAdapter) this.dVu);
+        this.dVr = new l(groupAddressEditActivity, this.dVq);
+        this.FL.setAdapter((ListAdapter) this.dVr);
         this.FL.setOnItemClickListener(groupAddressEditActivity);
-        this.dVs = (TextView) groupAddressEditActivity.findViewById(d.g.address_title_poslist);
-        if (this.dVt == null || this.dVt.length < 1) {
+        this.dVp = (TextView) groupAddressEditActivity.findViewById(d.g.address_title_poslist);
+        if (this.dVq == null || this.dVq.length < 1) {
             this.FL.setVisibility(8);
-            this.dVs.setText(d.k.address_locate_noaddresslist);
+            this.dVp.setText(d.k.address_locate_noaddresslist);
         }
         SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) groupAddressEditActivity.findViewById(d.g.address_showorhidden);
         settingTextSwitchView.setSwitchStateChangeListener(groupAddressEditActivity);
-        if (this.dVq) {
+        if (this.dVn) {
             settingTextSwitchView.jO();
         } else {
             settingTextSwitchView.jP();
@@ -81,12 +81,12 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     }
 
     public void aCE() {
-        this.dVu.notifyDataSetChanged();
+        this.dVr.notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {
-        this.cNa.getLayoutMode().setNightMode(i == 1);
-        this.cNa.getLayoutMode().u(this.mParent);
+        this.cMX.getLayoutMode().setNightMode(i == 1);
+        this.cMX.getLayoutMode().u(this.mParent);
         ak.f(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
         ak.j(this.mParent, d.C0126d.common_color_10041);

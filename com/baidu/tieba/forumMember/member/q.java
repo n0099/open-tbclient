@@ -9,12 +9,12 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class q extends q.a {
     public View acO;
+    public TextView cUR;
+    public TextView cUS;
+    public TextView cUT;
     public TextView cUU;
-    public TextView cUV;
-    public TextView cUW;
-    public TextView cUX;
-    public RelativeLayout cUY;
-    public RelativeLayout cUZ;
+    public RelativeLayout cUV;
+    public RelativeLayout cUW;
     public LinearLayout mRootLayout;
     public int mSkinType;
 
@@ -23,11 +23,11 @@ public class q extends q.a {
         this.mSkinType = 3;
         this.mRootLayout = (LinearLayout) view2.findViewById(d.g.root_member_manager_apply);
         this.acO = view2.findViewById(d.g.manager_apply_line);
-        this.cUU = (TextView) view2.findViewById(d.g.manager_apply_tip);
-        this.cUV = (TextView) view2.findViewById(d.g.assist_apply_tip);
-        this.cUW = (TextView) view2.findViewById(d.g.manager_left_tv);
-        this.cUX = (TextView) view2.findViewById(d.g.assist_left_tv);
-        this.cUY = (RelativeLayout) view2.findViewById(d.g.manager_apply_layout);
-        this.cUZ = (RelativeLayout) view2.findViewById(d.g.assist_apply_layout);
+        this.cUR = (TextView) view2.findViewById(d.g.manager_apply_tip);
+        this.cUS = (TextView) view2.findViewById(d.g.assist_apply_tip);
+        this.cUT = (TextView) view2.findViewById(d.g.manager_left_tv);
+        this.cUU = (TextView) view2.findViewById(d.g.assist_left_tv);
+        this.cUV = (RelativeLayout) view2.findViewById(d.g.manager_apply_layout);
+        this.cUW = (RelativeLayout) view2.findViewById(d.g.assist_apply_layout);
     }
 }

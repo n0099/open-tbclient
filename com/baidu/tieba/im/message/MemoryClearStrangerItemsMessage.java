@@ -9,7 +9,7 @@ public class MemoryClearStrangerItemsMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public List<MemoryModifyVisibilityMessage.a> edn;
+        public List<MemoryModifyVisibilityMessage.a> edk;
     }
 
     public MemoryClearStrangerItemsMessage(a aVar, boolean z) {

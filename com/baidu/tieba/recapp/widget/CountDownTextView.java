@@ -11,8 +11,8 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
     private int aKb;
     private Runnable bgA;
-    private b gen;
-    private boolean gep;
+    private b gek;
+    private boolean gel;
     private Handler mHandler;
 
     /* loaded from: classes3.dex */
@@ -23,8 +23,8 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context) {
         super(context);
         this.mHandler = null;
-        this.gen = null;
-        this.gep = true;
+        this.gek = null;
+        this.gel = true;
         bks();
     }
 
@@ -36,16 +36,16 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mHandler = null;
-        this.gen = null;
-        this.gep = true;
+        this.gek = null;
+        this.gel = true;
         bks();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHandler = null;
-        this.gen = null;
-        this.gep = true;
+        this.gek = null;
+        this.gel = true;
         bks();
     }
 
@@ -58,11 +58,11 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(b bVar) {
-        this.gen = bVar;
+        this.gek = bVar;
     }
 
     public void setEnableTimeoutListener(boolean z) {
-        this.gep = z;
+        this.gel = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -87,8 +87,8 @@ public class CountDownTextView extends TextView {
     public void gw(int i) {
         if (i > 0) {
             if (this.aKb == 0) {
-                if (this.gen != null && this.gep && getVisibility() == 0) {
-                    this.gen.U(this);
+                if (this.gek != null && this.gel && getVisibility() == 0) {
+                    this.gek.U(this);
                 }
                 setText(String.valueOf(this.aKb));
                 this.mHandler.removeCallbacksAndMessages(null);

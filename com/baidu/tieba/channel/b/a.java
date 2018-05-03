@@ -21,17 +21,17 @@ public class a {
     private View.OnClickListener axG = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (view2 != a.this.cuz.getCancelView()) {
-                if (view2 != a.this.cuz.getLayerView()) {
-                    if (view2 == a.this.cuz.getUpInfoView()) {
+            if (view2 != a.this.cuw.getCancelView()) {
+                if (view2 != a.this.cuw.getLayerView()) {
+                    if (view2 == a.this.cuw.getUpInfoView()) {
                         a.this.acd();
                         if (a.this.agf()) {
                             a.this.pr();
                         }
                         TiebaStatic.log("c11994");
-                    } else if (view2 == a.this.cuz.getPushView()) {
-                        if (a.this.cuA != null) {
-                            a.this.cuA.a(18, null, null, -1);
+                    } else if (view2 == a.this.cuw.getPushView()) {
+                        if (a.this.cux != null) {
+                            a.this.cux.a(18, null, null, -1);
                         }
                         if (a.this.agf()) {
                             a.this.pr();
@@ -45,23 +45,23 @@ public class a {
             }
         }
     };
-    private d cty;
-    private ChannelHomeActivity cuA;
-    private k cuy;
-    private ChannelMoreView cuz;
+    private d ctu;
+    private k cuv;
+    private ChannelMoreView cuw;
+    private ChannelHomeActivity cux;
 
     public a(ChannelHomeActivity channelHomeActivity) {
-        this.cuA = channelHomeActivity;
+        this.cux = channelHomeActivity;
     }
 
     public void age() {
-        if (this.cty != null) {
-            if (this.cuy == null) {
-                this.cuz = new ChannelMoreView(this.cuA.getApplicationContext(), this.cty, this.axG);
-                this.cuz.setBackGround();
-                this.cuy = new k(this.cuA.getActivity(), this.cuz);
+        if (this.ctu != null) {
+            if (this.cuv == null) {
+                this.cuw = new ChannelMoreView(this.cux.getApplicationContext(), this.ctu, this.axG);
+                this.cuw.setBackGround();
+                this.cuv = new k(this.cux.getActivity(), this.cuw);
             }
-            this.cuy.showAtLocation(this.cuA.findViewById(d.g.channel_home_navigation_bar), 17, 0, 0);
+            this.cuv.showAtLocation(this.cux.findViewById(d.g.channel_home_navigation_bar), 17, 0, 0);
         }
     }
 
@@ -70,9 +70,9 @@ public class a {
             this.aHT = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.cuy != null) {
-                        g.a(a.this.cuy, a.this.cuA.getPageContext().getPageActivity());
-                        a.this.cuy = null;
+                    if (a.this.cuv != null) {
+                        g.a(a.this.cuv, a.this.cux.getPageContext().getPageActivity());
+                        a.this.cuv = null;
                     }
                 }
             };
@@ -81,26 +81,26 @@ public class a {
     }
 
     public void b(com.baidu.tieba.channel.data.d dVar) {
-        this.cty = dVar;
+        this.ctu = dVar;
     }
 
     public boolean agf() {
-        return this.cuy != null && this.cuy.isShowing();
+        return this.cuv != null && this.cuv.isShowing();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.cuz != null) {
-            this.cuz.setBackGround();
+        if (this.cuw != null) {
+            this.cuw.setBackGround();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void acd() {
-        if (this.cty != null && this.cty.agj() != null) {
-            ChannelInfo agj = this.cty.agj();
+        if (this.ctu != null && this.ctu.agj() != null) {
+            ChannelInfo agj = this.ctu.agj();
             String valueOf = String.valueOf(agj.getUserId());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.cuA.getPageContext().getPageActivity()).createNormalConfig(agj.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.cux.getPageContext().getPageActivity()).createNormalConfig(agj.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
         }
     }
 }

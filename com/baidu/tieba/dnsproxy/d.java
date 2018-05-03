@@ -6,17 +6,17 @@ import com.baidu.fsg.base.armor.RimArmor;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class d {
-    private static volatile d cEB = null;
+    private static volatile d cEy = null;
 
     public static final d ajG() {
-        if (cEB == null) {
+        if (cEy == null) {
             synchronized (d.class) {
-                if (cEB == null) {
-                    cEB = new d();
+                if (cEy == null) {
+                    cEy = new d();
                 }
             }
         }
-        return cEB;
+        return cEy;
     }
 
     private d() {

@@ -7,18 +7,18 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.al;
 /* loaded from: classes2.dex */
 public class l extends c {
-    public static final BdUniqueId csc = BdUniqueId.gen();
-    public static final BdUniqueId csd = BdUniqueId.gen();
+    public static final BdUniqueId crZ = BdUniqueId.gen();
+    public static final BdUniqueId csa = BdUniqueId.gen();
+    public static String csb = "";
+    public static String csc = "";
+    public static String csd = "";
     public static String cse = "";
     public static String csf = "";
     public static String csg = "";
     public static String csh = "";
-    public static String csi = "";
-    public static String csj = "";
-    public static String csk = "";
     public bd bji;
-    public boolean csb = false;
-    public boolean csl = true;
+    public boolean crY = false;
+    public boolean csi = true;
     public int sourceType = 0;
 
     public l(bd bdVar) {
@@ -32,12 +32,12 @@ public class l extends c {
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
         if (this.bji == null) {
-            return csc;
+            return crZ;
         }
         if (this.bji.rT() || this.bji.rU()) {
-            return csd;
+            return csa;
         }
-        return csc;
+        return crZ;
     }
 
     @Override // com.baidu.tieba.card.data.c
@@ -59,7 +59,7 @@ public class l extends c {
     }
 
     public al afS() {
-        al p = p(csh, true);
+        al p = p(cse, true);
         if (p != null && Pe() != null) {
             bd Pe = Pe();
             p.r("obj_name", Pe.tc() != null && (Pe.tc().bsb() != null || Pe.tc().JR() != null) ? 1 : 0);
@@ -71,14 +71,14 @@ public class l extends c {
     }
 
     public al O(bd bdVar) {
-        return (bdVar.sQ() == null || bdVar.sQ().channelId <= 0) ? p(csi, true) : p(csj, true);
+        return (bdVar.sQ() == null || bdVar.sQ().channelId <= 0) ? p(csf, true) : p(csg, true);
     }
 
     public al afU() {
-        return p(csf, true);
+        return p(csc, true);
     }
 
     public al P(bd bdVar) {
-        return (bdVar.sQ() == null || bdVar.sQ().channelId <= 0) ? p(cse, true) : p(csk, true);
+        return (bdVar.sQ() == null || bdVar.sQ().channelId <= 0) ? p(csb, true) : p(csh, true);
     }
 }

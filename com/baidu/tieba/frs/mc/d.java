@@ -27,14 +27,14 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class d extends h {
-    private final com.baidu.adp.framework.listener.a cys;
-    private final CustomMessageListener dnE;
-    private final CustomMessageListener dnF;
-    private final CustomMessageListener dnG;
+    private final com.baidu.adp.framework.listener.a cyp;
+    private final CustomMessageListener dnB;
+    private final CustomMessageListener dnC;
+    private final CustomMessageListener dnD;
 
     public d(FrsFragment frsFragment) {
         super(frsFragment);
-        this.dnE = new CustomMessageListener(2001374) { // from class: com.baidu.tieba.frs.mc.d.1
+        this.dnB = new CustomMessageListener(2001374) { // from class: com.baidu.tieba.frs.mc.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -43,36 +43,36 @@ public class d extends h {
                 }
             }
         };
-        this.dnF = new CustomMessageListener(2921031) { // from class: com.baidu.tieba.frs.mc.d.2
+        this.dnC = new CustomMessageListener(2921031) { // from class: com.baidu.tieba.frs.mc.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                     String str = (String) customResponsedMessage.getData();
-                    if (!StringUtils.isNull(str) && d.this.dmZ.apE() != null) {
-                        l apE = d.this.dmZ.apE();
+                    if (!StringUtils.isNull(str) && d.this.dmW.apE() != null) {
+                        l apE = d.this.dmW.apE();
                         apE.al(apE.lT(str));
-                        d.this.cXk.a(apE.getThreadList(), apE);
+                        d.this.cXh.a(apE.getThreadList(), apE);
                         if (com.baidu.tieba.tbadkCore.c.bpQ() != null) {
-                            com.baidu.tieba.tbadkCore.c.bpQ().T(d.this.dmZ.getForumName(), false);
+                            com.baidu.tieba.tbadkCore.c.bpQ().T(d.this.dmW.getForumName(), false);
                         }
                     }
                 }
             }
         };
-        this.dnG = new CustomMessageListener(2921316) { // from class: com.baidu.tieba.frs.mc.d.3
+        this.dnD = new CustomMessageListener(2921316) { // from class: com.baidu.tieba.frs.mc.d.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Multi-variable type inference failed */
             /* JADX WARN: Type inference failed for: r0v19, types: [java.util.List] */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 ForumManageModel.e eVar;
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e) && d.this.dmZ != null && d.this.cXk != null && d.this.cXt != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.threadId) && d.this.dmZ.apE() != null) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e) && d.this.dmW != null && d.this.cXh != null && d.this.cXq != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.threadId) && d.this.dmW.apE() != null) {
                     String str = eVar.threadId;
                     String str2 = eVar.forumId;
                     String str3 = eVar.forumName;
-                    if (eVar.gyP == 4) {
-                        l apE = d.this.dmZ.apE();
+                    if (eVar.gyM == 4) {
+                        l apE = d.this.dmW.apE();
                         bd lT = apE.lT(str);
                         apE.al(lT);
                         List<com.baidu.adp.widget.ListView.h> bri = apE.bri();
@@ -80,16 +80,16 @@ public class d extends h {
                             bri = new ArrayList<>();
                         }
                         bri.add(0, lT);
-                        d.this.cXk.a(apE.getThreadList(), apE);
-                        d.this.cXt.f(apE);
+                        d.this.cXh.a(apE.getThreadList(), apE);
+                        d.this.cXq.f(apE);
                     }
-                    if (TextUtils.equals(d.this.dmZ.getForumName(), str3)) {
-                        com.baidu.tieba.tbadkCore.c.bpQ().T(d.this.dmZ.getForumName(), false);
+                    if (TextUtils.equals(d.this.dmW.getForumName(), str3)) {
+                        com.baidu.tieba.tbadkCore.c.bpQ().T(d.this.dmW.getForumName(), false);
                     }
                 }
             }
         };
-        this.cys = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.frs.mc.d.4
+        this.cyp = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.frs.mc.d.4
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 String errorString;
@@ -97,7 +97,7 @@ public class d extends h {
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                        errorString2 = d.this.dmZ.getResources().getString(d.k.neterror);
+                        errorString2 = d.this.dmW.getResources().getString(d.k.neterror);
                     } else {
                         errorString2 = getMyPostHttpResponseMessage.getErrorString();
                     }
@@ -105,7 +105,7 @@ public class d extends h {
                 } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                     GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                        errorString = d.this.dmZ.getResources().getString(d.k.neterror);
+                        errorString = d.this.dmW.getResources().getString(d.k.neterror);
                     } else {
                         errorString = getMyPostSocketResponseMessage.getErrorString();
                     }
@@ -113,23 +113,23 @@ public class d extends h {
                 }
             }
         };
-        this.cys.getSocketMessageListener().setSelfListener(true);
-        this.cys.getHttpMessageListener().setSelfListener(true);
-        this.dnF.setSelfListener(false);
-        this.dmZ.registerListener(this.dnF);
-        this.dmZ.registerListener(this.cys);
-        this.dmZ.registerListener(this.dnE);
-        this.dmZ.registerListener(this.dnG);
+        this.cyp.getSocketMessageListener().setSelfListener(true);
+        this.cyp.getHttpMessageListener().setSelfListener(true);
+        this.dnC.setSelfListener(false);
+        this.dmW.registerListener(this.dnC);
+        this.dmW.registerListener(this.cyp);
+        this.dmW.registerListener(this.dnB);
+        this.dmW.registerListener(this.dnD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, GetMyPostResIdl getMyPostResIdl) {
         if (i != 0) {
-            this.dmZ.showToast(str);
+            this.dmW.showToast(str);
             return;
         }
-        l apE = this.dmZ.apE();
-        if (apE != null && apE.aVq() != null && getMyPostResIdl != null && this.cXk != null && this.cXs != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+        l apE = this.dmW.apE();
+        if (apE != null && apE.aVq() != null && getMyPostResIdl != null && this.cXh != null && this.cXp != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
             aj ajVar = new aj();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
@@ -140,13 +140,13 @@ public class d extends h {
             builder.fid = Long.valueOf(com.baidu.adp.lib.g.b.c(apE.aVq().getId(), 0L));
             ajVar.a(builder.build(true));
             ajVar.bU(3);
-            this.cXs.a(ajVar);
-            ArrayList<com.baidu.adp.widget.ListView.h> a = this.dnY.a(false, true, apE.getThreadList(), null);
+            this.cXp.a(ajVar);
+            ArrayList<com.baidu.adp.widget.ListView.h> a = this.dnV.a(false, true, apE.getThreadList(), null);
             if (a != null) {
                 apE.av(a);
                 apE.bqU();
-                this.cXk.a(a, apE);
-                this.cXk.ki(0);
+                this.cXh.a(a, apE);
+                this.cXh.ki(0);
             }
         }
     }
@@ -168,16 +168,16 @@ public class d extends h {
     }
 
     public void e(PostWriteCallBackData postWriteCallBackData) {
-        if (this.cXs != null) {
-            if (this.cXs.aun() == 2 || this.cXs.aun() == 3 || this.cXs.aun() == 7) {
-                int auf = this.cXs.auf();
+        if (this.cXp != null) {
+            if (this.cXp.aun() == 2 || this.cXp.aun() == 3 || this.cXp.aun() == 7) {
+                int auf = this.cXp.auf();
                 if (w.aqF().kk(1) == null) {
                     auf = 0;
                 }
                 if (auf == 0 && postWriteCallBackData != null) {
                     final long c = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getPostId(), 0L);
                     final long c2 = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getThreadId(), 0L);
-                    final long c3 = com.baidu.adp.lib.g.b.c(this.dmZ.getForumId(), 0L);
+                    final long c3 = com.baidu.adp.lib.g.b.c(this.dmW.getForumId(), 0L);
                     if (c != 0 && c2 != 0 && c3 != 0) {
                         com.baidu.adp.lib.g.e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.mc.d.5
                             @Override // java.lang.Runnable
@@ -191,7 +191,7 @@ public class d extends h {
                                 }
                                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                                 requestGetMyPostNetMessage.setParams(c2, c, c3, af, ah, f, i);
-                                d.this.dmZ.sendMessage(requestGetMyPostNetMessage);
+                                d.this.dmW.sendMessage(requestGetMyPostNetMessage);
                             }
                         }, 1000L);
                     }

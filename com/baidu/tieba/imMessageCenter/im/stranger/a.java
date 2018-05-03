@@ -13,14 +13,14 @@ public class a {
     /* loaded from: classes2.dex */
     public static class C0168a {
         public String awT;
-        public String dkt;
-        public String elD;
+        public String dkq;
+        public String elA;
+        public int elW;
+        public String elX;
+        public String elY;
         public int elZ;
         public String ema;
         public String emb;
-        public int emc;
-        public String emd;
-        public String eme;
         public String postId;
         public String threadId;
         public int threadType;
@@ -37,9 +37,9 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0168a.ema = optJSONObject.optString("title");
-                c0168a.elD = optJSONObject.optString("content");
-                c0168a.emd = optJSONObject.optString("quote_content");
+                c0168a.elX = optJSONObject.optString("title");
+                c0168a.elA = optJSONObject.optString("content");
+                c0168a.ema = optJSONObject.optString("quote_content");
                 c0168a.awT = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 c0168a.threadId = optJSONObject.optString("thread_id");
                 c0168a.postId = optJSONObject.optString("post_id");
@@ -48,14 +48,14 @@ public class a {
                 c0168a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0168a.emb = optJSONObject2.optString("id");
-                    c0168a.eme = optJSONObject2.optString(IntentConfig.PORTRAIT);
-                    c0168a.emc = optJSONObject2.optInt("gender");
+                    c0168a.elY = optJSONObject2.optString("id");
+                    c0168a.emb = optJSONObject2.optString(IntentConfig.PORTRAIT);
+                    c0168a.elZ = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0168a.dkt = optJSONObject3.optString("id");
-                    c0168a.elZ = optJSONObject3.optInt("gender");
+                    c0168a.dkq = optJSONObject3.optString("id");
+                    c0168a.elW = optJSONObject3.optInt("gender");
                 }
             }
             return c0168a;

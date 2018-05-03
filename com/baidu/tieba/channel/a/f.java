@@ -13,11 +13,11 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f extends BaseAdapter {
-    private ChannelListActivity cuq;
+    private ChannelListActivity cun;
     private List<com.baidu.tieba.channel.data.f> mData;
 
     public f(ChannelListActivity channelListActivity) {
-        this.cuq = channelListActivity;
+        this.cun = channelListActivity;
     }
 
     public void setData(List<com.baidu.tieba.channel.data.f> list) {
@@ -53,38 +53,38 @@ public class f extends BaseAdapter {
         if (view2 != null) {
             aVar = (a) view2.getTag();
         } else {
-            view2 = LayoutInflater.from(this.cuq.getPageContext().getPageActivity()).inflate(d.i.channel_list_item_layout, viewGroup, false);
+            view2 = LayoutInflater.from(this.cun.getPageContext().getPageActivity()).inflate(d.i.channel_list_item_layout, viewGroup, false);
             a aVar2 = new a();
-            aVar2.cus = (TbImageView) view2.findViewById(d.g.channel_avatar);
-            aVar2.cus.setDefaultErrorResource(d.f.avatar_channel_poto_defaul160);
-            aVar2.cus.setDefaultResource(d.f.avatar_channel_poto_defaul160);
-            aVar2.cut = (TextView) view2.findViewById(d.g.channel_title);
-            aVar2.cuu = (TextView) view2.findViewById(d.g.channel_intro);
+            aVar2.cuo = (TbImageView) view2.findViewById(d.g.channel_avatar);
+            aVar2.cuo.setDefaultErrorResource(d.f.avatar_channel_poto_defaul160);
+            aVar2.cuo.setDefaultResource(d.f.avatar_channel_poto_defaul160);
+            aVar2.cup = (TextView) view2.findViewById(d.g.channel_title);
+            aVar2.cuq = (TextView) view2.findViewById(d.g.channel_intro);
             view2.setTag(aVar2);
             aVar = aVar2;
         }
         com.baidu.tieba.channel.data.f item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.ago())) {
-                aVar.cus.startLoad(item.ago(), 10, false);
+                aVar.cuo.startLoad(item.ago(), 10, false);
             }
             if (!TextUtils.isEmpty(item.agn())) {
-                aVar.cut.setText(item.agn());
+                aVar.cup.setText(item.agn());
             }
             if (!TextUtils.isEmpty(item.getDescription())) {
-                aVar.cuu.setText(item.getDescription());
+                aVar.cuq.setText(item.getDescription());
             }
         }
-        this.cuq.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.cuq.getLayoutMode().u(view2);
+        this.cun.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.cun.getLayoutMode().u(view2);
         return view2;
     }
 
     /* loaded from: classes3.dex */
     private class a {
-        TbImageView cus;
-        TextView cut;
-        TextView cuu;
+        TbImageView cuo;
+        TextView cup;
+        TextView cuq;
 
         private a() {
         }

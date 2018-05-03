@@ -23,8 +23,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     private PbListView blb;
-    private com.baidu.tieba.frs.gamerecommend.a.a diX;
-    private FrameLayout diY;
+    private com.baidu.tieba.frs.gamerecommend.a.a diU;
+    private FrameLayout diV;
     private String mForumId;
     private String mForumName;
     private BdTypeListView mListView;
@@ -44,7 +44,7 @@ public class a {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.i.frs_game_recommend_layout, (ViewGroup) null);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(d.g.view_no_network);
-        this.diY = (FrameLayout) this.mRootView.findViewById(d.g.game_recom_container);
+        this.diV = (FrameLayout) this.mRootView.findViewById(d.g.game_recom_container);
         this.mListView = (BdTypeListView) this.mRootView.findViewById(d.g.game_recom_listview);
         this.mListView.setDivider(null);
         this.mPullView = new f(this.mPageContext);
@@ -60,7 +60,7 @@ public class a {
         this.mNavigationBar.showBottomLine();
         this.blb = new PbListView(this.mPageContext.getPageActivity());
         this.blb.kA();
-        this.diX = new com.baidu.tieba.frs.gamerecommend.a.a(this.mPageContext, this.mListView, this.mForumId, this.mForumName);
+        this.diU = new com.baidu.tieba.frs.gamerecommend.a.a(this.mPageContext, this.mListView, this.mForumId, this.mForumName);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -70,7 +70,7 @@ public class a {
         } else {
             PB();
         }
-        this.diX.setData(list);
+        this.diU.setData(list);
     }
 
     private void PB() {
@@ -120,7 +120,7 @@ public class a {
     }
 
     public FrameLayout asR() {
-        return this.diY;
+        return this.diV;
     }
 
     public NavigationBar Rg() {

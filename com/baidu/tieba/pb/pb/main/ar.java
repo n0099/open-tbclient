@@ -32,7 +32,7 @@ public class ar {
             return false;
         }
         com.baidu.tieba.tbadkCore.data.h bsi = postData.bsi();
-        if (bsi.gwd) {
+        if (bsi.gwa) {
             int brI = bsi.brI();
             return brI == 2 || brI == 1 || brI == 3;
         }

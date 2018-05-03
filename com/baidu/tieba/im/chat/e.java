@@ -9,54 +9,54 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected com.baidu.adp.lib.c.b dQA;
-    protected long dQG;
-    private boolean dQH;
-    private boolean dQI;
-    protected int dQJ;
-    protected com.baidu.adp.lib.c.a dQz;
+    protected long dQD;
+    private boolean dQE;
+    private boolean dQF;
+    protected int dQG;
+    protected com.baidu.adp.lib.c.a dQw;
+    protected com.baidu.adp.lib.c.b dQx;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dQz = null;
-        this.dQA = null;
-        this.dQG = 0L;
-        this.dQH = false;
-        this.dQI = false;
+        this.dQw = null;
+        this.dQx = null;
+        this.dQD = 0L;
+        this.dQE = false;
+        this.dQF = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.dQz = aVar;
+        this.dQw = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.dQA = bVar;
+        this.dQx = bVar;
     }
 
     private void aAR() {
-        this.dQG = System.currentTimeMillis() / 1000;
+        this.dQD = System.currentTimeMillis() / 1000;
     }
 
     public boolean aAS() {
-        return this.dQH;
+        return this.dQE;
     }
 
     public void gG(boolean z) {
-        this.dQH = z;
+        this.dQE = z;
     }
 
     public boolean aAT() {
-        return this.dQI;
+        return this.dQF;
     }
 
     public void gH(boolean z) {
-        this.dQI = z;
+        this.dQF = z;
     }
 
     public void ng(int i) {
-        this.dQJ = i;
+        this.dQG = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -73,15 +73,15 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
 
     /* loaded from: classes.dex */
     public static class a<T> extends q.a {
-        private T dQK;
+        private T dQH;
 
         public a(View view2, T t) {
             super(view2);
-            this.dQK = t;
+            this.dQH = t;
         }
 
         public T aAU() {
-            return this.dQK;
+            return this.dQH;
         }
     }
 }

@@ -245,8 +245,8 @@ public class d {
             for (App app : builder.banner_list.app) {
                 com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                 aVar.b(app);
-                if (bjj != null && aVar.crI != null) {
-                    bjj.add(aVar.crI.Wh);
+                if (bjj != null && aVar.crF != null) {
+                    bjj.add(aVar.crF.Wh);
                 }
                 AdvertAppInfo afP = aVar.afP();
                 if (afP == null) {
@@ -344,9 +344,9 @@ public class d {
                 } else {
                     kVar2.isLinkThread = false;
                     if (bdVar.rT()) {
-                        kVar2.csa = true;
+                        kVar2.crX = true;
                     } else {
-                        kVar2.csa = false;
+                        kVar2.crX = false;
                     }
                 }
                 kVar2.threadData = bdVar;

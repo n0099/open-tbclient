@@ -51,20 +51,20 @@ public class d extends com.baidu.tieba.frs.f<e, f> {
             if (fVar.mSkinType != this.mSkinType) {
                 ak.i(fVar.getView(), d.f.frs_member_manito_bg);
                 ak.c(fVar.blN, d.C0126d.cp_cont_b, 1);
-                ak.c(fVar.ctP, d.C0126d.cp_cont_c, 1);
+                ak.c(fVar.ctM, d.C0126d.cp_cont_c, 1);
                 ak.j(fVar.bae, d.C0126d.cp_bg_line_c);
-                ak.c(fVar.cTR, d.C0126d.cp_cont_c, 1);
+                ak.c(fVar.cTO, d.C0126d.cp_cont_c, 1);
             }
-            fVar.cTQ.startLoad(eVar.aog(), 12, false);
+            fVar.cTN.startLoad(eVar.aog(), 12, false);
             fVar.blN.setText(w.G(eVar.getName(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.ctP.setText(d.k.god_intro_default);
+                fVar.ctM.setText(d.k.god_intro_default);
             } else {
-                fVar.ctP.setText(w.G(eVar.getIntro(), 30));
+                fVar.ctM.setText(w.G(eVar.getIntro(), 30));
             }
             int color = ak.getColor(d.C0126d.cp_cont_h);
             String v = an.v(eVar.getFansNum());
-            fVar.cTR.setText(a(String.format(this.mContext.getResources().getString(d.k.fans_count), v), new String[]{v}, new int[]{color}));
+            fVar.cTO.setText(a(String.format(this.mContext.getResources().getString(d.k.fans_count), v), new String[]{v}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

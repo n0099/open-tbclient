@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d cGH = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> cGI;
+    private static d cGE = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> cGF;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
@@ -18,22 +18,22 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     public static synchronized d akl() {
         d dVar;
         synchronized (d.class) {
-            dVar = cGH;
+            dVar = cGE;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.cGI;
+        return this.cGF;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0095a interfaceC0095a) {
-        if (this.cGI == null || this.cGI.isEmpty()) {
-            this.cGI = new LinkedList<>();
+        if (this.cGF == null || this.cGF.isEmpty()) {
+            this.cGF = new LinkedList<>();
             if (TbFaceManager.EZ().DS() > 0) {
                 c cVar = new c();
-                this.cGI.add(cVar);
+                this.cGF.add(cVar);
                 if (interfaceC0095a != null) {
                     interfaceC0095a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.cGI.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.cGF.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0095a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.cGI == null || this.cGI.size() == 0;
+        return this.cGF == null || this.cGF.size() == 0;
     }
 }

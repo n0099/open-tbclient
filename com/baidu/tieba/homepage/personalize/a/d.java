@@ -22,15 +22,15 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, com.baidu.tieba.card.a.a<y>> {
-    private ab ddI;
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> ddJ;
-    private com.baidu.adp.lib.e.b<TbImageView> ddK;
+    private ab ddF;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> ddG;
+    private com.baidu.adp.lib.e.b<TbImageView> ddH;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ddI = new ab() { // from class: com.baidu.tieba.homepage.personalize.a.d.1
+        this.ddF = new ab() { // from class: com.baidu.tieba.homepage.personalize.a.d.1
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, com.baidu.tieba.card.data.b bVar, Object obj) {
                 if ((bVar instanceof bd) && (obj instanceof w)) {
@@ -38,7 +38,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             }
         };
-        this.ddJ = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.d.2
+        this.ddG = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: arU */
@@ -67,7 +67,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.ddK = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.homepage.personalize.a.d.3
+        this.ddH = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.homepage.personalize.a.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: xi */
@@ -113,9 +113,9 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public com.baidu.tieba.card.a.a<y> onCreateViewHolder(ViewGroup viewGroup) {
         y yVar = new y(this.mPageContext, viewGroup);
         com.baidu.tieba.card.a.a<y> aVar = new com.baidu.tieba.card.a.a<>(yVar);
-        yVar.setConstrainImagePool(this.ddK);
-        yVar.setConstrainLayoutPool(this.ddJ);
-        yVar.b(this.ddI);
+        yVar.setConstrainImagePool(this.ddH);
+        yVar.setConstrainLayoutPool(this.ddG);
+        yVar.b(this.ddF);
         return aVar;
     }
 
@@ -134,7 +134,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             wVar.weight = kVar.getWeight();
             v.afy().a(a("c13023", kVar.Pe(), wVar));
             aVar.afY().a(wVar);
-            aVar.afY().b(this.ddI);
+            aVar.afY().b(this.ddF);
             aVar.afY().a(kVar.Pe());
         }
         return aVar.getView();

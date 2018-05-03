@@ -5,15 +5,15 @@ import com.baidu.tieba.animation3d.a.b;
 /* loaded from: classes.dex */
 public class b extends a {
     public int aqQ;
-    private boolean ckH;
-    private float ckI;
+    private boolean ckE;
+    private float ckF;
 
     public b(Context context) {
         super(context);
         this.aqQ = 3;
-        this.ckH = false;
-        this.ckI = -8.0f;
-        U(this.ckI);
+        this.ckE = false;
+        this.ckF = -8.0f;
+        U(this.ckF);
     }
 
     public void aeG() {
@@ -36,7 +36,7 @@ public class b extends a {
         a(new b.c() { // from class: com.baidu.tieba.animation3d.b.b.2
             @Override // com.baidu.tieba.animation3d.a.b.c, com.baidu.tieba.animation3d.a.a
             public boolean c(float f, float f2, float f3, int i) {
-                return b.this.ckH && f % 360.0f == 0.0f;
+                return b.this.ckE && f % 360.0f == 0.0f;
             }
 
             @Override // com.baidu.tieba.animation3d.a.b.c, com.baidu.tieba.animation3d.a.a
@@ -61,12 +61,12 @@ public class b extends a {
     }
 
     public void aeI() {
-        this.ckH = true;
+        this.ckE = true;
     }
 
     @Override // com.baidu.tieba.animation3d.b.a
     public void wr() {
         super.wr();
-        this.ckH = false;
+        this.ckE = false;
     }
 }

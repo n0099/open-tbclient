@@ -10,8 +10,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.frs.game.strategy.view.a {
-    private LabelDataList dhc;
-    private int dhd = 0;
+    private LabelDataList dgZ;
+    private int dha = 0;
     private final int mContentHeight;
     private Context mContext;
 
@@ -33,22 +33,22 @@ public class d extends com.baidu.tieba.frs.game.strategy.view.a {
         } else {
             asC = asC();
         }
-        com.baidu.tieba.frs.game.strategy.data.a aVar = (com.baidu.tieba.frs.game.strategy.data.a) v.c(this.dhc, i);
+        com.baidu.tieba.frs.game.strategy.data.a aVar = (com.baidu.tieba.frs.game.strategy.data.a) v.c(this.dgZ, i);
         if (aVar != null) {
             asC.setText(aVar.labelName);
         }
-        b(asC, this.dhd == i);
+        b(asC, this.dha == i);
         return asC;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
     public int asB() {
-        return v.v(this.dhc);
+        return v.v(this.dgZ);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
     public Object kG(int i) {
-        return v.c(this.dhc, i);
+        return v.c(this.dgZ, i);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
@@ -57,7 +57,7 @@ public class d extends com.baidu.tieba.frs.game.strategy.view.a {
     }
 
     public void a(LabelDataList labelDataList) {
-        this.dhc = labelDataList;
+        this.dgZ = labelDataList;
         notifyDataSetChanged();
     }
 
@@ -81,8 +81,8 @@ public class d extends com.baidu.tieba.frs.game.strategy.view.a {
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
     public void kI(int i) {
-        this.dhd = i;
-        this.dhc.setSelectedIndex(i);
+        this.dha = i;
+        this.dgZ.setSelectedIndex(i);
         notifyDataSetChanged();
     }
 }

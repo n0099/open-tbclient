@@ -14,11 +14,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private final long gzn;
-    private final String gzo;
-    private final int gzp;
-    private final int gzq;
-    private e gzr;
+    private final long gzk;
+    private final String gzl;
+    private final int gzm;
+    private final int gzn;
+    private e gzo;
     protected final String mFileName;
 
     public abstract d b(ArrayList<Integer> arrayList, String str, int i);
@@ -29,20 +29,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.gzq = i2;
-        this.gzn = j;
-        this.gzo = str2;
-        this.gzp = i;
+        this.gzn = i2;
+        this.gzk = j;
+        this.gzl = str2;
+        this.gzm = i;
     }
 
     public void a(e eVar) {
-        this.gzr = eVar;
+        this.gzo = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void tB(int i) {
-        if (this.gzr != null) {
-            this.gzr.as(i / 100.0f);
+        if (this.gzo != null) {
+            this.gzo.as(i / 100.0f);
         }
     }
 
@@ -59,10 +59,10 @@ public abstract class a {
         } else {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             xVar.n("chunk_no", String.valueOf(i));
-            xVar.n("chunk_sum", String.valueOf(this.gzq));
+            xVar.n("chunk_sum", String.valueOf(this.gzn));
             xVar.n("chunk_size", String.valueOf(a.length));
-            xVar.n("video_size", String.valueOf(this.gzn));
-            xVar.n("video_md5", this.gzo);
+            xVar.n("video_size", String.valueOf(this.gzk));
+            xVar.n("video_md5", this.gzl);
             xVar.n("video_len", String.valueOf(j));
             xVar.n("tbs", TbadkCoreApplication.getInst().getTbs());
             xVar.d("video_chunk", a);
@@ -94,15 +94,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.gzq) {
-            i2 = (int) (this.gzn - ((i - 1) * this.gzp));
+        if (i == this.gzn) {
+            i2 = (int) (this.gzk - ((i - 1) * this.gzm));
         } else {
-            i2 = this.gzp;
+            i2 = this.gzm;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.gzp);
+                randomAccessFile.seek((i - 1) * this.gzm);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {

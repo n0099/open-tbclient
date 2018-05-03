@@ -12,22 +12,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d doh;
-    private boolean dnZ = false;
-    private final HashMap<String, ArrayList<f>> dog = new HashMap<>();
+    private static volatile d doe;
+    private boolean dnW = false;
+    private final HashMap<String, ArrayList<f>> dod = new HashMap<>();
 
     private d() {
     }
 
     public static d auC() {
-        if (doh == null) {
+        if (doe == null) {
             synchronized (d.class) {
-                if (doh == null) {
-                    doh = new d();
+                if (doe == null) {
+                    doe = new d();
                 }
             }
         }
-        return doh;
+        return doe;
     }
 
     public String aux() {
@@ -37,19 +37,19 @@ public class d {
     public synchronized void i(String str, int i, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String aux = aux();
-            ArrayList<f> arrayList = this.dog.get(aux);
+            ArrayList<f> arrayList = this.dod.get(aux);
             ArrayList<f> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
             f mq = mq(str);
             boolean z = false;
             if (mq != null) {
-                if (mq.dol != i) {
-                    mq.dol = i;
+                if (mq.doi != i) {
+                    mq.doi = i;
                     z = true;
                 }
             } else {
                 f fVar = new f();
                 fVar.forumName = str;
-                fVar.dol = i;
+                fVar.doi = i;
                 arrayList2.add(fVar);
                 z = true;
             }
@@ -74,8 +74,8 @@ public class d {
                 }
             }
             if (!v.w(arrayList2)) {
-                this.dog.put(str, arrayList2);
-                if (!this.dnZ) {
+                this.dod.put(str, arrayList2);
+                if (!this.dnW) {
                     auD();
                 } else {
                     mr(jSONArray.toString());
@@ -87,7 +87,7 @@ public class d {
     public synchronized f mq(String str) {
         f fVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<f> arrayList = this.dog.get(aux());
+            ArrayList<f> arrayList = this.dod.get(aux());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -138,9 +138,9 @@ public class d {
                         /* renamed from: aX */
                         public void g(String str, String str2) {
                             if (str2 != null) {
-                                d.this.dog.put(d.this.aux(), d.this.mp(str2));
+                                d.this.dod.put(d.this.aux(), d.this.mp(str2));
                             }
-                            d.this.dnZ = true;
+                            d.this.dnW = true;
                         }
                     });
                 }
@@ -171,6 +171,6 @@ public class d {
 
     public void auE() {
         mr("");
-        this.dog.remove(aux());
+        this.dod.remove(aux());
     }
 }

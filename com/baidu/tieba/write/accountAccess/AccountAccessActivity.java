@@ -12,21 +12,21 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes3.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     private NewWriteModel aEw;
-    private b hbe;
-    private a hbf;
-    private AccessState hbg;
+    private b hbb;
+    private a hbc;
+    private AccessState hbd;
     private WriteData mWriteData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hbe = new b(this);
+        this.hbb = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.hbg = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.hbd = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.mWriteData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.mWriteData == null || this.hbg == null) {
+            if (this.mWriteData == null || this.hbd == null) {
                 finish();
                 return;
             }
@@ -35,9 +35,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             if (this.mWriteData.getWriteImagesInfo() != null) {
                 this.aEw.mv(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.hbf = new a(this.hbe, this.aEw);
-            this.hbe.c(this.hbf);
-            this.hbf.start(bBf());
+            this.hbc = new a(this.hbb, this.aEw);
+            this.hbb.c(this.hbc);
+            this.hbc.start(bBf());
         }
     }
 
@@ -55,14 +55,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.hbe.onDestory();
+        this.hbb.onDestory();
     }
 
     public String bBf() {
-        if (this.hbg == null || this.hbg.getUserInfo() == null) {
+        if (this.hbd == null || this.hbd.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.hbg.getToken(), this.hbg.getType(), this.hbg.getUserInfo().strMobile, this.hbg.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.hbd.getToken(), this.hbd.getType(), this.hbd.getUserInfo().strMobile, this.hbd.getUserInfo().strEmail);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

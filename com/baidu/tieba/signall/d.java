@@ -8,18 +8,18 @@ import org.json.JSONObject;
 public class d implements ae {
     private String avatar;
     private int bnC;
-    private int cAA;
+    private int cAx;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gmQ;
-    private int gmR;
-    private int gmS;
+    private int gmN;
+    private int gmO;
+    private int gmP;
+    private boolean gmQ;
+    private boolean gmR;
+    private boolean gmS;
     private boolean gmT;
-    private boolean gmU;
-    private boolean gmV;
-    private boolean gmW;
-    private int gmX;
+    private int gmU;
 
     public int getForumId() {
         return this.forumId;
@@ -34,7 +34,7 @@ public class d implements ae {
     }
 
     public int box() {
-        return this.gmQ;
+        return this.gmN;
     }
 
     public int boy() {
@@ -42,19 +42,19 @@ public class d implements ae {
     }
 
     public int boz() {
-        return this.cAA;
+        return this.cAx;
     }
 
     public int boA() {
-        return this.gmR;
+        return this.gmO;
     }
 
     public int boB() {
-        return this.gmS;
+        return this.gmP;
     }
 
     public void sP(int i) {
-        this.gmQ = i;
+        this.gmN = i;
     }
 
     public void sQ(int i) {
@@ -62,41 +62,41 @@ public class d implements ae {
     }
 
     public void sR(int i) {
-        this.cAA = i;
+        this.cAx = i;
     }
 
     public boolean Qa() {
-        return this.gmT;
+        return this.gmQ;
     }
 
     public void ma(boolean z) {
-        this.gmT = z;
-        this.gmQ = 1;
+        this.gmQ = z;
+        this.gmN = 1;
     }
 
     public boolean boC() {
-        return this.gmV;
+        return this.gmS;
     }
 
     public void mb(boolean z) {
-        this.gmV = z;
-        this.gmQ = 0;
+        this.gmS = z;
+        this.gmN = 0;
     }
 
     public boolean boD() {
-        return this.gmW;
+        return this.gmT;
     }
 
     public void mc(boolean z) {
-        this.gmW = z;
+        this.gmT = z;
     }
 
     public int boE() {
-        return this.gmX;
+        return this.gmU;
     }
 
     public void sS(int i) {
-        this.gmX = i;
+        this.gmU = i;
     }
 
     public String getErrorMsg() {
@@ -108,11 +108,11 @@ public class d implements ae {
     }
 
     public boolean boF() {
-        return this.gmU;
+        return this.gmR;
     }
 
     public void md(boolean z) {
-        this.gmU = z;
+        this.gmR = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -120,14 +120,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.gmQ = jSONObject.optInt("is_sign_in");
+            this.gmN = jSONObject.optInt("is_sign_in");
             this.bnC = jSONObject.optInt("cont_sign_num");
-            this.cAA = jSONObject.optInt("user_level");
-            this.gmR = jSONObject.optInt("user_exp");
-            this.gmS = jSONObject.optInt("need_exp");
-            if (this.gmQ != 0) {
-                this.gmT = true;
-                this.gmV = false;
+            this.cAx = jSONObject.optInt("user_level");
+            this.gmO = jSONObject.optInt("user_exp");
+            this.gmP = jSONObject.optInt("need_exp");
+            if (this.gmN != 0) {
+                this.gmQ = true;
+                this.gmS = false;
             }
         }
     }

@@ -48,20 +48,20 @@ public class a {
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.bcJ.getPageContext().getPageActivity(), 25017, writeData2, postWriteCallBackData.getAccessState())));
             }
-            if (a.this.fjk != null) {
-                a.this.fjk.callback(z, postWriteCallBackData, tVar, writeData2, antiData);
+            if (a.this.fjh != null) {
+                a.this.fjh.callback(z, postWriteCallBackData, tVar, writeData2, antiData);
             }
         }
     };
     private LocationModel aEv;
     private NewWriteModel aEw;
     private BaseActivity bcJ;
-    private NewWriteModel.d fjk;
-    private c frC;
-    private EmotionImageData frD;
-    private PbModel frE;
-    private d frF;
-    private GetEmotionPidModel frf;
+    private NewWriteModel.d fjh;
+    private EmotionImageData frA;
+    private PbModel frB;
+    private d frC;
+    private GetEmotionPidModel frc;
+    private c frz;
 
     public a(BaseActivity baseActivity) {
         this.bcJ = baseActivity;
@@ -71,21 +71,21 @@ public class a {
 
     public void a(final EmotionImageData emotionImageData, final PbModel pbModel, final d dVar) {
         if (emotionImageData != null && dVar != null) {
-            this.frD = emotionImageData;
-            this.frE = pbModel;
-            this.frF = dVar;
+            this.frA = emotionImageData;
+            this.frB = pbModel;
+            this.frC = dVar;
             if (!j.gP()) {
                 this.bcJ.showToast(d.k.neterror);
             } else if (a(this.bcJ.getPageContext(), 11042)) {
                 if (TextUtils.isEmpty(emotionImageData.getPicId())) {
                     if (!TextUtils.isEmpty(emotionImageData.getPicUrl())) {
-                        if (this.frf == null) {
-                            this.frf = new GetEmotionPidModel();
+                        if (this.frc == null) {
+                            this.frc = new GetEmotionPidModel();
                         }
-                        if (this.frC != null) {
-                            this.frC.Ed();
+                        if (this.frz != null) {
+                            this.frz.Ed();
                         }
-                        this.frf.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.a.1
+                        this.frc.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.a.1
                             @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
                             public void a(com.baidu.tbadk.img.c cVar) {
                                 if (cVar != null && !TextUtils.isEmpty(cVar.picId)) {
@@ -96,8 +96,8 @@ public class a {
 
                             @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
                             public void onFail(int i, String str) {
-                                if (a.this.fjk != null) {
-                                    a.this.fjk.callback(false, null, null, null, null);
+                                if (a.this.fjh != null) {
+                                    a.this.fjh.callback(false, null, null, null, null);
                                 }
                             }
                         });
@@ -105,8 +105,8 @@ public class a {
                     }
                     return;
                 }
-                if (this.frC != null) {
-                    this.frC.Ed();
+                if (this.frz != null) {
+                    this.frz.Ed();
                 }
                 b(emotionImageData, pbModel, dVar);
             }
@@ -165,11 +165,11 @@ public class a {
     }
 
     public void b(c cVar) {
-        this.frC = cVar;
+        this.frz = cVar;
     }
 
     public void c(NewWriteModel.d dVar) {
-        this.fjk = dVar;
+        this.fjh = dVar;
     }
 
     private boolean a(TbPageContext<?> tbPageContext, int i) {
@@ -187,19 +187,19 @@ public class a {
                 if (intent != null) {
                     WriteData writeData = this.aEw != null ? this.aEw.getWriteData() : null;
                     resetData();
-                    if (this.fjk != null) {
-                        this.fjk.callback(true, null, null, writeData, null);
+                    if (this.fjh != null) {
+                        this.fjh.callback(true, null, null, writeData, null);
                     }
                 }
             } else if (i == 11042) {
-                a(this.frD, this.frE, this.frF);
+                a(this.frA, this.frB, this.frC);
             }
         }
     }
 
     public boolean cancelLoadData() {
-        if (this.frf != null) {
-            this.frf.cancelLoadData();
+        if (this.frc != null) {
+            this.frc.cancelLoadData();
             return true;
         }
         return true;
@@ -207,9 +207,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetData() {
-        this.frD = null;
-        this.frF = null;
-        this.frE = null;
+        this.frA = null;
+        this.frC = null;
+        this.frB = null;
         if (this.aEw != null) {
             this.aEw.setWriteData(null);
         }

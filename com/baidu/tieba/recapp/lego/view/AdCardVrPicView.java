@@ -8,7 +8,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class AdCardVrPicView extends AdCardBaseView {
-    private VrPicView fZy;
+    private VrPicView fZv;
 
     public AdCardVrPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -21,28 +21,28 @@ public class AdCardVrPicView extends AdCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void br(View view2) {
-        this.fZy = (VrPicView) view2.findViewById(d.g.vr_pic_view);
+        this.fZv = (VrPicView) view2.findViewById(d.g.vr_pic_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList != null && adCard.threadPicList.length >= 1) {
             String str = adCard.threadPicList[0].pic;
-            this.fYs.setVisibility(0);
+            this.fYp.setVisibility(0);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             advertAppInfo.Wb.width = this.mMaxWidth;
             advertAppInfo.Wb.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
             advertAppInfo.Wb.Wl = str;
-            this.fZy.a(this.adf, advertAppInfo);
-            ViewGroup.LayoutParams layoutParams = this.fZy.getLayoutParams();
+            this.fZv.a(this.adf, advertAppInfo);
+            ViewGroup.LayoutParams layoutParams = this.fZv.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.width = advertAppInfo.Wb.width;
                 layoutParams.height = advertAppInfo.Wb.height;
             }
-            this.fZy.setLayoutParams(layoutParams);
+            this.fZv.setLayoutParams(layoutParams);
             return;
         }
-        this.fYs.setVisibility(8);
+        this.fYp.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView

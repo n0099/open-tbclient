@@ -16,8 +16,8 @@ import com.baidu.tieba.d;
 public class FeedAdProgressButton extends View {
     private float aVc;
     private String agh;
-    private int eiq;
-    private Paint geq;
+    private int ein;
+    private Paint gem;
     private int mProgress;
     private int mRadius;
     private int mTextColor;
@@ -30,7 +30,7 @@ public class FeedAdProgressButton extends View {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.aVc = 10.0f;
-        this.eiq = 100;
+        this.ein = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -41,7 +41,7 @@ public class FeedAdProgressButton extends View {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.aVc = 10.0f;
-        this.eiq = 100;
+        this.ein = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -55,7 +55,7 @@ public class FeedAdProgressButton extends View {
         this.strokeWidth = getResources().getDimensionPixelSize(d.e.ds1);
         this.zS = obtainStyledAttributes.getInteger(d.m.feed_ad_progress_btn_foreground, color2);
         this.mTextColor = obtainStyledAttributes.getColor(d.m.feed_ad_progress_btn_textColor, color);
-        this.eiq = obtainStyledAttributes.getInteger(d.m.feed_ad_progress_btn_max, this.eiq);
+        this.ein = obtainStyledAttributes.getInteger(d.m.feed_ad_progress_btn_max, this.ein);
         this.mProgress = obtainStyledAttributes.getInteger(d.m.feed_ad_progress_btn_progress, 0);
         this.agh = obtainStyledAttributes.getString(d.m.feed_ad_progress_btn_text);
         this.aVc = obtainStyledAttributes.getDimension(d.m.feed_ad_progress_btn_textSize, (int) getResources().getDimension(d.e.fontsize24));
@@ -66,10 +66,10 @@ public class FeedAdProgressButton extends View {
 
     private void initPaint() {
         this.zB = new Paint();
-        this.geq = new Paint();
-        this.geq.setAntiAlias(true);
-        this.geq.setTextSize(this.aVc);
-        this.geq.setColor(this.mTextColor);
+        this.gem = new Paint();
+        this.gem.setAntiAlias(true);
+        this.gem.setTextSize(this.aVc);
+        this.gem.setColor(this.mTextColor);
         this.zB.setAntiAlias(true);
         this.zB.setStyle(Paint.Style.FILL);
         this.zB.setColor(this.zS);
@@ -79,16 +79,16 @@ public class FeedAdProgressButton extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.mProgress > 0) {
-            canvas.drawRoundRect(new RectF(this.strokeWidth, this.strokeWidth, ((getWidth() * this.mProgress) / this.eiq) - this.strokeWidth, getHeight() - this.strokeWidth), this.mRadius, this.mRadius, this.zB);
+            canvas.drawRoundRect(new RectF(this.strokeWidth, this.strokeWidth, ((getWidth() * this.mProgress) / this.ein) - this.strokeWidth, getHeight() - this.strokeWidth), this.mRadius, this.mRadius, this.zB);
         }
         if (!TextUtils.isEmpty(this.agh)) {
-            Paint.FontMetrics fontMetrics = this.geq.getFontMetrics();
-            canvas.drawText(this.agh, (getMeasuredWidth() - this.geq.measureText(this.agh)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.geq);
+            Paint.FontMetrics fontMetrics = this.gem.getFontMetrics();
+            canvas.drawText(this.agh, (getMeasuredWidth() - this.gem.measureText(this.agh)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.gem);
         }
     }
 
     public void setMax(int i) {
-        this.eiq = i;
+        this.ein = i;
     }
 
     public void setText(String str) {
@@ -119,7 +119,7 @@ public class FeedAdProgressButton extends View {
     }
 
     public void setProgress(int i) {
-        if (i <= this.eiq) {
+        if (i <= this.ein) {
             this.mProgress = i;
             this.agh = this.mProgress + "%";
             postInvalidate();
@@ -127,7 +127,7 @@ public class FeedAdProgressButton extends View {
     }
 
     public int getMax() {
-        return this.eiq;
+        return this.ein;
     }
 
     public int getProgress() {

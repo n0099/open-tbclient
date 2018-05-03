@@ -5,23 +5,23 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    protected volatile int gza;
-    protected volatile HashMap<Long, Integer> gzb = new HashMap<>();
-    private volatile int gyZ = 0;
+    protected volatile int gyX;
+    protected volatile HashMap<Long, Integer> gyY = new HashMap<>();
+    private volatile int gyW = 0;
 
     public e(int i) {
-        this.gza = i;
+        this.gyX = i;
     }
 
     public void tc(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.gzb.size() >= this.gza) {
+                if (this.gyY.size() >= this.gyX) {
                     bsT();
                 }
-                this.gyZ++;
-                this.gzb.put(valueOf, Integer.valueOf(this.gyZ));
+                this.gyW++;
+                this.gyY.put(valueOf, Integer.valueOf(this.gyW));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -34,7 +34,7 @@ public class e {
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.gzb.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.gyY.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,9 +47,9 @@ public class e {
                 l2 = l;
             }
             if (l2 != null) {
-                this.gzb.remove(l2);
+                this.gyY.remove(l2);
             } else {
-                this.gzb.clear();
+                this.gyY.clear();
             }
         }
     }
@@ -59,7 +59,7 @@ public class e {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.gzb.get(valueOf) != null;
+                z = this.gyY.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -70,7 +70,7 @@ public class e {
 
     public boolean te(String str) {
         try {
-            return this.gzb.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.gyY.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -79,7 +79,7 @@ public class e {
 
     public void bsU() {
         synchronized (this) {
-            this.gzb.clear();
+            this.gyY.clear();
         }
     }
 }

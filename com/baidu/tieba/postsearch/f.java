@@ -13,15 +13,15 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class f {
     private FragmentTabHost bgN;
-    private PostSearchActivity fSQ;
-    private PostSearchListFragment fTF;
-    private PostSearchListFragment fTG;
-    private PostSearchListFragment fTH;
+    private PostSearchActivity fSN;
+    private PostSearchListFragment fTC;
+    private PostSearchListFragment fTD;
+    private PostSearchListFragment fTE;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
     private View mRootView;
 
     public f(PostSearchActivity postSearchActivity, View view2) {
-        this.fSQ = postSearchActivity;
+        this.fSN = postSearchActivity;
         this.mRootView = view2;
     }
 
@@ -74,8 +74,8 @@ public class f {
         View inflate = ((ViewStub) this.mRootView.findViewById(d.g.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
         this.bgN = (FragmentTabHost) inflate.findViewById(d.g.post_search_tab_host);
-        this.bgN.setup(this.fSQ.getSupportFragmentManager());
-        this.bgN.setTabWidgetViewHeight((int) this.fSQ.getResources().getDimension(d.e.ds80));
+        this.bgN.setup(this.fSN.getSupportFragmentManager());
+        this.bgN.setTabWidgetViewHeight((int) this.fSN.getResources().getDimension(d.e.ds80));
         this.bgN.setShouldDrawIndicatorLine(true);
         bil();
         this.bgN.cu(3);
@@ -95,32 +95,32 @@ public class f {
 
     private void bil() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        this.fTF = new PostSearchListFragment(1);
-        bVar.afJ = this.fTF;
+        this.fTC = new PostSearchListFragment(1);
+        bVar.afJ = this.fTC;
         bVar.afI = rE(d.k.searching_time_tab);
         bVar.mType = 1;
         this.bgN.a(bVar);
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-        this.fTG = new PostSearchListFragment(2);
-        bVar2.afJ = this.fTG;
+        this.fTD = new PostSearchListFragment(2);
+        bVar2.afJ = this.fTD;
         bVar2.afI = rE(d.k.searching_relative_tab);
         bVar2.mType = 2;
         this.bgN.a(bVar2);
         FragmentTabHost.b bVar3 = new FragmentTabHost.b();
-        this.fTH = new PostSearchListFragment(3);
-        bVar3.afJ = this.fTH;
+        this.fTE = new PostSearchListFragment(3);
+        bVar3.afJ = this.fTE;
         bVar3.afI = rE(d.k.searching_only_thread_tab);
         bVar3.mType = 3;
         this.bgN.a(bVar3);
     }
 
     private FragmentTabIndicator rE(int i) {
-        int af = (l.af(this.fSQ.getPageContext().getContext()) - (this.fSQ.getResources().getDimensionPixelSize(d.e.ds34) * 2)) / 3;
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.fSQ.getPageContext().getPageActivity()).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
+        int af = (l.af(this.fSN.getPageContext().getContext()) - (this.fSN.getResources().getDimensionPixelSize(d.e.ds34) * 2)) / 3;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.fSN.getPageContext().getPageActivity()).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
-        fragmentTabIndicator.setTextSize(0, this.fSQ.getResources().getDimensionPixelSize(d.e.ds32));
+        fragmentTabIndicator.setTextSize(0, this.fSN.getResources().getDimensionPixelSize(d.e.ds32));
         fragmentTabIndicator.aIf = d.C0126d.s_actionbar_text_color;
-        fragmentTabIndicator.setContentTvTopMargin(this.fSQ.getResources().getDimensionPixelSize(d.e.ds4));
+        fragmentTabIndicator.setContentTvTopMargin(this.fSN.getResources().getDimensionPixelSize(d.e.ds4));
         fragmentTabIndicator.setWidth(af);
         return fragmentTabIndicator;
     }
@@ -128,19 +128,19 @@ public class f {
     private PostSearchListFragment rF(int i) {
         switch (i) {
             case 1:
-                return this.fTF;
+                return this.fTC;
             case 2:
-                return this.fTG;
+                return this.fTD;
             case 3:
-                return this.fTH;
+                return this.fTE;
             default:
                 return null;
         }
     }
 
     private void bim() {
-        this.fTF.bid();
-        this.fTG.bid();
-        this.fTH.bid();
+        this.fTC.bid();
+        this.fTD.bid();
+        this.fTE.bid();
     }
 }

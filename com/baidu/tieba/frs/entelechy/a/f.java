@@ -14,9 +14,9 @@ import com.baidu.tieba.play.y;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy.view.b>> implements aa, com.baidu.tieba.frs.e.c {
-    public static int ddM = 5;
-    public static int ddN = 10;
-    public static int ddO = 15;
+    public static int ddJ = 5;
+    public static int ddK = 10;
+    public static int ddL = 15;
     private ab<bd> bvY;
     private String forumName;
     private TbPageContext<?> mPageContext;
@@ -34,13 +34,13 @@ public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy
     }
 
     private String kw(int i) {
-        if (i == ddM) {
+        if (i == ddJ) {
             return "3";
         }
-        if (i == ddN) {
+        if (i == ddK) {
             return Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
         }
-        if (i != ddO) {
+        if (i != ddL) {
             return "";
         }
         return Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE;
@@ -61,7 +61,7 @@ public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy
                     } else if (view2.getId() == d.g.image_user || view2.getId() == d.g.pendant_image_user) {
                         f.this.e(bdVar, "c10241");
                     } else if (view2.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.doy, bdVar.sn());
+                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dov, bdVar.sn());
                     }
                 }
             }
@@ -85,11 +85,11 @@ public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy
         if (bdVar != null) {
             yVar = new y();
             yVar.mLocate = kw(bdVar.sN());
-            yVar.crJ = doy.doo;
+            yVar.crG = dov.dol;
             yVar.aNu = bdVar.getTid();
-            yVar.fQP = bdVar.mRecomAbTag;
+            yVar.fQM = bdVar.mRecomAbTag;
             if (bdVar.sh() != null) {
-                yVar.fQQ = bdVar.sh().video_md5;
+                yVar.fQN = bdVar.sh().video_md5;
             }
             bdVar.sK();
         }

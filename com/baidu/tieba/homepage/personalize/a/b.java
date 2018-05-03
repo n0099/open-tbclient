@@ -18,20 +18,20 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public BdUniqueId aTr;
     private NEGFeedBackView.a aYO;
     private String bvX;
-    ab<com.baidu.tieba.card.data.j> dAS;
-    private m dEv;
+    ab<com.baidu.tieba.card.data.j> dAP;
+    private m dEs;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.aYO = null;
-        this.dAS = new ab<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.personalize.a.b.1
+        this.dAP = new ab<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.personalize.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, com.baidu.tieba.card.data.j jVar) {
-                if (b.this.dEv.coe != view2) {
-                    if (view2 == b.this.dEv.bwk.getCommentContainer() || view2 == b.this.dEv.bwZ.apG.getCommentContainer()) {
+                if (b.this.dEs.cob != view2) {
+                    if (view2 == b.this.dEs.bwk.getCommentContainer() || view2 == b.this.dEs.bwZ.apG.getCommentContainer()) {
                         String str = "";
                         if (jVar != null && jVar.Pe() != null) {
                             str = jVar.Pe().getTid();
@@ -71,18 +71,18 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aO */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.dEv = new m(this.mPageContext);
-        this.dEv.currentPageType = 2;
-        if (this.dEv.bwk != null) {
-            this.dEv.bwk.abV = 2;
+        this.dEs = new m(this.mPageContext);
+        this.dEs.currentPageType = 2;
+        if (this.dEs.bwk != null) {
+            this.dEs.bwk.abV = 2;
         }
-        if (this.dEv.bwZ != null && this.dEv.bwZ.apG != null) {
-            this.dEv.bwZ.apG.abV = 2;
+        if (this.dEs.bwZ != null && this.dEs.bwZ.apG != null) {
+            this.dEs.bwZ.apG.abV = 2;
         }
         if (this.aTr != null) {
-            this.dEv.j(this.aTr);
+            this.dEs.j(this.aTr);
         }
-        return new a(this.dEv);
+        return new a(this.dEs);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -93,12 +93,12 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (jVar != null) {
             jVar.iN(i + 1);
         }
-        if (aVar.dEx instanceof com.baidu.tieba.a.e) {
-            aVar.dEx.setPage(this.bvX);
+        if (aVar.dEu instanceof com.baidu.tieba.a.e) {
+            aVar.dEu.setPage(this.bvX);
         }
-        aVar.dEx.a(jVar);
-        aVar.dEx.b(this.dAS);
-        aVar.dEx.a(this.aYO);
+        aVar.dEu.a(jVar);
+        aVar.dEu.b(this.dAP);
+        aVar.dEu.a(this.aYO);
         long j = 0;
         String str = "";
         if (jVar != null && jVar.Pe() != null) {
@@ -128,11 +128,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* loaded from: classes2.dex */
     public class a extends q.a {
-        public m dEx;
+        public m dEu;
 
         public a(m mVar) {
             super(mVar.getView());
-            this.dEx = mVar;
+            this.dEu = mVar;
         }
     }
 

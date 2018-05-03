@@ -39,10 +39,10 @@ public class a {
         int[] iArr;
         int indexOf;
         if (eVar != null && v.v(list) > 0 && v.v(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.gvX) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.gvU) {
                 com.baidu.adp.widget.ListView.h hVar = (com.baidu.adp.widget.ListView.h) v.c(list, i);
                 if (hVar != null && (indexOf = list2.indexOf(hVar)) >= 0) {
-                    eVar.bI(i, indexOf);
+                    eVar.bH(i, indexOf);
                 }
             }
         }

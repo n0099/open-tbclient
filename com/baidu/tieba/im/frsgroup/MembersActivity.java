@@ -38,15 +38,15 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class MembersActivity extends BaseActivity<MembersActivity> implements View.OnClickListener, BdListView.e {
-    private com.baidu.tbadk.core.view.f dYV;
-    private m dYW;
-    private MembersModel dYX;
-    private final com.baidu.adp.framework.listener.c dPL = new com.baidu.adp.framework.listener.c(103005) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.6
+    private com.baidu.tbadk.core.view.f dYS;
+    private m dYT;
+    private MembersModel dYU;
+    private final com.baidu.adp.framework.listener.c dPI = new com.baidu.adp.framework.listener.c(103005) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             RequestMembersMessage requestMembersMessage;
-            l aEe = MembersActivity.this.dYW.aEe();
+            l aEe = MembersActivity.this.dYT.aEe();
             MembersActivity.this.auL();
             if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseMembersMessage)) {
                 MembersActivity.this.showToast(d.k.neterror);
@@ -59,7 +59,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
             } else {
                 requestMembersMessage = (RequestMembersMessage) orginalMessage;
             }
-            MembersActivity.this.dYX.setRequestM(requestMembersMessage);
+            MembersActivity.this.dYU.setRequestM(requestMembersMessage);
             if (responseMembersMessage.getError() != 0) {
                 if (responseMembersMessage.getError() > 0) {
                     MembersActivity.this.showToast(StringUtils.isNull(responseMembersMessage.getErrorString()) ? MembersActivity.this.getResources().getString(d.k.neterror) : responseMembersMessage.getErrorString());
@@ -78,7 +78,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 if (MembersActivity.this.axL()) {
                     aEe.reset(true);
                 }
-                if (users.size() != MembersActivity.this.dYX.getLen()) {
+                if (users.size() != MembersActivity.this.dYU.getLen()) {
                     aEe.hd(false);
                     aEe.he(false);
                     if (MembersActivity.this.axL() && users.size() == 0) {
@@ -88,18 +88,18 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 } else {
                     aEe.he(true);
                 }
-                MembersActivity.this.dYX.addStart(users.size());
-                MembersActivity.this.dYX.setLen(20);
+                MembersActivity.this.dYU.addStart(users.size());
+                MembersActivity.this.dYU.setLen(20);
                 aEe.cb(users);
                 aEe.notifyDataSetChanged();
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c dYY = new com.baidu.adp.framework.listener.c(103112) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.7
+    private final com.baidu.adp.framework.listener.c dYV = new com.baidu.adp.framework.listener.c(103112) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            MembersActivity.this.dYW.hg(false);
+            MembersActivity.this.dYT.hg(false);
             if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseRemoveMembersMessage)) {
                 MembersActivity.this.showToast(d.k.neterror);
                 return;
@@ -115,12 +115,12 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 }
             }
             MembersActivity.this.showToast(d.k.delete_success);
-            MembersActivity.this.dYW.aEe().cc(MembersActivity.this.dYX.getUserIds());
-            MembersActivity.this.dYW.aEf();
-            MembersActivity.this.dYW.aEe().aDY();
+            MembersActivity.this.dYT.aEe().cc(MembersActivity.this.dYU.getUserIds());
+            MembersActivity.this.dYT.aEf();
+            MembersActivity.this.dYT.aEe().aDY();
         }
     };
-    private final CustomMessageListener dYZ = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.2
+    private final CustomMessageListener dYW = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -132,7 +132,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                         MembersActivity.this.reset();
                     } else if (cmd.equals("kick_out")) {
                         MembersActivity.this.reset();
-                        MembersActivity.this.dYW.aBt().startPullRefresh();
+                        MembersActivity.this.dYT.aBt().startPullRefresh();
                     }
                 }
             }
@@ -156,21 +156,21 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     private void initListener() {
-        registerListener(2001128, this.dYZ);
-        registerListener(2001126, this.dYZ);
+        registerListener(2001128, this.dYW);
+        registerListener(2001126, this.dYW);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.dYX.saveInstance(bundle);
+        this.dYU.saveInstance(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.dYW.aEd().onActivityStop();
+        this.dYT.aEd().onActivityStop();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -180,32 +180,32 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     public MembersModel aDS() {
-        return this.dYX;
+        return this.dYU;
     }
 
     private void initUI() {
-        this.dYW = new m(this);
-        final BdListView aBt = this.dYW.aBt();
-        this.dYV = new com.baidu.tbadk.core.view.f(getPageContext());
-        this.dYV.a(new e.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.1
+        this.dYT = new m(this);
+        final BdListView aBt = this.dYT.aBt();
+        this.dYS = new com.baidu.tbadk.core.view.f(getPageContext());
+        this.dYS.a(new e.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.1
             @Override // com.baidu.tbadk.core.view.e.b
             public void aO(boolean z) {
-                if (!MembersActivity.this.dYW.aEe().aBe()) {
+                if (!MembersActivity.this.dYT.aEe().aBe()) {
                     if (!MembersActivity.this.axL()) {
                         MembersActivity.this.reset();
                     }
-                    MembersActivity.this.dYX.sendMessage(MembersActivity.this.dYX.getGroupId(), MembersActivity.this.dYX.getStart(), MembersActivity.this.dYX.getLen(), MembersActivity.this.dYX.getOrderType());
+                    MembersActivity.this.dYU.sendMessage(MembersActivity.this.dYU.getGroupId(), MembersActivity.this.dYU.getStart(), MembersActivity.this.dYU.getLen(), MembersActivity.this.dYU.getOrderType());
                     return;
                 }
                 aBt.completePullRefreshPostDelayed(2000L);
             }
         });
-        aBt.setPullRefresh(this.dYV);
+        aBt.setPullRefresh(this.dYS);
         aBt.setOnSrollToBottomListener(this);
         aBt.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                l aEe = MembersActivity.this.dYW.aEe();
+                l aEe = MembersActivity.this.dYT.aEe();
                 UserData userData = (UserData) aEe.getItem(i);
                 if (userData != null) {
                     if (aEe.aBe()) {
@@ -222,8 +222,8 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
         aBt.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.4
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                if (!MembersActivity.this.dYW.aEe().aBe() && MembersActivity.this.dYX.isController()) {
-                    UserData userData = (UserData) MembersActivity.this.dYW.aEe().getItem(i);
+                if (!MembersActivity.this.dYT.aEe().aBe() && MembersActivity.this.dYU.isController()) {
+                    UserData userData = (UserData) MembersActivity.this.dYT.aEe().getItem(i);
                     if (userData != null) {
                         if (userData.getPermission().isController()) {
                             return false;
@@ -235,7 +235,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                 aVar.dismiss();
-                                MembersActivity.this.b(MembersActivity.this.dYX.getGroupId(), arrayList);
+                                MembersActivity.this.b(MembersActivity.this.dYU.getGroupId(), arrayList);
                             }
                         }, new a.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.4.2
                             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -249,14 +249,14 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 return false;
             }
         });
-        this.dYW.aEa().setOnClickListener(this);
-        this.dYW.aEb().setOnClickListener(this);
-        this.dYW.aEc().setOnClickListener(this);
-        this.dYW.setController(false);
-        this.dYW.aEe().a(new l.a() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.5
+        this.dYT.aEa().setOnClickListener(this);
+        this.dYT.aEb().setOnClickListener(this);
+        this.dYT.aEc().setOnClickListener(this);
+        this.dYT.setController(false);
+        this.dYT.aEe().a(new l.a() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.5
             @Override // com.baidu.tieba.im.frsgroup.l.a
             public void nz(int i) {
-                MembersActivity.this.dYW.nA(i);
+                MembersActivity.this.dYT.nA(i);
             }
         });
     }
@@ -264,9 +264,9 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     /* JADX INFO: Access modifiers changed from: private */
     public void b(long j, List<Long> list) {
         if (list != null && list.size() != 0) {
-            this.dYW.hg(true);
-            this.dYX.setUserIds(list);
-            this.dYX.sendRemoveMessage(j, ca(list));
+            this.dYT.hg(true);
+            this.dYU.setUserIds(list);
+            this.dYU.sendRemoveMessage(j, ca(list));
         }
     }
 
@@ -282,81 +282,81 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     private void startLoading() {
-        this.dYX.setUseCache(false);
-        this.dYX.setRequestM(null);
-        this.dYW.aEe().reset(true);
-        this.dYX.setStart(0);
-        this.dYX.setLen(50);
-        this.dYW.aBt().startPullRefresh();
+        this.dYU.setUseCache(false);
+        this.dYU.setRequestM(null);
+        this.dYT.aEe().reset(true);
+        this.dYU.setStart(0);
+        this.dYU.setLen(50);
+        this.dYT.aBt().startPullRefresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reset() {
-        this.dYX.setUseCache(true);
-        this.dYX.setRequestM(null);
-        this.dYW.aEe().reset(false);
-        this.dYX.setStart(0);
-        this.dYX.setLen(50);
+        this.dYU.setUseCache(true);
+        this.dYU.setRequestM(null);
+        this.dYT.aEe().reset(false);
+        this.dYU.setStart(0);
+        this.dYU.setLen(50);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void auL() {
         if (axL()) {
-            this.dYW.auL();
+            this.dYT.auL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean axL() {
-        return 50 == this.dYX.getLen();
+        return 50 == this.dYU.getLen();
     }
 
     public void initData(Bundle bundle) {
-        this.dYX = new MembersModel(this);
-        this.dYX.setUniqueId(getUniqueId());
+        this.dYU = new MembersModel(this);
+        this.dYU.setUniqueId(getUniqueId());
         if (bundle == null) {
-            this.dYX.initWithIntent(getIntent());
+            this.dYU.initWithIntent(getIntent());
         } else {
-            this.dYX.initWithBundle(bundle);
+            this.dYU.initWithBundle(bundle);
         }
-        registerListener(this.dPL);
-        registerListener(this.dYY);
+        registerListener(this.dPI);
+        registerListener(this.dYV);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UserData.Permission permission) {
         if (permission != null) {
             boolean isController = permission.isController();
-            this.dYX.setController(isController);
-            this.dYW.setController(isController);
+            this.dYU.setController(isController);
+            this.dYT.setController(isController);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aDT() {
-        this.dYW.aEd().e(getPageContext());
-        this.dYW.aEd().setTextOption(NoDataViewFactory.d.m16do(d.k.members_no_person));
-        this.dYW.aEd().setVisibility(0);
+        this.dYT.aEd().e(getPageContext());
+        this.dYT.aEd().setTextOption(NoDataViewFactory.d.m16do(d.k.members_no_person));
+        this.dYT.aEd().setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.dYW.onChangeSkinType(i);
-        this.dYV.dv(i);
+        this.dYT.onChangeSkinType(i);
+        this.dYS.dv(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.dYW.aEg()) {
+        if (view2 == this.dYT.aEg()) {
             aDU();
-        } else if (view2 == this.dYW.aEa()) {
+        } else if (view2 == this.dYT.aEa()) {
             aDW();
-            this.dYW.hi(false);
-        } else if (view2 == this.dYW.aEb()) {
+            this.dYT.hi(false);
+        } else if (view2 == this.dYT.aEb()) {
             aDV();
-            this.dYW.hi(true);
-        } else if (view2 == this.dYW.aEc()) {
+            this.dYT.hi(true);
+        } else if (view2 == this.dYT.aEc()) {
             aDX();
         }
     }
@@ -375,31 +375,31 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                         i2 = 2;
                         break;
                 }
-                MembersActivity.this.dYX.setOrderType(i2);
+                MembersActivity.this.dYU.setOrderType(i2);
                 MembersActivity.this.showToast(MembersActivity.this.getResources().getStringArray(d.b.members_order_by_short)[i]);
                 MembersActivity.this.reset();
-                MembersActivity.this.dYW.aBt().startPullRefresh();
+                MembersActivity.this.dYT.aBt().startPullRefresh();
             }
         });
     }
 
     private void aDV() {
-        this.dYW.nA(0);
-        this.dYW.hh(false);
-        this.dYW.aEe().hf(false);
-        this.dYW.aEe().aDY();
-        this.dYW.aEf();
+        this.dYT.nA(0);
+        this.dYT.hh(false);
+        this.dYT.aEe().hf(false);
+        this.dYT.aEe().aDY();
+        this.dYT.aEf();
     }
 
     private void aDW() {
-        this.dYW.nA(0);
-        this.dYW.hh(true);
-        this.dYW.aEe().hf(true);
-        this.dYW.aEf();
+        this.dYT.nA(0);
+        this.dYT.hh(true);
+        this.dYT.aEe().hf(true);
+        this.dYT.aEf();
     }
 
     private void aDX() {
-        Set<Long> aDZ = this.dYW.aEe().aDZ();
+        Set<Long> aDZ = this.dYT.aEe().aDZ();
         if (aDZ.size() > 0) {
             final ArrayList arrayList = new ArrayList();
             arrayList.addAll(aDZ);
@@ -407,11 +407,11 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    MembersActivity.this.dYW.hh(false);
-                    MembersActivity.this.dYW.aEe().hf(false);
-                    MembersActivity.this.dYW.aEf();
-                    MembersActivity.this.b(MembersActivity.this.dYX.getGroupId(), arrayList);
-                    MembersActivity.this.dYW.hi(true);
+                    MembersActivity.this.dYT.hh(false);
+                    MembersActivity.this.dYT.aEe().hf(false);
+                    MembersActivity.this.dYT.aEf();
+                    MembersActivity.this.b(MembersActivity.this.dYU.getGroupId(), arrayList);
+                    MembersActivity.this.dYT.hi(true);
                 }
             }, new a.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.10
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -423,8 +423,8 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     private void Po() {
-        if (this.dYW.aEe().agl()) {
-            this.dYX.sendMessage(this.dYX.getGroupId(), this.dYX.getStart(), this.dYX.getLen(), this.dYX.getOrderType());
+        if (this.dYT.aEe().agl()) {
+            this.dYU.sendMessage(this.dYU.getGroupId(), this.dYU.getStart(), this.dYU.getLen(), this.dYU.getOrderType());
         }
     }
 
@@ -441,9 +441,9 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
 
     @Override // com.baidu.adp.base.BdBaseActivity
     public com.baidu.adp.widget.ListView.k onGetPreLoadListView() {
-        if (this.dYW == null || this.dYW.aBt() == null) {
+        if (this.dYT == null || this.dYT.aBt() == null) {
             return null;
         }
-        return this.dYW.aBt().getPreLoadHandle();
+        return this.dYT.aBt().getPreLoadHandle();
     }
 }

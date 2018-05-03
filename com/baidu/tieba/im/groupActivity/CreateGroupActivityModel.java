@@ -7,38 +7,38 @@ import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes3.dex */
 public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
     private BaseActivity bcJ;
-    private GroupActivityData ead;
-    RequestCreateGroupActivityMessage eae;
+    private GroupActivityData eaa;
+    RequestCreateGroupActivityMessage eab;
 
     public CreateGroupActivityModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.ead = new GroupActivityData();
+        this.eaa = new GroupActivityData();
         this.bcJ = baseActivity;
     }
 
     public GroupActivityData aEo() {
-        return this.ead;
+        return this.eaa;
     }
 
     public void hk(boolean z) {
-        if (this.ead != null) {
-            this.eae = new RequestCreateGroupActivityMessage();
-            this.eae.setCommitType(z ? 1 : 0);
+        if (this.eaa != null) {
+            this.eab = new RequestCreateGroupActivityMessage();
+            this.eab.setCommitType(z ? 1 : 0);
             if (z) {
-                this.eae.setActivityId(this.ead.getActivityId());
+                this.eab.setActivityId(this.eaa.getActivityId());
             }
-            this.eae.setgActivityArea(this.ead.getgActivityArea());
-            this.eae.setgActivityContent(this.ead.getgActivityContent());
-            this.eae.setgActivityTime(this.ead.getgActivityTime());
-            this.eae.setgActivityTitle(this.ead.getgActivityTitle());
-            this.eae.setGroupId(this.ead.getGroupId());
-            this.bcJ.sendMessage(this.eae);
+            this.eab.setgActivityArea(this.eaa.getgActivityArea());
+            this.eab.setgActivityContent(this.eaa.getgActivityContent());
+            this.eab.setgActivityTime(this.eaa.getgActivityTime());
+            this.eab.setgActivityTitle(this.eaa.getgActivityTitle());
+            this.eab.setGroupId(this.eaa.getGroupId());
+            this.bcJ.sendMessage(this.eab);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.eae != null) {
+        if (this.eab != null) {
         }
     }
 

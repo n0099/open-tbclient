@@ -32,84 +32,84 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean ecN;
-        private boolean ecO;
-        private GroupData efc;
-        private List<MemberData> efd;
-        private List<PhotoUrlData> efe;
-        private int eff;
-        private int efg;
-        private boolean efh;
-        private boolean efi;
-        private GroupActivityData efj;
+        private boolean ecK;
+        private boolean ecL;
+        private GroupData eeZ;
+        private List<MemberData> efa;
+        private List<PhotoUrlData> efb;
+        private int efc;
+        private int efd;
+        private boolean efe;
+        private boolean eff;
+        private GroupActivityData efg;
         private boolean isMemGroup;
 
         public GroupActivityData aFN() {
-            return this.efj;
-        }
-
-        public void a(GroupActivityData groupActivityData) {
-            this.efj = groupActivityData;
-        }
-
-        public GroupData getGroup() {
-            return this.efc;
-        }
-
-        public void setGroup(GroupData groupData) {
-            this.efc = groupData;
-        }
-
-        public List<MemberData> aFO() {
-            return this.efd;
-        }
-
-        public void cg(List<MemberData> list) {
-            this.efd = list;
-        }
-
-        public List<PhotoUrlData> aFP() {
-            return this.efe;
-        }
-
-        public void ch(List<PhotoUrlData> list) {
-            this.efe = list;
-        }
-
-        public int aFQ() {
-            return this.eff;
-        }
-
-        public void nN(int i) {
-            this.eff = i;
-        }
-
-        public int aFR() {
             return this.efg;
         }
 
+        public void a(GroupActivityData groupActivityData) {
+            this.efg = groupActivityData;
+        }
+
+        public GroupData getGroup() {
+            return this.eeZ;
+        }
+
+        public void setGroup(GroupData groupData) {
+            this.eeZ = groupData;
+        }
+
+        public List<MemberData> aFO() {
+            return this.efa;
+        }
+
+        public void cg(List<MemberData> list) {
+            this.efa = list;
+        }
+
+        public List<PhotoUrlData> aFP() {
+            return this.efb;
+        }
+
+        public void ch(List<PhotoUrlData> list) {
+            this.efb = list;
+        }
+
+        public int aFQ() {
+            return this.efc;
+        }
+
+        public void nN(int i) {
+            this.efc = i;
+        }
+
+        public int aFR() {
+            return this.efd;
+        }
+
         public void nO(int i) {
-            this.efg = i;
+            this.efd = i;
         }
 
         public boolean aFS() {
-            return this.ecN;
+            return this.ecK;
         }
 
         public void hs(boolean z) {
-            this.ecN = z;
+            this.ecK = z;
         }
 
         public boolean aFT() {
-            return this.ecO;
+            return this.ecL;
         }
 
         public void ht(boolean z) {
-            this.ecO = z;
+            this.ecL = z;
         }
 
         public void hu(boolean z) {
-            this.efh = z;
+            this.efe = z;
         }
 
         public boolean isMemGroup() {
@@ -121,11 +121,11 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         }
 
         public boolean aFU() {
-            return this.efi;
+            return this.eff;
         }
 
         public void hv(boolean z) {
-            this.efi = z;
+            this.eff = z;
         }
     }
 

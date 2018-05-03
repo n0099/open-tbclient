@@ -13,21 +13,21 @@ import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     private final TextView bkd;
-    private final ImageView cWm;
+    private final ImageView cWj;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.cWm = (ImageView) getView().findViewById(d.g.history_delete);
+        this.cWj = (ImageView) getView().findViewById(d.g.history_delete);
         this.bkd = (TextView) getView().findViewById(d.g.history_title);
-        this.cWm.setOnClickListener(this);
+        this.cWj.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ak.i(this.cWm, d.f.icon_search_history_del);
+            ak.i(this.cWj, d.f.icon_search_history_del);
             ak.h(this.bkd, d.C0126d.cp_cont_e);
             this.mSkinType = i;
         }
@@ -45,7 +45,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.cWm) {
+        if (view2 == this.cWj) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
             aVar.bY(d.k.confirm_delete_all_history);
             aVar.as(true);

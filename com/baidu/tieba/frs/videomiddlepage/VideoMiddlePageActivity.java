@@ -15,7 +15,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment drE;
+    private VideoMiddlePageFragment drB;
     private String mFrom;
     private String mId;
 
@@ -31,8 +31,8 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Intent intent = getIntent();
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
-        this.drE = VideoMiddlePageFragment.aZ(this.mFrom, this.mId);
-        getSupportFragmentManager().beginTransaction().add(d.g.video_middle_page_container, this.drE, VideoMiddlePageFragment.class.getCanonicalName()).commit();
+        this.drB = VideoMiddlePageFragment.aZ(this.mFrom, this.mId);
+        getSupportFragmentManager().beginTransaction().add(d.g.video_middle_page_container, this.drB, VideoMiddlePageFragment.class.getCanonicalName()).commit();
         al alVar = new al("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
             alVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom);
@@ -65,10 +65,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.drE == null) {
+        if (keyEvent == null || this.drB == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.drE.kq(i)) {
+        if (this.drB.kq(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

@@ -46,10 +46,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private int alx;
     private int anH;
     private int currentPosition;
-    private final a dCQ;
-    private Drawable dCR;
-    private boolean dCS;
-    private boolean dCT;
+    private final a dCN;
+    private Drawable dCO;
+    private boolean dCP;
+    private boolean dCQ;
     private int dividerPadding;
     private int ds20;
     private boolean isLoading;
@@ -66,7 +66,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public PagerSlidingTabStrip(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dCQ = new a();
+        this.dCN = new a();
         this.currentPosition = 0;
         this.alr = 0.0f;
         this.alt = false;
@@ -80,7 +80,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         this.alD = 17;
         this.alG = 0;
         this.alH = d.f.pager_sliding_view;
-        this.dCT = false;
+        this.dCQ = false;
         this.isLoading = false;
     }
 
@@ -102,7 +102,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         this.als = new Paint();
         this.als.setAntiAlias(true);
         this.als.setStyle(Paint.Style.FILL);
-        this.dCR = ak.getDrawable(d.f.icon_news_down_bar_one);
+        this.dCO = ak.getDrawable(d.f.icon_news_down_bar_one);
         this.ds20 = l.e(getContext(), d.e.ds20);
         this.alj = new LinearLayout.LayoutParams(-2, -1);
         this.alk = new LinearLayout.LayoutParams(0, -1, 1.0f);
@@ -113,22 +113,22 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     public void setShowConcernRedTip(boolean z) {
-        this.dCS = z;
+        this.dCP = z;
         invalidate();
     }
 
     public boolean axB() {
-        return this.dCS;
+        return this.dCP;
     }
 
     public void setTabItemClicked(boolean z) {
-        this.dCT = z;
+        this.dCQ = z;
     }
 
     public void setViewPager(ViewPager viewPager) {
         this.alp = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.dCQ);
+            viewPager.setOnPageChangeListener(this.dCN);
             notifyDataSetChanged();
         }
     }
@@ -175,7 +175,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                         return;
                     }
                     TiebaStatic.log(new al("c12049").r("obj_locate", i + 1).ac("obj_type", "1"));
-                    PagerSlidingTabStrip.this.dCT = true;
+                    PagerSlidingTabStrip.this.dCQ = true;
                     if (PagerSlidingTabStrip.this.alp.getAdapter() instanceof NewScrollFragmentAdapter) {
                         ((NewScrollFragmentAdapter) PagerSlidingTabStrip.this.alp.getAdapter()).mf(i);
                     }
@@ -236,12 +236,12 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 right = (right * (1.0f - this.alr)) + ((childAt2.getRight() - childAt2.getPaddingRight()) * this.alr);
             }
             canvas.drawRoundRect(new RectF(left, height - this.alx, right, height), 10.0f, 10.0f, this.als);
-            if (this.dCS) {
+            if (this.dCP) {
                 View childAt3 = this.alo.getChildAt(0);
                 int right2 = childAt3.getRight() - childAt.getPaddingRight();
                 int top = childAt3.getTop() + this.ds20;
-                this.dCR.setBounds(right2, top, this.ds20 + right2, this.ds20 + top);
-                this.dCR.draw(canvas);
+                this.dCO.setBounds(right2, top, this.ds20 + right2, this.ds20 + top);
+                this.dCO.draw(canvas);
             }
         }
     }
@@ -249,7 +249,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public void onChangeSkinType() {
         this.alu = ak.getColor(d.C0126d.cp_cont_b);
         this.alv = ak.getColor(d.C0126d.cp_cont_j);
-        this.dCR = ak.getDrawable(d.f.icon_news_down_bar_one);
+        this.dCO = ak.getDrawable(d.f.icon_news_down_bar_one);
         updateTabStyles();
         invalidate();
     }
@@ -262,7 +262,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
             if (PagerSlidingTabStrip.this.alo.getChildCount() != 0) {
-                if (!PagerSlidingTabStrip.this.dCT) {
+                if (!PagerSlidingTabStrip.this.dCQ) {
                     PagerSlidingTabStrip.this.currentPosition = i;
                     PagerSlidingTabStrip.this.alr = f;
                     PagerSlidingTabStrip.this.scrollToChild(i, (int) (PagerSlidingTabStrip.this.alo.getChildAt(i).getWidth() * f));
@@ -280,7 +280,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 if (i == 0) {
                     PagerSlidingTabStrip.this.scrollToChild(PagerSlidingTabStrip.this.alp.getCurrentItem(), 0);
                     PagerSlidingTabStrip.this.alr = 0.0f;
-                    PagerSlidingTabStrip.this.dCT = false;
+                    PagerSlidingTabStrip.this.dCQ = false;
                     PagerSlidingTabStrip.this.isLoading = false;
                 } else if (i == 1) {
                     PagerSlidingTabStrip.this.isLoading = true;
@@ -288,7 +288,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 if (PagerSlidingTabStrip.this.aln != null) {
                     PagerSlidingTabStrip.this.aln.onPageScrollStateChanged(i);
                 }
-                HomePageStatic.dAf = false;
+                HomePageStatic.dAc = false;
             }
         }
 
@@ -297,7 +297,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             if (PagerSlidingTabStrip.this.aln != null) {
                 PagerSlidingTabStrip.this.aln.onPageSelected(i);
             }
-            if (PagerSlidingTabStrip.this.dCT) {
+            if (PagerSlidingTabStrip.this.dCQ) {
                 PagerSlidingTabStrip.this.currentPosition = i;
                 PagerSlidingTabStrip.this.scrollToChild(i, (int) (PagerSlidingTabStrip.this.alr * PagerSlidingTabStrip.this.alo.getChildAt(i).getWidth()));
                 PagerSlidingTabStrip.this.invalidate();

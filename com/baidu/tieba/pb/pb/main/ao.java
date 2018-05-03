@@ -12,8 +12,8 @@ public class ao extends k<com.baidu.tieba.pb.data.j, ap> {
     private View.OnTouchListener aNK;
     private com.baidu.tieba.pb.a.c aWx;
     private FrameLayout bmh;
-    private com.baidu.tieba.pb.view.b fnC;
-    public boolean fnD;
+    public boolean fnA;
+    private com.baidu.tieba.pb.view.b fnz;
     private View.OnClickListener mClickListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,8 +22,8 @@ public class ao extends k<com.baidu.tieba.pb.data.j, ap> {
         this.aNK = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.ao.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
-                if (ao.this.fnC != null) {
-                    return ao.this.fnC.onTouch(view2, motionEvent);
+                if (ao.this.fnz != null) {
+                    return ao.this.fnz.onTouch(view2, motionEvent);
                 }
                 return false;
             }
@@ -33,7 +33,7 @@ public class ao extends k<com.baidu.tieba.pb.data.j, ap> {
         this.bmh.setBackgroundResource(d.C0126d.transparent);
         this.bmh.setTag("PraiseContainerView");
         ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.bmh, layoutParams);
-        this.fnC = new com.baidu.tieba.pb.view.b(pbActivity.getPageContext().getPageActivity(), this.bmh);
+        this.fnz = new com.baidu.tieba.pb.view.b(pbActivity.getPageContext().getPageActivity(), this.bmh);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,23 +56,23 @@ public class ao extends k<com.baidu.tieba.pb.data.j, ap> {
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, ap apVar) {
         super.onFillViewHolder(i, view2, viewGroup, jVar, apVar);
         if (jVar != null && apVar != null) {
-            apVar.fnL.setOnClickListener(this.mClickListener);
-            apVar.fnJ.setOnClickListener(this.mClickListener);
-            apVar.b(jVar);
-            apVar.fnH.setTag(d.g.pb_main_thread_praise_data, jVar);
-            apVar.fnH.setTag(d.g.pb_main_thread_praise_view, apVar);
-            ((ap) this.viewholder).fnI.setTag(d.g.pb_main_thread_praise_view, apVar);
-            apVar.fnF.setTag(d.g.pb_main_thread_praise_view, apVar);
-            if (this.fnC != null) {
-                this.fnC.setAnchorView(apVar.fnF);
-                this.fnC.bl(((ap) this.viewholder).fnI);
-                this.fnC.setOnTouchListener(this.aNK);
-            } else {
-                apVar.fnH.setOnClickListener(this.mClickListener);
-            }
             apVar.fnI.setOnClickListener(this.mClickListener);
             apVar.fnG.setOnClickListener(this.mClickListener);
-            if (this.fnD) {
+            apVar.b(jVar);
+            apVar.fnE.setTag(d.g.pb_main_thread_praise_data, jVar);
+            apVar.fnE.setTag(d.g.pb_main_thread_praise_view, apVar);
+            ((ap) this.viewholder).fnF.setTag(d.g.pb_main_thread_praise_view, apVar);
+            apVar.fnC.setTag(d.g.pb_main_thread_praise_view, apVar);
+            if (this.fnz != null) {
+                this.fnz.setAnchorView(apVar.fnC);
+                this.fnz.bl(((ap) this.viewholder).fnF);
+                this.fnz.setOnTouchListener(this.aNK);
+            } else {
+                apVar.fnE.setOnClickListener(this.mClickListener);
+            }
+            apVar.fnF.setOnClickListener(this.mClickListener);
+            apVar.fnD.setOnClickListener(this.mClickListener);
+            if (this.fnA) {
                 apVar.aZB();
             } else {
                 apVar.aZA();
@@ -83,8 +83,8 @@ public class ao extends k<com.baidu.tieba.pb.data.j, ap> {
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
         this.mClickListener = onClickListener;
-        if (this.fnC != null) {
-            this.fnC.setOnClickListener(onClickListener);
+        if (this.fnz != null) {
+            this.fnz.setOnClickListener(onClickListener);
         }
     }
 
@@ -93,14 +93,14 @@ public class ao extends k<com.baidu.tieba.pb.data.j, ap> {
     }
 
     public void qj(int i) {
-        if (i == 3 && this.fgM != null && this.bmh != null) {
+        if (i == 3 && this.fgJ != null && this.bmh != null) {
             this.bmh.removeAllViews();
-            ((FrameLayout) this.fgM.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.bmh);
+            ((FrameLayout) this.fgJ.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.bmh);
         }
-        this.fnC.qj(i);
+        this.fnz.qj(i);
     }
 
     public void j(boolean z, int i) {
-        this.fnC.k(z, i);
+        this.fnz.k(z, i);
     }
 }

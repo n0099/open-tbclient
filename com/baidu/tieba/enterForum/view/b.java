@@ -21,46 +21,46 @@ import com.baidu.tieba.enterForum.data.h;
 import com.baidu.tieba.enterForum.data.i;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.a, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter cGR;
-    private View cJA;
+    private ViewEventCenter cGO;
+    private ImageView cJA;
     private ImageView cJB;
-    private ImageView cJC;
-    private ImageView cJD;
-    private ImageView cJE;
+    private View cJo;
+    private TextView cJp;
+    private TextView cJq;
     private View cJr;
-    private TextView cJs;
-    private TextView cJt;
+    private ImageView cJs;
+    private ImageView cJt;
     private View cJu;
-    private ImageView cJv;
-    private ImageView cJw;
+    private TextView cJv;
+    private TextView cJw;
     private View cJx;
-    private TextView cJy;
-    private TextView cJz;
+    private ImageView cJy;
+    private ImageView cJz;
 
     public b(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view2, viewEventCenter);
-        this.cGR = viewEventCenter;
-        this.cJr = view2.findViewById(d.g.left_container);
-        this.cJs = (TextView) this.cJr.findViewById(d.g.name);
-        this.cJt = (TextView) this.cJr.findViewById(d.g.live_label);
-        this.cJu = this.cJr.findViewById(d.g.live_divider);
-        this.cJv = (ImageView) this.cJr.findViewById(d.g.sign);
-        this.cJw = (ImageView) this.cJr.findViewById(d.g.grade);
-        this.cJx = view2.findViewById(d.g.right_container);
-        this.cJy = (TextView) this.cJx.findViewById(d.g.name);
-        this.cJz = (TextView) this.cJx.findViewById(d.g.live_label);
-        this.cJA = this.cJx.findViewById(d.g.live_divider);
-        this.cJB = (ImageView) this.cJx.findViewById(d.g.sign);
-        this.cJC = (ImageView) this.cJx.findViewById(d.g.grade);
-        this.cJD = (ImageView) view2.findViewById(d.g.divide_line_middle);
-        this.cJE = (ImageView) view2.findViewById(d.g.divide_line);
+        this.cGO = viewEventCenter;
+        this.cJo = view2.findViewById(d.g.left_container);
+        this.cJp = (TextView) this.cJo.findViewById(d.g.name);
+        this.cJq = (TextView) this.cJo.findViewById(d.g.live_label);
+        this.cJr = this.cJo.findViewById(d.g.live_divider);
+        this.cJs = (ImageView) this.cJo.findViewById(d.g.sign);
+        this.cJt = (ImageView) this.cJo.findViewById(d.g.grade);
+        this.cJu = view2.findViewById(d.g.right_container);
+        this.cJv = (TextView) this.cJu.findViewById(d.g.name);
+        this.cJw = (TextView) this.cJu.findViewById(d.g.live_label);
+        this.cJx = this.cJu.findViewById(d.g.live_divider);
+        this.cJy = (ImageView) this.cJu.findViewById(d.g.sign);
+        this.cJz = (ImageView) this.cJu.findViewById(d.g.grade);
+        this.cJA = (ImageView) view2.findViewById(d.g.divide_line_middle);
+        this.cJB = (ImageView) view2.findViewById(d.g.divide_line);
         int e = l.e(tbPageContext.getPageActivity(), d.e.tbds44);
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.cJw.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.cJt.getLayoutParams();
         if (marginLayoutParams != null) {
             marginLayoutParams.rightMargin = e;
         }
         int e2 = l.e(tbPageContext.getPageActivity(), d.e.tbds44);
-        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.cJy.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.cJv.getLayoutParams();
         if (marginLayoutParams2 != null) {
             marginLayoutParams2.leftMargin = e2;
         }
@@ -76,21 +76,21 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.a
             a(aVar.aks(), false);
             b(aVar.akr(), true);
             b(aVar.aks(), false);
-            ak.j(this.cJD, d.C0126d.cp_bg_line_c);
-            ak.j(this.cJE, d.C0126d.cp_bg_line_c);
-            ak.i(this.cJv, d.f.icon_ba_sign_n);
-            ak.i(this.cJB, d.f.icon_ba_sign_n);
+            ak.j(this.cJA, d.C0126d.cp_bg_line_c);
+            ak.j(this.cJB, d.C0126d.cp_bg_line_c);
+            ak.i(this.cJs, d.f.icon_ba_sign_n);
+            ak.i(this.cJy, d.f.icon_ba_sign_n);
         }
     }
 
     private void a(e eVar, boolean z) {
         if (eVar != null) {
-            View view2 = z ? this.cJr : this.cJx;
-            TextView textView = z ? this.cJs : this.cJy;
-            ImageView imageView = z ? this.cJv : this.cJB;
-            ImageView imageView2 = z ? this.cJw : this.cJC;
-            TextView textView2 = z ? this.cJt : this.cJz;
-            View view3 = z ? this.cJu : this.cJA;
+            View view2 = z ? this.cJo : this.cJu;
+            TextView textView = z ? this.cJp : this.cJv;
+            ImageView imageView = z ? this.cJs : this.cJy;
+            ImageView imageView2 = z ? this.cJt : this.cJz;
+            TextView textView2 = z ? this.cJq : this.cJw;
+            View view3 = z ? this.cJr : this.cJx;
             ak.i(view2, d.f.forum_item_bg);
             switch (eVar.getType()) {
                 case 1:
@@ -168,20 +168,20 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.a
     private void b(final e eVar, boolean z) {
         View view2;
         if (z) {
-            view2 = this.cJr;
+            view2 = this.cJo;
         } else {
-            view2 = this.cJx;
+            view2 = this.cJu;
         }
         view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
-                if (b.this.cGR != null) {
+                if (b.this.cGO != null) {
                     switch (eVar.getType()) {
                         case 0:
-                            b.this.cGR.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, eVar, null, null));
+                            b.this.cGO.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, eVar, null, null));
                             return;
                         case 1:
-                            b.this.cGR.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(8, null, null, null));
+                            b.this.cGO.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(8, null, null, null));
                             return;
                         default:
                             return;
@@ -192,10 +192,10 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.a
         view2.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.view.b.2
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view3) {
-                if (b.this.cGR != null) {
+                if (b.this.cGO != null) {
                     switch (eVar.getType()) {
                         case 0:
-                            return b.this.cGR.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(2, new h(b.this.position), null, null));
+                            return b.this.cGO.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(2, new h(b.this.position), null, null));
                     }
                 }
                 return false;

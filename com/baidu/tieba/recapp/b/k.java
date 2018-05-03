@@ -21,20 +21,20 @@ import java.util.concurrent.TimeUnit;
 public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore.data.l, l> implements m {
     private CustomMessageListener aWS;
     protected BaseActivity bcJ;
-    private CustomMessageListener dIK;
-    private boolean fXn;
-    private CustomMessageListener fXo;
-    protected WeakReference<l> fXp;
+    private CustomMessageListener dIH;
+    private boolean fXk;
+    private CustomMessageListener fXl;
+    protected WeakReference<l> fXm;
     private boolean mIsFromCDN;
 
     public k(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.fXn = true;
-        this.dIK = new CustomMessageListener(2004013) { // from class: com.baidu.tieba.recapp.b.k.1
+        this.fXk = true;
+        this.dIH = new CustomMessageListener(2004013) { // from class: com.baidu.tieba.recapp.b.k.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (k.this.viewholder != null && k.this.fXn) {
+                if (k.this.viewholder != null && k.this.fXk) {
                     int playStatus = ((l) k.this.viewholder).getPlayStatus();
                     if (((l) k.this.viewholder).bU(k.this.mContext)) {
                         if (playStatus == -1) {
@@ -53,7 +53,7 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 k.this.aLd();
             }
         };
-        this.fXo = new CustomMessageListener(2004020) { // from class: com.baidu.tieba.recapp.b.k.3
+        this.fXl = new CustomMessageListener(2004020) { // from class: com.baidu.tieba.recapp.b.k.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -62,10 +62,10 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 }
             }
         };
-        this.fXp = null;
+        this.fXm = null;
         this.bcJ = baseActivity;
-        this.bcJ.registerListener(this.dIK);
-        this.bcJ.registerListener(this.fXo);
+        this.bcJ.registerListener(this.dIH);
+        this.bcJ.registerListener(this.fXl);
         this.bcJ.registerListener(this.aWS);
     }
 
@@ -146,12 +146,12 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
         this.bcJ.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.bcJ.getLayoutMode().u(view2);
         com.baidu.tbadk.core.data.b.a(lVar);
-        if (!lVar.gwt) {
+        if (!lVar.gwq) {
             com.baidu.tbadk.distribute.a.Dq().a(lVar.lv(), lVar.forumId, lVar.threadId, "PB", "show", lVar.pageNumber);
-            lVar.gwt = true;
+            lVar.gwq = true;
         }
         if (lVar != null) {
-            com.baidu.tbadk.distribute.a.aBR = lVar.dmg;
+            com.baidu.tbadk.distribute.a.aBR = lVar.dmd;
         }
         final AdvertAppInfo lv = lVar.lv();
         if (lv.advertAppContext == null) {
@@ -204,8 +204,8 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 com.baidu.tieba.recapp.download.g.a(k.this.bcJ.getPageContext().getPageActivity(), advertAppInfo, i3, k.this.b(advertAppInfo, str));
             }
         });
-        if (this.fXp == null || this.fXp.get() != lVar2) {
-            this.fXp = new WeakReference<>(lVar2);
+        if (this.fXm == null || this.fXm.get() != lVar2) {
+            this.fXm = new WeakReference<>(lVar2);
         }
         aLd();
         return view2;
@@ -246,7 +246,7 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     }
 
     public void aLd() {
-        l lVar = this.fXp != null ? this.fXp.get() : null;
+        l lVar = this.fXm != null ? this.fXm.get() : null;
         if (lVar != null) {
             lVar.aLd();
         }

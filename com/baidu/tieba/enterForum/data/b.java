@@ -11,11 +11,11 @@ import tbclient.RecommendForumInfo;
 /* loaded from: classes2.dex */
 public class b {
     private boolean Aj;
-    private List<com.baidu.tieba.enterForum.multiConcern.b> cHl;
-    private HotSearchInfoData cHm;
+    private List<com.baidu.tieba.enterForum.multiConcern.b> cHi;
+    private HotSearchInfoData cHj;
     private int time = 0;
-    private g cHj = new g();
-    private j cHk = new j();
+    private g cHg = new g();
+    private j cHh = new j();
 
     public b() {
         this.Aj = true;
@@ -27,7 +27,7 @@ public class b {
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
-        return this.cHm;
+        return this.cHj;
     }
 
     public void a(DataRes dataRes) {
@@ -42,20 +42,20 @@ public class b {
             try {
                 setTime(dataRes.time.intValue());
                 if (dataRes.like_forum != null) {
-                    this.cHj.aH(dataRes.like_forum);
+                    this.cHg.aH(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.cHk.aI(dataRes.recommend_forum_info);
+                    this.cHh.aI(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.cHm = new HotSearchInfoData();
-                    this.cHm.a(dataRes.hot_search);
+                    this.cHj = new HotSearchInfoData();
+                    this.cHj.a(dataRes.hot_search);
                 }
                 if (!v.w(dataRes.tag_recommend_forum)) {
-                    if (this.cHl == null) {
-                        this.cHl = new ArrayList();
+                    if (this.cHi == null) {
+                        this.cHi = new ArrayList();
                     } else {
-                        this.cHl.clear();
+                        this.cHi.clear();
                     }
                     int i2 = 0;
                     for (RecommendForumInfo recommendForumInfo : dataRes.tag_recommend_forum) {
@@ -70,7 +70,7 @@ public class b {
                                 bVar.followNum = recommendForumInfo.member_count.intValue();
                                 bVar.threadNum = recommendForumInfo.thread_count.intValue();
                                 bVar.isSelected = true;
-                                this.cHl.add(bVar);
+                                this.cHi.add(bVar);
                                 i = i2 + 1;
                             }
                             i2 = i;
@@ -80,7 +80,7 @@ public class b {
                     }
                     return;
                 }
-                this.cHl = null;
+                this.cHi = null;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -88,23 +88,23 @@ public class b {
     }
 
     public g akt() {
-        return this.cHj;
+        return this.cHg;
     }
 
     public void a(g gVar) {
-        this.cHj = gVar;
+        this.cHg = gVar;
     }
 
     public void a(j jVar) {
-        this.cHk = jVar;
+        this.cHh = jVar;
     }
 
     public List<com.baidu.tieba.enterForum.multiConcern.b> aku() {
-        return this.cHl;
+        return this.cHi;
     }
 
     public void aG(List<com.baidu.tieba.enterForum.multiConcern.b> list) {
-        this.cHl = list;
+        this.cHi = list;
     }
 
     public void az(boolean z) {
@@ -120,6 +120,6 @@ public class b {
     }
 
     public void a(HotSearchInfoData hotSearchInfoData) {
-        this.cHm = hotSearchInfoData;
+        this.cHj = hotSearchInfoData;
     }
 }

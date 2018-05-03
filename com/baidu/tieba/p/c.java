@@ -23,13 +23,13 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes3.dex */
 public class c implements View.OnClickListener {
-    private static final int gIU = l.e(TbadkCoreApplication.getInst(), d.e.ds20);
-    private static final int gIV = l.e(TbadkCoreApplication.getInst(), d.e.ds60);
-    private static final int gIW = l.e(TbadkCoreApplication.getInst(), d.e.ds140);
-    private static final int gIX = l.e(TbadkCoreApplication.getInst(), d.e.fontsize24);
-    private LinearLayout gIQ;
-    private SparseArray<String> gkZ;
-    private a goN;
+    private static final int gIR = l.e(TbadkCoreApplication.getInst(), d.e.ds20);
+    private static final int gIS = l.e(TbadkCoreApplication.getInst(), d.e.ds60);
+    private static final int gIT = l.e(TbadkCoreApplication.getInst(), d.e.ds140);
+    private static final int gIU = l.e(TbadkCoreApplication.getInst(), d.e.fontsize24);
+    private LinearLayout gIN;
+    private SparseArray<String> gkW;
+    private a goK;
     private Context mContext;
     private com.baidu.tbadk.coreExtra.c.d mShareItem;
 
@@ -38,21 +38,21 @@ public class c implements View.OnClickListener {
     }
 
     public void setShareItemClickListener(a aVar) {
-        this.goN = aVar;
+        this.goK = aVar;
     }
 
     public LinearLayout bvA() {
-        if (this.gIQ == null) {
+        if (this.gIN == null) {
             initView();
         }
-        return this.gIQ;
+        return this.gIN;
     }
 
     private void initView() {
-        this.gIQ = new LinearLayout(this.mContext);
-        this.gIQ.setOrientation(0);
+        this.gIN = new LinearLayout(this.mContext);
+        this.gIN.setOrientation(0);
         int e = l.e(this.mContext, d.e.ds18);
-        this.gIQ.setPadding(e, l.e(this.mContext, d.e.ds30), e, l.e(this.mContext, d.e.ds26));
+        this.gIN.setPadding(e, l.e(this.mContext, d.e.ds30), e, l.e(this.mContext, d.e.ds26));
         Z(d.f.icon_weixin_n, d.k.share_weixin, 4);
         Z(d.f.icon_weixin_q_n, d.k.share_weixin_timeline, 3);
         Z(d.f.icon_qq_zone_n, d.k.share_qzone, 5);
@@ -66,12 +66,12 @@ public class c implements View.OnClickListener {
         ImageView imageView = new ImageView(this.mContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER);
         imageView.setId(d.g.photo);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(gIV, gIV);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(gIS, gIS);
         layoutParams.addRule(14);
-        layoutParams.bottomMargin = gIU;
+        layoutParams.bottomMargin = gIR;
         relativeLayout.addView(imageView, layoutParams);
         TextView textView = new TextView(this.mContext);
-        textView.setTextSize(0, gIX);
+        textView.setTextSize(0, gIU);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams2.addRule(3, d.g.photo);
         layoutParams2.addRule(14);
@@ -81,7 +81,7 @@ public class c implements View.OnClickListener {
         ak.h(textView, d.C0126d.cp_cont_f);
         relativeLayout.setTag(Integer.valueOf(i3));
         relativeLayout.setOnClickListener(this);
-        this.gIQ.addView(relativeLayout, new LinearLayout.LayoutParams(gIW, -2));
+        this.gIN.addView(relativeLayout, new LinearLayout.LayoutParams(gIT, -2));
     }
 
     public void setShareData(com.baidu.tbadk.coreExtra.c.d dVar) {
@@ -90,8 +90,8 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (this.goN != null) {
-            this.goN.bt(view2);
+        if (this.goK != null) {
+            this.goK.bt(view2);
         }
         if (view2.getTag() instanceof Integer) {
             Integer num = (Integer) view2.getTag();
@@ -186,8 +186,8 @@ public class c implements View.OnClickListener {
     }
 
     private void sC(int i) {
-        if (i <= 8 && i > 0 && this.gkZ != null) {
-            String str = this.gkZ.get(i);
+        if (i <= 8 && i > 0 && this.gkW != null) {
+            String str = this.gkW.get(i);
             if (!an.isEmpty(str)) {
                 l(str, new Object[0]);
             }

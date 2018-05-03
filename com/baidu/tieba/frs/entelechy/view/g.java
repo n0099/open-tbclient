@@ -6,49 +6,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class g {
-    private f dfk;
-    private h dfl;
+    private f dfh;
+    private h dfi;
     private TbPageContext<?> pageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.dfk = new f(tbPageContext, bdUniqueId);
-        this.dfl = new h(tbPageContext, bdUniqueId);
+        this.dfh = new f(tbPageContext, bdUniqueId);
+        this.dfi = new h(tbPageContext, bdUniqueId);
         this.pageContext = tbPageContext;
         show(-1);
     }
 
     public View ask() {
-        if (this.dfk == null || this.dfl == null) {
+        if (this.dfh == null || this.dfi == null) {
             return null;
         }
         FrameLayout frameLayout = new FrameLayout(this.pageContext.getPageActivity());
-        frameLayout.addView(this.dfk.getView());
-        frameLayout.addView(this.dfl.getView());
+        frameLayout.addView(this.dfh.getView());
+        frameLayout.addView(this.dfi.getView());
         return frameLayout;
     }
 
     public f asl() {
-        return this.dfk;
+        return this.dfh;
     }
 
     public h asm() {
-        return this.dfl;
+        return this.dfi;
     }
 
     public void show(int i) {
-        if (this.dfk != null && this.dfl != null) {
+        if (this.dfh != null && this.dfi != null) {
             switch (i) {
                 case 1:
-                    this.dfk.setVisibility(0);
-                    this.dfl.setVisibility(8);
+                    this.dfh.setVisibility(0);
+                    this.dfi.setVisibility(8);
                     return;
                 case 2:
-                    this.dfk.setVisibility(8);
-                    this.dfl.setVisibility(0);
+                    this.dfh.setVisibility(8);
+                    this.dfi.setVisibility(0);
                     return;
                 default:
-                    this.dfk.setVisibility(8);
-                    this.dfl.setVisibility(8);
+                    this.dfh.setVisibility(8);
+                    this.dfi.setVisibility(8);
                     return;
             }
         }

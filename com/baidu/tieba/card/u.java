@@ -15,59 +15,59 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class u extends a<com.baidu.tieba.card.data.o> {
-    private View cpq;
-    private String cps;
-    private String cqA;
-    private String cqB;
-    private HeadImageView cqt;
+    private View cpn;
+    private String cpp;
+    private HeadImageView cqq;
+    private TextView cqr;
+    private TextView cqs;
+    private TbImageView cqt;
     private TextView cqu;
-    private TextView cqv;
-    private TbImageView cqw;
-    private TextView cqx;
-    private com.baidu.tieba.card.data.o cqy;
-    private int cqz;
+    private com.baidu.tieba.card.data.o cqv;
+    private int cqw;
+    private String cqx;
+    private String cqy;
     private View mRootView;
 
     public u(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.cqz = tbPageContext.getResources().getDimensionPixelSize(d.e.ds70);
+        this.cqw = tbPageContext.getResources().getDimensionPixelSize(d.e.ds70);
         init(getView());
     }
 
     public void y(String str, String str2, String str3) {
-        this.cps = str;
-        this.cqA = str2;
-        this.cqB = str3;
+        this.cpp = str;
+        this.cqx = str2;
+        this.cqy = str3;
     }
 
     private void init(View view2) {
         this.mRootView = view2.findViewById(d.g.root_view);
-        this.cqt = (HeadImageView) view2.findViewById(d.g.promotion_head_img);
-        this.cqu = (TextView) view2.findViewById(d.g.promotion_name);
-        this.cqv = (TextView) view2.findViewById(d.g.promotion_desc);
-        this.cqw = (TbImageView) view2.findViewById(d.g.promotion_img);
-        this.cqx = (TextView) view2.findViewById(d.g.promotion_icon);
-        this.cpq = view2.findViewById(d.g.top_line);
-        this.cqt.setOnClickListener(this);
+        this.cqq = (HeadImageView) view2.findViewById(d.g.promotion_head_img);
+        this.cqr = (TextView) view2.findViewById(d.g.promotion_name);
+        this.cqs = (TextView) view2.findViewById(d.g.promotion_desc);
+        this.cqt = (TbImageView) view2.findViewById(d.g.promotion_img);
+        this.cqu = (TextView) view2.findViewById(d.g.promotion_icon);
+        this.cpn = view2.findViewById(d.g.top_line);
+        this.cqq.setOnClickListener(this);
+        this.cqr.setOnClickListener(this);
         this.cqu.setOnClickListener(this);
-        this.cqx.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.cqt.setDefaultResource(17170445);
-        this.cqt.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.cqt.setDefaultBgResource(d.C0126d.cp_bg_line_e);
-        this.cqt.setRadius(this.cqz);
-        this.cqw.setDrawBorder(true);
-        this.cqw.setBorderWidth(1);
+        this.cqq.setDefaultResource(17170445);
+        this.cqq.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.cqq.setDefaultBgResource(d.C0126d.cp_bg_line_e);
+        this.cqq.setRadius(this.cqw);
+        this.cqt.setDrawBorder(true);
+        this.cqt.setBorderWidth(1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if ((view2 == this.cqt || view2 == this.cqu || view2 == this.cqx) && !StringUtils.isNull(this.cqy.csM)) {
-            TiebaStatic.log(new al(this.cqA).ac(VideoPlayActivityConfig.OBJ_ID, String.valueOf(this.cqy.csK)));
-            ax.wg().c(aeY(), new String[]{this.cqy.csM});
-        } else if ((view2 == this.mRootView || view2 == this.cqv || view2 == this.cqw) && !StringUtils.isNull(this.cqy.csP)) {
-            TiebaStatic.log(new al(this.cqB).ac(VideoPlayActivityConfig.OBJ_ID, String.valueOf(this.cqy.csK)));
-            ax.wg().c(aeY(), new String[]{this.cqy.csP});
+        if ((view2 == this.cqq || view2 == this.cqr || view2 == this.cqu) && !StringUtils.isNull(this.cqv.csJ)) {
+            TiebaStatic.log(new al(this.cqx).ac(VideoPlayActivityConfig.OBJ_ID, String.valueOf(this.cqv.csH)));
+            ax.wg().c(aeY(), new String[]{this.cqv.csJ});
+        } else if ((view2 == this.mRootView || view2 == this.cqs || view2 == this.cqt) && !StringUtils.isNull(this.cqv.csM)) {
+            TiebaStatic.log(new al(this.cqy).ac(VideoPlayActivityConfig.OBJ_ID, String.valueOf(this.cqv.csH)));
+            ax.wg().c(aeY(), new String[]{this.cqv.csM});
         }
     }
 
@@ -75,11 +75,11 @@ public class u extends a<com.baidu.tieba.card.data.o> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ak.i(this.mRootView, d.f.addresslist_item_bg);
-            ak.i(this.cqx, d.f.label_bg_gray);
-            ak.i(this.cpq, d.C0126d.cp_bg_line_b);
-            ak.c(this.cqu, d.C0126d.cp_cont_b, 1);
-            ak.c(this.cqx, d.C0126d.cp_cont_d, 1);
-            ak.c(this.cqv, d.C0126d.cp_cont_b, 1);
+            ak.i(this.cqu, d.f.label_bg_gray);
+            ak.i(this.cpn, d.C0126d.cp_bg_line_b);
+            ak.c(this.cqr, d.C0126d.cp_cont_b, 1);
+            ak.c(this.cqu, d.C0126d.cp_cont_d, 1);
+            ak.c(this.cqs, d.C0126d.cp_cont_b, 1);
         }
         this.mSkinType = i;
     }
@@ -99,21 +99,21 @@ public class u extends a<com.baidu.tieba.card.data.o> {
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        this.cqy = oVar;
-        this.cqt.startLoad(oVar.csL, 10, false);
-        this.cqu.setText(UtilHelper.getFixedText(oVar.userName, 7, true));
-        if (StringUtils.isNull(oVar.csR)) {
-            this.cqx.setVisibility(8);
+        this.cqv = oVar;
+        this.cqq.startLoad(oVar.csI, 10, false);
+        this.cqr.setText(UtilHelper.getFixedText(oVar.userName, 7, true));
+        if (StringUtils.isNull(oVar.csO)) {
+            this.cqu.setVisibility(8);
         } else {
-            this.cqx.setVisibility(0);
-            this.cqx.setText(oVar.csR);
+            this.cqu.setVisibility(0);
+            this.cqu.setText(oVar.csO);
         }
-        this.cqv.setText(oVar.csN);
+        this.cqs.setText(oVar.csK);
         if (com.baidu.tbadk.core.i.pY().qe()) {
-            this.cqw.setVisibility(0);
-            this.cqw.startLoad(oVar.csO, 10, false);
+            this.cqt.setVisibility(0);
+            this.cqt.startLoad(oVar.csL, 10, false);
             return;
         }
-        this.cqw.setVisibility(8);
+        this.cqt.setVisibility(8);
     }
 }

@@ -29,7 +29,7 @@ import org.json.JSONObject;
 public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     private com.baidu.tbadk.core.dialog.a JV;
     private com.baidu.tbadk.j.f bha;
-    private final String fFU = "https://tieba.baidu.com/n/interact/modifyname";
+    private final String fFR = "https://tieba.baidu.com/n/interact/modifyname";
     private NavigationBar mNavigationBar;
     private TbPageContext<EditNickNameActivity> mPageContext;
     private g mRefreshView;

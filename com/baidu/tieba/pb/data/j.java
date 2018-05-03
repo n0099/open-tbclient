@@ -11,75 +11,75 @@ import tbclient.PbPage.DataRes;
 import tbclient.SimpleUser;
 /* loaded from: classes2.dex */
 public class j implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId fcI = BdUniqueId.gen();
-    private long fcJ;
-    private boolean fcK;
-    private ArrayList<MuteUser> fcL;
+    public static final BdUniqueId fcF = BdUniqueId.gen();
+    private long fcG;
+    private boolean fcH;
+    private ArrayList<MuteUser> fcI;
     public long shareNum;
-    public int fcG = -1;
-    private boolean fcM = false;
-    private boolean fcN = false;
-    private int fcO = 1;
+    public int fcD = -1;
+    private boolean fcJ = false;
+    private boolean fcK = false;
+    private int fcL = 1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return fcI;
+        return fcF;
     }
 
     public void a(DataRes dataRes) {
         boolean z = true;
         if (dataRes != null) {
             if (dataRes.thread != null && dataRes.thread.agree != null) {
-                this.fcJ = dataRes.thread.agree.agree_num.longValue();
-                this.fcK = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.fcG = dataRes.thread.agree.agree_type.intValue();
+                this.fcG = dataRes.thread.agree.agree_num.longValue();
+                this.fcH = dataRes.thread.agree.has_agree.intValue() == 1;
+                this.fcD = dataRes.thread.agree.agree_type.intValue();
             }
-            if (this.fcL == null) {
-                this.fcL = new ArrayList<>();
+            if (this.fcI == null) {
+                this.fcI = new ArrayList<>();
             }
-            this.fcL.clear();
+            this.fcI.clear();
             if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
                 for (SimpleUser simpleUser : dataRes.new_agree_user) {
                     if (simpleUser != null) {
                         MuteUser muteUser = new MuteUser();
                         muteUser.parserProtobuf(simpleUser);
-                        this.fcL.add(muteUser);
+                        this.fcI.add(muteUser);
                     }
                 }
             }
             if (dataRes.thread != null) {
                 this.shareNum = dataRes.thread.share_num.longValue();
-                this.fcN = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
+                this.fcK = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
             }
         }
     }
 
     public long aVU() {
-        return this.fcJ;
+        return this.fcG;
     }
 
     public boolean aVV() {
-        return this.fcN;
-    }
-
-    public boolean aVW() {
         return this.fcK;
     }
 
+    public boolean aVW() {
+        return this.fcH;
+    }
+
     public ArrayList<MuteUser> aVX() {
-        return this.fcL;
+        return this.fcI;
     }
 
     public void pV(int i) {
-        if (!this.fcK) {
+        if (!this.fcH) {
             pX(i);
             return;
         }
-        this.fcG = i;
-        this.fcK = true;
+        this.fcD = i;
+        this.fcH = true;
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.fcL.iterator();
+            Iterator<MuteUser> it = this.fcI.iterator();
             while (it.hasNext()) {
                 MuteUser next = it.next();
                 if (currentAccountName.equals(next.getUserName())) {
@@ -91,11 +91,11 @@ public class j implements com.baidu.adp.widget.ListView.h {
     }
 
     public void pW(int i) {
-        this.fcO = i;
+        this.fcL = i;
     }
 
     public int aVY() {
-        return this.fcO;
+        return this.fcL;
     }
 
     public void pX(int i) {
@@ -107,35 +107,35 @@ public class j implements com.baidu.adp.widget.ListView.h {
                 muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
             }
             muteUser.agreeType = i;
-            if (this.fcL == null) {
-                this.fcL = new ArrayList<>();
+            if (this.fcI == null) {
+                this.fcI = new ArrayList<>();
             }
-            this.fcL.add(0, muteUser);
-            if (this.fcJ < 0) {
-                this.fcJ = 0L;
+            this.fcI.add(0, muteUser);
+            if (this.fcG < 0) {
+                this.fcG = 0L;
             }
-            this.fcJ++;
-            this.fcK = true;
-            this.fcG = i;
+            this.fcG++;
+            this.fcH = true;
+            this.fcD = i;
         }
     }
 
     public void aVZ() {
         if (TbadkCoreApplication.isLogin()) {
-            this.fcJ--;
-            if (this.fcJ < 0) {
-                this.fcJ = 0L;
+            this.fcG--;
+            if (this.fcG < 0) {
+                this.fcG = 0L;
             }
-            this.fcK = false;
-            this.fcG = -1;
-            if (!v.w(this.fcL)) {
+            this.fcH = false;
+            this.fcD = -1;
+            if (!v.w(this.fcI)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.fcL.iterator();
+                    Iterator<MuteUser> it = this.fcI.iterator();
                     while (it.hasNext()) {
                         MuteUser next = it.next();
                         if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.fcL.remove(next);
+                            this.fcI.remove(next);
                             return;
                         }
                     }
@@ -145,10 +145,10 @@ public class j implements com.baidu.adp.widget.ListView.h {
     }
 
     public void jp(boolean z) {
-        this.fcM = z;
+        this.fcJ = z;
     }
 
     public boolean aWa() {
-        return this.fcM;
+        return this.fcJ;
     }
 }

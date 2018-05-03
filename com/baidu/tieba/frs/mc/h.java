@@ -4,24 +4,24 @@ import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.al;
 /* loaded from: classes2.dex */
 public class h {
-    protected final com.baidu.tieba.frs.i cXk;
-    protected final FrsModelController cXs;
-    protected final com.baidu.tieba.frs.vc.f cXt;
-    protected final FrsFragment dmZ;
-    protected final com.baidu.tieba.frs.vc.j dnW;
-    protected final al dnX;
-    protected final c dnY;
+    protected final com.baidu.tieba.frs.i cXh;
+    protected final FrsModelController cXp;
+    protected final com.baidu.tieba.frs.vc.f cXq;
+    protected final FrsFragment dmW;
+    protected final com.baidu.tieba.frs.vc.j dnT;
+    protected final al dnU;
+    protected final c dnV;
 
     public h(FrsFragment frsFragment) {
         if (frsFragment == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.dmZ = frsFragment;
-        this.cXt = this.dmZ.apk();
-        this.cXk = this.dmZ.apn();
-        this.dnW = this.dmZ.apl();
-        this.cXs = this.dmZ.aph();
-        this.dnX = this.dmZ.apm();
-        this.dnY = this.dmZ.apj();
+        this.dmW = frsFragment;
+        this.cXq = this.dmW.apk();
+        this.cXh = this.dmW.apn();
+        this.dnT = this.dmW.apl();
+        this.cXp = this.dmW.aph();
+        this.dnU = this.dmW.apm();
+        this.dnV = this.dmW.apj();
     }
 }
