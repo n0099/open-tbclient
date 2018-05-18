@@ -13,26 +13,26 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.f.b byy;
-    private boolean dkW;
+    private com.baidu.tieba.f.b bzr;
+    private boolean dmd;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean aNI = false;
-    private a.InterfaceC0131a byz = new a.InterfaceC0131a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int cak = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
+    private boolean aNJ = false;
+    private a.InterfaceC0131a bzs = new a.InterfaceC0131a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        final int cbf = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
 
         @Override // com.baidu.tieba.f.a.InterfaceC0131a
         public void W(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && T(i2)) {
-                b.this.fB(false);
+                b.this.fC(false);
             }
         }
 
         @Override // com.baidu.tieba.f.a.InterfaceC0131a
         public void X(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && T(i2)) {
-                b.this.fB(true);
+                b.this.fC(true);
             }
         }
 
@@ -48,10 +48,10 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.dkW = z;
-        if (this.dkW) {
-            this.byy = new com.baidu.tieba.f.b(context);
-            this.byy.a(this.byz);
+        this.dmd = z;
+        if (this.dmd) {
+            this.bzr = new com.baidu.tieba.f.b(context);
+            this.bzr.a(this.bzs);
         }
     }
 
@@ -68,15 +68,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.dkW = false;
+                    this.dmd = false;
                     break;
                 } else {
-                    this.dkW = true;
+                    this.dmd = true;
                     break;
                 }
         }
-        if (this.dkW && this.byy != null) {
-            this.byy.onTouchEvent(motionEvent);
+        if (this.dmd && this.bzr != null) {
+            this.bzr.onTouchEvent(motionEvent);
         }
     }
 
@@ -89,10 +89,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fB(boolean z) {
-        this.aNI = z;
-        if (this.dkW) {
-            l(!this.aNI, true);
+    public void fC(boolean z) {
+        this.aNJ = z;
+        if (this.dmd) {
+            l(!this.aNJ, true);
         }
     }
 

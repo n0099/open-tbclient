@@ -5,7 +5,7 @@ public class ba {
     protected String link = null;
     protected String ZB = null;
 
-    public String qG() {
+    public String qF() {
         return this.img_url;
     }
 
@@ -21,7 +21,7 @@ public class ba {
         this.link = str;
     }
 
-    public String ru() {
+    public String rt() {
         return this.ZB;
     }
 

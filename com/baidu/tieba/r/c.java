@@ -15,7 +15,7 @@ public class c {
         eVar.fe().d("", bArr);
         new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
         int i = eVar.ff().responseCode;
-        byte[] bArr2 = eVar.ff().tZ;
+        byte[] bArr2 = eVar.ff().tY;
         if (bArr2 == null || i != 200) {
             return false;
         }
@@ -30,7 +30,7 @@ public class c {
         }
     }
 
-    public static byte[] dx(List<String> list) {
+    public static byte[] dA(List<String> list) {
         if (list == null) {
             return null;
         }

@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     String address;
-    float cEV;
+    float cGe;
     private List<Integer> data = new ArrayList();
-    boolean cEW = false;
-    boolean cEX = false;
+    boolean cGf = false;
+    boolean cGg = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -38,7 +38,7 @@ public class b {
         return builder.build(true);
     }
 
-    public void jm(int i) {
+    public void jl(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.cEV = 0.0f;
+            this.cGe = 0.0f;
         } else if (size == 1) {
-            this.cEV = this.data.get(0).intValue();
+            this.cGe = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.cEV = ((i * f3) / size) + f;
-            if (this.cEV < 0.05d) {
-                if (!this.cEW) {
-                    com.baidu.tieba.dnsproxy.d.ajG().z("ip_weight_lower", this.address, String.valueOf(this.cEV));
-                    this.cEW = true;
+            this.cGe = ((i * f3) / size) + f;
+            if (this.cGe < 0.05d) {
+                if (!this.cGf) {
+                    com.baidu.tieba.dnsproxy.d.ajG().z("ip_weight_lower", this.address, String.valueOf(this.cGe));
+                    this.cGf = true;
                 }
-            } else if (this.cEW && this.cEV > 0.5d && !this.cEX) {
-                com.baidu.tieba.dnsproxy.d.ajG().z("ip_weight_lower_recover", this.address, String.valueOf(this.cEV));
-                this.cEX = true;
+            } else if (this.cGf && this.cGe > 0.5d && !this.cGg) {
+                com.baidu.tieba.dnsproxy.d.ajG().z("ip_weight_lower_recover", this.address, String.valueOf(this.cGe));
+                this.cGg = true;
             }
         }
     }

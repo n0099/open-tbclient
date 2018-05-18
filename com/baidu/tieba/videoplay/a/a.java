@@ -6,22 +6,22 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private int dsi = -1;
-    private int dsf = b.getInstance().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> dsg = new HashSet();
+    private int dtq = -1;
+    private int dtn = b.getInstance().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> dto = new HashSet();
 
-    public void uF(int i) {
-        this.dsg.add(Integer.valueOf(i));
-        if (this.dsf == this.dsg.size()) {
-            this.dsi = i;
+    public void uE(int i) {
+        this.dto.add(Integer.valueOf(i));
+        if (this.dtn == this.dto.size()) {
+            this.dtq = i;
         }
     }
 
-    public int avH() {
-        return this.dsi;
+    public int avG() {
+        return this.dtq;
     }
 
-    public boolean gb(boolean z) {
+    public boolean gc(boolean z) {
         boolean z2 = b.getInstance().getBoolean("nani_key_is_show_download_nani_panel", true);
         boolean z3 = b.getInstance().getBoolean("nani_key_is_activate_app", false);
         String string = b.getInstance().getString("nani_key_download_link_url", null);
@@ -32,15 +32,15 @@ public class a {
             case 1:
                 return true;
             case 2:
-                return gc(z);
-            case 3:
                 return gd(z);
+            case 3:
+                return ge(z);
             default:
                 return false;
         }
     }
 
-    private boolean gc(boolean z) {
+    private boolean gd(boolean z) {
         long j;
         if (z) {
             j = b.getInstance().getLong("key_vertical_shown_time", -1L);
@@ -50,7 +50,7 @@ public class a {
         return j <= 0 || System.currentTimeMillis() - j >= 86400000;
     }
 
-    private boolean gd(boolean z) {
+    private boolean ge(boolean z) {
         long j;
         if (z) {
             j = b.getInstance().getLong("key_vertical_shown_time", -1L);

@@ -17,7 +17,7 @@ public class g {
         private static final g aeD = new g();
     }
 
-    public static g ub() {
+    public static g ua() {
         return c.aeD;
     }
 
@@ -25,7 +25,7 @@ public class g {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
                 this.aer = new a(i, jVar);
-                this.aer.ud();
+                this.aer.uc();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -64,7 +64,7 @@ public class g {
 
         private void doFrame(long j) {
             this.aeB.add(Long.valueOf(j));
-            this.aer.ud();
+            this.aer.uc();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -102,17 +102,17 @@ public class g {
             this.aez = jVar;
         }
 
-        private void uc() throws InvocationTargetException, IllegalAccessException {
+        private void ub() throws InvocationTargetException, IllegalAccessException {
             this.aex.invoke(this.aew, this.aet);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ud() {
+        public void uc() {
             if (this.index >= this.MAX_FRAME_COUNT) {
                 com.baidu.adp.lib.g.e.fw().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.aez.t(a.this.uf());
+                        a.this.aez.t(a.this.ue());
                         a.this.aey.destroy();
                         a.this.destroy();
                     }
@@ -121,13 +121,13 @@ public class g {
             }
             this.index++;
             try {
-                uc();
+                ub();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> ue() {
+        private List<Long> ud() {
             return this.aey.aeB;
         }
 
@@ -137,15 +137,15 @@ public class g {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> uf() {
+        public List<Long> ue() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> ue = ue();
-            int size = ue.size();
+            List<Long> ud = ud();
+            int size = ud.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(ue.get(i2 + 1).longValue() - ue.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(ud.get(i2 + 1).longValue() - ud.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

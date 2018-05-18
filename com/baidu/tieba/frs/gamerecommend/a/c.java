@@ -13,14 +13,14 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.o;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    private com.baidu.tieba.card.f dii;
+    private com.baidu.tieba.card.f djp;
     private ab lC;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.cDV);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.cFe);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -30,8 +30,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dii = new com.baidu.tieba.card.f(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.dii);
+        this.djp = new com.baidu.tieba.card.f(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.djp);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,11 +58,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view2, com.baidu.tieba.e.b bVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.Pe(), null, o.rG(), 18003, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(bVar.Pe().getFid()));
-        createFromThreadCfg.setForumName(bVar.Pe().rV());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.Pb(), null, o.rF(), 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(bVar.Pb().getFid()));
+        createFromThreadCfg.setForumName(bVar.Pb().rU());
         createFromThreadCfg.setStartFrom(0);
-        o.kv(bVar.Pe().getTid());
+        o.ky(bVar.Pb().getTid());
         this.mPageContext.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         if (this.lC != null) {
             this.lC.a(view2, bVar);

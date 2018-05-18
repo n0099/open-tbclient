@@ -15,11 +15,11 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class d extends RecyclerView.Adapter<a> {
-    private View.OnClickListener bMv;
-    private LinkedList<VisitedForumData> cGU;
-    private boolean cGV;
-    private View.OnLongClickListener cGW;
-    private View.OnClickListener cGX;
+    private View.OnClickListener bNl;
+    private LinkedList<VisitedForumData> cId;
+    private boolean cIe;
+    private View.OnLongClickListener cIf;
+    private View.OnClickListener cIg;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
@@ -27,7 +27,7 @@ public class d extends RecyclerView.Adapter<a> {
     }
 
     public void m(LinkedList<VisitedForumData> linkedList) {
-        this.cGU = linkedList;
+        this.cId = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,23 +39,23 @@ public class d extends RecyclerView.Adapter<a> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.cGU == null) {
+        if (this.cId == null) {
             return 0;
         }
-        return this.cGU.size();
+        return this.cId.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        if (aVar != null && this.cGU != null && this.cGU.get(i) != null) {
-            VisitedForumData visitedForumData = this.cGU.get(i);
+        if (aVar != null && this.cId != null && this.cId.get(i) != null) {
+            VisitedForumData visitedForumData = this.cId.get(i);
             aVar.itemView.setTag(visitedForumData);
             a(visitedForumData, aVar);
             b(visitedForumData, aVar);
-            aVar.cGY.startLoad(visitedForumData.Dm(), 10, false);
-            ak.c(aVar.aFS, d.f.icon_ba_delete_n);
+            aVar.cIh.startLoad(visitedForumData.Dk(), 10, false);
+            ak.c(aVar.aFT, d.f.icon_ba_delete_n);
             ak.h(aVar.apV, d.C0126d.cp_cont_b);
         }
     }
@@ -72,88 +72,88 @@ public class d extends RecyclerView.Adapter<a> {
 
     private void b(VisitedForumData visitedForumData, a aVar) {
         if (visitedForumData != null && aVar != null) {
-            aVar.cGZ.setVisibility(8);
-            aVar.aFS.setVisibility(8);
-            aVar.cHa.setVisibility(8);
-            if (this.cGV) {
-                aVar.aFS.setVisibility(0);
-                aVar.aFS.setTag(visitedForumData);
-            } else if (!visitedForumData.Dn()) {
-                if (visitedForumData.Do() <= 0) {
-                    aVar.cGZ.setVisibility(8);
+            aVar.cIi.setVisibility(8);
+            aVar.aFT.setVisibility(8);
+            aVar.cIj.setVisibility(8);
+            if (this.cIe) {
+                aVar.aFT.setVisibility(0);
+                aVar.aFT.setTag(visitedForumData);
+            } else if (!visitedForumData.Dl()) {
+                if (visitedForumData.Dm() <= 0) {
+                    aVar.cIi.setVisibility(8);
                     return;
                 }
-                aVar.cGZ.setVisibility(0);
-                aVar.cGZ.refresh(visitedForumData.Do());
+                aVar.cIi.setVisibility(0);
+                aVar.cIi.refresh(visitedForumData.Dm());
             } else {
-                aVar.cHa.setVisibility(0);
-                ak.i(aVar.cHa, d.f.enter_forum_live_label_bg_shape);
-                ak.h(aVar.cHa, d.C0126d.cp_cont_g);
+                aVar.cIj.setVisibility(0);
+                ak.i(aVar.cIj, d.f.enter_forum_live_label_bg_shape);
+                ak.h(aVar.cIj, d.C0126d.cp_cont_g);
             }
         }
     }
 
     public void co(boolean z) {
-        this.cGV = z;
+        this.cIe = z;
         notifyDataSetChanged();
     }
 
     public void k(View.OnClickListener onClickListener) {
-        this.bMv = onClickListener;
+        this.bNl = onClickListener;
     }
 
     public void a(View.OnLongClickListener onLongClickListener) {
-        this.cGW = onLongClickListener;
+        this.cIf = onLongClickListener;
     }
 
     public void l(View.OnClickListener onClickListener) {
-        this.cGX = onClickListener;
+        this.cIg = onClickListener;
     }
 
     /* loaded from: classes2.dex */
     public class a extends RecyclerView.ViewHolder {
-        public ImageView aFS;
+        public ImageView aFT;
         public TextView apV;
-        public TbImageView cGY;
-        public MessageRedDotView cGZ;
-        public TextView cHa;
+        public TbImageView cIh;
+        public MessageRedDotView cIi;
+        public TextView cIj;
 
         public a(View view2) {
             super(view2);
             view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view3) {
-                    if (d.this.bMv != null) {
-                        d.this.bMv.onClick(view3);
+                    if (d.this.bNl != null) {
+                        d.this.bNl.onClick(view3);
                     }
                 }
             });
             view2.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.2
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view3) {
-                    if (d.this.cGW != null) {
-                        d.this.cGW.onLongClick(view3);
+                    if (d.this.cIf != null) {
+                        d.this.cIf.onLongClick(view3);
                         return true;
                     }
                     return true;
                 }
             });
-            this.cGY = (TbImageView) view2.findViewById(d.g.forum_image);
-            this.cGY.setDefaultResource(d.f.icon_default_ba_120);
-            this.cGY.setDefaultErrorResource(d.f.icon_default_ba_120);
+            this.cIh = (TbImageView) view2.findViewById(d.g.forum_image);
+            this.cIh.setDefaultResource(d.f.icon_default_ba_120);
+            this.cIh.setDefaultErrorResource(d.f.icon_default_ba_120);
             this.apV = (TextView) view2.findViewById(d.g.forum_name);
-            this.cGZ = (MessageRedDotView) view2.findViewById(d.g.red_dot_view);
-            this.cGZ.setThreeDotMode(2);
-            this.aFS = (ImageView) view2.findViewById(d.g.delete_image);
-            this.aFS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.3
+            this.cIi = (MessageRedDotView) view2.findViewById(d.g.red_dot_view);
+            this.cIi.setThreeDotMode(2);
+            this.aFT = (ImageView) view2.findViewById(d.g.delete_image);
+            this.aFT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view3) {
-                    if (d.this.cGX != null) {
-                        d.this.cGX.onClick(view3);
+                    if (d.this.cIg != null) {
+                        d.this.cIg.onClick(view3);
                     }
                 }
             });
-            this.cHa = (TextView) view2.findViewById(d.g.live_label_view);
+            this.cIj = (TextView) view2.findViewById(d.g.live_label_view);
         }
     }
 }

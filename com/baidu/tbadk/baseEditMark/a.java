@@ -19,15 +19,15 @@ public abstract class a {
 
     public abstract void ae(boolean z);
 
-    public abstract String oH();
+    public abstract String oG();
 
-    public abstract boolean oI();
+    public abstract boolean oH();
+
+    public abstract void oI();
 
     public abstract void oJ();
 
-    public abstract void oK();
-
-    public abstract MarkData oL();
+    public abstract MarkData oK();
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, a.class, baseActivity);

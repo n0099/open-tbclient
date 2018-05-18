@@ -14,20 +14,20 @@ import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a>> implements com.baidu.tieba.a.f {
-    public BdUniqueId aTr;
-    private String bvX;
-    private ab dAP;
-    private com.baidu.tieba.homepage.concern.view.a dAT;
+    public BdUniqueId aTs;
+    private String bwO;
+    private ab dBW;
+    private com.baidu.tieba.homepage.concern.view.a dCa;
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dAP = new ab<j>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
+        this.dBW = new ab<j>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, j jVar) {
-                if (view2 != null && c.this.dAT != null && c.this.dAT.getView() != null && jVar != null && jVar.Pe() != null && !StringUtils.isNull(jVar.Pe().getTid())) {
-                    boolean z = view2 == c.this.dAT.getHeaderImg();
+                if (view2 != null && c.this.dCa != null && c.this.dCa.getView() != null && jVar != null && jVar.Pb() != null && !StringUtils.isNull(jVar.Pb().getTid())) {
+                    boolean z = view2 == c.this.dCa.getHeaderImg();
                     al alVar = new al("c12352");
                     alVar.r("obj_locate", z ? 1 : 2);
                     alVar.ac("obj_type", jVar.afL());
@@ -35,11 +35,11 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
                     alVar.f(ImageViewerConfig.FORUM_ID, jVar.threadData.getFid());
                     alVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
                     TiebaStatic.log(alVar);
-                    if (view2 == c.this.dAT.bwk.getCommentContainer() || view2 == c.this.dAT.bwZ.apG.getCommentContainer()) {
+                    if (view2 == c.this.dCa.bxb.getCommentContainer() || view2 == c.this.dCa.bxQ.apG.getCommentContainer()) {
                         al alVar2 = new al("c12942");
                         alVar2.r("obj_locate", 7);
                         alVar2.r("obj_type", 5);
-                        alVar2.ac("tid", jVar.Pe().getTid());
+                        alVar2.ac("tid", jVar.Pb().getTid());
                         TiebaStatic.log(alVar2);
                     }
                 }
@@ -53,11 +53,11 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dAT = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext);
-        if (this.aTr != null) {
-            this.dAT.j(this.aTr);
+        this.dCa = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext);
+        if (this.aTs != null) {
+            this.dCa.j(this.aTs);
         }
-        return new com.baidu.tieba.card.a.a<>(this.dAT);
+        return new com.baidu.tieba.card.a.a<>(this.dCa);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,18 +68,18 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
         if (jVar == null || aVar == null || aVar.afY() == null) {
             return null;
         }
-        jVar.iN(i + 1);
-        v.afy().a(jVar.kB("c12351"));
+        jVar.iM(i + 1);
+        v.afy().a(jVar.kE("c12351"));
         if (aVar.afY() instanceof com.baidu.tieba.a.e) {
-            aVar.afY().setPage(this.bvX);
+            aVar.afY().setPage(this.bwO);
         }
         aVar.afY().a(jVar);
-        aVar.afY().b(this.dAP);
+        aVar.afY().b(this.dBW);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void hY(String str) {
-        this.bvX = str;
+    public void hZ(String str) {
+        this.bwO = str;
     }
 }

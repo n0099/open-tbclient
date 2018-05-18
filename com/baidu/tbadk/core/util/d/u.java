@@ -19,7 +19,7 @@ public class u extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int wx() {
+    public int ww() {
         return this.procType;
     }
 
@@ -39,12 +39,12 @@ public class u extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wv() {
+    public boolean wu() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ww() {
+    public boolean wv() {
         return false;
     }
 
@@ -67,7 +67,7 @@ public class u extends a {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(eC);
-            aVar.uq = dVar;
+            aVar.uo = dVar;
         }
         boolean gQ = com.baidu.adp.lib.util.j.gQ();
         if (!com.baidu.adp.lib.Disk.d.dp().c(eC)) {
@@ -107,7 +107,7 @@ public class u extends a {
             if (aVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                aVar.uq = dVar;
+                aVar.uo = dVar;
             }
         }
         return aVar2;

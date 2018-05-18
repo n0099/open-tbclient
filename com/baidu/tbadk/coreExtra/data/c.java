@@ -16,9 +16,9 @@ public class c {
     private int asI = 0;
     private int asJ = 300;
     private int asK = 1;
-    public int first_floor = 4;
     public int asL = 4;
-    public int asM = 7;
+    public int asM = 4;
+    public int asN = 7;
     private e asz = new e();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
@@ -44,22 +44,22 @@ public class c {
             this.asH = jSONObject.optInt("ad_download_lib", 0);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
             if (optJSONObject3 != null) {
-                this.first_floor = optJSONObject3.optInt("first_floor");
-                this.asL = optJSONObject3.optInt("prefetch_step");
-                this.asM = optJSONObject3.optInt("step");
+                this.asL = optJSONObject3.optInt("first_floor");
+                this.asM = optJSONObject3.optInt("prefetch_step");
+                this.asN = optJSONObject3.optInt("step");
             }
         }
     }
 
-    public e yf() {
+    public e ye() {
         return this.asz;
     }
 
-    public boolean yg() {
+    public boolean yf() {
         return this.asy > 0;
     }
 
-    public boolean yh() {
+    public boolean yg() {
         if (this.asB == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             return this.asC < currentTimeMillis && currentTimeMillis < this.asD;
@@ -67,31 +67,31 @@ public class c {
         return false;
     }
 
-    public boolean yi() {
+    public boolean yh() {
         return this.asG == 1;
     }
 
-    public boolean yj() {
+    public boolean yi() {
         return this.asI == 1;
     }
 
-    public String yk() {
+    public String yj() {
         return this.asE;
     }
 
-    public boolean yl() {
+    public boolean yk() {
         return this.asF == 1;
     }
 
-    public int ym() {
+    public int yl() {
         return this.asJ;
     }
 
-    public int yn() {
+    public int ym() {
         return this.asK;
     }
 
-    public boolean yo() {
+    public boolean yn() {
         return this.asH == 0;
     }
 }

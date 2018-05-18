@@ -6,25 +6,25 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0187a fcY;
+    private InterfaceC0187a fef;
     private int count = 0;
-    private long fcW = 0;
-    private long fcX = 0;
-    private long fcZ = 500;
+    private long fed = 0;
+    private long fee = 0;
+    private long feg = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.fcW = 0L;
-                a.this.fcX = 0L;
+                a.this.fed = 0L;
+                a.this.fee = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.fcY != null) {
-                    a.this.fcY.aWm();
+                if (a.this.fef != null) {
+                    a.this.fef.aWm();
                 }
                 a.this.count = 0;
-                a.this.fcW = 0L;
-                a.this.fcX = 0L;
+                a.this.fed = 0L;
+                a.this.fee = 0L;
             }
         }
     };
@@ -38,24 +38,24 @@ public class a implements View.OnTouchListener {
     }
 
     public a(InterfaceC0187a interfaceC0187a) {
-        this.fcY = interfaceC0187a;
+        this.fef = interfaceC0187a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view2, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.fcY == null) {
+            if (this.fef == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.fcW = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.fcZ);
+                this.fed = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.feg);
                 return true;
             } else if (this.count == 2) {
-                this.fcX = System.currentTimeMillis();
-                if (this.fcX - this.fcW < this.fcZ) {
-                    this.fcY.aWl();
+                this.fee = System.currentTimeMillis();
+                if (this.fee - this.fed < this.feg) {
+                    this.fef.aWl();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

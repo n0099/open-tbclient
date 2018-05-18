@@ -18,10 +18,10 @@ import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class f extends h {
     private final CustomMessageListener apd;
-    private String dcs;
-    private bd dnP;
-    private boolean dnQ;
-    private PraiseModel dnR;
+    private String ddB;
+    private bd doX;
+    private boolean doY;
+    private PraiseModel doZ;
 
     public f(FrsFragment frsFragment) {
         super(frsFragment);
@@ -31,51 +31,51 @@ public class f extends h {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bd)) {
                     bd bdVar = (bd) customResponsedMessage.getData();
-                    f.this.dcs = bdVar.getId();
-                    if (!TextUtils.isEmpty(f.this.dcs) && bdVar.rF() != null) {
-                        f.this.ks(bdVar.rF().getIsLike());
+                    f.this.ddB = bdVar.getId();
+                    if (!TextUtils.isEmpty(f.this.ddB) && bdVar.rE() != null) {
+                        f.this.kr(bdVar.rE().getIsLike());
                     }
                 }
             }
         };
-        this.dmW.registerListener(this.apd);
-        this.dnR = aut();
+        this.dof.registerListener(this.apd);
+        this.doZ = aus();
     }
 
-    public final PraiseModel aut() {
-        if (this.dnR == null) {
-            this.dnR = new PraiseModel(this.dmW.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.f.1
+    public final PraiseModel aus() {
+        if (this.doZ == null) {
+            this.doZ = new PraiseModel(this.dof.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.f.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-                public void in(String str) {
+                public void io(String str) {
                     int i = 1;
-                    if (f.this.dnQ) {
-                        if (f.this.dnP != null && f.this.dnP.rF().getIsLike() == 1) {
+                    if (f.this.doY) {
+                        if (f.this.doX != null && f.this.doX.rE().getIsLike() == 1) {
                             i = 0;
                         }
-                        f.this.ks(i);
+                        f.this.kr(i);
                     }
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
                 }
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void R(int i, String str) {
-                    if (f.this.dmW != null && f.this.dmW.getPageContext() != null && f.this.dnQ && !TextUtils.isEmpty(str)) {
-                        if (AntiHelper.tt(i)) {
-                            AntiHelper.am(f.this.dmW.getPageContext().getPageActivity(), str);
+                    if (f.this.dof != null && f.this.dof.getPageContext() != null && f.this.doY && !TextUtils.isEmpty(str)) {
+                        if (AntiHelper.ts(i)) {
+                            AntiHelper.am(f.this.dof.getPageContext().getPageActivity(), str);
                         } else {
-                            f.this.dmW.showToast(str);
+                            f.this.dof.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.dnR;
+        return this.doZ;
     }
 
-    public void ks(int i) {
+    public void kr(int i) {
         ArrayList<com.baidu.adp.widget.ListView.h> threadList;
-        l apE = this.dmW.apE();
-        if (apE != null && this.cXh != null && (threadList = apE.getThreadList()) != null) {
+        l apD = this.dof.apD();
+        if (apD != null && this.cYo != null && (threadList = apD.getThreadList()) != null) {
             Iterator<com.baidu.adp.widget.ListView.h> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -84,33 +84,33 @@ public class f extends h {
                 com.baidu.adp.widget.ListView.h next = it.next();
                 if (next instanceof bd) {
                     bd bdVar = (bd) next;
-                    if (bdVar == this.dnP) {
+                    if (bdVar == this.doX) {
                         a(bdVar, i);
-                        this.dnP = null;
+                        this.doX = null;
                         break;
-                    } else if (bdVar.getId() != null && bdVar.getId().equals(this.dcs)) {
+                    } else if (bdVar.getId() != null && bdVar.getId().equals(this.ddB)) {
                         a(bdVar, i);
-                        this.dcs = null;
+                        this.ddB = null;
                         break;
                     }
                 }
             }
-            this.cXh.aqt().b(threadList, apE);
-            this.cXh.aqt().notifyDataSetChanged();
+            this.cYo.aqs().b(threadList, apD);
+            this.cYo.aqs().notifyDataSetChanged();
         }
     }
 
     public void a(bd bdVar, int i) {
         if (bdVar != null) {
             if (i == 1) {
-                PraiseData rF = bdVar.rF();
+                PraiseData rE = bdVar.rE();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
                     MetaData metaData = new MetaData();
                     metaData.setName_show(currentAccountObj.getAccount());
                     metaData.setPortrait(currentAccountObj.getPortrait());
                     metaData.setUserId(currentAccountObj.getID());
-                    if (rF == null) {
+                    if (rE == null) {
                         PraiseData praiseData = new PraiseData();
                         praiseData.setIsLike(i);
                         praiseData.setNum(1L);
@@ -118,20 +118,20 @@ public class f extends h {
                         bdVar.a(praiseData);
                         return;
                     }
-                    bdVar.rF().getUser().add(0, metaData);
-                    bdVar.rF().setNum(bdVar.rF().getNum() + 1);
-                    bdVar.rF().setIsLike(i);
+                    bdVar.rE().getUser().add(0, metaData);
+                    bdVar.rE().setNum(bdVar.rE().getNum() + 1);
+                    bdVar.rE().setIsLike(i);
                 }
-            } else if (bdVar.rF() != null) {
-                bdVar.rF().setIsLike(i);
-                bdVar.rF().setNum(bdVar.rF().getNum() - 1);
-                ArrayList<MetaData> user = bdVar.rF().getUser();
+            } else if (bdVar.rE() != null) {
+                bdVar.rE().setIsLike(i);
+                bdVar.rE().setNum(bdVar.rE().getNum() - 1);
+                ArrayList<MetaData> user = bdVar.rE().getUser();
                 if (user != null) {
                     Iterator<MetaData> it = user.iterator();
                     while (it.hasNext()) {
                         MetaData next = it.next();
                         if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
-                            bdVar.rF().getUser().remove(next);
+                            bdVar.rE().getUser().remove(next);
                             return;
                         }
                     }
@@ -140,7 +140,7 @@ public class f extends h {
         }
     }
 
-    public void fT(boolean z) {
-        this.dnQ = z;
+    public void fU(boolean z) {
+        this.doY = z;
     }
 }

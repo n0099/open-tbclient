@@ -8,37 +8,37 @@ public interface a {
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0004a implements a {
-        private static a pz;
-        private int pA;
-        private final d pB = new d();
+        private static a py;
+        private final d pA = new d();
+        private int pz;
 
         public C0004a() {
-            this.pA = 0;
-            if (NSGif.pD) {
-                this.pA = 0;
+            this.pz = 0;
+            if (NSGif.pC) {
+                this.pz = 0;
             } else {
-                this.pA = 1;
+                this.pz = 1;
             }
         }
 
         public static synchronized a dl() {
             a aVar;
             synchronized (C0004a.class) {
-                if (pz == null) {
-                    pz = new C0004a();
+                if (py == null) {
+                    py = new C0004a();
                 }
-                aVar = pz;
+                aVar = py;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a J(String str) {
-            if (this.pA != 0) {
+            if (this.pz != 0) {
                 return null;
             }
             try {
-                return this.pB.J(str);
+                return this.pA.J(str);
             } catch (Exception e) {
                 return null;
             }
@@ -46,11 +46,11 @@ public interface a {
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a g(byte[] bArr, int i, int i2) {
-            if (this.pA != 0) {
+            if (this.pz != 0) {
                 return null;
             }
             try {
-                return this.pB.g(bArr, i, i2);
+                return this.pA.g(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

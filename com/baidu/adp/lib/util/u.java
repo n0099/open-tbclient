@@ -17,8 +17,8 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public class u {
-    public static final Charset xA = Charset.forName("UTF-8");
-    private static final byte[] xB = {-92, 11, -56, 52, -42, -107, -13, 19};
+    public static final Charset xz = Charset.forName("UTF-8");
+    private static final byte[] xA = {-92, 11, -56, 52, -42, -107, -13, 19};
 
     public static PublicKey o(byte[] bArr) throws Exception {
         return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
@@ -42,7 +42,7 @@ public class u {
         for (int i = 0; i < cArr.length; i++) {
             cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, xB, 5, 256));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, xA, 5, 256));
     }
 
     public static byte[] a(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {

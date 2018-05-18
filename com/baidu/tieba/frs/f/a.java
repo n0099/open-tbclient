@@ -16,15 +16,15 @@ public class a {
             bVar2.O(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.hv(forumData.getFirst_class());
-                bVar2.hw(forumData.getSecond_class());
+                bVar2.hw(forumData.getFirst_class());
+                bVar2.hx(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.hx(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.hy(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
             bVar2.ci(z);
-            bVar2.gc(i);
+            bVar2.gd(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
         }
     }
@@ -39,7 +39,7 @@ public class a {
         int[] iArr;
         int indexOf;
         if (eVar != null && v.v(list) > 0 && v.v(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.gvU) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.gwY) {
                 com.baidu.adp.widget.ListView.h hVar = (com.baidu.adp.widget.ListView.h) v.c(list, i);
                 if (hVar != null && (indexOf = list2.indexOf(hVar)) >= 0) {
                     eVar.bH(i, indexOf);

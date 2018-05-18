@@ -21,12 +21,12 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.officialBar.c;
 /* loaded from: classes3.dex */
 public class SingleImageTextView extends RelativeLayout {
-    private View bwn;
-    private TextView cNF;
-    private TbImageView cNw;
-    private TextView coT;
-    private com.baidu.adp.lib.c.b dQx;
-    private TextView dTD;
+    private View bxe;
+    private TbImageView cOD;
+    private TextView cOM;
+    private TextView cqd;
+    private com.baidu.adp.lib.c.b dRE;
+    private TextView dUK;
     private ImageView mArrow;
     private Context mContext;
     private int mPosition;
@@ -42,7 +42,7 @@ public class SingleImageTextView extends RelativeLayout {
 
     public SingleImageTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dQx = null;
+        this.dRE = null;
         this.mContext = context;
         initView();
     }
@@ -50,18 +50,18 @@ public class SingleImageTextView extends RelativeLayout {
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(d.i.msg_single_pic_text_view, (ViewGroup) this, true);
         this.mTitle = (TextView) findViewById(d.g.single_title);
-        this.coT = (TextView) findViewById(d.g.single_abstract);
-        this.cNw = (TbImageView) findViewById(d.g.single_content_pic);
-        this.cNw.setAutoChangeStyle(false);
-        this.dTD = (TextView) findViewById(d.g.read_all);
+        this.cqd = (TextView) findViewById(d.g.single_abstract);
+        this.cOD = (TbImageView) findViewById(d.g.single_content_pic);
+        this.cOD.setAutoChangeStyle(false);
+        this.dUK = (TextView) findViewById(d.g.read_all);
         this.mArrow = (ImageView) findViewById(d.g.arrow);
-        this.bwn = findViewById(d.g.single_divider);
-        this.cNF = (TextView) findViewById(d.g.show_time_single);
+        this.bxe = findViewById(d.g.single_divider);
+        this.cOM = (TextView) findViewById(d.g.show_time_single);
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.SingleImageTextView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view2) {
-                if (SingleImageTextView.this.dQx != null) {
-                    SingleImageTextView.this.dQx.b(view2, 9, SingleImageTextView.this.mPosition, 0L);
+                if (SingleImageTextView.this.dRE != null) {
+                    SingleImageTextView.this.dRE.b(view2, 9, SingleImageTextView.this.mPosition, 0L);
                     return false;
                 }
                 return false;
@@ -81,25 +81,25 @@ public class SingleImageTextView extends RelativeLayout {
             if (!TextUtils.isEmpty(aVar.text)) {
                 str2 = aVar.text;
             }
-            this.coT.setText(str2);
+            this.cqd.setText(str2);
             if (!TextUtils.isEmpty(aVar.url)) {
                 setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.SingleImageTextView.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view3) {
-                        ax.wg().c(tbPageContext, new String[]{aVar.url});
+                        ax.wf().c(tbPageContext, new String[]{aVar.url});
                         if (i == 1) {
                             TiebaStatic.eventStat(SingleImageTextView.this.mContext, "official_msg_ck", "click", 1, ImageViewerConfig.FORUM_ID, aVar.fid);
-                            com.baidu.tieba.im.data.d nX = com.baidu.tieba.im.util.e.nX(aVar.dSl);
-                            if (nX != null) {
-                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", nX.dVY, "task_id", nX.taskId, "loc", "0");
-                                if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(nX.taskId)) {
-                                    com.baidu.tieba.im.b.a.aGZ().nR(nX.taskId);
+                            com.baidu.tieba.im.data.d oa = com.baidu.tieba.im.util.e.oa(aVar.dTs);
+                            if (oa != null) {
+                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", oa.dXf, "task_id", oa.taskId, "loc", "0");
+                                if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(oa.taskId)) {
+                                    com.baidu.tieba.im.b.a.aGX().nU(oa.taskId);
                                 }
                             }
                             al alVar = new al("official_message_open_detail");
-                            alVar.f("msg_id", aVar.dSs / 100);
-                            alVar.ac("official_id", aVar.dSt);
-                            alVar.r("official_type", aVar.dSu);
+                            alVar.f("msg_id", aVar.dTz / 100);
+                            alVar.ac("official_id", aVar.dTA);
+                            alVar.r("official_type", aVar.dTB);
                             alVar.f("operate_time", System.currentTimeMillis() / 1000);
                             alVar.f("task_id", aVar.taskId);
                             alVar.ac("obj_params1", aVar.url);
@@ -109,56 +109,56 @@ public class SingleImageTextView extends RelativeLayout {
                 });
             }
             if (!TextUtils.isEmpty(aVar.src)) {
-                this.cNw.setTag(aVar.src);
-                this.cNw.startLoad(aVar.src, 10, false);
+                this.cOD.setTag(aVar.src);
+                this.cOD.startLoad(aVar.src, 10, false);
             }
-            ViewGroup.LayoutParams layoutParams = this.coT.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.cqd.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.bottomMargin = 0;
-                this.coT.setLayoutParams(marginLayoutParams);
+                this.cqd.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
     public void reset() {
         this.mTitle.setText("");
-        this.coT.setText("");
-        this.cNw.setBackgroundDrawable(null);
-        this.cNw.setImageDrawable(null);
-        this.cNF.setText("");
-        this.cNF.setVisibility(8);
+        this.cqd.setText("");
+        this.cOD.setBackgroundDrawable(null);
+        this.cOD.setImageDrawable(null);
+        this.cOM.setText("");
+        this.cOM.setVisibility(8);
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.dQx = bVar;
+        this.dRE = bVar;
     }
 
     public void setPosition(int i) {
         this.mPosition = i;
     }
 
-    public void gL(boolean z) {
+    public void gM(boolean z) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType == 1 && !z) {
             skinType = 0;
         }
-        this.cNw.setAutoChangeStyle(z);
+        this.cOD.setAutoChangeStyle(z);
         ak.b(this.mTitle, d.C0126d.common_color_10039, 1, skinType);
-        ak.b(this.coT, d.C0126d.cp_cont_c, 1, skinType);
-        ak.b(this.dTD, d.C0126d.common_color_10039, 1, skinType);
+        ak.b(this.cqd, d.C0126d.cp_cont_c, 1, skinType);
+        ak.b(this.dUK, d.C0126d.common_color_10039, 1, skinType);
         ak.d(this.mArrow, d.f.icon_ba_top_arrow_big, skinType);
-        ak.b(this.cNF, d.C0126d.common_color_10067, 1, skinType);
-        ak.d(this.bwn, d.f.multi_single_divider_selector, skinType);
+        ak.b(this.cOM, d.C0126d.common_color_10067, 1, skinType);
+        ak.d(this.bxe, d.f.multi_single_divider_selector, skinType);
     }
 
     public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.cNF.setVisibility(8);
-            this.cNF.setText("");
+            this.cOM.setVisibility(8);
+            this.cOM.setText("");
             return;
         }
-        this.cNF.setVisibility(0);
-        this.cNF.setText(str);
+        this.cOM.setVisibility(0);
+        this.cOM.setText(str);
     }
 }

@@ -10,46 +10,46 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes2.dex */
 public class h {
-    private BaseActivity bcJ;
-    private a fhv = null;
-    private final HttpMessageListener fhw = new HttpMessageListener(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD) { // from class: com.baidu.tieba.pb.pb.main.h.1
+    private BaseActivity bcK;
+    private a fiE = null;
+    private final HttpMessageListener fiF = new HttpMessageListener(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD) { // from class: com.baidu.tieba.pb.pb.main.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803 && h.this.fhv != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803 && h.this.fiE != null) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 String errorString = httpResponsedMessage.getErrorString();
                 if (!(httpResponsedMessage instanceof HideChudianPostResponseMessage)) {
-                    h.this.fhv.onError(error, errorString);
+                    h.this.fiE.onError(error, errorString);
                     return;
                 }
                 HideChudianPostResponseMessage hideChudianPostResponseMessage = (HideChudianPostResponseMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    h.this.fhv.onError(error, errorString);
+                    h.this.fiE.onError(error, errorString);
                     return;
                 }
                 hideChudianPostResponseMessage.getResultFlag();
-                h.this.fhv.m(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
+                h.this.fiE.k(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
             }
         }
     };
 
     /* loaded from: classes2.dex */
     public interface a {
-        void m(int i, long j);
+        void k(int i, long j);
 
         void onError(int i, String str);
     }
 
     public h(PbModel pbModel, BaseActivity baseActivity) {
-        this.bcJ = baseActivity;
+        this.bcK = baseActivity;
         aXT();
-        this.bcJ.registerListener(this.fhw);
+        this.bcK.registerListener(this.fiF);
     }
 
     public void a(a aVar) {
-        this.fhv = aVar;
+        this.fiE = aVar;
     }
 
     public void aXT() {

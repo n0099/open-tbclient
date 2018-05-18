@@ -6,20 +6,20 @@ import java.util.Map;
 public class c {
     public int ajG;
     public String mErrorString;
-    public int tX;
+    public int tW;
     public String ajH = null;
     public boolean mIsGif = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean vm() {
-        return this.tX == 200;
+    public boolean vl() {
+        return this.tW == 200;
     }
 
     public boolean isRequestSuccess() {
-        return this.tX == 200 && this.ajG == 0;
+        return this.tW == 200 && this.ajG == 0;
     }
 
     public boolean eX() {
-        return this.tX == 200 || this.tX == 206;
+        return this.tW == 200 || this.tW == 206;
     }
 }

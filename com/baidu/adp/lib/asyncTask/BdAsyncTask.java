@@ -257,10 +257,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.qT.finish(aVar.mData[0]);
+                    aVar.qS.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.qT.onProgressUpdate(aVar.mData);
+                    aVar.qS.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;
@@ -281,10 +281,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* loaded from: classes.dex */
     public static class a<Data> {
         final Data[] mData;
-        final BdAsyncTask qT;
+        final BdAsyncTask qS;
 
         a(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.qT = bdAsyncTask;
+            this.qS = bdAsyncTask;
             this.mData = dataArr;
         }
     }

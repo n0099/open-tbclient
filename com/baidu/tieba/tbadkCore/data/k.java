@@ -17,13 +17,13 @@ import java.util.regex.Pattern;
 public class k {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern gwn = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern gxr = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String gwl = null;
-    private SpannableStringBuilder gwm = null;
-    private boolean gwk = false;
+    private String gxp = null;
+    private SpannableStringBuilder gxq = null;
+    private boolean gxo = false;
 
     public static boolean bI(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -41,20 +41,20 @@ public class k {
         return this.text;
     }
 
-    public String brL() {
+    public String brJ() {
         return this.c;
     }
 
-    public SpannableStringBuilder brM() {
-        return this.gwm;
+    public SpannableStringBuilder brK() {
+        return this.gxq;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.gwm == null) {
-            this.gwm = new SpannableStringBuilder();
+        if (this.gxq == null) {
+            this.gxq = new SpannableStringBuilder();
         }
-        this.gwm.append((CharSequence) spannableString);
-        return this.gwm;
+        this.gxq.append((CharSequence) spannableString);
+        return this.gxq;
     }
 
     public SpannableString bW(Context context) {
@@ -80,7 +80,7 @@ public class k {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.gwn.matcher(k.this.link);
+                        Matcher matcher2 = k.gxr.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
@@ -98,9 +98,9 @@ public class k {
                 SpannableString spannableString2 = new SpannableString(this.text + " ");
                 com.baidu.adp.widget.ImageView.a face = TbadkCoreApplication.getInst().getFace(this.text);
                 if (face != null) {
-                    BitmapDrawable ko = face.ko();
-                    ko.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(ko, 1), 0, this.text.length(), 33);
+                    BitmapDrawable kn = face.kn();
+                    kn.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(kn, 1), 0, this.text.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;

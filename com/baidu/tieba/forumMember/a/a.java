@@ -29,11 +29,11 @@ public class a extends com.baidu.tieba.frs.f<b, c> {
         super.onFillViewHolder(i, view2, viewGroup, bVar, cVar);
         if (cVar.mSkinType != this.mSkinType) {
             ak.j(cVar.getView(), d.C0126d.cp_bg_line_d);
-            ak.j(cVar.bae, d.C0126d.cp_bg_line_b);
+            ak.j(cVar.baf, d.C0126d.cp_bg_line_b);
             ak.c(cVar.title, d.C0126d.cp_cont_c, 1);
-            ak.j(cVar.cIL, d.C0126d.cp_bg_line_c);
+            ak.j(cVar.cJU, d.C0126d.cp_bg_line_c);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(d.k.forum_manito_num), Integer.valueOf(bVar.aof())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(d.k.forum_manito_num), Integer.valueOf(bVar.aoe())));
         cVar.mSkinType = this.mSkinType;
         return view2;
     }

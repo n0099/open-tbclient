@@ -26,7 +26,7 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        wY();
+        wX();
     }
 
     public TbCheckBox(Context context) {
@@ -52,18 +52,18 @@ public class TbCheckBox extends ImageView {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.TbCheckBox.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                TbCheckBox.this.setChecked(!TbCheckBox.this.wZ());
+                TbCheckBox.this.setChecked(!TbCheckBox.this.wY());
             }
         });
-        wY();
+        wX();
     }
 
     public void setStatedChangedListener(a aVar) {
         this.anV = aVar;
     }
 
-    public void wY() {
-        if (wZ()) {
+    public void wX() {
+        if (wY()) {
             ak.c(this, this.anT);
             setContentDescription(getResources().getString(d.k.check_box_checked));
             return;
@@ -73,11 +73,11 @@ public class TbCheckBox extends ImageView {
     }
 
     public boolean isChecked() {
-        return wZ();
+        return wY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean wZ() {
+    public boolean wY() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -90,7 +90,7 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        wY();
+        wX();
         if (this.anV != null) {
             this.anV.a(this, z, getTag());
         }

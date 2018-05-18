@@ -48,7 +48,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lO */
+    /* renamed from: lN */
     public MetaData getItem(int i) {
         if (i < this.mList.size()) {
             return this.mList.get(i);
@@ -67,12 +67,12 @@ public class a extends BaseAdapter {
         if (view2 == null) {
             view2 = LayoutInflater.from(this.mContext).inflate(d.i.god_recommend_list_item, (ViewGroup) null);
             C0145a c0145a2 = new C0145a();
-            c0145a2.bZw = (ClickableHeaderImageView) view2.findViewById(d.g.photo);
-            c0145a2.bGo = (TextView) view2.findViewById(d.g.user_name);
-            c0145a2.dyi = (TextView) view2.findViewById(d.g.god_info);
-            c0145a2.dyj = (TextView) view2.findViewById(d.g.fans_and_thread_count);
-            c0145a2.dyk = (TextView) view2.findViewById(d.g.attention_btn);
-            c0145a2.bYn = view2.findViewById(d.g.bottom_line);
+            c0145a2.car = (ClickableHeaderImageView) view2.findViewById(d.g.photo);
+            c0145a2.bHL = (TextView) view2.findViewById(d.g.user_name);
+            c0145a2.dzp = (TextView) view2.findViewById(d.g.god_info);
+            c0145a2.dzq = (TextView) view2.findViewById(d.g.fans_and_thread_count);
+            c0145a2.dzr = (TextView) view2.findViewById(d.g.attention_btn);
+            c0145a2.bZm = view2.findViewById(d.g.bottom_line);
             view2.setTag(c0145a2);
             c0145a = c0145a2;
         } else {
@@ -82,34 +82,34 @@ public class a extends BaseAdapter {
         MetaData item = getItem(i);
         if (item != null) {
             String portrait = item.getPortrait();
-            c(c0145a.dyk, item.getGodUserData().getIsLike());
-            c0145a.bZw.setGodIconMargin(0);
-            c0145a.bZw.setClickable(false);
-            c0145a.bZw.startLoad(portrait, 28, false);
-            c0145a.bZw.setIsBigV(true);
-            c0145a.bZw.setShowV(true);
-            c0145a.bGo.setText(item.getUserName());
+            c(c0145a.dzr, item.getGodUserData().getIsLike());
+            c0145a.car.setGodIconMargin(0);
+            c0145a.car.setClickable(false);
+            c0145a.car.startLoad(portrait, 28, false);
+            c0145a.car.setIsBigV(true);
+            c0145a.car.setShowV(true);
+            c0145a.bHL.setText(item.getUserName());
             switch (item.getGodUserData().getType()) {
                 case 1:
-                    c0145a.dyi.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
+                    c0145a.dzp.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
                     break;
                 case 2:
-                    c0145a.dyi.setText(UtilHelper.getFixedBarText(this.mContext.getString(d.k.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
+                    c0145a.dzp.setText(UtilHelper.getFixedBarText(this.mContext.getString(d.k.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
                     break;
                 default:
-                    c0145a.dyi.setVisibility(8);
+                    c0145a.dzp.setVisibility(8);
                     break;
             }
-            c0145a.dyj.setText(an.B(item.getFansNum()) + this.mContext.getString(d.k.fans_default_name) + " " + an.B(item.getLikeNum()) + this.mContext.getString(d.k.zan));
+            c0145a.dzq.setText(an.B(item.getFansNum()) + this.mContext.getString(d.k.fans_default_name) + " " + an.B(item.getLikeNum()) + this.mContext.getString(d.k.zan));
         }
         if (i == getCount() - 1) {
-            c0145a.bYn.setVisibility(8);
+            c0145a.bZm.setVisibility(8);
         } else {
-            c0145a.bYn.setVisibility(0);
+            c0145a.bZm.setVisibility(0);
         }
         if (this.mOnClickListener != null && item != null) {
-            c0145a.dyk.setTag(item);
-            c0145a.dyk.setOnClickListener(this.mOnClickListener);
+            c0145a.dzr.setTag(item);
+            c0145a.dzr.setOnClickListener(this.mOnClickListener);
         }
         return view2;
     }
@@ -118,10 +118,10 @@ public class a extends BaseAdapter {
         if (c0145a != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (c0145a.mSkinType != skinType) {
-                ak.h(c0145a.bGo, d.C0126d.cp_cont_h);
-                ak.h(c0145a.dyi, d.C0126d.cp_cont_d);
-                ak.h(c0145a.dyj, d.C0126d.cp_cont_d);
-                ak.j(c0145a.bYn, d.C0126d.cp_bg_line_b);
+                ak.h(c0145a.bHL, d.C0126d.cp_cont_h);
+                ak.h(c0145a.dzp, d.C0126d.cp_cont_d);
+                ak.h(c0145a.dzq, d.C0126d.cp_cont_d);
+                ak.j(c0145a.bZm, d.C0126d.cp_bg_line_b);
             }
             c0145a.mSkinType = skinType;
         }
@@ -149,12 +149,12 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.godRecommends.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0145a {
-        public TextView bGo;
-        public View bYn;
-        public ClickableHeaderImageView bZw;
-        public TextView dyi;
-        public TextView dyj;
-        public TextView dyk;
+        public TextView bHL;
+        public View bZm;
+        public ClickableHeaderImageView car;
+        public TextView dzp;
+        public TextView dzq;
+        public TextView dzr;
         public int mSkinType;
 
         private C0145a() {

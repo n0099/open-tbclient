@@ -39,100 +39,88 @@ public class BitmapHelper {
     private static volatile SparseArray<SoftReference<Bitmap>> mBitmapNightHash = new SparseArray<>();
     private static volatile SparseArray<SoftReference<Bitmap>> mBitmapThemeHash = new SparseArray<>();
 
-    public static synchronized Bitmap getCashBitmap(int i, BitmapFactory.Options options) {
+    public static Bitmap getCashBitmap(int i, BitmapFactory.Options options) {
         Bitmap bitmap;
-        synchronized (BitmapHelper.class) {
-            SoftReference<Bitmap> softReference = mBitmapHash.get(i);
-            bitmap = softReference != null ? softReference.get() : null;
-            if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.getInst().getApp(), i, options)) != null) {
-                mBitmapHash.put(i, new SoftReference<>(bitmap));
+        SoftReference<Bitmap> softReference = mBitmapHash.get(i);
+        if (softReference == null) {
+            bitmap = null;
+        } else {
+            bitmap = softReference.get();
+        }
+        if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.getInst().getApp(), i, options)) != null) {
+            mBitmapHash.put(i, new SoftReference<>(bitmap));
+        }
+        return bitmap;
+    }
+
+    public static Bitmap getCashBitmap(int i) {
+        return getCashBitmap(i, new BitmapFactory.Options());
+    }
+
+    public static Bitmap getNightCashBitmap(Resources resources, int i, int i2, BitmapFactory.Options options) {
+        Bitmap bitmap;
+        SoftReference<Bitmap> softReference = mBitmapNightHash.get(i2);
+        if (softReference == null) {
+            bitmap = null;
+        } else {
+            bitmap = softReference.get();
+        }
+        if (bitmap == null) {
+            try {
+                bitmap = BitmapFactory.decodeResource(resources, i, options);
+            } catch (OutOfMemoryError e) {
+                TbadkCoreApplication.getInst().onAppMemoryLow();
+            }
+            if (bitmap != null) {
+                mBitmapNightHash.put(i2, new SoftReference<>(bitmap));
             }
         }
         return bitmap;
     }
 
-    public static synchronized Bitmap getCashBitmap(int i) {
-        Bitmap cashBitmap;
-        synchronized (BitmapHelper.class) {
-            cashBitmap = getCashBitmap(i, new BitmapFactory.Options());
-        }
-        return cashBitmap;
+    public static Bitmap getNightCashBitmap(Resources resources, int i, int i2) {
+        return getNightCashBitmap(resources, i, i2, new BitmapFactory.Options());
     }
 
-    public static synchronized Bitmap getNightCashBitmap(Resources resources, int i, int i2, BitmapFactory.Options options) {
+    public static Bitmap getThemeCashBitmap(Resources resources, int i, int i2, BitmapFactory.Options options) {
         Bitmap bitmap;
-        synchronized (BitmapHelper.class) {
-            SoftReference<Bitmap> softReference = mBitmapNightHash.get(i2);
-            bitmap = softReference != null ? softReference.get() : null;
-            if (bitmap == null) {
-                try {
-                    bitmap = BitmapFactory.decodeResource(resources, i, options);
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                }
-                if (bitmap != null) {
-                    mBitmapNightHash.put(i2, new SoftReference<>(bitmap));
-                }
+        SoftReference<Bitmap> softReference = mBitmapThemeHash.get(i2);
+        if (softReference == null) {
+            bitmap = null;
+        } else {
+            bitmap = softReference.get();
+        }
+        if (bitmap == null) {
+            try {
+                bitmap = BitmapFactory.decodeResource(resources, i, options);
+            } catch (OutOfMemoryError e) {
+                TbadkCoreApplication.getInst().onAppMemoryLow();
+            }
+            if (bitmap != null) {
+                mBitmapThemeHash.put(i2, new SoftReference<>(bitmap));
             }
         }
         return bitmap;
     }
 
-    public static synchronized Bitmap getNightCashBitmap(Resources resources, int i, int i2) {
-        Bitmap nightCashBitmap;
-        synchronized (BitmapHelper.class) {
-            nightCashBitmap = getNightCashBitmap(resources, i, i2, new BitmapFactory.Options());
-        }
-        return nightCashBitmap;
+    public static Bitmap getThemeCashBitmap(Resources resources, int i, int i2) {
+        return getThemeCashBitmap(resources, i, i2, new BitmapFactory.Options());
     }
 
-    public static synchronized Bitmap getThemeCashBitmap(Resources resources, int i, int i2, BitmapFactory.Options options) {
-        Bitmap bitmap;
-        synchronized (BitmapHelper.class) {
-            SoftReference<Bitmap> softReference = mBitmapThemeHash.get(i2);
-            bitmap = softReference != null ? softReference.get() : null;
-            if (bitmap == null) {
-                try {
-                    bitmap = BitmapFactory.decodeResource(resources, i, options);
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                }
-                if (bitmap != null) {
-                    mBitmapThemeHash.put(i2, new SoftReference<>(bitmap));
-                }
-            }
-        }
-        return bitmap;
+    public static void removeCashBitmap(int i) {
+        mBitmapHash.remove(i);
+        mBitmapNightHash.remove(i);
+        mBitmapThemeHash.remove(i);
     }
 
-    public static synchronized Bitmap getThemeCashBitmap(Resources resources, int i, int i2) {
-        Bitmap themeCashBitmap;
-        synchronized (BitmapHelper.class) {
-            themeCashBitmap = getThemeCashBitmap(resources, i, i2, new BitmapFactory.Options());
-        }
-        return themeCashBitmap;
+    public static void clearCashBitmap() {
+        mBitmapHash.clear();
+        mBitmapNightHash.clear();
+        mBitmapThemeHash.clear();
     }
 
-    public static synchronized void removeCashBitmap(int i) {
-        synchronized (BitmapHelper.class) {
-            mBitmapHash.remove(i);
-            mBitmapNightHash.remove(i);
-            mBitmapThemeHash.remove(i);
-        }
-    }
-
-    public static synchronized void clearCashBitmap() {
-        synchronized (BitmapHelper.class) {
-            mBitmapHash.clear();
-            mBitmapNightHash.clear();
-            mBitmapThemeHash.clear();
-        }
-    }
-
-    public static synchronized void clearThemeCashBitmap() {
-        synchronized (BitmapHelper.class) {
-            mBitmapThemeHash.clear();
-        }
+    public static void clearThemeCashBitmap() {
+        mBitmapThemeHash.clear();
     }
 
     public static int getBitmapSize(Bitmap bitmap) {
@@ -337,7 +325,7 @@ public class BitmapHelper {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [511=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [508=4] */
     public static android.graphics.Bitmap loadResizedBitmap(java.lang.String r8, int r9, int r10) {
         /*
             r1 = 1
@@ -511,7 +499,7 @@ public class BitmapHelper {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [574=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [571=4] */
     public static android.graphics.Bitmap loadBitmap(java.lang.String r4, android.graphics.BitmapFactory.Options r5) {
         /*
             r1 = 0
@@ -786,7 +774,7 @@ public class BitmapHelper {
         return Bytes2Bitmap(bArr, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [817=6, 819=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [814=6, 816=5] */
     public static Bitmap Bytes2Bitmap(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -904,7 +892,7 @@ public class BitmapHelper {
         return bitmap;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [887=6, 889=5, 891=5, 893=5, 894=5, 895=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [884=6, 886=5, 888=5, 890=5, 891=5, 892=5] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;

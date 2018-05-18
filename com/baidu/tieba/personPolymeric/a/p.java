@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoList, com.baidu.tieba.personPolymeric.d.a> {
-    private TbPageContext<PersonPolymericActivity> adf;
     private boolean isHost;
+    private TbPageContext<PersonPolymericActivity> mContext;
     private String mPortraitUrl;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.TbPageContext<?> */
     /* JADX WARN: Multi-variable type inference failed */
     public p(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.adf = tbPageContext;
+        this.mContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bA */
     public com.baidu.tieba.personPolymeric.d.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.personPolymeric.d.a(LayoutInflater.from(this.adf.getPageActivity()).inflate(d.i.person_polymeric_item_reply, viewGroup, false), this.adf, this.isHost);
+        return new com.baidu.tieba.personPolymeric.d.a(LayoutInflater.from(this.mContext.getPageActivity()).inflate(d.i.person_polymeric_item_reply, viewGroup, false), this.mContext, this.isHost);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,23 +60,23 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
                     arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(postInfoList.thread_id), String.valueOf(postInfoList.content[i2].post_id), String.valueOf(postInfoList.content[i2].post_type), an.s(postInfoList.content[i2].create_time * 1000), String.valueOf(postInfoList.thread_type)});
                 }
             }
-            aVar.fKE.setContent(arrayList);
+            aVar.fLK.setContent(arrayList);
             if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
-                aVar.fKF.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
+                aVar.fLL.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
             } else {
-                aVar.fKF.setText(postInfoList.title);
+                aVar.fLL.setText(postInfoList.title);
             }
-            aVar.fKF.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
+            aVar.fLL.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
             if (postInfoList.thread_type == 33) {
-                aVar.fKF.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                aVar.fLL.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                aVar.fKF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                aVar.fLL.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            ak.i(aVar.fKF, d.f.person_post_line);
-            ak.c(aVar.fKF, d.C0126d.common_color_10039, 1);
+            ak.i(aVar.fLL, d.f.person_post_line);
+            ak.c(aVar.fLL, d.C0126d.common_color_10039, 1);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds20);
-            aVar.fKF.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-            aVar.dv(TbadkCoreApplication.getInst().getSkinType());
+            aVar.fLL.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+            aVar.dw(TbadkCoreApplication.getInst().getSkinType());
         }
         return view2;
     }

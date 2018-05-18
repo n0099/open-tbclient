@@ -57,9 +57,9 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
             aa.ahE.addAndGet(eVar.fg().size() - 1);
             aa.a aVar = new aa.a();
             aVar.mMode = getMode(j.gV());
-            aVar.ahG = dVar.tB;
-            aVar.mTime = dVar.tE;
-            aVar.ahH = dVar.tD;
+            aVar.ahG = dVar.tA;
+            aVar.mTime = dVar.tD;
+            aVar.ahH = dVar.tC;
             aVar.ahF = eVar.fe().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
             aa.a(aVar);
         }

@@ -34,7 +34,7 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
         this.adI = onClickListener;
     }
 
-    public T cp(int i) {
+    public T cq(int i) {
         if (this.adH == null || this.adH.isEmpty() || i < 0 || i >= this.adH.size()) {
             return null;
         }
@@ -67,9 +67,9 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
                 if (this.adH.get(i) != null && tbImageView2 != null) {
                     tbImageView2.startLoad(this.adH.get(i).getPicUrl(), 10, false);
                     tbImageView2.setOnClickListener(this.adI);
-                    if ((this.adH.get(i) instanceof r) && !((r) this.adH.get(i)).qF()) {
+                    if ((this.adH.get(i) instanceof r) && !((r) this.adH.get(i)).qE()) {
                         r rVar = (r) this.adH.get(i);
-                        s.b(rVar.qC(), tbImageView, rVar.qD(), l.e(this.context, d.e.ds24));
+                        s.b(rVar.qB(), tbImageView, rVar.qC(), l.e(this.context, d.e.ds24));
                     }
                 }
             }
@@ -102,7 +102,7 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
         if (imageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        if ((v.c(this.adH, i) instanceof r) && !((r) v.c(this.adH, i)).qF()) {
+        if ((v.c(this.adH, i) instanceof r) && !((r) v.c(this.adH, i)).qE()) {
             RelativeLayout relativeLayout = (RelativeLayout) v.c(this.adK, i);
             TbImageView tbImageView = (TbImageView) v.c(this.adJ, i);
             relativeLayout.removeView(tbImageView);
@@ -111,7 +111,7 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
             }
             relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(-1, -1));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            if (this.adL.tQ() == null) {
+            if (this.adL.tP() == null) {
                 layoutParams.addRule(12);
                 layoutParams.addRule(9);
             } else {

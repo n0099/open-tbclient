@@ -15,9 +15,9 @@ public interface a {
 
     void beY();
 
-    void fV(boolean z);
+    void fW(boolean z);
 
-    void lc(boolean z);
+    void ld(boolean z);
 
     void onChangeSkinType(int i);
 

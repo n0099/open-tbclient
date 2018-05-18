@@ -10,22 +10,22 @@ import com.baidu.tieba.card.v;
 import com.sina.weibo.sdk.api.CmdObject;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j>> {
-    private BdUniqueId aTr;
-    private com.baidu.tieba.card.j dEr;
+    private BdUniqueId aTs;
+    private com.baidu.tieba.card.j dFx;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.dFd);
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.dGj);
         this.mPageContext = tbPageContext;
-        this.dEr = new com.baidu.tieba.card.j(this.mPageContext);
-        this.dEr.k("c10714", "c10739", "c10712", "c10738");
-        this.dEr.setFrom(CmdObject.CMD_HOME);
+        this.dFx = new com.baidu.tieba.card.j(this.mPageContext);
+        this.dFx.k("c10714", "c10739", "c10712", "c10738");
+        this.dFx.setFrom(CmdObject.CMD_HOME);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aTr = bdUniqueId;
-        if (this.dEr != null) {
-            this.dEr.h(this.aTr);
+        this.aTs = bdUniqueId;
+        if (this.dFx != null) {
+            this.dFx.h(this.aTs);
         }
     }
 
@@ -47,17 +47,17 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        if (this.dEr == null) {
-            this.dEr = new com.baidu.tieba.card.j(this.mPageContext);
-            this.dEr.h(this.aTr);
-            this.dEr.k("c10714", "c10739", "c10712", "c10738");
+        if (this.dFx == null) {
+            this.dFx = new com.baidu.tieba.card.j(this.mPageContext);
+            this.dFx.h(this.aTs);
+            this.dFx.k("c10714", "c10739", "c10712", "c10738");
         }
-        return new com.baidu.tieba.card.a.a(this.dEr);
+        return new com.baidu.tieba.card.a.a(this.dFx);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dEr != null) {
-            this.dEr.d(this.mPageContext, i);
+        if (this.dFx != null) {
+            this.dFx.d(this.mPageContext, i);
         }
     }
 }

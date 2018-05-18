@@ -5,12 +5,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class q extends o {
-    private static q aMb = null;
-    private boolean aLB = false;
+    private static q aMc = null;
     private boolean aLC = false;
     private boolean aLD = false;
     private boolean aLE = false;
-    private long aLF = -1;
+    private boolean aLF = false;
     private long aLG = -1;
     private long aLH = -1;
     private long aLI = -1;
@@ -32,120 +31,121 @@ public class q extends o {
     private long aLY = -1;
     private long aLZ = -1;
     private long aMa = -1;
+    private long aMb = -1;
 
-    public boolean He() {
-        return this.aLC;
+    public boolean Hc() {
+        return this.aLD;
     }
 
     public void bT(boolean z) {
-        this.aLB = z;
+        this.aLC = z;
     }
 
     public void W(long j) {
-        this.aLF = j;
-    }
-
-    public void bU(boolean z) {
-        this.aLE = z;
-    }
-
-    public void X(long j) {
         this.aLG = j;
     }
 
-    public void Y(long j) {
+    public void bU(boolean z) {
+        this.aLF = z;
+    }
+
+    public void X(long j) {
         this.aLH = j;
     }
 
-    public void Z(long j) {
+    public void Y(long j) {
         this.aLI = j;
     }
 
-    public void aa(long j) {
-        this.aLM = j;
-    }
-
-    public void ab(long j) {
-        this.aLL = j;
-    }
-
-    public void ac(long j) {
+    public void Z(long j) {
         this.aLJ = j;
     }
 
-    public void ad(long j) {
-        this.aLK = j;
-    }
-
-    public void ae(long j) {
-        this.aLY = j;
-    }
-
-    public void af(long j) {
-        this.aLV = j;
-    }
-
-    public void ag(long j) {
-        this.aLW = j;
-    }
-
-    public void ah(long j) {
-        this.aLX = j;
-    }
-
-    public void ai(long j) {
-        this.aLZ = j;
-    }
-
-    public void aj(long j) {
-        this.aMa = j;
-        this.aLC = true;
-    }
-
-    public void ak(long j) {
+    public void aa(long j) {
         this.aLN = j;
     }
 
-    public void al(long j) {
+    public void ab(long j) {
+        this.aLM = j;
+    }
+
+    public void ac(long j) {
+        this.aLK = j;
+    }
+
+    public void ad(long j) {
+        this.aLL = j;
+    }
+
+    public void ae(long j) {
+        this.aLZ = j;
+    }
+
+    public void af(long j) {
+        this.aLW = j;
+    }
+
+    public void ag(long j) {
+        this.aLX = j;
+    }
+
+    public void ah(long j) {
+        this.aLY = j;
+    }
+
+    public void ai(long j) {
+        this.aMa = j;
+    }
+
+    public void aj(long j) {
+        this.aMb = j;
+        this.aLD = true;
+    }
+
+    public void ak(long j) {
         this.aLO = j;
     }
 
-    public void am(long j) {
-        this.aLQ = j;
-    }
-
-    public void an(long j) {
+    public void al(long j) {
         this.aLP = j;
     }
 
-    public void ao(long j) {
+    public void am(long j) {
         this.aLR = j;
     }
 
-    public void ap(long j) {
+    public void an(long j) {
+        this.aLQ = j;
+    }
+
+    public void ao(long j) {
         this.aLS = j;
     }
 
-    public void aq(long j) {
+    public void ap(long j) {
         this.aLT = j;
     }
 
-    public void ar(long j) {
+    public void aq(long j) {
         this.aLU = j;
     }
 
-    public static q Hf() {
-        if (aMb == null) {
+    public void ar(long j) {
+        this.aLV = j;
+    }
+
+    public static q Hd() {
+        if (aMc == null) {
             synchronized (q.class) {
-                if (aMb == null) {
-                    aMb = new q();
+                if (aMc == null) {
+                    aMc = new q();
                 }
             }
         }
-        return aMb;
+        return aMc;
     }
 
-    public void Hg() {
+    public void He() {
         long j;
         long j2;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016482, (Class) null);
@@ -154,54 +154,54 @@ public class q extends o {
         } else {
             j = ((Long) runTask.getData()).longValue();
         }
-        long j3 = (this.aMa - this.aLF) - j;
-        if (j3 > 0 && !this.aLD && p.Ha().Hb()) {
-            this.aLD = true;
-            long j4 = this.aLG - this.aLF;
-            long j5 = this.aLY - this.aLF;
+        long j3 = (this.aMb - this.aLG) - j;
+        if (j3 > 0 && !this.aLE && p.GY().GZ()) {
+            this.aLE = true;
+            long j4 = this.aLH - this.aLG;
+            long j5 = this.aLZ - this.aLG;
             long j6 = -1;
-            if (this.aLW > 0) {
-                j6 = this.aLX - this.aLW;
+            if (this.aLX > 0) {
+                j6 = this.aLY - this.aLX;
             }
-            long j7 = this.aMa - this.aLZ;
+            long j7 = this.aMb - this.aMa;
             com.baidu.adp.lib.stats.a fq = fq();
             fq.append("procname", "main");
             fq.append("appc", String.valueOf(j4));
-            fq.append("loadclass", String.valueOf(this.aLH));
-            fq.append("sapiinit", String.valueOf(this.aLI));
-            fq.append("acctinit", String.valueOf(this.aLJ));
-            fq.append("iminit", String.valueOf(this.aLK));
-            fq.append("plugininit", String.valueOf(this.aLL));
-            fq.append("patchloaded", String.valueOf(this.aLM));
-            fq.append("naslibinit", String.valueOf(this.aLN));
-            fq.append("websocketinit", String.valueOf(this.aLO));
-            fq.append("settinginit", String.valueOf(this.aLP));
-            fq.append("toastinit", String.valueOf(this.aLQ));
-            fq.append("tiebastaticinit", String.valueOf(this.aLR));
-            fq.append("locationinit", String.valueOf(this.aLS));
-            fq.append("cdninit", String.valueOf(this.aLT));
-            fq.append("messagesetinit", String.valueOf(this.aLU));
+            fq.append("loadclass", String.valueOf(this.aLI));
+            fq.append("sapiinit", String.valueOf(this.aLJ));
+            fq.append("acctinit", String.valueOf(this.aLK));
+            fq.append("iminit", String.valueOf(this.aLL));
+            fq.append("plugininit", String.valueOf(this.aLM));
+            fq.append("patchloaded", String.valueOf(this.aLN));
+            fq.append("naslibinit", String.valueOf(this.aLO));
+            fq.append("websocketinit", String.valueOf(this.aLP));
+            fq.append("settinginit", String.valueOf(this.aLQ));
+            fq.append("toastinit", String.valueOf(this.aLR));
+            fq.append("tiebastaticinit", String.valueOf(this.aLS));
+            fq.append("locationinit", String.valueOf(this.aLT));
+            fq.append("cdninit", String.valueOf(this.aLU));
+            fq.append("messagesetinit", String.valueOf(this.aLV));
             fq.append("logores", String.valueOf(j5));
-            if (this.aLV > 0 && this.aLW > 0 && j6 > 0) {
-                fq.append("adc", String.valueOf(this.aLV));
+            if (this.aLW > 0 && this.aLX > 0 && j6 > 0) {
+                fq.append("adc", String.valueOf(this.aLW));
                 fq.append("adshow", String.valueOf(j6));
                 fq.append("hasad", "1");
-                j2 = j3 - (j6 + this.aLV);
+                j2 = j3 - (j6 + this.aLW);
             } else {
                 fq.append("hasad", "0");
                 j2 = j3;
             }
             fq.append("tabc", String.valueOf(j7));
             fq.append("costt", String.valueOf(j2));
-            fq.append("newinst", this.aLB ? "1" : "0");
-            fq.f("pluginloadsync", Boolean.valueOf(this.aLE));
+            fq.append("newinst", this.aLC ? "1" : "0");
+            fq.f("pluginloadsync", Boolean.valueOf(this.aLF));
             BdStatisticsManager.getInstance().performance("startt", fq);
-            oX();
+            oW();
         }
     }
 
     public void as(long j) {
-        if (p.Ha().Hb() && j > 0) {
+        if (p.GY().GZ() && j > 0) {
             com.baidu.adp.lib.stats.a fq = fq();
             fq.append("procname", "remote");
             fq.append("costt", String.valueOf(j));
@@ -209,10 +209,9 @@ public class q extends o {
         }
     }
 
-    private void oX() {
-        this.aLB = false;
+    private void oW() {
         this.aLC = false;
-        this.aLF = -1L;
+        this.aLD = false;
         this.aLG = -1L;
         this.aLH = -1L;
         this.aLI = -1L;
@@ -220,13 +219,13 @@ public class q extends o {
         this.aLK = -1L;
         this.aLL = -1L;
         this.aLM = -1L;
+        this.aLN = -1L;
+        this.aLZ = -1L;
+        this.aLX = -1L;
         this.aLY = -1L;
         this.aLW = -1L;
-        this.aLX = -1L;
-        this.aLV = -1L;
-        this.aLZ = -1L;
         this.aMa = -1L;
-        this.aLN = -1L;
+        this.aMb = -1L;
         this.aLO = -1L;
         this.aLP = -1L;
         this.aLQ = -1L;
@@ -234,5 +233,6 @@ public class q extends o {
         this.aLS = -1L;
         this.aLT = -1L;
         this.aLU = -1L;
+        this.aLV = -1L;
     }
 }

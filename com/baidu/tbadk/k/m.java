@@ -4,104 +4,104 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.tencent.tauth.AuthActivity;
 /* loaded from: classes.dex */
 public class m extends o {
-    public static int aLj = 100;
-    public static int aLk = 10;
+    public static int aLk = 100;
+    public static int aLl = 10;
 
-    public static void GY() {
-        if (p.Ha().Hb()) {
-            if (b.aLo > aLk) {
-                b.GQ();
+    public static void GW() {
+        if (p.GY().GZ()) {
+            if (b.aLp > aLl) {
+                b.GO();
             }
-            if (a.aLl > aLk) {
-                a.GQ();
+            if (a.aLm > aLl) {
+                a.GO();
             }
         }
     }
 
     public static void d(boolean z, boolean z2, boolean z3) {
-        a.aLl++;
+        a.aLm++;
         if (z2) {
-            a.aLm++;
-        } else if (z3) {
             a.aLn++;
+        } else if (z3) {
+            a.aLo++;
         }
-        if (a.aLl > aLj) {
-            a.GQ();
+        if (a.aLm > aLk) {
+            a.GO();
         }
     }
 
     public void c(i iVar) {
-        if (p.Ha().Hb()) {
-            if (b.aLo < aLj) {
-                b.aLp += iVar.tq;
-                b.aLq += iVar.aKG;
+        if (p.GY().GZ()) {
+            if (b.aLp < aLk) {
+                b.aLq += iVar.tp;
                 b.aLr += iVar.aKH;
                 b.aLs += iVar.aKI;
-                b.aLu += iVar.EI;
-                b.aLt += iVar.aKx;
-                b.aLo++;
+                b.aLt += iVar.aKJ;
+                b.aLv += iVar.EE;
+                b.aLu += iVar.aKy;
+                b.aLp++;
                 return;
             }
-            b.GQ();
+            b.GO();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int aLl;
         public static int aLm;
         public static int aLn;
+        public static int aLo;
 
-        public static void GQ() {
+        public static void GO() {
             com.baidu.adp.lib.stats.a fq = o.fq();
             fq.append(AuthActivity.ACTION_KEY, "imbusy");
-            fq.append("totalNum", String.valueOf(aLl));
-            fq.append("tfailNum", String.valueOf(aLm));
-            fq.append("qfailNum", String.valueOf(aLn));
+            fq.append("totalNum", String.valueOf(aLm));
+            fq.append("tfailNum", String.valueOf(aLn));
+            fq.append("qfailNum", String.valueOf(aLo));
             BdStatisticsManager.getInstance().performance("im", fq);
             resetData();
         }
 
         public static void resetData() {
-            aLl = 0;
             aLm = 0;
             aLn = 0;
+            aLo = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int aLo;
-        public static long aLp;
+        public static int aLp;
         public static long aLq;
         public static long aLr;
-        public static int aLs;
+        public static long aLs;
         public static int aLt;
-        public static long aLu;
+        public static int aLu;
+        public static long aLv;
 
-        public static void GQ() {
+        public static void GO() {
             com.baidu.adp.lib.stats.a fq = o.fq();
             fq.append(AuthActivity.ACTION_KEY, "imcost");
-            fq.append("dect", String.valueOf(aLp));
-            fq.append("dlsize", String.valueOf(aLq));
-            fq.append("dbt", String.valueOf(aLr));
-            fq.append("pnum", String.valueOf(aLs));
-            fq.append("reqcost", String.valueOf(aLu));
-            fq.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(aLt));
-            fq.append("totalNum", String.valueOf(aLo));
+            fq.append("dect", String.valueOf(aLq));
+            fq.append("dlsize", String.valueOf(aLr));
+            fq.append("dbt", String.valueOf(aLs));
+            fq.append("pnum", String.valueOf(aLt));
+            fq.append("reqcost", String.valueOf(aLv));
+            fq.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(aLu));
+            fq.append("totalNum", String.valueOf(aLp));
             BdStatisticsManager.getInstance().performance("im", fq);
-            GZ();
+            GX();
         }
 
-        public static void GZ() {
-            aLo = 0;
-            aLp = 0L;
+        public static void GX() {
+            aLp = 0;
             aLq = 0L;
             aLr = 0L;
-            aLs = 0;
+            aLs = 0L;
             aLt = 0;
+            aLu = 0;
         }
     }
 }

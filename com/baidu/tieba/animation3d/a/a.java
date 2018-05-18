@@ -1,7 +1,7 @@
 package com.baidu.tieba.animation3d.a;
 /* loaded from: classes.dex */
 public abstract class a {
-    private int cki = -1;
+    private int clr = -1;
 
     public abstract boolean c(float f, float f2, float f3, int i);
 
@@ -18,10 +18,10 @@ public abstract class a {
     }
 
     public int aeC() {
-        return this.cki;
+        return this.clr;
     }
 
-    public void iB(int i) {
-        this.cki = i;
+    public void iA(int i) {
+        this.clr = i;
     }
 }

@@ -52,7 +52,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     /* loaded from: classes.dex */
     public interface a {
-        int da(int i);
+        int db(int i);
     }
 
     public PagerSlidingTabStrip(Context context) {
@@ -132,7 +132,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 int i2 = i;
                 if (i2 < this.alq) {
                     if (this.alp.getAdapter() instanceof a) {
-                        w(i2, ((a) this.alp.getAdapter()).da(i2));
+                        w(i2, ((a) this.alp.getAdapter()).db(i2));
                     } else {
                         h(i2, this.alp.getAdapter().getPageTitle(i2).toString());
                     }
@@ -294,14 +294,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.tbadk.core.view.PagerSlidingTabStrip.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: g */
+            /* renamed from: h */
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: dq */
+            /* renamed from: dr */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

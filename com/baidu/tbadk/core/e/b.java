@@ -29,18 +29,18 @@ public class b {
         }
     }
 
-    public static Class<?> uq() {
+    public static Class<?> up() {
+        if (aeZ == null) {
+            return null;
+        }
+        return aeZ.up();
+    }
+
+    public static String uq() {
         if (aeZ == null) {
             return null;
         }
         return aeZ.uq();
-    }
-
-    public static String ur() {
-        if (aeZ == null) {
-            return null;
-        }
-        return aeZ.ur();
     }
 
     public static void a(a aVar) {

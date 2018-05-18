@@ -10,11 +10,11 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedM
 /* loaded from: classes3.dex */
 public class m {
     public static void init() {
-        aAh();
+        aAf();
         beT();
     }
 
-    public static void aAh() {
+    public static void aAf() {
         com.baidu.tieba.tbadkCore.a.a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
     }
 

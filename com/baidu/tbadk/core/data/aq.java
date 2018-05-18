@@ -17,23 +17,23 @@ public class aq {
         this.Zd = amVar;
     }
 
-    public am rg() {
+    public am rf() {
         return this.Zd;
     }
 
-    public ArrayList<UserData> rh() {
+    public ArrayList<UserData> rg() {
         return this.Zb;
     }
 
-    public ArrayList<UserData> ri() {
+    public ArrayList<UserData> rh() {
         return this.Zc;
     }
 
-    public int rj() {
+    public int ri() {
         return this.Ze;
     }
 
-    public int rk() {
+    public int rj() {
         return this.Zf;
     }
 

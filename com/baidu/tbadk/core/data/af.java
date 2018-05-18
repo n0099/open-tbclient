@@ -15,14 +15,14 @@ public class af {
     public af() {
         this.YC = null;
         this.YC = new ArrayList<>();
-        bB(0);
+        bC(0);
     }
 
     public UserData getUser() {
         return this.YA;
     }
 
-    public AntiData qT() {
+    public AntiData qS() {
         return this.YB;
     }
 
@@ -44,13 +44,13 @@ public class af {
                     this.YC.add(optJSONArray.optString(i, null));
                 }
             }
-            bB(jSONObject.optInt("retrytime"));
+            bC(jSONObject.optInt("retrytime"));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void bB(int i) {
+    public void bC(int i) {
         this.YD = i;
     }
 }

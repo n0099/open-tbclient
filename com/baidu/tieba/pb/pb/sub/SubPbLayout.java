@@ -22,16 +22,16 @@ import java.util.List;
 import java.util.Queue;
 /* loaded from: classes2.dex */
 public class SubPbLayout extends ViewGroup {
-    private TextView bCq;
-    private c fhC;
-    private View.OnClickListener fuO;
-    private View.OnLongClickListener fuP;
-    private View.OnTouchListener fuQ;
-    private int fuR;
-    private PostData fuS;
-    private final Queue<a> fuT;
-    private RelativeLayout fuU;
-    private ViewGroup.MarginLayoutParams fuV;
+    private TextView bDn;
+    private c fiL;
+    private View.OnClickListener fvU;
+    private View.OnLongClickListener fvV;
+    private View.OnTouchListener fvW;
+    private int fvX;
+    private PostData fvY;
+    private final Queue<a> fvZ;
+    private RelativeLayout fwa;
+    private ViewGroup.MarginLayoutParams fwb;
     private View mRootView;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -40,11 +40,11 @@ public class SubPbLayout extends ViewGroup {
         int position;
 
         /* renamed from: view  reason: collision with root package name */
-        View f17view;
+        View f16view;
 
         private a(int i, View view2) {
             this.position = i;
-            this.f17view = view2;
+            this.f16view = view2;
         }
     }
 
@@ -54,87 +54,87 @@ public class SubPbLayout extends ViewGroup {
 
     public SubPbLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fuR = 0;
+        this.fvX = 0;
         this.mRootView = null;
-        this.fuT = new LinkedList();
-        this.fuV = new ViewGroup.MarginLayoutParams(-1, -2);
-        this.fuU = new RelativeLayout(context);
-        this.fuU.setId(d.g.pb_floor_reply_more);
-        this.bCq = new TextView(context);
-        this.bCq.setPadding(0, l.e(context, d.e.tbds14), 0, l.e(context, d.e.tbds22));
-        this.bCq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_lou_more), (Drawable) null);
-        this.bCq.setTextSize(0, l.e(context, d.e.tbfontsize42));
-        ak.h(this.bCq, d.C0126d.cp_cont_d);
-        this.fuU.addView(this.bCq);
-        addView(this.fuU, -1, -2);
+        this.fvZ = new LinkedList();
+        this.fwb = new ViewGroup.MarginLayoutParams(-1, -2);
+        this.fwa = new RelativeLayout(context);
+        this.fwa.setId(d.g.pb_floor_reply_more);
+        this.bDn = new TextView(context);
+        this.bDn.setPadding(0, l.e(context, d.e.tbds14), 0, l.e(context, d.e.tbds22));
+        this.bDn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_lou_more), (Drawable) null);
+        this.bDn.setTextSize(0, l.e(context, d.e.tbfontsize42));
+        ak.h(this.bDn, d.C0126d.cp_cont_d);
+        this.fwa.addView(this.bDn);
+        addView(this.fwa, -1, -2);
     }
 
     public void setChildOnClickListener(View.OnClickListener onClickListener) {
-        this.fuO = onClickListener;
+        this.fvU = onClickListener;
     }
 
     public void setChildOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.fuP = onLongClickListener;
+        this.fvV = onLongClickListener;
     }
 
     public void setChildOnTouchListener(View.OnTouchListener onTouchListener) {
-        this.fuQ = onTouchListener;
+        this.fvW = onTouchListener;
     }
 
     public void setSubPbAdapter(c cVar) {
-        this.fhC = cVar;
+        this.fiL = cVar;
     }
 
     public void setData(PostData postData, View view2) {
-        this.fuS = postData;
+        this.fvY = postData;
         requestLayout();
         this.mRootView = view2;
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        ArrayList<PostData> brW;
-        if (this.fhC == null || this.fuS == null || this.fuS.brW() == null) {
+        ArrayList<PostData> brU;
+        if (this.fiL == null || this.fvY == null || this.fvY.brU() == null) {
             setMeasuredDimension(0, 0);
             return;
         }
         int size = View.MeasureSpec.getSize(i);
-        if (this.fuS.brV()) {
-            brW = this.fuS.brS();
+        if (this.fvY.brT()) {
+            brU = this.fvY.brQ();
         } else {
-            brW = this.fuS.brW();
+            brU = this.fvY.brU();
         }
-        setMeasuredDimension(size, bq(v.v(brW), size) + l(brW, size) + 0 + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(size, bq(v.v(brU), size) + l(brU, size) + 0 + getPaddingBottom() + getPaddingTop());
     }
 
     private int l(List<PostData> list, int i) {
         SparseArray sparseArray;
-        if (this.fuS.bsn() == 1) {
-            this.fuR = 0;
+        if (this.fvY.bsl() == 1) {
+            this.fvX = 0;
             return 0;
         } else if (v.v(list) != 0) {
             int v = v.v(list);
-            this.fuR = v;
-            if (!this.fuS.brV()) {
+            this.fvX = v;
+            if (!this.fvY.brT()) {
                 if (v <= 2) {
-                    this.fuR = v;
+                    this.fvX = v;
                 } else {
-                    this.fuR = 2;
+                    this.fvX = 2;
                 }
             }
             int i2 = 0;
             int i3 = 0;
-            while (i2 < this.fuR) {
+            while (i2 < this.fvX) {
                 View childAt = getChildAt(i2);
-                if (childAt == null || childAt.equals(this.fuU)) {
-                    childAt = this.fhC.kA();
+                if (childAt == null || childAt.equals(this.fwa)) {
+                    childAt = this.fiL.kz();
                     childAt.setPadding(0, 0, 0, 0);
-                    this.fuT.offer(new a(i2, childAt));
+                    this.fvZ.offer(new a(i2, childAt));
                 }
                 View view2 = childAt;
-                view2.setOnClickListener(this.fuO);
-                view2.setOnLongClickListener(this.fuP);
-                view2.setOnTouchListener(this.fuQ);
+                view2.setOnClickListener(this.fvU);
+                view2.setOnLongClickListener(this.fvV);
+                view2.setOnTouchListener(this.fvW);
                 view2.setClickable(true);
                 view2.setVisibility(0);
                 SparseArray sparseArray2 = (SparseArray) view2.getTag();
@@ -145,17 +145,17 @@ public class SubPbLayout extends ViewGroup {
                 } else {
                     sparseArray = sparseArray2;
                 }
-                if (sparseArray.get(d.g.tag_load_sub_data) != this.fuS) {
-                    sparseArray.put(d.g.tag_load_sub_data, this.fuS);
+                if (sparseArray.get(d.g.tag_load_sub_data) != this.fvY) {
+                    sparseArray.put(d.g.tag_load_sub_data, this.fvY);
                 }
                 sparseArray.put(d.g.tag_load_sub_view, this.mRootView);
                 sparseArray.put(d.g.tag_is_subpb, true);
-                if (list.get(i2) != null && list.get(i2).rQ() != null) {
-                    sparseArray.put(d.g.tag_photo_username, list.get(i2).rQ().getUserName());
-                    sparseArray.put(d.g.tag_photo_userid, list.get(i2).rQ().getUserId());
+                if (list.get(i2) != null && list.get(i2).rP() != null) {
+                    sparseArray.put(d.g.tag_photo_username, list.get(i2).rP().getUserName());
+                    sparseArray.put(d.g.tag_photo_userid, list.get(i2).rP().getUserId());
                     sparseArray.put(d.g.tag_clip_board, list.get(i2));
                 }
-                this.fhC.a((c.b) sparseArray.get(d.g.tag_holder), list.get(i2), this.fuS.bsd() > list.size() || list.size() - i2 > 1, i2 == 0, false);
+                this.fiL.a((c.b) sparseArray.get(d.g.tag_holder), list.get(i2), this.fvY.bsb() > list.size() || list.size() - i2 > 1, i2 == 0, false);
                 view2.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
                 i2++;
                 i3 += view2.getMeasuredHeight();
@@ -167,23 +167,23 @@ public class SubPbLayout extends ViewGroup {
     }
 
     private int bq(int i, int i2) {
-        if (i > 0 && (this.fuS.bsn() == 1 || this.fuS.bsd() > this.fuR)) {
-            this.bCq.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(d.k.sub_pb_load_more), Integer.valueOf(this.fuS.bsd())));
-            this.fuU.setOnClickListener(this.fuO);
-            SparseArray sparseArray = (SparseArray) this.fuU.getTag();
+        if (i > 0 && (this.fvY.bsl() == 1 || this.fvY.bsb() > this.fvX)) {
+            this.bDn.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(d.k.sub_pb_load_more), Integer.valueOf(this.fvY.bsb())));
+            this.fwa.setOnClickListener(this.fvU);
+            SparseArray sparseArray = (SparseArray) this.fwa.getTag();
             if (sparseArray == null) {
                 sparseArray = new SparseArray();
-                this.fuU.setTag(sparseArray);
+                this.fwa.setTag(sparseArray);
             }
-            sparseArray.put(d.g.tag_load_sub_data, this.fuS);
+            sparseArray.put(d.g.tag_load_sub_data, this.fvY);
             sparseArray.put(d.g.tag_load_sub_view, this.mRootView);
-            this.fuU.setVisibility(0);
-            this.fuU.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
+            this.fwa.setVisibility(0);
+            this.fwa.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
         } else {
-            this.fuU.setVisibility(8);
+            this.fwa.setVisibility(8);
         }
-        if (this.fuU.getVisibility() == 0) {
-            return this.fuU.getMeasuredHeight();
+        if (this.fwa.getVisibility() == 0) {
+            return this.fwa.getMeasuredHeight();
         }
         return 0;
     }
@@ -191,17 +191,17 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        if (this.fuS != null && this.fuS.brW() != null) {
-            int size = this.fuT.size();
+        if (this.fvY != null && this.fvY.brU() != null) {
+            int size = this.fvZ.size();
             for (int i6 = 0; i6 < size; i6++) {
-                a poll = this.fuT.poll();
-                if (poll.f17view.getParent() == null) {
-                    addViewInLayout(poll.f17view, poll.position, this.fuV, true);
+                a poll = this.fvZ.poll();
+                if (poll.f16view.getParent() == null) {
+                    addViewInLayout(poll.f16view, poll.position, this.fwb, true);
                 }
             }
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int i7 = this.fuR;
+            int i7 = this.fvX;
             int i8 = 0;
             int i9 = paddingTop;
             while (i8 < i7) {
@@ -222,15 +222,15 @@ public class SubPbLayout extends ViewGroup {
                 i8++;
                 i9 = i5;
             }
-            if (this.fuU.getVisibility() == 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.fuU.getLayoutParams();
+            if (this.fwa.getVisibility() == 0) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.fwa.getLayoutParams();
                 int i11 = i9 + marginLayoutParams2.topMargin;
-                this.fuU.layout(marginLayoutParams2.leftMargin + paddingLeft, i11, marginLayoutParams2.leftMargin + paddingLeft + this.fuU.getMeasuredWidth(), this.fuU.getMeasuredHeight() + i11);
+                this.fwa.layout(marginLayoutParams2.leftMargin + paddingLeft, i11, marginLayoutParams2.leftMargin + paddingLeft + this.fwa.getMeasuredWidth(), this.fwa.getMeasuredHeight() + i11);
             }
             int childCount = getChildCount();
-            for (int i12 = this.fuR; i12 < childCount; i12++) {
+            for (int i12 = this.fvX; i12 < childCount; i12++) {
                 View childAt2 = getChildAt(i12);
-                if (childAt2 != null && childAt2 != this.fuU) {
+                if (childAt2 != null && childAt2 != this.fwa) {
                     childAt2.setVisibility(8);
                 }
             }
@@ -240,15 +240,15 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        if (this.fuS != null && this.fuS.brW() != null) {
-            int i = this.fuR;
+        if (this.fvY != null && this.fvY.brU() != null) {
+            int i = this.fvX;
             for (int i2 = 0; i2 < i; i2++) {
                 if (i < getChildCount()) {
                     drawChild(canvas, getChildAt(i2), drawingTime);
                 }
             }
-            if (this.fuU.getVisibility() == 0) {
-                drawChild(canvas, this.fuU, drawingTime);
+            if (this.fwa.getVisibility() == 0) {
+                drawChild(canvas, this.fwa, drawingTime);
             }
         }
     }
@@ -267,9 +267,9 @@ public class SubPbLayout extends ViewGroup {
     }
 
     public void onChangeSkinType() {
-        if (this.bCq != null) {
-            this.bCq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_lou_more), (Drawable) null);
-            ak.h(this.bCq, d.C0126d.cp_cont_d);
+        if (this.bDn != null) {
+            this.bDn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_lou_more), (Drawable) null);
+            ak.h(this.bDn, d.C0126d.cp_cont_d);
         }
     }
 }

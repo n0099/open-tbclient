@@ -6,49 +6,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class g {
-    private f dfh;
-    private h dfi;
+    private f dgo;
+    private h dgp;
     private TbPageContext<?> pageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.dfh = new f(tbPageContext, bdUniqueId);
-        this.dfi = new h(tbPageContext, bdUniqueId);
+        this.dgo = new f(tbPageContext, bdUniqueId);
+        this.dgp = new h(tbPageContext, bdUniqueId);
         this.pageContext = tbPageContext;
         show(-1);
     }
 
-    public View ask() {
-        if (this.dfh == null || this.dfi == null) {
+    public View asj() {
+        if (this.dgo == null || this.dgp == null) {
             return null;
         }
         FrameLayout frameLayout = new FrameLayout(this.pageContext.getPageActivity());
-        frameLayout.addView(this.dfh.getView());
-        frameLayout.addView(this.dfi.getView());
+        frameLayout.addView(this.dgo.getView());
+        frameLayout.addView(this.dgp.getView());
         return frameLayout;
     }
 
-    public f asl() {
-        return this.dfh;
+    public f ask() {
+        return this.dgo;
     }
 
-    public h asm() {
-        return this.dfi;
+    public h asl() {
+        return this.dgp;
     }
 
     public void show(int i) {
-        if (this.dfh != null && this.dfi != null) {
+        if (this.dgo != null && this.dgp != null) {
             switch (i) {
                 case 1:
-                    this.dfh.setVisibility(0);
-                    this.dfi.setVisibility(8);
+                    this.dgo.setVisibility(0);
+                    this.dgp.setVisibility(8);
                     return;
                 case 2:
-                    this.dfh.setVisibility(8);
-                    this.dfi.setVisibility(0);
+                    this.dgo.setVisibility(8);
+                    this.dgp.setVisibility(0);
                     return;
                 default:
-                    this.dfh.setVisibility(8);
-                    this.dfi.setVisibility(8);
+                    this.dgo.setVisibility(8);
+                    this.dgp.setVisibility(8);
                     return;
             }
         }

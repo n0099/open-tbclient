@@ -27,19 +27,19 @@ public interface i {
 
     void f(int i, int i2, String str);
 
-    void iJ(boolean z);
+    void iK(boolean z);
+
+    void pC(int i);
 
     void pD(int i);
 
-    void pE(int i);
-
-    void pI(String str);
-
-    void pJ(String str);
-
-    String pK(String str);
-
-    boolean pL(String str);
+    void pL(String str);
 
     void pM(String str);
+
+    String pN(String str);
+
+    boolean pO(String str);
+
+    void pP(String str);
 }

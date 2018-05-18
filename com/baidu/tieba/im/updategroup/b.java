@@ -5,44 +5,44 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b extends d {
-    protected TextView eij;
+    protected TextView ejq;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.eij = null;
+        this.ejq = null;
         setContentView(d.i.update_group_info_activity);
-        nZ(d.k.group_update_info);
-        this.eij = (TextView) this.eik.findViewById(d.g.edit_count);
+        nY(d.k.group_update_info);
+        this.ejq = (TextView) this.ejr.findViewById(d.g.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void aHg() {
+    public void aHe() {
         String obj;
         if (this.mEditText.getText() != null && (obj = this.mEditText.getText().toString()) != null) {
             int length = obj.length();
             u(length, length, 15, 300);
             int i = 300 - length;
-            this.eij.setText(String.valueOf(i));
+            this.ejq.setText(String.valueOf(i));
             if (i <= 50) {
-                this.eij.setVisibility(0);
+                this.ejq.setVisibility(0);
             } else {
-                this.eij.setVisibility(8);
+                this.ejq.setVisibility(8);
             }
             if (i == 0) {
-                this.eij.setTextColor(this.eik.getResources().getColor(d.C0126d.common_color_10170));
+                this.ejq.setTextColor(this.ejr.getResources().getColor(d.C0126d.common_color_10170));
             } else {
-                aBM();
+                aBK();
             }
         }
     }
 
-    private void aBM() {
-        this.eik.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.eik.getLayoutMode().u(this.eij);
+    private void aBK() {
+        this.ejr.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.ejr.getLayoutMode().u(this.ejq);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int aHh() {
+    public int aHf() {
         return d.k.group_step_info_error;
     }
 }

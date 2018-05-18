@@ -59,7 +59,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             }
         }
         if (!this.msg.isEmpty()) {
-            l<byte[]> cY = com.baidu.tbadk.core.c.a.tz().cY("tb.im_official_history");
+            l<byte[]> cY = com.baidu.tbadk.core.c.a.ty().cY("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
                 cY.e(TbadkApplication.getCurrentAccount() + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);

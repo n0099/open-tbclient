@@ -31,15 +31,15 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam(Info.kBaiduPIDKey, "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.lq());
+        addParam("ft", gVar.lp());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.ls()));
-        addParam("fc", String.valueOf(gVar.ls()));
+        addParam("flr", String.valueOf(gVar.lr()));
+        addParam("fc", String.valueOf(gVar.lr()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.lt().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.ls().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();

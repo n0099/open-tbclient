@@ -20,27 +20,27 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private a Sz;
+    private a Sv;
     private final Context mContext;
-    private final String Sn = TbConfig.getTempDirName();
-    private int SA = 0;
-    private String[] SB = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-    private String[] SC = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
-    private String[] SD = {"video_id", "_data", "width", "height"};
-    private HashMap<String, com.baidu.tbadk.album.a> SE = new HashMap<>();
+    private final String Sj = TbConfig.getTempDirName();
+    private int Sw = 0;
+    private String[] Sx = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+    private String[] Sy = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+    private String[] Sz = {"video_id", "_data", "width", "height"};
+    private HashMap<String, com.baidu.tbadk.album.a> SA = new HashMap<>();
 
     public f(Context context) {
         this.mContext = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g oA() {
-        this.SE.clear();
+    public g oz() {
+        this.SA.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
         List<VideoFileInfo> list = null;
-        if (this.SA != 2) {
-            list = oB();
+        if (this.Sw != 2) {
+            list = oA();
         }
         ArrayList arrayList = new ArrayList();
         if (!v.w(imageList)) {
@@ -63,20 +63,20 @@ public class f {
                 }
             });
         }
-        ArrayList arrayList2 = new ArrayList(this.SE.values());
+        ArrayList arrayList2 = new ArrayList(this.SA.values());
         if (!v.w(arrayList2)) {
             Collections.sort(arrayList2, new Comparator<com.baidu.tbadk.album.a>() { // from class: com.baidu.tbadk.album.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(com.baidu.tbadk.album.a aVar, com.baidu.tbadk.album.a aVar2) {
-                    if (f.this.Sn.equals(aVar.getName())) {
+                    if (f.this.Sj.equals(aVar.getName())) {
                         return -1;
                     }
-                    if (f.this.Sn.equals(aVar2.getName())) {
+                    if (f.this.Sj.equals(aVar2.getName())) {
                         return 1;
                     }
-                    long sortTime = aVar2.ou().getSortTime() - aVar.ou().getSortTime();
+                    long sortTime = aVar2.ot().getSortTime() - aVar.ot().getSortTime();
                     if (sortTime == 0) {
                         return 0;
                     }
@@ -84,9 +84,9 @@ public class f {
                 }
             });
         }
-        gVar.SH = arrayList2;
-        gVar.SK = list;
-        gVar.SJ = arrayList;
+        gVar.SD = arrayList2;
+        gVar.SF = list;
+        gVar.SE = arrayList;
         return gVar;
     }
 
@@ -111,7 +111,7 @@ public class f {
         }
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.mContext.getContentResolver().query(uri, this.SB, "mime_type like 'image/%'", null, "date_added DESC");
+            cursor = this.mContext.getContentResolver().query(uri, this.Sx, "mime_type like 'image/%'", null, "date_added DESC");
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
@@ -137,32 +137,32 @@ public class f {
                 imageFileInfo.setModifyTime(an.J(j2));
                 imageFileInfo.setSortTime(j);
                 arrayList.add(imageFileInfo);
-                com.baidu.tbadk.album.a aVar2 = this.SE.get(string);
+                com.baidu.tbadk.album.a aVar2 = this.SA.get(string);
                 if (aVar2 == null) {
                     com.baidu.tbadk.album.a aVar3 = new com.baidu.tbadk.album.a();
-                    this.SE.put(string, aVar3);
+                    this.SA.put(string, aVar3);
                     aVar = aVar3;
                 } else {
                     aVar = aVar2;
                 }
                 aVar.cf(string);
                 aVar.setName(string2);
-                aVar.ot();
-                if (aVar.ou() == null) {
+                aVar.os();
+                if (aVar.ot() == null) {
                     aVar.a(imageFileInfo);
                 }
-                List<MediaFileInfo> ow = aVar.ow();
-                if (aVar.ow() == null) {
-                    ow = new ArrayList<>();
-                    aVar.m(ow);
+                List<MediaFileInfo> ov = aVar.ov();
+                if (aVar.ov() == null) {
+                    ov = new ArrayList<>();
+                    aVar.m(ov);
                 }
-                ow.add(imageFileInfo);
+                ov.add(imageFileInfo);
             }
         } while (cursor.moveToNext());
         return arrayList;
     }
 
-    private List<VideoFileInfo> oB() {
+    private List<VideoFileInfo> oA() {
         Cursor cursor;
         ArrayList arrayList = new ArrayList();
         if (this.mContext == null) {
@@ -172,7 +172,7 @@ public class f {
         HashSet hashSet = new HashSet();
         Cursor cursor2 = null;
         try {
-            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.SC, null, null, "date_added DESC");
+            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.Sy, null, null, "date_added DESC");
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
@@ -226,21 +226,21 @@ public class f {
         if (eVar == null) {
             return false;
         }
-        oC();
-        this.SA = i;
-        this.Sz = new a(eVar);
-        this.Sz.setPriority(3);
-        this.Sz.execute(new Object[0]);
+        oB();
+        this.Sw = i;
+        this.Sv = new a(eVar);
+        this.Sv.setPriority(3);
+        this.Sv.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e SG;
+        private final e SC;
 
         public a(e eVar) {
-            this.SG = eVar;
+            this.SC = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -248,15 +248,15 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: m */
         public g doInBackground(Object... objArr) {
-            return f.this.oA();
+            return f.this.oz();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.SG != null) {
-                this.SG.onPreLoad();
+            if (this.SC != null) {
+                this.SC.onPreLoad();
             }
         }
 
@@ -266,16 +266,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.SG != null) {
-                this.SG.a(gVar);
+            if (this.SC != null) {
+                this.SC.a(gVar);
             }
         }
     }
 
-    public void oC() {
-        if (this.Sz != null) {
-            this.Sz.cancel();
-            this.Sz = null;
+    public void oB() {
+        if (this.Sv != null) {
+            this.Sv.cancel();
+            this.Sv = null;
         }
     }
 }

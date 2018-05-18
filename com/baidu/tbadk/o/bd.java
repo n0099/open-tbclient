@@ -1,7 +1,7 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class bd extends com.baidu.adp.lib.b.a {
-    public static final String[] aMQ = {"com.baidu.tieba.voice"};
+    public static final String[] aMR = {"com.baidu.tieba.voice"};
 
     @Override // com.baidu.adp.lib.b.a
     protected void Q(int i) {
@@ -10,7 +10,7 @@ public class bd extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void initData() {
         this.mName = "voice";
-        this.sb = aMQ;
+        this.sa = aMR;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -20,7 +20,7 @@ public class bd extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] ev() {
-        return aMQ;
+        return aMR;
     }
 
     @Override // com.baidu.adp.lib.b.a

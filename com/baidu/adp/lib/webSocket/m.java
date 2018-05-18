@@ -14,34 +14,34 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class m extends Thread {
-    private static long zf = 0;
+    private static long ze = 0;
     private int mState;
     private boolean mStopped;
-    private final e.a yp;
-    private final l yx;
-    private final Handler zc;
-    private final ByteBuffer zd;
-    private final d ze;
-    private boolean zg;
-    private int zh;
-    private a zi;
-    private int zj;
-    private final f zk;
-    private int zl;
+    private final e.a yo;
+    private final l yw;
+    private final Handler zb;
+    private final ByteBuffer zc;
+    private final d zd;
+    private boolean zf;
+    private int zg;
+    private a zh;
+    private int zi;
+    private final f zj;
+    private int zk;
+    private long zl;
     private long zm;
-    private long zn;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int zo;
-        public boolean zp;
+        public int zn;
+        public boolean zo;
+        public int zp;
         public int zq;
         public int zr;
         public int zs;
-        public int zt;
+        public byte[] zt;
         public byte[] zu;
-        public byte[] zv;
 
         private a() {
         }
@@ -50,26 +50,26 @@ public class m extends Thread {
     public m(Handler handler, e.a aVar, l lVar, String str) {
         super(str);
         this.mStopped = false;
-        this.zg = false;
-        this.zk = new f();
-        this.zl = 0;
+        this.zf = false;
+        this.zj = new f();
+        this.zk = 0;
+        this.zl = 0L;
         this.zm = 0L;
-        this.zn = 0L;
-        this.zc = handler;
-        this.yp = aVar;
-        this.yx = lVar;
-        this.zd = ByteBuffer.allocateDirect(lVar.hQ() + 14);
-        this.ze = new d(lVar.hR());
-        this.zi = null;
+        this.zb = handler;
+        this.yo = aVar;
+        this.yw = lVar;
+        this.zc = ByteBuffer.allocateDirect(lVar.hQ() + 14);
+        this.zd = new d(lVar.hR());
+        this.zh = null;
         this.mState = 1;
     }
 
     protected void s(Object obj) {
+        this.zl = 0L;
         this.zm = 0L;
-        this.zn = 0L;
-        Message obtainMessage = this.zc.obtainMessage();
+        Message obtainMessage = this.zb.obtainMessage();
         obtainMessage.obj = obj;
-        this.zc.sendMessage(obtainMessage);
+        this.zb.sendMessage(obtainMessage);
     }
 
     private boolean hX() throws Exception {
@@ -78,13 +78,13 @@ public class m extends Thread {
         int i2;
         long j;
         byte[] bArr = null;
-        if (this.zi == null) {
-            if (this.zd.position() >= 2) {
-                byte b = this.zd.get(0);
+        if (this.zh == null) {
+            if (this.zc.position() >= 2) {
+                byte b = this.zc.get(0);
                 boolean z = (b & 128) != 0;
                 int i3 = (b & 112) >> 4;
                 int i4 = b & 15;
-                byte b2 = this.zd.get(1);
+                byte b2 = this.zc.get(1);
                 boolean z2 = (b2 & 128) != 0;
                 int i5 = b2 & Byte.MAX_VALUE;
                 if (i3 != 0) {
@@ -109,10 +109,10 @@ public class m extends Thread {
                 } else if (i4 != 0 && i4 != 1 && i4 != 2) {
                     throw new WebSocketException("data frame using reserved opcode " + i4);
                 } else {
-                    if (!this.zg && i4 == 0) {
+                    if (!this.zf && i4 == 0) {
                         throw new WebSocketException("received continuation data frame outside fragmented message");
                     }
-                    if (this.zg && i4 != 0) {
+                    if (this.zf && i4 != 0) {
                         throw new WebSocketException("received non-continuation data frame while inside fragmented message");
                     }
                 }
@@ -125,57 +125,57 @@ public class m extends Thread {
                 } else {
                     throw new Exception("BdLogic error");
                 }
-                if (this.zd.position() >= i2) {
+                if (this.zc.position() >= i2) {
                     if (i5 == 126) {
-                        j = ((this.zd.get(2) & 255) << 8) | (this.zd.get(3) & 255);
+                        j = ((this.zc.get(2) & 255) << 8) | (this.zc.get(3) & 255);
                         if (j < 126) {
                             throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                         }
                     } else if (i5 == 127) {
-                        if ((this.zd.get(2) & 128) != 0) {
+                        if ((this.zc.get(2) & 128) != 0) {
                             throw new WebSocketException("invalid data frame length (> 2^63)");
                         }
-                        j = ((this.zd.get(2) & 255) << 56) | ((this.zd.get(3) & 255) << 48) | ((this.zd.get(4) & 255) << 40) | ((this.zd.get(5) & 255) << 32) | ((this.zd.get(6) & 255) << 24) | ((this.zd.get(7) & 255) << 16) | ((this.zd.get(8) & 255) << 8) | (this.zd.get(9) & 255);
+                        j = ((this.zc.get(2) & 255) << 56) | ((this.zc.get(3) & 255) << 48) | ((this.zc.get(4) & 255) << 40) | ((this.zc.get(5) & 255) << 32) | ((this.zc.get(6) & 255) << 24) | ((this.zc.get(7) & 255) << 16) | ((this.zc.get(8) & 255) << 8) | (this.zc.get(9) & 255);
                         if (j < 65536) {
                             throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                         }
                     } else {
                         j = i5;
                     }
-                    this.zi = new a();
-                    this.zi.zo = i4;
-                    this.zi.zp = z;
-                    this.zi.zq = i3;
-                    this.zi.zs = (int) j;
-                    this.zi.zr = i2;
-                    this.zi.zt = this.zi.zr + this.zi.zs;
-                    this.zi.zu = null;
-                    int position = this.zd.position();
-                    this.zi.zv = new byte[this.zi.zr];
-                    this.zd.position(0);
-                    this.zd.get(this.zi.zv, 0, this.zi.zr);
-                    this.zd.position(this.zi.zr);
-                    this.zd.limit(position);
-                    this.zd.compact();
-                    return this.zi.zs == 0 || this.zd.position() >= this.zi.zs;
+                    this.zh = new a();
+                    this.zh.zn = i4;
+                    this.zh.zo = z;
+                    this.zh.zp = i3;
+                    this.zh.zr = (int) j;
+                    this.zh.zq = i2;
+                    this.zh.zs = this.zh.zq + this.zh.zr;
+                    this.zh.zt = null;
+                    int position = this.zc.position();
+                    this.zh.zu = new byte[this.zh.zq];
+                    this.zc.position(0);
+                    this.zc.get(this.zh.zu, 0, this.zh.zq);
+                    this.zc.position(this.zh.zq);
+                    this.zc.limit(position);
+                    this.zc.compact();
+                    return this.zh.zr == 0 || this.zc.position() >= this.zh.zr;
                 }
                 return false;
             }
             return false;
-        } else if (this.zj >= this.zi.zs) {
-            if (this.zi.zo > 7) {
-                if (this.zi.zo == 8) {
-                    if (this.zi.zs < 2) {
+        } else if (this.zi >= this.zh.zr) {
+            if (this.zh.zn > 7) {
+                if (this.zh.zn == 8) {
+                    if (this.zh.zr < 2) {
                         i = 1005;
                         str = null;
                     } else {
-                        i = (this.zi.zv[1] & 255) + ((this.zi.zv[0] & 255) * 256);
+                        i = (this.zh.zu[1] & 255) + ((this.zh.zu[0] & 255) * 256);
                         if (i < 1000 || ((i >= 1000 && i <= 2999 && i != 1000 && i != 1001 && i != 1002 && i != 1003 && i != 1007 && i != 1008 && i != 1009 && i != 1010 && i != 1011) || i >= 5000)) {
                             throw new WebSocketException("invalid close code " + i);
                         }
-                        if (this.zi.zs > 2) {
-                            byte[] bArr2 = new byte[this.zi.zs - 2];
-                            System.arraycopy(this.zi.zv, 2, bArr2, 0, this.zi.zs - 2);
+                        if (this.zh.zr > 2) {
+                            byte[] bArr2 = new byte[this.zh.zr - 2];
+                            System.arraycopy(this.zh.zu, 2, bArr2, 0, this.zh.zr - 2);
                             f fVar = new f();
                             fVar.p(bArr2);
                             if (!fVar.isValid()) {
@@ -187,65 +187,65 @@ public class m extends Thread {
                         }
                     }
                     e(i, str);
-                } else if (this.zi.zo == 9) {
-                    r(this.ze.toByteArray());
-                } else if (this.zi.zo == 10) {
-                    s(this.ze.toByteArray());
+                } else if (this.zh.zn == 9) {
+                    r(this.zd.toByteArray());
+                } else if (this.zh.zn == 10) {
+                    s(this.zd.toByteArray());
                 } else {
                     throw new Exception("BdLogic error");
                 }
             } else {
-                if (!this.zg) {
-                    this.zg = true;
-                    this.zh = this.zi.zo;
-                    if (this.zh == 1 && this.yx.hU()) {
-                        this.zk.reset();
+                if (!this.zf) {
+                    this.zf = true;
+                    this.zg = this.zh.zn;
+                    if (this.zg == 1 && this.yw.hU()) {
+                        this.zj.reset();
                     }
                 }
-                if (this.zh == 1 && this.yx.hU() && !this.zk.p(this.ze.toByteArray())) {
+                if (this.zg == 1 && this.yw.hU() && !this.zj.p(this.zd.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
-                if (this.zi.zp) {
-                    if (this.zh == 1) {
-                        if (this.yx.hU() && !this.zk.isValid()) {
+                if (this.zh.zo) {
+                    if (this.zg == 1) {
+                        if (this.yw.hU() && !this.zj.isValid()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.yx.hP()) {
-                            q(this.ze.toByteArray());
+                        if (this.yw.hP()) {
+                            q(this.zd.toByteArray());
                         } else {
-                            G(new String(this.ze.toByteArray(), "UTF-8"));
+                            G(new String(this.zd.toByteArray(), "UTF-8"));
                         }
-                    } else if (this.zh == 2) {
-                        t(this.ze.toByteArray());
+                    } else if (this.zg == 2) {
+                        t(this.zd.toByteArray());
                     } else {
                         throw new Exception("BdLogic error");
                     }
-                    this.zg = false;
-                    this.ze.reset();
+                    this.zf = false;
+                    this.zd.reset();
                 }
             }
-            this.zi = null;
-            this.zj = 0;
-            return this.zd.position() > 0;
+            this.zh = null;
+            this.zi = 0;
+            return this.zc.position() > 0;
         } else {
-            int position2 = this.zd.position();
-            if (this.zi.zs - this.zj < position2) {
-                position2 = this.zi.zs - this.zj;
+            int position2 = this.zc.position();
+            if (this.zh.zr - this.zi < position2) {
+                position2 = this.zh.zr - this.zi;
             }
-            int position3 = this.zd.position();
-            if (this.zi.zs > 0) {
+            int position3 = this.zc.position();
+            if (this.zh.zr > 0) {
                 bArr = new byte[position2];
-                this.zd.position(0);
-                this.zd.get(bArr, 0, position2);
+                this.zc.position(0);
+                this.zc.get(bArr, 0, position2);
             }
-            this.zd.position(position2);
-            this.zd.limit(position3);
-            this.zd.compact();
+            this.zc.position(position2);
+            this.zc.limit(position3);
+            this.zc.compact();
             if (bArr != null) {
-                this.ze.write(bArr);
+                this.zd.write(bArr);
             }
-            this.zj = position2 + this.zj;
-            return this.zj >= this.zi.zs;
+            this.zi = position2 + this.zi;
+            return this.zi >= this.zh.zr;
         }
     }
 
@@ -274,24 +274,24 @@ public class m extends Thread {
     }
 
     protected void t(byte[] bArr) {
-        this.zn = System.currentTimeMillis();
-        s(new k.a(bArr, this.zm, this.zn));
+        this.zm = System.currentTimeMillis();
+        s(new k.a(bArr, this.zl, this.zm));
     }
 
     private boolean hY() throws UnsupportedEncodingException {
         boolean z;
         boolean z2;
         boolean z3 = false;
-        int position = this.zd.position() - 4;
+        int position = this.zc.position() - 4;
         while (true) {
             if (position < 0) {
                 break;
-            } else if (this.zd.get(position + 0) != 13 || this.zd.get(position + 1) != 10 || this.zd.get(position + 2) != 13 || this.zd.get(position + 3) != 10) {
+            } else if (this.zc.get(position + 0) != 13 || this.zc.get(position + 1) != 10 || this.zc.get(position + 2) != 13 || this.zc.get(position + 3) != 10) {
                 position--;
             } else {
-                int position2 = this.zd.position();
+                int position2 = this.zc.position();
                 Map<String, String> map = null;
-                if (this.zd.get(0) == 72 && this.zd.get(1) == 84 && this.zd.get(2) == 84 && this.zd.get(3) == 80) {
+                if (this.zc.get(0) == 72 && this.zc.get(1) == 84 && this.zc.get(2) == 84 && this.zc.get(3) == 80) {
                     Pair<Integer, String> hZ = hZ();
                     if (((Integer) hZ.first).intValue() >= 300) {
                         s(new k.p(((Integer) hZ.first).intValue(), (String) hZ.second));
@@ -300,24 +300,24 @@ public class m extends Thread {
                         z = false;
                     }
                     if (position > 0) {
-                        this.zd.position(0);
+                        this.zc.position(0);
                         byte[] bArr = new byte[position];
-                        this.zd.get(bArr);
+                        this.zc.get(bArr);
                         map = u(bArr);
                     }
                 } else {
                     z = false;
                 }
-                this.zd.position(position + 4);
-                this.zd.limit(position2);
-                this.zd.compact();
-                if (this.zl < this.yp.hz() && map.size() == 0) {
-                    this.zl++;
+                this.zc.position(position + 4);
+                this.zc.limit(position2);
+                this.zc.compact();
+                if (this.zk < this.yo.hz() && map.size() == 0) {
+                    this.zk++;
                     return true;
                 }
-                this.zl = 0;
+                this.zk = 0;
                 if (!z) {
-                    z2 = this.zd.position() > 0;
+                    z2 = this.zc.position() > 0;
                     this.mState = 3;
                 } else {
                     this.mState = 0;
@@ -348,27 +348,27 @@ public class m extends Thread {
 
     private Pair<Integer, String> hZ() throws UnsupportedEncodingException {
         int i = 4;
-        while (i < this.zd.position() && this.zd.get(i) != 32) {
+        while (i < this.zc.position() && this.zc.get(i) != 32) {
             i++;
         }
         int i2 = i + 1;
-        while (i2 < this.zd.position() && this.zd.get(i2) != 32) {
+        while (i2 < this.zc.position() && this.zc.get(i2) != 32) {
             i2++;
         }
         int i3 = i + 1;
         int i4 = 0;
         for (int i5 = 0; i3 + i5 < i2; i5++) {
-            i4 = (i4 * 10) + (this.zd.get(i3 + i5) - 48);
+            i4 = (i4 * 10) + (this.zc.get(i3 + i5) - 48);
         }
         int i6 = i2 + 1;
         int i7 = i6;
-        while (i7 < this.zd.position() && this.zd.get(i7) != 13) {
+        while (i7 < this.zc.position() && this.zc.get(i7) != 13) {
             i7++;
         }
         int i8 = i7 - i6;
         byte[] bArr = new byte[i8];
-        this.zd.position(i6);
-        this.zd.get(bArr, 0, i8);
+        this.zc.position(i6);
+        this.zc.get(bArr, 0, i8);
         return new Pair<>(Integer.valueOf(i4), new String(bArr, "UTF-8"));
     }
 
@@ -387,7 +387,7 @@ public class m extends Thread {
     public void quit() {
         this.mStopped = true;
         try {
-            this.yp.close();
+            this.yo.close();
         } catch (Throwable th) {
             BdLog.e(th);
         }
@@ -397,16 +397,16 @@ public class m extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            this.zd.clear();
+            this.zc.clear();
             do {
                 try {
-                    int read = this.yp.read(this.zd);
+                    int read = this.yo.read(this.zc);
                     if (read > 0) {
-                        if (this.zm <= 0) {
-                            this.zm = System.currentTimeMillis();
+                        if (this.zl <= 0) {
+                            this.zl = System.currentTimeMillis();
                         }
                         synchronized (m.class) {
-                            zf += read;
+                            ze += read;
                         }
                     }
                     if (read > 0) {
@@ -437,14 +437,14 @@ public class m extends Thread {
 
     public void hG() {
         synchronized (m.class) {
-            zf = 0L;
+            ze = 0L;
         }
     }
 
     public long getDownFlowSize() {
         long j;
         synchronized (m.class) {
-            j = zf;
+            j = ze;
         }
         return j;
     }

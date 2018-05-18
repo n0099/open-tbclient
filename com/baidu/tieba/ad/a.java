@@ -16,16 +16,16 @@ import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
     private static final Pattern ajp = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a bcR = new a();
+    private static a bcS = new a();
     private final List<h.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, h.b> ajn = new ConcurrentHashMap<>();
-    private h.c bcS = null;
+    private h.c bcT = null;
 
     private a() {
     }
 
-    public static a Nb() {
-        return bcR;
+    public static a MZ() {
+        return bcS;
     }
 
     public void a(final h.a aVar) {
@@ -49,7 +49,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.bcS = cVar;
+        this.bcT = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -78,7 +78,7 @@ public final class a implements h {
         String str2 = strArr[0];
         h.b bVar = this.ajn.get(et(str2));
         if (bVar != null) {
-            bVar.d(context, es(ib(str2)));
+            bVar.d(context, es(ic(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -93,7 +93,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.bcS != null) {
+        if (!z3 && this.bcT != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -104,7 +104,7 @@ public final class a implements h {
         return z4;
     }
 
-    private String ib(String str) {
+    private String ic(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -153,12 +153,12 @@ public final class a implements h {
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
         if (ajp.matcher(str2).find()) {
-            this.bcS.b(context, str, str2, z, dVar, z2);
+            this.bcT.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean ic(String str) {
+    public boolean ie(String str) {
         return ajp.matcher(str).find();
     }
 }

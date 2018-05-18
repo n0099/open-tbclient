@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static f aNp = new f();
-    private b aNq;
-    private a aNr;
+    private static f aNq = new f();
+    private b aNr;
+    private a aNs;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,22 +18,22 @@ public class f {
     private f() {
     }
 
-    public static f HA() {
-        return aNp;
+    public static f Hy() {
+        return aNq;
     }
 
     public void a(a aVar) {
-        this.aNr = aVar;
-        if (this.aNq != null) {
-            this.aNq.cancel();
+        this.aNs = aVar;
+        if (this.aNr != null) {
+            this.aNr.cancel();
         }
-        this.aNq = new b();
-        this.aNq.setPriority(4);
-        this.aNq.execute(new String[0]);
+        this.aNr = new b();
+        this.aNr.setPriority(4);
+        this.aNr.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean HB() {
+    public boolean Hz() {
         int i;
         long j = 0;
         byte[] dI = com.baidu.tbadk.core.util.k.dI(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
@@ -69,15 +69,15 @@ public class f {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(f.this.HB());
+            return Boolean.valueOf(f.this.Hz());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (f.this.aNr != null && bool != null) {
-                f.this.aNr.am(bool.booleanValue());
+            if (f.this.aNs != null && bool != null) {
+                f.this.aNs.am(bool.booleanValue());
             }
         }
     }

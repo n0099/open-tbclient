@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static b SS = null;
-    private static a ST = null;
-    private static boolean SU = false;
-    private static String SV = "";
-    private static transient List<String> SW = new ArrayList(5);
+    private static b SM = null;
+    private static a SO = null;
+    private static boolean SQ = false;
+    private static String SR = "";
+    private static transient List<String> SS = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (ST == null) {
+        if (SO == null) {
             synchronized (a.class) {
-                if (ST == null) {
-                    ST = new a();
-                    SS = b.c(baseFragmentActivity);
+                if (SO == null) {
+                    SO = new a();
+                    SM = b.c(baseFragmentActivity);
                 }
             }
-        } else if (SS != null) {
-            SS.setContext(baseFragmentActivity.getPageContext());
+        } else if (SM != null) {
+            SM.setContext(baseFragmentActivity.getPageContext());
         }
-        if (SU && SS != null) {
-            SS.oV();
-            SS.oW();
-            SU = false;
+        if (SQ && SM != null) {
+            SM.oU();
+            SM.oV();
+            SQ = false;
         }
-        return ST;
+        return SO;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        oR();
+        oQ();
         if (z) {
-            oM();
+            oL();
         }
         if (z2) {
-            oN();
+            oM();
         }
         af(z3);
         a(aVar);
     }
 
-    public void oM() {
-        oR();
-        if (SS != null) {
-            SS.oV();
-            SU = false;
+    public void oL() {
+        oQ();
+        if (SM != null) {
+            SM.oU();
+            SQ = false;
         }
     }
 
-    public void oN() {
-        oR();
-        if (SS != null) {
-            SS.oW();
-            SU = false;
+    public void oM() {
+        oQ();
+        if (SM != null) {
+            SM.oV();
+            SQ = false;
         }
     }
 
     public void af(boolean z) {
-        oR();
-        if (SS != null) {
-            SS.af(z);
+        oQ();
+        if (SM != null) {
+            SM.af(z);
         }
     }
 
     public void a(b.a aVar) {
-        oR();
-        if (SS != null) {
-            SS.c(aVar);
+        oQ();
+        if (SM != null) {
+            SM.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        oR();
-        if (SS != null) {
-            if (SS.oS()) {
-                SS.c(aVar);
+        oQ();
+        if (SM != null) {
+            if (SM.oR()) {
+                SM.c(aVar);
             }
-            SS.oU();
+            SM.oT();
         }
     }
 
     public void a(int i, b.a aVar) {
-        oR();
-        if (SS != null) {
-            if (SS.oS()) {
-                SS.c(aVar);
+        oQ();
+        if (SM != null) {
+            if (SM.oR()) {
+                SM.c(aVar);
             }
-            SS.aY(i);
+            SM.aY(i);
+        }
+    }
+
+    public void oN() {
+        oQ();
+        if (SM != null) {
+            SM.oN();
+            SQ = true;
         }
     }
 
     public void oO() {
-        oR();
-        if (SS != null) {
-            SS.oO();
-            SU = true;
+        oQ();
+        if (SM != null) {
+            SM.oO();
         }
     }
 
     public void oP() {
-        oR();
-        if (SS != null) {
-            SS.oP();
-        }
-    }
-
-    public void oQ() {
-        oR();
-        oP();
+        oQ();
         oO();
+        oN();
     }
 
-    private void oR() {
-        if (SS == null) {
+    private void oQ() {
+        if (SM == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (SS != null) {
-                if (ST != null) {
-                    ST.oQ();
+            if (SM != null) {
+                if (SO != null) {
+                    SO.oP();
                 }
-                SS.oT();
-                SS.oX();
-                SS = null;
+                SM.oS();
+                SM.oW();
+                SM = null;
             }
-            if (ST != null) {
-                ST = null;
+            if (SO != null) {
+                SO = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

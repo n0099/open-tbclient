@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes2.dex */
 public interface af {
-    void PP();
+    void PM();
 
-    void PQ();
+    void PN();
 
-    void PR();
+    void PO();
 
     void setHeaderViewHeight(int i);
 
@@ -15,5 +15,5 @@ public interface af {
 
     void showFloatingView();
 
-    void wY();
+    void wX();
 }

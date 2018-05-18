@@ -19,8 +19,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class VideoMiddleModel extends BdBaseModel {
-    private final HttpMessageListener dbF;
-    private a drz;
+    private final HttpMessageListener dcN;
+    private a dsH;
     private String mId;
     private boolean mIsLoading;
     private TbPageContext mPageContext;
@@ -32,7 +32,7 @@ public class VideoMiddleModel extends BdBaseModel {
     public interface a {
         void g(List<com.baidu.tieba.card.data.b> list, boolean z);
 
-        void lR(String str);
+        void lU(String str);
     }
 
     static /* synthetic */ int b(VideoMiddleModel videoMiddleModel) {
@@ -43,12 +43,12 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public VideoMiddleModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.dbF = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
+        this.dcN = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoMiddleDataResponseMessage)) {
-                    VideoMiddleModel.this.drz.lR("error");
+                    VideoMiddleModel.this.dsH.lU("error");
                     return;
                 }
                 VideoMiddleModel.this.mIsLoading = false;
@@ -58,25 +58,25 @@ public class VideoMiddleModel extends BdBaseModel {
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = TbadkCoreApplication.getInst().getResources().getString(d.k.error_unkown_try_again);
                     }
-                    VideoMiddleModel.this.drz.lR(errorString);
+                    VideoMiddleModel.this.dsH.lU(errorString);
                     return;
                 }
-                VideoMiddleModel.this.drz.g(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
+                VideoMiddleModel.this.dsH.g(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
             }
         };
         this.mPageContext = tbPageContext;
-        this.drz = aVar;
-        AE();
-        this.dbF.setTag(getUniqueId());
-        this.dbF.setSelfListener(true);
-        registerListener(this.dbF);
+        this.dsH = aVar;
+        registerTask();
+        this.dcN.setTag(getUniqueId());
+        this.dcN.setSelfListener(true);
+        registerListener(this.dcN);
     }
 
     public void setId(String str) {
         this.mId = str;
     }
 
-    public void lQ(String str) {
+    public void lT(String str) {
         this.st_type = str;
     }
 
@@ -84,7 +84,7 @@ public class VideoMiddleModel extends BdBaseModel {
         this.yuelaou_locate = str;
     }
 
-    private void AE() {
+    private void registerTask() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION, TbConfig.SERVER_ADDRESS + "c/f/video/getVideoMidPage");
         tbHttpMessageTask.setResponsedClass(VideoMiddleDataResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -112,7 +112,7 @@ public class VideoMiddleModel extends BdBaseModel {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         com.baidu.tieba.frs.aggregation.g gVar = new com.baidu.tieba.frs.aggregation.g();
                         gVar.parseJson(jSONArray.optString(i2));
-                        if (gVar.dbw != null) {
+                        if (gVar.dcE != null) {
                             this.mDataList.add(gVar);
                         }
                     }

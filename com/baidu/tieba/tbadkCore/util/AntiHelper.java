@@ -34,7 +34,7 @@ public class AntiHelper {
         void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar);
     }
 
-    public static boolean tt(int i) {
+    public static boolean ts(int i) {
         return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004;
     }
 
@@ -95,7 +95,7 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar2.b(i.ab(context)).tD();
+            aVar2.b(i.ab(context)).tC();
             return aVar2;
         }
         return null;
@@ -103,7 +103,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!g(antiData)) {
-            bsL();
+            bsJ();
         }
         if (d(antiData) || f(antiData)) {
             if (antiData.isHas_chance()) {
@@ -173,7 +173,7 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar.b(i.ab(context)).tD();
+            aVar.b(i.ab(context)).tC();
         }
     }
 
@@ -211,7 +211,7 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar.b(i.ab(context)).tD();
+            aVar.b(i.ab(context)).tC();
         }
     }
 
@@ -242,7 +242,7 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar.b(i.ab(context)).tD();
+            aVar.b(i.ab(context)).tC();
         }
     }
 
@@ -275,20 +275,20 @@ public class AntiHelper {
                 }
             });
             if (context instanceof Activity) {
-                aVar.b(i.ab(context)).tD();
+                aVar.b(i.ab(context)).tC();
             }
         }
     }
 
     public static boolean e(Context context, int i, String str) {
-        if (tu(i)) {
+        if (tt(i)) {
             an(context, str);
             return true;
         }
         return false;
     }
 
-    public static boolean tu(int i) {
+    public static boolean tt(int i) {
         return i == 3250012;
     }
 
@@ -301,7 +301,7 @@ public class AntiHelper {
         }
     }
 
-    private static void bsL() {
+    private static void bsJ() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("anti_vcode_no_longer_tip");
     }
 }

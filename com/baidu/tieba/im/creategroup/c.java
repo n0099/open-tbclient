@@ -3,14 +3,14 @@ package com.baidu.tieba.im.creategroup;
 import android.app.Activity;
 /* loaded from: classes3.dex */
 public class c {
-    public static String dUh = "pic_found_address";
-    public static String dUi = "pic_found_recommend";
-    public static String dUj = "pic_didian";
-    public static String dUk = "pic_found_name";
-    public static String dUl = "pic_benba";
+    public static String dVo = "pic_found_address";
+    public static String dVp = "pic_found_recommend";
+    public static String dVq = "pic_didian";
+    public static String dVr = "pic_found_name";
+    public static String dVs = "pic_benba";
 
     public static String a(Activity activity, String str, boolean z) {
-        return z ? com.baidu.tbadk.util.b.Hy().gX(str + "_1.png") : com.baidu.tbadk.util.b.Hy().gX(str + ".png");
+        return z ? com.baidu.tbadk.util.b.Hw().gX(str + "_1.png") : com.baidu.tbadk.util.b.Hw().gX(str + ".png");
     }
 
     public static void b(Activity activity, String str, boolean z) {

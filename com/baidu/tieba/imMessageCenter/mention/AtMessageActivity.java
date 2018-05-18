@@ -19,17 +19,17 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements e.b, com.baidu.tbadk.mvc.c.a {
-    private d emF;
-    private AtMeModelController emG;
-    private ViewEventCenter emH;
-    private CustomMessageListener emI = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMessageActivity.1
+    private d enN;
+    private AtMeModelController enO;
+    private ViewEventCenter enP;
+    private CustomMessageListener enQ = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMessageActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (AtMessageActivity.this.emG != null) {
-                    AtMessageActivity.this.emG.agK();
+                if (AtMessageActivity.this.enO != null) {
+                    AtMessageActivity.this.enO.agK();
                 }
             }
         }
@@ -39,31 +39,31 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.emG = new AtMeModelController(this);
-        registerListener(this.emI);
-        this.emG.setUniqueId(getUniqueId());
-        this.emF = new d(this);
+        this.enO = new AtMeModelController(this);
+        registerListener(this.enQ);
+        this.enO.setUniqueId(getUniqueId());
+        this.enN = new d(this);
         if (bundle != null) {
-            this.emG.i(bundle);
+            this.enO.i(bundle);
         } else {
-            this.emG.i(null);
+            this.enO.i(null);
         }
-        this.emF.Rn();
-        Gn().addEventDelegate(this);
-        this.emG.agK();
+        this.enN.Rk();
+        Gl().addEventDelegate(this);
+        this.enO.agK();
     }
 
     @Override // com.baidu.tbadk.core.view.e.b
     public void aO(boolean z) {
-        this.emG.arj();
+        this.enO.ari();
     }
 
-    public void arh() {
-        this.emG.agL();
+    public void arg() {
+        this.enO.agL();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean FE() {
+    public boolean FC() {
         return false;
     }
 
@@ -72,15 +72,15 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (bVar == null) {
             return true;
         }
-        if (bVar.FF() == 9484) {
-            com.baidu.tbadk.mvc.b.a FG = bVar.FG();
-            if (FG instanceof FeedData) {
-                return c((FeedData) FG);
+        if (bVar.FD() == 9484) {
+            com.baidu.tbadk.mvc.b.a FE = bVar.FE();
+            if (FE instanceof FeedData) {
+                return c((FeedData) FE);
             }
-        } else if (bVar.FF() == 9483) {
-            com.baidu.tbadk.mvc.b.a FG2 = bVar.FG();
-            if (FG2 instanceof FeedData) {
-                return b((FeedData) FG2);
+        } else if (bVar.FD() == 9483) {
+            com.baidu.tbadk.mvc.b.a FE2 = bVar.FE();
+            if (FE2 instanceof FeedData) {
+                return b((FeedData) FE2);
             }
         }
         return false;
@@ -132,27 +132,27 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return false;
     }
 
-    public ViewEventCenter Gn() {
-        if (this.emH == null) {
-            this.emH = new ViewEventCenter();
+    public ViewEventCenter Gl() {
+        if (this.enP == null) {
+            this.enP = new ViewEventCenter();
         }
-        return this.emH;
+        return this.enP;
     }
 
-    public void aIo() {
-        this.emF.aIo();
+    public void aIm() {
+        this.enN.aIm();
     }
 
     public void b(com.baidu.tbadk.mvc.d.b bVar) {
-        this.emF.b(bVar);
+        this.enN.b(bVar);
     }
 
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
-        this.emF.a(aVar);
+        this.enN.a(aVar);
     }
 
-    public void aIp() {
-        this.emF.aIp();
+    public void aIn() {
+        this.enN.aIn();
     }
 
     public void a(ErrorData errorData) {
@@ -165,6 +165,6 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.emF.d(getPageContext(), i);
+        this.enN.d(getPageContext(), i);
     }
 }

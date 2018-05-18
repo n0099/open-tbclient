@@ -12,8 +12,8 @@ import com.baidu.tieba.card.o;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class d extends c {
-    private TextView cps;
-    private ThreadLinkView cpt;
+    private TextView cqC;
+    private ThreadLinkView cqD;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -27,9 +27,9 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c
     protected void ac(View view2) {
         if (view2 != null) {
-            this.cpt = (ThreadLinkView) view2.findViewById(d.g.link_thread_root);
-            this.cpt.setTag(getTag());
-            this.cps = (TextView) view2.findViewById(d.g.card_home_page_normal_thread_title);
+            this.cqD = (ThreadLinkView) view2.findViewById(d.g.link_thread_root);
+            this.cqD.setTag(getTag());
+            this.cqC = (TextView) view2.findViewById(d.g.card_home_page_normal_thread_title);
         }
     }
 
@@ -39,38 +39,38 @@ public class d extends c {
     public void a(bd bdVar) {
         if (bdVar != null) {
             super.a(bdVar);
-            if ((StringUtils.isNull(bdVar.getTitle()) && (bdVar.rO() == null || bdVar.rO().size() == 0)) || bdVar.sf() == 1) {
+            if ((StringUtils.isNull(bdVar.getTitle()) && (bdVar.rN() == null || bdVar.rN().size() == 0)) || bdVar.se() == 1) {
                 bdVar.e(false, true);
-                if (bdVar.so() == null || StringUtils.isNull(bdVar.so().toString())) {
-                    this.cps.setVisibility(8);
+                if (bdVar.sn() == null || StringUtils.isNull(bdVar.sn().toString())) {
+                    this.cqC.setVisibility(8);
                 } else {
-                    this.cps.setVisibility(0);
-                    this.cps.setText(bdVar.so());
+                    this.cqC.setVisibility(0);
+                    this.cqC.setText(bdVar.sn());
                 }
             } else {
-                this.cps.setVisibility(0);
+                this.cqC.setVisibility(0);
                 bdVar.ZV = 0;
-                bdVar.e(false, bdVar.sJ());
-                SpannableStringBuilder so = bdVar.so();
-                this.cps.setOnTouchListener(new com.baidu.tieba.view.j(so));
-                this.cps.setText(so);
-                o.a(this.cps, bdVar.getId(), d.C0126d.cp_cont_b, d.C0126d.cp_cont_d);
+                bdVar.e(false, bdVar.sI());
+                SpannableStringBuilder sn = bdVar.sn();
+                this.cqC.setOnTouchListener(new com.baidu.tieba.view.j(sn));
+                this.cqC.setText(sn);
+                o.a(this.cqC, bdVar.getId(), d.C0126d.cp_cont_b, d.C0126d.cp_cont_d);
             }
-            this.cpt.setData(this.alf);
+            this.cqD.setData(this.alf);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.cpt.onChangeSkinType();
+        this.cqD.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.entelechy.view.c
     public void afe() {
         super.afe();
-        o.a(this.cps, this.alf.getId(), d.C0126d.cp_cont_b, d.C0126d.cp_cont_d);
-        this.cpt.eO(this.alf.getId());
+        o.a(this.cqC, this.alf.getId(), d.C0126d.cp_cont_b, d.C0126d.cp_cont_d);
+        this.cqD.eO(this.alf.getId());
     }
 }

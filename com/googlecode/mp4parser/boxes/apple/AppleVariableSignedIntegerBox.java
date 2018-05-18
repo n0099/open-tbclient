@@ -39,7 +39,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setIntLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wj(i)));
         this.intLength = i;
     }
 

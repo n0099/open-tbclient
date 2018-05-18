@@ -13,12 +13,12 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 /* loaded from: classes3.dex */
 public class d extends Dialog implements a {
-    private TextView eoP;
-    private View gBN;
-    private LinearLayout gBQ;
-    private InterestFrsData.Tag gBY;
-    private c gBZ;
-    private GridView gCa;
+    private TextView epY;
+    private View gCQ;
+    private LinearLayout gCT;
+    private InterestFrsData.Tag gDb;
+    private c gDc;
+    private GridView gDd;
     private Context mContext;
     private TextView mTitle;
     private View root;
@@ -31,43 +31,43 @@ public class d extends Dialog implements a {
 
     private void init() {
         this.root = View.inflate(this.mContext, d.i.new_user_img_box, null);
-        this.gBZ = new c(this.mContext);
+        this.gDc = new c(this.mContext);
         setCanceledOnTouchOutside(true);
-        this.gBQ = (LinearLayout) this.root.findViewById(d.g.box_close_layout);
-        this.gCa = (GridView) this.root.findViewById(d.g.layout_content);
-        this.gCa.setAdapter((ListAdapter) this.gBZ);
-        this.gCa.setSelector(d.C0126d.common_color_10022);
+        this.gCT = (LinearLayout) this.root.findViewById(d.g.box_close_layout);
+        this.gDd = (GridView) this.root.findViewById(d.g.layout_content);
+        this.gDd.setAdapter((ListAdapter) this.gDc);
+        this.gDd.setSelector(d.C0126d.common_color_10022);
         setContentView(this.root);
         this.mTitle = (TextView) this.root.findViewById(d.g.prompt_title);
-        this.eoP = (TextView) this.root.findViewById(d.g.prompt_sub_title);
-        this.gBN = this.root.findViewById(d.g.view_layout);
-        this.gBN.setBackgroundDrawable(this.mContext.getResources().getDrawable(d.f.bg_startpage2_card_orange_up));
+        this.epY = (TextView) this.root.findViewById(d.g.prompt_sub_title);
+        this.gCQ = this.root.findViewById(d.g.view_layout);
+        this.gCQ.setBackgroundDrawable(this.mContext.getResources().getDrawable(d.f.bg_startpage2_card_orange_up));
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void a(InterestFrsData.Tag tag) {
-        this.gBY = tag;
-        if (this.gBY != null) {
+        this.gDb = tag;
+        if (this.gDb != null) {
             this.mTitle.setText(tag.getBname());
-            this.eoP.setText(tag.getBdesc());
-            this.gBZ.setData(tag.getCard_list());
+            this.epY.setText(tag.getBdesc());
+            this.gDc.setData(tag.getCard_list());
         }
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void tJ(int i) {
-        this.gBZ.notifyDataSetChanged();
+    public void tI(int i) {
+        this.gDc.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void tK(int i) {
-        this.gBZ.notifyDataSetChanged();
+    public void tJ(int i) {
+        this.gDc.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.gBQ.setOnClickListener(onClickListener);
-        this.gBZ.setOnClickListener(onClickListener);
+        this.gCT.setOnClickListener(onClickListener);
+        this.gDc.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a

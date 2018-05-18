@@ -20,27 +20,27 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ImagePagerAdapter extends PagerAdapter {
-    private Map<String, ImageUrlData> axV;
-    private DragImageView.e axZ;
-    private List<a> ayf;
-    private DragImageView.d ayg;
-    private UrlDragImageView.b ayj;
-    private boolean ayk;
-    private GalleryViewPager ayl;
-    private boolean aym;
+    private Map<String, ImageUrlData> axW;
+    private DragImageView.e aya;
+    private List<a> ayg;
+    private DragImageView.d ayh;
+    private UrlDragImageView.b ayk;
+    private boolean ayl;
+    private GalleryViewPager aym;
+    private boolean ayn;
     private Context mContext;
-    private ArrayList<String> axU = null;
+    private ArrayList<String> axV = null;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener axW = null;
-    private View.OnTouchListener axX = null;
-    private DragImageView.f axY = null;
-    private int aya = 0;
-    private boolean ayb = false;
-    private String ayc = null;
-    private int ayd = 0;
+    private View.OnLongClickListener axX = null;
+    private View.OnTouchListener axY = null;
+    private DragImageView.f axZ = null;
+    private int ayb = 0;
+    private boolean ayc = false;
+    private String ayd = null;
     private int aye = 0;
-    private boolean ayh = false;
+    private int ayf = 0;
     private boolean ayi = false;
+    private boolean ayj = false;
     private int mPosition = -1;
 
     /* loaded from: classes.dex */
@@ -50,64 +50,64 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     public ImagePagerAdapter(Context context, GalleryViewPager galleryViewPager, DragImageView.e eVar) {
         this.mContext = null;
-        this.axZ = null;
-        this.ayf = null;
+        this.aya = null;
+        this.ayg = null;
         this.mContext = context;
-        this.ayl = galleryViewPager;
-        this.axZ = eVar;
-        this.ayf = new ArrayList();
+        this.aym = galleryViewPager;
+        this.aya = eVar;
+        this.ayg = new ArrayList();
     }
 
     public void setData(ArrayList<String> arrayList) {
         if (arrayList == null) {
-            this.axU = new ArrayList<>();
+            this.axV = new ArrayList<>();
         } else {
-            this.axU = new ArrayList<>(arrayList);
+            this.axV = new ArrayList<>(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void setAssistUrls(Map<String, ImageUrlData> map) {
-        this.axV = map;
+        this.axW = map;
         notifyDataSetChanged();
     }
 
     public void setNextTitle(String str) {
-        this.ayc = str;
+        this.ayd = str;
     }
 
     public void setHasNext(boolean z) {
-        this.ayb = z;
+        this.ayc = z;
         notifyDataSetChanged();
     }
 
     public void a(a aVar) {
-        this.ayf.add(aVar);
+        this.ayg.add(aVar);
     }
 
     public boolean getHasNext() {
-        return this.ayb;
+        return this.ayc;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         int i = 0;
-        if (this.axU != null) {
-            i = this.axU.size();
-            if (this.ayb) {
+        if (this.axV != null) {
+            i = this.axV.size();
+            if (this.ayc) {
                 i++;
             }
         }
-        return i + this.ayd + this.aye;
+        return i + this.aye + this.ayf;
     }
 
     public void setTempSize(int i) {
-        this.ayd = i;
+        this.aye = i;
         notifyDataSetChanged();
     }
 
     public void setAddSize(int i) {
-        this.aye = i;
+        this.ayf = i;
         notifyDataSetChanged();
     }
 
@@ -116,19 +116,19 @@ public class ImagePagerAdapter extends PagerAdapter {
     }
 
     public void a(View.OnTouchListener onTouchListener) {
-        this.axX = onTouchListener;
+        this.axY = onTouchListener;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.axW = onLongClickListener;
+        this.axX = onLongClickListener;
     }
 
     public void setGifMaxUseableMem(int i) {
-        this.aya = i;
+        this.ayb = i;
     }
 
     public void a(DragImageView.f fVar) {
-        this.axY = fVar;
+        this.axZ = fVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -147,8 +147,8 @@ public class ImagePagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         View e = e(viewGroup, i);
-        if (e == null && this.ayf != null && this.ayf.size() != 0) {
-            Iterator<a> it = this.ayf.iterator();
+        if (e == null && this.ayg != null && this.ayg.size() != 0) {
+            Iterator<a> it = this.ayg.iterator();
             while (it.hasNext() && (e = it.next().g(viewGroup, i)) == null) {
             }
         }
@@ -159,43 +159,43 @@ public class ImagePagerAdapter extends PagerAdapter {
     }
 
     public void setIsCanDrag(boolean z) {
-        this.ayk = z;
+        this.ayl = z;
     }
 
     private UrlDragImageView e(ViewGroup viewGroup, int i) {
-        String str = i < this.axU.size() ? this.axU.get(i) : null;
+        String str = i < this.axV.size() ? this.axV.get(i) : null;
         if (StringUtils.isNull(str)) {
             return null;
         }
         UrlDragImageView urlDragImageView = new UrlDragImageView(this.mContext);
-        urlDragImageView.setOriImgSelectedCallback(this.ayj);
+        urlDragImageView.setOriImgSelectedCallback(this.ayk);
         urlDragImageView.setLayoutParams(new Gallery.LayoutParams(-1, -1));
         urlDragImageView.setImageOnClickListener(this.mOnClickListener);
-        urlDragImageView.setImageOnLongClickListener(this.axW);
-        urlDragImageView.setOuterOnTouchListener(this.axX);
-        urlDragImageView.setIsCanDrag(this.ayk);
-        urlDragImageView.setIsCdn(this.ayh);
-        urlDragImageView.setOnSizeChangedListener(this.axY);
+        urlDragImageView.setImageOnLongClickListener(this.axX);
+        urlDragImageView.setOuterOnTouchListener(this.axY);
+        urlDragImageView.setIsCanDrag(this.ayl);
+        urlDragImageView.setIsCdn(this.ayi);
+        urlDragImageView.setOnSizeChangedListener(this.axZ);
         viewGroup.addView(urlDragImageView, 0);
         urlDragImageView.setAssistUrl(fB(str));
-        urlDragImageView.setUrl(str, this.ayi);
-        urlDragImageView.setGifMaxUseableMem(this.aya);
+        urlDragImageView.setUrl(str, this.ayj);
+        urlDragImageView.setGifMaxUseableMem(this.ayb);
         urlDragImageView.setTag(String.valueOf(i));
-        urlDragImageView.setGifSetListener(this.axZ);
-        urlDragImageView.setHeadImage(this.aym);
-        urlDragImageView.setDragToExitListener(this.ayg);
+        urlDragImageView.setGifSetListener(this.aya);
+        urlDragImageView.setHeadImage(this.ayn);
+        urlDragImageView.setDragToExitListener(this.ayh);
         return urlDragImageView;
     }
 
     public void setDrageToExitListener(DragImageView.d dVar) {
-        this.ayg = dVar;
+        this.ayh = dVar;
     }
 
     private View f(ViewGroup viewGroup, int i) {
-        if (this.ayb && i == getCount() - 1 && i != 0) {
+        if (this.ayc && i == getCount() - 1 && i != 0) {
             View inflate = LayoutInflater.from(this.mContext).inflate(d.i.big_image_next, (ViewGroup) null);
             ((ImageView) inflate.findViewById(d.g.image)).setImageDrawable(ak.getDrawable(d.f.big_image_next_default));
-            ((TextView) inflate.findViewById(d.g.thread_name)).setText(this.ayc);
+            ((TextView) inflate.findViewById(d.g.thread_name)).setText(this.ayd);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.mOnClickListener);
             return inflate;
@@ -211,38 +211,38 @@ public class ImagePagerAdapter extends PagerAdapter {
             UrlDragImageView urlDragImageView = (UrlDragImageView) obj;
             DragImageView imageView = urlDragImageView.getImageView();
             if (imageView != null) {
-                imageView.Ij();
-                this.ayl.setCurrentView(imageView);
+                imageView.Ih();
+                this.aym.setCurrentView(imageView);
                 if (imageView.getImageType() == 1) {
-                    this.axZ.a(imageView);
+                    this.aya.a(imageView);
                 }
             }
-            urlDragImageView.Cn();
-            urlDragImageView.Cm();
-            urlDragImageView.i(this.ayi, true);
+            urlDragImageView.Cl();
+            urlDragImageView.Ck();
+            urlDragImageView.i(this.ayj, true);
         }
     }
 
     private ImageUrlData fB(String str) {
-        if (TextUtils.isEmpty(str) || this.axV == null) {
+        if (TextUtils.isEmpty(str) || this.axW == null) {
             return null;
         }
-        return this.axV.get(str);
+        return this.axW.get(str);
     }
 
     public void setAllowLocalUrl(boolean z) {
-        this.ayi = z;
+        this.ayj = z;
     }
 
     public void setIsCdn(boolean z) {
-        this.ayh = z;
+        this.ayi = z;
     }
 
     public void setHeadImage(boolean z) {
-        this.aym = z;
+        this.ayn = z;
     }
 
     public void setOriImgSelectedCallback(UrlDragImageView.b bVar) {
-        this.ayj = bVar;
+        this.ayk = bVar;
     }
 }

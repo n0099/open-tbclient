@@ -15,52 +15,52 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout ayZ;
-    protected TextView aza;
+    protected LinearLayout aza;
     protected TextView azb;
-    private boolean azd;
-    private View aze;
-    protected ImageView azf;
+    protected TextView azc;
+    private boolean aze;
+    private View azf;
+    protected ImageView azg;
     private View mBottomLine;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.azd = true;
+        this.aze = true;
         this.mContext = context;
-        Cc();
+        Ca();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.azd = true;
+        this.aze = true;
         this.mContext = context;
-        Cc();
+        Ca();
     }
 
     public void displayTip() {
-        if (this.azb != null) {
-            this.azb.setVisibility(0);
+        if (this.azc != null) {
+            this.azc.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.azb != null) {
-            this.azb.setTextColor(i);
+        if (this.azc != null) {
+            this.azc.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.azb != null) {
+        if (this.azc != null) {
         }
     }
 
     public void g(int i, int i2, int i3, int i4) {
-        if (this.azb != null) {
+        if (this.azc != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.azb.setLayoutParams(layoutParams);
+            this.azc.setLayoutParams(layoutParams);
         }
     }
 
@@ -68,37 +68,37 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.azf.setVisibility(8);
+        this.azg.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.aza.setText(str);
-    }
-
-    public void setText(int i) {
-        this.aza.setText(i);
-    }
-
-    public void setTip(String str) {
         this.azb.setText(str);
     }
 
+    public void setText(int i) {
+        this.azb.setText(i);
+    }
+
+    public void setTip(String str) {
+        this.azc.setText(str);
+    }
+
     public CharSequence getTip() {
-        return this.azb.getText();
+        return this.azc.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.azb.setBackgroundDrawable(drawable);
+        this.azc.setBackgroundDrawable(drawable);
     }
 
-    protected void Cc() {
+    protected void Ca() {
         LayoutInflater.from(this.mContext).inflate(d.i.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.ayZ = (LinearLayout) findViewById(d.g.container);
-        this.aza = (TextView) findViewById(d.g.text);
-        this.azb = (TextView) findViewById(d.g.tip);
-        this.azf = (ImageView) findViewById(d.g.arrow2);
+        this.aza = (LinearLayout) findViewById(d.g.container);
+        this.azb = (TextView) findViewById(d.g.text);
+        this.azc = (TextView) findViewById(d.g.tip);
+        this.azg = (ImageView) findViewById(d.g.arrow2);
         this.mBottomLine = findViewById(d.g.bottom_line_ll);
-        this.aze = findViewById(d.g.top_line_ll);
+        this.azf = findViewById(d.g.top_line_ll);
     }
 
     protected void c(AttributeSet attributeSet) {
@@ -107,26 +107,26 @@ public class TbSettingTextTipView extends FrameLayout {
             String string = obtainStyledAttributes.getString(d.m.TbSettingView_settingText);
             String string2 = obtainStyledAttributes.getString(d.m.TbSettingView_settingTip);
             if (string != null) {
-                this.aza.setText(string);
+                this.azb.setText(string);
             }
             if (string2 != null) {
-                this.azb.setText(string2);
+                this.azc.setText(string2);
             }
-            this.azd = obtainStyledAttributes.getBoolean(d.m.TbSettingView_settingShowArraw, true);
+            this.aze = obtainStyledAttributes.getBoolean(d.m.TbSettingView_settingShowArraw, true);
             obtainStyledAttributes.recycle();
         }
-        this.ayZ.setClickable(false);
-        this.ayZ.setFocusable(false);
-        if (!this.azd) {
-            this.azf.setVisibility(4);
+        this.aza.setClickable(false);
+        this.aza.setFocusable(false);
+        if (!this.aze) {
+            this.azg.setVisibility(4);
         }
     }
 
     public void setTopLineVisibility(boolean z) {
         if (z) {
-            this.aze.setVisibility(0);
+            this.azf.setVisibility(0);
         } else {
-            this.aze.setVisibility(8);
+            this.azf.setVisibility(8);
         }
     }
 
@@ -139,22 +139,22 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setMainTextSize(float f) {
-        this.aza.setTextSize(0, f);
-    }
-
-    private void setTipTextSize(float f) {
         this.azb.setTextSize(0, f);
     }
 
-    public void Cd() {
+    private void setTipTextSize(float f) {
+        this.azc.setTextSize(0, f);
+    }
+
+    public void Cb() {
         int e = l.e(this.mContext, d.e.tbds42);
         int e2 = l.e(this.mContext, d.e.tbds33);
         setMainTextSize(e);
         setTipTextSize(e2);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aza.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.azb.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.azb.getLayoutParams()).setMargins(0, 0, l.e(this.mContext, d.e.tbds18), 0);
-        this.ayZ.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.azc.getLayoutParams()).setMargins(0, 0, l.e(this.mContext, d.e.tbds18), 0);
+        this.aza.getLayoutParams().height = -1;
         requestLayout();
     }
 }

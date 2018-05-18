@@ -15,9 +15,9 @@ public class b {
     private int aPB;
     private int aPC;
     private int aPD;
-    protected final Paint aPv = new Paint();
+    private int aPE;
     protected final Paint aPw = new Paint();
-    private int aPx;
+    protected final Paint aPx = new Paint();
     private int aPy;
     private int aPz;
 
@@ -29,26 +29,26 @@ public class b {
     }
 
     public b(View view2) {
-        this.aPx = 16;
         this.aPy = 16;
-        this.aPz = -1;
-        this.aPA = 1711276032;
-        this.aPB = 20;
-        this.aPC = 16;
-        this.aPD = 32;
+        this.aPz = 16;
+        this.aPA = -1;
+        this.aPB = 1711276032;
+        this.aPC = 20;
+        this.aPD = 16;
+        this.aPE = 32;
         this.f8view = view2;
-        this.aPA = getContext().getResources().getColor(d.C0126d.black_alpha40);
+        this.aPB = getContext().getResources().getColor(d.C0126d.black_alpha40);
+        this.aPx.setColor(this.aPB);
+        this.aPx.setAntiAlias(true);
+        this.aPC = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
+        this.aPA = getContext().getResources().getColor(d.C0126d.cp_cont_i);
         this.aPw.setColor(this.aPA);
+        this.aPw.setTextSize(this.aPC);
         this.aPw.setAntiAlias(true);
-        this.aPB = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
-        this.aPz = getContext().getResources().getColor(d.C0126d.cp_cont_i);
-        this.aPv.setColor(this.aPz);
-        this.aPv.setTextSize(this.aPB);
-        this.aPv.setAntiAlias(true);
-        this.aPx = l.e(getContext(), d.e.tbds20);
         this.aPy = l.e(getContext(), d.e.tbds20);
-        this.aPC = l.e(getContext(), d.e.ds16);
-        this.aPD = l.e(getContext(), d.e.tbds40);
+        this.aPz = l.e(getContext(), d.e.tbds20);
+        this.aPD = l.e(getContext(), d.e.ds16);
+        this.aPE = l.e(getContext(), d.e.tbds40);
     }
 
     public void c(Canvas canvas, String str) {
@@ -62,14 +62,14 @@ public class b {
             int right = this.f8view.getRight();
             int top = this.f8view.getTop();
             int bottom = this.f8view.getBottom();
-            float measureText = this.aPv.measureText(str);
-            float f = this.aPD + measureText;
-            float f2 = this.aPB + this.aPC;
-            canvas.translate((((right - left) - paddingRight) - f) - this.aPy, (((bottom - top) - paddingBottom) - f2) - this.aPx);
+            float measureText = this.aPw.measureText(str);
+            float f = this.aPE + measureText;
+            float f2 = this.aPC + this.aPD;
+            canvas.translate((((right - left) - paddingRight) - f) - this.aPz, (((bottom - top) - paddingBottom) - f2) - this.aPy);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.aPw);
-            Paint.FontMetrics fontMetrics = this.aPv.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.aPv);
+            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.aPx);
+            Paint.FontMetrics fontMetrics = this.aPw.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.aPw);
             canvas.restoreToCount(save);
         }
     }
@@ -81,33 +81,33 @@ public class b {
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        this.aPy = i;
-        this.aPx = i2;
+        this.aPz = i;
+        this.aPy = i2;
         invalidate();
     }
 
-    public void fr(int i) {
-        this.aPz = i;
-        this.aPv.setColor(i);
+    public void fs(int i) {
+        this.aPA = i;
+        this.aPw.setColor(i);
         invalidate();
     }
 
     public void setTagTextSize(int i) {
-        this.aPB = i;
-        this.aPv.setTextSize(i);
+        this.aPC = i;
+        this.aPw.setTextSize(i);
         invalidate();
     }
 
-    public float hr(String str) {
-        return l.b(this.aPv, str).height() + this.aPC;
+    public float hs(String str) {
+        return l.b(this.aPw, str).height() + this.aPD;
     }
 
-    public float hs(String str) {
-        return l.a(this.aPv, str) + this.aPD;
+    public float ht(String str) {
+        return l.a(this.aPw, str) + this.aPE;
     }
 
     public void J(int i, int i2) {
-        this.aPD = i;
-        this.aPC = i2;
+        this.aPE = i;
+        this.aPD = i2;
     }
 }

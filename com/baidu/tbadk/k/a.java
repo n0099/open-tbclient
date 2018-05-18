@@ -10,37 +10,37 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private b aJY;
-    private InterfaceC0101a aJZ = null;
+    private b aJZ;
+    private InterfaceC0101a aKa = null;
     private WindowManager mWindowManager;
 
     /* renamed from: com.baidu.tbadk.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0101a {
-        void ff(int i);
+        void fg(int i);
     }
 
     public a(Context context) {
-        this.aJY = null;
+        this.aJZ = null;
         this.mWindowManager = null;
-        this.aJY = new b(context);
+        this.aJZ = new b(context);
         this.mWindowManager = (WindowManager) context.getSystemService("window");
     }
 
-    private void GC() {
+    private void GA() {
         try {
-            this.mWindowManager.removeView(this.aJY);
+            this.mWindowManager.removeView(this.aJZ);
         } catch (Throwable th) {
         }
     }
 
-    private void GD() {
+    private void GB() {
         try {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-2, -2, 2006, 0, -3);
             layoutParams.gravity = 51;
             layoutParams.height = 1;
             layoutParams.width = 1;
-            this.mWindowManager.addView(this.aJY, layoutParams);
+            this.mWindowManager.addView(this.aJZ, layoutParams);
         } catch (Throwable th) {
         }
     }
@@ -48,20 +48,20 @@ public class a extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        GC();
+        GA();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         super.start();
-        GC();
-        GD();
+        GA();
+        GB();
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tbadk.k.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.bT()) {
-                    a.this.aJY.invalidate();
-                    a.this.aJY.post(this);
+                    a.this.aJZ.invalidate();
+                    a.this.aJZ.post(this);
                 }
             }
         });
@@ -70,14 +70,14 @@ public class a extends com.baidu.adp.a.a.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b extends ImageView {
-        private int aKb;
+        private int aKc;
         private final Paint mPaint;
         private long mStartTime;
 
         public b(Context context) {
             super(context);
             this.mStartTime = -1L;
-            this.aKb = 0;
+            this.aKc = 0;
             this.mPaint = new Paint();
             this.mPaint.setColor(0);
             this.mPaint.setAlpha(0);
@@ -89,26 +89,26 @@ public class a extends com.baidu.adp.a.a.a {
         public void draw(Canvas canvas) {
             if (this.mStartTime == -1) {
                 this.mStartTime = SystemClock.elapsedRealtime();
-                this.aKb = 0;
+                this.aKc = 0;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             super.draw(canvas);
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
-                if (a.this.aJZ != null) {
-                    a.this.aJZ.ff(this.aKb);
+                if (a.this.aKa != null) {
+                    a.this.aKa.fg(this.aKc);
                 } else {
-                    com.baidu.adp.a.a.d.y(this.aKb);
+                    com.baidu.adp.a.a.d.y(this.aKc);
                 }
-                this.aKb = 0;
+                this.aKc = 0;
             }
-            this.aKb++;
+            this.aKc++;
         }
     }
 
     public void a(InterfaceC0101a interfaceC0101a) {
-        if (this.aJZ == null) {
-            this.aJZ = interfaceC0101a;
+        if (this.aKa == null) {
+            this.aKa = interfaceC0101a;
         }
     }
 }

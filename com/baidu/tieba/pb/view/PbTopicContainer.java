@@ -18,7 +18,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int fyA;
+    private int fzG;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -27,7 +27,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fyA = 3;
+        this.fzG = 3;
         setOrientation(0);
     }
 
@@ -36,10 +36,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.fyA) {
+        if (childCount > this.fzG) {
             while (true) {
                 childCount--;
-                if (childCount <= this.fyA) {
+                if (childCount <= this.fzG) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -108,7 +108,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.fyA = i;
+        this.fzG = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -116,10 +116,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         if (view2.getTag() instanceof av.a) {
             av.a aVar = (av.a) view2.getTag();
             if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.ro() + "", aVar.getTopicName(), "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.rn() + "", aVar.getTopicName(), "")));
                 return;
             }
-            com.baidu.tbadk.browser.a.M(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.ro());
+            com.baidu.tbadk.browser.a.M(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.rn());
         }
     }
 }

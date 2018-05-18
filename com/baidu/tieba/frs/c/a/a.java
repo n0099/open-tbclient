@@ -7,7 +7,7 @@ public interface a {
 
     void hideTitle();
 
-    void hu(String str);
+    void hv(String str);
 
     void onChangeSkinType(int i);
 

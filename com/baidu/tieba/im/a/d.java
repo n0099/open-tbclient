@@ -40,7 +40,7 @@ public class d extends j {
                 }
             }
             if (!a(responsePullMessage)) {
-                b.aGb().aGi();
+                b.aFZ().aGg();
                 return socketResponsedMessage;
             }
             return socketResponsedMessage;
@@ -66,12 +66,12 @@ public class d extends j {
                 return false;
             }
             LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-            LongSparseArray<Long> aFJ = com.baidu.tieba.im.memorycache.b.aFy().aFJ();
+            LongSparseArray<Long> aFH = com.baidu.tieba.im.memorycache.b.aFw().aFH();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                    if (com.baidu.tieba.im.memorycache.c.nL(groupMsgData.getGroupInfo().getCustomType())) {
-                        Long l2 = aFJ.get(groupMsgData.getGroupInfo().getGroupId());
+                    if (com.baidu.tieba.im.memorycache.c.nK(groupMsgData.getGroupInfo().getCustomType())) {
+                        Long l2 = aFH.get(groupMsgData.getGroupInfo().getGroupId());
                         if (l2 != null && (l = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
                             if (l2.longValue() > l.longValue()) {
                                 z = true;
@@ -87,7 +87,7 @@ public class d extends j {
             if (!z || longSparseArray.size() <= 0) {
                 return false;
             }
-            b.aGb().a(longSparseArray);
+            b.aFZ().a(longSparseArray);
             return true;
         }
         return false;

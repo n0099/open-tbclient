@@ -13,18 +13,18 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class f {
-    private HttpMessageTask.HTTP_METHOD tS;
+    private HttpMessageTask.HTTP_METHOD tR;
     private String url = "";
-    protected Map<String, String> tT = new HashMap();
-    protected LinkedList<BasicNameValuePair> tU = new LinkedList<>();
-    protected HashMap<String, byte[]> tV = new HashMap<>();
+    protected Map<String, String> tS = new HashMap();
+    protected LinkedList<BasicNameValuePair> tT = new LinkedList<>();
+    protected HashMap<String, byte[]> tU = new HashMap<>();
 
     public HttpMessageTask.HTTP_METHOD getMethod() {
-        return this.tS;
+        return this.tR;
     }
 
     public void setMethod(HttpMessageTask.HTTP_METHOD http_method) {
-        this.tS = http_method;
+        this.tR = http_method;
     }
 
     public String getUrl() {
@@ -40,13 +40,13 @@ public class f {
     }
 
     public boolean fi() {
-        return this.tV != null && this.tV.size() > 0;
+        return this.tU != null && this.tU.size() > 0;
     }
 
     public String c(d dVar) {
-        if (this.tU.size() == 0) {
+        if (this.tT.size() == 0) {
             if (dVar != null) {
-                dVar.tA = this.url.length();
+                dVar.tz = this.url.length();
             }
             return this.url;
         }
@@ -60,27 +60,27 @@ public class f {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.tU.size()) {
+            if (i2 >= this.tT.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.tU.get(i2).getName());
+            sb.append(this.tT.get(i2).getName());
             sb.append("=");
-            sb.append(k.aS(this.tU.get(i2).getValue()));
+            sb.append(k.aS(this.tT.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
-            dVar.tA = sb.length();
+            dVar.tz = sb.length();
         }
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.tT != null) {
-            for (Map.Entry<String, String> entry : this.tT.entrySet()) {
+        if (httpURLConnection != null && this.tS != null) {
+            for (Map.Entry<String, String> entry : this.tS.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -93,8 +93,8 @@ public class f {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.tU != null) {
-                    Iterator<BasicNameValuePair> it = this.tU.iterator();
+                if (this.tT != null) {
+                    Iterator<BasicNameValuePair> it = this.tT.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -111,8 +111,8 @@ public class f {
                         }
                     }
                 }
-                if (this.tV != null) {
-                    for (Map.Entry<String, byte[]> entry : this.tV.entrySet()) {
+                if (this.tU != null) {
+                    for (Map.Entry<String, byte[]> entry : this.tU.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -132,7 +132,7 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.tA = i;
+            dVar.tz = i;
         }
     }
 
@@ -152,14 +152,14 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.tA = i;
+            dVar.tz = i;
         }
     }
 
     private StringBuilder fj() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.tU != null) {
-            Iterator<BasicNameValuePair> it = this.tU.iterator();
+        if (this.tT != null) {
+            Iterator<BasicNameValuePair> it = this.tT.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -182,12 +182,12 @@ public class f {
     }
 
     public void g(HashMap<String, String> hashMap) {
-        this.tT = hashMap;
+        this.tS = hashMap;
     }
 
     public String am(String str) {
-        if (this.tT != null) {
-            return this.tT.get(str);
+        if (this.tS != null) {
+            return this.tS.get(str);
         }
         return null;
     }
@@ -198,9 +198,9 @@ public class f {
                 Object value = entry.getValue();
                 if (value != null) {
                     if (value instanceof String) {
-                        this.tU.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                        this.tT.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                     } else if (value instanceof byte[]) {
-                        this.tV.put(entry.getKey(), (byte[]) entry.getValue());
+                        this.tU.put(entry.getKey(), (byte[]) entry.getValue());
                     } else {
                         throw new UnsupportedOperationException("post type is not String and byte[]");
                     }
@@ -210,20 +210,20 @@ public class f {
     }
 
     public void d(String str, byte[] bArr) {
-        this.tV.put(str, bArr);
+        this.tU.put(str, bArr);
     }
 
     public void n(String str, String str2) {
-        this.tU.add(new BasicNameValuePair(str, str2));
+        this.tT.add(new BasicNameValuePair(str, str2));
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.tU.add(basicNameValuePair);
+        this.tT.add(basicNameValuePair);
     }
 
     public void o(String str, String str2) {
-        if (this.tT != null) {
-            this.tT.put(str, str2);
+        if (this.tS != null) {
+            this.tS.put(str, str2);
         }
     }
 }

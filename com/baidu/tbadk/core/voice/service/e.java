@@ -14,7 +14,7 @@ public class e extends MediaPlayer implements c {
     private e() {
     }
 
-    public static e xM() {
+    public static e xL() {
         if (asd == null) {
             synchronized (asc) {
                 if (asd == null) {
@@ -37,7 +37,7 @@ public class e extends MediaPlayer implements c {
             reset();
             try {
                 setDataSource(str);
-                setStreamType(h.xP);
+                setStreamType(h.xO);
                 try {
                     prepare();
                 } catch (IOException e) {
@@ -64,13 +64,13 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void xI() {
+    public void xH() {
         start();
         this.asf = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void xF() {
+    public void xE() {
         if (!this.asf) {
             stop();
             this.asf = true;
@@ -79,12 +79,12 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void xJ() {
+    public void xI() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void xK() {
+    public void xJ() {
         reset();
         this.ase = false;
         this.asf = true;
@@ -97,16 +97,16 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public boolean xL() {
+    public boolean xK() {
         return this.ase;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void dK(int i) {
-        dM(i);
+    public void dL(int i) {
+        dN(i);
     }
 
-    public void dM(int i) {
+    public void dN(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {

@@ -15,17 +15,17 @@ import java.nio.ByteBuffer;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class b {
-    private static b oo = null;
+    private static b on = null;
 
     public static b cR() {
-        if (oo == null) {
+        if (on == null) {
             synchronized (b.class) {
-                if (oo == null) {
-                    oo = new b();
+                if (on == null) {
+                    on = new b();
                 }
             }
         }
-        return oo;
+        return on;
     }
 
     private b() {
@@ -63,27 +63,27 @@ public class b {
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.oq == null || cVar.or == null) {
+        if (cVar == null || cVar.oo == null || cVar.oq == null) {
             throw new CoderException(h.nn);
         }
-        a aVar = cVar.oq;
-        if (aVar.cN() && cVar.ou > 0) {
+        a aVar = cVar.oo;
+        if (aVar.cN() && cVar.ot > 0) {
             if (d.cS().getSecretKey() == null) {
                 throw new CoderException(h.nx);
             }
             try {
-                cVar.or = u.a(d.cS().getSecretKey(), cVar.or, cVar.ot, cVar.ou);
-                cVar.ot = 0;
-                cVar.ou = cVar.or.length;
+                cVar.oq = u.a(d.cS().getSecretKey(), cVar.oq, cVar.or, cVar.ot);
+                cVar.or = 0;
+                cVar.ot = cVar.oq.length;
             } catch (Exception e) {
                 throw new CoderException(h.nz);
             }
         }
-        if (aVar.cL() && cVar.ou > 0) {
+        if (aVar.cL() && cVar.ot > 0) {
             try {
-                cVar.or = e(cVar.or, cVar.ot, cVar.ou);
-                cVar.ot = 0;
-                cVar.ou = cVar.or.length;
+                cVar.oq = e(cVar.oq, cVar.or, cVar.ot);
+                cVar.or = 0;
+                cVar.ot = cVar.oq.length;
             } catch (Exception e2) {
                 throw new CoderException(h.nw);
             }
@@ -101,10 +101,10 @@ public class b {
             throw new CoderException(h.nn);
         }
         c cVar = new c();
-        cVar.oq = f;
-        cVar.or = bArr;
-        cVar.ot = cK;
-        cVar.ou = bArr.length - cK;
+        cVar.oo = f;
+        cVar.oq = bArr;
+        cVar.or = cK;
+        cVar.ot = bArr.length - cK;
         return cVar;
     }
 

@@ -95,7 +95,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setFscod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wj(i)));
         this.fscod = i;
     }
 
@@ -105,7 +105,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setBsid(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wj(i)));
         this.bsid = i;
     }
 
@@ -115,7 +115,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setBsmod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wj(i)));
         this.bsmod = i;
     }
 
@@ -125,7 +125,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setAcmod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wj(i)));
         this.acmod = i;
     }
 
@@ -135,7 +135,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setLfeon(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wj(i)));
         this.lfeon = i;
     }
 
@@ -145,7 +145,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setBitRateCode(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wj(i)));
         this.bitRateCode = i;
     }
 
@@ -155,7 +155,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.wj(i)));
         this.reserved = i;
     }
 

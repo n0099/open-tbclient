@@ -7,7 +7,7 @@ public interface b {
 
     void showErrorView();
 
-    void uo(String str);
+    void ur(String str);
 
-    void up(String str);
+    void us(String str);
 }

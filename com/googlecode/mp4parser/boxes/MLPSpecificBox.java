@@ -72,7 +72,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setFormat_info(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wj(i)));
         this.format_info = i;
     }
 
@@ -82,7 +82,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setPeak_data_rate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wj(i)));
         this.peak_data_rate = i;
     }
 
@@ -92,7 +92,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wj(i)));
         this.reserved = i;
     }
 
@@ -102,7 +102,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setReserved2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wj(i)));
         this.reserved2 = i;
     }
 }

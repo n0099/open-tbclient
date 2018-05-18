@@ -8,11 +8,11 @@ public class ab {
     private String class_name = null;
     private int Yr = 0;
 
-    public String qK() {
+    public String qJ() {
         return this.class_name;
     }
 
-    public int qL() {
+    public int qK() {
         return this.Yr;
     }
 

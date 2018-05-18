@@ -57,9 +57,9 @@ public class a extends com.baidu.tieba.frs.f<GroupPermData, b> {
         this.mPageContext.getLayoutMode().u(view2);
         bVar.rootView.setTag(Integer.valueOf(i));
         ak.i(bVar.rootView, d.f.frs_group_item_bg);
-        ak.j(bVar.cUm, d.C0126d.cp_bg_line_c);
-        ak.c(bVar.dXD, d.C0126d.cp_cont_b, 1);
-        bVar.dXD.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        ak.j(bVar.cVt, d.C0126d.cp_bg_line_c);
+        ak.c(bVar.dYK, d.C0126d.cp_cont_b, 1);
+        bVar.dYK.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
         ak.i(bVar.divider, d.C0126d.cp_bg_line_b);
         return view2;
     }

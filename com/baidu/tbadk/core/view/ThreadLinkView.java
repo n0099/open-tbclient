@@ -61,42 +61,42 @@ public class ThreadLinkView extends RelativeLayout {
     }
 
     public void setData(bd bdVar) {
-        if (bdVar == null || bdVar.td() == null || an.isEmpty(bdVar.td().getLinkUrl())) {
+        if (bdVar == null || bdVar.tc() == null || an.isEmpty(bdVar.tc().getLinkUrl())) {
             setVisibility(8);
             return;
         }
-        ae td = bdVar.td();
-        if (!td.qS() && td.qR() != ae.Yu) {
+        ae tc = bdVar.tc();
+        if (!tc.qR() && tc.qQ() != ae.Yu) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.apA.setPageId(this.mTag);
-        if (td.qS()) {
+        if (tc.qR()) {
             this.apD.setVisibility(0);
             this.apB.setVisibility(8);
             this.apC.setVisibility(8);
-            this.apD.setText(td.getLinkUrl());
+            this.apD.setText(tc.getLinkUrl());
             this.apA.reset();
         } else {
             this.apD.setVisibility(8);
-            String qO = td.qO();
-            String qP = td.qP();
-            if (!an.isEmpty(qO)) {
-                this.apB.setText(qO);
+            String qN = tc.qN();
+            String qO = tc.qO();
+            if (!an.isEmpty(qN)) {
+                this.apB.setText(qN);
                 this.apB.setVisibility(0);
                 this.apC.setVisibility(8);
             } else {
                 this.apB.setVisibility(8);
-                if (!an.isEmpty(qP)) {
-                    this.apC.setText(qP);
+                if (!an.isEmpty(qO)) {
+                    this.apC.setText(qO);
                     this.apC.setVisibility(0);
                 } else {
                     this.apC.setVisibility(4);
                 }
             }
-            if (!an.isEmpty(td.qQ())) {
-                this.apA.startLoad(td.qQ(), 10, false);
+            if (!an.isEmpty(tc.qP())) {
+                this.apA.startLoad(tc.qP(), 10, false);
             } else {
                 this.apA.reset();
             }

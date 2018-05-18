@@ -13,7 +13,7 @@ public class z {
         ahC = TbadkCoreApplication.getInst().getNetWorkCoreType();
     }
 
-    public static synchronized z vt() {
+    public static synchronized z vs() {
         z zVar;
         synchronized (z.class) {
             if (ahy == null) {
@@ -28,7 +28,7 @@ public class z {
         return new y(aVar);
     }
 
-    public static void cC(int i) {
+    public static void cD(int i) {
         ahC = i;
     }
 }

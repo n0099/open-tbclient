@@ -17,16 +17,16 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
     private ArrayList<Object> data;
-    private SelectLocationActivity eBD;
+    private SelectLocationActivity eCL;
     private boolean isShowLocation;
 
     public b(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
-        this.eBD = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = c.bsE().getLocationData();
-        this.isShowLocation = c.bsE().bsF() ? false : true;
+        this.eCL = selectLocationActivity;
+        com.baidu.tieba.tbadkCore.location.a locationData = c.bsC().getLocationData();
+        this.isShowLocation = c.bsC().bsD() ? false : true;
         if (locationData != null) {
-            this.data = i(locationData.bsB(), locationData.bsA());
+            this.data = i(locationData.bsz(), locationData.bsy());
         }
     }
 
@@ -52,8 +52,8 @@ public class b extends BaseAdapter {
             c0219a3.setName(str);
             arrayList.add(0, c0219a3);
         }
-        if (this.eBD != null) {
-            arrayList.add(0, this.eBD.getPageContext().getString(d.k.select_position_no_location));
+        if (this.eCL != null) {
+            arrayList.add(0, this.eCL.getPageContext().getString(d.k.select_position_no_location));
         }
         return arrayList;
     }
@@ -114,8 +114,8 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.tieba.location.selectpoi.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0178b {
-        View dLK;
-        ImageView eBE;
+        View dMQ;
+        ImageView eCM;
         TextView title;
 
         private C0178b() {
@@ -129,11 +129,11 @@ public class b extends BaseAdapter {
         if (item instanceof String) {
             String str = (String) item;
             if (view2 == null || !(view2.getTag() instanceof C0178b)) {
-                View inflate = LayoutInflater.from(this.eBD.getPageContext().getPageActivity()).inflate(d.i.select_location_nolocation_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.eCL.getPageContext().getPageActivity()).inflate(d.i.select_location_nolocation_item, (ViewGroup) null);
                 c0178b = new C0178b();
                 c0178b.title = (TextView) inflate.findViewById(d.g.select_location_title);
-                c0178b.eBE = (ImageView) inflate.findViewById(d.g.select_location_tick);
-                c0178b.dLK = inflate.findViewById(d.g.select_location_line);
+                c0178b.eCM = (ImageView) inflate.findViewById(d.g.select_location_tick);
+                c0178b.dMQ = inflate.findViewById(d.g.select_location_line);
                 inflate.setTag(c0178b);
                 view3 = inflate;
             } else {
@@ -141,13 +141,13 @@ public class b extends BaseAdapter {
                 view3 = view2;
             }
             if (i == 0 && !this.isShowLocation) {
-                c0178b.eBE.setVisibility(0);
-                ak.c(c0178b.eBE, d.f.icon_site_ok);
+                c0178b.eCM.setVisibility(0);
+                ak.c(c0178b.eCM, d.f.icon_site_ok);
             } else {
-                c0178b.eBE.setVisibility(4);
+                c0178b.eCM.setVisibility(4);
             }
             c0178b.title.setText(str);
-            ak.j(c0178b.dLK, d.C0126d.cp_bg_line_b);
+            ak.j(c0178b.dMQ, d.C0126d.cp_bg_line_b);
             ak.c(c0178b.title, d.C0126d.cp_link_tip_a, 1);
             ak.i(view3, d.f.home_recommend_item_bg);
             return view3;
@@ -158,9 +158,9 @@ public class b extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        TextView blN;
-        ImageView eBE;
-        TextView eBw;
+        TextView bmc;
+        TextView eCE;
+        ImageView eCM;
 
         private a() {
         }
@@ -172,28 +172,28 @@ public class b extends BaseAdapter {
         if (item instanceof a.C0219a) {
             a.C0219a c0219a = (a.C0219a) item;
             if (view2 == null || !(view2.getTag() instanceof C0178b)) {
-                view2 = LayoutInflater.from(this.eBD.getPageContext().getPageActivity()).inflate(d.i.select_location_address_item, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.eCL.getPageContext().getPageActivity()).inflate(d.i.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a();
-                aVar2.blN = (TextView) view2.findViewById(d.g.select_location_name);
-                aVar2.eBw = (TextView) view2.findViewById(d.g.select_location_address);
-                aVar2.eBE = (ImageView) view2.findViewById(d.g.select_location_tick);
+                aVar2.bmc = (TextView) view2.findViewById(d.g.select_location_name);
+                aVar2.eCE = (TextView) view2.findViewById(d.g.select_location_address);
+                aVar2.eCM = (ImageView) view2.findViewById(d.g.select_location_tick);
                 view2.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view2.getTag();
             }
-            aVar.eBw.setText(c0219a.bsD());
+            aVar.eCE.setText(c0219a.bsB());
             if (this.isShowLocation && i == 1) {
-                aVar.eBE.setVisibility(0);
-                if (TextUtils.isEmpty(c0219a.bsD())) {
-                    aVar.eBw.setText(d.k.select_location_current);
+                aVar.eCM.setVisibility(0);
+                if (TextUtils.isEmpty(c0219a.bsB())) {
+                    aVar.eCE.setText(d.k.select_location_current);
                 }
             } else {
-                aVar.eBE.setVisibility(4);
+                aVar.eCM.setVisibility(4);
             }
-            aVar.blN.setText(c0219a.getName());
-            this.eBD.getLayoutMode().setNightMode(z);
-            this.eBD.getLayoutMode().u(view2);
+            aVar.bmc.setText(c0219a.getName());
+            this.eCL.getLayoutMode().setNightMode(z);
+            this.eCL.getLayoutMode().u(view2);
             ak.i(view2, d.f.home_recommend_item_bg);
             return view2;
         }

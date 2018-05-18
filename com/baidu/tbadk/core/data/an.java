@@ -35,15 +35,15 @@ public class an {
         }
     }
 
-    public int re() {
+    public int rd() {
         return this.YP;
     }
 
-    public void bJ(int i) {
+    public void bK(int i) {
         this.YP = i;
     }
 
-    public ArrayList<a> rf() {
+    public ArrayList<a> re() {
         return this.YQ;
     }
 

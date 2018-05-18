@@ -12,7 +12,7 @@ public class p implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
             return null;
         }
-        com.baidu.tbadk.core.c.a.tz().da("tb.im_group_search_history");
+        com.baidu.tbadk.core.c.a.ty().da("tb.im_group_search_history");
         return new ResponseSearchGroupLocalMessage(2001206);
     }
 }

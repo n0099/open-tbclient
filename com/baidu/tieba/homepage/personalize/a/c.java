@@ -10,62 +10,62 @@ public class c<T extends n> extends com.baidu.tieba.card.a.a<T> implements com.b
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: axY */
+    /* renamed from: axW */
     public T afY() {
-        return (T) this.csV;
+        return (T) this.cuf;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.csV == 0) {
+        if (this.cuf == 0) {
             return false;
         }
-        return ((n) this.csV).isPlayStarted();
+        return ((n) this.cuf).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.csV == 0) {
+        if (this.cuf == 0) {
             return false;
         }
-        return ((n) this.csV).isPlaying();
+        return ((n) this.cuf).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.csV != 0) {
-            ((n) this.csV).startPlay();
+        if (this.cuf != 0) {
+            ((n) this.cuf).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.csV != 0) {
-            ((n) this.csV).stopPlay();
+        if (this.cuf != 0) {
+            ((n) this.cuf).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.csV == 0) {
+        if (this.cuf == 0) {
             return null;
         }
-        return ((n) this.csV).getVideoContainer();
+        return ((n) this.cuf).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.csV == 0) {
+        if (this.cuf == 0) {
             return null;
         }
-        return ((n) this.csV).getPlayUrl();
+        return ((n) this.cuf).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.csV == 0) {
+        if (this.cuf == 0) {
             return 0;
         }
-        return ((n) this.csV).getCurrentPosition();
+        return ((n) this.cuf).getCurrentPosition();
     }
 }

@@ -21,12 +21,12 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes3.dex */
 public class SlumdogMillionaireChannelView extends LinearLayout implements View.OnClickListener {
-    private TextView goF;
-    private TextView goG;
-    private TextView goH;
-    private TextView goI;
-    private TextView goJ;
-    private com.baidu.tieba.p.a goK;
+    private TextView gpK;
+    private TextView gpL;
+    private TextView gpM;
+    private TextView gpN;
+    private TextView gpO;
+    private com.baidu.tieba.p.a gpP;
     private Context mContext;
     private d mShareItem;
     private int mSkinType;
@@ -53,26 +53,26 @@ public class SlumdogMillionaireChannelView extends LinearLayout implements View.
         this.mContext = context;
         setOrientation(0);
         LayoutInflater.from(context).inflate(d.i.slumdog_millionaire_channel, (ViewGroup) this, true);
-        this.goF = (TextView) findViewById(d.g.slumdog_millionaire_weixin);
-        this.goF.setTag(4);
-        this.goF.setOnClickListener(this);
-        this.goG = (TextView) findViewById(d.g.slumdog_millionaire_weixin_coterie);
-        this.goG.setTag(3);
-        this.goG.setOnClickListener(this);
-        this.goH = (TextView) findViewById(d.g.slumdog_millionaire_qq);
-        this.goH.setTag(9);
-        this.goH.setOnClickListener(this);
-        this.goI = (TextView) findViewById(d.g.slumdog_millionaire_qzone);
-        this.goI.setTag(5);
-        this.goI.setOnClickListener(this);
-        this.goJ = (TextView) findViewById(d.g.slumdog_millionaire_weibo);
-        this.goJ.setTag(7);
-        this.goJ.setOnClickListener(this);
+        this.gpK = (TextView) findViewById(d.g.slumdog_millionaire_weixin);
+        this.gpK.setTag(4);
+        this.gpK.setOnClickListener(this);
+        this.gpL = (TextView) findViewById(d.g.slumdog_millionaire_weixin_coterie);
+        this.gpL.setTag(3);
+        this.gpL.setOnClickListener(this);
+        this.gpM = (TextView) findViewById(d.g.slumdog_millionaire_qq);
+        this.gpM.setTag(9);
+        this.gpM.setOnClickListener(this);
+        this.gpN = (TextView) findViewById(d.g.slumdog_millionaire_qzone);
+        this.gpN.setTag(5);
+        this.gpN.setOnClickListener(this);
+        this.gpO = (TextView) findViewById(d.g.slumdog_millionaire_weibo);
+        this.gpO.setTag(7);
+        this.gpO.setOnClickListener(this);
         onChangeSkinType();
     }
 
     public void setShareItemClickListener(com.baidu.tieba.p.a aVar) {
-        this.goK = aVar;
+        this.gpP = aVar;
     }
 
     public void setShareData(com.baidu.tbadk.coreExtra.c.d dVar) {
@@ -81,8 +81,8 @@ public class SlumdogMillionaireChannelView extends LinearLayout implements View.
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (this.goK != null) {
-            this.goK.bt(view2);
+        if (this.gpP != null) {
+            this.gpP.bt(view2);
         }
         if (!j.gP()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), d.k.share_on_no_network);
@@ -106,27 +106,27 @@ public class SlumdogMillionaireChannelView extends LinearLayout implements View.
                     dVar.content = this.mContext.getString(d.k.slumdog_millionaire_share_content_normal_default);
                 }
             }
-            if (dVar.awV == null) {
-                dVar.awV = Uri.parse("http://c.tieba.baidu.com/tb/cms/tieba-fe/baiwanfuweng.jpg");
+            if (dVar.awW == null) {
+                dVar.awW = Uri.parse("http://c.tieba.baidu.com/tb/cms/tieba-fe/baiwanfuweng.jpg");
             }
-            if (view2 == this.goF) {
+            if (view2 == this.gpK) {
                 eVar.b(dVar);
-            } else if (view2 == this.goG) {
+            } else if (view2 == this.gpL) {
                 dVar.content = "【" + dVar.title + "】 " + dVar.content;
                 eVar.c(dVar);
-            } else if (view2 == this.goI) {
+            } else if (view2 == this.gpN) {
                 if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     eVar.e(dVar);
                 } else {
-                    BdToast.a(this.mContext, this.mContext.getText(d.k.share_qq_not_install)).tL();
+                    BdToast.a(this.mContext, this.mContext.getText(d.k.share_qq_not_install)).tK();
                 }
-            } else if (view2 == this.goH) {
+            } else if (view2 == this.gpM) {
                 if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     eVar.d(dVar);
                 } else {
-                    BdToast.a(this.mContext, this.mContext.getText(d.k.share_qq_not_install)).tL();
+                    BdToast.a(this.mContext, this.mContext.getText(d.k.share_qq_not_install)).tK();
                 }
-            } else if (view2 == this.goJ) {
+            } else if (view2 == this.gpO) {
                 eVar.g(dVar);
             }
         }
@@ -136,16 +136,16 @@ public class SlumdogMillionaireChannelView extends LinearLayout implements View.
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            ak.h(this.goF, d.C0126d.cp_cont_j);
-            this.goF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_weixin_n), (Drawable) null, (Drawable) null);
-            ak.h(this.goG, d.C0126d.cp_cont_j);
-            this.goG.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_weixin_q_n), (Drawable) null, (Drawable) null);
-            ak.h(this.goH, d.C0126d.cp_cont_j);
-            this.goH.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_qq_share_n), (Drawable) null, (Drawable) null);
-            ak.h(this.goI, d.C0126d.cp_cont_j);
-            this.goI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_qq_zone_n), (Drawable) null, (Drawable) null);
-            ak.h(this.goJ, d.C0126d.cp_cont_j);
-            this.goJ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_sina_n), (Drawable) null, (Drawable) null);
+            ak.h(this.gpK, d.C0126d.cp_cont_j);
+            this.gpK.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_weixin_n), (Drawable) null, (Drawable) null);
+            ak.h(this.gpL, d.C0126d.cp_cont_j);
+            this.gpL.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_weixin_q_n), (Drawable) null, (Drawable) null);
+            ak.h(this.gpM, d.C0126d.cp_cont_j);
+            this.gpM.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_qq_share_n), (Drawable) null, (Drawable) null);
+            ak.h(this.gpN, d.C0126d.cp_cont_j);
+            this.gpN.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_qq_zone_n), (Drawable) null, (Drawable) null);
+            ak.h(this.gpO, d.C0126d.cp_cont_j);
+            this.gpO.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ak.getDrawable(d.f.icon_sina_n), (Drawable) null, (Drawable) null);
         }
     }
 }

@@ -34,13 +34,13 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if ((ClickableHeaderImageView.this.alh == null || !ClickableHeaderImageView.this.alh.t(view2)) && ClickableHeaderImageView.this.alf != null && ClickableHeaderImageView.this.alf.rQ() != null && !StringUtils.isNull(ClickableHeaderImageView.this.alf.rQ().getName_show()) && !StringUtils.isNull(ClickableHeaderImageView.this.alf.rQ().getUserId())) {
-                    long c = com.baidu.adp.lib.g.b.c(ClickableHeaderImageView.this.alf.rQ().getUserId(), 0L);
+                if ((ClickableHeaderImageView.this.alh == null || !ClickableHeaderImageView.this.alh.t(view2)) && ClickableHeaderImageView.this.alf != null && ClickableHeaderImageView.this.alf.rP() != null && !StringUtils.isNull(ClickableHeaderImageView.this.alf.rP().getName_show()) && !StringUtils.isNull(ClickableHeaderImageView.this.alf.rP().getUserId())) {
+                    long c = com.baidu.adp.lib.g.b.c(ClickableHeaderImageView.this.alf.rP().getUserId(), 0L);
                     boolean z = c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    if (ClickableHeaderImageView.this.alf.sQ() != null && ClickableHeaderImageView.this.alf.sQ().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ClickableHeaderImageView.this.getContext(), ClickableHeaderImageView.this.alf.sQ().channelId, ClickableHeaderImageView.this.alf.sQ().mCurrentPage)));
+                    if (ClickableHeaderImageView.this.alf.sP() != null && ClickableHeaderImageView.this.alf.sP().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ClickableHeaderImageView.this.getContext(), ClickableHeaderImageView.this.alf.sP().channelId, ClickableHeaderImageView.this.alf.sP().mCurrentPage)));
                     } else {
-                        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(c, z, ClickableHeaderImageView.this.alf.rQ().isBigV());
+                        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(c, z, ClickableHeaderImageView.this.alf.rP().isBigV());
                         createNormalConfig.setSourceTid(ClickableHeaderImageView.this.alf.getTid());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                     }
@@ -58,13 +58,13 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if ((ClickableHeaderImageView.this.alh == null || !ClickableHeaderImageView.this.alh.t(view2)) && ClickableHeaderImageView.this.alf != null && ClickableHeaderImageView.this.alf.rQ() != null && !StringUtils.isNull(ClickableHeaderImageView.this.alf.rQ().getName_show()) && !StringUtils.isNull(ClickableHeaderImageView.this.alf.rQ().getUserId())) {
-                    long c = com.baidu.adp.lib.g.b.c(ClickableHeaderImageView.this.alf.rQ().getUserId(), 0L);
+                if ((ClickableHeaderImageView.this.alh == null || !ClickableHeaderImageView.this.alh.t(view2)) && ClickableHeaderImageView.this.alf != null && ClickableHeaderImageView.this.alf.rP() != null && !StringUtils.isNull(ClickableHeaderImageView.this.alf.rP().getName_show()) && !StringUtils.isNull(ClickableHeaderImageView.this.alf.rP().getUserId())) {
+                    long c = com.baidu.adp.lib.g.b.c(ClickableHeaderImageView.this.alf.rP().getUserId(), 0L);
                     boolean z = c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    if (ClickableHeaderImageView.this.alf.sQ() != null && ClickableHeaderImageView.this.alf.sQ().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ClickableHeaderImageView.this.getContext(), ClickableHeaderImageView.this.alf.sQ().channelId, ClickableHeaderImageView.this.alf.sQ().mCurrentPage)));
+                    if (ClickableHeaderImageView.this.alf.sP() != null && ClickableHeaderImageView.this.alf.sP().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ClickableHeaderImageView.this.getContext(), ClickableHeaderImageView.this.alf.sP().channelId, ClickableHeaderImageView.this.alf.sP().mCurrentPage)));
                     } else {
-                        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(c, z, ClickableHeaderImageView.this.alf.rQ().isBigV());
+                        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(c, z, ClickableHeaderImageView.this.alf.rP().isBigV());
                         createNormalConfig.setSourceTid(ClickableHeaderImageView.this.alf.getTid());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                     }
@@ -85,25 +85,25 @@ public class ClickableHeaderImageView extends HeadImageView {
     }
 
     public void setData(bd bdVar, boolean z) {
-        if (bdVar != null && bdVar.rQ() != null) {
+        if (bdVar != null && bdVar.rP() != null) {
             this.alf = bdVar;
-            MetaData rQ = bdVar.rQ();
-            setContentDescription(rQ.getName_show() + getContext().getString(d.k.somebodys_portrait));
-            setUserId(rQ.getUserId());
-            setUserName(rQ.getUserName());
-            setUrl(rQ.getPortrait());
-            if (bdVar.si() != null && this.alf.getThreadType() == 49) {
-                startLoad(bdVar.rQ().getPortrait(), 28, false);
-            } else if (this.alf.sQ() != null && this.alf.sQ().channelId > 0) {
+            MetaData rP = bdVar.rP();
+            setContentDescription(rP.getName_show() + getContext().getString(d.k.somebodys_portrait));
+            setUserId(rP.getUserId());
+            setUserName(rP.getUserName());
+            setUrl(rP.getPortrait());
+            if (bdVar.sh() != null && this.alf.getThreadType() == 49) {
+                startLoad(bdVar.rP().getPortrait(), 28, false);
+            } else if (this.alf.sP() != null && this.alf.sP().channelId > 0) {
                 setDefaultErrorResource(d.f.avatar_channel_poto_defaul160);
-                startLoad(this.alf.sQ().channelAvatar, 10, false);
-            } else if (!StringUtils.isNull(rQ.getPortrait()) && rQ.getPortrait().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(rQ.getPortrait(), 10, false);
+                startLoad(this.alf.sP().channelAvatar, 10, false);
+            } else if (!StringUtils.isNull(rP.getPortrait()) && rP.getPortrait().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(rP.getPortrait(), 10, false);
             } else {
-                startLoad(rQ.getPortrait(), 28, false);
+                startLoad(rP.getPortrait(), 28, false);
             }
             if (z) {
-                UtilHelper.showHeadImageViewBigV(this, rQ);
+                UtilHelper.showHeadImageViewBigV(this, rP);
             }
         }
     }

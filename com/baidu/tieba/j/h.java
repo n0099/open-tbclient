@@ -19,7 +19,7 @@ public interface h {
 
     void e(int i, int i2, String str);
 
-    void pG(String str);
+    void pJ(String str);
 
-    void pH(String str);
+    void pK(String str);
 }

@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected MediaPlayer aOY;
-    protected ScalableType gMD;
+    protected MediaPlayer aOZ;
+    protected ScalableType gNG;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -30,11 +30,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.gMD = ScalableType.NONE;
+        this.gNG = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.m.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(d.m.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.gMD = ScalableType.values()[i2];
+            this.gNG = ScalableType.values()[i2];
         }
     }
 
@@ -42,8 +42,8 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         try {
             Surface surface = new Surface(surfaceTexture);
-            if (this.aOY != null) {
-                this.aOY.setSurface(surface);
+            if (this.aOZ != null) {
+                this.aOZ.setSurface(surface);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.aOY != null) {
+        if (this.aOZ != null) {
             if (isPlaying()) {
                 stop();
             }
@@ -81,15 +81,15 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void R(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.gMD)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.gNG)) != null) {
             setTransform(a);
         }
     }
 
-    private void Og() {
-        if (this.aOY == null) {
-            this.aOY = new MediaPlayer();
-            this.aOY.setOnVideoSizeChangedListener(this);
+    private void Oe() {
+        if (this.aOZ == null) {
+            this.aOZ = new MediaPlayer();
+            this.aOZ.setOnVideoSizeChangedListener(this);
             setSurfaceTextureListener(this);
             return;
         }
@@ -110,142 +110,142 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        Og();
-        this.aOY.setDataSource(str);
+        Oe();
+        this.aOZ.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
-        Og();
-        this.aOY.setDataSource(context, uri, map);
+        Oe();
+        this.aOZ.setDataSource(context, uri, map);
     }
 
     public void setDataSource(Context context, Uri uri) throws IOException {
-        Og();
-        this.aOY.setDataSource(context, uri);
+        Oe();
+        this.aOZ.setDataSource(context, uri);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        Og();
-        this.aOY.setDataSource(fileDescriptor, j, j2);
+        Oe();
+        this.aOZ.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        Og();
-        this.aOY.setDataSource(fileDescriptor);
+        Oe();
+        this.aOZ.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.gMD = scalableType;
+        this.gNG = scalableType;
         R(getVideoWidth(), getVideoHeight());
     }
 
     public void c(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
-        if (this.aOY != null) {
-            this.aOY.setOnPreparedListener(onPreparedListener);
-            this.aOY.prepare();
+        if (this.aOZ != null) {
+            this.aOZ.setOnPreparedListener(onPreparedListener);
+            this.aOZ.prepare();
         }
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        if (this.aOY != null) {
-            this.aOY.setOnErrorListener(onErrorListener);
+        if (this.aOZ != null) {
+            this.aOZ.setOnErrorListener(onErrorListener);
         }
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        if (this.aOY != null) {
-            this.aOY.setOnCompletionListener(onCompletionListener);
+        if (this.aOZ != null) {
+            this.aOZ.setOnCompletionListener(onCompletionListener);
         }
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        if (this.aOY != null) {
-            this.aOY.setOnInfoListener(onInfoListener);
+        if (this.aOZ != null) {
+            this.aOZ.setOnInfoListener(onInfoListener);
         }
     }
 
     public int getCurrentPosition() {
-        if (this.aOY == null) {
+        if (this.aOZ == null) {
             return 0;
         }
-        return this.aOY.getCurrentPosition();
+        return this.aOZ.getCurrentPosition();
     }
 
     public int getDuration() {
-        if (this.aOY == null) {
+        if (this.aOZ == null) {
             return 0;
         }
-        return this.aOY.getDuration();
+        return this.aOZ.getDuration();
     }
 
     public int getVideoHeight() {
-        if (this.aOY == null) {
+        if (this.aOZ == null) {
             return 0;
         }
-        return this.aOY.getVideoHeight();
+        return this.aOZ.getVideoHeight();
     }
 
     public int getVideoWidth() {
-        if (this.aOY == null) {
+        if (this.aOZ == null) {
             return 0;
         }
-        return this.aOY.getVideoWidth();
+        return this.aOZ.getVideoWidth();
     }
 
     public boolean isPlaying() {
-        if (this.aOY == null) {
+        if (this.aOZ == null) {
             return false;
         }
-        return this.aOY.isPlaying();
+        return this.aOZ.isPlaying();
     }
 
     public void pause() {
-        if (this.aOY != null) {
-            this.aOY.pause();
+        if (this.aOZ != null) {
+            this.aOZ.pause();
         }
     }
 
     public void seekTo(int i) {
-        if (this.aOY != null) {
-            this.aOY.seekTo(i);
+        if (this.aOZ != null) {
+            this.aOZ.seekTo(i);
         }
     }
 
     public void setLooping(boolean z) {
-        if (this.aOY != null) {
-            this.aOY.setLooping(z);
+        if (this.aOZ != null) {
+            this.aOZ.setLooping(z);
         }
     }
 
     public void setVolume(float f, float f2) {
-        if (this.aOY != null) {
-            this.aOY.setVolume(f, f2);
+        if (this.aOZ != null) {
+            this.aOZ.setVolume(f, f2);
         }
     }
 
     public void start() {
-        if (this.aOY != null) {
-            this.aOY.start();
+        if (this.aOZ != null) {
+            this.aOZ.start();
         }
     }
 
     public void stop() {
-        if (this.aOY != null) {
-            this.aOY.stop();
+        if (this.aOZ != null) {
+            this.aOZ.stop();
         }
     }
 
     public void reset() {
-        if (this.aOY != null) {
-            this.aOY.reset();
+        if (this.aOZ != null) {
+            this.aOZ.reset();
         }
     }
 
     public void release() {
         reset();
-        if (this.aOY != null) {
-            this.aOY.release();
-            this.aOY = null;
+        if (this.aOZ != null) {
+            this.aOZ.release();
+            this.aOZ = null;
         }
     }
 }

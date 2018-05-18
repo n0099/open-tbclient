@@ -18,7 +18,7 @@ public class af extends k<ac, ae> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bp */
     public ae onCreateViewHolder(ViewGroup viewGroup) {
-        return new ae(this.fgJ.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.i.pb_page_news, viewGroup, false));
+        return new ae(this.fhQ.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.i.pb_page_news, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

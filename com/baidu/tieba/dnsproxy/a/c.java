@@ -22,21 +22,21 @@ import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class c {
-    private static c cEY = null;
+    private static c cGh = null;
     private Wire wire = new Wire(new Class[0]);
-    private Map<String, a> cEZ = null;
-    private Runnable cFa = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
+    private Map<String, a> cGi = null;
+    private Runnable cGj = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
         @Override // java.lang.Runnable
         public void run() {
             final Map map;
             synchronized (c.class) {
-                map = c.this.cEZ;
+                map = c.this.cGi;
             }
             if (map != null) {
                 v.a(new u<Void>() { // from class: com.baidu.tieba.dnsproxy.a.c.1.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.u
-                    /* renamed from: Nq */
+                    /* renamed from: No */
                     public Void doInBackground() {
                         WriteHistroyDataReqIdl.Builder builder = new WriteHistroyDataReqIdl.Builder();
                         builder.connect_point_list = new ArrayList();
@@ -48,7 +48,7 @@ public class c {
                         }
                         c.this.A(builder.build(true).toByteArray());
                         synchronized (c.class) {
-                            c.this.cEZ = null;
+                            c.this.cGi = null;
                         }
                         return null;
                     }
@@ -58,14 +58,14 @@ public class c {
     };
 
     public static final c ajQ() {
-        if (cEY == null) {
+        if (cGh == null) {
             synchronized (c.class) {
-                if (cEY == null) {
-                    cEY = new c();
+                if (cGh == null) {
+                    cGh = new c();
                 }
             }
         }
-        return cEY;
+        return cGh;
     }
 
     private c() {
@@ -180,16 +180,16 @@ public class c {
 
     public void ajS() {
         e.fw().removeMessages(0, this);
-        e.fw().post(this.cFa);
+        e.fw().post(this.cGj);
     }
 
     public void h(Map<String, a> map) {
         if (TbadkCoreApplication.getInst().isMainProcess(false) && map != null) {
             synchronized (c.class) {
-                this.cEZ = map;
+                this.cGi = map;
             }
             if (!e.fw().hasMessages(0, this)) {
-                Message obtain = Message.obtain(e.fw(), this.cFa);
+                Message obtain = Message.obtain(e.fw(), this.cGj);
                 obtain.what = 0;
                 obtain.obj = this;
                 e.fw().sendMessageDelayed(obtain, StatisticConfig.MIN_UPLOAD_INTERVAL);

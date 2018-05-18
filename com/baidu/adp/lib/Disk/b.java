@@ -7,16 +7,16 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class b {
     private final String EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String pI = this.EXTERNAL_STORAGE_DIRECTORY + "/baidu/";
+    private String pH = this.EXTERNAL_STORAGE_DIRECTORY + "/baidu/";
+    private String pI;
     private String pJ;
-    private String pK;
 
     public b() {
+        this.pI = null;
         this.pJ = null;
-        this.pK = null;
         try {
-            this.pJ = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.pK = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+            this.pI = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.pJ = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -24,7 +24,7 @@ public class b {
 
     public void M(String str) {
         if (str != null) {
-            this.pI = this.EXTERNAL_STORAGE_DIRECTORY + "/" + str + "/";
+            this.pH = this.EXTERNAL_STORAGE_DIRECTORY + "/" + str + "/";
         }
     }
 
@@ -40,26 +40,26 @@ public class b {
                 return null;
             }
             if (str != null) {
-                str2 = this.pI + str + "/";
+                str2 = this.pH + str + "/";
             } else {
-                str2 = this.pI;
+                str2 = this.pH;
             }
         } else if (z3) {
-            if (this.pK == null) {
+            if (this.pJ == null) {
                 return null;
             }
-            if (str != null) {
-                str2 = this.pK + str + "/";
-            } else {
-                str2 = this.pK;
-            }
-        } else if (this.pJ == null) {
-            return null;
-        } else {
             if (str != null) {
                 str2 = this.pJ + str + "/";
             } else {
                 str2 = this.pJ;
+            }
+        } else if (this.pI == null) {
+            return null;
+        } else {
+            if (str != null) {
+                str2 = this.pI + str + "/";
+            } else {
+                str2 = this.pI;
             }
         }
         File file = new File(str2);

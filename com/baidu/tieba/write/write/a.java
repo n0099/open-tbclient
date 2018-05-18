@@ -15,12 +15,12 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
     private ArrayList<MetaData> adv;
-    private TbCheckBox.a elf;
-    private AtListActivity hfL;
-    private boolean hfN;
+    private TbCheckBox.a emm;
+    private AtListActivity hgP;
+    private boolean hgR;
     private final Context mContext;
-    private b hfM = null;
-    private ViewGroup bHg = null;
+    private b hgQ = null;
+    private ViewGroup bIv = null;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.hfM = bVar;
+        this.hgQ = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.hfN = true;
-        this.hfL = atListActivity;
-        this.mContext = this.hfL.getPageContext().getContext();
-        this.hfN = z;
+        this.hgR = true;
+        this.hgP = atListActivity;
+        this.mContext = this.hgP.getPageContext().getContext();
+        this.hgR = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,7 +46,7 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.elf = aVar;
+        this.emm = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vf */
+    /* renamed from: ve */
     public MetaData getItem(int i) {
         if (this.adv != null && i < this.adv.size()) {
             return this.adv.get(i);
@@ -75,8 +75,8 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         C0242a c0242a;
-        if (this.bHg == null) {
-            this.bHg = viewGroup;
+        if (this.bIv == null) {
+            this.bIv = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
@@ -94,37 +94,37 @@ public class a extends BaseAdapter {
         C0242a c0242a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0242a = bCO();
+            c0242a = bCM();
         } else {
             c0242a = (C0242a) obj;
         }
-        if (this.hfM != null) {
-            this.hfM.a(c0242a.rootView, metaData);
+        if (this.hgQ != null) {
+            this.hgQ.a(c0242a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        c0242a.bGo.setText(metaData.getName_show());
-        c0242a.eli.setTagData(metaData);
-        c0242a.ekO.setTag(portrait);
-        if (this.hfN) {
-            c0242a.eli.setVisibility(0);
+        c0242a.bHL.setText(metaData.getName_show());
+        c0242a.emp.setTagData(metaData);
+        c0242a.elV.setTag(portrait);
+        if (this.hgR) {
+            c0242a.emp.setVisibility(0);
         } else {
-            c0242a.eli.setVisibility(8);
+            c0242a.emp.setVisibility(8);
         }
-        c0242a.ekO.startLoad(portrait, 12, false);
-        this.hfL.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.hfL.getPageContext().getLayoutMode().u(c0242a.rootView);
+        c0242a.elV.startLoad(portrait, 12, false);
+        this.hgP.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.hgP.getPageContext().getLayoutMode().u(c0242a.rootView);
         return c0242a;
     }
 
-    private C0242a bCO() {
+    private C0242a bCM() {
         C0242a c0242a = new C0242a();
         c0242a.rootView = LayoutInflater.from(this.mContext).inflate(d.i.invite_friend_list_item, (ViewGroup) null);
-        c0242a.ekO = (HeadImageView) c0242a.rootView.findViewById(d.g.photo);
-        c0242a.ekO.setIsRound(false);
-        c0242a.bGo = (TextView) c0242a.rootView.findViewById(d.g.txt_user_name);
-        c0242a.eli = (TbCheckBox) c0242a.rootView.findViewById(d.g.ckb_select);
-        if (this.elf != null) {
-            c0242a.eli.setStatedChangedListener(this.elf);
+        c0242a.elV = (HeadImageView) c0242a.rootView.findViewById(d.g.photo);
+        c0242a.elV.setIsRound(false);
+        c0242a.bHL = (TextView) c0242a.rootView.findViewById(d.g.txt_user_name);
+        c0242a.emp = (TbCheckBox) c0242a.rootView.findViewById(d.g.ckb_select);
+        if (this.emm != null) {
+            c0242a.emp.setStatedChangedListener(this.emm);
         }
         c0242a.rootView.setTag(c0242a);
         return c0242a;
@@ -134,9 +134,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0242a {
-        public TextView bGo;
-        public HeadImageView ekO;
-        public TbCheckBox eli;
+        public TextView bHL;
+        public HeadImageView elV;
+        public TbCheckBox emp;
         public View rootView;
 
         private C0242a() {

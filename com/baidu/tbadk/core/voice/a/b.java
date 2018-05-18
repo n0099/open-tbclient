@@ -9,15 +9,15 @@ public class b {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.dJ(aVar.error_code);
-        } else if (!k.dr(k.uF() + "voice")) {
+            aVar.error_msg = a.dK(aVar.error_code);
+        } else if (!k.dr(k.uE() + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.dJ(aVar.error_code);
+            aVar.error_msg = a.dK(aVar.error_code);
         } else {
             String e = s.e(k.dK(str));
             if (e == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.dJ(aVar.error_code);
+                aVar.error_msg = a.dK(aVar.error_code);
             } else {
                 String b = k.b(e, 1, true);
                 if (k.ab(str, b)) {
@@ -25,7 +25,7 @@ public class b {
                     aVar.md5 = e;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.dJ(aVar.error_code);
+                    aVar.error_msg = a.dK(aVar.error_code);
                 }
             }
         }
@@ -36,9 +36,9 @@ public class b {
         return k.ab(str, k.b(str2, 1, true));
     }
 
-    public static synchronized void xC() {
+    public static synchronized void xB() {
         synchronized (b.class) {
-            File file = new File(k.uF() + "voice");
+            File file = new File(k.uE() + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

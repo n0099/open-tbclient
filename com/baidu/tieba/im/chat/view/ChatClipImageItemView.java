@@ -19,12 +19,12 @@ import com.baidu.tieba.d;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements j.a {
-    private final Path Aa;
-    public j dTU;
-    private boolean dTV;
-    private a dTW;
+    public j dVb;
+    private boolean dVc;
+    private a dVd;
     private boolean isLeft;
     public int position;
+    private final Path zZ;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -43,9 +43,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         super(context, attributeSet, i);
         this.isLeft = true;
         this.position = 0;
-        this.Aa = new Path();
-        this.dTV = true;
-        this.dTW = null;
+        this.zZ = new Path();
+        this.dVc = true;
+        this.dVd = null;
         b(context, attributeSet, i);
     }
 
@@ -78,20 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             }
         }
         if (z) {
-            this.dTU = new g();
+            this.dVb = new g();
         } else {
-            this.dTU = new m();
+            this.dVb = new m();
         }
-        this.mArgs.zT = true;
-        this.dTU.a(this);
-        this.mDrawer = this.dTU;
+        this.mArgs.zS = true;
+        this.dVb.a(this);
+        this.mDrawer = this.dVb;
         this.mDrawer.a(this.mArgs);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.dTU.ij();
+        this.dVb.ij();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.dTU.ij();
-        } else if (!this.dTV) {
-            this.dTU.ii();
+            this.dVb.ij();
+        } else if (!this.dVc) {
+            this.dVb.ii();
             invalidate();
         } else {
-            this.dTV = false;
+            this.dVc = false;
         }
     }
 
@@ -116,9 +116,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.isLeft = z;
     }
 
-    public void aBw() {
-        this.dTU.ii();
-        this.dTU.O(true);
+    public void aBu() {
+        this.dVb.ii();
+        this.dVb.O(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
@@ -126,8 +126,8 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         boolean z = false;
         com.baidu.adp.widget.ImageView.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
-        boolean z3 = bdImage != null && bdImage.kn();
-        j jVar = this.dTU;
+        boolean z3 = bdImage != null && bdImage.km();
+        j jVar = this.dVb;
         if (z3 || z2) {
             z = true;
         }
@@ -138,7 +138,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public com.baidu.adp.widget.ImageView.a getDefaultBdImage() {
-        this.dTU.O(false);
+        this.dVb.O(false);
         return super.getDefaultBdImage();
     }
 
@@ -149,9 +149,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         }
         float width = rectF.width();
         float height = rectF.height();
-        this.Aa.reset();
-        this.Aa.set(e(width, height, 1.0f));
-        return this.Aa;
+        this.zZ.reset();
+        this.zZ.set(e(width, height, 1.0f));
+        return this.zZ;
     }
 
     private Path e(float f, float f2, float f3) {
@@ -203,15 +203,15 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.dTW == null) {
+        if (this.dVd == null) {
             ak.e(this, d.C0126d.cp_bg_line_c, 0);
         } else {
-            this.dTW.w(canvas);
+            this.dVd.w(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.dTW = aVar;
+        this.dVd = aVar;
     }
 }

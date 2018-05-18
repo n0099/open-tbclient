@@ -14,7 +14,7 @@ public class i extends Thread {
         xVar.n("os_version", Build.VERSION.RELEASE);
         xVar.n("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
         xVar.n("op_type", this.agj);
-        xVar.uL();
+        xVar.uK();
     }
 
     public void setOpType(String str) {

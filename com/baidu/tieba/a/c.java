@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private int bbS;
-    private boolean bbT = false;
+    private int bbT;
+    private boolean bbU = false;
 
     public c() {
-        MD();
+        MB();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -20,30 +20,30 @@ public class c {
             Iterator<Integer> it = arrayList.iterator();
             while (it.hasNext()) {
                 int intValue = it.next().intValue();
-                bVar.put(intValue, gm(intValue));
+                bVar.put(intValue, gn(intValue));
             }
         }
     }
 
-    private int gm(int i) {
+    private int gn(int i) {
         if (i == 1) {
-            return gn(i);
+            return go(i);
         }
-        if (this.bbS == 1) {
-            return gp(i);
+        if (this.bbT == 1) {
+            return gq(i);
         }
-        if (this.bbS == 0) {
-            return gn(i);
+        if (this.bbT == 0) {
+            return go(i);
         }
         return 0;
     }
 
-    private int gn(int i) {
-        String go = go(i);
-        return (!an.isEmpty(go) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(go, 0) == 1) ? 1 : 0;
+    private int go(int i) {
+        String gp = gp(i);
+        return (!an.isEmpty(gp) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(gp, 0) == 1) ? 1 : 0;
     }
 
-    private String go(int i) {
+    private String gp(int i) {
         if (i == 1) {
             return "key_card_show_type";
         }
@@ -53,53 +53,53 @@ public class c {
         return null;
     }
 
-    private int gp(int i) {
-        String gq = gq(i);
-        if (an.isEmpty(gq)) {
+    private int gq(int i) {
+        String gr = gr(i);
+        if (an.isEmpty(gr)) {
             return 0;
         }
-        SampleResult vc = com.baidu.ubs.analytics.a.vc(gq);
-        return (vc == SampleResult.T1 || vc == SampleResult.T2 || vc == SampleResult.T3 || vc == SampleResult.T4 || vc == SampleResult.T5) ? 1 : 0;
+        SampleResult vf = com.baidu.ubs.analytics.a.vf(gr);
+        return (vf == SampleResult.T1 || vf == SampleResult.T2 || vf == SampleResult.T3 || vf == SampleResult.T4 || vf == SampleResult.T5) ? 1 : 0;
     }
 
-    private String gq(int i) {
+    private String gr(int i) {
         if (i == 2) {
             return "46";
         }
         return null;
     }
 
-    private void MD() {
-        this.bbS = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0);
-        ME();
+    private void MB() {
+        this.bbT = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0);
+        MC();
     }
 
-    public void gr(int i) {
+    public void gs(int i) {
         if (i == 1 || i == 0) {
-            this.bbS = i;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_abtest_channel", this.bbS);
-            ME();
+            this.bbT = i;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_abtest_channel", this.bbT);
+            MC();
         }
     }
 
-    private void ME() {
-        if (!this.bbT && this.bbS == 1) {
-            this.bbT = MG();
-            if (!this.bbT) {
-                this.bbS = 0;
+    private void MC() {
+        if (!this.bbU && this.bbT == 1) {
+            this.bbU = ME();
+            if (!this.bbU) {
+                this.bbT = 0;
             }
         }
     }
 
-    public boolean MF() {
-        return this.bbT;
+    public boolean MD() {
+        return this.bbU;
     }
 
-    public boolean MG() {
+    public boolean ME() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().cl(TbadkCoreApplication.getInst()).nC(false).da(30L).vp(1).nD(false).db(15L).vq(1000).bEL());
+                com.baidu.ubs.analytics.a.a(new c.a().cl(TbadkCoreApplication.getInst()).nD(false).da(30L).vo(1).nE(false).db(15L).vp(1000).bEJ());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

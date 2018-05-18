@@ -7,7 +7,7 @@ public class f {
     private String appId = "";
     private String appName = "";
     private String packageName = "";
-    private boolean asR = false;
+    private boolean asS = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -25,11 +25,11 @@ public class f {
         return this.packageName;
     }
 
-    public boolean yr() {
-        return this.asR;
+    public boolean yq() {
+        return this.asS;
     }
 
     public void aV(boolean z) {
-        this.asR = z;
+        this.asS = z;
     }
 }

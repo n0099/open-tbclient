@@ -9,12 +9,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static String aGV = "add_user_collect_emotoin";
-    public static String aGW = "image_url";
-    public static String aGX = "package_id";
-    public static String aGY = "#(meme,setting)";
-    public static String aGZ = "#(meme,collect_";
-    public static String aHa = "meme,collect_";
+    public static String aGW = "add_user_collect_emotoin";
+    public static String aGX = "image_url";
+    public static String aGY = "package_id";
+    public static String aGZ = "#(meme,setting)";
+    public static String aHa = "#(meme,collect_";
+    public static String aHb = "meme,collect_";
 
     /* loaded from: classes.dex */
     public static class a {
@@ -22,12 +22,12 @@ public class d {
         public String url;
     }
 
-    public static String Fe() {
+    public static String Fc() {
         return "collect_" + (TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
     }
 
-    public static String Ff() {
-        return Math.abs(Fe().hashCode()) + "";
+    public static String Fd() {
+        return Math.abs(Fc().hashCode()) + "";
     }
 
     public static void gH(String str) {

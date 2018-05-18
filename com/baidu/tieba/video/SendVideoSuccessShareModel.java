@@ -14,7 +14,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SendVideoSuccessShareModel extends BdBaseModel {
-    private HttpMessageListener avv = new HttpMessageListener(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID) { // from class: com.baidu.tieba.video.SendVideoSuccessShareModel.1
+    private HttpMessageListener avw = new HttpMessageListener(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID) { // from class: com.baidu.tieba.video.SendVideoSuccessShareModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -26,13 +26,13 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
 
     public SendVideoSuccessShareModel() {
         setUniqueId(BdUniqueId.gen());
-        AE();
-        this.avv.setTag(getUniqueId());
-        this.avv.setSelfListener(true);
-        registerListener(this.avv);
+        registerTask();
+        this.avw.setTag(getUniqueId());
+        this.avw.setSelfListener(true);
+        registerListener(this.avw);
     }
 
-    private void AE() {
+    private void registerTask() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID, TbConfig.SERVER_ADDRESS + TbConfig.URL_GET_VIDEO_INFO_BY_VLOGID);
         tbHttpMessageTask.setResponsedClass(SendVideoSuccessShareOriginalThreadInfoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -45,11 +45,11 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.avv);
+        MessageManager.getInstance().unRegisterListener(this.avw);
         return false;
     }
 
-    public void tI(String str) {
+    public void tL(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
         httpMessage.addParam("video_id", str);
         sendMessage(httpMessage);

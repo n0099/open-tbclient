@@ -17,12 +17,12 @@ public class ai {
     public static int aiq = 2;
     public static int air = 2;
     public static int ais = 3;
-    private com.baidu.tbadk.core.dialog.a JV;
-    private TbPageContext adf;
+    private com.baidu.tbadk.core.dialog.a JR;
     private com.baidu.tbadk.coreExtra.model.a ait;
     private AttentionHostData aiu;
     private int aiv;
     private a aiw;
+    private TbPageContext mContext;
     private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tbadk.core.util.ai.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -35,12 +35,12 @@ public class ai {
                     if (updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag().equals(ai.this.mId)) {
                         z = true;
                     }
-                    if (data.Aj) {
+                    if (data.Ai) {
                         ai.this.aiu.likeStatus = data.status;
                         ai.this.aiu.isAttention = data.isAttention;
                     }
                     if (z && ai.this.aiw != null) {
-                        ai.this.aiw.c(data.Aj, ai.this.aiv);
+                        ai.this.aiw.c(data.Ai, ai.this.aiv);
                     }
                 }
             }
@@ -54,14 +54,14 @@ public class ai {
     }
 
     public ai(TbPageContext tbPageContext) {
-        this.adf = tbPageContext;
+        this.mContext = tbPageContext;
         this.mAttentionListener.setTag(this.mId);
         MessageManager.getInstance().registerListener(this.mAttentionListener);
     }
 
-    public boolean cJ(int i) {
+    public boolean cK(int i) {
         if (i == ais) {
-            com.baidu.adp.lib.util.l.showToast(this.adf.getPageActivity(), d.k.reason_cannot_reply_thread);
+            com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), d.k.reason_cannot_reply_thread);
             return false;
         }
         return true;
@@ -73,10 +73,10 @@ public class ai {
             if (this.aiu == null || this.aiu.isAttention) {
                 return true;
             }
-            vI();
+            vH();
             return false;
         } else if (i == ais) {
-            com.baidu.adp.lib.util.l.showToast(this.adf.getPageActivity(), d.k.reason_cannot_reply_thread);
+            com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), d.k.reason_cannot_reply_thread);
             return false;
         } else {
             return true;
@@ -87,37 +87,37 @@ public class ai {
         this.aiu = attentionHostData;
     }
 
-    private void vI() {
-        if (this.JV == null) {
-            this.JV = new com.baidu.tbadk.core.dialog.a(this.adf.getPageActivity());
-            this.JV.bZ(d.k.message_privacy_fans_can_reply);
-            this.JV.a(d.k.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.ai.1
+    private void vH() {
+        if (this.JR == null) {
+            this.JR = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
+            this.JR.ca(d.k.message_privacy_fans_can_reply);
+            this.JR.a(d.k.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.ai.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    ai.this.vJ();
-                    ai.this.JV.dismiss();
+                    ai.this.vI();
+                    ai.this.JR.dismiss();
                 }
             });
-            this.JV.b(d.k.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.ai.2
+            this.JR.b(d.k.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.ai.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    ai.this.JV.dismiss();
+                    ai.this.JR.dismiss();
                 }
             });
-            this.JV.setAutoNight(true);
-            this.JV.b(this.adf);
+            this.JR.setAutoNight(true);
+            this.JR.b(this.mContext);
         }
-        this.JV.tD();
+        this.JR.tC();
     }
 
     public void a(com.baidu.tbadk.core.data.ax axVar) {
         if (axVar != null && !StringUtils.isNull(axVar.title) && !StringUtils.isNull(axVar.Zs) && !StringUtils.isNull(axVar.Zt)) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.adf.getPageActivity());
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
             aVar.dc(axVar.title);
             aVar.a(axVar.Zt, new a.b() { // from class: com.baidu.tbadk.core.util.ai.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    ai.this.vJ();
+                    ai.this.vI();
                     aVar2.dismiss();
                 }
             });
@@ -128,20 +128,20 @@ public class ai {
                 }
             });
             aVar.setAutoNight(true);
-            aVar.b(this.adf);
-            aVar.tD();
+            aVar.b(this.mContext);
+            aVar.tC();
             return;
         }
-        vI();
+        vH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vJ() {
+    public void vI() {
         if (!com.baidu.adp.lib.util.j.gD()) {
-            this.adf.showToast(d.k.network_ungeilivable);
-        } else if (this.aiu != null && az.aK(this.adf.getPageActivity())) {
+            this.mContext.showToast(d.k.network_ungeilivable);
+        } else if (this.aiu != null && az.aK(this.mContext.getPageActivity())) {
             if (this.ait == null) {
-                this.ait = new com.baidu.tbadk.coreExtra.model.a(this.adf);
+                this.ait = new com.baidu.tbadk.coreExtra.model.a(this.mContext);
             }
             this.ait.a(true, this.aiu.portrait, this.aiu.uid, this.aiu.isGod, "0", this.mId, null, "0");
         }
@@ -153,8 +153,8 @@ public class ai {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
-        if (this.JV != null) {
-            this.JV.dismiss();
+        if (this.JR != null) {
+            this.JR.dismiss();
         }
         if (this.ait != null) {
             this.ait.cancel();

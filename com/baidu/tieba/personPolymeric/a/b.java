@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.c, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.a>> {
-    private com.baidu.adp.lib.e.b<PersonCommonForumItemView> fHW;
+    private com.baidu.adp.lib.e.b<PersonCommonForumItemView> fJc;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.c.fKl);
-        this.fHW = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.a.b.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.c.fLr);
+        this.fJc = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: beW */
@@ -52,7 +52,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.a> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.personPolymeric.view.a aVar = new com.baidu.tieba.personPolymeric.view.a(this.mPageContext);
-        aVar.a(this.fHW);
+        aVar.a(this.fJc);
         return new com.baidu.tieba.card.a.a<>(aVar);
     }
 

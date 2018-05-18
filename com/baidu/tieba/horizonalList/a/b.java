@@ -9,7 +9,7 @@ public class b {
     public static abstract class a {
 
         /* renamed from: view  reason: collision with root package name */
-        protected View f15view;
+        protected View f14view;
 
         public abstract boolean isHardwareAccelerated();
 
@@ -18,7 +18,7 @@ public class b {
         public abstract void setScrollX(int i);
 
         protected a(View view2) {
-            this.f15view = view2;
+            this.f14view = view2;
         }
     }
 
@@ -31,12 +31,12 @@ public class b {
 
         @Override // com.baidu.tieba.horizonalList.a.b.a
         public void postOnAnimation(Runnable runnable) {
-            this.f15view.post(runnable);
+            this.f14view.post(runnable);
         }
 
         @Override // com.baidu.tieba.horizonalList.a.b.a
         public void setScrollX(int i) {
-            this.f15view.scrollTo(i, this.f15view.getScrollY());
+            this.f14view.scrollTo(i, this.f14view.getScrollY());
         }
 
         @Override // com.baidu.tieba.horizonalList.a.b.a

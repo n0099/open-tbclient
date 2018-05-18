@@ -26,12 +26,12 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public static final int CACHETIME = 604800000;
     public static final int TYPE_ALL = 0;
     public static final int TYPE_EACH = 1;
-    private int cbu;
+    private int ccq;
     public CustomMessageListener customListener;
-    private PersonListActivity eSF;
-    private com.baidu.tbadk.coreExtra.model.a eSG;
-    private int eSH;
-    private a eSy;
+    private a eTF;
+    private PersonListActivity eTM;
+    private com.baidu.tbadk.coreExtra.model.a eTN;
+    private int eTO;
     public HttpMessageListener httpListener;
     private String mId;
     private boolean mIsFollow;
@@ -49,8 +49,8 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     public PersonListModel(PersonListActivity personListActivity, a aVar) {
         super(personListActivity.getPageContext());
-        this.cbu = 0;
-        this.eSH = 0;
+        this.ccq = 0;
+        this.eTO = 0;
         this.httpListener = new HttpMessageListener(CmdConfigHttp.PIC_PERSONAL_LIST) { // from class: com.baidu.tieba.myAttentionAndFans.PersonListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -60,20 +60,20 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (statusCode != 200 || error != 0) {
-                        if (PersonListModel.this.eSy != null) {
+                        if (PersonListModel.this.eTF != null) {
                             if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                errorString = PersonListModel.this.eSF.getResources().getString(d.k.neterror);
+                                errorString = PersonListModel.this.eTM.getResources().getString(d.k.neterror);
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            PersonListModel.this.eSy.I(errorString, false);
+                            PersonListModel.this.eTF.I(errorString, false);
                             return;
                         }
                         return;
                     }
                     ar data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
-                    if (PersonListModel.this.eSy != null) {
-                        PersonListModel.this.eSy.d(data, false);
+                    if (PersonListModel.this.eTF != null) {
+                        PersonListModel.this.eTF.d(data, false);
                     }
                 }
             }
@@ -85,29 +85,29 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                     ar data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                     if (data2 != null) {
-                        if (PersonListModel.this.eSy != null) {
-                            PersonListModel.this.eSy.d(data2, true);
+                        if (PersonListModel.this.eTF != null) {
+                            PersonListModel.this.eTF.d(data2, true);
                         }
-                    } else if (PersonListModel.this.eSy != null) {
-                        PersonListModel.this.eSy.I("", true);
+                    } else if (PersonListModel.this.eTF != null) {
+                        PersonListModel.this.eTF.I("", true);
                     }
                 }
             }
         };
-        this.eSF = personListActivity;
-        this.eSG = new com.baidu.tbadk.coreExtra.model.a(this.eSF.getPageContext());
-        this.eSG.setLoadDataCallBack(this.mLoadDataCallBack);
+        this.eTM = personListActivity;
+        this.eTN = new com.baidu.tbadk.coreExtra.model.a(this.eTM.getPageContext());
+        this.eTN.setLoadDataCallBack(this.mLoadDataCallBack);
         this.mIsFollow = true;
         this.mId = null;
-        this.eSy = aVar;
+        this.eTF = aVar;
     }
 
     public int getPage() {
-        return this.cbu;
+        return this.ccq;
     }
 
     public void setPage(int i) {
-        this.cbu = i;
+        this.ccq = i;
     }
 
     public void setId(String str) {
@@ -126,15 +126,15 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         return this.mSex;
     }
 
-    public void iN(boolean z) {
+    public void iO(boolean z) {
         this.mIsFollow = z;
     }
 
-    public boolean aOw() {
+    public boolean aOv() {
         return this.mIsFollow;
     }
 
-    public void Pm() {
+    public void Pj() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
         if (this.mIsFollow) {
@@ -148,14 +148,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         registerListener(this.httpListener);
     }
 
-    public void gM(int i) {
-        this.eSH = i;
-        this.cbu = 0;
+    public void gN(int i) {
+        this.eTO = i;
+        this.ccq = 0;
         aSv();
     }
 
     public int getLoadType() {
-        return this.eSH;
+        return this.eTO;
     }
 
     public void aSv() {
@@ -170,12 +170,12 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             httpMessage.addParam("uid", this.mId);
         }
         hashMap.put("id", String.valueOf(this.mId));
-        if (this.cbu != 0) {
-            this.cbu++;
-            httpMessage.addParam("pn", String.valueOf(this.cbu));
+        if (this.ccq != 0) {
+            this.ccq++;
+            httpMessage.addParam("pn", String.valueOf(this.ccq));
         }
-        httpMessage.addParam("tab", this.eSH);
-        hashMap.put(WBPageConstants.ParamKey.PAGE, String.valueOf(this.cbu));
+        httpMessage.addParam("tab", this.eTO);
+        hashMap.put(WBPageConstants.ParamKey.PAGE, String.valueOf(this.ccq));
         httpMessage.setExtra(hashMap);
         sendMessage(httpMessage);
     }

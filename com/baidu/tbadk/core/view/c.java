@@ -49,7 +49,7 @@ public class c {
         b(activity, i, z);
     }
 
-    public void dh(int i) {
+    public void di(int i) {
         if (this.amI) {
             if (i != this.mSkinType && this.amG != null) {
                 ak.j(this.amG, this.amH);
@@ -85,7 +85,7 @@ public class c {
             this.mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.view.c.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    c.this.wF();
+                    c.this.wE();
                 }
             };
             this.amC.getViewTreeObserver().addOnGlobalLayoutListener(this.mGlobalLayoutListener);
@@ -94,35 +94,35 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wF() {
+    public void wE() {
         if (this.amC != null) {
             int height = this.amC.getHeight();
             if (height > this.mScreenHeight) {
                 this.mScreenHeight = height;
             }
-            int wG = wG();
+            int wF = wF();
             if (this.amJ > 0 && this.amJ <= this.amE.height) {
-                wG -= this.amJ;
+                wF -= this.amJ;
             }
-            if (wG != this.amD) {
+            if (wF != this.amD) {
                 int i = this.mScreenHeight;
-                int i2 = i - wG;
+                int i2 = i - wF;
                 if (i2 == 0) {
                     this.amE.height = i;
-                    wH();
+                    wG();
                 } else {
                     this.amE.height = i - i2;
-                    di(200);
+                    dj(200);
                     if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
                         TbadkCoreApplication.getInst().setKeyboardHeight(i2);
                     }
                 }
-                this.amD = wG;
+                this.amD = wF;
             }
         }
     }
 
-    private int wG() {
+    private int wF() {
         Rect rect = new Rect();
         this.amC.getWindowVisibleDisplayFrame(rect);
         return rect.bottom;
@@ -133,11 +133,11 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wH() {
+    public void wG() {
         this.amC.requestLayout();
     }
 
-    private void di(int i) {
+    private void dj(int i) {
         if (this.amF != null) {
             com.baidu.adp.lib.g.e.fw().removeCallbacks(this.amF);
             this.amF = null;
@@ -145,7 +145,7 @@ public class c {
         this.amF = new Runnable() { // from class: com.baidu.tbadk.core.view.c.2
             @Override // java.lang.Runnable
             public void run() {
-                c.this.wH();
+                c.this.wG();
             }
         };
         com.baidu.adp.lib.g.e.fw().postDelayed(this.amF, i);

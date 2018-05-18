@@ -46,11 +46,11 @@ public class av {
         return str;
     }
 
-    public static String wc() {
+    public static String wb() {
         return ajj;
     }
 
-    public static String wd() {
+    public static String wc() {
         return ajk;
     }
 }

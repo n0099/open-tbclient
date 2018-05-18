@@ -13,16 +13,16 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.n;
 /* loaded from: classes2.dex */
 public class j extends q.a {
-    public View Tl;
+    public View Th;
     public TextView adw;
-    public View bam;
+    public View ban;
     public Context mContext;
 
     public j(View view2, Context context) {
         super(view2);
-        this.Tl = view2;
+        this.Th = view2;
         this.adw = (TextView) view2.findViewById(d.g.view_frs_read_progress);
-        this.bam = view2.findViewById(d.g.line_under_frs_progress);
+        this.ban = view2.findViewById(d.g.line_under_frs_progress);
         this.mContext = context;
     }
 
@@ -33,13 +33,13 @@ public class j extends q.a {
             SpannableString spannableString = new SpannableString(format);
             UtilHelper.setSpan(spannableString, format, string, new ForegroundColorSpan(ak.getColor(d.C0126d.cp_link_tip_a)));
             this.adw.setText(spannableString);
-            wY();
+            wX();
         }
     }
 
-    public void wY() {
+    public void wX() {
         ak.h(this.adw, d.C0126d.cp_cont_c);
-        ak.i(this.Tl, d.f.addresslist_item_bg);
-        ak.j(this.bam, d.C0126d.cp_bg_line_c);
+        ak.i(this.Th, d.f.addresslist_item_bg);
+        ak.j(this.ban, d.C0126d.cp_bg_line_c);
     }
 }

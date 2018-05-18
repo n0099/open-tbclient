@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d cGE = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> cGF;
+    private static d cHN = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> cHO;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
@@ -18,22 +18,22 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     public static synchronized d akl() {
         d dVar;
         synchronized (d.class) {
-            dVar = cGE;
+            dVar = cHN;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.cGF;
+        return this.cHO;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0095a interfaceC0095a) {
-        if (this.cGF == null || this.cGF.isEmpty()) {
-            this.cGF = new LinkedList<>();
-            if (TbFaceManager.EZ().DS() > 0) {
+        if (this.cHO == null || this.cHO.isEmpty()) {
+            this.cHO = new LinkedList<>();
+            if (TbFaceManager.EX().DQ() > 0) {
                 c cVar = new c();
-                this.cGF.add(cVar);
+                this.cHO.add(cVar);
                 if (interfaceC0095a != null) {
                     interfaceC0095a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.cGF.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.cHO.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0095a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.cGF == null || this.cGF.size() == 0;
+        return this.cHO == null || this.cHO.size() == 0;
     }
 }

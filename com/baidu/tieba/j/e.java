@@ -4,11 +4,11 @@ public interface e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void iI(boolean z);
+        void iJ(boolean z);
 
         void onChange(boolean z);
 
-        void pC(int i);
+        void pB(int i);
     }
 
     void a(a aVar);

@@ -20,49 +20,49 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class ApkDownloadView extends FrameLayout {
     private CustomMessageListener downloadListener;
-    private CustomMessageListener fYR;
-    private DownloadData gdy;
-    private FeedAdProgressButton gei;
+    private CustomMessageListener fZX;
+    private DownloadData geF;
+    private FeedAdProgressButton gfp;
 
     public ApkDownloadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         this.downloadListener = null;
-        this.fYR = null;
+        this.fZX = null;
         init(context);
     }
 
     public ApkDownloadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.downloadListener = null;
-        this.fYR = null;
+        this.fZX = null;
         init(context);
     }
 
     public ApkDownloadView(Context context) {
         super(context);
         this.downloadListener = null;
-        this.fYR = null;
+        this.fZX = null;
         init(context);
     }
 
     private void init(Context context) {
-        this.gei = (FeedAdProgressButton) LayoutInflater.from(context).inflate(d.i.apk_download_view_layout, (ViewGroup) this, true).findViewById(d.g.feed_ad_operate_progress_button);
+        this.gfp = (FeedAdProgressButton) LayoutInflater.from(context).inflate(d.i.apk_download_view_layout, (ViewGroup) this, true).findViewById(d.g.feed_ad_operate_progress_button);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setData(DownloadData downloadData) {
         if (downloadData != null) {
-            this.gdy = (DownloadData) downloadData.clone();
-            if (this.gdy != null) {
-                setTag(this.gdy);
+            this.geF = (DownloadData) downloadData.clone();
+            if (this.geF != null) {
+                setTag(this.geF);
                 s(downloadData);
             }
         }
     }
 
     public void setDefaultText(String str) {
-        if (!TextUtils.isEmpty(str) && this.gei != null) {
-            this.gei.setText(str);
+        if (!TextUtils.isEmpty(str) && this.gfp != null) {
+            this.gfp.setText(str);
         }
     }
 
@@ -70,43 +70,43 @@ public class ApkDownloadView extends FrameLayout {
         if (downloadData != null) {
             switch (downloadData.getStatus()) {
                 case 1:
-                    rZ(v(downloadData));
+                    rY(v(downloadData));
                     return;
                 case 2:
                 case 7:
-                    this.gei.setText(getResources().getString(d.k.go_on), v(downloadData));
+                    this.gfp.setText(getResources().getString(d.k.go_on), v(downloadData));
                     return;
                 case 3:
-                    this.gei.setText(getResources().getString(d.k.install));
+                    this.gfp.setText(getResources().getString(d.k.install));
                     return;
                 case 4:
                 default:
                     return;
                 case 5:
-                    rZ(v(downloadData));
+                    rY(v(downloadData));
                     return;
                 case 6:
-                    this.gei.setText(getResources().getString(d.k.install_app));
+                    this.gfp.setText(getResources().getString(d.k.install_app));
                     return;
             }
         }
     }
 
     public void t(DownloadData downloadData) {
-        this.gei.setText(getResources().getString(d.k.go_on), v(downloadData));
+        this.gfp.setText(getResources().getString(d.k.go_on), v(downloadData));
     }
 
     public void h(DownloadData downloadData) {
-        rZ(v(downloadData));
+        rY(v(downloadData));
     }
 
     public void u(DownloadData downloadData) {
-        this.gei.setText(getResources().getString(d.k.install_app));
+        this.gfp.setText(getResources().getString(d.k.install_app));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rZ(int i) {
-        this.gei.setProgress(Math.max(0, i));
+    public void rY(int i) {
+        this.gfp.setProgress(Math.max(0, i));
     }
 
     public static int v(DownloadData downloadData) {
@@ -115,57 +115,57 @@ public class ApkDownloadView extends FrameLayout {
         }
         int process = downloadData.getProcess();
         if (process <= 0) {
-            process = h.bjx().al(downloadData.getId(), downloadData.getName());
+            process = h.bjw().al(downloadData.getId(), downloadData.getName());
         }
         return Math.max(process, 0);
     }
 
     public static int getStatus(DownloadData downloadData) {
         c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        return (adAdSense == null || adAdSense.yo()) ? h.getStatus(downloadData) : com.baidu.tieba.recapp.download.d.getStatus(downloadData);
+        return (adAdSense == null || adAdSense.yn()) ? h.getStatus(downloadData) : com.baidu.tieba.recapp.download.d.getStatus(downloadData);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bko();
+        bkn();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bkn();
+        bkm();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            bkn();
+            bkm();
         } else {
-            bko();
+            bkn();
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.gei.onChangeSkinType();
+        this.gfp.onChangeSkinType();
+    }
+
+    private void bkm() {
+        if (this.downloadListener != null) {
+            MessageManager.getInstance().registerListener(this.downloadListener);
+        }
+        if (this.fZX != null) {
+            MessageManager.getInstance().registerListener(this.fZX);
+        }
     }
 
     private void bkn() {
         if (this.downloadListener != null) {
-            MessageManager.getInstance().registerListener(this.downloadListener);
-        }
-        if (this.fYR != null) {
-            MessageManager.getInstance().registerListener(this.fYR);
-        }
-    }
-
-    private void bko() {
-        if (this.downloadListener != null) {
             MessageManager.getInstance().unRegisterListener(this.downloadListener);
         }
-        if (this.fYR != null) {
-            MessageManager.getInstance().unRegisterListener(this.fYR);
+        if (this.fZX != null) {
+            MessageManager.getInstance().unRegisterListener(this.fZX);
         }
     }
 
@@ -174,7 +174,7 @@ public class ApkDownloadView extends FrameLayout {
             this.downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.recapp.widget.ApkDownloadView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Code restructure failed: missing block: B:13:0x0046, code lost:
-                    if (r5.gej.gdy.getId().equals(r1.getId()) != false) goto L16;
+                    if (r5.gfq.geF.getId().equals(r1.getId()) != false) goto L16;
                  */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 /*
@@ -182,7 +182,7 @@ public class ApkDownloadView extends FrameLayout {
                 */
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     DownloadData downloadData;
-                    if ((customResponsedMessage instanceof DownloadMessage) && ApkDownloadView.this.gdy != null) {
+                    if ((customResponsedMessage instanceof DownloadMessage) && ApkDownloadView.this.geF != null) {
                         List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                         int i = 0;
                         while (true) {
@@ -191,7 +191,7 @@ public class ApkDownloadView extends FrameLayout {
                                 break;
                             }
                             downloadData = data.get(i2);
-                            if (TextUtils.isEmpty(ApkDownloadView.this.gdy.getId())) {
+                            if (TextUtils.isEmpty(ApkDownloadView.this.geF.getId())) {
                                 i = i2 + 1;
                             }
                         }
@@ -199,9 +199,9 @@ public class ApkDownloadView extends FrameLayout {
                         if (downloadData != null) {
                             int w = ApkDownloadView.this.w(downloadData);
                             if (h.getStatus(downloadData) == 1) {
-                                ApkDownloadView.this.rZ(w);
+                                ApkDownloadView.this.rY(w);
                             } else if (h.getStatus(downloadData) == 3) {
-                                ApkDownloadView.this.gei.setText(ApkDownloadView.this.getResources().getString(d.k.install));
+                                ApkDownloadView.this.gfp.setText(ApkDownloadView.this.getResources().getString(d.k.install));
                             } else {
                                 ApkDownloadView.this.t(downloadData);
                             }
@@ -212,20 +212,20 @@ public class ApkDownloadView extends FrameLayout {
             };
             this.downloadListener.setTag(bdUniqueId);
         }
-        if (this.fYR == null) {
-            this.fYR = new CustomMessageListener(2016484) { // from class: com.baidu.tieba.recapp.widget.ApkDownloadView.2
+        if (this.fZX == null) {
+            this.fZX = new CustomMessageListener(2016484) { // from class: com.baidu.tieba.recapp.widget.ApkDownloadView.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && ApkDownloadView.this.gdy != null) {
+                    if (customResponsedMessage != null && ApkDownloadView.this.geF != null) {
                         DownloadData downloadData = (DownloadData) customResponsedMessage.getData();
-                        if (ApkDownloadView.this.gdy.getId() != null && downloadData != null && ApkDownloadView.this.gdy.getId().equals(downloadData.getId())) {
+                        if (ApkDownloadView.this.geF.getId() != null && downloadData != null && ApkDownloadView.this.geF.getId().equals(downloadData.getId())) {
                             ApkDownloadView.this.s(downloadData);
                         }
                     }
                 }
             };
-            this.fYR.setTag(bdUniqueId);
+            this.fZX.setTag(bdUniqueId);
         }
     }
 

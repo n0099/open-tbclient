@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class o extends com.baidu.tieba.frs.f<p, q> {
-    private static final int cUI = d.g.manager_apply_tip;
-    private static final int cUJ = d.g.assist_apply_tip;
+    private static final int cVP = d.g.manager_apply_tip;
+    private static final int cVQ = d.g.assist_apply_tip;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -21,11 +21,11 @@ public class o extends com.baidu.tieba.frs.f<p, q> {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                Object tag = view2.getTag(o.cUI);
+                Object tag = view2.getTag(o.cVP);
                 if (tag == null || tag.toString().equals("")) {
-                    ax.wg().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{view2.getTag(o.cUJ).toString()});
+                    ax.wf().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{view2.getTag(o.cVQ).toString()});
                 } else {
-                    ax.wg().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
+                    ax.wf().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -50,70 +50,70 @@ public class o extends com.baidu.tieba.frs.f<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    ak.j(qVar.acO, d.C0126d.cp_bg_line_b);
-                    ak.c(qVar.cUT, d.C0126d.cp_cont_d, 1);
-                    ak.c(qVar.cUU, d.C0126d.cp_cont_d, 1);
-                    ak.c(qVar.cUR, d.C0126d.cp_cont_b, 1);
-                    ak.c(qVar.cUS, d.C0126d.cp_cont_b, 1);
-                    ak.i(qVar.cUV, d.f.frs_member_manito_bg);
-                    ak.i(qVar.cUW, d.f.frs_member_manito_bg);
+                    ak.j(qVar.acP, d.C0126d.cp_bg_line_b);
+                    ak.c(qVar.cWa, d.C0126d.cp_cont_d, 1);
+                    ak.c(qVar.cWb, d.C0126d.cp_cont_d, 1);
+                    ak.c(qVar.cVY, d.C0126d.cp_cont_b, 1);
+                    ak.c(qVar.cVZ, d.C0126d.cp_cont_b, 1);
+                    ak.i(qVar.cWc, d.f.frs_member_manito_bg);
+                    ak.i(qVar.cWd, d.f.frs_member_manito_bg);
+                }
+                int aol = pVar.aol();
+                if (aol == -1) {
+                    int aok = pVar.aok();
+                    String v = an.v(aok);
+                    if (aok > 0) {
+                        qVar.cWa.setText(String.format(this.mContext.getResources().getString(d.k.tbtitle_apply_left_num_tip), v));
+                        qVar.cWc.setTag(cVP, pVar.aon());
+                        qVar.cWc.setOnClickListener(this.mClickListener);
+                        qVar.cWc.setEnabled(true);
+                        qVar.cWc.setClickable(true);
+                    } else {
+                        qVar.cWa.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
+                        qVar.cWc.setTag(cVP, pVar.aon());
+                        qVar.cWc.setOnClickListener(this.mClickListener);
+                        qVar.cWc.setEnabled(false);
+                        qVar.cWc.setClickable(false);
+                    }
+                } else if (aol == 0) {
+                    qVar.cWa.setText(this.mContext.getResources().getString(d.k.tbtitle_is_bazhu));
+                    qVar.cWc.setTag(cVP, pVar.aon());
+                    qVar.cWc.setOnClickListener(this.mClickListener);
+                    qVar.cWc.setEnabled(true);
+                    qVar.cWc.setClickable(true);
+                } else if (aol == 1) {
+                    qVar.cWa.setText(this.mContext.getResources().getString(d.k.tbtitle_applying));
+                    qVar.cWc.setTag(cVP, pVar.aon());
+                    qVar.cWc.setOnClickListener(this.mClickListener);
+                    qVar.cWc.setEnabled(true);
+                    qVar.cWc.setClickable(true);
+                } else if (aol == 2) {
+                    qVar.cWa.setText(this.mContext.getResources().getString(d.k.tbtitle_apply_failed));
+                    qVar.cWc.setTag(cVP, pVar.aon());
+                    qVar.cWc.setOnClickListener(this.mClickListener);
+                    qVar.cWc.setEnabled(true);
+                    qVar.cWc.setClickable(true);
+                } else {
+                    qVar.cWa.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
+                    qVar.cWc.setTag(cVP, pVar.aon());
+                    qVar.cWc.setOnClickListener(this.mClickListener);
+                    qVar.cWc.setEnabled(false);
+                    qVar.cWc.setClickable(false);
                 }
                 int aom = pVar.aom();
-                if (aom == -1) {
-                    int aol = pVar.aol();
-                    String v = an.v(aol);
-                    if (aol > 0) {
-                        qVar.cUT.setText(String.format(this.mContext.getResources().getString(d.k.tbtitle_apply_left_num_tip), v));
-                        qVar.cUV.setTag(cUI, pVar.aoo());
-                        qVar.cUV.setOnClickListener(this.mClickListener);
-                        qVar.cUV.setEnabled(true);
-                        qVar.cUV.setClickable(true);
-                    } else {
-                        qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
-                        qVar.cUV.setTag(cUI, pVar.aoo());
-                        qVar.cUV.setOnClickListener(this.mClickListener);
-                        qVar.cUV.setEnabled(false);
-                        qVar.cUV.setClickable(false);
-                    }
-                } else if (aom == 0) {
-                    qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_is_bazhu));
-                    qVar.cUV.setTag(cUI, pVar.aoo());
-                    qVar.cUV.setOnClickListener(this.mClickListener);
-                    qVar.cUV.setEnabled(true);
-                    qVar.cUV.setClickable(true);
-                } else if (aom == 1) {
-                    qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_applying));
-                    qVar.cUV.setTag(cUI, pVar.aoo());
-                    qVar.cUV.setOnClickListener(this.mClickListener);
-                    qVar.cUV.setEnabled(true);
-                    qVar.cUV.setClickable(true);
-                } else if (aom == 2) {
-                    qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_apply_failed));
-                    qVar.cUV.setTag(cUI, pVar.aoo());
-                    qVar.cUV.setOnClickListener(this.mClickListener);
-                    qVar.cUV.setEnabled(true);
-                    qVar.cUV.setClickable(true);
+                if (aom > 0) {
+                    qVar.cWb.setText(String.format(this.mContext.getResources().getString(d.k.apply_left_num_tip), an.v(aom)));
+                    qVar.cWd.setTag(cVQ, pVar.aoo());
+                    qVar.cWd.setOnClickListener(this.mClickListener);
+                    qVar.cWd.setEnabled(true);
+                    qVar.cWd.setClickable(true);
                 } else {
-                    qVar.cUT.setText(this.mContext.getResources().getString(d.k.tbtitle_quota_is_full));
-                    qVar.cUV.setTag(cUI, pVar.aoo());
-                    qVar.cUV.setOnClickListener(this.mClickListener);
-                    qVar.cUV.setEnabled(false);
-                    qVar.cUV.setClickable(false);
+                    qVar.cWb.setText(this.mContext.getResources().getString(d.k.apply_no_left_tip));
+                    qVar.cWd.setEnabled(false);
+                    qVar.cWd.setClickable(false);
                 }
-                int aon = pVar.aon();
-                if (aon > 0) {
-                    qVar.cUU.setText(String.format(this.mContext.getResources().getString(d.k.apply_left_num_tip), an.v(aon)));
-                    qVar.cUW.setTag(cUJ, pVar.aop());
-                    qVar.cUW.setOnClickListener(this.mClickListener);
-                    qVar.cUW.setEnabled(true);
-                    qVar.cUW.setClickable(true);
-                } else {
-                    qVar.cUU.setText(this.mContext.getResources().getString(d.k.apply_no_left_tip));
-                    qVar.cUW.setEnabled(false);
-                    qVar.cUW.setClickable(false);
-                }
-                qVar.cUU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
-                qVar.cUT.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
+                qVar.cWb.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
+                qVar.cWa.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }

@@ -16,8 +16,8 @@ import tbclient.GetBawuInfo.ManagerApplyInfo;
 public class e {
     private BawuTeam mBawuTeamInfo;
     private ManagerApplyInfo mManagerApplyInfo;
-    private a cTs = null;
-    private com.baidu.adp.framework.listener.a cxg = new com.baidu.adp.framework.listener.a(CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007) { // from class: com.baidu.tieba.forumMember.bawu.e.1
+    private a cUz = null;
+    private com.baidu.adp.framework.listener.a cyp = new com.baidu.adp.framework.listener.a(CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007) { // from class: com.baidu.tieba.forumMember.bawu.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -33,19 +33,19 @@ public class e {
                     }
                     p pVar = new p();
                     if (e.this.mManagerApplyInfo != null) {
-                        pVar.jS(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                        pVar.lC(e.this.mManagerApplyInfo.manager_apply_url);
-                        pVar.jU(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                        pVar.lD(e.this.mManagerApplyInfo.assist_apply_url);
+                        pVar.jR(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                        pVar.lF(e.this.mManagerApplyInfo.manager_apply_url);
+                        pVar.jT(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                        pVar.lG(e.this.mManagerApplyInfo.assist_apply_url);
                     }
-                    if (e.this.cTs != null) {
-                        e.this.cTs.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (e.this.cUz != null) {
+                        e.this.cUz.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private CustomMessageListener cTt = new CustomMessageListener(2003005) { // from class: com.baidu.tieba.forumMember.bawu.e.2
+    private CustomMessageListener cUA = new CustomMessageListener(2003005) { // from class: com.baidu.tieba.forumMember.bawu.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,13 +55,13 @@ public class e {
                 e.this.mManagerApplyInfo = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
                 p pVar = new p();
                 if (e.this.mManagerApplyInfo != null) {
-                    pVar.jS(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                    pVar.lC(e.this.mManagerApplyInfo.manager_apply_url);
-                    pVar.jU(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                    pVar.lD(e.this.mManagerApplyInfo.assist_apply_url);
+                    pVar.jR(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                    pVar.lF(e.this.mManagerApplyInfo.manager_apply_url);
+                    pVar.jT(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                    pVar.lG(e.this.mManagerApplyInfo.assist_apply_url);
                 }
-                if (e.this.cTs != null) {
-                    e.this.cTs.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+                if (e.this.cUz != null) {
+                    e.this.cUz.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
                 }
             }
         }
@@ -73,8 +73,8 @@ public class e {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.cTt);
-        MessageManager.getInstance().registerListener(this.cxg);
+        MessageManager.getInstance().registerListener(this.cUA);
+        MessageManager.getInstance().registerListener(this.cyp);
     }
 
     public void bA(long j) {
@@ -90,12 +90,12 @@ public class e {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.cxg);
-        MessageManager.getInstance().unRegisterListener(this.cTt);
+        MessageManager.getInstance().unRegisterListener(this.cyp);
+        MessageManager.getInstance().unRegisterListener(this.cUA);
     }
 
     public void a(a aVar) {
-        this.cTs = aVar;
+        this.cUz = aVar;
     }
 
     public ArrayList<i> a(BawuTeam bawuTeam) {
@@ -114,7 +114,7 @@ public class e {
                 int i2 = 0;
                 while (i2 < size2) {
                     b bVar = new b();
-                    bVar.ly(bawuRoleDes.role_name);
+                    bVar.lB(bawuRoleDes.role_name);
                     ArrayList<BawuRoleInfoPub> arrayList2 = new ArrayList<>();
                     arrayList2.add(bawuRoleDes.role_info.get(i2));
                     if (i2 + 1 < size2) {
@@ -122,9 +122,9 @@ public class e {
                     }
                     i2 += 2;
                     if (i2 >= size2) {
-                        bVar.fj(true);
+                        bVar.fk(true);
                     } else {
-                        bVar.fj(false);
+                        bVar.fk(false);
                     }
                     bVar.H(arrayList2);
                     arrayList.add(bVar);

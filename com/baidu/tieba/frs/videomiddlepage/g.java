@@ -6,25 +6,25 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g implements f.a {
-    private f.b dsa;
-    private VideoMiddleModel dsb;
-    private VideoSerializeVideoThreadInfo dsc;
-    private VideoMiddleModel.a dsd = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.g.1
+    private f.b dti;
+    private VideoMiddleModel dtj;
+    private VideoSerializeVideoThreadInfo dtk;
+    private VideoMiddleModel.a dtl = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.g.1
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void g(List<com.baidu.tieba.card.data.b> list, boolean z) {
-            if (g.this.dsa != null) {
-                g.this.dsa.Ou();
+            if (g.this.dti != null) {
+                g.this.dti.Os();
                 g.this.mHasMore = z;
-                g.this.dsa.b(list, z, false);
+                g.this.dti.b(list, z, false);
             }
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
-        public void lR(String str) {
-            if (g.this.dsa != null) {
-                g.this.dsa.Ou();
-                g.this.dsa.showMsg(str);
-                g.this.dsa.EM();
+        public void lU(String str) {
+            if (g.this.dti != null) {
+                g.this.dti.Os();
+                g.this.dti.showMsg(str);
+                g.this.dti.EK();
             }
         }
     };
@@ -35,62 +35,62 @@ public class g implements f.a {
 
     public g(f.b bVar) {
         if (bVar instanceof VideoMiddlePageFragment) {
-            this.dsa = bVar;
-            this.dsa.a(this);
-            this.dsb = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.dsd);
+            this.dti = bVar;
+            this.dti.a(this);
+            this.dtj = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.dtl);
         }
     }
 
-    public void avF() {
-        if (this.dsb != null) {
-            this.dsb.LoadData();
+    public void avE() {
+        if (this.dtj != null) {
+            this.dtj.LoadData();
         }
     }
 
-    public void Po() {
-        if (this.dsb != null && this.mHasMore) {
-            this.dsb.LoadData();
+    public void Pl() {
+        if (this.dtj != null && this.mHasMore) {
+            this.dtj.LoadData();
         }
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.dsb != null) {
-            this.dsb.setId(this.mId);
+        if (this.dtj != null) {
+            this.dtj.setId(this.mId);
         }
     }
 
-    public void lQ(String str) {
+    public void lT(String str) {
         this.st_type = str;
-        if (this.dsb != null) {
-            this.dsb.lQ(str);
+        if (this.dtj != null) {
+            this.dtj.lT(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.dsb != null) {
-            this.dsb.setLocation(str);
+        if (this.dtj != null) {
+            this.dtj.setLocation(str);
         }
     }
 
     public void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.dsc = videoSerializeVideoThreadInfo;
+        this.dtk = videoSerializeVideoThreadInfo;
     }
 
-    public VideoSerializeVideoThreadInfo avG() {
-        return this.dsc;
+    public VideoSerializeVideoThreadInfo avF() {
+        return this.dtk;
     }
 
-    public void arg() {
-        if (this.dsb != null) {
-            this.dsb.cancelLoadData();
+    public void arf() {
+        if (this.dtj != null) {
+            this.dtj.cancelLoadData();
         }
     }
 
     public int getPageNum() {
-        if (this.dsb != null) {
-            return this.dsb.getPageNum();
+        if (this.dtj != null) {
+            return this.dtj.getPageNum();
         }
         return 0;
     }

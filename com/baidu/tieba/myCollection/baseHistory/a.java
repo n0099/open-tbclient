@@ -193,7 +193,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void pU(String str) {
+    public void pX(String str) {
         this.threadName = str;
     }
 
@@ -201,11 +201,11 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String Ea() {
+    public String DY() {
         return this.postID;
     }
 
-    public void pV(String str) {
+    public void pY(String str) {
         this.postID = str;
     }
 
@@ -213,7 +213,7 @@ public class a implements f {
         return this.isHostOnly;
     }
 
-    public void iX(boolean z) {
+    public void iY(boolean z) {
         this.isHostOnly = z;
     }
 
@@ -221,7 +221,7 @@ public class a implements f {
         return this.isSquence;
     }
 
-    public void iY(boolean z) {
+    public void iZ(boolean z) {
         this.isSquence = z;
     }
 
@@ -229,7 +229,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void pW(String str) {
+    public void pZ(String str) {
         this.liveId = str;
     }
 
@@ -255,7 +255,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String FC() {
+    public String FA() {
         return aeT().toString();
     }
 

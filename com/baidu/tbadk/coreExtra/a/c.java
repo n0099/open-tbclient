@@ -8,7 +8,7 @@ public interface c {
 
     void g(AccountData accountData);
 
-    void xP();
+    void xO();
 
-    List<AccountData> xQ();
+    List<AccountData> xP();
 }

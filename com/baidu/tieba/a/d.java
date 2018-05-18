@@ -7,44 +7,44 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d bbU;
-    private ArrayList<Integer> bbP = new ArrayList<>();
-    private c bbQ;
-    private a bbV;
+    private static volatile d bbV;
+    private ArrayList<Integer> bbQ = new ArrayList<>();
+    private c bbR;
+    private a bbW;
 
-    public static d MH() {
-        if (bbU == null) {
+    public static d MF() {
+        if (bbV == null) {
             synchronized (c.class) {
-                if (bbU == null) {
-                    bbU = new d();
+                if (bbV == null) {
+                    bbV = new d();
                 }
             }
         }
-        return bbU;
+        return bbV;
     }
 
     private d() {
-        this.bbP.add(1);
-        this.bbP.add(2);
-        this.bbQ = new c();
-        this.bbV = new a(this.bbQ, this.bbP);
+        this.bbQ.add(1);
+        this.bbQ.add(2);
+        this.bbR = new c();
+        this.bbW = new a(this.bbR, this.bbQ);
     }
 
     public int L(String str, int i) {
-        if (this.bbV == null) {
+        if (this.bbW == null) {
             return 0;
         }
-        return this.bbV.L(str, i);
+        return this.bbW.L(str, i);
     }
 
-    public void hX(String str) {
-        if (this.bbV != null) {
-            this.bbV.hW(str);
+    public void hY(String str) {
+        if (this.bbW != null) {
+            this.bbW.hX(str);
         }
     }
 
     public void a(String str, String str2, al alVar) {
-        if (alVar != null && this.bbQ != null && this.bbQ.MF()) {
+        if (alVar != null && this.bbR != null && this.bbR.MD()) {
             HashMap hashMap = new HashMap();
             List<Object> params = alVar.getParams();
             if (params != null) {
@@ -68,20 +68,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (an.isEmpty(str) || this.bbQ == null || !this.bbQ.MF()) {
-            com.baidu.ubs.analytics.a.va(str);
+        if (an.isEmpty(str) || this.bbR == null || !this.bbR.MD()) {
+            com.baidu.ubs.analytics.a.vd(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (an.isEmpty(str) || this.bbQ == null || !this.bbQ.MF()) {
-            com.baidu.ubs.analytics.a.vb(str);
+        if (an.isEmpty(str) || this.bbR == null || !this.bbR.MD()) {
+            com.baidu.ubs.analytics.a.ve(str);
         }
     }
 
-    public void gr(int i) {
-        if (this.bbQ != null) {
-            this.bbQ.gr(i);
+    public void gs(int i) {
+        if (this.bbR != null) {
+            this.bbR.gs(i);
         }
     }
 }

@@ -15,14 +15,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ViewGroup bHg = null;
-    private HotTopicChangeFourmActivity hdJ;
+    private ViewGroup bIv = null;
+    private HotTopicChangeFourmActivity heN;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.hdJ = hotTopicChangeFourmActivity;
-        this.mContext = this.hdJ.getPageContext().getContext();
+        this.heN = hotTopicChangeFourmActivity;
+        this.mContext = this.heN.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -39,7 +39,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uY */
+    /* renamed from: uX */
     public HotTopicBussinessData getItem(int i) {
         if (this.mData != null && i < this.mData.size()) {
             return this.mData.get(i);
@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String uM(String str) {
+    private String uP(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -65,8 +65,8 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         C0235a c0235a;
-        if (this.bHg == null) {
-            this.bHg = viewGroup;
+        if (this.bIv == null) {
+            this.bIv = viewGroup;
         }
         HotTopicBussinessData item = getItem(i);
         if (item != null) {
@@ -83,29 +83,29 @@ public class a extends BaseAdapter {
     private C0235a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0235a c0235a;
         if (obj == null) {
-            c0235a = bCl();
+            c0235a = bCj();
         } else {
             c0235a = (C0235a) obj;
         }
-        c0235a.hdL.setText(uM(hotTopicBussinessData.mForumName));
-        c0235a.hdK.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0235a.heP.setText(uP(hotTopicBussinessData.mForumName));
+        c0235a.heO.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         ak.i(c0235a.mRootView, d.f.select_forum_item_bg);
-        ak.h(c0235a.hdL, d.C0126d.cp_cont_b);
-        ak.j(c0235a.deQ, d.C0126d.cp_bg_line_e);
+        ak.h(c0235a.heP, d.C0126d.cp_cont_b);
+        ak.j(c0235a.dfX, d.C0126d.cp_bg_line_e);
         return c0235a;
     }
 
-    private C0235a bCl() {
+    private C0235a bCj() {
         C0235a c0235a = new C0235a();
         c0235a.mRootView = LayoutInflater.from(this.mContext).inflate(d.i.hot_topic_change_item, (ViewGroup) null);
         ak.i(c0235a.mRootView, d.f.select_forum_item_bg);
-        ak.h(c0235a.hdL, d.C0126d.cp_cont_b);
-        c0235a.hdL = (TextView) c0235a.mRootView.findViewById(d.g.fourm_tv);
-        c0235a.deQ = c0235a.mRootView.findViewById(d.g.line_view);
-        c0235a.hdK = (TbImageView) c0235a.mRootView.findViewById(d.g.icon_img);
-        c0235a.hdK.setDefaultBgResource(d.C0126d.cp_bg_line_e);
-        c0235a.hdK.setDefaultResource(d.f.transparent_bg);
-        c0235a.hdK.setDefaultErrorResource(d.f.icon_default_ba_120);
+        ak.h(c0235a.heP, d.C0126d.cp_cont_b);
+        c0235a.heP = (TextView) c0235a.mRootView.findViewById(d.g.fourm_tv);
+        c0235a.dfX = c0235a.mRootView.findViewById(d.g.line_view);
+        c0235a.heO = (TbImageView) c0235a.mRootView.findViewById(d.g.icon_img);
+        c0235a.heO.setDefaultBgResource(d.C0126d.cp_bg_line_e);
+        c0235a.heO.setDefaultResource(d.f.transparent_bg);
+        c0235a.heO.setDefaultErrorResource(d.f.icon_default_ba_120);
         c0235a.mRootView.setTag(c0235a);
         return c0235a;
     }
@@ -114,9 +114,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0235a {
-        public View deQ;
-        public TbImageView hdK;
-        public TextView hdL;
+        public View dfX;
+        public TbImageView heO;
+        public TextView heP;
         public View mRootView;
 
         private C0235a() {

@@ -28,7 +28,7 @@ public class au extends bd {
         return this.title;
     }
 
-    public ArrayList<aw> rl() {
+    public ArrayList<aw> rk() {
         return this.Zk;
     }
 

@@ -17,18 +17,18 @@ public final class a extends c {
     public final com.coloros.mcssdk.e.c ak(Intent intent) {
         try {
             com.coloros.mcssdk.e.a aVar = new com.coloros.mcssdk.e.a();
-            aVar.vx(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
-            aVar.vA(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
+            aVar.vw(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
+            aVar.vD(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
             aVar.setAppPackage(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             aVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
-            aVar.vs(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("balanceTime"))));
+            aVar.vr(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("balanceTime"))));
             aVar.dc(Long.parseLong(com.coloros.mcssdk.c.a.a(intent.getStringExtra("startDate"))));
             aVar.dd(Long.parseLong(com.coloros.mcssdk.c.a.a(intent.getStringExtra("endDate"))));
-            aVar.vx(com.coloros.mcssdk.c.a.a(intent.getStringExtra("timeRanges")));
+            aVar.vA(com.coloros.mcssdk.c.a.a(intent.getStringExtra("timeRanges")));
             aVar.setTitle(com.coloros.mcssdk.c.a.a(intent.getStringExtra("title")));
-            aVar.vy(com.coloros.mcssdk.c.a.a(intent.getStringExtra("rule")));
-            aVar.vt(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("forcedDelivery"))));
-            aVar.vu(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("distinctBycontent"))));
+            aVar.vB(com.coloros.mcssdk.c.a.a(intent.getStringExtra("rule")));
+            aVar.vs(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("forcedDelivery"))));
+            aVar.vt(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("distinctBycontent"))));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + aVar.toString());
             return aVar;
         } catch (Exception e) {

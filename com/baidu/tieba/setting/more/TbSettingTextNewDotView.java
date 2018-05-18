@@ -18,10 +18,10 @@ public class TbSettingTextNewDotView extends TbSettingTextTipView {
 
     public void refresh() {
         if (PluginPackageManager.iX().jk()) {
-            this.azb.setVisibility(0);
-            ak.i(this.azb, d.f.icon_news_head_new);
+            this.azc.setVisibility(0);
+            ak.i(this.azc, d.f.icon_news_head_new);
             return;
         }
-        this.azb.setVisibility(4);
+        this.azc.setVisibility(4);
     }
 }

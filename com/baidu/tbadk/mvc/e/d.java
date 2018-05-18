@@ -24,10 +24,10 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String str = currentAccount == null ? "" : currentAccount;
-        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) Gi();
+        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) Gg();
         if (dVar != null) {
             if (dVar instanceof com.baidu.tbadk.mvc.b.b) {
-                l<byte[]> N = com.baidu.tbadk.core.c.a.tz().N(this.rl, str);
+                l<byte[]> N = com.baidu.tbadk.core.c.a.ty().N(this.rk, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar2 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar2 == null) {
@@ -41,11 +41,11 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar3 == null) {
                         return writeCacheRespMsg;
                     }
-                    N.e(dVar3.getCacheKey(), ((com.baidu.tbadk.mvc.b.b) dVar3).Fz());
+                    N.e(dVar3.getCacheKey(), ((com.baidu.tbadk.mvc.b.b) dVar3).Fx());
                     writeCacheRespMsg.setSuccess(true);
                 }
             } else if (dVar instanceof f) {
-                l<String> O = com.baidu.tbadk.core.c.a.tz().O(this.rl, str);
+                l<String> O = com.baidu.tbadk.core.c.a.ty().O(this.rk, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar4 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar4 == null) {
@@ -59,9 +59,9 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar5 == null) {
                         return writeCacheRespMsg;
                     }
-                    String FC = ((f) dVar5).FC();
-                    if (FC != null) {
-                        O.e(dVar5.getCacheKey(), FC);
+                    String FA = ((f) dVar5).FA();
+                    if (FA != null) {
+                        O.e(dVar5.getCacheKey(), FA);
                         writeCacheRespMsg.setSuccess(true);
                     }
                 }

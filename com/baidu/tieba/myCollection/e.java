@@ -31,20 +31,20 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class e extends BaseAdapter {
-    private static final float eTi = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds32);
-    private static final float eTj = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds36);
-    private static final float eTk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds26);
-    private static final int eTl = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds28);
-    private static final int eTm = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds20);
+    private static final float eUp = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds32);
+    private static final float eUq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds36);
+    private static final float eUr = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds26);
+    private static final int eUs = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds28);
+    private static final int eUt = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds20);
     private TbPageContext<?> mPageContext;
     private final ArrayList<MarkData> adv = new ArrayList<>();
-    private boolean bco = false;
-    private View.OnClickListener eTn = null;
-    private View.OnClickListener eTo = null;
-    private View.OnClickListener eTp = null;
-    private boolean eTq = false;
+    private boolean bcp = false;
+    private View.OnClickListener eUu = null;
+    private View.OnClickListener eUv = null;
+    private View.OnClickListener eUw = null;
+    private boolean eUx = false;
     private boolean hasMore = true;
-    private boolean eTr = true;
+    private boolean eUy = true;
     private final View.OnClickListener apj = new View.OnClickListener() { // from class: com.baidu.tieba.myCollection.e.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
@@ -70,7 +70,7 @@ public class e extends BaseAdapter {
     }
 
     public void setRefreshing(boolean z) {
-        this.eTq = z;
+        this.eUx = z;
     }
 
     public void setData(ArrayList<MarkData> arrayList) {
@@ -93,11 +93,11 @@ public class e extends BaseAdapter {
         if (v.w(this.adv)) {
             return 0;
         }
-        return this.eTr ? v.v(this.adv) + 1 : v.v(this.adv);
+        return this.eUy ? v.v(this.adv) + 1 : v.v(this.adv);
     }
 
-    public void iS(boolean z) {
-        this.eTr = z;
+    public void iT(boolean z) {
+        this.eUy = z;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -119,7 +119,7 @@ public class e extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pJ */
+    /* renamed from: pI */
     public MarkData getItem(int i) {
         return (MarkData) v.c(this.adv, i);
     }
@@ -155,15 +155,15 @@ public class e extends BaseAdapter {
                 }
                 MarkData item = getItem(i);
                 if (item == null) {
-                    dVar.eTt.setVisibility(8);
+                    dVar.eUA.setVisibility(8);
                     break;
                 } else {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) dVar.eTx.getLayoutParams();
-                    if (this.bco) {
-                        dVar.eTt.setVisibility(0);
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) dVar.eUE.getLayoutParams();
+                    if (this.bcp) {
+                        dVar.eUA.setVisibility(0);
                         layoutParams.leftMargin = 0;
                     } else {
-                        dVar.eTt.setVisibility(8);
+                        dVar.eUA.setVisibility(8);
                         layoutParams.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d.e.ds34);
                     }
                     dVar.b(item);
@@ -177,26 +177,26 @@ public class e extends BaseAdapter {
                 if (view2 == null || !(view2.getTag() instanceof b)) {
                     view2 = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.i.page_item, (ViewGroup) null);
                     b bVar2 = new b();
-                    bVar2.eTA = (TextView) view2.findViewById(d.g.page_text);
+                    bVar2.eUH = (TextView) view2.findViewById(d.g.page_text);
                     bVar2.mProgress = (ProgressBar) view2.findViewById(d.g.progress);
                     view2.setTag(bVar2);
                     bVar = bVar2;
                 } else {
                     bVar = (b) view2.getTag();
                 }
-                bVar.eTA.setVisibility(0);
-                if (this.eTq) {
+                bVar.eUH.setVisibility(0);
+                if (this.eUx) {
                     bVar.mProgress.setVisibility(0);
-                    bVar.eTA.setText(this.mPageContext.getString(d.k.loading));
-                    ak.c(bVar.eTA, d.C0126d.common_color_10039, 1);
+                    bVar.eUH.setText(this.mPageContext.getString(d.k.loading));
+                    ak.c(bVar.eUH, d.C0126d.common_color_10039, 1);
                 } else if (!this.hasMore) {
                     bVar.mProgress.setVisibility(8);
-                    bVar.eTA.setText(this.mPageContext.getString(d.k.no_more_mark));
-                    ak.c(bVar.eTA, d.C0126d.common_color_10005, 1);
+                    bVar.eUH.setText(this.mPageContext.getString(d.k.no_more_mark));
+                    ak.c(bVar.eUH, d.C0126d.common_color_10005, 1);
                 } else {
                     bVar.mProgress.setVisibility(8);
-                    bVar.eTA.setText(this.mPageContext.getString(d.k.loading));
-                    ak.c(bVar.eTA, d.C0126d.common_color_10039, 1);
+                    bVar.eUH.setText(this.mPageContext.getString(d.k.loading));
+                    ak.c(bVar.eUH, d.C0126d.common_color_10039, 1);
                 }
                 this.mPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() != 1);
                 this.mPageContext.getLayoutMode().u(view2);
@@ -212,20 +212,20 @@ public class e extends BaseAdapter {
                 }
                 MarkData item2 = getItem(i);
                 if (item2 == null) {
-                    cVar.eTt.setVisibility(8);
+                    cVar.eUA.setVisibility(8);
                     break;
                 } else {
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) cVar.eTx.getLayoutParams();
-                    if (this.bco) {
-                        cVar.eTt.setVisibility(0);
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) cVar.eUE.getLayoutParams();
+                    if (this.bcp) {
+                        cVar.eUA.setVisibility(0);
                         layoutParams2.leftMargin = 0;
                     } else {
-                        cVar.eTt.setVisibility(8);
+                        cVar.eUA.setVisibility(8);
                         layoutParams2.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d.e.ds34);
                     }
                     cVar.b(item2);
                     a(i, cVar);
-                    cVar.eTB.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.myCollection.e.1
+                    cVar.eUI.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.myCollection.e.1
                         @Override // com.baidu.tieba.card.OriginalThreadCardView.a
                         public void a(OriginalThreadInfo originalThreadInfo) {
                             TiebaStatic.log(new al("c12529").r("obj_locate", 5));
@@ -253,54 +253,54 @@ public class e extends BaseAdapter {
     }
 
     public void co(boolean z) {
-        this.bco = z;
+        this.bcp = z;
     }
 
-    public boolean MP() {
-        return this.bco;
+    public boolean MN() {
+        return this.bcp;
     }
 
     private void a(int i, a aVar) {
         Integer valueOf = Integer.valueOf(i);
-        aVar.eTy.setOnClickListener(this.eTo);
-        aVar.eTy.setTag(valueOf);
-        aVar.duF.setAfterClickListener(this.apj);
-        aVar.duF.setTag(valueOf);
-        aVar.eTu.setAfterOnClickListener(this.apj);
-        aVar.eTu.setTag(valueOf);
-        aVar.eTz.setOnClickListener(this.eTp);
-        aVar.eTz.setTag(valueOf);
-        aVar.eTt.setOnClickListener(this.eTn);
-        aVar.eTt.setFocusable(false);
-        aVar.eTt.setTag(valueOf);
+        aVar.eUF.setOnClickListener(this.eUv);
+        aVar.eUF.setTag(valueOf);
+        aVar.dvN.setAfterClickListener(this.apj);
+        aVar.dvN.setTag(valueOf);
+        aVar.eUB.setAfterOnClickListener(this.apj);
+        aVar.eUB.setTag(valueOf);
+        aVar.eUG.setOnClickListener(this.eUw);
+        aVar.eUG.setTag(valueOf);
+        aVar.eUA.setOnClickListener(this.eUu);
+        aVar.eUA.setFocusable(false);
+        aVar.eUA.setTag(valueOf);
     }
 
     public void z(View.OnClickListener onClickListener) {
-        this.eTn = onClickListener;
+        this.eUu = onClickListener;
     }
 
     public void A(View.OnClickListener onClickListener) {
-        this.eTo = onClickListener;
+        this.eUv = onClickListener;
     }
 
     public void B(View.OnClickListener onClickListener) {
-        this.eTp = onClickListener;
+        this.eUw = onClickListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a {
         TextView aqm;
-        View bwn;
-        com.baidu.tbadk.core.view.userLike.c cnX;
-        ClickableHeaderImageView duF;
-        ImageButton eTt;
-        CommonUserLikeButton eTu;
-        TextView eTv;
-        ImageView eTw;
-        LinearLayout eTx;
-        LinearLayout eTy;
-        LinearLayout eTz;
+        View bxe;
+        com.baidu.tbadk.core.view.userLike.c cpg;
+        ClickableHeaderImageView dvN;
+        ImageButton eUA;
+        CommonUserLikeButton eUB;
+        TextView eUC;
+        ImageView eUD;
+        LinearLayout eUE;
+        LinearLayout eUF;
+        LinearLayout eUG;
         TextView mTitle;
 
         private a() {
@@ -322,44 +322,44 @@ public class e extends BaseAdapter {
                 if (!TextUtils.isEmpty(title)) {
                     if (markData.is_deleted()) {
                         this.mTitle.setText(title);
-                        this.mTitle.setTextSize(0, e.eTi);
+                        this.mTitle.setTextSize(0, e.eUp);
                         ak.h(this.mTitle, d.C0126d.cp_cont_e);
                     } else {
                         this.mTitle.setText(title);
-                        this.mTitle.setTextSize(0, e.eTj);
+                        this.mTitle.setTextSize(0, e.eUq);
                         ak.h(this.mTitle, d.C0126d.cp_cont_b);
                     }
                 } else {
                     this.mTitle.setText("");
                 }
                 c(markData);
-                this.duF.setData(markData.metaData);
-                this.duF.setShowV(markData.metaData.isBigV());
-                this.cnX.a(markData.metaData);
-                this.eTu.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                this.eTu.setTextSize(0, e.eTk);
+                this.dvN.setData(markData.metaData);
+                this.dvN.setShowV(markData.metaData.isBigV());
+                this.cpg.a(markData.metaData);
+                this.eUB.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+                this.eUB.setTextSize(0, e.eUr);
                 if ((markData.metaData.getIsLike() || an.equals(TbadkCoreApplication.getCurrentAccount(), markData.getUesrId())) && !markData.isLikeInPage()) {
-                    this.eTu.setVisibility(8);
+                    this.eUB.setVisibility(8);
                 } else {
-                    this.eTu.setVisibility(0);
+                    this.eUB.setVisibility(0);
                 }
                 if ((!StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) || markData.is_deleted()) {
-                    this.eTz.setVisibility(0);
+                    this.eUG.setVisibility(0);
                     if (markData.isRedTipShow() && !markData.is_deleted()) {
-                        this.eTw.setVisibility(0);
+                        this.eUD.setVisibility(0);
                     } else {
-                        this.eTw.setVisibility(8);
+                        this.eUD.setVisibility(8);
                     }
                     if (markData.is_deleted()) {
-                        this.eTv.setText(e.this.mPageContext.getString(d.k.mark_thread_deleted));
+                        this.eUC.setText(e.this.mPageContext.getString(d.k.mark_thread_deleted));
                     } else {
-                        this.eTv.setText(markData.getmState());
+                        this.eUC.setText(markData.getmState());
                     }
-                    ak.h(this.eTv, d.C0126d.cp_cont_d);
+                    ak.h(this.eUC, d.C0126d.cp_cont_d);
                 } else {
-                    this.eTz.setVisibility(8);
+                    this.eUG.setVisibility(8);
                 }
-                ak.j(this.bwn, d.C0126d.cp_bg_line_c);
+                ak.j(this.bxe, d.C0126d.cp_bg_line_c);
             }
         }
 
@@ -377,46 +377,46 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class d extends a {
-        TbImageView cqN;
-        LinearLayout eTC;
+        TbImageView crX;
+        LinearLayout eUJ;
 
         public d(View view2) {
             super();
-            this.eTx = (LinearLayout) view2.findViewById(d.g.home_lv_markitem);
-            this.duF = (ClickableHeaderImageView) view2.findViewById(d.g.mark_userinfo_header_view);
+            this.eUE = (LinearLayout) view2.findViewById(d.g.home_lv_markitem);
+            this.dvN = (ClickableHeaderImageView) view2.findViewById(d.g.mark_userinfo_header_view);
             this.aqm = (TextView) view2.findViewById(d.g.mark_userinfo_name);
-            this.eTy = (LinearLayout) view2.findViewById(d.g.home_lv_markitem_userinfo);
-            this.eTC = (LinearLayout) view2.findViewById(d.g.home_lv_markitem_thread);
-            this.eTu = (CommonUserLikeButton) view2.findViewById(d.g.markitem_userinfo_like_btn);
-            this.cnX = new com.baidu.tbadk.core.view.userLike.c(e.this.mPageContext, this.eTu);
-            this.cqN = (TbImageView) view2.findViewById(d.g.markitem_thread_image);
+            this.eUF = (LinearLayout) view2.findViewById(d.g.home_lv_markitem_userinfo);
+            this.eUJ = (LinearLayout) view2.findViewById(d.g.home_lv_markitem_thread);
+            this.eUB = (CommonUserLikeButton) view2.findViewById(d.g.markitem_userinfo_like_btn);
+            this.cpg = new com.baidu.tbadk.core.view.userLike.c(e.this.mPageContext, this.eUB);
+            this.crX = (TbImageView) view2.findViewById(d.g.markitem_thread_image);
             this.mTitle = (TextView) view2.findViewById(d.g.markitem_thread_title);
-            this.eTv = (TextView) view2.findViewById(d.g.markitem_state_text);
-            this.eTt = (ImageButton) view2.findViewById(d.g.home_lv_markitem_delete);
-            this.eTw = (ImageView) view2.findViewById(d.g.new_mark_mention_redtip);
-            this.eTz = (LinearLayout) view2.findViewById(d.g.markitem_state);
-            this.bwn = view2.findViewById(d.g.text_divider);
-            c(this.duF);
+            this.eUC = (TextView) view2.findViewById(d.g.markitem_state_text);
+            this.eUA = (ImageButton) view2.findViewById(d.g.home_lv_markitem_delete);
+            this.eUD = (ImageView) view2.findViewById(d.g.new_mark_mention_redtip);
+            this.eUG = (LinearLayout) view2.findViewById(d.g.markitem_state);
+            this.bxe = view2.findViewById(d.g.text_divider);
+            c(this.dvN);
         }
 
         @Override // com.baidu.tieba.myCollection.e.a
         void b(MarkData markData) {
             super.b(markData);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eTy.getLayoutParams();
-            if (i.pY().qe() && !StringUtils.isNull(markData.getPic_url())) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eUF.getLayoutParams();
+            if (i.pX().qd() && !StringUtils.isNull(markData.getPic_url())) {
                 String pic_url = markData.getPic_url();
                 if (!StringUtils.isNull(pic_url)) {
-                    this.cqN.setVisibility(0);
-                    this.cqN.startLoad(pic_url, 10, false);
+                    this.crX.setVisibility(0);
+                    this.crX.startLoad(pic_url, 10, false);
                 }
-                layoutParams.bottomMargin = e.eTl;
+                layoutParams.bottomMargin = e.eUs;
             } else {
-                this.cqN.setVisibility(8);
-                layoutParams.bottomMargin = e.eTm;
+                this.crX.setVisibility(8);
+                layoutParams.bottomMargin = e.eUt;
             }
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eTC.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eUJ.getLayoutParams();
             if ((StringUtils.isNull(markData.getmState()) || markData.getNewCounts() <= 0) && !markData.is_deleted()) {
-                layoutParams2.bottomMargin = (int) e.eTi;
+                layoutParams2.bottomMargin = (int) e.eUp;
             } else {
                 layoutParams2.bottomMargin = 0;
             }
@@ -425,34 +425,34 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class c extends a {
-        OriginalThreadCardView eTB;
+        OriginalThreadCardView eUI;
 
         public c(View view2) {
             super();
-            this.eTx = (LinearLayout) view2.findViewById(d.g.share_lv_markitem);
-            this.eTt = (ImageButton) view2.findViewById(d.g.share_lv_markitem_delete);
-            this.duF = (ClickableHeaderImageView) view2.findViewById(d.g.share_mark_userinfo_header_view);
+            this.eUE = (LinearLayout) view2.findViewById(d.g.share_lv_markitem);
+            this.eUA = (ImageButton) view2.findViewById(d.g.share_lv_markitem_delete);
+            this.dvN = (ClickableHeaderImageView) view2.findViewById(d.g.share_mark_userinfo_header_view);
             this.aqm = (TextView) view2.findViewById(d.g.share_mark_userinfo_name);
-            this.eTu = (CommonUserLikeButton) view2.findViewById(d.g.share_mark_item_userinfo_like_btn);
-            this.cnX = new com.baidu.tbadk.core.view.userLike.c(e.this.mPageContext, this.eTu);
-            this.eTy = (LinearLayout) view2.findViewById(d.g.share_lv_markitem_userinfo);
+            this.eUB = (CommonUserLikeButton) view2.findViewById(d.g.share_mark_item_userinfo_like_btn);
+            this.cpg = new com.baidu.tbadk.core.view.userLike.c(e.this.mPageContext, this.eUB);
+            this.eUF = (LinearLayout) view2.findViewById(d.g.share_lv_markitem_userinfo);
             this.mTitle = (TextView) view2.findViewById(d.g.share_thread_title);
-            this.eTB = (OriginalThreadCardView) view2.findViewById(d.g.share_original_thread_view);
-            this.eTv = (TextView) view2.findViewById(d.g.share_mark_item_state_text);
-            this.eTw = (ImageView) view2.findViewById(d.g.share_new_mark_mention_redtip);
-            this.eTz = (LinearLayout) view2.findViewById(d.g.share_mark_item_state);
-            this.bwn = view2.findViewById(d.g.share_text_divider);
-            c(this.duF);
+            this.eUI = (OriginalThreadCardView) view2.findViewById(d.g.share_original_thread_view);
+            this.eUC = (TextView) view2.findViewById(d.g.share_mark_item_state_text);
+            this.eUD = (ImageView) view2.findViewById(d.g.share_new_mark_mention_redtip);
+            this.eUG = (LinearLayout) view2.findViewById(d.g.share_mark_item_state);
+            this.bxe = view2.findViewById(d.g.share_text_divider);
+            c(this.dvN);
         }
 
         @Override // com.baidu.tieba.myCollection.e.a
         void b(MarkData markData) {
             super.b(markData);
-            this.eTB.b(markData.getOriginalThreadInfo());
-            this.eTB.onChangeSkinType();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eTB.getLayoutParams();
+            this.eUI.b(markData.getOriginalThreadInfo());
+            this.eUI.onChangeSkinType();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eUI.getLayoutParams();
             if ((StringUtils.isNull(markData.getmState()) || markData.getNewCounts() <= 0) && !markData.is_deleted()) {
-                layoutParams.bottomMargin = (int) e.eTi;
+                layoutParams.bottomMargin = (int) e.eUp;
             } else {
                 layoutParams.bottomMargin = 0;
             }
@@ -461,7 +461,7 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class b {
-        TextView eTA;
+        TextView eUH;
         ProgressBar mProgress;
 
         private b() {

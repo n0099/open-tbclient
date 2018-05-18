@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<d> baF = new ArrayList();
-    private long baG = 0;
+    private List<d> baG = new ArrayList();
+    private long baH = 0;
 
-    public List<d> LT() {
-        return this.baF;
-    }
-
-    public long LU() {
+    public List<d> LR() {
         return this.baG;
     }
 
+    public long LS() {
+        return this.baH;
+    }
+
     public void a(d dVar) {
-        if (this.baF != null) {
-            this.baF.add(dVar);
+        if (this.baG != null) {
+            this.baG.add(dVar);
             if (dVar != null) {
-                this.baG += dVar.Mc();
+                this.baH += dVar.Ma();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.baF != null) {
-            this.baF.remove(dVar);
+        if (this.baG != null) {
+            this.baG.remove(dVar);
             if (dVar != null) {
-                this.baG -= dVar.Mc();
+                this.baH -= dVar.Ma();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.baF != null) {
-            d dVar = this.baF.get(i);
+        if (this.baG != null) {
+            d dVar = this.baG.get(i);
             if (dVar != null) {
-                this.baG -= dVar.Mc();
+                this.baH -= dVar.Ma();
             }
-            this.baF.remove(i);
+            this.baG.remove(i);
         }
     }
 
-    public int LV() {
-        if (this.baF != null) {
-            return this.baF.size();
+    public int LT() {
+        if (this.baG != null) {
+            return this.baG.size();
         }
         return 0;
     }
 
-    public d gh(int i) {
-        if (this.baF != null) {
-            return this.baF.get(i);
+    public d gi(int i) {
+        if (this.baG != null) {
+            return this.baG.get(i);
         }
         return null;
     }

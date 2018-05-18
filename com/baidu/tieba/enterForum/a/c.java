@@ -5,5 +5,5 @@ public interface c {
 
     void ar(int i, int i2);
 
-    void jv(int i);
+    void ju(int i);
 }

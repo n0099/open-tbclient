@@ -8,23 +8,23 @@ import org.json.JSONObject;
 import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class a {
+    private int Ve;
+    private int Vf;
+    private int Vg;
+    private int Vh;
     private int Vi;
-    private int Vj;
-    private int Vk;
-    private int Vl;
-    private int Vm;
-    private boolean Vn;
-    private String Vo;
-    private int Vp = 1;
-    private int Vq = 1;
-    private int Vr;
-    private ay Vs;
+    private boolean Vj;
+    private String Vk;
+    private int Vl = 1;
+    private int Vm = 1;
+    private int Vn;
+    private ay Vo;
     private int activity_type;
     private int status;
     private int total_num;
     private String url;
 
-    public int qn() {
+    public int qm() {
         return this.activity_type;
     }
 
@@ -32,58 +32,58 @@ public class a {
         return this.status;
     }
 
-    public int qo() {
-        return this.Vi;
+    public int qn() {
+        return this.Ve;
     }
 
-    public int qp() {
-        return this.Vj;
+    public int qo() {
+        return this.Vf;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public int qq() {
+    public int qp() {
         return this.total_num;
     }
 
-    public boolean qr() {
-        return this.Vn;
+    public boolean qq() {
+        return this.Vj;
     }
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
             this.activity_type = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.Vi = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.Vj = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.Ve = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.Vf = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
-            this.Vk = actInfo.activity_id.intValue();
-            this.Vl = actInfo.award_act_id.intValue();
-            this.Vm = actInfo.component_id.intValue();
-            this.Vn = actInfo.is_senior.booleanValue();
-            this.Vo = actInfo.banner_img;
-            this.Vr = actInfo.show_total_num.intValue();
+            this.Vg = actInfo.activity_id.intValue();
+            this.Vh = actInfo.award_act_id.intValue();
+            this.Vi = actInfo.component_id.intValue();
+            this.Vj = actInfo.is_senior.booleanValue();
+            this.Vk = actInfo.banner_img;
+            this.Vn = actInfo.show_total_num.intValue();
             String str = actInfo.banner_img_size;
             if (!com.baidu.tbadk.core.util.an.isEmpty(str)) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.Vp = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.Vq = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.Vl = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.Vm = com.baidu.adp.lib.g.b.g(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            if (this.Vp <= 0) {
-                this.Vp = 1;
+            if (this.Vl <= 0) {
+                this.Vl = 1;
             }
-            if (this.Vq <= 0) {
-                this.Vq = 1;
+            if (this.Vm <= 0) {
+                this.Vm = 1;
             }
-            this.Vs = new ay();
-            this.Vs.a(actInfo.lottery_senior);
+            this.Vo = new ay();
+            this.Vo.a(actInfo.lottery_senior);
         }
     }
 
@@ -92,27 +92,27 @@ public class a {
             try {
                 this.activity_type = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.status = jSONObject.optInt("status");
-                this.Vi = jSONObject.optInt("begin_time");
-                this.Vj = jSONObject.optInt("end_time");
+                this.Ve = jSONObject.optInt("begin_time");
+                this.Vf = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
-                this.Vk = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.Vl = jSONObject.optInt("award_act_id");
-                this.Vm = jSONObject.optInt("component_id");
-                this.Vn = jSONObject.optBoolean("is_senior");
-                this.Vo = jSONObject.optString("banner_img");
-                this.Vr = jSONObject.optInt("show_total_num");
+                this.Vg = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
+                this.Vh = jSONObject.optInt("award_act_id");
+                this.Vi = jSONObject.optInt("component_id");
+                this.Vj = jSONObject.optBoolean("is_senior");
+                this.Vk = jSONObject.optString("banner_img");
+                this.Vn = jSONObject.optInt("show_total_num");
                 String optString = jSONObject.optString("banner_img_size");
                 if (!com.baidu.tbadk.core.util.an.isEmpty(optString)) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.Vp = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.Vq = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.Vl = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.Vm = com.baidu.adp.lib.g.b.g(split[1], 1);
                 }
-                if (this.Vp <= 0) {
-                    this.Vp = 1;
+                if (this.Vl <= 0) {
+                    this.Vl = 1;
                 }
-                if (this.Vq <= 0) {
-                    this.Vq = 1;
+                if (this.Vm <= 0) {
+                    this.Vm = 1;
                 }
             } catch (Exception e) {
                 BdLog.e(e.toString());

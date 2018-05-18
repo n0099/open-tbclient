@@ -2,11 +2,11 @@ package com.coloros.mcssdk.e;
 /* loaded from: classes3.dex */
 public abstract class c {
     String appPackage;
-    int hmo;
-    String hmp;
+    int hns;
+    String hnt;
 
-    public String bFv() {
-        return this.hmp;
+    public String bFt() {
+        return this.hnt;
     }
 
     public String getAppPackage() {
@@ -14,7 +14,7 @@ public abstract class c {
     }
 
     public int getMessageID() {
-        return this.hmo;
+        return this.hns;
     }
 
     public abstract int getType();
@@ -23,11 +23,11 @@ public abstract class c {
         this.appPackage = str;
     }
 
-    public void vA(String str) {
-        this.hmp = str;
+    public void vD(String str) {
+        this.hnt = str;
     }
 
-    public void vx(int i) {
-        this.hmo = i;
+    public void vw(int i) {
+        this.hns = i;
     }
 }

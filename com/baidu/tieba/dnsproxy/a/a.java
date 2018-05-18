@@ -14,10 +14,10 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    HashMap<String, b> cER = new HashMap<>();
-    HashMap<String, b> cES = new HashMap<>();
-    long cET;
-    long cEU;
+    HashMap<String, b> cGa = new HashMap<>();
+    HashMap<String, b> cGb = new HashMap<>();
+    long cGc;
+    long cGd;
     String name;
 
     public static final String ajP() {
@@ -51,18 +51,18 @@ public class a {
         }
         a aVar = new a();
         aVar.name = connectPointData.name;
-        aVar.cET = connectPointData.last_connect_rate_update_time.longValue();
-        aVar.cEU = connectPointData.last_speed_data_update_time.longValue();
+        aVar.cGc = connectPointData.last_connect_rate_update_time.longValue();
+        aVar.cGd = connectPointData.last_speed_data_update_time.longValue();
         for (DnsIpData dnsIpData : connectPointData.dns_ip_connect_rate) {
             b a = b.a(dnsIpData);
             if (a != null) {
-                aVar.cER.put(a.address, a);
+                aVar.cGa.put(a.address, a);
             }
         }
         for (DnsIpData dnsIpData2 : connectPointData.dns_ip_speed_data) {
             b a2 = b.a(dnsIpData2);
             if (a2 != null) {
-                aVar.cES.put(a2.address, a2);
+                aVar.cGb.put(a2.address, a2);
             }
         }
         return aVar;
@@ -74,17 +74,17 @@ public class a {
         }
         ConnectPointData.Builder builder = new ConnectPointData.Builder();
         builder.name = aVar.name;
-        builder.last_connect_rate_update_time = Long.valueOf(aVar.cET);
-        builder.last_speed_data_update_time = Long.valueOf(aVar.cEU);
+        builder.last_connect_rate_update_time = Long.valueOf(aVar.cGc);
+        builder.last_speed_data_update_time = Long.valueOf(aVar.cGd);
         builder.dns_ip_connect_rate = new ArrayList();
         builder.dns_ip_speed_data = new ArrayList();
-        for (Map.Entry<String, b> entry : aVar.cER.entrySet()) {
+        for (Map.Entry<String, b> entry : aVar.cGa.entrySet()) {
             DnsIpData a = b.a(entry.getValue());
             if (a != null) {
                 builder.dns_ip_connect_rate.add(a);
             }
         }
-        for (Map.Entry<String, b> entry2 : aVar.cES.entrySet()) {
+        for (Map.Entry<String, b> entry2 : aVar.cGb.entrySet()) {
             DnsIpData a2 = b.a(entry2.getValue());
             if (a2 != null) {
                 builder.dns_ip_speed_data.add(a2);

@@ -24,14 +24,14 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class y extends a<bd> implements com.baidu.tieba.a.e {
     private bd alf;
-    private final View bam;
-    private String bvX;
-    private ConstrainImageGroup coU;
-    private HeadImageView cqI;
-    private TextView cqJ;
-    private TextView cqK;
-    private TextView cqL;
-    private w cqM;
+    private final View ban;
+    private String bwO;
+    private ConstrainImageGroup cqe;
+    private HeadImageView crS;
+    private TextView crT;
+    private TextView crU;
+    private TextView crV;
+    private w crW;
     private TbPageContext<?> mPageContext;
 
     public y(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
@@ -39,29 +39,29 @@ public class y extends a<bd> implements com.baidu.tieba.a.e {
         View view2 = getView();
         view2.setOnClickListener(this);
         this.mPageContext = tbPageContext;
-        this.cqI = (HeadImageView) view2.findViewById(d.g.topic_icon);
-        this.cqI.setIsRound(true);
-        this.cqI.setDefaultResource(d.f.pic_head_topic);
-        this.cqJ = (TextView) view2.findViewById(d.g.card_topic_name);
-        this.cqL = (TextView) view2.findViewById(d.g.card_thread_title);
-        this.cqK = (TextView) view2.findViewById(d.g.card_reply_time);
-        this.coU = (ConstrainImageGroup) view2.findViewById(d.g.card_img_layout);
-        this.bam = view2.findViewById(d.g.card_divider_line);
-        this.coU.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds20));
+        this.crS = (HeadImageView) view2.findViewById(d.g.topic_icon);
+        this.crS.setIsRound(true);
+        this.crS.setDefaultResource(d.f.pic_head_topic);
+        this.crT = (TextView) view2.findViewById(d.g.card_topic_name);
+        this.crV = (TextView) view2.findViewById(d.g.card_thread_title);
+        this.crU = (TextView) view2.findViewById(d.g.card_reply_time);
+        this.cqe = (ConstrainImageGroup) view2.findViewById(d.g.card_img_layout);
+        this.ban = view2.findViewById(d.g.card_divider_line);
+        this.cqe.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds20));
         com.baidu.tbadk.widget.layout.e eVar = new com.baidu.tbadk.widget.layout.e(3);
         eVar.i(1.0d);
-        this.coU.setImageProcessor(eVar);
-        this.coU.setFromCDN(true);
-        this.coU.setClickable(false);
+        this.cqe.setImageProcessor(eVar);
+        this.cqe.setFromCDN(true);
+        this.cqe.setClickable(false);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
-        this.cqI.invalidate();
-        ak.h(this.cqJ, d.C0126d.cp_cont_b);
+        this.crS.invalidate();
+        ak.h(this.crT, d.C0126d.cp_cont_b);
         ak.i(getView(), d.f.addresslist_item_bg);
-        ak.j(this.bam, d.C0126d.cp_bg_line_e);
-        this.coU.onChangeSkinType();
+        ak.j(this.ban, d.C0126d.cp_bg_line_e);
+        this.cqe.onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.card.a
@@ -85,34 +85,34 @@ public class y extends a<bd> implements com.baidu.tieba.a.e {
             getView().setVisibility(0);
             getView().setOnClickListener(this);
         }
-        if (bdVar.rQ() != null) {
-            this.cqJ.setText(bdVar.rQ().getName_show());
+        if (bdVar.rP() != null) {
+            this.crT.setText(bdVar.rP().getName_show());
         }
-        this.cqK.setText(an.s(bdVar.rK() * 1000));
-        String str = bdVar.tf() + "：";
+        this.crU.setText(an.s(bdVar.rJ() * 1000));
+        String str = bdVar.te() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         spannableStringBuilder.append((CharSequence) bdVar.g(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(ak.getColor(d.C0126d.cp_link_tip_c)), 0, str.length(), 33);
-        this.cqL.setText(spannableStringBuilder);
-        ArrayList<MediaData> sa = bdVar.sa();
-        if (com.baidu.tbadk.core.i.pY().qe() && com.baidu.tbadk.core.util.v.v(sa) != 0) {
+        this.crV.setText(spannableStringBuilder);
+        ArrayList<MediaData> rZ = bdVar.rZ();
+        if (com.baidu.tbadk.core.i.pX().qd() && com.baidu.tbadk.core.util.v.v(rZ) != 0) {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < sa.size(); i++) {
-                MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.v.c(sa, i);
+            for (int i = 0; i < rZ.size(); i++) {
+                MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.v.c(rZ, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     arrayList.add(mediaData);
                 }
             }
             if (com.baidu.tbadk.core.util.v.v(arrayList) > 0) {
-                this.coU.setVisibility(0);
-                this.coU.setImageMediaList(arrayList);
+                this.cqe.setVisibility(0);
+                this.cqe.setImageMediaList(arrayList);
             } else {
-                this.coU.setVisibility(8);
+                this.cqe.setVisibility(8);
             }
         } else {
-            this.coU.setVisibility(8);
+            this.cqe.setVisibility(8);
         }
-        o.a(this.cqL, this.alf.getTid(), d.C0126d.cp_cont_b, d.C0126d.cp_cont_d);
+        o.a(this.crV, this.alf.getTid(), d.C0126d.cp_cont_b, d.C0126d.cp_cont_d);
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -120,46 +120,46 @@ public class y extends a<bd> implements com.baidu.tieba.a.e {
     public void onClick(View view2) {
         if (this.alf != null) {
             if (aeZ() != null) {
-                aeZ().a(view2, this.alf, this.cqM);
+                aeZ().a(view2, this.alf, this.crW);
             }
             if (view2 == getView()) {
-                o.kv(this.alf.getTid());
-                o.a(this.cqL, this.alf.getTid(), d.C0126d.cp_cont_b, d.C0126d.cp_cont_d);
+                o.ky(this.alf.getTid());
+                o.a(this.crV, this.alf.getTid(), d.C0126d.cp_cont_b, d.C0126d.cp_cont_d);
                 afB();
             }
         }
     }
 
     private void afB() {
-        if (this.alf != null && this.alf.rQ() != null && this.alf.rQ().getName_show() != null) {
-            if (com.baidu.tbadk.plugins.b.bV(true) && !com.baidu.tbadk.plugins.b.Hn()) {
-                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.alf.rQ().getName_show() + "", "");
-                createNormalConfig.setExtra(this.alf.getFid(), this.alf.th(), this.alf.ti());
+        if (this.alf != null && this.alf.rP() != null && this.alf.rP().getName_show() != null) {
+            if (com.baidu.tbadk.plugins.b.bV(true) && !com.baidu.tbadk.plugins.b.Hl()) {
+                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.alf.rP().getName_show() + "", "");
+                createNormalConfig.setExtra(this.alf.getFid(), this.alf.tg(), this.alf.th());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                 return;
             }
-            ax.wg().c(this.mPageContext, new String[]{this.alf.tj()});
+            ax.wf().c(this.mPageContext, new String[]{this.alf.ti()});
         }
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.e.b<ConstrainImageLayout> bVar) {
-        if (this.coU != null) {
-            this.coU.setConstrainLayoutPool(bVar);
+        if (this.cqe != null) {
+            this.cqe.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        if (this.coU != null) {
-            this.coU.setImageViewPool(bVar);
+        if (this.cqe != null) {
+            this.cqe.setImageViewPool(bVar);
         }
     }
 
     @Override // com.baidu.tieba.a.e
     public void setPage(String str) {
-        this.bvX = str;
+        this.bwO = str;
     }
 
     public void a(w wVar) {
-        this.cqM = wVar;
+        this.crW = wVar;
     }
 }

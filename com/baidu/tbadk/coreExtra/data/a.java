@@ -13,7 +13,7 @@ public class a {
     private String asw;
     private String h5Url;
 
-    public boolean xV() {
+    public boolean xU() {
         return this.asp;
     }
 
@@ -21,35 +21,35 @@ public class a {
         this.asp = z;
     }
 
-    public boolean xW() {
+    public boolean xV() {
         return this.asv;
     }
 
-    public String xX() {
+    public String xW() {
         return this.asw;
     }
 
-    public String xY() {
+    public String xX() {
         return this.h5Url;
     }
 
-    public boolean xZ() {
+    public boolean xY() {
         return this.asu;
     }
 
-    public String ya() {
+    public String xZ() {
         return this.ast;
     }
 
-    public String yb() {
+    public String ya() {
         return this.ass;
     }
 
-    public String yc() {
+    public String yb() {
         return this.asr;
     }
 
-    public String yd() {
+    public String yc() {
         return this.asq;
     }
 

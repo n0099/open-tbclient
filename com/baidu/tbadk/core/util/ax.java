@@ -63,7 +63,7 @@ public class ax {
         return spannableString;
     }
 
-    public static ax wg() {
+    public static ax wf() {
         return ajm;
     }
 

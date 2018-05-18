@@ -49,7 +49,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.d.a.bjZ().sc(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.d.a.bjY().sf(threadListResIdl.data.asp_shown_info);
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
@@ -57,11 +57,11 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     bd bdVar = new bd();
                     bdVar.setUserMap(this.userMap);
                     bdVar.a(list2.get(i3));
-                    bdVar.bU(3);
-                    bdVar.sx();
-                    if (!TextUtils.isEmpty(bdVar.sH())) {
+                    bdVar.bV(3);
+                    bdVar.sw();
+                    if (!TextUtils.isEmpty(bdVar.sG())) {
                         ac acVar = new ac();
-                        acVar.cI(bdVar.sH());
+                        acVar.cI(bdVar.sG());
                         this.threadList.add(acVar);
                     } else {
                         this.threadList.add(bdVar);

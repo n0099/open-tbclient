@@ -7,12 +7,12 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
 public class bi extends PostData {
-    public static final BdUniqueId acg = BdUniqueId.gen();
+    public static final BdUniqueId ach = BdUniqueId.gen();
     private String YR;
     private int position = 0;
     private String summary;
 
-    public String ts() {
+    public String tr() {
         return this.YR;
     }
 
@@ -41,6 +41,6 @@ public class bi extends PostData {
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return acg;
+        return ach;
     }
 }

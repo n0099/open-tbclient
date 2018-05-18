@@ -21,12 +21,12 @@ public class BdToast {
     private final ViewGroup mRootView;
     private CharSequence mText;
     private final TextView mTextView;
-    private Toast xk;
+    private Toast xj;
     private int mIconResId = -1;
     private int mGravity = 16;
     private int mDuration = 0;
+    private int sT = 0;
     private int sU = 0;
-    private int sV = 0;
     private int adl = 0;
 
     /* loaded from: classes.dex */
@@ -55,36 +55,36 @@ public class BdToast {
         return this;
     }
 
-    public void cj(int i) {
+    public void ck(int i) {
         this.adl = i;
     }
 
-    public BdToast ck(int i) {
+    public BdToast cl(int i) {
         this.mIconResId = i;
         return this;
     }
 
-    public BdToast cl(int i) {
+    public BdToast cm(int i) {
         this.mGravity = i;
         return this;
     }
 
-    public BdToast cm(int i) {
+    public BdToast cn(int i) {
         this.mDuration = i;
         return this;
     }
 
     public void setOffsetY(int i) {
-        this.sV = i;
+        this.sU = i;
     }
 
     public void O(float f) {
         this.mTextView.setLineSpacing(0.0f, f);
     }
 
-    public BdToast tJ() {
-        this.xk = new Toast(this.mContext);
-        tK();
+    public BdToast tI() {
+        this.xj = new Toast(this.mContext);
+        tJ();
         if (this.mIconResId != -1) {
             ak.c(this.mIconView, this.mIconResId);
             this.mIconView.setVisibility(0);
@@ -93,55 +93,55 @@ public class BdToast {
         }
         ak.c(this.mTextView, d.C0126d.cp_cont_g, 1);
         this.mTextView.setText(this.mText);
-        this.xk.setGravity(this.mGravity, this.sU, this.sV);
-        this.xk.setDuration(this.mDuration);
-        cn(this.adl);
-        this.xk.setView(this.mRootView);
+        this.xj.setGravity(this.mGravity, this.sT, this.sU);
+        this.xj.setDuration(this.mDuration);
+        co(this.adl);
+        this.xj.setView(this.mRootView);
         return this;
     }
 
-    private void tK() {
+    private void tJ() {
         if (adk != null && adk.get() != null) {
             adk.get().cancel();
         }
-        adk = new SoftReference<>(this.xk);
+        adk = new SoftReference<>(this.xj);
     }
 
-    private void cn(int i) {
+    private void co(int i) {
         if (i > 0) {
             this.mRootView.setPadding(i, this.mRootView.getTop(), i, this.mRootView.getBottom());
         }
     }
 
-    public BdToast tL() {
+    public BdToast tK() {
         this.mTextView.setText(this.mText);
-        this.xk.setGravity(this.mGravity, this.sU, this.sV);
-        this.xk.setDuration(this.mDuration);
-        this.xk.show();
+        this.xj.setGravity(this.mGravity, this.sT, this.sU);
+        this.xj.setDuration(this.mDuration);
+        this.xj.show();
         return this;
     }
 
     public static BdToast a(Context context, CharSequence charSequence) {
-        return new BdToast(context).h(charSequence).tJ();
+        return new BdToast(context).h(charSequence).tI();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).h(charSequence).cm(i).tJ();
+        return new BdToast(context).h(charSequence).cn(i).tI();
     }
 
     public static BdToast b(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).h(charSequence).ck(i).tJ();
+        return new BdToast(context).h(charSequence).cl(i).tI();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2) {
-        return new BdToast(context).h(charSequence).ck(i).cm(i2).tJ();
+        return new BdToast(context).h(charSequence).cl(i).cn(i2).tI();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).h(charSequence).ck(adm.get(defaultIcon).intValue()).tJ();
+        return new BdToast(context).h(charSequence).cl(adm.get(defaultIcon).intValue()).tI();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).h(charSequence).ck(adm.get(defaultIcon).intValue()).cm(i).tJ();
+        return new BdToast(context).h(charSequence).cl(adm.get(defaultIcon).intValue()).cn(i).tI();
     }
 }

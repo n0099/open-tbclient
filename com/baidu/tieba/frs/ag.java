@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes2.dex */
 public interface ag {
-    void Ry();
+    void Rv();
 
     void a(int i, int i2, am amVar);
 

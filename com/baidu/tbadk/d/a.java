@@ -3,9 +3,9 @@ package com.baidu.tbadk.d;
 public interface a {
     void ci(String str);
 
+    void oX();
+
     void oY();
 
-    void oZ();
-
-    void oh();
+    void og();
 }

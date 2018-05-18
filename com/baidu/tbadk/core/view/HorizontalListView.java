@@ -50,7 +50,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 
     /* loaded from: classes.dex */
     public interface a {
-        void dg(int i);
+        void dh(int i);
     }
 
     public HorizontalListView(Context context, AttributeSet attributeSet) {
@@ -193,7 +193,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             if (action == 3 || action == 1) {
                 this.isIntercept = false;
                 if (this.mSwipeControlInterface != null) {
-                    this.mSwipeControlInterface.kT();
+                    this.mSwipeControlInterface.kS();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -205,7 +205,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                         this.mInitialMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
                         this.mInitialMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
                         if (this.mSwipeControlInterface != null) {
-                            this.mSwipeControlInterface.kU();
+                            this.mSwipeControlInterface.kT();
                             break;
                         }
                     }
@@ -213,13 +213,13 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 case 1:
                 default:
                     if (this.mSwipeControlInterface != null) {
-                        this.mSwipeControlInterface.kT();
+                        this.mSwipeControlInterface.kS();
                         break;
                     }
                     break;
                 case 2:
                     if (this.mSwipeControlInterface != null) {
-                        this.mSwipeControlInterface.kU();
+                        this.mSwipeControlInterface.kT();
                     }
                     determinIntercept(motionEvent);
                     if (this.isIntercept) {
@@ -243,20 +243,20 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             case 0:
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
                 if (this.mSwipeControlInterface != null) {
-                    this.mSwipeControlInterface.kU();
+                    this.mSwipeControlInterface.kT();
                     break;
                 }
                 break;
             case 1:
                 this.isIntercept = false;
                 if (this.mSwipeControlInterface != null) {
-                    this.mSwipeControlInterface.kT();
+                    this.mSwipeControlInterface.kS();
                     break;
                 }
                 break;
             case 2:
                 if (this.mSwipeControlInterface != null) {
-                    this.mSwipeControlInterface.kU();
+                    this.mSwipeControlInterface.kT();
                 }
                 if (!this.isIntercept) {
                     determinIntercept(motionEvent);
@@ -268,7 +268,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 break;
             default:
                 if (this.mSwipeControlInterface != null) {
-                    this.mSwipeControlInterface.kT();
+                    this.mSwipeControlInterface.kS();
                     break;
                 }
                 break;
@@ -360,7 +360,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         if (width <= childCount) {
             childCount = width;
         }
-        df(childCount);
+        dg(childCount);
     }
 
     private void l(View view2, int i) {
@@ -429,11 +429,11 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.mScroller.forceFinished(true);
             }
             int i6 = this.amd - this.ame;
-            dd(i6);
-            dc(i6);
             de(i6);
+            dd(i6);
+            df(i6);
             if (this.amm != null) {
-                this.amm.dg(getMiddleViewPosition());
+                this.amm.dh(getMiddleViewPosition());
             }
             this.amd = this.ame;
             if (!this.mScroller.isFinished()) {
@@ -447,7 +447,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    private void dc(int i) {
+    private void dd(int i) {
         View childAt = getChildAt(getChildCount() - 1);
         z(childAt != null ? childAt.getRight() : 0, i);
         View childAt2 = getChildAt(0);
@@ -479,7 +479,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    private void dd(int i) {
+    private void de(int i) {
         View childAt = getChildAt(0);
         while (childAt != null && childAt.getRight() + i <= 0) {
             this.amg += childAt.getMeasuredWidth();
@@ -497,7 +497,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    private void de(int i) {
+    private void df(int i) {
         if (getChildCount() > 0) {
             this.amg += i;
             int i2 = this.amg;
@@ -510,7 +510,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    public synchronized void df(int i) {
+    public synchronized void dg(int i) {
         this.mScroller.startScroll(this.ame, 0, i - this.ame, 0);
         requestLayout();
     }

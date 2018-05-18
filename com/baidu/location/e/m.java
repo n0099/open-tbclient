@@ -17,8 +17,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class m {
-    private static final double[] PV = {45.0d, 135.0d, 225.0d, 315.0d};
-    private final d Pq;
+    private static final double[] PQ = {45.0d, 135.0d, 225.0d, 315.0d};
+    private final d Pm;
     private final int c;
     private final SQLiteDatabase d;
     private int e = -1;
@@ -69,10 +69,10 @@ public final class m {
                 int i2 = 0;
                 while (true) {
                     int i3 = i2;
-                    if (i3 >= m.PV.length) {
+                    if (i3 >= m.PQ.length) {
                         break;
                     }
-                    double[] b2 = m.b(d3, d2, d4, m.PV[i3]);
+                    double[] b2 = m.b(d3, d2, d4, m.PQ[i3]);
                     hashSet.add(m.b(i, b2[1], b2[0]));
                     i2 = i3 + 1;
                 }
@@ -123,7 +123,7 @@ public final class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(d dVar, SQLiteDatabase sQLiteDatabase, int i) {
-        this.Pq = dVar;
+        this.Pm = dVar;
         this.d = sQLiteDatabase;
         this.c = i;
         if (this.d == null || !this.d.isOpen()) {
@@ -285,7 +285,7 @@ public final class m {
     public boolean a() {
         Cursor cursor;
         Cursor cursor2 = null;
-        if (this.Pq.nv().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
+        if (this.Pm.nu().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
             try {
                 cursor = this.d.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
             } catch (Exception e) {
@@ -363,8 +363,8 @@ public final class m {
                 JSONArray jSONArray2 = new JSONArray();
                 JSONArray jSONArray3 = new JSONArray();
                 JSONArray jSONArray4 = new JSONArray();
-                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Pq.nv().p())), null);
-                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Pq.nv().q())), null);
+                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Pm.nu().p())), null);
+                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Pm.nu().q())), null);
                 if (cursor2.moveToFirst()) {
                     HashSet hashSet = new HashSet();
                     while (!cursor2.isAfterLast()) {

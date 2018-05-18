@@ -1,7 +1,11 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String TX;
+    private String TT;
+    private int TU;
+    private int TV;
+    private int TW;
+    private int TX;
     private int TY;
     private int TZ;
     private int Ua;
@@ -18,87 +22,83 @@ public class b {
     private int Ul;
     private int Um;
     private int Un;
-    private int Uo;
-    private int Up;
-    private int Uq;
-    private int Ur;
-    private StringBuffer Us = new StringBuffer();
+    private StringBuffer Uo = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.Us.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.Uo.toString() + "]";
     }
 
     public void cz(String str) {
-        this.Us.append(str).append(" || ");
+        this.Uo.append(str).append(" || ");
     }
 
-    public int pA() {
-        return this.Um;
-    }
-
-    public void ba(int i) {
-        this.Um = i;
-    }
-
-    public int pB() {
-        return this.Un;
-    }
-
-    public void bb(int i) {
-        this.Un = i;
-    }
-
-    public int pC() {
-        return this.Uk;
-    }
-
-    public void bc(int i) {
-        this.Uk = i;
-    }
-
-    public int pD() {
-        return this.Ul;
-    }
-
-    public void bd(int i) {
-        this.Ul = i;
-    }
-
-    public int pE() {
+    public int pz() {
         return this.Ui;
     }
 
-    public void be(int i) {
+    public void ba(int i) {
         this.Ui = i;
     }
 
-    public int pF() {
+    public int pA() {
         return this.Uj;
     }
 
-    public void bf(int i) {
+    public void bb(int i) {
         this.Uj = i;
+    }
+
+    public int pB() {
+        return this.Ug;
+    }
+
+    public void bc(int i) {
+        this.Ug = i;
+    }
+
+    public int pC() {
+        return this.Uh;
+    }
+
+    public void bd(int i) {
+        this.Uh = i;
+    }
+
+    public int pD() {
+        return this.Ue;
+    }
+
+    public void be(int i) {
+        this.Ue = i;
+    }
+
+    public int pE() {
+        return this.Uf;
+    }
+
+    public void bf(int i) {
+        this.Uf = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int pG() {
-        return this.Uo;
+    public int pF() {
+        return this.Uk;
     }
 
     public void bg(int i) {
-        this.Uo = i;
+        this.Uk = i;
     }
 
-    public int pH() {
-        return this.Up;
+    public int pG() {
+        return this.Ul;
     }
 
     public void bh(int i) {
-        this.Up = i;
+        this.Ul = i;
     }
 
     public void setId(String str) {
@@ -106,102 +106,102 @@ public class b {
     }
 
     public void cA(String str) {
-        this.TX = str;
+        this.TT = str;
     }
 
-    public int pI() {
-        return this.TY;
+    public int pH() {
+        return this.TU;
     }
 
     public void bi(int i) {
-        this.TY = i;
+        this.TU = i;
     }
 
-    public int pJ() {
-        return this.TZ;
+    public int pI() {
+        return this.TV;
     }
 
     public void bj(int i) {
-        this.TZ = i;
+        this.TV = i;
     }
 
-    public int pK() {
-        return this.Uc;
+    public int pJ() {
+        return this.TY;
     }
 
     public void bk(int i) {
-        this.Uc = i;
+        this.TY = i;
     }
 
-    public int pL() {
-        return this.Ud;
+    public int pK() {
+        return this.TZ;
     }
 
     public void bl(int i) {
-        this.Ud = i;
+        this.TZ = i;
     }
 
-    public int pM() {
-        return this.Ua;
+    public int pL() {
+        return this.TW;
     }
 
     public void bm(int i) {
-        this.Ua = i;
+        this.TW = i;
+    }
+
+    public int pM() {
+        return this.TX;
+    }
+
+    public void bn(int i) {
+        this.TX = i;
     }
 
     public int pN() {
         return this.Ub;
     }
 
-    public void bn(int i) {
-        this.Ub = i;
-    }
-
     public int pO() {
-        return this.Uf;
-    }
-
-    public int pP() {
-        return this.Ue;
+        return this.Ua;
     }
 
     public void bo(int i) {
-        this.Ue = i;
+        this.Ua = i;
     }
 
     public void bp(int i) {
-        this.Uf = i;
+        this.Ub = i;
     }
 
-    public int pQ() {
-        return this.Uh;
+    public int pP() {
+        return this.Ud;
     }
 
     public void bq(int i) {
-        this.Uh = i;
+        this.Ud = i;
     }
 
-    public int pR() {
-        return this.Ug;
+    public int pQ() {
+        return this.Uc;
     }
 
     public void br(int i) {
-        this.Ug = i;
+        this.Uc = i;
     }
 
-    public int pS() {
-        return this.Uq;
+    public int pR() {
+        return this.Um;
     }
 
     public void bs(int i) {
-        this.Uq = i;
+        this.Um = i;
     }
 
-    public int pT() {
-        return this.Ur;
+    public int pS() {
+        return this.Un;
     }
 
     public void bt(int i) {
-        this.Ur = i;
+        this.Un = i;
     }
 }

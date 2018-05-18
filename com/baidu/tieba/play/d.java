@@ -21,7 +21,7 @@ public interface d {
 
     void cO(long j);
 
-    String hP(String str);
+    String hQ(String str);
 
     void onCompletion();
 
@@ -33,5 +33,5 @@ public interface d {
 
     void onStop();
 
-    void rp(int i);
+    void ro(int i);
 }

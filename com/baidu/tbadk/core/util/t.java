@@ -8,7 +8,7 @@ public class t {
     private String ahb = "";
     private final long ahc = 120000;
 
-    public static t va() {
+    public static t uZ() {
         if (ahd == null) {
             synchronized (t.class) {
                 if (ahd == null) {
@@ -19,7 +19,7 @@ public class t {
         return ahd;
     }
 
-    public String vb() {
+    public String va() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.agY > 120000) {
             if (com.baidu.adp.lib.util.l.hf()) {

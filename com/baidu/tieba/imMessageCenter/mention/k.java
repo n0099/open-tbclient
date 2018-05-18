@@ -8,7 +8,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes2.dex */
 public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int enL;
+    private int eoU;
     private String ids;
     private int mPn = 1;
 
@@ -20,29 +20,29 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.enL = 4;
+        this.eoU = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.enL = 1;
+        this.eoU = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.enL;
+        return this.eoU;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> FD() {
+    public HashMap<String, Object> FB() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
-        hashMap.put("q_type", Integer.valueOf(com.baidu.tbadk.core.i.pY().getViewImageQuality()));
+        hashMap.put("q_type", Integer.valueOf(com.baidu.tbadk.core.i.pX().getViewImageQuality()));
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst().getApp())));
-        if (this.enL == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.eoU == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
@@ -54,7 +54,7 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
             DataReq.Builder builder = new DataReq.Builder();
             builder.pn = Integer.valueOf(this.mPn);
             builder.ids = this.ids;
-            builder.q_type = Integer.valueOf(com.baidu.tbadk.core.i.pY().getViewImageQuality());
+            builder.q_type = Integer.valueOf(com.baidu.tbadk.core.i.pX().getViewImageQuality());
             builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
             builder.scr_h = Integer.valueOf(com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getApp()));
             builder.scr_w = Integer.valueOf(com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst().getApp()));
@@ -75,12 +75,12 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String FA() {
+    public String Fy() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean FB() {
+    public boolean Fz() {
         return true;
     }
 

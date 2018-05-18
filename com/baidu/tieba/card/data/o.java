@@ -3,25 +3,25 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes2.dex */
 public class o extends b implements p {
-    public static final BdUniqueId csG = BdUniqueId.gen();
-    public long csH;
-    public String csI;
-    public String csJ;
-    public String csK;
-    public String csL;
-    public String csM;
-    public long csN;
-    public String csO;
+    public static final BdUniqueId ctQ = BdUniqueId.gen();
+    public long ctR;
+    public String ctS;
+    public String ctT;
+    public String ctU;
+    public String ctV;
+    public String ctW;
+    public long ctX;
+    public String ctY;
     public String userName;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return csG;
+        return ctQ;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return (int) this.csN;
+        return (int) this.ctX;
     }
 
     @Override // com.baidu.tieba.card.data.p
@@ -30,10 +30,10 @@ public class o extends b implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void ev(boolean z) {
+    public void ew(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void ew(boolean z) {
+    public void ex(boolean z) {
     }
 }

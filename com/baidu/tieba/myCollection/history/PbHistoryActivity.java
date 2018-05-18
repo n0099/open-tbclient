@@ -39,12 +39,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
-    private BdListView FL;
-    private final CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a> aIP = new CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a>() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.1
+    private BdListView FH;
+    private final CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a> aIQ = new CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a>() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.1
         @Override // com.baidu.tbadk.mvc.model.CacheModel.a
         public void a(ReadCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.a>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.myCollection.baseHistory.a> readCacheMessage) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
-                PbHistoryActivity.this.cD(readCacheRespMsg.getData());
+                PbHistoryActivity.this.cG(readCacheRespMsg.getData());
             }
         }
 
@@ -52,41 +52,41 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         public void a(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.a>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.a> writeCacheMessage) {
             if (writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
                 if (writeCacheMessage.isClear()) {
-                    PbHistoryActivity.this.cD(new ArrayList());
+                    PbHistoryActivity.this.cG(new ArrayList());
                 } else {
                     PbHistoryActivity.this.refreshData();
                 }
             }
         }
     };
-    private RelativeLayout cHA;
-    private TextView eTW;
-    private PbHistoryCacheModel eTX;
-    private d<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b, b> emB;
+    private RelativeLayout cIJ;
+    private TextView eVd;
+    private PbHistoryCacheModel eVe;
+    private d<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b, b> enJ;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eTX = new PbHistoryCacheModel(getPageContext());
-        this.eTX.a(this.aIP);
-        this.cHA = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(d.i.pb_history_activity, (ViewGroup) null);
-        setContentView(this.cHA);
+        this.eVe = new PbHistoryCacheModel(getPageContext());
+        this.eVe.a(this.aIQ);
+        this.cIJ = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(d.i.pb_history_activity, (ViewGroup) null);
+        setContentView(this.cIJ);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(d.k.my_history));
         this.mNavigationBar.showBottomLine();
-        this.eTW = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(d.k.clear_all_text));
-        this.eTW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.2
+        this.eVd = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(d.k.clear_all_text));
+        this.eVd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(PbHistoryActivity.this.getPageContext().getPageActivity());
-                aVar.bZ(d.k.pb_history_clear_tip);
+                aVar.ca(d.k.pb_history_clear_tip);
                 aVar.a(d.k.confirm, new a.b() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.2.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        PbHistoryActivity.this.eTX.clearCache();
+                        PbHistoryActivity.this.eVe.clearCache();
                         aVar2.dismiss();
                     }
                 });
@@ -96,21 +96,21 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(PbHistoryActivity.this.getPageContext()).tD();
+                aVar.b(PbHistoryActivity.this.getPageContext()).tC();
             }
         });
-        this.eTW.setVisibility(8);
-        this.FL = (BdListView) findViewById(d.g.list);
+        this.eVd.setVisibility(8);
+        this.FH = (BdListView) findViewById(d.g.list);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.e(getActivity(), d.e.ds88)));
-        this.FL.addHeaderView(textView, 0);
-        this.emB = new com.baidu.tbadk.mvc.f.d<>(getPageContext(), b.class, d.i.pb_history_list_item, null);
-        this.emB.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(d.e.ds190)), NoDataViewFactory.d.C(d.k.pb_history_no_data_tip, d.k.pb_history_no_data_tip_2), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
-        this.FL.setAdapter((ListAdapter) this.emB);
-        this.FL.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.3
+        this.FH.addHeaderView(textView, 0);
+        this.enJ = new com.baidu.tbadk.mvc.f.d<>(getPageContext(), b.class, d.i.pb_history_list_item, null);
+        this.enJ.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(d.e.ds190)), NoDataViewFactory.d.C(d.k.pb_history_no_data_tip, d.k.pb_history_no_data_tip_2), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.FH.setAdapter((ListAdapter) this.enJ);
+        this.FH.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.myCollection.history.PbHistoryActivity.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                com.baidu.tieba.myCollection.baseHistory.a aVar = (com.baidu.tieba.myCollection.baseHistory.a) PbHistoryActivity.this.emB.getItem(i);
+                com.baidu.tieba.myCollection.baseHistory.a aVar = (com.baidu.tieba.myCollection.baseHistory.a) PbHistoryActivity.this.enJ.getItem(i);
                 if (aVar != null) {
                     if (aVar.getThreadType() == 49) {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -132,7 +132,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                         }
                         l.showToast(PbHistoryActivity.this.getPageContext().getPageActivity(), d.k.manga_plugin_not_install_tip);
                     } else {
-                        PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.getThreadId(), aVar.Ea(), aVar.aTe(), aVar.aTf(), null);
+                        PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.getThreadId(), aVar.DY(), aVar.aTe(), aVar.aTf(), null);
                         createHistoryCfg.setStartFrom(11);
                         createHistoryCfg.setIsShareThread(aVar.isShareThread());
                         PbHistoryActivity.this.sendMessage(new CustomMessage(2004001, createHistoryCfg));
@@ -154,25 +154,25 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ak.b(this.eTW, d.C0126d.cp_cont_f, d.C0126d.navi_op_text_skin);
-        this.emB.b(getPageContext(), i);
-        getLayoutMode().u(this.cHA);
+        ak.b(this.eVd, d.C0126d.cp_cont_f, d.C0126d.navi_op_text_skin);
+        this.enJ.b(getPageContext(), i);
+        getLayoutMode().u(this.cIJ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
-        this.eTX.FJ();
+        this.eVe.FH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cD(List<com.baidu.tieba.myCollection.baseHistory.a> list) {
-        if (this.emB != null) {
-            this.emB.F(list);
+    public void cG(List<com.baidu.tieba.myCollection.baseHistory.a> list) {
+        if (this.enJ != null) {
+            this.enJ.F(list);
         }
         if (list == null || list.size() == 0) {
-            this.eTW.setVisibility(8);
+            this.eVd.setVisibility(8);
         } else {
-            this.eTW.setVisibility(0);
+            this.eVd.setVisibility(0);
         }
     }
 }

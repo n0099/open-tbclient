@@ -22,30 +22,30 @@ import com.baidu.tieba.d;
 import java.util.HashSet;
 /* loaded from: classes2.dex */
 public class i extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.e>> implements com.baidu.tieba.a.f, aa, com.baidu.tieba.frs.e.c {
-    private ab<bd> bvU;
-    private String bvX;
-    private VoiceManager cXg;
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> ddG;
-    private com.baidu.adp.lib.e.b<TbImageView> ddH;
-    private com.baidu.tieba.frs.entelechy.view.e ddR;
-    private HashSet<String> ddS;
+    private ab<bd> bwL;
+    private String bwO;
+    private VoiceManager cYn;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> deO;
+    private com.baidu.adp.lib.e.b<TbImageView> deP;
+    private com.baidu.tieba.frs.entelechy.view.e deZ;
+    private HashSet<String> dfa;
     private String mForumName;
     private String mFrom;
     private TbPageContext<?> mPageContext;
 
     private void R(bd bdVar) {
-        if (this.ddS == null) {
-            this.ddS = new HashSet<>();
+        if (this.dfa == null) {
+            this.dfa = new HashSet<>();
         }
-        if (bdVar.getTid() != null && !this.ddS.contains(bdVar.getTid())) {
-            this.ddS.add(bdVar.getTid());
+        if (bdVar.getTid() != null && !this.dfa.contains(bdVar.getTid())) {
+            this.dfa.add(bdVar.getTid());
             TiebaStatic.log(new al("c11662").r("obj_param1", 1).ac("post_id", bdVar.getTid()));
         }
     }
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId);
-        this.bvU = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
+        this.bwL = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, bd bdVar) {
@@ -54,35 +54,35 @@ public class i extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
                         TiebaStatic.log(new al("c13010").r("obj_type", 1).f(ImageViewerConfig.FORUM_ID, bdVar.getFid()).ac("tid", bdVar.getTid()));
                     }
                     if (view2.getId() == d.g.card_home_page_normal_thread_user_name || (view2 instanceof HeadImageView) || (view2 instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.auG().a(com.baidu.tieba.frs.e.c.dpD, bdVar, 2);
                     } else if (view2.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dov, bdVar.sn());
+                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dpD, bdVar.sm());
                     } else if (view2 instanceof TbImageView) {
-                        if (i.this.bvU.aXD instanceof Boolean) {
-                            if (((Boolean) i.this.bvU.aXD).booleanValue()) {
-                                com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 1);
+                        if (i.this.bwL.aXE instanceof Boolean) {
+                            if (((Boolean) i.this.bwL.aXE).booleanValue()) {
+                                com.baidu.tieba.frs.e.b.auG().a(com.baidu.tieba.frs.e.c.dpD, bdVar, 1);
                             } else {
-                                com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 3);
+                                com.baidu.tieba.frs.e.b.auG().a(com.baidu.tieba.frs.e.c.dpD, bdVar, 3);
                             }
                         }
                     } else if (view2.getId() == d.g.card_home_page_normal_thread_abstract_voice) {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 5);
+                        com.baidu.tieba.frs.e.b.auG().a(com.baidu.tieba.frs.e.c.dpD, bdVar, 5);
                     } else if (view2.getId() == d.g.card_frs_god_reply_layout) {
                         int i = 6;
-                        if (bdVar.tc() != null && bdVar.tc().bsb() != null && bdVar.tc().bsb().JJ() != null && bdVar.tc().bsb().JJ().size() > 0) {
-                            i = bdVar.tc().gwX ? 9 : 8;
+                        if (bdVar.tb() != null && bdVar.tb().brZ() != null && bdVar.tb().brZ().JH() != null && bdVar.tb().brZ().JH().size() > 0) {
+                            i = bdVar.tb().gyb ? 9 : 8;
                         }
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, i);
+                        com.baidu.tieba.frs.e.b.auG().a(com.baidu.tieba.frs.e.c.dpD, bdVar, i);
                     } else {
-                        com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.auG().a(com.baidu.tieba.frs.e.c.dpD, bdVar, 1);
                     }
                 }
             }
         };
-        this.ddG = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.i.2
+        this.deO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: arU */
+            /* renamed from: arT */
             public ConstrainImageLayout fo() {
                 return new ConstrainImageLayout(i.this.mPageContext.getPageActivity());
             }
@@ -108,10 +108,10 @@ public class i extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.ddH = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.i.3
+        this.deP = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.i.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: xi */
+            /* renamed from: xh */
             public TbImageView fo() {
                 TbImageView tbImageView = new TbImageView(i.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -153,13 +153,13 @@ public class i extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.e> onCreateViewHolder(ViewGroup viewGroup) {
-        this.ddR = new com.baidu.tieba.frs.entelechy.view.e(this.mPageContext, this.mPageId);
-        this.ddR.setConstrainLayoutPool(this.ddG);
-        this.ddR.setConstrainImagePool(this.ddH);
-        this.ddR.j(this.mPageId);
-        this.ddR.setVoiceManager(this.cXg);
-        this.ddR.setSingleImageRatio(0.75d);
-        return new com.baidu.tieba.card.a.a<>(this.ddR);
+        this.deZ = new com.baidu.tieba.frs.entelechy.view.e(this.mPageContext, this.mPageId);
+        this.deZ.setConstrainLayoutPool(this.deO);
+        this.deZ.setConstrainImagePool(this.deP);
+        this.deZ.j(this.mPageId);
+        this.deZ.setVoiceManager(this.cYn);
+        this.deZ.setSingleImageRatio(0.75d);
+        return new com.baidu.tieba.card.a.a<>(this.deZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -167,34 +167,34 @@ public class i extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
     @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bd bdVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.e> aVar) {
-        if (bdVar != null && bdVar.rz()) {
+        if (bdVar != null && bdVar.ry()) {
             R(bdVar);
         }
         if (aVar == null || aVar.afY() == null) {
             return null;
         }
         if (aVar.afY() instanceof com.baidu.tieba.a.e) {
-            aVar.afY().setPage(this.bvX);
+            aVar.afY().setPage(this.bwO);
         }
-        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cWL);
-        com.baidu.tieba.frs.e.a(aVar.afY().afA(), this.cWL);
-        if (this.cWL != null && this.cWL.aVq() != null && !StringUtils.isNull(this.cWL.aVq().getTopic_special_icon()) && !StringUtils.isNull(this.cWL.aVq().getTopic_special_icon_right())) {
-            aVar.afY().M(this.cWL.aVq().getTopic_special_icon(), this.cWL.aVq().getTopic_special_icon_right());
+        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cXS);
+        com.baidu.tieba.frs.e.a(aVar.afY().afA(), this.cXS);
+        if (this.cXS != null && this.cXS.aVq() != null && !StringUtils.isNull(this.cXS.aVq().getTopic_special_icon()) && !StringUtils.isNull(this.cXS.aVq().getTopic_special_icon_right())) {
+            aVar.afY().M(this.cXS.aVq().getTopic_special_icon(), this.cXS.aVq().getTopic_special_icon_right());
         }
         aVar.afY().a(bdVar);
         aVar.afY().setForumName(this.mForumName);
-        aVar.afY().b(this.bvU);
-        com.baidu.tieba.frs.e.b.auH().a(dov, bdVar);
+        aVar.afY().b(this.bwL);
+        com.baidu.tieba.frs.e.b.auG().a(dpD, bdVar);
         if (bdVar != null) {
-            bdVar.sK();
+            bdVar.sJ();
         }
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.frs.f
     public void setFromCDN(boolean z) {
-        if (this.ddR != null) {
-            this.ddR.setFromCDN(z);
+        if (this.deZ != null) {
+            this.deZ.setFromCDN(z);
         }
     }
 
@@ -204,12 +204,12 @@ public class i extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
     }
 
     public void setVoiceManager(VoiceManager voiceManager) {
-        this.cXg = voiceManager;
+        this.cYn = voiceManager;
     }
 
     @Override // com.baidu.tieba.a.f
-    public void hY(String str) {
-        this.bvX = str;
+    public void hZ(String str) {
+        this.bwO = str;
     }
 
     public void setFrom(String str) {

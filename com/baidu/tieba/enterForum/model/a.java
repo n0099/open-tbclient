@@ -10,42 +10,42 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes2.dex */
 public class a {
-    private static a cIs;
-    private WindowManager.LayoutParams cIq;
-    private ImageView cIr;
-    private int cIt;
-    private boolean cIu;
+    private static a cJB;
+    private ImageView cJA;
+    private int cJC;
+    private boolean cJD;
+    private WindowManager.LayoutParams cJz;
     private int mHeight;
     private boolean mIsDragging;
     private int mWidth;
     private WindowManager mWindowManager;
 
     public static a akX() {
-        if (cIs == null) {
+        if (cJB == null) {
             synchronized (a.class) {
-                if (cIs == null) {
-                    cIs = new a();
+                if (cJB == null) {
+                    cJB = new a();
                 }
             }
         }
-        return cIs;
+        return cJB;
     }
 
     private a() {
     }
 
     public void k(Context context, int i) {
-        this.cIu = true;
+        this.cJD = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
         this.mWindowManager = (WindowManager) context.getSystemService("window");
-        this.cIt = i;
+        this.cJC = i;
     }
 
     public void destroy() {
-        this.cIu = false;
-        cIs = null;
+        this.cJD = false;
+        cJB = null;
     }
 
     public boolean akY() {
@@ -73,12 +73,12 @@ public class a {
         akZ();
         au(i, i2);
         if (this.mWindowManager != null) {
-            this.mWindowManager.updateViewLayout(this.cIr, this.cIq);
+            this.mWindowManager.updateViewLayout(this.cJA, this.cJz);
         }
     }
 
     private void akZ() {
-        if (!this.cIu) {
+        if (!this.cJD) {
             BdLog.e("should do init first!");
         }
     }
@@ -87,14 +87,14 @@ public class a {
         akZ();
         if (bitmap != null) {
             au(i, i2);
-            this.cIr = new ImageView(context);
-            this.cIr.setImageBitmap(bitmap);
+            this.cJA = new ImageView(context);
+            this.cJA.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && p(activity.getWindow().getDecorView())) {
                     try {
                         if (this.mWindowManager != null) {
-                            this.mWindowManager.addView(this.cIr, this.cIq);
+                            this.mWindowManager.addView(this.cJA, this.cJz);
                         }
                     } catch (Exception e) {
                     }
@@ -119,29 +119,29 @@ public class a {
     }
 
     private void ala() {
-        this.cIq = new WindowManager.LayoutParams();
-        this.cIq.format = -3;
-        this.cIq.gravity = 51;
-        this.cIq.alpha = 1.0f;
-        this.cIq.width = -2;
-        this.cIq.height = -2;
-        this.cIq.flags = 24;
+        this.cJz = new WindowManager.LayoutParams();
+        this.cJz.format = -3;
+        this.cJz.gravity = 51;
+        this.cJz.alpha = 1.0f;
+        this.cJz.width = -2;
+        this.cJz.height = -2;
+        this.cJz.flags = 24;
     }
 
     private void au(int i, int i2) {
-        if (this.cIq == null) {
+        if (this.cJz == null) {
             ala();
         }
-        this.cIq.x = i - (this.mWidth / 2);
-        this.cIq.y = (i2 - (this.mHeight / 2)) - this.cIt;
+        this.cJz.x = i - (this.mWidth / 2);
+        this.cJz.y = (i2 - (this.mHeight / 2)) - this.cJC;
     }
 
     public void alb() {
-        if (this.cIr != null) {
+        if (this.cJA != null) {
             if (this.mWindowManager != null) {
-                this.mWindowManager.removeView(this.cIr);
+                this.mWindowManager.removeView(this.cJA);
             }
-            this.cIr = null;
+            this.cJA = null;
         }
         this.mIsDragging = false;
     }

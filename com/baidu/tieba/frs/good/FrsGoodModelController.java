@@ -20,18 +20,18 @@ import com.baidu.tieba.tbadkCore.i;
 import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes2.dex */
 public class FrsGoodModelController extends BdBaseModel implements NetModel.b<FrsRequestData, i> {
-    private long cIA;
-    private long cIB;
-    private long cIy;
-    private long cIz;
-    private l cWL;
-    private String cXa;
-    private d.a dcz;
-    private FrsGoodFragment dma;
-    private FrsNetModel<FrsGoodFragment> dmb;
-    private FrsRequestData dmc;
-    private String dmd;
-    private int dme;
+    private long cJH;
+    private long cJI;
+    private long cJJ;
+    private long cJK;
+    private l cXS;
+    private String cYh;
+    private d.a ddH;
+    private FrsGoodFragment dnh;
+    private FrsNetModel<FrsGoodFragment> dni;
+    private FrsRequestData dnj;
+    private String dnk;
+    private int dnl;
     private int mFlag;
     private String mFrom;
     private int mPn;
@@ -40,45 +40,45 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
 
     public FrsGoodModelController(FrsGoodFragment frsGoodFragment) {
         super(frsGoodFragment.getPageContext());
-        this.cXa = null;
+        this.cYh = null;
         this.mType = 3;
         this.mPn = 1;
         this.mFrom = null;
         this.mFlag = 0;
         this.mSource = null;
-        this.dmd = null;
-        this.dme = 0;
-        this.cIy = 0L;
-        this.cIz = 0L;
-        this.cIA = 0L;
-        this.cIB = 0L;
-        this.dma = frsGoodFragment;
+        this.dnk = null;
+        this.dnl = 0;
+        this.cJH = 0L;
+        this.cJI = 0L;
+        this.cJJ = 0L;
+        this.cJK = 0L;
+        this.dnh = frsGoodFragment;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onActivityDestroy() {
-        this.dmb.cancelLoadData();
+        this.dni.cancelLoadData();
     }
 
     public void i(Bundle bundle) {
         if (bundle != null) {
-            this.cXa = bundle.getString("name");
+            this.cYh = bundle.getString("name");
             this.mFrom = bundle.getString("from");
             this.mFlag = bundle.getInt(FrsActivityConfig.FLAG, 0);
         }
-        if (TextUtils.isEmpty(this.cXa)) {
-            this.cXa = "";
+        if (TextUtils.isEmpty(this.cYh)) {
+            this.cYh = "";
         }
         if (TextUtils.isEmpty(this.mFrom)) {
             this.mFrom = "";
         }
         this.mSource = this.mFrom;
-        this.dmc = new FrsRequestData();
-        this.cWL = new l();
-        this.dmb = new FrsNetModel<>(this.dma.getPageContext(), this.dmc);
-        this.dmb.a(this);
-        this.dmb.setUniqueId(getUniqueId());
-        if (this.cXa != null && this.cXa.length() > 0) {
+        this.dnj = new FrsRequestData();
+        this.cXS = new l();
+        this.dni = new FrsNetModel<>(this.dnh.getPageContext(), this.dnj);
+        this.dni.a(this);
+        this.dni.setUniqueId(getUniqueId());
+        if (this.cYh != null && this.cYh.length() > 0) {
             if (this.mFrom == null || this.mFrom.length() <= 0) {
                 this.mFrom = FrsActivityConfig.FRS_FROM_LIKE;
             }
@@ -86,81 +86,81 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
     }
 
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putString("name", this.cXa);
+        bundle.putString("name", this.cYh);
         bundle.putString("from", this.mFrom);
         bundle.putInt(FrsActivityConfig.FLAG, this.mFlag);
         bundle.putBoolean(FrsActivityConfig.GOOD, true);
     }
 
-    public boolean arj() {
-        FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.dmc), FrsRequestData.class);
+    public boolean ari() {
+        FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.dnj), FrsRequestData.class);
         frsRequestData.setPn(1);
         a(frsRequestData, 3);
         return true;
     }
 
-    public void kR(int i) {
-        if (!this.dmb.wX()) {
-            FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.dmc), FrsRequestData.class);
+    public void kQ(int i) {
+        if (!this.dni.wW()) {
+            FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.dnj), FrsRequestData.class);
             frsRequestData.setPn(i);
             a(frsRequestData, 4);
         }
     }
 
     private void a(FrsRequestData frsRequestData, int i) {
-        if (this.dma != null && this.dma.isAdded() && this.dma.getPageContext() != null) {
-            this.dma.cYh.kd(i);
-            this.dmb.a(frsRequestData);
+        if (this.dnh != null && this.dnh.isAdded() && this.dnh.getPageContext() != null) {
+            this.dnh.cZo.kc(i);
+            this.dni.a(frsRequestData);
             this.mType = i;
-            frsRequestData.setKw(this.cXa);
-            if (com.baidu.tbadk.core.i.pY().qe()) {
+            frsRequestData.setKw(this.cYh);
+            if (com.baidu.tbadk.core.i.pX().qd()) {
                 frsRequestData.setRn(35);
             } else {
                 frsRequestData.setRn(50);
             }
             frsRequestData.setWithGroup(1);
             frsRequestData.setIsGood(1);
-            frsRequestData.setCid(this.dme);
-            int af = com.baidu.adp.lib.util.l.af(this.dma.getPageContext().getPageActivity());
-            int ah = com.baidu.adp.lib.util.l.ah(this.dma.getPageContext().getPageActivity());
+            frsRequestData.setCid(this.dnl);
+            int af = com.baidu.adp.lib.util.l.af(this.dnh.getPageContext().getPageActivity());
+            int ah = com.baidu.adp.lib.util.l.ah(this.dnh.getPageContext().getPageActivity());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-            int i2 = ap.vQ().vS() ? 2 : 1;
+            int i2 = ap.vP().vR() ? 2 : 1;
             frsRequestData.setScrW(af);
             frsRequestData.setScrH(ah);
             frsRequestData.setScrDip(f);
             frsRequestData.setqType(i2);
-            frsRequestData.setLastId(this.dmd);
+            frsRequestData.setLastId(this.dnk);
             if (this.mSource != null) {
                 frsRequestData.setStType(this.mSource);
             }
-            if (FrsFragment.cXi != 0) {
-                frsRequestData.setCtime((int) FrsFragment.cXi);
+            if (FrsFragment.cYp != 0) {
+                frsRequestData.setCtime((int) FrsFragment.cYp);
             }
-            if (FrsFragment.cXj != 0) {
-                frsRequestData.setDataSize((int) FrsFragment.cXj);
+            if (FrsFragment.cYq != 0) {
+                frsRequestData.setDataSize((int) FrsFragment.cYq);
             }
-            if (FrsFragment.cXk != 0) {
-                frsRequestData.setNetError(FrsFragment.cXk);
+            if (FrsFragment.cYr != 0) {
+                frsRequestData.setNetError(FrsFragment.cYr);
             }
             frsRequestData.setUpdateType(this.mType);
             frsRequestData.setNeedCache(false);
-            atK();
+            atJ();
         }
     }
 
     private boolean a(FrsRequestData frsRequestData, i iVar) {
-        if (frsRequestData == null || frsRequestData.getCid() == this.dme) {
-            this.cWL.e(iVar);
+        if (frsRequestData == null || frsRequestData.getCid() == this.dnl) {
+            this.cXS.e(iVar);
             if (frsRequestData != null) {
-                this.dmc = frsRequestData;
-                this.mPn = this.dmc.getPn();
-                this.cXa = this.dmc.getKw();
-                this.dma.mh(this.cXa);
-                this.dma.setFrom(this.mFrom);
-                this.dma.setPn(this.mPn);
-                this.dma.setFlag(this.mFlag);
+                this.dnj = frsRequestData;
+                this.mPn = this.dnj.getPn();
+                this.cYh = this.dnj.getKw();
+                this.dnh.mk(this.cYh);
+                this.dnh.setFrom(this.mFrom);
+                this.dnh.setPn(this.mPn);
+                this.dnh.setFlag(this.mFlag);
             }
-            this.dma.cYh.a(this.mType, false, this.dcz);
+            this.dnh.cZo.a(this.mType, false, this.ddH);
             this.mSource = null;
             return true;
         }
@@ -172,12 +172,12 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         FrsRequestData frsRequestData;
         if (mvcSocketResponsedMessage != null) {
             d.a aVar = new d.a();
-            aVar.gtk = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
+            aVar.guo = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
             aVar.isSuccess = !mvcSocketResponsedMessage.hasError();
             aVar.errorCode = mvcSocketResponsedMessage.getError();
             aVar.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            aVar.gtl = mvcSocketResponsedMessage.getDownSize();
-            this.dcz = aVar;
+            aVar.gup = mvcSocketResponsedMessage.getDownSize();
+            this.ddH = aVar;
             FrsRequestData frsRequestData2 = null;
             i data = mvcSocketResponsedMessage.getData();
             if (mvcSocketMessage != null) {
@@ -217,12 +217,12 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         FrsRequestData frsRequestData;
         if (mvcHttpResponsedMessage != null) {
             d.a aVar = new d.a();
-            aVar.gtk = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
+            aVar.guo = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
             aVar.isSuccess = !mvcHttpResponsedMessage.hasError();
             aVar.errorCode = mvcHttpResponsedMessage.getError();
             aVar.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            aVar.gtl = mvcHttpResponsedMessage.getDownSize();
-            this.dcz = aVar;
+            aVar.gup = mvcHttpResponsedMessage.getDownSize();
+            this.ddH = aVar;
             FrsRequestData frsRequestData2 = null;
             i data = mvcHttpResponsedMessage.getData();
             if (mvcHttpMessage != null) {
@@ -255,11 +255,11 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         }
     }
 
-    public void apB() {
-        if (this.cWL != null && this.cWL.aVq() != null && this.cWL.aVq().getBannerListData() != null) {
-            String lastIds = this.cWL.aVq().getBannerListData().getLastIds();
+    public void apA() {
+        if (this.cXS != null && this.cXS.aVq() != null && this.cXS.aVq().getBannerListData() != null) {
+            String lastIds = this.cXS.aVq().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
-                this.dmd = lastIds;
+                this.dnk = lastIds;
             }
         }
     }
@@ -268,42 +268,42 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         return this.mType;
     }
 
-    public l atJ() {
-        return this.cWL;
+    public l atI() {
+        return this.cXS;
     }
 
-    private void atK() {
-        this.cIy = System.currentTimeMillis();
-        this.dmb.FY();
+    private void atJ() {
+        this.cJH = System.currentTimeMillis();
+        this.dni.FW();
     }
 
     public long alc() {
-        return this.cIB;
+        return this.cJK;
     }
 
     public long ald() {
-        return this.cIz;
+        return this.cJI;
     }
 
     public long ale() {
-        return this.cIA;
+        return this.cJJ;
     }
 
     public long alf() {
-        return this.cIy;
+        return this.cJH;
     }
 
-    public boolean wX() {
-        return this.dmb.wX();
+    public boolean wW() {
+        return this.dni.wW();
     }
 
-    public void gM(int i) {
-        this.dme = i;
-        arj();
+    public void gN(int i) {
+        this.dnl = i;
+        ari();
     }
 
-    public boolean atL() {
-        return this.dme < 100;
+    public boolean atK() {
+        return this.dnl < 100;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

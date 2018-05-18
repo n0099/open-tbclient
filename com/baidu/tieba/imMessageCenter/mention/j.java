@@ -14,17 +14,17 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes2.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Aj;
-    protected ArrayList<FeedData> enw = new ArrayList<>();
-    protected am enx = new am();
-    protected h eny = new h();
+    protected boolean Ai;
+    protected ArrayList<FeedData> eoF = new ArrayList<>();
+    protected am eoG = new am();
+    protected h eoH = new h();
 
-    public ArrayList<FeedData> aIH() {
-        return this.enw;
+    public ArrayList<FeedData> aIG() {
+        return this.eoF;
     }
 
-    public am rg() {
-        return this.enx;
+    public am rf() {
+        return this.eoG;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -36,17 +36,17 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.enw.add(feedData);
+                    this.eoF.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.v(feedData.getPraiseList()) == 0) {
-                        this.enw.remove(feedData);
+                        this.eoF.remove(feedData);
                     }
                 }
             }
-            this.eny.parserJson(jSONObject.optJSONObject("message"));
-            this.enx.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
-            this.Aj = true;
+            this.eoH.parserJson(jSONObject.optJSONObject("message"));
+            this.eoG.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
+            this.Ai = true;
         } catch (Exception e) {
-            this.Aj = false;
+            this.Ai = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -61,16 +61,16 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.enw.add(feedData);
+                        this.eoF.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.v(feedData.getPraiseList()) == 0) {
-                            this.enw.remove(feedData);
+                            this.eoF.remove(feedData);
                         }
                     }
                 }
-                this.enx.a(dataRes.page);
-                this.Aj = true;
+                this.eoG.a(dataRes.page);
+                this.Ai = true;
             } catch (Exception e) {
-                this.Aj = false;
+                this.Ai = false;
                 BdLog.e(e.getMessage());
             }
         }

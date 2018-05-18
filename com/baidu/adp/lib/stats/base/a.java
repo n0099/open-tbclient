@@ -7,30 +7,50 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.fsg.base.statistics.j;
 /* loaded from: classes.dex */
 public class a {
-    protected String vB;
-    protected i vC;
-    private String vp;
-    protected String vz;
+    protected String vA;
+    protected i vB;
+    private String vo;
+    protected String vy;
+    private StringBuffer vp = new StringBuffer();
     private StringBuffer vq = new StringBuffer();
-    private StringBuffer vr = new StringBuffer();
+    private int vr = 0;
     private int vs = 0;
-    private int vt = 0;
-    private long vj = 0;
-    private long vu = 0;
-    protected long vv = 0;
+    private long vi = 0;
+    private long vt = 0;
+    protected long vu = 0;
+    private long vv = 0;
     private long vw = 0;
-    private long vx = 0;
-    protected int vy = 50;
-    protected final String vA = ".log";
+    protected int vx = 50;
+    protected final String vz = ".log";
     protected boolean mUseSdCard = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(i iVar) {
-        this.vC = iVar;
+        this.vB = iVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
+        if (aVar != null) {
+            try {
+                try {
+                    this.vp.append(aVar.toString());
+                    this.vp.append("\r\n");
+                    this.vr++;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
+            }
+        }
+        if (this.vB != null) {
+            this.vB.g(this);
+        }
+        this.vi = System.currentTimeMillis();
+    }
+
+    public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
@@ -44,71 +64,51 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.vC != null) {
-            this.vC.g(this);
+        if (this.vB != null) {
+            this.vB.g(this);
         }
-        this.vj = System.currentTimeMillis();
-    }
-
-    public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
-        if (aVar != null) {
-            try {
-                try {
-                    this.vr.append(aVar.toString());
-                    this.vr.append("\r\n");
-                    this.vt++;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
-            }
-        }
-        if (this.vC != null) {
-            this.vC.g(this);
-        }
-        this.vu = System.currentTimeMillis();
+        this.vt = System.currentTimeMillis();
     }
 
     public int fL() {
-        return this.vs;
+        return this.vr;
     }
 
     public int fM() {
-        return this.vt;
+        return this.vs;
     }
 
     public long fN() {
-        return this.vv;
-    }
-
-    public void i(long j) {
-        this.vv = j;
-    }
-
-    public long fO() {
-        return this.vj;
-    }
-
-    public long fP() {
         return this.vu;
     }
 
+    public void i(long j) {
+        this.vu = j;
+    }
+
+    public long fO() {
+        return this.vi;
+    }
+
+    public long fP() {
+        return this.vt;
+    }
+
     public String fQ() {
-        if (TextUtils.isEmpty(this.vB)) {
+        if (TextUtils.isEmpty(this.vA)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.vz);
+            sb.append(this.vy);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(".log");
-            this.vB = sb.toString();
+            this.vA = sb.toString();
         }
-        return this.vB;
+        return this.vA;
     }
 
     public String fR() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.vz);
+        sb.append(this.vy);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -117,41 +117,41 @@ public class a {
     }
 
     public long fS() {
-        return this.vw;
+        return this.vv;
     }
 
     public long fT() {
-        return this.vx;
+        return this.vw;
     }
 
     public void j(long j) {
-        this.vw = j;
+        this.vv = j;
     }
 
     public void k(long j) {
-        this.vx = j;
+        this.vw = j;
     }
 
     public synchronized void fU() {
+        this.vp = new StringBuffer();
+        this.vr = 0;
+        this.vv = 0L;
+    }
+
+    public synchronized void fV() {
         this.vq = new StringBuffer();
         this.vs = 0;
         this.vw = 0L;
     }
 
-    public synchronized void fV() {
-        this.vr = new StringBuffer();
-        this.vt = 0;
-        this.vx = 0L;
-    }
-
     public void au(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.vp = str;
+            this.vo = str;
         }
     }
 
     public String fW() {
-        return this.vp;
+        return this.vo;
     }
 
     public boolean fX() {
@@ -167,11 +167,11 @@ public class a {
     }
 
     public StringBuffer fZ() {
-        return this.vq;
+        return this.vp;
     }
 
     public StringBuffer ga() {
-        return this.vr;
+        return this.vq;
     }
 
     public boolean gb() {
@@ -183,7 +183,7 @@ public class a {
     }
 
     public String ge() {
-        return this.vz;
+        return this.vy;
     }
 
     public static String av(String str) {

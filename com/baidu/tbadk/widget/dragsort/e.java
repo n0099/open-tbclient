@@ -10,8 +10,8 @@ import android.widget.ListView;
 import com.baidu.tbadk.widget.dragsort.a;
 /* loaded from: classes.dex */
 public class e implements a.h {
-    private Bitmap aRW;
-    private int aRX = ViewCompat.MEASURED_STATE_MASK;
+    private Bitmap aRX;
+    private int aRY = ViewCompat.MEASURED_STATE_MASK;
     private ImageView mImageView;
     private ListView mListView;
 
@@ -20,25 +20,25 @@ public class e implements a.h {
     }
 
     public void setBackgroundColor(int i) {
-        this.aRX = i;
+        this.aRY = i;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
-    public View fy(int i) {
+    public View fz(int i) {
         View childAt = this.mListView.getChildAt((this.mListView.getHeaderViewsCount() + i) - this.mListView.getFirstVisiblePosition());
         if (childAt == null) {
             return null;
         }
         childAt.setPressed(false);
         childAt.setDrawingCacheEnabled(true);
-        this.aRW = Bitmap.createBitmap(childAt.getDrawingCache());
+        this.aRX = Bitmap.createBitmap(childAt.getDrawingCache());
         childAt.setDrawingCacheEnabled(false);
         if (this.mImageView == null) {
             this.mImageView = new ImageView(this.mListView.getContext());
         }
-        this.mImageView.setBackgroundColor(this.aRX);
+        this.mImageView.setBackgroundColor(this.aRY);
         this.mImageView.setPadding(0, 0, 0, 0);
-        this.mImageView.setImageBitmap(this.aRW);
+        this.mImageView.setImageBitmap(this.aRX);
         this.mImageView.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
         return this.mImageView;
     }
@@ -50,7 +50,7 @@ public class e implements a.h {
     @Override // com.baidu.tbadk.widget.dragsort.a.h
     public void S(View view2) {
         ((ImageView) view2).setImageDrawable(null);
-        this.aRW.recycle();
-        this.aRW = null;
+        this.aRX.recycle();
+        this.aRX = null;
     }
 }

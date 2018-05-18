@@ -10,28 +10,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> evk;
+    private final List<e> ews;
 
     private b() {
-        this.evk = new ArrayList(4);
+        this.ews = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b evl = new b();
+        private static final b ewt = new b();
     }
 
-    public static b aKA() {
-        return a.evl;
+    public static b aKz() {
+        return a.ewt;
     }
 
     public synchronized void a(e eVar) {
-        this.evk.add(eVar);
+        this.ews.add(eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void aKB() {
+    protected void aKA() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -45,7 +45,7 @@ public class b extends e {
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.evk) {
+        for (e eVar : this.ews) {
             try {
                 ICardInfo a2 = eVar.a(jSONObject, i);
                 if (a2 != null) {
@@ -70,7 +70,7 @@ public class b extends e {
 
     private <T> com.baidu.tieba.lego.card.view.e b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         com.baidu.tieba.lego.card.view.e a2;
-        for (e eVar : this.evk) {
+        for (e eVar : this.ews) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {
@@ -84,7 +84,7 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo ov(String str) {
+    public static ICardInfo oy(String str) {
         try {
             ICardInfo L = L(new JSONObject(str));
             if (L != null) {
@@ -103,6 +103,6 @@ public class b extends e {
     }
 
     public static ICardInfo L(JSONObject jSONObject) throws CardParseException {
-        return aKA().a(jSONObject, jSONObject.optInt("card_type"));
+        return aKz().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

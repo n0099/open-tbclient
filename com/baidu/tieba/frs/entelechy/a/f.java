@@ -14,33 +14,33 @@ import com.baidu.tieba.play.y;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy.view.b>> implements aa, com.baidu.tieba.frs.e.c {
-    public static int ddJ = 5;
-    public static int ddK = 10;
-    public static int ddL = 15;
-    private ab<bd> bvY;
+    public static int deR = 5;
+    public static int deS = 10;
+    public static int deT = 15;
+    private ab<bd> bwP;
     private String forumName;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(bd bdVar, String str) {
         if (bdVar != null) {
-            int sN = bdVar.sN();
+            int sM = bdVar.sM();
             al alVar = new al(str);
-            alVar.ac("obj_locate", kw(sN));
+            alVar.ac("obj_locate", kv(sM));
             alVar.ac("tid", bdVar.getTid());
             alVar.r("obj_type", 2);
             TiebaStatic.log(alVar);
         }
     }
 
-    private String kw(int i) {
-        if (i == ddJ) {
+    private String kv(int i) {
+        if (i == deR) {
             return "3";
         }
-        if (i == ddK) {
+        if (i == deS) {
             return Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
         }
-        if (i != ddL) {
+        if (i != deT) {
             return "";
         }
         return Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE;
@@ -49,7 +49,7 @@ public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.bvY = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.f.1
+        this.bwP = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, bd bdVar) {
@@ -61,7 +61,7 @@ public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy
                     } else if (view2.getId() == d.g.image_user || view2.getId() == d.g.pendant_image_user) {
                         f.this.e(bdVar, "c10241");
                     } else if (view2.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dov, bdVar.sn());
+                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dpD, bdVar.sm());
                     }
                 }
             }
@@ -84,14 +84,14 @@ public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy
         y yVar = null;
         if (bdVar != null) {
             yVar = new y();
-            yVar.mLocate = kw(bdVar.sN());
-            yVar.crG = dov.dol;
-            yVar.aNu = bdVar.getTid();
-            yVar.fQM = bdVar.mRecomAbTag;
-            if (bdVar.sh() != null) {
-                yVar.fQN = bdVar.sh().video_md5;
+            yVar.mLocate = kv(bdVar.sM());
+            yVar.csP = dpD.dpt;
+            yVar.aNv = bdVar.getTid();
+            yVar.fRS = bdVar.mRecomAbTag;
+            if (bdVar.sg() != null) {
+                yVar.fRT = bdVar.sg().video_md5;
             }
-            bdVar.sK();
+            bdVar.sJ();
         }
         return yVar;
     }
@@ -106,7 +106,7 @@ public class f extends com.baidu.tieba.frs.f<bd, a<com.baidu.tieba.frs.entelechy
         }
         aVar.afY().setVideoStatsData(Q(bdVar));
         aVar.afY().a(bdVar);
-        aVar.afY().b(this.bvY);
+        aVar.afY().b(this.bwP);
         return aVar.getView();
     }
 

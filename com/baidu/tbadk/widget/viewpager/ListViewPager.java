@@ -9,10 +9,10 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.SwipeBackLayout;
 /* loaded from: classes.dex */
 public class ListViewPager extends ViewPager {
-    private float aPt;
-    private float aWZ;
+    private float aPu;
     private float aXa;
     private float aXb;
+    private float aXc;
     private boolean amo;
     private GestureDetector mGestureDetector;
     private SwipeBackLayout.c mSwipeControlInterface;
@@ -42,7 +42,7 @@ public class ListViewPager extends ViewPager {
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             if (ListViewPager.this.mSwipeControlInterface != null) {
-                ListViewPager.this.mSwipeControlInterface.kT();
+                ListViewPager.this.mSwipeControlInterface.kS();
             }
             return Math.abs(f) > Math.abs(f2);
         }
@@ -90,30 +90,30 @@ public class ListViewPager extends ViewPager {
             case 5:
             case 6:
                 if (this.mSwipeControlInterface != null) {
-                    this.mSwipeControlInterface.kT();
+                    this.mSwipeControlInterface.kS();
                 }
-                this.aPt = motionEvent.getX();
-                this.aWZ = motionEvent.getY();
+                this.aPu = motionEvent.getX();
+                this.aXa = motionEvent.getY();
                 break;
             case 1:
             case 3:
                 if (this.mSwipeControlInterface != null) {
-                    this.mSwipeControlInterface.kT();
+                    this.mSwipeControlInterface.kS();
                 }
-                this.aPt = 0.0f;
-                this.aWZ = 0.0f;
+                this.aPu = 0.0f;
                 this.aXa = 0.0f;
                 this.aXb = 0.0f;
+                this.aXc = 0.0f;
                 break;
             case 2:
                 if (this.mSwipeControlInterface != null) {
-                    this.mSwipeControlInterface.kT();
+                    this.mSwipeControlInterface.kS();
                 }
-                this.aXa = motionEvent.getX() - this.aPt;
-                this.aXb = motionEvent.getY() - this.aWZ;
-                this.aPt = motionEvent.getX();
-                this.aWZ = motionEvent.getY();
-                if (getCurrentItem() != 0 && Math.abs(this.aXa) > Math.abs(this.aXb)) {
+                this.aXb = motionEvent.getX() - this.aPu;
+                this.aXc = motionEvent.getY() - this.aXa;
+                this.aPu = motionEvent.getX();
+                this.aXa = motionEvent.getY();
+                if (getCurrentItem() != 0 && Math.abs(this.aXb) > Math.abs(this.aXc)) {
                     aS(true);
                     break;
                 }

@@ -267,12 +267,12 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setLayer(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.wj(i)));
         this.layer = i;
     }
 
     public void setAlternateGroup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.wj(i)));
         this.alternateGroup = i;
     }
 
@@ -317,7 +317,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setEnabled(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.nV(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.nW(z)));
         if (z) {
             setFlags(getFlags() | 1);
         } else {
@@ -326,7 +326,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInMovie(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.nV(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.nW(z)));
         if (z) {
             setFlags(getFlags() | 2);
         } else {
@@ -335,7 +335,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInPreview(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.nV(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.nW(z)));
         if (z) {
             setFlags(getFlags() | 4);
         } else {
@@ -344,7 +344,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInPoster(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.nV(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.nW(z)));
         if (z) {
             setFlags(getFlags() | 8);
         } else {

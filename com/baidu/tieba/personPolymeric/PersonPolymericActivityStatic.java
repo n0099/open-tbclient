@@ -34,18 +34,18 @@ import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 public class PersonPolymericActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonPolymericActivityConfig.class, PersonPolymericActivity.class);
-        Pm();
+        Pj();
         beQ();
-        aNE();
+        aND();
         beR();
         beS();
         beT();
-        aoS();
+        aoR();
         beU();
         beV();
     }
 
-    private static void Pm() {
+    private static void Pj() {
         com.baidu.tieba.tbadkCore.a.a.a(309408, PersonPolymericSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, com.baidu.tieba.tbadkCore.a.a.aK("c/u/user/personal", 309408));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -62,8 +62,8 @@ public class PersonPolymericActivityStatic {
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void aNE() {
-        ax.wg().a(new ax.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.1
+    private static void aND() {
+        ax.wf().a(new ax.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ax.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -110,8 +110,8 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aoS() {
-        com.baidu.tbadk.ala.b.os().a(7, new d() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.2
+    private static void aoR() {
+        com.baidu.tbadk.ala.b.or().a(7, new d() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.2
             @Override // com.baidu.tbadk.ala.d
             public View aq(Context context) {
                 TextView ap = c.ap(context);

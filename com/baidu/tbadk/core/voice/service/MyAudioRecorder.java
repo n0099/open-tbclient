@@ -47,7 +47,7 @@ public class MyAudioRecorder implements d {
                 while (true) {
                     myAudioRecorder = new MyAudioRecorder(true, 1, arO[i], 2, 2);
                     int i2 = i - 1;
-                    if (!(myAudioRecorder.xH() != State.INITIALIZING) || !(i2 >= 0)) {
+                    if (!(myAudioRecorder.xG() != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
                     }
                     i = i2;
@@ -59,7 +59,7 @@ public class MyAudioRecorder implements d {
         return myAudioRecorder;
     }
 
-    public State xH() {
+    public State xG() {
         return this.arU;
     }
 
@@ -255,13 +255,13 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean xE() {
+    public boolean xD() {
         synchronized (mLock) {
             if (this.arP == null || !this.arP.isAlive()) {
                 this.arP = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.MyAudioRecorder.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        MyAudioRecorder.this.xD();
+                        MyAudioRecorder.this.xC();
                     }
                 });
                 this.arP.start();
@@ -271,7 +271,7 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void xF() {
+    public void xE() {
         this.arU = State.STOPPED;
     }
 
@@ -281,7 +281,7 @@ public class MyAudioRecorder implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xD() {
+    public void xC() {
         if (arR != null) {
             try {
                 start();

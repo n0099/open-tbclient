@@ -36,7 +36,7 @@ public class BannerFlowView extends FrameLayout {
         this.ars = new ViewPager(context);
         this.aqW = new IndicatorView(context);
         this.aqW.setSpacing(0);
-        xA();
+        xz();
         this.aqT = new com.baidu.tbadk.core.view.viewpager.b(context, this.ars, this.aqW, null);
         this.art = new b(context, a.arr);
         this.aqT.setAutoScrollIntervalTime(TbConfig.NOTIFY_SOUND_INTERVAL);
@@ -62,7 +62,7 @@ public class BannerFlowView extends FrameLayout {
         this.aqT.setDatas(list);
     }
 
-    private void xA() {
+    private void xz() {
         this.aqW.setSelector(ak.getDrawable(d.f.icon_diandian_white_s));
         this.aqW.setDrawable(ak.getDrawable(d.f.icon_diandian_white_n));
     }

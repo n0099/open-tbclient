@@ -1,7 +1,7 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class d {
-    private long bbd;
+    private long bbe;
     private long currentSize;
     private String fileName;
 
@@ -9,19 +9,19 @@ public class d {
         return this.fileName;
     }
 
-    public void hB(String str) {
+    public void hC(String str) {
         this.fileName = str;
     }
 
     public long getAccessTime() {
-        return this.bbd;
+        return this.bbe;
     }
 
     public void setAccessTime(long j) {
-        this.bbd = j;
+        this.bbe = j;
     }
 
-    public long Mc() {
+    public long Ma() {
         return this.currentSize;
     }
 

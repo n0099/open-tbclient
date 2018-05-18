@@ -8,45 +8,45 @@ import com.baidu.tbadk.editortools.k;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends k {
-    private EditText aEN;
+    private EditText aEO;
 
     public e(Context context) {
         super(context, (String) null, 27);
-        this.aDD = false;
-        this.aDC = 3;
-        this.aCM = new PbNewInputContainer(context);
-        this.aEN = ((PbNewInputContainer) this.aCM).getInputView();
-        ((PbNewInputContainer) this.aCM).setHint(context.getString(d.k.say_your_point));
-        this.aDE = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
+        this.aDE = false;
+        this.aDD = 3;
+        this.aCN = new PbNewInputContainer(context);
+        this.aEO = ((PbNewInputContainer) this.aCN).getInputView();
+        ((PbNewInputContainer) this.aCN).setHint(context.getString(d.k.say_your_point));
+        this.aDF = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
     }
 
     public void b(TextWatcher textWatcher) {
-        this.aEN.addTextChangedListener(textWatcher);
+        this.aEO.addTextChangedListener(textWatcher);
     }
 
     public void c(TextWatcher textWatcher) {
-        this.aEN.removeTextChangedListener(textWatcher);
+        this.aEO.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.aCM != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.aCM).setHint(str);
+        if (this.aCN != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.aCN).setHint(str);
         }
     }
 
     public EditText getInputView() {
-        return this.aEN;
+        return this.aEO;
     }
 
     public void setType(int i) {
-        if (this.aCM != null) {
-            ((PbNewInputContainer) this.aCM).setType(i);
+        if (this.aCN != null) {
+            ((PbNewInputContainer) this.aCN).setType(i);
         }
     }
 
-    public void eP(int i) {
-        if (this.aCM != null) {
-            ((PbNewInputContainer) this.aCM).eP(i);
+    public void eQ(int i) {
+        if (this.aCN != null) {
+            ((PbNewInputContainer) this.aCN).eQ(i);
         }
     }
 }

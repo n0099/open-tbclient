@@ -87,7 +87,7 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.n("scr_w", String.valueOf(l.af(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("scr_h", String.valueOf(l.ah(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("scr_dip", String.valueOf(l.ai(TbadkCoreApplication.getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.Ae().Ah() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.Ad().Ag() > 0) {
                     this.mNetWork.n("_msg_status", "0");
                 } else {
                     this.mNetWork.n("_msg_status", "1");
@@ -108,11 +108,11 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.n("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
                 this.mNetWork.n("signmd5", aq.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.n(com.baidu.ar.util.Constants.HTTP_AR_MD5, g.getTiebaApkMd5());
-                String uL = this.mNetWork.uL();
-                if (this.mNetWork.vj().wj().isRequestSuccess()) {
+                String uK = this.mNetWork.uK();
+                if (this.mNetWork.vi().wi().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(uL);
+                        cVar.parserJson(uK);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {

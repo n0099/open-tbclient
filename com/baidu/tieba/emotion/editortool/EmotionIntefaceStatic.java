@@ -35,7 +35,7 @@ public class EmotionIntefaceStatic {
                     EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                     int indexOf = editorTools.getCollectTools().indexOf(5);
                     if (indexOf != -1) {
-                        if (editorTools.DL()) {
+                        if (editorTools.DJ()) {
                             editorTools.b(new a(editorTools.getContext(), indexOf + 1, false));
                         } else {
                             editorTools.b(new a(editorTools.getContext(), indexOf + 1));
@@ -90,7 +90,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(e.akm().kR(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(e.akm().kU(customMessage.getData())));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

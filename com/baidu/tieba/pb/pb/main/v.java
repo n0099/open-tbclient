@@ -8,23 +8,23 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class v extends q.a {
-    public TextView bGo;
-    public TextView dRZ;
-    public HeadImageView fjI;
-    public TbImageView fjJ;
-    public TextView fjK;
+    public TextView bHL;
+    public TextView dTg;
+    public HeadImageView fkP;
+    public TbImageView fkQ;
+    public TextView fkR;
     public int mSkinType;
     public TextView text;
 
     public v(View view2) {
         super(view2);
         this.mSkinType = 3;
-        this.fjI = (HeadImageView) view2.findViewById(d.g.photo);
-        this.fjI.setRadius(com.baidu.adp.lib.util.l.e(view2.getContext(), d.e.ds30));
-        this.bGo = (TextView) view2.findViewById(d.g.user_name);
-        this.dRZ = (TextView) view2.findViewById(d.g.time);
+        this.fkP = (HeadImageView) view2.findViewById(d.g.photo);
+        this.fkP.setRadius(com.baidu.adp.lib.util.l.e(view2.getContext(), d.e.ds30));
+        this.bHL = (TextView) view2.findViewById(d.g.user_name);
+        this.dTg = (TextView) view2.findViewById(d.g.time);
         this.text = (TextView) view2.findViewById(d.g.text);
-        this.fjJ = (TbImageView) view2.findViewById(d.g.god_pic);
-        this.fjK = (TextView) view2.findViewById(d.g.god_btn);
+        this.fkQ = (TbImageView) view2.findViewById(d.g.god_pic);
+        this.fkR = (TextView) view2.findViewById(d.g.god_btn);
     }
 }

@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class l {
-    public static final boolean HE() {
+    public static final boolean HC() {
         Message message;
         int i = 0;
         Object c = com.baidu.adp.lib.OrmObject.a.a.c(Looper.myQueue(), "mMessages");

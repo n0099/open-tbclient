@@ -20,11 +20,11 @@ public class a {
         }
     }
 
-    public static c xN() {
+    public static c xM() {
         return asl;
     }
 
-    public static boolean xO() {
+    public static boolean xN() {
         return ask;
     }
 

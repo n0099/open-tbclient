@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int dBb;
-    private static int dBc;
+    private static int dCi;
+    private static int dCj;
 
     public f(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.dBj);
-        dBb = l.e(context, d.e.tbds102);
-        dBc = l.e(context, d.e.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.a.dCq);
+        dCi = l.e(context, d.e.tbds102);
+        dCj = l.e(context, d.e.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,15 +40,15 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.dBd.setText(aVar.alc);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.dBd.getLayoutParams();
-        if (aVar.dBm) {
-            layoutParams.height = dBc;
-            aVar2.den.setVisibility(0);
-        } else if (aVar.dBn) {
-            layoutParams.height = dBb;
+        aVar2.dCk.setText(aVar.alc);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.dCk.getLayoutParams();
+        if (aVar.dCt) {
+            layoutParams.height = dCj;
+            aVar2.dfv.setVisibility(0);
+        } else if (aVar.dCu) {
+            layoutParams.height = dCi;
         }
-        ((a) this.viewholder).dBd.setLayoutParams(layoutParams);
+        ((a) this.viewholder).dCk.setLayoutParams(layoutParams);
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
@@ -56,21 +56,21 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* loaded from: classes2.dex */
     public class a extends q.a {
         private int aqQ;
-        public TextView dBd;
-        public View den;
+        public TextView dCk;
+        public View dfv;
 
         public a(View view2) {
             super(view2);
             this.aqQ = 3;
-            this.dBd = (TextView) view2.findViewById(d.g.concern_tip_txt);
-            this.den = view2.findViewById(d.g.concern_tip_top_line);
+            this.dCk = (TextView) view2.findViewById(d.g.concern_tip_txt);
+            this.dfv = view2.findViewById(d.g.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
             if (this.aqQ != i) {
                 ak.j(getView(), d.C0126d.cp_bg_line_e);
-                ak.h(this.dBd, d.C0126d.cp_cont_d);
-                ak.i(this.den, d.C0126d.cp_bg_line_e);
+                ak.h(this.dCk, d.C0126d.cp_cont_d);
+                ak.i(this.dfv, d.C0126d.cp_bg_line_e);
             }
         }
     }

@@ -35,7 +35,7 @@ public class EditMarkStatic {
                         int unused = EditMarkStatic.msgCount = ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark();
                         if (EditMarkStatic.msgCount > 0) {
                             b.aSD().aSG();
-                            b.aSD().iR(true);
+                            b.aSD().iS(true);
                             return;
                         }
                         return;

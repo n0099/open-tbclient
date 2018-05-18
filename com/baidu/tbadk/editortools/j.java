@@ -6,7 +6,7 @@ import com.baidu.tieba.d;
 public class j extends k {
     public j(Context context) {
         super((String) null, 23, 0);
-        this.aDz = d.f.selector_more_tool_btn;
-        this.aDE = new int[]{32};
+        this.aDA = d.f.selector_more_tool_btn;
+        this.aDF = new int[]{32};
     }
 }

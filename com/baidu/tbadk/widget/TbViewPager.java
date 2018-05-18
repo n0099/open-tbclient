@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float aPt;
+    private float aPu;
     private boolean aqM;
     private int mDuration;
     private int mTouchSlop;
@@ -113,15 +113,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 aS(true);
-                this.aPt = motionEvent.getX();
+                this.aPu = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 aS(false);
-                this.aPt = 0.0f;
+                this.aPu = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aPt;
+                float x = motionEvent.getX() - this.aPu;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         aS(false);

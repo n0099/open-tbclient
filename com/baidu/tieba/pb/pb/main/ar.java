@@ -28,18 +28,18 @@ public class ar {
     }
 
     public static boolean j(PostData postData) {
-        if (postData == null || postData.bsi() == null) {
+        if (postData == null || postData.bsg() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h bsi = postData.bsi();
-        if (bsi.gwa) {
-            int brI = bsi.brI();
-            return brI == 2 || brI == 1 || brI == 3;
+        com.baidu.tieba.tbadkCore.data.h bsg = postData.bsg();
+        if (bsg.gxe) {
+            int brG = bsg.brG();
+            return brG == 2 || brG == 1 || brG == 3;
         }
         return false;
     }
 
-    public static void u(TbPageContext tbPageContext) {
+    public static void v(TbPageContext tbPageContext) {
         if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.i.user_like_success_dialog, (ViewGroup) null);
@@ -63,7 +63,7 @@ public class ar {
             });
             aVar.w(inflate);
             aVar.ar(false);
-            aVar.b(tbPageContext).tD();
+            aVar.b(tbPageContext).tC();
         }
     }
 }

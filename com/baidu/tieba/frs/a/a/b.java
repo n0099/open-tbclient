@@ -38,16 +38,16 @@ public class b extends f<bd, c> implements com.baidu.tieba.frs.e.c {
             return null;
         }
         cVar.mTitle.setText(bdVar.getTitle());
-        com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.td(bdVar.getId())) {
+        com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        if (readThreadHistory != null && readThreadHistory.tg(bdVar.getId())) {
             ak.c(cVar.mTitle, d.C0126d.cp_cont_c, 1);
         }
-        if (bdVar.rL() == 1) {
+        if (bdVar.rK() == 1) {
             bitmapDrawable = (BitmapDrawable) ak.getDrawable(d.f.icon_top);
         } else {
-            bitmapDrawable = bdVar.rL() == 2 ? (BitmapDrawable) ak.getDrawable(d.f.icon_notice) : null;
+            bitmapDrawable = bdVar.rK() == 2 ? (BitmapDrawable) ak.getDrawable(d.f.icon_notice) : null;
         }
-        ak.i(cVar.dfG, d.f.frs_top_item_bg);
+        ak.i(cVar.dgN, d.f.frs_top_item_bg);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }

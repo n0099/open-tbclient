@@ -7,13 +7,13 @@ public class d {
     public int mBorderWidth;
     public boolean mIsNight;
     public float mRadius;
+    public boolean zL;
     public boolean zM;
     public boolean zN;
-    public boolean zO;
-    public Matrix zR;
-    public int zS;
-    public boolean zP = false;
-    public boolean zQ = true;
+    public Matrix zQ;
+    public int zR;
+    public boolean zO = false;
+    public boolean zP = true;
     public float mAlpha = 1.0f;
-    public boolean zT = false;
+    public boolean zS = false;
 }

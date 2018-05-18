@@ -13,13 +13,13 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.message.VideoHolyCardResponseMessage;
 /* loaded from: classes.dex */
 public class VideoHolyCardModel extends BdBaseModel {
-    private a eQu;
+    private a eRB;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_HOLY_CARD) { // from class: com.baidu.tieba.model.VideoHolyCardModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.eQu != null) {
-                VideoHolyCardModel.this.eQu.am(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
+            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.eRB != null) {
+                VideoHolyCardModel.this.eRB.am(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
             }
         }
     };
@@ -52,7 +52,7 @@ public class VideoHolyCardModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.eQu = aVar;
+        this.eRB = aVar;
     }
 
     public void aRE() {

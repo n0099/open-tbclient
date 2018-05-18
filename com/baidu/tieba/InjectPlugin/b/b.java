@@ -5,16 +5,16 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private Object aXD;
-    private List<h> aXE;
+    private Object aXE;
     private List<h> aXF;
-    private List<Object> aXG;
-    private boolean aXH;
+    private List<h> aXG;
+    private List<Object> aXH;
     private boolean aXI;
     private boolean aXJ;
-    private String aXK;
+    private boolean aXK;
     private String aXL;
     private String aXM;
+    private String aXN;
     private int aqQ;
     private int currentPage;
     private String forumId;
@@ -22,65 +22,65 @@ public class b extends g {
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.aXH = false;
         this.aXI = false;
-        this.currentPage = 0;
         this.aXJ = false;
+        this.currentPage = 0;
+        this.aXK = false;
     }
 
-    public Object KW() {
-        return this.aXD;
-    }
-
-    public void setExtraData(Object obj) {
-        this.aXD = obj;
-    }
-
-    public List<h> getThreadList() {
+    public Object KU() {
         return this.aXE;
     }
 
-    public void O(List<h> list) {
-        this.aXE = list;
+    public void setExtraData(Object obj) {
+        this.aXE = obj;
     }
 
-    public List<Object> KX() {
-        return this.aXG;
-    }
-
-    public void P(List<Object> list) {
-        this.aXG = list;
-    }
-
-    public List<h> KY() {
+    public List<h> getThreadList() {
         return this.aXF;
     }
 
-    public void Q(List<h> list) {
+    public void O(List<h> list) {
         this.aXF = list;
     }
 
-    public boolean KZ() {
+    public List<Object> KV() {
         return this.aXH;
     }
 
-    public void cg(boolean z) {
-        this.aXH = z;
+    public void P(List<Object> list) {
+        this.aXH = list;
     }
 
-    public boolean isRefresh() {
+    public List<h> KW() {
+        return this.aXG;
+    }
+
+    public void Q(List<h> list) {
+        this.aXG = list;
+    }
+
+    public boolean KX() {
         return this.aXI;
     }
 
-    public void ch(boolean z) {
+    public void cg(boolean z) {
         this.aXI = z;
     }
 
-    public int La() {
+    public boolean isRefresh() {
+        return this.aXJ;
+    }
+
+    public void ch(boolean z) {
+        this.aXJ = z;
+    }
+
+    public int KY() {
         return this.currentPage;
     }
 
-    public void bU(int i) {
+    public void bV(int i) {
         this.currentPage = i;
     }
 
@@ -92,19 +92,19 @@ public class b extends g {
         this.aqQ = i;
     }
 
-    public boolean Lb() {
-        return this.aXJ;
+    public boolean KZ() {
+        return this.aXK;
     }
 
     public void ci(boolean z) {
-        this.aXJ = z;
+        this.aXK = z;
     }
 
     public int getPageNum() {
         return this.pageNum;
     }
 
-    public void gc(int i) {
+    public void gd(int i) {
         this.pageNum = i;
     }
 
@@ -116,15 +116,7 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String Lc() {
-        return this.aXK;
-    }
-
-    public void hv(String str) {
-        this.aXK = str;
-    }
-
-    public String Ld() {
+    public String La() {
         return this.aXL;
     }
 
@@ -132,11 +124,19 @@ public class b extends g {
         this.aXL = str;
     }
 
-    public String Le() {
+    public String Lb() {
         return this.aXM;
     }
 
     public void hx(String str) {
         this.aXM = str;
+    }
+
+    public String Lc() {
+        return this.aXN;
+    }
+
+    public void hy(String str) {
+        this.aXN = str;
     }
 }

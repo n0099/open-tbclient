@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends c {
-    public static final String hmj = null;
+    public static final String hnn = null;
     private String content;
-    private String hmk;
-    private String hml;
-    private String hmm;
-    private String hmn;
+    private String hno;
+    private String hnp;
+    private String hnq;
+    private String hnr;
     private int oj;
     private String params;
     private int responseCode = -2;
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.vD(jSONObject.getString(str3));
+                    eVar.vG(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -67,7 +67,7 @@ public class b extends c {
     }
 
     public void setAppKey(String str) {
-        this.hmk = str;
+        this.hno = str;
     }
 
     public void setContent(String str) {
@@ -75,18 +75,18 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hmo + ",taskID:" + this.hmp + ",appPackage:" + this.appPackage + ",appKey:" + this.hmk + ",appSecret:" + this.hml + ",registerID:" + this.hmm + ",sdkVersion:" + this.hmn + ",command:" + this.oj + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hns + ",taskID:" + this.hnt + ",appPackage:" + this.appPackage + ",appKey:" + this.hno + ",appSecret:" + this.hnp + ",registerID:" + this.hnq + ",sdkVersion:" + this.hnr + ",command:" + this.oj + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
-    public void vv(int i) {
+    public void vC(String str) {
+        this.hnp = str;
+    }
+
+    public void vu(int i) {
         this.oj = i;
     }
 
-    public void vw(int i) {
+    public void vv(int i) {
         this.responseCode = i;
-    }
-
-    public void vz(String str) {
-        this.hml = str;
     }
 }

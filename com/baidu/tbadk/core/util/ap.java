@@ -9,7 +9,7 @@ public class ap {
     private int aiZ = TbConfig.POST_IMAGE_SMALL;
     private String aja = String.valueOf(45);
 
-    public static ap vQ() {
+    public static ap vP() {
         if (aiW == null) {
             synchronized (ap.class) {
                 aiW = new ap();
@@ -19,75 +19,75 @@ public class ap {
     }
 
     public ap() {
-        vT();
-        vR();
+        vS();
+        vQ();
     }
 
-    private void vR() {
+    private void vQ() {
+        vX();
         vY();
         vZ();
-        wa();
     }
 
     public void aE(boolean z) {
         this.aiY = z;
     }
 
-    public boolean vS() {
+    public boolean vR() {
         return this.aiY;
     }
 
     public void aF(boolean z) {
         this.aiX = z;
-        vR();
+        vQ();
     }
 
-    private void vT() {
+    private void vS() {
         this.aiX = com.baidu.adp.lib.util.j.gQ();
     }
 
-    public boolean vU() {
+    public boolean vT() {
         return this.aiX;
     }
 
-    public String vV() {
+    public String vU() {
         return this.aja;
     }
 
-    public int vW() {
-        wa();
+    public int vV() {
+        vZ();
         return this.aiZ;
     }
 
-    public int vX() {
+    public int vW() {
         return TbConfig.POST_IMAGE_HIGHT_LIMIT;
     }
 
-    public void vY() {
+    public void vX() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.pY().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.pY().getViewImageQuality() != 1 : !this.aiX) {
+        if (com.baidu.tbadk.core.i.pX().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.pX().getViewImageQuality() != 1 : !this.aiX) {
             z = false;
         }
         aE(z);
     }
 
-    public void vZ() {
+    public void vY() {
         String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.i.pY().getViewImageQuality() == 0) {
-            if (vU()) {
+        if (com.baidu.tbadk.core.i.pX().getViewImageQuality() == 0) {
+            if (vT()) {
                 valueOf = String.valueOf(80);
             }
-        } else if (com.baidu.tbadk.core.i.pY().getViewImageQuality() == 1) {
+        } else if (com.baidu.tbadk.core.i.pX().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
         this.aja = valueOf;
     }
 
-    public void wa() {
+    public void vZ() {
         int i = 2000;
-        switch (com.baidu.tbadk.core.i.pY().qb()) {
+        switch (com.baidu.tbadk.core.i.pX().qa()) {
             case 0:
-                if (!vU()) {
+                if (!vT()) {
                     i = 1500;
                     break;
                 }
@@ -107,7 +107,7 @@ public class ap {
         this.aiZ = i;
     }
 
-    public static boolean wb() {
+    public static boolean wa() {
         return k.m15do() && com.baidu.adp.gif.c.dn();
     }
 }

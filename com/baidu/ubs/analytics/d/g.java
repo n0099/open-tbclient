@@ -8,21 +8,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public final class g {
-    private static String[] hlx = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File hly = null;
-    private static RandomAccessFile hlz = null;
+    private static String[] hmB = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File hmC = null;
+    private static RandomAccessFile hmD = null;
 
     public static synchronized boolean K(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (bFm() && cp(str2, str3)) {
+            if (bFk() && cp(str2, str3)) {
                 try {
-                    hly = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(hly, "rwd");
-                    hlz = randomAccessFile;
-                    randomAccessFile.seek(hly.length());
-                    hlz.write((str + "\r\n").getBytes("UTF-8"));
-                    hlz.close();
+                    hmC = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(hmC, "rwd");
+                    hmD = randomAccessFile;
+                    randomAccessFile.seek(hmC.length());
+                    hmD.write((str + "\r\n").getBytes("UTF-8"));
+                    hmD.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -35,14 +35,14 @@ public final class g {
     public static synchronized String co(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (bFm()) {
-                if (vo(str + str2)) {
+            if (bFk()) {
+                if (vr(str + str2)) {
                     try {
-                        hly = new File(str + str2);
-                        hlz = new RandomAccessFile(hly, "r");
+                        hmC = new File(str + str2);
+                        hmD = new RandomAccessFile(hmC, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = hlz.readLine();
+                            String readLine = hmD.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -50,14 +50,14 @@ public final class g {
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            hlz.close();
+                            hmD.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            hlz.close();
+                            hmD.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -71,39 +71,39 @@ public final class g {
         return str3;
     }
 
-    private static boolean bFm() {
+    private static boolean bFk() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.bEN().getContext().checkCallingOrSelfPermission(hlx[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.bEL().getContext().checkCallingOrSelfPermission(hmB[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
-    public static boolean vo(String str) {
+    public static boolean vr(String str) {
         File file = new File(str);
-        hly = file;
+        hmC = file;
         return file.exists();
     }
 
-    public static boolean vp(String str) {
+    public static boolean vs(String str) {
         File file = new File(str);
-        hly = file;
+        hmC = file;
         return file.delete();
     }
 
     private static boolean cp(String str, String str2) {
         try {
-            hly = new File(str);
-            if (!vo(str)) {
-                hly.mkdirs();
+            hmC = new File(str);
+            if (!vr(str)) {
+                hmC.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            hly = file;
+            hmC = file;
             if (file.exists()) {
                 return true;
             }
-            return hly.createNewFile();
+            return hmC.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

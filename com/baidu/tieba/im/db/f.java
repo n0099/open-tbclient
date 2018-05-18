@@ -210,7 +210,7 @@ public class f extends SQLiteOpenHelper {
                 Iterator<String> it = G.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.dVZ) || next.startsWith(l.dVZ))) {
+                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.dXg) || next.startsWith(l.dXg))) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
                         } catch (Exception e) {
@@ -313,12 +313,12 @@ public class f extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    g.dWp.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
-                    k.aDn();
+                    g.dXw.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
+                    k.aDl();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    g.dWp.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
+                    g.dXw.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
                 }
             } finally {
                 sQLiteDatabase.endTransaction();

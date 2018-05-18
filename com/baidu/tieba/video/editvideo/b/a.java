@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a gLK;
-    private b gLL;
-    b.a gLM;
+    private com.baidu.tieba.video.editvideo.data.a gMN;
+    private b gMO;
+    b.a gMP;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.gLK = aVar;
+        this.gMN = aVar;
     }
 
-    public boolean bww() {
-        return (this.gLK == null || "normal".equalsIgnoreCase(this.gLK.value)) ? false : true;
+    public boolean bwu() {
+        return (this.gMN == null || "normal".equalsIgnoreCase(this.gMN.value)) ? false : true;
     }
 
-    public void tS(String str) {
-        if ((this.gLL == null || !this.gLL.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String bwz = bwz();
+    public void tV(String str) {
+        if ((this.gMO == null || !this.gMO.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String bwx = bwx();
             String str2 = "normal";
-            if (this.gLK != null) {
-                str2 = this.gLK.value;
+            if (this.gMN != null) {
+                str2 = this.gMN.value;
             }
-            this.gLL = new b(this.mContext, str, bwz, str2);
-            if (this.gLM != null) {
-                this.gLL.a(this.gLM);
+            this.gMO = new b(this.mContext, str, bwx, str2);
+            if (this.gMP != null) {
+                this.gMO.a(this.gMP);
             }
-            this.gLL.bwA();
+            this.gMO.bwy();
         }
     }
 
-    public boolean bwx() {
-        if (this.gLL != null) {
-            return this.gLL.isRunning();
+    public boolean bwv() {
+        if (this.gMO != null) {
+            return this.gMO.isRunning();
         }
         return false;
     }
 
-    public void bwy() {
-        if (this.gLL != null) {
-            this.gLL.bwB();
+    public void bww() {
+        if (this.gMO != null) {
+            this.gMO.bwz();
         }
     }
 
     public void a(b.a aVar) {
-        this.gLM = aVar;
-        if (this.gLL != null) {
-            this.gLL.a(this.gLM);
+        this.gMP = aVar;
+        if (this.gMO != null) {
+            this.gMO.a(this.gMP);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String bwz() {
-        return com.baidu.tieba.video.b.gJG + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String bwx() {
+        return com.baidu.tieba.video.b.gKJ + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

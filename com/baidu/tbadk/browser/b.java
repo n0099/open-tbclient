@@ -22,7 +22,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         this.mContext = context;
     }
 
-    private String pd() {
+    private String pc() {
         az.aK(this.mContext);
         JSResultData jSResultData = new JSResultData();
         jSResultData.setStatus(1);
@@ -31,12 +31,12 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         return OrmObject.jsonStrWithObject(jSResultData);
     }
 
-    private String pe() {
+    private String pd() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921053));
         return "";
     }
 
-    private String pf() {
+    private String pe() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921052));
         return "";
     }
@@ -50,7 +50,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             if ("startLoginModule".equals(str2)) {
                 try {
                     new JSONObject(str3);
-                    jsPromptResult.confirm(pd());
+                    jsPromptResult.confirm(pc());
                     return true;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -70,7 +70,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             }
             if ("personPageRefresh".equals(str2)) {
                 try {
-                    jsPromptResult.confirm(pf());
+                    jsPromptResult.confirm(pe());
                     return true;
                 } catch (Exception e3) {
                     e3.printStackTrace();
@@ -78,7 +78,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             }
             if ("finishThisPage".equals(str2)) {
                 try {
-                    jsPromptResult.confirm(pe());
+                    jsPromptResult.confirm(pd());
                     return true;
                 } catch (Exception e4) {
                     e4.printStackTrace();

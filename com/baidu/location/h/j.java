@@ -8,27 +8,27 @@ import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Thread {
-    final /* synthetic */ f QU;
+    final /* synthetic */ f QQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.QU = fVar;
+        this.QQ = fVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.QU.h = i.c();
-        this.QU.b();
-        this.QU.a();
+        this.QQ.h = i.c();
+        this.QQ.b();
+        this.QQ.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.QU.i;
+        int i = this.QQ.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.QU.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.QQ.h).openConnection();
                 try {
                     try {
                         httpURLConnection.setRequestMethod("GET");
@@ -73,8 +73,8 @@ public class j extends Thread {
                 }
                 inputStream.close();
                 byteArrayOutputStream.close();
-                this.QU.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                this.QU.a(true);
+                this.QQ.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.QQ.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -93,7 +93,7 @@ public class j extends Thread {
             return;
         }
         f.o++;
-        this.QU.j = null;
-        this.QU.a(false);
+        this.QQ.j = null;
+        this.QQ.a(false);
     }
 }

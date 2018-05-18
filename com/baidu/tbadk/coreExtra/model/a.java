@@ -15,7 +15,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0091a avp;
+    private C0091a avq;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -32,18 +32,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.avp == null) {
-            this.avp = new C0091a();
-            this.avp.setPriority(2);
-            this.avp.bk(z);
-            this.avp.setPortrait(str);
-            this.avp.setToUid(str2);
-            this.avp.setIsGod(z2);
-            this.avp.setFrom(str3);
-            this.avp.setPageId(bdUniqueId);
-            this.avp.setForumId(str4);
-            this.avp.setInLive(str5);
-            this.avp.execute(new Integer[0]);
+        if (this.avq == null) {
+            this.avq = new C0091a();
+            this.avq.setPriority(2);
+            this.avq.bk(z);
+            this.avq.setPortrait(str);
+            this.avq.setToUid(str2);
+            this.avq.setIsGod(z2);
+            this.avq.setFrom(str3);
+            this.avq.setPageId(bdUniqueId);
+            this.avq.setForumId(str4);
+            this.avq.setInLive(str5);
+            this.avq.execute(new Integer[0]);
         }
     }
 
@@ -126,8 +126,8 @@ public class a {
                         this.mNetwork.n("forum_id", this.forumId);
                     }
                     this.mNetwork.n("in_live", this.inLive);
-                    this.mNetwork.vj().wi().mIsNeedTbs = true;
-                    return this.mNetwork.uL();
+                    this.mNetwork.vi().wh().mIsNeedTbs = true;
+                    return this.mNetwork.uK();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -140,19 +140,19 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0091a) str);
-            a.this.avp = null;
+            a.this.avq = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Aj = this.mNetwork.vj().wj().isRequestSuccess();
+                aVar.Ai = this.mNetwork.vi().wi().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.k(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.vj().wj().isRequestSuccess()) {
-                    aVar.auo = null;
+                if (this.mNetwork.vi().wi().isRequestSuccess()) {
+                    aVar.aup = null;
                 }
-                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.vn(), aVar.aun)) {
+                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.vm(), aVar.auo)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -167,9 +167,9 @@ public class a {
                 this.mNetwork.eW();
                 this.mNetwork = null;
             }
-            if (a.this.avp != null) {
-                a.this.avp.cancel();
-                a.this.avp = null;
+            if (a.this.avq != null) {
+                a.this.avq.cancel();
+                a.this.avq = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.f(false);
@@ -185,8 +185,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.avp != null) {
-            this.avp.cancel();
+        if (this.avq != null) {
+            this.avq.cancel();
         }
     }
 }

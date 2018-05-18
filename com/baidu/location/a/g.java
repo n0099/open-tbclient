@@ -17,7 +17,7 @@ import java.net.URL;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends com.baidu.location.h.f {
-    private static g Ob = null;
+    private static g NX = null;
     String a = null;
     String b = null;
     String c = null;
@@ -153,7 +153,7 @@ public class g extends com.baidu.location.h.f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.a != null && com.baidu.location.f.k.nS().g()) {
+        if (this.a != null && com.baidu.location.f.k.nR().g()) {
             new o(this).start();
         }
     }
@@ -190,14 +190,14 @@ public class g extends com.baidu.location.h.f {
         }
     }
 
-    public static g mZ() {
-        if (Ob == null) {
-            Ob = new g();
+    public static g mY() {
+        if (NX == null) {
+            NX = new g();
         }
-        return Ob;
+        return NX;
     }
 
-    private Handler na() {
+    private Handler mZ() {
         return this.f;
     }
 
@@ -212,12 +212,12 @@ public class g extends com.baidu.location.h.f {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.h.c.nT().b == null) {
+        if (com.baidu.location.h.c.nS().b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.h.c.nT().a);
+            stringBuffer.append(com.baidu.location.h.c.nS().a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.h.c.nT().b);
+            stringBuffer.append(com.baidu.location.h.c.nS().b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -268,7 +268,7 @@ public class g extends com.baidu.location.h.f {
                     if (jSONObject.has("u1_md5")) {
                         this.d = jSONObject.getString("u1_md5");
                     }
-                    na().post(new n(this));
+                    mZ().post(new n(this));
                 }
                 if (jSONObject.has("ison")) {
                     this.e = jSONObject.getInt("ison");
@@ -277,13 +277,13 @@ public class g extends com.baidu.location.h.f {
             } catch (Exception e) {
             }
         }
-        com.baidu.location.h.d.nU().a(System.currentTimeMillis());
+        com.baidu.location.h.d.nT().a(System.currentTimeMillis());
     }
 
     public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.h.d.nU().b() > 86400000) {
-            na().postDelayed(new l(this), 10000L);
-            na().postDelayed(new m(this), TbConfig.NOTIFY_SOUND_INTERVAL);
+        if (System.currentTimeMillis() - com.baidu.location.h.d.nT().b() > 86400000) {
+            mZ().postDelayed(new l(this), 10000L);
+            mZ().postDelayed(new m(this), TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 }

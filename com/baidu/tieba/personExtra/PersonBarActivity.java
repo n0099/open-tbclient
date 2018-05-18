@@ -5,32 +5,32 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private PersonBarAdapter fFT = null;
-    private PersonBarModel fFU = null;
+    private PersonBarAdapter fGZ = null;
+    private PersonBarModel fHa = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.fET && this.efH != 23011) {
+        if (this.fFZ && this.egO != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.fFU = new PersonBarModel(getPageContext(), aGn());
-        this.fFU.setSex(getSex());
-        this.fFU.setId(getUid());
-        this.fFU.setUniqueId(getUniqueId());
+        this.fHa = new PersonBarModel(getPageContext(), aGl());
+        this.fHa.setSex(getSex());
+        this.fHa.setId(getUid());
+        this.fHa.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.fFT == null) {
-            this.fFT = new PersonBarAdapter(this, aGn());
+        if (this.fGZ == null) {
+            this.fGZ = new PersonBarAdapter(this, aGl());
         }
-        return this.fFT;
+        return this.fGZ;
     }
 
     public PersonBarModel bel() {
-        return this.fFU;
+        return this.fHa;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
@@ -73,13 +73,13 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         BaseFragment baseFragment;
         b bev;
         super.onPageSelected(i);
-        if (this.fFT != null && this.fFT.getItem(i) != null && (baseFragment = (BaseFragment) this.fFT.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bev = ((PersonBarFragment) baseFragment).bev()) != null) {
+        if (this.fGZ != null && this.fGZ.getItem(i) != null && (baseFragment = (BaseFragment) this.fGZ.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bev = ((PersonBarFragment) baseFragment).bev()) != null) {
             bev.co(false);
             bev.notifyDataSetChanged();
         }
     }
 
     public int getRequestCode() {
-        return this.efH;
+        return this.egO;
     }
 }

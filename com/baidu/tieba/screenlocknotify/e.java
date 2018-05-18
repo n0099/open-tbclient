@@ -5,12 +5,12 @@ import tbclient.GetMoreMsg.MsgContent;
 public class e {
     public String content;
     public int customGroupType;
-    public long doh;
-    public boolean fJK;
+    public long dpp;
+    public boolean fKQ;
     public int followStatus;
-    public int gfA;
-    public String gfB = "";
-    public long gfC;
+    public int ggG;
+    public String ggH = "";
+    public long ggI;
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;
@@ -35,10 +35,10 @@ public class e {
     }
 
     private static void e(e eVar) {
-        eVar.gfA = 0;
+        eVar.ggG = 0;
         eVar.msgType = 4;
         eVar.customGroupType = 4;
-        eVar.doh = System.currentTimeMillis();
+        eVar.dpp = System.currentTimeMillis();
         eVar.isAcceptNotify = true;
     }
 }

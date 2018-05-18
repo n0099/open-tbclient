@@ -56,17 +56,17 @@ public class ThreadCommentAndPraiseInfoLayoutNew extends LinearLayout {
         this.apk = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayoutNew.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                ThreadCommentAndPraiseInfoLayoutNew.this.xg();
+                ThreadCommentAndPraiseInfoLayoutNew.this.xf();
             }
         };
         this.apl = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayoutNew.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (ThreadCommentAndPraiseInfoLayoutNew.this.alf != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ() != null && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getName_show()) && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getUserId()) && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rV() != null) {
-                    if (ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ() != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ().channelId, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ().mCurrentPage)));
+                if (ThreadCommentAndPraiseInfoLayoutNew.this.alf != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP() != null && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getName_show()) && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getUserId()) && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rU() != null) {
+                    if (ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP() != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP().channelId, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP().mCurrentPage)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getUserId(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getName_show(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rV(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getUserId(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getName_show(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rU(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     }
                     if (ThreadCommentAndPraiseInfoLayoutNew.this.apj != null) {
                         ThreadCommentAndPraiseInfoLayoutNew.this.apj.onClick(view2);
@@ -85,17 +85,17 @@ public class ThreadCommentAndPraiseInfoLayoutNew extends LinearLayout {
         this.apk = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayoutNew.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                ThreadCommentAndPraiseInfoLayoutNew.this.xg();
+                ThreadCommentAndPraiseInfoLayoutNew.this.xf();
             }
         };
         this.apl = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayoutNew.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (ThreadCommentAndPraiseInfoLayoutNew.this.alf != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ() != null && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getName_show()) && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getUserId()) && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rV() != null) {
-                    if (ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ() != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ().channelId, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ().mCurrentPage)));
+                if (ThreadCommentAndPraiseInfoLayoutNew.this.alf != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP() != null && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getName_show()) && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getUserId()) && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rU() != null) {
+                    if (ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP() != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP().channelId, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP().mCurrentPage)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getUserId(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getName_show(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rV(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getUserId(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getName_show(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rU(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     }
                     if (ThreadCommentAndPraiseInfoLayoutNew.this.apj != null) {
                         ThreadCommentAndPraiseInfoLayoutNew.this.apj.onClick(view2);
@@ -114,17 +114,17 @@ public class ThreadCommentAndPraiseInfoLayoutNew extends LinearLayout {
         this.apk = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayoutNew.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                ThreadCommentAndPraiseInfoLayoutNew.this.xg();
+                ThreadCommentAndPraiseInfoLayoutNew.this.xf();
             }
         };
         this.apl = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayoutNew.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (ThreadCommentAndPraiseInfoLayoutNew.this.alf != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ() != null && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getName_show()) && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getUserId()) && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rV() != null) {
-                    if (ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ() != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ().channelId, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sQ().mCurrentPage)));
+                if (ThreadCommentAndPraiseInfoLayoutNew.this.alf != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP() != null && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getName_show()) && !StringUtils.isNull(ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getUserId()) && ThreadCommentAndPraiseInfoLayoutNew.this.alf.rU() != null) {
+                    if (ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP() != null && ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP().channelId, ThreadCommentAndPraiseInfoLayoutNew.this.alf.sP().mCurrentPage)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getUserId(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rQ().getName_show(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rV(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(ThreadCommentAndPraiseInfoLayoutNew.this.mContext, ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getUserId(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rP().getName_show(), ThreadCommentAndPraiseInfoLayoutNew.this.alf.rU(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     }
                     if (ThreadCommentAndPraiseInfoLayoutNew.this.apj != null) {
                         ThreadCommentAndPraiseInfoLayoutNew.this.apj.onClick(view2);
@@ -161,22 +161,22 @@ public class ThreadCommentAndPraiseInfoLayoutNew extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xg() {
+    public void xf() {
         if (this.mPageContext != null) {
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-            bVar.cc(d.k.operation);
+            bVar.cd(d.k.operation);
             bVar.a(this.aoE, new b.InterfaceC0086b() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayoutNew.2
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view2) {
                     String str = (String) v.c(ThreadCommentAndPraiseInfoLayoutNew.this.aoF, i);
                     if (!StringUtils.isNull(str)) {
-                        ax.wg().c(ThreadCommentAndPraiseInfoLayoutNew.this.mPageContext, new String[]{str});
+                        ax.wf().c(ThreadCommentAndPraiseInfoLayoutNew.this.mPageContext, new String[]{str});
                     }
                     bVar2.dismiss();
                 }
             });
             bVar.d(this.mPageContext);
-            bVar.tG();
+            bVar.tF();
         }
     }
 

@@ -12,24 +12,24 @@ public class av {
     private String Zl;
     private List<a> Zm = new ArrayList();
 
-    public String rm() {
+    public String rl() {
         return StringUtils.isNull(this.Zl) ? TbadkCoreApplication.getInst().getString(d.k.hot_topic_card_title) : this.Zl;
     }
 
-    public com.baidu.tieba.card.data.n rn() {
+    public com.baidu.tieba.card.data.n rm() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.csm = rm();
+        nVar.ctv = rl();
         if (this.Zm != null) {
             ArrayList arrayList2 = new ArrayList();
             for (a aVar : this.Zm) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.rp());
+                    arrayList2.add(aVar.ro());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.csn = arrayList;
+        nVar.ctw = arrayList;
         return nVar;
     }
 
@@ -51,7 +51,7 @@ public class av {
     }
 
     private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.ro() <= 0;
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.rn() <= 0;
     }
 
     /* loaded from: classes2.dex */
@@ -64,7 +64,7 @@ public class av {
         private int tag;
         private int type;
 
-        public long ro() {
+        public long rn() {
             return this.Zn;
         }
 
@@ -84,7 +84,7 @@ public class av {
             }
         }
 
-        public com.baidu.tieba.card.data.m rp() {
+        public com.baidu.tieba.card.data.m ro() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
             mVar.desc = this.Zq;

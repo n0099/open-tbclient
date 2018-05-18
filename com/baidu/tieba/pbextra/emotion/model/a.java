@@ -7,32 +7,32 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes3.dex */
 public class a {
-    protected Bitmap Eu;
-    protected int fAb;
-    protected byte[] fAd;
-    protected byte[] fAe;
-    protected int fAf;
-    protected byte[] fAg;
+    protected Bitmap Eq;
+    protected int fBh;
+    protected byte[] fBj;
+    protected byte[] fBk;
+    protected int fBl;
+    protected byte[] fBm;
     protected int height;
     protected OutputStream out;
     protected int width;
     protected int x = 0;
     protected int y = 0;
     protected int transparent = -1;
-    protected int fAc = -1;
+    protected int fBi = -1;
     protected int delay = 0;
     protected boolean started = false;
-    protected boolean[] fAh = new boolean[256];
-    protected int fAi = 7;
-    protected int fAj = -1;
-    protected boolean fAk = false;
-    protected boolean fAl = true;
-    protected boolean fAm = false;
-    protected int fAn = 10;
+    protected boolean[] fBn = new boolean[256];
+    protected int fBo = 7;
+    protected int fBp = -1;
+    protected boolean fBq = false;
+    protected boolean fBr = true;
+    protected boolean fBs = false;
+    protected int fBt = 10;
 
-    public void qR(int i) {
+    public void qQ(int i) {
         if (i >= 0) {
-            this.fAc = i;
+            this.fBi = i;
         }
     }
 
@@ -41,26 +41,26 @@ public class a {
             return false;
         }
         try {
-            if (!this.fAm) {
+            if (!this.fBs) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
-            this.Eu = bitmap;
+            this.Eq = bitmap;
             bcV();
             bcU();
-            if (this.fAl) {
+            if (this.fBr) {
                 bcY();
                 bda();
-                if (this.fAc >= 0) {
+                if (this.fBi >= 0) {
                     bcZ();
                 }
             }
             bcW();
             bcX();
-            if (!this.fAl) {
+            if (!this.fBr) {
                 bda();
             }
             bdb();
-            this.fAl = false;
+            this.fBr = false;
             return true;
         } catch (IOException e) {
             return false;
@@ -74,21 +74,21 @@ public class a {
             try {
                 this.out.write(59);
                 this.out.flush();
-                if (this.fAk) {
+                if (this.fBq) {
                     this.out.close();
                 }
                 z = true;
             } catch (IOException e) {
                 z = false;
             }
-            this.fAb = 0;
+            this.fBh = 0;
             this.out = null;
-            this.Eu = null;
-            this.fAd = null;
-            this.fAe = null;
-            this.fAg = null;
-            this.fAk = false;
-            this.fAl = true;
+            this.Eq = null;
+            this.fBj = null;
+            this.fBk = null;
+            this.fBm = null;
+            this.fBq = false;
+            this.fBr = true;
             return z;
         }
         return false;
@@ -103,7 +103,7 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.fAm = true;
+        this.fBs = true;
     }
 
     public boolean d(OutputStream outputStream) {
@@ -111,7 +111,7 @@ public class a {
             return false;
         }
         boolean z = true;
-        this.fAk = false;
+        this.fBq = false;
         this.out = outputStream;
         try {
             writeString("GIF89a");
@@ -123,55 +123,55 @@ public class a {
     }
 
     protected void bcU() {
-        int length = this.fAd.length;
+        int length = this.fBj.length;
         int i = length / 3;
-        this.fAe = new byte[i];
-        c cVar = new c(this.fAd, length, this.fAn);
-        this.fAg = cVar.bdh();
-        for (int i2 = 0; i2 < this.fAg.length; i2 += 3) {
-            byte b = this.fAg[i2];
-            this.fAg[i2] = this.fAg[i2 + 2];
-            this.fAg[i2 + 2] = b;
-            this.fAh[i2 / 3] = false;
+        this.fBk = new byte[i];
+        c cVar = new c(this.fBj, length, this.fBt);
+        this.fBm = cVar.bdh();
+        for (int i2 = 0; i2 < this.fBm.length; i2 += 3) {
+            byte b = this.fBm[i2];
+            this.fBm[i2] = this.fBm[i2 + 2];
+            this.fBm[i2 + 2] = b;
+            this.fBn[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int Q = cVar.Q(this.fAd[i3] & 255, this.fAd[i5] & 255, this.fAd[i6] & 255);
-            this.fAh[Q] = true;
-            this.fAe[i4] = (byte) Q;
+            int Q = cVar.Q(this.fBj[i3] & 255, this.fBj[i5] & 255, this.fBj[i6] & 255);
+            this.fBn[Q] = true;
+            this.fBk[i4] = (byte) Q;
         }
-        this.fAd = null;
-        this.fAf = 8;
-        this.fAi = 7;
+        this.fBj = null;
+        this.fBl = 8;
+        this.fBo = 7;
         if (this.transparent != -1) {
-            this.fAb = qS(this.transparent);
+            this.fBh = qR(this.transparent);
         }
     }
 
-    protected int qS(int i) {
+    protected int qR(int i) {
         int i2;
         int i3 = 0;
-        if (this.fAg == null) {
+        if (this.fBm == null) {
             return -1;
         }
         int i4 = (i >> 16) & 255;
         int i5 = (i >> 8) & 255;
         int i6 = (i >> 0) & 255;
         int i7 = 16777216;
-        int length = this.fAg.length;
+        int length = this.fBm.length;
         int i8 = 0;
         while (i3 < length) {
             int i9 = i3 + 1;
-            int i10 = i4 - (this.fAg[i3] & 255);
+            int i10 = i4 - (this.fBm[i3] & 255);
             int i11 = i9 + 1;
-            int i12 = i5 - (this.fAg[i9] & 255);
-            int i13 = i6 - (this.fAg[i11] & 255);
+            int i12 = i5 - (this.fBm[i9] & 255);
+            int i13 = i6 - (this.fBm[i11] & 255);
             int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
             int i15 = i11 / 3;
-            if (!this.fAh[i15] || i14 >= i7) {
+            if (!this.fBn[i15] || i14 >= i7) {
                 i14 = i7;
                 i2 = i8;
             } else {
@@ -185,22 +185,22 @@ public class a {
     }
 
     protected void bcV() {
-        int width = this.Eu.getWidth();
-        int height = this.Eu.getHeight();
+        int width = this.Eq.getWidth();
+        int height = this.Eq.getHeight();
         if (width != this.width || height != this.height) {
             Bitmap createBitmap = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.RGB_565);
-            new Canvas(createBitmap).drawBitmap(this.Eu, 0.0f, 0.0f, new Paint());
-            this.Eu = createBitmap;
+            new Canvas(createBitmap).drawBitmap(this.Eq, 0.0f, 0.0f, new Paint());
+            this.Eq = createBitmap;
         }
-        int[] v = v(this.Eu);
-        this.fAd = new byte[v.length * 3];
+        int[] v = v(this.Eq);
+        this.fBj = new byte[v.length * 3];
         for (int i = 0; i < v.length; i++) {
             int i2 = v[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.fAd[i3] = (byte) ((i2 >> 0) & 255);
-            this.fAd[i4] = (byte) ((i2 >> 8) & 255);
-            this.fAd[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            this.fBj[i3] = (byte) ((i2 >> 0) & 255);
+            this.fBj[i4] = (byte) ((i2 >> 8) & 255);
+            this.fBj[i4 + 1] = (byte) ((i2 >> 16) & 255);
         }
     }
 
@@ -225,12 +225,12 @@ public class a {
             i = 1;
             i2 = 2;
         }
-        if (this.fAj >= 0) {
-            i2 = this.fAj & 7;
+        if (this.fBp >= 0) {
+            i2 = this.fBp & 7;
         }
         this.out.write((i2 << 2) | 0 | 0 | i);
         writeShort(this.delay);
-        this.out.write(this.fAb);
+        this.out.write(this.fBh);
         this.out.write(0);
     }
 
@@ -240,17 +240,17 @@ public class a {
         writeShort(this.y);
         writeShort(this.width);
         writeShort(this.height);
-        if (this.fAl) {
+        if (this.fBr) {
             this.out.write(0);
         } else {
-            this.out.write(this.fAi | 128);
+            this.out.write(this.fBo | 128);
         }
     }
 
     protected void bcY() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
-        this.out.write(this.fAi | 240);
+        this.out.write(this.fBo | 240);
         this.out.write(0);
         this.out.write(0);
     }
@@ -262,20 +262,20 @@ public class a {
         writeString("NETSCAPE2.0");
         this.out.write(3);
         this.out.write(1);
-        writeShort(this.fAc);
+        writeShort(this.fBi);
         this.out.write(0);
     }
 
     protected void bda() throws IOException {
-        this.out.write(this.fAg, 0, this.fAg.length);
-        int length = 768 - this.fAg.length;
+        this.out.write(this.fBm, 0, this.fBm.length);
+        int length = 768 - this.fBm.length;
         for (int i = 0; i < length; i++) {
             this.out.write(0);
         }
     }
 
     protected void bdb() throws IOException {
-        new b(this.width, this.height, this.fAe, this.fAf).encode(this.out);
+        new b(this.width, this.height, this.fBk, this.fBl).encode(this.out);
     }
 
     protected void writeShort(int i) throws IOException {

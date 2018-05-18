@@ -9,12 +9,12 @@ import java.nio.ByteBuffer;
 public class g extends DiskFileOperate {
     protected a agi;
     protected Bitmap mBitmap;
-    protected BitmapFactory.Options ql;
+    protected BitmapFactory.Options qj;
 
     public g(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.ql = null;
+        this.qj = null;
         this.agi = null;
         this.agi = new a();
     }
@@ -52,18 +52,18 @@ public class g extends DiskFileOperate {
         if (bArr == null) {
             return false;
         }
-        if (this.ql == null) {
-            this.ql = new BitmapFactory.Options();
-            this.ql.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (this.qj == null) {
+            this.qj = new BitmapFactory.Options();
+            this.qj.inPreferredConfig = Bitmap.Config.RGB_565;
         }
         boolean k = this.agi.k(bArr);
-        if (this.agi.qp == 0 || this.agi.qp >= System.currentTimeMillis()) {
+        if (this.agi.qo == 0 || this.agi.qo >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
             if (!k) {
                 headerSize = 0;
             }
             try {
-                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.ql);
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.qj);
             } catch (Error e) {
                 BdLog.e(e.getMessage());
             }
@@ -75,9 +75,9 @@ public class g extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte qn = Byte.MIN_VALUE;
+        private static byte qm = Byte.MIN_VALUE;
         boolean mIsGif = false;
-        long qp = 0;
+        long qo = 0;
 
         a() {
         }
@@ -89,8 +89,8 @@ public class g extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600510);
-            allocate.put(this.mIsGif ? (byte) (0 | qn) : (byte) 0);
-            allocate.putLong(this.qp);
+            allocate.put(this.mIsGif ? (byte) (0 | qm) : (byte) 0);
+            allocate.putLong(this.qo);
             allocate.flip();
             return allocate.array();
         }
@@ -101,10 +101,10 @@ public class g extends DiskFileOperate {
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600510) {
-                if ((wrap.get() & qn) != 0) {
+                if ((wrap.get() & qm) != 0) {
                     this.mIsGif = true;
                 }
-                this.qp = wrap.getLong();
+                this.qo = wrap.getLong();
                 return true;
             }
             return false;

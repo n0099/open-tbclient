@@ -8,10 +8,10 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k implements h {
-    private JSONObject qL;
+    private JSONObject qK;
 
     public k(JSONObject jSONObject) {
-        this.qL = jSONObject;
+        this.qK = jSONObject;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
@@ -19,14 +19,14 @@ public class k implements h {
         Class<?> dP = cVar.dP();
         Type[] dO = cVar.dO();
         if (com.baidu.adp.lib.OrmObject.a.a.d(dP, Map.class)) {
-            Map<String, Object> d = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.d(cVar, this.qL.length());
+            Map<String, Object> d = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.d(cVar, this.qK.length());
             if (d != null) {
-                Iterator<String> keys = this.qL.keys();
+                Iterator<String> keys = this.qK.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
                     if (next instanceof String) {
                         String str = next;
-                        Object g = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.l(this.qL.opt(str)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(dO[1]));
+                        Object g = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.l(this.qK.opt(str)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(dO[1]));
                         if (g != null) {
                             d.put(str, g);
                         }
@@ -35,15 +35,15 @@ public class k implements h {
             }
             return d;
         } else if (dP == SparseArray.class) {
-            SparseArray sparseArray = new SparseArray(this.qL.length());
-            Iterator<String> keys2 = this.qL.keys();
+            SparseArray sparseArray = new SparseArray(this.qK.length());
+            Iterator<String> keys2 = this.qK.keys();
             while (keys2.hasNext()) {
                 String next2 = keys2.next();
                 if (next2 instanceof String) {
                     String str2 = next2;
                     try {
                         int parseInt = Integer.parseInt(str2);
-                        Object g2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.l(this.qL.opt(String.valueOf(str2))).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(dO[0]));
+                        Object g2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.l(this.qK.opt(String.valueOf(str2))).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(dO[0]));
                         if (g2 != null) {
                             sparseArray.put(parseInt, g2);
                         }
@@ -54,7 +54,7 @@ public class k implements h {
             }
             return sparseArray;
         } else if (com.baidu.adp.lib.OrmObject.a.a.d(dP, com.baidu.adp.lib.OrmObject.toolsystem.orm.object.a.class)) {
-            return OrmObject.objectWithJson(this.qL, dP);
+            return OrmObject.objectWithJson(this.qK, dP);
         } else {
             return null;
         }

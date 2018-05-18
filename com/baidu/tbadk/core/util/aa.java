@@ -16,11 +16,11 @@ public class aa {
         public long mTime;
     }
 
-    public static int cD(int i) {
+    public static int cE(int i) {
         return ahE.getAndSet(i);
     }
 
-    public static int cE(int i) {
+    public static int cF(int i) {
         return ahE.addAndGet(i);
     }
 
@@ -34,7 +34,7 @@ public class aa {
         }
     }
 
-    public static synchronized a vu() {
+    public static synchronized a vt() {
         a remove;
         synchronized (aa.class) {
             int size = ahD.size();

@@ -9,18 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private final com.baidu.tieba.frs.i cXh;
-    private final FrsModelController cXp;
-    private final FrsFragment dmW;
-    private final FrsLoadMoreModel dmX;
-    private final FrsSmartLoadMoreModel dmY;
-    private final a dmZ = new a() { // from class: com.baidu.tieba.frs.mc.c.1
+    private final com.baidu.tieba.frs.i cYo;
+    private final FrsModelController cYw;
+    private final FrsFragment dof;
+    private final FrsLoadMoreModel dog;
+    private final FrsSmartLoadMoreModel doh;
+    private final a doi = new a() { // from class: com.baidu.tieba.frs.mc.c.1
         @Override // com.baidu.tieba.frs.mc.c.a
         public void removeItem(int i) {
-            if (c.this.cXh != null && c.this.cXh.getListView() != null) {
-                List<com.baidu.adp.widget.ListView.h> data = c.this.cXh.getListView().getData();
-                if (!v.w(data) && c.this.cXh.getListView().getAdapter() != null && ((com.baidu.adp.widget.ListView.h) v.d(data, i)) != null) {
-                    c.this.cXh.getListView().getAdapter().notifyItemRemoved(i);
+            if (c.this.cYo != null && c.this.cYo.getListView() != null) {
+                List<com.baidu.adp.widget.ListView.h> data = c.this.cYo.getListView().getData();
+                if (!v.w(data) && c.this.cYo.getListView().getAdapter() != null && ((com.baidu.adp.widget.ListView.h) v.d(data, i)) != null) {
+                    c.this.cYo.getListView().getAdapter().notifyItemRemoved(i);
                 }
             }
         }
@@ -35,15 +35,15 @@ public class c {
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is NullPointerException");
         }
-        this.dmW = frsFragment;
-        this.dmX = new FrsLoadMoreModel(frsFragment, iVar);
-        this.dmY = new FrsSmartLoadMoreModel(frsFragment, iVar);
-        this.dmY.a(this.dmZ);
-        this.dmX.a(this.dmZ);
-        this.cXh = frsFragment.apn();
-        this.cXp = frsFragment.aph();
-        this.dmY.setSortType(this.cXp.Rl());
-        this.dmX.setSortType(this.cXp.Rl());
+        this.dof = frsFragment;
+        this.dog = new FrsLoadMoreModel(frsFragment, iVar);
+        this.doh = new FrsSmartLoadMoreModel(frsFragment, iVar);
+        this.doh.a(this.doi);
+        this.dog.a(this.doi);
+        this.cYo = frsFragment.apm();
+        this.cYw = frsFragment.apg();
+        this.doh.setSortType(this.cYw.Ri());
+        this.dog.setSortType(this.cYw.Ri());
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.h> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.h> arrayList, com.baidu.tieba.tbadkCore.data.e eVar) {
@@ -51,109 +51,109 @@ public class c {
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.h> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.h> arrayList, com.baidu.tieba.tbadkCore.data.e eVar, boolean z3) {
-        if (this.cXp != null) {
-            boolean auq = this.dmW.aph().auq();
-            if (this.cXp.aur()) {
-                return this.dmY.a(z, auq, arrayList, z3);
+        if (this.cYw != null) {
+            boolean aup = this.dof.apg().aup();
+            if (this.cYw.auq()) {
+                return this.doh.a(z, aup, arrayList, z3);
             }
-            return this.dmX.a(z, auq, z2, arrayList, eVar);
+            return this.dog.a(z, aup, z2, arrayList, eVar);
         }
         return arrayList;
     }
 
     public void resetData() {
-        if (this.cXp != null) {
-            if (this.cXp.aur()) {
-                this.dmY.resetData();
+        if (this.cYw != null) {
+            if (this.cYw.auq()) {
+                this.doh.resetData();
             } else {
-                this.dmX.resetData();
+                this.dog.resetData();
             }
         }
     }
 
-    public boolean bo(List<Long> list) {
-        if (this.cXp == null || this.cXp.aur()) {
+    public boolean br(List<Long> list) {
+        if (this.cYw == null || this.cYw.auq()) {
             return false;
         }
-        return this.dmX.bo(list);
+        return this.dog.br(list);
     }
 
     public void a(String str, String str2, l lVar) {
-        if (this.cXp != null && this.cXh != null && lVar != null) {
-            if (this.cXp.aur()) {
-                if (this.dmY.apo() == 1 && !this.cXp.wX()) {
-                    this.dmY.setSortType(this.cXp.Rl());
-                    this.dmY.atY();
-                    int pn = this.dmY.getPn();
-                    this.dmY.setPn(pn);
-                    this.cXp.kR(pn + 1);
+        if (this.cYw != null && this.cYo != null && lVar != null) {
+            if (this.cYw.auq()) {
+                if (this.doh.apn() == 1 && !this.cYw.wW()) {
+                    this.doh.setSortType(this.cYw.Ri());
+                    this.doh.atX();
+                    int pn = this.doh.getPn();
+                    this.doh.setPn(pn);
+                    this.cYw.kQ(pn + 1);
                 }
-            } else if (this.cXp.auh() == 1) {
-                if (!this.dmX.isLoading && !this.cXp.wX()) {
-                    int pn2 = this.dmX.getPn();
-                    if (this.dmX.bo(lVar.bqh())) {
-                        this.dmX.atY();
-                        this.dmX.setSortType(this.cXp.Rl());
-                        this.dmX.a(com.baidu.adp.lib.g.b.c(str2, 0L), lVar.bqh(), str, pn2);
-                    } else if (this.dmX.apo() == 1) {
-                        this.dmX.atY();
-                        this.dmX.setPn(pn2);
-                        this.cXp.kR(pn2 + 1);
-                        this.dmX.loadingDone = false;
-                        this.dmX.loadIndex = 0;
+            } else if (this.cYw.aug() == 1) {
+                if (!this.dog.isLoading && !this.cYw.wW()) {
+                    int pn2 = this.dog.getPn();
+                    if (this.dog.br(lVar.bqf())) {
+                        this.dog.atX();
+                        this.dog.setSortType(this.cYw.Ri());
+                        this.dog.a(com.baidu.adp.lib.g.b.c(str2, 0L), lVar.bqf(), str, pn2);
+                    } else if (this.dog.apn() == 1) {
+                        this.dog.atX();
+                        this.dog.setPn(pn2);
+                        this.cYw.kQ(pn2 + 1);
+                        this.dog.loadingDone = false;
+                        this.dog.loadIndex = 0;
                     }
                 }
-            } else if (!this.cXp.auk()) {
-                this.cXp.agL();
+            } else if (!this.cYw.auj()) {
+                this.cYw.agL();
             }
         }
     }
 
-    public int apo() {
-        if (this.cXp == null) {
+    public int apn() {
+        if (this.cYw == null) {
             return -1;
         }
-        if (this.cXp.aur()) {
-            return this.dmY.apo();
+        if (this.cYw.auq()) {
+            return this.doh.apn();
         }
-        return this.dmX.apo();
+        return this.dog.apn();
     }
 
     public void setHasMore(int i) {
-        if (this.cXp != null) {
-            if (this.cXp.aur()) {
-                this.dmY.setHasMore(i);
+        if (this.cYw != null) {
+            if (this.cYw.auq()) {
+                this.doh.setHasMore(i);
             } else {
-                this.dmX.setHasMore(i);
+                this.dog.setHasMore(i);
             }
         }
     }
 
     public int getPn() {
-        if (this.cXp == null) {
+        if (this.cYw == null) {
             return 1;
         }
-        if (this.cXp.aur()) {
-            return this.dmY.getPn();
+        if (this.cYw.auq()) {
+            return this.doh.getPn();
         }
-        return this.dmX.getPn();
+        return this.dog.getPn();
     }
 
     public void setPn(int i) {
-        if (this.cXp != null) {
-            if (this.cXp.aur()) {
-                this.dmY.setPn(i);
+        if (this.cYw != null) {
+            if (this.cYw.auq()) {
+                this.doh.setPn(i);
             } else {
-                this.dmX.setPn(i);
+                this.dog.setPn(i);
             }
         }
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.h> getDataList() {
-        return this.cXp.aur() ? this.dmY.getDataList() : this.cXp.aum();
+        return this.cYw.auq() ? this.doh.getDataList() : this.cYw.aul();
     }
 
-    public FrsSmartLoadMoreModel aub() {
-        return this.dmY;
+    public FrsSmartLoadMoreModel aua() {
+        return this.doh;
     }
 }

@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 final class b {
-    private static final Pattern fTS = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point fTT;
-    private Point fTU;
-    private Point fTV;
+    private static final Pattern fUY = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private Point fUZ;
+    private Point fVa;
+    private Point fVb;
     private final Context mContext;
 
     public b(Context context) {
@@ -28,20 +28,20 @@ final class b {
         if (e(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.fTT = a.bR(this.mContext);
+        this.fUZ = a.bR(this.mContext);
         Point point = new Point();
-        point.x = this.fTT.x;
-        point.y = this.fTT.y;
+        point.x = this.fUZ.x;
+        point.y = this.fUZ.y;
         int bQ = a.bQ(this.mContext);
         if (bQ == 0) {
-            point.x = this.fTT.y;
-            point.y = this.fTT.x;
+            point.x = this.fUZ.y;
+            point.y = this.fUZ.x;
         }
-        this.fTV = b(parameters, point);
+        this.fVb = b(parameters, point);
         if (bQ == 0) {
-            this.fTU = new Point(this.fTV.y, this.fTV.x);
+            this.fVa = new Point(this.fVb.y, this.fVb.x);
         } else {
-            this.fTU = this.fTV;
+            this.fVa = this.fVb;
         }
     }
 
@@ -50,12 +50,12 @@ final class b {
     }
 
     public Point getCameraResolution() {
-        return this.fTU;
+        return this.fVa;
     }
 
     public void f(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.fTV.x, this.fTV.y);
+        parameters.setPreviewSize(this.fVb.x, this.fVb.y);
         a(parameters);
         camera.setDisplayOrientation(bit());
         camera.setParameters(parameters);
@@ -148,7 +148,7 @@ final class b {
     }
 
     private static int b(CharSequence charSequence, int i) {
-        String[] split = fTS.split(charSequence);
+        String[] split = fUY.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

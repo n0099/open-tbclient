@@ -20,29 +20,29 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes3.dex */
 public class b {
-    private static b eSU;
-    private volatile boolean eSV = false;
+    private static b eUb;
+    private volatile boolean eUc = false;
 
     private b() {
     }
 
     public static b aSD() {
-        if (eSU == null) {
+        if (eUb == null) {
             synchronized (b.class) {
-                if (eSU == null) {
-                    eSU = new b();
+                if (eUb == null) {
+                    eUb = new b();
                 }
             }
         }
-        return eSU;
-    }
-
-    public void iQ(boolean z) {
-        this.eSV = z;
+        return eUb;
     }
 
     public void iR(boolean z) {
-        if (this.eSV) {
+        this.eUc = z;
+    }
+
+    public void iS(boolean z) {
+        if (this.eUc) {
             z = false;
         }
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);

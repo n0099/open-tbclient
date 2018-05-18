@@ -21,24 +21,24 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class SwipeViewPager extends ViewPager {
-    private boolean gXM;
-    private int gXN;
-    private int gXO;
-    private ValueAnimator gXP;
-    private d gXQ;
-    private float gXR;
-    private float gXS;
-    private float gXT;
-    private float gXU;
-    private int gXV;
-    private boolean gXW;
-    private c gXX;
-    private boolean gXY;
-    private boolean gXZ;
-    private b gYa;
-    private int gYb;
-    private float gYc;
-    private boolean gYd;
+    private boolean gYQ;
+    private int gYR;
+    private int gYS;
+    private ValueAnimator gYT;
+    private d gYU;
+    private float gYV;
+    private float gYW;
+    private float gYX;
+    private float gYY;
+    private int gYZ;
+    private boolean gZa;
+    private c gZb;
+    private boolean gZc;
+    private boolean gZd;
+    private b gZe;
+    private int gZf;
+    private float gZg;
+    private boolean gZh;
     private Drawable mDrawable;
     private int mHeight;
     private int mIconSize;
@@ -59,58 +59,58 @@ public class SwipeViewPager extends ViewPager {
 
     public SwipeViewPager(Context context) {
         super(context);
-        this.gXM = false;
-        this.gXN = 0;
-        this.gXO = 300;
-        this.gXW = false;
-        this.gXX = null;
-        this.gXY = false;
-        this.gXZ = false;
-        this.gYc = 0.5f;
-        this.gYd = true;
+        this.gYQ = false;
+        this.gYR = 0;
+        this.gYS = 300;
+        this.gZa = false;
+        this.gZb = null;
+        this.gZc = false;
+        this.gZd = false;
+        this.gZg = 0.5f;
+        this.gZh = true;
     }
 
     public SwipeViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gXM = false;
-        this.gXN = 0;
-        this.gXO = 300;
-        this.gXW = false;
-        this.gXX = null;
-        this.gXY = false;
-        this.gXZ = false;
-        this.gYc = 0.5f;
-        this.gYd = true;
+        this.gYQ = false;
+        this.gYR = 0;
+        this.gYS = 300;
+        this.gZa = false;
+        this.gZb = null;
+        this.gZc = false;
+        this.gZd = false;
+        this.gZg = 0.5f;
+        this.gZh = true;
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.m.SwipeViewPager);
             c(obtainStyledAttributes);
             obtainStyledAttributes.recycle();
         }
-        bAf();
+        bAd();
         setOffscreenPageLimit(3);
         setOverScrollMode(2);
         setClipChildren(false);
-        this.gXQ = new d(null);
-        super.setAdapter(this.gXQ);
+        this.gYU = new d(null);
+        super.setAdapter(this.gYU);
     }
 
     private void c(TypedArray typedArray) {
-        this.gYc = typedArray.getFloat(d.m.SwipeViewPager_leftItemPercent, 0.5f);
-        if (this.gYc > 1.0f) {
-            this.gYc = 1.0f;
-        } else if (this.gYc < 0.0f) {
-            this.gYc = 0.0f;
+        this.gZg = typedArray.getFloat(d.m.SwipeViewPager_leftItemPercent, 0.5f);
+        if (this.gZg > 1.0f) {
+            this.gZg = 1.0f;
+        } else if (this.gZg < 0.0f) {
+            this.gZg = 0.0f;
         }
         this.mTextView = new TextView(getContext());
         String string = typedArray.getString(d.m.SwipeViewPager_tips);
-        this.mTextView.setText(uw((string == null || string.length() < 1) ? "滑动显示全部信息" : "滑动显示全部信息"));
+        this.mTextView.setText(uz((string == null || string.length() < 1) ? "滑动显示全部信息" : "滑动显示全部信息"));
         this.mTextView.setTextSize(typedArray.getDimensionPixelSize(d.m.SwipeViewPager_svp_textSize, 20));
         this.mTextView.setPadding(typedArray.getDimensionPixelSize(d.m.SwipeViewPager_tipsPaddingLeft, 50), 0, 0, 0);
         this.mTextView.setTextColor(typedArray.getColor(d.m.SwipeViewPager_svp_textColor, Color.parseColor("#565656")));
         this.mTextView.setBackgroundColor(typedArray.getColor(d.m.SwipeViewPager_tipsBackground, Color.parseColor("#00000000")));
-        this.gXO = typedArray.getDimensionPixelSize(d.m.SwipeViewPager_tipsWidth, 300);
-        this.gYb = (int) (this.gXO * 1.5f);
-        this.gXN = typedArray.getDimensionPixelSize(d.m.SwipeViewPager_maxSwipeWidth, 0);
+        this.gYS = typedArray.getDimensionPixelSize(d.m.SwipeViewPager_tipsWidth, 300);
+        this.gZf = (int) (this.gYS * 1.5f);
+        this.gYR = typedArray.getDimensionPixelSize(d.m.SwipeViewPager_maxSwipeWidth, 0);
         this.mPageMargin = typedArray.getDimensionPixelOffset(d.m.SwipeViewPager_pageMargin, getResources().getDimensionPixelOffset(d.e.ds40));
         super.setPageMargin(this.mPageMargin);
         int resourceId = typedArray.getResourceId(d.m.SwipeViewPager_tipIcon, 0);
@@ -145,7 +145,7 @@ public class SwipeViewPager extends ViewPager {
         return this.mTextView;
     }
 
-    private String uw(String str) {
+    private String uz(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -190,18 +190,18 @@ public class SwipeViewPager extends ViewPager {
             this.mTextView.setCompoundDrawables(this.mDrawable, null, null, null);
             this.mTextView.setCompoundDrawablePadding(l.e(getContext(), d.e.ds12));
         }
-        if (this.gXO < this.mTextView.getWidth() + this.mIconSize) {
-            this.gXO = this.mTextView.getWidth() + this.mIconSize;
+        if (this.gYS < this.mTextView.getWidth() + this.mIconSize) {
+            this.gYS = this.mTextView.getWidth() + this.mIconSize;
         }
         this.mParentView.addView(this.mTextView);
-        if (this.gXN == 0) {
-            this.gXN = this.mWidth;
+        if (this.gYR == 0) {
+            this.gYR = this.mWidth;
         }
-        if (this.gXV == 0) {
-            if (this.gXQ != null) {
-                this.gXV = (int) ((1.0f - this.gXQ.getPageWidth(0)) * this.gYc * this.mWidth);
+        if (this.gYZ == 0) {
+            if (this.gYU != null) {
+                this.gYZ = (int) ((1.0f - this.gYU.getPageWidth(0)) * this.gZg * this.mWidth);
             } else {
-                this.gXV = (int) (0.1f * this.mWidth);
+                this.gYZ = (int) (0.1f * this.mWidth);
             }
         }
         this.mTextView.setX(this.mParentView.getWidth());
@@ -221,10 +221,10 @@ public class SwipeViewPager extends ViewPager {
         }
     }
 
-    private void bAf() {
-        this.gXP = new ValueAnimator();
-        this.gXP.setDuration(150L);
-        this.gXP.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.view.SwipeViewPager.4
+    private void bAd() {
+        this.gYT = new ValueAnimator();
+        this.gYT.setDuration(150L);
+        this.gYT.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.view.SwipeViewPager.4
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (SwipeViewPager.this.mParentView != null) {
@@ -235,16 +235,16 @@ public class SwipeViewPager extends ViewPager {
     }
 
     public void setFixPercent(float f) {
-        this.gYc = f;
-        if (this.gYc > 1.0f) {
-            this.gYc = 1.0f;
-        } else if (this.gYc < 0.0f) {
-            this.gYc = 0.0f;
+        this.gZg = f;
+        if (this.gZg > 1.0f) {
+            this.gZg = 1.0f;
+        } else if (this.gZg < 0.0f) {
+            this.gZg = 0.0f;
         }
-        if (this.gXQ != null) {
-            this.gXV = (int) ((1.0f - this.gXQ.getPageWidth(0)) * this.gYc * this.mWidth);
+        if (this.gYU != null) {
+            this.gYZ = (int) ((1.0f - this.gYU.getPageWidth(0)) * this.gZg * this.mWidth);
         } else {
-            this.gXV = (int) (0.1f * this.mWidth);
+            this.gYZ = (int) (0.1f * this.mWidth);
         }
     }
 
@@ -254,41 +254,41 @@ public class SwipeViewPager extends ViewPager {
         if (this.mParentView == null) {
             initial();
         }
-        if ((motionEvent.getAction() & 255) == 0 && !this.gXW) {
-            this.gXR = motionEvent.getRawX();
-            this.gXS = motionEvent.getRawY();
-            this.gXU = getScrollX();
-            this.gXT = this.mParentView.getScrollX();
+        if ((motionEvent.getAction() & 255) == 0 && !this.gZa) {
+            this.gYV = motionEvent.getRawX();
+            this.gYW = motionEvent.getRawY();
+            this.gYY = getScrollX();
+            this.gYX = this.mParentView.getScrollX();
         }
-        for (ViewParent parent = getParent(); parent != null && !bAh(); parent = parent.getParent()) {
+        for (ViewParent parent = getParent(); parent != null && !bAf(); parent = parent.getParent()) {
             parent.requestDisallowInterceptTouchEvent(true);
         }
-        if (this.gXQ != null && (count = this.gXQ.getCount()) != 0) {
-            if (count * this.gXQ.getPageWidth(0) < 1.0f) {
-                return bAg();
+        if (this.gYU != null && (count = this.gYU.getCount()) != 0) {
+            if (count * this.gYU.getPageWidth(0) < 1.0f) {
+                return bAe();
             }
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    private boolean bAg() {
-        if (this.gXQ != null) {
-            return this.gXQ.getCount() <= ((this.gXQ.getPageWidth(0) > 0.0f ? 1 : (this.gXQ.getPageWidth(0) == 0.0f ? 0 : -1)) > 0 ? (int) (1.0d / ((double) this.gXQ.getPageWidth(0))) : 0) + getCurrentItem();
+    private boolean bAe() {
+        if (this.gYU != null) {
+            return this.gYU.getCount() <= ((this.gYU.getPageWidth(0) > 0.0f ? 1 : (this.gYU.getPageWidth(0) == 0.0f ? 0 : -1)) > 0 ? (int) (1.0d / ((double) this.gYU.getPageWidth(0))) : 0) + getCurrentItem();
         }
         return false;
     }
 
-    private boolean bAh() {
+    private boolean bAf() {
         return getScrollX() == 0;
     }
 
     private boolean M(MotionEvent motionEvent) {
         int count;
-        if (this.gXQ == null || (count = this.gXQ.getCount()) == 0) {
+        if (this.gYU == null || (count = this.gYU.getCount()) == 0) {
             return false;
         }
-        if (count * this.gXQ.getPageWidth(0) < 1.0f) {
-            return bAg();
+        if (count * this.gYU.getPageWidth(0) < 1.0f) {
+            return bAe();
         }
         try {
             return super.onTouchEvent(motionEvent);
@@ -299,27 +299,27 @@ public class SwipeViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.gYd) {
+        if (!this.gZh) {
             return M(motionEvent);
         }
         if (motionEvent.getPointerCount() <= 1) {
-            if (this.gXP == null || !this.gXP.isRunning()) {
+            if (this.gYT == null || !this.gYT.isRunning()) {
                 int action = motionEvent.getAction();
-                if (bAh() && (action & 255) == 2 && motionEvent.getRawX() - this.gXR > 0.0f) {
+                if (bAf() && (action & 255) == 2 && motionEvent.getRawX() - this.gYV > 0.0f) {
                     return false;
                 }
-                if (bAg()) {
+                if (bAe()) {
                     switch (action & 255) {
                         case 1:
                         case 3:
-                            if (this.gXW) {
+                            if (this.gZa) {
                                 N(motionEvent);
                             }
-                            bAi();
+                            bAg();
                             break;
                         case 2:
                             if (O(motionEvent)) {
-                                scrollTo((int) this.gXU, 0);
+                                scrollTo((int) this.gYY, 0);
                                 return true;
                             }
                             break;
@@ -333,26 +333,26 @@ public class SwipeViewPager extends ViewPager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bAi() {
-        if (bAh()) {
+    public void bAg() {
+        if (bAf()) {
             bR(this.mParentView.getScrollX(), 0);
-        } else if (!bAg() && this.mParentView.getScrollX() != (-this.gXV)) {
-            bR(this.mParentView.getScrollX(), -this.gXV);
-        } else if (bAg() && bAj()) {
-            bR(this.mParentView.getScrollX(), this.gXO);
+        } else if (!bAe() && this.mParentView.getScrollX() != (-this.gYZ)) {
+            bR(this.mParentView.getScrollX(), -this.gYZ);
+        } else if (bAe() && bAh()) {
+            bR(this.mParentView.getScrollX(), this.gYS);
         }
     }
 
-    private boolean bAj() {
+    private boolean bAh() {
         return this.mTextView != null && this.mTextView.getVisibility() == 0;
     }
 
     private void bR(int i, int i2) {
-        if (this.gXP == null) {
-            bAf();
+        if (this.gYT == null) {
+            bAd();
         }
-        this.gXP.setIntValues(i, i2);
-        this.gXP.start();
+        this.gYT.setIntValues(i, i2);
+        this.gYT.start();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -371,48 +371,48 @@ public class SwipeViewPager extends ViewPager {
     }
 
     private void N(MotionEvent motionEvent) {
-        float rawX = (motionEvent.getRawX() - this.gXR) * 0.5f;
-        this.gXW = false;
+        float rawX = (motionEvent.getRawX() - this.gYV) * 0.5f;
+        this.gZa = false;
         if (this.mParentView != null) {
-            if (bAj()) {
-                bR(this.mParentView.getScrollX(), this.gXO);
+            if (bAh()) {
+                bR(this.mParentView.getScrollX(), this.gYS);
             } else {
                 bR(this.mParentView.getScrollX(), 0);
             }
         }
-        if ((-rawX) > this.gXO && this.gXX != null && !this.gXY) {
-            this.gXY = true;
-            this.gXX.b(this, true);
+        if ((-rawX) > this.gYS && this.gZb != null && !this.gZc) {
+            this.gZc = true;
+            this.gZb.b(this, true);
         }
-        if (this.gYa != null && this.gXZ) {
-            this.gXZ = false;
-            this.gYa.a(this, false);
+        if (this.gZe != null && this.gZd) {
+            this.gZd = false;
+            this.gZe.a(this, false);
         }
     }
 
     public void setTips(String str) {
         if (this.mTextView != null) {
-            this.mTextView.setText(uw(str));
+            this.mTextView.setText(uz(str));
         }
     }
 
     private boolean O(MotionEvent motionEvent) {
-        float rawX = motionEvent.getRawX() - this.gXR;
+        float rawX = motionEvent.getRawX() - this.gYV;
         if (rawX < 0.0f) {
-            float f = (rawX * 0.5f) - this.gXT;
-            this.gXW = true;
-            if (Math.abs(f) > Math.abs(this.gXN)) {
+            float f = (rawX * 0.5f) - this.gYX;
+            this.gZa = true;
+            if (Math.abs(f) > Math.abs(this.gYR)) {
                 return true;
             }
-            if (Math.abs(f) > this.gYb && !this.gXZ) {
-                this.gXZ = true;
-                if (this.gYa != null) {
-                    this.gYa.a(this, true);
+            if (Math.abs(f) > this.gZf && !this.gZd) {
+                this.gZd = true;
+                if (this.gZe != null) {
+                    this.gZe.a(this, true);
                 }
-            } else if ((-f) < this.gYb && this.gXZ) {
-                this.gXZ = false;
-                if (this.gYa != null) {
-                    this.gYa.a(this, false);
+            } else if ((-f) < this.gZf && this.gZd) {
+                this.gZd = false;
+                if (this.gZe != null) {
+                    this.gZe.a(this, false);
                 }
             }
             if (this.mParentView != null) {
@@ -420,12 +420,12 @@ public class SwipeViewPager extends ViewPager {
                 return true;
             }
             return true;
-        } else if (rawX < this.gXO + 20) {
-            float f2 = this.gXT - rawX;
+        } else if (rawX < this.gYS + 20) {
+            float f2 = this.gYX - rawX;
             if (this.mParentView != null) {
                 this.mParentView.scrollTo((int) f2, 0);
             }
-            this.gXW = true;
+            this.gZa = true;
             return true;
         } else {
             return false;
@@ -434,13 +434,13 @@ public class SwipeViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager
     public void setAdapter(PagerAdapter pagerAdapter) {
-        if (this.gXQ == null) {
-            this.gXQ = new d(pagerAdapter);
-            super.setAdapter(this.gXQ);
+        if (this.gYU == null) {
+            this.gYU = new d(pagerAdapter);
+            super.setAdapter(this.gYU);
             return;
         }
-        this.gXQ.a(pagerAdapter);
-        this.gXQ.notifyDataSetChanged();
+        this.gYU.a(pagerAdapter);
+        this.gYU.notifyDataSetChanged();
     }
 
     public void setPagerWidth(float f) {
@@ -449,17 +449,17 @@ public class SwipeViewPager extends ViewPager {
         } else if (f < 0.0f) {
             f = 0.0f;
         }
-        if (this.gXQ == null) {
-            this.gXQ = new d(null);
-            super.setAdapter(this.gXQ);
+        if (this.gYU == null) {
+            this.gYU = new d(null);
+            super.setAdapter(this.gYU);
         }
-        this.gXV = -((int) ((1.0f - this.gXQ.getPageWidth(0)) * this.gYc * getWidth()));
-        this.gXQ.setPagerWidth(f);
-        this.gXQ.notifyDataSetChanged();
+        this.gYZ = -((int) ((1.0f - this.gYU.getPageWidth(0)) * this.gZg * getWidth()));
+        this.gYU.setPagerWidth(f);
+        this.gYU.notifyDataSetChanged();
     }
 
     public void setCanDrag(boolean z) {
-        this.gYd = z;
+        this.gZh = z;
         if (!z) {
             this.mTextView.setVisibility(8);
         } else {
@@ -475,22 +475,22 @@ public class SwipeViewPager extends ViewPager {
 
         @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            SwipeViewPager.this.bAi();
+            SwipeViewPager.this.bAg();
         }
     }
 
     public void setOnSwipeListener(c cVar) {
-        this.gXX = cVar;
+        this.gZb = cVar;
     }
 
     public void setOnOverDragChanageListener(b bVar) {
-        this.gYa = bVar;
+        this.gZe = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class d extends PagerAdapter {
-        private float gYf = 0.8f;
+        private float gZj = 0.8f;
         private PagerAdapter mAdapter;
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -500,7 +500,7 @@ public class SwipeViewPager extends ViewPager {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void setPagerWidth(float f) {
-            this.gYf = f;
+            this.gZj = f;
         }
 
         public d(PagerAdapter pagerAdapter) {
@@ -539,7 +539,7 @@ public class SwipeViewPager extends ViewPager {
 
         @Override // android.support.v4.view.PagerAdapter
         public float getPageWidth(int i) {
-            return this.gYf;
+            return this.gZj;
         }
 
         @Override // android.support.v4.view.PagerAdapter

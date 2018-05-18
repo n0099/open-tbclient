@@ -67,7 +67,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        pc();
+        pb();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -82,7 +82,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        pc();
+        pb();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -167,7 +167,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.qf().cD(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.qe().cD(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.e.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -195,7 +195,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void pc() {
+    private static void pb() {
         new ag("open_webview", true).start();
     }
 }

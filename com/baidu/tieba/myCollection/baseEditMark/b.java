@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel eTQ;
+    private MarkModel eUX;
 
     public b(BaseActivity baseActivity) {
-        this.eTQ = null;
-        this.eTQ = new MarkModel(baseActivity);
+        this.eUX = null;
+        this.eUX = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.eTQ = null;
-        this.eTQ = new MarkModel(baseFragmentActivity);
+        this.eUX = null;
+        this.eUX = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void ae(boolean z) {
-        this.eTQ.ae(z);
+        this.eUX.ae(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String oH() {
-        return this.eTQ.oH();
+    public String oG() {
+        return this.eUX.oG();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(a.InterfaceC0082a interfaceC0082a) {
-        this.eTQ.a(interfaceC0082a);
+        this.eUX.a(interfaceC0082a);
+    }
+
+    @Override // com.baidu.tbadk.baseEditMark.a
+    public void oI() {
+        this.eUX.oI();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void oJ() {
-        this.eTQ.oJ();
+        this.eUX.oJ();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void oK() {
-        this.eTQ.oK();
-    }
-
-    @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData oL() {
-        return this.eTQ.oL();
+    public MarkData oK() {
+        return this.eUX.oK();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.eTQ.a(markData);
+        this.eUX.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean oI() {
-        return this.eTQ.oI();
+    public boolean oH() {
+        return this.eUX.oH();
     }
 }

@@ -8,24 +8,24 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a extends ImageSpan {
-    private WeakReference<Drawable> Dw;
-    private int aPg;
     private int aPh;
+    private int aPi;
+    private WeakReference<Drawable> mDrawableRef;
 
     public a(Drawable drawable, int i) {
         super(drawable);
-        this.aPg = 0;
-        this.aPh = 1;
-        this.aPh = i;
+        this.aPh = 0;
+        this.aPi = 1;
+        this.aPi = i;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Drawable jR = jR();
-        if (jR == null) {
+        Drawable cachedDrawable = getCachedDrawable();
+        if (cachedDrawable == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
-        Rect bounds = jR.getBounds();
+        Rect bounds = cachedDrawable.getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -42,10 +42,10 @@ public class a extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable jR;
+        Drawable cachedDrawable;
         float f2;
-        if (jR() != null) {
-            switch (this.aPh) {
+        if (getCachedDrawable() != null) {
+            switch (this.aPi) {
                 case 0:
                     f2 = 0.1f;
                     break;
@@ -59,23 +59,23 @@ public class a extends ImageSpan {
                     f2 = 0.0f;
                     break;
             }
-            float height = f2 != 0.0f ? ((i4 - i5) + (f2 * jR.getBounds().height())) - this.aPg : 0.0f;
+            float height = f2 != 0.0f ? ((i4 - i5) + (f2 * cachedDrawable.getBounds().height())) - this.aPh : 0.0f;
             canvas.save();
-            canvas.translate(jR.getBounds().width() * 0.15f, height);
+            canvas.translate(cachedDrawable.getBounds().width() * 0.15f, height);
             super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
             canvas.restore();
         }
     }
 
-    private Drawable jR() {
-        WeakReference<Drawable> weakReference = this.Dw;
+    private Drawable getCachedDrawable() {
+        WeakReference<Drawable> weakReference = this.mDrawableRef;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.Dw = new WeakReference<>(drawable2);
+            this.mDrawableRef = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

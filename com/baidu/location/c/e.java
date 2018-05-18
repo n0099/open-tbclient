@@ -32,9 +32,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e OC = null;
+    private static e Oy = null;
     public static String f = "0";
-    private Handler OJ;
+    private Handler OF;
     private int k = 1;
     private double l = 0.699999988079071d;
     private String m = "3G|4G";
@@ -42,8 +42,8 @@ public class e {
     private int o = 307200;
     private int p = 15;
     private int q = 1;
-    private double Of = 3.5d;
-    private double OD = 3.0d;
+    private double Ob = 3.5d;
+    private double Oz = 3.0d;
     private double t = 0.5d;
     private int u = 300;
     private int v = 60;
@@ -51,27 +51,27 @@ public class e {
     private int x = 60;
     private int y = 0;
     private long z = 0;
-    private a OE = null;
+    private a OA = null;
     private boolean B = false;
     private boolean C = false;
     private int D = 0;
-    private float OF = 0.0f;
-    private float OG = 0.0f;
+    private float OB = 0.0f;
+    private float OC = 0.0f;
     private long G = 0;
     private int H = 500;
     long a = 0;
-    Location OH = null;
-    Location Oc = null;
-    StringBuilder OI = null;
+    Location OD = null;
+    Location NY = null;
+    StringBuilder OE = null;
     long e = 0;
-    private byte[] OL = new byte[4];
+    private byte[] OG = new byte[4];
     private byte[] K = null;
     private int L = 0;
     private List<Byte> M = null;
     private boolean N = false;
     int g = 0;
     double h = 116.22345545d;
-    double OM = 40.245667323d;
+    double OH = 40.245667323d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -113,8 +113,8 @@ public class e {
     }
 
     private e() {
-        this.OJ = null;
-        this.OJ = new Handler();
+        this.OF = null;
+        this.OF = new Handler();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -311,10 +311,10 @@ public class e {
                     this.q = jSONObject.getInt("chdron");
                 }
                 if (jSONObject.has("spsh")) {
-                    this.Of = jSONObject.getDouble("spsh");
+                    this.Ob = jSONObject.getDouble("spsh");
                 }
                 if (jSONObject.has("acsh")) {
-                    this.OD = jSONObject.getDouble("acsh");
+                    this.Oz = jSONObject.getDouble("acsh");
                 }
                 if (jSONObject.has("stspsh")) {
                     this.t = jSONObject.getDouble("stspsh");
@@ -343,28 +343,28 @@ public class e {
     private void d() {
         String[] split = (0 == 0 ? "6.2.3" : null).split("\\.");
         int length = split.length;
-        this.OL[0] = 0;
-        this.OL[1] = 0;
-        this.OL[2] = 0;
-        this.OL[3] = 0;
+        this.OG[0] = 0;
+        this.OG[1] = 0;
+        this.OG[2] = 0;
+        this.OG[3] = 0;
         if (length >= 4) {
             length = 4;
         }
         for (int i = 0; i < length; i++) {
             try {
-                this.OL[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
+                this.OG[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
             } catch (Exception e) {
             }
         }
-        this.K = a(com.baidu.location.h.c.c + ":" + com.baidu.location.h.c.nT().b);
+        this.K = a(com.baidu.location.h.c.c + ":" + com.baidu.location.h.c.nS().b);
     }
 
     private void d(Location location) {
         if (System.currentTimeMillis() - this.a < this.H || location == null) {
             return;
         }
-        if (location != null && location.hasSpeed() && location.getSpeed() > this.OF) {
-            this.OF = location.getSpeed();
+        if (location != null && location.hasSpeed() && location.getSpeed() > this.OB) {
+            this.OB = location.getSpeed();
         }
         try {
             if (this.M == null) {
@@ -439,7 +439,7 @@ public class e {
         } else {
             this.M.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
         }
-        this.OH = location;
+        this.OD = location;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -497,14 +497,14 @@ public class e {
     private boolean e() {
         if (this.B) {
             if (!this.C) {
-                if (this.OF < this.t) {
+                if (this.OB < this.t) {
                     this.C = true;
                     this.D = 0;
                     this.D += this.p;
                     return true;
                 }
                 return true;
-            } else if (this.OF >= this.t) {
+            } else if (this.OB >= this.t) {
                 this.D = 0;
                 this.C = false;
                 return true;
@@ -514,7 +514,7 @@ public class e {
                     return true;
                 }
             }
-        } else if (this.OF >= this.Of || this.OG >= this.OD) {
+        } else if (this.OB >= this.Ob || this.OC >= this.Oz) {
             this.B = true;
             return true;
         } else if (this.w == 1 && System.currentTimeMillis() - this.G > this.x * 1000) {
@@ -527,18 +527,18 @@ public class e {
         this.M = null;
         this.e = 0L;
         this.L = 0;
-        this.OH = null;
-        this.Oc = null;
-        this.OF = 0.0f;
-        this.OG = 0.0f;
+        this.OD = null;
+        this.NY = null;
+        this.OB = 0.0f;
+        this.OC = 0.0f;
     }
 
     private void f(Location location) {
         if (location == null) {
             return;
         }
-        int longitude = (int) ((location.getLongitude() - this.OH.getLongitude()) * 100000.0d);
-        int latitude = (int) ((location.getLatitude() - this.OH.getLatitude()) * 100000.0d);
+        int longitude = (int) ((location.getLongitude() - this.OD.getLongitude()) * 100000.0d);
+        int latitude = (int) ((location.getLatitude() - this.OD.getLatitude()) * 100000.0d);
         char c = location.hasBearing() ? (char) 0 : (char) 1;
         char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
         char c3 = longitude > 0 ? (char) 0 : (char) 1;
@@ -546,17 +546,17 @@ public class e {
         char c4 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.Oc = null;
-            this.Oc = this.OH;
+            this.NY = null;
+            this.NY = this.OD;
         }
-        this.OH = location;
-        if (this.OH != null && this.Oc != null && this.OH.getTime() > this.Oc.getTime() && this.OH.getTime() - this.Oc.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
-            long time = this.OH.getTime() - this.Oc.getTime();
+        this.OD = location;
+        if (this.OD != null && this.NY != null && this.OD.getTime() > this.NY.getTime() && this.OD.getTime() - this.NY.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
+            long time = this.OD.getTime() - this.NY.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.OH.getAltitude(), this.OH.getLongitude(), this.Oc.getLatitude(), this.Oc.getLongitude(), fArr);
-            double speed = (2.0f * (fArr[0] - (this.Oc.getSpeed() * ((float) time)))) / ((float) (time * time));
-            if (speed > this.OG) {
-                this.OG = (float) speed;
+            Location.distanceBetween(this.OD.getAltitude(), this.OD.getLongitude(), this.NY.getLatitude(), this.NY.getLongitude(), fArr);
+            double speed = (2.0f * (fArr[0] - (this.NY.getSpeed() * ((float) time)))) / ((float) (time * time));
+            if (speed > this.OC) {
+                this.OC = (float) speed;
             }
         }
         this.M.add(Byte.valueOf((byte) (abs & 255)));
@@ -637,10 +637,10 @@ public class e {
             this.M.add((byte) 126);
         }
         this.M.add((byte) 0);
-        this.M.add(Byte.valueOf(this.OL[0]));
-        this.M.add(Byte.valueOf(this.OL[1]));
-        this.M.add(Byte.valueOf(this.OL[2]));
-        this.M.add(Byte.valueOf(this.OL[3]));
+        this.M.add(Byte.valueOf(this.OG[0]));
+        this.M.add(Byte.valueOf(this.OG[1]));
+        this.M.add(Byte.valueOf(this.OG[2]));
+        this.M.add(Byte.valueOf(this.OG[3]));
         int length = this.K.length;
         this.M.add(Byte.valueOf((byte) ((length + 1) & 255)));
         for (int i = 0; i < length; i++) {
@@ -650,13 +650,13 @@ public class e {
 
     private void i() {
         if (System.currentTimeMillis() - this.z > 86400000) {
-            if (this.OE == null) {
-                this.OE = new a();
+            if (this.OA == null) {
+                this.OA = new a();
             }
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(com.baidu.location.h.c.nT().a(false));
-            stringBuffer.append(com.baidu.location.a.a.mT().c());
-            this.OE.a(stringBuffer.toString());
+            stringBuffer.append(com.baidu.location.h.c.nS().a(false));
+            stringBuffer.append(com.baidu.location.a.a.mS().c());
+            this.OA.a(stringBuffer.toString());
         }
         j();
     }
@@ -664,11 +664,11 @@ public class e {
     private void j() {
     }
 
-    public static e nm() {
-        if (OC == null) {
-            OC = new e();
+    public static e nl() {
+        if (Oy == null) {
+            Oy = new e();
         }
-        return OC;
+        return Oy;
     }
 
     public void b() {
@@ -682,9 +682,9 @@ public class e {
         if (!this.N) {
             c();
         }
-        if (this.k == 1 && b.nj().f() < this.l * 100.0d && this.m.contains(com.baidu.location.f.c.a(com.baidu.location.f.c.nJ().e()))) {
+        if (this.k == 1 && b.ni().f() < this.l * 100.0d && this.m.contains(com.baidu.location.f.c.a(com.baidu.location.f.c.nI().e()))) {
             if (this.n != 1 || this.y <= this.o) {
-                this.OJ.post(new j(this, location));
+                this.OF.post(new j(this, location));
             }
         }
     }

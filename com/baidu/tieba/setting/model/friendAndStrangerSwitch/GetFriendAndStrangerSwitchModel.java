@@ -10,11 +10,11 @@ import com.baidu.tieba.setting.more.MoreActivity;
 /* loaded from: classes3.dex */
 public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public static int FRIEND_AND_STRANGER_MASK_TYPE = -1;
-    private HttpMessageListener ghc;
+    private HttpMessageListener gij;
 
     public GetFriendAndStrangerSwitchModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.ghc = new HttpMessageListener(CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH) { // from class: com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel.1
+        this.gij = new HttpMessageListener(CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH) { // from class: com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -26,7 +26,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
                 }
             }
         };
-        registerListener(this.ghc);
+        registerListener(this.gij);
         LoadData();
     }
 

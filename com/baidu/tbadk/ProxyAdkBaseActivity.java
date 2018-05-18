@@ -103,7 +103,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.uB();
+        this.customToast = e.uA();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -240,7 +240,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     protected void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.wD();
+            this.mGuidPage.wC();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -355,19 +355,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i).tL();
+        BdToast.b(getActivity(), str, i).tK();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2).tL();
+        BdToast.a(getActivity(), str, i, i2).tK();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).tL();
+        BdToast.a(getActivity(), str, defaultIcon).tK();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).tL();
+        BdToast.a(getActivity(), str, defaultIcon, i).tK();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -784,7 +784,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Fm();
+        return this.loadingView.Fk();
     }
 
     public void hideLoadingView(View view2) {
@@ -812,8 +812,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     }
 
     protected void setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(boolean z) {
-        if (this.refreshView != null && this.refreshView.Fm() && this.refreshView.Fs() != null && (this.refreshView.Fs().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ((ViewGroup.MarginLayoutParams) this.refreshView.Fs().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        if (this.refreshView != null && this.refreshView.Fk() && this.refreshView.Fq() != null && (this.refreshView.Fq().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ((ViewGroup.MarginLayoutParams) this.refreshView.Fq().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         }
     }
 

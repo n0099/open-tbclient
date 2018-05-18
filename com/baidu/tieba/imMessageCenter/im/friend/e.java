@@ -9,9 +9,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private long dQS;
-    private RequestCommitInviteMessage ely;
-    private long elz;
+    private long dRZ;
+    private RequestCommitInviteMessage emF;
+    private long emG;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -24,26 +24,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.dQS = intent.getLongExtra("gid", -1L);
-            this.elz = intent.getLongExtra(InviteFriendListActivityConfig.GROUP_ID, -1L);
+            this.dRZ = intent.getLongExtra("gid", -1L);
+            this.emG = intent.getLongExtra(InviteFriendListActivityConfig.GROUP_ID, -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.dQS = bundle.getLong("gid", -1L);
-            this.elz = bundle.getLong(InviteFriendListActivityConfig.GROUP_ID, -1L);
+            this.dRZ = bundle.getLong("gid", -1L);
+            this.emG = bundle.getLong(InviteFriendListActivityConfig.GROUP_ID, -1L);
         }
     }
 
     public void r(Bundle bundle) {
-        bundle.putLong("gid", this.dQS);
-        bundle.putLong(InviteFriendListActivityConfig.GROUP_ID, this.elz);
+        bundle.putLong("gid", this.dRZ);
+        bundle.putLong(InviteFriendListActivityConfig.GROUP_ID, this.emG);
     }
 
-    public void ob(String str) {
-        this.ely = a(this.dQS, this.elz, str);
-        super.sendMessage(this.ely);
+    public void oe(String str) {
+        this.emF = a(this.dRZ, this.emG, str);
+        super.sendMessage(this.emF);
     }
 
     private RequestCommitInviteMessage a(long j, long j2, String str) {

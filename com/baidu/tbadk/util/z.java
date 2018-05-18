@@ -67,7 +67,7 @@ public class z {
         return str3;
     }
 
-    public static Bundle hn(String str) {
+    public static Bundle ho(String str) {
         URL url;
         String query;
         String[] split;
@@ -97,17 +97,17 @@ public class z {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aNS;
+        public String aNT;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aNS = "";
+            this.aNT = "";
             this.BDUSS = str;
-            this.aNS = str2;
+            this.aNT = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aNS != null ? this.aNS.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aNT != null ? this.aNT.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -123,7 +123,7 @@ public class z {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aNS == null ? aVar.aNS == null : this.aNS.equals(aVar.aNS);
+                return this.aNT == null ? aVar.aNT == null : this.aNT.equals(aVar.aNT);
             }
             return false;
         }
@@ -147,7 +147,7 @@ public class z {
         }
     }
 
-    public static String ho(String str) {
+    public static String hp(String str) {
         if (!an.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {

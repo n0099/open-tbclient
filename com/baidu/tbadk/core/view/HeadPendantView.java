@@ -60,7 +60,7 @@ public class HeadPendantView extends FrameLayout {
         init();
     }
 
-    public boolean wE() {
+    public boolean wD() {
         return this.alZ;
     }
 
@@ -151,7 +151,7 @@ public class HeadPendantView extends FrameLayout {
                 paint.setColor(this.alS);
                 canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, getWidth() / 2.0f, paint);
             }
-            if (this.alQ && !this.isBigV && !wE()) {
+            if (this.alQ && !this.isBigV && !wD()) {
                 Drawable drawable = this.alT == null ? ak.getDrawable(d.f.pic_home_shen_avatar) : this.alT;
                 if (drawable != null) {
                     int e = l.e(this.mContext, d.e.ds30);

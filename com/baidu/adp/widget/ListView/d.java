@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ListView.q;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public a FF = null;
+    public a FB = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
@@ -27,7 +27,7 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.FF = aVar;
+        this.FB = aVar;
     }
 
     public int getHeadersCount() {
@@ -41,7 +41,7 @@ public class d {
     public void addHeaderView(View view2, Object obj, boolean z, int i) {
         if (view2 != null) {
             c cVar = new c();
-            cVar.FH = new q.a(view2);
+            cVar.FD = new q.a(view2);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
@@ -58,7 +58,7 @@ public class d {
     public void addFooterView(View view2, Object obj, boolean z, int i) {
         if (view2 != null) {
             c cVar = new c();
-            cVar.FH = new q.a(view2);
+            cVar.FD = new q.a(view2);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
@@ -78,7 +78,7 @@ public class d {
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.FH != null && cVar.FH.itemView == view2) {
+            if (cVar != null && cVar.FD != null && cVar.FD.itemView == view2) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -92,7 +92,7 @@ public class d {
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.FH != null && cVar.FH.itemView == view2) {
+            if (cVar != null && cVar.FD != null && cVar.FD.itemView == view2) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -108,7 +108,7 @@ public class d {
                 if (this.mHeaderViewInfos.get(i3) == null || i != this.mHeaderViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mHeaderViewInfos.get(i3).FH;
+                    return this.mHeaderViewInfos.get(i3).FD;
                 }
             } else {
                 return null;
@@ -124,7 +124,7 @@ public class d {
                 if (this.mFooterViewInfos.get(i3) == null || i != this.mFooterViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mFooterViewInfos.get(i3).FH;
+                    return this.mFooterViewInfos.get(i3).FD;
                 }
             } else {
                 return null;
@@ -149,7 +149,7 @@ public class d {
 
     /* loaded from: classes.dex */
     public class c {
-        public q.a FH;
+        public q.a FD;
         public Object data;
         public long id;
         public boolean isSelectable;

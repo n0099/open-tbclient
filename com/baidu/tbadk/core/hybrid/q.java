@@ -86,13 +86,13 @@ public class q extends l implements i {
     }
 
     @Override // com.baidu.tbadk.core.hybrid.i
-    public void uh() {
+    public void ug() {
         this.aeS++;
         final int i = this.aeS;
         HashMap hashMap = new HashMap();
         hashMap.put("platform", Constants.OS_TYPE_VALUE);
         hashMap.put("version", "1.0");
-        hashMap.put("logid", um());
+        hashMap.put("logid", ul());
         a(m.a(hashMap, aeT[this.aeS % aeT.length], new k() { // from class: com.baidu.tbadk.core.hybrid.q.1
             @Override // com.baidu.tbadk.core.hybrid.k
             public void a(m mVar, JSONObject jSONObject) {
@@ -103,14 +103,14 @@ public class q extends l implements i {
             public void b(int i2, Throwable th) {
                 if (i2 == 1) {
                     if (i < q.aeV.length) {
-                        q.this.un();
+                        q.this.um();
                     }
                     if (i >= 0 && i < q.aeV.length) {
                         q.this.T(String.valueOf(q.aeV[i]), "");
                         return;
                     }
                     BdLog.e("pingIndex " + i + " out of bounds.");
-                    e.l(q.this.um(), "103", "ping timeout for index " + i);
+                    e.l(q.this.ul(), "103", "ping timeout for index " + i);
                 }
             }
         }), true);
@@ -151,11 +151,11 @@ public class q extends l implements i {
         if (p.dh(str) && p.di(str)) {
             e.df("current status " + this.status + ", constructing bridge for " + str);
             if (this.aeF != null) {
-                this.aeF.tZ();
+                this.aeF.tY();
             }
             b(this.aeE);
             if (this.aeF != null) {
-                this.aeF.ua();
+                this.aeF.tZ();
             }
         }
     }
@@ -173,11 +173,11 @@ public class q extends l implements i {
             } else if ("response".equals(optString)) {
                 c(jSONObject.optString("callbackId"), jSONObject.optJSONObject("outputData"));
             } else {
-                e.l(um(), "105", "invalid message type " + optString);
+                e.l(ul(), "105", "invalid message type " + optString);
             }
             return null;
         } catch (JSONException e) {
-            e.l(um(), "109", e.getMessage());
+            e.l(ul(), "109", e.getMessage());
             return null;
         }
     }
@@ -197,10 +197,10 @@ public class q extends l implements i {
     private void a(m mVar, boolean z) {
         if (!z) {
             if (this.status != 0) {
-                e.l(um(), "101", "(" + mVar.cmd + ", " + mVar.method + ") is called before bridge ready");
+                e.l(ul(), "101", "(" + mVar.cmd + ", " + mVar.method + ") is called before bridge ready");
             }
             if (TextUtils.isEmpty(mVar.cmd) || TextUtils.isEmpty(mVar.method)) {
-                e.l(um(), "102", "the alias class or method is empty");
+                e.l(ul(), "102", "the alias class or method is empty");
                 mVar.b(3, new IllegalArgumentException("cmd or method is illegal."));
                 return;
             }
@@ -218,13 +218,13 @@ public class q extends l implements i {
             }
         }
         try {
-            String uj = mVar.uj();
+            String ui = mVar.ui();
             if (Build.VERSION.SDK_INT >= 19) {
-                this.aeE.evaluateJavascript(uj, null);
+                this.aeE.evaluateJavascript(ui, null);
             } else {
-                this.aeE.loadUrl(uj);
+                this.aeE.loadUrl(ui);
             }
-            e.df(uj);
+            e.df(ui);
         } catch (NullPointerException e) {
             T("500", e.getMessage());
         } catch (JSONException e2) {
@@ -239,12 +239,12 @@ public class q extends l implements i {
 
     private void a(String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
         if (this.status != 0) {
-            e.l(um(), "106", "bridge is not ready");
+            e.l(ul(), "106", "bridge is not ready");
         }
         h hVar = this.aeR.get(str);
         if (hVar == null) {
             hVar = new b(this, str);
-            e.l(um(), "107", "cmd " + str + " not found");
+            e.l(ul(), "107", "cmd " + str + " not found");
         }
         hVar.a(str2, jSONObject, jSONObject2);
     }
@@ -262,13 +262,13 @@ public class q extends l implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String um() {
+    public String ul() {
         return this.logId;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void T(String str, String str2) {
-        e.k(um(), str, str2);
+        e.k(ul(), str, str2);
     }
 
     private void b(WebView webView) {
@@ -278,9 +278,9 @@ public class q extends l implements i {
             byte[] bArr = new byte[open.available()];
             open.read(bArr);
             open.close();
-            StringBuilder uo = uo();
-            uo.append(new String(bArr));
-            webView.loadUrl("javascript:" + uo.toString());
+            StringBuilder un = un();
+            un.append(new String(bArr));
+            webView.loadUrl("javascript:" + un.toString());
             this.aeQ.sendEmptyMessageDelayed(1, 0L);
         } catch (Throwable th) {
             T("102", th.getMessage());
@@ -289,17 +289,17 @@ public class q extends l implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void un() {
+    public void um() {
         e.df("reInject for pingIndex " + this.aeS);
         b(this.aeE);
     }
 
-    private StringBuilder uo() throws JSONException {
+    private StringBuilder un() throws JSONException {
         StringBuilder sb = new StringBuilder("window.HYBRID_INITIAL_DATA=");
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("platform", Constants.OS_TYPE_VALUE);
         jSONObject.put("version", "1.0");
-        jSONObject.put("logid", um());
+        jSONObject.put("logid", ul());
         sb.append(jSONObject.toString());
         sb.append(';');
         return sb;
@@ -323,7 +323,7 @@ public class q extends l implements i {
             }
             switch (message.what) {
                 case 1:
-                    iVar.uh();
+                    iVar.ug();
                     return;
                 case 2:
                     iVar.dg((String) message.obj);

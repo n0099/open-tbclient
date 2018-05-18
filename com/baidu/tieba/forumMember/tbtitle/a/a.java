@@ -32,70 +32,70 @@ import tbclient.GetLevelInfo.DataRes;
 import tbclient.LevelInfo;
 /* loaded from: classes3.dex */
 public class a extends c<TbTitleActivity> {
-    private NoNetworkView bla;
-    private View cNI;
-    private View.OnClickListener cVd;
-    private TbTitleActivity cVj;
-    private ScrollView cVk;
-    private LinearLayout cVl;
-    private TextView cVm;
-    private ImageView cVn;
-    private TextView cVo;
-    private TextView cVp;
-    public LinearLayout cVq;
-    private List<LevelInfo> cVr;
-    private DataRes cVs;
-    private C0133a cVt;
+    private NoNetworkView blp;
+    private View cOP;
+    private C0133a cWA;
+    private View.OnClickListener cWk;
+    private TbTitleActivity cWq;
+    private ScrollView cWr;
+    private LinearLayout cWs;
+    private TextView cWt;
+    private ImageView cWu;
+    private TextView cWv;
+    private TextView cWw;
+    public LinearLayout cWx;
+    private List<LevelInfo> cWy;
+    private DataRes cWz;
     private NavigationBar mNavigationBar;
     private RelativeLayout mRootView;
 
     public a(TbTitleActivity tbTitleActivity, View.OnClickListener onClickListener) {
         super(tbTitleActivity.getPageContext());
-        this.cVt = new C0133a(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.tbtitle.a.a.1
+        this.cWA = new C0133a(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.tbtitle.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.cVj.getPageContext().getContext()).createNormalCfg(a.this.getPageContext().getString(d.k.tieba_text), "from")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.cWq.getPageContext().getContext()).createNormalCfg(a.this.getPageContext().getString(d.k.tieba_text), "from")));
             }
         });
-        this.cVj = tbTitleActivity;
-        this.cVd = onClickListener;
+        this.cWq = tbTitleActivity;
+        this.cWk = onClickListener;
         initUI();
     }
 
     private void initUI() {
-        this.mRootView = (RelativeLayout) LayoutInflater.from(this.cVj.getPageContext().getPageActivity()).inflate(d.i.tbtitle_activity, (ViewGroup) null);
-        this.cVj.setContentView(this.mRootView);
-        this.cNI = this.mRootView.findViewById(d.g.top_view);
+        this.mRootView = (RelativeLayout) LayoutInflater.from(this.cWq.getPageContext().getPageActivity()).inflate(d.i.tbtitle_activity, (ViewGroup) null);
+        this.cWq.setContentView(this.mRootView);
+        this.cOP = this.mRootView.findViewById(d.g.top_view);
         if (!j.gD()) {
-            this.cNI.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + l.e(this.cVj.getActivity(), d.e.ds170);
+            this.cOP.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + l.e(this.cWq.getActivity(), d.e.ds170);
         } else {
-            this.cNI.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + l.e(this.cVj.getActivity(), d.e.ds88);
+            this.cOP.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + l.e(this.cWq.getActivity(), d.e.ds88);
         }
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(d.g.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.cVj.getString(d.k.tbtitle_title));
+        this.mNavigationBar.setCenterTextTitle(this.cWq.getString(d.k.tbtitle_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.cVk = (ScrollView) this.mRootView.findViewById(d.g.tbtitle_scroll_view);
-        this.cVq = (LinearLayout) this.mRootView.findViewById(d.g.first_line_layout);
-        this.cVp = (TextView) this.mRootView.findViewById(d.g.tbtile_like_btn);
-        this.cVl = (LinearLayout) this.mRootView.findViewById(d.g.table_canvas);
-        this.cVm = (TextView) this.mRootView.findViewById(d.g.user_level_name);
-        this.cVn = (ImageView) this.mRootView.findViewById(d.g.header_level_img);
-        this.cVo = (TextView) this.mRootView.findViewById(d.g.tbtitle_tip_detail2);
-        this.bla = (NoNetworkView) this.mRootView.findViewById(d.g.view_no_network);
+        this.cWr = (ScrollView) this.mRootView.findViewById(d.g.tbtitle_scroll_view);
+        this.cWx = (LinearLayout) this.mRootView.findViewById(d.g.first_line_layout);
+        this.cWw = (TextView) this.mRootView.findViewById(d.g.tbtile_like_btn);
+        this.cWs = (LinearLayout) this.mRootView.findViewById(d.g.table_canvas);
+        this.cWt = (TextView) this.mRootView.findViewById(d.g.user_level_name);
+        this.cWu = (ImageView) this.mRootView.findViewById(d.g.header_level_img);
+        this.cWv = (TextView) this.mRootView.findViewById(d.g.tbtitle_tip_detail2);
+        this.blp = (NoNetworkView) this.mRootView.findViewById(d.g.view_no_network);
+        aor();
         aos();
-        aot();
     }
 
-    private void aos() {
+    private void aor() {
         String string = getPageContext().getResources().getString(d.k.tbtitle_tip_detail2);
         String string2 = getPageContext().getResources().getString(d.k.tbtitle_tip_tieba_bar);
         int length = string2.length();
         int indexOf = string.indexOf(string2);
         SpannableString spannableString = new SpannableString(string);
-        spannableString.setSpan(this.cVt, indexOf, length + indexOf, 33);
-        this.cVo.setText(spannableString);
-        this.cVo.setMovementMethod(LinkMovementMethod.getInstance());
+        spannableString.setSpan(this.cWA, indexOf, length + indexOf, 33);
+        this.cWv.setText(spannableString);
+        this.cWv.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -120,13 +120,13 @@ public class a extends c<TbTitleActivity> {
         }
     }
 
-    public void bd(List<LevelInfo> list) {
-        this.cVr = list;
-        if (this.cVl != null && this.cVr != null && this.cVr.size() != 0) {
-            this.cVl.removeAllViews();
+    public void bg(List<LevelInfo> list) {
+        this.cWy = list;
+        if (this.cWs != null && this.cWy != null && this.cWy.size() != 0) {
+            this.cWs.removeAllViews();
             for (int i = 1; i <= list.size(); i++) {
                 LevelInfo levelInfo = list.get(i - 1);
-                View inflate = LayoutInflater.from(this.cVj.getPageContext().getContext()).inflate(d.i.tbtitle_table_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.cWq.getPageContext().getContext()).inflate(d.i.tbtitle_table_item, (ViewGroup) null);
                 LinearLayout linearLayout = (LinearLayout) inflate.findViewById(d.g.table_item_background);
                 TextView textView = (TextView) inflate.findViewById(d.g.table_item_level_name);
                 TextView textView2 = (TextView) inflate.findViewById(d.g.table_item_need_experienment);
@@ -147,88 +147,88 @@ public class a extends c<TbTitleActivity> {
                 } else {
                     textView2.setText("3000000");
                 }
-                this.cVl.addView(inflate);
+                this.cWs.addView(inflate);
             }
         }
     }
 
     public void a(DataRes dataRes) {
-        this.cVs = dataRes;
-        if (this.cVs != null) {
-            if (this.cVs.is_like.intValue() == 1 && this.cVq != null) {
-                this.cVq.setVisibility(8);
+        this.cWz = dataRes;
+        if (this.cWz != null) {
+            if (this.cWz.is_like.intValue() == 1 && this.cWx != null) {
+                this.cWx.setVisibility(8);
             }
-            if (this.cVm != null) {
-                if (StringUtils.isNull(this.cVs.level_name, true)) {
-                    this.cVm.setText(this.cVs.level_name);
+            if (this.cWt != null) {
+                if (StringUtils.isNull(this.cWz.level_name, true)) {
+                    this.cWt.setText(this.cWz.level_name);
                 } else {
-                    this.cVm.setVisibility(8);
+                    this.cWt.setVisibility(8);
                 }
             }
-            if (this.cVn != null) {
-                if (this.cVs.user_level.intValue() <= 0 || this.cVs.user_level.intValue() > 18) {
-                    this.cVn.setVisibility(8);
+            if (this.cWu != null) {
+                if (this.cWz.user_level.intValue() <= 0 || this.cWz.user_level.intValue() > 18) {
+                    this.cWu.setVisibility(8);
                 } else {
-                    ak.c(this.cVn, BitmapHelper.getGradeResourceIdNew(this.cVs.user_level.intValue()));
+                    ak.c(this.cWu, BitmapHelper.getGradeResourceIdNew(this.cWz.user_level.intValue()));
                 }
             }
         }
     }
 
-    private void aot() {
-        this.cVp.setOnClickListener(this.cVd);
-        this.cVo.setOnClickListener(this.cVd);
+    private void aos() {
+        this.cWw.setOnClickListener(this.cWk);
+        this.cWv.setOnClickListener(this.cWk);
     }
 
-    public void dh(int i) {
+    public void di(int i) {
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.cVj.getPageContext(), i);
+            this.mNavigationBar.onChangeSkinType(this.cWq.getPageContext(), i);
         }
-        if (this.bla != null) {
-            this.bla.onChangeSkinType(this.cVj.getPageContext(), i);
+        if (this.blp != null) {
+            this.blp.onChangeSkinType(this.cWq.getPageContext(), i);
         }
-        bd(this.cVr);
-        a(this.cVs);
-        this.cVj.getLayoutMode().setNightMode(i == 1);
-        this.cVj.getLayoutMode().u(this.mRootView);
+        bg(this.cWy);
+        a(this.cWz);
+        this.cWq.getLayoutMode().setNightMode(i == 1);
+        this.cWq.getLayoutMode().u(this.mRootView);
     }
 
-    public void lF(String str) {
-        this.cVk.setVisibility(8);
-        this.cVj.showNetRefreshView(this.mRootView, str, true);
-        this.cVj.setNetRefreshViewTopMargin(HttpStatus.SC_BAD_REQUEST);
+    public void lI(String str) {
+        this.cWr.setVisibility(8);
+        this.cWq.showNetRefreshView(this.mRootView, str, true);
+        this.cWq.setNetRefreshViewTopMargin(HttpStatus.SC_BAD_REQUEST);
     }
 
-    public void aou() {
-        this.cVk.setVisibility(0);
-        this.cVj.hideNetRefreshView(this.mRootView);
+    public void aot() {
+        this.cWr.setVisibility(0);
+        this.cWq.hideNetRefreshView(this.mRootView);
     }
 
     public void showLoadingView() {
-        this.cVk.setVisibility(8);
-        this.cVj.showLoadingView(this.mRootView, true);
+        this.cWr.setVisibility(8);
+        this.cWq.showLoadingView(this.mRootView, true);
     }
 
-    public void aov() {
-        this.cVk.setVisibility(0);
-        this.cVj.hideLoadingView(this.mRootView);
+    public void aou() {
+        this.cWr.setVisibility(0);
+        this.cWq.hideLoadingView(this.mRootView);
     }
 
     public void h(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.bla.a(aVar);
+            this.blp.a(aVar);
         }
     }
 
-    public void fm(boolean z) {
+    public void fn(boolean z) {
         if (!z) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cNI.getLayoutParams();
-            layoutParams.height = UtilHelper.getLightStatusBarHeight() + l.e(this.cVj.getActivity(), d.e.ds170);
-            this.cNI.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cOP.getLayoutParams();
+            layoutParams.height = UtilHelper.getLightStatusBarHeight() + l.e(this.cWq.getActivity(), d.e.ds170);
+            this.cOP.setLayoutParams(layoutParams);
             return;
         }
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.cNI.getLayoutParams();
-        layoutParams2.height = UtilHelper.getLightStatusBarHeight() + l.e(this.cVj.getActivity(), d.e.ds88);
-        this.cNI.setLayoutParams(layoutParams2);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.cOP.getLayoutParams();
+        layoutParams2.height = UtilHelper.getLightStatusBarHeight() + l.e(this.cWq.getActivity(), d.e.ds88);
+        this.cOP.setLayoutParams(layoutParams2);
     }
 }

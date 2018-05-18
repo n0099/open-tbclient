@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    public int abV;
+    public int abW;
     private TextView aow;
     private TextView aqa;
     private boolean aqb;
@@ -64,17 +64,17 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     private void p(bd bdVar) {
-        if (this.aqa != null && bdVar != null && this.aqd && bdVar.si() != null && bdVar.sU()) {
+        if (this.aqa != null && bdVar != null && this.aqd && bdVar.sh() != null && bdVar.sT()) {
             this.aqa.setVisibility(0);
-            this.aqa.setText(String.format(this.mContext.getString(d.k.person_view_item_live_watch_num), an.v(bdVar.si().audience_count)));
+            this.aqa.setText(String.format(this.mContext.getString(d.k.person_view_item_live_watch_num), an.v(bdVar.sh().audience_count)));
         }
     }
 
     private void q(bd bdVar) {
         if (this.aqa != null && bdVar != null && this.aqb) {
-            if (bdVar.rJ() >= 0) {
+            if (bdVar.rI() >= 0) {
                 this.aqa.setVisibility(0);
-                this.aqa.setText(String.format(this.mContext.getString(d.k.person_view_num), an.v(bdVar.rJ())));
+                this.aqa.setText(String.format(this.mContext.getString(d.k.person_view_num), an.v(bdVar.rI())));
                 return;
             }
             this.aqa.setVisibility(8);
@@ -83,9 +83,9 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     private void r(bd bdVar) {
         if (this.aow != null && bdVar != null && this.aqc) {
-            if (bdVar.rI() >= 0) {
+            if (bdVar.rH() >= 0) {
                 this.aow.setVisibility(0);
-                this.aow.setText(String.format(this.mContext.getString(d.k.comment_num_tip), an.v(bdVar.rI())));
+                this.aow.setText(String.format(this.mContext.getString(d.k.comment_num_tip), an.v(bdVar.rH())));
                 return;
             }
             this.aow.setVisibility(8);
@@ -93,16 +93,16 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     private void s(bd bdVar) {
-        if (this.aow != null && bdVar != null && this.aqe && bdVar.sU()) {
+        if (this.aow != null && bdVar != null && this.aqe && bdVar.sT()) {
             this.aow.setVisibility(0);
-            this.aow.setText(String.format(this.mContext.getString(d.k.person_view_item_live_zan_num), an.v(bdVar.sZ())));
+            this.aow.setText(String.format(this.mContext.getString(d.k.person_view_item_live_zan_num), an.v(bdVar.sY())));
         }
     }
 
     private void f(bd bdVar) {
-        if (this.aow != null && bdVar != null && this.aqf && bdVar.sU()) {
+        if (this.aow != null && bdVar != null && this.aqf && bdVar.sT()) {
             this.aow.setVisibility(0);
-            this.aow.setText(String.format(this.mContext.getString(d.k.person_view_item_live_share_num), an.v((bdVar.si() == null || bdVar.si().share_info == null) ? 0 : bdVar.si().share_info.share_count)));
+            this.aow.setText(String.format(this.mContext.getString(d.k.person_view_item_live_share_num), an.v((bdVar.sh() == null || bdVar.sh().share_info == null) ? 0 : bdVar.sh().share_info.share_count)));
         }
     }
 

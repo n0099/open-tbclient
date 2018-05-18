@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int fKS = 0;
-    private static int fKT = 1;
-    private static String fKU = "";
+    private static int fLY = 0;
+    private static int fLZ = 1;
+    private static String fMa = "";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        fKT = 1;
+        fLZ = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(fKU)) {
-                fKS = 1;
-                fKU = str;
+            if (z || !str.equals(fMa)) {
+                fLY = 1;
+                fMa = str;
             } else {
-                fKS++;
+                fLY++;
             }
         } else {
-            if (z || !str.equals(fKU)) {
+            if (z || !str.equals(fMa)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    fKT = 1;
+                    fLZ = 1;
                 } else {
-                    fKT = 0;
+                    fLZ = 0;
                 }
-                fKU = str;
+                fMa = str;
             }
-            fKT++;
+            fLZ++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(fKU);
+        userPostPageRequestMessage.setUid(fMa);
         if (z3) {
-            userPostPageRequestMessage.setPn(fKS);
+            userPostPageRequestMessage.setPn(fLY);
         } else {
-            userPostPageRequestMessage.setPn(fKT);
+            userPostPageRequestMessage.setPn(fLZ);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -222,7 +222,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int af = l.af(TbadkCoreApplication.getInst().getApp());
         int ah = l.ah(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = ap.vQ().vS() ? 2 : 1;
+        int i2 = ap.vP().vR() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(af);
         userPostPageRequestMessage.set_scr_h(ah);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.csr != 33) {
+                if (cardPersonDynamicThreadData.ctB != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -510,17 +510,17 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).csD = true;
-                ((CardPersonDynamicThreadData) next).csC = true;
-                long j = ((CardPersonDynamicThreadData) next).csp * 1000;
+                ((CardPersonDynamicThreadData) next).ctN = true;
+                ((CardPersonDynamicThreadData) next).ctM = true;
+                long j = ((CardPersonDynamicThreadData) next).ctz * 1000;
                 String K2 = an.K(j);
                 String N = an.N(j);
                 String M = an.M(j);
                 if (an.equals(K2, K)) {
-                    ((CardPersonDynamicThreadData) next).csD = false;
+                    ((CardPersonDynamicThreadData) next).ctN = false;
                 }
                 if (an.equals(M, str5) && an.equals(N, str4) && an.equals(K2, K)) {
-                    ((CardPersonDynamicThreadData) next).csC = false;
+                    ((CardPersonDynamicThreadData) next).ctM = false;
                     str = str5;
                     str2 = str4;
                     str3 = K;

@@ -10,8 +10,8 @@ public interface l<T> {
     /* loaded from: classes.dex */
     public static class b<T> {
         public String key;
-        public long rB;
-        public long rO;
+        public long rA;
+        public long rN;
         public T value;
     }
 

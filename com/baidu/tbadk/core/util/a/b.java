@@ -21,7 +21,7 @@ public class b {
     public boolean ajE = false;
     public int ajF = 0;
 
-    public g wl() {
+    public g wk() {
         return this.ajC;
     }
 
@@ -62,20 +62,20 @@ public class b {
         }
         int gV = j.gV();
         qVar.n("net_type", String.valueOf(gV));
-        String xU = com.baidu.tbadk.coreExtra.b.a.xR().xU();
+        String xT = com.baidu.tbadk.coreExtra.b.a.xQ().xT();
         if (1 == gV) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = xU + "ka=open";
+                str = xT + "ka=open";
                 z = true;
             }
-            str = xU;
+            str = xT;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = xU + "ka=open";
+                str = xT + "ka=open";
                 z = true;
             }
-            str = xU;
+            str = xT;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.setKeepAlive(z);
@@ -91,7 +91,7 @@ public class b {
         }
     }
 
-    public String wm() {
+    public String wl() {
         if (this.ajC.mUrl == null) {
             return null;
         }

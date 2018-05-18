@@ -15,20 +15,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject bgG;
-    private HttpMessageListener bgH;
-    private BdUniqueId bgI = BdUniqueId.gen();
+    private JSONObject bgH;
+    private HttpMessageListener bgI;
     private BdUniqueId bgJ = BdUniqueId.gen();
-    private CustomMessageListener aYu = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
+    private BdUniqueId bgK = BdUniqueId.gen();
+    private CustomMessageListener aYv = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.gD() && a.this.bgG != null) {
-                a.this.a(a.this.bgG, a.this.bgJ);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.gD() && a.this.bgH != null) {
+                a.this.a(a.this.bgH, a.this.bgK);
             }
         }
     };
-    private CustomMessageListener bgK = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
+    private CustomMessageListener bgL = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,38 +39,38 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        if (this.bgH == null) {
-            this.bgH = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
+        if (this.bgI == null) {
+            this.bgI = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                        a.this.bgG = null;
+                        a.this.bgH = null;
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.bgH);
-        MessageManager.getInstance().registerListener(this.aYu);
-        this.bgK.setTag(tbPageContext.getUniqueId());
-        this.bgK.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.bgK);
+        MessageManager.getInstance().registerListener(this.bgI);
+        MessageManager.getInstance().registerListener(this.aYv);
+        this.bgL.setTag(tbPageContext.getUniqueId());
+        this.bgL.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.bgL);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bgH);
-        MessageManager.getInstance().unRegisterListener(this.aYu);
-        MessageManager.getInstance().unRegisterListener(this.bgK);
-        this.bgG = null;
+        MessageManager.getInstance().unRegisterListener(this.bgI);
+        MessageManager.getInstance().unRegisterListener(this.aYv);
+        MessageManager.getInstance().unRegisterListener(this.bgL);
+        this.bgH = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (j.gD()) {
-                a(jSONObject, this.bgI);
+                a(jSONObject, this.bgJ);
             } else {
-                this.bgG = jSONObject;
+                this.bgH = jSONObject;
             }
         }
     }

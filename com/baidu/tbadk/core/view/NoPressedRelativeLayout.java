@@ -9,8 +9,8 @@ import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class NoPressedRelativeLayout extends RelativeLayout {
-    float Fs;
-    int Fy;
+    float Fo;
+    int Fu;
     private Rect anA;
     private boolean anB;
     private a anC;
@@ -30,12 +30,12 @@ public class NoPressedRelativeLayout extends RelativeLayout {
 
     public NoPressedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Fs = 0.0f;
-        this.Fy = 0;
+        this.Fo = 0.0f;
+        this.Fu = 0;
         this.anz = 0.0f;
         this.anB = false;
         this.anD = false;
-        this.Fy = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.Fu = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -51,7 +51,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
         if (this.anx != null) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.Fs = motionEvent.getRawY();
+                    this.Fo = motionEvent.getRawY();
                     this.anz = 0.0f;
                     if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
                         this.anB = true;
@@ -63,7 +63,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
                     return super.dispatchTouchEvent(motionEvent);
                 case 1:
                 case 3:
-                    if (this.anB && Math.abs(this.Fs - motionEvent.getRawY()) < this.Fy && this.anz < this.Fy && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                    if (this.anB && Math.abs(this.Fo - motionEvent.getRawY()) < this.Fu && this.anz < this.Fu && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
                         setBottomViewClickEventEnabled(false);
                         if (this.anx.isClickable()) {
                             this.anx.performClick();
@@ -72,8 +72,8 @@ public class NoPressedRelativeLayout extends RelativeLayout {
                     }
                     break;
                 case 2:
-                    this.anz = this.anz > Math.abs(this.Fs - motionEvent.getRawY()) ? this.anz : Math.abs(this.Fs - motionEvent.getRawY());
-                    if (this.anB && this.anz < this.Fy) {
+                    this.anz = this.anz > Math.abs(this.Fo - motionEvent.getRawY()) ? this.anz : Math.abs(this.Fo - motionEvent.getRawY());
+                    if (this.anB && this.anz < this.Fu) {
                         setBottomViewClickEventEnabled(false);
                     } else {
                         setBottomViewClickEventEnabled(true);
@@ -100,7 +100,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
         this.anx = view2;
     }
 
-    private boolean wM() {
+    private boolean wL() {
         if (this.anx == null) {
             return false;
         }
@@ -111,7 +111,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     }
 
     private Rect getTopViewRect() {
-        if (wM()) {
+        if (wL()) {
             int[] iArr = {0, 0};
             if (this.anx != null) {
                 this.anx.getLocationOnScreen(iArr);

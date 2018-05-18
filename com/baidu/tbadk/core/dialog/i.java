@@ -26,7 +26,7 @@ public class i extends a {
                 i.this.dismiss();
             }
         };
-        w(kA());
+        w(kz());
         b(eVar);
     }
 
@@ -38,8 +38,8 @@ public class i extends a {
             this.adA.setText(contriInfo.getColorMsg());
             this.adB.setText(contriInfo.getAfterMsg());
             com.baidu.adp.lib.g.e.fw().postDelayed(this.adD, j);
-            tE().setBackgroundResource(0);
-            tD();
+            tD().setBackgroundResource(0);
+            tC();
         }
     }
 
@@ -47,7 +47,7 @@ public class i extends a {
         com.baidu.adp.lib.g.e.fw().removeCallbacks(this.adD);
     }
 
-    private View kA() {
+    private View kz() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(d.i.star_idol_layout, (ViewGroup) null);
         this.mImageView = (ImageView) inflate.findViewById(d.g.image);
         this.adA = (TextView) inflate.findViewById(d.g.toast_text);

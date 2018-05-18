@@ -10,10 +10,10 @@ import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class c extends e {
     private TextView aqm;
-    private HeadImageView dxk;
-    private TextView gcD;
-    private CountDownTextView gcH;
-    private boolean gcI;
+    private HeadImageView dyr;
+    private TextView gdJ;
+    private CountDownTextView gdN;
+    private boolean gdO;
 
     public c(View view2, String str) {
         super(view2, str);
@@ -21,47 +21,47 @@ public class c extends e {
     }
 
     private void init() {
-        this.dxk = (HeadImageView) rY(d.g.user_portrait);
-        this.dxk.setDefaultResource(d.f.icon_default_avatar100);
-        this.dxk.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.dxk.setDefaultBgResource(d.C0126d.cp_bg_line_e);
-        this.dxk.setIsRound(true);
-        this.aqm = (TextView) rY(d.g.user_name);
-        this.gcH = (CountDownTextView) rY(d.g.count_down_text);
-        this.gcD = (TextView) rY(d.g.action);
+        this.dyr = (HeadImageView) rX(d.g.user_portrait);
+        this.dyr.setDefaultResource(d.f.icon_default_avatar100);
+        this.dyr.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.dyr.setDefaultBgResource(d.C0126d.cp_bg_line_e);
+        this.dyr.setIsRound(true);
+        this.aqm = (TextView) rX(d.g.user_name);
+        this.gdN = (CountDownTextView) rX(d.g.count_down_text);
+        this.gdJ = (TextView) rX(d.g.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.dxk.startLoad(fVar.fYd, 10, false);
+        this.dyr.startLoad(fVar.fZj, 10, false);
         this.aqm.setText(fVar.userName);
-        this.gcD.setText(fVar.buttonText);
+        this.gdJ.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 s.ak(c.this.mRootView.getContext(), fVar.scheme);
-                if (c.this.gcM != null) {
-                    c.this.gcM.rS(302);
-                    com.baidu.tieba.recapp.report.b.bke().a(c.this.gcM);
+                if (c.this.gdS != null) {
+                    c.this.gdS.rR(302);
+                    com.baidu.tieba.recapp.report.b.bkd().a(c.this.gdS);
                 }
-                c.this.lF(false);
+                c.this.lG(false);
             }
         });
-        this.gcH.update(fVar.count);
+        this.gdN.update(fVar.count);
         onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void bkj() {
-        super.bkj();
-        this.gcH.startCountDown();
+    public void bki() {
+        super.bki();
+        this.gdN.startCountDown();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setTimeoutListener(CountDownTextView.b bVar) {
         super.setTimeoutListener(bVar);
-        this.gcH.setTimeoutListener(bVar);
+        this.gdN.setTimeoutListener(bVar);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
@@ -69,10 +69,10 @@ public class c extends e {
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void lF(boolean z) {
-        this.gcI = z;
-        if (this.gcH != null) {
-            this.gcH.setEnableTimeoutListener(this.gcI);
+    public void lG(boolean z) {
+        this.gdO = z;
+        if (this.gdN != null) {
+            this.gdN.setEnableTimeoutListener(this.gdO);
         }
     }
 }

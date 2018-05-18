@@ -18,7 +18,7 @@ public class MsgMidViewItemAdapter extends e<f> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
         super.onFillViewHolder(i, view2, viewGroup, chatMessage, aVar);
-        aVar.aAU().setData(chatMessage);
+        aVar.aAS().setData(chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().u(view2);
         return view2;

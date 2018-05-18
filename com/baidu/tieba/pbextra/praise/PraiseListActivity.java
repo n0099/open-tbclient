@@ -18,8 +18,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener, d.a {
     public int pageType = 0;
-    private e fBL = null;
-    private d fBM = null;
+    private e fCR = null;
+    private d fCS = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -29,62 +29,62 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (bundle != null) {
             this.pageType = bundle.getInt(IntentConfig.LIST_TYPE, 0);
             boolean z2 = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-            this.fBM = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-            this.fBM.qW(bundle.getInt("KeyIntentPraiseId"));
+            this.fCS = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+            this.fCS.qV(bundle.getInt("KeyIntentPraiseId"));
             z = z2;
         } else if (getIntent() != null) {
             this.pageType = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
             boolean booleanExtra = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-            this.fBM = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+            this.fCS = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
             z = booleanExtra;
         } else {
             z = false;
         }
-        if (this.fBM == null) {
-            this.fBM = new d();
+        if (this.fCS == null) {
+            this.fCS = new d();
         }
-        this.fBM.setIsAuthor(z);
-        this.fBL = new e(this, this.fBM.bds());
-        this.fBL.kQ(false);
-        this.fBM.qY(this.pageType);
+        this.fCS.setIsAuthor(z);
+        this.fCR = new e(this, this.fCS.bds());
+        this.fCR.kR(false);
+        this.fCS.qX(this.pageType);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.fBM.c(bundle, IntentConfig.IS_FROM_PB);
-        this.fBM.d(bundle, "thread_id");
-        this.fBM.e(bundle, "post_id");
-        this.fBM.f(bundle, IntentConfig.POST_DESC);
-        this.fBM.g(bundle, "KeyIntentPraiseId");
+        this.fCS.c(bundle, IntentConfig.IS_FROM_PB);
+        this.fCS.d(bundle, "thread_id");
+        this.fCS.e(bundle, "post_id");
+        this.fCS.f(bundle, IntentConfig.POST_DESC);
+        this.fCS.g(bundle, "KeyIntentPraiseId");
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.fBL.bdv()) {
+        if (view2 == this.fCR.bdv()) {
             bdq();
-            if (this.fBM.bbs()) {
+            if (this.fCS.bbs()) {
                 finish();
                 return;
             }
-            m.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.fBM.getThreadId(), null, "praise_list"));
-        } else if (view2 == this.fBL.bdw() && !this.fBL.wX()) {
-            this.fBL.kQ(true);
-            this.fBM.qY(this.pageType);
+            m.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.fCS.getThreadId(), null, "praise_list"));
+        } else if (view2 == this.fCR.bdw() && !this.fCR.wW()) {
+            this.fCR.kR(true);
+            this.fCS.qX(this.pageType);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        a qX = this.fBM.qX(i);
-        if (qX != null) {
-            m.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), qX.getUserId(), qX.bdo(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        a qW = this.fCS.qW(i);
+        if (qW != null) {
+            m.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), qW.getUserId(), qW.bdo(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
     private void bdq() {
-        if (this.fBM != null) {
-            this.fBM.bdr();
+        if (this.fCS != null) {
+            this.fCS.bdr();
         }
     }
 
@@ -93,15 +93,15 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (k.isEmpty(str)) {
             str = getResources().getString(d.k.neterror);
         }
-        this.fBL.bdu();
-        this.fBL.aC(str, this.pageType);
+        this.fCR.bdu();
+        this.fCR.aC(str, this.pageType);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.fBL.aEf();
+        this.fCR.aEd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -114,7 +114,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.fBL.a(getLayoutMode(), i);
+        this.fCR.a(getLayoutMode(), i);
     }
 
     public void changSkinType(View view2) {
@@ -124,6 +124,6 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.tieba.pbextra.praise.d.a
     public void a(int i, List<a> list, int i2, int i3) {
-        this.fBL.b(i, list, i2, i3);
+        this.fCR.b(i, list, i2, i3);
     }
 }

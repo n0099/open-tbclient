@@ -28,12 +28,12 @@ public class SearchLocationActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        aMl();
+        aMk();
         com.baidu.tieba.tbadkCore.a.a.c(303018, LocationSearchResponseMessage.class, false);
         TbadkCoreApplication.getInst().RegisterIntent(SelectLocationActivityConfig.class, SelectLocationActivity.class);
     }
 
-    public static void aMl() {
+    public static void aMk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, com.baidu.tieba.tbadkCore.a.a.aK(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, 303018));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

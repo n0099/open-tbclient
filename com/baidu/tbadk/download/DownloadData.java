@@ -24,7 +24,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     public static final int FILE_DOWNLOAD_TYPE_PENDANT = 18;
     private static final long serialVersionUID = 1402749061179345930L;
-    private transient d aCk;
+    private transient d aCl;
     private String action;
     private String app_icon;
     private String check;
@@ -99,7 +99,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aCk = null;
+        this.aCl = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -115,7 +115,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aCk = null;
+        this.aCl = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -132,7 +132,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aCk = null;
+        this.aCl = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -150,7 +150,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aCk = null;
+        this.aCl = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -159,7 +159,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.aCk = dVar;
+        this.aCl = dVar;
         this.status = 5;
     }
 
@@ -260,11 +260,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public d getCallback() {
-        return this.aCk;
+        return this.aCl;
     }
 
     public void setCallback(d dVar) {
-        this.aCk = dVar;
+        this.aCl = dVar;
     }
 
     public String getStatusMsg() {

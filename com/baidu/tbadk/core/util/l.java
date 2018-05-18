@@ -27,7 +27,7 @@ public class l {
 
     /* loaded from: classes.dex */
     public interface a {
-        void uJ();
+        void uI();
     }
 
     public static l a(ImageView imageView, int i, int i2, int i3) {
@@ -36,7 +36,7 @@ public class l {
 
     public l(ImageView imageView, int i, int i2, int i3) {
         this.mBitmap = null;
-        this.agn = cz(i);
+        this.agn = cA(i);
         this.agp = new SoftReference<>(imageView);
         this.agq = 1000 / i2;
         this.ags = i3;
@@ -56,7 +56,7 @@ public class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int uI() {
+    public int uH() {
         this.mIndex++;
         if (this.mIndex + 1 >= this.agn.length) {
             this.agt++;
@@ -81,7 +81,7 @@ public class l {
                     if (!l.this.ago || imageView2 == null || l.this.agt > l.this.ags) {
                         l.this.mIsRunning = false;
                         if (l.this.agr != null) {
-                            l.this.agr.uJ();
+                            l.this.agr.uI();
                         }
                         if (l.this.mBitmap != null && !l.this.mBitmap.isRecycled()) {
                             l.this.mBitmap.recycle();
@@ -93,10 +93,10 @@ public class l {
                     l.this.mIsRunning = true;
                     l.this.mHandler.postDelayed(this, l.this.agq);
                     if (imageView2.isShown()) {
-                        int uI = l.this.uI();
+                        int uH = l.this.uH();
                         if (l.this.mBitmap != null && !l.this.mBitmap.isRecycled()) {
                             try {
-                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), uI, l.this.agu);
+                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), uH, l.this.agu);
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 bitmap = null;
@@ -105,12 +105,12 @@ public class l {
                                 imageView2.setImageBitmap(bitmap);
                                 return;
                             }
-                            imageView2.setImageResource(uI);
+                            imageView2.setImageResource(uH);
                             l.this.mBitmap.recycle();
                             l.this.mBitmap = null;
                             return;
                         }
-                        imageView2.setImageResource(uI);
+                        imageView2.setImageResource(uH);
                     }
                 }
             });
@@ -129,7 +129,7 @@ public class l {
         this.agr = aVar;
     }
 
-    private int[] cz(int i) {
+    private int[] cA(int i) {
         TypedArray obtainTypedArray = TbadkCoreApplication.getInst().getResources().obtainTypedArray(i);
         int length = obtainTypedArray.length();
         int[] iArr = new int[obtainTypedArray.length()];

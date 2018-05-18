@@ -15,13 +15,13 @@ public interface f {
 
     void m(String str, int i, String str2);
 
-    void pB(String str);
+    void pE(String str);
 
-    void pC(String str);
+    void pF(String str);
 
-    void pD(String str);
+    void pG(String str);
 
-    boolean pE(String str);
+    boolean pH(String str);
 
-    boolean pF(String str);
+    boolean pI(String str);
 }

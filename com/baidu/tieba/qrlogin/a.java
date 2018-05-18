@@ -11,55 +11,55 @@ import com.baidu.tieba.d;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private final BaseActivity bcJ;
-    private final b fVo;
-    private Map<String, String> fVp;
-    private QrLoginAction fVq;
+    private final BaseActivity bcK;
+    private final b fWu;
+    private Map<String, String> fWv;
+    private QrLoginAction fWw;
 
     public a(BaseActivity baseActivity, b bVar) {
-        this.bcJ = baseActivity;
-        this.fVo = bVar;
+        this.bcK = baseActivity;
+        this.fWu = bVar;
     }
 
     public void start(String str) {
-        this.fVp = SapiUtils.parseQrLoginSchema(str);
+        this.fWv = SapiUtils.parseQrLoginSchema(str);
         if (j.gD()) {
-            a(this.fVp, QrLoginAction.NOTICE);
+            a(this.fWv, QrLoginAction.NOTICE);
         } else {
-            this.fVo.biI();
+            this.fWu.biI();
         }
     }
 
     public void biK() {
         if (!j.gD()) {
-            this.bcJ.showToast(d.k.network_not_available);
+            this.bcK.showToast(d.k.network_not_available);
         } else {
-            a(this.fVp, QrLoginAction.LOGIN);
+            a(this.fWv, QrLoginAction.LOGIN);
         }
     }
 
     public void biL() {
-        a(this.fVp, QrLoginAction.CANCEL);
+        a(this.fWv, QrLoginAction.CANCEL);
     }
 
     private void a(Map<String, String> map, QrLoginAction qrLoginAction) {
         if (!TbadkCoreApplication.isLogin()) {
             onError("loginError");
         } else {
-            this.fVq = qrLoginAction;
+            this.fWw = qrLoginAction;
         }
     }
 
     public void onDestory() {
-        if (this.fVq != null && this.fVq == QrLoginAction.NOTICE) {
+        if (this.fWw != null && this.fWw == QrLoginAction.NOTICE) {
             biL();
         }
     }
 
     private void onError(String str) {
         if (!StringUtils.isNull(str)) {
-            UtilHelper.showToast(this.bcJ, str);
+            UtilHelper.showToast(this.bcK, str);
         }
-        this.bcJ.finish();
+        this.bcK.finish();
     }
 }

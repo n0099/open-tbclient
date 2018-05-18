@@ -5,21 +5,21 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.animation3d.b.a {
-    private int ckH;
-    private a ckI;
+    private int clQ;
+    private a clR;
     private Handler mHandler;
     private float mRadius;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ei(boolean z);
+        void ej(boolean z);
     }
 
     public c(Context context) {
         super(context);
         this.mRadius = 0.0f;
-        this.ckH = 1;
-        this.ckI = null;
+        this.clQ = 1;
+        this.clR = null;
         eL();
     }
 
@@ -29,14 +29,14 @@ public class c extends com.baidu.tieba.animation3d.b.a {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (c.this.ckI != null) {
-                            c.this.ckI.ei(true);
+                        if (c.this.clR != null) {
+                            c.this.clR.ej(true);
                             return true;
                         }
                         return true;
                     case 2:
-                        if (c.this.ckI != null) {
-                            c.this.ckI.ei(false);
+                        if (c.this.clR != null) {
+                            c.this.clR.ej(false);
                             return true;
                         }
                         return true;
@@ -49,8 +49,8 @@ public class c extends com.baidu.tieba.animation3d.b.a {
 
     public void setRotateRadius(float f) {
         this.mRadius = f;
-        this.ckx = this.mRadius;
-        this.ckw = this.mRadius;
+        this.clG = this.mRadius;
+        this.clF = this.mRadius;
     }
 
     private void aeJ() {
@@ -59,20 +59,20 @@ public class c extends com.baidu.tieba.animation3d.b.a {
     }
 
     public int getViewStatus() {
-        return this.ckH;
+        return this.clQ;
     }
 
     @Override // com.baidu.tieba.animation3d.b.a
-    public void wr() {
-        super.wr();
-        this.ckx = this.mRadius;
-        this.ckw = this.mRadius;
-        this.ckH = 1;
+    public void wq() {
+        super.wq();
+        this.clG = this.mRadius;
+        this.clF = this.mRadius;
+        this.clQ = 1;
         aeJ();
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.ckI = aVar;
+        this.clR = aVar;
     }
 }

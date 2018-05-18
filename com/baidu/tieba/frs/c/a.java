@@ -21,13 +21,13 @@ import com.baidu.tieba.d;
 import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
 public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
-    private TbPageContext adf;
-    private ImageView dmi;
-    private TextView dmj;
-    private TextView dmk;
-    private String dml;
-    private View dmm;
-    private View dmo;
+    private ImageView dnp;
+    private TextView dnq;
+    private TextView dnr;
+    private String dnt;
+    private View dnu;
+    private View dnw;
+    private TbPageContext mContext;
     private View rootView;
     private final b<com.baidu.adp.widget.ImageView.a> mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.frs.c.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             if (aVar != null) {
-                aVar.a(a.this.dmi);
+                aVar.a(a.this.dnp);
             }
         }
 
@@ -52,71 +52,71 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
         }
     };
     private int screenWidth = 0;
-    private int dmn = 0;
+    private int dnv = 0;
 
     public a(TbPageContext tbPageContext) {
-        this.adf = tbPageContext;
+        this.mContext = tbPageContext;
         this.rootView = LayoutInflater.from(tbPageContext.getContext()).inflate(d.i.frs_head_image_item, (ViewGroup) null, false);
-        this.dmm = this.rootView.findViewById(d.g.frs_header_title_container);
-        this.dmi = (ImageView) this.rootView.findViewById(d.g.frs_head_image);
-        this.dmj = (TextView) this.rootView.findViewById(d.g.frs_header_title);
-        this.dmk = (TextView) this.rootView.findViewById(d.g.frs_header_title_lable);
-        this.dmo = this.rootView.findViewById(d.g.frs_image_header_contianer);
-        atP();
-        this.dmo.getLayoutParams().height = atO();
-        this.dmo.requestLayout();
-        this.dmk.setText(tbPageContext.getString(d.k.frs_header_image_lable));
-        this.dmi.setOnClickListener(this);
-        this.dmm.setOnClickListener(this);
-        this.dmo.setOnClickListener(this);
+        this.dnu = this.rootView.findViewById(d.g.frs_header_title_container);
+        this.dnp = (ImageView) this.rootView.findViewById(d.g.frs_head_image);
+        this.dnq = (TextView) this.rootView.findViewById(d.g.frs_header_title);
+        this.dnr = (TextView) this.rootView.findViewById(d.g.frs_header_title_lable);
+        this.dnw = this.rootView.findViewById(d.g.frs_image_header_contianer);
+        atO();
+        this.dnw.getLayoutParams().height = atN();
+        this.dnw.requestLayout();
+        this.dnr.setText(tbPageContext.getString(d.k.frs_header_image_lable));
+        this.dnp.setOnClickListener(this);
+        this.dnu.setOnClickListener(this);
+        this.dnw.setOnClickListener(this);
     }
 
-    private int atO() {
-        if (this.screenWidth == 0 || this.dmn == 0) {
-            return l.e(this.adf.getPageActivity(), d.e.ds278);
+    private int atN() {
+        if (this.screenWidth == 0 || this.dnv == 0) {
+            return l.e(this.mContext.getPageActivity(), d.e.ds278);
         }
-        if (Float.compare(kS(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE), 0.0f) == 0 || Float.compare(kS(1080), 0.0f) == 0) {
-            return l.e(this.adf.getPageActivity(), d.e.ds278);
+        if (Float.compare(kR(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE), 0.0f) == 0 || Float.compare(kR(1080), 0.0f) == 0) {
+            return l.e(this.mContext.getPageActivity(), d.e.ds278);
         }
-        return (int) ((kS(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE) / kS(1080)) * kS(this.screenWidth));
+        return (int) ((kR(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE) / kR(1080)) * kR(this.screenWidth));
     }
 
-    private float kS(int i) {
+    private float kR(int i) {
         return i * 1.0f;
     }
 
-    private void atP() {
-        if (this.screenWidth == 0 || this.dmn == 0) {
+    private void atO() {
+        if (this.screenWidth == 0 || this.dnv == 0) {
             Display defaultDisplay = ((WindowManager) TbadkCoreApplication.getInst().getSystemService("window")).getDefaultDisplay();
             if (Build.VERSION.SDK_INT >= 13) {
                 Point point = new Point();
                 defaultDisplay.getSize(point);
                 this.screenWidth = point.x;
-                this.dmn = point.y;
+                this.dnv = point.y;
                 return;
             }
             this.screenWidth = defaultDisplay.getWidth();
-            this.dmn = defaultDisplay.getHeight();
+            this.dnv = defaultDisplay.getHeight();
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void onChangeSkinType(int i) {
-        if (this.dmi != null) {
-            ak.e(this.dmi, d.C0126d.cp_bg_line_e, i);
+        if (this.dnp != null) {
+            ak.e(this.dnp, d.C0126d.cp_bg_line_e, i);
         }
-        if (this.dmk != null) {
-            ak.c(this.dmk, d.C0126d.cp_cont_i, i);
+        if (this.dnr != null) {
+            ak.c(this.dnr, d.C0126d.cp_cont_i, i);
         }
-        if (this.dmj != null) {
-            ak.c(this.dmj, d.C0126d.cp_cont_i, i);
+        if (this.dnq != null) {
+            ak.c(this.dnq, d.C0126d.cp_cont_i, i);
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void hideTitle() {
-        if (this.dmm != null) {
-            this.dmm.setVisibility(8);
+        if (this.dnu != null) {
+            this.dnu.setVisibility(8);
         }
     }
 
@@ -126,35 +126,35 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
-    public void hu(String str) {
-        if (this.dmi != null && !TextUtils.isEmpty(str)) {
+    public void hv(String str) {
+        if (this.dnp != null && !TextUtils.isEmpty(str)) {
             c.fp().a(str, 10, this.mCallback, 0, 0, null, new Object[0]);
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setTitle(String str) {
-        if (this.dmj != null && this.dmk != null) {
+        if (this.dnq != null && this.dnr != null) {
             if (!TextUtils.isEmpty(str)) {
-                this.dmj.setText(str);
-                this.dmk.setVisibility(0);
-                this.dmj.setVisibility(0);
+                this.dnq.setText(str);
+                this.dnr.setVisibility(0);
+                this.dnq.setVisibility(0);
                 return;
             }
-            this.dmk.setVisibility(8);
-            this.dmj.setVisibility(8);
+            this.dnr.setVisibility(8);
+            this.dnq.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setSchemaUrl(String str) {
-        this.dml = str;
+        this.dnt = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (!TextUtils.isEmpty(this.dml) && this.adf != null) {
-            ax.wg().a(this.adf, new String[]{this.dml}, true);
+        if (!TextUtils.isEmpty(this.dnt) && this.mContext != null) {
+            ax.wf().a(this.mContext, new String[]{this.dnt}, true);
         }
     }
 }

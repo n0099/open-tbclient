@@ -6,17 +6,16 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private String awa;
     private String awb;
     private String awc;
     private String awd;
-    private String awg;
+    private String awe;
     private String awh;
     private String awi;
     private String awj;
     private String awk;
     private String awl;
-    private int avI = 0;
+    private String awm;
     private int avJ = 0;
     private int avK = 0;
     private int avL = 0;
@@ -32,18 +31,19 @@ public class e {
     private int avV = 0;
     private int avW = 0;
     private int avX = 0;
-    private boolean avY = true;
+    private int avY = 0;
     private boolean avZ = true;
-    private HashMap<String, String> awe = new HashMap<>();
+    private boolean awa = true;
     private HashMap<String, String> awf = new HashMap<>();
-    private List<a> awm = new ArrayList();
+    private HashMap<String, String> awg = new HashMap<>();
+    private List<a> awn = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public String awn;
         public String awo;
-        public int awp;
-        public String awq;
+        public String awp;
+        public int awq;
+        public String awr;
         public String content;
         public String gid;
         public String title;
@@ -51,203 +51,195 @@ public class e {
         public int userType;
     }
 
-    public void AP() {
-        HashMap<String, String> Bf = Bf();
-        Set<String> keySet = Bf.keySet();
+    public void AN() {
+        HashMap<String, String> Bd = Bd();
+        Set<String> keySet = Bd.keySet();
         if (keySet.size() != 1) {
             fm(null);
         } else {
-            fm(Bf.get(keySet.iterator().next()));
+            fm(Bd.get(keySet.iterator().next()));
         }
     }
 
-    public void AQ() {
-        HashMap<String, String> Bl = Bl();
-        Set<String> keySet = Bl.keySet();
+    public void AO() {
+        HashMap<String, String> Bj = Bj();
+        Set<String> keySet = Bj.keySet();
         if (keySet.size() != 1) {
             fs(null);
         } else {
-            fs(Bl.get(keySet.iterator().next()));
+            fs(Bj.get(keySet.iterator().next()));
         }
     }
 
-    public int AR() {
-        return this.avI;
-    }
-
-    public void dW(int i) {
-        this.avI = i;
-    }
-
-    public int AS() {
-        return this.avL;
-    }
-
-    public void dX(int i) {
-        this.avL = i;
-    }
-
-    public int AT() {
-        return this.avM;
-    }
-
-    public int AU() {
-        return this.avO;
-    }
-
-    public void dY(int i) {
-        this.avO = i;
-    }
-
-    public int AV() {
-        return this.avS;
-    }
-
-    public void dZ(int i) {
-        this.avS = i;
-    }
-
-    public int AW() {
-        return this.avR;
-    }
-
-    public void ea(int i) {
-        this.avR = i;
-    }
-
-    public int AX() {
-        return this.avI;
-    }
-
-    public int AY() {
-        return this.avK;
-    }
-
-    public void eb(int i) {
-        this.avK = i;
-    }
-
-    public boolean AZ() {
-        return this.avY;
-    }
-
-    public void bl(boolean z) {
-        this.avY = z;
-    }
-
-    public String Ba() {
-        return this.awa;
-    }
-
-    public void fl(String str) {
-        this.awa = str;
-    }
-
-    public String Bb() {
-        return this.awg;
-    }
-
-    public void fm(String str) {
-        this.awg = str;
-    }
-
-    public void fn(String str) {
-        this.awh = str;
-    }
-
-    public int Bc() {
+    public int AP() {
         return this.avJ;
     }
 
-    public void ec(int i) {
+    public void dX(int i) {
         this.avJ = i;
     }
 
-    public void fo(String str) {
-        this.awi = str;
+    public int AQ() {
+        return this.avM;
     }
 
-    public String Bd() {
-        return this.awk;
+    public void dY(int i) {
+        this.avM = i;
     }
 
-    public String Be() {
-        return this.awl;
-    }
-
-    public HashMap<String, String> Bf() {
-        return this.awe;
-    }
-
-    public int Bg() {
+    public int AR() {
         return this.avN;
     }
 
-    public void ed(int i) {
-        this.avN = i;
-    }
-
-    public int Bh() {
+    public int AS() {
         return this.avP;
     }
 
-    public void ee(int i) {
+    public void dZ(int i) {
         this.avP = i;
     }
 
-    public int Bi() {
+    public int AT() {
         return this.avT;
     }
 
-    public void ef(int i) {
+    public void ea(int i) {
         this.avT = i;
     }
 
-    public void fp(String str) {
+    public int AU() {
+        return this.avS;
+    }
+
+    public void eb(int i) {
+        this.avS = i;
+    }
+
+    public int AV() {
+        return this.avJ;
+    }
+
+    public int AW() {
+        return this.avL;
+    }
+
+    public void ec(int i) {
+        this.avL = i;
+    }
+
+    public boolean AX() {
+        return this.avZ;
+    }
+
+    public void bl(boolean z) {
+        this.avZ = z;
+    }
+
+    public String AY() {
+        return this.awb;
+    }
+
+    public void fl(String str) {
         this.awb = str;
     }
 
-    public void fq(String str) {
-        this.awc = str;
+    public String AZ() {
+        return this.awh;
     }
 
-    public int Bj() {
-        return this.avQ;
+    public void fm(String str) {
+        this.awh = str;
     }
 
-    public void eg(int i) {
-        this.avQ = i;
+    public void fn(String str) {
+        this.awi = str;
     }
 
-    public String Bk() {
-        return this.awd;
+    public int Ba() {
+        return this.avK;
     }
 
-    public void fr(String str) {
-        this.awd = str;
+    public void ed(int i) {
+        this.avK = i;
     }
 
-    public HashMap<String, String> Bl() {
-        return this.awf;
-    }
-
-    public String Bm() {
-        return this.awj;
-    }
-
-    public void fs(String str) {
+    public void fo(String str) {
         this.awj = str;
     }
 
-    public int Bn() {
-        return this.avV;
+    public String Bb() {
+        return this.awl;
+    }
+
+    public String Bc() {
+        return this.awm;
+    }
+
+    public HashMap<String, String> Bd() {
+        return this.awf;
+    }
+
+    public int Be() {
+        return this.avO;
+    }
+
+    public void ee(int i) {
+        this.avO = i;
+    }
+
+    public int Bf() {
+        return this.avQ;
+    }
+
+    public void ef(int i) {
+        this.avQ = i;
+    }
+
+    public int Bg() {
+        return this.avU;
+    }
+
+    public void eg(int i) {
+        this.avU = i;
+    }
+
+    public void fp(String str) {
+        this.awc = str;
+    }
+
+    public void fq(String str) {
+        this.awd = str;
+    }
+
+    public int Bh() {
+        return this.avR;
     }
 
     public void eh(int i) {
-        this.avV = i;
+        this.avR = i;
     }
 
-    public int Bo() {
+    public String Bi() {
+        return this.awe;
+    }
+
+    public void fr(String str) {
+        this.awe = str;
+    }
+
+    public HashMap<String, String> Bj() {
+        return this.awg;
+    }
+
+    public String Bk() {
+        return this.awk;
+    }
+
+    public void fs(String str) {
+        this.awk = str;
+    }
+
+    public int Bl() {
         return this.avW;
     }
 
@@ -255,15 +247,23 @@ public class e {
         this.avW = i;
     }
 
-    public List<a> Bp() {
-        return this.awm;
-    }
-
-    public int Bq() {
+    public int Bm() {
         return this.avX;
     }
 
     public void ej(int i) {
         this.avX = i;
+    }
+
+    public List<a> Bn() {
+        return this.awn;
+    }
+
+    public int Bo() {
+        return this.avY;
+    }
+
+    public void ek(int i) {
+        this.avY = i;
     }
 }

@@ -8,7 +8,7 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class k extends ImageSpan {
-    private WeakReference<Drawable> Dw;
+    private WeakReference<Drawable> mDrawableRef;
 
     public k(Drawable drawable) {
         super(drawable);
@@ -16,7 +16,7 @@ public class k extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Rect bounds = jR().getBounds();
+        Rect bounds = getCachedDrawable().getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -33,22 +33,22 @@ public class k extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable jR = jR();
+        Drawable cachedDrawable = getCachedDrawable();
         canvas.save();
-        canvas.translate(f, ((i5 - jR.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
-        jR.draw(canvas);
+        canvas.translate(f, ((i5 - cachedDrawable.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
+        cachedDrawable.draw(canvas);
         canvas.restore();
     }
 
-    private Drawable jR() {
-        WeakReference<Drawable> weakReference = this.Dw;
+    private Drawable getCachedDrawable() {
+        WeakReference<Drawable> weakReference = this.mDrawableRef;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.Dw = new WeakReference<>(drawable2);
+            this.mDrawableRef = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

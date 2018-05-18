@@ -33,7 +33,7 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         if (StringUtils.isNull(this.uuid) || !k.m15do() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.eQC + aSd();
+        String str = c.a.eRJ + aSd();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -57,7 +57,7 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cB(List<T> list) {
+    public void cE(List<T> list) {
         new BdAsyncTask<List<T>, Void, Void>() { // from class: com.baidu.tieba.j.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

@@ -5,7 +5,7 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public class ac extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ICardInfo Jd;
+    private ICardInfo IZ;
     private boolean Ys;
     private String card;
 
@@ -13,13 +13,13 @@ public class ac extends com.baidu.tieba.card.data.b {
         this.card = str;
     }
 
-    public void qM() {
-        this.Jd = com.baidu.tieba.lego.card.b.ov(this.card);
-        this.Ys = this.Jd != null;
+    public void qL() {
+        this.IZ = com.baidu.tieba.lego.card.b.oy(this.card);
+        this.Ys = this.IZ != null;
     }
 
-    public ICardInfo qN() {
-        return this.Jd;
+    public ICardInfo qM() {
+        return this.IZ;
     }
 
     public boolean isValid() {

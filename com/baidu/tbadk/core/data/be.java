@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class be extends com.baidu.tieba.card.data.b {
-    public int abT;
     public int abU;
     public int abV;
+    public int abW;
     public String stType;
     public bd threadData;
 

@@ -14,8 +14,8 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieba.channel.data.d> {
-    private TextView cvD;
-    private b cvE;
+    private TextView cwM;
+    private b cwN;
     private Context mContext;
     private boolean mIsHost;
 
@@ -34,10 +34,10 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     @Override // com.baidu.tieba.channel.view.e
     public void a(boolean z, b bVar) {
         this.mIsHost = z;
-        this.cvE = bVar;
+        this.cwN = bVar;
         this.mContext = getContext();
         LayoutInflater.from(this.mContext).inflate(d.i.channel_home_header_desc_view, (ViewGroup) this, true);
-        this.cvD = (TextView) findViewById(d.g.channel_home_header_desc_text);
+        this.cwM = (TextView) findViewById(d.g.channel_home_header_desc_text);
     }
 
     public void d(ChannelInfo channelInfo) {
@@ -52,12 +52,12 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
             Drawable drawable = this.mContext.getResources().getDrawable(d.f.icon_channel_edit);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             spannableString.setSpan(new com.baidu.tieba.channel.c.a(drawable, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2), spannableString.length() - 1, spannableString.length(), 17);
-            this.cvD.setText(spannableString);
-            this.cvD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
+            this.cwM.setText(spannableString);
+            this.cwM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (ChannelHomeDescView.this.cvE != null) {
-                        ChannelHomeDescView.this.cvE.a(11, view2, null, -1);
+                    if (ChannelHomeDescView.this.cwN != null) {
+                        ChannelHomeDescView.this.cwN.a(11, view2, null, -1);
                     }
                 }
             });
@@ -75,11 +75,11 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
                 return;
             }
             if (TextUtils.isEmpty(agj.getDescription())) {
-                this.cvD.setText(this.mContext.getResources().getString(d.k.channel_home_default_desc_guest));
+                this.cwM.setText(this.mContext.getResources().getString(d.k.channel_home_default_desc_guest));
             } else {
-                this.cvD.setText(agj.getDescription());
+                this.cwM.setText(agj.getDescription());
             }
-            this.cvD.setOnClickListener(null);
+            this.cwM.setOnClickListener(null);
         }
     }
 

@@ -3,31 +3,31 @@ package com.baidu.ubs.analytics.d;
 import android.content.SharedPreferences;
 /* loaded from: classes.dex */
 public final class e {
-    private static SharedPreferences bFl() {
-        return com.baidu.ubs.analytics.d.bEN().getContext().getSharedPreferences("baidu_ab_general_config", 0);
+    private static SharedPreferences bFj() {
+        return com.baidu.ubs.analytics.d.bEL().getContext().getSharedPreferences("baidu_ab_general_config", 0);
     }
 
-    public static void vl(String str) {
-        bFl().edit().putBoolean(str, true).apply();
+    public static void vo(String str) {
+        bFj().edit().putBoolean(str, true).apply();
     }
 
-    public static boolean vm(String str) {
-        return bFl().getBoolean(str, false);
+    public static boolean vp(String str) {
+        return bFj().getBoolean(str, false);
     }
 
     public static String c(String str, String str2) {
-        return bFl().getString(str, str2);
+        return bFj().getString(str, str2);
     }
 
     public static void putLong(String str, long j) {
-        bFl().edit().putLong(str, j).apply();
+        bFj().edit().putLong(str, j).apply();
     }
 
-    public static long vn(String str) {
-        return bFl().getLong(str, 0L);
+    public static long vq(String str) {
+        return bFj().getLong(str, 0L);
     }
 
     public static void d(String str, String str2) {
-        bFl().edit().putString(str, str2).apply();
+        bFj().edit().putString(str, str2).apply();
     }
 }

@@ -6,26 +6,26 @@ import android.view.animation.Transformation;
 import android.widget.FrameLayout;
 /* loaded from: classes3.dex */
 public class a extends Animation {
-    private View eRW;
-    private int eRX;
-    private FrameLayout.LayoutParams eRY;
+    private View eTd;
+    private int eTe;
+    private FrameLayout.LayoutParams eTf;
     private int mType;
 
     public a(View view2, int i, int i2) {
         if (view2 != null) {
-            this.eRW = view2;
-            if (this.eRW.getVisibility() == 8 && i2 > 0) {
-                this.eRX = i2;
+            this.eTd = view2;
+            if (this.eTd.getVisibility() == 8 && i2 > 0) {
+                this.eTe = i2;
             } else {
-                this.eRX = this.eRW.getMeasuredHeight();
+                this.eTe = this.eTd.getMeasuredHeight();
             }
-            this.eRY = (FrameLayout.LayoutParams) view2.getLayoutParams();
+            this.eTf = (FrameLayout.LayoutParams) view2.getLayoutParams();
             this.mType = i;
             if (this.mType == 0) {
-                this.eRY.bottomMargin = -this.eRX;
+                this.eTf.bottomMargin = -this.eTe;
                 return;
             }
-            this.eRY.bottomMargin = 0;
+            this.eTf.bottomMargin = 0;
         }
     }
 
@@ -34,19 +34,19 @@ public class a extends Animation {
         super.applyTransformation(f, transformation);
         if (f < 1.0f) {
             if (this.mType == 0) {
-                this.eRY.bottomMargin = (-this.eRX) + ((int) (this.eRX * f));
+                this.eTf.bottomMargin = (-this.eTe) + ((int) (this.eTe * f));
             } else {
-                this.eRY.bottomMargin = -((int) (this.eRX * f));
+                this.eTf.bottomMargin = -((int) (this.eTe * f));
             }
-            this.eRW.requestLayout();
+            this.eTd.requestLayout();
         } else if (this.mType == 0) {
-            this.eRY.bottomMargin = 0;
-            this.eRW.requestLayout();
-            this.eRX = this.eRW.getMeasuredHeight();
+            this.eTf.bottomMargin = 0;
+            this.eTd.requestLayout();
+            this.eTe = this.eTd.getMeasuredHeight();
         } else {
-            this.eRY.bottomMargin = -this.eRX;
-            this.eRW.setVisibility(8);
-            this.eRW.requestLayout();
+            this.eTf.bottomMargin = -this.eTe;
+            this.eTd.setVisibility(8);
+            this.eTd.requestLayout();
         }
     }
 }

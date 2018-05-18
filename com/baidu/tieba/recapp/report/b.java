@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b gcp;
-    private CustomMessageListener gcr = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b gdv;
+    private CustomMessageListener gdx = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.gP() && b.this.gcq != null) {
-                b.this.gcq.bkg();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.gP() && b.this.gdw != null) {
+                b.this.gdw.bkf();
             }
         }
     };
-    private c gcq = new f();
+    private c gdw = new f();
 
-    public static b bke() {
-        if (gcp == null) {
+    public static b bkd() {
+        if (gdv == null) {
             synchronized (b.class) {
-                if (gcp == null) {
-                    gcp = new b();
+                if (gdv == null) {
+                    gdv = new b();
                 }
             }
         }
-        return gcp;
+        return gdv;
     }
 
-    private boolean bkf() {
+    private boolean bke() {
         return com.baidu.adp.lib.b.d.eE().ak("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.gcr);
+        MessageManager.getInstance().registerListener(this.gdx);
     }
 
     public void a(a aVar) {
-        if (bkf() && aVar != null && this.gcq != null) {
+        if (bke() && aVar != null && this.gdw != null) {
             if (j.gP()) {
-                this.gcq.b(aVar);
+                this.gdw.b(aVar);
             } else {
-                this.gcq.c(aVar);
+                this.gdw.c(aVar);
             }
         }
     }

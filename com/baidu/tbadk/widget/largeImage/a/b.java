@@ -10,63 +10,63 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private final int aSB;
-    private final RectF aSF;
-    private final int aSG;
+    private final int aSC;
+    private final RectF aSG;
     private final int aSH;
-    private a aSK;
-    private final Rect aSL;
-    private final RectF aSD = new RectF();
-    private final Rect aSE = new Rect();
-    private float aSI = 1.0f;
-    private final List<a> aSJ = new ArrayList();
+    private final int aSI;
+    private a aSL;
+    private final Rect aSM;
+    private final RectF aSE = new RectF();
+    private final Rect aSF = new Rect();
+    private float aSJ = 1.0f;
+    private final List<a> aSK = new ArrayList();
     private final Matrix mMatrix = new Matrix();
 
     public b(int i, int i2, int[] iArr) {
-        this.aSH = i2;
-        this.aSG = i;
-        this.aSF = new RectF(0.0f, 0.0f, i, i2);
-        this.aSL = new Rect(0, 0, iArr[0], iArr[1]);
-        this.aSB = i / 2;
+        this.aSI = i2;
+        this.aSH = i;
+        this.aSG = new RectF(0.0f, 0.0f, i, i2);
+        this.aSM = new Rect(0, 0, iArr[0], iArr[1]);
+        this.aSC = i / 2;
     }
 
     public int getBlockSize() {
-        return this.aSB;
+        return this.aSC;
     }
 
-    public Rect IS() {
-        return this.aSL;
+    public Rect IQ() {
+        return this.aSM;
     }
 
     public Rect a(a aVar) {
         if (aVar == null) {
             return null;
         }
-        return aVar.IQ();
+        return aVar.IO();
     }
 
-    public Point[] IT() {
-        IV();
-        int IR = IR();
-        int i = (this.aSE.top / IR) / this.aSB;
-        int i2 = (this.aSE.left / IR) / this.aSB;
+    public Point[] IR() {
+        IT();
+        int IP = IP();
+        int i = (this.aSF.top / IP) / this.aSC;
+        int i2 = (this.aSF.left / IP) / this.aSC;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.aSE.bottom / IR) / this.aSB) * IR) + 1;
-        point2.x = (IR * ((this.aSE.right / IR) / this.aSB)) + 1;
+        point2.y = (((this.aSF.bottom / IP) / this.aSC) * IP) + 1;
+        point2.x = (IP * ((this.aSF.right / IP) / this.aSC)) + 1;
         return new Point[]{point, point2};
     }
 
-    public a IU() {
-        return new a(this.aSB);
+    public a IS() {
+        return new a(this.aSC);
     }
 
-    public Rect IV() {
-        this.mMatrix.mapRect(this.aSD, this.aSF);
-        a(this.aSE, this.aSD);
-        return this.aSE;
+    public Rect IT() {
+        this.mMatrix.mapRect(this.aSE, this.aSG);
+        a(this.aSF, this.aSE);
+        return this.aSF;
     }
 
     private void a(Rect rect, RectF rectF) {
@@ -74,28 +74,28 @@ public class b {
     }
 
     public int getRealWidth() {
-        return this.aSG;
-    }
-
-    public int IW() {
         return this.aSH;
     }
 
-    public List<a> IX() {
-        return this.aSJ;
-    }
-
-    public void Q(float f) {
-        this.aSI = f;
-    }
-
-    public float IY() {
+    public int IU() {
         return this.aSI;
     }
 
-    public int IR() {
+    public List<a> IV() {
+        return this.aSK;
+    }
+
+    public void Q(float f) {
+        this.aSJ = f;
+    }
+
+    public float IW() {
+        return this.aSJ;
+    }
+
+    public int IP() {
         int i = 1;
-        while (i < Math.round(this.aSI)) {
+        while (i < Math.round(this.aSJ)) {
             i *= 2;
         }
         return i;
@@ -103,13 +103,13 @@ public class b {
 
     public void k(Bitmap bitmap) {
         if (bitmap != null) {
-            this.aSK = new a(bitmap);
-            this.aSK.i(0, 0, this.aSG, this.aSH);
+            this.aSL = new a(bitmap);
+            this.aSL.i(0, 0, this.aSH, this.aSI);
         }
     }
 
-    public a IZ() {
-        return this.aSK;
+    public a IX() {
+        return this.aSL;
     }
 
     public void h(float f, float f2) {
@@ -125,16 +125,16 @@ public class b {
     }
 
     public boolean p(int i, int i2, int i3) {
-        if (i3 == IR()) {
-            return q(i, i2, i3).intersect(this.aSE);
+        if (i3 == IP()) {
+            return q(i, i2, i3).intersect(this.aSF);
         }
         return false;
     }
 
     public Rect q(int i, int i2, int i3) {
-        int i4 = this.aSB * i3 * i2;
-        int i5 = this.aSB * i3 * i;
-        return new Rect(i4, i5, (this.aSB * i3) + i4, (this.aSB * i3) + i5);
+        int i4 = this.aSC * i3 * i2;
+        int i5 = this.aSC * i3 * i;
+        return new Rect(i4, i5, (this.aSC * i3) + i4, (this.aSC * i3) + i5);
     }
 
     public void f(Rect rect) {
@@ -144,11 +144,11 @@ public class b {
         if (rect.top < 0) {
             rect.top = 0;
         }
-        if (rect.right > this.aSL.right) {
-            rect.right = this.aSL.right;
+        if (rect.right > this.aSM.right) {
+            rect.right = this.aSM.right;
         }
-        if (rect.bottom > this.aSL.bottom) {
-            rect.bottom = this.aSL.bottom;
+        if (rect.bottom > this.aSM.bottom) {
+            rect.bottom = this.aSM.bottom;
         }
     }
 }

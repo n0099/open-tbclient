@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
-    private String atD;
-    private long atE;
+    private String atE;
     private long atF;
     private long atG;
-    private String atH;
+    private long atH;
     private String atI;
+    private String atJ;
 
     public void parseJson(String str) {
         if (!an.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.atD = jSONObject.optString("splash_video_url");
-                this.atE = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.atF = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.atG = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.atH = jSONObject.optString("splash_video_h5_url");
-                this.atI = jSONObject.optString("splash_video_h5_text");
+                this.atE = jSONObject.optString("splash_video_url");
+                this.atF = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.atG = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.atH = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.atI = jSONObject.optString("splash_video_h5_url");
+                this.atJ = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String yN() {
-        return this.atD;
-    }
-
-    public long yO() {
+    public String yM() {
         return this.atE;
     }
 
-    public long yP() {
+    public long yN() {
         return this.atF;
     }
 
-    public long yQ() {
+    public long yO() {
         return this.atG;
     }
 
-    public String yR() {
+    public long yP() {
         return this.atH;
     }
 
-    public String yS() {
+    public String yQ() {
         return this.atI;
+    }
+
+    public String yR() {
+        return this.atJ;
     }
 }

@@ -58,7 +58,7 @@ public abstract class d implements h {
             String optString = jSONObject2.optString("callbackId");
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!oVar.ul()) {
+                if (!oVar.uk()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
@@ -137,7 +137,7 @@ public abstract class d implements h {
                 if (TextUtils.isEmpty(value)) {
                     value = null;
                 }
-                if (oVar.ul() && !Void.TYPE.equals(method.getReturnType())) {
+                if (oVar.uk() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
                 if (TextUtils.isEmpty(value)) {

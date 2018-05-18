@@ -13,22 +13,22 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
     private ArrayList<String> adv;
-    private final String cXa;
-    private boolean eBF = true;
+    private final String cYh;
+    private boolean eCN = true;
     private final Context mContext;
 
     public d(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
         this.adv = arrayList;
-        this.cXa = this.mContext.getText(d.k.forum).toString();
+        this.cYh = this.mContext.getText(d.k.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
         this.adv = arrayList;
     }
 
-    public void id(boolean z) {
-        this.eBF = z;
+    public void ie(boolean z) {
+        this.eCN = z;
     }
 
     @Override // android.widget.Adapter
@@ -61,7 +61,7 @@ public class d extends BaseAdapter {
             view2 = LayoutInflater.from(this.mContext).inflate(d.i.home_dialog_search_item, (ViewGroup) null);
             aVar = new a();
             aVar.apV = (TextView) view2.findViewById(d.g.home_lv_search_forum);
-            aVar.bae = view2.findViewById(d.g.home_dialog_lv_search_forum_divider);
+            aVar.baf = view2.findViewById(d.g.home_dialog_lv_search_forum_divider);
             view2.setTag(aVar);
         } else {
             aVar = (a) view2.getTag();
@@ -69,13 +69,13 @@ public class d extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.eBF) {
-                aVar.apV.setText(str.concat(this.cXa));
+            if (this.eCN) {
+                aVar.apV.setText(str.concat(this.cYh));
             } else {
                 aVar.apV.setText(str);
             }
             ak.c(aVar.apV, d.C0126d.cp_cont_b, 1);
-            ak.j(aVar.bae, d.C0126d.cp_bg_line_b);
+            ak.j(aVar.baf, d.C0126d.cp_bg_line_b);
             ak.i(view2, d.f.addresslist_item_bg);
         }
         return view2;
@@ -84,7 +84,7 @@ public class d extends BaseAdapter {
     /* loaded from: classes3.dex */
     private class a {
         TextView apV;
-        View bae;
+        View baf;
 
         private a() {
         }

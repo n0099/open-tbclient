@@ -14,7 +14,7 @@ public class bg {
         return this.title;
     }
 
-    public String tq() {
+    public String tp() {
         return this.title_link;
     }
 

@@ -59,29 +59,29 @@ public class c extends BaseAdapter {
         if (view2 == null) {
             view2 = LayoutInflater.from(this.mContext).inflate(d.i.new_user_img_item, viewGroup, false);
             aVar = new a();
-            aVar.cKU = (TbImageView) view2.findViewById(d.g.pic);
-            aVar.cKV = (ImageView) view2.findViewById(d.g.select_icon);
-            aVar.gBW = (RelativeLayout) view2.findViewById(d.g.lay_select);
-            aVar.aza = (TextView) view2.findViewById(d.g.tv_fname);
-            aVar.gBV = (FrameLayout) view2.findViewById(d.g.pic_layout);
-            aVar.gBV.setOnClickListener(this.ani);
+            aVar.cMb = (TbImageView) view2.findViewById(d.g.pic);
+            aVar.cMc = (ImageView) view2.findViewById(d.g.select_icon);
+            aVar.gCZ = (RelativeLayout) view2.findViewById(d.g.lay_select);
+            aVar.azb = (TextView) view2.findViewById(d.g.tv_fname);
+            aVar.gCY = (FrameLayout) view2.findViewById(d.g.pic_layout);
+            aVar.gCY.setOnClickListener(this.ani);
             view2.setTag(aVar);
         } else {
             aVar = (a) view2.getTag();
         }
-        aVar.cKU.setTag(null);
-        aVar.gBW.setTag(null);
-        aVar.aza.setText("");
-        aVar.gBV.setTag(null);
+        aVar.cMb.setTag(null);
+        aVar.gCZ.setTag(null);
+        aVar.azb.setText("");
+        aVar.gCY.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
-            b(aVar.cKV, card.getIs_like() == 1);
-            aVar.gBW.setTag(card);
-            aVar.gBV.setTag(card);
-            aVar.cKU.setTag(card.getIcon_url());
-            aVar.cKU.startLoad(card.getIcon_url(), 21, false);
-            aVar.aza.setText(card.getFname());
+            b(aVar.cMc, card.getIs_like() == 1);
+            aVar.gCZ.setTag(card);
+            aVar.gCY.setTag(card);
+            aVar.cMb.setTag(card.getIcon_url());
+            aVar.cMb.startLoad(card.getIcon_url(), 21, false);
+            aVar.azb.setText(card.getFname());
         }
         return view2;
     }
@@ -96,11 +96,11 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView aza;
-        TbImageView cKU;
-        ImageView cKV;
-        FrameLayout gBV;
-        RelativeLayout gBW;
+        TextView azb;
+        TbImageView cMb;
+        ImageView cMc;
+        FrameLayout gCY;
+        RelativeLayout gCZ;
 
         private a() {
         }

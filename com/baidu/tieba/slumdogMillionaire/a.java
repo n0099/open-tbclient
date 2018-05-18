@@ -22,15 +22,15 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener, com.baidu.tieba.p.a {
-    private AlertDialog acB;
-    private TextView cwn;
-    private ImageView goL;
-    private TextView goM;
-    private TextView goN;
-    private TextView goO;
-    private TextView goP;
-    private TextView goQ;
-    private SlumdogMillionaireChannelView goR;
+    private AlertDialog acC;
+    private TextView cxw;
+    private ImageView gpQ;
+    private TextView gpR;
+    private TextView gpS;
+    private TextView gpT;
+    private TextView gpU;
+    private TextView gpV;
+    private SlumdogMillionaireChannelView gpW;
     private Context mContext;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private View mRootView;
@@ -40,16 +40,16 @@ public class a implements View.OnClickListener, com.baidu.tieba.p.a {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(d.i.slumdog_millionaire_share_dialog, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_title);
-        this.goL = (ImageView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_one_img);
-        this.goM = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_one_txt);
-        this.goN = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_two_txt);
-        this.goO = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_three_txt);
-        this.goP = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_invitation_code_txt);
-        this.goQ = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_invitation_txt);
-        this.goR = (SlumdogMillionaireChannelView) this.mRootView.findViewById(d.g.slumdog_millionaire_outer_container);
-        this.cwn = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_cancel);
-        this.cwn.setOnClickListener(this);
-        this.goR.setShareItemClickListener(this);
+        this.gpQ = (ImageView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_one_img);
+        this.gpR = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_one_txt);
+        this.gpS = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_two_txt);
+        this.gpT = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_three_txt);
+        this.gpU = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_invitation_code_txt);
+        this.gpV = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_invitation_txt);
+        this.gpW = (SlumdogMillionaireChannelView) this.mRootView.findViewById(d.g.slumdog_millionaire_outer_container);
+        this.cxw = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_cancel);
+        this.cxw.setOnClickListener(this);
+        this.gpW.setShareItemClickListener(this);
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
@@ -58,16 +58,16 @@ public class a implements View.OnClickListener, com.baidu.tieba.p.a {
 
     public void setShareData(com.baidu.tbadk.coreExtra.c.d dVar) {
         if (dVar != null) {
-            this.goP.setText(dVar.extData);
-            this.goR.setShareData(dVar);
+            this.gpU.setText(dVar.extData);
+            this.gpW.setShareData(dVar);
         }
     }
 
     public void show() {
         onChangeSkinType();
-        this.acB = new AlertDialog.Builder(this.mContext).create();
-        this.acB.setCanceledOnTouchOutside(true);
-        this.acB.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.slumdogMillionaire.a.1
+        this.acC = new AlertDialog.Builder(this.mContext).create();
+        this.acC.setCanceledOnTouchOutside(true);
+        this.acC.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.slumdogMillionaire.a.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 if (a.this.mOnDismissListener != null) {
@@ -77,21 +77,21 @@ public class a implements View.OnClickListener, com.baidu.tieba.p.a {
             }
         });
         if (this.mContext instanceof Activity) {
-            g.a(this.acB, (Activity) this.mContext);
+            g.a(this.acC, (Activity) this.mContext);
         }
-        Window window = this.acB.getWindow();
+        Window window = this.acC.getWindow();
         window.setWindowAnimations(d.l.share_dialog_style);
         window.setGravity(80);
         window.setLayout(-1, -2);
         window.setContentView(this.mRootView);
-        Rw();
+        Rt();
     }
 
-    private void Rw() {
+    private void Rt() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001451, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.slumdogMillionaire.a.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                if (a.this.acB != null && a.this.acB.isShowing()) {
+                if (a.this.acC != null && a.this.acC.isShowing()) {
                     a.this.dismiss();
                     return null;
                 }
@@ -104,7 +104,7 @@ public class a implements View.OnClickListener, com.baidu.tieba.p.a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.cwn) {
+        if (view2 == this.cxw) {
             TiebaStatic.log(new al("c12916").r("obj_locate", 6));
             dismiss();
         }
@@ -132,22 +132,22 @@ public class a implements View.OnClickListener, com.baidu.tieba.p.a {
     public void onChangeSkinType() {
         ak.i(this.mRootView, d.C0126d.cp_bg_line_e);
         ak.h(this.mTitleView, d.C0126d.cp_cont_f);
-        ak.c(this.goL, d.f.blue_circle_icon);
-        ak.h(this.goM, d.C0126d.cp_cont_j);
-        ak.h(this.goN, d.C0126d.cp_cont_j);
-        this.goN.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.blue_circle_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-        ak.h(this.goO, d.C0126d.cp_cont_j);
-        this.goO.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.blue_circle_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-        ak.h(this.goP, d.C0126d.cp_cont_b);
-        ak.h(this.goQ, d.C0126d.cp_cont_j);
-        this.goR.onChangeSkinType();
-        ak.h(this.cwn, d.C0126d.cp_cont_f);
-        ak.i(this.cwn, d.C0126d.cp_bg_line_d);
+        ak.c(this.gpQ, d.f.blue_circle_icon);
+        ak.h(this.gpR, d.C0126d.cp_cont_j);
+        ak.h(this.gpS, d.C0126d.cp_cont_j);
+        this.gpS.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.blue_circle_icon), (Drawable) null, (Drawable) null, (Drawable) null);
+        ak.h(this.gpT, d.C0126d.cp_cont_j);
+        this.gpT.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.blue_circle_icon), (Drawable) null, (Drawable) null, (Drawable) null);
+        ak.h(this.gpU, d.C0126d.cp_cont_b);
+        ak.h(this.gpV, d.C0126d.cp_cont_j);
+        this.gpW.onChangeSkinType();
+        ak.h(this.cxw, d.C0126d.cp_cont_f);
+        ak.i(this.cxw, d.C0126d.cp_bg_line_d);
     }
 
     public void dismiss() {
-        if (this.acB != null && (this.mContext instanceof Activity)) {
-            g.b(this.acB, (Activity) this.mContext);
+        if (this.acC != null && (this.mContext instanceof Activity)) {
+            g.b(this.acC, (Activity) this.mContext);
         }
     }
 }

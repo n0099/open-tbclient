@@ -3,10 +3,10 @@ package com.baidu.tieba.video;
 import com.baidu.tbadk.core.util.k;
 /* loaded from: classes.dex */
 public class b {
-    public static final String gJE = k.wB + "/tieba/.music/";
-    public static final String gJF = k.wB + "/tieba/videoCover.jpg";
-    public static final String gJG = k.wB + "/tieba/tbVideo/temp/";
-    public static final String gJH = k.wB + "/DCIM/tieba/";
-    public static final String gJI = k.wB + "/tieba/.pendant/";
-    public static final String gJJ = k.wB + "/tieba/takepic/";
+    public static final String gKH = k.wA + "/tieba/.music/";
+    public static final String gKI = k.wA + "/tieba/videoCover.jpg";
+    public static final String gKJ = k.wA + "/tieba/tbVideo/temp/";
+    public static final String gKK = k.wA + "/DCIM/tieba/";
+    public static final String gKL = k.wA + "/tieba/.pendant/";
+    public static final String gKM = k.wA + "/tieba/takepic/";
 }

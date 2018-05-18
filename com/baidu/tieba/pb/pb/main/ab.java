@@ -8,13 +8,13 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes2.dex */
 public class ab {
     private TextView adw;
-    private NavigationBarCoverTip dqU;
-    private int dqV;
+    private NavigationBarCoverTip dsc;
+    private int dsd;
     private com.baidu.adp.base.e mContext;
 
     public ab(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = eVar;
-        this.dqU = navigationBarCoverTip;
+        this.dsc = navigationBarCoverTip;
         init();
     }
 
@@ -28,26 +28,26 @@ public class ab {
         this.adw.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(d.e.ds2), 1.0f);
     }
 
-    public void qB(String str) {
-        if (this.dqU != null) {
-            if (com.baidu.tbadk.core.util.an.isEmpty(str) || this.dqV > 0) {
+    public void qE(String str) {
+        if (this.dsc != null) {
+            if (com.baidu.tbadk.core.util.an.isEmpty(str) || this.dsd > 0) {
                 onDestory();
-                this.dqU.setVisibility(8);
+                this.dsc.setVisibility(8);
                 return;
             }
-            this.dqU.setVisibility(0);
-            this.dqV++;
+            this.dsc.setVisibility(0);
+            this.dsd++;
             this.adw.setText(str);
             com.baidu.tbadk.core.util.ak.h(this.adw, d.C0126d.cp_cont_i);
-            this.dqU.removeAllViews();
-            this.dqU.addView(this.adw);
-            this.dqU.h(this.mContext.getPageActivity(), 5000);
+            this.dsc.removeAllViews();
+            this.dsc.addView(this.adw);
+            this.dsc.h(this.mContext.getPageActivity(), 5000);
         }
     }
 
     public void onDestory() {
-        if (this.dqU != null) {
-            this.dqU.onDestroy();
+        if (this.dsc != null) {
+            this.dsc.onDestroy();
         }
     }
 }

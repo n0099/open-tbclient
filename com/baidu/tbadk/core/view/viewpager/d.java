@@ -29,10 +29,10 @@ public class d {
         } else {
             this.arn = false;
         }
-        this.arm = xv();
+        this.arm = xu();
     }
 
-    private List<h> xv() {
+    private List<h> xu() {
         ArrayList arrayList = new ArrayList();
         if (this.arl != null) {
             if (this.arn) {
@@ -52,7 +52,7 @@ public class d {
         return arrayList;
     }
 
-    public int dE(int i) {
+    public int dF(int i) {
         if (this.arn) {
             int size = this.arm.size();
             if (i == 0) {
@@ -66,42 +66,42 @@ public class d {
         return i;
     }
 
-    public int dF(int i) {
+    public int dG(int i) {
         if (this.arn) {
             return i - this.arq;
         }
         return i;
     }
 
-    public int xw() {
+    public int xv() {
         if (this.arl == null) {
             return 0;
         }
         return this.arl.size();
     }
 
-    public int xx() {
+    public int xw() {
         if (this.arn) {
             return this.arq;
         }
         return 0;
     }
 
-    public void dG(int i) {
+    public void dH(int i) {
         this.ard = i;
         x(this.arl);
     }
 
-    public void dH(int i) {
+    public void dI(int i) {
         this.arp = i;
         x(this.arl);
     }
 
-    public List<h> xy() {
+    public List<h> xx() {
         return this.arm;
     }
 
-    public void dI(int i) {
+    public void dJ(int i) {
         this.arq = i;
         x(this.arl);
     }

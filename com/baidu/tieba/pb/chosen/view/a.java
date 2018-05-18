@@ -26,7 +26,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.pb.chosen.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0190a {
-        TbImageView etS;
+        TbImageView eva;
     }
 
     public a(Context context) {
@@ -45,7 +45,7 @@ public class a extends BaseAdapter {
         return this.list.size();
     }
 
-    public void cL(List<com.baidu.tieba.pb.b.a.d> list) {
+    public void cO(List<com.baidu.tieba.pb.b.a.d> list) {
         this.list.clear();
         if (list != null && list.size() > 0) {
             this.list.addAll(list);
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pS */
+    /* renamed from: pR */
     public com.baidu.tieba.pb.b.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
@@ -114,7 +114,7 @@ public class a extends BaseAdapter {
         if (view2 == null || !(view2.getTag() instanceof C0190a)) {
             view2 = LayoutInflater.from(this.context).inflate(d.i.chosen_pb_image_item, (ViewGroup) null);
             c0190a = new C0190a();
-            c0190a.etS = (TbImageView) view2.findViewById(d.g.pb_chosen_list_image);
+            c0190a.eva = (TbImageView) view2.findViewById(d.g.pb_chosen_list_image);
             view2.setTag(c0190a);
         } else {
             c0190a = (C0190a) view2.getTag();
@@ -122,21 +122,21 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.fvw) || "1".equals(eVar.fvw)) {
-                c0190a.etS.setVisibility(8);
+            if (StringUtils.isNull(eVar.fwC) || "1".equals(eVar.fwC)) {
+                c0190a.eva.setVisibility(8);
             } else {
-                c0190a.etS.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0190a.etS.getLayoutParams();
+                c0190a.eva.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0190a.eva.getLayoutParams();
                 int i2 = this.maxWidth;
-                int qK = eVar.qK(i2);
+                int qJ = eVar.qJ(i2);
                 if (layoutParams == null) {
-                    layoutParams = new AbsListView.LayoutParams(i2, qK);
+                    layoutParams = new AbsListView.LayoutParams(i2, qJ);
                 } else {
-                    layoutParams.height = qK;
+                    layoutParams.height = qJ;
                     layoutParams.width = i2;
                 }
-                c0190a.etS.setLayoutParams(layoutParams);
-                c0190a.etS.startLoad(eVar.getSrc(), 17, false);
+                c0190a.eva.setLayoutParams(layoutParams);
+                c0190a.eva.startLoad(eVar.getSrc(), 17, false);
             }
         }
         return view2;

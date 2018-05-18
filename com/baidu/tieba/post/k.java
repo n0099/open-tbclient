@@ -12,11 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k {
-    private String eQG;
+    private String eRN;
     private boolean isSuccess = true;
-    private int fSG = 0;
-    private boolean fRR = false;
-    private List<com.baidu.tieba.m.c> fSH = new ArrayList();
+    private int fTM = 0;
+    private boolean fSX = false;
+    private List<com.baidu.tieba.m.c> fTN = new ArrayList();
 
     static {
         if (com.baidu.adp.lib.util.f.m9do()) {
@@ -25,9 +25,9 @@ public class k {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.tieba.j.d.py(g.a.bbq);
-                    com.baidu.tieba.j.d.py(g.a.eQD);
-                    com.baidu.tieba.j.d.py(g.a.eQE);
+                    com.baidu.tieba.j.d.pB(g.a.bbr);
+                    com.baidu.tieba.j.d.pB(g.a.eRK);
+                    com.baidu.tieba.j.d.pB(g.a.eRL);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -35,7 +35,7 @@ public class k {
     }
 
     public k(String str) {
-        this.eQG = str;
+        this.eRN = str;
     }
 
     public void bhH() {
@@ -47,23 +47,23 @@ public class k {
     }
 
     public void bhJ() {
-        this.fSG++;
+        this.fTM++;
     }
 
     public boolean bhK() {
-        return this.fSG > 0;
+        return this.fTM > 0;
     }
 
     public void bhL() {
-        this.fRR = true;
+        this.fSX = true;
     }
 
     public boolean bhM() {
-        return this.fRR;
+        return this.fSX;
     }
 
     public void a(com.baidu.tieba.m.c cVar) {
-        this.fSH.add(cVar);
+        this.fTN.add(cVar);
         bhO();
         b(cVar);
         bhN();
@@ -80,12 +80,12 @@ public class k {
                     if (lVarArr != null && lVarArr.length == 1 && lVarArr[0] != null) {
                         l lVar = lVarArr[0];
                         synchronized (BuildConfig.BUILD_TYPE) {
-                            com.baidu.tieba.j.d.a(new File(g.a.eQF + g.a.eQw + lVar.uuid + g.a.eQw + BuildConfig.BUILD_TYPE), lVar.fSK.bhi().toString() + "\n", true);
+                            com.baidu.tieba.j.d.a(new File(g.a.eRM + g.a.eRD + lVar.uuid + g.a.eRD + BuildConfig.BUILD_TYPE), lVar.fTQ.bhi().toString() + "\n", true);
                         }
                     }
                     return null;
                 }
-            }.execute(new l(cVar, this.eQG));
+            }.execute(new l(cVar, this.eRN));
         }
     }
 
@@ -100,18 +100,18 @@ public class k {
                     if (eVarArr != null && eVarArr.length == 1 && eVarArr[0] != null) {
                         e eVar = eVarArr[0];
                         synchronized ("kpi") {
-                            com.baidu.tieba.j.d.a(new File(g.a.eQF + g.a.eQw + eVar.uuid + g.a.eQw + "kpi"), k.b(eVar.isSuccess, eVar.fRQ, eVar.fRR).toString(), false);
+                            com.baidu.tieba.j.d.a(new File(g.a.eRM + g.a.eRD + eVar.uuid + g.a.eRD + "kpi"), k.b(eVar.isSuccess, eVar.fSW, eVar.fSX).toString(), false);
                         }
                     }
                     return null;
                 }
-            }.execute(new e(this.isSuccess, this.fSG, this.fRR, this.eQG));
+            }.execute(new e(this.isSuccess, this.fTM, this.fSX, this.eRN));
         }
     }
 
     private void bhO() {
         if (com.baidu.adp.lib.util.f.m9do()) {
-            File file = new File(g.a.eQF + g.a.eQw + this.eQG + g.a.eQw);
+            File file = new File(g.a.eRM + g.a.eRD + this.eRN + g.a.eRD);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -119,7 +119,7 @@ public class k {
     }
 
     public JSONObject aRY() {
-        return b(this.isSuccess, this.fSG, this.fRR);
+        return b(this.isSuccess, this.fTM, this.fSX);
     }
 
     public static final JSONObject b(boolean z, int i, boolean z2) {
@@ -138,10 +138,10 @@ public class k {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!v.w(this.fSH)) {
-                int size = this.fSH.size();
+            if (!v.w(this.fTN)) {
+                int size = this.fTN.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.fSH.get(i).bhi());
+                    jSONArray.put(this.fTN.get(i).bhi());
                 }
             }
             jSONObject.put("running", jSONArray);

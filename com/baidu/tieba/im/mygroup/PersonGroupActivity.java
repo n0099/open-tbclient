@@ -52,35 +52,35 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PersonGroupActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
-    private static final int[] efJ = {d.f.icon_pop_key_all_bg, d.f.icon_pop_key_f_bg, d.f.icon_pop_key_d_bg};
-    private static final int[] efK = {d.f.icon_pop_key_all_bg_w, d.f.icon_pop_key_f_bg_w, d.f.icon_pop_key_d_bg_w};
-    private static final int[] efL = {d.k.info_privacy_all, d.k.info_privacy_friend, d.k.info_privacy_hide};
-    private static final int[] efM = {1, 2, 3};
-    private FragmentTabHost bgN;
+    private static final int[] egQ = {d.f.icon_pop_key_all_bg, d.f.icon_pop_key_f_bg, d.f.icon_pop_key_d_bg};
+    private static final int[] egR = {d.f.icon_pop_key_all_bg_w, d.f.icon_pop_key_f_bg_w, d.f.icon_pop_key_d_bg_w};
+    private static final int[] egS = {d.k.info_privacy_all, d.k.info_privacy_friend, d.k.info_privacy_hide};
+    private static final int[] egT = {1, 2, 3};
+    private FragmentTabHost bgO;
     private List<GroupInfoData> commonGroups;
-    private int[] efB;
-    private String efD;
-    private ImageView efE;
-    private LinearLayout efF;
-    private LinearLayout efG;
-    private int efH;
-    private int efI;
-    private PersonGroupAdapter efN;
+    private int[] egI;
+    private String egK;
+    private ImageView egL;
+    private LinearLayout egM;
+    private LinearLayout egN;
+    private int egO;
+    private int egP;
+    private PersonGroupAdapter egU;
     private List<GroupInfoData> groups;
     private NavigationBar mNavigationBar;
     private int mSex;
     private String mUid;
-    private int bvj = -1;
-    int efC = 0;
+    private int bvT = -1;
+    int egJ = 0;
     private boolean isHost = false;
     private View asg = null;
-    private PersonGroupModel efO = null;
+    private PersonGroupModel egV = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean b(GroupInfoData groupInfoData) {
-        if (groupInfoData != null && this.efH == 23003) {
-            if (2 == this.efI) {
-                a(com.baidu.tbadk.game.a.EN().EQ(), groupInfoData.getGroupId(), groupInfoData.getName());
+        if (groupInfoData != null && this.egO == 23003) {
+            if (2 == this.egP) {
+                a(com.baidu.tbadk.game.a.EL().EO(), groupInfoData.getGroupId(), groupInfoData.getName());
                 return true;
             }
             Intent intent = new Intent();
@@ -96,14 +96,14 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
 
     private void a(final ShareFromGameCenterMsgData shareFromGameCenterMsgData, final long j, String str) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.cb(1);
+        aVar.cc(1);
         final Game2GroupShareDialogView game2GroupShareDialogView = new Game2GroupShareDialogView(getPageContext().getContext());
         game2GroupShareDialogView.setData(shareFromGameCenterMsgData);
         aVar.w(game2GroupShareDialogView);
         aVar.a(d.k.share, new a.b() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long at = b.aFy().at(String.valueOf(j), 1);
+                long at = b.aFw().at(String.valueOf(j), 1);
                 MessageUtils.createGroupChatMessage(at, 9, shareFromGameCenterMsgData.toChatMessageContent(), j);
                 MessageUtils.createGroupChatMessage(at + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j);
                 aVar2.dismiss();
@@ -121,7 +121,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                 ((InputMethodManager) PersonGroupActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(game2GroupShareDialogView.getWindowToken(), 2);
             }
         });
-        aVar.b(getPageContext()).tD();
+        aVar.b(getPageContext()).tC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -132,41 +132,41 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         if (bundle != null) {
             this.mUid = bundle.getString("key_uid");
             this.mSex = bundle.getInt("key_sex", 0);
-            this.bvj = bundle.getInt("key_current_tab", 0);
-            this.efH = bundle.getInt("tb_request_code", 0);
-            this.efI = bundle.getInt("key_from_where", 0);
+            this.bvT = bundle.getInt("key_current_tab", 0);
+            this.egO = bundle.getInt("tb_request_code", 0);
+            this.egP = bundle.getInt("key_from_where", 0);
         } else if (getIntent() != null) {
             this.mUid = getIntent().getStringExtra("key_uid");
             this.mSex = getIntent().getIntExtra("key_sex", 0);
-            this.bvj = getIntent().getIntExtra("key_current_tab", 0);
-            this.efH = getIntent().getIntExtra("tb_request_code", 0);
-            this.efI = getIntent().getIntExtra("key_from_where", 0);
+            this.bvT = getIntent().getIntExtra("key_current_tab", 0);
+            this.egO = getIntent().getIntExtra("tb_request_code", 0);
+            this.egP = getIntent().getIntExtra("key_from_where", 0);
         } else {
             finish();
         }
         this.mUid = this.mUid == null ? TbadkApplication.getCurrentAccount() : this.mUid;
         if (TextUtils.equals(this.mUid, TbadkApplication.getCurrentAccount())) {
-            this.efD = getPageContext().getContext().getString(d.k.me);
+            this.egK = getPageContext().getContext().getString(d.k.me);
             this.isHost = true;
         } else {
             this.isHost = false;
             switch (this.mSex) {
                 case 1:
-                    this.efD = getPageContext().getContext().getString(d.k.he);
+                    this.egK = getPageContext().getContext().getString(d.k.he);
                     break;
                 case 2:
-                    this.efD = getPageContext().getContext().getString(d.k.she);
+                    this.egK = getPageContext().getContext().getString(d.k.she);
                     break;
                 default:
-                    this.efD = getPageContext().getContext().getString(d.k.ta);
+                    this.egK = getPageContext().getContext().getString(d.k.ta);
                     break;
             }
         }
-        if (this.efO == null) {
+        if (this.egV == null) {
             if (!this.isHost) {
-                this.efO = new PersonGroupModel(this, com.baidu.adp.lib.g.b.c(this.mUid, 0L));
+                this.egV = new PersonGroupModel(this, com.baidu.adp.lib.g.b.c(this.mUid, 0L));
             } else {
-                this.efO = new PersonGroupModel(this);
+                this.egV = new PersonGroupModel(this);
             }
         }
         if (k.isEmpty(this.mUid)) {
@@ -174,7 +174,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         } else {
             q(bundle);
         }
-        if (this.efI != 1) {
+        if (this.egP != 1) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SET_PRIVATE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
@@ -185,10 +185,10 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage.isSuccess()) {
                         if (httpResponsedMessage.getError() == 0) {
-                            f.s(3, PersonGroupActivity.efM[PersonGroupActivity.this.efC]);
-                            ak.a(PersonGroupActivity.this.efE, PersonGroupActivity.efK[PersonGroupActivity.this.efC], PersonGroupActivity.efJ[PersonGroupActivity.this.efC]);
-                            PersonGroupActivity.this.showToastWithIcon(PersonGroupActivity.this.getPageContext().getContext().getString(PersonGroupActivity.efL[PersonGroupActivity.this.efC]), d.f.icon_toast_info);
-                            PersonGroupActivity.this.efE.setContentDescription(PersonGroupActivity.this.getPageContext().getString(PersonGroupActivity.efL[f.bz(3) % 3]));
+                            f.s(3, PersonGroupActivity.egT[PersonGroupActivity.this.egJ]);
+                            ak.a(PersonGroupActivity.this.egL, PersonGroupActivity.egR[PersonGroupActivity.this.egJ], PersonGroupActivity.egQ[PersonGroupActivity.this.egJ]);
+                            PersonGroupActivity.this.showToastWithIcon(PersonGroupActivity.this.getPageContext().getContext().getString(PersonGroupActivity.egS[PersonGroupActivity.this.egJ]), d.f.icon_toast_info);
+                            PersonGroupActivity.this.egL.setContentDescription(PersonGroupActivity.this.getPageContext().getString(PersonGroupActivity.egS[f.bz(3) % 3]));
                             return;
                         }
                         PersonGroupActivity.this.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? PersonGroupActivity.this.getResources().getString(d.k.neterror) : httpResponsedMessage.getErrorString());
@@ -229,7 +229,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
 
     private void q(Bundle bundle) {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.person_group_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(String.format(getPageContext().getContext().getString(d.k.person_group), this.efD));
+        this.mNavigationBar.setCenterTextTitle(String.format(getPageContext().getContext().getString(d.k.person_group), this.egK));
         this.mNavigationBar.showBottomLine();
         this.asg = (View) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
         this.asg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.5
@@ -238,83 +238,83 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                 PersonGroupActivity.this.finish();
             }
         });
-        if (this.efI == 1) {
+        if (this.egP == 1) {
             this.mNavigationBar.setCenterTextTitle(getResources().getString(d.k.groups));
-            this.efF = (LinearLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.widget_nb_item_create_group_btn, (View.OnClickListener) null);
+            this.egM = (LinearLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.widget_nb_item_create_group_btn, (View.OnClickListener) null);
             if (TbadkCoreApplication.getInst().getIntentClass(CreateGroupStepActivityConfig.class) == null) {
-                this.efF.setVisibility(4);
+                this.egM.setVisibility(4);
             } else {
-                this.efF.setVisibility(0);
+                this.egM.setVisibility(0);
             }
-            this.efF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.6
+            this.egM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    PersonGroupActivity.this.aGk();
+                    PersonGroupActivity.this.aGi();
                 }
             });
-            this.efG = (LinearLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.widget_nb_item_search_group_btn, (View.OnClickListener) null);
-            this.efG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.7
+            this.egN = (LinearLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.widget_nb_item_search_group_btn, (View.OnClickListener) null);
+            this.egN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     PersonGroupActivity.this.sendMessage(new CustomMessage(2002001, new AddGroupActivityConfig(PersonGroupActivity.this.getPageContext().getPageActivity())));
                 }
             });
-        } else if (this.isHost && this.efH != 23003) {
-            this.efE = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.widget_nb_item_privacy, (View.OnClickListener) null);
-            ak.a(this.efE, efK[f.bz(3) - 1], efJ[f.bz(3) - 1]);
-            this.efC = f.bz(3) % 3;
-            this.efE.setContentDescription(getPageContext().getString(efL[this.efC]));
-            this.efE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.8
+        } else if (this.isHost && this.egO != 23003) {
+            this.egL = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.widget_nb_item_privacy, (View.OnClickListener) null);
+            ak.a(this.egL, egR[f.bz(3) - 1], egQ[f.bz(3) - 1]);
+            this.egJ = f.bz(3) % 3;
+            this.egL.setContentDescription(getPageContext().getString(egS[this.egJ]));
+            this.egL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.8
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    PersonGroupActivity.this.efC = f.bz(3) % 3;
+                    PersonGroupActivity.this.egJ = f.bz(3) % 3;
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
                     httpMessage.addParam("opt", "group");
-                    httpMessage.addParam("val", String.valueOf(PersonGroupActivity.this.efC + 1));
+                    httpMessage.addParam("val", String.valueOf(PersonGroupActivity.this.egJ + 1));
                     PersonGroupActivity.this.sendMessage(httpMessage);
                 }
             });
         }
-        this.efB = new int[]{0, 1};
-        this.efN = new PersonGroupAdapter(this, this.isHost);
-        this.bgN = (FragmentTabHost) findViewById(d.g.person_group_tab_host);
-        this.bgN.setup(getSupportFragmentManager());
-        this.bgN.setTabWidgetViewHeight(l.e(getApplicationContext(), d.e.ds80));
-        this.bgN.setTabWidgetBackgroundColor(getResources().getColor(d.C0126d.common_color_10002));
-        this.bgN.setOnPageChangeListener(this);
-        this.bgN.reset();
-        if (this.bgN.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.bgN.getLayoutParams()).topMargin = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.egI = new int[]{0, 1};
+        this.egU = new PersonGroupAdapter(this, this.isHost);
+        this.bgO = (FragmentTabHost) findViewById(d.g.person_group_tab_host);
+        this.bgO.setup(getSupportFragmentManager());
+        this.bgO.setTabWidgetViewHeight(l.e(getApplicationContext(), d.e.ds80));
+        this.bgO.setTabWidgetBackgroundColor(getResources().getColor(d.C0126d.common_color_10002));
+        this.bgO.setOnPageChangeListener(this);
+        this.bgO.reset();
+        if (this.bgO.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.bgO.getLayoutParams()).topMargin = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         }
-        Or();
+        Op();
         if (this.isHost) {
-            this.bgN.getTabWrapper().setVisibility(8);
+            this.bgO.getTabWrapper().setVisibility(8);
         }
-        this.bgN.setCurrentTab(this.bvj);
+        this.bgO.setCurrentTab(this.bvT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aGk() {
+    public void aGi() {
         showProgressBar();
-        this.efO.bX(0L);
+        this.egV.bX(0L);
     }
 
-    private void Or() {
-        if (this.efN != null) {
+    private void Op() {
+        if (this.egU != null) {
             boolean z = this.isHost ? true : true;
-            Fragment item = this.efN.getItem(0);
-            int nU = this.efN.nU(0);
+            Fragment item = this.egU.getItem(0);
+            int nT = this.egU.nT(0);
             if (item != null) {
-                a(item, nU, getPageContext().getContext().getString(d.k.person_group_no_personal_title));
+                a(item, nT, getPageContext().getContext().getString(d.k.person_group_no_personal_title));
             }
             if (z) {
-                Fragment item2 = this.efN.getItem(1);
-                int nU2 = this.efN.nU(1);
+                Fragment item2 = this.egU.getItem(1);
+                int nT2 = this.egU.nT(1);
                 if (item2 != null) {
-                    a(item2, nU2, getPageContext().getContext().getString(d.k.commongroup));
+                    a(item2, nT2, getPageContext().getContext().getString(d.k.commongroup));
                 }
             }
-            this.bgN.initViewPager();
+            this.bgO.initViewPager();
         }
     }
 
@@ -325,22 +325,22 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             bVar.afJ = fragment;
             bVar.mType = i;
             fragmentTabIndicator.setText(str);
-            fragmentTabIndicator.aIf = d.C0126d.s_actionbar_text_color;
+            fragmentTabIndicator.aIg = d.C0126d.s_actionbar_text_color;
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(d.e.fontsize32));
             bVar.afI = fragmentTabIndicator;
-            this.bgN.a(bVar);
+            this.bgO.a(bVar);
         }
     }
 
     public void bf(int i, int i2) {
-        if (!this.isHost && this.efN != null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.bgN.cx(0).afI;
+        if (!this.isHost && this.egU != null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.bgO.cy(0).afI;
             if (i <= 0) {
                 fragmentTabIndicator.setText(getPageContext().getContext().getString(d.k.person_group_no_personal_title));
             } else {
                 fragmentTabIndicator.setText(String.format(getPageContext().getContext().getString(d.k.person_group_personal), Integer.valueOf(i)));
             }
-            FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.bgN.cx(1).afI;
+            FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.bgO.cy(1).afI;
             if (i2 <= 0) {
                 fragmentTabIndicator2.setText(getPageContext().getContext().getString(d.k.commongroup));
             } else {
@@ -349,8 +349,8 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public int aGl() {
-        return this.bvj == 0 ? 0 : 1;
+    public int aGj() {
+        return this.bvT == 0 ? 0 : 1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -358,16 +358,16 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public void onResume() {
         super.onResume();
         onChangeSkinType(TbadkApplication.getInst().getSkinType());
-        if (this.efO == null) {
-            this.efO = new PersonGroupModel(this);
+        if (this.egV == null) {
+            this.egV = new PersonGroupModel(this);
         }
     }
 
-    public String aGm() {
-        return this.efD;
+    public String aGk() {
+        return this.egK;
     }
 
-    public boolean aGn() {
+    public boolean aGl() {
         return this.isHost;
     }
 
@@ -379,7 +379,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putInt("CurrTabIndex", this.bvj);
+        bundle.putInt("CurrTabIndex", this.bvT);
         super.onSaveInstanceState(bundle);
     }
 
@@ -393,16 +393,16 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (i >= 0 && i < 2 && i != this.bvj) {
-            this.bvj = i;
-            if (!this.isHost && this.efB[i] == 1) {
+        if (i >= 0 && i < 2 && i != this.bvT) {
+            this.bvT = i;
+            if (!this.isHost && this.egI[i] == 1) {
                 TiebaStatic.eventStat(getPageContext().getContext(), "common_group", "click", 1, new Object[0]);
             }
         }
     }
 
-    public PersonGroupModel aGo() {
-        return this.efO;
+    public PersonGroupModel aGm() {
+        return this.egV;
     }
 
     public void setGroups(List<GroupInfoData> list) {
@@ -428,12 +428,12 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.bgN.onChangeSkinType(i);
-        ak.i(this.bgN, d.C0126d.common_color_10173);
-        if (this.efN != null) {
+        this.bgO.onChangeSkinType(i);
+        ak.i(this.bgO, d.C0126d.common_color_10173);
+        if (this.egU != null) {
             int i2 = this.isHost ? 1 : 2;
             for (int i3 = 0; i3 < i2; i3++) {
-                Fragment item = this.efN.getItem(i3);
+                Fragment item = this.egU.getItem(i3);
                 if (item != null && (item instanceof BaseFragment)) {
                     ((BaseFragment) item).changeSkinType(i);
                 }

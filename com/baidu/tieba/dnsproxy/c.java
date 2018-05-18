@@ -16,10 +16,10 @@ import java.util.Map;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
-    boolean cEx;
+    boolean cFG;
 
     public c(boolean z) {
-        this.cEx = z;
+        this.cFG = z;
         setPriority(4);
     }
 
@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String str;
         StringBuilder sb2;
         l<String> a = BdCacheService.en().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.cEx) {
+        if (this.cFG) {
             String str2 = a.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) DnsProxyResponseData.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -73,7 +73,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
             eVar.fe().setUrl(str4);
             cVar.d(-1, -1, -1);
-            byte[] bArr = eVar.ff().tZ;
+            byte[] bArr = eVar.ff().tY;
             StringBuilder sb4 = null;
             if (bArr != null) {
                 try {
@@ -131,17 +131,17 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb4 = sb2;
             } else if (eVar.fh() != null) {
-                sb = eVar.fh().tG;
+                sb = eVar.fh().tF;
             } else {
                 StringBuilder sb7 = new StringBuilder();
                 List<com.baidu.adp.lib.network.http.d> fg = eVar.fg();
                 if (fg != null) {
                     for (com.baidu.adp.lib.network.http.d dVar : fg) {
-                        if (dVar != null && !TextUtils.isEmpty(dVar.tG)) {
+                        if (dVar != null && !TextUtils.isEmpty(dVar.tF)) {
                             if (sb7.length() > 0) {
                                 sb7.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                             }
-                            sb7.append(dVar.tG);
+                            sb7.append(dVar.tF);
                         }
                     }
                 }

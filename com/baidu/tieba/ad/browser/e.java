@@ -39,7 +39,7 @@ public class e {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        pc();
+        pb();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdTbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -89,7 +89,7 @@ public class e {
 
     public static void ar(Context context) {
         CookieManager cookieManager;
-        a.b cD = com.baidu.tbadk.core.a.a.qf().cD(TbadkCoreApplication.getCurrentBduss());
+        a.b cD = com.baidu.tbadk.core.a.a.qe().cD(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -122,7 +122,7 @@ public class e {
         }
     }
 
-    private static void pc() {
+    private static void pb() {
         new ag("open_webview", true).start();
     }
 }

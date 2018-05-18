@@ -29,11 +29,11 @@ import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.tieba.card.a<f> {
     private TextView aqm;
-    protected HeadPendantView fEN;
-    private TbImageView fEO;
-    private TextView fEP;
-    private ImageView fEQ;
-    private FrameLayout fER;
+    protected HeadPendantView fFT;
+    private TbImageView fFU;
+    private TextView fFV;
+    private ImageView fFW;
+    private FrameLayout fFX;
     private int mSkinType;
     private UserData mUserData;
 
@@ -41,27 +41,27 @@ public class e extends com.baidu.tieba.card.a<f> {
         super(tbPageContext);
         this.mSkinType = 3;
         View view2 = getView();
-        this.fEN = (HeadPendantView) view2.findViewById(d.g.person_header);
-        this.fEN.setHasPendantStyle();
-        this.fEN.getHeadView().setIsRound(true);
-        this.fEN.getHeadView().setBorderWidth((int) getContext().getResources().getDimension(d.e.ds1));
-        this.fEN.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fEN.getHeadView().setCustomBigViewIconId(d.f.pic_v_avatar_big);
-        this.fEN.getHeadView().setIconWidth(this.mContext.getResources().getDimensionPixelSize(d.e.ds40));
-        this.fER = (FrameLayout) view2.findViewById(d.g.person_header_container);
-        this.fEO = (TbImageView) view2.findViewById(d.g.member_icon);
+        this.fFT = (HeadPendantView) view2.findViewById(d.g.person_header);
+        this.fFT.setHasPendantStyle();
+        this.fFT.getHeadView().setIsRound(true);
+        this.fFT.getHeadView().setBorderWidth((int) getContext().getResources().getDimension(d.e.ds1));
+        this.fFT.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fFT.getHeadView().setCustomBigViewIconId(d.f.pic_v_avatar_big);
+        this.fFT.getHeadView().setIconWidth(this.mContext.getResources().getDimensionPixelSize(d.e.ds40));
+        this.fFX = (FrameLayout) view2.findViewById(d.g.person_header_container);
+        this.fFU = (TbImageView) view2.findViewById(d.g.member_icon);
         this.aqm = (TextView) view2.findViewById(d.g.person_name);
-        this.fEP = (TextView) view2.findViewById(d.g.person_desc);
-        this.fEQ = (ImageView) view2.findViewById(d.g.arrow_icon);
+        this.fFV = (TextView) view2.findViewById(d.g.person_desc);
+        this.fFW = (ImageView) view2.findViewById(d.g.arrow_icon);
         view2.setOnClickListener(this);
-        this.fEO.setOnClickListener(this);
+        this.fFU.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ak.j(getView(), d.C0126d.cp_bg_line_d);
-            this.fEQ.setImageDrawable(ak.getDrawable(d.f.icon_mine_list_arrow));
+            this.fFW.setImageDrawable(ak.getDrawable(d.f.icon_mine_list_arrow));
             this.mSkinType = i;
         }
     }
@@ -74,39 +74,39 @@ public class e extends com.baidu.tieba.card.a<f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
-        if (fVar != null && fVar.fbS != null) {
-            this.mUserData = fVar.fbS;
+        if (fVar != null && fVar.fcZ != null) {
+            this.mUserData = fVar.fcZ;
             String portrait = this.mUserData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
                 String dU = o.dU(portrait);
-                this.fEN.getHeadView().setUrl(dU);
+                this.fFT.getHeadView().setUrl(dU);
                 if (dU.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                    this.fEN.getHeadView().startLoad(dU, 10, false);
+                    this.fFT.getHeadView().startLoad(dU, 10, false);
                 } else {
-                    this.fEN.getHeadView().startLoad(dU, 25, false);
+                    this.fFT.getHeadView().startLoad(dU, 25, false);
                 }
             } else {
-                this.fEN.getHeadView().startLoad(String.valueOf(d.f.pic_mycenter_avatar_def_i), 24, false);
+                this.fFT.getHeadView().startLoad(String.valueOf(d.f.pic_mycenter_avatar_def_i), 24, false);
             }
             h pendantData = this.mUserData.getPendantData();
             if (pendantData != null) {
-                this.fEN.eK(pendantData.qG());
+                this.fFT.eK(pendantData.qF());
             }
-            if (this.fEN.wE()) {
-                this.fEN.getHeadView().setShowV(false);
-                this.fER.setPadding(0, 0, 0, 0);
+            if (this.fFT.wD()) {
+                this.fFT.getHeadView().setShowV(false);
+                this.fFX.setPadding(0, 0, 0, 0);
             } else {
-                this.fER.setPadding(0, 0, 0, 0);
+                this.fFX.setPadding(0, 0, 0, 0);
                 if (this.mUserData.isBigV() || !StringUtils.isNull(this.mUserData.getUserTbVipInfoData().getvipV_url())) {
-                    this.fEN.getHeadView().setShowV(true);
+                    this.fFT.getHeadView().setShowV(true);
                 } else {
-                    this.fEN.getHeadView().setShowV(false);
+                    this.fFT.getHeadView().setShowV(false);
                 }
             }
             if (this.mUserData.getIsMem() > 0) {
-                this.fEO.startLoad(this.mUserData.getUserVipInfo().getVipIconUrl(), 10, false);
+                this.fFU.startLoad(this.mUserData.getUserVipInfo().getVipIconUrl(), 10, false);
             } else {
-                this.fEO.setImageDrawable(ak.getDrawable(d.f.icon_crown_super_non));
+                this.fFU.setImageDrawable(ak.getDrawable(d.f.icon_crown_super_non));
             }
             bdP();
             String name_show = this.mUserData.getName_show();
@@ -118,7 +118,7 @@ public class e extends com.baidu.tieba.card.a<f> {
                 i = this.mUserData.getSex() == 2 ? d.f.icon_mine_girl : d.f.icon_mine_boy;
             }
             this.aqm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, this.mContext.getResources().getDrawable(i), (Drawable) null);
-            this.fEP.setText(getContext().getString(d.k.person_center_default_introduce));
+            this.fFV.setText(getContext().getString(d.k.person_center_default_introduce));
             bdQ();
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -133,16 +133,16 @@ public class e extends com.baidu.tieba.card.a<f> {
     }
 
     private void bdQ() {
-        ak.h(this.fEP, d.C0126d.cp_cont_j);
+        ak.h(this.fFV, d.C0126d.cp_cont_j);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 != null) {
-            if (view2 == this.fEO) {
+            if (view2 == this.fFU) {
                 TiebaStatic.log(new al("c12523").r("obj_locate", 2));
                 if (az.aK(this.mTbPageContext.getPageActivity())) {
-                    ax.wg().c(this.mTbPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+                    ax.wf().c(this.mTbPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                     return;
                 }
                 return;

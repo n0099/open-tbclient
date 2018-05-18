@@ -17,19 +17,19 @@ import com.baidu.tieba.thirdparty.AccountBundlingActivity;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public class a extends c<AccountBundlingActivity> {
-    private HeadImageView dRP;
-    private AccountBundlingActivity gIH;
-    private EditText gII;
-    private View gIJ;
-    private TextView gIK;
-    private ImageView gIL;
-    private boolean gIM;
+    private HeadImageView dSW;
+    private AccountBundlingActivity gJK;
+    private EditText gJL;
+    private View gJM;
+    private TextView gJN;
+    private ImageView gJO;
+    private boolean gJP;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
     public a(AccountBundlingActivity accountBundlingActivity) {
         super(accountBundlingActivity.getPageContext());
-        this.gIH = accountBundlingActivity;
+        this.gJK = accountBundlingActivity;
         accountBundlingActivity.setContentView(d.i.account_bunding_activty);
         n(accountBundlingActivity);
         o(accountBundlingActivity);
@@ -37,94 +37,94 @@ public class a extends c<AccountBundlingActivity> {
 
     @SuppressLint({"ResourceAsColor"})
     private void n(AccountBundlingActivity accountBundlingActivity) {
-        this.mRootView = (ViewGroup) this.gIH.findViewById(d.g.account_bunding_rootView);
-        this.mNavigationBar = (NavigationBar) this.gIH.findViewById(d.g.account_bunding_navigation_bar);
-        this.mNavigationBar.setTitleText(this.gIH.getPageContext().getString(d.k.login));
+        this.mRootView = (ViewGroup) this.gJK.findViewById(d.g.account_bunding_rootView);
+        this.mNavigationBar = (NavigationBar) this.gJK.findViewById(d.g.account_bunding_navigation_bar);
+        this.mNavigationBar.setTitleText(this.gJK.getPageContext().getString(d.k.login));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.gIJ = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.navigation_right_button_layout, accountBundlingActivity);
-        this.gIK = (TextView) this.gIJ.findViewById(d.g.right_textview);
-        ak.c(this.gIK, d.C0126d.cp_link_tip_a, 1);
+        this.gJM = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.i.navigation_right_button_layout, accountBundlingActivity);
+        this.gJN = (TextView) this.gJM.findViewById(d.g.right_textview);
+        ak.c(this.gJN, d.C0126d.cp_link_tip_a, 1);
     }
 
     private void o(AccountBundlingActivity accountBundlingActivity) {
-        this.dRP = (HeadImageView) accountBundlingActivity.findViewById(d.g.account_bunding_head);
-        this.gII = (EditText) accountBundlingActivity.findViewById(d.g.account_bunding_edit);
-        this.gIL = (ImageView) accountBundlingActivity.findViewById(d.g.account_bunding_edit_del);
-        this.gIK.setText(d.k.done);
-        mM(false);
+        this.dSW = (HeadImageView) accountBundlingActivity.findViewById(d.g.account_bunding_head);
+        this.gJL = (EditText) accountBundlingActivity.findViewById(d.g.account_bunding_edit);
+        this.gJO = (ImageView) accountBundlingActivity.findViewById(d.g.account_bunding_edit_del);
+        this.gJN.setText(d.k.done);
+        mN(false);
     }
 
-    public ViewGroup ZG() {
+    public ViewGroup ZJ() {
         return this.mRootView;
     }
 
-    public HeadImageView bvq() {
-        return this.dRP;
+    public HeadImageView bvo() {
+        return this.dSW;
     }
 
-    public View bvr() {
-        return this.gIJ;
+    public View bvp() {
+        return this.gJM;
     }
 
-    public EditText bvs() {
-        return this.gII;
+    public EditText bvq() {
+        return this.gJL;
     }
 
-    public void bvt() {
-        this.gII.setText("");
+    public void bvr() {
+        this.gJL.setText("");
     }
 
-    public void mL(boolean z) {
-        this.gIJ.setEnabled(z);
+    public void mM(boolean z) {
+        this.gJM.setEnabled(z);
     }
 
-    public void tC(String str) {
-        mM(false);
+    public void tF(String str) {
+        mN(false);
         boolean z = TextUtils.isEmpty(str.trim()) ? false : true;
-        mL(z);
-        mN(z);
+        mM(z);
+        mO(z);
         if (z) {
-            ak.c(this.gIK, d.C0126d.cp_link_tip_a, 1);
+            ak.c(this.gJN, d.C0126d.cp_link_tip_a, 1);
         } else {
-            ak.c(this.gIK, d.C0126d.navi_op_text, 1);
+            ak.c(this.gJN, d.C0126d.navi_op_text, 1);
         }
     }
 
     public void c(SapiAccount sapiAccount) {
         if (sapiAccount != null) {
             if (!TextUtils.isEmpty(sapiAccount.displayname)) {
-                this.gII.setText(sapiAccount.displayname);
-                this.gII.setSelection(sapiAccount.displayname.length());
+                this.gJL.setText(sapiAccount.displayname);
+                this.gJL.setSelection(sapiAccount.displayname.length());
             }
-            this.dRP.setIsRound(false);
-            this.dRP.setAutoChangeStyle(true);
-            this.dRP.setDrawBorder(false);
-            this.dRP.startLoad(sapiAccount.getSocialPortrait(), 10, false);
+            this.dSW.setIsRound(false);
+            this.dSW.setAutoChangeStyle(true);
+            this.dSW.setDrawBorder(false);
+            this.dSW.startLoad(sapiAccount.getSocialPortrait(), 10, false);
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void mM(boolean z) {
-        if (this.gIM != z) {
-            this.gIM = z;
+    public void mN(boolean z) {
+        if (this.gJP != z) {
+            this.gJP = z;
             if (z) {
-                ak.c(this.gII, d.C0126d.cp_cont_h, 2);
+                ak.c(this.gJL, d.C0126d.cp_cont_h, 2);
             } else {
-                ak.c(this.gII, d.C0126d.cp_cont_b, 2);
+                ak.c(this.gJL, d.C0126d.cp_cont_b, 2);
             }
         }
     }
 
-    public void mN(boolean z) {
-        this.gIL.setVisibility(z ? 0 : 4);
+    public void mO(boolean z) {
+        this.gJO.setVisibility(z ? 0 : 4);
     }
 
-    public ImageView bvu() {
-        return this.gIL;
+    public ImageView bvs() {
+        return this.gJO;
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.n.a.a(this.gIH.getPageContext(), this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.gIH.getPageContext(), i);
+        com.baidu.tbadk.n.a.a(this.gJK.getPageContext(), this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.gJK.getPageContext(), i);
     }
 }

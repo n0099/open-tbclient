@@ -12,7 +12,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int daH;
+    private int dbO;
     private Context mContext;
     private int mTextWidth;
     private int mWidth;
@@ -38,7 +38,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.daH = l.e(this.mContext, d.e.ds8);
+        this.dbO = l.e(this.mContext, d.e.ds8);
         this.mWidth = l.af(this.mContext);
         this.mTextWidth = l.af(this.mContext) / 2;
     }
@@ -86,8 +86,8 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.daH;
-        layoutParams.rightMargin = this.daH;
+        layoutParams.leftMargin = this.dbO;
+        layoutParams.rightMargin = this.dbO;
     }
 
     private LinearLayout bbd() {

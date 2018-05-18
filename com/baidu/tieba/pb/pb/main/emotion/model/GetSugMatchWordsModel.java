@@ -16,9 +16,9 @@ import java.util.List;
 import tbclient.T;
 /* loaded from: classes2.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
-    private static List<String> dXm = new ArrayList();
-    private a frt;
-    private final HttpMessageListener fru;
+    private static List<String> dYt = new ArrayList();
+    private a fsA;
+    private final HttpMessageListener fsB;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -29,38 +29,38 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     public GetSugMatchWordsModel(e<T> eVar) {
         super(eVar);
-        this.fru = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
+        this.fsB = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.frt != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.fsA != null) {
                     GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
                     if (!v.w(getSugMatchWordsResponseMessage.getData())) {
-                        GetSugMatchWordsModel.this.frt.D(getSugMatchWordsResponseMessage.getData());
-                        GetSugMatchWordsModel.dXm.clear();
-                        GetSugMatchWordsModel.dXm.addAll(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.this.fsA.D(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.dYt.clear();
+                        GetSugMatchWordsModel.dYt.addAll(getSugMatchWordsResponseMessage.getData());
                         return;
                     }
-                    GetSugMatchWordsModel.this.frt.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+                    GetSugMatchWordsModel.this.fsA.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
                 }
             }
         };
-        AE();
-        this.fru.setSelfListener(true);
-        registerListener(this.fru);
+        registerTask();
+        this.fsB.setSelfListener(true);
+        registerListener(this.fsB);
     }
 
-    private void AE() {
+    private void registerTask() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS, TbConfig.SERVER_ADDRESS + "c/e/meme/getSugKeyWords");
         tbHttpMessageTask.setResponsedClass(GetSugMatchWordsResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void b(a aVar) {
-        this.frt = aVar;
-        if (this.frt != null) {
-            if (!v.w(dXm)) {
-                this.frt.D(dXm);
+        this.fsA = aVar;
+        if (this.fsA != null) {
+            if (!v.w(dYt)) {
+                this.fsA.D(dYt);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS));
             }
@@ -74,7 +74,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.fru);
+        MessageManager.getInstance().unRegisterListener(this.fsB);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
         return true;
     }

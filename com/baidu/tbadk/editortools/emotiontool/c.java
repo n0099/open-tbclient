@@ -3,16 +3,16 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.ImageView.a aDJ;
     private com.baidu.adp.widget.ImageView.a aDK;
+    private com.baidu.adp.widget.ImageView.a aDL;
     private int cols;
     private int rows;
 
-    public abstract boolean DT();
+    public abstract boolean DR();
 
-    public abstract EmotionGroupType DU();
+    public abstract EmotionGroupType DS();
 
-    public abstract String eK(int i);
+    public abstract String eL(int i);
 
     public abstract boolean ge(String str);
 
@@ -30,43 +30,43 @@ public abstract class c {
 
     public abstract com.baidu.adp.widget.ImageView.a gg(String str);
 
-    public com.baidu.adp.widget.ImageView.a DV() {
-        return this.aDJ;
+    public com.baidu.adp.widget.ImageView.a DT() {
+        return this.aDK;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.km();
-        }
-        this.aDJ = aVar;
-    }
-
-    public com.baidu.adp.widget.ImageView.a DW() {
-        return this.aDK;
-    }
-
-    public void d(com.baidu.adp.widget.ImageView.a aVar) {
-        if (aVar != null) {
-            aVar.km();
+            aVar.kl();
         }
         this.aDK = aVar;
     }
 
-    public int DX() {
+    public com.baidu.adp.widget.ImageView.a DU() {
+        return this.aDL;
+    }
+
+    public void d(com.baidu.adp.widget.ImageView.a aVar) {
+        if (aVar != null) {
+            aVar.kl();
+        }
+        this.aDL = aVar;
+    }
+
+    public int DV() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eL(int i) {
+    public void eM(int i) {
         this.cols = i;
     }
 
-    public int DY() {
+    public int DW() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eM(int i) {
+    public void eN(int i) {
         this.rows = i;
     }
 }

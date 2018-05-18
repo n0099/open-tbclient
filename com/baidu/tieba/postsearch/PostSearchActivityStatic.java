@@ -36,7 +36,7 @@ public class PostSearchActivityStatic {
                 if (StringUtils.isNull(data)) {
                     return null;
                 }
-                com.baidu.tieba.tbadkCore.util.a.sY(data);
+                com.baidu.tieba.tbadkCore.util.a.tb(data);
                 return new CustomResponsedMessage<>(2009003);
             }
         });
@@ -51,7 +51,7 @@ public class PostSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                com.baidu.tieba.tbadkCore.util.a.bsQ();
+                com.baidu.tieba.tbadkCore.util.a.bsO();
                 return new CustomResponsedMessage<>(2009004);
             }
         });

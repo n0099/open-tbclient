@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes3.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader fVj;
+    private MultiFormatReader fWp;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -23,8 +23,8 @@ public class ZXingView extends QRCodeView {
     }
 
     private void biH() {
-        this.fVj = new MultiFormatReader();
-        this.fVj.setHints(a.fVi);
+        this.fWp = new MultiFormatReader();
+        this.fWp.setHints(a.fWo);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect rJ = this.fUd.rJ(i2);
-                if (rJ != null) {
-                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, rJ.left, rJ.top, rJ.width(), rJ.height(), false);
+                Rect rI = this.fVj.rI(i2);
+                if (rI != null) {
+                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, rI.left, rI.top, rI.width(), rI.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.fVj.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.fWp.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.fVj.reset();
+                this.fWp.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.fVj.reset();
+            this.fWp.reset();
         }
     }
 }

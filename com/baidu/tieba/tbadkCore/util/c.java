@@ -1,55 +1,50 @@
 package com.baidu.tieba.tbadkCore.util;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes.dex */
-public class c extends e {
-    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> gyU;
+public class c extends d {
+    private volatile HashMap<String, Long> gzY;
+
+    static {
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.tbadkCore.util.c.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
+                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().bsR();
+                }
+            }
+        });
+    }
 
     public c(int i) {
         super(i);
-        this.gyU = new HashMap<>();
+        this.gzY = new HashMap<>();
     }
 
-    public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        tc(str);
+    public long te(String str) {
+        long longValue;
         try {
-            Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {
-                this.gyU.put(valueOf, aVar);
+                longValue = this.gzY.get(str) != null ? this.gzY.get(str).longValue() : 0L;
             }
+            return longValue;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
+            return 0L;
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.util.e
-    public void bsT() {
-        int i;
-        Long l;
+    @Override // com.baidu.tieba.tbadkCore.util.d
+    public void bsR() {
         synchronized (this) {
-            Long l2 = null;
-            int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.gyY.entrySet()) {
-                if (entry.getValue().intValue() < i2) {
-                    int intValue = entry.getValue().intValue();
-                    l = entry.getKey();
-                    i = intValue;
-                } else {
-                    i = i2;
-                    l = l2;
-                }
-                i2 = i;
-                l2 = l;
-            }
-            if (l2 != null) {
-                this.gyY.remove(l2);
-                this.gyU.remove(l2);
-            } else {
-                this.gyY.clear();
-                this.gyU.clear();
-            }
+            this.gAb.clear();
+            this.gzY.clear();
         }
     }
 }

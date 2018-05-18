@@ -49,7 +49,7 @@ public class l {
         httpMessage.addParam("obj_type", str);
         httpMessage.addParam("playduration", j2);
         if (yVar != null) {
-            httpMessage.addParam("video_md5", yVar.fQN);
+            httpMessage.addParam("video_md5", yVar.fRT);
         }
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
@@ -59,19 +59,19 @@ public class l {
 
     private static void a(HttpMessage httpMessage, y yVar) {
         if (httpMessage != null && yVar != null) {
-            httpMessage.addParam("tid", yVar.aNu);
-            httpMessage.addParam(ImageViewerConfig.FORUM_ID, yVar.crG);
-            httpMessage.addParam("obj_to", yVar.fQJ);
-            httpMessage.addParam(VideoPlayActivityConfig.OBJ_ID, yVar.XM);
-            httpMessage.addParam("obj_param3", yVar.fQK);
+            httpMessage.addParam("tid", yVar.aNv);
+            httpMessage.addParam(ImageViewerConfig.FORUM_ID, yVar.csP);
+            httpMessage.addParam("obj_to", yVar.fRP);
+            httpMessage.addParam(VideoPlayActivityConfig.OBJ_ID, yVar.XN);
+            httpMessage.addParam("obj_param3", yVar.fRQ);
             httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, yVar.mSource);
             httpMessage.addParam("obj_locate", yVar.mLocate);
-            httpMessage.addParam("obj_param1", yVar.fQL);
-            if (!StringUtils.isNull(yVar.fQO)) {
-                httpMessage.addParam("topic_type", yVar.fQO);
+            httpMessage.addParam("obj_param1", yVar.fRR);
+            if (!StringUtils.isNull(yVar.fRU)) {
+                httpMessage.addParam("topic_type", yVar.fRU);
             }
-            if (!StringUtils.isNull(yVar.fQP)) {
-                httpMessage.addParam("is_vertical", yVar.fQP);
+            if (!StringUtils.isNull(yVar.fRV)) {
+                httpMessage.addParam("is_vertical", yVar.fRV);
             }
         }
     }

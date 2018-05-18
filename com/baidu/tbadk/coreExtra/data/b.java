@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class b {
     private int asx;
 
-    public boolean ye() {
+    public boolean yd() {
         return this.asx == 1;
     }
 

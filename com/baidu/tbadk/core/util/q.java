@@ -19,13 +19,13 @@ public interface q {
 
     void n(String str, String str2);
 
-    ArrayList<BasicNameValuePair> uK();
+    ArrayList<BasicNameValuePair> uJ();
 
-    String uL();
+    String uK();
 
-    byte[] uM();
+    byte[] uL();
+
+    String uM();
 
     String uN();
-
-    String uO();
 }

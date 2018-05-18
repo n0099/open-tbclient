@@ -17,38 +17,38 @@ import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.im.model.BlackListModel;
 /* loaded from: classes2.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
-    private com.baidu.tbadk.core.dialog.a JV;
-    private com.baidu.adp.framework.listener.c dPI = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.1
+    private com.baidu.tbadk.core.dialog.a JR;
+    private com.baidu.adp.framework.listener.c dQP = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
             Message<?> orginalMessage;
-            IMBlackListActivity.this.ekJ.aHJ();
+            IMBlackListActivity.this.elQ.aHH();
             IMBlackListActivity.this.closeLoadingDialog();
             if (socketResponsedMessage != null) {
                 if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
                     ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
                     if (responseGetMaskInfoMessage.getError() == 0) {
-                        if (IMBlackListActivity.this.JV != null) {
-                            IMBlackListActivity.this.JV.dismiss();
+                        if (IMBlackListActivity.this.JR != null) {
+                            IMBlackListActivity.this.JR.dismiss();
                         }
-                        IMBlackListActivity.this.ekJ.T(responseGetMaskInfoMessage.getBlackList());
+                        IMBlackListActivity.this.elQ.T(responseGetMaskInfoMessage.getBlackList());
                         return;
                     }
                     IMBlackListActivity.this.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? IMBlackListActivity.this.getResources().getString(d.k.neterror) : responseGetMaskInfoMessage.getErrorString());
                     if (j.gP()) {
-                        IMBlackListActivity.this.ekJ.refreshData();
+                        IMBlackListActivity.this.elQ.refreshData();
                     }
                 } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
                     if (responseUpdateMaskInfoMessage.getError() == 0) {
-                        if (IMBlackListActivity.this.JV != null) {
-                            IMBlackListActivity.this.JV.dismiss();
+                        if (IMBlackListActivity.this.JR != null) {
+                            IMBlackListActivity.this.JR.dismiss();
                         }
                         IMBlackListActivity.this.showToast(IMBlackListActivity.this.getPageContext().getString(d.k.black_list_remove_success));
-                        if (IMBlackListActivity.this.ekK != null) {
-                            IMBlackListActivity.this.ekJ.b(IMBlackListActivity.this.ekK);
-                            IMBlackListActivity.this.ekK = null;
+                        if (IMBlackListActivity.this.elR != null) {
+                            IMBlackListActivity.this.elQ.b(IMBlackListActivity.this.elR);
+                            IMBlackListActivity.this.elR = null;
                             return;
                         }
                         return;
@@ -58,41 +58,41 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
             }
         }
     };
-    private BlackListModel ekI;
-    private b ekJ;
-    private BlackListItemData ekK;
+    private BlackListModel elP;
+    private b elQ;
+    private BlackListItemData elR;
 
     private void initView() {
-        this.ekJ = new b(this);
+        this.elQ = new b(this);
     }
 
     private void aS() {
-        this.ekI = new BlackListModel(getPageContext());
-        this.ekI.setUniqueId(getUniqueId());
+        this.elP = new BlackListModel(getPageContext());
+        this.elP.setUniqueId(getUniqueId());
     }
 
-    private void OT() {
-        this.ekI.loadBlackList();
-        this.ekJ.EL();
+    private void OQ() {
+        this.elP.loadBlackList();
+        this.elQ.EJ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(104103, this.dPI);
-        registerListener(104102, this.dPI);
+        registerListener(104103, this.dQP);
+        registerListener(104102, this.dQP);
         initView();
         aS();
-        OT();
+        OQ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.ekI != null) {
-            this.ekI.cancelLoadData();
+        if (this.elP != null) {
+            this.elP.cancelLoadData();
         }
     }
 
@@ -101,44 +101,44 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         showLoadingDialog((String) null, new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (IMBlackListActivity.this.ekI != null) {
-                    IMBlackListActivity.this.ekI.cancelLoadData();
-                    IMBlackListActivity.this.ekK = null;
+                if (IMBlackListActivity.this.elP != null) {
+                    IMBlackListActivity.this.elP.cancelLoadData();
+                    IMBlackListActivity.this.elR = null;
                 }
             }
         });
     }
 
     private void a(BlackListItemData blackListItemData) {
-        oa(String.format(getPageContext().getString(d.k.black_list_ensure_toremove_text), blackListItemData.getUserName()));
-        this.JV.tD();
+        od(String.format(getPageContext().getString(d.k.black_list_ensure_toremove_text), blackListItemData.getUserName()));
+        this.JR.tC();
     }
 
-    private void oa(String str) {
-        this.JV = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.JV.dc(str);
-        this.JV.a(d.k.confirm, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.3
+    private void od(String str) {
+        this.JR = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        this.JR.dc(str);
+        this.JR.a(d.k.confirm, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                aVar.tD();
-                if (IMBlackListActivity.this.ekK != null) {
+                aVar.tC();
+                if (IMBlackListActivity.this.elR != null) {
                     IMBlackListActivity.this.showLoadingDialog();
-                    IMBlackListActivity.this.ekI.removeFromBlackList(IMBlackListActivity.this.ekK.getUserId());
+                    IMBlackListActivity.this.elP.removeFromBlackList(IMBlackListActivity.this.elR.getUserId());
                 }
             }
         });
-        this.JV.b(d.k.cancel, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.4
+        this.JR.b(d.k.cancel, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
             }
         });
-        this.JV.b(getPageContext());
+        this.JR.b(getPageContext());
     }
 
     public void a(View view2, BlackListItemData blackListItemData) {
         if (blackListItemData != null && blackListItemData.getUserId() > 0) {
-            this.ekK = blackListItemData;
+            this.elR = blackListItemData;
             a(blackListItemData);
         }
     }

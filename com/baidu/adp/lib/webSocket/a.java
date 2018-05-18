@@ -7,17 +7,17 @@ import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
     private ByteBuffer mBuffer;
+    private final int xQ;
     private final int xR;
-    private final int xS;
 
     public a() {
         this(131072, 65536);
     }
 
     public a(int i, int i2) {
-        this.xR = i;
-        this.xS = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.xR);
+        this.xQ = i;
+        this.xR = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.xQ);
         this.mBuffer.clear();
     }
 
@@ -41,7 +41,7 @@ public class a extends OutputStream {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.xS) + 1) * this.xS);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.xR) + 1) * this.xR);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);

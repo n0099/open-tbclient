@@ -8,35 +8,35 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class e {
-    private b aHx;
-    private d aHy = new d() { // from class: com.baidu.tbadk.img.e.1
+    private b aHy;
+    private d aHz = new d() { // from class: com.baidu.tbadk.img.e.1
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             String str = null;
             if (imageFileInfo != null) {
-                if (e.this.aHx == null) {
-                    e.this.aHx = new b();
+                if (e.this.aHy == null) {
+                    e.this.aHy = new b();
                 }
                 String filePath = imageFileInfo.getFilePath();
                 LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
                 imageFileInfo.setPageActionsList(null);
-                com.baidu.adp.widget.ImageView.a a = e.this.aHx.a(imageFileInfo, true);
+                com.baidu.adp.widget.ImageView.a a = e.this.aHy.a(imageFileInfo, true);
                 if (a == null) {
-                    Bitmap b = e.this.aHx.b(imageFileInfo, true);
+                    Bitmap b = e.this.aHy.b(imageFileInfo, true);
                     int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
                     if (readPictureDegree != 0 && b != null) {
                         b = BitmapHelper.rotateBitmapBydegree(b, readPictureDegree);
                     }
                     str = e.this.b(b, 85);
                 } else {
-                    str = e.this.b(a.km(), 85);
+                    str = e.this.b(a.kl(), 85);
                 }
                 imageFileInfo.setPageActionsList(pageActionsList);
             }
             return str;
         }
     };
-    private d aHz = new d() { // from class: com.baidu.tbadk.img.e.2
+    private d aHA = new d() { // from class: com.baidu.tbadk.img.e.2
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -45,8 +45,8 @@ public class e {
             return e.this.gI(imageFileInfo.getFilePath());
         }
     };
-    private d aHA = this.aHz;
-    private d aHB = new d() { // from class: com.baidu.tbadk.img.e.3
+    private d aHB = this.aHA;
+    private d aHC = new d() { // from class: com.baidu.tbadk.img.e.3
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -64,14 +64,14 @@ public class e {
         boolean dF = k.dF(imageFileInfo.getFilePath());
         if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize())) {
             if (dF) {
-                dVar = this.aHA;
+                dVar = this.aHB;
             } else {
-                dVar = this.aHz;
+                dVar = this.aHA;
             }
         } else if (dF) {
-            dVar = this.aHB;
+            dVar = this.aHC;
         } else {
-            dVar = this.aHy;
+            dVar = this.aHz;
         }
         return dVar.a(imageFileInfo);
     }

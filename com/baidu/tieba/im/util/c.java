@@ -24,6 +24,6 @@ public class c extends Thread {
         xVar.n("obj", this.aik);
         xVar.n("obj_tp", this.mObjTp);
         xVar.n("group_id", this.mGroupId);
-        xVar.uL();
+        xVar.uK();
     }
 }

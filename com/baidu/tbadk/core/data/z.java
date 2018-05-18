@@ -1,13 +1,12 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class z {
-    public long Yf;
     public long Yg;
-    public int Yh;
-    public String Yi;
-    public long Yj;
+    public long Yh;
+    public int Yi;
+    public String Yj;
     public long Yk;
-    public int Yl;
+    public long Yl;
     public int Ym;
     public int Yn;
     public int Yo;
@@ -15,6 +14,7 @@ public class z {
     public long beginTime;
     public String desc;
     public long endTime;
+    public int giftCount;
     public int id;
     public String name;
     public long postId;

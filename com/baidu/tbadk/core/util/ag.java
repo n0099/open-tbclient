@@ -53,12 +53,12 @@ public class ag extends Thread {
         if (this.mObjTp != null) {
             xVar.n("obj_tp", this.mObjTp);
         }
-        String uL = xVar.uL();
+        String uK = xVar.uK();
         System.out.println("pv_test !!!");
-        if (uL != null) {
-            Log.i("USEINTERVAL", uL);
+        if (uK != null) {
+            Log.i("USEINTERVAL", uK);
             try {
-                JSONObject jSONObject = new JSONObject(uL);
+                JSONObject jSONObject = new JSONObject(uK);
                 if (jSONObject.has("use_duration")) {
                     long optLong = jSONObject.optLong("use_duration");
                     Log.i("USEINTERVAL", "duration " + optLong);

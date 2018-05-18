@@ -19,15 +19,15 @@ public class d {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 x xVar = new x("http://tiebac.baidu.com/empty.gif");
-                xVar.uM();
-                int i = xVar.vm() ? 1 : 0;
+                xVar.uL();
+                int i = xVar.vl() ? 1 : 0;
                 x xVar2 = new x("https://tiebac.baidu.com/empty.gif");
-                xVar2.uM();
-                int i2 = xVar2.vm() ? 1 : 0;
+                xVar2.uL();
+                int i2 = xVar2.vl() ? 1 : 0;
                 x xVar3 = new x("http://c.tieba.baidu.com/c/s/recordHttpsConnectivity");
                 xVar3.n("is_success_http", String.valueOf(i));
                 xVar3.n("is_success_https", String.valueOf(i2));
-                xVar3.uL();
+                xVar3.uK();
                 return null;
             }
         };

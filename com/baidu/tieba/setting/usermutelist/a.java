@@ -15,10 +15,10 @@ import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
     private ArrayList<MuteUser> adv;
-    private BaseActivity bcJ;
-    private b gkd;
-    private InterfaceC0212a gke;
-    private SimpleDateFormat gkg = new SimpleDateFormat("yyyy.MM.dd");
+    private BaseActivity bcK;
+    private b glj;
+    private InterfaceC0212a glk;
+    private SimpleDateFormat glm = new SimpleDateFormat("yyyy.MM.dd");
 
     /* renamed from: com.baidu.tieba.setting.usermutelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -32,9 +32,9 @@ public class a extends BaseAdapter {
     }
 
     public a(BaseActivity baseActivity, b bVar, InterfaceC0212a interfaceC0212a) {
-        this.bcJ = baseActivity;
-        this.gkd = bVar;
-        this.gke = interfaceC0212a;
+        this.bcK = baseActivity;
+        this.glj = bVar;
+        this.glk = interfaceC0212a;
     }
 
     public void setData(ArrayList<MuteUser> arrayList) {
@@ -82,67 +82,67 @@ public class a extends BaseAdapter {
         c cVar;
         if (obj == null) {
             cVar = new c();
-            cVar.rootView = LayoutInflater.from(this.bcJ.getPageContext().getContext()).inflate(d.i.user_mute_list_item, (ViewGroup) null);
-            cVar.bGo = (TextView) cVar.rootView.findViewById(d.g.item_user_name);
-            cVar.gkk = (TextView) cVar.rootView.findViewById(d.g.item_mute_terminate_time);
-            cVar.gkl = (TextView) cVar.rootView.findViewById(d.g.item_remove_button);
-            cVar.gkj = (HeadImageView) cVar.rootView.findViewById(d.g.item_header_view);
+            cVar.rootView = LayoutInflater.from(this.bcK.getPageContext().getContext()).inflate(d.i.user_mute_list_item, (ViewGroup) null);
+            cVar.bHL = (TextView) cVar.rootView.findViewById(d.g.item_user_name);
+            cVar.glq = (TextView) cVar.rootView.findViewById(d.g.item_mute_terminate_time);
+            cVar.glr = (TextView) cVar.rootView.findViewById(d.g.item_remove_button);
+            cVar.glp = (HeadImageView) cVar.rootView.findViewById(d.g.item_header_view);
             cVar.rootView.setTag(cVar);
-            cVar.gkl.setTag(Integer.valueOf(i));
-            cVar.gkj.setTag(Integer.valueOf(i));
-            cVar.bGo.setTag(Integer.valueOf(i));
+            cVar.glr.setTag(Integer.valueOf(i));
+            cVar.glp.setTag(Integer.valueOf(i));
+            cVar.bHL.setTag(Integer.valueOf(i));
         } else {
             cVar = (c) obj;
         }
-        cVar.gkl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.1
+        cVar.glr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.gkd != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.gkd.q(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.glj != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.glj.q(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
-        cVar.gkj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.2
+        cVar.glp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.gke != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.gke.r(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.glk != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.glk.r(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
-        cVar.bGo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.3
+        cVar.bHL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.gke != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.gke.r(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.glk != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.glk.r(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
         String str = muteUser.portrait;
         if (str != null) {
-            cVar.gkj.setTag(str);
-            cVar.gkj.startLoad(str, 12, false);
+            cVar.glp.setTag(str);
+            cVar.glp.startLoad(str, 12, false);
         }
         if (muteUser.user_name != null) {
-            cVar.bGo.setText(muteUser.user_name);
+            cVar.bHL.setText(muteUser.user_name);
         }
         if (muteUser.mute_time != null) {
-            cVar.gkk.setText(this.bcJ.getResources().getString(d.k.auto_terminate_mute_time, this.gkg.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
+            cVar.glq.setText(this.bcK.getResources().getString(d.k.auto_terminate_mute_time, this.glm.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
         }
         if (muteUser.user_id != null) {
-            cVar.gkl.setTag(muteUser.user_id);
+            cVar.glr.setTag(muteUser.user_id);
         }
-        this.bcJ.getLayoutMode().u(cVar.rootView);
+        this.bcK.getLayoutMode().u(cVar.rootView);
         return cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class c {
-        TextView bGo;
-        HeadImageView gkj;
-        TextView gkk;
-        TextView gkl;
+        TextView bHL;
+        HeadImageView glp;
+        TextView glq;
+        TextView glr;
         View rootView;
 
         private c() {
