@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PersonBarModel extends BdBaseModel {
     private static final String dataUrl = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
     private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, dataUrl);
-    private int fGi;
+    private int fHo;
     private a mData;
     private String mId;
     private boolean mIsHost;
@@ -42,12 +42,12 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean aGn() {
+    public boolean aGl() {
         return this.mIsHost;
     }
 
-    public void re(int i) {
-        this.fGi = i;
+    public void rd(int i) {
+        this.fHo = i;
     }
 
     public a bey() {
@@ -61,7 +61,7 @@ public class PersonBarModel extends BdBaseModel {
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!aGn()) {
+        if (!aGl()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -81,15 +81,15 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void rg(String str) {
-        if (this.fGi == 1 && this.mIsHost) {
+    public void rj(String str) {
+        if (this.fHo == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    l<String> cZ = com.baidu.tbadk.core.c.a.tz().cZ("tb.my_pages");
+                    l<String> cZ = com.baidu.tbadk.core.c.a.ty().cZ("tb.my_pages");
                     if (cZ != null) {
                         cZ.a(str2, str, 604800000L);
                     }

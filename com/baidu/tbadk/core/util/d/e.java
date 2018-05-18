@@ -22,7 +22,7 @@ public class e implements com.baidu.adp.lib.f.e<a> {
         return null;
     }
 
-    private void wy() {
+    private void wx() {
         b bVar = new b(TbConfig.SHARE_HUB_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
         bVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         bVar.u(true);
@@ -37,7 +37,7 @@ public class e implements com.baidu.adp.lib.f.e<a> {
         diskFileOperate.u(true);
         diskFileOperate.x(true);
         diskFileOperate.w(false);
-        diskFileOperate.setData(aVar.kr());
+        diskFileOperate.setData(aVar.kq());
         return diskFileOperate;
     }
 
@@ -45,9 +45,9 @@ public class e implements com.baidu.adp.lib.f.e<a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        wy();
+        wx();
         com.baidu.adp.widget.ImageView.a a2 = this.akG.a(str, str2, aVar, objArr);
-        if (a2 != null && a2.kr() != null) {
+        if (a2 != null && a2.kq() != null) {
             DiskFileOperate a3 = a(a2, str2);
             if (com.baidu.adp.lib.Disk.d.dp().b(a3) && a3.dD() != null) {
                 return new a(a2, a3.dD().getAbsolutePath());
@@ -60,9 +60,9 @@ public class e implements com.baidu.adp.lib.f.e<a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        wy();
+        wx();
         com.baidu.adp.widget.ImageView.a a2 = this.akG.a(str, str2, i, i2, bdAsyncTask, aVar, objArr);
-        if (a2 != null && a2.kr() != null) {
+        if (a2 != null && a2.kq() != null) {
             DiskFileOperate a3 = a(a2, str2);
             if (com.baidu.adp.lib.Disk.d.dp().b(a3) && a3.dD() != null) {
                 return new a(a2, a3.dD().getAbsolutePath());

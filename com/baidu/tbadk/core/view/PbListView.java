@@ -19,7 +19,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     private TextView mTextView = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
-    private View Tl = null;
+    private View Th = null;
     private View anJ = null;
     private int anK = 0;
     private String anL = null;
@@ -45,52 +45,52 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public View kA() {
-        this.Tl = LayoutInflater.from(this.mContext).inflate(d.i.new_pb_list_more, (ViewGroup) null);
-        this.anM = (LinearLayout) this.Tl.findViewById(d.g.pb_more_view);
-        this.mTextView = (TextView) this.Tl.findViewById(d.g.pb_more_text);
+    public View kz() {
+        this.Th = LayoutInflater.from(this.mContext).inflate(d.i.new_pb_list_more, (ViewGroup) null);
+        this.anM = (LinearLayout) this.Th.findViewById(d.g.pb_more_view);
+        this.mTextView = (TextView) this.Th.findViewById(d.g.pb_more_text);
         if (this.anR) {
             this.anM.setVisibility(0);
         } else {
             this.anM.setVisibility(8);
         }
-        this.mProgressBar = (ProgressBar) this.Tl.findViewById(d.g.progress);
-        this.anP = (ImageView) this.Tl.findViewById(d.g.pb_more_view_top_line);
-        this.anJ = this.Tl.findViewById(d.g.empty_view);
-        this.anQ = (LinearLayout) this.Tl.findViewById(d.g.pb_more_top_extra_view);
-        return this.Tl;
+        this.mProgressBar = (ProgressBar) this.Th.findViewById(d.g.progress);
+        this.anP = (ImageView) this.Th.findViewById(d.g.pb_more_view_top_line);
+        this.anJ = this.Th.findViewById(d.g.empty_view);
+        this.anQ = (LinearLayout) this.Th.findViewById(d.g.pb_more_top_extra_view);
+        return this.Th;
     }
 
     public void aN(boolean z) {
         this.anR = z;
     }
 
-    public void dr(int i) {
+    public void ds(int i) {
         this.anO = i;
     }
 
-    public void wN() {
+    public void wM() {
         this.anP.setVisibility(0);
     }
 
-    public void wO() {
+    public void wN() {
         this.anP.setVisibility(8);
     }
 
-    public void wP() {
+    public void wO() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.anP.getLayoutParams();
         layoutParams.leftMargin = 0;
         layoutParams.rightMargin = 0;
         this.anP.setLayoutParams(layoutParams);
     }
 
-    public void wQ() {
+    public void wP() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.anP.getLayoutParams();
         layoutParams.height = l.e(this.mContext, d.e.ds1);
         this.anP.setLayoutParams(layoutParams);
     }
 
-    public void ds(int i) {
+    public void dt(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.anP.getLayoutParams();
         layoutParams.height = i;
         this.anP.setLayoutParams(layoutParams);
@@ -104,31 +104,31 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mSkinType = i;
     }
 
-    public void wR() {
+    public void wQ() {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(this.mContext.getText(d.k.loading));
-        dv(TbadkCoreApplication.getInst().getSkinType());
+        dw(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void wS() {
+    public void wR() {
         this.mProgressBar.setVisibility(8);
         if (this.anL != null) {
             this.mTextView.setText(this.anL);
         } else {
             this.mTextView.setText(this.mContext.getText(d.k.pb_load_more));
         }
-        dv(TbadkCoreApplication.getInst().getSkinType());
+        dw(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void wS() {
+        setText(this.mContext.getResources().getString(d.k.list_no_more));
+        wR();
     }
 
     public void wT() {
-        setText(this.mContext.getResources().getString(d.k.list_no_more));
-        wS();
-    }
-
-    public void wU() {
         this.mTextView.setVisibility(0);
         this.anM.setVisibility(0);
-        wS();
+        wR();
     }
 
     public void showLoading() {
@@ -149,14 +149,14 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     public void setText(String str) {
         this.anL = str;
         this.mTextView.setText(str);
-        dv(TbadkCoreApplication.getInst().getSkinType());
+        dw(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setTextColor(int i) {
         this.mTextColor = i;
     }
 
-    public void dt(int i) {
+    public void du(int i) {
         this.anN = i;
     }
 
@@ -167,16 +167,16 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public void onClick() {
         if (this.mOnClickListener != null) {
-            this.mOnClickListener.onClick(this.Tl);
+            this.mOnClickListener.onClick(this.Th);
         }
     }
 
-    public void du(int i) {
+    public void dv(int i) {
         this.anS = i;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void dv(int i) {
+    public void dw(int i) {
         int color;
         boolean z = false;
         if (this.mSkinType != -1) {
@@ -215,27 +215,27 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         }
     }
 
-    public void dw(int i) {
+    public void dx(int i) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.anJ.getLayoutParams());
         layoutParams.height = i;
         this.anJ.setLayoutParams(layoutParams);
         this.anJ.setVisibility(0);
     }
 
-    public void wV() {
+    public void wU() {
         this.anJ.setVisibility(8);
     }
 
-    public void wW() {
+    public void wV() {
         this.anQ.setVisibility(0);
         this.anP.setVisibility(0);
         this.anM.setVisibility(0);
         this.mTextView.setVisibility(0);
         this.mProgressBar.setVisibility(0);
-        wV();
+        wU();
     }
 
-    public void dx(int i) {
+    public void dy(int i) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.anJ.getLayoutParams());
         layoutParams.height = i;
         this.anJ.setLayoutParams(layoutParams);
@@ -247,7 +247,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mProgressBar.setVisibility(8);
     }
 
-    public boolean wX() {
+    public boolean wW() {
         return this.mProgressBar != null && this.mProgressBar.getVisibility() == 0;
     }
 }

@@ -29,7 +29,7 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
         if (vVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (vVar.mSkinType != skinType) {
-                com.baidu.tbadk.n.a.a(this.fgJ.getPageContext(), vVar.getView());
+                com.baidu.tbadk.n.a.a(this.fhQ.getPageContext(), vVar.getView());
             }
             vVar.mSkinType = skinType;
         }
@@ -42,17 +42,17 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, v vVar) {
         super.onFillViewHolder(i, view2, viewGroup, aVar, vVar);
         a(vVar);
-        vVar.fjK.setOnClickListener(this);
-        vVar.fjJ.setOnClickListener(this);
-        vVar.fjK.setTag(aVar);
-        vVar.fjJ.setTag(aVar);
+        vVar.fkR.setOnClickListener(this);
+        vVar.fkQ.setOnClickListener(this);
+        vVar.fkR.setTag(aVar);
+        vVar.fkQ.setTag(aVar);
         if (aVar != null) {
-            vVar.fjI.startLoad(aVar.getPortrait(), 28, false);
-            vVar.bGo.setText(aVar.getUserName());
-            vVar.dRZ.setText(aVar.aVl());
+            vVar.fkP.startLoad(aVar.getPortrait(), 28, false);
+            vVar.bHL.setText(aVar.getUserName());
+            vVar.dTg.setText(aVar.aVl());
             vVar.text.setText(aVar.getText());
-            vVar.fjJ.startLoad(aVar.getPicUrl(), 10, false);
-            vVar.fjK.setText(aVar.aVm());
+            vVar.fkQ.startLoad(aVar.getPicUrl(), 10, false);
+            vVar.fkR.setText(aVar.aVm());
         }
         return view2;
     }
@@ -64,7 +64,7 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
         if ((view2.getTag() instanceof com.baidu.tieba.pb.data.a) && az.aK(this.mContext)) {
             String aVn = ((com.baidu.tieba.pb.data.a) view2.getTag()).aVn();
             if (!StringUtils.isNull(aVn)) {
-                com.baidu.tbadk.core.util.ax.wg().c(this.fgJ.getPageContext(), new String[]{aVn});
+                com.baidu.tbadk.core.util.ax.wf().c(this.fhQ.getPageContext(), new String[]{aVn});
             }
         }
     }

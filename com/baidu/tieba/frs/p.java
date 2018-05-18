@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.aw;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class p extends f<au, a> {
-    private com.baidu.tieba.frs.view.c cZJ;
+    private com.baidu.tieba.frs.view.c daS;
 
     public p(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -21,8 +21,8 @@ public class p extends f<au, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ap */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cZJ = new com.baidu.tieba.frs.view.c(this.mPageContext, this.mPageId);
-        return new a(this.cZJ);
+        this.daS = new com.baidu.tieba.frs.view.c(this.mPageContext, this.mPageId);
+        return new a(this.daS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,38 +31,38 @@ public class p extends f<au, a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, au auVar, a aVar) {
         super.onFillViewHolder(i, view2, viewGroup, auVar, aVar);
-        this.cZJ = aVar.cZK;
-        ArrayList<aw> rl = auVar.rl();
-        if (rl.size() <= 0) {
+        this.daS = aVar.daT;
+        ArrayList<aw> rk = auVar.rk();
+        if (rk.size() <= 0) {
             return null;
         }
         q qVar = new q();
         qVar.showTopDivider = true;
         qVar.mGroupTitle = auVar.getTitle();
-        for (int i2 = 0; i2 != rl.size(); i2++) {
-            aw awVar = rl.get(i2);
+        for (int i2 = 0; i2 != rk.size(); i2++) {
+            aw awVar = rk.get(i2);
             if (awVar != null) {
                 an anVar = new an();
                 anVar.metaData.setUserId(awVar.getUid());
-                anVar.metaData.setUserName(awVar.rq());
+                anVar.metaData.setUserName(awVar.rp());
                 anVar.metaData.setPortrait(awVar.getPortrait());
                 anVar.metaData.getGodUserData().setIsLike(awVar.getIsLike() == 1);
-                anVar.metaData.getGodUserData().setIntro(awVar.rr());
+                anVar.metaData.getGodUserData().setIntro(awVar.rq());
                 qVar.a(anVar);
             }
         }
-        this.cZJ.d(this.mPageContext, this.mSkinType);
-        aVar.cZK.a(qVar);
+        this.daS.d(this.mPageContext, this.mSkinType);
+        aVar.daT.a(qVar);
         return aVar.getView();
     }
 
     /* loaded from: classes3.dex */
     public class a extends q.a {
-        public com.baidu.tieba.frs.view.c cZK;
+        public com.baidu.tieba.frs.view.c daT;
 
         public a(com.baidu.tieba.frs.view.c cVar) {
             super(cVar.getView());
-            this.cZK = cVar;
+            this.daT = cVar;
         }
     }
 }

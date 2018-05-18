@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private final CustomMessageListener cYl = new CustomMessageListener(2016493) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivity.1
+    private final CustomMessageListener cZs = new CustomMessageListener(2016493) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.personPolymeric.PersonPolymericActivity */
         /* JADX WARN: Multi-variable type inference failed */
@@ -23,29 +23,29 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
             if (customResponsedMessage != null) {
                 String str = (String) customResponsedMessage.getData();
                 if (!TextUtils.isEmpty(str)) {
-                    ax.wg().c(PersonPolymericActivity.this.getPageContext(), new String[]{str});
+                    ax.wf().c(PersonPolymericActivity.this.getPageContext(), new String[]{str});
                 }
             }
         }
     };
-    private PersonPolymericFragment fHP;
+    private PersonPolymericFragment fIV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.i.person_new_fragment_view);
-        this.fHP = new PersonPolymericFragment();
+        this.fIV = new PersonPolymericFragment();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.fHP.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, this.fHP).commit();
+        this.fIV.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, this.fIV).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.fHP != null) {
-            this.fHP.onChangeSkinType(i);
+        if (this.fIV != null) {
+            this.fIV.onChangeSkinType(i);
         }
     }
 
@@ -58,15 +58,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.fHP != null) {
-            this.fHP.onActivityResult(i, i2, intent);
+        if (this.fIV != null) {
+            this.fIV.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.fHP != null) {
-            return this.fHP.getVoiceManager();
+        if (this.fIV != null) {
+            return this.fIV.getVoiceManager();
         }
         return null;
     }
@@ -80,13 +80,13 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        MessageManager.getInstance().registerListener(this.cYl);
+        MessageManager.getInstance().registerListener(this.cZs);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.cYl);
+        MessageManager.getInstance().unRegisterListener(this.cZs);
     }
 }

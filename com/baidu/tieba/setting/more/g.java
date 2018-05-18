@@ -16,26 +16,26 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class g extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
-    private SystemHelpSettingActivity gjM;
-    private TbSettingTextTipView gjN;
-    private TbSettingTextTipView gjO;
-    private BdSwitchView gjP;
-    private BdSwitchView gjQ;
-    private TbSettingTextNewDotView gjR;
-    private final CustomMessageListener gjS;
+    private SystemHelpSettingActivity gkS;
+    private TbSettingTextTipView gkT;
+    private TbSettingTextTipView gkU;
+    private BdSwitchView gkV;
+    private BdSwitchView gkW;
+    private TbSettingTextNewDotView gkX;
+    private final CustomMessageListener gkY;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public g(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.gjM = null;
+        this.gkS = null;
         this.mParent = null;
-        this.gjN = null;
-        this.gjO = null;
-        this.gjP = null;
-        this.gjQ = null;
-        this.gjR = null;
-        this.gjS = new CustomMessageListener(2001303) { // from class: com.baidu.tieba.setting.more.g.1
+        this.gkT = null;
+        this.gkU = null;
+        this.gkV = null;
+        this.gkW = null;
+        this.gkX = null;
+        this.gkY = new CustomMessageListener(2001303) { // from class: com.baidu.tieba.setting.more.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -43,70 +43,70 @@ public class g extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
                 }
             }
         };
-        this.gjM = systemHelpSettingActivity;
-        this.gjM.setContentView(d.i.system_help_activity);
-        this.mNavigationBar = (NavigationBar) this.gjM.findViewById(d.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.gjM.getPageContext().getString(d.k.systemhelpsetting));
+        this.gkS = systemHelpSettingActivity;
+        this.gkS.setContentView(d.i.system_help_activity);
+        this.mNavigationBar = (NavigationBar) this.gkS.findViewById(d.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.gkS.getPageContext().getString(d.k.systemhelpsetting));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.gjN = (TbSettingTextTipView) this.gjM.findViewById(d.g.clear_cache);
-        this.gjN.hideArrow();
-        this.gjN.setOnClickListener(this.gjM);
-        this.gjN.setBottomLineVisibility(true);
-        this.gjO = (TbSettingTextTipView) this.gjM.findViewById(d.g.clear_im);
-        this.gjO.hideArrow();
-        this.gjO.setBottomLineVisibility(true);
-        this.gjO.setOnClickListener(this.gjM);
-        this.gjP = (BdSwitchView) this.gjM.findViewById(d.g.item_switch);
-        l.a(this.gjM.getPageContext().getPageActivity(), this.gjP, 10, 10, 10, 10);
-        this.gjP.setOnSwitchStateChangeListener(this.gjM);
-        this.gjQ = (BdSwitchView) this.gjM.findViewById(d.g.setting_save_video_switch);
-        l.a(this.gjM.getPageContext().getPageActivity(), this.gjQ, 10, 10, 10, 10);
-        this.gjQ.setOnSwitchStateChangeListener(this.gjM);
-        this.mParent = this.gjM.findViewById(d.g.parent);
+        this.gkT = (TbSettingTextTipView) this.gkS.findViewById(d.g.clear_cache);
+        this.gkT.hideArrow();
+        this.gkT.setOnClickListener(this.gkS);
+        this.gkT.setBottomLineVisibility(true);
+        this.gkU = (TbSettingTextTipView) this.gkS.findViewById(d.g.clear_im);
+        this.gkU.hideArrow();
+        this.gkU.setBottomLineVisibility(true);
+        this.gkU.setOnClickListener(this.gkS);
+        this.gkV = (BdSwitchView) this.gkS.findViewById(d.g.item_switch);
+        l.a(this.gkS.getPageContext().getPageActivity(), this.gkV, 10, 10, 10, 10);
+        this.gkV.setOnSwitchStateChangeListener(this.gkS);
+        this.gkW = (BdSwitchView) this.gkS.findViewById(d.g.setting_save_video_switch);
+        l.a(this.gkS.getPageContext().getPageActivity(), this.gkW, 10, 10, 10, 10);
+        this.gkW.setOnSwitchStateChangeListener(this.gkS);
+        this.mParent = this.gkS.findViewById(d.g.parent);
         if (TbadkCoreApplication.isLogin()) {
-            this.gjO.setVisibility(0);
+            this.gkU.setVisibility(0);
         } else {
-            this.gjO.setVisibility(8);
+            this.gkU.setVisibility(8);
         }
-        this.gjR = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(d.g.sv_plugin_center);
-        this.gjR.setOnClickListener(this.gjM);
-        if (this.gjM != null) {
-            this.gjS.setTag(this.gjM.getUniqueId());
-            MessageManager.getInstance().registerListener(this.gjS);
+        this.gkX = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(d.g.sv_plugin_center);
+        this.gkX.setOnClickListener(this.gkS);
+        if (this.gkS != null) {
+            this.gkY.setTag(this.gkS.getUniqueId());
+            MessageManager.getInstance().registerListener(this.gkY);
         }
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(PluginCenterActivityConfig.class)) {
-            this.gjR.setVisibility(0);
+            this.gkX.setVisibility(0);
         } else {
-            this.gjR.setVisibility(8);
+            this.gkX.setVisibility(8);
         }
+    }
+
+    public BdSwitchView bng() {
+        return this.gkW;
     }
 
     public BdSwitchView bnh() {
-        return this.gjQ;
+        return this.gkV;
     }
 
-    public BdSwitchView bni() {
-        return this.gjP;
+    public TbSettingTextTipView bni() {
+        return this.gkT;
     }
 
     public TbSettingTextTipView bnj() {
-        return this.gjN;
-    }
-
-    public TbSettingTextTipView bnk() {
-        return this.gjO;
+        return this.gkU;
     }
 
     public void onChangeSkinType(int i) {
-        this.gjM.getLayoutMode().setNightMode(i == 1);
-        this.gjM.getLayoutMode().u(this.mParent);
+        this.gkS.getLayoutMode().setNightMode(i == 1);
+        this.gkS.getLayoutMode().u(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gjP.setBackgroundRes(ak.cN(d.f.bg_switch_open), ak.cN(d.f.bg_switch_close), ak.cN(d.f.btn_handle));
-        this.gjQ.setBackgroundRes(ak.cN(d.f.bg_switch_open), ak.cN(d.f.bg_switch_close), ak.cN(d.f.btn_handle));
-        ak.i(this.gjN, d.f.more_all);
+        this.gkV.setBackgroundRes(ak.cO(d.f.bg_switch_open), ak.cO(d.f.bg_switch_close), ak.cO(d.f.btn_handle));
+        this.gkW.setBackgroundRes(ak.cO(d.f.bg_switch_open), ak.cO(d.f.bg_switch_close), ak.cO(d.f.btn_handle));
+        ak.i(this.gkT, d.f.more_all);
     }
 
-    public TbSettingTextNewDotView bnl() {
-        return this.gjR;
+    public TbSettingTextNewDotView bnk() {
+        return this.gkX;
     }
 }

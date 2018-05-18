@@ -40,7 +40,7 @@ import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class MessageUtils {
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(com.baidu.tieba.im.memorycache.b.aFy().at(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(com.baidu.tieba.im.memorycache.b.aFw().at(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -78,12 +78,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            com.baidu.tieba.im.sendmessage.a.aGR().r(personalChatMessage);
+            com.baidu.tieba.im.sendmessage.a.aGP().r(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(com.baidu.tieba.im.memorycache.b.aFy().at(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(com.baidu.tieba.im.memorycache.b.aFw().at(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -115,13 +115,13 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            com.baidu.tieba.im.sendmessage.a.aGR().r(groupChatMessage);
+            com.baidu.tieba.im.sendmessage.a.aGP().r(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
         ImMessageCenterPojo ap;
-        if (!StringUtils.isNull(str) && i == 2 && (ap = com.baidu.tieba.im.memorycache.b.aFy().ap(str, 2)) != null) {
+        if (!StringUtils.isNull(str) && i == 2 && (ap = com.baidu.tieba.im.memorycache.b.aFw().ap(str, 2)) != null) {
             long pulled_msgId = ap.getPulled_msgId();
             if (pulled_msgId > ap.getSent_msgId()) {
                 RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(d.cj(pulled_msgId), Long.parseLong(str));
@@ -302,14 +302,14 @@ public class MessageUtils {
                     if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                         groupMsgData.getGroupInfo().setGroupId(l.longValue());
                     }
-                    if (!com.baidu.tieba.im.push.c.aGv().cd(chatMessage.getMsgId())) {
-                        long gid = com.baidu.tieba.im.push.c.aGv().getGid();
+                    if (!com.baidu.tieba.im.push.c.aGt().cd(chatMessage.getMsgId())) {
+                        long gid = com.baidu.tieba.im.push.c.aGt().getGid();
                         if (msgInfo.groupId != null) {
-                            if (gid == 0 || msgInfo.groupId.longValue() == com.baidu.tieba.im.push.c.aGv().getGid()) {
-                                Long aGw = com.baidu.tieba.im.push.c.aGv().aGw();
-                                if (aGw == null || msgInfo.msgId == null || aGw.longValue() < msgInfo.msgId.longValue()) {
+                            if (gid == 0 || msgInfo.groupId.longValue() == com.baidu.tieba.im.push.c.aGt().getGid()) {
+                                Long aGu = com.baidu.tieba.im.push.c.aGt().aGu();
+                                if (aGu == null || msgInfo.msgId == null || aGu.longValue() < msgInfo.msgId.longValue()) {
                                     chatMessage.setIsPushForOperateAccount(true);
-                                    com.baidu.tieba.im.push.c.aGv().m(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                                    com.baidu.tieba.im.push.c.aGt().m(msgInfo.groupId.longValue(), chatMessage.getMsgId());
                                 } else {
                                     return;
                                 }
@@ -442,7 +442,7 @@ public class MessageUtils {
         }
         NewpushRepair.Builder builder = new NewpushRepair.Builder();
         for (int i = 0; i < longSparseArray.size(); i++) {
-            NewpushGroupRepair cb = com.baidu.tieba.im.push.a.aGt().cb(longSparseArray.keyAt(i));
+            NewpushGroupRepair cb = com.baidu.tieba.im.push.a.aGr().cb(longSparseArray.keyAt(i));
             if (cb != null) {
                 if (builder.groups == null) {
                     builder.groups = new ArrayList();

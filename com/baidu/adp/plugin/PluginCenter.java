@@ -63,29 +63,29 @@ public class PluginCenter {
 
     public Plugin.b launch(String str) {
         Plugin.b bVar = new Plugin.b();
-        bVar.Ak = str;
+        bVar.Aj = str;
         if (TextUtils.isEmpty(str)) {
             if (BdBaseApplication.getInst().isDebugMode()) {
                 throw new IllegalArgumentException("plugincenter launch args exception!");
             }
-            bVar.Aj = false;
+            bVar.Ai = false;
         } else {
             PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.jz().findPluginSetting(str);
             if (findPluginSetting == null) {
-                bVar.Aj = false;
+                bVar.Ai = false;
             } else if (findPluginSetting.versionCode < PluginPackageManager.iW()) {
-                bVar.Aj = false;
+                bVar.Ai = false;
                 com.baidu.adp.plugin.b.a.iK().B("plugincenter_launch_lowversion", str);
                 com.baidu.adp.plugin.b.a.iK().f("plugin_load", "plugincenter_load_lowversion", str, findPluginSetting.apkPath + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.versionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.forbidden + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.tempVersionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.installStatus);
                 com.baidu.adp.plugin.packageManager.pluginSettings.c.jz().bH(str);
                 com.baidu.adp.plugin.packageManager.status.a.jG().onLoadFailed(str);
             } else if (this.mPluginsMap.containsKey(str)) {
-                bVar.Aj = false;
+                bVar.Ai = false;
             } else {
                 Plugin plugin2 = new Plugin();
                 this.mPluginsMap.put(str, plugin2);
                 bVar = plugin2.initWithBroadcast(str);
-                if (!bVar.Aj) {
+                if (!bVar.Ai) {
                     this.mHandler.removeCallbacks(this.mRunnable);
                     this.mHandler.postDelayed(this.mRunnable, PLUGIN_RETRYLAUNCH_DELAY);
                 }
@@ -282,7 +282,7 @@ public class PluginCenter {
                 }
                 if (value != null && !value.isLoaded() && System.currentTimeMillis() - value.getLastLaunchTime() > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                     Plugin.b initWithBroadcast = value.initWithBroadcast(key);
-                    if (initWithBroadcast.Aj) {
+                    if (initWithBroadcast.Ai) {
                         if (PluginPackageManager.iX().isMainProcess()) {
                             com.baidu.adp.plugin.b.a.iK().bk("plugin_load_retry_succ");
                         }
@@ -320,7 +320,7 @@ public class PluginCenter {
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                             sb.append(initWithBroadcast.reason);
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                            sb.append(initWithBroadcast.Al);
+                            sb.append(initWithBroadcast.Ak);
                         }
                     }
                 }
@@ -356,12 +356,12 @@ public class PluginCenter {
                         j = System.currentTimeMillis() - value.getLastLaunchTime();
                         if (j > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                             bVar = value.initWithBroadcast(key);
-                            if (bVar.Aj) {
+                            if (bVar.Ai) {
                                 if (PluginPackageManager.iX().isMainProcess()) {
                                     com.baidu.adp.plugin.b.a.iK().bk("plugin_load_retry_succ");
                                 }
                             } else if (PluginPackageManager.iX().isMainProcess()) {
-                                com.baidu.adp.plugin.b.a.iK().h("plugin_loaded_failed", key, bVar.reason, bVar.Al);
+                                com.baidu.adp.plugin.b.a.iK().h("plugin_loaded_failed", key, bVar.reason, bVar.Ak);
                             }
                         }
                     }
@@ -403,7 +403,7 @@ public class PluginCenter {
                                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                     sb.append(bVar.reason);
                                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                    sb.append(bVar.Al);
+                                    sb.append(bVar.Ak);
                                 } else {
                                     sb.append("-ret==null");
                                 }

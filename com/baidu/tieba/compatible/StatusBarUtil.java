@@ -25,10 +25,6 @@ public final class StatusBarUtil {
         this.actionBarView = view2;
     }
 
-    /* synthetic */ StatusBarUtil(Window window, boolean z, boolean z2, View view2, StatusBarUtil statusBarUtil) {
-        this(window, z, z2, view2);
-    }
-
     public static boolean isKitkat() {
         return Build.VERSION.SDK_INT == 19;
     }
@@ -198,7 +194,7 @@ public final class StatusBarUtil {
         }
 
         public boolean process() {
-            return new StatusBarUtil(this.window, this.lightStatusBar, this.transparentStatusbar, this.actionBarView, null).process();
+            return new StatusBarUtil(this.window, this.lightStatusBar, this.transparentStatusbar, this.actionBarView).process();
         }
     }
 }

@@ -14,10 +14,10 @@ import com.baidu.tieba.channel.message.ResponseNetChannelListMessage;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
-    private boolean bmx;
-    private boolean bvq;
-    private a cuW;
-    private e cuX;
+    private boolean bmM;
+    private boolean bwa;
+    private a cwf;
+    private e cwg;
     public HttpMessageListener httpListener;
     private boolean mHasMore;
     private int mPageNum;
@@ -30,8 +30,8 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
 
     public ChannelListModel(com.baidu.adp.base.e<ChannelListActivity> eVar, String str) {
         super(eVar);
-        this.bvq = true;
-        this.bmx = false;
+        this.bwa = true;
+        this.bmM = false;
         this.httpListener = new HttpMessageListener(CmdConfigHttp.CMD_GET_SUBSCRIBE_CHANNEL_LIST) { // from class: com.baidu.tieba.channel.model.ChannelListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -40,10 +40,10 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
                     if (httpResponsedMessage.getError() == 0) {
                         ChannelListModel.this.a((ResponseNetChannelListMessage) httpResponsedMessage);
                     }
-                    if (ChannelListModel.this.cuW != null) {
-                        ChannelListModel.this.cuW.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelListModel.this.bvq, ChannelListModel.this.cuX);
+                    if (ChannelListModel.this.cwf != null) {
+                        ChannelListModel.this.cwf.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelListModel.this.bwa, ChannelListModel.this.cwg);
                     }
-                    ChannelListModel.this.bvq = false;
+                    ChannelListModel.this.bwa = false;
                 }
             }
         };
@@ -62,19 +62,19 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ResponseNetChannelListMessage responseNetChannelListMessage) {
         if (responseNetChannelListMessage != null) {
-            if (this.cuX == null) {
-                this.cuX = new e();
+            if (this.cwg == null) {
+                this.cwg = new e();
             }
             e data = responseNetChannelListMessage.getData();
             if (data != null) {
-                this.cuX.getItems().addAll(data.getItems());
-                this.cuX.setHasMore(data.hasMore());
+                this.cwg.getItems().addAll(data.getItems());
+                this.cwg.setHasMore(data.hasMore());
                 this.mHasMore = data.hasMore();
             }
         }
     }
 
-    public void Pm() {
+    public void Pj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUBSCRIBE_CHANNEL_LIST, TbConfig.SERVER_ADDRESS + "c/f/video/getUserChannelList");
         tbHttpMessageTask.setResponsedClass(ResponseNetChannelListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -95,9 +95,9 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
         HttpMessage ak;
         LinkedList<HttpMessage> findHttpMessage = MessageManager.getInstance().findHttpMessage(getUniqueId());
         if (findHttpMessage == null || findHttpMessage.size() == 0) {
-            if (!this.bmx) {
+            if (!this.bmM) {
                 ak = ak(1, 8);
-                this.cuX = null;
+                this.cwg = null;
             } else {
                 ak = ak(this.mPageNum + 1, 8);
             }
@@ -114,11 +114,11 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
         return this.mHasMore;
     }
 
-    public void ey(boolean z) {
-        this.bmx = z;
+    public void ez(boolean z) {
+        this.bmM = z;
     }
 
     public void a(a aVar) {
-        this.cuW = aVar;
+        this.cwf = aVar;
     }
 }

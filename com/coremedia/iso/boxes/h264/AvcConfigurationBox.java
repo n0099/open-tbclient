@@ -131,27 +131,27 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setConfigurationVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wj(i)));
         this.avcDecoderConfigurationRecord.configurationVersion = i;
     }
 
     public void setAvcProfileIndication(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.wj(i)));
         this.avcDecoderConfigurationRecord.avcProfileIndication = i;
     }
 
     public void setProfileCompatibility(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wj(i)));
         this.avcDecoderConfigurationRecord.profileCompatibility = i;
     }
 
     public void setAvcLevelIndication(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.wj(i)));
         this.avcDecoderConfigurationRecord.avcLevelIndication = i;
     }
 
     public void setLengthSizeMinusOne(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wj(i)));
         this.avcDecoderConfigurationRecord.lengthSizeMinusOne = i;
     }
 
@@ -171,7 +171,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setChromaFormat(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.wj(i)));
         this.avcDecoderConfigurationRecord.chromaFormat = i;
     }
 
@@ -181,7 +181,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setBitDepthLumaMinus8(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.wj(i)));
         this.avcDecoderConfigurationRecord.bitDepthLumaMinus8 = i;
     }
 
@@ -191,7 +191,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setBitDepthChromaMinus8(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.wj(i)));
         this.avcDecoderConfigurationRecord.bitDepthChromaMinus8 = i;
     }
 
@@ -211,7 +211,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setHasExts(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.nV(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.nW(z)));
         this.avcDecoderConfigurationRecord.hasExts = z;
     }
 

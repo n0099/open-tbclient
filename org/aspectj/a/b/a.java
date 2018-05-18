@@ -1,29 +1,29 @@
 package org.aspectj.a.b;
 /* loaded from: classes2.dex */
 abstract class a extends d implements org.aspectj.lang.reflect.a {
-    Class[] hyT;
-    String[] hyU;
-    Class[] hyV;
+    Class[] hzX;
+    String[] hzY;
+    Class[] hzZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i, str, cls);
-        this.hyT = clsArr;
-        this.hyU = strArr;
-        this.hyV = clsArr2;
+        this.hzX = clsArr;
+        this.hzY = strArr;
+        this.hzZ = clsArr2;
     }
 
     public Class[] getParameterTypes() {
-        if (this.hyT == null) {
-            this.hyT = wo(3);
+        if (this.hzX == null) {
+            this.hzX = wn(3);
         }
-        return this.hyT;
+        return this.hzX;
     }
 
     public Class[] getExceptionTypes() {
-        if (this.hyV == null) {
-            this.hyV = wo(5);
+        if (this.hzZ == null) {
+            this.hzZ = wn(5);
         }
-        return this.hyV;
+        return this.hzZ;
     }
 }

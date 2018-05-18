@@ -20,14 +20,14 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Fx() {
+    public c Fv() {
         c cVar = new c();
-        cVar.aIm = new WriteThreadFragment();
+        cVar.aIn = new WriteThreadFragment();
         cVar.type = 9;
-        cVar.aIn = d.k.send;
-        cVar.aIo = d.f.icon_tabbar_add_n;
-        cVar.aIp = d.f.icon_tabbar_chaticon_n;
-        cVar.aIu = c.aIr;
+        cVar.aIo = d.k.send;
+        cVar.aIp = d.f.icon_tabbar_add_n;
+        cVar.aIq = d.f.icon_tabbar_chaticon_n;
+        cVar.aIv = c.aIs;
         return cVar;
     }
 
@@ -36,12 +36,12 @@ public class WriteThreadDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c Fy;
+                c Fw;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
                     ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Fy = writeThreadDelegateStatic.Fy()) != null) {
-                        Fy.aIm.setArguments(new Bundle());
+                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Fw = writeThreadDelegateStatic.Fw()) != null) {
+                        Fw.aIn.setArguments(new Bundle());
                     }
                 }
             }
@@ -52,7 +52,7 @@ public class WriteThreadDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator aT(Context context) {
-        this.aId = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.i.maintab_bottom_indicator, (ViewGroup) null);
-        return this.aId;
+        this.aIe = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.i.maintab_bottom_indicator, (ViewGroup) null);
+        return this.aIe;
     }
 }

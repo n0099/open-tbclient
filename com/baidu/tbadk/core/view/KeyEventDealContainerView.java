@@ -10,9 +10,9 @@ public class KeyEventDealContainerView extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void pu();
+        void pt();
 
-        void pv();
+        void pu();
     }
 
     public KeyEventDealContainerView(Context context, View view2, a aVar) {
@@ -28,10 +28,10 @@ public class KeyEventDealContainerView extends LinearLayout {
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
             if (this.amB != null) {
-                this.amB.pu();
+                this.amB.pt();
             }
         } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.amB != null) {
-            this.amB.pv();
+            this.amB.pu();
         }
         return super.dispatchKeyEvent(keyEvent);
     }

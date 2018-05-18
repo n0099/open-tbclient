@@ -14,7 +14,7 @@ public class RecorderManagerStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001271, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.audiorecorder.lib.voice.RecorderManagerStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.tbadkCore.voice.a> run(CustomMessage<Activity> customMessage) {
-                return new CustomResponsedMessage<>(2001271, e.lO());
+                return new CustomResponsedMessage<>(2001271, e.lN());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

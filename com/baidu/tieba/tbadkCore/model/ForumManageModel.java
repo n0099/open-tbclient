@@ -31,41 +31,41 @@ public class ForumManageModel extends BdBaseModel {
     public static final int GET_GOOD_LIST = 6;
     public static final int INTENT_TYPE_NONE = -1;
     public static final BdUniqueId UNIQUE_ID_DEL_POST_TASK = BdUniqueId.gen();
-    private a gyG;
-    private c gyH;
-    private f gyI;
+    private a gzK;
+    private c gzL;
+    private f gzM;
 
     /* loaded from: classes.dex */
     public static class e {
         public String forumId;
         public String forumName;
-        public int gyM;
+        public int gzQ;
         public String threadId;
     }
 
     public ForumManageModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gyG = null;
-        this.gyH = null;
-        this.gyI = null;
+        this.gzK = null;
+        this.gzL = null;
+        this.gzM = null;
     }
 
     public ForumManageModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.gyG = null;
-        this.gyH = null;
-        this.gyI = null;
+        this.gzK = null;
+        this.gzL = null;
+        this.gzM = null;
     }
 
     /* loaded from: classes.dex */
     public class b {
-        public boolean dxr;
-        public int fuG;
-        public int gyJ;
-        public String gyL;
+        public boolean dyy;
+        public int fvM;
+        public int gzN;
+        public String gzP;
         public int mErrCode;
         public String mPostId;
-        public boolean yR;
+        public boolean yQ;
 
         public b() {
         }
@@ -73,8 +73,8 @@ public class ForumManageModel extends BdBaseModel {
 
     /* loaded from: classes.dex */
     public class d {
-        public String gyL;
-        public boolean yR;
+        public String gzP;
+        public boolean yQ;
 
         public d() {
         }
@@ -82,9 +82,9 @@ public class ForumManageModel extends BdBaseModel {
 
     /* loaded from: classes.dex */
     public class g {
-        public String gyL;
-        public ArrayList<ab> gyO;
-        public boolean yR;
+        public String gzP;
+        public ArrayList<ab> gzS;
+        public boolean yQ;
 
         public g() {
         }
@@ -102,42 +102,42 @@ public class ForumManageModel extends BdBaseModel {
     }
 
     public void cancelAllTask() {
-        if (this.gyG != null) {
-            this.gyG.cancel();
-            this.gyG = null;
+        if (this.gzK != null) {
+            this.gzK.cancel();
+            this.gzK = null;
         }
-        if (this.gyH != null) {
-            this.gyH.cancel();
-            this.gyH = null;
+        if (this.gzL != null) {
+            this.gzL.cancel();
+            this.gzL = null;
         }
-        if (this.gyI != null) {
-            this.gyI.cancel();
-            this.gyI = null;
+        if (this.gzM != null) {
+            this.gzM.cancel();
+            this.gzM = null;
         }
     }
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.gyG != null) {
-            this.gyG.cancel();
-            this.gyG = null;
+        if (this.gzK != null) {
+            this.gzK.cancel();
+            this.gzK = null;
         }
         this.mLoadDataMode = 0;
-        this.gyG = new a(str, str2, str3, str4, i, i2, z);
-        this.gyG.setTag(UNIQUE_ID_DEL_POST_TASK);
-        this.gyG.setPriority(2);
-        this.gyG.execute(new String[0]);
+        this.gzK = new a(str, str2, str3, str4, i, i2, z);
+        this.gzK.setTag(UNIQUE_ID_DEL_POST_TASK);
+        this.gzK.setPriority(2);
+        this.gzK.execute(new String[0]);
     }
 
-    public boolean bsK() {
-        return (this.gyG == null && this.gyH == null && this.gyI == null) ? false : true;
+    public boolean bsI() {
+        return (this.gzK == null && this.gzL == null && this.gzM == null) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
-        private boolean dxr;
-        private int fuG;
-        private int gyJ;
+        private boolean dyy;
+        private int fvM;
+        private int gzN;
         private String mForumId;
         private String mForumName;
         private x mNetwork = null;
@@ -149,9 +149,9 @@ public class ForumManageModel extends BdBaseModel {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mPostId = str4;
-            this.gyJ = i;
-            this.fuG = i2;
-            this.dxr = z;
+            this.gzN = i;
+            this.fvM = i2;
+            this.dyy = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -160,7 +160,7 @@ public class ForumManageModel extends BdBaseModel {
         public Boolean doInBackground(String... strArr) {
             String str;
             String str2 = TbConfig.SERVER_ADDRESS;
-            if (this.gyJ == 0 || this.gyJ == 3) {
+            if (this.gzN == 0 || this.gzN == 3) {
                 str = str2 + TbConfig.DEL_THREAD_ADDRESS;
             } else {
                 str = str2 + TbConfig.DEL_POST_ADDRESS;
@@ -169,36 +169,36 @@ public class ForumManageModel extends BdBaseModel {
             this.mNetwork.n(ImageViewerConfig.FORUM_ID, this.mForumId);
             this.mNetwork.n("word", this.mForumName);
             this.mNetwork.n(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Z, this.mThreadId);
-            if (this.gyJ == 0) {
-                if (this.fuG == 0) {
+            if (this.gzN == 0) {
+                if (this.fvM == 0) {
                     this.mNetwork.n("delete_my_thread", "1");
                 }
-            } else if (this.gyJ == 1) {
+            } else if (this.gzN == 1) {
                 this.mNetwork.n(Info.kBaiduPIDKey, this.mPostId);
                 this.mNetwork.n("isfloor", "0");
                 this.mNetwork.n("src", "1");
-                if (this.fuG == 0 && this.dxr) {
+                if (this.fvM == 0 && this.dyy) {
                     this.mNetwork.n("delete_my_post", "1");
                 }
-            } else if (this.gyJ == 2) {
+            } else if (this.gzN == 2) {
                 this.mNetwork.n(Info.kBaiduPIDKey, this.mPostId);
                 this.mNetwork.n("isfloor", "1");
                 this.mNetwork.n("src", "3");
-                if (this.fuG == 0 && this.dxr) {
+                if (this.fvM == 0 && this.dyy) {
                     this.mNetwork.n("delete_my_post", "1");
                 }
-            } else if (this.gyJ == 3) {
+            } else if (this.gzN == 3) {
                 this.mNetwork.n("delete_my_thread", "1");
                 this.mNetwork.n("is_story", "1");
             }
-            if (this.fuG == 0 && !this.dxr) {
+            if (this.fvM == 0 && !this.dyy) {
                 this.mNetwork.n("is_vipdel", "1");
             } else {
                 this.mNetwork.n("is_vipdel", "0");
             }
-            this.mNetwork.vj().wi().mIsNeedTbs = true;
-            this.mNetwork.uL();
-            if (this.mNetwork.vj().wj().isRequestSuccess()) {
+            this.mNetwork.vi().wh().mIsNeedTbs = true;
+            this.mNetwork.uK();
+            if (this.mNetwork.vi().wi().isRequestSuccess()) {
                 return true;
             }
             return false;
@@ -209,7 +209,7 @@ public class ForumManageModel extends BdBaseModel {
             if (this.mNetwork != null) {
                 this.mNetwork.eW();
             }
-            ForumManageModel.this.gyG = null;
+            ForumManageModel.this.gzK = null;
             super.cancel(true);
             ForumManageModel.this.mLoadDataCallBack.f(null);
         }
@@ -219,22 +219,22 @@ public class ForumManageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            ForumManageModel.this.gyG = null;
+            ForumManageModel.this.gzK = null;
             if (this.mNetwork == null || bool == null) {
                 ForumManageModel.this.mLoadDataCallBack.f(null);
                 return;
             }
             b bVar = new b();
-            bVar.gyJ = this.gyJ;
+            bVar.gzN = this.gzN;
             bVar.mPostId = this.mPostId;
-            bVar.dxr = this.dxr;
-            bVar.fuG = this.fuG;
-            bVar.gyL = this.mNetwork.getErrorString();
-            bVar.mErrCode = this.mNetwork.vn();
+            bVar.dyy = this.dyy;
+            bVar.fvM = this.fvM;
+            bVar.gzP = this.mNetwork.getErrorString();
+            bVar.mErrCode = this.mNetwork.vm();
             if (bool.booleanValue()) {
-                bVar.yR = true;
+                bVar.yQ = true;
             } else {
-                bVar.yR = false;
+                bVar.yQ = false;
             }
             ForumManageModel.this.mLoadDataCallBack.f(bVar);
         }
@@ -243,8 +243,8 @@ public class ForumManageModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<String, Integer, String> {
-        private String fan;
-        final /* synthetic */ ForumManageModel gyK;
+        private String fbu;
+        final /* synthetic */ ForumManageModel gzO;
         private String mForumId;
         private String mForumName;
         private x mNetwork;
@@ -257,15 +257,15 @@ public class ForumManageModel extends BdBaseModel {
         /* renamed from: i */
         public String doInBackground(String... strArr) {
             this.mNetwork = new x(strArr[0]);
-            this.mNetwork.n("day", this.fan);
+            this.mNetwork.n("day", this.fbu);
             this.mNetwork.n("un", this.mUserName);
             this.mNetwork.n(ImageViewerConfig.FORUM_ID, this.mForumId);
             this.mNetwork.n("word", this.mForumName);
             this.mNetwork.n(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Z, this.mThreadId);
             this.mNetwork.n("ntn", "banid");
-            this.mNetwork.vj().wi().mIsNeedTbs = true;
-            this.mNetwork.uL();
-            if (this.mNetwork.vj().wj().isRequestSuccess()) {
+            this.mNetwork.vi().wh().mIsNeedTbs = true;
+            this.mNetwork.uK();
+            if (this.mNetwork.vi().wi().isRequestSuccess()) {
                 return null;
             }
             return this.mNetwork.getErrorString();
@@ -276,9 +276,9 @@ public class ForumManageModel extends BdBaseModel {
             if (this.mNetwork != null) {
                 this.mNetwork.eW();
             }
-            this.gyK.gyH = null;
+            this.gzO.gzL = null;
             super.cancel(true);
-            this.gyK.mLoadDataCallBack.f(null);
+            this.gzO.mLoadDataCallBack.f(null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -286,31 +286,31 @@ public class ForumManageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
-            this.gyK.gyH = null;
+            this.gzO.gzL = null;
             if (this.mNetwork == null) {
-                this.gyK.mLoadDataCallBack.f(null);
+                this.gzO.mLoadDataCallBack.f(null);
                 return;
             }
             d dVar = new d();
             if (str == null) {
-                dVar.yR = true;
+                dVar.yQ = true;
             } else {
-                dVar.yR = false;
-                dVar.gyL = str;
+                dVar.yQ = false;
+                dVar.gzP = str;
             }
-            this.gyK.mLoadDataCallBack.f(dVar);
+            this.gzO.mLoadDataCallBack.f(dVar);
         }
     }
 
     public void a(String str, String str2, String str3, int i, String str4) {
         String str5;
-        if (this.gyI != null) {
-            this.gyI.cancel();
-            this.gyI = null;
+        if (this.gzM != null) {
+            this.gzM.cancel();
+            this.gzM = null;
         }
         this.mLoadDataMode = i;
-        this.gyI = new f(str, str2, str3, i, str4);
-        this.gyI.setPriority(2);
+        this.gzM = new f(str, str2, str3, i, str4);
+        this.gzM.setPriority(2);
         String str6 = TbConfig.SERVER_ADDRESS;
         if (i == 6) {
             str5 = str6 + TbConfig.GOOD_LIST_ADDRESS;
@@ -319,14 +319,14 @@ public class ForumManageModel extends BdBaseModel {
         } else {
             str5 = str6 + TbConfig.COMMIT_TOP_ADDRESS;
         }
-        this.gyI.execute(str5);
+        this.gzM.execute(str5);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class f extends BdAsyncTask<String, String, Boolean> {
-        String foZ;
-        ArrayList<ab> gyN;
+        String fqh;
+        ArrayList<ab> gzR;
         private String mForumId;
         private String mForumName;
         private x mNetwork = null;
@@ -334,14 +334,14 @@ public class ForumManageModel extends BdBaseModel {
         private int mType;
 
         public f(String str, String str2, String str3, int i, String str4) {
-            this.gyN = null;
-            this.foZ = null;
+            this.gzR = null;
+            this.fqh = null;
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mType = i;
-            this.foZ = str4;
-            this.gyN = new ArrayList<>();
+            this.fqh = str4;
+            this.gzR = new ArrayList<>();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -359,21 +359,21 @@ public class ForumManageModel extends BdBaseModel {
                     this.mNetwork.n("ntn", "");
                 } else if (this.mType == 2) {
                     this.mNetwork.n("ntn", "set");
-                    this.mNetwork.n("cid", this.foZ);
+                    this.mNetwork.n("cid", this.fqh);
                 } else {
                     this.mNetwork.n("ntn", "");
                 }
             }
-            this.mNetwork.vj().wi().mIsNeedTbs = true;
-            String uL = this.mNetwork.uL();
-            if (this.mNetwork.vj().wj().isRequestSuccess()) {
+            this.mNetwork.vi().wh().mIsNeedTbs = true;
+            String uK = this.mNetwork.uK();
+            if (this.mNetwork.vi().wi().isRequestSuccess()) {
                 if (this.mType == 6) {
                     try {
-                        JSONArray optJSONArray = new JSONObject(uL).optJSONArray("cates");
+                        JSONArray optJSONArray = new JSONObject(uK).optJSONArray("cates");
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             ab abVar = new ab();
                             abVar.parserJson(optJSONArray.optJSONObject(i));
-                            this.gyN.add(abVar);
+                            this.gzR.add(abVar);
                         }
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
@@ -390,19 +390,19 @@ public class ForumManageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((f) bool);
-            ForumManageModel.this.gyI = null;
+            ForumManageModel.this.gzM = null;
             if (this.mNetwork == null) {
                 ForumManageModel.this.mLoadDataCallBack.f(null);
                 return;
             }
             g gVar = new g();
-            gVar.yR = bool.booleanValue();
+            gVar.yQ = bool.booleanValue();
             if (bool.booleanValue()) {
                 if (this.mType == 6) {
-                    gVar.gyO = this.gyN;
+                    gVar.gzS = this.gzR;
                 }
             } else {
-                gVar.gyL = this.mNetwork.getErrorString();
+                gVar.gzP = this.mNetwork.getErrorString();
             }
             ForumManageModel.this.mLoadDataCallBack.f(gVar);
         }
@@ -412,7 +412,7 @@ public class ForumManageModel extends BdBaseModel {
             if (this.mNetwork != null) {
                 this.mNetwork.eW();
             }
-            ForumManageModel.this.gyI = null;
+            ForumManageModel.this.gzM = null;
             super.cancel(true);
             ForumManageModel.this.mLoadDataCallBack.f(null);
         }

@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private ArrayList<String> hag;
-    private String hah;
+    private ArrayList<String> hbk;
+    private String hbl;
 
     public void i(EditText editText) {
         Editable text;
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.w(this.hag)) {
+        if (spannable != null && !v.w(this.hbk)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.hag.iterator();
+                Iterator<String> it = this.hbk.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.w(bAU())) {
+        if (v.w(bAS())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -107,18 +107,18 @@ public class b {
     }
 
     public void ax(ArrayList<String> arrayList) {
-        this.hag = arrayList;
+        this.hbk = arrayList;
     }
 
-    public ArrayList<String> bAU() {
-        return this.hag;
+    public ArrayList<String> bAS() {
+        return this.hbk;
     }
 
-    public void uB(String str) {
-        this.hah = str;
+    public void uE(String str) {
+        this.hbl = str;
     }
 
-    public String bAY() {
-        return this.hah;
+    public String bAW() {
+        return this.hbl;
     }
 }

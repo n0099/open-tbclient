@@ -26,11 +26,11 @@ public class bb {
         return this.forumId + "";
     }
 
-    public long rv() {
+    public long ru() {
         return this.ZC;
     }
 
-    public long rw() {
+    public long rv() {
         return this.endTime;
     }
 
@@ -46,15 +46,15 @@ public class bb {
         return this.ZE;
     }
 
-    public int rx() {
+    public int rw() {
         return this.mWidth;
     }
 
-    public int ry() {
+    public int rx() {
         return this.mHeight;
     }
 
-    public String qw() {
+    public String qv() {
         return this.obj_id;
     }
 

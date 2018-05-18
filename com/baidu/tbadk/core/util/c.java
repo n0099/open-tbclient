@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class c {
-    public static void uA() {
+    public static void uz() {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
             mainDBDatabaseManager.f("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
@@ -32,8 +32,8 @@ public class c {
         if (iVar == null || mainDBDatabaseManager == null) {
             return false;
         }
-        mainDBDatabaseManager.f("delete from chunk_upload_data where md5=? and account=?", new String[]{iVar.yw(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.f("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{iVar.yw(), Long.valueOf(iVar.getTotalLength()), Integer.valueOf(iVar.yx()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.f("delete from chunk_upload_data where md5=? and account=?", new String[]{iVar.yv(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.f("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{iVar.yv(), Long.valueOf(iVar.getTotalLength()), Integer.valueOf(iVar.yw()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
     public static com.baidu.tbadk.coreExtra.data.i dp(String str) {
@@ -52,7 +52,7 @@ public class c {
                         iVar = new com.baidu.tbadk.coreExtra.data.i();
                         try {
                             iVar.eY(str);
-                            iVar.dN(cursor.getInt(3));
+                            iVar.dO(cursor.getInt(3));
                             iVar.Q(cursor.getLong(2));
                         } catch (Exception e2) {
                             e = e2;

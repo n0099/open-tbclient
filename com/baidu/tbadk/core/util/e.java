@@ -10,15 +10,15 @@ public class e {
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.xk != null) {
-                e.xk.cancel();
+            if (e.xj != null) {
+                e.xj.cancel();
             }
         }
     };
-    private static Toast xk;
+    private static Toast xj;
     private boolean agg;
 
-    public static e uB() {
+    public static e uA() {
         return new e();
     }
 
@@ -30,20 +30,20 @@ public class e {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
-                if (xk != null && xk.getView() != null) {
+                if (xj != null && xj.getView() != null) {
                     try {
-                        xk.setText(trim);
+                        xj.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        xk = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                        xk.setGravity(17, 0, i2);
+                        xj = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                        xj.setGravity(17, 0, i2);
                     }
                 } else {
-                    xk = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    xk.setGravity(17, 0, i2);
+                    xj = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    xj.setGravity(17, 0, i2);
                 }
                 mHandler.postDelayed(r, i);
-                xk.show();
+                xj.show();
             }
         }
     }
@@ -78,10 +78,10 @@ public class e {
     }
 
     public static void cancel() {
-        if (xk != null) {
+        if (xj != null) {
             mHandler.removeCallbacks(r);
-            xk.cancel();
-            xk = null;
+            xj.cancel();
+            xj = null;
         }
     }
 }

@@ -5,26 +5,26 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class a implements b {
-    private b aGE;
+    private b aGF;
 
     public a(TbPageContext<?> tbPageContext) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016469, b.class, tbPageContext);
         if (runTask != null && runTask.getData() != null) {
-            this.aGE = (b) runTask.getData();
+            this.aGF = (b) runTask.getData();
         }
     }
 
     @Override // com.baidu.tbadk.h.b
     public void gz(String str) {
-        if (this.aGE != null) {
-            this.aGE.gz(str);
+        if (this.aGF != null) {
+            this.aGF.gz(str);
         }
     }
 
     @Override // com.baidu.tbadk.h.b
     public void destory() {
-        if (this.aGE != null) {
-            this.aGE.destory();
+        if (this.aGF != null) {
+            this.aGF.destory();
         }
     }
 }

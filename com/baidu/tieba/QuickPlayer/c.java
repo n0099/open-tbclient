@@ -4,22 +4,22 @@ import android.os.HandlerThread;
 import android.os.Looper;
 /* loaded from: classes2.dex */
 public class c {
-    private static c aYZ;
+    private static c aZa;
     private HandlerThread mHandlerThread = new HandlerThread("PlayerHandlerThread");
 
     private c() {
         this.mHandlerThread.start();
     }
 
-    public static c LA() {
-        if (aYZ == null) {
+    public static c Ly() {
+        if (aZa == null) {
             synchronized (c.class) {
-                if (aYZ == null) {
-                    aYZ = new c();
+                if (aZa == null) {
+                    aZa = new c();
                 }
             }
         }
-        return aYZ;
+        return aZa;
     }
 
     public Looper getLooper() {

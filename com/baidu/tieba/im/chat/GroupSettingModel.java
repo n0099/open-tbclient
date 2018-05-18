@@ -10,17 +10,17 @@ import com.baidu.tieba.im.message.RequestDismissGroupMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 /* loaded from: classes3.dex */
 public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
-    private RequestRemoveMembersMessage dQb;
-    private RequestDismissGroupMessage dQc;
-    private GroupSettingActivity dQd;
+    private RequestRemoveMembersMessage dRi;
+    private RequestDismissGroupMessage dRj;
+    private GroupSettingActivity dRk;
     private int flag;
     private String groupId;
     private String groupName;
 
     public GroupSettingModel(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity.getPageContext());
-        this.dQd = null;
-        this.dQd = groupSettingActivity;
+        this.dRk = null;
+        this.dRk = groupSettingActivity;
     }
 
     public void h(String str, String str2, int i) {
@@ -49,18 +49,18 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.dQb != null) {
-            this.dQb = null;
+        if (this.dRi != null) {
+            this.dRi = null;
         }
     }
 
-    public void gC(final boolean z) {
+    public void gD(final boolean z) {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.im.chat.GroupSettingModel.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.im.settingcache.b.aGU().i(TbadkApplication.getCurrentAccount(), GroupSettingModel.this.getGroupId(), z);
+                com.baidu.tieba.im.settingcache.b.aGS().i(TbadkApplication.getCurrentAccount(), GroupSettingModel.this.getGroupId(), z);
                 return null;
             }
         }.execute(new Void[0]);
@@ -72,12 +72,12 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.u
             public Boolean doInBackground() {
-                return Boolean.valueOf(com.baidu.tieba.im.settingcache.b.aGU().bk(TbadkApplication.getCurrentAccount(), GroupSettingModel.this.getGroupId()));
+                return Boolean.valueOf(com.baidu.tieba.im.settingcache.b.aGS().bk(TbadkApplication.getCurrentAccount(), GroupSettingModel.this.getGroupId()));
             }
         }, hVar);
     }
 
-    public void gD(boolean z) {
+    public void gE(boolean z) {
         RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
         requestUpdateMaskMessage.setSettingMask(true);
         requestUpdateMaskMessage.setGids(this.groupId);
@@ -86,23 +86,23 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
     }
 
     public void bN(long j) {
-        this.dQb = new RequestRemoveMembersMessage();
-        this.dQb.setGroupId(j);
-        this.dQb.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
-        if (this.dQd != null) {
-            this.dQd.sendMessage(this.dQb);
+        this.dRi = new RequestRemoveMembersMessage();
+        this.dRi.setGroupId(j);
+        this.dRi.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
+        if (this.dRk != null) {
+            this.dRk.sendMessage(this.dRi);
         } else {
-            sendMessage(this.dQb);
+            sendMessage(this.dRi);
         }
     }
 
     public void bO(long j) {
-        this.dQc = new RequestDismissGroupMessage();
-        this.dQc.setGroupId(j);
-        if (this.dQd != null) {
-            this.dQd.sendMessage(this.dQc);
+        this.dRj = new RequestDismissGroupMessage();
+        this.dRj.setGroupId(j);
+        if (this.dRk != null) {
+            this.dRk.sendMessage(this.dRj);
         } else {
-            sendMessage(this.dQc);
+            sendMessage(this.dRj);
         }
     }
 
@@ -110,7 +110,7 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
         return this.groupId;
     }
 
-    public long aAx() {
+    public long aAv() {
         return com.baidu.adp.lib.g.b.c(this.groupId, 0L);
     }
 

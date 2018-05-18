@@ -61,11 +61,11 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bd bdVar = new bd();
                             bdVar.setUserMap(this.userMap);
                             bdVar.a(list2.get(i3));
-                            bdVar.bU(3);
-                            bdVar.sx();
-                            if (!TextUtils.isEmpty(bdVar.sH())) {
+                            bdVar.bV(3);
+                            bdVar.sw();
+                            if (!TextUtils.isEmpty(bdVar.sG())) {
                                 ac acVar = new ac();
-                                acVar.cI(bdVar.sH());
+                                acVar.cI(bdVar.sG());
                                 this.threadList.add(acVar);
                             } else {
                                 this.threadList.add(bdVar);

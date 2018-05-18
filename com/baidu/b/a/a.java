@@ -15,10 +15,10 @@ public class a {
     }
 
     public static void a(b bVar) {
-        com.baidu.b.a.b.a.mc().b(bVar);
+        com.baidu.b.a.b.a.mb().b(bVar);
     }
 
     public static void a(c cVar) {
-        d.md().b(cVar);
+        d.mc().b(cVar);
     }
 }

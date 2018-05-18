@@ -51,11 +51,11 @@ import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
 public class PassManagerStatic {
-    private static boolean eYR = false;
+    private static boolean eZY = false;
 
     static {
-        MO();
-        AE();
+        MM();
+        registerTask();
         registerListener();
         aUx();
         aUy();
@@ -63,15 +63,15 @@ public class PassManagerStatic {
         aUB();
     }
 
-    private static void MO() {
+    private static void MM() {
         a.checkPassV6Switch();
-        if (!a.xO()) {
+        if (!a.xN()) {
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(RegisterActivityConfig.class, SapiFastRegActivity.class);
         }
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
     }
 
-    private static void AE() {
+    private static void registerTask() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001268, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<c> run(CustomMessage<Activity> customMessage) {
@@ -113,7 +113,7 @@ public class PassManagerStatic {
                 }
             }
         });
-        ax.wg().a(new ax.a() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.6
+        ax.wf().a(new ax.a() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.6
             @Override // com.baidu.tbadk.core.util.ax.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -194,7 +194,7 @@ public class PassManagerStatic {
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        q.Hf().Z(System.currentTimeMillis() - currentTimeMillis);
+        q.Hd().Z(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private static FastLoginFeature[] aUz() {
@@ -257,13 +257,13 @@ public class PassManagerStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921332, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                if (!PassManagerStatic.eYR) {
+                if (!PassManagerStatic.eZY) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put(BaiduRimConstants.RIM_ID_KEY, "2100020001");
                     hashMap.put("tpl", "1200020868");
                     hashMap.put("appkey", "ef4b7e008deab5c6fd206d180c5967039bfa8120");
                     BaiduRIM.getInstance().initRIM(TbadkApplication.getInst().getContext(), hashMap);
-                    boolean unused = PassManagerStatic.eYR = true;
+                    boolean unused = PassManagerStatic.eZY = true;
                 }
                 return null;
             }

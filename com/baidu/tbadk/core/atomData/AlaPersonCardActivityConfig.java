@@ -28,7 +28,7 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.Activity);
     }
 
-    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, int i3, long j, long j2, int i4, String str6, String str7, boolean z, String str8, String str9) {
+    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, long j, long j2, long j3, int i3, String str6, String str7, boolean z, String str8, String str9) {
         super(context);
         getIntent().putExtra(PERSON_USER_ID, str);
         getIntent().putExtra(PERSON_USER_NAME, str2);
@@ -37,10 +37,10 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         getIntent().putExtra(PERSON_LEVEL, i2);
         getIntent().putExtra(PERSON_LOCATION, str4);
         getIntent().putExtra(PERSON_DESCRIPTION, str5);
-        getIntent().putExtra(PERSON_SEND_COUNT, i3);
-        getIntent().putExtra(PERSON_FANS_COUNT, j);
-        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j2);
-        getIntent().putExtra(PERSON_FOLLOW_STATUS, i4);
+        getIntent().putExtra(PERSON_SEND_COUNT, j);
+        getIntent().putExtra(PERSON_FANS_COUNT, j2);
+        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j3);
+        getIntent().putExtra(PERSON_FOLLOW_STATUS, i3);
         getIntent().putExtra(PERSON_GROUP_ID, str6);
         getIntent().putExtra(PERSON_LIVE_ID, str7);
         getIntent().putExtra(PERSON_LIVE_OWNER_FLAG, z);
@@ -50,7 +50,7 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, int i3, long j, long j2, int i4, String str6) {
+    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, long j, long j2, long j3, int i3, String str6) {
         super(context);
         getIntent().putExtra(PERSON_USER_ID, str);
         getIntent().putExtra(PERSON_USER_NAME, str2);
@@ -59,10 +59,10 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         getIntent().putExtra(PERSON_LEVEL, i2);
         getIntent().putExtra(PERSON_LOCATION, str4);
         getIntent().putExtra(PERSON_DESCRIPTION, str5);
-        getIntent().putExtra(PERSON_SEND_COUNT, i3);
-        getIntent().putExtra(PERSON_FANS_COUNT, j);
-        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j2);
-        getIntent().putExtra(PERSON_FOLLOW_STATUS, i4);
+        getIntent().putExtra(PERSON_SEND_COUNT, j);
+        getIntent().putExtra(PERSON_FANS_COUNT, j2);
+        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j3);
+        getIntent().putExtra(PERSON_FOLLOW_STATUS, i3);
         getIntent().putExtra(PERSON_APP_ID, str6);
         setRequestCode(25014);
         setIntentAction(IntentAction.ActivityForResult);

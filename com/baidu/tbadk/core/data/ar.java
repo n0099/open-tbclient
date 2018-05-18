@@ -16,11 +16,11 @@ public class ar {
     public boolean hasMore;
     public int pageNum;
 
-    public ArrayList<UserData> rh() {
+    public ArrayList<UserData> rg() {
         return this.Zb;
     }
 
-    public ArrayList<UserData> ri() {
+    public ArrayList<UserData> rh() {
         return this.Zc;
     }
 
@@ -55,9 +55,9 @@ public class ar {
                     }
                     this.Zd.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
                     if (this.Zd != null) {
-                        this.pageNum = this.Zd.ra();
-                        this.Zg = this.Zd.qY();
-                        this.hasMore = this.Zd.rc() == 1;
+                        this.pageNum = this.Zd.qZ();
+                        this.Zg = this.Zd.qX();
+                        this.hasMore = this.Zd.rb() == 1;
                     }
                     this.Ze = jSONObject.optInt("tafriendnum", 0);
                     this.Zf = jSONObject.optInt("commonfriendnum", 0);

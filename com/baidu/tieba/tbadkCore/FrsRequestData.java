@@ -24,8 +24,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String gtN;
-    private String gtO;
+    private String guR;
+    private String guS;
     private int isGood;
     private String kw;
     private String lastId;
@@ -56,7 +56,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.mSortType = i;
     }
 
-    public int Rl() {
+    public int Ri() {
         return this.mSortType;
     }
 
@@ -180,16 +180,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void sH(String str) {
-        this.gtN = str;
+    public void sK(String str) {
+        this.guR = str;
     }
 
     public void setObjSource(String str) {
-        this.gtO = str;
+        this.guS = str;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> FD() {
+    public HashMap<String, Object> FB() {
         return null;
     }
 
@@ -217,10 +217,10 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.yuelaou_locate = this.aoX;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.bjZ().bkc();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bjY().bkb();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.gtN;
-        builder.obj_source = this.gtO;
+        builder.obj_locate = this.guR;
+        builder.obj_source = this.guS;
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
@@ -233,12 +233,12 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String FA() {
+    public String Fy() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean FB() {
+    public boolean Fz() {
         return false;
     }
 

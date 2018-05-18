@@ -12,20 +12,20 @@ import com.baidu.tieba.d;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes3.dex */
 public class n extends q.a {
-    public HeadImageView cUA;
-    public HeadImageView cUB;
-    public TextView cUC;
-    public TextView cUD;
-    public TextView cUE;
-    public TextView cUF;
-    public NoPressedLinearLayout cUG;
-    public View cUH;
-    public LinearLayout cUu;
-    public LinearLayout cUv;
-    public LinearLayout cUw;
-    public LinearLayout cUx;
-    public HeadImageView cUy;
-    public HeadImageView cUz;
+    public LinearLayout cVB;
+    public LinearLayout cVC;
+    public LinearLayout cVD;
+    public LinearLayout cVE;
+    public HeadImageView cVF;
+    public HeadImageView cVG;
+    public HeadImageView cVH;
+    public HeadImageView cVI;
+    public TextView cVJ;
+    public TextView cVK;
+    public TextView cVL;
+    public TextView cVM;
+    public NoPressedLinearLayout cVN;
+    public View cVO;
     public TextView mTitleView;
 
     public n(View view2, View.OnClickListener onClickListener) {
@@ -34,68 +34,68 @@ public class n extends q.a {
         int color = ak.getColor(d.C0126d.black_alpha10);
         this.mTitleView = (TextView) view2.findViewById(d.g.title_text_view);
         this.mTitleView.setOnClickListener(onClickListener);
-        this.cUu = (LinearLayout) view2.findViewById(d.g.member1);
-        this.cUy = (HeadImageView) view2.findViewById(d.g.imageview_user_photo1);
-        this.cUC = (TextView) view2.findViewById(d.g.textview_user_name1);
-        this.cUy.setIsRound(true);
-        this.cUy.setBorderColor(color);
-        this.cUy.setBorderWidth(e);
-        this.cUy.setOnClickListener(onClickListener);
-        this.cUv = (LinearLayout) view2.findViewById(d.g.member2);
-        this.cUz = (HeadImageView) view2.findViewById(d.g.imageview_user_photo2);
-        this.cUD = (TextView) view2.findViewById(d.g.textview_user_name2);
-        this.cUz.setIsRound(true);
-        this.cUz.setBorderColor(color);
-        this.cUz.setBorderWidth(e);
-        this.cUz.setOnClickListener(onClickListener);
-        this.cUw = (LinearLayout) view2.findViewById(d.g.member3);
-        this.cUA = (HeadImageView) view2.findViewById(d.g.imageview_user_photo3);
-        this.cUE = (TextView) view2.findViewById(d.g.textview_user_name3);
-        this.cUA.setIsRound(true);
-        this.cUA.setBorderColor(color);
-        this.cUA.setBorderWidth(e);
-        this.cUA.setOnClickListener(onClickListener);
-        this.cUx = (LinearLayout) view2.findViewById(d.g.member4);
-        this.cUB = (HeadImageView) view2.findViewById(d.g.imageview_user_photo4);
-        this.cUF = (TextView) view2.findViewById(d.g.textview_user_name4);
-        this.cUB.setIsRound(true);
-        this.cUB.setBorderColor(color);
-        this.cUB.setBorderWidth(e);
-        this.cUB.setOnClickListener(onClickListener);
-        this.cUG = (NoPressedLinearLayout) view2.findViewById(d.g.forum_member_team_item_view);
-        this.cUH = view2.findViewById(d.g.team_divider_line1);
+        this.cVB = (LinearLayout) view2.findViewById(d.g.member1);
+        this.cVF = (HeadImageView) view2.findViewById(d.g.imageview_user_photo1);
+        this.cVJ = (TextView) view2.findViewById(d.g.textview_user_name1);
+        this.cVF.setIsRound(true);
+        this.cVF.setBorderColor(color);
+        this.cVF.setBorderWidth(e);
+        this.cVF.setOnClickListener(onClickListener);
+        this.cVC = (LinearLayout) view2.findViewById(d.g.member2);
+        this.cVG = (HeadImageView) view2.findViewById(d.g.imageview_user_photo2);
+        this.cVK = (TextView) view2.findViewById(d.g.textview_user_name2);
+        this.cVG.setIsRound(true);
+        this.cVG.setBorderColor(color);
+        this.cVG.setBorderWidth(e);
+        this.cVG.setOnClickListener(onClickListener);
+        this.cVD = (LinearLayout) view2.findViewById(d.g.member3);
+        this.cVH = (HeadImageView) view2.findViewById(d.g.imageview_user_photo3);
+        this.cVL = (TextView) view2.findViewById(d.g.textview_user_name3);
+        this.cVH.setIsRound(true);
+        this.cVH.setBorderColor(color);
+        this.cVH.setBorderWidth(e);
+        this.cVH.setOnClickListener(onClickListener);
+        this.cVE = (LinearLayout) view2.findViewById(d.g.member4);
+        this.cVI = (HeadImageView) view2.findViewById(d.g.imageview_user_photo4);
+        this.cVM = (TextView) view2.findViewById(d.g.textview_user_name4);
+        this.cVI.setIsRound(true);
+        this.cVI.setBorderColor(color);
+        this.cVI.setBorderWidth(e);
+        this.cVI.setOnClickListener(onClickListener);
+        this.cVN = (NoPressedLinearLayout) view2.findViewById(d.g.forum_member_team_item_view);
+        this.cVO = view2.findViewById(d.g.team_divider_line1);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
         if (bawuRoleInfoPub != null && i >= 0 && i <= 3) {
             switch (i) {
                 case 0:
-                    this.cUy.startLoad(bawuRoleInfoPub.portrait, 12, false);
-                    this.cUy.setTag(bawuRoleInfoPub);
-                    this.cUy.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.cUC.setText(bawuRoleInfoPub.user_name);
-                    this.cUu.setVisibility(0);
+                    this.cVF.startLoad(bawuRoleInfoPub.portrait, 12, false);
+                    this.cVF.setTag(bawuRoleInfoPub);
+                    this.cVF.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.cVJ.setText(bawuRoleInfoPub.user_name);
+                    this.cVB.setVisibility(0);
                     return;
                 case 1:
-                    this.cUz.startLoad(bawuRoleInfoPub.portrait, 12, false);
-                    this.cUz.setTag(bawuRoleInfoPub);
-                    this.cUz.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.cUD.setText(bawuRoleInfoPub.user_name);
-                    this.cUv.setVisibility(0);
+                    this.cVG.startLoad(bawuRoleInfoPub.portrait, 12, false);
+                    this.cVG.setTag(bawuRoleInfoPub);
+                    this.cVG.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.cVK.setText(bawuRoleInfoPub.user_name);
+                    this.cVC.setVisibility(0);
                     return;
                 case 2:
-                    this.cUA.startLoad(bawuRoleInfoPub.portrait, 12, false);
-                    this.cUA.setTag(bawuRoleInfoPub);
-                    this.cUA.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.cUE.setText(bawuRoleInfoPub.user_name);
-                    this.cUw.setVisibility(0);
+                    this.cVH.startLoad(bawuRoleInfoPub.portrait, 12, false);
+                    this.cVH.setTag(bawuRoleInfoPub);
+                    this.cVH.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.cVL.setText(bawuRoleInfoPub.user_name);
+                    this.cVD.setVisibility(0);
                     return;
                 case 3:
-                    this.cUB.startLoad(bawuRoleInfoPub.portrait, 12, false);
-                    this.cUB.setTag(bawuRoleInfoPub);
-                    this.cUB.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.cUF.setText(bawuRoleInfoPub.user_name);
-                    this.cUx.setVisibility(0);
+                    this.cVI.startLoad(bawuRoleInfoPub.portrait, 12, false);
+                    this.cVI.setTag(bawuRoleInfoPub);
+                    this.cVI.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.cVM.setText(bawuRoleInfoPub.user_name);
+                    this.cVE.setVisibility(0);
                     return;
                 default:
                     return;
@@ -103,22 +103,22 @@ public class n extends q.a {
         }
     }
 
-    public void fk(boolean z) {
-        if (this.cUy.getVisibility() == 0) {
-            this.cUy.setIsNight(z);
-            this.cUy.refresh();
+    public void fl(boolean z) {
+        if (this.cVF.getVisibility() == 0) {
+            this.cVF.setIsNight(z);
+            this.cVF.refresh();
         }
-        if (this.cUz.getVisibility() == 0) {
-            this.cUz.setIsNight(z);
-            this.cUz.refresh();
+        if (this.cVG.getVisibility() == 0) {
+            this.cVG.setIsNight(z);
+            this.cVG.refresh();
         }
-        if (this.cUA.getVisibility() == 0) {
-            this.cUA.setIsNight(z);
-            this.cUA.refresh();
+        if (this.cVH.getVisibility() == 0) {
+            this.cVH.setIsNight(z);
+            this.cVH.refresh();
         }
-        if (this.cUB.getVisibility() == 0) {
-            this.cUB.setIsNight(z);
-            this.cUB.refresh();
+        if (this.cVI.getVisibility() == 0) {
+            this.cVI.setIsNight(z);
+            this.cVI.refresh();
         }
     }
 }

@@ -8,10 +8,10 @@ import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
 public class ap extends PostData {
     public static final BdUniqueId YU = BdUniqueId.gen();
-    public int WU;
-    public String Xg;
+    public int WV;
     public String Xh;
     public String Xi;
+    public String Xj;
     public String YV;
     public String YW;
     public String YX;
@@ -24,10 +24,10 @@ public class ap extends PostData {
             this.YV = recommendBook.recommend_text;
             this.YW = recommendBook.suggest_text;
             this.YX = recommendBook.suggest_url;
-            this.Xg = recommendBook.book_id;
-            this.WU = recommendBook.book_type.intValue();
-            this.Xi = recommendBook.book_cover;
-            this.Xh = recommendBook.book_title;
+            this.Xh = recommendBook.book_id;
+            this.WV = recommendBook.book_type.intValue();
+            this.Xj = recommendBook.book_cover;
+            this.Xi = recommendBook.book_title;
             this.YY = recommendBook.book_tips;
             this.YZ = recommendBook.botton_text;
             this.Za = recommendBook.subscript_icon;
@@ -35,7 +35,7 @@ public class ap extends PostData {
     }
 
     public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.Xg)) ? false : true;
+        return (this == null || StringUtils.isNull(this.Xh)) ? false : true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.h

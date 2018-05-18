@@ -15,11 +15,11 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private TbPageContext<?> adf;
     private ArrayList<h> adv = new ArrayList<>();
+    private TbPageContext<?> mContext;
 
     public g(TbPageContext<?> tbPageContext) {
-        this.adf = tbPageContext;
+        this.mContext = tbPageContext;
     }
 
     public void setData(ArrayList<h> arrayList) {
@@ -50,7 +50,7 @@ public class g extends BaseAdapter {
             return null;
         }
         if (view2 == null) {
-            view2 = LayoutInflater.from(this.adf.getPageActivity()).inflate(d.i.dialog_rich_bdlist_item, viewGroup, false);
+            view2 = LayoutInflater.from(this.mContext.getPageActivity()).inflate(d.i.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
             aVar2.adw = (TextView) view2.findViewById(d.g.text_tip);
             aVar2.adx = (TextView) view2.findViewById(d.g.text_desc);
@@ -60,7 +60,7 @@ public class g extends BaseAdapter {
         } else {
             aVar = (a) view2.getTag();
         }
-        aVar.adw.setText(hVar.tM());
+        aVar.adw.setText(hVar.tL());
         if (StringUtils.isNull(hVar.getDesc())) {
             aVar.adx.setVisibility(8);
         } else {
@@ -69,7 +69,7 @@ public class g extends BaseAdapter {
         }
         aVar.ady.setChecked(hVar.isChecked());
         aVar.ady.setButtonDrawable(hVar.isChecked() ? ak.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0126d.common_color_10022));
-        if (co(i)) {
+        if (cp(i)) {
             aVar.divider.setVisibility(8);
             ak.i(view2, d.f.dialog_single_button_bg_selector);
         } else {
@@ -77,12 +77,12 @@ public class g extends BaseAdapter {
             ak.i(view2, d.f.dialg_alert_btn_bg);
         }
         view2.setTag(aVar);
-        this.adf.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.adf.getLayoutMode().u(view2);
+        this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.mContext.getLayoutMode().u(view2);
         return view2;
     }
 
-    private boolean co(int i) {
+    private boolean cp(int i) {
         return this.adv != null && i == this.adv.size() + (-1);
     }
 

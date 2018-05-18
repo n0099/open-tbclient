@@ -7,31 +7,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> fQQ;
-    private long fQR;
+    private List<String> fRW;
+    private long fRX;
     private long mStartTime = System.currentTimeMillis();
-    private String yF;
+    private String yE;
 
-    public a rs(String str) {
+    public a rv(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.fQR = jSONObject.optLong("ttl");
+            this.fRX = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.yF = optJSONObject.keys().next();
+                this.yE = optJSONObject.keys().next();
             }
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.yF);
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.yE);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.fQQ = new ArrayList();
+                this.fRW = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.fQQ.add((String) optJSONArray.get(i2));
+                        this.fRW.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -52,14 +52,14 @@ public class a {
     }
 
     public List<String> bhd() {
-        return this.fQQ;
+        return this.fRW;
     }
 
     public String getHost() {
-        return this.yF;
+        return this.yE;
     }
 
     public boolean cP(long j) {
-        return j - this.mStartTime > this.fQR * 1000;
+        return j - this.mStartTime > this.fRX * 1000;
     }
 }

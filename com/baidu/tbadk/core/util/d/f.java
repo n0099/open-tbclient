@@ -48,17 +48,17 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wv() {
+    public boolean wu() {
         return this.akE;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ww() {
+    public boolean wv() {
         return this.akD;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int wx() {
+    public int ww() {
         return this.procType;
     }
 
@@ -68,7 +68,7 @@ public class f extends a {
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.Fa().eX(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.EY().eY(BitmapHelper.getBitmapSize(bitmap) * 2);
             return bitmap;
         }
         return bitmap;

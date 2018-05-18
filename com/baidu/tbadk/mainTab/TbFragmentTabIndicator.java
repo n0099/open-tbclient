@@ -10,24 +10,24 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean aID;
+    protected boolean aIE;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.aID = false;
+        this.aIE = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aID = false;
+        this.aIE = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aID = false;
+        this.aIE = false;
     }
 
-    public void dz(int i) {
+    public void dA(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
@@ -81,27 +81,27 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aID = z;
+        this.aIE = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aIF;
-        public TbFragmentTabIndicator aIH;
-        public int sU;
+        public int aIG;
+        public TbFragmentTabIndicator aII;
+        public int sT;
 
         /* renamed from: view  reason: collision with root package name */
         public View f7view;
-        public boolean aIE = true;
-        public int aIG = d.C0126d.common_color_10225;
+        public boolean aIF = true;
+        public int aIH = d.C0126d.common_color_10225;
 
-        public void dz(int i) {
-            if (this.aIF != 0) {
-                ak.i(this.f7view, this.aIF);
+        public void dA(int i) {
+            if (this.aIG != 0) {
+                ak.i(this.f7view, this.aIG);
             }
             if (this.f7view instanceof TextView) {
-                if (this.aIG != 0) {
-                    ak.c((TextView) this.f7view, this.aIG, 1);
+                if (this.aIH != 0) {
+                    ak.c((TextView) this.f7view, this.aIH, 1);
                 }
                 int c = c((TextView) this.f7view);
                 if (c > 0 && c < 10) {

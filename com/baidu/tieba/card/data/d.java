@@ -5,35 +5,35 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.sina.weibo.sdk.exception.WeiboAuthException;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String crG = "";
+    public String csP = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo crF = null;
+    public AdvertAppInfo csO = null;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (this.crF != null && this.crF.getType() == AdvertAppInfo.Vy) {
-            return AdvertAppInfo.VE;
+        if (this.csO != null && this.csO.getType() == AdvertAppInfo.Vu) {
+            return AdvertAppInfo.VA;
         }
-        if (this.crF != null && this.crF.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.VH;
-            switch (this.crF.legoCard.getGoodsStyle()) {
+        if (this.csO != null && this.csO.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.VD;
+            switch (this.csO.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.VI;
+                    return AdvertAppInfo.VE;
                 case 3:
                 case 4:
                 case 5:
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.VJ;
+                    return AdvertAppInfo.VF;
                 case 7:
-                    return AdvertAppInfo.VK;
+                    return AdvertAppInfo.VG;
                 case 9:
-                    return AdvertAppInfo.VM;
+                    return AdvertAppInfo.VI;
                 case 10:
-                    return AdvertAppInfo.VL;
+                    return AdvertAppInfo.VH;
             }
         }
         return null;
@@ -41,7 +41,7 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.g(this.crF != null ? this.crF.adPosition : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE, -1);
+        return com.baidu.adp.lib.g.b.g(this.csO != null ? this.csO.adPosition : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE, -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
@@ -50,14 +50,14 @@ public class d extends b implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void ev(boolean z) {
-    }
-
-    @Override // com.baidu.tieba.card.data.p
     public void ew(boolean z) {
     }
 
+    @Override // com.baidu.tieba.card.data.p
+    public void ex(boolean z) {
+    }
+
     public AdvertAppInfo afP() {
-        return this.crF;
+        return this.csO;
     }
 }

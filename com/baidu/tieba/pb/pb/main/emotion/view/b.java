@@ -5,40 +5,40 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes2.dex */
 public class b {
-    private SearchEmotionModel.a cKq;
-    private SearchEmotionModel fsc;
-    private String fsd;
-    private Runnable fse = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a cLx;
+    private SearchEmotionModel ftj;
+    private String ftk;
+    private Runnable ftl = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.fsd) && b.this.cKq != null) {
-                if (b.this.fsc == null) {
-                    b.this.fsc = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.ftk) && b.this.cLx != null) {
+                if (b.this.ftj == null) {
+                    b.this.ftj = new SearchEmotionModel();
                 }
-                b.this.fsc.a(b.this.fsd, 0, 30, b.this.cKq);
+                b.this.ftj.a(b.this.ftk, 0, 30, b.this.cLx);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void qN(String str) {
+    public void qQ(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.fsd = "";
+            this.ftk = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.fse);
-        this.mHandler.postDelayed(this.fse, 300L);
-        this.fsd = str;
+        this.mHandler.removeCallbacks(this.ftl);
+        this.mHandler.postDelayed(this.ftl, 300L);
+        this.ftk = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.cKq = aVar;
+        this.cLx = aVar;
     }
 
-    public void arg() {
-        if (this.fsc != null) {
-            this.fsc.cancelLoadData();
+    public void arf() {
+        if (this.ftj != null) {
+            this.ftj.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.fse);
+        this.mHandler.removeCallbacks(this.ftl);
     }
 }

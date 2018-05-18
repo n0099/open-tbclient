@@ -41,7 +41,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
-    private static void ms(String str) {
+    private static void mv(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -82,11 +82,11 @@ public class h {
                     Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
                     if (matcher.find()) {
                         if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                            ms(decode);
+                            mv(decode);
                         }
                         str = matcher.group(2);
                     } else {
-                        ms(decode);
+                        mv(decode);
                         int indexOf = decode.indexOf("kw=");
                         if (indexOf >= 0 && (length = indexOf + "kw=".length()) <= decode.length()) {
                             str = decode.substring(length);
@@ -141,13 +141,13 @@ public class h {
                     frsFragment.showToast(d.k.sdcard_permission_denied_advert_for_camera);
                 }
             } else if (i == 25040) {
-                com.baidu.tieba.frs.entelechy.c ars = frsFragment.apK().ars();
-                String qA = ars.qA();
-                String arH = ars.arH();
+                com.baidu.tieba.frs.entelechy.c arr = frsFragment.apJ().arr();
+                String qz = arr.qz();
+                String arG = arr.arG();
                 if (iArr[0] == 0 && strArr[0].equals("android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921334, qA));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921334, qz));
                 } else {
-                    ax.wg().c(frsFragment.getPageContext(), new String[]{arH});
+                    ax.wf().c(frsFragment.getPageContext(), new String[]{arG});
                 }
             }
         }
@@ -161,7 +161,7 @@ public class h {
 
     public static void a(FrsFragment frsFragment, String str, bd bdVar, boolean z) {
         if (frsFragment != null && bdVar != null && str != null) {
-            if (!(bdVar == null || bdVar.sC())) {
+            if (!(bdVar == null || bdVar.sB())) {
                 PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bdVar, frsFragment.getForumName(), "frs_page", 18003, true, true, z);
                 createFromThreadCfg.setVideo_source("frs");
                 createFromThreadCfg.setForumId(String.valueOf(bdVar.getFid()));
@@ -214,8 +214,8 @@ public class h {
     public static void a(FrsFragment frsFragment, bd bdVar, int i, boolean z) {
         PbActivityConfig createFromThreadCfg;
         if (frsFragment != null && bdVar != null) {
-            if (bdVar.sl() > 0 && com.baidu.tieba.tbadkCore.util.f.bsX()) {
-                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bdVar.getTid(), String.valueOf(bdVar.sl()), false, true, "frs_page");
+            if (bdVar.sk() > 0 && com.baidu.tieba.tbadkCore.util.e.bsV()) {
+                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bdVar.getTid(), String.valueOf(bdVar.sk()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bdVar, frsFragment.getForumName(), "frs_page", 18003, true, false, z);
             }
@@ -224,11 +224,11 @@ public class h {
             } else {
                 createFromThreadCfg.setVideo_source("frs");
             }
-            createFromThreadCfg.setFromSmartFrs(bdVar.sP());
+            createFromThreadCfg.setFromSmartFrs(bdVar.sO());
             createFromThreadCfg.setSmartFrsPosition(i);
             createFromThreadCfg.setForumId(String.valueOf(bdVar.getFid()));
             createFromThreadCfg.setStartFrom(3);
-            if (bdVar.sE() && createFromThreadCfg.getIntent() != null) {
+            if (bdVar.sD() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
             frsFragment.sendMessage(new CustomMessage(2004001, createFromThreadCfg));

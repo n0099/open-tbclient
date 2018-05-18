@@ -8,16 +8,16 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class c extends q.a {
     public int aqQ;
-    public View bae;
-    public TextView cpb;
+    public View baf;
+    public TextView cql;
 
     public c(View view2) {
         super(view2);
         this.aqQ = 3;
-        this.cpb = (TextView) view2.findViewById(d.g.look_more_view);
-        this.bae = view2.findViewById(d.g.divider_line_above_more_god_replays);
-        ak.h(this.cpb, d.C0126d.cp_cont_f);
-        ak.i(this.cpb, d.f.more_all);
-        ak.i(this.bae, d.C0126d.cp_bg_line_c);
+        this.cql = (TextView) view2.findViewById(d.g.look_more_view);
+        this.baf = view2.findViewById(d.g.divider_line_above_more_god_replays);
+        ak.h(this.cql, d.C0126d.cp_cont_f);
+        ak.i(this.cql, d.f.more_all);
+        ak.i(this.baf, d.C0126d.cp_bg_line_c);
     }
 }

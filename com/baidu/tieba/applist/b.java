@@ -20,7 +20,7 @@ public class b extends BdAsyncTask<e, Integer, String> {
             return "";
         }
         List<String> bT = s.bT(TbadkCoreApplication.getInst().getContext());
-        for (f fVar : eVar.yq()) {
+        for (f fVar : eVar.yp()) {
             if (fVar != null) {
                 String packageName = fVar.getPackageName();
                 Iterator<String> it = bT.iterator();
@@ -36,7 +36,7 @@ public class b extends BdAsyncTask<e, Integer, String> {
                 }
             }
         }
-        return eVar.yp();
+        return eVar.yo();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

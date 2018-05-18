@@ -14,14 +14,14 @@ import com.baidu.tieba.pb.pb.main.k;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
 public class d extends k<PostData, a> {
-    private View.OnClickListener cxV;
+    private View.OnClickListener cze;
 
     public d(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cxV = onClickListener;
+        this.cze = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,9 +30,9 @@ public class d extends k<PostData, a> {
     /* renamed from: bk */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.i.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(d.g.tv_pb_reply_more).setOnClickListener(this.cxV);
+        inflate.findViewById(d.g.tv_pb_reply_more).setOnClickListener(this.cze);
         a aVar = new a(inflate);
-        aVar.BR();
+        aVar.BP();
         return aVar;
     }
 
@@ -47,29 +47,29 @@ public class d extends k<PostData, a> {
 
     /* loaded from: classes2.dex */
     public static class a extends q.a {
-        private TextView fdp;
+        private TextView few;
 
         public a(View view2) {
             super(view2);
-            this.fdp = (TextView) view2.findViewById(d.g.tv_pb_reply_more);
+            this.few = (TextView) view2.findViewById(d.g.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.gwQ) {
+                if (postData.gxU) {
                     Drawable drawable = ak.getDrawable(d.f.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.fdp.setCompoundDrawables(null, null, drawable, null);
+                    this.few.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = ak.getDrawable(d.f.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.fdp.setCompoundDrawables(null, null, drawable2, null);
+                this.few.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void BR() {
-            ak.h(this.fdp, d.C0126d.cp_cont_d);
+        public void BP() {
+            ak.h(this.few, d.C0126d.cp_cont_d);
         }
     }
 }

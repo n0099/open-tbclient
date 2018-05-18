@@ -21,18 +21,18 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class i extends e {
-    private RelativeLayout dfu;
-    private TextView dfv;
-    private TextView dfw;
-    private TextView dfx;
+    private RelativeLayout dgB;
+    private TextView dgC;
+    private TextView dgD;
+    private TextView dgE;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         View view2 = getView();
-        this.dfu = (RelativeLayout) view2.findViewById(d.g.lottery_info_layout);
-        this.dfv = (TextView) view2.findViewById(d.g.lottery_time_tv);
-        this.dfw = (TextView) view2.findViewById(d.g.lottery_join_count_tv);
-        this.dfx = (TextView) view2.findViewById(d.g.lottery_btn);
+        this.dgB = (RelativeLayout) view2.findViewById(d.g.lottery_info_layout);
+        this.dgC = (TextView) view2.findViewById(d.g.lottery_time_tv);
+        this.dgD = (TextView) view2.findViewById(d.g.lottery_join_count_tv);
+        this.dgE = (TextView) view2.findViewById(d.g.lottery_btn);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
@@ -45,39 +45,39 @@ public class i extends e {
     /* renamed from: A */
     public void a(bd bdVar) {
         if (bdVar != null) {
-            if (v.v(bdVar.sa()) > 1) {
+            if (v.v(bdVar.rZ()) > 1) {
                 ArrayList<MediaData> arrayList = new ArrayList<>();
-                arrayList.add(bdVar.sa().get(0));
+                arrayList.add(bdVar.rZ().get(0));
                 bdVar.j(arrayList);
             }
             super.a(bdVar);
-            this.coU.setImageClickListener(new com.baidu.tbadk.widget.layout.c() { // from class: com.baidu.tieba.frs.entelechy.view.i.1
+            this.cqe.setImageClickListener(new com.baidu.tbadk.widget.layout.c() { // from class: com.baidu.tieba.frs.entelechy.view.i.1
                 @Override // com.baidu.tbadk.widget.layout.c
                 public void c(View view2, int i, boolean z) {
-                    if (i.this.alf != null && i.this.SO()) {
-                        ax.wg().c(i.this.mTbPageContext, new String[]{i.this.alf.getActUrl()});
+                    if (i.this.alf != null && i.this.SS()) {
+                        ax.wf().c(i.this.mTbPageContext, new String[]{i.this.alf.getActUrl()});
                     }
                 }
             });
-            com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) v.c(bdVar.sb(), 0);
+            com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) v.c(bdVar.sa(), 0);
             if (aVar != null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                this.dfv.setText(StringUtils.string(getContext().getResources().getString(d.k.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.qo()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.qp())))));
-                this.dfw.setText(String.format(getContext().getResources().getString(d.k.lottery_join_num), String.valueOf(aVar.qq())));
-                this.dfx.setText(d.k.lottery_btn_text);
-                this.bwk.setCommentNumEnable(false);
+                this.dgC.setText(StringUtils.string(getContext().getResources().getString(d.k.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.qn()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.qo())))));
+                this.dgD.setText(String.format(getContext().getResources().getString(d.k.lottery_join_num), String.valueOf(aVar.qp())));
+                this.dgE.setText(d.k.lottery_btn_text);
+                this.bxb.setCommentNumEnable(false);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.e
-    protected void en(boolean z) {
-        if (this.alf != null && SO()) {
-            ax.wg().c(this.mTbPageContext, new String[]{this.alf.getActUrl()});
+    protected void eo(boolean z) {
+        if (this.alf != null && SS()) {
+            ax.wf().c(this.mTbPageContext, new String[]{this.alf.getActUrl()});
         }
     }
 
-    protected boolean SO() {
+    protected boolean SS() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
@@ -88,11 +88,11 @@ public class i extends e {
     @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ak.j(this.dfu, d.C0126d.cp_bg_line_e);
-            ak.h(this.dfv, d.C0126d.cp_cont_f);
-            ak.h(this.dfw, d.C0126d.cp_cont_f);
-            ak.h(this.dfx, d.C0126d.cp_link_tip_a);
-            ak.i(this.dfx, d.f.bg_card_frs_lottery_btn);
+            ak.j(this.dgB, d.C0126d.cp_bg_line_e);
+            ak.h(this.dgC, d.C0126d.cp_cont_f);
+            ak.h(this.dgD, d.C0126d.cp_cont_f);
+            ak.h(this.dgE, d.C0126d.cp_link_tip_a);
+            ak.i(this.dgE, d.f.bg_card_frs_lottery_btn);
         }
         super.d(tbPageContext, i);
     }

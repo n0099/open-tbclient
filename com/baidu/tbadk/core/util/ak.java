@@ -31,8 +31,8 @@ import java.lang.reflect.InvocationTargetException;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class ak {
-    private static String Ux;
-    private static int Uy;
+    private static String Ut;
+    private static int Uu;
     private static Resources aiA;
     private static String aiB;
     private static AssetManager aiC;
@@ -48,8 +48,8 @@ public class ak {
             }
         });
         aiy = "skinType not support";
-        Ux = null;
-        Uy = 0;
+        Ut = null;
+        Uu = 0;
     }
 
     public static void ed(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
@@ -168,14 +168,14 @@ public class ak {
         }
     }
 
-    public static int cK(int i) {
+    public static int cL(int i) {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(d.C0126d.common_color_10004);
         }
         throw new IllegalArgumentException(aiy);
     }
 
-    public static int cL(int i) {
+    public static int cM(int i) {
         Application app = BdBaseApplication.getInst().getApp();
         return i == 1 ? app.getResources().getColor(d.C0126d.common_color_10150) : app.getResources().getColor(d.C0126d.common_color_10163);
     }
@@ -193,12 +193,12 @@ public class ak {
         if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || aiz == null) {
             return 0;
         }
-        if (Uy == 0) {
-            Ux = BdBaseApplication.getInst().getPackageName();
-            Uy = Ux.length();
+        if (Uu == 0) {
+            Ut = BdBaseApplication.getInst().getPackageName();
+            Uu = Ut.length();
         }
-        if (str.length() > Uy && str.charAt(Uy) != ':' && str.startsWith(Ux)) {
-            str = Ux + str.substring(str.indexOf(":"));
+        if (str.length() > Uu && str.charAt(Uu) != ':' && str.startsWith(Ut)) {
+            str = Ut + str.substring(str.indexOf(":"));
         }
         return aiz.getIdentifier(str + "_1", null, null);
     }
@@ -437,7 +437,7 @@ public class ak {
         return b(TbadkCoreApplication.getInst().getSkinType(), resources, i);
     }
 
-    public static ColorStateList cM(int i) {
+    public static ColorStateList cN(int i) {
         return b(TbadkCoreApplication.getInst().getSkinType(), (Resources) null, i);
     }
 
@@ -522,12 +522,12 @@ public class ak {
             if (replace.indexOf(":") <= 0 || aiz == null) {
                 return 0;
             }
-            if (Uy == 0) {
-                Ux = BdBaseApplication.getInst().getPackageName();
-                Uy = Ux.length();
+            if (Uu == 0) {
+                Ut = BdBaseApplication.getInst().getPackageName();
+                Uu = Ut.length();
             }
-            if (replace.length() > Uy && replace.charAt(Uy) != ':' && replace.startsWith(Ux)) {
-                replace = Ux + replace.substring(replace.indexOf(":"));
+            if (replace.length() > Uu && replace.charAt(Uu) != ':' && replace.startsWith(Ut)) {
+                replace = Ut + replace.substring(replace.indexOf(":"));
             }
             return aiz.getIdentifier(replace + "_1", null, null);
         } catch (Exception e) {
@@ -579,11 +579,11 @@ public class ak {
         }
     }
 
-    public static Bitmap cN(int i) {
+    public static Bitmap cO(int i) {
         return a((Resources) null, i, new BitmapFactory.Options());
     }
 
-    public static Bitmap cO(int i) {
+    public static Bitmap cP(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 2;
         return a((Resources) null, i, options);
@@ -595,7 +595,7 @@ public class ak {
         return a((Resources) null, i, options, i2);
     }
 
-    public static Bitmap cP(int i) {
+    public static Bitmap cQ(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
         return a((Resources) null, i, options);

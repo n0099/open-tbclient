@@ -5,37 +5,37 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class s {
-    private static i fQd = null;
-    private static boolean fQe = true;
-    private static boolean fQf = true;
+    private static i fRj = null;
+    private static boolean fRk = true;
+    private static boolean fRl = true;
 
     private static i bgR() {
-        if (fQd == null) {
-            fQe = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
+        if (fRj == null) {
+            fRk = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016479, i.class);
             if (runTask != null) {
-                fQd = (i) runTask.getData();
+                fRj = (i) runTask.getData();
             }
         }
-        return fQd;
+        return fRj;
     }
 
     public static String P(String str, boolean z) {
         if (z) {
-            if (fQf && bgR() != null) {
+            if (fRl && bgR() != null) {
                 return bgR().o(str, true);
             }
             return str;
-        } else if (fQf && fQe && bgR() != null) {
-            return bgR().hP(str);
+        } else if (fRl && fRk && bgR() != null) {
+            return bgR().hQ(str);
         } else {
             return str;
         }
     }
 
-    public static String hQ(String str) {
+    public static String hR(String str) {
         if (bgR() != null) {
-            return bgR().hQ(str);
+            return bgR().hR(str);
         }
         return null;
     }
@@ -53,14 +53,14 @@ public class s {
     }
 
     public static void Z(Context context, String str) {
-        if (fQf && fQe && bgR() != null) {
+        if (fRl && fRk && bgR() != null) {
             bgR().Z(context, str);
         }
     }
 
-    public static void hR(String str) {
-        if (fQf && fQe && bgR() != null) {
-            bgR().hR(str);
+    public static void hS(String str) {
+        if (fRl && fRk && bgR() != null) {
+            bgR().hS(str);
         }
     }
 
@@ -70,11 +70,11 @@ public class s {
         }
     }
 
-    public static void lv(boolean z) {
-        fQe = z;
+    public static void lw(boolean z) {
+        fRk = z;
     }
 
     public static void bgS() {
-        fQf = com.baidu.adp.lib.b.d.eE().ak("android_video_cache_open") == 1;
+        fRl = com.baidu.adp.lib.b.d.eE().ak("android_video_cache_open") == 1;
     }
 }

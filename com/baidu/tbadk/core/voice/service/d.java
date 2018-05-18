@@ -5,7 +5,7 @@ public interface d {
 
     boolean isRecording();
 
-    boolean xE();
+    boolean xD();
 
-    void xF();
+    void xE();
 }

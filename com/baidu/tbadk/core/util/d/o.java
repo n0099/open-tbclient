@@ -15,14 +15,14 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
 
     @Override // com.baidu.adp.lib.f.e
     public boolean ft() {
-        return com.baidu.tbadk.core.i.pY().qe();
+        return com.baidu.tbadk.core.i.pX().qd();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.Fa().gG(str);
+        return com.baidu.tbadk.imageManager.c.EY().gG(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             d dVar = new d();
             dVar.f(cVar);
-            aVar.uq = dVar;
+            aVar.uo = dVar;
         }
         if (com.baidu.adp.lib.Disk.d.dp().c(cVar)) {
             int i = 2000;
@@ -75,7 +75,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             if (aVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                aVar.uq = dVar;
+                aVar.uo = dVar;
             }
         }
         return aVar2;
@@ -110,13 +110,13 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         String str3 = (!(TbadkCoreApplication.getInst().getCapabilityOfWebp() && com.baidu.adp.lib.b.d.eE().ak("webp_enable") == 1) || str.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = str.lastIndexOf(".jpg")) <= 0) ? str : str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4, str.length());
         com.baidu.tbadk.core.util.a.i iVar = new com.baidu.tbadk.core.util.a.i();
         if (aVar != null) {
-            aVar.uq = iVar;
+            aVar.uo = iVar;
         }
         byte[] j = iVar.j(str3, !this.akC);
-        if (j == null && !iVar.ff().tW) {
+        if (j == null && !iVar.ff().tV) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Fa().eX(TbConfig.getPbImageSize() + j.length);
+        com.baidu.tbadk.imageManager.c.EY().eY(TbConfig.getPbImageSize() + j.length);
         return a(str3, str2, aVar, null, a(BitmapHelper.Bytes2Bitmap(j), i, i2), iVar.isGif || com.baidu.adp.lib.util.l.l(j), iVar, j);
     }
 
@@ -125,7 +125,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.Fa().eX(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.EY().eY(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
         }
         return bitmap;
@@ -134,13 +134,13 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
-            com.baidu.tbadk.imageManager.c.Fa().c(str, (com.baidu.adp.widget.ImageView.a) obj);
+            com.baidu.tbadk.imageManager.c.EY().c(str, (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
     @Override // com.baidu.adp.lib.f.e
     public BdAsyncTaskParallel fu() {
-        return i.wz().fu();
+        return i.wy().fu();
     }
 
     @Override // com.baidu.adp.lib.f.e

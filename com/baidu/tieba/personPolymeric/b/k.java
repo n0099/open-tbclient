@@ -17,28 +17,28 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class k {
-    private BdUniqueId aTr;
-    private com.baidu.tbadk.core.dialog.f fJD;
-    private ArrayList<com.baidu.tbadk.core.dialog.h> fJE;
-    private String fJF;
-    private String fJG;
+    private BdUniqueId aTs;
+    private com.baidu.tbadk.core.dialog.f fKJ;
+    private ArrayList<com.baidu.tbadk.core.dialog.h> fKK;
+    private String fKL;
+    private String fKM;
     private TbPageContext mPageContext;
     private com.baidu.tbadk.core.view.a mWaitingDialog;
-    private HttpMessageListener fJH = new HttpMessageListener(CmdConfigHttp.CMD_USER_REPORT) { // from class: com.baidu.tieba.personPolymeric.b.k.1
+    private HttpMessageListener fKN = new HttpMessageListener(CmdConfigHttp.CMD_USER_REPORT) { // from class: com.baidu.tieba.personPolymeric.b.k.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
-                k.this.aas();
+                k.this.aav();
                 JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
                 String errorString = jsonHttpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
                     errorString = k.this.mPageContext.getString(jsonHttpResponsedMessage.getError() == 0 ? d.k.report_success : d.k.neterror);
                 }
                 if (jsonHttpResponsedMessage.getError() == 0) {
-                    k.this.fJC.i(errorString);
+                    k.this.fKI.i(errorString);
                 } else {
-                    k.this.fJC.j(errorString);
+                    k.this.fKI.j(errorString);
                 }
             }
         }
@@ -46,63 +46,63 @@ public class k {
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.personPolymeric.b.k.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            com.baidu.tbadk.core.dialog.h hVar = (com.baidu.tbadk.core.dialog.h) v.c(k.this.fJE, i);
+            com.baidu.tbadk.core.dialog.h hVar = (com.baidu.tbadk.core.dialog.h) v.c(k.this.fKK, i);
             if (hVar != null) {
-                k.this.fJF = hVar.getTag();
-                k.this.fJD.setPositiveButtonEnable(true);
+                k.this.fKL = hVar.getTag();
+                k.this.fKJ.setPositiveButtonEnable(true);
             }
-            k.this.fJD.refresh(i);
+            k.this.fKJ.refresh(i);
         }
     };
     private View.OnClickListener adj = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.k.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_USER_REPORT, k.this.aTr);
-            httpMessage.addParam("complaint_type", k.this.fJF);
-            httpMessage.addParam("complaint_uid", k.this.fJG);
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_USER_REPORT, k.this.aTs);
+            httpMessage.addParam("complaint_type", k.this.fKL);
+            httpMessage.addParam("complaint_uid", k.this.fKM);
             MessageManager.getInstance().sendMessage(httpMessage);
             k.this.showLoadingDialog();
-            k.this.fJD.dismiss();
+            k.this.fKJ.dismiss();
         }
     };
-    private View.OnClickListener fJI = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.k.4
+    private View.OnClickListener fKO = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.k.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            k.this.fJD.dismiss();
+            k.this.fKJ.dismiss();
         }
     };
-    private com.baidu.tbadk.core.view.b fJC = new com.baidu.tbadk.core.view.b();
+    private com.baidu.tbadk.core.view.b fKI = new com.baidu.tbadk.core.view.b();
 
     public k(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
-        this.aTr = bdUniqueId;
+        this.aTs = bdUniqueId;
         aen();
     }
 
     private void bfv() {
-        this.fJE = new ArrayList<>();
-        this.fJE.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_bad_account_nickname), null, false, "0"));
-        this.fJE.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_illegal_content), null, false, "1"));
-        this.fJE.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_photo_problem), null, false, "2"));
-        this.fJE.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_bad_tail), null, false, "3"));
+        this.fKK = new ArrayList<>();
+        this.fKK.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_bad_account_nickname), null, false, "0"));
+        this.fKK.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_illegal_content), null, false, "1"));
+        this.fKK.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_photo_problem), null, false, "2"));
+        this.fKK.add(new com.baidu.tbadk.core.dialog.h(this.mPageContext.getString(d.k.report_bad_tail), null, false, "3"));
     }
 
     private void aen() {
-        this.fJH.setTag(this.aTr);
-        this.fJH.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.fJH);
+        this.fKN.setTag(this.aTs);
+        this.fKN.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.fKN);
     }
 
-    public void jN(String str) {
+    public void jQ(String str) {
         bfv();
-        this.fJG = str;
-        this.fJD = new com.baidu.tbadk.core.dialog.f(this.mPageContext);
-        this.fJD.ci(d.k.report_dialog_title);
-        this.fJD.a(this.fJE, this.mOnItemClickListener);
-        this.fJD.a(d.k.confirm, this.adj);
-        this.fJD.b(d.k.cancel, this.fJI);
-        this.fJD.tH().tI();
-        this.fJD.setPositiveButtonEnable(false);
+        this.fKM = str;
+        this.fKJ = new com.baidu.tbadk.core.dialog.f(this.mPageContext);
+        this.fKJ.cj(d.k.report_dialog_title);
+        this.fKJ.a(this.fKK, this.mOnItemClickListener);
+        this.fKJ.a(d.k.confirm, this.adj);
+        this.fKJ.b(d.k.cancel, this.fKO);
+        this.fKJ.tG().tH();
+        this.fKJ.setPositiveButtonEnable(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class k {
             this.mWaitingDialog.d(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.personPolymeric.b.k.5
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    MessageManager.getInstance().removeMessage(k.this.aTr);
+                    MessageManager.getInstance().removeMessage(k.this.aTs);
                 }
             });
         }
@@ -120,7 +120,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aas() {
+    public void aav() {
         if (this.mWaitingDialog != null) {
             this.mWaitingDialog.aI(false);
         }

@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     private Class<? extends SocketResponsedMessage> mResponsedClass;
+    private boolean pu;
     private boolean pv;
     private boolean pw;
-    private boolean px;
-    private DupLicateMode py;
+    private DupLicateMode px;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -20,10 +20,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
+        this.pu = false;
         this.pv = false;
-        this.pw = false;
-        this.px = true;
-        this.py = DupLicateMode.NONE;
+        this.pw = true;
+        this.px = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -32,19 +32,19 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public void n(boolean z) {
-        this.pv = z;
+        this.pu = z;
     }
 
     public boolean dh() {
-        return this.pv;
+        return this.pu;
     }
 
     public boolean di() {
-        return this.pw;
+        return this.pv;
     }
 
     public void o(boolean z) {
-        this.pw = z;
+        this.pv = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -56,18 +56,18 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public boolean dj() {
-        return this.px;
+        return this.pw;
     }
 
     public void p(boolean z) {
-        this.px = z;
+        this.pw = z;
     }
 
     public DupLicateMode dk() {
-        return this.py;
+        return this.px;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.py = dupLicateMode;
+        this.px = dupLicateMode;
     }
 }

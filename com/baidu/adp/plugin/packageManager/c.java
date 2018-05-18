@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c BN;
-    private ArrayList<String> BC = new ArrayList<>();
-    private a BO;
+    private static volatile c BM;
+    private ArrayList<String> BB = new ArrayList<>();
+    private a BN;
 
     public static c iV() {
-        if (BN == null) {
+        if (BM == null) {
             synchronized (c.class) {
-                if (BN == null) {
-                    BN = new c();
+                if (BM == null) {
+                    BM = new c();
                 }
             }
         }
-        return BN;
+        return BM;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.BC.iterator();
+            Iterator<String> it = this.BB.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,7 +45,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.BC.add(pluginSetting.packageName);
+                this.BB.add(pluginSetting.packageName);
             }
             iR();
         }
@@ -53,9 +53,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void iR() {
-        if (this.BC.size() > 0 && this.BO == null) {
-            this.BO = new a(this.BC.get(0));
-            this.BO.execute(new String[0]);
+        if (this.BB.size() > 0 && this.BN == null) {
+            this.BN = new a(this.BB.get(0));
+            this.BN.execute(new String[0]);
         }
     }
 
@@ -83,16 +83,16 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.BO = null;
-            if (c.this.BC.size() > 0) {
-                Iterator it = c.this.BC.iterator();
+            c.this.BN = null;
+            if (c.this.BB.size() > 0) {
+                Iterator it = c.this.BB.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.BC.remove(str);
+                        c.this.BB.remove(str);
                         break;
                     }
                 }

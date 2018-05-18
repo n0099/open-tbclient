@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private final ArrayList<MetaData> hdi = new ArrayList<>();
-    private HashMap<String, String> hdj = null;
+    private final ArrayList<MetaData> hem = new ArrayList<>();
+    private HashMap<String, String> hen = null;
 
     public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.hdj == null) {
-                        this.hdj = new HashMap<>();
+                    if (this.hen == null) {
+                        this.hen = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.hdi.add(metaData);
+                        this.hem.add(metaData);
                         if (z) {
-                            this.hdj.put(metaData.getName_show(), metaData.getPortrait());
+                            this.hen.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,7 +40,7 @@ public class b {
         }
     }
 
-    public void uK(String str) {
+    public void uN(String str) {
         try {
             d(new JSONObject(str), true);
         } catch (Exception e) {
@@ -48,11 +48,11 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> bBZ() {
-        return this.hdi;
+    public ArrayList<MetaData> bBX() {
+        return this.hem;
     }
 
-    public HashMap<String, String> bCa() {
-        return this.hdj;
+    public HashMap<String, String> bBY() {
+        return this.hen;
     }
 }

@@ -15,26 +15,26 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.b, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.e>> implements com.baidu.tieba.a.f {
-    public BdUniqueId aTr;
-    private String bvX;
-    private com.baidu.tieba.homepage.concern.view.e dAO;
-    private ab<com.baidu.tieba.homepage.concern.b.b> dAP;
+    public BdUniqueId aTs;
+    private String bwO;
+    private com.baidu.tieba.homepage.concern.view.e dBV;
+    private ab<com.baidu.tieba.homepage.concern.b.b> dBW;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity().getBaseContext(), bdUniqueId);
-        this.dAP = new ab<com.baidu.tieba.homepage.concern.b.b>() { // from class: com.baidu.tieba.homepage.concern.a.a.1
+        this.dBW = new ab<com.baidu.tieba.homepage.concern.b.b>() { // from class: com.baidu.tieba.homepage.concern.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, com.baidu.tieba.homepage.concern.b.b bVar) {
-                if (view2 != null && a.this.dAO != null) {
+                if (view2 != null && a.this.dBV != null) {
                     al alVar = new al("c12407");
-                    alVar.f(ImageViewerConfig.FORUM_ID, bVar.cQu.getFid());
-                    alVar.ac("tid", bVar.cQu.getTid());
+                    alVar.f(ImageViewerConfig.FORUM_ID, bVar.cRB.getFid());
+                    alVar.ac("tid", bVar.cRB.getTid());
                     alVar.r("obj_type", 4);
-                    alVar.ac(VideoPlayActivityConfig.OBJ_ID, bVar.dBq.getUserId());
-                    if ((a.this.dAO.dBH == null || view2.getId() != a.this.dAO.dBH.getId()) && (a.this.dAO.bwj.getHeaderImg() == null || view2.getId() != a.this.dAO.bwj.getHeaderImg().getId())) {
-                        if (a.this.dAO.dBF != null && view2.getId() == a.this.dAO.dBF.getId()) {
+                    alVar.ac(VideoPlayActivityConfig.OBJ_ID, bVar.dCx.getUserId());
+                    if ((a.this.dBV.dCO == null || view2.getId() != a.this.dBV.dCO.getId()) && (a.this.dBV.bxa.getHeaderImg() == null || view2.getId() != a.this.dBV.bxa.getHeaderImg().getId())) {
+                        if (a.this.dBV.dCM != null && view2.getId() == a.this.dBV.dCM.getId()) {
                             alVar.r("obj_locate", 3);
                         } else {
                             alVar.r("obj_locate", 2);
@@ -42,7 +42,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                     } else {
                         alVar.r("obj_locate", 1);
                     }
-                    alVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.axo());
+                    alVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.axn());
                     TiebaStatic.log(alVar);
                 }
             }
@@ -55,11 +55,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.e> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dAO = new com.baidu.tieba.homepage.concern.view.e(this.mPageContext);
-        if (this.aTr != null) {
-            this.dAO.j(this.aTr);
+        this.dBV = new com.baidu.tieba.homepage.concern.view.e(this.mPageContext);
+        if (this.aTs != null) {
+            this.dBV.j(this.aTs);
         }
-        return new com.baidu.tieba.card.a.a<>(this.dAO);
+        return new com.baidu.tieba.card.a.a<>(this.dBV);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,21 +67,21 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.e> aVar) {
-        if (bVar.dBq == null || aVar == null || StringUtils.isNull(bVar.dBq.getName()) || StringUtils.isNull(bVar.dBq.getUserId())) {
+        if (bVar.dCx == null || aVar == null || StringUtils.isNull(bVar.dCx.getName()) || StringUtils.isNull(bVar.dCx.getUserId())) {
             return null;
         }
         if (aVar.afY() instanceof com.baidu.tieba.a.e) {
-            aVar.afY().setPage(this.bvX);
+            aVar.afY().setPage(this.bwO);
         }
         aVar.afY().a(bVar);
-        aVar.afY().b(this.dAP);
+        aVar.afY().b(this.dBW);
         aVar.afY().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        v.afy().a(new al("c12353").f("uid", TbadkCoreApplication.getCurrentAccountId()).ac(VideoPlayActivityConfig.OBJ_ID, bVar.dBq.getUserId()).r("obj_type", 4).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.axo()).ac("tid", bVar.cQu.getTid()));
+        v.afy().a(new al("c12353").f("uid", TbadkCoreApplication.getCurrentAccountId()).ac(VideoPlayActivityConfig.OBJ_ID, bVar.dCx.getUserId()).r("obj_type", 4).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.axn()).ac("tid", bVar.cRB.getTid()));
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void hY(String str) {
-        this.bvX = str;
+    public void hZ(String str) {
+        this.bwO = str;
     }
 }

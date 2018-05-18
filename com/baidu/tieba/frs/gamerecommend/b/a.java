@@ -20,99 +20,99 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private Object[] diT;
+    private Object[] dka;
     private List<h> mData = new ArrayList();
-    private List<bd> diS = new ArrayList();
+    private List<bd> djZ = new ArrayList();
 
     public void a(int i, com.baidu.tieba.frs.gamerecommend.data.a aVar) {
         if (aVar != null) {
             if (1 == i) {
                 this.mData.clear();
-                this.diS.clear();
-                this.diT = new Object[aVar.diF + 10];
+                this.djZ.clear();
+                this.dka = new Object[aVar.djM + 10];
             }
-            if (!v.w(aVar.diG)) {
-                ArrayList arrayList = new ArrayList(aVar.diG.size());
-                for (bd bdVar : aVar.diG) {
+            if (!v.w(aVar.djN)) {
+                ArrayList arrayList = new ArrayList(aVar.djN.size());
+                for (bd bdVar : aVar.djN) {
                     if (bdVar != null) {
                         arrayList.add(bdVar);
                     }
                 }
-                this.diS.addAll(arrayList);
+                this.djZ.addAll(arrayList);
             }
             if (1 == i) {
                 a(aVar);
             }
             this.mData.clear();
+            asO();
             asP();
-            asQ();
             b(aVar);
         }
     }
 
     private void a(com.baidu.tieba.frs.gamerecommend.data.a aVar) {
-        if (!v.w(aVar.diI)) {
-            for (FeatureCardHot featureCardHot : aVar.diI) {
+        if (!v.w(aVar.djP)) {
+            for (FeatureCardHot featureCardHot : aVar.djP) {
                 if (featureCardHot != null && featureCardHot.isValid()) {
-                    kK(featureCardHot.floor.intValue());
-                    this.diT[featureCardHot.floor.intValue()] = featureCardHot;
+                    kJ(featureCardHot.floor.intValue());
+                    this.dka[featureCardHot.floor.intValue()] = featureCardHot;
                 }
             }
         }
-        if (!v.w(aVar.diJ)) {
-            for (FeatureCardTopic featureCardTopic : aVar.diJ) {
+        if (!v.w(aVar.djQ)) {
+            for (FeatureCardTopic featureCardTopic : aVar.djQ) {
                 if (featureCardTopic != null && featureCardTopic.isValid()) {
-                    kK(featureCardTopic.floor.intValue());
-                    this.diT[featureCardTopic.floor.intValue()] = featureCardTopic;
+                    kJ(featureCardTopic.floor.intValue());
+                    this.dka[featureCardTopic.floor.intValue()] = featureCardTopic;
                 }
             }
         }
-        if (!v.w(aVar.diK)) {
-            for (b bVar : aVar.diK) {
+        if (!v.w(aVar.djR)) {
+            for (b bVar : aVar.djR) {
                 if (bVar != null && bVar.isValid()) {
-                    kK(bVar.floor.intValue());
-                    this.diT[bVar.floor.intValue()] = bVar;
+                    kJ(bVar.floor.intValue());
+                    this.dka[bVar.floor.intValue()] = bVar;
                 }
             }
         }
-        if (!v.w(aVar.diL)) {
-            for (FeatureCardCompetition featureCardCompetition : aVar.diL) {
+        if (!v.w(aVar.djS)) {
+            for (FeatureCardCompetition featureCardCompetition : aVar.djS) {
                 if (featureCardCompetition != null && featureCardCompetition.isValid()) {
-                    kK(featureCardCompetition.floor.intValue());
-                    this.diT[featureCardCompetition.floor.intValue()] = featureCardCompetition;
+                    kJ(featureCardCompetition.floor.intValue());
+                    this.dka[featureCardCompetition.floor.intValue()] = featureCardCompetition;
                 }
             }
         }
-        if (!v.w(aVar.diM)) {
-            for (FeatureCardGod featureCardGod : aVar.diM) {
+        if (!v.w(aVar.djT)) {
+            for (FeatureCardGod featureCardGod : aVar.djT) {
                 if (featureCardGod != null && featureCardGod.isValid()) {
-                    kK(featureCardGod.floor.intValue());
-                    this.diT[featureCardGod.floor.intValue()] = featureCardGod;
+                    kJ(featureCardGod.floor.intValue());
+                    this.dka[featureCardGod.floor.intValue()] = featureCardGod;
                 }
             }
         }
-        if (!v.w(aVar.diN)) {
-            for (FeatureCardGame featureCardGame : aVar.diN) {
+        if (!v.w(aVar.djU)) {
+            for (FeatureCardGame featureCardGame : aVar.djU) {
                 if (featureCardGame != null && featureCardGame.isValid()) {
-                    kK(featureCardGame.floor.intValue());
-                    this.diT[featureCardGame.floor.intValue()] = featureCardGame;
+                    kJ(featureCardGame.floor.intValue());
+                    this.dka[featureCardGame.floor.intValue()] = featureCardGame;
                 }
             }
         }
     }
 
-    private void kK(int i) {
-        if (i >= this.diT.length) {
-            this.diT = Arrays.copyOf(this.diT, i + 1);
+    private void kJ(int i) {
+        if (i >= this.dka.length) {
+            this.dka = Arrays.copyOf(this.dka, i + 1);
         }
     }
 
-    private void asP() {
+    private void asO() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.diS.size()) {
-                bd bdVar = this.diS.get(i2);
+            if (i2 < this.djZ.size()) {
+                bd bdVar = this.djZ.get(i2);
                 if (bdVar != null) {
                     if (i2 % 4 == 0) {
                         com.baidu.tieba.e.a aVar = new com.baidu.tieba.e.a();
@@ -131,10 +131,10 @@ public class a {
         }
     }
 
-    private void asQ() {
-        if (this.diT != null && this.diT.length > 0) {
-            for (int i = 0; i < this.diT.length; i++) {
-                Object obj = this.diT[i];
+    private void asP() {
+        if (this.dka != null && this.dka.length > 0) {
+            for (int i = 0; i < this.dka.length; i++) {
+                Object obj = this.dka[i];
                 if (obj != null) {
                     int i2 = i - 1;
                     if (i2 < 0) {
@@ -174,7 +174,7 @@ public class a {
 
     private void b(com.baidu.tieba.frs.gamerecommend.data.a aVar) {
         g gVar = new g();
-        gVar.a(aVar.diH);
+        gVar.a(aVar.djO);
         this.mData.add(0, gVar);
     }
 

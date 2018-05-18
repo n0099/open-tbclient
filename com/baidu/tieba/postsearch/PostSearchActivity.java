@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 /* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String cVK;
-    private g fSR;
-    private d fSS;
+    public String cWR;
+    private g fTX;
+    private d fTY;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -23,7 +23,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.rw(i);
+            PostSearchActivity.this.rv(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -35,58 +35,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fSR = new g(this);
-        this.fSR.initView();
-        this.fSR.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.fSS = new d(this);
+        this.fTX = new g(this);
+        this.fTX.initView();
+        this.fTX.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.fTY = new d(this);
         initData();
     }
 
-    public void rC(String str) {
-        this.cVK = str;
-        this.fSR.rC(1);
-        this.fSS.bij();
-        this.fSR.showLoadingView();
+    public void rF(String str) {
+        this.cWR = str;
+        this.fTX.rB(1);
+        this.fTY.bij();
+        this.fTX.showLoadingView();
     }
 
-    public void rB(String str) {
-        this.fSR.rB(str);
+    public void rE(String str) {
+        this.fTX.rE(str);
     }
 
     public void bhT() {
-        this.fSR.as(this.fSS.fTq);
+        this.fTX.as(this.fTY.fUw);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.aGI())) {
-            this.fSR.Ou();
-            this.fSR.bin();
+        if (i == 1 && (bVar == null || !bVar.aGG())) {
+            this.fTX.Os();
+            this.fTX.bin();
             return;
         }
-        this.fSR.Ou();
-        this.fSR.bib();
-        this.fSR.a(i, bVar, z);
+        this.fTX.Os();
+        this.fTX.bib();
+        this.fTX.a(i, bVar, z);
     }
 
     public boolean bhU() {
-        return this.fSR.bhU();
+        return this.fTX.bhU();
     }
 
     public void bhP() {
-        this.fSR.bhP();
+        this.fTX.bhP();
     }
 
     public d bhV() {
-        return this.fSS;
+        return this.fTY;
     }
 
     public g bhW() {
-        return this.fSR;
+        return this.fTX;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.fSR.onChangeSkinType(i);
+        this.fTX.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -95,20 +95,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.fSS.big();
+        this.fTY.big();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.fSR != null) {
-            this.fSR.onDestroy();
+        if (this.fTX != null) {
+            this.fTX.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rw(int i) {
+    public void rv(int i) {
         int i2 = 0;
         switch (i) {
             case 0:

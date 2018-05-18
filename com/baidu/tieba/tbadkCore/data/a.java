@@ -6,15 +6,15 @@ import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
     private int ajF;
-    private String gvK;
-    private String gvL;
-    private String gvM;
+    private String gwO;
+    private String gwP;
+    private String gwQ;
     private int mHeight;
     private String mTitle;
     private int mWidth;
 
-    public String brz() {
-        return this.gvK;
+    public String brx() {
+        return this.gwO;
     }
 
     public int getImageWidth() {
@@ -25,8 +25,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String brA() {
-        return this.gvL;
+    public String bry() {
+        return this.gwP;
     }
 
     public String getTitle() {
@@ -34,7 +34,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.gvM;
+        return this.gwQ;
     }
 
     public void a(ActHot actHot) {
@@ -55,10 +55,10 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.gvK = actHot.img_src;
-            this.gvL = actHot.link;
+            this.gwO = actHot.img_src;
+            this.gwP = actHot.link;
             this.mTitle = actHot.author_name;
-            this.gvM = actHot.img_des;
+            this.gwQ = actHot.img_des;
             this.ajF = actHot.img_type.intValue();
         }
     }

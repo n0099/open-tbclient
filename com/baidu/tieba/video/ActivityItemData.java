@@ -9,14 +9,14 @@ public class ActivityItemData implements Parcelable, Serializable {
     public static final Parcelable.Creator<ActivityItemData> CREATOR = new Parcelable.Creator<ActivityItemData>() { // from class: com.baidu.tieba.video.ActivityItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: s */
+        /* renamed from: t */
         public ActivityItemData createFromParcel(Parcel parcel) {
             return new ActivityItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ud */
+        /* renamed from: uc */
         public ActivityItemData[] newArray(int i) {
             return new ActivityItemData[i];
         }

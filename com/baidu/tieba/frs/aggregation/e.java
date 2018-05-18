@@ -15,31 +15,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a.a<b>> {
-    private List<b> Ji;
-    private b dbj;
-    private boolean dbk;
-    private a dbl;
-    private boolean dbm;
-    private ab<g> dbn;
+    private List<b> Je;
+    private b dcq;
+    private boolean dcr;
+    private a dcs;
+    private boolean dct;
+    private ab<g> dcv;
     private Handler mHandler;
     private TbPageContext mPageContext;
 
     public e(TbPageContext<?> tbPageContext, a aVar, boolean z) {
-        super(tbPageContext.getPageActivity().getBaseContext(), g.dbs);
-        this.Ji = new ArrayList();
+        super(tbPageContext.getPageActivity().getBaseContext(), g.dcA);
+        this.Je = new ArrayList();
         this.mHandler = new Handler();
-        this.dbn = new ab<g>() { // from class: com.baidu.tieba.frs.aggregation.e.1
+        this.dcv = new ab<g>() { // from class: com.baidu.tieba.frs.aggregation.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, g gVar) {
                 if (view2 != null && gVar != null) {
                     if ((view2.getId() == d.g.video_container || view2.getId() == d.g.video_agg_container || view2.getId() == d.g.mobile_network_play) && view2.getTag() != null && (view2.getTag() instanceof b)) {
                         b bVar = (b) view2.getTag();
-                        if (e.this.dbj != null && e.this.dbj != bVar && (view2.getId() == d.g.video_container || view2.getId() == d.g.mobile_network_play)) {
-                            e.this.dbj.aqS();
+                        if (e.this.dcq != null && e.this.dcq != bVar && (view2.getId() == d.g.video_container || view2.getId() == d.g.mobile_network_play)) {
+                            e.this.dcq.aqR();
                         }
-                        if (e.this.dbj != bVar) {
-                            e.this.dbj = bVar;
+                        if (e.this.dcq != bVar) {
+                            e.this.dcq = bVar;
                         }
                     }
                     if (view2.getId() == d.g.title) {
@@ -89,20 +89,20 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
             }
         };
         this.mPageContext = tbPageContext;
-        this.dbl = aVar;
-        this.dbm = z;
+        this.dcs = aVar;
+        this.dct = z;
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.dbj != null) {
-            this.dbk = true;
-            this.dbj.onConfigurationChanged(configuration);
+        if (this.dcq != null) {
+            this.dcr = true;
+            this.dcq.onConfigurationChanged(configuration);
             if (configuration.orientation == 1) {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.aggregation.e.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.this.dbk) {
-                            e.this.dbk = false;
+                        if (e.this.dcr) {
+                            e.this.dcr = false;
                         }
                     }
                 }, 500L);
@@ -115,9 +115,9 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<b> onCreateViewHolder(ViewGroup viewGroup) {
-        b bVar = new b(this.mPageContext, this.dbm);
-        bVar.b(this.dbn);
-        this.Ji.add(bVar);
+        b bVar = new b(this.mPageContext, this.dct);
+        bVar.b(this.dcv);
+        this.Je.add(bVar);
         return new com.baidu.tieba.card.a.a<>(bVar);
     }
 
@@ -129,44 +129,44 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
         if (gVar == null || aVar == null) {
             return null;
         }
-        if (!this.dbk) {
-            aVar.afY().a(gVar, i, this.dbl);
+        if (!this.dcr) {
+            aVar.afY().a(gVar, i, this.dcs);
             aVar.afY().mPosition = i;
         }
         return aVar.getView();
     }
 
-    public boolean lC() {
-        if (this.dbj != null) {
-            return this.dbj.isPlaying();
+    public boolean lB() {
+        if (this.dcq != null) {
+            return this.dcq.isPlaying();
         }
         return false;
     }
 
-    public void lA() {
-        if (this.dbj != null) {
-            this.dbj.aqR();
+    public void lz() {
+        if (this.dcq != null) {
+            this.dcq.aqQ();
         }
     }
 
-    public void lB() {
-        if (this.dbj != null) {
-            this.dbj.aqS();
+    public void lA() {
+        if (this.dcq != null) {
+            this.dcq.aqR();
         }
     }
 
     public void onDestroy() {
-        for (b bVar : this.Ji) {
+        for (b bVar : this.Je) {
             if (bVar != null) {
                 bVar.onDestroy();
             }
         }
     }
 
-    public boolean kq(int i) {
-        if (this.dbj == null) {
+    public boolean kp(int i) {
+        if (this.dcq == null) {
             return false;
         }
-        return this.dbj.kq(i);
+        return this.dcq.kp(i);
     }
 }

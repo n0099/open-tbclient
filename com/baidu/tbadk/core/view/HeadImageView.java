@@ -97,8 +97,8 @@ public class HeadImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.aKM) {
-            this.mPerfLog.GR();
+        } else if (this.mPerfLog != null && this.mPerfLog.aKN) {
+            this.mPerfLog.GP();
         }
     }
 

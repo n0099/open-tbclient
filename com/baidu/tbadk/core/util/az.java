@@ -33,14 +33,14 @@ public class az {
         ajv = true;
     }
 
-    private static void wh() {
+    private static void wg() {
         if (mAppContext != null && mAppContext.getResources() != null) {
             aju = mAppContext.getResources().getColor(d.C0126d.common_color_10097);
             ajt = mAppContext.getResources().getColor(d.C0126d.common_color_10004);
         }
     }
 
-    private static int cX(int i) {
+    private static int cY(int i) {
         return aG(i == 1);
     }
 
@@ -48,7 +48,7 @@ public class az {
     public static int aG(boolean z) {
         if (ajv) {
             ajv = false;
-            wh();
+            wg();
         }
         return z ? ajt : aju;
     }
@@ -203,13 +203,13 @@ public class az {
 
     public static void b(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cX(i));
+            textView.setTextColor(cY(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cX(i));
+            checkBox.setTextColor(cY(i));
         }
     }
 

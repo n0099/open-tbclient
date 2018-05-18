@@ -44,8 +44,8 @@ public class q implements com.baidu.b.a.b.c {
             return false;
         }
         if (view2 instanceof TbClipImageView) {
-            if (aVar.Lw > 0.0f) {
-                ((TbClipImageView) view2).setRadius((int) (aVar.Lw * view2.getResources().getDisplayMetrics().density));
+            if (aVar.Ls > 0.0f) {
+                ((TbClipImageView) view2).setRadius((int) (aVar.Ls * view2.getResources().getDisplayMetrics().density));
             } else {
                 ((TbClipImageView) view2).setRadius(0);
             }
@@ -57,7 +57,7 @@ public class q implements com.baidu.b.a.b.c {
             int dimension = (int) view2.getContext().getResources().getDimension(d.e.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
-            builder.thumbnail_url = aVar.Lv;
+            builder.thumbnail_url = aVar.Lr;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);
@@ -98,7 +98,7 @@ public class q implements com.baidu.b.a.b.c {
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str4, int i) {
                 if (str2.equalsIgnoreCase(str4)) {
-                    view2.setBackgroundDrawable(aVar.ko());
+                    view2.setBackgroundDrawable(aVar.kn());
                 }
             }
         }, null);

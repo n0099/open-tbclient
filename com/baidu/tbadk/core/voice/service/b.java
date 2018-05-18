@@ -53,11 +53,11 @@ public class b {
         if (dp == null) {
             dp = new i();
             dp.eY(e);
-            dp.dN(0);
+            dp.dO(0);
             dp.Q(file.length());
         }
         this.arF = new a(str, dp, TbConfig.SERVER_ADDRESS + this.arH, e);
-        this.arG = this.arF.xG();
+        this.arG = this.arF.xF();
         if (this.arG.isSuccess() && (a2 = a(e, dp)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
@@ -75,7 +75,7 @@ public class b {
 
     private String a(String str, i iVar) {
         this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.arI);
-        this.mNetwork.n("voice_md5", iVar.yw());
+        this.mNetwork.n("voice_md5", iVar.yv());
         if (v.v(this.arJ) != 0) {
             for (C0089b c0089b : this.arJ) {
                 if (c0089b != null) {
@@ -83,17 +83,17 @@ public class b {
                 }
             }
         }
-        String uL = this.mNetwork.uL();
-        if (uL == null || !this.mNetwork.vj().wj().isRequestSuccess()) {
-            iVar.dN((int) P(iVar.getTotalLength()));
+        String uK = this.mNetwork.uK();
+        if (uK == null || !this.mNetwork.vi().wi().isRequestSuccess()) {
+            iVar.dO((int) P(iVar.getTotalLength()));
             com.baidu.tbadk.core.util.c.a(iVar);
-            this.arG.setErrorCode(this.mNetwork.vn());
+            this.arG.setErrorCode(this.mNetwork.vm());
             this.arG.setErrorString(this.mNetwork.getErrorString());
             this.arG.az(false);
             return null;
         }
         com.baidu.tbadk.core.util.c.m14do(str);
-        return uL;
+        return uK;
     }
 
     private long P(long j) {
@@ -121,16 +121,16 @@ public class b {
             this.mVoiceMd5 = str3;
         }
 
-        public j xG() throws IOException {
+        public j xF() throws IOException {
             j jVar = new j();
             long totalLength = this.arK.getTotalLength();
             long j = totalLength % 30720 == 0 ? totalLength / 30720 : (totalLength / 30720) + 1;
-            int yx = this.arK.yx();
-            if (yx < j) {
+            int yw = this.arK.yw();
+            if (yw < j) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");
-                if (randomAccessFile.skipBytes(yx * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) >= yx * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
+                if (randomAccessFile.skipBytes(yw * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) >= yw * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
                     while (true) {
-                        int i = yx;
+                        int i = yw;
                         if (i < j) {
                             int i2 = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
                             if (i == j - 1) {
@@ -141,7 +141,7 @@ public class b {
                             if (read != -1) {
                                 this.mNetWork = new x(this.mUrl);
                                 this.mNetWork.d("voice_chunk", bArr);
-                                this.mNetWork.n("chunk_md5", this.arK.yw());
+                                this.mNetWork.n("chunk_md5", this.arK.yv());
                                 this.mNetWork.n("length", String.valueOf(read));
                                 this.mNetWork.n(WBPageConstants.ParamKey.OFFSET, String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
                                 this.mNetWork.n("total_length", String.valueOf(totalLength));
@@ -151,21 +151,21 @@ public class b {
                                 boolean z = false;
                                 if (this.arL) {
                                     z = true;
-                                } else if (this.mNetWork.uO() == null || !this.mNetWork.vj().wj().isRequestSuccess()) {
-                                    this.arK.dN(i);
+                                } else if (this.mNetWork.uN() == null || !this.mNetWork.vi().wi().isRequestSuccess()) {
+                                    this.arK.dO(i);
                                     com.baidu.tbadk.core.util.c.a(this.arK);
                                     randomAccessFile.close();
                                     z = true;
                                 }
                                 if (z) {
-                                    jVar.setErrorCode(this.mNetWork.vn());
+                                    jVar.setErrorCode(this.mNetWork.vm());
                                     jVar.setErrorString(this.mNetWork.getErrorString());
                                     jVar.b(this.arK);
                                     jVar.az(false);
                                     return jVar;
                                 }
                             }
-                            yx = i + 1;
+                            yw = i + 1;
                         } else {
                             randomAccessFile.close();
                             break;

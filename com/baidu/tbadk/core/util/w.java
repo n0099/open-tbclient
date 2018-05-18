@@ -19,7 +19,7 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     /* loaded from: classes.dex */
     public interface a {
-        void vh();
+        void vg();
     }
 
     public w(Context context) {
@@ -83,7 +83,7 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
             }
         }
         if (this.ahj && this.ahk != null) {
-            this.ahk.vh();
+            this.ahk.vg();
         }
     }
 }

@@ -16,15 +16,15 @@ public class b {
     private TextView amw;
     private ImageView amx;
     private Context mContext;
-    private Toast xk;
+    private Toast xj;
     public long ams = 3000;
     private int amt = -1;
     private int amu = -1;
     private Runnable amz = new Runnable() { // from class: com.baidu.tbadk.core.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.xk != null) {
-                b.this.xk.cancel();
+            if (b.this.xj != null) {
+                b.this.xj.cancel();
             }
         }
     };
@@ -49,14 +49,14 @@ public class b {
 
     public void B(View view2) {
         this.amy.removeCallbacks(this.amz);
-        if (this.xk == null) {
-            this.xk = new Toast(this.mContext);
+        if (this.xj == null) {
+            this.xj = new Toast(this.mContext);
         }
         this.amy.postDelayed(this.amz, this.ams);
-        this.xk.setView(view2);
-        this.xk.setDuration(1);
-        this.xk.setGravity(17, 0, 0);
-        this.xk.show();
+        this.xj.setView(view2);
+        this.xj.setDuration(1);
+        this.xj.setGravity(17, 0, 0);
+        this.xj.show();
     }
 
     public void i(CharSequence charSequence) {

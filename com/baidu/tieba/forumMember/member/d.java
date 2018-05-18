@@ -6,23 +6,23 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class d {
-    private com.baidu.adp.lib.cache.l<byte[]> bmz;
+    private com.baidu.adp.lib.cache.l<byte[]> bmO;
 
     public d() {
-        aob();
+        aoa();
     }
 
-    public void aob() {
-        if (this.bmz == null) {
-            this.bmz = com.baidu.tbadk.core.c.a.tz().cY("tb.forum_member_info");
+    public void aoa() {
+        if (this.bmO == null) {
+            this.bmO = com.baidu.tbadk.core.c.a.ty().cY("tb.forum_member_info");
         }
     }
 
-    public byte[] lz(String str) {
+    public byte[] lC(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        l.b<byte[]> ab = this.bmz != null ? this.bmz.ab(str + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
+        l.b<byte[]> ab = this.bmO != null ? this.bmO.ab(str + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
         if (ab == null || ab.value == null) {
             return null;
         }
@@ -32,8 +32,8 @@ public class d {
     public void k(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            aob();
-            this.bmz.a(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+            aoa();
+            this.bmO.a(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

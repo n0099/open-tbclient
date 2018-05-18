@@ -44,7 +44,7 @@ public class h {
         }
     }
 
-    public static void uC() {
+    public static void uB() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.h.1
             @Override // java.lang.Runnable
             public void run() {

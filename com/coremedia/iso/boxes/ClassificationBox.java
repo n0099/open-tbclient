@@ -74,7 +74,7 @@ public class ClassificationBox extends AbstractFullBox {
     }
 
     public void setClassificationTableIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wj(i)));
         this.classificationTableIndex = i;
     }
 

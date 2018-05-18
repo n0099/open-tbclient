@@ -12,10 +12,10 @@ import com.baidu.tieba.channel.message.ChannelUpdateInfoHttpResponsedMessage;
 public class ChannelEditModel extends BdBaseModel<ChannelEditActivity> {
     public ChannelEditModel(ChannelEditActivity channelEditActivity) {
         super(channelEditActivity.getPageContext());
-        AE();
+        registerTask();
     }
 
-    private void AE() {
+    private void registerTask() {
         c.a(CmdConfigHttp.CMD_CHANNEL_UPDATE_INFO, TbConfig.CMD_CHANNEL_UPDATE_INFO, ChannelUpdateInfoHttpResponsedMessage.class);
     }
 

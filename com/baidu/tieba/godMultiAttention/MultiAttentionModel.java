@@ -30,7 +30,7 @@ public class MultiAttentionModel extends BdBaseModel {
         return false;
     }
 
-    public void awA() {
+    public void awz() {
         this.mIsLoading = false;
     }
 

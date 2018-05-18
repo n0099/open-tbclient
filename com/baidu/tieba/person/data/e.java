@@ -5,18 +5,18 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class e {
     private ArrayList<h> adv;
-    private boolean fCU = true;
+    private boolean fEa = true;
 
     public void ap(ArrayList<h> arrayList) {
         this.adv = arrayList;
     }
 
     public boolean bdD() {
-        return this.fCU;
+        return this.fEa;
     }
 
-    public void kR(boolean z) {
-        this.fCU = z;
+    public void kS(boolean z) {
+        this.fEa = z;
     }
 
     public ArrayList<h> bdE() {

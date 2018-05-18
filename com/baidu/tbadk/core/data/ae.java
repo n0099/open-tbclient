@@ -66,23 +66,23 @@ public class ae {
         return this.linkUrl;
     }
 
-    public String qO() {
+    public String qN() {
         return this.Yv;
     }
 
-    public String qP() {
+    public String qO() {
         return this.Yw;
     }
 
-    public String qQ() {
+    public String qP() {
         return this.Yx;
     }
 
-    public int qR() {
+    public int qQ() {
         return this.Yy;
     }
 
-    public boolean qS() {
+    public boolean qR() {
         return this.Yz;
     }
 }

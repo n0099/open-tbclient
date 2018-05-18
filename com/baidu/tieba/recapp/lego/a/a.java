@@ -9,17 +9,17 @@ public class a {
     public static boolean D(Activity activity) {
         Resources resources;
         int identifier;
-        if (!aKS() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", Constants.OS_TYPE_VALUE)) <= 0) {
+        if (!aKR() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", Constants.OS_TYPE_VALUE)) <= 0) {
             return false;
         }
         return resources.getBoolean(identifier);
     }
 
-    public static boolean aKS() {
-        return aKT() >= 14;
+    public static boolean aKR() {
+        return aKS() >= 14;
     }
 
-    public static int aKT() {
+    public static int aKS() {
         try {
             return Integer.valueOf(Build.VERSION.SDK).intValue();
         } catch (NumberFormatException e) {

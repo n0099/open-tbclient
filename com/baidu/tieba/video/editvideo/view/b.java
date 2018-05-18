@@ -26,58 +26,58 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.base.c {
-    private a gLo;
-    private CoverSeekBar gNZ;
-    private LinearLayout gOa;
-    private HListView gOb;
-    private com.baidu.tieba.video.editvideo.a.a gOc;
-    private CoverPendantDragView gOd;
+    private a gMr;
+    private CoverSeekBar gPc;
+    private LinearLayout gPd;
+    private HListView gPe;
+    private com.baidu.tieba.video.editvideo.a.a gPf;
+    private CoverPendantDragView gPg;
     private Resources mResources;
     private View mRootView;
 
     public b(e eVar, a aVar) {
         super(eVar);
-        this.gLo = aVar;
+        this.gMr = aVar;
         this.mRootView = LayoutInflater.from(eVar.getPageActivity()).inflate(d.i.edit_cover_layout, (ViewGroup) null);
         this.mResources = this.mRootView.getResources();
         initView();
     }
 
     private void initView() {
-        this.gNZ = (CoverSeekBar) this.mRootView.findViewById(d.g.cover_seek_bar);
-        this.gOb = (HListView) this.mRootView.findViewById(d.g.pendant_list_view);
-        this.gOc = new com.baidu.tieba.video.editvideo.a.a(getPageContext());
-        this.gOc.a(new a.InterfaceC0222a() { // from class: com.baidu.tieba.video.editvideo.view.b.1
+        this.gPc = (CoverSeekBar) this.mRootView.findViewById(d.g.cover_seek_bar);
+        this.gPe = (HListView) this.mRootView.findViewById(d.g.pendant_list_view);
+        this.gPf = new com.baidu.tieba.video.editvideo.a.a(getPageContext());
+        this.gPf.a(new a.InterfaceC0222a() { // from class: com.baidu.tieba.video.editvideo.view.b.1
             @Override // com.baidu.tieba.video.editvideo.a.a.InterfaceC0222a
             public void a(View view2, int i, PendantData pendantData) {
-                b.this.gOd.a(view2, pendantData);
+                b.this.gPg.a(view2, pendantData);
                 al alVar = new al("c12305");
                 alVar.r("obj_locate", i + 1);
                 TiebaStatic.log(alVar);
             }
         });
-        this.gOb.setAdapter((ListAdapter) this.gOc);
-        this.gOc.setData(bxq());
-        this.gNZ.setOnProgressChanged(new CoverSeekBar.a() { // from class: com.baidu.tieba.video.editvideo.view.b.2
+        this.gPe.setAdapter((ListAdapter) this.gPf);
+        this.gPf.setData(bxo());
+        this.gPc.setOnProgressChanged(new CoverSeekBar.a() { // from class: com.baidu.tieba.video.editvideo.view.b.2
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
             public void onProgress(int i) {
-                long duration = (b.this.gLo.bxf().getDuration() * i) / 1000;
-                b.this.gNZ.setProgressImage(i, (int) duration);
-                b.this.gLo.bxf().seekTo((int) duration);
+                long duration = (b.this.gMr.bxd().getDuration() * i) / 1000;
+                b.this.gPc.setProgressImage(i, (int) duration);
+                b.this.gMr.bxd().seekTo((int) duration);
             }
 
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
-            public void bxa() {
+            public void bwY() {
             }
 
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
-            public void bxb() {
+            public void bwZ() {
                 TiebaStatic.log("c12304");
             }
         });
     }
 
-    private List<PendantData> bxq() {
+    private List<PendantData> bxo() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(0, new PendantData(0));
         arrayList.add(1, new PendantData(1));
@@ -86,45 +86,45 @@ public class b extends com.baidu.adp.base.c {
         return arrayList;
     }
 
-    public void dz(List<PendantData> list) {
+    public void dC(List<PendantData> list) {
         if (list == null) {
             list = new ArrayList<>();
         }
-        list.addAll(0, bxq());
-        this.gOc.setData(list);
+        list.addAll(0, bxo());
+        this.gPf.setData(list);
     }
 
-    public void bxr() {
-        this.gOd.setVideoSize(this.gLo.bxf().getWidth(), this.gLo.bxf().getHeight());
-        this.gOd.setVideoLocation(this.gLo.bxf().getLeft(), this.gLo.bxf().getTop(), this.gLo.bxf().getRight(), this.gLo.bxf().getBottom());
+    public void bxp() {
+        this.gPg.setVideoSize(this.gMr.bxd().getWidth(), this.gMr.bxd().getHeight());
+        this.gPg.setVideoLocation(this.gMr.bxd().getLeft(), this.gMr.bxd().getTop(), this.gMr.bxd().getRight(), this.gMr.bxd().getBottom());
     }
 
     public void bhP() {
-        this.gOd.bhP();
+        this.gPg.bhP();
     }
 
     public String getText() {
-        return this.gOd.getText();
+        return this.gPg.getText();
     }
 
     public Bitmap t(Bitmap bitmap) {
-        this.gOd.bhP();
-        String text = this.gOd.getText();
+        this.gPg.bhP();
+        String text = this.gPg.getText();
         if (bitmap == null || TextUtils.isEmpty(text)) {
             return null;
         }
-        int width = this.gLo.bxf().getWidth();
-        int height = this.gLo.bxf().getHeight();
+        int width = this.gMr.bxd().getWidth();
+        int height = this.gMr.bxd().getHeight();
         int width2 = bitmap.getWidth();
         int height2 = bitmap.getHeight();
         Bitmap createBitmap = Bitmap.createBitmap(width2, height2, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-        Bitmap tempBitmap = this.gOd.getTempBitmap();
+        Bitmap tempBitmap = this.gPg.getTempBitmap();
         if (tempBitmap != null) {
             Matrix matrix = new Matrix();
             matrix.postScale(width2 / width, height2 / height);
-            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.gLo.bxf().getLeft(), this.gLo.bxf().getTop(), width, height, matrix, true);
+            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.gMr.bxd().getLeft(), this.gMr.bxd().getTop(), width, height, matrix, true);
             if (createBitmap2 != null) {
                 canvas.drawBitmap(createBitmap2, 0.0f, 0.0f, (Paint) null);
             }
@@ -135,12 +135,12 @@ public class b extends com.baidu.adp.base.c {
     }
 
     public int getCurrentPosition() {
-        return this.gNZ.getCurrentPosition();
+        return this.gPc.getCurrentPosition();
     }
 
     public void setData(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gNZ.setData(str);
+            this.gPc.setData(str);
         }
     }
 
@@ -149,16 +149,16 @@ public class b extends com.baidu.adp.base.c {
     }
 
     public void by(View view2) {
-        this.gOd = (CoverPendantDragView) view2.findViewById(d.g.cover_pendant_view);
-        this.gOd.setParentViewController(this);
-        this.gOa = (LinearLayout) view2.findViewById(d.g.cover_tips);
+        this.gPg = (CoverPendantDragView) view2.findViewById(d.g.cover_pendant_view);
+        this.gPg.setParentViewController(this);
+        this.gPd = (LinearLayout) view2.findViewById(d.g.cover_tips);
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_cover_first_in", true)) {
-            this.gOa.setVisibility(0);
-            this.gOa.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.video.editvideo.view.b.3
+            this.gPd.setVisibility(0);
+            this.gPd.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.video.editvideo.view.b.3
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    b.this.gOa.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
+                    b.this.gPd.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
                 }
             }).start();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("video_cover_first_in", false);
@@ -169,10 +169,10 @@ public class b extends com.baidu.adp.base.c {
         return this.mRootView;
     }
 
-    public void mS(boolean z) {
-        this.gOd.mS(z);
+    public void mT(boolean z) {
+        this.gPg.mT(z);
         if (z) {
-            this.gNZ.seekTo(this.gNZ.getCurrentPosition());
+            this.gPc.seekTo(this.gPc.getCurrentPosition());
         }
     }
 
@@ -183,18 +183,18 @@ public class b extends com.baidu.adp.base.c {
         com.baidu.adp.lib.g.e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.b.4
             @Override // java.lang.Runnable
             public void run() {
-                b.this.gNZ.seekTo(b.this.gNZ.getCurrentPosition());
-                b.this.gLo.bxh();
+                b.this.gPc.seekTo(b.this.gPc.getCurrentPosition());
+                b.this.gMr.bxf();
             }
         }, 500L);
     }
 
     public void release() {
-        if (this.gNZ != null) {
-            this.gNZ.release();
+        if (this.gPc != null) {
+            this.gPc.release();
         }
-        if (this.gOd != null) {
-            this.gOd.onDestroy();
+        if (this.gPg != null) {
+            this.gPg.onDestroy();
         }
     }
 }

@@ -14,20 +14,20 @@ import com.baidu.tieba.d;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public class FlipLoadingLayout extends LoadingLayout {
-    private final Animation aUG;
     private final Animation aUH;
+    private final Animation aUI;
 
     public FlipLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
         int i = mode == PullToRefreshBase.Mode.PULL_FROM_START ? -180 : 180;
-        this.aUG = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
-        this.aUG.setInterpolator(aUI);
-        this.aUG.setDuration(150L);
-        this.aUG.setFillAfter(true);
-        this.aUH = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.aUH.setInterpolator(aUI);
+        this.aUH = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
+        this.aUH.setInterpolator(aUJ);
         this.aUH.setDuration(150L);
         this.aUH.setFillAfter(true);
+        this.aUI = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.aUI.setInterpolator(aUJ);
+        this.aUI.setDuration(150L);
+        this.aUI.setFillAfter(true);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -35,16 +35,16 @@ public class FlipLoadingLayout extends LoadingLayout {
         if (drawable != null) {
             int intrinsicHeight = drawable.getIntrinsicHeight();
             int intrinsicWidth = drawable.getIntrinsicWidth();
-            ViewGroup.LayoutParams layoutParams = this.aUK.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aUL.getLayoutParams();
             int max = Math.max(intrinsicHeight, intrinsicWidth);
             layoutParams.height = max;
             layoutParams.width = max;
-            this.aUK.requestLayout();
-            this.aUK.setScaleType(ImageView.ScaleType.MATRIX);
+            this.aUL.requestLayout();
+            this.aUL.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
             matrix.postTranslate((layoutParams.width - intrinsicWidth) / 2.0f, (layoutParams.height - intrinsicHeight) / 2.0f);
             matrix.postRotate(getDrawableRotationAngle(), layoutParams.width / 2.0f, layoutParams.height / 2.0f);
-            this.aUK.setImageMatrix(matrix);
+            this.aUL.setImageMatrix(matrix);
         }
     }
 
@@ -53,28 +53,28 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void JE() {
-        if (this.aUG == this.aUK.getAnimation()) {
-            this.aUK.startAnimation(this.aUH);
+    protected void JC() {
+        if (this.aUH == this.aUL.getAnimation()) {
+            this.aUL.startAnimation(this.aUI);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
+    protected void JD() {
+        this.aUL.setVisibility(0);
+        this.aUM.setVisibility(8);
+    }
+
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
+    protected void JE() {
+        this.aUL.startAnimation(this.aUH);
+    }
+
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void JF() {
-        this.aUK.setVisibility(0);
-        this.aUL.setVisibility(8);
-    }
-
-    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void JG() {
-        this.aUK.startAnimation(this.aUG);
-    }
-
-    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void JH() {
-        this.aUK.clearAnimation();
-        this.aUL.setVisibility(8);
-        this.aUK.setVisibility(0);
+        this.aUL.clearAnimation();
+        this.aUM.setVisibility(8);
+        this.aUL.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -83,14 +83,14 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     private float getDrawableRotationAngle() {
-        switch (this.aUf) {
+        switch (this.aUg) {
             case PULL_FROM_END:
-                if (this.aUP == PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.aUQ == PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 90.0f;
                 }
                 return 180.0f;
             case PULL_FROM_START:
-                if (this.aUP != PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.aUQ != PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 0.0f;
                 }
                 return 270.0f;

@@ -10,14 +10,14 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class s extends f<t, u> {
-    private final LinkedList<com.baidu.tbadk.j.f> cZS;
-    private final LinkedList<RelativeLayout> cZT;
+    private final LinkedList<com.baidu.tbadk.j.f> dbb;
+    private final LinkedList<RelativeLayout> dbc;
     private int mItemHeight;
 
     public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cZS = new LinkedList<>();
-        this.cZT = new LinkedList<>();
+        this.dbb = new LinkedList<>();
+        this.dbc = new LinkedList<>();
         this.mItemHeight = (com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
@@ -34,10 +34,10 @@ public class s extends f<t, u> {
         relativeLayout.setGravity(17);
         com.baidu.tbadk.j.f fVar = new com.baidu.tbadk.j.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(d.e.ds140));
         fVar.attachView(relativeLayout);
-        this.cZS.add(fVar);
-        this.cZT.add(relativeLayout);
+        this.dbb.add(fVar);
+        this.dbc.add(relativeLayout);
         u uVar = new u(relativeLayout);
-        uVar.cZV = fVar;
+        uVar.dbe = fVar;
         return uVar;
     }
 
@@ -46,8 +46,8 @@ public class s extends f<t, u> {
     @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t tVar, u uVar) {
-        if (uVar != null && uVar.cZV != null) {
-            uVar.cZV.onChangeSkinType();
+        if (uVar != null && uVar.dbe != null) {
+            uVar.dbe.onChangeSkinType();
         }
         return view2;
     }
@@ -55,18 +55,18 @@ public class s extends f<t, u> {
     @Override // com.baidu.tieba.frs.f
     public void release() {
         super.release();
-        if (this.cZS.size() != 0 && this.cZT.size() == this.cZS.size()) {
+        if (this.dbb.size() != 0 && this.dbc.size() == this.dbb.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.cZS.size()) {
+                if (i2 >= this.dbb.size()) {
                     break;
                 }
-                this.cZS.get(i2).P(this.cZT.get(i2));
+                this.dbb.get(i2).P(this.dbc.get(i2));
                 i = i2 + 1;
             }
         }
-        this.cZS.clear();
-        this.cZT.clear();
+        this.dbb.clear();
+        this.dbc.clear();
     }
 }

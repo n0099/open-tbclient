@@ -49,8 +49,8 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             this.apF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadSourceShareAndPraiseLayout.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (ThreadSourceShareAndPraiseLayout.this.alf != null && !StringUtils.isNull(ThreadSourceShareAndPraiseLayout.this.alf.rV())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ThreadSourceShareAndPraiseLayout.this.mContext).createNormalCfg(ThreadSourceShareAndPraiseLayout.this.alf.rV(), ThreadSourceShareAndPraiseLayout.this.stType)));
+                    if (ThreadSourceShareAndPraiseLayout.this.alf != null && !StringUtils.isNull(ThreadSourceShareAndPraiseLayout.this.alf.rU())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ThreadSourceShareAndPraiseLayout.this.mContext).createNormalCfg(ThreadSourceShareAndPraiseLayout.this.alf.rU(), ThreadSourceShareAndPraiseLayout.this.stType)));
                         if (ThreadSourceShareAndPraiseLayout.this.aoY != null) {
                             ThreadSourceShareAndPraiseLayout.this.aoY.onClick(view2);
                         }
@@ -80,10 +80,10 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             return false;
         }
         this.alf = bdVar;
-        if (StringUtils.isNull(this.alf.rV()) || this.apH) {
+        if (StringUtils.isNull(this.alf.rU()) || this.apH) {
             this.apF.setVisibility(8);
         } else {
-            this.apF.setText(an.e(this.alf.rV(), 10, "...") + getResources().getString(d.k.forum));
+            this.apF.setText(an.e(this.alf.rU(), 10, "...") + getResources().getString(d.k.forum));
             this.apF.setVisibility(0);
         }
         this.apG.setData(this.alf);
@@ -105,7 +105,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     }
 
     public void setSourceFromForPb(int i) {
-        this.apG.abV = i;
+        this.apG.abW = i;
     }
 
     public void setStType(String str) {

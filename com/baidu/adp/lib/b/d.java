@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d sq = null;
+    private static d so = null;
     private HashMap<String, c> mSwitchs;
 
     private d() {
@@ -18,10 +18,10 @@ public class d {
     public static synchronized d eE() {
         d dVar;
         synchronized (d.class) {
-            if (sq == null) {
-                sq = new d();
+            if (so == null) {
+                so = new d();
             }
-            dVar = sq;
+            dVar = so;
         }
         return dVar;
     }
@@ -60,8 +60,8 @@ public class d {
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
                     cVar.U(0);
-                    edit.putInt(cVar.getName() + c.sj, 0);
-                    edit.putInt(cVar.getName() + c.sk, cVar.ew());
+                    edit.putInt(cVar.getName() + c.si, 0);
+                    edit.putInt(cVar.getName() + c.sj, cVar.ew());
                 }
             }
             edit.commit();

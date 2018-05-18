@@ -9,22 +9,22 @@ public class AtMeCacheModel extends CacheModel<c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<c> FP() {
+    public Class<c> FN() {
         return c.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int FQ() {
+    public int FO() {
         return 2001258;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int FR() {
+    public int FP() {
         return 2001258;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String FA() {
+    public String Fy() {
         return "tb_user_atme";
     }
 }

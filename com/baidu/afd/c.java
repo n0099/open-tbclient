@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements g {
-    private final int IJ;
-    private final int IK;
-    private final int IL;
-    private final String IM;
-    private HashMap IO;
+    private final int IF;
+    private final int IG;
+    private final int IH;
+    private final String II;
+    private HashMap IJ;
     private int floor;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.IJ = i;
-        this.IK = i2;
-        this.IL = i3;
-        this.IM = str;
+        this.IF = i;
+        this.IG = i2;
+        this.IH = i3;
+        this.II = str;
         this.tabName = str2;
         this.floor = i4;
     }
@@ -26,27 +26,27 @@ public class c implements g {
     }
 
     @Override // com.baidu.afd.g
+    public int lp() {
+        return this.IF;
+    }
+
+    @Override // com.baidu.afd.g
     public int lq() {
-        return this.IJ;
+        return this.IG;
     }
 
     @Override // com.baidu.afd.g
     public int lr() {
-        return this.IK;
-    }
-
-    @Override // com.baidu.afd.g
-    public int ls() {
         return this.floor;
     }
 
     @Override // com.baidu.afd.g
-    public Map<String, String> lt() {
-        return this.IO;
+    public Map<String, String> ls() {
+        return this.IJ;
     }
 
     @Override // com.baidu.afd.g
     public void h(HashMap hashMap) {
-        this.IO = hashMap;
+        this.IJ = hashMap;
     }
 }

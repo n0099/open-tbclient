@@ -216,16 +216,16 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
             } else {
                 String str = "";
                 if (this.mA.fg().size() > 0) {
-                    String str2 = this.mA.fg().get(this.mA.fg().size() - 1).tG;
-                    this.my.setEncodedBinarySize(this.mA.fg().get(this.mA.fg().size() - 1).tA);
+                    String str2 = this.mA.fg().get(this.mA.fg().size() - 1).tF;
+                    this.my.setEncodedBinarySize(this.mA.fg().get(this.mA.fg().size() - 1).tz);
                     str = str2;
                 }
                 newInstance.setStatusCode(this.mA.ff().responseCode, str);
-                newInstance.setHeader(this.mA.ff().tY);
+                newInstance.setHeader(this.mA.ff().tX);
                 newInstance.setContentEncoding(this.mA.ff().contentEncoding);
                 newInstance.setContentLength(this.mA.ff().contentLength);
                 newInstance.setContentType(this.mA.ff().contentType);
-                newInstance.setDownSize(this.mA.ff().ub);
+                newInstance.setDownSize(this.mA.ff().tZ);
                 if (!newInstance.isSuccess()) {
                     newInstance.setError(newInstance.getStatusCode());
                 }
@@ -234,19 +234,19 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
             if (!z) {
                 if (newInstance.isSuccess()) {
                     try {
-                        newInstance.decodeInBackGround(this.my.getCmd(), this.mA.ff().tZ);
+                        newInstance.decodeInBackGround(this.my.getCmd(), this.mA.ff().tY);
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        newInstance.performanceData.oV = j8;
-                        newInstance.performanceData.pi = j32;
-                        newInstance.performanceData.ph = fd2;
-                        newInstance.performanceData.oW = j22;
-                        newInstance.performanceData.oX = j42;
-                        newInstance.performanceData.oY = j52;
-                        newInstance.performanceData.oZ = j62;
-                        newInstance.performanceData.pa = j72;
-                        newInstance.performanceData.pd = currentTimeMillis2 - fc2;
+                        newInstance.performanceData.oU = j8;
+                        newInstance.performanceData.ph = j32;
+                        newInstance.performanceData.pg = fd2;
+                        newInstance.performanceData.oV = j22;
+                        newInstance.performanceData.oW = j42;
+                        newInstance.performanceData.oX = j52;
+                        newInstance.performanceData.oY = j62;
+                        newInstance.performanceData.oZ = j72;
+                        newInstance.performanceData.pa = currentTimeMillis2 - fc2;
                         newInstance.setCostTime(currentTimeMillis2 - currentTimeMillis);
-                        newInstance.beforeDispatchInBackGround(this.my.getCmd(), this.mA.ff().tZ);
+                        newInstance.beforeDispatchInBackGround(this.my.getCmd(), this.mA.ff().tY);
                     } catch (Exception e6) {
                         newInstance.setError(-1003);
                         newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.error_unkown_try_again));
@@ -255,8 +255,8 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                 }
                 if (this.my.getExtra() instanceof NetMessage) {
                     NetMessage netMessage = (NetMessage) this.my.getExtra();
-                    newInstance.performanceData.pf = netMessage.getSocketErrNo();
-                    newInstance.performanceData.pg = netMessage.getSocketCostTime();
+                    newInstance.performanceData.pe = netMessage.getSocketErrNo();
+                    newInstance.performanceData.pf = netMessage.getSocketCostTime();
                 }
             }
             newInstance.logStatInBackground(this.my.getCmd(), this.mA);
@@ -264,7 +264,7 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
             publishProgress(newInstance);
             try {
                 if (newInstance.isSuccess()) {
-                    newInstance.afterDispatchInBackGround(this.my.getCmd(), this.mA.ff().tZ);
+                    newInstance.afterDispatchInBackGround(this.my.getCmd(), this.mA.ff().tY);
                 }
             } catch (Exception e7) {
                 BdLog.e(e7.getMessage());

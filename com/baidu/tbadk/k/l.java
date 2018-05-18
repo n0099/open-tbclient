@@ -3,7 +3,6 @@ package com.baidu.tbadk.k;
 import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
 public class l extends j {
-    public long aKN;
     public long aKO;
     public long aKP;
     public long aKQ;
@@ -17,14 +16,15 @@ public class l extends j {
     public long aKY;
     public long aKZ;
     public long aLa;
-    public boolean aLb;
-    public long aLc;
+    public long aLb;
+    public boolean aLc;
     public long aLd;
-    public boolean aLe;
-    public long aLf;
+    public long aLe;
+    public boolean aLf;
     public long aLg;
     public long aLh;
     public long aLi;
+    public long aLj;
     public int errCode;
     public boolean isSuccess;
     public long mW;
@@ -36,96 +36,96 @@ public class l extends j {
     public l() {
         this.mW = 0L;
         this.mZ = 0L;
-        this.aKU = 0L;
-        this.aKW = 0L;
-        this.aKZ = 0L;
+        this.aKV = 0L;
+        this.aKX = 0L;
         this.aLa = 0L;
-        this.aLc = 0L;
+        this.aLb = 0L;
         this.aLd = 0L;
-        this.aLe = false;
+        this.aLe = 0L;
+        this.aLf = false;
     }
 
     public l(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
         this.mW = 0L;
         this.mZ = 0L;
-        this.aKU = 0L;
-        this.aKW = 0L;
-        this.aKZ = 0L;
+        this.aKV = 0L;
+        this.aKX = 0L;
         this.aLa = 0L;
-        this.aLc = 0L;
+        this.aLb = 0L;
         this.aLd = 0L;
-        this.aLe = false;
+        this.aLe = 0L;
+        this.aLf = false;
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.aLb = z;
-            if (this.aLb) {
-                this.aLa = responsedMessage.getDownSize();
-                this.aLf = responsedMessage.getOrginalMessage().getClientLogID();
+            this.aLc = z;
+            if (this.aLc) {
+                this.aLb = responsedMessage.getDownSize();
+                this.aLg = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.aLc = responsedMessage.performanceData.ph;
-                this.aLd = responsedMessage.performanceData.pi;
-                this.socketErrNo = responsedMessage.performanceData.pf;
-                this.socketCostTime = responsedMessage.performanceData.pg;
+                this.aLd = responsedMessage.performanceData.pg;
+                this.aLe = responsedMessage.performanceData.ph;
+                this.socketErrNo = responsedMessage.performanceData.pe;
+                this.socketCostTime = responsedMessage.performanceData.pf;
             } else {
-                this.aKZ = responsedMessage.getDownSize();
+                this.aLa = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.aKN = j;
-            this.aKO = j2;
-            this.aKV = j3;
+            this.aKO = j;
+            this.aKP = j2;
+            this.aKW = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.aKP = responsedMessage.performanceData.oV;
-            this.aKQ = responsedMessage.performanceData.oW;
-            this.aKR = responsedMessage.performanceData.oX;
-            this.mW = responsedMessage.performanceData.oY;
-            this.mZ = responsedMessage.performanceData.oZ;
-            this.aKS = responsedMessage.performanceData.pa;
-            this.aKT = responsedMessage.performanceData.pd;
-            this.aKU = responsedMessage.performanceData.pe;
-            this.aKU += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.aKQ = responsedMessage.performanceData.oU;
+            this.aKR = responsedMessage.performanceData.oV;
+            this.aKS = responsedMessage.performanceData.oW;
+            this.mW = responsedMessage.performanceData.oX;
+            this.mZ = responsedMessage.performanceData.oY;
+            this.aKT = responsedMessage.performanceData.oZ;
+            this.aKU = responsedMessage.performanceData.pa;
+            this.aKV = responsedMessage.performanceData.pd;
+            this.aKV += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.aLe = z2;
-            this.aKW = j4;
+            this.aLf = z2;
+            this.aKX = j4;
         }
     }
 
-    public void GT() {
-        r rVar = (r) p.Ha().fl(this.mSubType);
+    public void GR() {
+        r rVar = (r) p.GY().fm(this.mSubType);
         if (rVar != null) {
             rVar.a(this);
         }
     }
 
-    public void GU() {
+    public void GS() {
         r rVar;
-        if (p.Ha().Hb() && (rVar = (r) p.Ha().fl(this.mSubType)) != null) {
+        if (p.GY().GZ() && (rVar = (r) p.GY().fm(this.mSubType)) != null) {
             rVar.b(this);
         }
     }
 
-    public void GV() {
-        r rVar = (r) p.Ha().fl(this.mSubType);
+    public void GT() {
+        r rVar = (r) p.GY().fm(this.mSubType);
         if (rVar != null) {
             rVar.c(this);
         }
     }
 
-    public void GW() {
-        r rVar = (r) p.Ha().fl(this.mSubType);
+    public void GU() {
+        r rVar = (r) p.GY().fm(this.mSubType);
         if (rVar != null) {
             rVar.d(this);
         }
     }
 
-    public void GX() {
-        r rVar = (r) p.Ha().fl(this.mSubType);
+    public void GV() {
+        r rVar = (r) p.GY().fm(this.mSubType);
         if (rVar != null) {
             rVar.e(this);
         }
     }
 
-    public void fj(int i) {
-        r rVar = (r) p.Ha().fl(this.mSubType);
+    public void fk(int i) {
+        r rVar = (r) p.GY().fm(this.mSubType);
         if (rVar != null) {
             rVar.a(this, i);
         }

@@ -2,25 +2,25 @@ package com.baidu.tieba.video.meida;
 /* loaded from: classes2.dex */
 public abstract class d {
     int channelCount;
-    String gPv;
-    int gPw;
+    int gQA;
+    String gQz;
 
-    public abstract void ug(String str);
+    public abstract void uj(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.gPv = str;
+        this.gQz = str;
     }
 
     public void setSampleRate(int i) {
-        this.gPw = i;
+        this.gQA = i;
     }
 
     public void setChannelCount(int i) {
         this.channelCount = i;
     }
 
-    public static d uh(String str) {
+    public static d uk(String str) {
         return new a(str);
     }
 }

@@ -5,24 +5,24 @@ import java.lang.reflect.Type;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class d implements c {
-    private a qC;
+    private a qB;
 
     public d(Intent intent) {
-        this.qC = new a(intent.getExtras());
+        this.qB = new a(intent.getExtras());
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> dN() {
-        return this.qC.dN();
+        return this.qB.dN();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void d(String str, Object obj) {
-        this.qC.d(str, obj);
+        this.qB.d(str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Object b(String str, Type type) {
-        return this.qC.b(str, type);
+        return this.qB.b(str, type);
     }
 }

@@ -11,34 +11,34 @@ import com.baidu.tieba.d;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class c {
-    private boolean cxI;
-    private String cxJ;
-    private int cxP;
-    private int cxQ;
-    private int cxR;
-    private int cxS;
-    private View.OnClickListener cxV;
-    private boolean cxW;
+    private boolean cyR;
+    private String cyS;
+    private int cyY;
+    private int cyZ;
+    private int cza;
+    private int czb;
+    private View.OnClickListener cze;
+    private boolean czf;
     private String mMessage;
     private TbPageContext mPageContext;
     private View mTargetView;
     private Handler mHandler = null;
-    private com.baidu.adp.lib.guide.c cxH = null;
-    private int cxK = d.f.pic_sign_tip;
-    private int cxL = 0;
-    private int cxM = 1;
-    private int cxN = 1000;
-    private int cxO = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+    private com.baidu.adp.lib.guide.c cyQ = null;
+    private int cyT = d.f.pic_sign_tip;
+    private int cyU = 0;
+    private int cyV = 1;
+    private int cyW = 1000;
+    private int cyX = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
     private int mXOffset = 5;
     private int mYOffset = 0;
-    private int cxT = 48;
-    private int cxU = 4;
-    private boolean sF = false;
-    private Runnable cxX = new Runnable() { // from class: com.baidu.tieba.d.c.1
+    private int czc = 48;
+    private int czd = 4;
+    private boolean sE = false;
+    private Runnable czg = new Runnable() { // from class: com.baidu.tieba.d.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.cxH == null && !StringUtils.isNull(c.this.mMessage)) {
-                if (!c.this.cxW || c.this.ahg()) {
+            if (c.this.cyQ == null && !StringUtils.isNull(c.this.mMessage)) {
+                if (!c.this.czf || c.this.ahg()) {
                     com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
                     dVar.o(c.this.mTargetView).W(0).D(true).E(true);
                     dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.d.c.1.1
@@ -50,23 +50,23 @@ public class c {
                             ak.h(textView, d.C0126d.cp_cont_i);
                             textView.setTextSize(0, c.this.mPageContext.getResources().getDimensionPixelSize(d.e.fontsize28));
                             textView.setHeight(c.this.mPageContext.getResources().getDimensionPixelSize(d.e.ds76));
-                            textView.setPadding(c.this.cxP, c.this.cxQ, c.this.cxR, c.this.cxS);
+                            textView.setPadding(c.this.cyY, c.this.cyZ, c.this.cza, c.this.czb);
                             textView.setSingleLine(true);
-                            ak.i(textView, c.this.cxK);
-                            if (c.this.cxV != null) {
-                                textView.setOnClickListener(c.this.cxV);
+                            ak.i(textView, c.this.cyT);
+                            if (c.this.cze != null) {
+                                textView.setOnClickListener(c.this.cze);
                             }
                             return textView;
                         }
 
                         @Override // com.baidu.adp.lib.guide.b
                         public int eF() {
-                            return c.this.cxU;
+                            return c.this.czd;
                         }
 
                         @Override // com.baidu.adp.lib.guide.b
                         public int eG() {
-                            return c.this.cxT;
+                            return c.this.czc;
                         }
 
                         @Override // com.baidu.adp.lib.guide.b
@@ -79,50 +79,50 @@ public class c {
                             return c.this.mYOffset;
                         }
                     });
-                    c.this.cxH = dVar.eH();
-                    c.this.cxH.A(false);
-                    c.this.cxH.B(c.this.sF);
-                    c.this.cxH.l(c.this.mPageContext.getPageActivity());
-                    c.this.cxI = true;
+                    c.this.cyQ = dVar.eH();
+                    c.this.cyQ.A(false);
+                    c.this.cyQ.B(c.this.sE);
+                    c.this.cyQ.l(c.this.mPageContext.getPageActivity());
+                    c.this.cyR = true;
                     c.this.ahe();
-                    c.this.mHandler.postDelayed(c.this.cxY, c.this.cxO);
+                    c.this.mHandler.postDelayed(c.this.czh, c.this.cyX);
                 }
             }
         }
     };
-    private Runnable cxY = new Runnable() { // from class: com.baidu.tieba.d.c.2
+    private Runnable czh = new Runnable() { // from class: com.baidu.tieba.d.c.2
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.cxH != null) {
-                c.this.cxH.dismiss();
+            if (c.this.cyQ != null) {
+                c.this.cyQ.dismiss();
             }
         }
     };
 
-    public void jb(int i) {
-        this.cxU = i;
+    public void ja(int i) {
+        this.czd = i;
     }
 
-    public void jc(int i) {
-        this.cxT = i;
+    public void jb(int i) {
+        this.czc = i;
     }
 
     public c(TbPageContext tbPageContext, View view2) {
-        this.cxP = 0;
-        this.cxQ = 0;
-        this.cxR = 0;
-        this.cxS = 0;
+        this.cyY = 0;
+        this.cyZ = 0;
+        this.cza = 0;
+        this.czb = 0;
         this.mPageContext = tbPageContext;
         this.mTargetView = view2;
-        this.cxP = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds24);
-        this.cxQ = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds24);
-        this.cxR = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds24);
-        this.cxS = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds10);
+        this.cyY = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds24);
+        this.cyZ = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds24);
+        this.cza = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds24);
+        this.czb = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds10);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ahe() {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.cxJ, this.cxL + 1);
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.cyS, this.cyU + 1);
     }
 
     public void aJ(String str, String str2) {
@@ -130,83 +130,83 @@ public class c {
     }
 
     public void h(String str, String str2, boolean z) {
-        if (!this.cxI && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
+        if (!this.cyR && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
             this.mMessage = str;
-            this.cxJ = str2;
-            this.cxL = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
-            if (this.cxL < this.cxM) {
+            this.cyS = str2;
+            this.cyU = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
+            if (this.cyU < this.cyV) {
                 if (z) {
                     ahe();
-                    this.cxI = true;
+                    this.cyR = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.cxX, this.cxN);
+                this.mHandler.postDelayed(this.czg, this.cyW);
             }
         }
     }
 
-    public void kJ(String str) {
+    public void kM(String str) {
         if (!StringUtils.isNull(str)) {
             this.mMessage = str;
             if (this.mHandler == null) {
                 this.mHandler = new Handler();
             }
-            this.mHandler.postDelayed(this.cxX, this.cxN);
+            this.mHandler.postDelayed(this.czg, this.cyW);
         }
     }
 
     public void ahf() {
-        if (this.cxH != null) {
-            this.cxH.dismiss();
-            this.cxH = null;
+        if (this.cyQ != null) {
+            this.cyQ.dismiss();
+            this.cyQ = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.cxX);
-            this.mHandler.removeCallbacks(this.cxY);
+            this.mHandler.removeCallbacks(this.czg);
+            this.mHandler.removeCallbacks(this.czh);
+        }
+    }
+
+    public void jc(int i) {
+        if (i > 0) {
+            this.cyT = i;
         }
     }
 
     public void jd(int i) {
         if (i > 0) {
-            this.cxK = i;
+            this.cyX = i;
         }
     }
 
     public void je(int i) {
         if (i > 0) {
-            this.cxO = i;
+            this.cyV = i;
         }
     }
 
     public void jf(int i) {
-        if (i > 0) {
-            this.cxM = i;
-        }
-    }
-
-    public void jg(int i) {
         this.mXOffset = i;
     }
 
-    public void jh(int i) {
+    public void jg(int i) {
         this.mYOffset = i;
     }
 
     public void o(int i, int i2, int i3, int i4) {
-        this.cxP = i;
-        this.cxQ = i2;
-        this.cxR = i3;
-        this.cxS = i4;
+        this.cyY = i;
+        this.cyZ = i2;
+        this.cza = i3;
+        this.czb = i4;
     }
 
     public void j(View.OnClickListener onClickListener) {
-        this.cxV = onClickListener;
+        this.cze = onClickListener;
     }
 
-    public void eF(boolean z) {
-        this.cxW = z;
+    public void eG(boolean z) {
+        this.czf = z;
     }
 
     public boolean ahg() {
@@ -214,6 +214,6 @@ public class c {
     }
 
     public void B(boolean z) {
-        this.sF = z;
+        this.sE = z;
     }
 }

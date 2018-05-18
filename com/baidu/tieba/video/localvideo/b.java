@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes2.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long gOO = 3600000;
+    private static long gPR = 3600000;
     private Context context;
-    private a gOV;
+    private a gPY;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat gOQ = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat gOP = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat gPT = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat gPS = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes2.dex */
     public interface a {
-        void dB(List<d> list);
+        void dE(List<d> list);
     }
 
     public b(Context context) {
@@ -26,12 +26,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(d.e.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.gOQ.setTimeZone(timeZone);
-        this.gOP.setTimeZone(timeZone);
+        this.gPT.setTimeZone(timeZone);
+        this.gPS.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.gOV = aVar;
+        this.gPY = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,7 +42,7 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         List<d> cd = e.cd(this.context);
         e.c("/sdcard", cd, false);
         e.c("/sdcard/DCIM", cd, true);
-        e.dD(cd);
+        e.dG(cd);
         return cd;
     }
 
@@ -52,8 +52,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     /* renamed from: n */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.gOV != null) {
-            this.gOV.dB(list);
+        if (this.gPY != null) {
+            this.gPY.dE(list);
         }
     }
 }

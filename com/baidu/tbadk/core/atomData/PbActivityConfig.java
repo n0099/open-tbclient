@@ -277,12 +277,12 @@ public class PbActivityConfig extends IntentConfig {
         if (bdVar != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", bdVar.getTid());
-            if (bdVar.tc() != null && !StringUtils.isNull(bdVar.tc().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, bdVar.tc().getId());
+            if (bdVar.tb() != null && !StringUtils.isNull(bdVar.tb().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, bdVar.tb().getId());
             }
-            intent.putExtra("is_good", bdVar.rM());
-            intent.putExtra("is_top", bdVar.rL());
-            intent.putExtra("thread_time", bdVar.rK());
+            intent.putExtra("is_good", bdVar.rL());
+            intent.putExtra("is_top", bdVar.rK());
+            intent.putExtra("thread_time", bdVar.rJ());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -292,10 +292,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bdVar.rF() == null ? 0L : bdVar.rF().getNum()));
-            if (bdVar.rQ() != null && bdVar.rQ().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bdVar.rQ().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bdVar.rQ().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bdVar.rE() == null ? 0L : bdVar.rE().getNum()));
+            if (bdVar.rP() != null && bdVar.rP().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bdVar.rP().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bdVar.rP().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();

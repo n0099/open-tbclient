@@ -25,50 +25,50 @@ import com.baidu.tieba.tbadkCore.u;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements ImagePagerAdapter.a {
-    private static int epo = 7;
-    private TbPageContext<?> adf;
-    private boolean ayh;
-    private AdvertAppInfo epq;
-    private boolean epr;
-    private b eps;
-    private c ept;
-    private int epp = 0;
-    private boolean epu = false;
-    private final View.OnClickListener epv = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
+    private static int eqw = 7;
+    private boolean ayi;
+    private b eqA;
+    private c eqB;
+    private AdvertAppInfo eqy;
+    private boolean eqz;
+    private TbPageContext<?> mContext;
+    private int eqx = 0;
+    private boolean eqC = false;
+    private final View.OnClickListener eqD = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (a.this.epq != null) {
-                if (a.this.eps == null || !a.this.eps.epD || a.this.eps.aJa() != view2) {
+            if (a.this.eqy != null) {
+                if (a.this.eqA == null || !a.this.eqA.eqL || a.this.eqA.aIZ() != view2) {
                     if (u.E((Activity) view2.getContext())) {
-                        a.this.ept.aJg();
-                        int i = a.this.epq.VO;
+                        a.this.eqB.aJf();
+                        int i = a.this.eqy.VK;
                         if (i == 0 || i == 3) {
                             if (!j.gP() || j.gQ()) {
-                                String str = a.this.epq.VQ;
+                                String str = a.this.eqy.VM;
                                 if (StringUtils.isNull(str)) {
-                                    str = a.this.adf.getString(d.k.app_name);
+                                    str = a.this.mContext.getString(d.k.app_name);
                                 }
-                                a.this.ept.aJi();
-                                if (s.a(a.this.adf.getPageActivity(), a.this.epq, 0, str)) {
-                                    a.this.ept.oh(a.this.epq.VU);
+                                a.this.eqB.aJh();
+                                if (s.a(a.this.mContext.getPageActivity(), a.this.eqy, 0, str)) {
+                                    a.this.eqB.ok(a.this.eqy.VQ);
                                     return;
                                 }
                                 return;
                             }
-                            a.this.c(a.this.epq);
+                            a.this.c(a.this.eqy);
                             return;
                         } else if (i == 1) {
-                            s.e(a.this.epq);
-                            a.this.epq.VO = 3;
-                            a.this.aIV();
+                            s.e(a.this.eqy);
+                            a.this.eqy.VK = 3;
+                            a.this.aIU();
                             return;
                         } else if (i == 2) {
-                            if (com.baidu.tieba.recapp.download.d.bjr().fV(a.this.epq.VU)) {
-                                u.aj(a.this.adf.getPageActivity(), a.this.epq.VU);
+                            if (com.baidu.tieba.recapp.download.d.bjq().fV(a.this.eqy.VQ)) {
+                                u.aj(a.this.mContext.getPageActivity(), a.this.eqy.VQ);
                                 return;
                             }
-                            a.this.epq.VO = 0;
-                            a.this.aIV();
+                            a.this.eqy.VK = 0;
+                            a.this.aIU();
                             return;
                         } else {
                             return;
@@ -79,18 +79,18 @@ public class a implements ImagePagerAdapter.a {
             }
         }
     };
-    private final View.OnClickListener epw = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
+    private final View.OnClickListener eqE = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (a.this.epq != null) {
-                if (a.this.eps == null || !a.this.eps.epD || a.this.eps.aJa() != view2) {
-                    a.this.ept.aJg();
-                    r.bjl().bji().a(a.this.adf.getPageActivity(), new String[]{a.this.epq.VS}, true);
+            if (a.this.eqy != null) {
+                if (a.this.eqA == null || !a.this.eqA.eqL || a.this.eqA.aIZ() != view2) {
+                    a.this.eqB.aJf();
+                    r.bjk().bjh().a(a.this.mContext.getPageActivity(), new String[]{a.this.eqy.VO}, true);
                 }
             }
         }
     };
-    private final CustomMessageListener epx = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
+    private final CustomMessageListener eqF = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -106,121 +106,121 @@ public class a implements ImagePagerAdapter.a {
     };
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.ayh = false;
-        this.epr = false;
-        this.ayh = z;
-        this.epr = z2;
-        this.adf = tbPageContext;
-        this.adf.registerListener(2001118, this.epx);
-        this.ept = new c(tbPageContext.getPageActivity(), str, str2);
+        this.ayi = false;
+        this.eqz = false;
+        this.ayi = z;
+        this.eqz = z2;
+        this.mContext = tbPageContext;
+        this.mContext.registerListener(2001118, this.eqF);
+        this.eqB = new c(tbPageContext.getPageActivity(), str, str2);
     }
 
     public void a(AdvertAppInfo advertAppInfo, int i) {
-        this.epq = advertAppInfo;
-        this.epp = i;
-        this.ept.d(this.epq);
+        this.eqy = advertAppInfo;
+        this.eqx = i;
+        this.eqB.d(this.eqy);
     }
 
-    public boolean aIU() {
-        if (!this.epr || this.epq == null) {
+    public boolean aIT() {
+        if (!this.eqz || this.eqy == null) {
             return false;
         }
-        return (this.epq.qu() || this.epq.qt()) && !u.isInstalledPackage(this.adf.getPageActivity(), this.epq.VU);
+        return (this.eqy.qt() || this.eqy.qs()) && !u.isInstalledPackage(this.mContext.getPageActivity(), this.eqy.VQ);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View g(ViewGroup viewGroup, int i) {
-        if (ol(i)) {
-            this.eps = new b(viewGroup);
-            aIV();
-            viewGroup.addView(this.eps.getView());
-            return this.eps.getView();
+        if (ok(i)) {
+            this.eqA = new b(viewGroup);
+            aIU();
+            viewGroup.addView(this.eqA.getView());
+            return this.eqA.getView();
         }
         return null;
     }
 
-    private boolean ol(int i) {
-        return aIU() && this.epp != 0 && i == this.epp;
+    private boolean ok(int i) {
+        return aIT() && this.eqx != 0 && i == this.eqx;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIV() {
-        if (this.epq != null && this.epq.Wb != null) {
-            aIW();
-            if (this.epq.qu()) {
-                this.eps.aJb().setVisibility(8);
-                this.eps.p(this.epw);
-            } else if (this.epq.qt()) {
-                this.eps.aJb().setVisibility(0);
-                this.eps.p(this.epv);
-                aIX();
+    public void aIU() {
+        if (this.eqy != null && this.eqy.VX != null) {
+            aIV();
+            if (this.eqy.qt()) {
+                this.eqA.aJa().setVisibility(8);
+                this.eqA.p(this.eqE);
+            } else if (this.eqy.qs()) {
+                this.eqA.aJa().setVisibility(0);
+                this.eqA.p(this.eqD);
+                aIW();
             }
-            s.a(this.epq.Wb.Wt, this.eps.epA, this.epq.Wb.tagRatio, l.e(this.adf.getPageActivity(), d.e.ds26));
-            if (!TextUtils.isEmpty(this.epq.Wb.adSource)) {
-                this.eps.epC.setText(this.epq.Wb.adSource);
-                this.eps.epB.setVisibility(0);
+            s.a(this.eqy.VX.Wp, this.eqA.eqI, this.eqy.VX.tagRatio, l.e(this.mContext.getPageActivity(), d.e.ds26));
+            if (!TextUtils.isEmpty(this.eqy.VX.adSource)) {
+                this.eqA.eqK.setText(this.eqy.VX.adSource);
+                this.eqA.eqJ.setVisibility(0);
                 return;
             }
-            this.eps.epB.setVisibility(8);
+            this.eqA.eqJ.setVisibility(8);
         }
     }
 
-    private void aIW() {
-        this.eps.aJa().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+    private void aIV() {
+        this.eqA.aIZ().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void n(String str, boolean z) {
                 if (z) {
-                    a.this.eps.aJe();
+                    a.this.eqA.aJd();
                 }
-                a.this.eps.aJf();
+                a.this.eqA.aJe();
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
-                a.this.eps.aJf();
+                a.this.eqA.aJe();
             }
         });
-        this.eps.aJa().startLoad(this.epq.Wb.Wl, this.ayh ? 30 : 31, 720, 720, false);
+        this.eqA.aIZ().startLoad(this.eqy.VX.Wh, this.ayi ? 30 : 31, 720, 720, false);
     }
 
-    private void aIX() {
-        if (this.epq != null) {
-            String str = this.epq.VQ;
+    private void aIW() {
+        if (this.eqy != null) {
+            String str = this.eqy.VM;
             if (StringUtils.isNull(str)) {
-                str = this.adf.getString(d.k.app_name);
+                str = this.mContext.getString(d.k.app_name);
             }
-            if (com.baidu.tieba.recapp.download.d.bjr().fV(this.epq.VU)) {
-                this.epq.VO = 2;
-            } else if (com.baidu.tieba.recapp.download.d.bjr().an(this.epq.VU, str)) {
-                if (com.baidu.tieba.recapp.download.d.bjr().fT(this.epq.VU)) {
-                    this.epq.VO = 1;
+            if (com.baidu.tieba.recapp.download.d.bjq().fV(this.eqy.VQ)) {
+                this.eqy.VK = 2;
+            } else if (com.baidu.tieba.recapp.download.d.bjq().an(this.eqy.VQ, str)) {
+                if (com.baidu.tieba.recapp.download.d.bjq().fT(this.eqy.VQ)) {
+                    this.eqy.VK = 1;
                 } else {
-                    this.epq.VO = 3;
+                    this.eqy.VK = 3;
                 }
             }
-            switch (this.epq.VO) {
+            switch (this.eqy.VK) {
                 case 0:
-                    String string = this.adf.getString(d.k.install_app);
-                    if (this.epq.Wb != null && !StringUtils.isNull(this.epq.Wb.buttonText)) {
-                        string = this.epq.Wb.buttonText;
+                    String string = this.mContext.getString(d.k.install_app);
+                    if (this.eqy.VX != null && !StringUtils.isNull(this.eqy.VX.buttonText)) {
+                        string = this.eqy.VX.buttonText;
                     }
-                    if (string.length() > epo) {
-                        string = string.substring(0, epo);
+                    if (string.length() > eqw) {
+                        string = string.substring(0, eqw);
                     }
-                    this.eps.og(string);
+                    this.eqA.oj(string);
                     return;
                 case 1:
-                    this.eps.aJc();
+                    this.eqA.aJb();
                     return;
                 case 2:
-                    this.eps.aJd();
+                    this.eqA.aJc();
                     return;
                 case 3:
-                    this.eps.og(this.adf.getString(d.k.pb_download_pause));
+                    this.eqA.oj(this.mContext.getString(d.k.pb_download_pause));
                     return;
                 default:
-                    this.eps.aJb().setVisibility(8);
-                    this.eps.p(null);
+                    this.eqA.aJa().setVisibility(8);
+                    this.eqA.p(null);
                     return;
             }
         }
@@ -230,23 +230,23 @@ public class a implements ImagePagerAdapter.a {
     public void c(AdvertAppInfo advertAppInfo) {
         String string;
         if (advertAppInfo != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.adf.getPageActivity());
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
             if (j.gR()) {
-                string = this.adf.getString(d.k.frs_network_tips);
+                string = this.mContext.getString(d.k.frs_network_tips);
             } else {
-                string = this.adf.getString(d.k.confirm_download_app);
+                string = this.mContext.getString(d.k.confirm_download_app);
             }
             aVar.dc(string);
             aVar.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.image.a.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    String str = a.this.epq.VQ;
+                    String str = a.this.eqy.VM;
                     if (StringUtils.isNull(str)) {
-                        str = a.this.adf.getString(d.k.app_name);
+                        str = a.this.mContext.getString(d.k.app_name);
                     }
-                    a.this.ept.aJi();
-                    if (s.a(a.this.adf.getPageActivity(), a.this.epq, 0, str)) {
-                        a.this.ept.oh(a.this.epq.VU);
+                    a.this.eqB.aJh();
+                    if (s.a(a.this.mContext.getPageActivity(), a.this.eqy, 0, str)) {
+                        a.this.eqB.ok(a.this.eqy.VQ);
                     }
                     aVar2.dismiss();
                 }
@@ -257,37 +257,37 @@ public class a implements ImagePagerAdapter.a {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.adf).tD();
+            aVar.b(this.mContext).tC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ResponsedMessage<?> responsedMessage) {
         List<DownloadData> data;
-        if ((responsedMessage instanceof DownloadMessage) && this.epq != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
+        if ((responsedMessage instanceof DownloadMessage) && this.eqy != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
             for (DownloadData downloadData : data) {
-                if (downloadData != null && TextUtils.equals(this.epq.VU, downloadData.getId())) {
+                if (downloadData != null && TextUtils.equals(this.eqy.VQ, downloadData.getId())) {
                     int status = downloadData.getStatus();
                     if (status == 3 || status == 0) {
-                        this.epq.VO = 2;
+                        this.eqy.VK = 2;
                     } else if (status == 2 || status == 4) {
                         if (!an.isEmpty(downloadData.getStatusMsg())) {
-                            this.adf.showToast(downloadData.getStatusMsg());
+                            this.mContext.showToast(downloadData.getStatusMsg());
                         }
-                        this.epq.VO = 0;
+                        this.eqy.VK = 0;
                     } else if (status == 1) {
-                        this.epq.VO = 1;
+                        this.eqy.VK = 1;
                     }
-                    aIV();
+                    aIU();
                 }
             }
         }
     }
 
-    public void aIY() {
-        if (!this.epu) {
-            this.epu = true;
-            this.ept.aJh();
+    public void aIX() {
+        if (!this.eqC) {
+            this.eqC = true;
+            this.eqB.aJg();
         }
     }
 }

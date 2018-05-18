@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.atomData.UpdatesActivityConfig;
 /* loaded from: classes3.dex */
 public class UpdatesActivityStatic {
     static {
-        awM();
+        awL();
     }
 
-    private static void awM() {
+    private static void awL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008013, new CustomMessageTask.CustomRunnable<UpdatesActivityConfig>() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<UpdatesActivityConfig> customMessage) {

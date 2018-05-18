@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 /* loaded from: classes2.dex */
 public class d {
     private long duration;
-    private String gPp;
+    private String gQs;
     private boolean hasLoaded = false;
     private long lastModified;
     private String mimeType;
@@ -58,8 +58,8 @@ public class d {
         this.videoHeight = i;
     }
 
-    public void uc(String str) {
-        this.gPp = str;
+    public void uf(String str) {
+        this.gQs = str;
     }
 
     public long getLastModified() {
@@ -70,7 +70,7 @@ public class d {
         this.lastModified = j;
     }
 
-    public synchronized Bitmap bxG() {
+    public synchronized Bitmap bxE() {
         return this.thumbnailBitmap;
     }
 
@@ -78,11 +78,11 @@ public class d {
         this.thumbnailBitmap = bitmap;
     }
 
-    public void mV(boolean z) {
+    public void mW(boolean z) {
         this.hasLoaded = z;
     }
 
-    public boolean bxH() {
+    public boolean bxF() {
         return this.hasLoaded;
     }
 }

@@ -7,13 +7,13 @@ public class f {
     private String channel_avatar;
     private String channel_name;
     private String create_time;
-    private String cuE;
+    private String cvN;
     private String description;
     private String follow_time;
     private String user_id;
 
     public String agm() {
-        return this.cuE;
+        return this.cvN;
     }
 
     public String agn() {
@@ -29,7 +29,7 @@ public class f {
     }
 
     public void parserJson(JSONObject jSONObject) {
-        this.cuE = jSONObject.optString("channel_id");
+        this.cvN = jSONObject.optString("channel_id");
         this.channel_name = jSONObject.optString("channel_name");
         this.description = jSONObject.optString("description");
         this.channel_avatar = jSONObject.optString("channel_avatar");

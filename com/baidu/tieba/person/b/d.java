@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends q.a {
-    public TextView Tm;
+    public TextView Ti;
     public int aqQ;
-    public View cxt;
-    public HTypeListView fDa;
-    public e fDb;
+    public View cyC;
+    public HTypeListView fEg;
+    public e fEh;
     public TbPageContext mPageContext;
     public View rootView;
 
@@ -30,19 +30,19 @@ public class d extends q.a {
         this.aqQ = 3;
         this.rootView = view2;
         this.mPageContext = tbPageContext;
-        this.cxt = view2.findViewById(d.g.divider_view_under_photo_album);
-        this.Tm = (TextView) view2.findViewById(d.g.text_view_photo_album);
-        this.fDa = (HTypeListView) view2.findViewById(d.g.listview_photo_album);
-        this.fDb = new e(this.mPageContext, this.fDa);
+        this.cyC = view2.findViewById(d.g.divider_view_under_photo_album);
+        this.Ti = (TextView) view2.findViewById(d.g.text_view_photo_album);
+        this.fEg = (HTypeListView) view2.findViewById(d.g.listview_photo_album);
+        this.fEh = new e(this.mPageContext, this.fEg);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.fDb.setDatas(cS(fVar.getPhotoAlbum()));
+            this.fEh.setDatas(cV(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<h> cS(List<h> list) {
+    private List<h> cV(List<h> list) {
         if (v.v(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
             com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.e(this.mPageContext.getPageActivity(), d.e.ds32), l.e(this.mPageContext.getPageActivity(), d.e.ds120));
@@ -53,13 +53,13 @@ public class d extends q.a {
         return list;
     }
 
-    public void EY() {
+    public void EW() {
         if (this.aqQ != TbadkCoreApplication.getInst().getSkinType()) {
             this.aqQ = TbadkCoreApplication.getInst().getSkinType();
             ak.j(this.rootView, d.C0126d.cp_bg_line_d);
-            ak.j(this.cxt, d.C0126d.cp_bg_line_c);
-            ak.c(this.Tm, d.C0126d.cp_cont_d, 1);
-            this.fDb.notifyDataSetChanged();
+            ak.j(this.cyC, d.C0126d.cp_bg_line_c);
+            ak.c(this.Ti, d.C0126d.cp_cont_d, 1);
+            this.fEh.notifyDataSetChanged();
         }
     }
 }

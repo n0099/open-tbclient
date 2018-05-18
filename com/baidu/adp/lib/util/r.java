@@ -25,8 +25,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.rO = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.rB = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.rN = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.rA = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -45,7 +45,7 @@ public class r {
         return linkedList;
     }
 
-    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
     public static List<l.b<byte[]>> c(com.baidu.adp.lib.cache.l<byte[]> lVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
@@ -62,8 +62,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.rO = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.rB = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.rN = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.rA = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -104,10 +104,10 @@ public class r {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(l.b<?> bVar, l.b<?> bVar2) {
-            if (bVar.rO == bVar2.rO) {
+            if (bVar.rN == bVar2.rN) {
                 return 0;
             }
-            return bVar.rO > bVar2.rO ? -1 : 1;
+            return bVar.rN > bVar2.rN ? -1 : 1;
         }
     }
 }

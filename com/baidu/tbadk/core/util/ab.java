@@ -10,7 +10,7 @@ public class ab {
     public static boolean aB(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.d.a.on()) {
+        if (com.baidu.d.a.om()) {
             if (context == null) {
                 return false;
             }
@@ -35,7 +35,7 @@ public class ab {
     }
 
     public static boolean aC(Context context) {
-        if (com.baidu.d.a.on()) {
+        if (com.baidu.d.a.om()) {
             if (context != null) {
                 try {
                     if (!com.baidu.d.a.a.L(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -55,7 +55,7 @@ public class ab {
     }
 
     public static boolean aD(Context context) {
-        if (!com.baidu.d.a.on()) {
+        if (!com.baidu.d.a.om()) {
             return true;
         }
         if (context != null) {
@@ -70,7 +70,7 @@ public class ab {
     }
 
     public static boolean aE(Context context) {
-        if (!com.baidu.d.a.on()) {
+        if (!com.baidu.d.a.om()) {
             return true;
         }
         if (context != null) {
@@ -85,7 +85,7 @@ public class ab {
     }
 
     public static boolean aF(Context context) {
-        if (!com.baidu.d.a.on()) {
+        if (!com.baidu.d.a.om()) {
             return true;
         }
         if (context != null) {
@@ -100,7 +100,7 @@ public class ab {
     }
 
     public static boolean aG(Context context) {
-        if (!com.baidu.d.a.on()) {
+        if (!com.baidu.d.a.om()) {
             return true;
         }
         if (context != null) {

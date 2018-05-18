@@ -3,30 +3,42 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes2.dex */
 public class a {
-    private static a dBW = new a();
-    private long dBX = 0;
-    private SparseArray<Long> dBY = new SparseArray<>();
-    private SparseArray<Long> dBZ = new SparseArray<>();
-    private SparseArray<Long> dCa = new SparseArray<>();
-    private SparseArray<Long> dCb = new SparseArray<>();
+    private static a dDd = new a();
+    private long dDe = 0;
+    private SparseArray<Long> dDf = new SparseArray<>();
+    private SparseArray<Long> dDg = new SparseArray<>();
+    private SparseArray<Long> dDh = new SparseArray<>();
+    private SparseArray<Long> dDi = new SparseArray<>();
 
     private a() {
     }
 
-    public static a axq() {
-        return dBW;
+    public static a axp() {
+        return dDd;
     }
 
     public long getCreateTime() {
-        return this.dBX;
+        return this.dDe;
     }
 
     public void setCreateTime(long j) {
-        this.dBX = j;
+        this.dDe = j;
+    }
+
+    public long lU(int i) {
+        Long l = this.dDg.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void e(long j, int i) {
+        this.dDg.put(i, Long.valueOf(j));
     }
 
     public long lV(int i) {
-        Long l = this.dBZ.get(i);
+        Long l = this.dDf.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +46,11 @@ public class a {
     }
 
     public void f(long j, int i) {
-        this.dBZ.put(i, Long.valueOf(j));
+        this.dDf.put(i, Long.valueOf(j));
     }
 
     public long lW(int i) {
-        Long l = this.dBY.get(i);
+        Long l = this.dDh.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +58,11 @@ public class a {
     }
 
     public void g(long j, int i) {
-        this.dBY.put(i, Long.valueOf(j));
+        this.dDh.put(i, Long.valueOf(j));
     }
 
     public long lX(int i) {
-        Long l = this.dCa.get(i);
+        Long l = this.dDi.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,18 +70,6 @@ public class a {
     }
 
     public void h(long j, int i) {
-        this.dCa.put(i, Long.valueOf(j));
-    }
-
-    public long lY(int i) {
-        Long l = this.dCb.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void i(long j, int i) {
-        this.dCb.put(i, Long.valueOf(j));
+        this.dDi.put(i, Long.valueOf(j));
     }
 }

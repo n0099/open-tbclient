@@ -16,11 +16,11 @@ public class PersonListActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2902120));
-        aoS();
+        aoR();
     }
 
-    public static void aoS() {
-        com.baidu.tbadk.ala.b.os().a(5, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void aoR() {
+        com.baidu.tbadk.ala.b.or().a(5, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.d
             public View aq(Context context) {
                 TextView ap = com.baidu.tbadk.ala.c.ap(context);

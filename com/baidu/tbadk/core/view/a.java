@@ -12,20 +12,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    private TbPageContext<?> adf;
     private AlertDialog alb;
     private DialogInterface.OnCancelListener ald;
     private Activity mActivity;
+    private TbPageContext<?> mContext;
     private String alc = null;
     private TextView adw = null;
     private boolean ale = true;
 
     public a(TbPageContext<?> tbPageContext) {
-        this.adf = null;
+        this.mContext = null;
         this.mActivity = null;
-        this.adf = tbPageContext;
-        if (this.adf != null && this.adf.getPageActivity() != null) {
-            this.mActivity = this.adf.getPageActivity();
+        this.mContext = tbPageContext;
+        if (this.mContext != null && this.mContext.getPageActivity() != null) {
+            this.mActivity = this.mContext.getPageActivity();
         }
     }
 
@@ -85,7 +85,7 @@ public class a {
         com.baidu.adp.lib.g.g.b(this.alb, this.mActivity);
     }
 
-    public void cZ(int i) {
+    public void da(int i) {
         if (this.mActivity != null) {
             this.alc = this.mActivity.getString(i);
         }

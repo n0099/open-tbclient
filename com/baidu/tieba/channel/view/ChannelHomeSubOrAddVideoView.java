@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ChannelHomeSubOrAddVideoView extends FrameLayout implements e<com.baidu.tieba.channel.data.d> {
-    private e cvY;
+    private e cxh;
     private boolean isHost;
 
     public ChannelHomeSubOrAddVideoView(Context context) {
@@ -30,10 +30,10 @@ public class ChannelHomeSubOrAddVideoView extends FrameLayout implements e<com.b
 
     @Override // com.baidu.tieba.channel.view.e
     public void a(boolean z, com.baidu.tieba.channel.view.b bVar) {
-        if (this.cvY == null) {
+        if (this.cxh == null) {
             this.isHost = z;
-            this.cvY = z ? new b(getContext(), this) : new a(getContext(), this);
-            this.cvY.a(z, bVar);
+            this.cxh = z ? new b(getContext(), this) : new a(getContext(), this);
+            this.cxh.a(z, bVar);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -42,24 +42,24 @@ public class ChannelHomeSubOrAddVideoView extends FrameLayout implements e<com.b
     @Override // com.baidu.tieba.channel.view.e
     /* renamed from: c */
     public void O(com.baidu.tieba.channel.data.d dVar) {
-        if (this.cvY != null) {
-            this.cvY.O(dVar);
+        if (this.cxh != null) {
+            this.cxh.O(dVar);
         }
     }
 
     @Override // com.baidu.tieba.channel.view.e
     public void onChangeSkinType(int i) {
-        if (this.cvY != null) {
-            this.cvY.onChangeSkinType(i);
+        if (this.cxh != null) {
+            this.cxh.onChangeSkinType(i);
         }
     }
 
     /* loaded from: classes3.dex */
     public static class a implements e<com.baidu.tieba.channel.data.d> {
-        private View cvZ = null;
-        private ImageView cwa = null;
-        private TextView cwb = null;
-        private boolean cwc = false;
+        private View cxi = null;
+        private ImageView cxj = null;
+        private TextView cxk = null;
+        private boolean cxl = false;
         private Context mContext;
         private ViewGroup mRootView;
 
@@ -71,14 +71,14 @@ public class ChannelHomeSubOrAddVideoView extends FrameLayout implements e<com.b
         @Override // com.baidu.tieba.channel.view.e
         public void a(boolean z, final com.baidu.tieba.channel.view.b bVar) {
             LayoutInflater.from(this.mContext).inflate(d.i.channel_home_header_guess_sub_view, this.mRootView, true);
-            this.cvZ = this.mRootView.findViewById(d.g.channel_home_header_guest_layout);
-            this.cwa = (ImageView) this.mRootView.findViewById(d.g.channel_home_header_guest_add_iv);
-            this.cwb = (TextView) this.mRootView.findViewById(d.g.channel_home_header_guest_tv);
-            this.cvZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeSubOrAddVideoView.a.1
+            this.cxi = this.mRootView.findViewById(d.g.channel_home_header_guest_layout);
+            this.cxj = (ImageView) this.mRootView.findViewById(d.g.channel_home_header_guest_add_iv);
+            this.cxk = (TextView) this.mRootView.findViewById(d.g.channel_home_header_guest_tv);
+            this.cxi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeSubOrAddVideoView.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (bVar != null) {
-                        bVar.a(a.this.cwc ? 16 : 3, view2, null, -1);
+                        bVar.a(a.this.cxl ? 16 : 3, view2, null, -1);
                     }
                 }
             });
@@ -89,11 +89,11 @@ public class ChannelHomeSubOrAddVideoView extends FrameLayout implements e<com.b
         /* renamed from: c */
         public void O(com.baidu.tieba.channel.data.d dVar) {
             if (dVar != null && dVar.agj() != null) {
-                this.cwc = dVar.agj().isSubscribe();
-                if (this.cwc) {
-                    this.cwb.setText(this.mContext.getResources().getString(d.k.channel_is_subscribed));
+                this.cxl = dVar.agj().isSubscribe();
+                if (this.cxl) {
+                    this.cxk.setText(this.mContext.getResources().getString(d.k.channel_is_subscribed));
                 } else {
-                    this.cwb.setText(this.mContext.getResources().getString(d.k.channel_subscribe));
+                    this.cxk.setText(this.mContext.getResources().getString(d.k.channel_subscribe));
                 }
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
@@ -101,15 +101,15 @@ public class ChannelHomeSubOrAddVideoView extends FrameLayout implements e<com.b
 
         @Override // com.baidu.tieba.channel.view.e
         public void onChangeSkinType(int i) {
-            if (this.cwc) {
-                this.cwa.setVisibility(8);
-                ak.c(this.cwb, d.C0126d.cp_cont_d, 1);
-                ak.i(this.cvZ, d.f.btn_all_white_d);
+            if (this.cxl) {
+                this.cxj.setVisibility(8);
+                ak.c(this.cxk, d.C0126d.cp_cont_d, 1);
+                ak.i(this.cxi, d.f.btn_all_white_d);
                 return;
             }
-            this.cwa.setVisibility(0);
-            this.cwb.setTextColor(this.mContext.getResources().getColorStateList(d.C0126d.channel_home_header_res_text_color));
-            ak.i(this.cvZ, d.f.channel_sub_btn_bg);
+            this.cxj.setVisibility(0);
+            this.cxk.setTextColor(this.mContext.getResources().getColorStateList(d.C0126d.channel_home_header_res_text_color));
+            ak.i(this.cxi, d.f.channel_sub_btn_bg);
         }
     }
 

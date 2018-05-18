@@ -42,7 +42,7 @@ public class s extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     public boolean ft() {
         if (this.akT) {
-            return com.baidu.tbadk.core.i.pY().qa();
+            return com.baidu.tbadk.core.i.pX().pZ();
         }
         return true;
     }
@@ -54,11 +54,11 @@ public class s extends a {
         if (this.akS) {
             return null;
         }
-        com.baidu.adp.widget.ImageView.a gF = com.baidu.tbadk.imageManager.c.Fa().gF(str);
+        com.baidu.adp.widget.ImageView.a gF = com.baidu.tbadk.imageManager.c.EY().gF(str);
         if (gF != null) {
-            gF.EF.EH = "memory";
-            gF.EF.EI = 0L;
-            gF.EF.EJ = true;
+            gF.EB.ED = "memory";
+            gF.EB.EE = 0L;
+            gF.EB.EF = true;
             return gF;
         }
         return gF;
@@ -81,9 +81,9 @@ public class s extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
-        com.baidu.tbadk.imageManager.c Fa = com.baidu.tbadk.imageManager.c.Fa();
+        com.baidu.tbadk.imageManager.c EY = com.baidu.tbadk.imageManager.c.EY();
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
-            Fa.b(str, (com.baidu.adp.widget.ImageView.a) obj);
+            EY.b(str, (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
@@ -103,12 +103,12 @@ public class s extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wv() {
+    public boolean wu() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ww() {
+    public boolean wv() {
         return false;
     }
 
@@ -121,7 +121,7 @@ public class s extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int wx() {
+    public int ww() {
         return this.akU;
     }
 }

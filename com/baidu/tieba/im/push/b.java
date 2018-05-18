@@ -3,26 +3,26 @@ package com.baidu.tieba.im.push;
 import com.baidu.adp.framework.c.e;
 /* loaded from: classes.dex */
 public class b {
-    private static b egv = null;
-    private e egw;
+    private static b ehC = null;
+    private e ehD;
 
     private b() {
-        this.egw = null;
-        this.egw = new e(1000, 1000, 1000);
+        this.ehD = null;
+        this.ehD = new e(1000, 1000, 1000);
     }
 
-    public static b aGu() {
-        if (egv == null) {
+    public static b aGs() {
+        if (ehC == null) {
             synchronized (b.class) {
-                if (egv == null) {
-                    egv = new b();
+                if (ehC == null) {
+                    ehC = new b();
                 }
             }
         }
-        return egv;
+        return ehC;
     }
 
     public e dd() {
-        return this.egw;
+        return this.ehD;
     }
 }

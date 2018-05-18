@@ -69,7 +69,7 @@ public class e extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View kA() {
+    public View kz() {
         this.mHeaderView = LayoutInflater.from(getContext()).inflate(d.i.tb_pull_view, (ViewGroup) null);
         this.anX = (LinearLayout) this.mHeaderView.findViewById(d.g.pull_root);
         this.aog = (LinearLayout) this.anX.findViewById(d.g.cube_container);
@@ -79,8 +79,8 @@ public class e extends com.baidu.adp.widget.ListView.c {
         if (this.mSkinType != Integer.MIN_VALUE) {
             skinType = this.mSkinType;
         }
-        if (!vF()) {
-            this.aoc = af.vx().cG(skinType);
+        if (!vE()) {
+            this.aoc = af.vw().cH(skinType);
         }
         this.anY.setBackgroundDrawable(this.aoc);
         this.aoe = new GLTextureView.e() { // from class: com.baidu.tbadk.core.view.e.1
@@ -92,12 +92,12 @@ public class e extends com.baidu.adp.widget.ListView.c {
             }
         };
         this.aof = new com.baidu.tieba.animation3d.b.b(getContext());
-        dv(skinType);
+        dw(skinType);
         this.aoi = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.cube_top);
         this.aoj = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.btn_frs_post_arrow);
         this.aok = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.btn_frs_post_ok);
         if (this.aoi == null || this.aoj == null || this.aok == null) {
-            af.vx().aD(false);
+            af.vw().aD(false);
         }
         this.aof.a(this.aoi, this.aoi, this.aoj, this.aoi, this.aoi, this.aoi);
         this.aod = new GLTextureView(getContext());
@@ -109,7 +109,7 @@ public class e extends com.baidu.adp.widget.ListView.c {
         }
         this.aoh.addView(this.aod);
         this.aof.aeG();
-        xa();
+        wZ();
         return this.mHeaderView;
     }
 
@@ -118,10 +118,10 @@ public class e extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void kB() {
-        if (vF()) {
+    public void kA() {
+        if (vE()) {
             if (!this.aol) {
-                xb();
+                xa();
                 this.aod.requestRender();
                 this.aod.onResume();
                 this.aof.aeG();
@@ -139,10 +139,10 @@ public class e extends com.baidu.adp.widget.ListView.c {
         if (this.aob != null) {
             this.aob.aP(z);
         }
-        xa();
+        wZ();
         this.aol = true;
-        if (vF()) {
-            xb();
+        if (vE()) {
+            xa();
             this.aod.requestRender();
             this.aod.onResume();
             this.aod.setRenderMode(1);
@@ -158,11 +158,11 @@ public class e extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void kC() {
-        xa();
-        if (vF()) {
+    public void kB() {
+        wZ();
+        if (vE()) {
             if (!this.aol) {
-                xb();
+                xa();
             }
             this.aod.requestRender();
             this.aod.onResume();
@@ -187,7 +187,7 @@ public class e extends com.baidu.adp.widget.ListView.c {
     @Override // com.baidu.adp.widget.ListView.c
     public void Y(boolean z) {
         this.aol = false;
-        if (vF()) {
+        if (vE()) {
             this.aof.a(this.aoi, this.aoi, this.aoj, this.aoi, this.aoi, this.aoi);
             if (this.aod != null) {
                 this.aod.setRenderMode(0);
@@ -210,8 +210,8 @@ public class e extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void kD() {
-        if (vF()) {
+    public void kC() {
+        if (vE()) {
             this.aof.a(this.aoi, this.aoi, this.aok, this.aoi, this.aoi, this.aoi);
             this.aof.aeI();
             this.aod.setRenderMode(1);
@@ -230,10 +230,10 @@ public class e extends com.baidu.adp.widget.ListView.c {
         this.aob = cVar;
     }
 
-    public void dv(int i) {
-        if (vF() && this.aof != null) {
+    public void dw(int i) {
+        if (vE() && this.aof != null) {
             if (this.aof.aqQ != i) {
-                this.aof.iC(ak.getColor(i, d.C0126d.cp_bg_line_c));
+                this.aof.iB(ak.getColor(i, d.C0126d.cp_bg_line_c));
                 this.aof.aqQ = i;
                 if (this.aod != null) {
                     this.aod.onResume();
@@ -246,12 +246,12 @@ public class e extends com.baidu.adp.widget.ListView.c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean vF() {
-        return af.vx().vF();
+    public boolean vE() {
+        return af.vw().vE();
     }
 
-    private void xa() {
-        if (vF()) {
+    private void wZ() {
+        if (vE()) {
             if (this.anY != null && this.aog != null) {
                 if (this.anY.getVisibility() != 8) {
                     this.anY.setVisibility(8);
@@ -270,7 +270,7 @@ public class e extends com.baidu.adp.widget.ListView.c {
         }
     }
 
-    private void xb() {
+    private void xa() {
         this.aod = new GLTextureView(getContext());
         this.aod.setVisibility(4);
         this.aod.setEGLConfigChooser(this.aoe);
@@ -281,7 +281,7 @@ public class e extends com.baidu.adp.widget.ListView.c {
     }
 
     private void release() {
-        if (vF()) {
+        if (vE()) {
             if (this.aoc != null) {
                 this.aoc.stop();
                 this.aoc = null;
@@ -304,7 +304,7 @@ public class e extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public long kH() {
+    public long kG() {
         return 2000L;
     }
 }

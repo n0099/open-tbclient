@@ -25,19 +25,19 @@ import java.lang.reflect.Field;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class l {
-    private static float xh;
+    private static float xg;
+    static int xh;
     static int xi;
-    static int xj;
-    private static String xm;
-    static boolean xg = false;
-    private static Toast xk = null;
-    private static a xl = null;
+    private static String xl;
+    static boolean xf = false;
+    private static Toast xj = null;
+    private static a xk = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
         public void run() {
-            if (l.xk != null) {
-                l.xk.cancel();
+            if (l.xj != null) {
+                l.xj.cancel();
             }
         }
     };
@@ -55,74 +55,74 @@ public class l {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            xi = displayMetrics.heightPixels;
-            xj = displayMetrics.widthPixels;
-        } else {
+            xh = displayMetrics.heightPixels;
             xi = displayMetrics.widthPixels;
-            xj = displayMetrics.heightPixels;
+        } else {
+            xh = displayMetrics.widthPixels;
+            xi = displayMetrics.heightPixels;
         }
-        xh = displayMetrics.density;
-        xg = true;
+        xg = displayMetrics.density;
+        xf = true;
     }
 
     public static int af(Context context) {
-        if (!xg) {
-            ag(context);
-        }
-        return xi;
-    }
-
-    public static int ah(Context context) {
-        if (!xg) {
-            ag(context);
-        }
-        return xj;
-    }
-
-    public static int dip2px(Context context, float f) {
-        if (!xg) {
-            ag(context);
-        }
-        return (int) ((xh * f) + 0.5f);
-    }
-
-    public static float ai(Context context) {
-        if (!xg) {
+        if (!xf) {
             ag(context);
         }
         return xh;
     }
 
+    public static int ah(Context context) {
+        if (!xf) {
+            ag(context);
+        }
+        return xi;
+    }
+
+    public static int dip2px(Context context, float f) {
+        if (!xf) {
+            ag(context);
+        }
+        return (int) ((xg * f) + 0.5f);
+    }
+
+    public static float ai(Context context) {
+        if (!xf) {
+            ag(context);
+        }
+        return xg;
+    }
+
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (xk == null) {
-                if (xl == null || xl.hm() == null) {
-                    xk = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (xj == null) {
+                if (xk == null || xk.hm() == null) {
+                    xj = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    xk = new Toast(BdBaseApplication.getInst().getApp());
-                    xk.setDuration(0);
-                    xl.aW(str);
-                    xk.setView(xl.hm());
+                    xj = new Toast(BdBaseApplication.getInst().getApp());
+                    xj.setDuration(0);
+                    xk.aW(str);
+                    xj.setView(xk.hm());
                 }
-                xk.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+                xj.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(xm)) {
-                    if (xl == null || xl.hm() == null) {
-                        xk.setText(str);
+                if (!str.equals(xl)) {
+                    if (xk == null || xk.hm() == null) {
+                        xj.setText(str);
                     } else {
-                        xl.aW(str);
+                        xk.aW(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
                 if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
                     dip2px = 0;
                 }
-                xk.setGravity(17, 0, dip2px);
+                xj.setGravity(17, 0, dip2px);
             }
-            xm = str;
+            xl = str;
             mHandler.postDelayed(mRunnable, i);
-            xk.show();
+            xj.show();
         }
     }
 
@@ -271,6 +271,22 @@ public class l {
         Rect rect = new Rect();
         paint.getTextBounds(str, 0, str.length(), rect);
         return rect;
+    }
+
+    public static int c(Paint paint, String str) {
+        float[] fArr;
+        int i = 0;
+        if (str != null && str.length() > 0) {
+            int length = str.length();
+            paint.getTextWidths(str, new float[length]);
+            int i2 = 0;
+            while (i2 < length) {
+                int ceil = ((int) Math.ceil(fArr[i2])) + i;
+                i2++;
+                i = ceil;
+            }
+        }
+        return i;
     }
 
     public static String a(TextPaint textPaint, String str, int i) {
@@ -446,10 +462,10 @@ public class l {
     }
 
     public static a hk() {
-        return xl;
+        return xk;
     }
 
     public static void a(a aVar) {
-        xl = aVar;
+        xk = aVar;
     }
 }

@@ -19,60 +19,60 @@ import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes3.dex */
 public class b {
     private TextView aqm;
-    private NoNetworkView bla;
-    private RecommendDetailActivity egP;
-    private HeadImageView egQ;
-    private TextView egR;
-    private TextView egS;
-    private LinearLayout egT;
-    private SettingTextSwitchView egU;
-    private LinearLayout egV;
-    private View egW;
+    private NoNetworkView blp;
+    private RecommendDetailActivity ehW;
+    private HeadImageView ehX;
+    private TextView ehY;
+    private TextView ehZ;
+    private LinearLayout eia;
+    private SettingTextSwitchView eib;
+    private LinearLayout eic;
+    private View eid;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private View mRootView;
 
     public b(RecommendDetailActivity recommendDetailActivity) {
-        this.egP = recommendDetailActivity;
+        this.ehW = recommendDetailActivity;
         initView();
     }
 
     private void initView() {
-        if (this.egP != null) {
-            this.egP.setContentView(d.i.recommend_detail_activity);
-            this.mRootView = this.egP.findViewById(d.g.root_view);
-            this.mNavigationBar = (NavigationBar) this.egP.findViewById(d.g.view_navigation_bar);
+        if (this.ehW != null) {
+            this.ehW.setContentView(d.i.recommend_detail_activity);
+            this.mRootView = this.ehW.findViewById(d.g.root_view);
+            this.mNavigationBar = (NavigationBar) this.ehW.findViewById(d.g.view_navigation_bar);
             this.mNavigationBar.showBottomLine();
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            nO(this.egP.getResources().getString(d.k.recommend_detail_activity_title));
-            this.bla = (NoNetworkView) this.egP.findViewById(d.g.view_no_network);
-            this.egV = (LinearLayout) this.egP.findViewById(d.g.content_view);
-            this.egQ = (HeadImageView) this.egP.findViewById(d.g.user_image);
-            this.egQ.setIsRound(true);
-            this.aqm = (TextView) this.egP.findViewById(d.g.user_name);
-            this.egR = (TextView) this.egP.findViewById(d.g.user_type);
-            this.egS = (TextView) this.egP.findViewById(d.g.intro_content);
-            this.egU = (SettingTextSwitchView) this.egP.findViewById(d.g.switch_view);
-            this.egU.setSwitchStateChangeListener(this.egP);
-            this.egU.setVisibility(8);
-            this.egV.setVisibility(8);
-            this.egT = (LinearLayout) this.egP.findViewById(d.g.switch_ll);
-            this.egW = this.egP.findViewById(d.g.divider_1);
+            nR(this.ehW.getResources().getString(d.k.recommend_detail_activity_title));
+            this.blp = (NoNetworkView) this.ehW.findViewById(d.g.view_no_network);
+            this.eic = (LinearLayout) this.ehW.findViewById(d.g.content_view);
+            this.ehX = (HeadImageView) this.ehW.findViewById(d.g.user_image);
+            this.ehX.setIsRound(true);
+            this.aqm = (TextView) this.ehW.findViewById(d.g.user_name);
+            this.ehY = (TextView) this.ehW.findViewById(d.g.user_type);
+            this.ehZ = (TextView) this.ehW.findViewById(d.g.intro_content);
+            this.eib = (SettingTextSwitchView) this.ehW.findViewById(d.g.switch_view);
+            this.eib.setSwitchStateChangeListener(this.ehW);
+            this.eib.setVisibility(8);
+            this.eic.setVisibility(8);
+            this.eia = (LinearLayout) this.ehW.findViewById(d.g.switch_ll);
+            this.eid = this.ehW.findViewById(d.g.divider_1);
         }
     }
 
-    public void nO(String str) {
+    public void nR(String str) {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.setCenterTextTitle(str);
         }
     }
 
     public void b(UserInfoBigVip userInfoBigVip, boolean z) {
-        if (userInfoBigVip != null && this.egP != null) {
-            this.egQ.startLoad(userInfoBigVip.portraith, 12, false);
+        if (userInfoBigVip != null && this.ehW != null) {
+            this.ehX.startLoad(userInfoBigVip.portraith, 12, false);
             this.aqm.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
-            this.egR.setText(userInfoBigVip.user_type);
-            this.egS.setText(userInfoBigVip.user_detail);
+            this.ehY.setText(userInfoBigVip.user_type);
+            this.ehZ.setText(userInfoBigVip.user_detail);
             if (z) {
                 if (userInfoBigVip.message_accept.intValue() == 1) {
                     setSwitch(true);
@@ -86,37 +86,37 @@ public class b {
             } else {
                 setSwitch(false);
             }
-            this.egU.setVisibility(0);
+            this.eib.setVisibility(0);
         }
     }
 
     public void setSwitch(boolean z) {
         if (z) {
-            this.egU.getSwitchView().jM();
+            this.eib.getSwitchView().jM();
         } else {
-            this.egU.getSwitchView().jN();
+            this.eib.getSwitchView().jN();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.egP != null && this.egP.getPageContext() != null && this.egP.getPageContext().getLayoutMode() != null) {
+        if (this.ehW != null && this.ehW.getPageContext() != null && this.ehW.getPageContext().getLayoutMode() != null) {
             if (this.mNavigationBar != null) {
-                this.mNavigationBar.onChangeSkinType(this.egP.getPageContext(), i);
+                this.mNavigationBar.onChangeSkinType(this.ehW.getPageContext(), i);
             }
-            if (this.bla != null) {
-                this.bla.onChangeSkinType(this.egP.getPageContext(), i);
+            if (this.blp != null) {
+                this.blp.onChangeSkinType(this.ehW.getPageContext(), i);
             }
             if (this.mNoDataView != null) {
-                this.mNoDataView.onChangeSkinType(this.egP.getPageContext(), i);
+                this.mNoDataView.onChangeSkinType(this.ehW.getPageContext(), i);
             }
-            if (this.egU != null) {
-                this.egU.ep(i);
+            if (this.eib != null) {
+                this.eib.eq(i);
             }
-            if (this.egW != null) {
-                ak.j(this.egW, d.C0126d.cp_bg_line_e);
+            if (this.eid != null) {
+                ak.j(this.eid, d.C0126d.cp_bg_line_e);
             }
-            this.egP.getPageContext().getLayoutMode().setNightMode(i == 1);
-            this.egP.getPageContext().getLayoutMode().u(this.mRootView);
+            this.ehW.getPageContext().getLayoutMode().setNightMode(i == 1);
+            this.ehW.getPageContext().getLayoutMode().u(this.mRootView);
         }
     }
 
@@ -124,28 +124,28 @@ public class b {
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
-        this.egV.setVisibility(0);
+        this.eic.setVisibility(0);
     }
 
-    public void ij(int i) {
+    public void ii(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.egP.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds320)), NoDataViewFactory.d.m16do(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.ehW.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds320)), NoDataViewFactory.d.dp(i), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.m16do(i));
-        this.mNoDataView.onChangeSkinType(this.egP.getPageContext(), TbadkApplication.getInst().getSkinType());
-        this.egV.setVisibility(8);
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dp(i));
+        this.mNoDataView.onChangeSkinType(this.ehW.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.eic.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
-    public void aGK() {
-        if (this.egT != null) {
-            this.egT.setVisibility(0);
+    public void aGI() {
+        if (this.eia != null) {
+            this.eia.setVisibility(0);
         }
     }
 
-    public void aGL() {
-        if (this.egT != null) {
-            this.egT.setVisibility(8);
+    public void aGJ() {
+        if (this.eia != null) {
+            this.eia.setVisibility(8);
         }
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> {
-    private com.baidu.tieba.card.h dis;
+    private com.baidu.tieba.card.h djz;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.cEc);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.cFl);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -22,9 +22,9 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.h> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dis = new com.baidu.tieba.card.h(this.mPageContext);
-        this.dis.setForumId(this.mForumId);
-        return new com.baidu.tieba.card.a.a<>(this.dis);
+        this.djz = new com.baidu.tieba.card.h(this.mPageContext);
+        this.djz.setForumId(this.mForumId);
+        return new com.baidu.tieba.card.a.a<>(this.djz);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -10,9 +10,9 @@ public interface f {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void EM();
+        void EK();
 
-        void Ou();
+        void Os();
 
         void a(a aVar);
 

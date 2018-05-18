@@ -53,7 +53,7 @@ public class SampleSizeBox extends AbstractFullBox {
     }
 
     public long getSampleSizeAtIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.wj(i)));
         return this.sampleSize > 0 ? this.sampleSize : this.sampleSizes[i];
     }
 

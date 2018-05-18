@@ -8,36 +8,36 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a cYx;
-    private static FrsLinkHashMap<String, Long> cYy = new FrsLinkHashMap<>();
+    private static a cZE;
+    private static FrsLinkHashMap<String, Long> cZF = new FrsLinkHashMap<>();
 
     private a() {
-        apM();
+        apL();
     }
 
-    public static a apL() {
-        if (cYx == null) {
+    public static a apK() {
+        if (cZE == null) {
             synchronized (a.class) {
-                if (cYx == null) {
-                    cYx = new a();
+                if (cZE == null) {
+                    cZE = new a();
                 }
             }
         }
-        return cYx;
+        return cZE;
     }
 
-    private static void apM() {
+    private static void apL() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 FrsHotTopicListData frsHotTopicListData;
-                l<String> O = com.baidu.tbadk.core.c.a.tz().O("tb.frs_hottopic", "");
+                l<String> O = com.baidu.tbadk.core.c.a.ty().O("tb.frs_hottopic", "");
                 if (O != null) {
                     String str = O.get("hot_topic_key");
                     if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        FrsLinkHashMap unused = a.cYy = frsHotTopicListData.mSceneMap;
+                        FrsLinkHashMap unused = a.cZF = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -49,8 +49,8 @@ public class a {
 
     public boolean k(String str, long j) {
         boolean z;
-        if (cYy != null && str != null) {
-            Iterator<Map.Entry<String, Long>> it = cYy.entrySet().iterator();
+        if (cZF != null && str != null) {
+            Iterator<Map.Entry<String, Long>> it = cZF.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -62,25 +62,25 @@ public class a {
                     break;
                 }
             }
-            if (!z || (z && cYy.get(str).longValue() != j)) {
-                cYy.put(str, Long.valueOf(j));
-                apN();
+            if (!z || (z && cZF.get(str).longValue() != j)) {
+                cZF.put(str, Long.valueOf(j));
+                apM();
                 return true;
             }
         }
         return false;
     }
 
-    private void apN() {
+    private void apM() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                l<String> O = com.baidu.tbadk.core.c.a.tz().O("tb.frs_hottopic", "");
+                l<String> O = com.baidu.tbadk.core.c.a.ty().O("tb.frs_hottopic", "");
                 if (O != null) {
                     FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                    frsHotTopicListData.mSceneMap = a.cYy;
+                    frsHotTopicListData.mSceneMap = a.cZF;
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                     if (!StringUtils.isNull(jsonStrWithObject)) {
                         O.e("hot_topic_key", jsonStrWithObject);

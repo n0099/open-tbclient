@@ -14,18 +14,18 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class n extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tbadk.img.b aDT = new com.baidu.tbadk.img.b();
-    private LinkedList<ImageFileInfo> fir = null;
-    private a fis;
+    private a fjA;
     private Context mContext;
     private int mScreenWidth;
     private int mWidth;
+    private com.baidu.tbadk.img.b aDU = new com.baidu.tbadk.img.b();
+    private LinkedList<ImageFileInfo> fjz = null;
 
     /* loaded from: classes2.dex */
     protected interface a {
-        void ql(int i);
+        void qk(int i);
 
-        void qm(int i);
+        void ql(int i);
     }
 
     public n(Context context) {
@@ -37,19 +37,19 @@ public class n extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fir == null) {
+        if (this.fjz == null) {
             return 0;
         }
-        return this.fir.size();
+        return this.fjz.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.fir == null) {
+        if (this.fjz == null) {
             return null;
         }
-        if (this.fir.size() - 1 >= i) {
-            return this.fir.get(i);
+        if (this.fjz.size() - 1 >= i) {
+            return this.fjz.get(i);
         }
         return 0;
     }
@@ -60,7 +60,7 @@ public class n extends BaseAdapter implements View.OnClickListener {
     }
 
     public void u(LinkedList<ImageFileInfo> linkedList) {
-        this.fir = linkedList;
+        this.fjz = linkedList;
     }
 
     @Override // android.widget.Adapter
@@ -70,13 +70,13 @@ public class n extends BaseAdapter implements View.OnClickListener {
             bVar = new b();
             view2 = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.pb_editor_imgs_item, (ViewGroup) null);
             bVar.aru = (TbImageView) view2.findViewById(d.g.iv_photo_live);
-            bVar.fiu = (LinearLayout) view2.findViewById(d.g.layout_del);
-            bVar.fiv = (ImageView) view2.findViewById(d.g.delete_photo_live);
+            bVar.fjC = (LinearLayout) view2.findViewById(d.g.layout_del);
+            bVar.fjD = (ImageView) view2.findViewById(d.g.delete_photo_live);
             bVar.aru.setOnClickListener(this);
-            bVar.fiu.setOnClickListener(this);
+            bVar.fjC.setOnClickListener(this);
             bVar.aru.setGifIconSupport(true);
             bVar.aru.setLongIconSupport(true);
-            com.baidu.tbadk.core.util.ak.i(bVar.fiv, d.f.icon_delete_img);
+            com.baidu.tbadk.core.util.ak.i(bVar.fjD, d.f.icon_delete_img);
             bVar.aru.setTagPaddingDis(com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds16), com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds10));
             ViewGroup.LayoutParams layoutParams = bVar.aru.getLayoutParams();
             layoutParams.width = this.mWidth;
@@ -85,18 +85,18 @@ public class n extends BaseAdapter implements View.OnClickListener {
         } else {
             bVar = (b) view2.getTag();
         }
-        if (this.fir != null && this.fir.size() - 1 >= i) {
-            ImageFileInfo imageFileInfo = this.fir.get(i);
+        if (this.fjz != null && this.fjz.size() - 1 >= i) {
+            ImageFileInfo imageFileInfo = this.fjz.get(i);
             if (imageFileInfo != null) {
                 ImageOperation G = com.baidu.tbadk.img.effect.d.G(this.mWidth, this.mWidth);
                 imageFileInfo.clearPageActions();
                 imageFileInfo.addPageAction(G);
-                com.baidu.adp.widget.ImageView.a a2 = this.aDT.a(imageFileInfo, true);
+                com.baidu.adp.widget.ImageView.a a2 = this.aDU.a(imageFileInfo, true);
                 bVar.aru.setTag(imageFileInfo.toCachedKey(true));
                 if (a2 != null) {
                     bVar.aru.invalidate();
                 } else {
-                    this.aDT.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.pb.pb.main.n.1
+                    this.aDU.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.pb.pb.main.n.1
                         @Override // com.baidu.tbadk.imageManager.b
                         public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                             TbImageView tbImageView = (TbImageView) viewGroup.findViewWithTag(str);
@@ -111,7 +111,7 @@ public class n extends BaseAdapter implements View.OnClickListener {
             bVar.aru.setTag(bVar.aru.getId(), Integer.valueOf(i));
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.ds8);
             bVar.aru.setTagPaddingDis(dimensionPixelSize, dimensionPixelSize);
-            bVar.fiu.setTag(Integer.valueOf(i));
+            bVar.fjC.setTag(Integer.valueOf(i));
         }
         return view2;
     }
@@ -120,23 +120,23 @@ public class n extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view2) {
         int id = view2.getId();
         if (id == d.g.layout_del && (view2.getTag() instanceof Integer)) {
-            if (this.fis != null) {
-                this.fis.ql(((Integer) view2.getTag()).intValue());
+            if (this.fjA != null) {
+                this.fjA.qk(((Integer) view2.getTag()).intValue());
             }
-        } else if (id == d.g.iv_photo_live && (view2.getTag(view2.getId()) instanceof Integer) && this.fis != null) {
-            this.fis.qm(((Integer) view2.getTag(view2.getId())).intValue());
+        } else if (id == d.g.iv_photo_live && (view2.getTag(view2.getId()) instanceof Integer) && this.fjA != null) {
+            this.fjA.ql(((Integer) view2.getTag(view2.getId())).intValue());
         }
     }
 
     public void a(a aVar) {
-        this.fis = aVar;
+        this.fjA = aVar;
     }
 
     /* loaded from: classes2.dex */
     class b {
         public TbImageView aru;
-        public LinearLayout fiu;
-        private ImageView fiv;
+        public LinearLayout fjC;
+        private ImageView fjD;
 
         b() {
         }

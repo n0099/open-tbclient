@@ -3,11 +3,14 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
+import com.baidu.tbadk.core.data.AlaBroadcastGiftToastData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FREM_TYPE_LIVE_FRS_STAGE_LIVE = "frs_live_stage_live";
     public static final String FROM_TYPE_ALTER_PLAY = "alter_play";
+    public static final String FROM_TYPE_BROADCAST_GIFT_TOAST = "broadcast_gift_toast";
     public static final String FROM_TYPE_END_VIEW = "end_view";
     public static final String FROM_TYPE_FRS_AUTO_PLAY = "frs_auto_play";
     public static final String FROM_TYPE_FRS_LIVE_AUTO_PLAY = "frs_live_auto_play";
@@ -59,6 +62,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_TAIL_LIGHT = "tail_light_play";
     public static final String FROM_TYPE_VIDEO_AUTO_PLAY = "video_auto_play";
     public static final String FROM_TYPE_VIDEO_PLAY = "video_play";
+    public static final String LIVE_BROADCAST_GIFT_TOAST_QUEUE = "live_broadcast_gift_toast_queue";
     public static final String LIVE_ENTRY_LIVE_URL = "live_entry_live_url";
     public static final String LIVE_ENTRY_NAME = "live_entry_name";
     public static final String LIVE_FORBID_VERTICAL_CHANGE_LIVEROOM = "live_forbid_vertical_change_liveroom";
@@ -81,6 +85,11 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
 
     public AlaLiveRoomActivityConfig setIsForbidVerticalChangeLiveRoom(boolean z) {
         getIntent().putExtra(LIVE_FORBID_VERTICAL_CHANGE_LIVEROOM, z);
+        return this;
+    }
+
+    public AlaLiveRoomActivityConfig setBroadcastGiftQueue(ArrayList<AlaBroadcastGiftToastData> arrayList) {
+        getIntent().putParcelableArrayListExtra(LIVE_BROADCAST_GIFT_TOAST_QUEUE, arrayList);
         return this;
     }
 

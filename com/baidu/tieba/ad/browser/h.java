@@ -22,7 +22,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class h implements com.baidu.tieba.tbadkCore.e.b {
-    private AdBaseWebView bdj;
+    private AdBaseWebView bdk;
     private final TbPageContext<?> mTbPageContext;
     private final CustomMessageListener installListener = new CustomMessageListener(2002501) { // from class: com.baidu.tieba.ad.browser.h.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         }
     };
     private final CustomMessageListener downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.ad.browser.h.2
-        private boolean TF;
+        private boolean TA;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -46,16 +46,16 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
                     for (DownloadData downloadData : downloadMessage.getData()) {
                         if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                             if (downloadData.getStatus() == 5) {
-                                if (!this.TF) {
-                                    this.TF = true;
+                                if (!this.TA) {
+                                    this.TA = true;
                                     h.this.callDownloadListener(1);
                                 }
                             } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                                 h.this.callDownloadListener(2);
-                                this.TF = false;
+                                this.TA = false;
                             } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                                 h.this.callDownloadListener(0);
-                                this.TF = false;
+                                this.TA = false;
                             }
                         }
                     }
@@ -183,7 +183,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Dv().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(d.k.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.Dt().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(d.k.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -198,8 +198,8 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
-        } else if (this.bdj != null) {
-            this.bdj.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
+        } else if (this.bdk != null) {
+            this.bdk.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
         }
     }
 
@@ -215,8 +215,8 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
-        } else if (this.bdj != null) {
-            this.bdj.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
+        } else if (this.bdk != null) {
+            this.bdk.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
         }
     }
 

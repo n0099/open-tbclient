@@ -9,8 +9,8 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    public static final String bgf = File.separator;
-    private a gWn;
+    public static final String bgg = File.separator;
+    private a gXr;
     private String mPath;
     private String mUrl;
 
@@ -22,7 +22,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.gWn = aVar;
+        this.gXr = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
             return "";
         }
         new File(this.mPath).mkdirs();
-        String str = this.mPath + bgf + "videosplash.temp";
+        String str = this.mPath + bgg + "videosplash.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
@@ -42,7 +42,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         e eVar = new e();
         eVar.fe().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, PushConstants.WORK_RECEIVER_EVENTCORE_ERROR, -1, -1, true, true)) {
-            return bzU();
+            return bzS();
         }
         return "";
     }
@@ -51,18 +51,18 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.gWn != null) {
+        if (this.gXr != null) {
             if (!an.isEmpty(str)) {
-                this.gWn.b(true, str, this.mUrl);
+                this.gXr.b(true, str, this.mUrl);
             } else {
-                this.gWn.b(false, null, null);
+                this.gXr.b(false, null, null);
             }
         }
     }
 
-    private String bzU() {
-        File file = new File(this.mPath + bgf + "videosplash.temp");
-        File file2 = new File(this.mPath + bgf + (s.aX(this.mUrl) + ".mp4"));
+    private String bzS() {
+        File file = new File(this.mPath + bgg + "videosplash.temp");
+        File file2 = new File(this.mPath + bgg + (s.aX(this.mUrl) + ".mp4"));
         if (file2.exists()) {
             file2.delete();
         }

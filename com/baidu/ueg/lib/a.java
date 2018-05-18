@@ -4,26 +4,26 @@ import android.support.v7.widget.ActivityChooserView;
 import com.baidu.ueg.lib.b;
 /* loaded from: classes2.dex */
 public class a extends b {
-    static final byte[] hlF = {13, 10};
-    private static final byte[] hlG = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-    private static final byte[] hlH = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
-    private static final byte[] hlI = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51};
-    private final byte[] hlJ;
-    private final byte[] hlK;
-    private final byte[] hlL;
-    private final int hlM;
-    private final int hlN;
+    static final byte[] hmJ = {13, 10};
+    private static final byte[] hmK = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+    private static final byte[] hmL = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
+    private static final byte[] hmM = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51};
+    private final byte[] hmN;
+    private final byte[] hmO;
+    private final byte[] hmP;
+    private final int hmQ;
+    private final int hmR;
 
     public a() {
         this(0);
     }
 
     public a(boolean z) {
-        this(76, hlF, z);
+        this(76, hmJ, z);
     }
 
     public a(int i) {
-        this(i, hlF);
+        this(i, hmJ);
     }
 
     public a(int i, byte[] bArr) {
@@ -32,24 +32,24 @@ public class a extends b {
 
     public a(int i, byte[] bArr, boolean z) {
         super(3, 4, i, bArr == null ? 0 : bArr.length);
-        this.hlK = hlI;
+        this.hmO = hmM;
         if (bArr != null) {
             if (H(bArr)) {
                 throw new IllegalArgumentException("lineSeparator must not contain base64 characters: [" + d.J(bArr) + "]");
             } else if (i > 0) {
-                this.hlN = bArr.length + 4;
-                this.hlL = new byte[bArr.length];
-                System.arraycopy(bArr, 0, this.hlL, 0, bArr.length);
+                this.hmR = bArr.length + 4;
+                this.hmP = new byte[bArr.length];
+                System.arraycopy(bArr, 0, this.hmP, 0, bArr.length);
             } else {
-                this.hlN = 4;
-                this.hlL = null;
+                this.hmR = 4;
+                this.hmP = null;
             }
         } else {
-            this.hlN = 4;
-            this.hlL = null;
+            this.hmR = 4;
+            this.hmP = null;
         }
-        this.hlM = this.hlN - 1;
-        this.hlJ = z ? hlH : hlG;
+        this.hmQ = this.hmR - 1;
+        this.hmN = z ? hmL : hmK;
     }
 
     @Override // com.baidu.ueg.lib.b
@@ -57,8 +57,8 @@ public class a extends b {
         if (!aVar.eof) {
             if (i2 < 0) {
                 aVar.eof = true;
-                if (aVar.modulus != 0 || this.ws != 0) {
-                    byte[] a = a(this.hlN, aVar);
+                if (aVar.modulus != 0 || this.wr != 0) {
+                    byte[] a = a(this.hmR, aVar);
                     int i3 = aVar.pos;
                     switch (aVar.modulus) {
                         case 0:
@@ -66,11 +66,11 @@ public class a extends b {
                         case 1:
                             int i4 = aVar.pos;
                             aVar.pos = i4 + 1;
-                            a[i4] = this.hlJ[(aVar.hlS >> 2) & 63];
+                            a[i4] = this.hmN[(aVar.hmW >> 2) & 63];
                             int i5 = aVar.pos;
                             aVar.pos = i5 + 1;
-                            a[i5] = this.hlJ[(aVar.hlS << 4) & 63];
-                            if (this.hlJ == hlG) {
+                            a[i5] = this.hmN[(aVar.hmW << 4) & 63];
+                            if (this.hmN == hmK) {
                                 int i6 = aVar.pos;
                                 aVar.pos = i6 + 1;
                                 a[i6] = 61;
@@ -83,14 +83,14 @@ public class a extends b {
                         case 2:
                             int i8 = aVar.pos;
                             aVar.pos = i8 + 1;
-                            a[i8] = this.hlJ[(aVar.hlS >> 10) & 63];
+                            a[i8] = this.hmN[(aVar.hmW >> 10) & 63];
                             int i9 = aVar.pos;
                             aVar.pos = i9 + 1;
-                            a[i9] = this.hlJ[(aVar.hlS >> 4) & 63];
+                            a[i9] = this.hmN[(aVar.hmW >> 4) & 63];
                             int i10 = aVar.pos;
                             aVar.pos = i10 + 1;
-                            a[i10] = this.hlJ[(aVar.hlS << 2) & 63];
-                            if (this.hlJ == hlG) {
+                            a[i10] = this.hmN[(aVar.hmW << 2) & 63];
+                            if (this.hmN == hmK) {
                                 int i11 = aVar.pos;
                                 aVar.pos = i11 + 1;
                                 a[i11] = 61;
@@ -100,10 +100,10 @@ public class a extends b {
                         default:
                             throw new IllegalStateException("Impossible modulus " + aVar.modulus);
                     }
-                    aVar.hlV = (aVar.pos - i3) + aVar.hlV;
-                    if (this.ws > 0 && aVar.hlV > 0) {
-                        System.arraycopy(this.hlL, 0, a, aVar.pos, this.hlL.length);
-                        aVar.pos += this.hlL.length;
+                    aVar.hmZ = (aVar.pos - i3) + aVar.hmZ;
+                    if (this.wr > 0 && aVar.hmZ > 0) {
+                        System.arraycopy(this.hmP, 0, a, aVar.pos, this.hmP.length);
+                        aVar.pos += this.hmP.length;
                         return;
                     }
                     return;
@@ -112,32 +112,32 @@ public class a extends b {
             }
             int i12 = 0;
             while (i12 < i2) {
-                byte[] a2 = a(this.hlN, aVar);
+                byte[] a2 = a(this.hmR, aVar);
                 aVar.modulus = (aVar.modulus + 1) % 3;
                 int i13 = i + 1;
                 int i14 = bArr[i];
                 if (i14 < 0) {
                     i14 += 256;
                 }
-                aVar.hlS = i14 + (aVar.hlS << 8);
+                aVar.hmW = i14 + (aVar.hmW << 8);
                 if (aVar.modulus == 0) {
                     int i15 = aVar.pos;
                     aVar.pos = i15 + 1;
-                    a2[i15] = this.hlJ[(aVar.hlS >> 18) & 63];
+                    a2[i15] = this.hmN[(aVar.hmW >> 18) & 63];
                     int i16 = aVar.pos;
                     aVar.pos = i16 + 1;
-                    a2[i16] = this.hlJ[(aVar.hlS >> 12) & 63];
+                    a2[i16] = this.hmN[(aVar.hmW >> 12) & 63];
                     int i17 = aVar.pos;
                     aVar.pos = i17 + 1;
-                    a2[i17] = this.hlJ[(aVar.hlS >> 6) & 63];
+                    a2[i17] = this.hmN[(aVar.hmW >> 6) & 63];
                     int i18 = aVar.pos;
                     aVar.pos = i18 + 1;
-                    a2[i18] = this.hlJ[aVar.hlS & 63];
-                    aVar.hlV += 4;
-                    if (this.ws > 0 && this.ws <= aVar.hlV) {
-                        System.arraycopy(this.hlL, 0, a2, aVar.pos, this.hlL.length);
-                        aVar.pos += this.hlL.length;
-                        aVar.hlV = 0;
+                    a2[i18] = this.hmN[aVar.hmW & 63];
+                    aVar.hmZ += 4;
+                    if (this.wr > 0 && this.wr <= aVar.hmZ) {
+                        System.arraycopy(this.hmP, 0, a2, aVar.pos, this.hmP.length);
+                        aVar.pos += this.hmP.length;
+                        aVar.hmZ = 0;
                     }
                 }
                 i12++;
@@ -158,50 +158,50 @@ public class a extends b {
                 if (i3 >= i2) {
                     break;
                 }
-                byte[] a = a(this.hlM, aVar);
+                byte[] a = a(this.hmQ, aVar);
                 int i4 = i + 1;
                 byte b2 = bArr[i];
                 if (b2 == 61) {
                     aVar.eof = true;
                     break;
                 }
-                if (b2 >= 0 && b2 < hlI.length && (b = hlI[b2]) >= 0) {
+                if (b2 >= 0 && b2 < hmM.length && (b = hmM[b2]) >= 0) {
                     aVar.modulus = (aVar.modulus + 1) % 4;
-                    aVar.hlS = b + (aVar.hlS << 6);
+                    aVar.hmW = b + (aVar.hmW << 6);
                     if (aVar.modulus == 0) {
                         int i5 = aVar.pos;
                         aVar.pos = i5 + 1;
-                        a[i5] = (byte) ((aVar.hlS >> 16) & 255);
+                        a[i5] = (byte) ((aVar.hmW >> 16) & 255);
                         int i6 = aVar.pos;
                         aVar.pos = i6 + 1;
-                        a[i6] = (byte) ((aVar.hlS >> 8) & 255);
+                        a[i6] = (byte) ((aVar.hmW >> 8) & 255);
                         int i7 = aVar.pos;
                         aVar.pos = i7 + 1;
-                        a[i7] = (byte) (aVar.hlS & 255);
+                        a[i7] = (byte) (aVar.hmW & 255);
                     }
                 }
                 i3++;
                 i = i4;
             }
             if (aVar.eof && aVar.modulus != 0) {
-                byte[] a2 = a(this.hlM, aVar);
+                byte[] a2 = a(this.hmQ, aVar);
                 switch (aVar.modulus) {
                     case 1:
                         return;
                     case 2:
-                        aVar.hlS >>= 4;
+                        aVar.hmW >>= 4;
                         int i8 = aVar.pos;
                         aVar.pos = i8 + 1;
-                        a2[i8] = (byte) (aVar.hlS & 255);
+                        a2[i8] = (byte) (aVar.hmW & 255);
                         return;
                     case 3:
-                        aVar.hlS >>= 2;
+                        aVar.hmW >>= 2;
                         int i9 = aVar.pos;
                         aVar.pos = i9 + 1;
-                        a2[i9] = (byte) ((aVar.hlS >> 8) & 255);
+                        a2[i9] = (byte) ((aVar.hmW >> 8) & 255);
                         int i10 = aVar.pos;
                         aVar.pos = i10 + 1;
-                        a2[i10] = (byte) (aVar.hlS & 255);
+                        a2[i10] = (byte) (aVar.hmW & 255);
                         return;
                     default:
                         throw new IllegalStateException("Impossible modulus " + aVar.modulus);
@@ -224,7 +224,7 @@ public class a extends b {
 
     public static byte[] a(byte[] bArr, boolean z, boolean z2, int i) {
         if (bArr != null && bArr.length != 0) {
-            a aVar = z ? new a(z2) : new a(0, hlF, z2);
+            a aVar = z ? new a(z2) : new a(0, hmJ, z2);
             long I = aVar.I(bArr);
             if (I > i) {
                 throw new IllegalArgumentException("Input array too big, the output array would be bigger (" + I + ") than the specified maximum size of " + i);
@@ -234,12 +234,12 @@ public class a extends b {
         return bArr;
     }
 
-    public static byte[] vt(String str) {
+    public static byte[] vw(String str) {
         return new a().decode(str);
     }
 
     @Override // com.baidu.ueg.lib.b
     protected boolean c(byte b) {
-        return b >= 0 && b < this.hlK.length && this.hlK[b] != -1;
+        return b >= 0 && b < this.hmO.length && this.hmO[b] != -1;
     }
 }

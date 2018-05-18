@@ -9,16 +9,16 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.a.a.a implements Runnable {
-    public static String aKf = "logcat ";
-    private static Map<String, b> aKh = new HashMap();
-    private Process aKc;
-    private InputStream aKd;
-    private OutputStream aKe;
-    private a aKg;
+    public static String aKg = "logcat ";
+    private static Map<String, b> aKi = new HashMap();
+    private Process aKd;
+    private InputStream aKe;
+    private OutputStream aKf;
+    private a aKh;
 
     public static void a(String str, b bVar) {
-        aKh.put(str, bVar);
-        aKf += " -s " + str;
+        aKi.put(str, bVar);
+        aKg += " -s " + str;
     }
 
     public void gQ(String str) {
@@ -27,7 +27,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator<Map.Entry<String, b>> it = aKh.entrySet().iterator();
+                Iterator<Map.Entry<String, b>> it = aKi.entrySet().iterator();
                 while (true) {
                     if (it.hasNext()) {
                         Map.Entry<String, b> next = it.next();
@@ -49,11 +49,11 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.aKc = Runtime.getRuntime().exec(aKf);
-            this.aKe = this.aKc.getOutputStream();
-            this.aKd = this.aKc.getInputStream();
-            GE();
-            this.aKe.flush();
+            this.aKd = Runtime.getRuntime().exec(aKg);
+            this.aKf = this.aKd.getOutputStream();
+            this.aKe = this.aKd.getInputStream();
+            GC();
+            this.aKf.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -61,26 +61,26 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         }
     }
 
-    private void GE() throws FileNotFoundException {
-        this.aKg = new a(this.aKd);
-        this.aKg.start();
+    private void GC() throws FileNotFoundException {
+        this.aKh = new a(this.aKe);
+        this.aKh.start();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
         try {
-            if (this.aKc != null) {
-                this.aKc.destroy();
-            }
-            if (this.aKg != null) {
-                this.aKg.finish();
-            }
             if (this.aKd != null) {
-                this.aKd.close();
+                this.aKd.destroy();
+            }
+            if (this.aKh != null) {
+                this.aKh.finish();
             }
             if (this.aKe != null) {
                 this.aKe.close();
+            }
+            if (this.aKf != null) {
+                this.aKf.close();
             }
         } catch (IOException e) {
             e.printStackTrace();

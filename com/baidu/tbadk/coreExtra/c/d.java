@@ -15,66 +15,66 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String axj = k.wB + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
-    public int abU;
-    public String awT;
-    public String awY;
+    public static final String axk = k.wA + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+    public int abV;
+    public String awU;
     public String awZ;
-    public int axc;
-    private Bundle axf;
+    public String axa;
+    public int axd;
+    private Bundle axg;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String price;
     public String tid;
     public String uid;
-    public boolean awL = false;
     public boolean awM = false;
     public boolean awN = false;
     public boolean awO = false;
     public boolean awP = false;
     public boolean awQ = false;
     public boolean awR = false;
-    public String awS = "";
-    public int axa = 0;
-    public int axb = 3;
-    public boolean axd = false;
-    public boolean axg = true;
+    public boolean awS = false;
+    public String awT = "";
+    public int axb = 0;
+    public int axc = 3;
+    public boolean axe = false;
     public boolean axh = true;
     public boolean axi = true;
+    public boolean axj = true;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String awU = null;
-    public Uri awV = null;
-    public Location awW = null;
-    private WeakReference<Bitmap> axe = null;
-    public String awX = null;
+    public String awV = null;
+    public Uri awW = null;
+    public Location awX = null;
+    private WeakReference<Bitmap> axf = null;
+    public String awY = null;
     public String extData = null;
 
-    public Bundle BL() {
-        return this.axf;
+    public Bundle BJ() {
+        return this.axg;
     }
 
     public void f(Bundle bundle) {
-        this.axf = bundle;
+        this.axg = bundle;
     }
 
-    public Bitmap BM() {
+    public Bitmap BK() {
         Bitmap bitmap;
-        if (this.axe == null || (bitmap = this.axe.get()) == null || bitmap.isRecycled()) {
+        if (this.axf == null || (bitmap = this.axf.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void g(Bitmap bitmap) {
-        this.axe = new WeakReference<>(bitmap);
+        this.axf = new WeakReference<>(bitmap);
     }
 
-    public byte[] BN() {
+    public byte[] BL() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.axe == null || (bitmap = this.axe.get()) == null || bitmap.isRecycled()) {
+        if (this.axf == null || (bitmap = this.axf.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -92,16 +92,16 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [204=4, 205=4, 207=4, 208=4] */
-    public void BO() {
+    public void BM() {
         FileOutputStream fileOutputStream = null;
-        if (this.axe == null) {
+        if (this.axf == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 if (k.m15do()) {
-                    File file = new File(axj);
+                    File file = new File(axk);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -109,14 +109,14 @@ public class d {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] BN = BN();
-                    if (BN != null) {
+                    byte[] BL = BL();
+                    if (BL != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(BN);
+                            fileOutputStream3.write(BL);
                             fileOutputStream3.close();
-                            this.awV = Uri.fromFile(file);
-                            this.axe = null;
+                            this.awW = Uri.fromFile(file);
+                            this.axf = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

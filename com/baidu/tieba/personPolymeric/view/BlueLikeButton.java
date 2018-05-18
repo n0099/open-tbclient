@@ -15,25 +15,25 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean fKW;
+    private boolean fMc;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.fKW = false;
+        this.fMc = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fKW = false;
+        this.fMc = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fKW = false;
+        this.fMc = false;
     }
 
     public void aQ(boolean z) {
-        this.fKW = z;
+        this.fMc = z;
         if (z) {
             setText(d.k.followed);
             setBackgroundDrawable(ak.getDrawable(d.f.selector_like_button_gray_bg));
@@ -60,13 +60,13 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dB(int i) {
+    public void dC(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void K(View view2) {
         TiebaStatic.log(new al("c12503").ac("obj_locate", "4"));
-        if (!this.fKW) {
+        if (!this.fMc) {
             Context context = getContext();
             if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.pageStayDuration.a)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
@@ -84,7 +84,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fKW) {
+        if (this.fMc) {
             setBackgroundDrawable(ak.getDrawable(d.f.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             ak.c(this, d.C0126d.cp_cont_e, 1);

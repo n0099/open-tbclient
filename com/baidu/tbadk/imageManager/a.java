@@ -3,7 +3,7 @@ package com.baidu.tbadk.imageManager;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface a {
-    int DS();
+    int DQ();
 
     C0098a Q(Context context, String str);
 

@@ -8,7 +8,7 @@ public class a implements com.baidu.adp.lib.stats.b {
     private a() {
     }
 
-    public static synchronized a uz() {
+    public static synchronized a uy() {
         a aVar;
         synchronized (a.class) {
             if (agd == null) {

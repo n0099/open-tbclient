@@ -60,7 +60,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
         }
-        this.customToast = com.baidu.tbadk.core.util.e.uB();
+        this.customToast = com.baidu.tbadk.core.util.e.uA();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -160,7 +160,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             this.mRefreshView.setSubText(str2);
             this.mRefreshView.setButtonText(str3);
             this.mRefreshView.d(view2, z);
-            this.mRefreshView.Fu();
+            this.mRefreshView.Fs();
         }
     }
 
@@ -178,14 +178,14 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         }
         this.mRefreshView.setSubText(str);
         this.mRefreshView.d(view2, z);
-        this.mRefreshView.Fv();
+        this.mRefreshView.Ft();
     }
 
     public void setNetRefreshViewTopMargin(int i) {
         if (this.mRefreshView == null) {
             this.mRefreshView = new com.baidu.tbadk.j.g(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.fa(i);
+        this.mRefreshView.fb(i);
     }
 
     public View.OnClickListener getNetRefreshListener() {
@@ -197,8 +197,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setNetRefreshViewEmotionMarginTop(int i) {
-        if (this.mRefreshView != null && this.mRefreshView.Fm()) {
-            this.mRefreshView.fa(i);
+        if (this.mRefreshView != null && this.mRefreshView.Fk()) {
+            this.mRefreshView.fb(i);
         }
     }
 
@@ -258,7 +258,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.U(currentTimeMillis);
-            com.baidu.tbadk.pageStayDuration.e.Gt().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.pageStayDuration.e.Gr().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
         com.baidu.adp.lib.f.c.fp().e(this.mId);
@@ -379,7 +379,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Fm();
+        return this.loadingView.Fk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -491,7 +491,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.U(currentTimeMillis);
-            com.baidu.tbadk.pageStayDuration.e.Gt().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.pageStayDuration.e.Gr().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
         refreshImage(getView());
@@ -558,7 +558,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             arrayList3.addAll(arrayList2);
             arrayList = arrayList3;
         }
-        if ((getPageStayFilter() == null || getPageStayFilter().Go()) && !StringUtils.isNull(currentPageKey)) {
+        if ((getPageStayFilter() == null || getPageStayFilter().Gm()) && !StringUtils.isNull(currentPageKey)) {
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }

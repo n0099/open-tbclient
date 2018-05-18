@@ -287,13 +287,13 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     @Override // com.baidu.adp.framework.client.socket.link.a
     public void a(k.a aVar) {
         byte[] bArr;
-        if (aVar != null && (bArr = aVar.yE) != null) {
+        if (aVar != null && (bArr = aVar.yD) != null) {
             this.nj = System.currentTimeMillis();
             try {
                 com.baidu.adp.framework.client.socket.coder.c h = com.baidu.adp.framework.client.socket.coder.b.cR().h(bArr);
                 this.nk = 0;
-                int cM = h.oq.cM();
-                int cO = h.oq.cO();
+                int cM = h.oo.cM();
+                int cO = h.oo.cO();
                 i.a("queue", cM, cO, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
                 e n = n(cM, cO);
                 if (n != null) {
@@ -301,7 +301,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
                     n.mZ = aVar.mZ;
                 }
                 if (this.ni != null) {
-                    if (h.oq.cM() == this.ni.getCmd() && c.a(this.ne, this.nf)) {
+                    if (h.oo.cM() == this.ni.getCmd() && c.a(this.ne, this.nf)) {
                         cz();
                     }
                     this.ni.cc();

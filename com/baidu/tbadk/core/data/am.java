@@ -14,63 +14,63 @@ public class am {
     private int total_count = 0;
     private int YM = 0;
 
-    public int qX() {
+    public int qW() {
         return this.YL;
     }
 
-    public void bC(int i) {
+    public void bD(int i) {
         this.YL = i;
     }
 
-    public int qq() {
+    public int qp() {
         return this.total_num;
     }
 
-    public void bD(int i) {
+    public void bE(int i) {
         this.total_num = i;
     }
 
-    public int qY() {
+    public int qX() {
         return this.total_count;
     }
 
-    public int qZ() {
+    public int qY() {
         return this.YM;
     }
 
-    public void bE(int i) {
+    public void bF(int i) {
         this.YM = i;
     }
 
-    public int ra() {
+    public int qZ() {
         return this.current_page;
     }
 
-    public void bF(int i) {
+    public void bG(int i) {
         this.current_page = i;
     }
 
-    public int rb() {
+    public int ra() {
         return this.YN;
     }
 
-    public void bG(int i) {
+    public void bH(int i) {
         this.YN = i;
     }
 
-    public void bH(int i) {
+    public void bI(int i) {
         this.has_more = i;
     }
 
-    public int rc() {
+    public int rb() {
         return this.has_more;
     }
 
-    public void bI(int i) {
+    public void bJ(int i) {
         this.YO = i;
     }
 
-    public int rd() {
+    public int rc() {
         return this.YO;
     }
 

@@ -28,7 +28,7 @@ public class a {
         this.akx = interfaceC0088a;
     }
 
-    public void wu() {
+    public void wt() {
         if (this.akw != null) {
             this.akw.clear();
         }
@@ -41,7 +41,7 @@ public class a {
     }
 
     public boolean v(Activity activity) {
-        if (com.baidu.d.a.on() && !v.w(this.akw)) {
+        if (com.baidu.d.a.om() && !v.w(this.akw)) {
             Iterator<String> it = this.akw.iterator();
             while (it.hasNext()) {
                 if (!e(activity, it.next())) {
@@ -67,8 +67,8 @@ public class a {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
         aVar.as(false);
-        aVar.bY(d.k.request_permission_default_title);
-        aVar.bZ(ez(str));
+        aVar.bZ(d.k.request_permission_default_title);
+        aVar.ca(ez(str));
         aVar.a(d.k.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -91,7 +91,7 @@ public class a {
                 }
             }
         }).b(i.ab(activity));
-        aVar.tD();
+        aVar.tC();
         return false;
     }
 

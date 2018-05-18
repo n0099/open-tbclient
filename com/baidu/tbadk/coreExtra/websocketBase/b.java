@@ -6,21 +6,21 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static b aAm = new b();
+        private static b aAn = new b();
     }
 
-    public static b CF() {
-        return a.aAm;
+    public static b CD() {
+        return a.aAn;
     }
 
     private b() {
     }
 
-    public void CG() {
+    public void CE() {
         fK("kLCSError=1");
     }
 
-    public void eq(int i) {
+    public void er(int i) {
         fK("kNetStatus=" + i);
     }
 
@@ -29,6 +29,6 @@ public class b {
     }
 
     private void fK(String str) {
-        i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.UL, str);
+        i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.UH, str);
     }
 }

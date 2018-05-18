@@ -6,7 +6,7 @@ import com.baidu.ar.util.Constants;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes3.dex */
 public class d {
-    public static String oj(String str) {
+    public static String om(String str) {
         int lastIndexOf;
         int indexOf;
         String aT = an.aT(str);
@@ -19,7 +19,7 @@ public class d {
         return aT;
     }
 
-    public static boolean ok(String str) {
+    public static boolean oo(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
@@ -27,7 +27,7 @@ public class d {
         return !StringUtils.isNull(aT) && aT.contains("?t=");
     }
 
-    public static boolean ol(String str) {
+    public static boolean op(String str) {
         return (TextUtils.isEmpty(str) || str.startsWith("http://") || str.startsWith("https://")) ? false : true;
     }
 }

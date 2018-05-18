@@ -6,7 +6,7 @@ import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes3.dex */
 public class c extends AsyncTask<Void, Void, String> {
-    private a fUb;
+    private a fVh;
     private Camera mCamera;
     private byte[] mData;
     private int orientation;
@@ -19,7 +19,7 @@ public class c extends AsyncTask<Void, Void, String> {
     public c(Camera camera, byte[] bArr, a aVar, int i) {
         this.mCamera = camera;
         this.mData = bArr;
-        this.fUb = aVar;
+        this.fVh = aVar;
         this.orientation = i;
     }
 
@@ -41,7 +41,7 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        this.fUb = null;
+        this.fVh = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,13 +76,13 @@ public class c extends AsyncTask<Void, Void, String> {
                 i = i2;
             }
             try {
-                if (this.fUb != null) {
-                    return this.fUb.a(bArr, i2, i, false);
+                if (this.fVh != null) {
+                    return this.fVh.a(bArr, i2, i, false);
                 }
                 return null;
             } catch (Exception e2) {
                 try {
-                    return this.fUb.a(bArr, i2, i, true);
+                    return this.fVh.a(bArr, i2, i, true);
                 } catch (Exception e3) {
                     return null;
                 }

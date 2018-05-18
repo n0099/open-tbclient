@@ -130,17 +130,17 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     }
 
     public void setLengthSizeOfTrafNum(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wj(i)));
         this.lengthSizeOfTrafNum = i;
     }
 
     public void setLengthSizeOfTrunNum(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.wj(i)));
         this.lengthSizeOfTrunNum = i;
     }
 
     public void setLengthSizeOfSampleNum(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wj(i)));
         this.lengthSizeOfSampleNum = i;
     }
 

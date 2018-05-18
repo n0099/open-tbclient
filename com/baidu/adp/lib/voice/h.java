@@ -5,9 +5,9 @@ import android.os.Build;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class h {
-    public static int xO;
-    public static int xP = 3;
-    private static final String[] xQ = {"meizu"};
+    public static int xN;
+    public static int xO = 3;
+    private static final String[] xP = {"meizu"};
 
     public static String getString(int i) {
         Application app = BdBaseApplication.getInst().getApp();
@@ -20,8 +20,8 @@ public class h {
             return false;
         }
         String lowerCase = str.toLowerCase();
-        for (int i = 0; i < xQ.length; i++) {
-            if (xQ[i].equals(lowerCase)) {
+        for (int i = 0; i < xP.length; i++) {
+            if (xP[i].equals(lowerCase)) {
                 return true;
             }
         }

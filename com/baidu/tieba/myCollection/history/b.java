@@ -14,19 +14,19 @@ import java.util.Date;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b> {
     private TextView apF;
-    private TextView bYO;
-    private TextView eUa;
+    private TextView bZJ;
+    private TextView eVh;
     private View mLine;
     private View mRootView;
 
     public b(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view2, viewEventCenter);
         this.mRootView = view2;
-        this.eUa = (TextView) view2.findViewById(d.g.title);
+        this.eVh = (TextView) view2.findViewById(d.g.title);
         this.apF = (TextView) view2.findViewById(d.g.content);
         this.apF.setSingleLine();
         this.apF.setEllipsize(TextUtils.TruncateAt.END);
-        this.bYO = (TextView) view2.findViewById(d.g.time);
+        this.bZJ = (TextView) view2.findViewById(d.g.time);
         this.mLine = view2.findViewById(d.g.line);
     }
 
@@ -36,18 +36,18 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void D(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.D(aVar);
         if (aVar != null) {
-            if (this.eUa != null) {
+            if (this.eVh != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.eUa.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
+                        this.eVh.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.eUa.setText(aVar.getDescription());
+                        this.eVh.setText(aVar.getDescription());
                     }
                 } else if (aVar.aTd() != null) {
                     if (aVar.isShareThread()) {
-                        this.eUa.setText(String.format("%s%s", getString(d.k.pb_history_share_prefix), aVar.aTd()));
+                        this.eVh.setText(String.format("%s%s", getString(d.k.pb_history_share_prefix), aVar.aTd()));
                     } else {
-                        this.eUa.setText(aVar.aTd());
+                        this.eVh.setText(aVar.aTd());
                     }
                 }
             }
@@ -58,12 +58,12 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
                     this.apF.setText(aVar.getForumName());
                 }
             }
-            if (this.bYO != null) {
+            if (this.bZJ != null) {
                 String f = an.f(new Date(aVar.getTime()));
                 if (f == null) {
                     f = "";
                 }
-                this.bYO.setText(f);
+                this.bZJ.setText(f);
             }
         }
     }
@@ -73,9 +73,9 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         ak.i(this.mRootView, d.f.list_item_selector);
         ak.i(this.mLine, d.C0126d.cp_bg_line_b);
-        ak.c(this.eUa, d.C0126d.cp_cont_b, 1);
+        ak.c(this.eVh, d.C0126d.cp_cont_b, 1);
         ak.c(this.apF, d.C0126d.cp_cont_d, 1);
-        ak.c(this.bYO, d.C0126d.cp_cont_d, 1);
+        ak.c(this.bZJ, d.C0126d.cp_cont_d, 1);
         return true;
     }
 }

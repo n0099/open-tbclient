@@ -6,27 +6,27 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.lego.card.view.h {
-    private ICardInfo IP;
-    public g IQ;
-    public boolean IR;
-    private AdvertAppInfo IT;
+    private ICardInfo IK;
+    public g IL;
+    public boolean IM;
+    private AdvertAppInfo IP;
     private e adModel;
-    private boolean IS = false;
+    private boolean IO = false;
     private BdUniqueId tag = BdUniqueId.gen();
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.IQ = gVar;
+        dVar.IL = gVar;
         return dVar;
     }
 
-    public ICardInfo lu() {
-        return this.IP;
+    public ICardInfo lt() {
+        return this.IK;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return lu() != null ? b.II : b.IH;
+        return lt() != null ? b.IE : b.IC;
     }
 
     public BdUniqueId getTag() {
@@ -35,56 +35,56 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     @Override // com.baidu.tieba.lego.card.view.h
     public void setAutoPlay(boolean z) {
-        if (lu() instanceof com.baidu.tieba.lego.card.view.h) {
-            ((com.baidu.tieba.lego.card.view.h) lu()).setAutoPlay(z);
+        if (lt() instanceof com.baidu.tieba.lego.card.view.h) {
+            ((com.baidu.tieba.lego.card.view.h) lt()).setAutoPlay(z);
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.h
     public void setWaitConfirm(boolean z) {
-        if (lu() instanceof com.baidu.tieba.lego.card.view.h) {
-            ((com.baidu.tieba.lego.card.view.h) lu()).setWaitConfirm(z);
+        if (lt() instanceof com.baidu.tieba.lego.card.view.h) {
+            ((com.baidu.tieba.lego.card.view.h) lt()).setWaitConfirm(z);
         }
     }
 
     public void a(e eVar) {
         this.adModel = eVar;
-        this.IP = eVar != null ? eVar.IW : null;
-        if (this.IP instanceof h) {
-            ((h) this.IP).setAdFacadeData(this);
+        this.IK = eVar != null ? eVar.IR : null;
+        if (this.IK instanceof h) {
+            ((h) this.IK).setAdFacadeData(this);
         }
-        this.IS = true;
+        this.IO = true;
     }
 
-    public AdvertAppInfo lv() {
-        if (this.IT == null) {
-            this.IT = new AdvertAppInfo();
-            if (this.IQ != null) {
-                Map<String, String> lt = this.IQ.lt();
-                this.IT.adPosition = String.valueOf(this.IQ.ls());
-                this.IT.tid = lt != null ? lt.get("thread_id") : "";
-                this.IT.setFid(lt != null ? Long.valueOf(lt.get("forum_id")).longValue() : 0L);
+    public AdvertAppInfo lu() {
+        if (this.IP == null) {
+            this.IP = new AdvertAppInfo();
+            if (this.IL != null) {
+                Map<String, String> ls = this.IL.ls();
+                this.IP.adPosition = String.valueOf(this.IL.lr());
+                this.IP.tid = ls != null ? ls.get("thread_id") : "";
+                this.IP.setFid(ls != null ? Long.valueOf(ls.get("forum_id")).longValue() : 0L);
             }
-            this.IT.extensionInfo = this.adModel != null ? this.adModel.ext : "";
-            this.IT.Vt = "VIDEO_LIST";
+            this.IP.extensionInfo = this.adModel != null ? this.adModel.ext : "";
+            this.IP.Vp = "VIDEO_LIST";
         }
-        return this.IT;
+        return this.IP;
     }
 
     public int getPageNum() {
-        if (this.IQ != null) {
-            return this.IQ.lr();
+        if (this.IL != null) {
+            return this.IL.lq();
         }
         return 0;
     }
 
-    public e lw() {
+    public e lv() {
         return this.adModel;
     }
 
-    public void lx() {
-        if (!this.IS) {
-            com.baidu.tieba.recapp.report.b.bke().a(com.baidu.tieba.recapp.report.e.a(this, ParseError.ERROR_SMOOTH_SCROLL));
+    public void lw() {
+        if (!this.IO) {
+            com.baidu.tieba.recapp.report.b.bkd().a(com.baidu.tieba.recapp.report.e.a(this, ParseError.ERROR_SMOOTH_SCROLL));
             return;
         }
         com.baidu.tbadk.core.data.b.a(this);

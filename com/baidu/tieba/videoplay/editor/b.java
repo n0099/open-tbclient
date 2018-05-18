@@ -23,31 +23,31 @@ public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
     protected void a(com.baidu.tbadk.editortools.d dVar) {
         if (dVar != null) {
-            EditorTools DF = dVar.DF();
+            EditorTools DD = dVar.DD();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            DF.C(arrayList);
-            k eH = DF.eH(5);
-            if (eH != null) {
-                eH.bA(false);
-                eH.aDz = 0;
+            DD.C(arrayList);
+            k eI = DD.eI(5);
+            if (eI != null) {
+                eI.bA(false);
+                eI.aDA = 0;
             }
-            DF.b(new c(DF.getContext()));
-            DF.DG();
-            DF.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-            DF.hide();
+            DD.b(new c(DD.getContext()));
+            DD.DE();
+            DD.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+            DD.hide();
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void b(com.baidu.tbadk.editortools.d dVar) {
         if (dVar instanceof a) {
-            EditorTools DF = dVar.DF();
+            EditorTools DD = dVar.DD();
             final a aVar = (a) dVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.videoplay.editor.b.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar2) {
-                    if (aVar != null && aVar.DF() != null && aVar2 != null) {
+                    if (aVar != null && aVar.DD() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
                                 aVar.gn((String) aVar2.data);
@@ -57,12 +57,12 @@ public class b extends com.baidu.tbadk.editortools.c {
                             default:
                                 return;
                             case 7:
-                                aVar.ys().showToast(d.k.over_limit_tip);
+                                aVar.yr().showToast(d.k.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.bzQ();
-                                if (b.this.a(aVar.ys(), 11001)) {
-                                    aVar.Ew();
+                                aVar.bzO();
+                                if (b.this.a(aVar.yr(), 11001)) {
+                                    aVar.Eu();
                                     return;
                                 }
                                 return;
@@ -70,9 +70,9 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            DF.setActionListener(4, bVar);
-            DF.setActionListener(7, bVar);
-            DF.setActionListener(8, bVar);
+            DD.setActionListener(4, bVar);
+            DD.setActionListener(7, bVar);
+            DD.setActionListener(8, bVar);
         }
     }
 

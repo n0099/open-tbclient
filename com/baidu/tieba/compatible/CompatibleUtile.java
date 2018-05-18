@@ -40,42 +40,42 @@ public class CompatibleUtile {
 
     private Object5 getObject5() {
         if (Build.VERSION.SDK_INT >= 5 && mObject5 == null) {
-            mObject5 = new Object5(this, null);
+            mObject5 = new Object5();
         }
         return mObject5;
     }
 
     private Object7 getObject7() {
         if (Build.VERSION.SDK_INT >= 7 && mObject7 == null) {
-            mObject7 = new Object7(this, null);
+            mObject7 = new Object7();
         }
         return mObject7;
     }
 
     private Object8 getObject8() {
         if (Build.VERSION.SDK_INT >= 8 && mObject8 == null) {
-            mObject8 = new Object8(this, null);
+            mObject8 = new Object8();
         }
         return mObject8;
     }
 
     private Object9 getObject9() {
         if (Build.VERSION.SDK_INT >= 9 && mObject9 == null) {
-            mObject9 = new Object9(this, null);
+            mObject9 = new Object9();
         }
         return mObject9;
     }
 
     private Object11 getObject11() {
         if (Build.VERSION.SDK_INT >= 11 && mObject11 == null) {
-            mObject11 = new Object11(this, null);
+            mObject11 = new Object11();
         }
         return mObject11;
     }
 
     private Object14 getObject14() {
         if (Build.VERSION.SDK_INT >= 14 && mObject14 == null) {
-            mObject14 = new Object14(this, null);
+            mObject14 = new Object14();
         }
         return mObject14;
     }
@@ -315,10 +315,6 @@ public class CompatibleUtile {
         private Object5() {
         }
 
-        /* synthetic */ Object5(CompatibleUtile compatibleUtile, Object5 object5) {
-            this();
-        }
-
         public int getActionPointerUp() {
             return 6;
         }
@@ -353,10 +349,6 @@ public class CompatibleUtile {
         private Object7() {
         }
 
-        /* synthetic */ Object7(CompatibleUtile compatibleUtile, Object7 object7) {
-            this();
-        }
-
         public boolean supportMultiTouch(Context context) {
             if (context == null) {
                 return false;
@@ -369,10 +361,6 @@ public class CompatibleUtile {
     /* loaded from: classes.dex */
     public class Object8 {
         private Object8() {
-        }
-
-        /* synthetic */ Object8(CompatibleUtile compatibleUtile, Object8 object8) {
-            this();
         }
 
         public boolean isAutoBrightness(Context context) {
@@ -413,10 +401,6 @@ public class CompatibleUtile {
         private Object9() {
         }
 
-        /* synthetic */ Object9(CompatibleUtile compatibleUtile, Object9 object9) {
-            this();
-        }
-
         public Camera getBackCamera() {
             int numberOfCameras = Camera.getNumberOfCameras();
             if (numberOfCameras == 0) {
@@ -445,10 +429,6 @@ public class CompatibleUtile {
 
         private Object11() {
             this.STATUSBAR_ATTRS = new int[]{16842904};
-        }
-
-        /* synthetic */ Object11(CompatibleUtile compatibleUtile, Object11 object11) {
-            this();
         }
 
         public int getStatusBarColor(Context context) {
@@ -499,10 +479,6 @@ public class CompatibleUtile {
     /* loaded from: classes.dex */
     public class Object14 {
         private Object14() {
-        }
-
-        /* synthetic */ Object14(CompatibleUtile compatibleUtile, Object14 object14) {
-            this();
         }
 
         public WebChromeClient getWebChromeClient(Activity activity) {

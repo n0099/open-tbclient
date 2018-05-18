@@ -19,10 +19,10 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.card.b<q> {
     private View.OnClickListener alg;
-    private com.baidu.tieba.horizonalList.widget.b cnH;
-    private HListView cnQ;
-    private List<com.baidu.tieba.horizonalList.widget.c> cnS;
-    public r dtK;
+    private com.baidu.tieba.horizonalList.widget.b coQ;
+    private HListView coZ;
+    private List<com.baidu.tieba.horizonalList.widget.c> cpb;
+    public r duS;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
@@ -34,25 +34,25 @@ public class c extends com.baidu.tieba.card.b<q> {
                 }
             }
         };
-        this.cnQ = new HListView(getContext());
-        this.cnQ.setHeaderDividersEnabled(false);
-        this.cnQ.setFooterDividersEnabled(false);
-        this.cnQ.setSelector(d.f.list_selector_transparent);
-        this.dtK = new r(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.i.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
-        this.cnH = new com.baidu.tieba.horizonalList.widget.b(getContext(), d.i.frs_school_recommend_user, this.dtK);
-        this.cnH.setOnClickListener(this.alg);
-        this.cnQ.setAdapter((ListAdapter) this.cnH);
-        this.clU.addView(this.cnQ);
-        this.clT.setVisibility(8);
-        this.clN.setTextSize(0, l.e(tbPageContext.getPageActivity(), d.e.ds28));
+        this.coZ = new HListView(getContext());
+        this.coZ.setHeaderDividersEnabled(false);
+        this.coZ.setFooterDividersEnabled(false);
+        this.coZ.setSelector(d.f.list_selector_transparent);
+        this.duS = new r(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.i.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
+        this.coQ = new com.baidu.tieba.horizonalList.widget.b(getContext(), d.i.frs_school_recommend_user, this.duS);
+        this.coQ.setOnClickListener(this.alg);
+        this.coZ.setAdapter((ListAdapter) this.coQ);
+        this.cne.addView(this.coZ);
+        this.cnd.setVisibility(8);
+        this.cmX.setTextSize(0, l.e(tbPageContext.getPageActivity(), d.e.ds28));
     }
 
     @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        if (this.cnQ != null && this.cnH != null) {
-            ak.h(this.clN, d.C0126d.cp_cont_d);
-            this.cnH.dh(i);
+        if (this.coZ != null && this.coQ != null) {
+            ak.h(this.cmX, d.C0126d.cp_cont_d);
+            this.coQ.di(i);
         }
     }
 
@@ -62,25 +62,25 @@ public class c extends com.baidu.tieba.card.b<q> {
         super.a((c) qVar);
         if (qVar != null && !v.w(qVar.getDataList())) {
             if (StringUtils.isNull(qVar.mGroupTitle)) {
-                this.clN.setText(getContext().getResources().getString(d.k.school_recommend));
+                this.cmX.setText(getContext().getResources().getString(d.k.school_recommend));
             } else {
-                this.clN.setText(qVar.mGroupTitle);
+                this.cmX.setText(qVar.mGroupTitle);
             }
-            if (aC(qVar.getDataList())) {
-                this.cnS = qVar.getDataList();
-                this.cnH.setData(this.cnS);
-                this.cnH.notifyDataSetChanged();
+            if (aF(qVar.getDataList())) {
+                this.cpb = qVar.getDataList();
+                this.coQ.setData(this.cpb);
+                this.coQ.notifyDataSetChanged();
             }
         }
     }
 
-    private boolean aC(List<com.baidu.tieba.horizonalList.widget.c> list) {
+    private boolean aF(List<com.baidu.tieba.horizonalList.widget.c> list) {
         if (v.w(list)) {
             return false;
         }
-        if (!v.w(this.cnS) && v.v(this.cnS) == v.v(list)) {
-            for (int i = 0; i < v.v(this.cnS); i++) {
-                com.baidu.tieba.horizonalList.widget.c cVar = (com.baidu.tieba.horizonalList.widget.c) v.c(this.cnS, i);
+        if (!v.w(this.cpb) && v.v(this.cpb) == v.v(list)) {
+            for (int i = 0; i < v.v(this.cpb); i++) {
+                com.baidu.tieba.horizonalList.widget.c cVar = (com.baidu.tieba.horizonalList.widget.c) v.c(this.cpb, i);
                 com.baidu.tieba.horizonalList.widget.c cVar2 = (com.baidu.tieba.horizonalList.widget.c) v.c(list, i);
                 if ((cVar instanceof an) && (cVar2 instanceof an) && !((an) cVar).metaData.getUserId().equals(((an) cVar2).metaData.getUserId())) {
                     return true;

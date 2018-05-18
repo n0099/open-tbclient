@@ -17,8 +17,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 /* loaded from: classes2.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView ekh;
-    private CustomMessageListener eki;
+    private MessageRedDotView elo;
+    private CustomMessageListener elp;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -26,28 +26,28 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Fx() {
+    public c Fv() {
         c cVar = new c();
-        cVar.aIm = new MessageCenterFragment();
+        cVar.aIn = new MessageCenterFragment();
         cVar.type = 3;
-        cVar.aIn = d.k.my_message;
-        cVar.aIo = d.f.s_tabbar_icon_three_bg;
-        cVar.aIq = d.f.tabbar_message_anim;
-        cVar.aIu = c.aIt;
+        cVar.aIo = d.k.my_message;
+        cVar.aIp = d.f.s_tabbar_icon_three_bg;
+        cVar.aIr = d.f.tabbar_message_anim;
+        cVar.aIv = c.aIu;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator aT(Context context) {
-        this.aId = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.i.maintab_bottom_indicator, (ViewGroup) null);
-        this.ekh = new MessageRedDotView(context);
+        this.aIe = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.i.maintab_bottom_indicator, (ViewGroup) null);
+        this.elo = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.aIH = this.aId;
-        aVar.f7view = this.ekh;
-        aVar.aIE = true;
-        this.aId.b("msg", aVar);
-        this.ekh.setVisibility(4);
-        return this.aId;
+        aVar.aII = this.aIe;
+        aVar.f7view = this.elo;
+        aVar.aIF = true;
+        this.aIe.b("msg", aVar);
+        this.elo.setVisibility(4);
+        return this.aIe;
     }
 
     static {
@@ -65,8 +65,8 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Fw() {
-        this.eki = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+    public void Fu() {
+        this.elp = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -91,24 +91,24 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.eki);
+        MessageManager.getInstance().registerListener(this.elp);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(boolean z, int i) {
-        if (this.ekh != null) {
+        if (this.elo != null) {
             if (z) {
-                this.ekh.refresh(i);
-                this.ekh.setVisibility(0);
+                this.elo.refresh(i);
+                this.elo.setVisibility(0);
                 return;
             }
-            this.ekh.setVisibility(8);
+            this.elo.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void ck() {
         super.ck();
-        MessageManager.getInstance().unRegisterListener(this.eki);
+        MessageManager.getInstance().unRegisterListener(this.elp);
     }
 }

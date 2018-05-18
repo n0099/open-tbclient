@@ -72,7 +72,7 @@ public class b implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Fz() {
+    public byte[] Fx() {
         return null;
     }
 }

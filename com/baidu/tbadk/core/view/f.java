@@ -23,7 +23,7 @@ public class f extends e {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (f.this.isDone) {
-                    f.this.dv(TbadkCoreApplication.getInst().getSkinType());
+                    f.this.dw(TbadkCoreApplication.getInst().getSkinType());
                 }
             }
         };
@@ -31,7 +31,7 @@ public class f extends e {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                f.this.anX.setBackgroundColor(af.vx().cH(TbadkCoreApplication.getInst().getSkinType()));
+                f.this.anX.setBackgroundColor(af.vw().cI(TbadkCoreApplication.getInst().getSkinType()));
             }
         };
         c(tbPageContext);
@@ -53,31 +53,31 @@ public class f extends e {
             if (this.mSkinType != Integer.MIN_VALUE) {
                 skinType = this.mSkinType;
             }
-            dv(skinType);
+            dw(skinType);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.e, com.baidu.adp.widget.ListView.c
-    public void kC() {
-        super.kC();
+    public void kB() {
+        super.kB();
         this.isDone = false;
     }
 
     @Override // com.baidu.tbadk.core.view.e
-    public void dv(int i) {
-        super.dv(i);
+    public void dw(int i) {
+        super.dw(i);
         if (this.anX != null && this.anY != null) {
             this.aon = false;
-            if (!vF()) {
-                this.aoc = af.vx().cF(i);
+            if (!vE()) {
+                this.aoc = af.vw().cG(i);
                 if (this.aoc != null) {
                     this.aon = true;
                 } else {
                     this.aoc = new AnimationDrawable();
                 }
-                this.anX.setBackgroundColor(af.vx().cH(i));
+                this.anX.setBackgroundColor(af.vw().cI(i));
                 if (!this.aon) {
-                    this.aoc = af.vx().cG(i);
+                    this.aoc = af.vw().cH(i);
                 }
                 this.aoc.setOneShot(false);
                 this.anY.setBackgroundDrawable(this.aoc);

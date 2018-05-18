@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    void dK(int i);
+    void dL(int i);
 
     boolean eX(String str);
 
@@ -11,13 +11,13 @@ public interface c {
 
     boolean isPlaying();
 
-    void xF();
+    void xE();
+
+    void xH();
 
     void xI();
 
     void xJ();
 
-    void xK();
-
-    boolean xL();
+    boolean xK();
 }

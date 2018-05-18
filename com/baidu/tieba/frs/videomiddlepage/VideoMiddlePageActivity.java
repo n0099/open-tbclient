@@ -15,7 +15,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment drB;
+    private VideoMiddlePageFragment dsJ;
     private String mFrom;
     private String mId;
 
@@ -31,8 +31,8 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Intent intent = getIntent();
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
-        this.drB = VideoMiddlePageFragment.aZ(this.mFrom, this.mId);
-        getSupportFragmentManager().beginTransaction().add(d.g.video_middle_page_container, this.drB, VideoMiddlePageFragment.class.getCanonicalName()).commit();
+        this.dsJ = VideoMiddlePageFragment.aZ(this.mFrom, this.mId);
+        getSupportFragmentManager().beginTransaction().add(d.g.video_middle_page_container, this.dsJ, VideoMiddlePageFragment.class.getCanonicalName()).commit();
         al alVar = new al("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
             alVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom);
@@ -65,10 +65,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.drB == null) {
+        if (keyEvent == null || this.dsJ == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.drB.kq(i)) {
+        if (this.dsJ.kp(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -92,7 +92,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 arrayList.add("a006");
             }
             pageStayDurationItem.I(arrayList);
-            pageStayDurationItem.aJO = "0";
+            pageStayDurationItem.aJP = "0";
         }
         return pageStayDurationItem;
     }

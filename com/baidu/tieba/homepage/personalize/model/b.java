@@ -13,34 +13,34 @@ import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes2.dex */
 public class b {
     public static void a(DataRes.Builder builder, List<h> list) {
-        bI(list);
+        bL(list);
         b(builder, list);
     }
 
-    public static void bI(List<h> list) {
+    public static void bL(List<h> list) {
         if (list != null) {
             int v = v.v(list);
             for (int i = 0; i < v; i++) {
                 h hVar = (h) v.c(list, i);
                 if (hVar instanceof p) {
-                    ((p) hVar).ev(true);
+                    ((p) hVar).ew(true);
                 }
                 h hVar2 = (h) v.c(list, i + 1);
                 if ((hVar instanceof p) && (hVar2 instanceof p)) {
                     p pVar = (p) hVar;
                     p pVar2 = (p) hVar2;
                     if (pVar.afO()) {
-                        pVar2.ev(false);
+                        pVar2.ew(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
-                            pVar.ew(false);
+                            pVar.ex(false);
                         }
                     }
                 }
                 if (hVar instanceof com.baidu.tieba.homepage.personalize.b.c) {
                     if ((hVar2 instanceof p) || (hVar2 instanceof com.baidu.tieba.card.data.h)) {
-                        ((com.baidu.tieba.homepage.personalize.b.c) hVar).ew(true);
+                        ((com.baidu.tieba.homepage.personalize.b.c) hVar).ex(true);
                     } else {
-                        ((com.baidu.tieba.homepage.personalize.b.c) hVar).ew(false);
+                        ((com.baidu.tieba.homepage.personalize.b.c) hVar).ex(false);
                     }
                 }
             }
@@ -49,7 +49,7 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<h> list) {
         com.baidu.tieba.card.data.c cVar;
-        bd Pe;
+        bd Pb;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             HashMap hashMap = new HashMap();
@@ -61,12 +61,12 @@ public class b {
             int v = v.v(list);
             for (int i = 0; i < v; i++) {
                 h hVar = (h) v.c(list, i);
-                if ((hVar instanceof com.baidu.tieba.card.data.c) && (Pe = (cVar = (com.baidu.tieba.card.data.c) hVar).Pe()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.c(Pe.getTid(), 0L)))) != null) {
+                if ((hVar instanceof com.baidu.tieba.card.data.c) && (Pb = (cVar = (com.baidu.tieba.card.data.c) hVar).Pb()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.c(Pb.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.ky(threadPersonalized.abtest_tag);
-                    if (Pe.sh() != null) {
-                        cVar.c(Pe.sh().is_vertical);
+                    cVar.kB(threadPersonalized.abtest_tag);
+                    if (Pb.sg() != null) {
+                        cVar.c(Pb.sg().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

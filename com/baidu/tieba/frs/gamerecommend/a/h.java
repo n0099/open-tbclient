@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes3.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.baidu.tieba.card.a.a<com.baidu.tieba.card.i>> {
-    private com.baidu.tieba.card.i diy;
+    private com.baidu.tieba.card.i djF;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.g.cEg);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.g.cFp);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -27,8 +27,8 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.i> onCreateViewHolder(ViewGroup viewGroup) {
-        this.diy = new com.baidu.tieba.card.i(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.diy);
+        this.djF = new com.baidu.tieba.card.i(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.djF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,7 +45,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.
             @Override // com.baidu.tieba.card.ab
             public void a(View view3, com.baidu.tieba.e.g gVar2) {
                 TiebaStatic.log(new al("c13047").r("obj_locate", 1).ac(ImageViewerConfig.FORUM_ID, h.this.mForumId));
-                ax.wg().a((TbPageContext) com.baidu.adp.base.i.ab(view3.getContext()), new String[]{gVar2.ajz().score_url}, true);
+                ax.wf().a((TbPageContext) com.baidu.adp.base.i.ab(view3.getContext()), new String[]{gVar2.ajz().score_url}, true);
             }
         });
         aVar.afY().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());

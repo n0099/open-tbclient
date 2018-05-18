@@ -8,7 +8,7 @@ import java.io.File;
 public class am {
     private static am aiD;
 
-    public static synchronized am vK() {
+    public static synchronized am vJ() {
         am amVar;
         synchronized (am.class) {
             if (aiD == null) {
@@ -52,7 +52,7 @@ public class am {
     }
 
     public boolean Z(String str, String str2) {
-        String str3 = k.wB + "/" + TbConfig.getTempDirName() + "/";
+        String str3 = k.wA + "/" + TbConfig.getTempDirName() + "/";
         if (!k.dr(str3)) {
             k.dN(str3);
         }
@@ -86,13 +86,13 @@ public class am {
         }
     }
 
-    public void vL() {
-        u(new File(k.wB + "/" + TbConfig.getTempDirName() + "/image"));
-        u(new File(k.wB + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    public void vK() {
+        u(new File(k.wA + "/" + TbConfig.getTempDirName() + "/image"));
+        u(new File(k.wA + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void vM() {
-        v(new File(k.wB + "/" + TbConfig.getTempDirName() + "/" + k.cy(3)));
+    public void vL() {
+        v(new File(k.wA + "/" + TbConfig.getTempDirName() + "/" + k.cz(3)));
     }
 
     private void v(File file) {

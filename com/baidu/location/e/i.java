@@ -11,19 +11,19 @@ import java.util.concurrent.Callable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Callable<BDLocation> {
-    final /* synthetic */ d PN;
+    final /* synthetic */ d PI;
     final /* synthetic */ String[] a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar, String[] strArr) {
-        this.PN = dVar;
+        this.PI = dVar;
         this.a = strArr;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Callable
-    /* renamed from: nC */
+    /* renamed from: nB */
     public BDLocation call() {
         Context context;
         h hVar;
@@ -40,10 +40,10 @@ public class i implements Callable<BDLocation> {
             context = d.c;
             ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(d.b, 0);
             if (resolveContentProvider == null) {
-                hVar = this.PN.Pp;
-                String[] nB = hVar.nB();
+                hVar = this.PI.Pl;
+                String[] nA = hVar.nA();
                 providerInfo = resolveContentProvider;
-                for (String str : nB) {
+                for (String str : nA) {
                     context2 = d.c;
                     providerInfo = context2.getPackageManager().resolveContentProvider(str, 0);
                     if (providerInfo != null) {
@@ -104,7 +104,7 @@ public class i implements Callable<BDLocation> {
             } else {
                 j.a aVar = new j.a(this.a);
                 try {
-                    eVar = this.PN.Pn;
+                    eVar = this.PI.Pj;
                     cursor2 = eVar.a(aVar);
                     bDLocation2 = j.f(cursor2);
                     if (cursor2 != null) {

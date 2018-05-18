@@ -8,7 +8,7 @@ public abstract class a implements h {
 
     public abstract String getImageUrl();
 
-    public abstract Object xz();
+    public abstract Object xy();
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {

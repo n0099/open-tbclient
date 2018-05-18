@@ -85,11 +85,11 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         this.adN.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
     }
 
-    public T cp(int i) {
+    public T cq(int i) {
         if (this.adP == null) {
             return null;
         }
-        return this.adP.cp(i);
+        return this.adP.cq(i);
     }
 
     public void setData(List<T> list) {
@@ -101,21 +101,21 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
                 this.adN.setCount(size);
                 this.adM.setCurrentItem(1, false);
                 this.adN.setPosition(0.0f);
-                tR();
+                tQ();
                 return;
             }
             this.adN.setVisibility(8);
-            tS();
+            tR();
         }
     }
 
     public void setCoverFlowFactory(com.baidu.tbadk.core.flow.a aVar) {
         if (aVar != null) {
             this.adQ = aVar;
-            this.adO = aVar.tO();
+            this.adO = aVar.tN();
             this.adO.g(this.adN);
-            aVar.tP().a(this.adM);
-            this.mCustomView = aVar.tQ();
+            aVar.tO().a(this.adM);
+            this.mCustomView = aVar.tP();
             if (this.mCustomView != null) {
                 removeAllViews();
                 addView(this.adM);
@@ -125,22 +125,22 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         }
     }
 
-    public void tR() {
-        tT();
+    public void tQ() {
+        tS();
     }
 
-    public void tS() {
+    public void tR() {
         this.adR.removeMessages(1);
     }
 
-    public void tT() {
+    public void tS() {
         this.adR.removeMessages(1);
         this.adR.sendEmptyMessageDelayed(1, this.adV);
     }
 
     public void setMarqueenTime(long j) {
         this.adV = j;
-        tT();
+        tS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -155,7 +155,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    CoverFlowView.this.tU();
+                    CoverFlowView.this.tT();
                     return;
                 default:
                     return;
@@ -164,7 +164,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tU() {
+    public void tT() {
         int count;
         if (this.adM != null && this.adP != null && (count = this.adP.getCount()) > 1) {
             int currentItem = this.adM.getCurrentItem();
@@ -180,7 +180,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         }
     }
 
-    private boolean tV() {
+    private boolean tU() {
         int count;
         if (this.adP != null && (count = this.adP.getCount()) > 1) {
             int currentItem = this.adM.getCurrentItem();
@@ -224,7 +224,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             if (CoverFlowView.this.adP != null) {
                 int count = CoverFlowView.this.adP.getCount();
                 if (i >= 0 && i < count && CoverFlowView.this.adS != null) {
-                    CoverFlowView.this.adS.a(i, CoverFlowView.this.adP.cp(i));
+                    CoverFlowView.this.adS.a(i, CoverFlowView.this.adP.cq(i));
                 }
             }
         }
@@ -234,7 +234,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             if (CoverFlowView.this.adM != null && CoverFlowView.this.adP != null) {
                 switch (i) {
                     case 0:
-                        CoverFlowView.this.tW();
+                        CoverFlowView.this.tV();
                         return;
                     default:
                         return;
@@ -244,9 +244,9 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tW() {
-        if (tV()) {
-            tT();
+    public void tV() {
+        if (tU()) {
+            tS();
         }
     }
 
@@ -259,9 +259,9 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             int intValue;
-            com.baidu.tbadk.core.flow.a.a cp;
-            if (CoverFlowView.this.adS != null && (view2.getTag() instanceof Integer) && (cp = CoverFlowView.this.adP.cp((intValue = ((Integer) view2.getTag()).intValue()))) != null) {
-                CoverFlowView.this.adS.f(intValue, cp.qB());
+            com.baidu.tbadk.core.flow.a.a cq;
+            if (CoverFlowView.this.adS != null && (view2.getTag() instanceof Integer) && (cq = CoverFlowView.this.adP.cq((intValue = ((Integer) view2.getTag()).intValue()))) != null) {
+                CoverFlowView.this.adS.f(intValue, cq.qA());
             }
         }
     }
@@ -269,8 +269,8 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     public void onChangeSkinType() {
         this.adP.onChangeSkinType();
         if (this.adN != null && this.adO != null) {
-            this.adN.setDrawable(ak.getDrawable(this.adO.tX()));
-            this.adN.setSelector(ak.getDrawable(this.adO.tY()));
+            this.adN.setDrawable(ak.getDrawable(this.adO.tW()));
+            this.adN.setSelector(ak.getDrawable(this.adO.tX()));
         }
     }
 

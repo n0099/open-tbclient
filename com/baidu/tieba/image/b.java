@@ -15,74 +15,74 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b {
-    private TbImageView cNw;
-    public TbImageView epA;
-    public LinearLayout epB;
-    public TextView epC;
-    public boolean epD = false;
-    private RelativeLayout epz;
+    private TbImageView cOD;
+    private RelativeLayout eqH;
+    public TbImageView eqI;
+    public LinearLayout eqJ;
+    public TextView eqK;
+    public boolean eqL = false;
     private TextView mButton;
     private Context mContext;
     private ProgressBar mProgressBar;
 
     public b(ViewGroup viewGroup) {
-        this.epz = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(d.i.big_image_ad, (ViewGroup) null);
-        this.cNw = (TbImageView) this.epz.findViewById(d.g.big_image_ad_image);
-        this.mButton = (TextView) this.epz.findViewById(d.g.big_image_ad_button);
-        this.epA = (TbImageView) this.epz.findViewById(d.g.big_image_ad_label);
-        this.epB = (LinearLayout) this.epz.findViewById(d.g.big_image_ad_source_container);
-        this.epC = (TextView) this.epz.findViewById(d.g.big_image_ad_source);
+        this.eqH = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(d.i.big_image_ad, (ViewGroup) null);
+        this.cOD = (TbImageView) this.eqH.findViewById(d.g.big_image_ad_image);
+        this.mButton = (TextView) this.eqH.findViewById(d.g.big_image_ad_button);
+        this.eqI = (TbImageView) this.eqH.findViewById(d.g.big_image_ad_label);
+        this.eqJ = (LinearLayout) this.eqH.findViewById(d.g.big_image_ad_source_container);
+        this.eqK = (TextView) this.eqH.findViewById(d.g.big_image_ad_source);
         this.mContext = viewGroup.getContext();
-        aIZ();
+        aIY();
     }
 
     public View getView() {
-        return this.epz;
+        return this.eqH;
     }
 
-    public void aIZ() {
+    public void aIY() {
         this.mProgressBar = new ProgressBar(this.mContext, null, 16843399);
         this.mProgressBar.setIndeterminateDrawable(this.mContext.getResources().getDrawable(d.f.progressbar));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
         this.mProgressBar.setLayoutParams(layoutParams);
         this.mProgressBar.setIndeterminate(true);
-        this.epz.addView(this.mProgressBar);
+        this.eqH.addView(this.mProgressBar);
     }
 
-    public TbImageView aJa() {
-        return this.cNw;
+    public TbImageView aIZ() {
+        return this.cOD;
     }
 
-    public TextView aJb() {
+    public TextView aJa() {
         return this.mButton;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void aJc() {
+    public void aJb() {
         this.mButton.setText(d.k.pause_load);
         this.mButton.setBackgroundResource(d.f.button_fenfa_xiazaizhong);
         ak.b(this.mButton, d.C0126d.common_color_10049, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void og(String str) {
+    public void oj(String str) {
         this.mButton.setText(str);
         this.mButton.setBackgroundResource(d.f.button_fenfa_download_selector);
         ak.b(this.mButton, d.f.button_fenfa_download_text_selector, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void aJd() {
+    public void aJc() {
         this.mButton.setText(d.k.setup_text);
         this.mButton.setBackgroundResource(d.f.button_fenfa_download_selector);
         ak.b(this.mButton, d.f.button_fenfa_download_text_selector, 1, 0);
     }
 
-    public void aJe() {
+    public void aJd() {
         int width = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getWidth();
-        ViewGroup.LayoutParams layoutParams = this.cNw.getLayoutParams();
-        double loadedHeight = this.cNw.getLoadedHeight() / this.cNw.getLoadedWidth();
+        ViewGroup.LayoutParams layoutParams = this.cOD.getLayoutParams();
+        double loadedHeight = this.cOD.getLoadedHeight() / this.cOD.getLoadedWidth();
         if (loadedHeight > 1.0d) {
             layoutParams.height = width;
             layoutParams.width = (int) (width / loadedHeight);
@@ -90,15 +90,15 @@ public class b {
             layoutParams.height = (int) (loadedHeight * width);
             layoutParams.width = width;
         }
-        this.cNw.setLayoutParams(layoutParams);
+        this.cOD.setLayoutParams(layoutParams);
     }
 
     public void p(View.OnClickListener onClickListener) {
         this.mButton.setOnClickListener(onClickListener);
-        this.cNw.setOnClickListener(onClickListener);
+        this.cOD.setOnClickListener(onClickListener);
     }
 
-    public void aJf() {
+    public void aJe() {
         this.mProgressBar.setVisibility(8);
     }
 }

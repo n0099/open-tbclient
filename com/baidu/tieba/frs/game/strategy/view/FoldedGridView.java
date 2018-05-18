@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class FoldedGridView extends BdGridView implements AdapterView.OnItemClickListener, f {
-    private static final int dhb = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds48);
-    private View dhc;
-    private int dhd;
-    private int dhe;
-    private boolean dhf;
-    private com.baidu.tieba.frs.game.strategy.view.a dhg;
-    private a dhh;
-    private int dhi;
-    private Drawable dhj;
+    private static final int dii = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds48);
+    private View dij;
+    private int dik;
+    private int dil;
+    private boolean dim;
+    private com.baidu.tieba.frs.game.strategy.view.a din;
+    private a dio;
+    private int dip;
+    private Drawable diq;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -33,28 +33,28 @@ public class FoldedGridView extends BdGridView implements AdapterView.OnItemClic
 
     public FoldedGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dhd = 0;
-        this.dhe = 0;
-        this.dhf = true;
-        this.dhi = 0;
+        this.dik = 0;
+        this.dil = 0;
+        this.dim = true;
+        this.dip = 0;
         init();
     }
 
     public FoldedGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dhd = 0;
-        this.dhe = 0;
-        this.dhf = true;
-        this.dhi = 0;
+        this.dik = 0;
+        this.dil = 0;
+        this.dim = true;
+        this.dip = 0;
         init();
     }
 
     public FoldedGridView(Context context) {
         super(context);
-        this.dhd = 0;
-        this.dhe = 0;
-        this.dhf = true;
-        this.dhi = 0;
+        this.dik = 0;
+        this.dil = 0;
+        this.dim = true;
+        this.dip = 0;
         init();
     }
 
@@ -64,40 +64,40 @@ public class FoldedGridView extends BdGridView implements AdapterView.OnItemClic
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dhc != null) {
-            at(this.dhc);
+        if (this.dij != null) {
+            at(this.dij);
         }
-        if (this.dhi != 0) {
-            this.dhj = ak.u(i, this.dhi);
+        if (this.dip != 0) {
+            this.diq = ak.u(i, this.dip);
         }
     }
 
     public void setArrowResouceId(int i, int i2) {
-        this.dhd = i;
-        this.dhe = i2;
+        this.dik = i;
+        this.dil = i2;
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setExpandedBottomShadeResourceId(int i) {
-        this.dhi = i;
-        if (this.dhi == 0) {
-            this.dhj = ak.getDrawable(i);
+        this.dip = i;
+        if (this.dip == 0) {
+            this.diq = ak.getDrawable(i);
         } else {
-            this.dhj = null;
+            this.diq = null;
         }
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.f
     public View getArrowView() {
-        if (this.dhc == null) {
+        if (this.dij == null) {
             FrameLayout frameLayout = new FrameLayout(getContext());
             ImageView imageView = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 21;
             frameLayout.addView(imageView, layoutParams);
-            this.dhc = frameLayout;
+            this.dij = frameLayout;
         }
-        return this.dhc;
+        return this.dij;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.f
@@ -106,30 +106,30 @@ public class FoldedGridView extends BdGridView implements AdapterView.OnItemClic
             FrameLayout frameLayout = (FrameLayout) view2;
             if (frameLayout.getChildCount() > 0 && (frameLayout.getChildAt(0) instanceof ImageView)) {
                 ImageView imageView = (ImageView) frameLayout.getChildAt(0);
-                if (this.dhf) {
-                    imageView.setImageDrawable(ak.getDrawable(this.dhd));
+                if (this.dim) {
+                    imageView.setImageDrawable(ak.getDrawable(this.dik));
                 } else {
-                    imageView.setImageDrawable(ak.getDrawable(this.dhe));
+                    imageView.setImageDrawable(ak.getDrawable(this.dil));
                 }
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.f
-    public boolean asD() {
+    public boolean asC() {
         return getNumColumns() > 0;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.f
     public int getArrowIndex() {
-        if (asD()) {
+        if (asC()) {
             return getNumColumns() - 1;
         }
         return -1;
     }
 
     public void setFoldAdapter(com.baidu.tieba.frs.game.strategy.view.a aVar) {
-        this.dhg = aVar;
+        this.din = aVar;
         if (aVar != null) {
             aVar.a(this);
         }
@@ -138,23 +138,23 @@ public class FoldedGridView extends BdGridView implements AdapterView.OnItemClic
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        if (view2 == this.dhc) {
-            if (this.dhg != null && this.dhg.asF()) {
-                asE();
+        if (view2 == this.dij) {
+            if (this.din != null && this.din.asE()) {
+                asD();
             }
-        } else if (this.dhh != null && this.dhg != null) {
-            int kJ = this.dhg.kJ(i);
-            this.dhg.kI(kJ);
-            this.dhh.c(kJ, this.dhg.getItem(i));
+        } else if (this.dio != null && this.din != null) {
+            int kI = this.din.kI(i);
+            this.din.kH(kI);
+            this.dio.c(kI, this.din.getItem(i));
         }
     }
 
-    private void asE() {
-        this.dhf = !this.dhf;
-        at(this.dhc);
-        if (this.dhg != null) {
-            this.dhg.fM(this.dhf);
-            this.dhg.notifyDataSetChanged();
+    private void asD() {
+        this.dim = !this.dim;
+        at(this.dij);
+        if (this.din != null) {
+            this.din.fN(this.dim);
+            this.din.notifyDataSetChanged();
             invalidate();
         }
     }
@@ -164,13 +164,13 @@ public class FoldedGridView extends BdGridView implements AdapterView.OnItemClic
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         int height = getHeight();
-        if (!this.dhf && this.dhj != null) {
-            this.dhj.setBounds(0, (height - dhb) - getPaddingBottom(), getWidth(), height - getPaddingBottom());
-            this.dhj.draw(canvas);
+        if (!this.dim && this.diq != null) {
+            this.diq.setBounds(0, (height - dii) - getPaddingBottom(), getWidth(), height - getPaddingBottom());
+            this.diq.draw(canvas);
         }
     }
 
     public void setFoldGridViewOnItemClickListener(a aVar) {
-        this.dhh = aVar;
+        this.dio = aVar;
     }
 }

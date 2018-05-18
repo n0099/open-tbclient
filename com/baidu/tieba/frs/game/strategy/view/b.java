@@ -27,7 +27,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.game.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.frs.game.strategy.data.b bVar, d.a aVar) {
-        aVar.dht.a(bVar);
+        aVar.diA.a(bVar);
         return aVar.getView();
     }
 }

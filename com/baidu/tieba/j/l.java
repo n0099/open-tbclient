@@ -7,7 +7,7 @@ public class l implements k {
     }
 
     @Override // com.baidu.tieba.j.k
-    public e pO(String str) {
+    public e pR(String str) {
         return new com.baidu.tieba.k.b(str);
     }
 

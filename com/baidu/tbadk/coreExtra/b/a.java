@@ -31,7 +31,7 @@ public class a {
         }
     }
 
-    public static a xR() {
+    public static a xQ() {
         if (asn == null) {
             synchronized (a.class) {
                 if (asn == null) {
@@ -42,15 +42,15 @@ public class a {
         return asn;
     }
 
-    public boolean xS() {
+    public boolean xR() {
         return this.asm;
     }
 
-    public int xT() {
+    public int xS() {
         return this.aso;
     }
 
-    public String xU() {
+    public String xT() {
         return this.asm ? "pub_env=" + this.aso + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

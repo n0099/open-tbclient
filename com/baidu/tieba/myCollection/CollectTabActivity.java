@@ -18,8 +18,8 @@ import com.baidu.tieba.d;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a eSJ;
-    private CustomMessageListener eSK = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a eTQ;
+    private CustomMessageListener eTR = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,8 +27,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.eSJ.aSz()) {
-                    CollectTabActivity.this.eSJ.iP(z);
+                if (i != -1 && i == CollectTabActivity.this.eTQ.aSz()) {
+                    CollectTabActivity.this.eTQ.iQ(z);
                 }
             }
         }
@@ -39,8 +39,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.i.collect_tab_activity);
-        this.eSJ = new a(this);
-        registerListener(this.eSK);
+        this.eTQ = new a(this);
+        registerListener(this.eTR);
         aSy();
         Q(getIntent());
     }
@@ -50,26 +50,26 @@ public class CollectTabActivity extends BaseFragmentActivity {
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
         if (aVar.getContext() != null) {
-            com.baidu.tbadk.mainTab.c Fy = threadDelegateStatic.Fy();
-            if (Fy != null) {
-                Fy.aIm.setArguments(new Bundle());
+            com.baidu.tbadk.mainTab.c Fw = threadDelegateStatic.Fw();
+            if (Fw != null) {
+                Fw.aIn.setArguments(new Bundle());
             } else {
                 return;
             }
         }
-        this.eSJ.ah(aVar.px());
+        this.eTQ.ah(aVar.pw());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.eSJ.onChangeSkinType(i);
+        this.eTQ.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2 == this.eSJ.aSB()) {
-            this.eSJ.iO(!this.eSJ.aSC());
+        if (view2 == this.eTQ.aSB()) {
+            this.eTQ.iP(!this.eTQ.aSC());
         }
     }
 
@@ -77,8 +77,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.aSD().iQ(true);
-        b.aSD().iR(false);
+        b.aSD().iR(true);
+        b.aSD().iS(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -86,14 +86,14 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.aSD().iQ(false);
+        b.aSD().iR(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment aSA = this.eSJ.aSA();
+        Fragment aSA = this.eTQ.aSA();
         if (aSA != null) {
             aSA.onActivityResult(i, i2, intent);
         }

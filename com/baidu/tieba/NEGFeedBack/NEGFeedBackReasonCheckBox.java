@@ -43,7 +43,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         setButtonDrawable((Drawable) null);
     }
 
-    public void wY() {
+    public void wX() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             ak.i(this, d.f.btn_home_neg_feedback_reason_selector);

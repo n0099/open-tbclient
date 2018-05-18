@@ -21,36 +21,36 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b BG;
-    private HashMap<String, String> BH = new HashMap<>();
-    private a BI = null;
-    private boolean BJ = false;
+    private static volatile b BF;
+    private HashMap<String, String> BG = new HashMap<>();
+    private a BH = null;
+    private boolean BI = false;
 
     public static b iS() {
-        if (BG == null) {
+        if (BF == null) {
             synchronized (b.class) {
-                if (BG == null) {
-                    BG = new b();
+                if (BF == null) {
+                    BF = new b();
                 }
             }
         }
-        return BG;
+        return BF;
     }
 
     private b() {
     }
 
     public void clear(boolean z) {
-        if (z && !this.BJ && this.BI == null && iT()) {
-            this.BI = new a();
-            this.BI.execute(new Void[0]);
-            this.BJ = true;
+        if (z && !this.BI && this.BH == null && iT()) {
+            this.BH = new a();
+            this.BH.execute(new Void[0]);
+            this.BI = true;
         }
     }
 
     private boolean iT() {
         String[] split;
-        this.BH.clear();
+        this.BG.clear();
         PluginSettings jw = com.baidu.adp.plugin.packageManager.pluginSettings.c.jz().jw();
         if (jw == null) {
             return false;
@@ -62,12 +62,12 @@ public class b {
         for (Map.Entry<String, PluginSetting> entry : plugins.entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
-                this.BH.put(new File(value.apkPath).getName(), "");
+                this.BG.put(new File(value.apkPath).getName(), "");
             }
             if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
-                        this.BH.put(new File(str).getName(), "");
+                        this.BG.put(new File(str).getName(), "");
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            b.this.BI = null;
+            b.this.BH = null;
         }
 
         private ArrayList<File> iU() {
@@ -113,7 +113,7 @@ public class b {
                 StringBuilder sb2 = new StringBuilder();
                 StringBuilder sb3 = new StringBuilder();
                 try {
-                    for (Map.Entry entry : b.this.BH.entrySet()) {
+                    for (Map.Entry entry : b.this.BG.entrySet()) {
                         if (sb.length() > 0) {
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                         }
@@ -130,7 +130,7 @@ public class b {
                         String name = file.getName();
                         if (!absolutePath.equals(jy) && !"plugin_settings".equals(file.getName()) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
                             if (file.isDirectory()) {
-                                if (name.endsWith(".apk") || b.this.BH.get(name + ".apk") != null) {
+                                if (name.endsWith(".apk") || b.this.BG.get(name + ".apk") != null) {
                                     if (sb2.length() < 10000) {
                                         if (sb2.length() > 0) {
                                             sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -149,7 +149,7 @@ public class b {
                                     }
                                 }
                             } else if (name.endsWith(".apk")) {
-                                if (b.this.BH.get(name) != null) {
+                                if (b.this.BG.get(name) != null) {
                                     if (sb2.length() < 10000) {
                                         if (sb2.length() > 0) {
                                             sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);

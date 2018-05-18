@@ -21,30 +21,30 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class b {
-    private File Ao;
-    private Map<String, ActivityInfo> Aq;
-    private Map<String, ProviderInfo> Ar;
+    private File An;
+    private Map<String, ActivityInfo> Ap;
+    private Map<String, ProviderInfo> Aq;
+    private Map<String, IntentFilter> Ar;
     private Map<String, IntentFilter> As;
-    private Map<String, IntentFilter> At;
     private Context mContext;
     private Resources mPluginResource;
-    private PackageInfo Ap = null;
-    private ActivityInfo Au = null;
-    private boolean Av = false;
+    private PackageInfo Ao = null;
+    private ActivityInfo At = null;
+    private boolean Au = false;
 
     public b(Context context, File file, Resources resources) {
+        this.Ap = null;
         this.Aq = null;
         this.Ar = null;
         this.As = null;
-        this.At = null;
         this.mPluginResource = null;
         this.mContext = context;
-        this.Ao = file;
+        this.An = file;
         this.mPluginResource = resources;
-        this.Aq = new HashMap();
-        this.As = new HashMap();
-        this.At = new HashMap();
+        this.Ap = new HashMap();
         this.Ar = new HashMap();
+        this.As = new HashMap();
+        this.Aq = new HashMap();
     }
 
     public ServiceInfo bb(String str) {
@@ -53,11 +53,11 @@ public class b {
             return null;
         }
         PackageInfo pluginPackageInfo = getPluginPackageInfo();
-        if (pluginPackageInfo == null || pluginPackageInfo.services == null || this.At.isEmpty()) {
+        if (pluginPackageInfo == null || pluginPackageInfo.services == null || this.As.isEmpty()) {
             return null;
         }
         for (ServiceInfo serviceInfo : pluginPackageInfo.services) {
-            IntentFilter intentFilter = this.At.get(serviceInfo.name);
+            IntentFilter intentFilter = this.As.get(serviceInfo.name);
             if (intentFilter != null && intentFilter.hasAction(str)) {
                 return serviceInfo;
             }
@@ -66,30 +66,30 @@ public class b {
     }
 
     public Map<String, IntentFilter> ik() {
-        return this.As;
-    }
-
-    public Map<String, ProviderInfo> il() {
         return this.Ar;
     }
 
+    public Map<String, ProviderInfo> il() {
+        return this.Aq;
+    }
+
     public PackageInfo getPluginPackageInfo() {
-        if (this.mContext == null || this.Ao == null) {
+        if (this.mContext == null || this.An == null) {
             return null;
         }
-        if (this.Ap == null) {
+        if (this.Ao == null) {
             try {
-                this.Ap = this.mContext.getPackageManager().getPackageArchiveInfo(this.Ao.getAbsolutePath(), 15);
+                this.Ao = this.mContext.getPackageManager().getPackageArchiveInfo(this.An.getAbsolutePath(), 15);
             } catch (Exception e) {
                 BdLog.e(e);
                 com.baidu.adp.plugin.b.a.iK().g("plugin_use", "plugin_manifest_pkginfo_failed", "getPluginPackageInfo", e.getMessage());
             }
         }
-        return this.Ap;
+        return this.Ao;
     }
 
     private void a(XmlResourceParser xmlResourceParser, int i) throws XmlPullParserException, IOException {
-        if (this.Ap != null && this.Ap.activities != null) {
+        if (this.Ao != null && this.Ao.activities != null) {
             String attributeValue = xmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "name");
             while (i != 1) {
                 switch (i) {
@@ -100,11 +100,11 @@ public class b {
                                 continue;
                             } else {
                                 if (attributeValue.startsWith(Constants.DOT)) {
-                                    attributeValue = this.Ap.packageName + attributeValue;
+                                    attributeValue = this.Ao.packageName + attributeValue;
                                 }
-                                for (int i2 = 0; i2 < this.Ap.activities.length; i2++) {
-                                    if (this.Ap.activities[i2].name.equals(attributeValue)) {
-                                        this.Au = this.Ap.activities[i2];
+                                for (int i2 = 0; i2 < this.Ao.activities.length; i2++) {
+                                    if (this.Ao.activities[i2].name.equals(attributeValue)) {
+                                        this.At = this.Ao.activities[i2];
                                         return;
                                     }
                                 }
@@ -138,12 +138,12 @@ public class b {
         }
         if (pluginPackageInfo.receivers != null) {
             for (ActivityInfo activityInfo : pluginPackageInfo.receivers) {
-                this.Aq.put(activityInfo.name, activityInfo);
+                this.Ap.put(activityInfo.name, activityInfo);
             }
         }
         if (pluginPackageInfo.providers != null) {
             for (ProviderInfo providerInfo : pluginPackageInfo.providers) {
-                this.Ar.put(providerInfo.name, providerInfo);
+                this.Aq.put(providerInfo.name, providerInfo);
             }
         }
         try {
@@ -177,7 +177,7 @@ public class b {
                     } else if (str2 != null && AuthActivity.ACTION_KEY.equals(openXmlResourceParser.getName())) {
                         String attributeValue2 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "name");
                         if (attributeValue2 != null) {
-                            Map<String, IntentFilter> map = c2 == 1 ? this.At : this.As;
+                            Map<String, IntentFilter> map = c2 == 1 ? this.As : this.Ar;
                             IntentFilter intentFilter = map.get(str2);
                             if (intentFilter == null) {
                                 intentFilter = new IntentFilter(attributeValue2);
@@ -188,7 +188,7 @@ public class b {
                         }
                         c = c2;
                         str = str2;
-                    } else if (this.Au == null && PushConstants.INTENT_ACTIVITY_NAME.equals(openXmlResourceParser.getName())) {
+                    } else if (this.At == null && PushConstants.INTENT_ACTIVITY_NAME.equals(openXmlResourceParser.getName())) {
                         a(openXmlResourceParser, next);
                         c = c2;
                         str = str2;
@@ -204,7 +204,7 @@ public class b {
                 case 3:
                     if (!SocialConstants.PARAM_RECEIVER.equals(openXmlResourceParser.getName()) && !"service".equals(openXmlResourceParser.getName())) {
                         if ("application".equals(openXmlResourceParser.getName())) {
-                            this.Av = true;
+                            this.Au = true;
                             return true;
                         }
                     } else {

@@ -4,16 +4,16 @@ import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class c {
     public volatile boolean isDefault = true;
-    public BitmapDrawable zK;
-    public com.baidu.adp.widget.ImageView.a zL;
+    public BitmapDrawable zJ;
+    public com.baidu.adp.widget.ImageView.a zK;
 
     /* renamed from: if  reason: not valid java name */
     public boolean m10if() {
-        return (this.zK == null || this.zK.getBitmap() == null || this.zK.getBitmap().isRecycled()) ? false : true;
+        return (this.zJ == null || this.zJ.getBitmap() == null || this.zJ.getBitmap().isRecycled()) ? false : true;
     }
 
     public boolean ig() {
-        return this.zL != null && this.zL.kn();
+        return this.zK != null && this.zK.km();
     }
 
     public boolean isAvailable() {
@@ -22,26 +22,26 @@ public class c {
 
     public int getWidth() {
         if (m10if()) {
-            return this.zK.getIntrinsicWidth();
+            return this.zJ.getIntrinsicWidth();
         }
         if (ig()) {
-            return this.zL.getWidth();
+            return this.zK.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
         if (m10if()) {
-            return this.zK.getIntrinsicHeight();
+            return this.zJ.getIntrinsicHeight();
         }
         if (ig()) {
-            return this.zL.getHeight();
+            return this.zK.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.zL = null;
         this.zK = null;
+        this.zJ = null;
     }
 }

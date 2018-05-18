@@ -9,28 +9,28 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class h {
-    private static h dWq;
+    private static h dXx;
 
-    public static h aDf() {
-        if (dWq == null) {
+    public static h aDd() {
+        if (dXx == null) {
             synchronized (h.class) {
-                if (dWq == null) {
-                    dWq = new h();
+                if (dXx == null) {
+                    dXx = new h();
                 }
             }
         }
-        return dWq;
+        return dXx;
     }
 
-    public void aDg() {
-        SQLiteDatabase aDd = g.aDd();
-        if (aDd != null) {
-            if (aDd.inTransaction()) {
+    public void aDe() {
+        SQLiteDatabase aDb = g.aDb();
+        if (aDb != null) {
+            if (aDb.inTransaction()) {
                 BdLog.e("there is exist transaction");
                 return;
             }
             try {
-                aDd.beginTransaction();
+                aDb.beginTransaction();
                 BdLog.i("db.beginTransaction");
             } catch (Exception e) {
                 TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
@@ -40,13 +40,13 @@ public class h {
     }
 
     public void endTransaction() {
-        SQLiteDatabase aDd = g.aDd();
-        if (aDd != null) {
+        SQLiteDatabase aDb = g.aDb();
+        if (aDb != null) {
             BdLog.i("begin commit transaction");
-            if (aDd.inTransaction()) {
+            if (aDb.inTransaction()) {
                 try {
-                    aDd.setTransactionSuccessful();
-                    aDd.endTransaction();
+                    aDb.setTransactionSuccessful();
+                    aDb.endTransaction();
                     return;
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
@@ -58,13 +58,13 @@ public class h {
         }
     }
 
-    public boolean nt(String str) {
-        SQLiteDatabase aDd = g.aDd();
-        if (aDd == null) {
+    public boolean nw(String str) {
+        SQLiteDatabase aDb = g.aDb();
+        if (aDb == null) {
             return false;
         }
         try {
-            aDd.execSQL(str);
+            aDb.execSQL(str);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -73,12 +73,12 @@ public class h {
     }
 
     public Cursor rawQuery(String str, String[] strArr) {
-        SQLiteDatabase aDd = g.aDd();
-        if (aDd == null) {
+        SQLiteDatabase aDb = g.aDb();
+        if (aDb == null) {
             return null;
         }
         try {
-            return aDd.rawQuery(str, strArr);
+            return aDb.rawQuery(str, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage() + str);
             return null;
@@ -86,12 +86,12 @@ public class h {
     }
 
     public boolean b(String str, String str2, String[] strArr) {
-        SQLiteDatabase aDd = g.aDd();
-        if (aDd == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase aDb = g.aDb();
+        if (aDb == null || TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            return aDd.delete(str, str2, strArr) > 0;
+            return aDb.delete(str, str2, strArr) > 0;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -99,12 +99,12 @@ public class h {
     }
 
     public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
-        SQLiteDatabase aDd = g.aDd();
-        if (aDd == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase aDb = g.aDb();
+        if (aDb == null || TextUtils.isEmpty(str)) {
             return -1;
         }
         try {
-            return aDd.update(str, contentValues, str2, strArr);
+            return aDb.update(str, contentValues, str2, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1;
@@ -124,12 +124,12 @@ public class h {
     }
 
     public long insert(String str, String str2, ContentValues contentValues) {
-        SQLiteDatabase aDd = g.aDd();
-        if (aDd == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase aDb = g.aDb();
+        if (aDb == null || TextUtils.isEmpty(str)) {
             return -1L;
         }
         try {
-            return aDd.insert(str, str2, contentValues);
+            return aDb.insert(str, str2, contentValues);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1L;
@@ -137,12 +137,12 @@ public class h {
     }
 
     public SQLiteStatement compileStatement(String str) {
-        SQLiteDatabase aDd;
-        if (TextUtils.isEmpty(str) || (aDd = g.aDd()) == null) {
+        SQLiteDatabase aDb;
+        if (TextUtils.isEmpty(str) || (aDb = g.aDb()) == null) {
             return null;
         }
         try {
-            return aDd.compileStatement(str);
+            return aDb.compileStatement(str);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;

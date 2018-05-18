@@ -6,39 +6,39 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 final class f {
-    private static f hkB;
-    private static SQLiteOpenHelper hkC;
-    private AtomicInteger hkD = new AtomicInteger();
-    private SQLiteDatabase hkE;
+    private static f hlF;
+    private static SQLiteOpenHelper hlG;
+    private AtomicInteger hlH = new AtomicInteger();
+    private SQLiteDatabase hlI;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (hkB == null) {
-                hkB = new f();
-                hkC = new d(context);
+            if (hlF == null) {
+                hlF = new f();
+                hlG = new d(context);
             }
         }
     }
 
-    public static synchronized f bEP() {
+    public static synchronized f bEN() {
         f fVar;
         synchronized (f.class) {
-            if (hkB == null) {
-                b(com.baidu.ubs.analytics.d.bEN().getContext());
+            if (hlF == null) {
+                b(com.baidu.ubs.analytics.d.bEL().getContext());
             }
-            fVar = hkB;
+            fVar = hlF;
         }
         return fVar;
     }
 
     public final synchronized SQLiteDatabase getDatabase() {
-        if (this.hkD.incrementAndGet() == 1) {
-            com.baidu.ubs.analytics.d.b.vj("***************新建立了 一个数据库的实例****************");
-            this.hkE = hkC.getWritableDatabase();
+        if (this.hlH.incrementAndGet() == 1) {
+            com.baidu.ubs.analytics.d.b.vm("***************新建立了 一个数据库的实例****************");
+            this.hlI = hlG.getWritableDatabase();
         }
-        return this.hkE;
+        return this.hlI;
     }
 }

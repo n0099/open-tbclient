@@ -38,6 +38,7 @@ public class an extends com.baidu.adp.lib.util.k {
     static {
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
+            wV.setTimeZone(timeZone);
             wW.setTimeZone(timeZone);
             wX.setTimeZone(timeZone);
             wY.setTimeZone(timeZone);
@@ -47,11 +48,10 @@ public class an extends com.baidu.adp.lib.util.k {
             xc.setTimeZone(timeZone);
             xd.setTimeZone(timeZone);
             xe.setTimeZone(timeZone);
-            xf.setTimeZone(timeZone);
         }
     }
 
-    public static String cQ(int i) {
+    public static String cR(int i) {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;
@@ -72,11 +72,11 @@ public class an extends com.baidu.adp.lib.util.k {
         return j4 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)).toString() : formatter.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)).toString();
     }
 
-    public static String vN() {
+    public static String vM() {
         String format;
         Date date2 = new Date();
-        synchronized (xe) {
-            format = xe.format(date2);
+        synchronized (xd) {
+            format = xd.format(date2);
         }
         return format;
     }
@@ -106,7 +106,7 @@ public class an extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static int vO() {
+    public static int vN() {
         Calendar calendar = Calendar.getInstance();
         return calendar.get(5) + 0 + (calendar.get(1) * 10000) + ((calendar.get(2) + 1) * 100);
     }
@@ -196,13 +196,13 @@ public class an extends com.baidu.adp.lib.util.k {
                 return "1个月前";
             }
             if (date2.getYear() == date3.getYear()) {
-                synchronized (xf) {
-                    format2 = xf.format(date3);
+                synchronized (xe) {
+                    format2 = xe.format(date3);
                 }
                 return format2;
             }
-            synchronized (xb) {
-                format = xb.format(date3);
+            synchronized (xa) {
+                format = xa.format(date3);
             }
             return format;
         } else {
@@ -313,8 +313,8 @@ public class an extends com.baidu.adp.lib.util.k {
 
     public static String h(Date date2) {
         String format;
-        synchronized (xf) {
-            format = xf.format(date2);
+        synchronized (xe) {
+            format = xe.format(date2);
         }
         return format;
     }
@@ -340,7 +340,7 @@ public class an extends com.baidu.adp.lib.util.k {
     }
 
     @Deprecated
-    public static String cR(int i) {
+    public static String cS(int i) {
         if (i > 9999) {
             return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
         }
@@ -516,7 +516,7 @@ public class an extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String cS(int i) {
+    public static String cT(int i) {
         return new DecimalFormat("#,###").format(i);
     }
 
@@ -907,7 +907,7 @@ public class an extends com.baidu.adp.lib.util.k {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static String cT(int i) {
+    public static String cU(int i) {
         switch (i) {
             case 1:
                 return TbadkCoreApplication.getInst().getContext().getString(d.k.he);
@@ -922,7 +922,7 @@ public class an extends com.baidu.adp.lib.util.k {
         return str != null ? str.trim() : "";
     }
 
-    public static String cU(int i) {
+    public static String cV(int i) {
         if (i < 1000) {
             i = 1000;
         }

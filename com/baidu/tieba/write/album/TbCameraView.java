@@ -14,24 +14,24 @@ import java.io.IOException;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class TbCameraView extends TextureView {
-    private TextureView.SurfaceTextureListener fPn;
-    private c hbW;
-    private a hbX;
-    private boolean hcA;
-    private final Runnable hcB;
-    private final Runnable hcC;
-    private Camera.PictureCallback hcD;
-    private Camera.Parameters hcp;
-    private boolean hcq;
-    private String hcr;
-    private d hcs;
-    private float hct;
-    private float hcu;
-    private int hcv;
-    private int hcw;
-    private boolean hcx;
-    private Bitmap hcy;
-    private b hcz;
+    private TextureView.SurfaceTextureListener fQt;
+    private int hdA;
+    private boolean hdB;
+    private Bitmap hdC;
+    private b hdD;
+    private boolean hdE;
+    private final Runnable hdF;
+    private final Runnable hdG;
+    private Camera.PictureCallback hdH;
+    private c hda;
+    private a hdb;
+    private Camera.Parameters hdt;
+    private boolean hdu;
+    private String hdv;
+    private d hdw;
+    private float hdx;
+    private float hdy;
+    private int hdz;
     private Camera mCamera;
     private Runnable mRunnable;
     private SurfaceTexture mSurfaceTexture;
@@ -39,7 +39,7 @@ public class TbCameraView extends TextureView {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bBT();
+        void bBR();
     }
 
     /* loaded from: classes3.dex */
@@ -49,32 +49,32 @@ public class TbCameraView extends TextureView {
 
     /* loaded from: classes3.dex */
     public interface c {
-        boolean bBS();
+        boolean bBQ();
     }
 
     /* loaded from: classes3.dex */
     public interface d {
-        void bBU();
+        void bBS();
 
-        void bBV();
+        void bBT();
     }
 
     public TbCameraView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hcq = false;
-        this.hcr = null;
+        this.hdu = false;
+        this.hdv = null;
         this.mTouchMode = 0;
-        this.hcx = false;
-        this.hcA = false;
-        this.fPn = new TextureView.SurfaceTextureListener() { // from class: com.baidu.tieba.write.album.TbCameraView.1
+        this.hdB = false;
+        this.hdE = false;
+        this.fQt = new TextureView.SurfaceTextureListener() { // from class: com.baidu.tieba.write.album.TbCameraView.1
             @Override // android.view.TextureView.SurfaceTextureListener
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
                 TbCameraView.this.mSurfaceTexture = surfaceTexture;
-                if (!TbCameraView.this.hcA) {
-                    TbCameraView.this.hcA = TbCameraView.this.hbW != null && TbCameraView.this.hbW.bBS();
+                if (!TbCameraView.this.hdE) {
+                    TbCameraView.this.hdE = TbCameraView.this.hda != null && TbCameraView.this.hda.bBQ();
                 }
-                if (TbCameraView.this.hcA) {
-                    new Thread(TbCameraView.this.hcB).start();
+                if (TbCameraView.this.hdE) {
+                    new Thread(TbCameraView.this.hdF).start();
                 }
             }
 
@@ -84,7 +84,7 @@ public class TbCameraView extends TextureView {
 
             @Override // android.view.TextureView.SurfaceTextureListener
             public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-                new Thread(TbCameraView.this.hcC).start();
+                new Thread(TbCameraView.this.hdG).start();
                 return false;
             }
 
@@ -92,15 +92,15 @@ public class TbCameraView extends TextureView {
             public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
             }
         };
-        this.hcB = new Runnable() { // from class: com.baidu.tieba.write.album.TbCameraView.2
+        this.hdF = new Runnable() { // from class: com.baidu.tieba.write.album.TbCameraView.2
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (TbCameraView.this) {
-                    TbCameraView.this.nr(TbCameraView.this.hcx);
+                    TbCameraView.this.ns(TbCameraView.this.hdB);
                 }
             }
         };
-        this.hcC = new Runnable() { // from class: com.baidu.tieba.write.album.TbCameraView.3
+        this.hdG = new Runnable() { // from class: com.baidu.tieba.write.album.TbCameraView.3
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (TbCameraView.this) {
@@ -108,17 +108,17 @@ public class TbCameraView extends TextureView {
                 }
             }
         };
-        this.hcD = new Camera.PictureCallback() { // from class: com.baidu.tieba.write.album.TbCameraView.4
+        this.hdH = new Camera.PictureCallback() { // from class: com.baidu.tieba.write.album.TbCameraView.4
             @Override // android.hardware.Camera.PictureCallback
             public void onPictureTaken(byte[] bArr, Camera camera) {
                 if (bArr != null) {
-                    TbCameraView.this.hcy = BitmapHelper.Bytes2Bitmap(bArr);
+                    TbCameraView.this.hdC = BitmapHelper.Bytes2Bitmap(bArr);
                     if (TbCameraView.this.mCamera != null) {
                         TbCameraView.this.mCamera.stopPreview();
                     }
-                    TbCameraView.this.hcq = false;
-                    if (TbCameraView.this.hcs != null) {
-                        TbCameraView.this.hcs.bBU();
+                    TbCameraView.this.hdu = false;
+                    if (TbCameraView.this.hdw != null) {
+                        TbCameraView.this.hdw.bBS();
                     }
                 }
             }
@@ -126,14 +126,14 @@ public class TbCameraView extends TextureView {
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.write.album.TbCameraView.5
             @Override // java.lang.Runnable
             public void run() {
-                if (TbCameraView.this.hcs != null) {
-                    TbCameraView.this.hcs.bBV();
+                if (TbCameraView.this.hdw != null) {
+                    TbCameraView.this.hdw.bBT();
                 }
             }
         };
-        setSurfaceTextureListener(this.fPn);
-        this.hcv = getResources().getDimensionPixelSize(d.e.ds5);
-        this.hcw = getResources().getDimensionPixelSize(d.e.ds20);
+        setSurfaceTextureListener(this.fQt);
+        this.hdz = getResources().getDimensionPixelSize(d.e.ds5);
+        this.hdA = getResources().getDimensionPixelSize(d.e.ds20);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x003d  */
@@ -141,7 +141,7 @@ public class TbCameraView extends TextureView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void nr(boolean z) {
+    public void ns(boolean z) {
         Camera.CameraInfo cameraInfo;
         int numberOfCameras;
         int i = 0;
@@ -153,7 +153,7 @@ public class TbCameraView extends TextureView {
             } catch (Throwable th) {
                 th.printStackTrace();
                 stopCamera();
-                if (this.hbX == null) {
+                if (this.hdb == null) {
                 }
             }
             while (true) {
@@ -165,18 +165,18 @@ public class TbCameraView extends TextureView {
                     if (z) {
                         if (cameraInfo.facing == 1) {
                             this.mCamera = Camera.open(i);
-                            this.hcx = true;
+                            this.hdB = true;
                             break;
                         }
                     } else if (cameraInfo.facing == 0) {
                         this.mCamera = Camera.open(i);
-                        this.hcx = false;
+                        this.hdB = false;
                         break;
                     }
                     th.printStackTrace();
                     stopCamera();
-                    if (this.hbX == null) {
-                        this.hbX.bBT();
+                    if (this.hdb == null) {
+                        this.hdb.bBR();
                         return;
                     }
                     return;
@@ -189,26 +189,26 @@ public class TbCameraView extends TextureView {
 
     private void b(SurfaceTexture surfaceTexture) {
         if (this.mCamera != null) {
-            this.hcp = this.mCamera.getParameters();
-            this.hcp.setPictureFormat(256);
-            Camera.Size f = f(this.hcp.getSupportedPictureSizes(), 1440, 1080);
-            this.hcp.setPictureSize(f.width, f.height);
-            Camera.Size f2 = f(this.hcp.getSupportedPreviewSizes(), 1440, 1080);
-            this.hcp.setPreviewSize(f2.width, f2.height);
-            if (this.hcz != null) {
-                this.hcz.bS(f2.width, f2.height);
+            this.hdt = this.mCamera.getParameters();
+            this.hdt.setPictureFormat(256);
+            Camera.Size e = e(this.hdt.getSupportedPictureSizes(), 1440, 1080);
+            this.hdt.setPictureSize(e.width, e.height);
+            Camera.Size e2 = e(this.hdt.getSupportedPreviewSizes(), 1440, 1080);
+            this.hdt.setPreviewSize(e2.width, e2.height);
+            if (this.hdD != null) {
+                this.hdD.bS(e2.width, e2.height);
             }
             this.mCamera.setDisplayOrientation(90);
-            if (this.hcp.getSupportedFocusModes().contains("continuous-video")) {
-                this.hcp.setFocusMode("continuous-video");
+            if (this.hdt.getSupportedFocusModes().contains("continuous-video")) {
+                this.hdt.setFocusMode("continuous-video");
             }
-            this.mCamera.setParameters(this.hcp);
+            this.mCamera.setParameters(this.hdt);
             try {
                 this.mCamera.setPreviewTexture(surfaceTexture);
                 this.mCamera.startPreview();
-                this.hcq = true;
-            } catch (IOException e) {
-                e.printStackTrace();
+                this.hdu = true;
+            } catch (IOException e3) {
+                e3.printStackTrace();
                 stopCamera();
             }
         }
@@ -224,13 +224,13 @@ public class TbCameraView extends TextureView {
                 e.printStackTrace();
             }
         }
-        this.hcq = false;
+        this.hdu = false;
         this.mCamera = null;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.hcq) {
+        if (this.hdu) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mTouchMode = 1;
@@ -239,35 +239,35 @@ public class TbCameraView extends TextureView {
                     this.mTouchMode = 0;
                     break;
                 case 2:
-                    if (this.hcp != null && this.hcp.isZoomSupported() && this.mTouchMode == 2) {
-                        this.hct = P(motionEvent);
-                        if (this.hct > this.hcv) {
-                            float f = this.hct - this.hcu;
-                            int maxZoom = this.hcp.getMaxZoom();
+                    if (this.hdt != null && this.hdt.isZoomSupported() && this.mTouchMode == 2) {
+                        this.hdx = P(motionEvent);
+                        if (this.hdx > this.hdz) {
+                            float f = this.hdx - this.hdy;
+                            int maxZoom = this.hdt.getMaxZoom();
                             int zoom = this.mCamera.getParameters().getZoom();
-                            if (f > this.hcw) {
+                            if (f > this.hdA) {
                                 int i = zoom + 1;
                                 if (i <= maxZoom) {
                                     maxZoom = i;
                                 }
-                                uT(maxZoom);
-                                this.hcu = this.hct;
+                                uS(maxZoom);
+                                this.hdy = this.hdx;
                                 break;
-                            } else if (f < (-this.hcw)) {
+                            } else if (f < (-this.hdA)) {
                                 int i2 = zoom - 1;
                                 if (i2 < 0) {
                                     i2 = 0;
                                 }
-                                uT(i2);
-                                this.hcu = this.hct;
+                                uS(i2);
+                                this.hdy = this.hdx;
                                 break;
                             }
                         }
                     }
                     break;
                 case 5:
-                    this.hcu = P(motionEvent);
-                    if (this.hcu > this.hcv) {
+                    this.hdy = P(motionEvent);
+                    if (this.hdy > this.hdz) {
                         this.mTouchMode = 2;
                         break;
                     }
@@ -290,12 +290,12 @@ public class TbCameraView extends TextureView {
         return (float) Math.sqrt((x * x) + (y * y));
     }
 
-    public void uT(int i) {
+    public void uS(int i) {
         if (this.mCamera != null) {
-            this.hcp = this.mCamera.getParameters();
-            if (this.hcp != null) {
-                this.hcp.setZoom(i);
-                this.mCamera.setParameters(this.hcp);
+            this.hdt = this.mCamera.getParameters();
+            if (this.hdt != null) {
+                this.hdt.setZoom(i);
+                this.mCamera.setParameters(this.hdt);
             }
         }
     }
@@ -306,7 +306,7 @@ public class TbCameraView extends TextureView {
         com.baidu.adp.lib.g.e.fw().removeCallbacks(this.mRunnable);
     }
 
-    public Camera.Size f(List<Camera.Size> list, int i, int i2) {
+    public Camera.Size e(List<Camera.Size> list, int i, int i2) {
         if (v.v(list) == 0) {
             return null;
         }
@@ -329,22 +329,22 @@ public class TbCameraView extends TextureView {
     }
 
     public void setStorePath(String str) {
-        this.hcr = str;
+        this.hdv = str;
     }
 
     public void setOnGotPictureListener(d dVar) {
-        this.hcs = dVar;
+        this.hdw = dVar;
     }
 
     public void setOnPreviewSizeChangedListener(b bVar) {
-        this.hcz = bVar;
+        this.hdD = bVar;
     }
 
     public void setOnRequestPermissionListener(c cVar) {
-        this.hbW = cVar;
+        this.hda = cVar;
     }
 
     public void setOnOpenCameraFailedListener(a aVar) {
-        this.hbX = aVar;
+        this.hdb = aVar;
     }
 }

@@ -9,22 +9,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId cZI = BdUniqueId.gen();
-    private List<MetaData> cZF;
-    private int cZE = 0;
-    private String cZG = "本吧都在关注";
-    private boolean cZH = false;
+    public static final BdUniqueId daR = BdUniqueId.gen();
+    private List<MetaData> daO;
+    private int daN = 0;
+    private String daP = "本吧都在关注";
+    private boolean daQ = false;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return cZI;
+        return daR;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
         if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.v.w(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.cZE = frsPageUserExtend.user_extend_storey.intValue();
-            this.cZF = new ArrayList(list.size());
+            this.daN = frsPageUserExtend.user_extend_storey.intValue();
+            this.daO = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -33,11 +33,11 @@ public class o implements com.baidu.adp.widget.ListView.h {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.cZF.add(metaData);
+                        this.daO.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.cZG = frsPageUserExtend.tips;
+                    this.daP = frsPageUserExtend.tips;
                     return;
                 }
             }
@@ -46,29 +46,29 @@ public class o implements com.baidu.adp.widget.ListView.h {
 
     public void a(FeatureCardGod featureCardGod) {
         if (featureCardGod != null && !com.baidu.tbadk.core.util.v.w(featureCardGod.sub_nodes)) {
-            this.cZE = featureCardGod.floor.intValue();
-            this.cZF = featureCardGod.sub_nodes;
-            this.cZG = featureCardGod.title;
+            this.daN = featureCardGod.floor.intValue();
+            this.daO = featureCardGod.sub_nodes;
+            this.daP = featureCardGod.title;
         }
     }
 
-    public int sN() {
-        return this.cZE;
+    public int sM() {
+        return this.daN;
     }
 
     public List<MetaData> getUserInfo() {
-        return this.cZF;
+        return this.daO;
     }
 
-    public String aqD() {
-        return this.cZG;
+    public String aqC() {
+        return this.daP;
     }
 
-    public boolean aqE() {
-        return this.cZH;
+    public boolean aqD() {
+        return this.daQ;
     }
 
-    public void fA(boolean z) {
-        this.cZH = z;
+    public void fB(boolean z) {
+        this.daQ = z;
     }
 }

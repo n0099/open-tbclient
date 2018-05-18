@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class AdStatic {
-    public static boolean Tc = true;
+    public static boolean SY = true;
 
     static {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tieba.ad.browser.AdStatic.1
@@ -46,7 +46,7 @@ public class AdStatic {
                 }
             }
         });
-        com.baidu.tieba.ad.a.Nb().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
+        com.baidu.tieba.ad.a.MZ().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
             @Override // com.baidu.tieba.recapp.h.c
             public int b(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
                 if (z2) {
@@ -58,16 +58,16 @@ public class AdStatic {
             }
         });
         com.baidu.adp.lib.b.d.eE().a(new com.baidu.adp.lib.b.b("switch_mbaidu_startup", 1, null));
-        ph();
+        pg();
+        pi();
         pj();
-        pk();
     }
 
-    private static void ph() {
-        com.baidu.tieba.ad.a.Nb().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
+    private static void pg() {
+        com.baidu.tieba.ad.a.MZ().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
-                Bundle hn;
+                Bundle ho;
                 if (context == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -116,7 +116,7 @@ public class AdStatic {
                         ((Activity) context).finish();
                     }
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (hn = z.hn(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(hn.getString(ClientCookie.PATH_ATTR))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (ho = z.ho(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(ho.getString(ClientCookie.PATH_ATTR))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                     return 0;
                 } else {
@@ -207,7 +207,7 @@ public class AdStatic {
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(context, "url_1", null);
         String cn = cn(str);
-        if (!cq(cn) && pi() && cs("com.baidu.searchbox") && cr(cn) && Tc) {
+        if (!cq(cn) && ph() && cs("com.baidu.searchbox") && cr(cn) && SY) {
             TiebaStatic.eventStat(context, "url_2", null);
             b(context, str, str2, z, z2, z3, z4);
             return;
@@ -219,7 +219,7 @@ public class AdStatic {
         return str != null;
     }
 
-    private static boolean pi() {
+    private static boolean ph() {
         return com.baidu.adp.lib.b.d.eE().ak("switch_mbaidu_startup") == 1;
     }
 
@@ -261,8 +261,8 @@ public class AdStatic {
         e.a(context, false, co(str), str2);
     }
 
-    private static void pj() {
-        com.baidu.tieba.ad.a.Nb().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
+    private static void pi() {
+        com.baidu.tieba.ad.a.MZ().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -331,8 +331,8 @@ public class AdStatic {
         });
     }
 
-    private static void pk() {
-        com.baidu.tieba.ad.a.Nb().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
+    private static void pj() {
+        com.baidu.tieba.ad.a.MZ().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

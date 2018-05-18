@@ -18,21 +18,21 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends n {
     private l aeY;
-    private String crG;
+    private String csP;
 
     public a(l lVar, String str) {
         super(lVar);
         this.aeY = lVar;
-        this.crG = str;
+        this.csP = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String pg() {
+    public String pf() {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(ul = false, value = "downloadGame")
+    @o(uk = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
@@ -44,16 +44,16 @@ public class a extends n {
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    mb(optString);
+                    me(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.bjr().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.rR(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.d.bjq().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.rU(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new al("c12775").ac(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.crG) ? "" : this.crG));
+                TiebaStatic.log(new al("c12775").ac(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.csP) ? "" : this.csP));
             }
         }
     }
 
-    private void mb(String str) {
+    private void me(String str) {
         try {
             this.aeY.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str)));
         } catch (ActivityNotFoundException e) {

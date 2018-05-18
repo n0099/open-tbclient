@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.util.TbErrInfo;
 /* loaded from: classes.dex */
 public class g {
     private static int BASE_ERROR_NO = -100000000;
-    public static final int UF = BASE_ERROR_NO + NotificationManagerCompat.IMPORTANCE_UNSPECIFIED;
-    public static final int UG = BASE_ERROR_NO - 1001;
-    public static final int UH = BASE_ERROR_NO + TbErrInfo.ERR_IMG_SEND;
-    public static final int UI = BASE_ERROR_NO - 2000;
-    public static final int UJ = BASE_ERROR_NO - 2001;
-    public static final int UK = BASE_ERROR_NO - 2002;
-    public static final int UL = BASE_ERROR_NO - 3000;
-    public static final int UM = BASE_ERROR_NO - 3001;
+    public static final int UB = BASE_ERROR_NO + NotificationManagerCompat.IMPORTANCE_UNSPECIFIED;
+    public static final int UC = BASE_ERROR_NO - 1001;
+    public static final int UD = BASE_ERROR_NO + TbErrInfo.ERR_IMG_SEND;
+    public static final int UE = BASE_ERROR_NO - 2000;
+    public static final int UF = BASE_ERROR_NO - 2001;
+    public static final int UG = BASE_ERROR_NO - 2002;
+    public static final int UH = BASE_ERROR_NO - 3000;
+    public static final int UI = BASE_ERROR_NO - 3001;
 }

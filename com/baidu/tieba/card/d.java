@@ -11,38 +11,38 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tieba.horizonalList.widget.e {
-    public BarImageView aSs;
-    public TextView aSt;
-    public EntelechyUserLikeButton aSv;
-    private com.baidu.tieba.card.data.e cmc;
+    public BarImageView aSt;
+    public TextView aSu;
+    public EntelechyUserLikeButton aSw;
+    private com.baidu.tieba.card.data.e cnm;
     private int mSkinType;
 
     public d(View view2) {
         super(view2);
-        this.aSs = null;
         this.aSt = null;
-        this.aSv = null;
+        this.aSu = null;
+        this.aSw = null;
         this.mSkinType = 3;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.e
     public void a(com.baidu.tieba.horizonalList.widget.c cVar) {
         if (cVar != null && (cVar instanceof com.baidu.tieba.card.data.e)) {
-            this.cmc = (com.baidu.tieba.card.data.e) cVar;
-            this.aSs.setTag(this.cmc.forumAvatar);
-            this.aSs.setTag(d.g.tag_forum_name, this.cmc.forumName);
-            this.aSs.startLoad(this.cmc.forumAvatar, 15, false);
-            this.aSt.setText(an.getFixedText(this.cmc.forumName, 4, true) + getView().getContext().getResources().getString(d.k.forum));
-            this.aSt.setTag(d.g.tag_forum_name, this.cmc.forumName);
-            this.aSv.setTag(d.g.tag_forum_id, Long.valueOf(this.cmc.forumId));
-            this.aSv.setTag(d.g.tag_forum_name, this.cmc.forumName);
-            getView().setTag(d.g.tag_forum_id, Long.valueOf(this.cmc.forumId));
-            getView().setTag(d.g.tag_forum_name, this.cmc.forumName);
-            a(this.aSv, this.cmc.isLiked);
-            this.aSs.setOnClickListener(this.axG);
-            this.aSv.setOnClickListener(this.axG);
-            this.aSt.setOnClickListener(this.axG);
-            getView().setOnClickListener(this.axG);
+            this.cnm = (com.baidu.tieba.card.data.e) cVar;
+            this.aSt.setTag(this.cnm.forumAvatar);
+            this.aSt.setTag(d.g.tag_forum_name, this.cnm.forumName);
+            this.aSt.startLoad(this.cnm.forumAvatar, 15, false);
+            this.aSu.setText(an.getFixedText(this.cnm.forumName, 4, true) + getView().getContext().getResources().getString(d.k.forum));
+            this.aSu.setTag(d.g.tag_forum_name, this.cnm.forumName);
+            this.aSw.setTag(d.g.tag_forum_id, Long.valueOf(this.cnm.forumId));
+            this.aSw.setTag(d.g.tag_forum_name, this.cnm.forumName);
+            getView().setTag(d.g.tag_forum_id, Long.valueOf(this.cnm.forumId));
+            getView().setTag(d.g.tag_forum_name, this.cnm.forumName);
+            a(this.aSw, this.cnm.isLiked);
+            this.aSt.setOnClickListener(this.axH);
+            this.aSw.setOnClickListener(this.axH);
+            this.aSu.setOnClickListener(this.axH);
+            getView().setOnClickListener(this.axH);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -50,11 +50,11 @@ public class d extends com.baidu.tieba.horizonalList.widget.e {
     @Override // com.baidu.tieba.horizonalList.widget.e
     public com.baidu.tieba.horizonalList.widget.e ad(View view2) {
         d dVar = new d(view2);
-        dVar.aSs = (BarImageView) view2.findViewById(d.g.forum_avatar);
-        dVar.aSs.setGifIconSupport(false);
-        dVar.aSt = (TextView) view2.findViewById(d.g.m_forum_name_textview);
-        dVar.aSv = (EntelechyUserLikeButton) view2.findViewById(d.g.forum_add_love);
-        dVar.dHy = 16908308;
+        dVar.aSt = (BarImageView) view2.findViewById(d.g.forum_avatar);
+        dVar.aSt.setGifIconSupport(false);
+        dVar.aSu = (TextView) view2.findViewById(d.g.m_forum_name_textview);
+        dVar.aSw = (EntelechyUserLikeButton) view2.findViewById(d.g.forum_add_love);
+        dVar.dIE = 16908308;
         return dVar;
     }
 
@@ -62,8 +62,8 @@ public class d extends com.baidu.tieba.horizonalList.widget.e {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             ak.j(getView(), d.C0126d.cp_bg_line_d);
-            ak.h(this.aSt, d.C0126d.cp_cont_b);
-            a(this.aSv, this.cmc.isLiked);
+            ak.h(this.aSu, d.C0126d.cp_cont_b);
+            a(this.aSw, this.cnm.isLiked);
         }
         this.mSkinType = i;
     }

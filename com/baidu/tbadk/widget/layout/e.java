@@ -7,25 +7,25 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e implements b {
-    private int aUa;
     private int aUb;
-    private double aUc;
+    private int aUc;
+    private double aUd;
 
     public e() {
-        this.aUa = 3;
-        this.aUb = this.aUa;
+        this.aUb = 3;
+        this.aUc = this.aUb;
     }
 
     public e(int i) {
-        this.aUa = 3;
-        this.aUb = this.aUa;
+        this.aUb = 3;
+        this.aUc = this.aUb;
         if (i > 0) {
-            this.aUb = i;
+            this.aUc = i;
         }
     }
 
     @Override // com.baidu.tbadk.widget.layout.b
-    public int fE(int i) {
+    public int fF(int i) {
         return 1;
     }
 
@@ -41,15 +41,15 @@ public class e implements b {
         }
         int v = v.v(list);
         if (v >= 2) {
-            constrainImageLayout.setImageMaxChildCount(this.aUa);
+            constrainImageLayout.setImageMaxChildCount(this.aUb);
             constrainImageLayout.setCanCenterStart(false);
         } else {
             constrainImageLayout.setImageMaxChildCount(-1);
             constrainImageLayout.setCanCenterStart(true);
         }
-        int i3 = v - this.aUb;
+        int i3 = v - this.aUc;
         if (i3 > 0) {
-            i2 = this.aUb + i;
+            i2 = this.aUc + i;
             List<MediaData> a = v.a(list, i, i2);
             constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.k.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)}));
             constrainImageLayout.setUrls(a, i, true);
@@ -58,22 +58,22 @@ public class e implements b {
             constrainImageLayout.setExtraCenterText(null);
             i2 = v;
         }
-        constrainImageLayout.setSingleImageRatio(fI(v));
+        constrainImageLayout.setSingleImageRatio(fJ(v));
         return i2;
     }
 
-    private double fI(int i) {
+    private double fJ(int i) {
         TbadkCoreApplication.getInst();
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.aUc > 0.0d) {
-            return this.aUc;
+        if (this.aUd > 0.0d) {
+            return this.aUd;
         }
         return 0.6666666666666666d;
     }
 
     public void i(double d) {
-        this.aUc = d;
+        this.aUd = d;
     }
 }

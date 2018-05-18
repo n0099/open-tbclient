@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a fdb;
-    private View fdc;
+    private a fei;
+    private View fej;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.fdb = aVar;
+        this.fei = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view2, MotionEvent motionEvent) {
-        this.fdc = view2;
+        this.fej = view2;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -62,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.fdb != null) {
-            return this.fdb.a(this.fdc, motionEvent);
+        if (this.fei != null) {
+            return this.fei.a(this.fej, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.fdb != null) {
-            return this.fdb.b(this.fdc, motionEvent);
+        if (this.fei != null) {
+            return this.fei.b(this.fej, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.fdb != null) {
-            return this.fdb.c(this.fdc, motionEvent);
+        if (this.fei != null) {
+            return this.fei.c(this.fej, motionEvent);
         }
         return false;
     }
 
     public void aT(View view2) {
-        this.fdc = view2;
+        this.fej = view2;
     }
 }

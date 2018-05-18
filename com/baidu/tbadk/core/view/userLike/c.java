@@ -30,8 +30,8 @@ public class c implements View.OnClickListener {
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
                 if (c.this.aqG != null && !StringUtils.isNull(c.this.aqG.getUserId()) && data != null && c.this.aqG.getUserId().equals(data.toUid)) {
                     boolean z = (updateAttentionMessage.getOrginalMessage() == null || c.this.aqI == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(c.this.aqI)) ? false : true;
-                    if (data.auo == null) {
-                        if (!data.Aj) {
+                    if (data.aup == null) {
+                        if (!data.Ai) {
                             c.this.mPageContext.showToast(updateAttentionMessage.getData().errorString);
                             if (c.this.aqH != null) {
                                 if (z) {
@@ -55,7 +55,7 @@ public class c implements View.OnClickListener {
                         c.this.aqG.setIsFromNetWork(false);
                         c.this.aqG.setFansNum(fansNum);
                         if (c.this.aqH != null) {
-                            c.this.aqH.dB(fansNum);
+                            c.this.aqH.dC(fansNum);
                             if (z) {
                                 if (c.this.aqK != null) {
                                     c.this.aqK.aR(data.isAttention);
@@ -121,11 +121,11 @@ public class c implements View.OnClickListener {
         this.aqG = aVar;
         if (this.aqH != null && this.aqG != null) {
             this.aqH.d(aVar.getIsLike(), aVar.getLikeStatus());
-            this.aqH.dB(aVar.getFansNum());
+            this.aqH.dC(aVar.getFansNum());
         }
     }
 
-    public com.baidu.tbadk.core.view.userLike.a xo() {
+    public com.baidu.tbadk.core.view.userLike.a xn() {
         return this.aqG;
     }
 

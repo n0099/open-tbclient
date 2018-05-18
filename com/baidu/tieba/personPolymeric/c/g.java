@@ -9,21 +9,21 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fKr = BdUniqueId.gen();
-    public boolean fKs;
-    public String fKt;
-    public List<com.baidu.adp.widget.ListView.h> fKu;
+    public static final BdUniqueId fLx = BdUniqueId.gen();
+    public List<com.baidu.adp.widget.ListView.h> fLA;
+    public boolean fLy;
+    public String fLz;
     public int giftNum = 0;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
-    public String vb;
+    public String va;
 
     public void parserProtoBuf(User user) {
         if (user != null && !v.w(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
-            this.vb = user.name;
-            this.fKt = user.name_show;
+            this.va = user.name;
+            this.fLz = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.fKs = false;
+                this.fLy = false;
             } else {
-                this.fKs = true;
+                this.fLy = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.fKu = new ArrayList();
+            this.fLA = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.fKu.add(oVar);
+                    this.fLA.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.w(this.fKu);
+        return !v.w(this.fLA);
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return fKr;
+        return fLx;
     }
 }

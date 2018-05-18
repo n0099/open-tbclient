@@ -39,12 +39,12 @@ public class b extends c {
     */
     public boolean j(byte[] bArr) {
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.qm.k(bArr)) {
-            long j = this.qm.qp;
+        if (bArr != null && this.ql.k(bArr)) {
+            long j = this.ql.qo;
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             long j2 = j;
             if (i != 0) {
-                long j3 = this.qm.qp;
+                long j3 = this.ql.qo;
                 int i2 = (j3 > System.currentTimeMillis() ? 1 : (j3 == System.currentTimeMillis() ? 0 : -1));
                 j2 = j3;
                 if (i2 < 0) {
@@ -52,13 +52,13 @@ public class b extends c {
                 }
             }
             ByteArrayInputStream byteArrayInputStream2 = j2;
-            if (this.ql == null) {
-                this.ql = new BitmapFactory.Options();
-                this.ql.inDither = false;
+            if (this.qj == null) {
+                this.qj = new BitmapFactory.Options();
+                this.qj.inDither = false;
                 int i3 = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                this.ql.inScreenDensity = i3;
-                this.ql.inTargetDensity = i3;
-                ?? r2 = this.ql;
+                this.qj.inScreenDensity = i3;
+                this.qj.inTargetDensity = i3;
+                ?? r2 = this.qj;
                 ((BitmapFactory.Options) r2).inDensity = i3;
                 byteArrayInputStream2 = r2;
             }
@@ -67,7 +67,7 @@ public class b extends c {
                 try {
                     byteArrayInputStream = new ByteArrayInputStream(bArr, headerSize, bArr.length - headerSize);
                     try {
-                        this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.ql);
+                        this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.qj);
                         com.baidu.adp.lib.g.a.d(byteArrayInputStream);
                         byteArrayInputStream2 = byteArrayInputStream;
                     } catch (Error e) {

@@ -21,7 +21,7 @@ public interface c {
             try {
                 jSONObject.put("type", this.state);
                 jSONObject.put("timestamp", this.timestamp);
-                jSONObject.put("network_status", VideoPlatformStatic.MC());
+                jSONObject.put("network_status", VideoPlatformStatic.MA());
             } catch (Exception e) {
                 e.printStackTrace();
             }

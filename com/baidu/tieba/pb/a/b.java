@@ -35,7 +35,7 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.a(TbadkCoreApplication.getInst(), aWn(), d.f.icon_word_t_size, 0).tL();
+        BdToast.a(TbadkCoreApplication.getInst(), aWn(), d.f.icon_word_t_size, 0).tK();
     }
 
     public static void aWp() {
@@ -52,10 +52,10 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.a(TbadkCoreApplication.getInst(), aWn(), d.f.icon_word_t_size, 0).tL();
+        BdToast.a(TbadkCoreApplication.getInst(), aWn(), d.f.icon_word_t_size, 0).tK();
     }
 
-    public static void pY(int i) {
+    public static void pX(int i) {
         if (TbadkCoreApplication.getInst().getFontSize() != i) {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));

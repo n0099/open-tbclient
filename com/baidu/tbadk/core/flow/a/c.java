@@ -17,19 +17,19 @@ public class c {
         this.gravity = i;
     }
 
-    public final void cq(int i) {
+    public final void cr(int i) {
         this.adX = i;
     }
 
-    public int tX() {
+    public int tW() {
         return this.adX;
     }
 
-    public int tY() {
+    public int tX() {
         return this.adY;
     }
 
-    public final void cr(int i) {
+    public final void cs(int i) {
         this.adY = i;
     }
 
@@ -37,11 +37,11 @@ public class c {
         this.adZ = i;
     }
 
-    public final void cs(int i) {
+    public final void ct(int i) {
         this.aea = i;
     }
 
-    public void ct(int i) {
+    public void cu(int i) {
         this.aeb = i;
     }
 

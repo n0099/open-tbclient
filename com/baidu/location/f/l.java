@@ -29,7 +29,11 @@ public abstract class l {
         return null;
     }
 
-    public WifiInfo nO() {
+    public WifiInfo nN() {
+        return null;
+    }
+
+    public i nO() {
         return null;
     }
 
@@ -38,10 +42,6 @@ public abstract class l {
     }
 
     public i nQ() {
-        return null;
-    }
-
-    public i nR() {
         return null;
     }
 }

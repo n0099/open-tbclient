@@ -12,14 +12,14 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class dimen {
-        public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f080437;
-        public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f080438;
-        public static final int item_touch_helper_swipe_escape_velocity = 0x7f080439;
+        public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f080429;
+        public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f08042a;
+        public static final int item_touch_helper_swipe_escape_velocity = 0x7f08042b;
     }
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int item_touch_helper_previous_elevation = 0x7f0e0031;
+        public static final int item_touch_helper_previous_elevation = 0x7f0e0069;
     }
 
     /* loaded from: classes.dex */

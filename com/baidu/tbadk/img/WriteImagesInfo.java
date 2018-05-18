@@ -205,7 +205,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             while (descendingIterator.hasNext()) {
                 ImageFileInfo next = descendingIterator.next();
                 if (next != null && !next.isHasAddPostQualityAction()) {
-                    next.addPersistAction(com.baidu.tbadk.img.effect.d.G(ap.vQ().vW(), ap.vQ().vX()));
+                    next.addPersistAction(com.baidu.tbadk.img.effect.d.G(ap.vP().vV(), ap.vP().vW()));
                     next.setHasAddPostQualityAction(true);
                 }
             }

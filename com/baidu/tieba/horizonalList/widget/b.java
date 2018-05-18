@@ -11,17 +11,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private int GG;
+    private int GC;
     private List<c> Yt;
-    public final ArrayList<e> aSf = new ArrayList<>();
-    private e dHw;
+    public final ArrayList<e> aSg = new ArrayList<>();
+    private e dIC;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
 
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
-        this.GG = i;
-        this.dHw = eVar;
+        this.GC = i;
+        this.dIC = eVar;
     }
 
     public void setData(List<c> list) {
@@ -58,11 +58,11 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         if (view2 == null) {
-            view2 = this.mInflater.inflate(this.GG, viewGroup, false);
-            e ad = this.dHw.ad(view2);
+            view2 = this.mInflater.inflate(this.GC, viewGroup, false);
+            e ad = this.dIC.ad(view2);
             ad.setOnClickListener(this.mOnClickListener);
             view2.setTag(ad);
-            this.aSf.add(ad);
+            this.aSg.add(ad);
         }
         e eVar = (e) view2.getTag();
         if (v.c(this.Yt, i) != null) {
@@ -77,9 +77,9 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void dh(int i) {
-        if (v.v(this.aSf) > 0) {
-            Iterator<e> it = this.aSf.iterator();
+    public void di(int i) {
+        if (v.v(this.aSg) > 0) {
+            Iterator<e> it = this.aSg.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

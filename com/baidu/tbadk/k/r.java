@@ -6,45 +6,45 @@ import com.tencent.tauth.AuthActivity;
 /* loaded from: classes.dex */
 public class r extends o {
     public void a(l lVar) {
-        if (p.Ha().Hb()) {
+        if (p.GY().GZ()) {
             com.baidu.adp.lib.stats.a fq = fq();
             fq.append(AuthActivity.ACTION_KEY, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            fq.append("ishttp", lVar.aLb ? "1" : "0");
+            fq.append("ishttp", lVar.aLc ? "1" : "0");
             fq.append("issuccess", lVar.isSuccess ? "1" : "0");
-            fq.append("nettype", p.Ha().getNetType());
-            fq.append("wt", String.valueOf(lVar.aKW));
-            fq.append("qt", String.valueOf(lVar.aKP));
-            fq.append("connt", String.valueOf(lVar.aKQ));
-            fq.append("rwt", String.valueOf(lVar.aKR));
+            fq.append("nettype", p.GY().getNetType());
+            fq.append("wt", String.valueOf(lVar.aKX));
+            fq.append("qt", String.valueOf(lVar.aKQ));
+            fq.append("connt", String.valueOf(lVar.aKR));
+            fq.append("rwt", String.valueOf(lVar.aKS));
             fq.append("fbt", String.valueOf(lVar.mW));
             fq.append("abt", String.valueOf(lVar.mZ));
-            fq.append("dect", String.valueOf(lVar.aKS));
-            fq.append("parset", String.valueOf(lVar.aKT));
-            fq.append("tqt", String.valueOf(lVar.aKU));
-            fq.append("rendert", String.valueOf(lVar.aKV));
-            fq.append("ss", String.valueOf(lVar.aKZ));
-            fq.append("hs", String.valueOf(lVar.aLa));
-            if (lVar.aLb && lVar.socketErrNo != 0) {
+            fq.append("dect", String.valueOf(lVar.aKT));
+            fq.append("parset", String.valueOf(lVar.aKU));
+            fq.append("tqt", String.valueOf(lVar.aKV));
+            fq.append("rendert", String.valueOf(lVar.aKW));
+            fq.append("ss", String.valueOf(lVar.aLa));
+            fq.append("hs", String.valueOf(lVar.aLb));
+            if (lVar.aLc && lVar.socketErrNo != 0) {
                 fq.append("salno", String.valueOf(lVar.socketErrNo));
                 if (lVar.socketCostTime != 0) {
                     fq.append("scosttime", String.valueOf(lVar.socketCostTime));
                 }
             }
-            if (lVar.aLb) {
-                fq.append("hrtn", String.valueOf(lVar.aLc));
-                fq.append("hrtt", String.valueOf(lVar.aLd));
+            if (lVar.aLc) {
+                fq.append("hrtn", String.valueOf(lVar.aLd));
+                fq.append("hrtt", String.valueOf(lVar.aLe));
             }
             if (lVar.errCode != 0) {
                 fq.f("errcode", Integer.valueOf(lVar.errCode));
             }
-            if (lVar.aLe) {
+            if (lVar.aLf) {
                 fq.append("pt", "1");
             } else {
-                fq.append("sysct", String.valueOf(lVar.aKN));
-                fq.append("ct", String.valueOf(lVar.aKO));
+                fq.append("sysct", String.valueOf(lVar.aKO));
+                fq.append("ct", String.valueOf(lVar.aKP));
             }
-            if (lVar.aLb) {
-                fq.append("c_logid", String.valueOf(lVar.aLf));
+            if (lVar.aLc) {
+                fq.append("c_logid", String.valueOf(lVar.aLg));
                 if (lVar.sequenceID != 0) {
                     fq.append("seq_id", String.valueOf(lVar.sequenceID & 4294967295L));
                 }
@@ -56,52 +56,52 @@ public class r extends o {
     }
 
     public void b(l lVar) {
-        if (p.Ha().Hb() && lVar.aKX > 0) {
+        if (p.GY().GZ() && lVar.aKY > 0) {
             com.baidu.adp.lib.stats.a fq = fq();
             fq.append(AuthActivity.ACTION_KEY, "readCache");
-            fq.append("rct", String.valueOf(lVar.aKX));
+            fq.append("rct", String.valueOf(lVar.aKY));
             BdStatisticsManager.getInstance().performance(this.subType, fq);
         }
     }
 
     public void c(l lVar) {
-        if (p.Ha().Hb() && lVar.aKY > 0) {
+        if (p.GY().GZ() && lVar.aKZ > 0) {
             com.baidu.adp.lib.stats.a fq = fq();
             fq.append(AuthActivity.ACTION_KEY, "writeCache");
-            fq.append("wct", String.valueOf(lVar.aKY));
+            fq.append("wct", String.valueOf(lVar.aKZ));
             BdStatisticsManager.getInstance().performance(this.subType, fq);
         }
     }
 
     public void a(k kVar, String str) {
-        if (kVar != null && str != null && p.Ha().Hb()) {
+        if (kVar != null && str != null && p.GY().GZ()) {
             com.baidu.adp.lib.stats.a fq = fq();
             fq.append(AuthActivity.ACTION_KEY, "resource");
             fq.append("actype", str);
             fq.append("issuccess", kVar.isSuccess ? "1" : "0");
-            fq.append("isfs", kVar.aKM ? "1" : "0");
-            fq.append("ct", String.valueOf(kVar.EI));
-            fq.append("from", String.valueOf(kVar.EH));
+            fq.append("isfs", kVar.aKN ? "1" : "0");
+            fq.append("ct", String.valueOf(kVar.EE));
+            fq.append("from", String.valueOf(kVar.ED));
             BdStatisticsManager.getInstance().performance(this.subType, fq);
         }
     }
 
     public void g(d dVar) {
-        if (dVar != null && p.Ha().Hb()) {
+        if (dVar != null && p.GY().GZ()) {
             com.baidu.adp.lib.stats.a fq = fq();
             fq.append(AuthActivity.ACTION_KEY, "fluency");
-            fq.append("fps", String.valueOf(dVar.GI()));
-            fq.append("memp", String.valueOf(dVar.GK()));
-            fq.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(dVar.GL()));
+            fq.append("fps", String.valueOf(dVar.GG()));
+            fq.append("memp", String.valueOf(dVar.GI()));
+            fq.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(dVar.GJ()));
             BdStatisticsManager.getInstance().performance(this.subType, fq);
         }
     }
 
     public void h(d dVar) {
-        if (p.Ha().Hb()) {
+        if (p.GY().GZ()) {
             com.baidu.adp.lib.stats.a fq = fq();
             fq.append(AuthActivity.ACTION_KEY, "gc");
-            fq.append("gc", String.valueOf(dVar.GJ()));
+            fq.append("gc", String.valueOf(dVar.GH()));
             BdStatisticsManager.getInstance().performance(this.subType, fq);
         }
     }

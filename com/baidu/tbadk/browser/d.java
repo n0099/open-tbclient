@@ -35,7 +35,7 @@ import java.net.URLEncoder;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean Tc = true;
+    public static boolean SY = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.d.1
@@ -47,7 +47,7 @@ public class d {
                 }
             }
         });
-        ax.wg().a(new ax.c() { // from class: com.baidu.tbadk.browser.d.2
+        ax.wf().a(new ax.c() { // from class: com.baidu.tbadk.browser.d.2
             @Override // com.baidu.tbadk.core.util.ax.c
             public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, ax.d dVar, boolean z2) {
                 if (z2) {
@@ -58,16 +58,16 @@ public class d {
             }
         });
         com.baidu.adp.lib.b.d.eE().a(new com.baidu.adp.lib.b.b("switch_mbaidu_startup", 1, null));
-        ph();
+        pg();
+        pi();
         pj();
-        pk();
     }
 
-    private static void ph() {
-        ax.wg().a(new ax.a() { // from class: com.baidu.tbadk.browser.d.3
+    private static void pg() {
+        ax.wf().a(new ax.a() { // from class: com.baidu.tbadk.browser.d.3
             @Override // com.baidu.tbadk.core.util.ax.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                Bundle hn;
+                Bundle ho;
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -135,7 +135,7 @@ public class d {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, z.ar(str, "bindid=")));
                     tbPageContext.getPageActivity().finish();
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (hn = z.hn(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(hn.getString(ClientCookie.PATH_ATTR))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (ho = z.ho(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(ho.getString(ClientCookie.PATH_ATTR))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                     return 0;
                 } else {
@@ -226,7 +226,7 @@ public class d {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String cn = cn(str);
-        if (!cq(cn) && pi() && cs("com.baidu.searchbox") && cr(cn) && Tc) {
+        if (!cq(cn) && ph() && cs("com.baidu.searchbox") && cr(cn) && SY) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -238,7 +238,7 @@ public class d {
         return WhiteListData.createBySP().checkUrl(str);
     }
 
-    private static boolean pi() {
+    private static boolean ph() {
         return com.baidu.adp.lib.b.d.eE().ak("switch_mbaidu_startup") == 1;
     }
 
@@ -296,8 +296,8 @@ public class d {
         }
     }
 
-    private static void pj() {
-        ax.wg().a(new ax.a() { // from class: com.baidu.tbadk.browser.d.6
+    private static void pi() {
+        ax.wf().a(new ax.a() { // from class: com.baidu.tbadk.browser.d.6
             @Override // com.baidu.tbadk.core.util.ax.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
@@ -355,8 +355,8 @@ public class d {
         });
     }
 
-    private static void pk() {
-        ax.wg().a(new ax.a() { // from class: com.baidu.tbadk.browser.d.7
+    private static void pj() {
+        ax.wf().a(new ax.a() { // from class: com.baidu.tbadk.browser.d.7
             @Override // com.baidu.tbadk.core.util.ax.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

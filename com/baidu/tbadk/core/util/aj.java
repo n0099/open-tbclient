@@ -16,9 +16,9 @@ public class aj {
         try {
             if (!k.m15do()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.uD());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.uC());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.uD());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.uC());
                 }
             } else {
                 File dA = k.dA("camera.jpg");
@@ -41,16 +41,16 @@ public class aj {
         try {
             if (!k.m15do()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.uD());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.uC());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.uD());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.uC());
                     return;
                 } else {
                     return;
                 }
             }
-            String str2 = k.wB + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
+            String str2 = k.wA + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
             boolean z = false;
             if (k.dr(str2)) {
                 File file = new File(str2 + "/" + str);

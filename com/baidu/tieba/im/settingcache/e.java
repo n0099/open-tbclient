@@ -11,13 +11,13 @@ import com.baidu.tbadk.util.v;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class e extends a {
-    private static e ehV = new e();
+    private static e ejc = new e();
 
     private e() {
     }
 
-    public static e aGX() {
-        return ehV;
+    public static e aGV() {
+        return ejc;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,8 +29,8 @@ public class e extends a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.ehL) {
-            ChatSetting chatSetting = this.ehL.get(str3);
+        synchronized (this.eiS) {
+            ChatSetting chatSetting = this.eiS.get(str3);
             personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
         }
         if (personalSettingItemData == null) {
@@ -43,7 +43,7 @@ public class e extends a {
         return personalSettingItemData;
     }
 
-    public void aCX() {
+    public void aCV() {
         super.m(PersonalSettingItemData.class);
     }
 
@@ -57,8 +57,8 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> aGT() {
-        return com.baidu.tbadk.core.c.a.tz().cZ("tb.im_personal_chat_setting");
+    protected l<String> aGR() {
+        return com.baidu.tbadk.core.c.a.ty().cZ("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -73,13 +73,13 @@ public class e extends a {
                 }
                 return;
             }
-            l<String> aGT = aGT();
+            l<String> aGR = aGR();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.ehL) {
-                this.ehL.put(str, personalSettingItemData);
+            synchronized (this.eiS) {
+                this.eiS.put(str, personalSettingItemData);
             }
-            aGT.e(str, jsonStrWithObject);
+            aGR.e(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class e extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.ehL) {
-                this.ehL.put(str, personalSettingItemData);
+            synchronized (this.eiS) {
+                this.eiS.put(str, personalSettingItemData);
             }
             v.b(new u<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.u
-                /* renamed from: Nq */
+                /* renamed from: No */
                 public Void doInBackground() {
-                    e.this.aGT().e(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    e.this.aGR().e(str, OrmObject.jsonStrWithObject(personalSettingItemData));
                     return null;
                 }
             }, hVar);

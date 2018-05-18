@@ -5,39 +5,39 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<Integer> bbP;
-    private c bbQ;
+    private ArrayList<Integer> bbQ;
+    private c bbR;
     private HashMap<String, b> mData = new HashMap<>();
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.bbP = arrayList;
-        this.bbQ = cVar;
+        this.bbQ = arrayList;
+        this.bbR = cVar;
     }
 
     public int L(String str, int i) {
-        if (this.mData == null || an.isEmpty(str) || this.bbP == null || !this.bbP.contains(Integer.valueOf(i))) {
+        if (this.mData == null || an.isEmpty(str) || this.bbQ == null || !this.bbQ.contains(Integer.valueOf(i))) {
             return 0;
         }
         if (!this.mData.containsKey(str)) {
-            hW(str);
+            hX(str);
         }
         b bVar = this.mData.get(str);
         if (bVar == null) {
             return 0;
         }
-        return bVar.gm(i);
+        return bVar.gn(i);
     }
 
-    public void hW(String str) {
-        if (this.mData != null && !an.isEmpty(str) && this.bbQ != null) {
+    public void hX(String str) {
+        if (this.mData != null && !an.isEmpty(str) && this.bbR != null) {
             if (this.mData.containsKey(str)) {
                 b bVar = this.mData.get(str);
-                this.bbQ.a(this.bbP, bVar);
+                this.bbR.a(this.bbQ, bVar);
                 this.mData.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.bbQ.a(this.bbP, bVar2);
+            this.bbR.a(this.bbQ, bVar2);
             this.mData.put(str, bVar2);
         }
     }

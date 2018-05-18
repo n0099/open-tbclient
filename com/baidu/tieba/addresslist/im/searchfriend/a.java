@@ -17,25 +17,25 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a {
-    private EditText bfE;
-    private TextView bfF;
-    private ImageView bfG;
-    private InterfaceC0118a bfH;
-    private View.OnClickListener bfI = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
+    private EditText bfF;
+    private TextView bfG;
+    private ImageView bfH;
+    private InterfaceC0118a bfI;
+    private View.OnClickListener bfJ = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (view2 == a.this.bfF) {
-                String a = k.a(a.this.bfE.getText(), null);
+            if (view2 == a.this.bfG) {
+                String a = k.a(a.this.bfF.getText(), null);
                 if (!StringUtils.isNULL(a)) {
                     if (a.trim().length() != 0) {
-                        a.this.iq(a.trim());
-                        a.this.bfF.setClickable(false);
+                        a.this.ir(a.trim());
+                        a.this.bfG.setClickable(false);
                     } else if (a.length() > 0) {
                         a.this.mPageContext.showToast(d.k.input_content);
                     }
                 }
-            } else if (view2 == a.this.bfG) {
-                a.this.ip("");
+            } else if (view2 == a.this.bfH) {
+                a.this.iq("");
             }
         }
     };
@@ -46,25 +46,25 @@ public class a {
     /* renamed from: com.baidu.tieba.addresslist.im.searchfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0118a {
-        void io(String str);
+        void ip(String str);
     }
 
     public void cq(boolean z) {
-        this.bfF.setClickable(z);
+        this.bfG.setClickable(z);
     }
 
-    public void ip(String str) {
-        this.bfE.setText(str);
+    public void iq(String str) {
+        this.bfF.setText(str);
     }
 
     public a(TbPageContext<?> tbPageContext, View view2) {
         this.mPageContext = tbPageContext;
         this.context = this.mPageContext.getPageActivity();
-        this.bfE = (EditText) view2.findViewById(d.g.new_search_friend_input);
-        this.bfF = (TextView) view2.findViewById(d.g.new_search_friend_search);
-        this.bfG = (ImageView) view2.findViewById(d.g.new_search_friend_del);
-        this.bfF.setOnClickListener(this.bfI);
-        this.bfG.setOnClickListener(this.bfI);
+        this.bfF = (EditText) view2.findViewById(d.g.new_search_friend_input);
+        this.bfG = (TextView) view2.findViewById(d.g.new_search_friend_search);
+        this.bfH = (ImageView) view2.findViewById(d.g.new_search_friend_del);
+        this.bfG.setOnClickListener(this.bfJ);
+        this.bfH.setOnClickListener(this.bfJ);
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -77,38 +77,38 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (TextUtils.isEmpty(editable)) {
-                    a.this.bfG.setVisibility(8);
+                    a.this.bfH.setVisibility(8);
                 } else {
-                    a.this.bfG.setVisibility(0);
+                    a.this.bfH.setVisibility(0);
                 }
             }
         };
-        this.bfE.addTextChangedListener(this.mTextWatcher);
-        dv(TbadkCoreApplication.getInst().getSkinType());
+        this.bfF.addTextChangedListener(this.mTextWatcher);
+        dw(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void ND() {
-        this.bfE.removeTextChangedListener(this.mTextWatcher);
+    public void NB() {
+        this.bfF.removeTextChangedListener(this.mTextWatcher);
     }
 
-    public void NE() {
-        l.b(this.context, this.bfE);
+    public void NC() {
+        l.b(this.context, this.bfF);
     }
 
     public void a(InterfaceC0118a interfaceC0118a) {
-        this.bfH = interfaceC0118a;
+        this.bfI = interfaceC0118a;
     }
 
-    public void dv(int i) {
-        ak.c(this.bfF, d.C0126d.cp_cont_g, 1);
-        this.bfE.setHintTextColor(ak.getColor(d.C0126d.cp_cont_e));
-        ak.c(this.bfG, d.f.icon_search_close);
+    public void dw(int i) {
+        ak.c(this.bfG, d.C0126d.cp_cont_g, 1);
+        this.bfF.setHintTextColor(ak.getColor(d.C0126d.cp_cont_e));
+        ak.c(this.bfH, d.f.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iq(String str) {
-        if (this.bfH != null) {
-            this.bfH.io(str);
+    public void ir(String str) {
+        if (this.bfI != null) {
+            this.bfI.ip(str);
         }
     }
 }

@@ -8,33 +8,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class x {
-    private static x fQG = null;
-    private HashMap<String, a> fQH = new HashMap<>();
+    private static x fRM = null;
+    private HashMap<String, a> fRN = new HashMap<>();
 
     private x() {
     }
 
     public static x bhb() {
-        if (fQG == null) {
+        if (fRM == null) {
             synchronized (x.class) {
-                if (fQG == null) {
-                    fQG = new x();
+                if (fRM == null) {
+                    fRM = new x();
                 }
             }
         }
-        return fQG;
+        return fRM;
     }
 
     public void aD(String str, int i) {
-        a aVar = this.fQH.get(str);
+        a aVar = this.fRN.get(str);
         if (aVar == null) {
-            this.fQH.put(str, new a(i, System.currentTimeMillis()));
+            this.fRN.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.fQH.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.fQH.entrySet());
+        if (this.fRN.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.fRN.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.x.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -47,7 +47,7 @@ public class x {
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.fQH.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.fRN.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -58,12 +58,12 @@ public class x {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fQH.remove(str);
+            this.fRN.remove(str);
         }
     }
 
-    public int rr(String str) {
-        a aVar = this.fQH.get(str);
+    public int ru(String str) {
+        a aVar = this.fRN.get(str);
         if (aVar != null) {
             return aVar.position;
         }

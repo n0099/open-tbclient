@@ -5,5 +5,5 @@ public interface b {
 
     void aM(int i, int i2);
 
-    void axr();
+    void axq();
 }

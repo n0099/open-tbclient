@@ -1,48 +1,48 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class q {
-    private boolean fPV;
-    private boolean fPW;
-    private Runnable fPX = new Runnable() { // from class: com.baidu.tieba.play.q.1
+    private boolean fRb;
+    private boolean fRc;
+    private Runnable fRd = new Runnable() { // from class: com.baidu.tieba.play.q.1
         @Override // java.lang.Runnable
         public void run() {
-            q.this.fPV = false;
+            q.this.fRb = false;
         }
     };
-    private Runnable fPY = new Runnable() { // from class: com.baidu.tieba.play.q.2
+    private Runnable fRe = new Runnable() { // from class: com.baidu.tieba.play.q.2
         @Override // java.lang.Runnable
         public void run() {
-            q.this.fPW = false;
+            q.this.fRc = false;
         }
     };
 
     public void onPrepared() {
-        this.fPW = true;
-        com.baidu.adp.lib.g.e.fw().postDelayed(this.fPY, 500L);
+        this.fRc = true;
+        com.baidu.adp.lib.g.e.fw().postDelayed(this.fRe, 500L);
     }
 
     public void bgK() {
-        this.fPV = true;
+        this.fRb = true;
     }
 
     public void bgL() {
-        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fPX);
-        com.baidu.adp.lib.g.e.fw().postDelayed(this.fPX, 500L);
+        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fRd);
+        com.baidu.adp.lib.g.e.fw().postDelayed(this.fRd, 500L);
     }
 
     public void a(int i, int i2, com.baidu.tieba.j.i iVar) {
-        if ((i == 701 || i2 == 701) && iVar != null && !this.fPV && !this.fPW) {
+        if ((i == 701 || i2 == 701) && iVar != null && !this.fRb && !this.fRc) {
             iVar.aRP();
-        } else if ((i == 702 || i2 == 702) && iVar != null && !this.fPV && !this.fPW) {
+        } else if ((i == 702 || i2 == 702) && iVar != null && !this.fRb && !this.fRc) {
             iVar.aRQ();
-            this.fPV = false;
-            this.fPW = false;
+            this.fRb = false;
+            this.fRc = false;
             bgM();
         }
     }
 
     public void bgM() {
-        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fPX);
-        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fPY);
+        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fRd);
+        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fRe);
     }
 }

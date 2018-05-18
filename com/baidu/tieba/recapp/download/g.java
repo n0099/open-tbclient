@@ -18,15 +18,15 @@ import java.io.File;
 public class g {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         com.baidu.tbadk.coreExtra.data.c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.yo()) {
+        if (adAdSense != null && !adAdSense.yn()) {
             return s.a(context, advertAppInfo, i, downloadStaticsData);
         }
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.VQ;
-        if (StringUtils.isNull(str) && advertAppInfo.Wb != null) {
-            str = advertAppInfo.Wb.userName;
+        String str = advertAppInfo.VM;
+        if (StringUtils.isNull(str) && advertAppInfo.VX != null) {
+            str = advertAppInfo.VX.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -38,21 +38,21 @@ public class g {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.Dq().b(advertAppInfo);
-        String str2 = advertAppInfo.VQ;
+        com.baidu.tbadk.distribute.a.Do().b(advertAppInfo);
+        String str2 = advertAppInfo.VM;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        h.bjx().a(advertAppInfo.VU, advertAppInfo.VT, str2, i, h.rR(advertAppInfo.VU).intValue(), null, true, false, true, advertAppInfo.Wb.userPortrait, downloadStaticsData, advertAppInfo.Wb.userName);
+        h.bjw().a(advertAppInfo.VQ, advertAppInfo.VP, str2, i, h.rU(advertAppInfo.VQ).intValue(), null, true, false, true, advertAppInfo.VX.userPortrait, downloadStaticsData, advertAppInfo.VX.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
         com.baidu.tbadk.coreExtra.data.c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.yo()) {
+        if (adAdSense != null && !adAdSense.yn()) {
             s.e(advertAppInfo);
         } else {
-            h.bjx().j(advertAppInfo.VT, advertAppInfo.VU, true);
+            h.bjw().j(advertAppInfo.VP, advertAppInfo.VQ, true);
         }
     }
 

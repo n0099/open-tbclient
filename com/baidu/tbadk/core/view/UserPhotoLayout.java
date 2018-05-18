@@ -28,16 +28,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface b {
-        void dA(int i);
+        void dB(int i);
     }
 
     /* loaded from: classes.dex */
     public interface d {
         ListView getListView();
 
-        int xm();
+        int xl();
 
-        com.baidu.adp.lib.e.b<HeadImageView> xn();
+        com.baidu.adp.lib.e.b<HeadImageView> xm();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -77,9 +77,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(d.e.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.xn();
+            this.mUserPhotoPool = dVar.xm();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.xm());
+                this.mTbRecyclerListener = new c(dVar.xl());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
@@ -197,7 +197,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.dA(this.mIndex);
+                UserPhotoLayout.this.mChildClickListener.dB(this.mIndex);
             }
         }
     }
@@ -219,7 +219,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         return new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<HeadImageView>() { // from class: com.baidu.tbadk.core.view.UserPhotoLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: xl */
+            /* renamed from: xk */
             public HeadImageView fo() {
                 return new HeadImageView(context);
             }

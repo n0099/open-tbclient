@@ -14,43 +14,43 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class c extends b implements ae {
-    private int crA;
-    private String crB;
-    private String crC;
-    private String crz;
+    private String csI;
+    private int csJ;
+    private String csK;
+    private String csL;
     private String mExtra;
     private String mSource;
     public String tid;
-    public int crD = 0;
+    public int csM = 0;
     public SparseArray<String> YI = null;
-    private Integer crE = 0;
+    private Integer csN = 0;
 
     public void setWeight(String str) {
-        this.crz = str;
+        this.csI = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void iN(int i) {
-        this.crA = i;
+    public void iM(int i) {
+        this.csJ = i;
     }
 
-    public void ky(String str) {
-        this.crB = str;
+    public void kB(String str) {
+        this.csK = str;
     }
 
     public int afI() {
-        return this.crA;
+        return this.csJ;
     }
 
     public String afJ() {
-        return this.mSource + "#" + this.crA + "#" + this.crB;
+        return this.mSource + "#" + this.csJ + "#" + this.csK;
     }
 
     public String getWeight() {
-        return this.crz;
+        return this.csI;
     }
 
     public String getSource() {
@@ -58,18 +58,18 @@ public abstract class c extends b implements ae {
     }
 
     public String afK() {
-        return this.crB;
+        return this.csK;
     }
 
     public String afL() {
-        return this.crC;
+        return this.csL;
     }
 
-    public void kz(String str) {
-        this.crC = str;
+    public void kC(String str) {
+        this.csL = str;
     }
 
-    public bd Pe() {
+    public bd Pb() {
         return null;
     }
 
@@ -86,27 +86,27 @@ public abstract class c extends b implements ae {
     }
 
     public Integer afM() {
-        return this.crE;
+        return this.csN;
     }
 
     public void c(Integer num) {
-        this.crE = num;
+        this.csN = num;
     }
 
-    public al kA(String str) {
+    public al kD(String str) {
         return p(str, false);
     }
 
     public al p(String str, boolean z) {
-        bd Pe = Pe();
-        if (Pe == null) {
+        bd Pb = Pb();
+        if (Pb == null) {
             return null;
         }
-        al ac = new al(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Pe.getFid())).ac("tid", String.valueOf(Pe.getTid())).ac(VideoPlayActivityConfig.OBJ_ID, getExtra()).ac("obj_param1", getWeight()).r("obj_param2", 1).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", afI()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.o.afp());
+        al ac = new al(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Pb.getFid())).ac("tid", String.valueOf(Pb.getTid())).ac(VideoPlayActivityConfig.OBJ_ID, getExtra()).ac("obj_param1", getWeight()).r("obj_param2", 1).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", afI()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.o.afp());
         if (!z) {
             ac.r("obj_type", afN());
         } else {
-            if (Pe.abJ > 0) {
+            if (Pb.abK > 0) {
                 ac.r("midpageflag", 1);
             } else {
                 ac.r("midpageflag", 0);
@@ -114,18 +114,18 @@ public abstract class c extends b implements ae {
             ac.ac("ab_tag", afK());
             ac.r("is_vertical", afM().intValue());
         }
-        if (Pe.tc() != null && Pe.tc().bsb() != null && Pe.tc().bsb().JJ() != null && Pe.tc().bsb().JJ().size() > 0) {
-            ac.r("obj_to", Pe.tc().gwX ? 2 : 1);
+        if (Pb.tb() != null && Pb.tb().brZ() != null && Pb.tb().brZ().JH() != null && Pb.tb().brZ().JH().size() > 0) {
+            ac.r("obj_to", Pb.tb().gyb ? 2 : 1);
         }
         return ac;
     }
 
     public al U(String str, int i) {
-        bd Pe = Pe();
-        if (Pe == null) {
+        bd Pb = Pb();
+        if (Pb == null) {
             return null;
         }
-        al ac = new al(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Pe.getFid())).ac("tid", String.valueOf(Pe.getTid())).r(VideoPlayActivityConfig.OBJ_ID, M(Pe)).r("obj_param2", 1).ac("obj_param1", getWeight()).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", afI()).ac("obj_name", afK()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.o.afp());
+        al ac = new al(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Pb.getFid())).ac("tid", String.valueOf(Pb.getTid())).r(VideoPlayActivityConfig.OBJ_ID, M(Pb)).r("obj_param2", 1).ac("obj_param1", getWeight()).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", afI()).ac("obj_name", afK()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.o.afp());
         if (i == 0) {
             ac.r("obj_type", afN());
         } else {
@@ -138,15 +138,15 @@ public abstract class c extends b implements ae {
     private int afN() {
         int i;
         int i2 = 0;
-        bd Pe = Pe();
-        if (Pe == null) {
+        bd Pb = Pb();
+        if (Pb == null) {
             return 0;
         }
-        ArrayList<MediaData> sa = Pe.sa();
-        if (sa == null) {
+        ArrayList<MediaData> rZ = Pb.rZ();
+        if (rZ == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = sa.iterator();
+            Iterator<MediaData> it = rZ.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -164,17 +164,17 @@ public abstract class c extends b implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bd Pe = Pe();
-        if (Pe != null) {
-            return Pe.getImages();
+        bd Pb = Pb();
+        if (Pb != null) {
+            return Pb.getImages();
         }
         return null;
     }
 
     private int M(bd bdVar) {
-        if (bdVar.sQ() == null || bdVar.sQ().channelId <= 0) {
+        if (bdVar.sP() == null || bdVar.sP().channelId <= 0) {
             return 0;
         }
-        return (int) bdVar.sQ().channelId;
+        return (int) bdVar.sP().channelId;
     }
 }

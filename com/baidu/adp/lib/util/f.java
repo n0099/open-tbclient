@@ -15,9 +15,9 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 /* loaded from: classes.dex */
 public class f {
-    private static String wA = "baidu";
-    public static final File wB = Environment.getExternalStorageDirectory();
-    private static final char wC = File.separatorChar;
+    private static String wz = "baidu";
+    public static final File wA = Environment.getExternalStorageDirectory();
+    private static final char wB = File.separatorChar;
 
     /* renamed from: do  reason: not valid java name */
     public static boolean m9do() {
@@ -40,21 +40,21 @@ public class f {
 
     public static String aD(String str) {
         if (str != null) {
-            return wB + "/" + wA + "/" + str + "/";
+            return wA + "/" + wz + "/" + str + "/";
         }
-        return wB + "/" + wA + "/";
+        return wA + "/" + wz + "/";
     }
 
     public static String r(String str, String str2) {
         if (str != null) {
-            return wB + "/" + wA + "/" + str + "/" + str2;
+            return wA + "/" + wz + "/" + str + "/" + str2;
         }
-        return wB + "/" + wA + "/" + str2;
+        return wA + "/" + wz + "/" + str2;
     }
 
     public static boolean gy() {
         try {
-            StatFs statFs = new StatFs(wB.getPath());
+            StatFs statFs = new StatFs(wA.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception e) {
             return false;
@@ -586,7 +586,7 @@ public class f {
     }
 
     static boolean gA() {
-        return wC == '\\';
+        return wB == '\\';
     }
 
     public static void n(File file) throws IOException {

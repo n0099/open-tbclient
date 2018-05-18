@@ -16,22 +16,22 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class FrsShareCardView extends LinearLayout {
-    private LinearLayout aMU;
-    private TextView blN;
+    private LinearLayout aMV;
+    private TextView bmc;
     private Context context;
-    private EditText dtM;
-    private HeadImageView dtN;
-    private TextView dtO;
-    private TextView dtP;
-    private ShareFromFrsMsgData dtQ;
+    private EditText duU;
+    private HeadImageView duV;
+    private TextView duW;
+    private TextView duX;
+    private ShareFromFrsMsgData duY;
 
     public EditText getChatMsgView() {
-        return this.dtM;
+        return this.duU;
     }
 
     public void D(String str, boolean z) {
-        if (this.dtN != null) {
-            this.dtN.startLoad(str, 15, false);
+        if (this.duV != null) {
+            this.duV.startLoad(str, 15, false);
         }
     }
 
@@ -48,34 +48,34 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.dtN.setPageId(bdUniqueId);
+        this.duV.setPageId(bdUniqueId);
     }
 
     private void bo(Context context) {
         LayoutInflater.from(context).inflate(d.i.frs_share_card_view, this);
         setOrientation(1);
-        this.aMU = (LinearLayout) findViewById(d.g.share_content);
-        this.blN = (TextView) findViewById(d.g.frs_card_name);
-        this.dtM = (EditText) findViewById(d.g.chat_msg);
-        this.dtN = (HeadImageView) findViewById(d.g.frs_card_img);
-        this.dtP = (TextView) findViewById(d.g.frs_card_member_num);
-        this.dtO = (TextView) findViewById(d.g.frs_card_post_num);
-        ak.c(this.blN, d.C0126d.cp_cont_b, 1);
-        ak.c(this.dtM, d.C0126d.cp_cont_b, 2);
-        this.dtM.setHintTextColor(ak.getColor(d.C0126d.cp_cont_e));
-        this.dtM.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        avQ();
+        this.aMV = (LinearLayout) findViewById(d.g.share_content);
+        this.bmc = (TextView) findViewById(d.g.frs_card_name);
+        this.duU = (EditText) findViewById(d.g.chat_msg);
+        this.duV = (HeadImageView) findViewById(d.g.frs_card_img);
+        this.duX = (TextView) findViewById(d.g.frs_card_member_num);
+        this.duW = (TextView) findViewById(d.g.frs_card_post_num);
+        ak.c(this.bmc, d.C0126d.cp_cont_b, 1);
+        ak.c(this.duU, d.C0126d.cp_cont_b, 2);
+        this.duU.setHintTextColor(ak.getColor(d.C0126d.cp_cont_e));
+        this.duU.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        avP();
     }
 
-    public void avQ() {
-        this.aMU.setFocusable(true);
-        this.aMU.setFocusableInTouchMode(true);
-        this.aMU.requestFocus();
+    public void avP() {
+        this.aMV.setFocusable(true);
+        this.aMV.setFocusableInTouchMode(true);
+        this.aMV.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.dtM != null) {
-            return k.a(this.dtM.getText(), null);
+        if (this.duU != null) {
+            return k.a(this.duU.getText(), null);
         }
         return null;
     }
@@ -88,16 +88,16 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.dtQ = shareFromFrsMsgData;
-        wL();
+        this.duY = shareFromFrsMsgData;
+        wK();
     }
 
-    private void wL() {
-        this.blN.setText(eo(this.dtQ.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.dtQ.getImageUrl());
-        this.dtN.startLoad(this.dtQ.getImageUrl(), 15, false);
-        this.dtP.setText(an.z(this.dtQ.getMemberNum()));
-        this.dtO.setText(an.z(this.dtQ.getPostNum()));
+    private void wK() {
+        this.bmc.setText(eo(this.duY.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.duY.getImageUrl());
+        this.duV.startLoad(this.duY.getImageUrl(), 15, false);
+        this.duX.setText(an.z(this.duY.getMemberNum()));
+        this.duW.setText(an.z(this.duY.getPostNum()));
     }
 
     private String eo(String str) {

@@ -11,12 +11,12 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private IUiListener gkA;
-    private final com.baidu.adp.lib.f.b<e.a> gkB;
+    private IUiListener glG;
+    private final com.baidu.adp.lib.f.b<e.a> glH;
 
     public c(Context context) {
         super(context);
-        this.gkB = new com.baidu.adp.lib.f.b<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.glH = new com.baidu.adp.lib.f.b<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
@@ -24,36 +24,36 @@ public class c extends b {
             public void onLoaded(e.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
                 if (aVar == null || aVar.akH == null || TextUtils.isEmpty(aVar.path)) {
-                    c.this.sA(2);
+                    c.this.sz(2);
                 }
-                c.this.st(aVar.path);
+                c.this.sw(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                c.this.sA(3);
+                c.this.sz(3);
             }
         };
-        this.gkt = 4;
+        this.glz = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gkz == null) {
-            sA(2);
+        if (shareEntity == null || this.glF == null) {
+            sz(2);
             if (bVar != null) {
                 bVar.bB(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            sA(2);
+            sz(2);
             if (bVar != null) {
                 bVar.bB(0, 2);
             }
         } else {
-            this.gkA = new b.a(bVar);
-            if (shareEntity.bns()) {
+            this.glG = new b.a(bVar);
+            if (shareEntity.bnq()) {
                 a(shareEntity);
             } else {
                 b(shareEntity);
@@ -62,21 +62,21 @@ public class c extends b {
     }
 
     private void a(ShareEntity shareEntity) {
-        if (i(shareEntity.bnq())) {
-            st(shareEntity.bnq().getPath());
+        if (i(shareEntity.bno())) {
+            sw(shareEntity.bno().getPath());
         } else {
-            com.baidu.adp.lib.f.c.fp().a(shareEntity.qG(), 34, this.gkB, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.f.c.fp().a(shareEntity.qF(), 34, this.glH, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void st(String str) {
+    public void sw(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.gkA != null) {
-            this.gkz.shareToQQ((Activity) this.context, bundle, this.gkA);
+        if (this.glG != null) {
+            this.glF.shareToQQ((Activity) this.context, bundle, this.glG);
         }
     }
 
@@ -87,12 +87,12 @@ public class c extends b {
         bundle.putString("summary", shareEntity.getContent());
         bundle.putString("targetUrl", shareEntity.getLinkUrl());
         ArrayList<String> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(shareEntity.qG())) {
-            arrayList.add(shareEntity.qG());
+        if (!TextUtils.isEmpty(shareEntity.qF())) {
+            arrayList.add(shareEntity.qF());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.gkA != null) {
-            this.gkz.shareToQzone((Activity) this.context, bundle, this.gkA);
+        if (this.glG != null) {
+            this.glF.shareToQzone((Activity) this.context, bundle, this.glG);
         }
     }
 }

@@ -41,7 +41,7 @@ public class b {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        b.this.xr();
+                        b.this.xq();
                         return false;
                     default:
                         return false;
@@ -57,7 +57,7 @@ public class b {
                     b.this.arf.onPageScrollStateChanged(i);
                 }
                 if (i == 1) {
-                    b.this.xt();
+                    b.this.xs();
                 } else if (i == 0 && (count = b.this.aqZ.getCount()) >= 2) {
                     int currentItem = b.this.mViewPager.getCurrentItem();
                     int i2 = count - 2;
@@ -66,7 +66,7 @@ public class b {
                     } else if (currentItem > i2) {
                         b.this.mViewPager.setCurrentItem(1, false);
                     }
-                    b.this.xs();
+                    b.this.xr();
                 }
             }
 
@@ -79,12 +79,12 @@ public class b {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                if (b.this.ara != null && b.this.ara.dE(i) == i) {
+                if (b.this.ara != null && b.this.ara.dF(i) == i) {
                     if (b.this.aqW != null) {
-                        b.this.aqW.setPosition(b.this.ara.dF(i));
+                        b.this.aqW.setPosition(b.this.ara.dG(i));
                     }
                     if (b.this.arf != null) {
-                        b.this.arf.onPageSelected(b.this.ara.dF(i));
+                        b.this.arf.onPageSelected(b.this.ara.dG(i));
                     }
                 }
             }
@@ -103,7 +103,7 @@ public class b {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        b.this.xr();
+                        b.this.xq();
                         return false;
                     default:
                         return false;
@@ -119,7 +119,7 @@ public class b {
                     b.this.arf.onPageScrollStateChanged(i2);
                 }
                 if (i2 == 1) {
-                    b.this.xt();
+                    b.this.xs();
                 } else if (i2 == 0 && (count = b.this.aqZ.getCount()) >= 2) {
                     int currentItem = b.this.mViewPager.getCurrentItem();
                     int i22 = count - 2;
@@ -128,7 +128,7 @@ public class b {
                     } else if (currentItem > i22) {
                         b.this.mViewPager.setCurrentItem(1, false);
                     }
-                    b.this.xs();
+                    b.this.xr();
                 }
             }
 
@@ -141,12 +141,12 @@ public class b {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                if (b.this.ara != null && b.this.ara.dE(i2) == i2) {
+                if (b.this.ara != null && b.this.ara.dF(i2) == i2) {
                     if (b.this.aqW != null) {
-                        b.this.aqW.setPosition(b.this.ara.dF(i2));
+                        b.this.aqW.setPosition(b.this.ara.dG(i2));
                     }
                     if (b.this.arf != null) {
-                        b.this.arf.onPageSelected(b.this.ara.dF(i2));
+                        b.this.arf.onPageSelected(b.this.ara.dG(i2));
                     }
                 }
             }
@@ -172,7 +172,7 @@ public class b {
     public void setMaxScrollCountLimit(int i) {
         this.ard = i;
         if (this.ara != null) {
-            this.ara.dG(i);
+            this.ara.dH(i);
         }
     }
 
@@ -194,13 +194,13 @@ public class b {
         if (v.v(list) != 0) {
             this.are = list;
             this.ara = new d(this.are, this.arb, this.ard);
-            this.ara.dH(2);
-            this.ara.dI(1);
-            this.aqZ.setDatas(this.ara.xy());
+            this.ara.dI(2);
+            this.ara.dJ(1);
+            this.aqZ.setDatas(this.ara.xx());
             this.aqZ.notifyDataSetChanged();
-            this.mViewPager.setCurrentItem(this.ara.xx(), false);
-            if (this.ara.xw() > 0) {
-                if (this.ara.xw() > this.ard) {
+            this.mViewPager.setCurrentItem(this.ara.xw(), false);
+            if (this.ara.xv() > 0) {
+                if (this.ara.xv() > this.ard) {
                     if (this.aqV != null) {
                         this.aqV.setVisibility(0);
                         this.aqV.setOnClickListener(null);
@@ -213,35 +213,35 @@ public class b {
                     if (this.aqW != null && this.aqW.getVisibility() == 0 && this.aqW.getCount() != this.ard) {
                         this.aqW.setCount(this.ard);
                     }
-                    xs();
+                    xr();
                 }
-                if (this.ara.xw() >= 2 && this.ara.xw() <= this.ard) {
+                if (this.ara.xv() >= 2 && this.ara.xv() <= this.ard) {
                     if (this.aqV != null) {
                         this.aqV.setVisibility(8);
                     }
                     if (this.aqW != null) {
                         this.aqW.setVisibility(0);
-                        if (this.aqW.getCount() != this.ara.xw()) {
-                            this.aqW.setCount(this.ara.xw());
+                        if (this.aqW.getCount() != this.ara.xv()) {
+                            this.aqW.setCount(this.ara.xv());
                         }
                     }
-                    xs();
+                    xr();
                 }
-                if (this.ara.xw() < 2) {
+                if (this.ara.xv() < 2) {
                     if (this.aqV != null) {
                         this.aqV.setVisibility(8);
                     }
                     if (this.aqW != null) {
                         this.aqW.setVisibility(8);
                     }
-                    xt();
+                    xs();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xr() {
+    public void xq() {
         int count;
         if (this.mViewPager != null && this.aqZ != null) {
             com.baidu.adp.base.h Z = i.Z(this.mContext);
@@ -266,7 +266,7 @@ public class b {
         this.arg = j;
     }
 
-    public void xs() {
+    public void xr() {
         if (this.arc) {
             this.mHandler.removeMessages(1);
             this.mHandler.sendEmptyMessageDelayed(1, this.arg);
@@ -275,7 +275,7 @@ public class b {
         this.mHandler.removeMessages(1);
     }
 
-    public void xt() {
+    public void xs() {
         this.mHandler.removeMessages(1);
     }
 }

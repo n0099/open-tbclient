@@ -18,10 +18,10 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabContentView extends LinearLayout implements ViewPager.OnPageChangeListener {
-    private int aFp;
-    private CommonViewPagerAdapter aFq;
-    private int aFr;
-    private b aFs;
+    private int aFq;
+    private CommonViewPagerAdapter aFr;
+    private int aFs;
+    private b aFt;
     private IndicatorView aqW;
     private final AdapterView.OnItemClickListener mOnItemClickListener;
     private ViewPager mViewPager;
@@ -33,16 +33,16 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
 
     public CommonTabContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aFp = 0;
-        this.aFr = 0;
+        this.aFq = 0;
+        this.aFs = 0;
         this.mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tbadk.editortools.view.CommonTabContentView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                if (CommonTabContentView.this.aFs != null && CommonTabContentView.this.aFq != null) {
-                    if (CommonTabContentView.this.aFq.O(adapterView) != 0) {
+                if (CommonTabContentView.this.aFt != null && CommonTabContentView.this.aFr != null) {
+                    if (CommonTabContentView.this.aFr.O(adapterView) != 0) {
                         i = -1;
                     }
-                    CommonTabContentView.this.aFs.d(view2, i, j);
+                    CommonTabContentView.this.aFt.d(view2, i, j);
                 }
             }
         };
@@ -51,16 +51,16 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
 
     public CommonTabContentView(Context context) {
         super(context);
-        this.aFp = 0;
-        this.aFr = 0;
+        this.aFq = 0;
+        this.aFs = 0;
         this.mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tbadk.editortools.view.CommonTabContentView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                if (CommonTabContentView.this.aFs != null && CommonTabContentView.this.aFq != null) {
-                    if (CommonTabContentView.this.aFq.O(adapterView) != 0) {
+                if (CommonTabContentView.this.aFt != null && CommonTabContentView.this.aFr != null) {
+                    if (CommonTabContentView.this.aFr.O(adapterView) != 0) {
                         i = -1;
                     }
-                    CommonTabContentView.this.aFs.d(view2, i, j);
+                    CommonTabContentView.this.aFt.d(view2, i, j);
                 }
             }
         };
@@ -81,7 +81,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         int i;
         if (aVar != null) {
             int count = aVar.getCount();
-            if (this.mViewPager.getChildCount() > 0 && this.aFp == count) {
+            if (this.mViewPager.getChildCount() > 0 && this.aFq == count) {
                 for (int i2 = 0; i2 < this.mViewPager.getChildCount(); i2++) {
                     View childAt = this.mViewPager.getChildAt(i2);
                     if (childAt instanceof GridView) {
@@ -91,13 +91,13 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                 return;
             }
             this.mViewPager.setAdapter(null);
-            this.aFp = count;
-            int EH = aVar.EH();
+            this.aFq = count;
+            int EF = aVar.EF();
             int row = aVar.getRow();
-            if (count != 0 && EH != 0 && row != 0) {
-                this.aFr = row * EH;
-                int i3 = count / this.aFr;
-                int i4 = count % this.aFr == 0 ? i3 : i3 + 1;
+            if (count != 0 && EF != 0 && row != 0) {
+                this.aFs = row * EF;
+                int i3 = count / this.aFs;
+                int i4 = count % this.aFs == 0 ? i3 : i3 + 1;
                 if (i4 > 1) {
                     this.aqW.setVisibility(0);
                     this.aqW.setCount(i4);
@@ -105,10 +105,10 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                 } else {
                     this.aqW.setVisibility(4);
                 }
-                this.aFs = aVar.EK();
+                this.aFt = aVar.EI();
                 ArrayList arrayList = new ArrayList();
                 for (int i5 = 0; i5 < i4; i5++) {
-                    if (aVar.EI() == 0) {
+                    if (aVar.EG() == 0) {
                         GridView gridView2 = new GridView(getContext());
                         gridView2.setVerticalSpacing(aVar.getVerticalSpacing());
                         gridView2.setGravity(17);
@@ -120,22 +120,22 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                         gridView2.setSelection(-1);
                         gridView = gridView2;
                     } else {
-                        gridView = (GridView) LayoutInflater.from(getContext()).inflate(aVar.EI(), (ViewGroup) null);
+                        gridView = (GridView) LayoutInflater.from(getContext()).inflate(aVar.EG(), (ViewGroup) null);
                     }
-                    if (this.aFs != null) {
+                    if (this.aFt != null) {
                         gridView.setOnItemClickListener(this.mOnItemClickListener);
                     }
-                    gridView.setNumColumns(EH);
+                    gridView.setNumColumns(EF);
                     if (i5 < i4 - 1) {
-                        i = this.aFr;
+                        i = this.aFs;
                     } else {
-                        i = count - (this.aFr * (i4 - 1));
+                        i = count - (this.aFs * (i4 - 1));
                     }
-                    gridView.setAdapter((ListAdapter) new a(getContext(), i, i5 * this.aFr, aVar.EG()));
+                    gridView.setAdapter((ListAdapter) new a(getContext(), i, i5 * this.aFs, aVar.EE()));
                     arrayList.add(gridView);
                 }
-                this.aFq = new CommonViewPagerAdapter(arrayList);
-                this.mViewPager.setAdapter(this.aFq);
+                this.aFr = new CommonViewPagerAdapter(arrayList);
+                this.mViewPager.setAdapter(this.aFr);
             }
         }
     }
@@ -181,14 +181,14 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
 
     /* loaded from: classes.dex */
     public class a extends BaseAdapter {
-        private final int aFu;
-        private a.InterfaceC0096a aFv;
+        private final int aFv;
+        private a.InterfaceC0096a aFw;
         private final int count;
 
         public a(Context context, int i, int i2, a.InterfaceC0096a interfaceC0096a) {
             this.count = i;
-            this.aFu = i2;
-            this.aFv = interfaceC0096a;
+            this.aFv = i2;
+            this.aFw = interfaceC0096a;
         }
 
         @Override // android.widget.Adapter
@@ -208,22 +208,22 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
 
         @Override // android.widget.Adapter
         public View getView(int i, View view2, ViewGroup viewGroup) {
-            return this.aFv.getView(this.aFu + i, view2, viewGroup);
+            return this.aFw.getView(this.aFv + i, view2, viewGroup);
         }
     }
 
     /* loaded from: classes.dex */
     public class CommonViewPagerAdapter extends PagerAdapter {
-        private ArrayList<View> aFw;
+        private ArrayList<View> aFx;
 
         public CommonViewPagerAdapter(ArrayList<View> arrayList) {
-            this.aFw = new ArrayList<>();
-            this.aFw = arrayList;
+            this.aFx = new ArrayList<>();
+            this.aFx = arrayList;
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return this.aFw.size();
+            return this.aFx.size();
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -233,27 +233,27 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
 
         @Override // android.support.v4.view.PagerAdapter
         public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-            viewGroup.removeView(this.aFw.get(i));
+            viewGroup.removeView(this.aFx.get(i));
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            View view2 = this.aFw.get(i);
+            View view2 = this.aFx.get(i);
             viewGroup.addView(view2);
             return view2;
         }
 
         public int O(View view2) {
-            if (this.aFw == null) {
+            if (this.aFx == null) {
                 return -1;
             }
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.aFw.size()) {
+                if (i2 >= this.aFx.size()) {
                     return -1;
                 }
-                if (this.aFw.get(i2) != view2) {
+                if (this.aFx.get(i2) != view2) {
                     i = i2 + 1;
                 } else {
                     return i2;

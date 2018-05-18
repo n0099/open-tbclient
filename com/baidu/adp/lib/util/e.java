@@ -4,9 +4,9 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class e {
     public static int af(Context context) {
-        if (!l.xg) {
+        if (!l.xf) {
             l.ag(context);
         }
-        return l.xi;
+        return l.xh;
     }
 }

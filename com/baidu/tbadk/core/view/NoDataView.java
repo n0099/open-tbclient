@@ -68,13 +68,13 @@ public class NoDataView extends LinearLayout {
             ((TbPageContext) eVar).getLayoutMode().u(this);
         }
         if (this.anf == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.amV.setImageBitmap(ak.cP(d.f.pic_emotion08));
+            this.amV.setImageBitmap(ak.cQ(d.f.pic_emotion08));
         } else if (this.anf == NoDataViewFactory.ImgType.NODATA) {
-            this.amV.setImageBitmap(ak.cP(d.f.no_data_image));
+            this.amV.setImageBitmap(ak.cQ(d.f.no_data_image));
         } else if (this.anf == NoDataViewFactory.ImgType.LOCAL) {
-            this.amV.setImageBitmap(ak.cP(this.ang));
+            this.amV.setImageBitmap(ak.cQ(this.ang));
         } else if (this.anf == NoDataViewFactory.ImgType.ANTI) {
-            this.amV.setImageBitmap(ak.cP(d.f.pic_emotion05));
+            this.amV.setImageBitmap(ak.cQ(d.f.pic_emotion05));
         } else if (i == 1) {
             this.amV.startLoad(this.and, 29, false);
         } else {
@@ -90,8 +90,8 @@ public class NoDataView extends LinearLayout {
             } else {
                 this.amY.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(dVar.Xv)) {
-                this.amX.setText(dVar.Xv);
+            if (!TextUtils.isEmpty(dVar.Xw)) {
+                this.amX.setText(dVar.Xw);
                 if (TextUtils.isEmpty(dVar.mTitle)) {
                     this.amX.setTextSize(0, getResources().getDimension(d.e.fontsize28));
                     if (dVar.anp >= 0) {
@@ -121,36 +121,36 @@ public class NoDataView extends LinearLayout {
             this.ang = cVar.ang;
             switch (cVar.anm) {
                 case CREATE:
-                    this.anc = com.baidu.tbadk.util.b.Hy().gX("pic_emotion03.png");
-                    this.and = com.baidu.tbadk.util.b.Hy().gX("pic_emotion03_1.png");
+                    this.anc = com.baidu.tbadk.util.b.Hw().gX("pic_emotion03.png");
+                    this.and = com.baidu.tbadk.util.b.Hw().gX("pic_emotion03_1.png");
                     break;
                 case NODATA:
-                    this.anc = com.baidu.tbadk.util.b.Hy().gX("pic_emotion05.png");
-                    this.and = com.baidu.tbadk.util.b.Hy().gX("pic_emotion05_1.png");
+                    this.anc = com.baidu.tbadk.util.b.Hw().gX("pic_emotion05.png");
+                    this.and = com.baidu.tbadk.util.b.Hw().gX("pic_emotion05_1.png");
                     break;
                 case FINDBAR:
-                    this.anc = com.baidu.tbadk.util.b.Hy().gX("pic_emotion01.png");
-                    this.and = com.baidu.tbadk.util.b.Hy().gX("pic_emotion01_1.png");
+                    this.anc = com.baidu.tbadk.util.b.Hw().gX("pic_emotion01.png");
+                    this.and = com.baidu.tbadk.util.b.Hw().gX("pic_emotion01_1.png");
                     break;
                 case EMOTION:
-                    this.anc = com.baidu.tbadk.util.b.Hy().gX("pic_emotion02.png");
-                    this.and = com.baidu.tbadk.util.b.Hy().gX("pic_emotion02_1.png");
+                    this.anc = com.baidu.tbadk.util.b.Hw().gX("pic_emotion02.png");
+                    this.and = com.baidu.tbadk.util.b.Hw().gX("pic_emotion02_1.png");
                     break;
                 case GIFT:
-                    this.anc = com.baidu.tbadk.util.b.Hy().gX("pic_emotion07.png");
-                    this.and = com.baidu.tbadk.util.b.Hy().gX("pic_emotion07_1.png");
+                    this.anc = com.baidu.tbadk.util.b.Hw().gX("pic_emotion07.png");
+                    this.and = com.baidu.tbadk.util.b.Hw().gX("pic_emotion07_1.png");
                     break;
                 case SINGALL:
-                    this.anc = com.baidu.tbadk.util.b.Hy().gX("pic_emotion06.png");
-                    this.and = com.baidu.tbadk.util.b.Hy().gX("pic_emotion06_1.png");
+                    this.anc = com.baidu.tbadk.util.b.Hw().gX("pic_emotion06.png");
+                    this.and = com.baidu.tbadk.util.b.Hw().gX("pic_emotion06_1.png");
                     break;
                 case WEBVIEW:
-                    this.anc = com.baidu.tbadk.util.b.Hy().gX("pic_emotion08.png");
-                    this.and = com.baidu.tbadk.util.b.Hy().gX("pic_emotion08_1.png");
+                    this.anc = com.baidu.tbadk.util.b.Hw().gX("pic_emotion08.png");
+                    this.and = com.baidu.tbadk.util.b.Hw().gX("pic_emotion08_1.png");
                     break;
                 case ANTI:
-                    this.anc = com.baidu.tbadk.util.b.Hy().gX("pic_emotion05.png");
-                    this.and = com.baidu.tbadk.util.b.Hy().gX("pic_emotion05_1.png");
+                    this.anc = com.baidu.tbadk.util.b.Hw().gX("pic_emotion05.png");
+                    this.and = com.baidu.tbadk.util.b.Hw().gX("pic_emotion05_1.png");
                     break;
             }
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.amV.getLayoutParams();

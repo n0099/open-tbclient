@@ -41,7 +41,13 @@ public class BlurDrawable {
                 Bitmap copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
                 Matrix matrix = new Matrix();
                 matrix.postScale(1.0f / i2, 1.0f / i2);
+                if (this.mBitmapToBlur != null) {
+                    this.mBitmapToBlur.recycle();
+                }
                 this.mBitmapToBlur = Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), matrix, true);
+                if (copy != this.mBitmapToBlur) {
+                    copy.recycle();
+                }
             } catch (Exception e) {
             }
         }

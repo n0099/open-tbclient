@@ -7,20 +7,20 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    private Cursor qA;
-    private final Set<String> qB;
+    private final Set<String> qA;
+    private Cursor qz;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.qA = cursor;
+        this.qz = cursor;
         this.values = null;
-        this.qB = new TreeSet();
+        this.qA = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.qB.add(columnName);
+                    this.qA.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.qB = new TreeSet();
+        this.qA = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> dN() {
-        return this.qB;
+        return this.qA;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.qA.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.qA.getColumnCount()) {
+        int columnIndex = this.qz.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.qz.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.qA.getShort(columnIndex));
+                valueOf = Short.valueOf(this.qz.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.qA.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.qz.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.qA.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.qz.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.qA.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.qz.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.qA.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.qz.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.qA.getString(columnIndex);
+                    string = this.qz.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.qA.getBlob(columnIndex);
+                        return this.qz.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;

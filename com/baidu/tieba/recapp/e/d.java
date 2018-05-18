@@ -8,28 +8,28 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class d {
     private final Context context;
-    private final ViewGroup gcK;
+    private final ViewGroup gdQ;
     public int page = 0;
 
     public d(Context context, ViewGroup viewGroup) {
         this.context = context;
-        this.gcK = viewGroup;
+        this.gdQ = viewGroup;
     }
 
     public e a(AdCard.f fVar, e eVar) {
         if (fVar != null && fVar.style != null) {
-            if (eVar == null || !bS(fVar.style, eVar.gcL)) {
-                if (this.gcK == null) {
+            if (eVar == null || !bS(fVar.style, eVar.gdR)) {
+                if (this.gdQ == null) {
                     return null;
                 }
-                this.gcK.removeAllViews();
+                this.gdQ.removeAllViews();
                 if ("jump".equals(fVar.style)) {
                     if (this.page == 1) {
-                        return new c(LayoutInflater.from(this.context).inflate(d.i.videolist_tail_frame_ad_jump, this.gcK, true), "jump");
+                        return new c(LayoutInflater.from(this.context).inflate(d.i.videolist_tail_frame_ad_jump, this.gdQ, true), "jump");
                     }
-                    return new b(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_jump, this.gcK, true), "jump");
+                    return new b(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_jump, this.gdQ, true), "jump");
                 } else if ("apk_download".equals(fVar.style)) {
-                    return new a(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_download, this.gcK, true), "apk_download");
+                    return new a(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_download, this.gdQ, true), "apk_download");
                 } else {
                     return null;
                 }

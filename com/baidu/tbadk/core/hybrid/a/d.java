@@ -21,11 +21,11 @@ public class d extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String pg() {
+    public String pf() {
         return "TBHY_COMMON_SHOW_SHARE_DIALOG";
     }
 
-    @o(ul = false, value = "showShareDialog")
+    @o(uk = false, value = "showShareDialog")
     protected void showShareDialog(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             String optString = jSONObject.optString("title");
@@ -36,9 +36,9 @@ public class d extends n {
             dVar.title = optString;
             dVar.content = optString2;
             if (optString3 == null) {
-                dVar.awV = null;
+                dVar.awW = null;
             } else {
-                dVar.awV = Uri.parse(optString3);
+                dVar.awW = Uri.parse(optString3);
             }
             dVar.linkUrl = optString4;
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.aeY.getContext(), dVar, true);

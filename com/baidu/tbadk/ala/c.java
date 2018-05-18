@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener Si = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener Se = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof a)) {
@@ -28,7 +28,7 @@ public class c {
                     return;
                 }
                 a aVar = (a) view2.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.Se;
+                AlaUserInfoData alaUserInfoData = aVar.Sa;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -59,8 +59,8 @@ public class c {
                                 TiebaStatic.log(new al("c11855").ac("uid", currentAccount).f("click_uid", alaUserInfoData.ala_id).r("live_status", alaUserInfoData.live_status));
                             }
                             TiebaStatic.log(new al("c12542"));
-                            if (aVar.Sf && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.b(view2.getContext(), String.format(view2.getContext().getString(d.k.person_privacy_toast), alaUserInfoData.sex), d.f.icon_toast_game_error).tL();
+                            if (aVar.Sb && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.b(view2.getContext(), String.format(view2.getContext().getString(d.k.person_privacy_toast), alaUserInfoData.sex), d.f.icon_toast_game_error).tK();
                                 return;
                             }
                             break;
@@ -82,7 +82,7 @@ public class c {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(d.i.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(Si);
+        textView.setOnClickListener(Se);
         return textView;
     }
 }

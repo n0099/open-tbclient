@@ -5,19 +5,19 @@ import com.baidu.tieba.animation3d.a.b;
 /* loaded from: classes.dex */
 public class b extends a {
     public int aqQ;
-    private boolean ckE;
-    private float ckF;
+    private boolean clN;
+    private float clO;
 
     public b(Context context) {
         super(context);
         this.aqQ = 3;
-        this.ckE = false;
-        this.ckF = -8.0f;
-        U(this.ckF);
+        this.clN = false;
+        this.clO = -8.0f;
+        U(this.clO);
     }
 
     public void aeG() {
-        wr();
+        wq();
         a(new b.a() { // from class: com.baidu.tieba.animation3d.b.b.1
             @Override // com.baidu.tieba.animation3d.a.b.a, com.baidu.tieba.animation3d.a.a
             public void e(float f, float f2, float f3, int i) {
@@ -32,11 +32,11 @@ public class b extends a {
     }
 
     public void aeH() {
-        wr();
+        wq();
         a(new b.c() { // from class: com.baidu.tieba.animation3d.b.b.2
             @Override // com.baidu.tieba.animation3d.a.b.c, com.baidu.tieba.animation3d.a.a
             public boolean c(float f, float f2, float f3, int i) {
-                return b.this.ckE && f % 360.0f == 0.0f;
+                return b.this.clN && f % 360.0f == 0.0f;
             }
 
             @Override // com.baidu.tieba.animation3d.a.b.c, com.baidu.tieba.animation3d.a.a
@@ -61,12 +61,12 @@ public class b extends a {
     }
 
     public void aeI() {
-        this.ckE = true;
+        this.clN = true;
     }
 
     @Override // com.baidu.tieba.animation3d.b.a
-    public void wr() {
-        super.wr();
-        this.ckE = false;
+    public void wq() {
+        super.wq();
+        this.clN = false;
     }
 }

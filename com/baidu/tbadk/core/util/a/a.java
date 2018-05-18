@@ -5,15 +5,15 @@ public class a {
     private c ajA = new c();
     private d ajB = new d();
 
-    public b wi() {
+    public b wh() {
         return this.ajz;
     }
 
-    public c wj() {
+    public c wi() {
         return this.ajA;
     }
 
-    public d wk() {
+    public d wj() {
         return this.ajB;
     }
 }

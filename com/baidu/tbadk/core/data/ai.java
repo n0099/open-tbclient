@@ -32,7 +32,7 @@ public class ai {
         this.type = str;
     }
 
-    public SparseArray<String> qU() {
+    public SparseArray<String> qT() {
         return this.YI;
     }
 

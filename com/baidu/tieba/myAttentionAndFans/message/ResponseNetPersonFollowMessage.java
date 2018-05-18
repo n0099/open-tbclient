@@ -59,7 +59,7 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
             boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
             String str = new String(bArr);
-            l<String> cZ = a.tz().cZ("tb.my_pages");
+            l<String> cZ = a.ty().cZ("tb.my_pages");
             if (cZ != null) {
                 cZ.a((z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, 604800000L);
             }

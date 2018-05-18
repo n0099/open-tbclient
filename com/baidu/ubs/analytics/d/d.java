@@ -10,7 +10,7 @@ public abstract class d implements Runnable {
         } catch (Exception e) {
             j.b(e);
             if (e.getMessage() != null) {
-                b.vk(e.getMessage());
+                b.vn(e.getMessage());
             }
         }
     }

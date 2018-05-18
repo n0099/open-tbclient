@@ -8,7 +8,7 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class j extends ImageSpan {
-    private WeakReference<Drawable> Dw;
+    private WeakReference<Drawable> mDrawableRef;
     private int offset;
 
     public j(Drawable drawable) {
@@ -21,22 +21,22 @@ public class j extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable jR = jR();
+        Drawable cachedDrawable = getCachedDrawable();
         canvas.save();
-        canvas.translate(f, (((i5 - i3) - jR.getBounds().bottom) / 2) + i3);
-        jR.draw(canvas);
+        canvas.translate(f, (((i5 - i3) - cachedDrawable.getBounds().bottom) / 2) + i3);
+        cachedDrawable.draw(canvas);
         canvas.restore();
     }
 
-    private Drawable jR() {
-        WeakReference<Drawable> weakReference = this.Dw;
+    private Drawable getCachedDrawable() {
+        WeakReference<Drawable> weakReference = this.mDrawableRef;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.Dw = new WeakReference<>(drawable2);
+            this.mDrawableRef = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

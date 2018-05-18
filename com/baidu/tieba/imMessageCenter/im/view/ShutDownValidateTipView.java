@@ -17,10 +17,10 @@ import java.util.ArrayList;
 public class ShutDownValidateTipView extends FrameLayout {
     private ArrayList<a> anv;
     private boolean aoK;
-    private TextView emm;
-    private ImageView emn;
-    private TextView emo;
-    private TextView emp;
+    private TextView enu;
+    private ImageView env;
+    private TextView enw;
+    private TextView enx;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -47,15 +47,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(d.i.shut_down_validate_tip, (ViewGroup) null));
-        this.emn = (ImageView) findViewById(d.g.no_network_icon);
-        this.emo = (TextView) findViewById(d.g.no_network_guide1);
-        this.emp = (TextView) findViewById(d.g.no_network_guide2);
-        this.emm = (TextView) findViewById(d.g.no_network_showmore);
+        this.env = (ImageView) findViewById(d.g.no_network_icon);
+        this.enw = (TextView) findViewById(d.g.no_network_guide1);
+        this.enx = (TextView) findViewById(d.g.no_network_guide2);
+        this.enu = (TextView) findViewById(d.g.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.emm != null) {
-            this.emm.setOnClickListener(onClickListener);
+        if (this.enu != null) {
+            this.enu.setOnClickListener(onClickListener);
         }
     }
 
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        ak.c(this.emn, d.f.icon_error);
+        ak.c(this.env, d.f.icon_error);
         ak.i(findViewById(d.g.no_network_parent), d.f.bg_no_network);
         if (i == 1) {
-            this.emo.setTextColor(-10523526);
-            this.emp.setTextColor(-8682095);
-            this.emm.setTextColor(-10523526);
+            this.enw.setTextColor(-10523526);
+            this.enx.setTextColor(-8682095);
+            this.enu.setTextColor(-10523526);
             return;
         }
-        this.emo.setTextColor(-14277082);
-        this.emp.setTextColor(-5065030);
-        this.emm.setTextColor(-14277082);
+        this.enw.setTextColor(-14277082);
+        this.enx.setTextColor(-5065030);
+        this.enu.setTextColor(-14277082);
     }
 }

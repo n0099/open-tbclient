@@ -23,16 +23,16 @@ public class RecAppDownloadReceiver extends BroadcastReceiver {
                 }
                 if (status == 7) {
                     downloadData.setStatus(5);
-                    h.bjx().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                    h.bjx().m(downloadData);
+                    h.bjw().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                    h.bjw().m(downloadData);
                 } else if (status == 1 || status == 5) {
                     downloadData.setStatus(4);
-                    h.bjx().j(downloadData.getUrl(), downloadData.getId(), true);
-                    h.bjx().o(downloadData);
+                    h.bjw().j(downloadData.getUrl(), downloadData.getId(), true);
+                    h.bjw().o(downloadData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
             } else if ("action_cancel_download".equals(intent.getAction())) {
-                h.bjx().p(downloadData);
+                h.bjw().p(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016483, downloadData));
             }
         }

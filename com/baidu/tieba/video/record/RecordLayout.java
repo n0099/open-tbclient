@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class RecordLayout extends RelativeLayout {
-    private a gRD;
+    private a gSH;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void byB();
+        void byA();
 
-        void byC();
+        void byz();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.gRD != null) {
+                if (this.gSH != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.gRD.byC();
+                            this.gSH.byA();
                         } else {
-                            this.gRD.byB();
+                            this.gSH.byz();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.af(getContext())) {
                         if (rawX > 0) {
-                            this.gRD.byC();
+                            this.gSH.byA();
                         } else {
-                            this.gRD.byC();
+                            this.gSH.byA();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.gRD = aVar;
+        this.gSH = aVar;
     }
 }

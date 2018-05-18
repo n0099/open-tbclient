@@ -35,8 +35,8 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
     public void onClick(View view2) {
         c<T, V> cVar;
         a L = L(view2);
-        if (L != null && L.xq() != null && L.xq().getType() != null && (cVar = this.aqO.get(L.xq().getType())) != null && cVar.xu() != null) {
-            cVar.xu().c(L, L.xq());
+        if (L != null && L.xp() != null && L.xp().getType() != null && (cVar = this.aqO.get(L.xp().getType())) != null && cVar.xt() != null) {
+            cVar.xt().c(L, L.xp());
         }
     }
 
@@ -119,21 +119,21 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
         if (i >= this.mListData.size()) {
             return null;
         }
-        View dD = dD(i);
-        if (dD != null && dD.getParent() != viewGroup) {
-            viewGroup.addView(dD);
-            return dD;
+        View dE = dE(i);
+        if (dE != null && dE.getParent() != viewGroup) {
+            viewGroup.addView(dE);
+            return dE;
         }
-        return dD;
+        return dE;
     }
 
-    public View dD(int i) {
+    public View dE(int i) {
         if (i >= this.aqP.size() || i >= this.mListData.size()) {
             return null;
         }
         View view2 = this.aqP.get(i);
         a L = L(view2);
-        if (L != null && L.xq() == null) {
+        if (L != null && L.xp() == null) {
             a((a) view2.getTag(), this.mListData.get(i));
             return view2;
         }
@@ -165,8 +165,8 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
         if (this.aqP != null) {
             for (View view2 : this.aqP) {
                 a L = L(view2);
-                if (L != null && L.xq() != null && (cVar = this.aqO.get(L.xq().getType())) != null) {
-                    cVar.b(L, L.xq());
+                if (L != null && L.xp() != null && (cVar = this.aqO.get(L.xp().getType())) != null) {
+                    cVar.b(L, L.xp());
                 }
             }
             this.aqP.clear();
@@ -198,7 +198,7 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
             return this.f6view;
         }
 
-        public h xq() {
+        public h xp() {
             return this.aqR;
         }
 

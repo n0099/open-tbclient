@@ -23,17 +23,17 @@ public class w extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wv() {
+    public boolean wu() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ww() {
+    public boolean wv() {
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int wx() {
+    public int ww() {
         return this.procType;
     }
 }

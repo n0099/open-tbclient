@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> Dc = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Db = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        Dc.put(Boolean.class, Boolean.TYPE);
-        Dc.put(Byte.class, Byte.TYPE);
-        Dc.put(Character.class, Character.TYPE);
-        Dc.put(Short.class, Short.TYPE);
-        Dc.put(Integer.class, Integer.TYPE);
-        Dc.put(Float.class, Float.TYPE);
-        Dc.put(Long.class, Long.TYPE);
-        Dc.put(Double.class, Double.TYPE);
-        Dc.put(Boolean.TYPE, Boolean.TYPE);
-        Dc.put(Byte.TYPE, Byte.TYPE);
-        Dc.put(Character.TYPE, Character.TYPE);
-        Dc.put(Short.TYPE, Short.TYPE);
-        Dc.put(Integer.TYPE, Integer.TYPE);
-        Dc.put(Float.TYPE, Float.TYPE);
-        Dc.put(Long.TYPE, Long.TYPE);
-        Dc.put(Double.TYPE, Double.TYPE);
+        Db.put(Boolean.class, Boolean.TYPE);
+        Db.put(Byte.class, Byte.TYPE);
+        Db.put(Character.class, Character.TYPE);
+        Db.put(Short.class, Short.TYPE);
+        Db.put(Integer.class, Integer.TYPE);
+        Db.put(Float.class, Float.TYPE);
+        Db.put(Long.class, Long.TYPE);
+        Db.put(Double.class, Double.TYPE);
+        Db.put(Boolean.TYPE, Boolean.TYPE);
+        Db.put(Byte.TYPE, Byte.TYPE);
+        Db.put(Character.TYPE, Character.TYPE);
+        Db.put(Short.TYPE, Short.TYPE);
+        Db.put(Integer.TYPE, Integer.TYPE);
+        Db.put(Float.TYPE, Float.TYPE);
+        Db.put(Long.TYPE, Long.TYPE);
+        Db.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (Dc.containsKey(clsArr[i]) && Dc.get(clsArr[i]).equals(Dc.get(clsArr2[i]))) {
+                if (Db.containsKey(clsArr[i]) && Db.get(clsArr[i]).equals(Db.get(clsArr2[i]))) {
                     return true;
                 }
             }

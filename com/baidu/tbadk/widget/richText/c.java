@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String aWe;
-    private int aWf;
+    private String aWf;
+    private int aWg;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -43,8 +43,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void fV(int i) {
-        this.aWf = i;
+    public void fW(int i) {
+        this.aWg = i;
     }
 
     public void setColor(int i) {
@@ -55,12 +55,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void fW(int i) {
+    public void fX(int i) {
         this.urlType = i;
     }
 
-    public void ht(String str) {
-        this.aWe = str;
+    public void hu(String str) {
+        this.aWf = str;
     }
 
     public String getLink() {
@@ -79,13 +79,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aWf == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.aWg == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = ak.getColor(d.C0126d.cp_bg_line_c);
             } else {
                 textPaint.bgColor = ak.getColor(d.C0126d.cp_bg_line_z);
             }
-        } else if (this.aWf == 2) {
+        } else if (this.aWg == 2) {
             textPaint.bgColor = ak.getColor(d.C0126d.transparent);
         }
     }
@@ -94,7 +94,7 @@ public class c extends ClickableSpan {
     public void onClick(View view2) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.aWe));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.aWf));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

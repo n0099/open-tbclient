@@ -6,41 +6,41 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class PersonPrivateData extends OrmObject {
-    private int aBC = 1;
     private int aBD = 1;
     private int aBE = 1;
     private int aBF = 1;
     private int aBG = 1;
     private int aBH = 1;
+    private int aBI = 1;
 
-    public int Dg() {
-        return this.aBD;
+    public int De() {
+        return this.aBE;
     }
 
-    public int Dh() {
-        return this.aBH;
+    public int Df() {
+        return this.aBI;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aBC = jSONObject.optInt(Headers.LOCATION, 1);
-            this.aBD = jSONObject.optInt("like", 1);
-            this.aBE = jSONObject.optInt("group", 1);
-            this.aBF = jSONObject.optInt("post", 1);
-            this.aBG = jSONObject.optInt("friend", 1);
-            this.aBH = jSONObject.optInt("live", 1);
+            this.aBD = jSONObject.optInt(Headers.LOCATION, 1);
+            this.aBE = jSONObject.optInt("like", 1);
+            this.aBF = jSONObject.optInt("group", 1);
+            this.aBG = jSONObject.optInt("post", 1);
+            this.aBH = jSONObject.optInt("friend", 1);
+            this.aBI = jSONObject.optInt("live", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.aBC = privSets.location.intValue();
-                this.aBD = privSets.like.intValue();
-                this.aBE = privSets.group.intValue();
-                this.aBF = privSets.post.intValue();
-                this.aBG = privSets.friend.intValue();
-                this.aBH = privSets.live.intValue();
+                this.aBD = privSets.location.intValue();
+                this.aBE = privSets.like.intValue();
+                this.aBF = privSets.group.intValue();
+                this.aBG = privSets.post.intValue();
+                this.aBH = privSets.friend.intValue();
+                this.aBI = privSets.live.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

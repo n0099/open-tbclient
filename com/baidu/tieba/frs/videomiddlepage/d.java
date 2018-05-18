@@ -16,42 +16,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggregation.g, com.baidu.tieba.card.a.a<a>> {
-    private List<a> Ji;
-    private com.baidu.tieba.lego.card.view.f Jj;
-    private String XM;
-    private boolean dbk;
-    private com.baidu.tieba.frs.aggregation.a dbl;
-    private boolean dbm;
-    private ab<com.baidu.tieba.frs.aggregation.g> dbn;
-    private a drC;
-    private boolean drD;
-    private boolean drE;
-    private b drh;
-    private com.baidu.tieba.frs.videomiddlepage.a.a dri;
+    private List<a> Je;
+    private com.baidu.tieba.lego.card.view.f Jf;
+    private String XN;
+    private boolean dcr;
+    private com.baidu.tieba.frs.aggregation.a dcs;
+    private boolean dct;
+    private ab<com.baidu.tieba.frs.aggregation.g> dcv;
+    private a dsK;
+    private boolean dsL;
+    private boolean dsM;
+    private b dsp;
+    private com.baidu.tieba.frs.videomiddlepage.a.a dsq;
     private String mFrom;
     private Handler mHandler;
     private TbPageContext mPageContext;
 
     public d(TbPageContext<?> tbPageContext, com.baidu.tieba.frs.aggregation.a aVar, b bVar, boolean z, String str, String str2, com.baidu.tieba.lego.card.view.f fVar) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.frs.aggregation.g.dbs);
-        this.Ji = new ArrayList();
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.frs.aggregation.g.dcA);
+        this.Je = new ArrayList();
         this.mHandler = new Handler();
-        this.drD = true;
-        this.dbn = new ab<com.baidu.tieba.frs.aggregation.g>() { // from class: com.baidu.tieba.frs.videomiddlepage.d.1
+        this.dsL = true;
+        this.dcv = new ab<com.baidu.tieba.frs.aggregation.g>() { // from class: com.baidu.tieba.frs.videomiddlepage.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, com.baidu.tieba.frs.aggregation.g gVar) {
                 if (view2 != null && gVar != null) {
                     if ((view2.getId() == d.g.video_container || view2.getId() == d.g.video_agg_container || view2.getId() == d.g.mobile_network_play) && view2.getTag() != null && (view2.getTag() instanceof a)) {
                         a aVar2 = (a) view2.getTag();
-                        if (d.this.drC != null && d.this.drC != aVar2 && (view2.getId() == d.g.video_container || view2.getId() == d.g.mobile_network_play)) {
-                            d.this.drC.aqS();
+                        if (d.this.dsK != null && d.this.dsK != aVar2 && (view2.getId() == d.g.video_container || view2.getId() == d.g.mobile_network_play)) {
+                            d.this.dsK.aqR();
                         }
-                        if (d.this.drC != aVar2) {
-                            d.this.drC = aVar2;
+                        if (d.this.dsK != aVar2) {
+                            d.this.dsK = aVar2;
                         }
-                        if (d.this.drC != null) {
-                            d.this.drC.fY(d.this.drD);
+                        if (d.this.dsK != null) {
+                            d.this.dsK.fZ(d.this.dsL);
                         }
                     }
                     if (view2.getId() == d.g.title) {
@@ -101,29 +101,29 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
             }
         };
         this.mPageContext = tbPageContext;
-        this.dbl = aVar;
-        this.dbm = z;
-        this.drh = bVar;
+        this.dcs = aVar;
+        this.dct = z;
+        this.dsp = bVar;
         this.mFrom = str;
-        this.dri = new com.baidu.tieba.frs.videomiddlepage.a.a();
-        this.XM = str2;
-        this.Jj = fVar;
+        this.dsq = new com.baidu.tieba.frs.videomiddlepage.a.a();
+        this.XN = str2;
+        this.Jf = fVar;
     }
 
-    public void ga(boolean z) {
-        this.drE = z;
+    public void gb(boolean z) {
+        this.dsM = z;
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.drC != null) {
-            this.dbk = true;
-            this.drC.onConfigurationChanged(configuration);
+        if (this.dsK != null) {
+            this.dcr = true;
+            this.dsK.onConfigurationChanged(configuration);
             if (configuration.orientation == 1) {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.videomiddlepage.d.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (d.this.dbk) {
-                            d.this.dbk = false;
+                        if (d.this.dcr) {
+                            d.this.dcr = false;
                         }
                     }
                 }, 500L);
@@ -136,12 +136,12 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<a> onCreateViewHolder(ViewGroup viewGroup) {
-        a aVar = new a(this.mPageContext, this.dbm, this.mFrom, this.XM);
-        if (this.dri.gb(false)) {
-            aVar.dri = this.dri;
+        a aVar = new a(this.mPageContext, this.dct, this.mFrom, this.XN);
+        if (this.dsq.gc(false)) {
+            aVar.dsq = this.dsq;
         }
-        aVar.b(this.dbn);
-        this.Ji.add(aVar);
+        aVar.b(this.dcv);
+        this.Je.add(aVar);
         return new com.baidu.tieba.card.a.a<>(aVar);
     }
 
@@ -153,66 +153,66 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
         if (gVar == null || aVar == null) {
             return null;
         }
-        if (!this.drE) {
-            if (!this.dbk) {
-                aVar.afY().a(gVar, i, this.dbl);
+        if (!this.dsM) {
+            if (!this.dcr) {
+                aVar.afY().a(gVar, i, this.dcs);
                 i trigger = gVar.getTrigger();
                 if (trigger != null) {
-                    trigger.ly();
+                    trigger.lx();
                 }
                 aVar.afY().mPosition = i;
-                aVar.afY().setOnVideoContainerForegroundClickListener(this.drh);
+                aVar.afY().setOnVideoContainerForegroundClickListener(this.dsp);
             } else {
-                aVar.afY().c(gVar, i, this.dbl);
+                aVar.afY().c(gVar, i, this.dcs);
             }
         }
         if (aVar.afY() instanceof com.baidu.tieba.lego.card.view.g) {
-            aVar.afY().setCurrentPlayCallBack(this.Jj);
+            aVar.afY().setCurrentPlayCallBack(this.Jf);
         }
         return aVar.getView();
     }
 
-    public boolean lC() {
-        if (this.drC != null) {
-            return this.drC.isPlaying();
+    public boolean lB() {
+        if (this.dsK != null) {
+            return this.dsK.isPlaying();
         }
         return false;
     }
 
-    public void fY(boolean z) {
-        this.drD = z;
-        if (this.drC != null) {
-            this.drC.fY(z);
+    public void fZ(boolean z) {
+        this.dsL = z;
+        if (this.dsK != null) {
+            this.dsK.fZ(z);
+        }
+    }
+
+    public void lz() {
+        if (this.dsK != null) {
+            this.dsK.aqQ();
         }
     }
 
     public void lA() {
-        if (this.drC != null) {
-            this.drC.aqR();
-        }
-    }
-
-    public void lB() {
-        if (this.drC != null) {
-            this.drC.aqS();
+        if (this.dsK != null) {
+            this.dsK.aqR();
         }
     }
 
     public void onDestroy() {
-        if (this.dri != null) {
-            this.dri.avI();
+        if (this.dsq != null) {
+            this.dsq.avH();
         }
-        for (a aVar : this.Ji) {
+        for (a aVar : this.Je) {
             if (aVar != null) {
                 aVar.onDestroy();
             }
         }
     }
 
-    public boolean kq(int i) {
-        if (this.drC == null) {
+    public boolean kp(int i) {
+        if (this.dsK == null) {
             return false;
         }
-        return this.drC.kq(i);
+        return this.dsK.kp(i);
     }
 }

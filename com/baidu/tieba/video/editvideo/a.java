@@ -7,19 +7,19 @@ import java.util.List;
 public interface a {
     void bcS();
 
-    void bwp();
+    void bwn();
+
+    void bwq();
 
     void bws();
 
-    void bwu();
-
-    void dz(List<PendantData> list);
+    void dC(List<PendantData> list);
 
     void finishPage();
 
-    void qV(String str);
+    void qY(String str);
 
-    void tM(String str);
+    void tP(String str);
 
     void z(Bitmap bitmap);
 }

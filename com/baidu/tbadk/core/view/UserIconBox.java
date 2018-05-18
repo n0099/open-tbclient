@@ -26,9 +26,9 @@ public class UserIconBox extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface b<T extends View> {
-        T xj();
+        T xi();
 
-        com.baidu.adp.lib.e.b<TbImageView> xk();
+        com.baidu.adp.lib.e.b<TbImageView> xj();
     }
 
     public void setAutoChangedStyle(boolean z) {
@@ -57,8 +57,8 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof b) {
             b bVar = (b) this.mContext;
-            this.aqg = bVar.xk();
-            if (bVar.xj() == null || this.aqh == null) {
+            this.aqg = bVar.xj();
+            if (bVar.xi() == null || this.aqh == null) {
             }
         }
         setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.core.view.UserIconBox.1
@@ -95,7 +95,7 @@ public class UserIconBox extends LinearLayout {
         this.aqj = i4;
         this.aqk = z;
         this.mIconWidth = i2;
-        if (!dy(min)) {
+        if (!dz(min)) {
             setVisibility(8);
         } else if (min > 0) {
             setVisibility(0);
@@ -129,7 +129,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    private boolean dy(int i) {
+    private boolean dz(int i) {
         if (i <= 0) {
             return false;
         }
@@ -177,7 +177,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void dz(int i) {
+    public void dA(int i) {
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
@@ -202,7 +202,7 @@ public class UserIconBox extends LinearLayout {
         return new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tbadk.core.view.UserIconBox.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: xi */
+            /* renamed from: xh */
             public TbImageView fo() {
                 return new TbImageView(context);
             }

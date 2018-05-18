@@ -16,10 +16,10 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class NEGFeedBackView extends ImageView {
     private int aFA;
-    private int aFz;
-    private long aYE;
-    c aYF;
-    private View.OnClickListener aYG;
+    private int aFB;
+    private long aYF;
+    c aYG;
+    private View.OnClickListener aYH;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -34,16 +34,16 @@ public class NEGFeedBackView extends ImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.aYE = 0L;
-        this.aYG = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.aYF = 0L;
+        this.aYH = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                NEGFeedBackView.this.Lx();
+                NEGFeedBackView.this.Lv();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.aYE > 500) {
-                    NEGFeedBackView.this.Lw();
+                if (currentTimeMillis - NEGFeedBackView.this.aYF > 500) {
+                    NEGFeedBackView.this.Lu();
                 }
-                NEGFeedBackView.this.aYE = currentTimeMillis;
+                NEGFeedBackView.this.aYF = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -51,14 +51,14 @@ public class NEGFeedBackView extends ImageView {
     }
 
     private void f(TbPageContext tbPageContext) {
-        this.aYF = new c(tbPageContext, this);
-        setOnClickListener(this.aYG);
+        this.aYG = new c(tbPageContext, this);
+        setOnClickListener(this.aYH);
         ak.c(this, d.f.icon_home_feedback_selector);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.aYF.setUniqueId(bdUniqueId);
+        this.aYG.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -66,31 +66,31 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.aFz = i;
-        setPadding(i, 0, this.aFA, 0);
+        this.aFA = i;
+        setPadding(i, 0, this.aFB, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lw() {
-        this.aYF.Lw();
+    public void Lu() {
+        this.aYG.Lu();
     }
 
-    public void Lx() {
-        this.aYF.Lx();
+    public void Lv() {
+        this.aYG.Lv();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.aYF.onDetachedFromWindow();
+        this.aYG.onDetachedFromWindow();
     }
 
     public void setData(ai aiVar) {
-        this.aYF.setData(aiVar);
+        this.aYG.setData(aiVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.aYF.setFirstRowSingleColumn(z);
+        this.aYG.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -98,11 +98,11 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.aYF.setEventCallback(aVar);
+        this.aYG.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.aYF.setDefaultReasonArray(strArr);
+        this.aYG.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

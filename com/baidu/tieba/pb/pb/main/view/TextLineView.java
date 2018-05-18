@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class TextLineView extends TextView {
-    private int ftq;
-    private int ftr;
-    private int fts;
-    private int ftt;
-    private int ftu;
-    private int ftv;
+    private int fuA;
+    private int fuB;
+    private int fuC;
+    private int fux;
+    private int fuy;
+    private int fuz;
     private Paint mPaint;
 
     public TextLineView(Context context) {
@@ -27,14 +27,14 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.m.TextLineView);
-        this.ftq = obtainStyledAttributes.getDimensionPixelSize(d.m.TextLineView_bottom_line_height, 0);
-        this.ftr = obtainStyledAttributes.getDimensionPixelSize(d.m.TextLineView_bottom_line_top_margin, 0);
-        this.fts = obtainStyledAttributes.getDimensionPixelSize(d.m.TextLineView_bottom_line_bottom_margin, 0);
-        this.ftu = obtainStyledAttributes.getColor(d.m.TextLineView_text_selected_color, ak.getColor(d.C0126d.cp_cont_b));
-        this.ftt = obtainStyledAttributes.getColor(d.m.TextLineView_text_unselected_color, ak.getColor(d.C0126d.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.ftr + this.ftq + this.fts);
-        setTextColor(this.ftu);
-        this.ftv = l.e(context, d.e.ds56);
+        this.fux = obtainStyledAttributes.getDimensionPixelSize(d.m.TextLineView_bottom_line_height, 0);
+        this.fuy = obtainStyledAttributes.getDimensionPixelSize(d.m.TextLineView_bottom_line_top_margin, 0);
+        this.fuz = obtainStyledAttributes.getDimensionPixelSize(d.m.TextLineView_bottom_line_bottom_margin, 0);
+        this.fuB = obtainStyledAttributes.getColor(d.m.TextLineView_text_selected_color, ak.getColor(d.C0126d.cp_cont_b));
+        this.fuA = obtainStyledAttributes.getColor(d.m.TextLineView_text_unselected_color, ak.getColor(d.C0126d.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.fuy + this.fux + this.fuz);
+        setTextColor(this.fuB);
+        this.fuC = l.e(context, d.e.ds56);
         obtainStyledAttributes.recycle();
     }
 
@@ -42,17 +42,17 @@ public class TextLineView extends TextView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         bbo();
-        int measuredWidth = (getMeasuredWidth() - this.ftv) / 2;
-        canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.fts) - this.ftq, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.fts), l.e(getContext(), d.e.ds4), l.e(getContext(), d.e.ds4), this.mPaint);
+        int measuredWidth = (getMeasuredWidth() - this.fuC) / 2;
+        canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.fuz) - this.fux, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.fuz), l.e(getContext(), d.e.ds4), l.e(getContext(), d.e.ds4), this.mPaint);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.ftu);
+            setTextColor(this.fuB);
         } else {
-            setTextColor(this.ftt);
+            setTextColor(this.fuA);
         }
         invalidate();
     }
@@ -71,12 +71,12 @@ public class TextLineView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        this.ftu = ak.getColor(d.C0126d.cp_cont_b);
-        this.ftt = ak.getColor(d.C0126d.cp_cont_j);
+        this.fuB = ak.getColor(d.C0126d.cp_cont_b);
+        this.fuA = ak.getColor(d.C0126d.cp_cont_j);
         if (isSelected()) {
-            setTextColor(this.ftu);
+            setTextColor(this.fuB);
         } else {
-            setTextColor(this.ftt);
+            setTextColor(this.fuA);
         }
         bbo();
         invalidate();

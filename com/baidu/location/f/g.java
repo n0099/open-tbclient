@@ -30,7 +30,7 @@ public abstract class g {
         return false;
     }
 
-    public Location nL() {
+    public Location nK() {
         return null;
     }
 }

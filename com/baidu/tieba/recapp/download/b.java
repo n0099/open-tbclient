@@ -9,7 +9,7 @@ public class b {
     private com.baidu.tbadk.core.util.a.a ahl = null;
 
     public b() {
-        vi();
+        vh();
     }
 
     public void eY() {
@@ -19,13 +19,13 @@ public class b {
     }
 
     public void setUrl(String str) {
-        this.ahl.wi().wl().mUrl = str;
+        this.ahl.wh().wk().mUrl = str;
     }
 
-    private void vi() {
+    private void vh() {
         this.ahl = new com.baidu.tbadk.core.util.a.a();
         this.ahm = new c(this.ahl);
-        this.ahl.wi().wl().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        this.ahl.wh().wk().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.ao(TbadkCoreApplication.getInst().getCuid());
     }
 
@@ -34,11 +34,11 @@ public class b {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        vj().wi().a(this.ahm);
+        vi().wh().a(this.ahm);
         return this.ahm.a(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a vj() {
+    public com.baidu.tbadk.core.util.a.a vi() {
         return this.ahl;
     }
 }

@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aHN;
-    private boolean aHO;
+    protected View aHO;
+    private boolean aHP;
 
     public a(View view2) {
-        this.aHN = view2;
+        this.aHO = view2;
     }
 
-    public boolean Fm() {
-        return this.aHO;
+    public boolean Fk() {
+        return this.aHP;
     }
 
     public void d(View view2, boolean z) {
-        if (view2 != null && this.aHN != null && this.aHN.getParent() == null) {
-            this.aHO = true;
-            d.Q(view2).a(view2, this.aHN, z);
-            Fn();
+        if (view2 != null && this.aHO != null && this.aHO.getParent() == null) {
+            this.aHP = true;
+            d.Q(view2).a(view2, this.aHO, z);
+            Fl();
         }
     }
 
     public void P(View view2) {
-        if (view2 != null && this.aHN != null && this.aHN.getParent() != null && (view2 instanceof ViewGroup)) {
+        if (view2 != null && this.aHO != null && this.aHO.getParent() != null && (view2 instanceof ViewGroup)) {
             try {
-                Fo();
-                ((ViewGroup) view2).removeView(this.aHN);
-                this.aHO = false;
+                Fm();
+                ((ViewGroup) view2).removeView(this.aHO);
+                this.aHP = false;
             } catch (Exception e) {
             }
         }
@@ -39,10 +39,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Fn() {
+    public void Fl() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Fo() {
+    public void Fm() {
     }
 }

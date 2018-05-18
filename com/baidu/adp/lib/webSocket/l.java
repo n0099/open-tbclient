@@ -1,31 +1,32 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
+    private int yT;
     private int yU;
-    private int yV;
+    private boolean yV;
     private boolean yW;
-    private boolean yX;
+    private int yX;
     private int yY;
-    private int yZ;
-    private String yh;
+    private boolean yZ;
+    private String yg;
     private boolean za;
-    private boolean zb;
 
     public l() {
-        this.yh = null;
-        this.yU = 32768;
-        this.yV = 131072;
-        this.yW = false;
-        this.yX = true;
+        this.yg = null;
+        this.yT = 32768;
+        this.yU = 131072;
+        this.yV = false;
+        this.yW = true;
+        this.yX = 30000;
         this.yY = 30000;
-        this.yZ = 30000;
+        this.yZ = true;
         this.za = true;
-        this.zb = true;
-        this.yh = null;
+        this.yg = null;
     }
 
     public l(l lVar) {
-        this.yh = null;
+        this.yg = null;
+        this.yT = lVar.yT;
         this.yU = lVar.yU;
         this.yV = lVar.yV;
         this.yW = lVar.yW;
@@ -33,47 +34,46 @@ public class l {
         this.yY = lVar.yY;
         this.yZ = lVar.yZ;
         this.za = lVar.za;
-        this.zb = lVar.zb;
-        this.yh = lVar.yh;
+        this.yg = lVar.yg;
     }
 
     public boolean hP() {
-        return this.yW;
-    }
-
-    public int hQ() {
-        return this.yU;
-    }
-
-    public int hR() {
         return this.yV;
     }
 
+    public int hQ() {
+        return this.yT;
+    }
+
+    public int hR() {
+        return this.yU;
+    }
+
     public boolean getTcpNoDelay() {
-        return this.yX;
+        return this.yW;
     }
 
     public int hS() {
-        return this.yY;
+        return this.yX;
     }
 
     public int hT() {
-        return this.yZ;
+        return this.yY;
     }
 
     public boolean hU() {
-        return this.za;
+        return this.yZ;
     }
 
     public boolean hV() {
-        return this.zb;
+        return this.za;
     }
 
     public String hW() {
-        return this.yh;
+        return this.yg;
     }
 
     public void ba(String str) {
-        this.yh = str;
+        this.yg = str;
     }
 }

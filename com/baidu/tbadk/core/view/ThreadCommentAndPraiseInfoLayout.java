@@ -54,7 +54,7 @@ import java.util.List;
 import tbclient.ReportInfo;
 /* loaded from: classes2.dex */
 public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements View.OnClickListener {
-    public int abV;
+    public int abW;
     protected bd alf;
     protected ImageView aoA;
     protected View aoB;
@@ -139,9 +139,9 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bd) && ThreadCommentAndPraiseInfoLayout.this.alf != null && ThreadCommentAndPraiseInfoLayout.this.alf.getId() != null) {
                     bd bdVar = (bd) customResponsedMessage.getData();
-                    if (!TextUtils.isEmpty(bdVar.getId()) && bdVar.rF() != null && bdVar.getId().equals(ThreadCommentAndPraiseInfoLayout.this.alf.getId())) {
-                        if (ThreadCommentAndPraiseInfoLayout.this.alf.rF() != null) {
-                            ThreadCommentAndPraiseInfoLayout.this.alf.rF().setNum(bdVar.rF().getNum());
+                    if (!TextUtils.isEmpty(bdVar.getId()) && bdVar.rE() != null && bdVar.getId().equals(ThreadCommentAndPraiseInfoLayout.this.alf.getId())) {
+                        if (ThreadCommentAndPraiseInfoLayout.this.alf.rE() != null) {
+                            ThreadCommentAndPraiseInfoLayout.this.alf.rE().setNum(bdVar.rE().getNum());
                         }
                         ThreadCommentAndPraiseInfoLayout.this.updatePraiseNum(ThreadCommentAndPraiseInfoLayout.this.alf);
                     }
@@ -173,9 +173,9 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bd) && ThreadCommentAndPraiseInfoLayout.this.alf != null && ThreadCommentAndPraiseInfoLayout.this.alf.getId() != null) {
                     bd bdVar = (bd) customResponsedMessage.getData();
-                    if (!TextUtils.isEmpty(bdVar.getId()) && bdVar.rF() != null && bdVar.getId().equals(ThreadCommentAndPraiseInfoLayout.this.alf.getId())) {
-                        if (ThreadCommentAndPraiseInfoLayout.this.alf.rF() != null) {
-                            ThreadCommentAndPraiseInfoLayout.this.alf.rF().setNum(bdVar.rF().getNum());
+                    if (!TextUtils.isEmpty(bdVar.getId()) && bdVar.rE() != null && bdVar.getId().equals(ThreadCommentAndPraiseInfoLayout.this.alf.getId())) {
+                        if (ThreadCommentAndPraiseInfoLayout.this.alf.rE() != null) {
+                            ThreadCommentAndPraiseInfoLayout.this.alf.rE().setNum(bdVar.rE().getNum());
                         }
                         ThreadCommentAndPraiseInfoLayout.this.updatePraiseNum(ThreadCommentAndPraiseInfoLayout.this.alf);
                     }
@@ -266,11 +266,11 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
     }
 
     private void C(View view2) {
-        if (this.alf != null && !StringUtils.isNull(this.alf.rV())) {
+        if (this.alf != null && !StringUtils.isNull(this.alf.rU())) {
             if (StringUtils.isNull(this.mStType) || StringUtils.isNull(this.aoX)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mContext).createNormalCfg(this.alf.rV(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mContext).createNormalCfg(this.alf.rU(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mContext).createCfgForpersonalized(this.alf.rV(), this.mStType, this.aoX)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mContext).createCfgForpersonalized(this.alf.rU(), this.mStType, this.aoX)));
             }
             if (this.aoY != null) {
                 this.aoY.onClick(view2);
@@ -280,15 +280,15 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
 
     private void D(View view2) {
         if (this.alf != null && this.mContext != null) {
-            o.kv(this.alf.getTid());
+            o.ky(this.alf.getTid());
             PbActivityConfig addLocateParam = new PbActivityConfig(this.mContext).createFromThreadCfg(this.alf, null, this.mStType, 0, true, false, false).addLocateParam("");
             addLocateParam.setForumId(String.valueOf(this.alf.getFid()));
-            addLocateParam.setForumName(this.alf.rV());
+            addLocateParam.setForumName(this.alf.rU());
             addLocateParam.setJumpToCommentArea(true);
-            if (this.alf.sE() && addLocateParam.getIntent() != null) {
+            if (this.alf.sD() && addLocateParam.getIntent() != null) {
                 addLocateParam.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
-            addLocateParam.setStartFrom(this.abV);
+            addLocateParam.setStartFrom(this.abW);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, addLocateParam));
             al alVar = new al("c12291");
             alVar.r("obj_locate", this.mFrom);
@@ -314,11 +314,11 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
         if (this.alf.getThreadType() == 49) {
             return 5;
         }
-        if (this.alf.sh() != null) {
+        if (this.alf.sg() != null) {
             return 1;
         }
         if (this.alf.getType() == bd.ZH || this.alf.getType() == bd.ZJ) {
-            if (v.v(this.alf.se()) > 0) {
+            if (v.v(this.alf.sd()) > 0) {
                 return 3;
             }
             return 2;
@@ -329,15 +329,15 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
     protected void E(View view2) {
         int i = 1;
         if (az.aK(this.mContext) && this.alf != null) {
-            if (this.alf.ta() != 0) {
-                this.alf.bW(this.alf.sZ() - 1);
-                this.alf.bV(0);
+            if (this.alf.sZ() != 0) {
+                this.alf.bX(this.alf.sY() - 1);
+                this.alf.bW(0);
                 if (this.aot != null) {
                     ak.h(this.aot, d.C0126d.cp_cont_j);
                 }
             } else {
-                this.alf.bV(1);
-                this.alf.bW(this.alf.sZ() + 1);
+                this.alf.bW(1);
+                this.alf.bX(this.alf.sY() + 1);
                 if (this.aot != null) {
                     ak.h(this.aot, d.C0126d.cp_cont_h);
                 }
@@ -376,12 +376,12 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
 
     protected void F(View view2) {
         if (ap.fz() || az.aK(this.mContext)) {
+            xb();
             xc();
-            xd();
         }
     }
 
-    private void xc() {
+    private void xb() {
         int i = 4;
         if (this.alf != null) {
             if (this.aoV != 1) {
@@ -401,10 +401,10 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
         }
     }
 
-    private void xd() {
+    private void xc() {
         if (this.alf != null && this.mContext != null) {
             String valueOf = String.valueOf(this.alf.getFid());
-            String rV = this.alf.rV();
+            String rU = this.alf.rU();
             String title = this.alf.getTitle();
             String tid = this.alf.getTid();
             String str = "http://tieba.baidu.com/p/" + tid + "?share=9105&fr=share";
@@ -415,28 +415,28 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
             com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
             dVar.title = title;
             dVar.content = format;
-            dVar.awY = str2;
+            dVar.awZ = str2;
             dVar.linkUrl = str;
-            dVar.abU = this.aoV;
+            dVar.abV = this.aoV;
             dVar.extData = tid;
-            dVar.axb = 3;
+            dVar.axc = 3;
             dVar.fid = valueOf;
-            dVar.awT = rV;
+            dVar.awU = rU;
             dVar.tid = tid;
-            dVar.awQ = true;
-            dVar.axa = getShareObjSource();
-            dVar.axc = b(this.alf);
+            dVar.awR = true;
+            dVar.axb = getShareObjSource();
+            dVar.axd = b(this.alf);
             if (parse != null) {
-                dVar.awV = parse;
+                dVar.awW = parse;
             }
             dVar.originalThreadInfo = OriginalThreadInfo.parseFromThreadData(this.alf);
             TbadkCoreApplication.getInst().setShareItem(dVar);
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", dVar.axb);
-            bundle.putInt("obj_type", dVar.axc);
+            bundle.putInt("obj_param1", dVar.axc);
+            bundle.putInt("obj_type", dVar.axd);
             bundle.putString(ImageViewerConfig.FORUM_ID, dVar.fid);
             bundle.putString("tid", dVar.tid);
-            bundle.putInt(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.abU);
+            bundle.putInt(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.abV);
             dVar.f(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, dVar, true, true);
             shareDialogConfig.setIsAlaLive(this.alf.getThreadType() == 49 || this.alf.getThreadType() == 60);
@@ -461,13 +461,13 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
     }
 
     private String a(bd bdVar) {
-        if (bdVar == null || bdVar.sa() == null) {
+        if (bdVar == null || bdVar.rZ() == null) {
             return null;
         }
-        ArrayList<MediaData> sa = bdVar.sa();
-        int size = sa.size();
+        ArrayList<MediaData> rZ = bdVar.rZ();
+        int size = rZ.size();
         for (int i = 0; i < size; i++) {
-            MediaData mediaData = sa.get(i);
+            MediaData mediaData = rZ.get(i);
             if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     return mediaData.getThumbnails_url();
@@ -482,13 +482,13 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
 
     private int b(bd bdVar) {
         if (bdVar != null) {
-            if (bdVar.rS()) {
+            if (bdVar.rR()) {
                 return 4;
             }
-            if (bdVar.rN() == 1) {
+            if (bdVar.rM() == 1) {
                 return 3;
             }
-            return bdVar.sS() ? 2 : 1;
+            return bdVar.sR() ? 2 : 1;
         }
         return 0;
     }
@@ -503,7 +503,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
     }
 
     private void H(View view2) {
-        xg();
+        xf();
     }
 
     public void setShowPraiseNum(boolean z) {
@@ -532,7 +532,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
             return false;
         }
         this.alf = bdVar;
-        xe();
+        xd();
         c(bdVar);
         d(bdVar);
         updatePraiseNum(bdVar);
@@ -544,7 +544,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void xe() {
+    public void xd() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -555,15 +555,15 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
     private void d(bd bdVar) {
         String t;
         if (this.aos != null && bdVar != null) {
-            if (bdVar.rK() <= 0 || !this.aoM) {
+            if (bdVar.rJ() <= 0 || !this.aoM) {
                 this.aos.setVisibility(8);
                 return;
             }
             this.aos.setVisibility(0);
             if (this.mFrom == 3) {
-                t = an.r(bdVar.rK());
+                t = an.r(bdVar.rJ());
             } else {
-                t = an.t(bdVar.rK() * 1000);
+                t = an.t(bdVar.rJ() * 1000);
             }
             this.aos.setText(t);
             this.aoK = true;
@@ -585,9 +585,9 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
                     layoutParams.weight = 1.0f;
                     this.aoy.setLayoutParams(layoutParams);
                 }
-                if (bdVar.rI() > 0) {
+                if (bdVar.rH() > 0) {
                     this.aow.setVisibility(0);
-                    String B = an.B(bdVar.rI());
+                    String B = an.B(bdVar.rH());
                     if (this.aoO) {
                         this.aox.setImageDrawable(ak.getDrawable(this.apa));
                         this.aow.setText(B);
@@ -625,16 +625,16 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.aou.getLayoutParams();
                 layoutParams2.leftMargin = 0;
                 this.aou.setLayoutParams(layoutParams2);
-                int sZ = bdVar.sZ();
+                int sY = bdVar.sY();
                 String string = this.mContext.getString(d.k.action_praise_default);
-                if (sZ > 0) {
-                    string = an.B(sZ);
+                if (sY > 0) {
+                    string = an.B(sY);
                 }
                 this.aot.setText(string);
-                this.aot.setContentDescription(this.mContext.getString(d.k.zan_num) + sZ);
+                this.aot.setContentDescription(this.mContext.getString(d.k.zan_num) + sY);
                 this.aoK = true;
-                if (bdVar.ta() != 0) {
-                    this.aoZ = xf() ? d.f.icon_home_card_like_s_xmas : d.f.icon_home_card_like_s;
+                if (bdVar.sZ() != 0) {
+                    this.aoZ = xe() ? d.f.icon_home_card_like_s_xmas : d.f.icon_home_card_like_s;
                     this.aou.setImageDrawable(ak.getDrawable(this.aoZ));
                     if (this.aot != null) {
                         ak.h(this.aot, d.C0126d.cp_cont_h);
@@ -642,7 +642,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
                     }
                     return;
                 }
-                this.aoZ = xf() ? d.f.icon_home_card_like_n_xmas : d.f.icon_home_card_like_n;
+                this.aoZ = xe() ? d.f.icon_home_card_like_n_xmas : d.f.icon_home_card_like_n;
                 this.aou.setImageDrawable(ak.getDrawable(this.aoZ));
                 if (this.aot != null) {
                     ak.h(this.aot, d.C0126d.cp_cont_j);
@@ -654,9 +654,9 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
         }
     }
 
-    private boolean xf() {
+    private boolean xe() {
         com.baidu.tbadk.coreExtra.data.b activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
-        return activitySwitch != null && activitySwitch.ye();
+        return activitySwitch != null && activitySwitch.yd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -670,13 +670,13 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
                     layoutParams.weight = 1.0f;
                     this.aoB.setLayoutParams(layoutParams);
                 }
-                long tb = bdVar.tb();
-                if ((bdVar.sR() || bdVar.sU()) && bdVar.si() != null) {
-                    tb = bdVar.si().share_info.share_count;
+                long ta = bdVar.ta();
+                if ((bdVar.sQ() || bdVar.sT()) && bdVar.sh() != null) {
+                    ta = bdVar.sh().share_info.share_count;
                 }
-                this.aoz.setText(tb > 0 ? an.B(tb) : this.mContext.getString(d.k.share));
+                this.aoz.setText(ta > 0 ? an.B(ta) : this.mContext.getString(d.k.share));
                 this.aoK = true;
-                if (bdVar.abL != null && bdVar.abL.isDeleted) {
+                if (bdVar.abM != null && bdVar.abM.isDeleted) {
                     ak.i(this.aoA, d.f.icon_card_share_d);
                     ak.h(this.aoz, d.C0126d.cp_cont_e);
                     setShareClickable(false);
@@ -694,7 +694,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
     public void updataMoreView(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         if (this.aoD != null) {
-            if (this.alf == null || v.w(this.alf.sO()) || !TbadkCoreApplication.isLogin() || this.alf.sP()) {
+            if (this.alf == null || v.w(this.alf.sN()) || !TbadkCoreApplication.isLogin() || this.alf.sO()) {
                 this.aoD.setVisibility(8);
                 return;
             }
@@ -715,7 +715,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
                 this.aoF.clear();
             }
             boolean z = false;
-            for (ReportInfo reportInfo : this.alf.sO()) {
+            for (ReportInfo reportInfo : this.alf.sN()) {
                 if (reportInfo != null && !StringUtils.isNull(reportInfo.info) && !StringUtils.isNull(reportInfo.url)) {
                     z = true;
                     this.aoE.add(reportInfo.info);
@@ -753,22 +753,22 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
         }
     }
 
-    private void xg() {
+    private void xf() {
         if (this.mPageContext != null) {
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-            bVar.cc(d.k.operation);
+            bVar.cd(d.k.operation);
             bVar.a(this.aoE, new b.InterfaceC0086b() { // from class: com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.1
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view2) {
                     String str = (String) v.c(ThreadCommentAndPraiseInfoLayout.this.aoF, i);
                     if (!StringUtils.isNull(str)) {
-                        ax.wg().c(ThreadCommentAndPraiseInfoLayout.this.mPageContext, new String[]{str});
+                        ax.wf().c(ThreadCommentAndPraiseInfoLayout.this.mPageContext, new String[]{str});
                     }
                     bVar2.dismiss();
                 }
             });
             bVar.d(this.mPageContext);
-            bVar.tG();
+            bVar.tF();
         }
     }
 
@@ -779,7 +779,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
         ak.h(this.aow, d.f.selector_comment_and_prise_item_text_color);
         ak.h(this.aoG, d.f.selector_comment_and_prise_item_text_color);
         ak.i(this.aoC, d.f.btn_frs_more_selector);
-        if (this.alf != null && this.alf.ta() == 1 && this.aot != null) {
+        if (this.alf != null && this.alf.sZ() == 1 && this.aot != null) {
             ak.h(this.aot, d.C0126d.cp_cont_h);
             this.aoZ = d.f.icon_home_card_like_s;
         }
@@ -789,7 +789,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
         if (this.aow != null && this.aoO && this.apa > 0) {
             this.aox.setImageDrawable(ak.getDrawable(this.apa));
         }
-        if (this.alf != null && this.alf.abL != null && this.alf.abL.isDeleted) {
+        if (this.alf != null && this.alf.abM != null && this.alf.abM.isDeleted) {
             ak.i(this.aoA, d.f.icon_card_share_d);
             ak.h(this.aoz, d.C0126d.cp_cont_e);
             setShareClickable(false);

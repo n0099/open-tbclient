@@ -1,7 +1,7 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class at {
-    public static void Ht() {
+    public static void Hr() {
         com.baidu.adp.lib.b.d.eE().f(t.class);
         com.baidu.adp.lib.b.d.eE().f(a.class);
         com.baidu.adp.lib.b.d.eE().f(b.class);

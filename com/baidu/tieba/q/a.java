@@ -8,10 +8,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static BlockPopInfo gJh;
-    private static BlockPopInfo gJi;
-    private TbPageContext adf;
-    private CustomMessageListener bnd = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.a.3
+    private static BlockPopInfo gKk;
+    private static BlockPopInfo gKl;
+    private CustomMessageListener bns = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -21,10 +20,11 @@ public class a {
             }
         }
     };
+    private TbPageContext mContext;
 
     public a(TbPageContext tbPageContext) {
-        this.adf = tbPageContext;
-        this.adf.registerListener(this.bnd);
+        this.mContext = tbPageContext;
+        this.mContext.registerListener(this.bns);
     }
 
     private boolean a(BlockPopInfo blockPopInfo) {
@@ -42,17 +42,17 @@ public class a {
         return false;
     }
 
-    public boolean bvC() {
-        return a(gJh);
+    public boolean bvA() {
+        return a(gKk);
     }
 
-    public boolean bvD() {
-        return a(gJi);
+    public boolean bvB() {
+        return a(gKl);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.adf.getPageActivity());
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
             aVar.dc(blockPopInfo.block_info);
             aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.q.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -66,22 +66,22 @@ public class a {
                     a.this.c(blockPopInfo);
                 }
             });
-            aVar.b(this.adf).tD();
+            aVar.b(this.mContext).tC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            AntiHelper.an(this.adf.getPageActivity(), blockPopInfo.ahead_url);
+            AntiHelper.an(this.mContext.getPageActivity(), blockPopInfo.ahead_url);
         }
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        gJh = blockPopInfo;
+        gKk = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        gJi = blockPopInfo;
+        gKl = blockPopInfo;
     }
 }

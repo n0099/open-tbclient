@@ -8,7 +8,7 @@ public interface n {
 
     TbPageContext<?> aeY();
 
-    void apB();
+    void apA();
 
     String getFid();
 

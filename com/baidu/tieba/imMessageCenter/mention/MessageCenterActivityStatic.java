@@ -15,11 +15,11 @@ public class MessageCenterActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(MessageCenterActivityConfig.class, MessageCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AtMessageActivityConfig.class, AtMessageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AgreeMeActivityConfig.class, AgreeMeActivity.class);
-        ayW();
+        ayU();
     }
 
-    private static void ayW() {
-        ax.wg().a(new ax.a() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivityStatic.1
+    private static void ayU() {
+        ax.wf().a(new ax.a() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ax.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {

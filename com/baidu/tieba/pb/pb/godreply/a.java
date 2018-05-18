@@ -23,53 +23,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.tbadk.pageStayDuration.a {
-    private final MoreGodReplyModel fdA;
-    private long fdB;
-    private boolean fdq;
-    final PbActivity fdr;
-    private d fds;
-    private c fdt;
-    private as fdu;
-    private i fdv;
-    private View.OnClickListener fdw;
-    private View.OnClickListener fdx;
-    private TbRichTextView.h fdy;
-    private com.baidu.tieba.pb.a.c fdz;
+    private c feA;
+    private as feB;
+    private i feC;
+    private View.OnClickListener feD;
+    private View.OnClickListener feE;
+    private TbRichTextView.h feF;
+    private com.baidu.tieba.pb.a.c feG;
+    private final MoreGodReplyModel feH;
+    private long feI;
+    private boolean fex;
+    final PbActivity fey;
+    private d fez;
     private View.OnLongClickListener onLongClickListener;
     private com.baidu.tbadk.pageStayDuration.d pageStayDurationItem;
-    private BdListView.e brx = new BdListView.e() { // from class: com.baidu.tieba.pb.pb.godreply.a.1
+    private BdListView.e brM = new BdListView.e() { // from class: com.baidu.tieba.pb.pb.godreply.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (!a.this.fdA.wX()) {
-                a.this.fdA.aWw();
+            if (!a.this.feH.wW()) {
+                a.this.feH.aWw();
             }
         }
     };
     private AbsListView.OnScrollListener onScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.2
-        private int fdF = -1;
+        private int feM = -1;
 
-        private boolean qb(int i) {
+        private boolean qa(int i) {
             return i == 2 || i == 1;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (!qb(this.fdF) && qb(i) && a.this.fdr != null && a.this.fdr.aWO() != null) {
-                a.this.fdr.aWO().aZI();
-                a.this.fdr.aWO().baA();
+            if (!qa(this.feM) && qa(i) && a.this.fey != null && a.this.fey.aWO() != null) {
+                a.this.fey.aWO().aZI();
+                a.this.fey.aWO().baA();
             }
-            this.fdF = i;
+            this.feM = i;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         }
     };
-    private y.a fdC = new y.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.3
+    private y.a feJ = new y.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.3
         @Override // com.baidu.tieba.pb.pb.main.y.a
         public void g(int i, String str, String str2) {
             if (!StringUtils.isNull(str)) {
-                a.this.fdu.showToast(str);
+                a.this.feB.showToast(str);
             }
         }
 
@@ -78,7 +78,7 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
             a.this.aWu();
         }
     };
-    private PbActivity.a fdD = new PbActivity.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.8
+    private PbActivity.a feK = new PbActivity.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.8
         @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
         public boolean onBackPressed() {
             a.this.aWr();
@@ -87,36 +87,36 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
     };
 
     public a(PbActivity pbActivity, as asVar, ViewStub viewStub) {
-        this.fdA = new MoreGodReplyModel(pbActivity.getPageContext(), pbActivity.aWx());
-        this.fdA.a(this.fdC);
-        this.fdu = asVar;
-        this.fdr = pbActivity;
-        this.fds = new d(pbActivity, viewStub);
-        this.fdt = new c(this);
+        this.feH = new MoreGodReplyModel(pbActivity.getPageContext(), pbActivity.aWx());
+        this.feH.a(this.feJ);
+        this.feB = asVar;
+        this.fey = pbActivity;
+        this.fez = new d(pbActivity, viewStub);
+        this.feA = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void i(final Runnable runnable) {
-        this.fdA.cancelLoadData();
-        this.fdr.aXz();
+        this.feH.cancelLoadData();
+        this.fey.aXz();
         if (!isActive() && runnable != null) {
             runnable.run();
             return;
         }
-        if (isActive() && !this.fdt.aWz()) {
-            this.fds.k(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.4
+        if (isActive() && !this.feA.aWz()) {
+            this.fez.k(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.fds.hide();
-                    a.this.fdq = false;
-                    if (a.this.fdr != null) {
-                        if (a.this.fdr.aWO() != null) {
-                            a.this.fdr.aWO().kn(false);
-                            f aZY = a.this.fdr.aWO().aZY();
-                            aZY.a(a.this.fdr.aWx().getPbData(), true);
+                    a.this.fez.hide();
+                    a.this.fex = false;
+                    if (a.this.fey != null) {
+                        if (a.this.fey.aWO() != null) {
+                            a.this.fey.aWO().ko(false);
+                            f aZY = a.this.fey.aWO().aZY();
+                            aZY.a(a.this.fey.aWx().getPbData(), true);
                             aZY.notifyDataSetChanged();
                         }
-                        a.this.fdr.c(a.this.fdD);
+                        a.this.fey.c(a.this.feK);
                     }
                     if (runnable != null) {
                         runnable.run();
@@ -124,11 +124,11 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
                 }
             });
         }
-        if (this.fdB != 0) {
-            long currentTimeMillis = System.currentTimeMillis() - this.fdB;
+        if (this.feI != 0) {
+            long currentTimeMillis = System.currentTimeMillis() - this.feI;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.U(currentTimeMillis);
-            e.Gt().a(this.fdr, pageStayDurationItem, getPageStayFilter());
+            e.Gr().a(this.fey, pageStayDurationItem, getPageStayFilter());
         }
     }
 
@@ -137,52 +137,52 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
     }
 
     private void showView() {
-        boolean aWB = this.fds.aWB();
-        this.fds.show();
+        boolean aWB = this.fez.aWB();
+        this.fez.show();
         if (!aWB) {
-            this.fds.aWC().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.5
+            this.fez.aWC().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     a.this.aWr();
                 }
             });
-            this.fds.aWD().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.6
+            this.fez.aWD().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     a.this.aWr();
                 }
             });
-            this.fds.aWF().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.7
+            this.fez.aWF().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (!a.this.fdA.wX()) {
-                        a.this.fdA.aWw();
+                    if (!a.this.feH.wW()) {
+                        a.this.feH.aWw();
                     }
                 }
             });
-            this.fds.getListView().setOnScrollListener(this.onScrollListener);
+            this.fez.getListView().setOnScrollListener(this.onScrollListener);
         }
-        this.fdB = System.currentTimeMillis();
+        this.feI = System.currentTimeMillis();
     }
 
     public void aWs() {
         if (!isActive()) {
-            this.fdr.aXz();
-            this.fdq = true;
-            this.fdt.setFullscreen(false);
-            this.fdt.jt(true);
+            this.fey.aXz();
+            this.fex = true;
+            this.feA.setFullscreen(false);
+            this.feA.ju(true);
             showView();
             aWu();
-            this.fds.l(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.9
+            this.fez.l(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.fdt.jt(false);
+                    a.this.feA.ju(false);
                 }
             });
-            this.fdr.b(this.fdD);
-            this.fdA.aWw();
+            this.fey.b(this.feK);
+            this.feH.aWw();
         }
-        this.fdr.aWO().baA();
+        this.fey.aWO().baA();
     }
 
     public void aWt() {
@@ -193,18 +193,18 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aWu() {
-        List<h> aWy = this.fdA.aWy();
+        List<h> aWy = this.feH.aWy();
         if (aWy != null) {
-            com.baidu.tieba.pb.data.d pbData = this.fdA.aWx().getPbData();
-            this.fds.show();
-            this.fds.getListView().setOnSrollToBottomListener(this.brx);
-            BdTypeListView listView = this.fds.getListView();
-            this.fdt.initialize();
+            com.baidu.tieba.pb.data.d pbData = this.feH.aWx().getPbData();
+            this.fez.show();
+            this.fez.getListView().setOnSrollToBottomListener(this.brM);
+            BdTypeListView listView = this.fez.getListView();
+            this.feA.initialize();
             a(listView);
             c(pbData);
             listView.setData(new ArrayList(aWy));
-            this.fds.Rg().setCenterTextTitle(String.format(this.fdr.getResources().getString(d.k.more_god_reply_count), an.z(pbData.aVD().fcV.size())));
-            this.fds.ju(this.fdA.acw());
+            this.fez.Rd().setCenterTextTitle(String.format(this.fey.getResources().getString(d.k.more_god_reply_count), an.z(pbData.aVD().fec.size())));
+            this.fez.jv(this.feH.acw());
             if (listView.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
                 listView.getAdapter().notifyDataSetChanged();
             }
@@ -212,42 +212,42 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
     }
 
     private void a(BdTypeListView bdTypeListView) {
-        if (this.fdv == null) {
-            this.fdv = new i(this.fdr, PostData.gws);
-            this.fdv.setDuiEnabled(false);
+        if (this.feC == null) {
+            this.feC = new i(this.fey, PostData.gxw);
+            this.feC.setDuiEnabled(false);
             ArrayList arrayList = new ArrayList(1);
-            arrayList.add(this.fdv);
+            arrayList.add(this.feC);
             bdTypeListView.addAdapters(arrayList);
         }
     }
 
     private void c(com.baidu.tieba.pb.data.d dVar) {
-        this.fdv.b(dVar);
-        f aZY = this.fdu.aZY();
-        this.fdv.setFromCDN(aZY.isFromCDN());
-        this.fdv.setHostId(dVar.aVs().rQ().getUserId());
-        this.fdv.jq(aZY.aXQ());
-        this.fdv.n(this.fdw);
-        this.fdv.F(this.fdx);
-        this.fdv.setOnImageClickListener(this.fdy);
-        this.fdv.setOnLongClickListener(this.onLongClickListener);
-        this.fdv.setTbGestureDetector(this.fdz);
+        this.feC.b(dVar);
+        f aZY = this.feB.aZY();
+        this.feC.setFromCDN(aZY.isFromCDN());
+        this.feC.setHostId(dVar.aVs().rP().getUserId());
+        this.feC.jr(aZY.aXQ());
+        this.feC.n(this.feD);
+        this.feC.F(this.feE);
+        this.feC.setOnImageClickListener(this.feF);
+        this.feC.setOnLongClickListener(this.onLongClickListener);
+        this.feC.setTbGestureDetector(this.feG);
     }
 
     public void onChangeSkinType(int i) {
-        this.fds.onChangeSkinType(i);
+        this.fez.onChangeSkinType(i);
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.fdw = onClickListener;
+        this.feD = onClickListener;
     }
 
     public void F(View.OnClickListener onClickListener) {
-        this.fdx = onClickListener;
+        this.feE = onClickListener;
     }
 
     public void setOnImageClickListener(TbRichTextView.h hVar) {
-        this.fdy = hVar;
+        this.feF = hVar;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
@@ -255,15 +255,15 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
     }
 
     public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
-        this.fdz = cVar;
+        this.feG = cVar;
     }
 
     public boolean isActive() {
-        return this.fdq;
+        return this.fex;
     }
 
     public d aWv() {
-        return this.fds;
+        return this.fez;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.a
@@ -273,10 +273,10 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
 
     @Override // com.baidu.tbadk.pageStayDuration.a
     public List<String> getCurrentPageSourceKeyList() {
-        if (this.fdr == null) {
+        if (this.fey == null) {
             return null;
         }
-        return this.fdr.getNextPageSourceKeyList();
+        return this.fey.getNextPageSourceKeyList();
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.a
@@ -291,7 +291,7 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
             arrayList3.addAll(arrayList2);
             arrayList = arrayList3;
         }
-        if ((getPageStayFilter() == null || getPageStayFilter().Go()) && !StringUtils.isNull(currentPageKey)) {
+        if ((getPageStayFilter() == null || getPageStayFilter().Gm()) && !StringUtils.isNull(currentPageKey)) {
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }
@@ -305,7 +305,7 @@ public class a implements com.baidu.tbadk.pageStayDuration.a {
             this.pageStayDurationItem = new com.baidu.tbadk.pageStayDuration.d();
             this.pageStayDurationItem.I(getCurrentPageSourceKeyList());
             this.pageStayDurationItem.gO(getCurrentPageKey());
-            PbModel aWx = this.fdr.aWx();
+            PbModel aWx = this.fey.aWx();
             if (aWx != null) {
                 this.pageStayDurationItem.setFid(com.baidu.adp.lib.g.b.c(aWx.getForumId(), 0L));
                 this.pageStayDurationItem.setTid(com.baidu.adp.lib.g.b.c(aWx.aYj(), 0L));

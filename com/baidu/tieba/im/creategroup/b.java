@@ -12,31 +12,31 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b implements o {
-    private int FN;
+    private int FJ;
     TextView adw;
-    CreateGroupStepActivity dUc;
-    TbImageView dUd;
-    private ImageView dUe;
-    private int dUg;
+    CreateGroupStepActivity dVj;
+    TbImageView dVk;
+    private ImageView dVl;
+    private int dVn;
     private int mIndex;
     View mView;
-    private int dUb = 3;
-    private boolean dUf = false;
+    private int dVi = 3;
+    private boolean dVm = false;
 
     public b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.dUc = null;
+        this.dVj = null;
         this.mView = null;
-        this.dUd = null;
+        this.dVk = null;
         this.adw = null;
-        this.dUe = null;
-        this.dUc = createGroupStepActivity;
+        this.dVl = null;
+        this.dVj = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(d.i.create_group_step4_view, (ViewGroup) null);
-        this.dUd = (TbImageView) this.mView.findViewById(d.g.step4_img_bg);
+        this.dVk = (TbImageView) this.mView.findViewById(d.g.step4_img_bg);
         this.adw = (TextView) this.mView.findViewById(d.g.txt_tip_view);
-        this.dUe = (ImageView) this.mView.findViewById(d.g.create_group_address_rightarrwow);
+        this.dVl = (ImageView) this.mView.findViewById(d.g.create_group_address_rightarrwow);
         this.mIndex = i;
-        this.FN = i2;
-        this.dUg = i3;
+        this.FJ = i2;
+        this.dVn = i3;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -45,74 +45,74 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int aBy() {
+    public int aBw() {
         return this.mIndex;
     }
 
-    public View aBz() {
+    public View aBx() {
         return this.adw;
     }
 
-    public int aBA() {
-        return this.dUb;
+    public int aBy() {
+        return this.dVi;
     }
 
-    public void aBB() {
-        this.dUe.setVisibility(0);
-        this.dUf = false;
-        aBG();
+    public void aBz() {
+        this.dVl.setVisibility(0);
+        this.dVm = false;
+        aBE();
         this.adw.setText(d.k.location_loading);
-        this.dUb = 3;
+        this.dVi = 3;
     }
 
     public void setBusiness(String str) {
-        this.dUe.setVisibility(0);
-        this.dUf = true;
-        aBG();
+        this.dVl.setVisibility(0);
+        this.dVm = true;
+        aBE();
         this.adw.setText(str);
-        this.dUb = 0;
+        this.dVi = 0;
     }
 
     public void setAddress(String str) {
-        this.dUe.setVisibility(8);
-        this.dUf = true;
-        aBG();
+        this.dVl.setVisibility(8);
+        this.dVm = true;
+        aBE();
         this.adw.setText(str);
-        this.dUb = 4;
+        this.dVi = 4;
     }
 
-    public void aBC() {
-        this.dUe.setVisibility(0);
-        this.dUf = false;
-        aBG();
+    public void aBA() {
+        this.dVl.setVisibility(0);
+        this.dVm = false;
+        aBE();
         this.adw.setText(d.k.address_locate_failed_opengps);
-        this.dUb = 1;
+        this.dVi = 1;
     }
 
-    public void aBD() {
-        this.dUf = false;
-        aBG();
+    public void aBB() {
+        this.dVm = false;
+        aBE();
         this.adw.setText(d.k.address_locate_failed_tryagain);
-        this.dUe.setVisibility(8);
-        this.dUb = 2;
+        this.dVl.setVisibility(8);
+        this.dVi = 2;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aBE() {
-        this.dUd.setBackgroundDrawable(null);
+    public void aBC() {
+        this.dVk.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aBF() {
+    public void aBD() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.dUc.getLayoutMode().setNightMode(z);
-        this.dUc.getLayoutMode().u(this.mView);
-        this.dUd.startLoad(c.a(this.dUc.getActivity(), c.dUh, z), 29, false);
-        aBG();
+        this.dVj.getLayoutMode().setNightMode(z);
+        this.dVj.getLayoutMode().u(this.mView);
+        this.dVk.startLoad(c.a(this.dVj.getActivity(), c.dVo, z), 29, false);
+        aBE();
     }
 
-    private void aBG() {
-        if (this.dUf) {
+    private void aBE() {
+        if (this.dVm) {
             Drawable drawable = ak.getDrawable(d.f.icon_jq_lbs_s);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             this.adw.setCompoundDrawables(drawable, null, null, null);
@@ -127,19 +127,19 @@ public class b implements o {
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.dUc.getPageContext().getString(d.k.group_create_step_address), Integer.valueOf(this.FN));
+        return String.format(this.dVj.getPageContext().getString(d.k.group_create_step_address), Integer.valueOf(this.FJ));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String aBH() {
-        if (this.mIndex != this.dUg) {
-            return this.dUc.getPageContext().getString(d.k.next_step);
+    public String aBF() {
+        if (this.mIndex != this.dVn) {
+            return this.dVj.getPageContext().getString(d.k.next_step);
         }
-        return this.dUc.getPageContext().getString(d.k.group_create_step_done_tip);
+        return this.dVj.getPageContext().getString(d.k.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aBI() {
+    public boolean aBG() {
         return true;
     }
 
@@ -149,7 +149,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aBJ() {
+    public boolean aBH() {
         return true;
     }
 }

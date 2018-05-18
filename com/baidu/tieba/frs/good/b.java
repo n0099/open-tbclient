@@ -55,58 +55,58 @@ import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class b implements TabLayout.OnTabSelectedListener {
     private static final Pattern pbPattern0 = Pattern.compile("(/p/){1}(\\d+)");
-    private w axE;
-    private PbListView blb;
-    private BdSwipeRefreshLayout bnR;
-    private FrameLayout dcB;
-    private FrsGoodFragment dlE;
-    private TabLayout dlQ;
-    private TabLayout dlR;
-    private a dlS;
+    private w axF;
+    private PbListView blq;
+    private BdSwipeRefreshLayout bog;
+    private FrameLayout ddJ;
+    private FrsGoodFragment dmL;
+    private TabLayout dmX;
+    private TabLayout dmY;
+    private a dmZ;
     private final int ds10;
     private final int ds210;
     private final int ds32;
     private final int ds34;
     private final int ds82;
-    private RelativeLayout bbY = null;
-    private BdTypeRecyclerView cYN = null;
+    private RelativeLayout bbZ = null;
+    private BdTypeRecyclerView cZU = null;
     private f mPullView = null;
-    private BannerView dlT = null;
-    private boolean dlU = false;
-    private boolean dlV = false;
-    private int dlW = 0;
-    private BannerView.a dlX = new BannerView.a() { // from class: com.baidu.tieba.frs.good.b.3
+    private BannerView dna = null;
+    private boolean dnb = false;
+    private boolean dnc = false;
+    private int dnd = 0;
+    private BannerView.a dne = new BannerView.a() { // from class: com.baidu.tieba.frs.good.b.3
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-        public void BS() {
-            b.this.atE();
+        public void BQ() {
+            b.this.atD();
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-        public void BT() {
-            b.this.atG();
+        public void BR() {
+            b.this.atF();
         }
     };
 
     public b(FrsGoodFragment frsGoodFragment, View view2, boolean z) {
-        this.dlE = null;
-        this.dlE = frsGoodFragment;
+        this.dmL = null;
+        this.dmL = frsGoodFragment;
         k(view2, z);
-        this.ds10 = l.e(this.dlE.getPageContext().getPageActivity(), d.e.tbds10);
-        this.ds32 = l.e(this.dlE.getPageContext().getPageActivity(), d.e.tbds32);
-        this.ds210 = l.e(this.dlE.getPageContext().getPageActivity(), d.e.tbds210);
-        this.ds82 = l.e(this.dlE.getPageContext().getPageActivity(), d.e.tbds82);
-        this.ds34 = l.e(this.dlE.getPageContext().getPageActivity(), d.e.tbds34);
+        this.ds10 = l.e(this.dmL.getPageContext().getPageActivity(), d.e.tbds10);
+        this.ds32 = l.e(this.dmL.getPageContext().getPageActivity(), d.e.tbds32);
+        this.ds210 = l.e(this.dmL.getPageContext().getPageActivity(), d.e.tbds210);
+        this.ds82 = l.e(this.dmL.getPageContext().getPageActivity(), d.e.tbds82);
+        this.ds34 = l.e(this.dmL.getPageContext().getPageActivity(), d.e.tbds34);
     }
 
     private void k(View view2, boolean z) {
-        this.bbY = (RelativeLayout) view2.findViewById(d.g.frs_good_container);
+        this.bbZ = (RelativeLayout) view2.findViewById(d.g.frs_good_container);
         aw(view2);
-        this.cYN = (BdTypeRecyclerView) view2.findViewById(d.g.frs_good_lv_thread);
-        this.cYN.setLayoutManager(new LinearLayoutManager(this.cYN.getContext()));
-        this.mPullView = new f(this.dlE.getPageContext());
-        this.cYN.setFadingEdgeLength(0);
-        this.cYN.setOverScrollMode(2);
-        this.cYN.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.good.b.1
+        this.cZU = (BdTypeRecyclerView) view2.findViewById(d.g.frs_good_lv_thread);
+        this.cZU.setLayoutManager(new LinearLayoutManager(this.cZU.getContext()));
+        this.mPullView = new f(this.dmL.getPageContext());
+        this.cZU.setFadingEdgeLength(0);
+        this.cZU.setOverScrollMode(2);
+        this.cZU.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.good.b.1
             @Override // android.support.v7.widget.RecyclerView.RecyclerListener
             public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                 View view3 = viewHolder.itemView;
@@ -125,38 +125,38 @@ public class b implements TabLayout.OnTabSelectedListener {
                 }
             }
         });
-        this.blb = new PbListView(this.dlE.getPageContext().getPageActivity());
-        this.blb.kA();
-        this.blb.du(d.C0126d.cp_bg_line_e);
-        this.blb.setHeight(l.e(this.dlE.getActivity(), d.e.tbds182));
-        this.blb.wO();
-        this.blb.setTextSize(d.e.tbfontsize33);
-        this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
-        this.blb.dt(d.C0126d.cp_cont_e);
-        this.cYN.setOnSrollToBottomListener(this.dlE);
-        if (this.bnR == null) {
-            this.bnR = (BdSwipeRefreshLayout) view2.findViewById(d.g.frs_pull_refresh_layout);
-            this.bnR.setProgressView(this.mPullView);
-            ak.j(this.bnR, d.C0126d.cp_bg_line_c);
+        this.blq = new PbListView(this.dmL.getPageContext().getPageActivity());
+        this.blq.kz();
+        this.blq.dv(d.C0126d.cp_bg_line_e);
+        this.blq.setHeight(l.e(this.dmL.getActivity(), d.e.tbds182));
+        this.blq.wN();
+        this.blq.setTextSize(d.e.tbfontsize33);
+        this.blq.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
+        this.blq.du(d.C0126d.cp_cont_e);
+        this.cZU.setOnSrollToBottomListener(this.dmL);
+        if (this.bog == null) {
+            this.bog = (BdSwipeRefreshLayout) view2.findViewById(d.g.frs_pull_refresh_layout);
+            this.bog.setProgressView(this.mPullView);
+            ak.j(this.bog, d.C0126d.cp_bg_line_c);
         }
-        this.dcB = (FrameLayout) view2.findViewById(d.g.frs_list_content);
-        this.dlS = new a(this.dlE, this.cYN);
+        this.ddJ = (FrameLayout) view2.findViewById(d.g.frs_list_content);
+        this.dmZ = new a(this.dmL, this.cZU);
         ch(false);
     }
 
     private void b(w wVar) {
-        if (this.dlT == null) {
-            this.dlT = new BannerView(this.dlE.getPageContext().getPageActivity());
-            this.dlT.setLayoutParams(new AbsListView.LayoutParams(-1, this.dlE.getResources().getDimensionPixelSize(d.e.ds100)));
-            this.dlT.setVisibility(8);
-            this.dlT.setBannerViewClickListener(this.dlX);
-            this.dlT.setBannerData(wVar);
-            this.dlT.setBannerViewEvent(new TbImageView.a() { // from class: com.baidu.tieba.frs.good.b.2
+        if (this.dna == null) {
+            this.dna = new BannerView(this.dmL.getPageContext().getPageActivity());
+            this.dna.setLayoutParams(new AbsListView.LayoutParams(-1, this.dmL.getResources().getDimensionPixelSize(d.e.ds100)));
+            this.dna.setVisibility(8);
+            this.dna.setBannerViewClickListener(this.dne);
+            this.dna.setBannerData(wVar);
+            this.dna.setBannerViewEvent(new TbImageView.a() { // from class: com.baidu.tieba.frs.good.b.2
                 @Override // com.baidu.tbadk.widget.TbImageView.a
                 public void n(String str, boolean z) {
-                    if (z && b.this.dlT.BQ() && !b.this.dlU && b.this.cYN != null) {
-                        b.this.dlU = true;
-                        b.this.cYN.addHeaderView(b.this.dlT, 1);
+                    if (z && b.this.dna.BO() && !b.this.dnb && b.this.cZU != null) {
+                        b.this.dnb = true;
+                        b.this.cZU.addHeaderView(b.this.dna, 1);
                     }
                 }
 
@@ -170,50 +170,50 @@ public class b implements TabLayout.OnTabSelectedListener {
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.frs.good.FrsGoodFragment */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void atE() {
-        if (this.axE != null) {
-            String value = this.axE.getValue();
-            if (this.axE.qH() == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2902014, new FacePackageDetailActivityConfig(this.dlE.getPageContext().getPageActivity(), value, false, "frs_banner")));
-            } else if (this.axE.qH() == 2) {
+    public void atD() {
+        if (this.axF != null) {
+            String value = this.axF.getValue();
+            if (this.axF.qG() == 1) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2902014, new FacePackageDetailActivityConfig(this.dmL.getPageContext().getPageActivity(), value, false, "frs_banner")));
+            } else if (this.axF.qG() == 2) {
                 if (value.contains("tieba.baidu.com")) {
                     Matcher matcher = pbPattern0.matcher(value);
                     if (matcher.find()) {
                         try {
                             String group = matcher.group(2);
-                            PbActivityConfig createNormalCfg = new PbActivityConfig(this.dlE.getPageContext().getPageActivity()).createNormalCfg(group, null, "frs_banner");
+                            PbActivityConfig createNormalCfg = new PbActivityConfig(this.dmL.getPageContext().getPageActivity()).createNormalCfg(group, null, "frs_banner");
                             createNormalCfg.setForumId(group);
                             createNormalCfg.setStartFrom(3);
-                            this.dlE.sendMessage(new CustomMessage(2004001, createNormalCfg));
+                            this.dmL.sendMessage(new CustomMessage(2004001, createNormalCfg));
                         } catch (Exception e) {
                             BdLog.e(e.toString());
                         }
                     }
                 }
-            } else if (this.axE.qH() == 3) {
+            } else if (this.axF.qG() == 3) {
                 new UtilHelper.a();
                 UtilHelper.a isNativeAddress = UtilHelper.isNativeAddress(value);
                 if (isNativeAddress.ajs != UtilHelper.NativePageType.NONE) {
                     switch (isNativeAddress.ajs) {
                         case FRS:
-                            this.dlE.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.dlE.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, "frs_banner")));
+                            this.dmL.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.dmL.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, "frs_banner")));
                             return;
                         case PB:
-                            PbActivityConfig createNormalCfg2 = new PbActivityConfig(this.dlE.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, null, "frs_banner");
+                            PbActivityConfig createNormalCfg2 = new PbActivityConfig(this.dmL.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, null, "frs_banner");
                             createNormalCfg2.setForumId(isNativeAddress.id);
                             createNormalCfg2.setStartFrom(3);
-                            this.dlE.sendMessage(new CustomMessage(2004001, createNormalCfg2));
+                            this.dmL.sendMessage(new CustomMessage(2004001, createNormalCfg2));
                             return;
                         default:
                             return;
                     }
                 }
-                ax.wg().c(this.dlE.getPageContext(), new String[]{value});
+                ax.wf().c(this.dmL.getPageContext(), new String[]{value});
                 if (!StringUtils.isNull(value) && value.startsWith("game:detail:")) {
-                    TiebaStatic.eventStat(this.dlE.getPageContext().getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
+                    TiebaStatic.eventStat(this.dmL.getPageContext().getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
                 }
-            } else if (this.axE.qH() == 4) {
-                this.dlE.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.dlE.getPageContext().getPageActivity()).createNormalCfg(value, "frs_banner")));
+            } else if (this.axF.qG() == 4) {
+                this.dmL.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.dmL.getPageContext().getPageActivity()).createNormalCfg(value, "frs_banner")));
             }
         }
     }
@@ -223,18 +223,18 @@ public class b implements TabLayout.OnTabSelectedListener {
     }
 
     public void setOnScrollListener(RecyclerView.OnScrollListener onScrollListener) {
-        this.cYN.setOnScrollListener(onScrollListener);
+        this.cZU.setOnScrollListener(onScrollListener);
     }
 
     public void setOnAdapterItemClickListener(n nVar) {
-        this.dlS.setOnAdapterItemClickListener(nVar);
+        this.dmZ.setOnAdapterItemClickListener(nVar);
     }
 
     public void onDestroy() {
-        this.dlS.onDestory();
-        this.cYN.setOnSrollToBottomListener(null);
-        a(this.dlQ);
-        a(this.dlR);
+        this.dmZ.onDestory();
+        this.cZU.setOnSrollToBottomListener(null);
+        a(this.dmX);
+        a(this.dmY);
     }
 
     private void a(TabLayout tabLayout) {
@@ -245,17 +245,17 @@ public class b implements TabLayout.OnTabSelectedListener {
 
     public void ch(boolean z) {
         if (!z) {
-            this.bnR.setRefreshing(false);
+            this.bog.setRefreshing(false);
         }
     }
 
     public void showListView() {
-        this.cYN.setVisibility(0);
+        this.cZU.setVisibility(0);
     }
 
-    public void aqk() {
-        if (this.dlS != null) {
-            this.dlS.notifyDataSetChanged();
+    public void aqj() {
+        if (this.dmZ != null) {
+            this.dmZ.notifyDataSetChanged();
         }
     }
 
@@ -265,21 +265,21 @@ public class b implements TabLayout.OnTabSelectedListener {
             TabData tabData = new TabData();
             com.baidu.tieba.frs.tab.d dVar = new com.baidu.tieba.frs.tab.d();
             dVar.tabId = 0;
-            dVar.name = this.dlE.getPageContext().getResources().getString(d.k.all);
+            dVar.name = this.dmL.getPageContext().getResources().getString(d.k.all);
             tabData.add(dVar);
             for (ab abVar : good_classify) {
-                if (abVar != null && abVar.qL() > 0 && !TextUtils.isEmpty(abVar.qK()) && !TextUtils.isEmpty(abVar.qK().trim())) {
+                if (abVar != null && abVar.qK() > 0 && !TextUtils.isEmpty(abVar.qJ()) && !TextUtils.isEmpty(abVar.qJ().trim())) {
                     com.baidu.tieba.frs.tab.d dVar2 = new com.baidu.tieba.frs.tab.d();
-                    dVar2.tabId = abVar.qL();
-                    dVar2.name = abVar.qK();
+                    dVar2.tabId = abVar.qK();
+                    dVar2.name = abVar.qJ();
                     tabData.add(dVar2);
                 }
             }
             if (v.v(tabData) > 1) {
-                atI();
-                this.dlV = true;
-                a(tabData, this.dlQ);
-                a(tabData, this.dlR);
+                atH();
+                this.dnc = true;
+                a(tabData, this.dmX);
+                a(tabData, this.dmY);
             }
         }
     }
@@ -305,7 +305,7 @@ public class b implements TabLayout.OnTabSelectedListener {
                 }
                 TabLayout.Tab tab = tabAt;
                 if (!(tab.getCustomView() instanceof TextView)) {
-                    TextView textView = new TextView(this.dlE.getContext());
+                    TextView textView = new TextView(this.dmL.getContext());
                     textView.setSingleLine();
                     ak.i(textView, d.f.bg_item_good_tab_border);
                     textView.setGravity(17);
@@ -318,7 +318,7 @@ public class b implements TabLayout.OnTabSelectedListener {
                 }
                 ((TextView) tab.getCustomView()).setText(an.f(tabData.get(i2).name, 10, "..."));
                 tab.setTag(Integer.valueOf(tabData.get(i2).tabId));
-                if (tabData.get(i2).tabId == this.dlW) {
+                if (tabData.get(i2).tabId == this.dnd) {
                     tab.select();
                 }
             }
@@ -332,114 +332,114 @@ public class b implements TabLayout.OnTabSelectedListener {
             arrayList = new ArrayList<>();
             arrayList.add(kVar);
         }
-        this.dlS.b(arrayList, lVar);
-        this.dlV = false;
+        this.dmZ.b(arrayList, lVar);
+        this.dnc = false;
     }
 
     public BdTypeRecyclerView getListView() {
-        return this.cYN;
+        return this.cZU;
     }
 
-    public void atF() {
-        this.dlS.notifyDataSetInvalidated();
+    public void atE() {
+        this.dmZ.notifyDataSetInvalidated();
     }
 
     public void setListViewSelection(int i) {
-        this.cYN.setSelection(i);
+        this.cZU.setSelection(i);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.frs.good.FrsGoodFragment */
     /* JADX WARN: Multi-variable type inference failed */
     public void b(ForumData forumData, UserData userData) {
-        if (!this.dlU && forumData != null && forumData.getFrsBannerData() != null && forumData.getFrsBannerData().isValid()) {
-            this.axE = forumData.getFrsBannerData();
-            b(this.axE);
-            this.dlT.reset();
-            this.cYN.removeHeaderView(this.dlT);
-            if (this.axE.getType() == 1 && !TextUtils.isEmpty(this.axE.qI())) {
-                this.dlT.setData(this.dlE.getPageContext(), this.axE.qI());
-                if (this.axE.getValue().startsWith("game:detail:")) {
-                    TiebaStatic.eventStat(this.dlE.getPageContext().getPageActivity(), "game_show", "show", 1, "ref_id", "4000601", "ref_type", "603");
+        if (!this.dnb && forumData != null && forumData.getFrsBannerData() != null && forumData.getFrsBannerData().isValid()) {
+            this.axF = forumData.getFrsBannerData();
+            b(this.axF);
+            this.dna.reset();
+            this.cZU.removeHeaderView(this.dna);
+            if (this.axF.getType() == 1 && !TextUtils.isEmpty(this.axF.qH())) {
+                this.dna.setData(this.dmL.getPageContext(), this.axF.qH());
+                if (this.axF.getValue().startsWith("game:detail:")) {
+                    TiebaStatic.eventStat(this.dmL.getPageContext().getPageActivity(), "game_show", "show", 1, "ref_id", "4000601", "ref_type", "603");
                 }
             }
         }
     }
 
-    public void atG() {
-        if (this.dlT != null) {
-            this.dlU = false;
-            this.cYN.removeHeaderView(this.dlT);
+    public void atF() {
+        if (this.dna != null) {
+            this.dnb = false;
+            this.cZU.removeHeaderView(this.dna);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mPullView != null) {
-            this.mPullView.dv(i);
+            this.mPullView.dw(i);
         }
-        if (this.dlS != null) {
-            this.dlS.arN();
-            this.dlS.notifyDataSetChanged();
-            this.dlS.onChangeSkinType(i);
+        if (this.dmZ != null) {
+            this.dmZ.arM();
+            this.dmZ.notifyDataSetChanged();
+            this.dmZ.onChangeSkinType(i);
         }
-        this.dlE.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
-        this.dlE.getBaseFragmentActivity().getLayoutMode().u(this.bbY);
-        if (this.dlT != null) {
-            this.dlT.BR();
+        this.dmL.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
+        this.dmL.getBaseFragmentActivity().getLayoutMode().u(this.bbZ);
+        if (this.dna != null) {
+            this.dna.BP();
         }
-        if (this.blb != null) {
-            this.blb.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
-            this.blb.dv(i);
+        if (this.blq != null) {
+            this.blq.setTextColor(ak.getColor(d.C0126d.cp_cont_j));
+            this.blq.dw(i);
         }
-        ak.j(this.bnR, d.C0126d.cp_bg_line_c);
-        ak.j(this.cYN, d.C0126d.cp_bg_line_e);
-        b(this.dlQ);
-        b(this.dlR);
+        ak.j(this.bog, d.C0126d.cp_bg_line_c);
+        ak.j(this.cZU, d.C0126d.cp_bg_line_e);
+        b(this.dmX);
+        b(this.dmY);
     }
 
     public void startPullRefresh() {
-        this.bnR.setRefreshing(true);
+        this.bog.setRefreshing(true);
     }
 
-    public a atH() {
-        return this.dlS;
+    public a atG() {
+        return this.dmZ;
     }
 
-    public RelativeLayout arm() {
-        return this.bbY;
+    public RelativeLayout arl() {
+        return this.bbZ;
     }
 
-    public View arn() {
-        return this.bnR;
+    public View arm() {
+        return this.bog;
     }
 
-    public void aqv() {
-        if (p.Ha().Hb()) {
-            int lastVisiblePosition = this.cYN.getLastVisiblePosition();
+    public void aqu() {
+        if (p.GY().GZ()) {
+            int lastVisiblePosition = this.cZU.getLastVisiblePosition();
             for (int i = 0; i <= lastVisiblePosition; i++) {
-                View childAt = this.cYN.getChildAt(i);
+                View childAt = this.cZU.getChildAt(i);
                 if (childAt != null && (childAt instanceof View) && childAt.getTag() != null && (childAt.getTag() instanceof m)) {
                     m mVar = (m) childAt.getTag();
-                    if (mVar.cZB != null) {
-                        com.baidu.tbadk.k.k perfLog = mVar.cZB.getPerfLog();
-                        perfLog.fi(1000);
-                        perfLog.aKM = true;
+                    if (mVar.daK != null) {
+                        com.baidu.tbadk.k.k perfLog = mVar.daK.getPerfLog();
+                        perfLog.fj(1000);
+                        perfLog.aKN = true;
                         if (lastVisiblePosition == i) {
                             int[] iArr = new int[2];
-                            mVar.cZB.getLocationOnScreen(iArr);
+                            mVar.daK.getLocationOnScreen(iArr);
                             if (iArr[1] > l.ah(TbadkCoreApplication.getInst().getContext())) {
                             }
                         }
-                        mVar.cZB.startLogPerf();
+                        mVar.daK.startLogPerf();
                     }
-                    if (mVar.cZA != null && (mVar.cZA instanceof ViewGroup)) {
-                        FrsCommonImageLayout frsCommonImageLayout = mVar.cZA;
+                    if (mVar.daJ != null && (mVar.daJ instanceof ViewGroup)) {
+                        FrsCommonImageLayout frsCommonImageLayout = mVar.daJ;
                         for (int i2 = 0; i2 < frsCommonImageLayout.getChildCount(); i2++) {
                             View childAt2 = frsCommonImageLayout.getChildAt(i2);
                             if (childAt2 instanceof TbImageView) {
                                 TbImageView tbImageView = (TbImageView) childAt2;
                                 com.baidu.tbadk.k.k perfLog2 = tbImageView.getPerfLog();
-                                perfLog2.fi(1000);
-                                perfLog2.aKM = true;
+                                perfLog2.fj(1000);
+                                perfLog2.aKN = true;
                                 if (lastVisiblePosition == i) {
                                     int[] iArr2 = new int[2];
                                     childAt2.getLocationOnScreen(iArr2);
@@ -456,26 +456,26 @@ public class b implements TabLayout.OnTabSelectedListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Qo() {
-        this.cYN.setNextPage(this.blb);
-        this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.blb.wR();
+    public void Ql() {
+        this.cZU.setNextPage(this.blq);
+        this.blq.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.blq.wQ();
     }
 
-    public void Qp() {
-        this.cYN.setNextPage(this.blb);
-        this.blb.dw(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.blb.wS();
-        this.blb.setText(this.dlE.getResources().getString(d.k.list_no_more));
+    public void Qm() {
+        this.cZU.setNextPage(this.blq);
+        this.blq.dx(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.blq.wR();
+        this.blq.setText(this.dmL.getResources().getString(d.k.list_no_more));
     }
 
-    public void Qq() {
-        this.cYN.setNextPage(null);
+    public void Qn() {
+        this.cZU.setNextPage(null);
     }
 
-    public void fI(boolean z) {
-        this.dcB.setVisibility(z ? 0 : 8);
-        fR(z);
+    public void fJ(boolean z) {
+        this.ddJ.setVisibility(z ? 0 : 8);
+        fS(z);
     }
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
@@ -483,12 +483,12 @@ public class b implements TabLayout.OnTabSelectedListener {
         if (tab != null) {
             if (tab.getTag() instanceof Integer) {
                 int intValue = ((Integer) tab.getTag()).intValue();
-                c.dov.don = intValue;
-                if (!this.dlV) {
-                    this.dlW = intValue;
-                    a(intValue, this.dlR, false);
-                    this.dlE.kQ(this.dlW);
-                    com.baidu.tieba.card.v.afy().et(false);
+                c.dpD.dpv = intValue;
+                if (!this.dnc) {
+                    this.dnd = intValue;
+                    a(intValue, this.dmY, false);
+                    this.dmL.kP(this.dnd);
+                    com.baidu.tieba.card.v.afy().eu(false);
                 }
             }
             a(tab);
@@ -497,8 +497,8 @@ public class b implements TabLayout.OnTabSelectedListener {
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabUnselected(TabLayout.Tab tab) {
-        if (this.bnR != null && this.bnR.isRefreshing()) {
-            this.bnR.li();
+        if (this.bog != null && this.bog.isRefreshing()) {
+            this.bog.lh();
         }
         b(tab);
     }
@@ -506,32 +506,32 @@ public class b implements TabLayout.OnTabSelectedListener {
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabReselected(TabLayout.Tab tab) {
         if (tab != null && tab.getCustomView() != null) {
-            if (!this.dlV && (tab.getTag() instanceof Integer)) {
-                this.dlW = ((Integer) tab.getTag()).intValue();
-                this.dlE.kQ(this.dlW);
+            if (!this.dnc && (tab.getTag() instanceof Integer)) {
+                this.dnd = ((Integer) tab.getTag()).intValue();
+                this.dmL.kP(this.dnd);
             }
             a(tab);
         }
     }
 
-    private void atI() {
-        if (this.dlQ == null) {
-            this.dlQ = (TabLayout) LayoutInflater.from(this.dlE.getContext()).inflate(d.i.frs_good_second_layout, (ViewGroup) null);
-            this.dlQ.setLayoutParams(new RecyclerView.LayoutParams(-1, l.e(this.dlE.getContext(), d.e.tbds146)));
-            this.dlQ.setOnTabSelectedListener(this);
-            b(this.dlQ);
-            this.cYN.addHeaderView(this.dlQ);
+    private void atH() {
+        if (this.dmX == null) {
+            this.dmX = (TabLayout) LayoutInflater.from(this.dmL.getContext()).inflate(d.i.frs_good_second_layout, (ViewGroup) null);
+            this.dmX.setLayoutParams(new RecyclerView.LayoutParams(-1, l.e(this.dmL.getContext(), d.e.tbds146)));
+            this.dmX.setOnTabSelectedListener(this);
+            b(this.dmX);
+            this.cZU.addHeaderView(this.dmX);
         }
     }
 
     private void aw(View view2) {
-        this.dlR = (TabLayout) view2.findViewById(d.g.frs_good_fake_tabview);
-        this.dlR.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.frs.good.b.4
+        this.dmY = (TabLayout) view2.findViewById(d.g.frs_good_fake_tabview);
+        this.dmY.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.frs.good.b.4
             @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab != null) {
                     if (tab.getTag() instanceof Integer) {
-                        b.this.a(((Integer) tab.getTag()).intValue(), b.this.dlQ, true);
+                        b.this.a(((Integer) tab.getTag()).intValue(), b.this.dmX, true);
                     }
                     b.this.a(tab);
                 }
@@ -539,8 +539,8 @@ public class b implements TabLayout.OnTabSelectedListener {
 
             @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
             public void onTabUnselected(TabLayout.Tab tab) {
-                if (b.this.bnR != null && b.this.bnR.isRefreshing()) {
-                    b.this.bnR.li();
+                if (b.this.bog != null && b.this.bog.isRefreshing()) {
+                    b.this.bog.lh();
                 }
                 b.this.b(tab);
             }
@@ -579,11 +579,11 @@ public class b implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    private void fR(boolean z) {
+    private void fS(boolean z) {
         if (z) {
-            this.dlR.setVisibility(8);
-        } else if (this.dlR.getTabCount() > 1) {
-            this.dlR.setVisibility(0);
+            this.dmY.setVisibility(8);
+        } else if (this.dmY.getTabCount() > 1) {
+            this.dmY.setVisibility(0);
         }
     }
 

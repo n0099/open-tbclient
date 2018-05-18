@@ -95,7 +95,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setRole(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wj(i)));
         this.role = i;
     }
 

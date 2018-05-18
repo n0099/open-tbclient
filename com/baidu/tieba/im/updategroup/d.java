@@ -18,13 +18,13 @@ import com.baidu.tieba.im.util.f;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implements a {
-    protected TextView aMR;
-    protected ImageButton dUA;
-    protected boolean dUP;
-    private a.b dVA;
-    private a.b dVz;
-    protected UpdateGroupActivity eik;
-    protected String eil;
+    protected TextView aMS;
+    protected ImageButton dVH;
+    protected boolean dVW;
+    private a.b dWG;
+    private a.b dWH;
+    protected UpdateGroupActivity ejr;
+    protected String ejs;
     protected EditText mEditText;
     protected long mGroupId;
     protected View mImgBack;
@@ -36,27 +36,27 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void a(a.b bVar) {
-        this.dVA = bVar;
+        this.dWH = bVar;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void b(a.b bVar) {
-        this.dVz = bVar;
+        this.dWG = bVar;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View aHf() {
+    public View aHd() {
         return this.mImgBack;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View aCD() {
-        return this.aMR;
+    public View aCB() {
+        return this.aMS;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View aBR() {
-        return this.dUA;
+    public View aBP() {
+        return this.dVH;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -65,30 +65,30 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public boolean aCu() {
-        return this.dUP;
+    public boolean aCs() {
+        return this.dVW;
     }
 
     public d(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity.getPageContext());
-        this.dVA = null;
-        this.dVz = null;
+        this.dWH = null;
+        this.dWG = null;
         this.mEditText = null;
         this.mNavigationBar = null;
         this.mParent = null;
-        this.aMR = null;
-        this.dUA = null;
-        this.eik = null;
+        this.aMS = null;
+        this.dVH = null;
+        this.ejr = null;
         this.progressBar = null;
-        this.eil = null;
+        this.ejs = null;
         this.mIsLoading = false;
         this.mGroupId = 0L;
-        this.dUP = true;
+        this.dVW = true;
         this.mImgBack = null;
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.im.updategroup.d.1
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                d.this.aHg();
+                d.this.aHe();
             }
 
             @Override // android.text.TextWatcher
@@ -99,12 +99,12 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
             public void afterTextChanged(Editable editable) {
             }
         };
-        this.eik = updateGroupActivity;
+        this.ejr = updateGroupActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setContentView(int i) {
-        this.eik.setContentView(i);
+        this.ejr.setContentView(i);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -118,74 +118,74 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void nS(String str) {
-        this.eil = str;
+    public void nV(String str) {
+        this.ejs = str;
         setText(str);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public String aHe() {
-        return this.eil;
+    public String aHc() {
+        return this.ejs;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void nZ(int i) {
-        this.mParent = this.eik.findViewById(d.g.parent);
-        this.mNavigationBar = (NavigationBar) this.eik.findViewById(d.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.eik.getResources().getString(i));
+    public void nY(int i) {
+        this.mParent = this.ejr.findViewById(d.g.parent);
+        this.mNavigationBar = (NavigationBar) this.ejr.findViewById(d.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.ejr.getResources().getString(i));
         this.mImgBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.aMR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.eik.getResources().getString(d.k.group_update_done));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aMR.getLayoutParams();
+        this.aMS = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.ejr.getResources().getString(d.k.group_update_done));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aMS.getLayoutParams();
         layoutParams.rightMargin = l.e(getPageContext().getPageActivity(), d.e.ds16);
-        this.aMR.setLayoutParams(layoutParams);
-        this.mEditText = (EditText) this.eik.findViewById(d.g.edit_text);
-        this.progressBar = (ProgressBar) this.eik.findViewById(d.g.progress);
-        gT(false);
-        this.mImgBack.setOnClickListener(this.eik);
+        this.aMS.setLayoutParams(layoutParams);
+        this.mEditText = (EditText) this.ejr.findViewById(d.g.edit_text);
+        this.progressBar = (ProgressBar) this.ejr.findViewById(d.g.progress);
+        gU(false);
+        this.mImgBack.setOnClickListener(this.ejr);
         this.mEditText.addTextChangedListener(this.mTextWatcher);
-        this.aMR.setOnClickListener(this.eik);
+        this.aMS.setOnClickListener(this.ejr);
     }
 
-    protected void gT(boolean z) {
-        this.dUP = z;
-        this.aMR.setEnabled(z);
+    protected void gU(boolean z) {
+        this.dVW = z;
+        this.aMS.setEnabled(z);
     }
 
-    public boolean aHl() {
-        return this.eil != null && this.eil.equals(this.mEditText.getText().toString());
+    public boolean aHj() {
+        return this.ejs != null && this.ejs.equals(this.mEditText.getText().toString());
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public boolean aHi() {
+    public boolean aHg() {
         return f.f(this.mEditText) || this.mEditText.length() >= 3;
     }
 
-    protected void aCv() {
-        this.aMR.setEnabled(this.dUP);
-        ak.i(this.aMR, d.f.s_navbar_button_bg);
+    protected void aCt() {
+        this.aMS.setEnabled(this.dVW);
+        ak.i(this.aMS, d.f.s_navbar_button_bg);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void u(int i, int i2, int i3, int i4) {
         if (i == 1) {
-            gT(false);
+            gU(false);
         } else if (i2 >= i3 && i2 <= i4) {
-            gT(true);
+            gU(true);
         } else {
-            gT(false);
+            gU(false);
         }
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void onChangeSkinType(int i) {
-        this.eik.getLayoutMode().setNightMode(i == 1);
-        this.eik.getLayoutMode().u(this.mParent);
-        this.mNavigationBar.onChangeSkinType(this.eik.getPageContext(), i);
+        this.ejr.getLayoutMode().setNightMode(i == 1);
+        this.ejr.getLayoutMode().u(this.mParent);
+        this.mNavigationBar.onChangeSkinType(this.ejr.getPageContext(), i);
         ak.f(this.mParent, i);
-        ak.i(this.aMR, d.f.s_navbar_button_bg);
-        ak.c(this.aMR, d.C0126d.navbar_btn_color, 1);
-        aCv();
-        this.mEditText.setHintTextColor(ak.cM(d.C0126d.common_color_10005));
+        ak.i(this.aMS, d.f.s_navbar_button_bg);
+        ak.c(this.aMS, d.C0126d.navbar_btn_color, 1);
+        aCt();
+        this.mEditText.setHintTextColor(ak.cN(d.C0126d.common_color_10005));
         ak.i(this.mParent, d.C0126d.common_color_10041);
     }
 
@@ -212,25 +212,25 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void showDialog() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eik.getPageContext().getPageActivity());
-        aVar.bZ(d.k.group_update_alert_save);
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.ejr.getPageContext().getPageActivity());
+        aVar.ca(d.k.group_update_alert_save);
         aVar.a(d.k.group_update_canel, new a.b() { // from class: com.baidu.tieba.im.updategroup.d.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                if (d.this.dVA != null) {
-                    d.this.dVA.onClick(aVar2);
+                if (d.this.dWH != null) {
+                    d.this.dWH.onClick(aVar2);
                 }
             }
         });
         aVar.b(d.k.group_update_done, new a.b() { // from class: com.baidu.tieba.im.updategroup.d.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                if (d.this.dVz != null) {
-                    d.this.dVz.onClick(aVar2);
+                if (d.this.dWG != null) {
+                    d.this.dWG.onClick(aVar2);
                 }
             }
         });
-        aVar.b(this.eik.getPageContext());
-        aVar.tD();
+        aVar.b(this.ejr.getPageContext());
+        aVar.tC();
     }
 }

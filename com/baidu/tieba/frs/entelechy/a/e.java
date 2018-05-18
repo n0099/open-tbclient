@@ -15,28 +15,28 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<y>> implements com.baidu.tieba.a.f, aa, com.baidu.tieba.frs.e.c {
-    private String bvX;
-    private ab ddF;
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> ddG;
-    private com.baidu.adp.lib.e.b<TbImageView> ddH;
+    private String bwO;
+    private ab deN;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> deO;
+    private com.baidu.adp.lib.e.b<TbImageView> deP;
     private String mForumName;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.ddF = new ab() { // from class: com.baidu.tieba.frs.entelechy.a.e.1
+        this.deN = new ab() { // from class: com.baidu.tieba.frs.entelechy.a.e.1
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, com.baidu.tieba.card.data.b bVar, Object obj) {
                 if (bVar instanceof bd) {
-                    com.baidu.tieba.frs.e.b.auH().a(com.baidu.tieba.frs.e.c.dov, (bd) bVar, 1);
+                    com.baidu.tieba.frs.e.b.auG().a(com.baidu.tieba.frs.e.c.dpD, (bd) bVar, 1);
                 }
             }
         };
-        this.ddG = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.e.2
+        this.deO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: arU */
+            /* renamed from: arT */
             public ConstrainImageLayout fo() {
                 return new ConstrainImageLayout(e.this.mPageContext.getPageActivity());
             }
@@ -62,10 +62,10 @@ public class e extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<y>> im
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.ddH = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.e.3
+        this.deP = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.e.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: xi */
+            /* renamed from: xh */
             public TbImageView fo() {
                 TbImageView tbImageView = new TbImageView(e.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -113,9 +113,9 @@ public class e extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<y>> im
     public com.baidu.tieba.card.a.a<y> onCreateViewHolder(ViewGroup viewGroup) {
         y yVar = new y(this.mPageContext, viewGroup);
         com.baidu.tieba.card.a.a<y> aVar = new com.baidu.tieba.card.a.a<>(yVar);
-        yVar.setConstrainImagePool(this.ddH);
-        yVar.setConstrainLayoutPool(this.ddG);
-        yVar.b(this.ddF);
+        yVar.setConstrainImagePool(this.deP);
+        yVar.setConstrainLayoutPool(this.deO);
+        yVar.b(this.deN);
         return aVar;
     }
 
@@ -128,16 +128,16 @@ public class e extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<y>> im
             return null;
         }
         if (aVar.afY() instanceof com.baidu.tieba.a.e) {
-            aVar.afY().setPage(this.bvX);
+            aVar.afY().setPage(this.bwO);
         }
-        com.baidu.tieba.frs.e.b.auH().a(dov, bdVar);
-        aVar.afY().b(this.ddF);
+        com.baidu.tieba.frs.e.b.auG().a(dpD, bdVar);
+        aVar.afY().b(this.deN);
         aVar.afY().a(bdVar);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void hY(String str) {
-        this.bvX = str;
+    public void hZ(String str) {
+        this.bwO = str;
     }
 }

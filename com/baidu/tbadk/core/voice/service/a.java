@@ -20,7 +20,7 @@ public class a implements d {
     private String filePath;
     private int frequency;
     private int bufferSize = 0;
-    private boolean JU = false;
+    private boolean JQ = false;
     private AudioRecord mAudioRecord = null;
     private File file = null;
 
@@ -70,13 +70,13 @@ public class a implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xD() {
+    public void xC() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
-                this.JU = true;
+                this.JQ = true;
                 byte[] bArr = new byte[this.bufferSize];
                 this.mAudioRecord.startRecording();
-                while (this.JU) {
+                while (this.JQ) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
                     this.arA.write(bArr);
                     this.dataSize += bArr.length;
@@ -88,7 +88,7 @@ public class a implements d {
                 this.arA.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
-                this.JU = false;
+                this.JQ = false;
             } catch (Throwable th) {
                 if (this.file.exists()) {
                     this.file.delete();
@@ -98,11 +98,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean xE() {
+    public boolean xD() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.xD();
+                a.this.xC();
             }
         });
         thread.setPriority(10);
@@ -112,13 +112,13 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void xF() {
-        this.JU = false;
+    public void xE() {
+        this.JQ = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
     public boolean isRecording() {
-        return this.JU;
+        return this.JQ;
     }
 
     private void writeHeader() {

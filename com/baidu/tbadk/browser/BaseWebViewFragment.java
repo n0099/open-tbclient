@@ -91,7 +91,7 @@ public class BaseWebViewFragment extends BaseFragment {
             }
             String findSubString2 = findSubString("<img src=\"", "\"");
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.awV = Uri.parse(findSubString2);
+                dVar.awW = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString("<meta name=\"shareurl\" content=\"", "\"");
             if (!StringUtils.isNull(findSubString3, true)) {
@@ -108,7 +108,7 @@ public class BaseWebViewFragment extends BaseFragment {
             dVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.awV = Uri.parse(str4);
+            dVar.awW = Uri.parse(str4);
         }
         return dVar;
     }
