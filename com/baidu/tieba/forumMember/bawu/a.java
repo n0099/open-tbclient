@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.bawu;
 /* loaded from: classes3.dex */
 public class a implements i {
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int anX() {
+    public int asc() {
         return 2;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.fsg.base.restnet;
 
+import com.baidu.ar.util.SystemInfoUtil;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FilterOutputStream;
@@ -29,7 +30,7 @@ public class RestMultipartEntity {
             sb.append(MULTIPART_CHARS[random.nextInt(MULTIPART_CHARS.length)]);
         }
         this.mBoundary = sb.toString();
-        this.mBoundaryLineBytes = ("\r\n--" + this.mBoundary + "\r\n").getBytes();
+        this.mBoundaryLineBytes = ("\r\n--" + this.mBoundary + SystemInfoUtil.LINE_END).getBytes();
     }
 
     public String getBoundary() {
@@ -112,7 +113,7 @@ public class RestMultipartEntity {
     private void writeBoundaryLine() throws IOException {
         if (!this.mIsSetFirst) {
             this.mIsSetFirst = true;
-            this.mOut.write(("--" + this.mBoundary + "\r\n").getBytes());
+            this.mOut.write(("--" + this.mBoundary + SystemInfoUtil.LINE_END).getBytes());
             return;
         }
         this.mOut.write(this.mBoundaryLineBytes);

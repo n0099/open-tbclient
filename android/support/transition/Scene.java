@@ -1,41 +1,21 @@
 package android.support.transition;
 
 import android.content.Context;
-import android.os.Build;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public class Scene {
-    private static SceneStaticsImpl sImpl;
-    SceneImpl mImpl;
-
-    static {
-        if (Build.VERSION.SDK_INT >= 21) {
-            sImpl = new SceneStaticsApi21();
-        } else if (Build.VERSION.SDK_INT >= 19) {
-            sImpl = new SceneStaticsKitKat();
-        } else {
-            sImpl = new SceneStaticsIcs();
-        }
-    }
-
-    public Scene(@NonNull ViewGroup viewGroup) {
-        this.mImpl = createSceneImpl();
-        this.mImpl.init(viewGroup);
-    }
-
-    public Scene(@NonNull ViewGroup viewGroup, @NonNull View view2) {
-        this.mImpl = createSceneImpl();
-        this.mImpl.init(viewGroup, view2);
-    }
-
-    private Scene(SceneImpl sceneImpl) {
-        this.mImpl = sceneImpl;
-    }
+    private Context mContext;
+    private Runnable mEnterAction;
+    private Runnable mExitAction;
+    private View mLayout;
+    private int mLayoutId;
+    private ViewGroup mSceneRoot;
 
     @NonNull
     public static Scene getSceneForLayout(@NonNull ViewGroup viewGroup, @LayoutRes int i, @NonNull Context context) {
@@ -50,41 +30,77 @@ public class Scene {
         }
         Scene scene = (Scene) sparseArray.get(i);
         if (scene == null) {
-            Scene scene2 = new Scene(sImpl.getSceneForLayout(viewGroup, i, context));
+            Scene scene2 = new Scene(viewGroup, i, context);
             sparseArray.put(i, scene2);
             return scene2;
         }
         return scene;
     }
 
-    private SceneImpl createSceneImpl() {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return new SceneApi21();
-        }
-        if (Build.VERSION.SDK_INT >= 19) {
-            return new SceneKitKat();
-        }
-        return new SceneIcs();
+    public Scene(@NonNull ViewGroup viewGroup) {
+        this.mLayoutId = -1;
+        this.mSceneRoot = viewGroup;
+    }
+
+    private Scene(ViewGroup viewGroup, int i, Context context) {
+        this.mLayoutId = -1;
+        this.mContext = context;
+        this.mSceneRoot = viewGroup;
+        this.mLayoutId = i;
+    }
+
+    public Scene(@NonNull ViewGroup viewGroup, @NonNull View view) {
+        this.mLayoutId = -1;
+        this.mSceneRoot = viewGroup;
+        this.mLayout = view;
     }
 
     @NonNull
     public ViewGroup getSceneRoot() {
-        return this.mImpl.getSceneRoot();
+        return this.mSceneRoot;
     }
 
     public void exit() {
-        this.mImpl.exit();
+        if (getCurrentScene(this.mSceneRoot) == this && this.mExitAction != null) {
+            this.mExitAction.run();
+        }
     }
 
     public void enter() {
-        this.mImpl.enter();
+        if (this.mLayoutId > 0 || this.mLayout != null) {
+            getSceneRoot().removeAllViews();
+            if (this.mLayoutId > 0) {
+                LayoutInflater.from(this.mContext).inflate(this.mLayoutId, this.mSceneRoot);
+            } else {
+                this.mSceneRoot.addView(this.mLayout);
+            }
+        }
+        if (this.mEnterAction != null) {
+            this.mEnterAction.run();
+        }
+        setCurrentScene(this.mSceneRoot, this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void setCurrentScene(View view, Scene scene) {
+        view.setTag(R.id.transition_current_scene, scene);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static Scene getCurrentScene(View view) {
+        return (Scene) view.getTag(R.id.transition_current_scene);
     }
 
     public void setEnterAction(@Nullable Runnable runnable) {
-        this.mImpl.setEnterAction(runnable);
+        this.mEnterAction = runnable;
     }
 
     public void setExitAction(@Nullable Runnable runnable) {
-        this.mImpl.setExitAction(runnable);
+        this.mExitAction = runnable;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean isCreatedFromLayoutResource() {
+        return this.mLayoutId > 0;
     }
 }

@@ -4,26 +4,23 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
-import android.support.v4.content.res.ConfigurationHelper;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.ForwardingListener;
+import android.support.v7.widget.TooltipCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
-public class ActionMenuItemView extends AppCompatTextView implements MenuView.ItemView, ActionMenuView.ActionMenuChildView, View.OnClickListener, View.OnLongClickListener {
+public class ActionMenuItemView extends AppCompatTextView implements MenuView.ItemView, ActionMenuView.ActionMenuChildView, View.OnClickListener {
     private static final int MAX_ICON_SIZE = 32;
     private static final String TAG = "ActionMenuItemView";
     private boolean mAllowTextWithIcon;
@@ -60,7 +57,6 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
         obtainStyledAttributes.recycle();
         this.mMaxIconSize = (int) ((resources.getDisplayMetrics().density * 32.0f) + 0.5f);
         setOnClickListener(this);
-        setOnLongClickListener(this);
         this.mSavedPaddingLeft = -1;
         setSaveEnabled(false);
     }
@@ -74,8 +70,8 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
 
     private boolean shouldAllowTextWithIcon() {
         Configuration configuration = getContext().getResources().getConfiguration();
-        int screenWidthDp = ConfigurationHelper.getScreenWidthDp(getResources());
-        return screenWidthDp >= 480 || (screenWidthDp >= 640 && ConfigurationHelper.getScreenHeightDp(getResources()) >= 480) || configuration.orientation == 2;
+        int i = configuration.screenWidthDp;
+        return i >= 480 || (i >= 640 && configuration.screenHeightDp >= 480) || configuration.orientation == 2;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -111,7 +107,7 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onClick(View view) {
         if (this.mItemInvoker != null) {
             this.mItemInvoker.invokeItem(this.mItemData);
         }
@@ -153,7 +149,20 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
         if (this.mIcon == null || (this.mItemData.showsTextAsAction() && (this.mAllowTextWithIcon || this.mExpandedFormat))) {
             z = true;
         }
-        setText(z2 & z ? this.mTitle : null);
+        boolean z3 = z2 & z;
+        setText(z3 ? this.mTitle : null);
+        CharSequence contentDescription = this.mItemData.getContentDescription();
+        if (TextUtils.isEmpty(contentDescription)) {
+            setContentDescription(z3 ? null : this.mItemData.getTitle());
+        } else {
+            setContentDescription(contentDescription);
+        }
+        CharSequence tooltipText = this.mItemData.getTooltipText();
+        if (TextUtils.isEmpty(tooltipText)) {
+            TooltipCompat.setTooltipText(this, z3 ? null : this.mItemData.getTitle());
+        } else {
+            TooltipCompat.setTooltipText(this, tooltipText);
+        }
     }
 
     @Override // android.support.v7.view.menu.MenuView.ItemView
@@ -189,7 +198,6 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     @Override // android.support.v7.view.menu.MenuView.ItemView
     public void setTitle(CharSequence charSequence) {
         this.mTitle = charSequence;
-        setContentDescription(this.mTitle);
         updateTextButtonVisibility();
     }
 
@@ -206,33 +214,6 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     @Override // android.support.v7.widget.ActionMenuView.ActionMenuChildView
     public boolean needsDividerAfter() {
         return hasText();
-    }
-
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view2) {
-        if (hasText()) {
-            return false;
-        }
-        int[] iArr = new int[2];
-        Rect rect = new Rect();
-        getLocationOnScreen(iArr);
-        getWindowVisibleDisplayFrame(rect);
-        Context context = getContext();
-        int width = getWidth();
-        int height = getHeight();
-        int i = iArr[1] + (height / 2);
-        int i2 = (width / 2) + iArr[0];
-        if (ViewCompat.getLayoutDirection(view2) == 0) {
-            i2 = context.getResources().getDisplayMetrics().widthPixels - i2;
-        }
-        Toast makeText = Toast.makeText(context, this.mItemData.getTitle(), 0);
-        if (i < rect.height()) {
-            makeText.setGravity(8388661, i2, (iArr[1] + height) - rect.top);
-        } else {
-            makeText.setGravity(81, 0, height);
-        }
-        makeText.show();
-        return true;
     }
 
     @Override // android.widget.TextView, android.view.View

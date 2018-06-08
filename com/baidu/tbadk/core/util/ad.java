@@ -1,106 +1,192 @@
 package com.baidu.tbadk.core.util;
 
+import android.graphics.Bitmap;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.widget.richText.TbRichTextEmotionInfo;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ad {
-    public static void a(com.baidu.adp.widget.ListView.k kVar, BdUniqueId bdUniqueId) {
-        com.baidu.adp.widget.ListView.i adapter;
-        ArrayList<PreLoadImageInfo> images;
-        int i;
-        int i2;
-        int pbImageSize;
-        if (kVar != null && com.baidu.adp.lib.util.j.gQ() && (adapter = kVar.getAdapter()) != null) {
-            int i3 = 0;
-            int i4 = 0;
-            int i5 = 0;
-            int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean wa = ap.wa();
-            int firstVisiblePosition = kVar.getFirstVisiblePosition();
-            int lastVisiblePosition = kVar.getLastVisiblePosition();
-            com.baidu.adp.lib.f.c.fp().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
-            while (true) {
-                int i6 = firstVisiblePosition;
-                if (i6 < adapter.getCount()) {
-                    Object item = adapter.getItem(i6);
-                    if ((item instanceof ae) && (images = ((ae) item).getImages()) != null && images.size() != 0) {
-                        Iterator<PreLoadImageInfo> it = images.iterator();
-                        int i7 = i5;
-                        int i8 = i4;
-                        while (it.hasNext()) {
-                            PreLoadImageInfo next = it.next();
-                            if (com.baidu.adp.lib.f.c.fp().ah(next.procType)) {
-                                if (12 == next.procType || 28 == next.procType) {
-                                    int i9 = i7 + 1;
-                                    if (i9 <= 30 && i6 > lastVisiblePosition && !TextUtils.isEmpty(next.imgUrl)) {
-                                        if (12 == next.procType) {
-                                            com.baidu.adp.lib.f.c.fp().a(next.imgUrl, 12, null, bdUniqueId);
-                                            i = i8;
-                                            i2 = i9;
-                                        } else if (28 == next.procType) {
-                                            com.baidu.adp.lib.f.c.fp().a(next.imgUrl, 28, null, bdUniqueId);
-                                            i = i8;
-                                            i2 = i9;
-                                        }
-                                    }
-                                    i = i8;
-                                    i2 = i9;
-                                } else {
-                                    int i10 = next.width * next.height;
-                                    if (i10 > 0) {
-                                        if (next.bigEmotion != null) {
-                                            pbImageSize = i8 + (i10 * 4);
-                                        } else {
-                                            pbImageSize = i8 + (i10 * 2);
-                                        }
-                                    } else if (next.bigEmotion != null) {
-                                        BdLog.e("missing big emotion image width and height!");
-                                        pbImageSize = i8 + TbConfig.getBigEmotionsSize();
-                                    } else {
-                                        pbImageSize = i8 + TbConfig.getPbImageSize();
-                                    }
-                                    int i11 = i3 + 1;
-                                    if (i11 <= 13 && pbImageSize < bigImageMaxUsedMemory && i6 > lastVisiblePosition) {
-                                        if (next.bigEmotion != null) {
-                                            TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
-                                            String str = wa ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
-                                            if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.c.fp().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(wa), str);
-                                            }
-                                            i2 = i7;
-                                            i = pbImageSize;
-                                            i3 = i11;
-                                        } else {
-                                            String str2 = next.imgUrl;
-                                            if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.f.c.fp().a(str2, next.procType, null, bdUniqueId);
-                                            }
-                                        }
-                                    }
-                                    i2 = i7;
-                                    i = pbImageSize;
-                                    i3 = i11;
-                                }
-                                i7 = i2;
-                                i8 = i;
+    private static ad apS;
+    private static final BdUniqueId apT = BdUniqueId.gen();
+
+    public static synchronized ad yV() {
+        ad adVar;
+        synchronized (ad.class) {
+            if (apS == null) {
+                apS = new ad();
+            }
+            adVar = apS;
+        }
+        return adVar;
+    }
+
+    /* loaded from: classes.dex */
+    public class a extends BdAsyncTask<String, String, String> {
+        private final String apU;
+        private final boolean apV;
+        private final boolean apW;
+        private final boolean apX;
+        private final String imageUrl;
+
+        public a(String str, String str2, boolean z, boolean z2, boolean z3) {
+            this.imageUrl = str;
+            this.apU = str2;
+            this.apV = z;
+            this.apW = z2;
+            this.apX = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ad.apT));
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: i */
+        public String doInBackground(String... strArr) {
+            try {
+                ad.this.b(this.imageUrl, this.apU, this.apV, this.apW, this.apX);
+            } finally {
+                return null;
+            }
+            return null;
+        }
+    }
+
+    public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
+        if (str2 != null && str != null) {
+            String eL = ar.eL(str);
+            an.zk().ac(str2, eL);
+            if (z || z2 || z3) {
+                synchronized (BitmapHelper.lockForSyncImageDecoder) {
+                    int eG = an.zk().eG(eL);
+                    if (eG > 0) {
+                        if (z) {
+                            Bitmap eh = an.zk().eh(eL);
+                            com.baidu.tbadk.imageManager.c.ID().fc(eG);
+                            if (eh != null) {
+                                a(str, eh, z2, an.zk().eF(eL), z3, eL);
                             }
                         }
-                        if ((i3 > 13 || i8 >= bigImageMaxUsedMemory) && i7 > 30) {
-                            return;
-                        }
-                        i4 = i8;
-                        i5 = i7;
                     }
-                    firstVisiblePosition = i6 + 1;
-                } else {
-                    return;
                 }
             }
         }
+    }
+
+    public void c(String str, String str2, boolean z, boolean z2, boolean z3) {
+        new a(str2, str2, z3, z3, z3).execute(new String[0]);
+    }
+
+    public Bitmap d(Bitmap bitmap) {
+        return a(bitmap, true);
+    }
+
+    public Bitmap a(Bitmap bitmap, boolean z) {
+        try {
+            com.baidu.tbadk.core.util.c.a b = b(bitmap.getWidth(), bitmap.getHeight(), z);
+            int i = b.width;
+            int i2 = b.height;
+            if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
+                Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(bitmap, i, i2);
+                return resizedBitmap != null ? resizedBitmap : bitmap;
+            }
+            return bitmap;
+        } catch (Exception e) {
+            k kVar = new k();
+            if (bitmap == null) {
+                kVar.h("bitmap", "null");
+            } else {
+                kVar.h("bitW", Integer.valueOf(bitmap.getWidth()));
+                kVar.h("bitH", Integer.valueOf(bitmap.getHeight()));
+            }
+            TiebaStatic.imgError(TbErrInfo.ERR_IMG_RESIZE, "getResizedBitmap error: " + e.toString(), kVar.toString());
+            return bitmap;
+        }
+    }
+
+    private static void a(String str, com.baidu.adp.widget.ImageView.a aVar) {
+        com.baidu.tbadk.imageManager.c.ID().c(str, aVar);
+    }
+
+    public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
+        Bitmap bitmap2;
+        Bitmap d = z2 ? d(bitmap) : bitmap;
+        if (!z || d == null) {
+            bitmap2 = d;
+        } else {
+            float f = 10.0f;
+            bitmap2 = BitmapHelper.getRoundedCornerBitmap(d, (d.getHeight() < 100 || d.getWidth() < 100) ? 5.0f : 5.0f, true);
+        }
+        if (!TextUtils.isEmpty(str)) {
+            an.zk().i(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
+        }
+        return bitmap2;
+    }
+
+    private void a(String str, Bitmap bitmap, boolean z, boolean z2, boolean z3, String str2) {
+        try {
+            Bitmap a2 = a(bitmap, z, z3, str2);
+            if (a2 != null) {
+                a(str, new com.baidu.adp.widget.ImageView.a(a2, z2));
+            }
+        } catch (Exception e) {
+            TiebaStatic.imgError(TbErrInfo.ERR_IMG_ADD_MEMORY, "addPicMemoryCache error: " + e.toString(), str);
+        }
+    }
+
+    public com.baidu.tbadk.core.util.c.a b(int i, int i2, boolean z) {
+        boolean z2;
+        int i3;
+        int i4;
+        int i5;
+        int i6 = 70;
+        int yG = LocalViewSize.yC().yG();
+        if (z) {
+            if (i / i2 >= 3) {
+                z2 = true;
+                i3 = i / 2;
+                i4 = i;
+            } else if (i2 / i >= 3) {
+                i4 = i2 / 2;
+                z2 = true;
+                i3 = i2;
+            }
+            if (i4 <= i3 && i4 > yG) {
+                i3 = (int) (i3 / (i4 / yG));
+            } else if (i3 > i4 || i3 <= yG) {
+                yG = i4;
+            } else {
+                yG = (int) (i4 / (i3 / yG));
+                i3 = yG;
+            }
+            if (z2 && i <= yG && i2 <= i3) {
+                yG = (int) (yG * 0.9d);
+                i3 = (int) (i3 * 0.9d);
+            }
+            if (yG < 70 || i3 >= 70) {
+                i6 = i3;
+                i5 = yG;
+            } else {
+                i5 = 70;
+            }
+            return new com.baidu.tbadk.core.util.c.a(i5, i6, z2);
+        }
+        z2 = false;
+        i3 = i2;
+        i4 = i;
+        if (i4 <= i3) {
+        }
+        if (i3 > i4) {
+        }
+        yG = i4;
+        if (z2) {
+            yG = (int) (yG * 0.9d);
+            i3 = (int) (i3 * 0.9d);
+        }
+        if (yG < 70) {
+        }
+        i6 = i3;
+        i5 = yG;
+        return new com.baidu.tbadk.core.util.c.a(i5, i6, z2);
     }
 }

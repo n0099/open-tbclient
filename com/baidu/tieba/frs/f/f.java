@@ -1,63 +1,23 @@
 package com.baidu.tieba.frs.f;
 
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tieba.frs.FrsFragment;
 /* loaded from: classes2.dex */
 public class f {
-    public static int lk(int i) {
-        switch (i) {
-            case 2:
-            case 5:
-                return 0;
-            case 3:
-                return 1;
-            case 4:
-            default:
-                return -1;
-            case 6:
-                return 2;
-            case 7:
-                return 3;
+    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
+        if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && i.ad(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
+            Intent intent = new Intent();
+            intent.putExtra("class", 2);
+            intent.putExtra(ImageViewerConfig.FORUM_NAME, str);
+            intent.putExtra(str2, "short_cut");
+            frsFragment.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
+            return false;
         }
-    }
-
-    public static int a(int i, FrsRequestData frsRequestData) {
-        switch (i) {
-            case 2:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(0);
-                    frsRequestData.setIsGood(0);
-                    break;
-                }
-                break;
-            case 3:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(1);
-                    frsRequestData.setIsGood(0);
-                    break;
-                }
-                break;
-            case 5:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(0);
-                    frsRequestData.setIsGood(1);
-                    break;
-                }
-                break;
-            case 6:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(2);
-                    frsRequestData.setIsGood(0);
-                    break;
-                }
-                break;
-            case 7:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(3);
-                    frsRequestData.setIsGood(0);
-                    break;
-                }
-                break;
-        }
-        return 1;
+        return true;
     }
 }

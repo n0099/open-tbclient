@@ -2,31 +2,31 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class ax extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void Q(int i) {
+    protected void R(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "both_video_download";
+        return "android_shouzhu_update";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ev() {
+    protected String[] hm() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ew() {
+    protected int hn() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ex() {
+    protected int ho() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ey() {
+    protected int hp() {
         return 10;
     }
 }

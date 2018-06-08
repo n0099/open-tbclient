@@ -10,25 +10,19 @@ import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 public interface e {
-    int Km();
+    int NL();
 
-    com.baidu.adp.lib.e.b<ImageView> Kn();
+    com.baidu.adp.lib.e.b<ImageView> NM();
 
-    com.baidu.adp.lib.e.b<TextView> Ko();
+    com.baidu.adp.lib.e.b<TextView> NN();
 
-    com.baidu.adp.lib.e.b<GifView> Kp();
+    com.baidu.adp.lib.e.b<GifView> NO();
 
-    com.baidu.adp.lib.e.b<View> Kq();
+    com.baidu.adp.lib.e.b<View> NP();
 
-    com.baidu.adp.lib.e.b<LinearLayout> Kr();
+    com.baidu.adp.lib.e.b<LinearLayout> NQ();
 
-    com.baidu.adp.lib.e.b<RelativeLayout> Ks();
-
-    void S(Context context, String str);
-
-    void T(Context context, String str);
-
-    void U(Context context, String str);
+    com.baidu.adp.lib.e.b<RelativeLayout> NR();
 
     void V(Context context, String str);
 
@@ -36,7 +30,13 @@ public interface e {
 
     void X(Context context, String str);
 
-    void g(Context context, String str, String str2);
+    void Y(Context context, String str);
+
+    void Z(Context context, String str);
+
+    void f(Context context, String str, boolean z);
 
     ListView getListView();
+
+    void h(Context context, String str, String str2);
 }

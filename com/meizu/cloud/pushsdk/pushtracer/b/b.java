@@ -1,6 +1,5 @@
 package com.meizu.cloud.pushsdk.pushtracer.b;
 
-import com.baidu.ar.util.Constants;
 import com.meizu.cloud.pushsdk.pushtracer.a.c;
 import com.meizu.cloud.pushsdk.pushtracer.b.a;
 /* loaded from: classes3.dex */
@@ -14,7 +13,7 @@ public class b extends com.meizu.cloud.pushsdk.pushtracer.b.a {
     private String j;
 
     /* loaded from: classes3.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0252a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC0270a<T> {
         private String a;
         private String b;
         private String c;
@@ -65,21 +64,21 @@ public class b extends com.meizu.cloud.pushsdk.pushtracer.b.a {
 
     /* renamed from: com.meizu.cloud.pushsdk.pushtracer.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0253b extends a<C0253b> {
-        private C0253b() {
+    private static class C0271b extends a<C0271b> {
+        private C0271b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.meizu.cloud.pushsdk.pushtracer.b.a.AbstractC0252a
+        @Override // com.meizu.cloud.pushsdk.pushtracer.b.a.AbstractC0270a
         /* renamed from: c */
-        public C0253b a() {
+        public C0271b a() {
             return this;
         }
     }
 
     public static a<?> d() {
-        return new C0253b();
+        return new C0271b();
     }
 
     protected b(a<?> aVar) {
@@ -97,7 +96,7 @@ public class b extends com.meizu.cloud.pushsdk.pushtracer.b.a {
         c cVar = new c();
         cVar.a("event_name", this.d);
         cVar.a("task_id", this.e);
-        cVar.a(Constants.HTTP_DEVICE_ID, this.f);
+        cVar.a("device_id", this.f);
         cVar.a("pushsdk_version", this.g);
         cVar.a("package_name", this.h);
         cVar.a("seq_id", this.i);

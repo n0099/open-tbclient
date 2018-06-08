@@ -1,7 +1,6 @@
 package com.baidu.location.e;
 
 import com.baidu.location.e.m;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -37,7 +36,7 @@ enum n extends m.b {
                 String string5 = jSONObject2.has("ct") ? jSONObject2.getString("ct") : null;
                 String string6 = jSONObject2.has("dist") ? jSONObject2.getString("dist") : null;
                 if (stringBuffer.length() > 0) {
-                    stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    stringBuffer.append(",");
                 }
                 stringBuffer.append("(\"").append(next).append("\",\"").append(string).append("\",\"").append(string2).append("\",\"").append(string3).append("\",\"").append(string5).append("\",\"").append(string4).append("\",\"").append(string6).append("\",").append(System.currentTimeMillis() / 1000).append(",\"\")");
                 m.b.b(stringBuffer2, next, str, 0);

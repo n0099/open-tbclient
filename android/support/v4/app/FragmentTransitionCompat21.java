@@ -1,212 +1,58 @@
 package android.support.v4.app;
 
 import android.graphics.Rect;
+import android.support.annotation.RequiresApi;
 import android.transition.Transition;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+@RequiresApi(21)
 /* loaded from: classes2.dex */
 class FragmentTransitionCompat21 {
-
-    /* loaded from: classes2.dex */
-    public static class EpicenterView {
-        public View epicenter;
-    }
-
-    /* loaded from: classes2.dex */
-    public interface ViewRetriever {
-        View getView();
-    }
-
     FragmentTransitionCompat21() {
     }
 
-    public static String getTransitionName(View view2) {
-        return view2.getTransitionName();
-    }
-
     public static Object cloneTransition(Object obj) {
-        if (obj != null) {
-            return ((Transition) obj).clone();
+        if (obj == null) {
+            return null;
         }
-        return obj;
+        return ((Transition) obj).clone();
     }
 
-    public static Object captureExitingViews(Object obj, View view2, ArrayList<View> arrayList, Map<String, View> map, View view3) {
-        if (obj != null) {
-            captureTransitioningViews(arrayList, view2);
-            if (map != null) {
-                arrayList.removeAll(map.values());
-            }
-            if (arrayList.isEmpty()) {
-                return null;
-            }
-            arrayList.add(view3);
-            addTargets((Transition) obj, arrayList);
-            return obj;
-        }
-        return obj;
-    }
-
-    public static void excludeTarget(Object obj, View view2, boolean z) {
-        ((Transition) obj).excludeTarget(view2, z);
-    }
-
-    public static void beginDelayedTransition(ViewGroup viewGroup, Object obj) {
-        TransitionManager.beginDelayedTransition(viewGroup, (Transition) obj);
-    }
-
-    public static void setEpicenter(Object obj, View view2) {
-        final Rect boundsOnScreen = getBoundsOnScreen(view2);
-        ((Transition) obj).setEpicenterCallback(new Transition.EpicenterCallback() { // from class: android.support.v4.app.FragmentTransitionCompat21.1
-            @Override // android.transition.Transition.EpicenterCallback
-            public Rect onGetEpicenter(Transition transition) {
-                return boundsOnScreen;
-            }
-        });
-    }
-
-    public static Object wrapSharedElementTransition(Object obj) {
-        Transition transition;
-        if (obj == null || (transition = (Transition) obj) == null) {
+    public static Object wrapTransitionInSet(Object obj) {
+        if (obj == null) {
             return null;
         }
         TransitionSet transitionSet = new TransitionSet();
-        transitionSet.addTransition(transition);
+        transitionSet.addTransition((Transition) obj);
         return transitionSet;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void excludeViews(Transition transition, Transition transition2, ArrayList<View> arrayList, boolean z) {
-        if (transition != null) {
-            int size = transition2 == null ? 0 : arrayList.size();
-            for (int i = 0; i < size; i++) {
-                transition.excludeTarget(arrayList.get(i), z);
-            }
-        }
-    }
-
-    public static void excludeSharedElementViews(Object obj, Object obj2, Object obj3, ArrayList<View> arrayList, boolean z) {
-        Transition transition = (Transition) obj3;
-        excludeViews((Transition) obj, transition, arrayList, z);
-        excludeViews((Transition) obj2, transition, arrayList, z);
-    }
-
-    public static void addTransitionTargets(Object obj, Object obj2, Object obj3, final View view2, final ViewRetriever viewRetriever, final View view3, EpicenterView epicenterView, final Map<String, String> map, final ArrayList<View> arrayList, ArrayList<View> arrayList2, Map<String, View> map2, final Map<String, View> map3, ArrayList<View> arrayList3) {
-        final Transition transition = (Transition) obj;
-        final Transition transition2 = (Transition) obj3;
-        Transition transition3 = (Transition) obj2;
-        excludeViews(transition, transition2, arrayList2, true);
-        if (obj != null || obj2 != null) {
-            if (transition != null) {
-                transition.addTarget(view3);
-            }
-            if (obj2 != null) {
-                setSharedElementTargets(transition3, view3, map2, arrayList3);
-                excludeViews(transition, transition3, arrayList3, true);
-                excludeViews(transition2, transition3, arrayList3, true);
-            }
-            view2.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.v4.app.FragmentTransitionCompat21.2
-                @Override // android.view.ViewTreeObserver.OnPreDrawListener
-                public boolean onPreDraw() {
-                    View view4;
-                    view2.getViewTreeObserver().removeOnPreDrawListener(this);
-                    if (transition != null) {
-                        transition.removeTarget(view3);
-                    }
-                    if (viewRetriever != null && (view4 = viewRetriever.getView()) != null) {
-                        if (!map.isEmpty()) {
-                            FragmentTransitionCompat21.findNamedViews(map3, view4);
-                            map3.keySet().retainAll(map.values());
-                            for (Map.Entry entry : map.entrySet()) {
-                                View view5 = (View) map3.get((String) entry.getValue());
-                                if (view5 != null) {
-                                    view5.setTransitionName((String) entry.getKey());
-                                }
-                            }
-                        }
-                        if (transition != null) {
-                            FragmentTransitionCompat21.captureTransitioningViews(arrayList, view4);
-                            arrayList.removeAll(map3.values());
-                            arrayList.add(view3);
-                            FragmentTransitionCompat21.addTargets(transition, arrayList);
-                        }
-                    }
-                    FragmentTransitionCompat21.excludeViews(transition2, transition, arrayList, true);
-                    return true;
-                }
-            });
-            setSharedElementEpicenter(transition, epicenterView);
-        }
-    }
-
-    public static Object mergeTransitions(Object obj, Object obj2, Object obj3, boolean z) {
-        Transition transition = (Transition) obj;
-        Transition transition2 = (Transition) obj2;
-        Transition transition3 = (Transition) obj3;
-        if (transition == null || transition2 == null) {
-            z = true;
-        }
-        if (z) {
-            TransitionSet transitionSet = new TransitionSet();
-            if (transition != null) {
-                transitionSet.addTransition(transition);
-            }
-            if (transition2 != null) {
-                transitionSet.addTransition(transition2);
-            }
-            if (transition3 != null) {
-                transitionSet.addTransition(transition3);
-                return transitionSet;
-            }
-            return transitionSet;
-        }
-        TransitionSet transitionSet2 = null;
-        if (transition2 != null && transition != null) {
-            transitionSet2 = new TransitionSet().addTransition(transition2).addTransition(transition).setOrdering(1);
-        } else if (transition2 != null) {
-            transitionSet2 = transition2;
-        } else if (transition != null) {
-            transitionSet2 = transition;
-        }
-        if (transition3 != null) {
-            TransitionSet transitionSet3 = new TransitionSet();
-            if (transitionSet2 != null) {
-                transitionSet3.addTransition(transitionSet2);
-            }
-            transitionSet3.addTransition(transition3);
-            return transitionSet3;
-        }
-        return transitionSet2;
-    }
-
-    public static void setSharedElementTargets(Object obj, View view2, Map<String, View> map, ArrayList<View> arrayList) {
+    public static void setSharedElementTargets(Object obj, View view, ArrayList<View> arrayList) {
         TransitionSet transitionSet = (TransitionSet) obj;
-        arrayList.clear();
-        arrayList.addAll(map.values());
         List<View> targets = transitionSet.getTargets();
         targets.clear();
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
             bfsAddViewChildren(targets, arrayList.get(i));
         }
-        arrayList.add(view2);
+        targets.add(view);
+        arrayList.add(view);
         addTargets(transitionSet, arrayList);
     }
 
-    private static void bfsAddViewChildren(List<View> list, View view2) {
+    private static void bfsAddViewChildren(List<View> list, View view) {
         int size = list.size();
-        if (!containedBeforeIndex(list, view2, size)) {
-            list.add(view2);
+        if (!containedBeforeIndex(list, view, size)) {
+            list.add(view);
             for (int i = size; i < list.size(); i++) {
-                View view3 = list.get(i);
-                if (view3 instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view3;
+                View view2 = list.get(i);
+                if (view2 instanceof ViewGroup) {
+                    ViewGroup viewGroup = (ViewGroup) view2;
                     int childCount = viewGroup.getChildCount();
                     for (int i2 = 0; i2 < childCount; i2++) {
                         View childAt = viewGroup.getChildAt(i2);
@@ -219,140 +65,48 @@ class FragmentTransitionCompat21 {
         }
     }
 
-    private static boolean containedBeforeIndex(List<View> list, View view2, int i) {
+    private static boolean containedBeforeIndex(List<View> list, View view, int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            if (list.get(i2) == view2) {
+            if (list.get(i2) == view) {
                 return true;
             }
         }
         return false;
     }
 
-    private static void setSharedElementEpicenter(Transition transition, final EpicenterView epicenterView) {
-        if (transition != null) {
-            transition.setEpicenterCallback(new Transition.EpicenterCallback() { // from class: android.support.v4.app.FragmentTransitionCompat21.3
-                private Rect mEpicenter;
-
+    public static void setEpicenter(Object obj, View view) {
+        if (view != null) {
+            final Rect rect = new Rect();
+            getBoundsOnScreen(view, rect);
+            ((Transition) obj).setEpicenterCallback(new Transition.EpicenterCallback() { // from class: android.support.v4.app.FragmentTransitionCompat21.1
                 @Override // android.transition.Transition.EpicenterCallback
-                public Rect onGetEpicenter(Transition transition2) {
-                    if (this.mEpicenter == null && EpicenterView.this.epicenter != null) {
-                        this.mEpicenter = FragmentTransitionCompat21.getBoundsOnScreen(EpicenterView.this.epicenter);
-                    }
-                    return this.mEpicenter;
+                public Rect onGetEpicenter(Transition transition) {
+                    return rect;
                 }
             });
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static Rect getBoundsOnScreen(View view2) {
-        Rect rect = new Rect();
+    public static void getBoundsOnScreen(View view, Rect rect) {
         int[] iArr = new int[2];
-        view2.getLocationOnScreen(iArr);
-        rect.set(iArr[0], iArr[1], iArr[0] + view2.getWidth(), iArr[1] + view2.getHeight());
-        return rect;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void captureTransitioningViews(ArrayList<View> arrayList, View view2) {
-        if (view2.getVisibility() == 0) {
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                if (viewGroup.isTransitionGroup()) {
-                    arrayList.add(viewGroup);
-                    return;
-                }
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    captureTransitioningViews(arrayList, viewGroup.getChildAt(i));
-                }
-                return;
-            }
-            arrayList.add(view2);
-        }
-    }
-
-    public static void findNamedViews(Map<String, View> map, View view2) {
-        if (view2.getVisibility() == 0) {
-            String transitionName = view2.getTransitionName();
-            if (transitionName != null) {
-                map.put(transitionName, view2);
-            }
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    findNamedViews(map, viewGroup.getChildAt(i));
-                }
-            }
-        }
-    }
-
-    public static void cleanupTransitions(final View view2, final View view3, Object obj, final ArrayList<View> arrayList, Object obj2, final ArrayList<View> arrayList2, Object obj3, final ArrayList<View> arrayList3, Object obj4, final ArrayList<View> arrayList4, final Map<String, View> map) {
-        final Transition transition = (Transition) obj;
-        final Transition transition2 = (Transition) obj2;
-        final Transition transition3 = (Transition) obj3;
-        final Transition transition4 = (Transition) obj4;
-        if (transition4 != null) {
-            view2.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.v4.app.FragmentTransitionCompat21.4
-                @Override // android.view.ViewTreeObserver.OnPreDrawListener
-                public boolean onPreDraw() {
-                    view2.getViewTreeObserver().removeOnPreDrawListener(this);
-                    if (transition != null) {
-                        FragmentTransitionCompat21.removeTargets(transition, arrayList);
-                        FragmentTransitionCompat21.excludeViews(transition, transition2, arrayList2, false);
-                        FragmentTransitionCompat21.excludeViews(transition, transition3, arrayList3, false);
-                    }
-                    if (transition2 != null) {
-                        FragmentTransitionCompat21.removeTargets(transition2, arrayList2);
-                        FragmentTransitionCompat21.excludeViews(transition2, transition, arrayList, false);
-                        FragmentTransitionCompat21.excludeViews(transition2, transition3, arrayList3, false);
-                    }
-                    if (transition3 != null) {
-                        FragmentTransitionCompat21.removeTargets(transition3, arrayList3);
-                    }
-                    for (Map.Entry entry : map.entrySet()) {
-                        ((View) entry.getValue()).setTransitionName((String) entry.getKey());
-                    }
-                    int size = arrayList4.size();
-                    for (int i = 0; i < size; i++) {
-                        transition4.excludeTarget((View) arrayList4.get(i), false);
-                    }
-                    transition4.excludeTarget(view3, false);
-                    return true;
-                }
-            });
-        }
-    }
-
-    public static void removeTargets(Object obj, ArrayList<View> arrayList) {
-        List<View> targets;
-        Transition transition = (Transition) obj;
-        if (transition instanceof TransitionSet) {
-            TransitionSet transitionSet = (TransitionSet) transition;
-            int transitionCount = transitionSet.getTransitionCount();
-            for (int i = 0; i < transitionCount; i++) {
-                removeTargets(transitionSet.getTransitionAt(i), arrayList);
-            }
-        } else if (!hasSimpleTarget(transition) && (targets = transition.getTargets()) != null && targets.size() == arrayList.size() && targets.containsAll(arrayList)) {
-            for (int size = arrayList.size() - 1; size >= 0; size--) {
-                transition.removeTarget(arrayList.get(size));
-            }
-        }
+        view.getLocationOnScreen(iArr);
+        rect.set(iArr[0], iArr[1], iArr[0] + view.getWidth(), iArr[1] + view.getHeight());
     }
 
     public static void addTargets(Object obj, ArrayList<View> arrayList) {
         Transition transition = (Transition) obj;
-        if (transition instanceof TransitionSet) {
-            TransitionSet transitionSet = (TransitionSet) transition;
-            int transitionCount = transitionSet.getTransitionCount();
-            for (int i = 0; i < transitionCount; i++) {
-                addTargets(transitionSet.getTransitionAt(i), arrayList);
-            }
-        } else if (!hasSimpleTarget(transition) && isNullOrEmpty(transition.getTargets())) {
-            int size = arrayList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                transition.addTarget(arrayList.get(i2));
+        if (transition != null) {
+            if (transition instanceof TransitionSet) {
+                TransitionSet transitionSet = (TransitionSet) transition;
+                int transitionCount = transitionSet.getTransitionCount();
+                for (int i = 0; i < transitionCount; i++) {
+                    addTargets(transitionSet.getTransitionAt(i), arrayList);
+                }
+            } else if (!hasSimpleTarget(transition) && isNullOrEmpty(transition.getTargets())) {
+                int size = arrayList.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    transition.addTarget(arrayList.get(i2));
+                }
             }
         }
     }
@@ -363,5 +117,291 @@ class FragmentTransitionCompat21 {
 
     private static boolean isNullOrEmpty(List list) {
         return list == null || list.isEmpty();
+    }
+
+    public static Object mergeTransitionsTogether(Object obj, Object obj2, Object obj3) {
+        TransitionSet transitionSet = new TransitionSet();
+        if (obj != null) {
+            transitionSet.addTransition((Transition) obj);
+        }
+        if (obj2 != null) {
+            transitionSet.addTransition((Transition) obj2);
+        }
+        if (obj3 != null) {
+            transitionSet.addTransition((Transition) obj3);
+        }
+        return transitionSet;
+    }
+
+    public static void scheduleHideFragmentView(Object obj, final View view, final ArrayList<View> arrayList) {
+        ((Transition) obj).addListener(new Transition.TransitionListener() { // from class: android.support.v4.app.FragmentTransitionCompat21.2
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionStart(Transition transition) {
+            }
+
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionEnd(Transition transition) {
+                transition.removeListener(this);
+                view.setVisibility(8);
+                int size = arrayList.size();
+                for (int i = 0; i < size; i++) {
+                    ((View) arrayList.get(i)).setVisibility(0);
+                }
+            }
+
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionCancel(Transition transition) {
+            }
+
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionPause(Transition transition) {
+            }
+
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionResume(Transition transition) {
+            }
+        });
+    }
+
+    public static Object mergeTransitionsInSequence(Object obj, Object obj2, Object obj3) {
+        Transition transition = null;
+        Transition transition2 = (Transition) obj;
+        Transition transition3 = (Transition) obj2;
+        Transition transition4 = (Transition) obj3;
+        if (transition2 != null && transition3 != null) {
+            transition = new TransitionSet().addTransition(transition2).addTransition(transition3).setOrdering(1);
+        } else if (transition2 != null) {
+            transition = transition2;
+        } else if (transition3 != null) {
+            transition = transition3;
+        }
+        if (transition4 != null) {
+            TransitionSet transitionSet = new TransitionSet();
+            if (transition != null) {
+                transitionSet.addTransition(transition);
+            }
+            transitionSet.addTransition(transition4);
+            return transitionSet;
+        }
+        return transition;
+    }
+
+    public static void beginDelayedTransition(ViewGroup viewGroup, Object obj) {
+        TransitionManager.beginDelayedTransition(viewGroup, (Transition) obj);
+    }
+
+    public static ArrayList<String> prepareSetNameOverridesReordered(ArrayList<View> arrayList) {
+        ArrayList<String> arrayList2 = new ArrayList<>();
+        int size = arrayList.size();
+        for (int i = 0; i < size; i++) {
+            View view = arrayList.get(i);
+            arrayList2.add(view.getTransitionName());
+            view.setTransitionName(null);
+        }
+        return arrayList2;
+    }
+
+    public static void setNameOverridesReordered(View view, final ArrayList<View> arrayList, final ArrayList<View> arrayList2, final ArrayList<String> arrayList3, Map<String, String> map) {
+        final int size = arrayList2.size();
+        final ArrayList arrayList4 = new ArrayList();
+        for (int i = 0; i < size; i++) {
+            View view2 = arrayList.get(i);
+            String transitionName = view2.getTransitionName();
+            arrayList4.add(transitionName);
+            if (transitionName != null) {
+                view2.setTransitionName(null);
+                String str = map.get(transitionName);
+                int i2 = 0;
+                while (true) {
+                    if (i2 < size) {
+                        if (!str.equals(arrayList3.get(i2))) {
+                            i2++;
+                        } else {
+                            arrayList2.get(i2).setTransitionName(transitionName);
+                            break;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        OneShotPreDrawListener.add(view, new Runnable() { // from class: android.support.v4.app.FragmentTransitionCompat21.3
+            @Override // java.lang.Runnable
+            public void run() {
+                int i3 = 0;
+                while (true) {
+                    int i4 = i3;
+                    if (i4 < size) {
+                        ((View) arrayList2.get(i4)).setTransitionName((String) arrayList3.get(i4));
+                        ((View) arrayList.get(i4)).setTransitionName((String) arrayList4.get(i4));
+                        i3 = i4 + 1;
+                    } else {
+                        return;
+                    }
+                }
+            }
+        });
+    }
+
+    public static void captureTransitioningViews(ArrayList<View> arrayList, View view) {
+        if (view.getVisibility() == 0) {
+            if (view instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view;
+                if (viewGroup.isTransitionGroup()) {
+                    arrayList.add(viewGroup);
+                    return;
+                }
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    captureTransitioningViews(arrayList, viewGroup.getChildAt(i));
+                }
+                return;
+            }
+            arrayList.add(view);
+        }
+    }
+
+    public static void findNamedViews(Map<String, View> map, View view) {
+        if (view.getVisibility() == 0) {
+            String transitionName = view.getTransitionName();
+            if (transitionName != null) {
+                map.put(transitionName, view);
+            }
+            if (view instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view;
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    findNamedViews(map, viewGroup.getChildAt(i));
+                }
+            }
+        }
+    }
+
+    public static void setNameOverridesOrdered(View view, final ArrayList<View> arrayList, final Map<String, String> map) {
+        OneShotPreDrawListener.add(view, new Runnable() { // from class: android.support.v4.app.FragmentTransitionCompat21.4
+            @Override // java.lang.Runnable
+            public void run() {
+                int size = arrayList.size();
+                for (int i = 0; i < size; i++) {
+                    View view2 = (View) arrayList.get(i);
+                    String transitionName = view2.getTransitionName();
+                    if (transitionName != null) {
+                        view2.setTransitionName(FragmentTransitionCompat21.findKeyForValue(map, transitionName));
+                    }
+                }
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static String findKeyForValue(Map<String, String> map, String str) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            if (str.equals(entry.getValue())) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    public static void scheduleRemoveTargets(Object obj, final Object obj2, final ArrayList<View> arrayList, final Object obj3, final ArrayList<View> arrayList2, final Object obj4, final ArrayList<View> arrayList3) {
+        ((Transition) obj).addListener(new Transition.TransitionListener() { // from class: android.support.v4.app.FragmentTransitionCompat21.5
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionStart(Transition transition) {
+                if (obj2 != null) {
+                    FragmentTransitionCompat21.replaceTargets(obj2, arrayList, null);
+                }
+                if (obj3 != null) {
+                    FragmentTransitionCompat21.replaceTargets(obj3, arrayList2, null);
+                }
+                if (obj4 != null) {
+                    FragmentTransitionCompat21.replaceTargets(obj4, arrayList3, null);
+                }
+            }
+
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionEnd(Transition transition) {
+            }
+
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionCancel(Transition transition) {
+            }
+
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionPause(Transition transition) {
+            }
+
+            @Override // android.transition.Transition.TransitionListener
+            public void onTransitionResume(Transition transition) {
+            }
+        });
+    }
+
+    public static void swapSharedElementTargets(Object obj, ArrayList<View> arrayList, ArrayList<View> arrayList2) {
+        TransitionSet transitionSet = (TransitionSet) obj;
+        if (transitionSet != null) {
+            transitionSet.getTargets().clear();
+            transitionSet.getTargets().addAll(arrayList2);
+            replaceTargets(transitionSet, arrayList, arrayList2);
+        }
+    }
+
+    public static void replaceTargets(Object obj, ArrayList<View> arrayList, ArrayList<View> arrayList2) {
+        List<View> targets;
+        Transition transition = (Transition) obj;
+        if (transition instanceof TransitionSet) {
+            TransitionSet transitionSet = (TransitionSet) transition;
+            int transitionCount = transitionSet.getTransitionCount();
+            for (int i = 0; i < transitionCount; i++) {
+                replaceTargets(transitionSet.getTransitionAt(i), arrayList, arrayList2);
+            }
+        } else if (!hasSimpleTarget(transition) && (targets = transition.getTargets()) != null && targets.size() == arrayList.size() && targets.containsAll(arrayList)) {
+            int size = arrayList2 == null ? 0 : arrayList2.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                transition.addTarget(arrayList2.get(i2));
+            }
+            for (int size2 = arrayList.size() - 1; size2 >= 0; size2--) {
+                transition.removeTarget(arrayList.get(size2));
+            }
+        }
+    }
+
+    public static void addTarget(Object obj, View view) {
+        if (obj != null) {
+            ((Transition) obj).addTarget(view);
+        }
+    }
+
+    public static void removeTarget(Object obj, View view) {
+        if (obj != null) {
+            ((Transition) obj).removeTarget(view);
+        }
+    }
+
+    public static void setEpicenter(Object obj, final Rect rect) {
+        if (obj != null) {
+            ((Transition) obj).setEpicenterCallback(new Transition.EpicenterCallback() { // from class: android.support.v4.app.FragmentTransitionCompat21.6
+                @Override // android.transition.Transition.EpicenterCallback
+                public Rect onGetEpicenter(Transition transition) {
+                    if (rect == null || rect.isEmpty()) {
+                        return null;
+                    }
+                    return rect;
+                }
+            });
+        }
+    }
+
+    public static void scheduleNameReset(ViewGroup viewGroup, final ArrayList<View> arrayList, final Map<String, String> map) {
+        OneShotPreDrawListener.add(viewGroup, new Runnable() { // from class: android.support.v4.app.FragmentTransitionCompat21.7
+            @Override // java.lang.Runnable
+            public void run() {
+                int size = arrayList.size();
+                for (int i = 0; i < size; i++) {
+                    View view = (View) arrayList.get(i);
+                    view.setTransitionName((String) map.get(view.getTransitionName()));
+                }
+            }
+        });
     }
 }

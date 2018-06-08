@@ -10,8 +10,8 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
-import com.baidu.ar.util.o;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.ar.util.ARLog;
+import com.baidu.ar.util.Utils;
 import java.io.File;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -94,7 +94,7 @@ public class TextureVideoView extends TextureView implements TextureView.Surface
         this.t = new MediaPlayer.OnErrorListener() { // from class: com.baidu.ar.ui.TextureVideoView.5
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                com.baidu.ar.util.b.a("Error: " + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2);
+                ARLog.d("Error: " + i + "," + i2);
                 TextureVideoView.this.c = -1;
                 TextureVideoView.this.d = -1;
                 if (TextureVideoView.this.h == null || TextureVideoView.this.h.onError(TextureVideoView.this.e, i, i2)) {
@@ -125,20 +125,20 @@ public class TextureVideoView extends TextureView implements TextureView.Surface
 
     private boolean a(Surface surface) {
         if (this.m == null) {
-            String e = o.e();
-            if (!TextUtils.isEmpty(e)) {
-                File file = new File(e);
-                if (file.exists() && e.endsWith(".mp4")) {
+            String hideVideoUrl = Utils.getHideVideoUrl();
+            if (!TextUtils.isEmpty(hideVideoUrl)) {
+                File file = new File(hideVideoUrl);
+                if (file.exists() && hideVideoUrl.endsWith(".mp4")) {
                     this.m = Uri.fromFile(file);
                 }
             }
         }
         if (this.m == null || surface == null) {
             if (this.m == null) {
-                com.baidu.ar.util.b.d("bdar: mUri is NULL!!");
+                ARLog.e("bdar: mUri is NULL!!");
             }
             if (surface == null) {
-                com.baidu.ar.util.b.d("bdar: mSurfaceHolder is NULL!!");
+                ARLog.e("bdar: mSurfaceHolder is NULL!!");
             }
             return false;
         }
@@ -166,8 +166,8 @@ public class TextureVideoView extends TextureView implements TextureView.Surface
             this.e.prepareAsync();
             this.c = 1;
             return true;
-        } catch (Exception e2) {
-            com.baidu.ar.util.b.c("Unable to open content: " + this.m + e2);
+        } catch (Exception e) {
+            ARLog.w("Unable to open content: " + this.m + e);
             this.c = -1;
             this.d = -1;
             this.t.onError(this.e, 1, 0);
@@ -233,7 +233,7 @@ public class TextureVideoView extends TextureView implements TextureView.Surface
         try {
             if (g()) {
                 this.e.start();
-                com.baidu.ar.util.b.d("bdar: mMediaPlayer start");
+                ARLog.e("bdar: mMediaPlayer start");
                 this.c = 3;
             }
             this.d = 3;
@@ -287,7 +287,7 @@ public class TextureVideoView extends TextureView implements TextureView.Surface
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         d();
-        com.baidu.ar.util.b.d("width = " + i + ", height = " + i2);
+        ARLog.e("width = " + i + ", height = " + i2);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener

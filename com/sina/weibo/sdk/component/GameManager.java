@@ -13,7 +13,6 @@ import com.sina.weibo.sdk.net.HttpManager;
 import com.sina.weibo.sdk.net.NetStateManager;
 import com.sina.weibo.sdk.net.WeiboParameters;
 import com.sina.weibo.sdk.utils.LogUtil;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -86,7 +85,7 @@ public class GameManager {
             weiboParameters.put("uid", str4);
         }
         if (!TextUtils.isEmpty(str5)) {
-            weiboParameters.put(WBConstants.GAME_PARAMS_SCORE, str5);
+            weiboParameters.put("score", str5);
         }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
@@ -188,7 +187,7 @@ public class GameManager {
                 if (i2 == 0) {
                     stringBuffer.append(str4);
                 } else {
-                    stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP + str4);
+                    stringBuffer.append("," + str4);
                 }
                 i = i2 + 1;
             }

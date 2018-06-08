@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.ChangedPackages;
 import android.content.pm.FeatureInfo;
 import android.content.pm.InstrumentationInfo;
 import android.content.pm.PackageInfo;
@@ -15,11 +16,15 @@ import android.content.pm.PermissionInfo;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+import android.content.pm.SharedLibraryInfo;
+import android.content.pm.VersionedPackage;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -464,5 +469,60 @@ public class PackageMangerProxy extends PackageManager {
     @Override // android.content.pm.PackageManager
     public PackageInstaller getPackageInstaller() {
         return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public boolean canRequestPackageInstalls() {
+        return false;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public boolean isInstantApp() {
+        return false;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public boolean isInstantApp(String str) {
+        return false;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public int getInstantAppCookieMaxBytes() {
+        return 0;
+    }
+
+    @Override // android.content.pm.PackageManager
+    @NonNull
+    public byte[] getInstantAppCookie() {
+        return new byte[0];
+    }
+
+    @Override // android.content.pm.PackageManager
+    public void clearInstantAppCookie() {
+    }
+
+    @Override // android.content.pm.PackageManager
+    public void updateInstantAppCookie(@Nullable byte[] bArr) {
+    }
+
+    @Override // android.content.pm.PackageManager
+    public PackageInfo getPackageInfo(VersionedPackage versionedPackage, int i) throws PackageManager.NameNotFoundException {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    @NonNull
+    public List<SharedLibraryInfo> getSharedLibraries(int i) {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    @Nullable
+    public ChangedPackages getChangedPackages(int i) {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public void setApplicationCategoryHint(@NonNull String str, int i) {
     }
 }

@@ -23,16 +23,16 @@ public class RecAppDownloadReceiver extends BroadcastReceiver {
                 }
                 if (status == 7) {
                     downloadData.setStatus(5);
-                    h.bjw().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                    h.bjw().m(downloadData);
+                    h.bov().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                    h.bov().m(downloadData);
                 } else if (status == 1 || status == 5) {
                     downloadData.setStatus(4);
-                    h.bjw().j(downloadData.getUrl(), downloadData.getId(), true);
-                    h.bjw().o(downloadData);
+                    h.bov().j(downloadData.getUrl(), downloadData.getId(), true);
+                    h.bov().o(downloadData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
             } else if ("action_cancel_download".equals(intent.getAction())) {
-                h.bjw().p(downloadData);
+                h.bov().p(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016483, downloadData));
             }
         }

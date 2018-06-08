@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -47,7 +46,7 @@ public class a {
         }
         String a3 = i.a("ro.product.cpu.abilist", "");
         if (!TextUtils.isEmpty(a3)) {
-            String[] split = a3.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = a3.split(",");
             for (int i = 0; split != null && i < split.length; i++) {
                 if (!TextUtils.isEmpty(split[i])) {
                     arrayList.add(split[i]);

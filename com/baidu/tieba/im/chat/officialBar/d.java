@@ -14,11 +14,11 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    BaseActivity bcK;
-    private View.OnClickListener dTU = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
+    BaseActivity bkU;
+    private View.OnClickListener efh = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
         @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            int intValue = ((Integer) view2.getTag()).intValue();
+        public void onClick(View view) {
+            int intValue = ((Integer) view.getTag()).intValue();
             if (intValue >= 0 && intValue < d.this.mList.size()) {
                 ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) d.this.mList.get(intValue);
                 String F = com.baidu.tieba.im.util.e.F("[" + aVar.content + "]", true);
@@ -33,7 +33,7 @@ public class d extends BaseAdapter {
 
     public d(BaseActivity baseActivity, Context context) {
         this.mContext = context;
-        this.bcK = baseActivity;
+        this.bkU = baseActivity;
     }
 
     @Override // android.widget.Adapter
@@ -83,16 +83,16 @@ public class d extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        return d(i, view2, viewGroup);
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return d(i, view, viewGroup);
     }
 
-    private View d(int i, View view2, ViewGroup viewGroup) {
+    private View d(int i, View view, ViewGroup viewGroup) {
         ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) getItem(i);
         if (aVar != null && aVar.content != null) {
             switch (getItemViewType(i)) {
                 case 0:
-                    View historyItemView = view2 == null ? new HistoryItemView(this.mContext) : view2;
+                    View historyItemView = view == null ? new HistoryItemView(this.mContext) : view;
                     HistoryItemView historyItemView2 = (HistoryItemView) historyItemView;
                     historyItemView2.setClickable(false);
                     historyItemView2.setTime(aVar.time);
@@ -107,7 +107,7 @@ public class d extends BaseAdapter {
                     j.a(this.mContext, historyItemView2.getRichTextView(), chatMessage, "official_history_adapter", 0);
                     return historyItemView;
                 case 1:
-                    View historyItemView3 = view2 == null ? new HistoryItemView(this.mContext) : view2;
+                    View historyItemView3 = view == null ? new HistoryItemView(this.mContext) : view;
                     HistoryItemView historyItemView4 = (HistoryItemView) historyItemView3;
                     historyItemView4.setClickable(false);
                     historyItemView4.setTime(aVar.time);
@@ -121,21 +121,21 @@ public class d extends BaseAdapter {
                     chatMessage2.setMsgType(aVar.type);
                     j.a(this.mContext, historyItemView3, historyItemView4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     historyItemView4.getImageView().setTag(Integer.valueOf(i));
-                    historyItemView4.getImageView().setOnClickListener(this.dTU);
+                    historyItemView4.getImageView().setOnClickListener(this.efh);
                     return historyItemView3;
                 case 2:
-                    View historyItemView5 = view2 == null ? new HistoryItemView(this.mContext) : view2;
+                    View historyItemView5 = view == null ? new HistoryItemView(this.mContext) : view;
                     MultiContentView multiContentView = new MultiContentView(this.mContext);
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.time);
-                    multiContentView.setData(this.bcK.getPageContext(), c.a(aVar.content, "", 0L), viewGroup);
-                    ((HistoryItemView) historyItemView5).aF(multiContentView);
+                    multiContentView.setData(this.bkU.getPageContext(), c.a(aVar.content, "", 0L), viewGroup);
+                    ((HistoryItemView) historyItemView5).aI(multiContentView);
                     return historyItemView5;
                 default:
-                    return view2;
+                    return view;
             }
         }
-        return view2;
+        return view;
     }
 
     public void setData(List<ResponseHistoryMessage.a> list) {

@@ -26,16 +26,16 @@ public class FrsHeaderViewContainer extends LinearLayout {
         setOrientation(1);
     }
 
-    public void addHeaderView(View view2) {
-        addView(view2, new LinearLayout.LayoutParams(-1, -2));
+    public void addHeaderView(View view) {
+        addView(view, new LinearLayout.LayoutParams(-1, -2));
     }
 
-    public void addHeaderView(View view2, int i) {
-        addView(view2, i, new LinearLayout.LayoutParams(-1, -2));
+    public void addHeaderView(View view, int i) {
+        addView(view, i, new LinearLayout.LayoutParams(-1, -2));
     }
 
-    public void removeHeaderView(View view2) {
-        removeView(view2);
+    public void removeHeaderView(View view) {
+        removeView(view);
     }
 
     public int getHeaderViewsCount() {

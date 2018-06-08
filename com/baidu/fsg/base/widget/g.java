@@ -14,7 +14,7 @@ public class g implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         ImageButton imageButton;
         if (motionEvent.getAction() == 0) {
             this.a.d();

@@ -12,7 +12,6 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ActionProvider;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.appcompat.R;
-import android.support.v7.transition.ActionBarTransition;
 import android.support.v7.view.ActionBarPolicy;
 import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.view.menu.BaseMenuPresenter;
@@ -155,10 +154,10 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     }
 
     @Override // android.support.v7.view.menu.BaseMenuPresenter
-    public View getItemView(MenuItemImpl menuItemImpl, View view2, ViewGroup viewGroup) {
+    public View getItemView(MenuItemImpl menuItemImpl, View view, ViewGroup viewGroup) {
         View actionView = menuItemImpl.getActionView();
         if (actionView == null || menuItemImpl.hasCollapsibleActionView()) {
-            actionView = super.getItemView(menuItemImpl, view2, viewGroup);
+            actionView = super.getItemView(menuItemImpl, view, viewGroup);
         }
         actionView.setVisibility(menuItemImpl.isActionViewExpanded() ? 8 : 0);
         ActionMenuView actionMenuView = (ActionMenuView) viewGroup;
@@ -188,10 +187,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     @Override // android.support.v7.view.menu.BaseMenuPresenter, android.support.v7.view.menu.MenuPresenter
     public void updateMenuView(boolean z) {
         boolean z2 = false;
-        ViewGroup viewGroup = (ViewGroup) ((View) this.mMenuView).getParent();
-        if (viewGroup != null) {
-            ActionBarTransition.beginDelayedTransition(viewGroup);
-        }
         super.updateMenuView(z);
         ((View) this.mMenuView).requestLayout();
         if (this.mMenu != null) {
@@ -217,10 +212,10 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             if (this.mOverflowButton == null) {
                 this.mOverflowButton = new OverflowMenuButton(this.mSystemContext);
             }
-            ViewGroup viewGroup2 = (ViewGroup) this.mOverflowButton.getParent();
-            if (viewGroup2 != this.mMenuView) {
-                if (viewGroup2 != null) {
-                    viewGroup2.removeView(this.mOverflowButton);
+            ViewGroup viewGroup = (ViewGroup) this.mOverflowButton.getParent();
+            if (viewGroup != this.mMenuView) {
+                if (viewGroup != null) {
+                    viewGroup.removeView(this.mOverflowButton);
                 }
                 ActionMenuView actionMenuView = (ActionMenuView) this.mMenuView;
                 actionMenuView.addView(this.mOverflowButton, actionMenuView.generateOverflowButtonLayoutParams());
@@ -589,6 +584,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             setFocusable(true);
             setVisibility(0);
             setEnabled(true);
+            TooltipCompat.setTooltipText(this, getContentDescription());
             setOnTouchListener(new ForwardingListener(this) { // from class: android.support.v7.widget.ActionMenuPresenter.OverflowMenuButton.1
                 @Override // android.support.v7.widget.ForwardingListener
                 public ShowableListMenu getPopup() {
@@ -654,15 +650,14 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class OverflowPopup extends MenuPopupHelper {
-        public OverflowPopup(Context context, MenuBuilder menuBuilder, View view2, boolean z) {
-            super(context, menuBuilder, view2, z, R.attr.actionOverflowMenuStyle);
+        public OverflowPopup(Context context, MenuBuilder menuBuilder, View view, boolean z) {
+            super(context, menuBuilder, view, z, R.attr.actionOverflowMenuStyle);
             setGravity(GravityCompat.END);
             setPresenterCallback(ActionMenuPresenter.this.mPopupPresenterCallback);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.support.v7.view.menu.MenuPopupHelper
-        public void onDismiss() {
+        protected void onDismiss() {
             if (ActionMenuPresenter.this.mMenu != null) {
                 ActionMenuPresenter.this.mMenu.close();
             }
@@ -674,23 +669,22 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class ActionButtonSubmenu extends MenuPopupHelper {
-        public ActionButtonSubmenu(Context context, SubMenuBuilder subMenuBuilder, View view2) {
-            super(context, subMenuBuilder, view2, false, R.attr.actionOverflowMenuStyle);
-            View view3;
+        public ActionButtonSubmenu(Context context, SubMenuBuilder subMenuBuilder, View view) {
+            super(context, subMenuBuilder, view, false, R.attr.actionOverflowMenuStyle);
+            View view2;
             if (!((MenuItemImpl) subMenuBuilder.getItem()).isActionButton()) {
                 if (ActionMenuPresenter.this.mOverflowButton == null) {
-                    view3 = (View) ActionMenuPresenter.this.mMenuView;
+                    view2 = (View) ActionMenuPresenter.this.mMenuView;
                 } else {
-                    view3 = ActionMenuPresenter.this.mOverflowButton;
+                    view2 = ActionMenuPresenter.this.mOverflowButton;
                 }
-                setAnchorView(view3);
+                setAnchorView(view2);
             }
             setPresenterCallback(ActionMenuPresenter.this.mPopupPresenterCallback);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.support.v7.view.menu.MenuPopupHelper
-        public void onDismiss() {
+        protected void onDismiss() {
             ActionMenuPresenter.this.mActionButtonPopup = null;
             ActionMenuPresenter.this.mOpenSubMenuId = 0;
             super.onDismiss();
@@ -738,8 +732,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             if (ActionMenuPresenter.this.mMenu != null) {
                 ActionMenuPresenter.this.mMenu.changeMenuMode();
             }
-            View view2 = (View) ActionMenuPresenter.this.mMenuView;
-            if (view2 != null && view2.getWindowToken() != null && this.mPopup.tryShow()) {
+            View view = (View) ActionMenuPresenter.this.mMenuView;
+            if (view != null && view.getWindowToken() != null && this.mPopup.tryShow()) {
                 ActionMenuPresenter.this.mOverflowPopup = this.mPopup;
             }
             ActionMenuPresenter.this.mPostedOpenRunnable = null;

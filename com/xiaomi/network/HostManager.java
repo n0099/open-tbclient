@@ -376,7 +376,7 @@ public class HostManager {
         ArrayList<com.xiaomi.channel.commonutils.network.c> arrayList3 = new ArrayList();
         arrayList3.add(new com.xiaomi.channel.commonutils.network.a("type", str));
         arrayList3.add(new com.xiaomi.channel.commonutils.network.a(UserBox.TYPE, str2));
-        arrayList3.add(new com.xiaomi.channel.commonutils.network.a("list", join(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
+        arrayList3.add(new com.xiaomi.channel.commonutils.network.a("list", join(arrayList, ",")));
         Fallback localFallback = getLocalFallback("resolver.gslb.mi-idc.com");
         String format = String.format("http://%1$s/gslb/gslb/getbucket.asp?ver=3.0", "resolver.gslb.mi-idc.com");
         if (localFallback == null) {

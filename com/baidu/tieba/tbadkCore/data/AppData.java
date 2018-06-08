@@ -7,9 +7,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import tbclient.App;
 import tbclient.GoodsInfo;
@@ -92,9 +91,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo oy = com.baidu.tieba.lego.card.b.oy(str);
-        if (oy != null) {
-            ICardInfo viewItem = oy.getViewItem(0, 4);
+        ICardInfo pk = com.baidu.tieba.lego.card.b.pk(str);
+        if (pk != null) {
+            ICardInfo viewItem = pk.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -113,7 +112,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo oy;
+        ICardInfo pk;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -165,8 +164,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.d.eE().ak("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (oy = com.baidu.tieba.lego.card.b.oy(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = oy.getViewItem(0, 1);
+                    if (com.baidu.adp.lib.b.d.hv().aw("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (pk = com.baidu.tieba.lego.card.b.pk(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = pk.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -181,12 +180,12 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int qr() {
+    public int tN() {
         if (this.goods == null) {
             return 25;
         }
         if (this.goods.goods_style != 1001) {
-            if (com.baidu.adp.lib.b.d.eE().ak("is_support_lego_ad_style") == 0) {
+            if (com.baidu.adp.lib.b.d.hv().aw("is_support_lego_ad_style") == 0) {
                 return 28;
             }
             if (TextUtils.isEmpty(this.id) || TextUtils.isEmpty(this.id.trim())) {
@@ -198,19 +197,19 @@ public class AppData extends OrmObject {
             if (this.legoCard == null || !this.goods.c(this.legoCard)) {
                 return 32;
             }
-            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.pX().qd() && !this.legoCard.isNoPicAd()) {
+            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.tt().tz() && !this.legoCard.isNoPicAd()) {
                 return 34;
             }
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!bd.ZT.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            if (!bd.ahV.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
                 return 31;
             }
             if (this.url_type == 3) {
-                return !qs() ? 26 : 0;
+                return !tO() ? 26 : 0;
             } else if (this.url_type == 1) {
-                return !qt() ? 27 : 0;
+                return !tP() ? 27 : 0;
             } else {
                 return 21;
             }
@@ -218,11 +217,11 @@ public class AppData extends OrmObject {
         return 0;
     }
 
-    public boolean qs() {
+    public boolean tO() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean qt() {
+    public boolean tP() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {
@@ -309,7 +308,7 @@ public class AppData extends OrmObject {
             this.id = goodsInfo.id.intValue();
             this.user_name = goodsInfo.user_name;
             this.user_portrait = goodsInfo.user_portrait;
-            this.thread_title = an.d(goodsInfo.thread_title, 29, "...");
+            this.thread_title = ao.d(goodsInfo.thread_title, 29, "...");
             this.thread_pic = goodsInfo.thread_pic;
             this.pop_window_text = goodsInfo.pop_window_text;
             this.goods_style = goodsInfo.goods_style.intValue();
@@ -335,7 +334,7 @@ public class AppData extends OrmObject {
             String str = goodsInfo.tag_name_wh;
             if (str != null) {
                 try {
-                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = str.split(",");
                     int g = com.baidu.adp.lib.g.b.g(split[0], 1);
                     int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
                     if (g2 != 0) {
@@ -348,7 +347,7 @@ public class AppData extends OrmObject {
         }
 
         public boolean c(ICardInfo iCardInfo) {
-            return (TextUtils.isEmpty(this.lego_card) || com.baidu.adp.lib.b.d.eE().ak("is_support_lego_ad_style") == 0 || iCardInfo == null) ? false : true;
+            return (TextUtils.isEmpty(this.lego_card) || com.baidu.adp.lib.b.d.hv().aw("is_support_lego_ad_style") == 0 || iCardInfo == null) ? false : true;
         }
     }
 }

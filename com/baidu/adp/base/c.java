@@ -32,38 +32,38 @@ public class c<T> {
         return this.mInputManager;
     }
 
-    public void HidenSoftKeyPad(View view2) {
+    public void HidenSoftKeyPad(View view) {
         try {
             if (this.mInputManager == null) {
                 getInputMethodManager();
             }
-            if (this.mInputManager != null && view2 != null) {
-                this.mInputManager.hideSoftInputFromWindow(view2.getWindowToken(), 2);
+            if (this.mInputManager != null && view != null) {
+                this.mInputManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void ShowSoftKeyPad(View view2) {
+    public void ShowSoftKeyPad(View view) {
         try {
-            getInputMethodManager().showSoftInput(view2, 0);
+            getInputMethodManager().showSoftInput(view, 0);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void ShowSoftKeyPadDelay(View view2, int i) {
-        new Handler().postDelayed(new a(view2), i);
+    public void ShowSoftKeyPadDelay(View view, int i) {
+        new Handler().postDelayed(new a(view), i);
     }
 
     /* loaded from: classes.dex */
     class a implements Runnable {
         private View mView;
 
-        public a(View view2) {
+        public a(View view) {
             this.mView = null;
-            this.mView = view2;
+            this.mView = view;
         }
 
         @Override // java.lang.Runnable

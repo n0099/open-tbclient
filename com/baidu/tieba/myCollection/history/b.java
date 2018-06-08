@@ -6,64 +6,64 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.d;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b> {
-    private TextView apF;
-    private TextView bZJ;
-    private TextView eVh;
+    private TextView axM;
+    private TextView chM;
+    private TextView fgB;
     private View mLine;
     private View mRootView;
 
-    public b(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view2, viewEventCenter);
-        this.mRootView = view2;
-        this.eVh = (TextView) view2.findViewById(d.g.title);
-        this.apF = (TextView) view2.findViewById(d.g.content);
-        this.apF.setSingleLine();
-        this.apF.setEllipsize(TextUtils.TruncateAt.END);
-        this.bZJ = (TextView) view2.findViewById(d.g.time);
-        this.mLine = view2.findViewById(d.g.line);
+    public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, view, viewEventCenter);
+        this.mRootView = view;
+        this.fgB = (TextView) view.findViewById(d.g.title);
+        this.axM = (TextView) view.findViewById(d.g.content);
+        this.axM.setSingleLine();
+        this.axM.setEllipsize(TextUtils.TruncateAt.END);
+        this.chM = (TextView) view.findViewById(d.g.time);
+        this.mLine = view.findViewById(d.g.line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void D(com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        super.D(aVar);
+    public void G(com.baidu.tieba.myCollection.baseHistory.a aVar) {
+        super.G(aVar);
         if (aVar != null) {
-            if (this.eVh != null) {
+            if (this.fgB != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.eVh.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
+                        this.fgB.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.eVh.setText(aVar.getDescription());
+                        this.fgB.setText(aVar.getDescription());
                     }
-                } else if (aVar.aTd() != null) {
+                } else if (aVar.aXZ() != null) {
                     if (aVar.isShareThread()) {
-                        this.eVh.setText(String.format("%s%s", getString(d.k.pb_history_share_prefix), aVar.aTd()));
+                        this.fgB.setText(String.format("%s%s", getString(d.k.pb_history_share_prefix), aVar.aXZ()));
                     } else {
-                        this.eVh.setText(aVar.aTd());
+                        this.fgB.setText(aVar.aXZ());
                     }
                 }
             }
-            if (this.apF != null) {
+            if (this.axM != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.apF.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
+                    this.axM.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.apF.setText(aVar.getForumName());
+                    this.axM.setText(aVar.getForumName());
                 }
             }
-            if (this.bZJ != null) {
-                String f = an.f(new Date(aVar.getTime()));
-                if (f == null) {
-                    f = "";
+            if (this.chM != null) {
+                String h = ao.h(new Date(aVar.getTime()));
+                if (h == null) {
+                    h = "";
                 }
-                this.bZJ.setText(f);
+                this.chM.setText(h);
             }
         }
     }
@@ -71,11 +71,11 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     @Override // com.baidu.tieba.tbadkCore.o
     @SuppressLint({"ResourceAsColor"})
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        ak.i(this.mRootView, d.f.list_item_selector);
-        ak.i(this.mLine, d.C0126d.cp_bg_line_b);
-        ak.c(this.eVh, d.C0126d.cp_cont_b, 1);
-        ak.c(this.apF, d.C0126d.cp_cont_d, 1);
-        ak.c(this.bZJ, d.C0126d.cp_cont_d, 1);
+        al.i(this.mRootView, d.f.list_item_selector);
+        al.i(this.mLine, d.C0141d.cp_bg_line_b);
+        al.c(this.fgB, d.C0141d.cp_cont_b, 1);
+        al.c(this.axM, d.C0141d.cp_cont_d, 1);
+        al.c(this.chM, d.C0141d.cp_cont_d, 1);
         return true;
     }
 }

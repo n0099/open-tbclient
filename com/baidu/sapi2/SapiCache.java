@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.JsonHttpResponseHandler;
@@ -22,7 +23,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -183,7 +183,7 @@ public final class SapiCache {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String c(String str) {
         Uri parse;
-        String str2 = parse.getHost() + (Uri.parse(str).getPort() == -1 ? "" : ":" + parse.getPort()) + parse.getPath();
+        String str2 = parse.getHost() + (Uri.parse(str).getPort() == -1 ? "" : SystemInfoUtil.COLON + parse.getPort()) + parse.getPath();
         if (!str2.endsWith(".html")) {
             return str2 + ".html";
         }
@@ -356,7 +356,7 @@ public final class SapiCache {
             requestParams = new RequestParams();
             requestParams.put("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl);
             requestParams.put(SapiContext.KEY_SDK_VERSION, SapiAccountManager.VERSION_NAME);
-            requestParams.put(Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(d));
+            requestParams.put("app_version", SapiUtils.getVersionName(d));
         }
         return requestParams;
     }

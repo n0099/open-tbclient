@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.base.ApollonConstants;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -228,7 +229,7 @@ public final class ResUtils {
             }
             stringBuffer.append(hexString.toUpperCase());
             if (z && i2 != bArr.length - 1) {
-                stringBuffer.append(":");
+                stringBuffer.append(SystemInfoUtil.COLON);
             }
         }
         return stringBuffer.toString();

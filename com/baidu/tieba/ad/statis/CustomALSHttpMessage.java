@@ -21,7 +21,7 @@ public class CustomALSHttpMessage extends HttpMessage {
         addParam("productId", "2");
         addParam("_os_version", Build.VERSION.RELEASE);
         addParam("_os_type", "ANDROID");
-        addParam("net_type", String.valueOf(j.gV()));
+        addParam("net_type", String.valueOf(j.jJ()));
         this.mUIHandler = new Handler(Looper.getMainLooper());
     }
 

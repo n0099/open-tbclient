@@ -61,9 +61,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                 if ((map.get(WBPageConstants.ParamKey.PAGE) == null || map.get(WBPageConstants.ParamKey.PAGE).equals(1)) && map.get("id") != null) {
                     z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                     String str = new String(bArr);
-                    l<String> cZ = a.ty().cZ("tb.my_pages");
-                    if (cZ != null) {
-                        cZ.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
+                    l<String> dy = a.wW().dy("tb.my_pages");
+                    if (dy != null) {
+                        dy.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
                     }
                 }
             }

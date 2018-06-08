@@ -1,6 +1,5 @@
 package com.google.zxing.aztec.encoder;
 
-import android.support.v4.media.TransportMediator;
 import com.google.zxing.common.BitArray;
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -39,7 +38,7 @@ public final class HighLevelEncoder {
         }
         CHAR_MAP[2][44] = 12;
         CHAR_MAP[2][46] = 13;
-        int[] iArr2 = {0, 32, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 27, 28, 29, 30, 31, 64, 92, 94, 95, 96, 124, TransportMediator.KEYCODE_MEDIA_PLAY, TransportMediator.KEYCODE_MEDIA_PAUSE};
+        int[] iArr2 = {0, 32, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 27, 28, 29, 30, 31, 64, 92, 94, 95, 96, 124, 126, 127};
         for (int i4 = 0; i4 < 28; i4++) {
             CHAR_MAP[3][iArr2[i4]] = i4;
         }

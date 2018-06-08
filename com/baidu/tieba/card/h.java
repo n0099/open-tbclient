@@ -6,21 +6,19 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class h extends a<com.baidu.tieba.e.e> {
-    private View coi;
-    private View coj;
-    private TextView col;
-
-    /* renamed from: com  reason: collision with root package name */
-    private TextView f10com;
-    private TextView con;
-    private TextView coo;
-    private TextView cop;
+    private View cwM;
+    private View cwN;
+    private TextView cwP;
+    private TextView cwQ;
+    private TextView cwR;
+    private TextView cwS;
+    private TextView cwT;
     private String mForumId;
 
     public h(TbPageContext<?> tbPageContext) {
@@ -28,18 +26,18 @@ public class h extends a<com.baidu.tieba.e.e> {
         init(getView());
     }
 
-    private void init(View view2) {
-        this.col = (TextView) view2.findViewById(d.g.card_frs_game_hot_title);
-        this.f10com = (TextView) view2.findViewById(d.g.card_frs_game_hot_topic_1);
-        this.con = (TextView) view2.findViewById(d.g.card_frs_game_hot_topic_2);
-        this.coo = (TextView) view2.findViewById(d.g.card_frs_game_hot_topic_3);
-        this.cop = (TextView) view2.findViewById(d.g.card_frs_game_hot_topic_4);
-        this.f10com.setOnClickListener(this);
-        this.con.setOnClickListener(this);
-        this.coo.setOnClickListener(this);
-        this.cop.setOnClickListener(this);
-        this.coi = view2.findViewById(d.g.divider_line_1);
-        this.coj = view2.findViewById(d.g.divider_line_2);
+    private void init(View view) {
+        this.cwP = (TextView) view.findViewById(d.g.card_frs_game_hot_title);
+        this.cwQ = (TextView) view.findViewById(d.g.card_frs_game_hot_topic_1);
+        this.cwR = (TextView) view.findViewById(d.g.card_frs_game_hot_topic_2);
+        this.cwS = (TextView) view.findViewById(d.g.card_frs_game_hot_topic_3);
+        this.cwT = (TextView) view.findViewById(d.g.card_frs_game_hot_topic_4);
+        this.cwQ.setOnClickListener(this);
+        this.cwR.setOnClickListener(this);
+        this.cwS.setOnClickListener(this);
+        this.cwT.setOnClickListener(this);
+        this.cwM = view.findViewById(d.g.divider_line_1);
+        this.cwN = view.findViewById(d.g.divider_line_2);
     }
 
     public void setForumId(String str) {
@@ -48,14 +46,14 @@ public class h extends a<com.baidu.tieba.e.e> {
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
-        ak.i(getView(), d.C0126d.cp_bg_line_d);
-        ak.i(this.coi, d.C0126d.cp_bg_line_e);
-        ak.i(this.coj, d.C0126d.cp_bg_line_e);
-        ak.c(this.col, d.C0126d.cp_cont_f, 1);
-        ak.c(this.f10com, d.C0126d.cp_cont_b, 1);
-        ak.c(this.con, d.C0126d.cp_cont_b, 1);
-        ak.c(this.coo, d.C0126d.cp_cont_b, 1);
-        ak.c(this.cop, d.C0126d.cp_cont_b, 1);
+        al.i(getView(), d.C0141d.cp_bg_line_d);
+        al.i(this.cwM, d.C0141d.cp_bg_line_e);
+        al.i(this.cwN, d.C0141d.cp_bg_line_e);
+        al.c(this.cwP, d.C0141d.cp_cont_f, 1);
+        al.c(this.cwQ, d.C0141d.cp_cont_b, 1);
+        al.c(this.cwR, d.C0141d.cp_cont_b, 1);
+        al.c(this.cwS, d.C0141d.cp_cont_b, 1);
+        al.c(this.cwT, d.C0141d.cp_cont_b, 1);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -66,42 +64,42 @@ public class h extends a<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.ajx() != null) {
-            if (!TextUtils.isEmpty(eVar.ajx().title)) {
-                this.col.setText(eVar.ajx().title);
+        if (eVar != null && eVar.anu() != null) {
+            if (!TextUtils.isEmpty(eVar.anu().title)) {
+                this.cwP.setText(eVar.anu().title);
             }
-            this.f10com.setVisibility(8);
-            this.con.setVisibility(8);
-            this.coo.setVisibility(8);
-            this.cop.setVisibility(8);
-            if (eVar.ajx().sub_nodes.size() >= 1) {
-                this.f10com.setVisibility(0);
-                this.f10com.setTag(eVar.ajx().sub_nodes.get(0).url);
-                this.f10com.setText(eVar.ajx().sub_nodes.get(0).title);
+            this.cwQ.setVisibility(8);
+            this.cwR.setVisibility(8);
+            this.cwS.setVisibility(8);
+            this.cwT.setVisibility(8);
+            if (eVar.anu().sub_nodes.size() >= 1) {
+                this.cwQ.setVisibility(0);
+                this.cwQ.setTag(eVar.anu().sub_nodes.get(0).url);
+                this.cwQ.setText(eVar.anu().sub_nodes.get(0).title);
             }
-            if (eVar.ajx().sub_nodes.size() >= 2) {
-                this.con.setVisibility(0);
-                this.con.setTag(eVar.ajx().sub_nodes.get(1).url);
-                this.con.setText(eVar.ajx().sub_nodes.get(1).title);
+            if (eVar.anu().sub_nodes.size() >= 2) {
+                this.cwR.setVisibility(0);
+                this.cwR.setTag(eVar.anu().sub_nodes.get(1).url);
+                this.cwR.setText(eVar.anu().sub_nodes.get(1).title);
             }
-            if (eVar.ajx().sub_nodes.size() >= 3) {
-                this.coo.setVisibility(0);
-                this.coo.setTag(eVar.ajx().sub_nodes.get(2).url);
-                this.coo.setText(eVar.ajx().sub_nodes.get(2).title);
+            if (eVar.anu().sub_nodes.size() >= 3) {
+                this.cwS.setVisibility(0);
+                this.cwS.setTag(eVar.anu().sub_nodes.get(2).url);
+                this.cwS.setText(eVar.anu().sub_nodes.get(2).title);
             }
-            if (eVar.ajx().sub_nodes.size() >= 4) {
-                this.cop.setVisibility(0);
-                this.cop.setTag(eVar.ajx().sub_nodes.get(3).url);
-                this.cop.setText(eVar.ajx().sub_nodes.get(3).title);
+            if (eVar.anu().sub_nodes.size() >= 4) {
+                this.cwT.setVisibility(0);
+                this.cwT.setTag(eVar.anu().sub_nodes.get(3).url);
+                this.cwT.setText(eVar.anu().sub_nodes.get(3).title);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (view2 == this.f10com || view2 == this.con || view2 == this.coo || view2 == this.cop) {
-            TiebaStatic.log(new al("c13047").r("obj_locate", 8).ac(ImageViewerConfig.FORUM_ID, this.mForumId));
-            ax.wf().a((TbPageContext) com.baidu.adp.base.i.ab(this.mTbPageContext.getPageActivity()), new String[]{(String) view2.getTag()}, true);
+    public void onClick(View view) {
+        if (view == this.cwQ || view == this.cwR || view == this.cwS || view == this.cwT) {
+            TiebaStatic.log(new am("c13047").r("obj_locate", 8).ah(ImageViewerConfig.FORUM_ID, this.mForumId));
+            ay.zG().a((TbPageContext) com.baidu.adp.base.i.ad(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }
     }
 }

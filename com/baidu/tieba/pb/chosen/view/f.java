@@ -4,26 +4,26 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class f {
-    private RelativeLayout fcK;
-    private TextView fcL;
-    private TextView fcM;
-    private ImageView fcN;
+    private RelativeLayout fof;
+    private TextView fog;
+    private TextView foh;
+    private ImageView foi;
     private View rootView;
 
-    public f(View view2) {
-        this.rootView = view2;
-        this.fcK = (RelativeLayout) view2.findViewById(d.g.chosen_pb_reply_text);
-        this.fcL = (TextView) view2.findViewById(d.g.chosen_pb_reply_comment);
-        this.fcM = (TextView) view2.findViewById(d.g.chosen_pb_reply_number);
-        this.fcN = (ImageView) view2.findViewById(d.g.chosen_pb_reply_share);
+    public f(View view) {
+        this.rootView = view;
+        this.fof = (RelativeLayout) view.findViewById(d.g.chosen_pb_reply_text);
+        this.fog = (TextView) view.findViewById(d.g.chosen_pb_reply_comment);
+        this.foh = (TextView) view.findViewById(d.g.chosen_pb_reply_number);
+        this.foi = (ImageView) view.findViewById(d.g.chosen_pb_reply_share);
     }
 
     public void D(View.OnClickListener onClickListener) {
-        this.fcK.setOnClickListener(onClickListener);
+        this.fof.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
@@ -31,18 +31,18 @@ public class f {
     }
 
     public void E(View.OnClickListener onClickListener) {
-        this.fcN.setOnClickListener(onClickListener);
+        this.foi.setOnClickListener(onClickListener);
     }
 
-    public void qr(String str) {
-        this.fcM.setText(str);
+    public void rf(String str) {
+        this.foh.setText(str);
     }
 
     public void onChangeSkinType() {
-        ak.i(this.rootView, d.f.bg_rec_lick);
-        ak.i(this.fcK, d.f.bg_rec_comment);
-        ak.c(this.fcL, d.C0126d.cp_cont_c, 1);
-        ak.c(this.fcM, d.C0126d.cp_cont_e, 1);
-        ak.c(this.fcN, d.f.recommend_pb_share_selector);
+        al.i(this.rootView, d.f.bg_rec_lick);
+        al.i(this.fof, d.f.bg_rec_comment);
+        al.c(this.fog, d.C0141d.cp_cont_c, 1);
+        al.c(this.foh, d.C0141d.cp_cont_e, 1);
+        al.c(this.foi, d.f.recommend_pb_share_selector);
     }
 }

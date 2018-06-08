@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class RecordLayout extends RelativeLayout {
-    private a gSH;
+    private a hei;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void byA();
+        void bDF();
 
-        void byz();
+        void bDG();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.gSH != null) {
+                if (this.hei != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.gSH.byA();
+                            this.hei.bDG();
                         } else {
-                            this.gSH.byz();
+                            this.hei.bDF();
                         }
-                    } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.af(getContext())) {
+                    } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.ah(getContext())) {
                         if (rawX > 0) {
-                            this.gSH.byA();
+                            this.hei.bDG();
                         } else {
-                            this.gSH.byA();
+                            this.hei.bDG();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.gSH = aVar;
+        this.hei = aVar;
     }
 }

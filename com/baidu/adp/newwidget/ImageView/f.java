@@ -11,38 +11,38 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewCompat;
 /* loaded from: classes.dex */
 public class f extends k {
+    private boolean FU;
+    private final Paint Gd = new Paint();
+    private final Paint Ge = new Paint();
+    private Path lp;
     private Rect mRect;
-    private boolean zL;
-    private Path zU;
-    private final Paint zV = new Paint();
-    private final Paint zW = new Paint();
 
     public f() {
-        this.zV.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.zV.setStyle(Paint.Style.FILL);
-        this.zV.setAntiAlias(true);
-        this.zW.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        this.Gd.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.Gd.setStyle(Paint.Style.FILL);
+        this.Gd.setAntiAlias(true);
+        this.Ge.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     private void d(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.zU == null || this.zL != this.mArgs.zL) {
+            if (this.lp == null || this.FU != this.mArgs.FU) {
                 z = true;
             }
             if (this.mRect == null || !this.mRect.contains(rect)) {
                 z = true;
             }
-            this.zL = this.mArgs.zL;
+            this.FU = this.mArgs.FU;
             if (z) {
                 this.mRect = rect;
-                this.zU = new Path();
-                if (this.zL) {
-                    this.zU.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+                this.lp = new Path();
+                if (this.FU) {
+                    this.lp.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.zU.addRoundRect(new RectF(rect), this.mArgs.mRadius, this.mArgs.mRadius, Path.Direction.CCW);
+                    this.lp.addRoundRect(new RectF(rect), this.mArgs.mRadius, this.mArgs.mRadius, Path.Direction.CCW);
                 }
-                this.zU.close();
+                this.lp.close();
             }
         }
     }
@@ -52,7 +52,7 @@ public class f extends k {
         canvas.save();
         d(drawable.getBounds());
         try {
-            canvas.clipPath(this.zU);
+            canvas.clipPath(this.lp);
         } catch (Exception e) {
         }
         drawable.draw(canvas);

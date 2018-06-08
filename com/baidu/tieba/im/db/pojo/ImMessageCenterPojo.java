@@ -31,6 +31,7 @@ public class ImMessageCenterPojo implements Serializable {
     long last_rid;
     String last_user_name;
     private int mCustomGroupType = 1;
+    private String nameShow;
     long orderCol;
     long pulled_msgId;
     private String pushIds;
@@ -252,10 +253,12 @@ public class ImMessageCenterPojo implements Serializable {
                 }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
                 imMessageCenterPojo.setGroup_head(userData2.getPortrait());
+                imMessageCenterPojo.setNameShow(userData2.getName_show());
             }
         } else {
             imMessageCenterPojo.setGroup_name(userData.getUserName());
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
+            imMessageCenterPojo.setNameShow(userData.getName_show());
         }
         if (b.c(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
             userType = userData.getUserType();
@@ -273,7 +276,7 @@ public class ImMessageCenterPojo implements Serializable {
             imMessageCenterPojo.setCustomGroupType(2);
         }
         imMessageCenterPojo.setLast_content(e.X(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
-        imMessageCenterPojo.setLast_user_name(userData.getUserName());
+        imMessageCenterPojo.setLast_user_name(userData.getName_show());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
         imMessageCenterPojo.setIsFriend(commonMsgPojo.getIsFriend());
@@ -330,5 +333,13 @@ public class ImMessageCenterPojo implements Serializable {
 
     public String getLastContentRawData() {
         return this.last_content_raw_data;
+    }
+
+    public String getNameShow() {
+        return this.nameShow;
+    }
+
+    public void setNameShow(String str) {
+        this.nameShow = str;
     }
 }

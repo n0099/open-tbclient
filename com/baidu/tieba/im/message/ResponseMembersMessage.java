@@ -46,6 +46,7 @@ public class ResponseMembersMessage extends SocketResponsedMessage {
                     userData.setSex(userInfo.sex.intValue());
                     userData.setUserIdLong(userInfo.userId.longValue());
                     userData.setUserName(userInfo.userName);
+                    userData.setName_show(userInfo.userNameShow);
                     List<TshowInfo> list = userInfo.tshowIcon;
                     if (list != null) {
                         ArrayList<IconData> arrayList = new ArrayList<>();

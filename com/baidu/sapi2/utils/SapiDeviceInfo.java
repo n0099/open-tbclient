@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.ar.util.Constants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
@@ -15,6 +14,7 @@ import com.baidu.sapi2.passhost.framework.PluginFacade;
 import com.baidu.sapi2.passhost.framework.a.a;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
+import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +27,7 @@ public class SapiDeviceInfo {
     private static final int a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Z, "O", "K", "T", "T", "Q", "G", "L", "w", com.tencent.connect.common.Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
+    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", "w", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
 
     static String a() {
         return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "";
@@ -65,7 +65,7 @@ public class SapiDeviceInfo {
         arrayList.add(diExceptIndex.contains(6) ? "" : SapiUtils.getClientId(context));
         arrayList.add(diExceptIndex.contains(7) ? "" : confignation.tpl);
         arrayList.add(diExceptIndex.contains(8) ? "" : String.valueOf(isAccountManager.getShareAccounts().size()));
-        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, c()));
+        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(",", c()));
         if (diExceptIndex.contains(10)) {
             str = "";
         } else if (str == null) {
@@ -110,7 +110,7 @@ public class SapiDeviceInfo {
         arrayList.add(diExceptIndex.contains(22) ? "" : SapiUtils.getInternalAvailableMemorySize() + "");
         arrayList.add(diExceptIndex.contains(23) ? "" : SapiUtils.getTimeSinceBoot() + "");
         arrayList.add(diExceptIndex.contains(24) ? "" : SapiUtils.getGPSInfo(context));
-        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, SapiUtils.getPackageList(context)));
+        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(",", SapiUtils.getPackageList(context)));
         if (diExceptIndex.contains(26)) {
             localIpAddress = "";
         } else {

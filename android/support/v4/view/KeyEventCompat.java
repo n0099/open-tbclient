@@ -1,124 +1,33 @@
 package android.support.v4.view;
 
-import android.os.Build;
 import android.view.KeyEvent;
 import android.view.View;
+@Deprecated
 /* loaded from: classes2.dex */
 public final class KeyEventCompat {
-    static final KeyEventVersionImpl IMPL;
-
-    /* loaded from: classes2.dex */
-    interface KeyEventVersionImpl {
-        boolean isCtrlPressed(KeyEvent keyEvent);
-
-        boolean metaStateHasModifiers(int i, int i2);
-
-        boolean metaStateHasNoModifiers(int i);
-
-        int normalizeMetaState(int i);
-    }
-
-    /* loaded from: classes2.dex */
-    static class BaseKeyEventVersionImpl implements KeyEventVersionImpl {
-        private static final int META_ALL_MASK = 247;
-        private static final int META_MODIFIER_MASK = 247;
-
-        BaseKeyEventVersionImpl() {
-        }
-
-        private static int metaStateFilterDirectionalModifiers(int i, int i2, int i3, int i4, int i5) {
-            boolean z = (i2 & i3) != 0;
-            int i6 = i4 | i5;
-            boolean z2 = (i2 & i6) != 0;
-            if (z) {
-                if (z2) {
-                    throw new IllegalArgumentException("bad arguments");
-                }
-                return i & (i6 ^ (-1));
-            } else if (z2) {
-                return i & (i3 ^ (-1));
-            } else {
-                return i;
-            }
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public int normalizeMetaState(int i) {
-            int i2 = (i & 192) != 0 ? i | 1 : i;
-            if ((i2 & 48) != 0) {
-                i2 |= 2;
-            }
-            return i2 & 247;
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean metaStateHasModifiers(int i, int i2) {
-            return metaStateFilterDirectionalModifiers(metaStateFilterDirectionalModifiers(normalizeMetaState(i) & 247, i2, 1, 64, 128), i2, 2, 16, 32) == i2;
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean metaStateHasNoModifiers(int i) {
-            return (normalizeMetaState(i) & 247) == 0;
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean isCtrlPressed(KeyEvent keyEvent) {
-            return false;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class HoneycombKeyEventVersionImpl extends BaseKeyEventVersionImpl {
-        HoneycombKeyEventVersionImpl() {
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public int normalizeMetaState(int i) {
-            return KeyEventCompatHoneycomb.normalizeMetaState(i);
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean metaStateHasModifiers(int i, int i2) {
-            return KeyEventCompatHoneycomb.metaStateHasModifiers(i, i2);
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean metaStateHasNoModifiers(int i) {
-            return KeyEventCompatHoneycomb.metaStateHasNoModifiers(i);
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean isCtrlPressed(KeyEvent keyEvent) {
-            return KeyEventCompatHoneycomb.isCtrlPressed(keyEvent);
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 11) {
-            IMPL = new HoneycombKeyEventVersionImpl();
-        } else {
-            IMPL = new BaseKeyEventVersionImpl();
-        }
-    }
-
+    @Deprecated
     public static int normalizeMetaState(int i) {
-        return IMPL.normalizeMetaState(i);
+        return KeyEvent.normalizeMetaState(i);
     }
 
+    @Deprecated
     public static boolean metaStateHasModifiers(int i, int i2) {
-        return IMPL.metaStateHasModifiers(i, i2);
+        return KeyEvent.metaStateHasModifiers(i, i2);
     }
 
+    @Deprecated
     public static boolean metaStateHasNoModifiers(int i) {
-        return IMPL.metaStateHasNoModifiers(i);
+        return KeyEvent.metaStateHasNoModifiers(i);
     }
 
+    @Deprecated
     public static boolean hasModifiers(KeyEvent keyEvent, int i) {
-        return IMPL.metaStateHasModifiers(keyEvent.getMetaState(), i);
+        return keyEvent.hasModifiers(i);
     }
 
+    @Deprecated
     public static boolean hasNoModifiers(KeyEvent keyEvent) {
-        return IMPL.metaStateHasNoModifiers(keyEvent.getMetaState());
+        return keyEvent.hasNoModifiers();
     }
 
     @Deprecated
@@ -132,8 +41,8 @@ public final class KeyEventCompat {
     }
 
     @Deprecated
-    public static Object getKeyDispatcherState(View view2) {
-        return view2.getKeyDispatcherState();
+    public static Object getKeyDispatcherState(View view) {
+        return view.getKeyDispatcherState();
     }
 
     @Deprecated
@@ -141,8 +50,9 @@ public final class KeyEventCompat {
         return keyEvent.dispatch(callback, (KeyEvent.DispatcherState) obj, obj2);
     }
 
+    @Deprecated
     public static boolean isCtrlPressed(KeyEvent keyEvent) {
-        return IMPL.isCtrlPressed(keyEvent);
+        return keyEvent.isCtrlPressed();
     }
 
     private KeyEventCompat() {

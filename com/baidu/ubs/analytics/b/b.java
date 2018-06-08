@@ -1,10 +1,14 @@
 package com.baidu.ubs.analytics.b;
 
-import com.baidu.ar.util.Constants;
+import android.support.v4.app.NotificationCompat;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.util.IoUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.ubs.analytics.c.g;
 import com.baidu.ubs.analytics.d;
 import com.baidu.ubs.analytics.d.j;
 import com.sina.weibo.sdk.exception.WeiboAuthException;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -31,7 +35,7 @@ public final class b {
     public interface a<T> {
         void a(T t);
 
-        void vk(String str);
+        void we(String str);
     }
 
     public static String d(String str, Map<String, Object> map) {
@@ -59,11 +63,11 @@ public final class b {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setReadTimeout(Constants.HTTP_CONNECT_TIMEOUT);
+            httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestProperty(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN, d.bEL().k());
-            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), "utf-8"));
+            httpURLConnection.setRequestProperty(Constants.EXTRA_KEY_TOKEN, d.bJP().k());
+            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), IoUtils.UTF_8));
             printWriter.write(str2);
             printWriter.flush();
             BufferedInputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
@@ -77,7 +81,7 @@ public final class b {
                 } else {
                     printWriter.close();
                     bufferedInputStream.close();
-                    String byteArrayOutputStream2 = byteArrayOutputStream.toString("utf-8");
+                    String byteArrayOutputStream2 = byteArrayOutputStream.toString(IoUtils.UTF_8);
                     byteArrayOutputStream.close();
                     return byteArrayOutputStream2;
                 }
@@ -100,25 +104,25 @@ public final class b {
         try {
             try {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                httpURLConnection.setReadTimeout(Constants.HTTP_CONNECT_TIMEOUT);
+                httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
                 httpURLConnection.setConnectTimeout(40000);
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
+                httpURLConnection.setRequestProperty("Accept-Charset", IoUtils.UTF_8);
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
-                httpURLConnection.setRequestProperty(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN, d.bEL().k());
+                httpURLConnection.setRequestProperty(Constants.EXTRA_KEY_TOKEN, d.bJP().k());
                 if (file != null) {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("--");
                     stringBuffer.append(uuid);
-                    stringBuffer.append("\r\n");
-                    stringBuffer.append("Content-Disposition: form-data; name=\"txt\"; filename=\"" + file.getName() + "\"\r\n");
-                    stringBuffer.append("Content-Type: application/octet-stream; charset=utf-8\r\n");
-                    stringBuffer.append("\r\n");
+                    stringBuffer.append(SystemInfoUtil.LINE_END);
+                    stringBuffer.append("Content-Disposition: form-data; name=\"txt\"; filename=\"" + file.getName() + "\"" + SystemInfoUtil.LINE_END);
+                    stringBuffer.append("Content-Type: application/octet-stream; charset=utf-8" + SystemInfoUtil.LINE_END);
+                    stringBuffer.append(SystemInfoUtil.LINE_END);
                     dataOutputStream.write(stringBuffer.toString().getBytes("UTF-8"));
                     fileInputStream = new FileInputStream(file);
                     try {
@@ -131,12 +135,12 @@ public final class b {
                             dataOutputStream.write(bArr, 0, read);
                         }
                         fileInputStream.close();
-                        dataOutputStream.write("\r\n".getBytes("UTF-8"));
-                        dataOutputStream.write(("--" + uuid + "--\r\n").getBytes("UTF-8"));
+                        dataOutputStream.write(SystemInfoUtil.LINE_END.getBytes("UTF-8"));
+                        dataOutputStream.write(("--" + uuid + "--" + SystemInfoUtil.LINE_END).getBytes("UTF-8"));
                         dataOutputStream.flush();
                         dataOutputStream.close();
                         if (httpURLConnection.getResponseCode() != 200) {
-                            com.baidu.ubs.analytics.d.b.vn(file.getAbsolutePath() + "     上传文件失败…………");
+                            com.baidu.ubs.analytics.d.b.wh(file.getAbsolutePath() + "     上传文件失败…………");
                             httpURLConnection.disconnect();
                             try {
                                 fileInputStream.close();
@@ -222,12 +226,12 @@ public final class b {
             httpURLConnection.setDoInput(true);
             httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
             httpURLConnection.setRequestProperty("Content-Type", "application/json");
-            httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
+            httpURLConnection.setRequestProperty("Accept-Charset", IoUtils.UTF_8);
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
             httpURLConnection.setRequestProperty(HTTP.CONTENT_LEN, String.valueOf(str.toString().getBytes("UTF-8").length));
-            httpURLConnection.setReadTimeout(Constants.HTTP_CONNECT_TIMEOUT);
+            httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setRequestProperty(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN, d.bEL().k());
+            httpURLConnection.setRequestProperty(Constants.EXTRA_KEY_TOKEN, d.bJP().k());
             httpURLConnection.connect();
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(str.getBytes("UTF-8"));
@@ -240,7 +244,7 @@ public final class b {
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (readLine != null) {
-                        stringBuffer.append(new String(readLine.getBytes("UTF-8"), "utf-8"));
+                        stringBuffer.append(new String(readLine.getBytes("UTF-8"), IoUtils.UTF_8));
                     } else {
                         bufferedReader.close();
                         inputStreamReader.close();
@@ -249,12 +253,12 @@ public final class b {
                     }
                 }
             } else {
-                com.baidu.ubs.analytics.d.b.vn("上传log失败    ");
+                com.baidu.ubs.analytics.d.b.wh("上传log失败    ");
                 httpURLConnection.disconnect();
                 return null;
             }
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.b.vn("上传log失败    " + e.getMessage());
+            com.baidu.ubs.analytics.d.b.wh("上传log失败    " + e.getMessage());
             j.a(e);
             return null;
         }
@@ -267,13 +271,13 @@ public final class b {
         }
         if (str == null) {
             if (aVar != null) {
-                aVar.vk(WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
+                aVar.we(WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
                 return false;
             }
             return false;
         }
         JSONObject jSONObject = new JSONObject(str);
-        if (jSONObject.getString("status").equals("0")) {
+        if (jSONObject.getString(NotificationCompat.CATEGORY_STATUS).equals("0")) {
             if (aVar != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
@@ -283,20 +287,20 @@ public final class b {
                 }
             }
             return true;
-        } else if (jSONObject.getString("status").equals("1")) {
+        } else if (jSONObject.getString(NotificationCompat.CATEGORY_STATUS).equals("1")) {
             if (aVar != null) {
-                aVar.vk(jSONObject.optString("status"));
+                aVar.we(jSONObject.optString(NotificationCompat.CATEGORY_STATUS));
             }
-            com.baidu.ubs.analytics.d.b.vn("net status  error ");
+            com.baidu.ubs.analytics.d.b.wh("net status  error ");
             return false;
         } else {
-            if (jSONObject.getString("status").equals("2")) {
-                g.d(d.bEL().getContext());
-                com.baidu.ubs.analytics.d.b.vn("net  token error ");
+            if (jSONObject.getString(NotificationCompat.CATEGORY_STATUS).equals("2")) {
+                g.d(d.bJP().getContext());
+                com.baidu.ubs.analytics.d.b.wh("net  token error ");
                 return false;
             }
             if (aVar != null) {
-                aVar.vk(WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
+                aVar.we(WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
                 return false;
             }
             return false;

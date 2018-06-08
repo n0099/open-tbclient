@@ -31,13 +31,13 @@ import android.text.TextUtils;
 import android.text.format.Formatter;
 import android.util.Log;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.permission.PermissionManager;
 import com.baidu.fsg.biometrics.base.d.h;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -175,16 +175,16 @@ public final class PhoneUtils {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                 String lowerCase = readLine.trim().toLowerCase(Locale.ENGLISH);
-                if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", "processor".length()) != -1) {
+                if (lowerCase.startsWith("processor") && lowerCase.indexOf(SystemInfoUtil.COLON, "processor".length()) != -1) {
                     if (cPUInfo.processor.length() > 0) {
                         cPUInfo.processor += "__";
                     }
-                    cPUInfo.processor += lowerCase.split(":")[1].trim();
-                } else if (lowerCase.startsWith("features") && lowerCase.indexOf(":", "features".length()) != -1) {
+                    cPUInfo.processor += lowerCase.split(SystemInfoUtil.COLON)[1].trim();
+                } else if (lowerCase.startsWith("features") && lowerCase.indexOf(SystemInfoUtil.COLON, "features".length()) != -1) {
                     if (cPUInfo.features.length() > 0) {
                         cPUInfo.features += "__";
                     }
-                    cPUInfo.features += lowerCase.split(":")[1].trim();
+                    cPUInfo.features += lowerCase.split(SystemInfoUtil.COLON)[1].trim();
                 }
             }
             if (bufferedReader != null) {
@@ -355,18 +355,18 @@ public final class PhoneUtils {
             for (byte b2 : bArr2) {
                 stringBuffer.append(a(b2));
             }
-            return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
+            return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(SystemInfoUtil.COLON, "");
         }
         String wifiMacAddress = getWifiMacAddress(context);
         if (wifiMacAddress != null) {
-            return wifiMacAddress.replaceAll(":", "");
+            return wifiMacAddress.replaceAll(SystemInfoUtil.COLON, "");
         }
         return wifiMacAddress;
     }
 
     private static String a(byte b2) {
         String str;
-        return ("00" + Integer.toHexString(b2) + ":").substring(str.length() - 3);
+        return ("00" + Integer.toHexString(b2) + SystemInfoUtil.COLON).substring(str.length() - 3);
     }
 
     public static String getLocalMacAddress() {
@@ -418,7 +418,7 @@ public final class PhoneUtils {
                     e5.printStackTrace();
                 }
             }
-            return stringBuffer.toString().trim().replaceAll(":", "");
+            return stringBuffer.toString().trim().replaceAll(SystemInfoUtil.COLON, "");
         } catch (Exception e6) {
             inputStreamReader = null;
         } catch (Throwable th3) {
@@ -456,7 +456,7 @@ public final class PhoneUtils {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
                 }
-                String[] split = cellLocation.toString().replace("[", "").replace("]", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = cellLocation.toString().replace("[", "").replace("]", "").split(",");
                 return split.length > 5 ? String.format("%s_%s_%s", split[0], split[3], split[4]) : format;
             }
         } catch (Exception e2) {
@@ -512,7 +512,7 @@ public final class PhoneUtils {
                         str2 = "";
                     } else {
                         ScanResult scanResult2 = wifiManager.getScanResults().get(i6);
-                        str2 = String.format("%s_%s", scanResult2.BSSID.replace(":", "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
+                        str2 = String.format("%s_%s", scanResult2.BSSID.replace(SystemInfoUtil.COLON, "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
                     }
                     try {
                         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
@@ -793,7 +793,7 @@ public final class PhoneUtils {
                         byte[] address = nextElement.getAddress();
                         if (address.length == 4) {
                             int i2 = (address[0] & 255) | ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8);
-                            str = (i2 & 255) + com.baidu.ar.util.Constants.DOT + ((i2 >> 8) & 255) + com.baidu.ar.util.Constants.DOT + ((i2 >> 16) & 255) + com.baidu.ar.util.Constants.DOT + ((i2 >> 24) & 255);
+                            str = (i2 & 255) + "." + ((i2 >> 8) & 255) + "." + ((i2 >> 16) & 255) + "." + ((i2 >> 24) & 255);
                             break;
                         }
                     }

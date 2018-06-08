@@ -4,12 +4,14 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 /* loaded from: classes2.dex */
 public final class AccessibilityServiceInfoCompat {
     public static final int CAPABILITY_CAN_FILTER_KEY_EVENTS = 8;
     public static final int CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY = 4;
     public static final int CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION = 2;
     public static final int CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT = 1;
+    @Deprecated
     public static final int DEFAULT = 1;
     public static final int FEEDBACK_ALL_MASK = -1;
     public static final int FEEDBACK_BRAILLE = 32;
@@ -18,157 +20,82 @@ public final class AccessibilityServiceInfoCompat {
     public static final int FLAG_REQUEST_ENHANCED_WEB_ACCESSIBILITY = 8;
     public static final int FLAG_REQUEST_FILTER_KEY_EVENTS = 32;
     public static final int FLAG_REQUEST_TOUCH_EXPLORATION_MODE = 4;
-    private static final AccessibilityServiceInfoVersionImpl IMPL;
+    private static final AccessibilityServiceInfoBaseImpl IMPL;
 
     /* loaded from: classes2.dex */
-    interface AccessibilityServiceInfoVersionImpl {
-        boolean getCanRetrieveWindowContent(AccessibilityServiceInfo accessibilityServiceInfo);
-
-        int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo);
-
-        String getDescription(AccessibilityServiceInfo accessibilityServiceInfo);
-
-        String getId(AccessibilityServiceInfo accessibilityServiceInfo);
-
-        ResolveInfo getResolveInfo(AccessibilityServiceInfo accessibilityServiceInfo);
-
-        String getSettingsActivityName(AccessibilityServiceInfo accessibilityServiceInfo);
-
-        String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager);
-    }
-
-    /* loaded from: classes2.dex */
-    static class AccessibilityServiceInfoStubImpl implements AccessibilityServiceInfoVersionImpl {
-        AccessibilityServiceInfoStubImpl() {
+    static class AccessibilityServiceInfoBaseImpl {
+        AccessibilityServiceInfoBaseImpl() {
         }
 
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public boolean getCanRetrieveWindowContent(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return false;
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public String getDescription(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return null;
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public String getId(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return null;
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public ResolveInfo getResolveInfo(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return null;
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public String getSettingsActivityName(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return null;
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
         public int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return 0;
+            return AccessibilityServiceInfoCompat.getCanRetrieveWindowContent(accessibilityServiceInfo) ? 1 : 0;
         }
 
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
         public String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {
             return null;
         }
     }
 
+    @RequiresApi(16)
     /* loaded from: classes2.dex */
-    static class AccessibilityServiceInfoIcsImpl extends AccessibilityServiceInfoStubImpl {
-        AccessibilityServiceInfoIcsImpl() {
+    static class AccessibilityServiceInfoApi16Impl extends AccessibilityServiceInfoBaseImpl {
+        AccessibilityServiceInfoApi16Impl() {
         }
 
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public boolean getCanRetrieveWindowContent(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return AccessibilityServiceInfoCompatIcs.getCanRetrieveWindowContent(accessibilityServiceInfo);
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public String getDescription(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return AccessibilityServiceInfoCompatIcs.getDescription(accessibilityServiceInfo);
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public String getId(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return AccessibilityServiceInfoCompatIcs.getId(accessibilityServiceInfo);
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public ResolveInfo getResolveInfo(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return AccessibilityServiceInfoCompatIcs.getResolveInfo(accessibilityServiceInfo);
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public String getSettingsActivityName(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return AccessibilityServiceInfoCompatIcs.getSettingsActivityName(accessibilityServiceInfo);
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
-        public int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return getCanRetrieveWindowContent(accessibilityServiceInfo) ? 1 : 0;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class AccessibilityServiceInfoJellyBeanImpl extends AccessibilityServiceInfoIcsImpl {
-        AccessibilityServiceInfoJellyBeanImpl() {
-        }
-
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
+        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoBaseImpl
         public String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {
-            return AccessibilityServiceInfoCompatJellyBean.loadDescription(accessibilityServiceInfo, packageManager);
+            return accessibilityServiceInfo.loadDescription(packageManager);
         }
     }
 
+    @RequiresApi(18)
     /* loaded from: classes2.dex */
-    static class AccessibilityServiceInfoJellyBeanMr2Impl extends AccessibilityServiceInfoJellyBeanImpl {
-        AccessibilityServiceInfoJellyBeanMr2Impl() {
+    static class AccessibilityServiceInfoApi18Impl extends AccessibilityServiceInfoApi16Impl {
+        AccessibilityServiceInfoApi18Impl() {
         }
 
-        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoIcsImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
+        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoBaseImpl
         public int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
-            return AccessibilityServiceInfoCompatJellyBeanMr2.getCapabilities(accessibilityServiceInfo);
+            return accessibilityServiceInfo.getCapabilities();
         }
     }
 
     static {
         if (Build.VERSION.SDK_INT >= 18) {
-            IMPL = new AccessibilityServiceInfoJellyBeanMr2Impl();
+            IMPL = new AccessibilityServiceInfoApi18Impl();
         } else if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new AccessibilityServiceInfoJellyBeanImpl();
-        } else if (Build.VERSION.SDK_INT >= 14) {
-            IMPL = new AccessibilityServiceInfoIcsImpl();
+            IMPL = new AccessibilityServiceInfoApi16Impl();
         } else {
-            IMPL = new AccessibilityServiceInfoStubImpl();
+            IMPL = new AccessibilityServiceInfoBaseImpl();
         }
     }
 
     private AccessibilityServiceInfoCompat() {
     }
 
+    @Deprecated
     public static String getId(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return IMPL.getId(accessibilityServiceInfo);
+        return accessibilityServiceInfo.getId();
     }
 
+    @Deprecated
     public static ResolveInfo getResolveInfo(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return IMPL.getResolveInfo(accessibilityServiceInfo);
+        return accessibilityServiceInfo.getResolveInfo();
     }
 
+    @Deprecated
     public static String getSettingsActivityName(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return IMPL.getSettingsActivityName(accessibilityServiceInfo);
+        return accessibilityServiceInfo.getSettingsActivityName();
     }
 
+    @Deprecated
     public static boolean getCanRetrieveWindowContent(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return IMPL.getCanRetrieveWindowContent(accessibilityServiceInfo);
+        return accessibilityServiceInfo.getCanRetrieveWindowContent();
     }
 
+    @Deprecated
     public static String getDescription(AccessibilityServiceInfo accessibilityServiceInfo) {
-        return IMPL.getDescription(accessibilityServiceInfo);
+        return accessibilityServiceInfo.getDescription();
     }
 
     public static String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {

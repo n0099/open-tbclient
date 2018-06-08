@@ -5,93 +5,93 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.aq;
 import com.baidu.tieba.frs.i;
 /* loaded from: classes2.dex */
 public class b {
-    private aq bmC;
-    private int cOv;
-    private TextView diG;
-    private final FrsFragment dof;
-    private boolean dpj;
-    private int dpk = -1;
+    private aq buI;
+    private int cXA;
+    private TextView drV;
+    private final FrsFragment dxw;
+    private boolean dyA;
+    private int dyB = -1;
 
     public b(FrsFragment frsFragment) {
-        this.cOv = 0;
+        this.cXA = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.dof = frsFragment;
+        this.dxw = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cOv = UtilHelper.getStatusBarHeight();
+            this.cXA = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void auB() {
-        if (this.dpj && this.dpk >= 0) {
-            kX(this.dpk);
+    public void ayO() {
+        if (this.dyA && this.dyB >= 0) {
+            le(this.dyB);
         }
-        this.dpj = false;
+        this.dyA = false;
     }
 
-    public void kW(int i) {
+    public void ld(int i) {
         if (i >= 0) {
-            fV(true);
-            kY(i);
+            gb(true);
+            lf(i);
             return;
         }
-        fV(false);
-        kY(i);
+        gb(false);
+        lf(i);
     }
 
-    private void kX(int i) {
+    private void le(int i) {
         FrameLayout frameLayout;
         String string;
-        i apm = this.dof.apm();
-        if (apm != null && apm.getListView() != null && (frameLayout = (FrameLayout) apm.aqt()) != null) {
-            if (this.diG == null && this.dof.getPageContext() != null) {
-                this.diG = new TextView(this.dof.getPageContext().getPageActivity());
-                this.diG.setTextSize(0, this.dof.getResources().getDimensionPixelSize(d.e.fontsize28));
-                this.diG.setGravity(17);
+        i atr = this.dxw.atr();
+        if (atr != null && atr.getListView() != null && (frameLayout = (FrameLayout) atr.auy()) != null) {
+            if (this.drV == null && this.dxw.getPageContext() != null) {
+                this.drV = new TextView(this.dxw.getPageContext().getPageActivity());
+                this.drV.setTextSize(0, this.dxw.getResources().getDimensionPixelSize(d.e.fontsize28));
+                this.drV.setGravity(17);
             }
-            if (this.diG != null) {
+            if (this.drV != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(d.k.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
-                    string = TbadkCoreApplication.getInst().getString(d.k.recommend_frs_refresh_nodata);
+                    string = TbadkCoreApplication.getInst().getString(d.k.smart_frs_refresh_nodata);
                 }
-                this.diG.setText(string);
+                this.drV.setText(string);
             }
-            ak.i(this.diG, d.C0126d.common_color_10260);
-            ak.h(this.diG, d.C0126d.cp_cont_g);
+            al.i(this.drV, d.C0141d.common_color_10260);
+            al.h(this.drV, d.C0141d.cp_cont_g);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.e(TbadkCoreApplication.getInst(), d.e.ds56));
-            if (apm.aqa() != null && apm.aqa().getLayoutParams() != null) {
-                layoutParams.topMargin = apm.aqa().getLayoutParams().height;
+            if (atr.auf() != null && atr.auf().getLayoutParams() != null) {
+                layoutParams.topMargin = atr.auf().getLayoutParams().height;
             } else {
                 layoutParams.topMargin = 0;
             }
-            if (this.bmC == null) {
-                this.bmC = new aq();
+            if (this.buI == null) {
+                this.buI = new aq();
             }
-            this.bmC.a(this.diG, frameLayout, layoutParams, 2000);
-            this.dpk = -1;
+            this.buI.a(this.drV, frameLayout, layoutParams, 2000);
+            this.dyB = -1;
         }
     }
 
-    public void fV(boolean z) {
-        this.dpj = z;
+    public void gb(boolean z) {
+        this.dyA = z;
     }
 
-    public void kY(int i) {
-        this.dpk = i;
+    public void lf(int i) {
+        this.dyB = i;
     }
 
     public void onDestroy() {
-        if (this.bmC != null) {
-            this.bmC.onDestroy();
+        if (this.buI != null) {
+            this.buI.onDestroy();
         }
     }
 }

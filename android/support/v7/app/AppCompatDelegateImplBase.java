@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.ActionMode;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.Window;
 import java.lang.Thread;
 /* JADX INFO: Access modifiers changed from: package-private */
+@RequiresApi(14)
 /* loaded from: classes2.dex */
 public abstract class AppCompatDelegateImplBase extends AppCompatDelegate {
     static final boolean DEBUG = false;
@@ -32,6 +34,7 @@ public abstract class AppCompatDelegateImplBase extends AppCompatDelegate {
     final AppCompatCallback mAppCompatCallback;
     final Window.Callback mAppCompatWindowCallback;
     final Context mContext;
+    private boolean mEatKeyUpEvent;
     boolean mHasActionBar;
     private boolean mIsDestroyed;
     boolean mIsFloating;
@@ -284,7 +287,7 @@ public abstract class AppCompatDelegateImplBase extends AppCompatDelegate {
         }
 
         @Override // android.support.v7.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onPreparePanel(int i, View view2, Menu menu) {
+        public boolean onPreparePanel(int i, View view, Menu menu) {
             MenuBuilder menuBuilder = menu instanceof MenuBuilder ? (MenuBuilder) menu : null;
             if (i == 0 && menuBuilder == null) {
                 return false;
@@ -292,7 +295,7 @@ public abstract class AppCompatDelegateImplBase extends AppCompatDelegate {
             if (menuBuilder != null) {
                 menuBuilder.setOverrideVisibleItems(true);
             }
-            boolean onPreparePanel = super.onPreparePanel(i, view2, menu);
+            boolean onPreparePanel = super.onPreparePanel(i, view, menu);
             if (menuBuilder != null) {
                 menuBuilder.setOverrideVisibleItems(false);
                 return onPreparePanel;

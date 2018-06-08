@@ -319,7 +319,7 @@ public final class e {
             this.a.removeCallbacks(this.s);
             int i = (this.k - 1) * 30 * 1000;
             if (this.k == 1) {
-                i = com.meizu.cloud.pushsdk.constants.PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+                i = 3000;
             }
             if (com.baidu.android.pushservice.a.d(this.l)) {
                 if (this.l.getPackageName().equals(m.v(this.l))) {

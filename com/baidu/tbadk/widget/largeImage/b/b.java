@@ -1,31 +1,31 @@
 package com.baidu.tbadk.widget.largeImage.b;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.largeImage.a.a> {
-    private int aSC;
+    private int bax;
 
     public b(int i) {
-        this.aSC = i;
+        this.bax = i;
     }
 
     public int getBlockSize() {
-        return this.aSC;
+        return this.bax;
     }
 
-    public void fE(int i) {
-        this.aSC = i;
+    public void fF(int i) {
+        this.bax = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Jl */
-    public com.baidu.tbadk.widget.largeImage.a.a fo() {
-        return new com.baidu.tbadk.widget.largeImage.a.a(this.aSC);
+    /* renamed from: MH */
+    public com.baidu.tbadk.widget.largeImage.a.a mo9if() {
+        return new com.baidu.tbadk.widget.largeImage.a.a(this.bax);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: b */
-    public void n(com.baidu.tbadk.widget.largeImage.a.a aVar) {
+    public void q(com.baidu.tbadk.widget.largeImage.a.a aVar) {
         if (aVar != null && aVar.getBitmap() != null) {
             aVar.getBitmap().recycle();
         }
@@ -34,14 +34,14 @@ public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.largeImag
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: c */
-    public com.baidu.tbadk.widget.largeImage.a.a o(com.baidu.tbadk.widget.largeImage.a.a aVar) {
+    public com.baidu.tbadk.widget.largeImage.a.a r(com.baidu.tbadk.widget.largeImage.a.a aVar) {
         return aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: d */
-    public com.baidu.tbadk.widget.largeImage.a.a p(com.baidu.tbadk.widget.largeImage.a.a aVar) {
+    public com.baidu.tbadk.widget.largeImage.a.a s(com.baidu.tbadk.widget.largeImage.a.a aVar) {
         return aVar;
     }
 }

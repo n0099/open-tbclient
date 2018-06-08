@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class az {
-    public u ZA;
+    public u ahC;
     private String avatar;
     private String forumId;
     private int forumLevel;
@@ -24,8 +24,8 @@ public class az {
             this.avatar = simpleForum.avatar;
             this.forumLevel = simpleForum.level_id.intValue();
             if (simpleForum.multi_forum_perm != null) {
-                this.ZA = new u();
-                this.ZA.a(simpleForum.multi_forum_perm);
+                this.ahC = new u();
+                this.ahC.a(simpleForum.multi_forum_perm);
             }
         }
     }

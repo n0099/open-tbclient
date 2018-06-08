@@ -8,21 +8,21 @@ import com.baidu.tieba.InjectPlugin.a.f;
 import com.baidu.tieba.recapp.n;
 /* loaded from: classes3.dex */
 public class a extends f {
-    protected n aXr;
+    protected n bfy;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(n nVar, BdUniqueId bdUniqueId) {
-        super(nVar.aeY().getPageActivity(), bdUniqueId);
-        this.aXr = nVar;
+        super(nVar.aiH().getPageActivity(), bdUniqueId);
+        this.bfy = nVar;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.f, com.baidu.adp.widget.ListView.a
-    public View getView(int i, View view2, ViewGroup viewGroup, Object obj) {
+    public View getView(int i, View view, ViewGroup viewGroup, Object obj) {
         if (obj instanceof b) {
             b bVar = (b) obj;
-            com.baidu.tieba.InjectPlugin.a.a gb = ((com.baidu.tieba.InjectPlugin.a.b) this.aXr).gb(1);
-            if (gb instanceof d) {
-                return ((d) gb).getView(i, view2, viewGroup, bVar.KJ());
+            com.baidu.tieba.InjectPlugin.a.a gc = ((com.baidu.tieba.InjectPlugin.a.b) this.bfy).gc(1);
+            if (gc instanceof d) {
+                return ((d) gc).getView(i, view, viewGroup, bVar.Oi());
             }
             return null;
         }
@@ -32,9 +32,9 @@ public class a extends f {
     @Override // com.baidu.adp.widget.ListView.a
     public q.a onCreateViewHolder(ViewGroup viewGroup, Object obj) {
         if (b.i(getType()) != -1 && (obj instanceof b)) {
-            com.baidu.tieba.InjectPlugin.a.a gb = ((com.baidu.tieba.InjectPlugin.a.b) this.aXr).gb(1);
-            if (gb instanceof d) {
-                return ((d) gb).onCreateViewHolder(viewGroup, ((b) obj).KJ());
+            com.baidu.tieba.InjectPlugin.a.a gc = ((com.baidu.tieba.InjectPlugin.a.b) this.bfy).gc(1);
+            if (gc instanceof d) {
+                return ((d) gc).onCreateViewHolder(viewGroup, ((b) obj).Oi());
             }
             return null;
         }
@@ -44,9 +44,9 @@ public class a extends f {
     @Override // com.baidu.adp.widget.ListView.a
     public void onFillViewHolder(int i, ViewGroup viewGroup, q.a aVar, Object obj) {
         if (obj instanceof b) {
-            com.baidu.tieba.InjectPlugin.a.a gb = ((com.baidu.tieba.InjectPlugin.a.b) this.aXr).gb(1);
-            if (gb instanceof d) {
-                ((d) gb).onFillViewHolder(i, viewGroup, aVar, ((b) obj).KJ());
+            com.baidu.tieba.InjectPlugin.a.a gc = ((com.baidu.tieba.InjectPlugin.a.b) this.bfy).gc(1);
+            if (gc instanceof d) {
+                ((d) gc).onFillViewHolder(i, viewGroup, aVar, ((b) obj).Oi());
             }
         }
     }

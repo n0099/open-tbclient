@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.utils;
 
 import android.annotation.SuppressLint;
-import com.baidu.ar.util.Constants;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -283,7 +282,7 @@ public final class ReflectUtils {
             }
             type = type.getSuperclass();
         } while (type != null);
-        throw new NoSuchMethodException("No similar method " + str + " with params " + Arrays.toString(clsArr) + " could be found on type " + type() + Constants.DOT);
+        throw new NoSuchMethodException("No similar method " + str + " with params " + Arrays.toString(clsArr) + " could be found on type " + type() + ".");
     }
 
     private boolean a(Method method, String str, Class<?>[] clsArr) {

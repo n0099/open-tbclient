@@ -9,6 +9,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import com.baidu.appsearchlib.Info;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
@@ -120,7 +121,7 @@ public class BDLocManager {
                 } else {
                     String str = this._WifiList.get(i3).BSSID;
                     int i5 = this._WifiList.get(i3).level;
-                    String replace = str.replace(":", "");
+                    String replace = str.replace(SystemInfoUtil.COLON, "");
                     if (BDLocManager.this.o == null || !replace.equals(BDLocManager.this.o)) {
                         if (i4 < i) {
                             stringBuffer.append("h");
@@ -389,7 +390,7 @@ public class BDLocManager {
         }
         try {
             String bssid = connectionInfo.getBSSID();
-            String replace = bssid != null ? bssid.replace(":", "") : null;
+            String replace = bssid != null ? bssid.replace(SystemInfoUtil.COLON, "") : null;
             if (replace.length() == 12) {
                 this.o = new String(replace);
                 return true;

@@ -7,27 +7,27 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public int dlj;
-    public b dlt;
-    public List<h> dlu;
+    public b duH;
+    public List<h> duI;
+    public int dux;
     public boolean hasMore;
 
     public c(JSONObject jSONObject) {
         int length;
         if (jSONObject != null) {
-            this.dlj = jSONObject.optInt("current_pn");
+            this.dux = jSONObject.optInt("current_pn");
             this.hasMore = jSONObject.optInt("has_more", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("main_comment");
             if (optJSONObject != null) {
-                this.dlt = new b(optJSONObject);
+                this.duH = new b(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("sub_comment");
             if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
-                this.dlu = new ArrayList(length);
+                this.duI = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
                     d dVar = new d(optJSONArray.optJSONObject(i));
                     if (dVar != null) {
-                        this.dlu.add(dVar);
+                        this.duI.add(dVar);
                     }
                 }
             }

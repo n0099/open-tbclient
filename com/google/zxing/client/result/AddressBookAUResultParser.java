@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.ar.util.SystemInfoUtil;
 import com.google.zxing.Result;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -8,7 +9,7 @@ public final class AddressBookAUResultParser extends ResultParser {
     @Override // com.google.zxing.client.result.ResultParser
     public AddressBookParsedResult parse(Result result) {
         String massagedText = getMassagedText(result);
-        if (!massagedText.contains("MEMORY") || !massagedText.contains("\r\n")) {
+        if (!massagedText.contains("MEMORY") || !massagedText.contains(SystemInfoUtil.LINE_END)) {
             return null;
         }
         String matchSinglePrefixedField = matchSinglePrefixedField("NAME1:", massagedText, '\r', true);

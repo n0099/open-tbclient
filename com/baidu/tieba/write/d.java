@@ -11,21 +11,21 @@ import com.baidu.adp.lib.util.l;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class d extends PopupWindow {
-    private int aFH;
-    private LinearLayout aza;
+    private LinearLayout aHv;
+    private int aOd;
     private Context context;
     private int count;
-    private a hca;
+    private a hnV;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void sN(int i);
+        void sZ(int i);
     }
 
     public d(Context context) {
         super(context);
-        this.aFH = -1;
+        this.aOd = -1;
         this.context = context;
         init(context);
     }
@@ -33,10 +33,10 @@ public class d extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.aza = new LinearLayout(context);
-        this.aza.setOrientation(1);
-        this.aza.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.aza);
+        this.aHv = new LinearLayout(context);
+        this.aHv.setOrientation(1);
+        this.aHv.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.aHv);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, l.dip2px(context, 1.0f), l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -51,11 +51,11 @@ public class d extends PopupWindow {
     }
 
     @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2, int i, int i2) {
+    public void showAsDropDown(View view, int i, int i2) {
         getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
         int measuredWidth = getContentView().getMeasuredWidth();
-        if (measuredWidth < view2.getWidth()) {
-            measuredWidth = view2.getWidth();
+        if (measuredWidth < view.getWidth()) {
+            measuredWidth = view.getWidth();
         }
         int measuredHeight = getContentView().getMeasuredHeight();
         if (measuredHeight > this.maxHeight) {
@@ -63,12 +63,12 @@ public class d extends PopupWindow {
         }
         setWidth(measuredWidth);
         setHeight(measuredHeight);
-        super.showAsDropDown(view2, i, i2);
+        super.showAsDropDown(view, i, i2);
     }
 
-    public void addView(View view2) {
-        view2.setOnClickListener(new b(this.count, this.hca));
-        this.aza.addView(view2);
+    public void addView(View view) {
+        view.setOnClickListener(new b(this.count, this.hnV));
+        this.aHv.addView(view);
         this.count++;
     }
 
@@ -77,31 +77,31 @@ public class d extends PopupWindow {
     }
 
     public void setCurrentIndex(int i) {
-        if (this.aFH != -1) {
-            this.aza.getChildAt(this.aFH).setSelected(false);
+        if (this.aOd != -1) {
+            this.aHv.getChildAt(this.aOd).setSelected(false);
         }
-        this.aFH = i;
-        this.aza.getChildAt(this.aFH).setSelected(true);
+        this.aOd = i;
+        this.aHv.getChildAt(this.aOd).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.hca = aVar;
+        this.hnV = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a hcb;
+        private a hnW;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.hcb = aVar;
+            this.hnW = aVar;
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            if (this.hcb != null) {
-                this.hcb.sN(this.position);
+        public void onClick(View view) {
+            if (this.hnW != null) {
+                this.hnW.sZ(this.position);
             }
         }
     }

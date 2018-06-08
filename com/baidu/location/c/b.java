@@ -4,12 +4,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.app.NotificationCompat;
+import com.tencent.connect.common.Constants;
 /* loaded from: classes.dex */
 public class b {
-    private static b Os = null;
+    private static b Wz = null;
     private boolean a = false;
     private String b = null;
-    private a Or = null;
+    private a Wy = null;
     private int e = -1;
 
     /* loaded from: classes.dex */
@@ -22,7 +24,7 @@ public class b {
             try {
                 if (intent.getAction().equals("android.intent.action.BATTERY_CHANGED")) {
                     b.this.a = false;
-                    int intExtra = intent.getIntExtra("status", 0);
+                    int intExtra = intent.getIntExtra(NotificationCompat.CATEGORY_STATUS, 0);
                     int intExtra2 = intent.getIntExtra("plugged", 0);
                     int intExtra3 = intent.getIntExtra("level", -1);
                     int intExtra4 = intent.getIntExtra("scale", -1);
@@ -45,7 +47,7 @@ public class b {
                     }
                     switch (intExtra2) {
                         case 1:
-                            b.this.b = "6";
+                            b.this.b = Constants.VIA_SHARE_TYPE_INFO;
                             b.this.a = true;
                             return;
                         case 2:
@@ -65,30 +67,30 @@ public class b {
     private b() {
     }
 
-    public static synchronized b ni() {
+    public static synchronized b qv() {
         b bVar;
         synchronized (b.class) {
-            if (Os == null) {
-                Os = new b();
+            if (Wz == null) {
+                Wz = new b();
             }
-            bVar = Os;
+            bVar = Wz;
         }
         return bVar;
     }
 
     public void b() {
-        this.Or = new a();
-        com.baidu.location.f.getServiceContext().registerReceiver(this.Or, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        this.Wy = new a();
+        com.baidu.location.f.getServiceContext().registerReceiver(this.Wy, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public void c() {
-        if (this.Or != null) {
+        if (this.Wy != null) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Or);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Wy);
             } catch (Exception e) {
             }
         }
-        this.Or = null;
+        this.Wy = null;
     }
 
     public String d() {

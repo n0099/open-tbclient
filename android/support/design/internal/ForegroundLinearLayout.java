@@ -6,12 +6,13 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.design.R;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
     private Drawable mForeground;
@@ -72,6 +73,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.ViewGroup, android.view.View
+    @RequiresApi(11)
     public void jumpDrawablesToCurrentState() {
         super.jumpDrawablesToCurrentState();
         if (this.mForeground != null) {
@@ -154,6 +156,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.View
+    @RequiresApi(21)
     public void drawableHotspotChanged(float f, float f2) {
         super.drawableHotspotChanged(f, f2);
         if (this.mForeground != null) {

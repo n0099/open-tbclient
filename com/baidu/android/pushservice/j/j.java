@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.parser.ARResourceKey;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.ar.util.SystemInfoUtil;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class j {
@@ -47,10 +49,10 @@ public class j {
             if (!TextUtils.isEmpty(str3)) {
                 edit.putString("new_channel_id", str3);
             }
-            edit.putString("request_id", str4);
+            edit.putString(StatisticConstants.REQUEST_ID, str4);
             edit.putString("user_id", str5);
             edit.putBoolean("bind_status", true);
-            edit.putLong(Constants.HTTP_VERSION_CODE, m.d(context, context.getPackageName()));
+            edit.putLong(ARResourceKey.HTTP_VERSION_CODE, m.d(context, context.getPackageName()));
             edit.apply();
         } catch (Exception e) {
         }
@@ -62,12 +64,12 @@ public class j {
         }
         try {
             SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.app_stat", 0).edit();
-            edit.putString("pkg_list", TextUtils.join(":", list));
+            edit.putString("pkg_list", TextUtils.join(SystemInfoUtil.COLON, list));
             edit.putLong("last_save", System.currentTimeMillis());
             for (String str : list) {
                 PackageInfo a = m.a(context, str);
                 if (a != null) {
-                    edit.putString(str, a.versionCode + ":" + a.versionName);
+                    edit.putString(str, a.versionCode + SystemInfoUtil.COLON + a.versionName);
                 }
             }
             edit.apply();

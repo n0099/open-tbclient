@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import com.baidu.appsearchlib.Info;
+import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
@@ -247,7 +248,7 @@ public final class c {
                     if (optInt > 0) {
                         arrayList.add(Integer.valueOf(optInt));
                     }
-                    String optString3 = optJSONObject.optString(com.baidu.ar.util.Constants.HTTP_AR_MD5);
+                    String optString3 = optJSONObject.optString(ARResourceKey.HTTP_AR_MD5);
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && optInt > 0) {
                         String lowerCase = optString3.toLowerCase();
                         ApkInfo apkInfo = new ApkInfo();
@@ -294,7 +295,7 @@ public final class c {
                         packageInfo.versionName = optJSONObject3.optString(NotifyType.VIBRATE);
                         ApplicationInfo applicationInfo = new ApplicationInfo();
                         applicationInfo.className = optJSONObject3.optString("n");
-                        if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(com.baidu.ar.util.Constants.DOT)) {
+                        if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                             applicationInfo.className = packageInfo.packageName + applicationInfo.className;
                         }
                         applicationInfo.theme = optJSONObject3.optInt(Info.kBaiduTimeKey);
@@ -307,7 +308,7 @@ public final class c {
                                 if (jSONObject2 != null) {
                                     ActivityInfo activityInfo = new ActivityInfo();
                                     activityInfo.name = jSONObject2.optString("n");
-                                    if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(com.baidu.ar.util.Constants.DOT)) {
+                                    if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
                                         activityInfo.name = packageInfo.packageName + activityInfo.name;
                                     }
                                     activityInfo.packageName = packageInfo.packageName;

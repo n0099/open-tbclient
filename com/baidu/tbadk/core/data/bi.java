@@ -7,13 +7,13 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
 public class bi extends PostData {
-    public static final BdUniqueId ach = BdUniqueId.gen();
-    private String YR;
+    public static final BdUniqueId akl = BdUniqueId.gen();
+    private String agT;
     private int position = 0;
     private String summary;
 
-    public String tr() {
-        return this.YR;
+    public String wP() {
+        return this.agT;
     }
 
     public String getSummary() {
@@ -22,7 +22,7 @@ public class bi extends PostData {
 
     public void a(TopNews topNews) {
         if (topNews != null) {
-            this.YR = topNews.news_link;
+            this.agT = topNews.news_link;
             this.summary = topNews.summary;
         }
     }
@@ -30,7 +30,7 @@ public class bi extends PostData {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.YR = jSONObject.optString("news_link");
+                this.agT = jSONObject.optString("news_link");
                 this.summary = jSONObject.optString("summary");
                 this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
@@ -41,6 +41,6 @@ public class bi extends PostData {
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return ach;
+        return akl;
     }
 }

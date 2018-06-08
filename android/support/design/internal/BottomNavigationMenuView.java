@@ -1,38 +1,46 @@
 package android.support.design.internal;
 
+import android.animation.TimeInterpolator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
-import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.design.R;
+import android.support.transition.AutoTransition;
+import android.support.transition.TransitionManager;
+import android.support.transition.TransitionSet;
 import android.support.v4.util.Pools;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuItemImpl;
 import android.support.v7.view.menu.MenuView;
 import android.util.AttributeSet;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
-    private static final Pools.Pool<BottomNavigationItemView> sItemPool = new Pools.SynchronizedPool(5);
-    private int mActiveButton;
+    private static final long ACTIVE_ANIMATION_DURATION_MS = 115;
     private final int mActiveItemMaxWidth;
-    private final BottomNavigationAnimationHelperBase mAnimationHelper;
     private BottomNavigationItemView[] mButtons;
     private final int mInactiveItemMaxWidth;
     private final int mInactiveItemMinWidth;
     private int mItemBackgroundRes;
     private final int mItemHeight;
     private ColorStateList mItemIconTint;
+    private final Pools.Pool<BottomNavigationItemView> mItemPool;
     private ColorStateList mItemTextColor;
     private MenuBuilder mMenu;
     private final View.OnClickListener mOnClickListener;
     private BottomNavigationPresenter mPresenter;
+    private int mSelectedItemId;
+    private int mSelectedItemPosition;
+    private final TransitionSet mSet;
     private boolean mShiftingMode;
+    private int[] mTempChildWidths;
 
     public BottomNavigationMenuView(Context context) {
         this(context, null);
@@ -40,34 +48,35 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
 
     public BottomNavigationMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        this.mItemPool = new Pools.SynchronizedPool(5);
         this.mShiftingMode = true;
-        this.mActiveButton = 0;
+        this.mSelectedItemId = 0;
+        this.mSelectedItemPosition = 0;
         Resources resources = getResources();
         this.mInactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_item_max_width);
         this.mInactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_item_min_width);
         this.mActiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_active_item_max_width);
         this.mItemHeight = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_height);
-        if (Build.VERSION.SDK_INT >= 14) {
-            this.mAnimationHelper = new BottomNavigationAnimationHelperIcs();
-        } else {
-            this.mAnimationHelper = new BottomNavigationAnimationHelperBase();
-        }
+        this.mSet = new AutoTransition();
+        this.mSet.setOrdering(0);
+        this.mSet.setDuration(ACTIVE_ANIMATION_DURATION_MS);
+        this.mSet.setInterpolator((TimeInterpolator) new FastOutSlowInInterpolator());
+        this.mSet.addTransition(new TextScale());
         this.mOnClickListener = new View.OnClickListener() { // from class: android.support.design.internal.BottomNavigationMenuView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                BottomNavigationItemView bottomNavigationItemView = (BottomNavigationItemView) view2;
-                BottomNavigationMenuView.this.activateNewButton(bottomNavigationItemView.getItemPosition());
-                BottomNavigationMenuView.this.mMenu.performItemAction(bottomNavigationItemView.getItemData(), BottomNavigationMenuView.this.mPresenter, 0);
+            public void onClick(View view) {
+                MenuItemImpl itemData = ((BottomNavigationItemView) view).getItemData();
+                if (!BottomNavigationMenuView.this.mMenu.performItemAction(itemData, BottomNavigationMenuView.this.mPresenter, 0)) {
+                    itemData.setChecked(true);
+                }
             }
         };
+        this.mTempChildWidths = new int[5];
     }
 
     @Override // android.support.v7.view.menu.MenuView
     public void initialize(MenuBuilder menuBuilder) {
         this.mMenu = menuBuilder;
-        if (this.mMenu != null && this.mMenu.size() > this.mActiveButton) {
-            this.mMenu.getItem(this.mActiveButton).setChecked(true);
-        }
     }
 
     @Override // android.view.View
@@ -76,7 +85,6 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         int size = View.MeasureSpec.getSize(i);
         int childCount = getChildCount();
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mItemHeight, 1073741824);
-        int[] iArr = new int[childCount];
         if (this.mShiftingMode) {
             int i4 = childCount - 1;
             int min = Math.min(size - (this.mInactiveItemMinWidth * i4), this.mActiveItemMaxWidth);
@@ -84,8 +92,9 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             int i5 = (size - min) - (i4 * min2);
             int i6 = 0;
             while (i6 < childCount) {
-                iArr[i6] = i6 == this.mActiveButton ? min : min2;
+                this.mTempChildWidths[i6] = i6 == this.mSelectedItemPosition ? min : min2;
                 if (i5 > 0) {
+                    int[] iArr = this.mTempChildWidths;
                     iArr[i6] = iArr[i6] + 1;
                     i3 = i5 - 1;
                 } else {
@@ -95,12 +104,13 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
                 i5 = i3;
             }
         } else {
-            int min3 = Math.min(size / childCount, this.mActiveItemMaxWidth);
+            int min3 = Math.min(size / (childCount == 0 ? 1 : childCount), this.mActiveItemMaxWidth);
             int i7 = size - (min3 * childCount);
             for (int i8 = 0; i8 < childCount; i8++) {
-                iArr[i8] = min3;
+                this.mTempChildWidths[i8] = min3;
                 if (i7 > 0) {
-                    iArr[i8] = iArr[i8] + 1;
+                    int[] iArr2 = this.mTempChildWidths;
+                    iArr2[i8] = iArr2[i8] + 1;
                     i7--;
                 }
             }
@@ -109,12 +119,12 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         for (int i10 = 0; i10 < childCount; i10++) {
             View childAt = getChildAt(i10);
             if (childAt.getVisibility() != 8) {
-                childAt.measure(View.MeasureSpec.makeMeasureSpec(iArr[i10], 1073741824), makeMeasureSpec);
+                childAt.measure(View.MeasureSpec.makeMeasureSpec(this.mTempChildWidths[i10], 1073741824), makeMeasureSpec);
                 childAt.getLayoutParams().width = childAt.getMeasuredWidth();
                 i9 += childAt.getMeasuredWidth();
             }
         }
-        setMeasuredDimension(ViewCompat.resolveSizeAndState(i9, View.MeasureSpec.makeMeasureSpec(i9, 1073741824), 0), ViewCompat.resolveSizeAndState(this.mItemHeight, makeMeasureSpec, 0));
+        setMeasuredDimension(View.resolveSizeAndState(i9, View.MeasureSpec.makeMeasureSpec(i9, 1073741824), 0), View.resolveSizeAndState(this.mItemHeight, makeMeasureSpec, 0));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -186,12 +196,18 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     }
 
     public void buildMenuView() {
+        removeAllViews();
         if (this.mButtons != null) {
             for (BottomNavigationItemView bottomNavigationItemView : this.mButtons) {
-                sItemPool.release(bottomNavigationItemView);
+                this.mItemPool.release(bottomNavigationItemView);
             }
         }
-        removeAllViews();
+        if (this.mMenu.size() == 0) {
+            this.mSelectedItemId = 0;
+            this.mSelectedItemPosition = 0;
+            this.mButtons = null;
+            return;
+        }
         this.mButtons = new BottomNavigationItemView[this.mMenu.size()];
         this.mShiftingMode = this.mMenu.size() > 3;
         for (int i = 0; i < this.mMenu.size(); i++) {
@@ -209,6 +225,8 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             newItem.setOnClickListener(this.mOnClickListener);
             addView(newItem);
         }
+        this.mSelectedItemPosition = Math.min(this.mMenu.size() - 1, this.mSelectedItemPosition);
+        this.mMenu.getItem(this.mSelectedItemPosition).setChecked(true);
     }
 
     public void updateMenuView() {
@@ -217,30 +235,47 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             buildMenuView();
             return;
         }
-        for (int i = 0; i < size; i++) {
-            this.mPresenter.setUpdateSuspended(true);
-            this.mButtons[i].initialize((MenuItemImpl) this.mMenu.getItem(i), 0);
-            this.mPresenter.setUpdateSuspended(false);
+        int i = this.mSelectedItemId;
+        for (int i2 = 0; i2 < size; i2++) {
+            MenuItem item = this.mMenu.getItem(i2);
+            if (item.isChecked()) {
+                this.mSelectedItemId = item.getItemId();
+                this.mSelectedItemPosition = i2;
+            }
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void activateNewButton(int i) {
-        if (this.mActiveButton != i) {
-            this.mAnimationHelper.beginDelayedTransition(this);
+        if (i != this.mSelectedItemId) {
+            TransitionManager.beginDelayedTransition(this, this.mSet);
+        }
+        for (int i3 = 0; i3 < size; i3++) {
             this.mPresenter.setUpdateSuspended(true);
-            this.mButtons[this.mActiveButton].setChecked(false);
-            this.mButtons[i].setChecked(true);
+            this.mButtons[i3].initialize((MenuItemImpl) this.mMenu.getItem(i3), 0);
             this.mPresenter.setUpdateSuspended(false);
-            this.mActiveButton = i;
         }
     }
 
     private BottomNavigationItemView getNewItem() {
-        BottomNavigationItemView acquire = sItemPool.acquire();
+        BottomNavigationItemView acquire = this.mItemPool.acquire();
         if (acquire == null) {
             return new BottomNavigationItemView(getContext());
         }
         return acquire;
+    }
+
+    public int getSelectedItemId() {
+        return this.mSelectedItemId;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void tryRestoreSelectedItemId(int i) {
+        int size = this.mMenu.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            MenuItem item = this.mMenu.getItem(i2);
+            if (i == item.getItemId()) {
+                this.mSelectedItemId = i;
+                this.mSelectedItemPosition = i2;
+                item.setChecked(true);
+                return;
+            }
+        }
     }
 }

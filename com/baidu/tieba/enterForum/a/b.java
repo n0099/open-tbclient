@@ -8,54 +8,54 @@ import com.baidu.tieba.enterForum.data.f;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.mvc.f.d<f, com.baidu.tbadk.mvc.d.b, com.baidu.tieba.enterForum.view.c> implements c {
-    private int cIc;
+    private int cRj;
 
     public b(TbPageContext<?> tbPageContext, Class<com.baidu.tieba.enterForum.view.c> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.cIc = -1;
+        this.cRj = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void ar(int i, int i2) {
+    public void at(int i, int i2) {
         List<f> dataList = getDataList();
         com.baidu.tieba.enterForum.model.b.c(dataList, i, i2);
-        F(dataList);
+        I(dataList);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void ju(int i) {
-        this.cIc = i;
+    public void jx(int i) {
+        this.cRj = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void agD() {
+    public void akl() {
         notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.mvc.f.c
-    public void F(List<f> list) {
+    public void I(List<f> list) {
         if (list != null) {
             if (list.size() >= 1 && list.get(0) != null && list.get(0).getType() == 1) {
-                super.F(list);
+                super.I(list);
             } else {
-                super.F(list);
+                super.I(list);
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.f.d, android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        View view3 = super.getView(i, view2, viewGroup);
-        if (view3 != null) {
-            if (i == this.cIc) {
-                view3.setVisibility(4);
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View view2 = super.getView(i, view, viewGroup);
+        if (view2 != null) {
+            if (i == this.cRj) {
+                view2.setVisibility(4);
             } else {
-                view3.setVisibility(0);
+                view2.setVisibility(0);
             }
             if (i < getCount() && getItem(i) == null) {
-                view3.setVisibility(4);
+                view2.setVisibility(4);
             }
         }
-        return view3;
+        return view2;
     }
 }

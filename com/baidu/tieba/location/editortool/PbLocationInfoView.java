@@ -8,11 +8,11 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.base.i;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect eCs;
+    private Rect eNM;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,14 +25,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.eCs = new Rect(0, 0, getResources().getDimensionPixelSize(d.e.ds32), getResources().getDimensionPixelSize(d.e.ds32));
+        this.eNM = new Rect(0, 0, getResources().getDimensionPixelSize(d.e.ds32), getResources().getDimensionPixelSize(d.e.ds32));
         setState(0, null);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        setTextColor(ak.getColor(d.C0126d.cp_cont_c));
-        aMi();
+        setTextColor(al.getColor(d.C0141d.cp_cont_c));
+        aRf();
     }
 
     public void setState(int i, String str) {
@@ -48,26 +48,26 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        aMi();
+        aRf();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void aMi() {
+    public void aRf() {
         if (this.mState == 1) {
-            Drawable drawable = ak.getDrawable(d.f.icon_posts_pin_loading_anim);
+            Drawable drawable = al.getDrawable(d.f.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.eCs);
+                drawable.setBounds(this.eNM);
             }
             setCompoundDrawables(drawable, null, null, null);
-            com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.aa(getContext()), (Animatable) drawable);
+            com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.ac(getContext()), (Animatable) drawable);
             return;
         }
-        Drawable drawable2 = ak.getDrawable(d.f.icon_tips_site);
+        Drawable drawable2 = al.getDrawable(d.f.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.eCs);
+            drawable2.setBounds(this.eNM);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

@@ -22,8 +22,8 @@ import protobuf.NewpushGroupRepair;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes.dex */
 public class a {
-    private static a ehs = null;
-    private final CustomMessageListener egG = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.a.3
+    private static a esI = null;
+    private final CustomMessageListener erW = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -32,31 +32,31 @@ public class a {
             }
         }
     };
-    private Handler eht;
-    private ConcurrentHashMap<Long, GroupMsgData> ehu;
-    private ConcurrentHashMap<Long, NewpushGroupRepair> ehv;
-    private ConcurrentHashMap<Long, Runnable> ehw;
-    private Vector<Long> ehx;
+    private Handler esJ;
+    private ConcurrentHashMap<Long, GroupMsgData> esK;
+    private ConcurrentHashMap<Long, NewpushGroupRepair> esL;
+    private ConcurrentHashMap<Long, Runnable> esM;
+    private Vector<Long> esN;
     private Handler mHandler;
 
-    public static a aGr() {
-        if (ehs == null) {
+    public static a aLm() {
+        if (esI == null) {
             synchronized (a.class) {
-                if (ehs == null) {
-                    ehs = new a();
+                if (esI == null) {
+                    esI = new a();
                 }
             }
         }
-        return ehs;
+        return esI;
     }
 
     private a() {
         this.mHandler = null;
-        this.eht = null;
-        this.ehu = null;
-        this.ehv = null;
-        this.ehw = null;
-        this.ehx = null;
+        this.esJ = null;
+        this.esK = null;
+        this.esL = null;
+        this.esM = null;
+        this.esN = null;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.im.push.a.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -65,11 +65,11 @@ public class a {
                         MessageUtils.updateGroupNotExist(message.getData());
                         return;
                     case 10002:
-                        MessageManager.getInstance().registerListener(a.this.egG);
+                        MessageManager.getInstance().registerListener(a.this.erW);
                         return;
                     case IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE /* 10003 */:
                         if (message.getData() != null && message.getData().containsKey("groupId")) {
-                            a.this.ehx.remove(Long.valueOf(message.getData().getLong("groupId")));
+                            a.this.esN.remove(Long.valueOf(message.getData().getLong("groupId")));
                             return;
                         }
                         return;
@@ -78,11 +78,11 @@ public class a {
                 }
             }
         };
-        this.eht = new Handler(Looper.myLooper());
-        this.ehu = new ConcurrentHashMap<>();
-        this.ehv = new ConcurrentHashMap<>();
-        this.ehw = new ConcurrentHashMap<>();
-        this.ehx = new Vector<>();
+        this.esJ = new Handler(Looper.myLooper());
+        this.esK = new ConcurrentHashMap<>();
+        this.esL = new ConcurrentHashMap<>();
+        this.esM = new ConcurrentHashMap<>();
+        this.esN = new Vector<>();
         this.mHandler.sendEmptyMessage(10002);
     }
 
@@ -91,20 +91,20 @@ public class a {
         GroupMsgData groupMsgData2;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo al = j.aDg().al(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
-            if (!(al != null)) {
-                if (!this.ehx.contains(Long.valueOf(groupId))) {
+            ImMessageCenterPojo ao = j.aIb().ao(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            if (!(ao != null)) {
+                if (!this.esN.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
                     return;
                 }
                 return;
             }
-            long sid = al.getSid();
-            long cj = com.baidu.tieba.im.util.d.cj(al.getPulled_msgId());
-            GroupMsgData groupMsgData3 = this.ehu.get(Long.valueOf(groupId));
+            long sid = ao.getSid();
+            long cp = com.baidu.tieba.im.util.d.cp(ao.getPulled_msgId());
+            GroupMsgData groupMsgData3 = this.esK.get(Long.valueOf(groupId));
             if (groupMsgData3 == null) {
                 GroupMsgData groupMsgData4 = new GroupMsgData(groupMsgData.getCmd());
-                this.ehu.put(Long.valueOf(groupId), groupMsgData4);
+                this.esK.put(Long.valueOf(groupId), groupMsgData4);
                 groupMsgData2 = groupMsgData4;
             } else {
                 groupMsgData2 = groupMsgData3;
@@ -117,21 +117,21 @@ public class a {
                 }
             }
             listMessage.clear();
-            List<ChatMessage> bZ = bZ(groupId);
-            if (bZ != null && bZ.size() > 0) {
-                if (z || sid <= 0 || bZ.get(0).getSid() == 1 + sid) {
-                    listMessage.addAll(bZ);
+            List<ChatMessage> cf = cf(groupId);
+            if (cf != null && cf.size() > 0) {
+                if (z || sid <= 0 || cf.get(0).getSid() == 1 + sid) {
+                    listMessage.addAll(cf);
                     sid = listMessage.get(listMessage.size() - 1).getSid();
-                    cj = listMessage.get(listMessage.size() - 1).getMsgId();
+                    cp = listMessage.get(listMessage.size() - 1).getMsgId();
                 } else {
-                    groupMsgData2.getListMessage().addAll(bZ);
+                    groupMsgData2.getListMessage().addAll(cf);
                 }
             }
             if (z) {
-                this.ehx.remove(Long.valueOf(groupId));
+                this.esN.remove(Long.valueOf(groupId));
             }
-            if (!this.ehx.contains(Long.valueOf(groupId))) {
-                a(sid, groupId, groupMsgData.getGroupInfo().getUserType(), cj);
+            if (!this.esN.contains(Long.valueOf(groupId))) {
+                a(sid, groupId, groupMsgData.getGroupInfo().getUserType(), cp);
             }
         }
     }
@@ -142,7 +142,7 @@ public class a {
             bundle.putLong("groupId", j);
             bundle.putLong("lastMid", linkedList.get(0).getMsgId());
             if (linkedList.get(0).getSid() > 0) {
-                this.ehv.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
+                this.esL.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
             }
             bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
             Message message = new Message();
@@ -150,13 +150,13 @@ public class a {
             message.setData(bundle);
             this.mHandler.sendMessage(message);
             linkedList.clear();
-            this.ehx.add(Long.valueOf(j));
-            ca(j);
+            this.esN.add(Long.valueOf(j));
+            cg(j);
         }
     }
 
-    private List<ChatMessage> bZ(long j) {
-        GroupMsgData groupMsgData = this.ehu.get(Long.valueOf(j));
+    private List<ChatMessage> cf(long j) {
+        GroupMsgData groupMsgData = this.esK.get(Long.valueOf(j));
         if (groupMsgData == null) {
             return null;
         }
@@ -184,12 +184,12 @@ public class a {
     }
 
     private void a(long j, long j2, int i, long j3) {
-        GroupMsgData groupMsgData = this.ehu.get(Long.valueOf(j2));
+        GroupMsgData groupMsgData = this.esK.get(Long.valueOf(j2));
         if (groupMsgData != null) {
             LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
             if (listMessage == null || listMessage.size() == 0) {
-                cc(j2);
-            } else if (!this.ehw.containsKey(Long.valueOf(j2))) {
+                ci(j2);
+            } else if (!this.esM.containsKey(Long.valueOf(j2))) {
                 b(j, j2, i, j3);
             }
         }
@@ -199,9 +199,9 @@ public class a {
         Runnable runnable = new Runnable() { // from class: com.baidu.tieba.im.push.a.2
             @Override // java.lang.Runnable
             public void run() {
-                GroupMsgData groupMsgData = (GroupMsgData) a.this.ehu.get(Long.valueOf(j2));
+                GroupMsgData groupMsgData = (GroupMsgData) a.this.esK.get(Long.valueOf(j2));
                 if (groupMsgData == null) {
-                    a.this.cc(j2);
+                    a.this.ci(j2);
                     return;
                 }
                 LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
@@ -221,21 +221,21 @@ public class a {
                     listMessage.clear();
                 }
                 long j5 = j4;
-                a.this.cc(j2);
+                a.this.ci(j2);
                 if (j5 > j) {
-                    a.this.ehv.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(j2, i, j, j5, j3));
-                    com.baidu.tieba.im.a.b.aFZ().a(j2, 1L, 0L, true);
-                    a.this.ehx.add(Long.valueOf(j2));
-                    a.this.ca(j2);
+                    a.this.esL.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(j2, i, j, j5, j3));
+                    com.baidu.tieba.im.a.b.aKU().a(j2, 1L, 0L, true);
+                    a.this.esN.add(Long.valueOf(j2));
+                    a.this.cg(j2);
                 }
             }
         };
-        this.eht.postDelayed(runnable, b.aGs().dd().de());
-        this.ehw.put(Long.valueOf(j2), runnable);
+        this.esJ.postDelayed(runnable, b.aLn().fS().fT());
+        this.esM.put(Long.valueOf(j2), runnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ca(long j) {
+    public void cg(long j) {
         Message message = new Message();
         message.what = IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE;
         Bundle bundle = new Bundle();
@@ -244,18 +244,18 @@ public class a {
         this.mHandler.sendMessageDelayed(message, 3000L);
     }
 
-    public NewpushGroupRepair cb(long j) {
-        if (this.ehv.containsKey(Long.valueOf(j))) {
-            return this.ehv.remove(Long.valueOf(j));
+    public NewpushGroupRepair ch(long j) {
+        if (this.esL.containsKey(Long.valueOf(j))) {
+            return this.esL.remove(Long.valueOf(j));
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cc(long j) {
-        Runnable remove = this.ehw.remove(Long.valueOf(j));
+    public void ci(long j) {
+        Runnable remove = this.esM.remove(Long.valueOf(j));
         if (remove != null) {
-            this.eht.removeCallbacks(remove);
+            this.esJ.removeCallbacks(remove);
         }
     }
 
@@ -289,20 +289,20 @@ public class a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.eht != null) {
-            this.eht.removeCallbacksAndMessages(null);
+        if (this.esJ != null) {
+            this.esJ.removeCallbacksAndMessages(null);
         }
-        if (this.ehw != null) {
-            for (Map.Entry<Long, Runnable> entry : this.ehw.entrySet()) {
-                cc(entry.getKey().longValue());
+        if (this.esM != null) {
+            for (Map.Entry<Long, Runnable> entry : this.esM.entrySet()) {
+                ci(entry.getKey().longValue());
             }
-            this.ehw.clear();
+            this.esM.clear();
         }
-        if (this.ehu != null) {
-            this.ehu.clear();
+        if (this.esK != null) {
+            this.esK.clear();
         }
-        if (this.ehx != null) {
-            this.ehx.clear();
+        if (this.esN != null) {
+            this.esN.clear();
         }
     }
 }

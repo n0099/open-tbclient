@@ -6,63 +6,63 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class d {
-    private static BdUniqueId pM = BdUniqueId.gen();
-    private static BdUniqueId pN = BdUniqueId.gen();
-    private static d pQ = null;
-    private b pK;
-    private final int pO = 10;
-    private final int pP = 5;
-    private BdAsyncTaskParallel pR;
-    private BdAsyncTaskParallel pS;
+    private static BdUniqueId wb = BdUniqueId.gen();
+    private static BdUniqueId wc = BdUniqueId.gen();
+    private static d wf = null;
+    private b vZ;
+    private final int wd = 10;
+    private final int we = 5;
+    private BdAsyncTaskParallel wg;
+    private BdAsyncTaskParallel wh;
 
-    public static d dp() {
-        if (pQ == null) {
+    public static d gf() {
+        if (wf == null) {
             synchronized (d.class) {
-                if (pQ == null) {
-                    pQ = new d();
+                if (wf == null) {
+                    wf = new d();
                 }
             }
         }
-        return pQ;
+        return wf;
     }
 
     private d() {
-        this.pK = null;
-        this.pR = null;
-        this.pS = null;
-        this.pR = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.pS = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.pK = new b();
+        this.vZ = null;
+        this.wg = null;
+        this.wh = null;
+        this.wg = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.wh = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.vZ = new b();
     }
 
-    public void N(String str) {
-        this.pK.M(str);
+    public void Z(String str) {
+        this.vZ.Y(str);
     }
 
     public boolean b(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        boolean dq = new e(this.pK, diskFileOperate).dq();
-        diskFileOperate.q(dq);
-        return dq;
+        boolean gg = new e(this.vZ, diskFileOperate).gg();
+        diskFileOperate.t(gg);
+        return gg;
     }
 
     public boolean c(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        if (diskFileOperate.dE()) {
-            return a(diskFileOperate, pM, this.pR, 10);
+        if (diskFileOperate.gu()) {
+            return a(diskFileOperate, wb, this.wg, 10);
         }
-        return a(diskFileOperate, pN, this.pS, 5);
+        return a(diskFileOperate, wc, this.wh, 5);
     }
 
     private boolean a(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel, int i) {
         if (diskFileOperate == null) {
             return false;
         }
-        if (diskFileOperate.dB() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(bdUniqueId) < diskFileOperate.dG() + i) {
+        if (diskFileOperate.gr() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(bdUniqueId) < diskFileOperate.gw() + i) {
             return a(diskFileOperate, bdUniqueId, bdAsyncTaskParallel);
         }
         return false;
@@ -71,8 +71,8 @@ public class d {
     public void d(DiskFileOperate diskFileOperate) {
         String e = e(diskFileOperate);
         if (e != null) {
-            BdAsyncTask.removeAllTask(pM, e);
-            BdAsyncTask.removeAllTask(pN, e);
+            BdAsyncTask.removeAllTask(wb, e);
+            BdAsyncTask.removeAllTask(wc, e);
         }
     }
 
@@ -87,7 +87,7 @@ public class d {
     }
 
     private boolean a(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel) {
-        c cVar = new c(this.pK, diskFileOperate);
+        c cVar = new c(this.vZ, diskFileOperate);
         cVar.setTag(bdUniqueId);
         cVar.setParallel(bdAsyncTaskParallel);
         cVar.setPriority(4);

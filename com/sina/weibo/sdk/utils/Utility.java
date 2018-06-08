@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.statistic.WBAgent;
@@ -129,7 +130,7 @@ public class Utility {
         } catch (Exception e) {
             sb.append("unknown");
         }
-        sb.append("__").append(com.baidu.ar.util.Constants.OS_TYPE_VALUE).append("__android").append(Build.VERSION.RELEASE);
+        sb.append("__").append(HttpConstants.OS_TYPE_VALUE).append("__android").append(Build.VERSION.RELEASE);
         return sb.toString();
     }
 

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.LocalServerSocket;
 import android.os.Handler;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.l;
@@ -162,14 +163,14 @@ public class g {
             currentTimeMillis += ((long) (Math.random() * (this.f - 20000))) + 15000;
         }
         try {
-            ((AlarmManager) this.k.getSystemService("alarm")).setRepeating(0, currentTimeMillis, this.f, t());
+            ((AlarmManager) this.k.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, currentTimeMillis, this.f, t());
         } catch (Exception e2) {
         }
     }
 
     private void m() {
         try {
-            ((AlarmManager) this.k.getSystemService("alarm")).cancel(t());
+            ((AlarmManager) this.k.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(t());
         } catch (Exception e2) {
         }
     }

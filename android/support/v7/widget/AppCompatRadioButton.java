@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.widget.RadioButton;
 /* loaded from: classes2.dex */
 public class AppCompatRadioButton extends RadioButton implements TintableCompoundButton {
-    private AppCompatCompoundButtonHelper mCompoundButtonHelper;
+    private final AppCompatCompoundButtonHelper mCompoundButtonHelper;
 
     public AppCompatRadioButton(Context context) {
         this(context, null);
@@ -50,7 +50,7 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
     }
 
     @Override // android.support.v4.widget.TintableCompoundButton
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSupportButtonTintList(@Nullable ColorStateList colorStateList) {
         if (this.mCompoundButtonHelper != null) {
             this.mCompoundButtonHelper.setSupportButtonTintList(colorStateList);
@@ -59,7 +59,7 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
 
     @Override // android.support.v4.widget.TintableCompoundButton
     @Nullable
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public ColorStateList getSupportButtonTintList() {
         if (this.mCompoundButtonHelper != null) {
             return this.mCompoundButtonHelper.getSupportButtonTintList();
@@ -68,7 +68,7 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
     }
 
     @Override // android.support.v4.widget.TintableCompoundButton
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSupportButtonTintMode(@Nullable PorterDuff.Mode mode) {
         if (this.mCompoundButtonHelper != null) {
             this.mCompoundButtonHelper.setSupportButtonTintMode(mode);
@@ -77,7 +77,7 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
 
     @Override // android.support.v4.widget.TintableCompoundButton
     @Nullable
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public PorterDuff.Mode getSupportButtonTintMode() {
         if (this.mCompoundButtonHelper != null) {
             return this.mCompoundButtonHelper.getSupportButtonTintMode();

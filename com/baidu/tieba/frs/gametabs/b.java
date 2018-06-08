@@ -8,14 +8,13 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
-import com.baidu.adp.base.e;
 import com.baidu.adp.lib.g.g;
 /* loaded from: classes3.dex */
 public class b extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
-    private e mPageContext;
+    private com.baidu.adp.base.e mPageContext;
 
-    public b(e eVar) {
+    public b(com.baidu.adp.base.e eVar) {
         this.mPageContext = eVar;
     }
 

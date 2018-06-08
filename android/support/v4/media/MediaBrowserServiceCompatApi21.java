@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.service.media.MediaBrowserService;
+import android.support.annotation.RequiresApi;
 import java.util.ArrayList;
 import java.util.List;
+@RequiresApi(21)
 /* loaded from: classes2.dex */
 class MediaBrowserServiceCompatApi21 {
 
@@ -52,13 +54,14 @@ class MediaBrowserServiceCompatApi21 {
             this.mResultObj = result;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: android.service.media.MediaBrowserService$Result */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: android.service.media.MediaBrowserService$Result */
         /* JADX WARN: Multi-variable type inference failed */
         public void sendResult(T t) {
             if (t instanceof List) {
                 this.mResultObj.sendResult(parcelListToItemList((List) t));
             } else if (t instanceof Parcel) {
                 Parcel parcel = (Parcel) t;
+                parcel.setDataPosition(0);
                 this.mResultObj.sendResult(MediaBrowser.MediaItem.CREATOR.createFromParcel(parcel));
                 parcel.recycle();
             } else {
@@ -108,7 +111,7 @@ class MediaBrowserServiceCompatApi21 {
 
         @Override // android.service.media.MediaBrowserService
         public MediaBrowserService.BrowserRoot onGetRoot(String str, int i, Bundle bundle) {
-            BrowserRoot onGetRoot = this.mServiceProxy.onGetRoot(str, i, bundle);
+            BrowserRoot onGetRoot = this.mServiceProxy.onGetRoot(str, i, bundle == null ? null : new Bundle(bundle));
             if (onGetRoot == null) {
                 return null;
             }

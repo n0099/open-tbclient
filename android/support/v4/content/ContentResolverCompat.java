@@ -4,67 +4,33 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
+import android.os.OperationCanceledException;
 import android.support.v4.os.CancellationSignal;
-import android.support.v4.os.OperationCanceledException;
 /* loaded from: classes2.dex */
 public final class ContentResolverCompat {
-    private static final ContentResolverCompatImpl IMPL;
-
-    /* loaded from: classes2.dex */
-    interface ContentResolverCompatImpl {
-        Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal);
+    private ContentResolverCompat() {
     }
 
-    /* loaded from: classes2.dex */
-    static class ContentResolverCompatImplBase implements ContentResolverCompatImpl {
-        ContentResolverCompatImplBase() {
-        }
-
-        @Override // android.support.v4.content.ContentResolverCompat.ContentResolverCompatImpl
-        public Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-            if (cancellationSignal != null) {
-                cancellationSignal.throwIfCanceled();
-            }
-            return contentResolver.query(uri, strArr, str, strArr2, str2);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class ContentResolverCompatImplJB extends ContentResolverCompatImplBase {
-        ContentResolverCompatImplJB() {
-        }
-
-        @Override // android.support.v4.content.ContentResolverCompat.ContentResolverCompatImplBase, android.support.v4.content.ContentResolverCompat.ContentResolverCompatImpl
-        public Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-            Object cancellationSignalObject;
+    public static Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
+        Object cancellationSignalObject;
+        if (Build.VERSION.SDK_INT >= 16) {
             if (cancellationSignal != null) {
                 try {
                     cancellationSignalObject = cancellationSignal.getCancellationSignalObject();
                 } catch (Exception e) {
-                    if (ContentResolverCompatJellybean.isFrameworkOperationCanceledException(e)) {
-                        throw new OperationCanceledException();
+                    if (e instanceof OperationCanceledException) {
+                        throw new android.support.v4.os.OperationCanceledException();
                     }
                     throw e;
                 }
             } else {
                 cancellationSignalObject = null;
             }
-            return ContentResolverCompatJellybean.query(contentResolver, uri, strArr, str, strArr2, str2, cancellationSignalObject);
+            return contentResolver.query(uri, strArr, str, strArr2, str2, (android.os.CancellationSignal) cancellationSignalObject);
         }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new ContentResolverCompatImplJB();
-        } else {
-            IMPL = new ContentResolverCompatImplBase();
+        if (cancellationSignal != null) {
+            cancellationSignal.throwIfCanceled();
         }
-    }
-
-    private ContentResolverCompat() {
-    }
-
-    public static Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        return IMPL.query(contentResolver, uri, strArr, str, strArr2, str2, cancellationSignal);
+        return contentResolver.query(uri, strArr, str, strArr2, str2);
     }
 }

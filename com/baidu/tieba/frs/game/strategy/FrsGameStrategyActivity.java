@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* loaded from: classes3.dex */
 public class FrsGameStrategyActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
@@ -25,7 +25,7 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
         beginTransaction.commit();
     }
 
-    public static void j(Context context, String str, String str2) {
+    public static void i(Context context, String str, String str2) {
         Intent intent = new Intent(context, FrsGameStrategyActivity.class);
         intent.putExtra(ImageViewerConfig.FORUM_ID, str);
         intent.putExtra("name", str2);

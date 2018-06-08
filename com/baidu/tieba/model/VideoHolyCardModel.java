@@ -13,13 +13,13 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.message.VideoHolyCardResponseMessage;
 /* loaded from: classes.dex */
 public class VideoHolyCardModel extends BdBaseModel {
-    private a eRB;
+    private a fcT;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_HOLY_CARD) { // from class: com.baidu.tieba.model.VideoHolyCardModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.eRB != null) {
-                VideoHolyCardModel.this.eRB.am(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
+            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.fcT != null) {
+                VideoHolyCardModel.this.fcT.ap(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
             }
         }
     };
@@ -27,14 +27,14 @@ public class VideoHolyCardModel extends BdBaseModel {
 
     /* loaded from: classes.dex */
     public interface a {
-        void am(boolean z);
+        void ap(boolean z);
     }
 
     public VideoHolyCardModel() {
-        aRD();
+        aWA();
     }
 
-    private void aRD() {
+    private void aWA() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_HOLY_CARD, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_HOLY_CARD);
         tbHttpMessageTask.setResponsedClass(VideoHolyCardResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -52,10 +52,10 @@ public class VideoHolyCardModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.eRB = aVar;
+        this.fcT = aVar;
     }
 
-    public void aRE() {
+    public void aWB() {
         if (System.currentTimeMillis() - this.mLastRequestTime > 200) {
             String clientIP = UtilHelper.getClientIP();
             String str = "UNKNOWN";

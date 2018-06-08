@@ -7,7 +7,7 @@ import java.util.List;
 public interface a {
     void a(boolean z, Message message, boolean z2, int i);
 
-    List<ICardInfo> aLQ();
+    List<ICardInfo> aQN();
 
     int getPn();
 

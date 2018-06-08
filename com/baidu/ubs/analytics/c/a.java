@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 final class a {
-    private static final a hlM = new a();
-    private final Set<InterfaceC0244a> hlN = new LinkedHashSet();
-    private boolean hlO;
+    private static final a hxH = new a();
+    private final Set<InterfaceC0261a> hxI = new LinkedHashSet();
+    private boolean hxJ;
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0244a {
+    public interface InterfaceC0261a {
         void T();
 
         void U();
@@ -28,39 +28,39 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a bEO() {
-        return hlM;
+    public static a bJS() {
+        return hxH;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0244a> bEP() {
-        return this.hlN;
+    public final Set<InterfaceC0261a> bJT() {
+        return this.hxI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0244a interfaceC0244a) {
-        synchronized (this.hlN) {
-            this.hlN.add(interfaceC0244a);
+    public final void a(InterfaceC0261a interfaceC0261a) {
+        synchronized (this.hxI) {
+            this.hxI.add(interfaceC0261a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.hlN) {
-            this.hlN.clear();
+        synchronized (this.hxI) {
+            this.hxI.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void c(Context context) {
-        if (this.hlO || Build.VERSION.SDK_INT < 14) {
+        if (this.hxJ || Build.VERSION.SDK_INT < 14) {
             return;
         }
         try {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new h(this));
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.j.vn("registerActivityLifecycleCallbacks encounter exception");
+            com.baidu.ubs.analytics.d.j.wh("registerActivityLifecycleCallbacks encounter exception");
         }
-        this.hlO = true;
+        this.hxJ = true;
     }
 }

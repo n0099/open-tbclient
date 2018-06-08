@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.os.storage.StorageManager;
+import com.baidu.ar.util.SystemInfoUtil;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -12,8 +13,8 @@ import java.util.List;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public final class h {
-    private static volatile h Qx = null;
-    public static String a = nV().b() + "/baidu/tempdata";
+    private static volatile h Yw = null;
+    public static String a = ri().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
 
@@ -155,8 +156,8 @@ public final class h {
                         String nextLine2 = scanner.nextLine();
                         if (nextLine2.startsWith("dev_mount") && (split = nextLine2.replace('\t', ' ').split(" ")) != null && split.length > 0) {
                             String str = split[2];
-                            if (str.contains(":")) {
-                                str = str.substring(0, str.indexOf(":"));
+                            if (str.contains(SystemInfoUtil.COLON)) {
+                                str = str.substring(0, str.indexOf(SystemInfoUtil.COLON));
                             }
                             arrayList2.add(str);
                         }
@@ -193,15 +194,15 @@ public final class h {
         return this.b;
     }
 
-    public static h nV() {
-        if (Qx == null) {
+    public static h ri() {
+        if (Yw == null) {
             synchronized (h.class) {
-                if (Qx == null) {
-                    Qx = new h(com.baidu.location.f.getServiceContext());
+                if (Yw == null) {
+                    Yw = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return Qx;
+        return Yw;
     }
 
     public String b() {

@@ -8,17 +8,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.d;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class c {
-    public static void e(Context context, View view2) {
+    public static void e(Context context, View view) {
         Toast toast = new Toast(context);
-        toast.setView(view2);
+        toast.setView(view);
         toast.setGravity(17, 0, 0);
-        toast.setDuration(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
+        toast.setDuration(3000);
         toast.show();
     }
 
@@ -40,18 +39,18 @@ public class c {
         e(context, inflate);
     }
 
-    public static void a(x xVar, WriteData writeData) {
+    public static void a(y yVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
-            xVar.n("is_location", "2");
-            Address G = com.baidu.adp.lib.d.a.eK().G(false);
-            if (G != null) {
-                xVar.n("lat", String.valueOf(G.getLatitude()));
-                xVar.n("lng", String.valueOf(G.getLongitude()));
+            yVar.o("is_location", "2");
+            Address I = com.baidu.adp.lib.d.a.hB().I(false);
+            if (I != null) {
+                yVar.o("lat", String.valueOf(I.getLatitude()));
+                yVar.o("lng", String.valueOf(I.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bsC().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bxH().getLocationData();
             if (locationData != null) {
-                xVar.n("name", locationData.bsy());
-                xVar.n("sn", locationData.bsA());
+                yVar.o("name", locationData.bxD());
+                yVar.o("sn", locationData.bxF());
             }
         }
     }

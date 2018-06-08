@@ -194,12 +194,12 @@ public class MobileRegisterActivity extends Activity implements View.OnClickList
             }
         });
         resizeableLayout.addView(this.titleBar);
-        View view2 = new View(this);
+        View view = new View(this);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, ResourceManager.dp2px(this, 2));
-        view2.setBackgroundDrawable(ResourceManager.getNinePatchDrawable(this, "weibosdk_common_shadow_top.9.png"));
+        view.setBackgroundDrawable(ResourceManager.getNinePatchDrawable(this, "weibosdk_common_shadow_top.9.png"));
         layoutParams.addRule(3, 1);
-        view2.setLayoutParams(layoutParams);
-        resizeableLayout.addView(view2);
+        view.setLayoutParams(layoutParams);
+        resizeableLayout.addView(view);
         this.mRegistScrollview = new ScrollView(this);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams2.topMargin = ResourceManager.dp2px(this, 47);
@@ -449,8 +449,8 @@ public class MobileRegisterActivity extends Activity implements View.OnClickList
     }
 
     @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view2, boolean z) {
-        if (view2 == this.mPhoneNum && !z) {
+    public void onFocusChange(View view, boolean z) {
+        if (view == this.mPhoneNum && !z) {
             if (verifyPhoneNum(this.mPhoneNum.getText().toString())) {
                 this.mTips.setVisibility(4);
                 return;
@@ -623,7 +623,7 @@ public class MobileRegisterActivity extends Activity implements View.OnClickList
         }
 
         @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
+        public void onClick(View view) {
             Intent intent = new Intent(this.context, WeiboSdkBrowser.class);
             Bundle bundle = new Bundle();
             bundle.putString("key_url", this.url);
@@ -758,8 +758,8 @@ public class MobileRegisterActivity extends Activity implements View.OnClickList
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (view2 == this.mGetCodeBtn) {
+    public void onClick(View view) {
+        if (view == this.mGetCodeBtn) {
             String editable = this.mPhoneNum.getText().toString();
             String charSequence = this.mCountryCode.getText().toString();
             if (doCheckOnGetMsg(editable)) {
@@ -767,15 +767,15 @@ public class MobileRegisterActivity extends Activity implements View.OnClickList
                 disableGetCodeBtn();
                 getMsg(editable, charSequence);
             }
-        } else if (view2 == this.mPhoneNumClearBtn) {
+        } else if (view == this.mPhoneNumClearBtn) {
             this.mPhoneNum.setText("");
-        } else if (view2 == this.mBtnRegist) {
+        } else if (view == this.mBtnRegist) {
             String editable2 = this.mPhoneNum.getText().toString();
             String editable3 = this.mCheckCode.getText().toString();
             if (doCheckOnSubmit(editable3)) {
                 submit(editable2, editable3);
             }
-        } else if (view2 == this.mCountryLayout) {
+        } else if (view == this.mCountryLayout) {
             this.mTips.setVisibility(4);
             Intent intent = new Intent();
             intent.setClass(this, SelectCountryActivity.class);

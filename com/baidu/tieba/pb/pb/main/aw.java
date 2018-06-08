@@ -32,9 +32,9 @@ public class aw {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.mData, aw.this.mPageContext.getPageActivity())) {
+            switch (com.baidu.tbadk.core.util.l.a(this.mUrl, this.mData, aw.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.k.uC();
+                    return com.baidu.tbadk.core.util.l.yc();
                 case -1:
                 default:
                     return aw.this.mPageContext.getString(d.k.save_fail);

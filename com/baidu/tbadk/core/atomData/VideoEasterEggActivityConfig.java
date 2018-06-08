@@ -7,6 +7,7 @@ import com.baidu.tbadk.data.VideoEasterEggData;
 /* loaded from: classes.dex */
 public class VideoEasterEggActivityConfig extends IntentConfig {
     public static final String FROM_FRS = "from_frs";
+    public static final String FROM_HOTTOPIC = "from_hottopic";
     public static final String FROM_MAINTAB = "from_maintab";
     public static final String FROM_PERSON = "from_person";
 

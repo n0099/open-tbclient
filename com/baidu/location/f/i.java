@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,7 +111,7 @@ public class i {
                 } else {
                     stringBuffer.append("|");
                 }
-                stringBuffer.append(this.a.get(i2).BSSID.replace(":", ""));
+                stringBuffer.append(this.a.get(i2).BSSID.replace(SystemInfoUtil.COLON, ""));
                 int i3 = this.a.get(i2).level;
                 if (i3 < 0) {
                     i3 = -i3;
@@ -171,7 +172,7 @@ public class i {
                 } else {
                     stringBuffer.append("|");
                 }
-                stringBuffer.append(this.a.get(i6).BSSID.replace(":", ""));
+                stringBuffer.append(this.a.get(i6).BSSID.replace(SystemInfoUtil.COLON, ""));
                 stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 stringBuffer.append(this.a.get(i6).SSID);
                 i2 = i3 + 1;
@@ -184,7 +185,7 @@ public class i {
     }
 
     public boolean c(i iVar) {
-        return j.a(iVar, this, com.baidu.location.h.i.QG);
+        return j.a(iVar, this, com.baidu.location.h.i.YF);
     }
 
     public int d() {
@@ -242,13 +243,13 @@ public class i {
                 Random random = new Random();
                 StringBuffer stringBuffer = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo nN = k.nR().nN();
-                if (nN == null || nN.getBSSID() == null) {
+                WifiInfo ra = k.re().ra();
+                if (ra == null || ra.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                 } else {
-                    String replace = nN.getBSSID().replace(":", "");
-                    int rssi = nN.getRssi();
+                    String replace = ra.getBSSID().replace(SystemInfoUtil.COLON, "");
+                    int rssi = ra.getRssi();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = replace;
@@ -306,7 +307,7 @@ public class i {
                                 }
                                 String str2 = this.a.get(i3).BSSID;
                                 if (str2 != null) {
-                                    String replace2 = str2.replace(":", "");
+                                    String replace2 = str2.replace(SystemInfoUtil.COLON, "");
                                     stringBuffer.append(replace2);
                                     int i9 = this.a.get(i3).level;
                                     if (i9 < 0) {

@@ -4,40 +4,28 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class h extends ImageSpan {
-    private WeakReference<Drawable> mDrawableRef;
-    private int offset;
-
-    public h(Drawable drawable) {
-        super(drawable);
+    public h(Drawable drawable, int i) {
+        super(drawable, i);
     }
 
-    public void setOffset(int i) {
-        this.offset = i;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable cachedDrawable = getCachedDrawable();
-        canvas.save();
-        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - cachedDrawable.getBounds().height()) / 2) + this.offset);
-        cachedDrawable.draw(canvas);
-        canvas.restore();
-    }
-
-    private Drawable getCachedDrawable() {
-        WeakReference<Drawable> weakReference = this.mDrawableRef;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
+        if (this.mVerticalAlignment == -100) {
+            Drawable drawable = getDrawable();
+            canvas.save();
+            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+            canvas.translate(f, (((fontMetricsInt.bottom - fontMetricsInt.top) - (drawable.getBounds().bottom - drawable.getBounds().top)) / 2) + fontMetricsInt.top + i4);
+            drawable.draw(canvas);
+            canvas.restore();
+            return;
         }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.mDrawableRef = new WeakReference<>(drawable2);
-            return drawable2;
-        }
-        return drawable;
+        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
     }
 }

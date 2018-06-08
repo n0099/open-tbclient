@@ -17,7 +17,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class MenuPopupHelper implements MenuHelper {
     private static final int TOUCH_EPICENTER_SIZE_DP = 48;
@@ -38,15 +38,15 @@ public class MenuPopupHelper implements MenuHelper {
         this(context, menuBuilder, null, false, R.attr.popupMenuStyle, 0);
     }
 
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2) {
-        this(context, menuBuilder, view2, false, R.attr.popupMenuStyle, 0);
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view) {
+        this(context, menuBuilder, view, false, R.attr.popupMenuStyle, 0);
     }
 
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i) {
-        this(context, menuBuilder, view2, z, i, 0);
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i) {
+        this(context, menuBuilder, view, z, i, 0);
     }
 
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i, @StyleRes int i2) {
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i, @StyleRes int i2) {
         this.mDropDownGravity = GravityCompat.START;
         this.mInternalOnDismissListener = new PopupWindow.OnDismissListener() { // from class: android.support.v7.view.menu.MenuPopupHelper.1
             @Override // android.widget.PopupWindow.OnDismissListener
@@ -56,7 +56,7 @@ public class MenuPopupHelper implements MenuHelper {
         };
         this.mContext = context;
         this.mMenu = menuBuilder;
-        this.mAnchorView = view2;
+        this.mAnchorView = view;
         this.mOverflowOnly = z;
         this.mPopupStyleAttr = i;
         this.mPopupStyleRes = i2;
@@ -66,8 +66,8 @@ public class MenuPopupHelper implements MenuHelper {
         this.mOnDismissListener = onDismissListener;
     }
 
-    public void setAnchorView(@NonNull View view2) {
-        this.mAnchorView = view2;
+    public void setAnchorView(@NonNull View view) {
+        this.mAnchorView = view;
     }
 
     public void setForceShowIcon(boolean z) {
@@ -134,10 +134,8 @@ public class MenuPopupHelper implements MenuHelper {
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 17) {
             defaultDisplay.getRealSize(point);
-        } else if (Build.VERSION.SDK_INT >= 13) {
-            defaultDisplay.getSize(point);
         } else {
-            point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
+            defaultDisplay.getSize(point);
         }
         if (Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(R.dimen.abc_cascading_menus_min_smallest_width)) {
             standardMenuPopup = new CascadingMenuPopup(this.mContext, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
@@ -158,7 +156,7 @@ public class MenuPopupHelper implements MenuHelper {
         popup.setShowTitle(z2);
         if (z) {
             if ((GravityCompat.getAbsoluteGravity(this.mDropDownGravity, ViewCompat.getLayoutDirection(this.mAnchorView)) & 7) == 5) {
-                i -= this.mAnchorView.getWidth();
+                i += this.mAnchorView.getWidth();
             }
             popup.setHorizontalOffset(i);
             popup.setVerticalOffset(i2);

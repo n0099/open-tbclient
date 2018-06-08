@@ -2,13 +2,21 @@ package android.support.design.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.R;
 import android.support.design.internal.BottomNavigationMenu;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.internal.BottomNavigationPresenter;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.AbsSavedState;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.view.SupportMenuInflater;
 import android.support.v7.view.menu.MenuBuilder;
@@ -18,16 +26,24 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class BottomNavigationView extends FrameLayout {
     private static final int[] CHECKED_STATE_SET = {16842912};
     private static final int[] DISABLED_STATE_SET = {-16842910};
-    private OnNavigationItemSelectedListener mListener;
+    private static final int MENU_PRESENTER_ID = 1;
     private final MenuBuilder mMenu;
     private MenuInflater mMenuInflater;
     private final BottomNavigationMenuView mMenuView;
     private final BottomNavigationPresenter mPresenter;
+    private OnNavigationItemReselectedListener mReselectedListener;
+    private OnNavigationItemSelectedListener mSelectedListener;
+
+    /* loaded from: classes2.dex */
+    public interface OnNavigationItemReselectedListener {
+        void onNavigationItemReselected(@NonNull MenuItem menuItem);
+    }
 
     /* loaded from: classes2.dex */
     public interface OnNavigationItemSelectedListener {
@@ -52,8 +68,10 @@ public class BottomNavigationView extends FrameLayout {
         layoutParams.gravity = 17;
         this.mMenuView.setLayoutParams(layoutParams);
         this.mPresenter.setBottomNavigationMenuView(this.mMenuView);
+        this.mPresenter.setId(1);
         this.mMenuView.setPresenter(this.mPresenter);
         this.mMenu.addMenuPresenter(this.mPresenter);
+        this.mPresenter.initForMenu(getContext(), this.mMenu);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.BottomNavigationView, i, R.style.Widget_Design_BottomNavigationView);
         if (obtainStyledAttributes.hasValue(R.styleable.BottomNavigationView_itemIconTint)) {
             this.mMenuView.setIconTintList(obtainStyledAttributes.getColorStateList(R.styleable.BottomNavigationView_itemIconTint));
@@ -65,16 +83,26 @@ public class BottomNavigationView extends FrameLayout {
         } else {
             this.mMenuView.setItemTextColor(createDefaultColorStateList(16842808));
         }
+        if (obtainStyledAttributes.hasValue(R.styleable.BottomNavigationView_elevation)) {
+            ViewCompat.setElevation(this, obtainStyledAttributes.getDimensionPixelSize(R.styleable.BottomNavigationView_elevation, 0));
+        }
         this.mMenuView.setItemBackgroundRes(obtainStyledAttributes.getResourceId(R.styleable.BottomNavigationView_itemBackground, 0));
         if (obtainStyledAttributes.hasValue(R.styleable.BottomNavigationView_menu)) {
             inflateMenu(obtainStyledAttributes.getResourceId(R.styleable.BottomNavigationView_menu, 0));
         }
         obtainStyledAttributes.recycle();
         addView(this.mMenuView, layoutParams);
+        if (Build.VERSION.SDK_INT < 21) {
+            addCompatibilityTopDivider(context);
+        }
         this.mMenu.setCallback(new MenuBuilder.Callback() { // from class: android.support.design.widget.BottomNavigationView.1
             @Override // android.support.v7.view.menu.MenuBuilder.Callback
             public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
-                return BottomNavigationView.this.mListener != null && BottomNavigationView.this.mListener.onNavigationItemSelected(menuItem);
+                if (BottomNavigationView.this.mReselectedListener == null || menuItem.getItemId() != BottomNavigationView.this.getSelectedItemId()) {
+                    return (BottomNavigationView.this.mSelectedListener == null || BottomNavigationView.this.mSelectedListener.onNavigationItemSelected(menuItem)) ? false : true;
+                }
+                BottomNavigationView.this.mReselectedListener.onNavigationItemReselected(menuItem);
+                return true;
             }
 
             @Override // android.support.v7.view.menu.MenuBuilder.Callback
@@ -84,7 +112,11 @@ public class BottomNavigationView extends FrameLayout {
     }
 
     public void setOnNavigationItemSelectedListener(@Nullable OnNavigationItemSelectedListener onNavigationItemSelectedListener) {
-        this.mListener = onNavigationItemSelectedListener;
+        this.mSelectedListener = onNavigationItemSelectedListener;
+    }
+
+    public void setOnNavigationItemReselectedListener(@Nullable OnNavigationItemReselectedListener onNavigationItemReselectedListener) {
+        this.mReselectedListener = onNavigationItemReselectedListener;
     }
 
     @NonNull
@@ -95,7 +127,6 @@ public class BottomNavigationView extends FrameLayout {
     public void inflateMenu(int i) {
         this.mPresenter.setUpdateSuspended(true);
         getMenuInflater().inflate(i, this.mMenu);
-        this.mPresenter.initForMenu(getContext(), this.mMenu);
         this.mPresenter.setUpdateSuspended(false);
         this.mPresenter.updateMenuView(true);
     }
@@ -131,6 +162,25 @@ public class BottomNavigationView extends FrameLayout {
         this.mMenuView.setItemBackgroundRes(i);
     }
 
+    @IdRes
+    public int getSelectedItemId() {
+        return this.mMenuView.getSelectedItemId();
+    }
+
+    public void setSelectedItemId(@IdRes int i) {
+        MenuItem findItem = this.mMenu.findItem(i);
+        if (findItem != null && !this.mMenu.performItemAction(findItem, this.mPresenter, 0)) {
+            findItem.setChecked(true);
+        }
+    }
+
+    private void addCompatibilityTopDivider(Context context) {
+        View view = new View(context);
+        view.setBackgroundColor(ContextCompat.getColor(context, R.color.design_bottom_navigation_shadow_color));
+        view.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.design_bottom_navigation_shadow_height)));
+        addView(view);
+    }
+
     private MenuInflater getMenuInflater() {
         if (this.mMenuInflater == null) {
             this.mMenuInflater = new SupportMenuInflater(getContext());
@@ -150,5 +200,69 @@ public class BottomNavigationView extends FrameLayout {
             return null;
         }
         return null;
+    }
+
+    @Override // android.view.View
+    protected Parcelable onSaveInstanceState() {
+        SavedState savedState = new SavedState(super.onSaveInstanceState());
+        savedState.menuPresenterState = new Bundle();
+        this.mMenu.savePresenterStates(savedState.menuPresenterState);
+        return savedState;
+    }
+
+    @Override // android.view.View
+    protected void onRestoreInstanceState(Parcelable parcelable) {
+        if (!(parcelable instanceof SavedState)) {
+            super.onRestoreInstanceState(parcelable);
+            return;
+        }
+        SavedState savedState = (SavedState) parcelable;
+        super.onRestoreInstanceState(savedState.getSuperState());
+        this.mMenu.restorePresenterStates(savedState.menuPresenterState);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public static class SavedState extends AbsSavedState {
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.design.widget.BottomNavigationView.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.ClassLoaderCreator
+            public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
+                return new SavedState(parcel, classLoader);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            public SavedState createFromParcel(Parcel parcel) {
+                return new SavedState(parcel, null);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            public SavedState[] newArray(int i) {
+                return new SavedState[i];
+            }
+        };
+        Bundle menuPresenterState;
+
+        public SavedState(Parcelable parcelable) {
+            super(parcelable);
+        }
+
+        public SavedState(Parcel parcel, ClassLoader classLoader) {
+            super(parcel, classLoader);
+            readFromParcel(parcel, classLoader);
+        }
+
+        @Override // android.support.v4.view.AbsSavedState, android.os.Parcelable
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
+            super.writeToParcel(parcel, i);
+            parcel.writeBundle(this.menuPresenterState);
+        }
+
+        private void readFromParcel(Parcel parcel, ClassLoader classLoader) {
+            this.menuPresenterState = parcel.readBundle(classLoader);
+        }
     }
 }

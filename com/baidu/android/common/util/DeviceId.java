@@ -21,6 +21,8 @@ import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.security.SHA1Util;
+import com.baidu.ar.util.IoUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.biometrics.base.b.c;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
@@ -178,7 +180,7 @@ public final class DeviceId {
                         if (bundle != null) {
                             String string = bundle.getString(META_KEY_GLAXY_DATA);
                             if (!TextUtils.isEmpty(string)) {
-                                byte[] decode = Base64.decode(string.getBytes("utf-8"));
+                                byte[] decode = Base64.decode(string.getBytes(IoUtils.UTF_8));
                                 JSONObject jSONObject = new JSONObject(new String(decode));
                                 CUIDBuddyInfo cUIDBuddyInfo = new CUIDBuddyInfo();
                                 cUIDBuddyInfo.priority = jSONObject.getInt(LogFactory.PRIORITY_KEY);
@@ -257,7 +259,7 @@ public final class DeviceId {
             return null;
         }
         try {
-            return Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, str.getBytes()), "utf-8");
+            return Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, str.getBytes()), IoUtils.UTF_8);
         } catch (UnsupportedEncodingException e) {
             handleThrowable(e);
             return "";
@@ -478,7 +480,7 @@ public final class DeviceId {
                     break;
                 }
                 sb.append(readLine);
-                sb.append("\r\n");
+                sb.append(SystemInfoUtil.LINE_END);
             }
             bufferedReader.close();
             split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split("=");
@@ -663,7 +665,7 @@ public final class DeviceId {
     }
 
     private static String imeiCheck(String str) {
-        return (str == null || !str.contains(":")) ? str : "";
+        return (str == null || !str.contains(SystemInfoUtil.COLON)) ? str : "";
     }
 
     private void initPublicKey() {
@@ -742,7 +744,7 @@ public final class DeviceId {
             }
             file2.mkdirs();
             FileWriter fileWriter = new FileWriter(file3, false);
-            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + "=" + str2).getBytes()), "utf-8"));
+            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + "=" + str2).getBytes()), IoUtils.UTF_8));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e) {

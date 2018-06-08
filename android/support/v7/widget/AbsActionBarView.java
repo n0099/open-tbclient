@@ -3,7 +3,6 @@ package android.support.v7.widget;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
@@ -60,7 +59,7 @@ public abstract class AbsActionBarView extends ViewGroup {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
+        int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 0) {
             this.mEatingTouch = false;
         }
@@ -78,7 +77,7 @@ public abstract class AbsActionBarView extends ViewGroup {
 
     @Override // android.view.View
     public boolean onHoverEvent(MotionEvent motionEvent) {
-        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
+        int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 9) {
             this.mEatingHover = false;
         }
@@ -113,7 +112,7 @@ public abstract class AbsActionBarView extends ViewGroup {
         }
         if (i == 0) {
             if (getVisibility() != 0) {
-                ViewCompat.setAlpha(this, 0.0f);
+                setAlpha(0.0f);
             }
             ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this).alpha(1.0f);
             alpha.setDuration(j);
@@ -192,9 +191,9 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int measureChildView(View view2, int i, int i2, int i3) {
-        view2.measure(View.MeasureSpec.makeMeasureSpec(i, Integer.MIN_VALUE), i2);
-        return Math.max(0, (i - view2.getMeasuredWidth()) - i3);
+    public int measureChildView(View view, int i, int i2, int i3) {
+        view.measure(View.MeasureSpec.makeMeasureSpec(i, Integer.MIN_VALUE), i2);
+        return Math.max(0, (i - view.getMeasuredWidth()) - i3);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -203,14 +202,14 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int positionChild(View view2, int i, int i2, int i3, boolean z) {
-        int measuredWidth = view2.getMeasuredWidth();
-        int measuredHeight = view2.getMeasuredHeight();
+    public int positionChild(View view, int i, int i2, int i3, boolean z) {
+        int measuredWidth = view.getMeasuredWidth();
+        int measuredHeight = view.getMeasuredHeight();
         int i4 = ((i3 - measuredHeight) / 2) + i2;
         if (z) {
-            view2.layout(i - measuredWidth, i4, i, measuredHeight + i4);
+            view.layout(i - measuredWidth, i4, i, measuredHeight + i4);
         } else {
-            view2.layout(i, i4, i + measuredWidth, measuredHeight + i4);
+            view.layout(i, i4, i + measuredWidth, measuredHeight + i4);
         }
         return z ? -measuredWidth : measuredWidth;
     }
@@ -231,13 +230,13 @@ public abstract class AbsActionBarView extends ViewGroup {
         }
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationStart(View view2) {
+        public void onAnimationStart(View view) {
             AbsActionBarView.super.setVisibility(0);
             this.mCanceled = false;
         }
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationEnd(View view2) {
+        public void onAnimationEnd(View view) {
             if (!this.mCanceled) {
                 AbsActionBarView.this.mVisibilityAnim = null;
                 AbsActionBarView.super.setVisibility(this.mFinalVisibility);
@@ -245,7 +244,7 @@ public abstract class AbsActionBarView extends ViewGroup {
         }
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationCancel(View view2) {
+        public void onAnimationCancel(View view) {
             this.mCanceled = true;
         }
     }

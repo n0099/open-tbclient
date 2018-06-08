@@ -6,7 +6,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.base.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.im.chat.a.a;
 import com.baidu.tieba.im.chat.a.b;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
@@ -41,7 +41,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
             ImMessageCenterShowItemData removeItem = removeItem(imMessageCenterPojo);
             if (!isToShow(imMessageCenterPojo)) {
                 if (aVar != null) {
-                    aVar.aBb();
+                    aVar.aFW();
                     return;
                 }
                 return;
@@ -66,7 +66,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
             removeItem(imMessageCenterPojo);
             if (aVar != null) {
-                aVar.aBb();
+                aVar.aFW();
             }
         }
     }
@@ -75,7 +75,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         this.mList.clear();
         if (list == null) {
             if (aVar != null) {
-                aVar.aBb();
+                aVar.aFW();
                 return;
             }
             return;
@@ -93,7 +93,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         if (imMessageCenterPojo == null) {
             return null;
         }
-        if (imMessageCenterPojo.getIs_hidden() == 1 || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || imMessageCenterPojo.getLast_content_time() == 0) {
+        if (imMessageCenterPojo.getIs_hidden() == 1 || ((TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) || imMessageCenterPojo.getLast_content_time() == 0)) {
             return null;
         }
         if (imMessageCenterShowItemData == null) {
@@ -103,6 +103,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         imMessageCenterShowItemData.setFriendId(imMessageCenterPojo.getGid());
         imMessageCenterShowItemData.setOwnerId(TbadkCoreApplication.getCurrentAccount());
         imMessageCenterShowItemData.setFriendName(imMessageCenterPojo.getGroup_name());
+        imMessageCenterShowItemData.setFriendNameShow(imMessageCenterPojo.getNameShow());
         imMessageCenterShowItemData.setFriendPortrait(imMessageCenterPojo.getGroup_head());
         imMessageCenterShowItemData.setServerTime(imMessageCenterPojo.getLast_content_time());
         imMessageCenterShowItemData.setUnReadCount(imMessageCenterPojo.getUnread_count());
@@ -125,7 +126,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         if (imMessageCenterShowItemData != null) {
             final String friendId = imMessageCenterShowItemData.getFriendId();
             if (!TextUtils.isEmpty(friendId) && this.mList != null && this.mList.size() != 0) {
-                com.baidu.tieba.im.db.e.aCY().a(imMessageCenterShowItemData, getCustomGroupType(imMessageCenterShowItemData), new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.1
+                com.baidu.tieba.im.db.e.aHT().a(imMessageCenterShowItemData, getCustomGroupType(imMessageCenterShowItemData), new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.1
                     private final List<Pair<String, Integer>> mRemoveCache = new ArrayList();
                     private int mLastProgress = 0;
 
@@ -139,7 +140,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     private void clearRemoveCache() {
                         for (Pair<String, Integer> pair : this.mRemoveCache) {
                             if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                                com.baidu.tieba.im.db.e.aCY().aj(pair.first, pair.second.intValue());
+                                com.baidu.tieba.im.db.e.aHT().am(pair.first, pair.second.intValue());
                             }
                         }
                         this.mRemoveCache.clear();
@@ -184,14 +185,14 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                                 ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast("-1001", -7);
                                 return true;
                             }
-                            com.baidu.tieba.im.memorycache.b.aFw().aFG();
+                            com.baidu.tieba.im.memorycache.b.aKr().aKB();
                             return true;
                         } else if (i == -8) {
                             if (ImBaseMessageCenterModel.this.isEmpty()) {
                                 ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast("-1000", -8);
                                 return true;
                             }
-                            com.baidu.tieba.im.memorycache.b.aFw().aFF();
+                            com.baidu.tieba.im.memorycache.b.aKr().aKA();
                             return true;
                         } else {
                             return false;
@@ -203,7 +204,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     }
 
     public void asyncDeleteMsgList(List<ImMessageCenterShowItemData> list, final int i, final b bVar) {
-        com.baidu.tieba.im.db.e.aCY().a(list, i, new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.2
+        com.baidu.tieba.im.db.e.aHT().a(list, i, new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.2
             private final List<Pair<String, Integer>> mRemoveCache = new ArrayList();
             private int mLastProgress = 0;
 
@@ -218,7 +219,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 for (Pair<String, Integer> pair : this.mRemoveCache) {
                     if (pair != null && !TextUtils.isEmpty(pair.first)) {
                         ImBaseMessageCenterModel.this.removeItemInList(pair.first);
-                        com.baidu.tieba.im.db.e.aCY().aj(pair.first, pair.second.intValue());
+                        com.baidu.tieba.im.db.e.aHT().am(pair.first, pair.second.intValue());
                     }
                 }
                 this.mRemoveCache.clear();
@@ -259,13 +260,13 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     if (ImBaseMessageCenterModel.this.isEmpty()) {
                         ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast("-1001", -7);
                     } else {
-                        com.baidu.tieba.im.memorycache.b.aFw().aFG();
+                        com.baidu.tieba.im.memorycache.b.aKr().aKB();
                     }
                 } else if (i2 == 4) {
                     if (ImBaseMessageCenterModel.this.isEmpty()) {
                         ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast("-1000", -8);
                     } else {
-                        com.baidu.tieba.im.memorycache.b.aFw().aFF();
+                        com.baidu.tieba.im.memorycache.b.aKr().aKA();
                     }
                 }
             }
@@ -273,7 +274,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     }
 
     public void removeByKeyMemoryChangedWithBroadcast(String str, int i) {
-        com.baidu.tieba.im.db.e.aCY().removeByKeyMemoryChangedWithBroadcast(str, i);
+        com.baidu.tieba.im.db.e.aHT().removeByKeyMemoryChangedWithBroadcast(str, i);
     }
 
     public boolean removeItemInList(String str) {
@@ -292,7 +293,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     }
 
     public boolean removeItemInList(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        if (v.w(this.mList) || imMessageCenterShowItemData == null) {
+        if (w.z(this.mList) || imMessageCenterShowItemData == null) {
             return false;
         }
         String friendId = imMessageCenterShowItemData.getFriendId();
@@ -330,7 +331,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     }
 
     public boolean isEmpty() {
-        return v.w(this.mList);
+        return w.z(this.mList);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -352,7 +353,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
             }
         });
         if (aVar != null) {
-            aVar.aBb();
+            aVar.aFW();
         }
     }
 }

@@ -1,7 +1,9 @@
 package android.support.design.internal;
 
 import android.content.Context;
+import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuItemImpl;
@@ -9,9 +11,10 @@ import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.view.menu.MenuView;
 import android.support.v7.view.menu.SubMenuBuilder;
 import android.view.ViewGroup;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class BottomNavigationPresenter implements MenuPresenter {
+    private int mId;
     private MenuBuilder mMenu;
     private BottomNavigationMenuView mMenuView;
     private boolean mUpdateSuspended = false;
@@ -70,21 +73,68 @@ public class BottomNavigationPresenter implements MenuPresenter {
         return false;
     }
 
+    public void setId(int i) {
+        this.mId = i;
+    }
+
     @Override // android.support.v7.view.menu.MenuPresenter
     public int getId() {
-        return -1;
+        return this.mId;
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public Parcelable onSaveInstanceState() {
-        return null;
+        SavedState savedState = new SavedState();
+        savedState.selectedItemId = this.mMenuView.getSelectedItemId();
+        return savedState;
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public void onRestoreInstanceState(Parcelable parcelable) {
+        if (parcelable instanceof SavedState) {
+            this.mMenuView.tryRestoreSelectedItemId(((SavedState) parcelable).selectedItemId);
+        }
     }
 
     public void setUpdateSuspended(boolean z) {
         this.mUpdateSuspended = z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public static class SavedState implements Parcelable {
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.design.internal.BottomNavigationPresenter.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public SavedState createFromParcel(Parcel parcel) {
+                return new SavedState(parcel);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public SavedState[] newArray(int i) {
+                return new SavedState[i];
+            }
+        };
+        int selectedItemId;
+
+        SavedState() {
+        }
+
+        SavedState(Parcel parcel) {
+            this.selectedItemId = parcel.readInt();
+        }
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
+            parcel.writeInt(this.selectedItemId);
+        }
     }
 }

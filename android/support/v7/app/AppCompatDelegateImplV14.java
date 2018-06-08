@@ -9,7 +9,9 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatDelegateImplBase;
 import android.support.v7.view.SupportActionModeWrapper;
@@ -19,9 +21,9 @@ import android.view.ActionMode;
 import android.view.Window;
 import com.baidu.sapi2.shell.SapiErrorCode;
 /* JADX INFO: Access modifiers changed from: package-private */
+@RequiresApi(14)
 /* loaded from: classes2.dex */
 public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV11 {
-    private static final boolean FLUSH_RESOURCE_CACHES_ON_NIGHT_CHANGE = true;
     private static final String KEY_LOCAL_NIGHT_MODE = "appcompat:local_night_mode";
     private boolean mApplyDayNightCalled;
     private AutoNightModeManager mAutoNightModeManager;
@@ -154,12 +156,11 @@ public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV11 {
             } else {
                 Configuration configuration2 = new Configuration(configuration);
                 DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-                float f = configuration2.fontScale;
                 configuration2.uiMode = i3 | (configuration2.uiMode & (-49));
-                configuration2.fontScale = 2.0f * f;
                 resources.updateConfiguration(configuration2, displayMetrics);
-                configuration2.fontScale = f;
-                resources.updateConfiguration(configuration2, displayMetrics);
+                if (Build.VERSION.SDK_INT < 26) {
+                    ResourcesFlusher.flush(resources);
+                }
             }
             return true;
         }
@@ -228,6 +229,7 @@ public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV11 {
         }
 
         final int getApplyableNightMode() {
+            this.mIsNight = this.mTwilightManager.isNight();
             return this.mIsNight ? 2 : 1;
         }
 

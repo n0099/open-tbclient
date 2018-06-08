@@ -2,17 +2,19 @@ package com.baidu.ar.util;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
 public class MD5Utils {
-    protected static char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-    protected static MessageDigest b;
+    private static char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static MessageDigest b;
 
     static {
-        b = null;
         try {
             b = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
@@ -46,16 +48,77 @@ public class MD5Utils {
         return getMD5String(str).equals(str2);
     }
 
-    public static String getFileMD5String(File file) {
-        FileInputStream fileInputStream = new FileInputStream(file);
-        byte[] bArr = new byte[1024];
-        while (true) {
-            int read = fileInputStream.read(bArr);
-            if (read <= 0) {
-                fileInputStream.close();
-                return a(b.digest());
+    public static String fileToMD5(File file) {
+        FileInputStream fileInputStream;
+        Throwable th;
+        String str = null;
+        try {
+            fileInputStream = new FileInputStream(file);
+            try {
+                try {
+                    byte[] bArr = new byte[1024];
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        } else if (read > 0) {
+                            messageDigest.update(bArr, 0, read);
+                        }
+                    }
+                    str = new BigInteger(1, messageDigest.digest()).toString(16);
+                    IoUtils.closeQuietly(fileInputStream);
+                } catch (Exception e) {
+                    e = e;
+                    e.printStackTrace();
+                    IoUtils.closeQuietly(fileInputStream);
+                    return str;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                IoUtils.closeQuietly(fileInputStream);
+                throw th;
             }
-            b.update(bArr, 0, read);
+        } catch (Exception e2) {
+            e = e2;
+            fileInputStream = null;
+        } catch (Throwable th3) {
+            fileInputStream = null;
+            th = th3;
+            IoUtils.closeQuietly(fileInputStream);
+            throw th;
+        }
+        return str;
+    }
+
+    public static String getFileMD5String(File file) {
+        FileInputStream fileInputStream;
+        try {
+            fileInputStream = new FileInputStream(file);
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read <= 0) {
+                        fileInputStream.close();
+                        return a(b.digest());
+                    }
+                    b.update(bArr, 0, read);
+                }
+            } catch (IOException e) {
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                        return null;
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                        return null;
+                    }
+                }
+                return null;
+            }
+        } catch (IOException e3) {
+            fileInputStream = null;
         }
     }
 
@@ -73,7 +136,7 @@ public class MD5Utils {
     public static synchronized String getMD5String(String str) {
         String mD5String;
         synchronized (MD5Utils.class) {
-            mD5String = getMD5String(str.getBytes());
+            mD5String = getMD5String(str.getBytes(Charset.forName(IoUtils.UTF_8)));
         }
         return mD5String;
     }
@@ -81,5 +144,29 @@ public class MD5Utils {
     public static String getMD5String(byte[] bArr) {
         b.update(bArr);
         return a(b.digest());
+    }
+
+    public static String md5(String str) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            char[] charArray = str.toCharArray();
+            byte[] bArr = new byte[charArray.length];
+            for (int i = 0; i < charArray.length; i++) {
+                bArr[i] = (byte) charArray[i];
+            }
+            byte[] digest = messageDigest.digest(bArr);
+            StringBuffer stringBuffer = new StringBuffer();
+            for (byte b2 : digest) {
+                int i2 = b2 & 255;
+                if (i2 < 16) {
+                    stringBuffer.append("0");
+                }
+                stringBuffer.append(Integer.toHexString(i2));
+            }
+            return stringBuffer.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }

@@ -14,13 +14,13 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
     private Context a;
-    private C0047a b;
+    private C0063a b;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, int i, Bundle bundle) {
         this.a = context;
-        this.b = new C0047a();
+        this.b = new C0063a();
         b.a a = b.a(i);
         c a2 = b.a(context).a(context.getApplicationContext(), a.a);
         this.b.j = a.a;
@@ -87,7 +87,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.biometrics.base.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0047a {
+    public class C0063a {
         private static final String b = "load_so_zip_version";
         private static final String c = "load_so_modle_name";
         private static final String d = "load_default_so";
@@ -103,7 +103,7 @@ public class a {
         private String n;
         private String o;
 
-        private C0047a() {
+        private C0063a() {
             this.l = false;
             this.m = true;
         }

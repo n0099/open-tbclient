@@ -9,36 +9,36 @@ public class Configuration implements Parcelable {
     public static Parcelable.Creator<Configuration> CREATOR = new Parcelable.Creator<Configuration>() { // from class: com.baidu.adp.lib.guide.Configuration.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: c */
+        /* renamed from: d */
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
-            configuration.sr = parcel.readInt();
-            configuration.ss = parcel.readInt();
-            configuration.su = parcel.readInt();
-            configuration.sv = parcel.readByte() == 1;
-            configuration.sw = parcel.readByte() == 1;
+            configuration.yC = parcel.readInt();
+            configuration.yD = parcel.readInt();
+            configuration.yE = parcel.readInt();
+            configuration.yF = parcel.readByte() == 1;
+            configuration.yG = parcel.readByte() == 1;
             return configuration;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: V */
+        /* renamed from: W */
         public Configuration[] newArray(int i) {
             return new Configuration[i];
         }
     };
-    boolean sq;
+    boolean yB;
     View mTargetView = null;
     int mAlpha = 255;
-    int sr = -1;
-    int ss = -1;
-    int su = 17170444;
-    boolean sv = true;
-    boolean sw = false;
-    boolean sx = false;
-    int sy = -1;
-    int sz = -1;
+    int yC = -1;
+    int yD = -1;
+    int yE = 17170444;
+    boolean yF = true;
+    boolean yG = false;
+    boolean yH = false;
+    int yI = -1;
+    int yJ = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -48,10 +48,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
-        parcel.writeInt(this.sr);
-        parcel.writeInt(this.ss);
-        parcel.writeInt(this.su);
-        parcel.writeByte((byte) (this.sv ? 1 : 0));
-        parcel.writeByte((byte) (this.sw ? 1 : 0));
+        parcel.writeInt(this.yC);
+        parcel.writeInt(this.yD);
+        parcel.writeInt(this.yE);
+        parcel.writeByte((byte) (this.yF ? 1 : 0));
+        parcel.writeByte((byte) (this.yG ? 1 : 0));
     }
 }

@@ -6,18 +6,18 @@ import java.io.File;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 public class b {
-    private String gLd;
-    private a gMP;
-    private String gMQ;
-    private f gMR;
-    private d gMS;
-    private e gMT;
-    private volatile boolean gMU;
-    private volatile boolean gMV;
-    private volatile boolean gMW;
+    private boolean Bo = false;
+    private String gWF;
+    private a gYr;
+    private String gYs;
+    private f gYt;
+    private d gYu;
+    private e gYv;
+    private volatile boolean gYw;
+    private volatile boolean gYx;
+    private volatile boolean gYy;
     private Context mContext;
     private String mFilterName;
-    private boolean mIsRunning = false;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -25,93 +25,93 @@ public class b {
 
         void aq(int i, String str);
 
-        void tQ(String str);
+        void uK(String str);
     }
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
-        this.gMQ = str;
-        this.gLd = str2;
+        this.gYs = str;
+        this.gWF = str2;
         this.mFilterName = str3;
     }
 
-    public void bwy() {
-        if (!this.mIsRunning) {
-            this.mIsRunning = true;
-            this.gMU = false;
-            this.gMV = false;
-            this.gMW = false;
+    public void bBF() {
+        if (!this.Bo) {
+            this.Bo = true;
+            this.gYw = false;
+            this.gYx = false;
+            this.gYy = false;
             try {
-                File file = new File(new File(this.gLd).getParent());
+                File file = new File(new File(this.gWF).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.gMP != null) {
-                    this.gMP.ap(222, com.baidu.tieba.j.a.g(e));
+                if (this.gYr != null) {
+                    this.gYr.ap(222, com.baidu.tieba.j.a.m(e));
                 }
             }
             try {
-                this.gMT = new e(this.gLd);
-                this.gMR = new f(this.mContext, this.gMQ, this.mFilterName, this.gMT, this.gMP) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.gYv = new e(this.gWF);
+                this.gYt = new f(this.mContext, this.gYs, this.mFilterName, this.gYv, this.gYr) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.gMU = true;
-                        b.this.bwA();
+                        b.this.gYw = true;
+                        b.this.bBH();
                     }
                 };
-                this.gMR.start();
-                this.gMS = new d(this.mContext, this.gMQ, this.gMT, this.gMP) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.gYt.start();
+                this.gYu = new d(this.mContext, this.gYs, this.gYv, this.gYr) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.gMV = true;
-                        b.this.bwA();
+                        b.this.gYx = true;
+                        b.this.bBH();
                     }
                 };
-                this.gMS.start();
+                this.gYu.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void bwz() {
-        if (this.gMR != null) {
-            this.gMR.interrupt();
-            this.gMR = null;
+    public void bBG() {
+        if (this.gYt != null) {
+            this.gYt.interrupt();
+            this.gYt = null;
         }
-        if (this.gMS != null) {
-            this.gMS.interrupt();
-            this.gMS = null;
+        if (this.gYu != null) {
+            this.gYu.interrupt();
+            this.gYu = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwA() {
-        if (this.gMU && this.gMV && !this.gMW) {
-            this.gMT.stop();
-            this.gMW = true;
-            bwB();
+    public void bBH() {
+        if (this.gYw && this.gYx && !this.gYy) {
+            this.gYv.stop();
+            this.gYy = true;
+            bBI();
         }
     }
 
-    private void bwB() {
-        if (this.gMP != null) {
-            File file = new File(this.gLd);
+    private void bBI() {
+        if (this.gYr != null) {
+            File file = new File(this.gWF);
             if (file.exists() && file.length() > 0) {
-                this.gMP.tQ(this.gLd);
+                this.gYr.uK(this.gWF);
             } else {
-                this.gMP.ap(223, "Err empty outputFile");
+                this.gYr.ap(223, "Err empty outputFile");
             }
         }
-        this.mIsRunning = false;
+        this.Bo = false;
     }
 
     public boolean isRunning() {
-        return this.mIsRunning;
+        return this.Bo;
     }
 
     public void a(a aVar) {
-        this.gMP = aVar;
+        this.gYr = aVar;
     }
 }

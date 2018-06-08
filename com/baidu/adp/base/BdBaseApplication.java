@@ -16,7 +16,7 @@ public class BdBaseApplication extends MAApplication {
     private long lastGcTime = 0;
 
     public void onCreate(Application application) {
-        g.bP().a(super.getResources());
+        g.eD().a(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -24,14 +24,14 @@ public class BdBaseApplication extends MAApplication {
     private void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        l.ag(application);
+        l.ai(application);
         initWorkMode();
         initBitmapHelper();
         initPlugin();
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.iN().init();
+        com.baidu.adp.plugin.c.a.lB().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -63,11 +63,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.gw().ae(this.mContext);
+        com.baidu.adp.lib.util.d.jl().ag(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.bJ().bL();
+        a.ex().ez();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > StatisticConfig.MIN_UPLOAD_INTERVAL) {
             this.lastGcTime = currentTimeMillis;
@@ -76,16 +76,16 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.bJ().setActivityStackMaxSize(i);
+        a.ex().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.bJ().getActivityStackMaxSize();
+        return a.ex().getActivityStackMaxSize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.bP().getResources();
+        Resources resources = g.eD().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 

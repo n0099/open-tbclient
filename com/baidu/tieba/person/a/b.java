@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.b.b> {
-    private View.OnClickListener cze;
+    private View.OnClickListener cHP;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -19,7 +19,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bx */
+    /* renamed from: by */
     public com.baidu.tieba.person.b.b onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.b(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.i.user_pic_add_item, (ViewGroup) null));
     }
@@ -28,16 +28,16 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, com.baidu.tieba.person.b.b bVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, com.baidu.tieba.person.b.b bVar) {
         if (bVar == null || cVar == null) {
             return null;
         }
-        bVar.t(this.cze);
+        bVar.t(this.cHP);
         bVar.g(cVar);
         return bVar.getView();
     }
 
     public void t(View.OnClickListener onClickListener) {
-        this.cze = onClickListener;
+        this.cHP = onClickListener;
     }
 }

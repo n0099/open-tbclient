@@ -1,6 +1,7 @@
 package android.support.v7.app;
 
 import android.content.Context;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatDelegateImplV23;
 import android.support.v7.app.AppCompatDelegateImplV9;
 import android.view.KeyboardShortcutGroup;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.Window;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
+@RequiresApi(24)
 /* loaded from: classes2.dex */
 public class AppCompatDelegateImplN extends AppCompatDelegateImplV23 {
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -9,23 +9,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends a {
-    private ImageView aHQ;
-    private String[] aHR;
-    private TextView aHS;
-    private final int aHT;
-    private Runnable aHU;
-    private TextView azb;
+    private TextView aHw;
+    private ImageView aQn;
+    private String[] aQo;
+    private TextView aQp;
+    private final int aQq;
+    private Runnable aQr;
     private int currentIndex;
     private int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int Fn() {
+    public int IS() {
         this.currentIndex++;
-        if (this.currentIndex >= this.aHT) {
+        if (this.currentIndex >= this.aQq) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -39,41 +39,41 @@ public class f extends a {
         super(LayoutInflater.from(context).inflate(d.i.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
         this.mSkinType = -1;
-        this.aHU = new Runnable() { // from class: com.baidu.tbadk.j.f.1
+        this.aQr = new Runnable() { // from class: com.baidu.tbadk.j.f.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!f.this.Fk()) {
-                    TbadkCoreApplication.getInst().handler.removeCallbacks(f.this.aHU);
+                if (!f.this.IP()) {
+                    TbadkCoreApplication.getInst().handler.removeCallbacks(f.this.aQr);
                     return;
                 }
-                f.this.azb.setText(f.this.aHR[f.this.Fn()]);
-                TbadkCoreApplication.getInst().handler.postDelayed(f.this.aHU, 200L);
+                f.this.aHw.setText(f.this.aQo[f.this.IS()]);
+                TbadkCoreApplication.getInst().handler.postDelayed(f.this.aQr, 200L);
             }
         };
-        this.aHQ = (ImageView) this.aHO.findViewById(d.g.loading_animate_view);
+        this.aQn = (ImageView) this.aQl.findViewById(d.g.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.aHQ.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aQn.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.aHQ.setLayoutParams(marginLayoutParams);
+                this.aQn.setLayoutParams(marginLayoutParams);
             }
         }
-        this.azb = (TextView) this.aHO.findViewById(d.g.loading_anim_ellipsis);
-        this.aHS = (TextView) this.aHO.findViewById(d.g.loading_text);
-        this.aHR = context.getResources().getStringArray(d.b.loading_anim_text_array);
-        this.aHT = this.aHR.length;
+        this.aHw = (TextView) this.aQl.findViewById(d.g.loading_anim_ellipsis);
+        this.aQp = (TextView) this.aQl.findViewById(d.g.loading_text);
+        this.aQo = context.getResources().getStringArray(d.b.loading_anim_text_array);
+        this.aQq = this.aQo.length;
     }
 
-    private void Fo() {
-        if (this.aHQ != null && (this.aHQ.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.aHQ.getBackground()).start();
+    private void IT() {
+        if (this.aQn != null && (this.aQn.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.aQn.getBackground()).start();
         }
     }
 
-    private void Fp() {
-        if (this.aHQ != null && (this.aHQ.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.aHQ.getBackground()).stop();
+    private void IU() {
+        if (this.aQn != null && (this.aQn.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.aQn.getBackground()).stop();
         }
     }
 
@@ -83,31 +83,31 @@ public class f extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.j.a
-    public void Fl() {
+    public void IQ() {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        ak.d(this.aHQ, d.f.loading_animation, this.mSkinType);
-        Fo();
-        ak.b(this.azb, d.C0126d.cp_cont_c, 1, this.mSkinType);
-        ak.b(this.aHS, d.C0126d.cp_cont_c, 1, this.mSkinType);
-        ak.e(this.aHO, d.C0126d.cp_bg_line_d, this.mSkinType);
-        this.azb.setText(this.aHR[0]);
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.aHU);
-        TbadkCoreApplication.getInst().handler.postDelayed(this.aHU, 200L);
-        this.aHO.setClickable(true);
+        al.d(this.aQn, d.f.loading_animation, this.mSkinType);
+        IT();
+        al.b(this.aHw, d.C0141d.cp_cont_c, 1, this.mSkinType);
+        al.b(this.aQp, d.C0141d.cp_cont_c, 1, this.mSkinType);
+        al.e(this.aQl, d.C0141d.cp_bg_line_d, this.mSkinType);
+        this.aHw.setText(this.aQo[0]);
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.aQr);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.aQr, 200L);
+        this.aQl.setClickable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.j.a
-    public void Fm() {
+    public void IR() {
         release();
     }
 
     public void release() {
-        Fp();
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.aHU);
-        this.aHQ.setBackgroundResource(0);
+        IU();
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.aQr);
+        this.aQn.setBackgroundResource(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -115,35 +115,35 @@ public class f extends a {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        if (Fk()) {
-            ak.d(this.aHQ, d.f.loading_animation, this.mSkinType);
-            Fo();
-            ak.b(this.azb, d.C0126d.cp_cont_c, 1, this.mSkinType);
-            ak.b(this.aHS, d.C0126d.cp_cont_c, 1, this.mSkinType);
-            ak.e(this.aHO, d.C0126d.cp_bg_line_d, this.mSkinType);
+        if (IP()) {
+            al.d(this.aQn, d.f.loading_animation, this.mSkinType);
+            IT();
+            al.b(this.aHw, d.C0141d.cp_cont_c, 1, this.mSkinType);
+            al.b(this.aQp, d.C0141d.cp_cont_c, 1, this.mSkinType);
+            al.e(this.aQl, d.C0141d.cp_bg_line_d, this.mSkinType);
         }
     }
 
-    public View Fq() {
-        return this.aHO;
+    public View IV() {
+        return this.aQl;
     }
 
     @Override // com.baidu.tbadk.j.a
-    public void P(View view2) {
-        if (this.aHQ != null && this.aHQ.getAnimation() != null) {
-            this.aHQ.getAnimation().cancel();
-            this.aHQ.clearAnimation();
+    public void P(View view) {
+        if (this.aQn != null && this.aQn.getAnimation() != null) {
+            this.aQn.getAnimation().cancel();
+            this.aQn.clearAnimation();
         }
-        super.P(view2);
+        super.P(view);
     }
 
     public void setTopMargin(int i) {
-        if (this.aHQ != null) {
-            ViewGroup.LayoutParams layoutParams = this.aHQ.getLayoutParams();
+        if (this.aQn != null) {
+            ViewGroup.LayoutParams layoutParams = this.aQn.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.aHQ.setLayoutParams(marginLayoutParams);
+                this.aQn.setLayoutParams(marginLayoutParams);
             }
         }
     }

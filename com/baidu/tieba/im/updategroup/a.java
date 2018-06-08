@@ -6,21 +6,21 @@ import com.baidu.tbadk.core.dialog.a;
 public interface a {
     void a(a.b bVar);
 
-    View aBP();
+    View aGK();
 
-    View aCB();
+    boolean aHn();
 
-    boolean aCs();
+    View aHw();
 
-    String aHc();
+    String aLX();
 
-    View aHd();
+    View aLY();
 
-    void aHe();
+    void aLZ();
 
-    int aHf();
+    int aMa();
 
-    boolean aHg();
+    boolean aMb();
 
     void b(a.b bVar);
 
@@ -30,7 +30,7 @@ public interface a {
 
     String getText();
 
-    void nV(String str);
+    void oJ(String str);
 
     void onChangeSkinType(int i);
 

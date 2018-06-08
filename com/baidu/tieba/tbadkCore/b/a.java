@@ -21,20 +21,20 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static c gwJ;
+    private static c gIi;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0215a {
+    public interface InterfaceC0232a {
         void onRefresh();
     }
 
-    public static void a(final BaseActivity<?> baseActivity, View view2, final boolean z, InterfaceC0215a interfaceC0215a) {
+    public static void a(final BaseActivity<?> baseActivity, View view, final boolean z, InterfaceC0232a interfaceC0232a) {
         int defaultBubbleEndTime;
         final SpannableString spannableString;
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(MemberPayActivityConfig.class) && (defaultBubbleEndTime = TbadkCoreApplication.getInst().getDefaultBubbleEndTime()) > 0) {
@@ -43,16 +43,16 @@ public class a {
                 MessageManager.getInstance().runTask(2001283, TbPageContext.class, baseActivity.getPageContext());
                 TbadkCoreApplication.getInst().setDefaultBubble(null);
                 TbadkCoreApplication.getInst().setDefaultBubbleEndTime(0);
-                if (interfaceC0215a != null) {
-                    interfaceC0215a.onRefresh();
+                if (interfaceC0232a != null) {
+                    interfaceC0232a.onRefresh();
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
-                aVar.as(false);
+                aVar.av(false);
                 View inflate = LayoutInflater.from(baseActivity.getPageContext().getPageActivity()).inflate(d.i.bubble_free_dialog_content, (ViewGroup) null);
                 TextView textView = (TextView) inflate.findViewById(d.g.tip1);
                 TextView textView2 = (TextView) inflate.findViewById(d.g.tip2);
-                ak.c(textView, d.C0126d.cp_cont_b, 1);
-                ak.c(textView2, d.C0126d.cp_cont_b, 1);
+                al.c(textView, d.C0141d.cp_cont_b, 1);
+                al.c(textView2, d.C0141d.cp_cont_b, 1);
                 textView.setText(baseActivity.getPageContext().getPageActivity().getString(d.k.bubble_ended_tip));
                 textView2.setText(baseActivity.getPageContext().getPageActivity().getString(d.k.bubble_ended_tip2));
                 textView2.setTextSize(0, baseActivity.getResources().getDimensionPixelSize(d.e.fontsize32));
@@ -74,31 +74,31 @@ public class a {
                     }
                 });
                 aVar.b(baseActivity.getPageContext());
-                aVar.tC();
+                aVar.xa();
                 return;
             }
             int i = (defaultBubbleEndTime - currentTimeMillis) / 86400;
             if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != b.getInstance().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
-                int i2 = d.C0126d.cp_cont_g;
-                int i3 = d.C0126d.cp_link_tip_d;
+                int i2 = d.C0141d.cp_cont_g;
+                int i3 = d.C0141d.cp_link_tip_d;
                 final int i4 = d.f.pop_float_arrow;
                 if (i == 0) {
                     if (new Date(currentTimeMillis).getDay() == new Date(defaultBubbleEndTime).getDay()) {
                         spannableString = new SpannableString(baseActivity.getPageContext().getPageActivity().getString(d.k.bubble_end_time_tip_today));
-                        spannableString.setSpan(new ForegroundColorSpan(ak.getColor(i2)), 0, spannableString.length(), 34);
-                        spannableString.setSpan(new ForegroundColorSpan(ak.getColor(i3)), 9, 13, 34);
+                        spannableString.setSpan(new ForegroundColorSpan(al.getColor(i2)), 0, spannableString.length(), 34);
+                        spannableString.setSpan(new ForegroundColorSpan(al.getColor(i3)), 9, 13, 34);
                     } else {
                         spannableString = new SpannableString(String.format(baseActivity.getPageContext().getPageActivity().getString(d.k.bubble_end_time_tip), 1));
-                        spannableString.setSpan(new ForegroundColorSpan(ak.getColor(i2)), 0, spannableString.length(), 34);
-                        spannableString.setSpan(new ForegroundColorSpan(ak.getColor(i3)), 10, 14, 34);
+                        spannableString.setSpan(new ForegroundColorSpan(al.getColor(i2)), 0, spannableString.length(), 34);
+                        spannableString.setSpan(new ForegroundColorSpan(al.getColor(i3)), 10, 14, 34);
                     }
                 } else {
                     spannableString = new SpannableString(String.format(baseActivity.getPageContext().getPageActivity().getString(d.k.bubble_end_time_tip), Integer.valueOf(i)));
-                    spannableString.setSpan(new ForegroundColorSpan(ak.getColor(i2)), 0, spannableString.length(), 34);
-                    spannableString.setSpan(new ForegroundColorSpan(ak.getColor(i3)), 10, 14, 34);
+                    spannableString.setSpan(new ForegroundColorSpan(al.getColor(i2)), 0, spannableString.length(), 34);
+                    spannableString.setSpan(new ForegroundColorSpan(al.getColor(i3)), 10, 14, 34);
                 }
                 com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
-                dVar.o(view2).W(0).D(false);
+                dVar.o(view).X(0).F(false);
                 dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.tbadkCore.b.a.3
                     @Override // com.baidu.adp.lib.guide.b
                     public View a(LayoutInflater layoutInflater) {
@@ -118,12 +118,12 @@ public class a {
                         textView3.setGravity(17);
                         textView3.setText(spannableString);
                         textView3.setCompoundDrawablePadding(dimensionPixelSize);
-                        textView3.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(i4), (Drawable) null);
+                        textView3.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(i4), (Drawable) null);
                         textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.b.a.3.1
                             @Override // android.view.View.OnClickListener
-                            public void onClick(View view3) {
-                                if (a.gwJ != null) {
-                                    a.gwJ.dismiss();
+                            public void onClick(View view2) {
+                                if (a.gIi != null) {
+                                    a.gIi.dismiss();
                                 }
                                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) BaseActivity.this.getPageContext().getPageActivity(), true, 23004, "expiring");
                                 memberPayActivityConfig.setReferPageClickZone("posting_V8.9", "bubble_pop_ups_opende/renewalfee_button_V8.9");
@@ -134,12 +134,12 @@ public class a {
                     }
 
                     @Override // com.baidu.adp.lib.guide.b
-                    public int eF() {
+                    public int hw() {
                         return z ? 4 : 2;
                     }
 
                     @Override // com.baidu.adp.lib.guide.b
-                    public int eG() {
+                    public int hx() {
                         return z ? 32 : 16;
                     }
 
@@ -153,9 +153,9 @@ public class a {
                         return z ? 5 : 30;
                     }
                 });
-                dVar.C(true);
-                dVar.E(false);
-                gwJ = dVar.eH();
+                dVar.E(true);
+                dVar.G(false);
+                gIi = dVar.hy();
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -169,15 +169,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Activity activity, boolean z) {
-        if (gwJ != null) {
-            gwJ.l(activity);
+        if (gIi != null) {
+            gIi.k(activity);
         }
         if (!z) {
             new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.gwJ != null) {
-                        a.gwJ.dismiss();
+                    if (a.gIi != null) {
+                        a.gIi.dismiss();
                     }
                 }
             }, TbConfig.NOTIFY_SOUND_INTERVAL);

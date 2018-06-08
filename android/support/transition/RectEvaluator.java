@@ -2,13 +2,17 @@ package android.support.transition;
 
 import android.animation.TypeEvaluator;
 import android.graphics.Rect;
+import android.support.annotation.RequiresApi;
+@RequiresApi(14)
 /* loaded from: classes2.dex */
 class RectEvaluator implements TypeEvaluator<Rect> {
     private Rect mRect;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public RectEvaluator() {
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public RectEvaluator(Rect rect) {
         this.mRect = rect;
     }

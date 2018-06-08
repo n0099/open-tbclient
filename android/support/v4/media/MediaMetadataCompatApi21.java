@@ -4,7 +4,9 @@ import android.graphics.Bitmap;
 import android.media.MediaMetadata;
 import android.media.Rating;
 import android.os.Parcel;
+import android.support.annotation.RequiresApi;
 import java.util.Set;
+@RequiresApi(21)
 /* loaded from: classes2.dex */
 class MediaMetadataCompatApi21 {
     MediaMetadataCompatApi21() {

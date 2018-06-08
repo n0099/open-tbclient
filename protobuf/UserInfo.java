@@ -11,6 +11,7 @@ public final class UserInfo extends Message {
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_POSITION = "";
     public static final String DEFAULT_USERNAME = "";
+    public static final String DEFAULT_USERNAMESHOW = "";
     @ProtoField(tag = 17, type = Message.Datatype.STRING)
     public final String fansNickname;
     @ProtoField(tag = 16, type = Message.Datatype.INT32)
@@ -43,6 +44,8 @@ public final class UserInfo extends Message {
     public final Long userId;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String userName;
+    @ProtoField(tag = 18, type = Message.Datatype.STRING)
+    public final String userNameShow;
     @ProtoField(tag = 15, type = Message.Datatype.INT32)
     public final Integer userType;
     public static final Long DEFAULT_USERID = 0L;
@@ -138,9 +141,14 @@ public final class UserInfo extends Message {
             }
             if (builder.fansNickname == null) {
                 this.fansNickname = "";
-                return;
             } else {
                 this.fansNickname = builder.fansNickname;
+            }
+            if (builder.userNameShow == null) {
+                this.userNameShow = "";
+                return;
+            } else {
+                this.userNameShow = builder.userNameShow;
                 return;
             }
         }
@@ -161,6 +169,7 @@ public final class UserInfo extends Message {
         this.userType = builder.userType;
         this.fansNum = builder.fansNum;
         this.fansNickname = builder.fansNickname;
+        this.userNameShow = builder.userNameShow;
     }
 
     /* loaded from: classes.dex */
@@ -181,6 +190,7 @@ public final class UserInfo extends Message {
         public List<TshowInfo> tshowIcon;
         public Long userId;
         public String userName;
+        public String userNameShow;
         public Integer userType;
 
         public Builder() {
@@ -206,6 +216,7 @@ public final class UserInfo extends Message {
                 this.userType = userInfo.userType;
                 this.fansNum = userInfo.fansNum;
                 this.fansNickname = userInfo.fansNickname;
+                this.userNameShow = userInfo.userNameShow;
             }
         }
 

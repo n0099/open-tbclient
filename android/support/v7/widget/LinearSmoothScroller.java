@@ -35,9 +35,9 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
     }
 
     @Override // android.support.v7.widget.RecyclerView.SmoothScroller
-    protected void onTargetFound(View view2, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
-        int calculateDxToMakeVisible = calculateDxToMakeVisible(view2, getHorizontalSnapPreference());
-        int calculateDyToMakeVisible = calculateDyToMakeVisible(view2, getVerticalSnapPreference());
+    protected void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
+        int calculateDxToMakeVisible = calculateDxToMakeVisible(view, getHorizontalSnapPreference());
+        int calculateDyToMakeVisible = calculateDyToMakeVisible(view, getVerticalSnapPreference());
         int calculateTimeForDeceleration = calculateTimeForDeceleration((int) Math.sqrt((calculateDxToMakeVisible * calculateDxToMakeVisible) + (calculateDyToMakeVisible * calculateDyToMakeVisible)));
         if (calculateTimeForDeceleration > 0) {
             action.update(-calculateDxToMakeVisible, -calculateDyToMakeVisible, calculateTimeForDeceleration, this.mDecelerateInterpolator);
@@ -73,7 +73,8 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
         return (int) Math.ceil(calculateTimeForScrolling(i) / 0.3356d);
     }
 
-    protected int calculateTimeForScrolling(int i) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public int calculateTimeForScrolling(int i) {
         return (int) Math.ceil(Math.abs(i) * this.MILLISECONDS_PER_PX);
     }
 
@@ -134,22 +135,22 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
         }
     }
 
-    public int calculateDyToMakeVisible(View view2, int i) {
+    public int calculateDyToMakeVisible(View view, int i) {
         RecyclerView.LayoutManager layoutManager = getLayoutManager();
         if (layoutManager == null || !layoutManager.canScrollVertically()) {
             return 0;
         }
-        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-        return calculateDtToFit(layoutManager.getDecoratedTop(view2) - layoutParams.topMargin, layoutManager.getDecoratedBottom(view2) + layoutParams.bottomMargin, layoutManager.getPaddingTop(), layoutManager.getHeight() - layoutManager.getPaddingBottom(), i);
+        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
+        return calculateDtToFit(layoutManager.getDecoratedTop(view) - layoutParams.topMargin, layoutManager.getDecoratedBottom(view) + layoutParams.bottomMargin, layoutManager.getPaddingTop(), layoutManager.getHeight() - layoutManager.getPaddingBottom(), i);
     }
 
-    public int calculateDxToMakeVisible(View view2, int i) {
+    public int calculateDxToMakeVisible(View view, int i) {
         RecyclerView.LayoutManager layoutManager = getLayoutManager();
         if (layoutManager == null || !layoutManager.canScrollHorizontally()) {
             return 0;
         }
-        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-        return calculateDtToFit(layoutManager.getDecoratedLeft(view2) - layoutParams.leftMargin, layoutManager.getDecoratedRight(view2) + layoutParams.rightMargin, layoutManager.getPaddingLeft(), layoutManager.getWidth() - layoutManager.getPaddingRight(), i);
+        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
+        return calculateDtToFit(layoutManager.getDecoratedLeft(view) - layoutParams.leftMargin, layoutManager.getDecoratedRight(view) + layoutParams.rightMargin, layoutManager.getPaddingLeft(), layoutManager.getWidth() - layoutManager.getPaddingRight(), i);
     }
 
     @Nullable

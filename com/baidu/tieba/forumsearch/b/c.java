@@ -7,36 +7,36 @@ import tbclient.SearchPostForum.DataRes;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes3.dex */
 public class c {
-    private String cWR;
-    private SearchForum cXn;
-    private List<SearchForum> cXo;
-    private ArrayList<h> cXp;
+    private SearchForum dgA;
+    private List<SearchForum> dgB;
+    private ArrayList<h> dgC;
+    private String dge;
 
     public c(String str) {
-        this.cWR = str;
+        this.dge = str;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.cXn = dataRes.exact_match;
-            this.cXo = dataRes.fuzzy_match;
-            if (this.cXn != null && this.cXo != null) {
-                this.cXp = new ArrayList<>();
-                b bVar = new b(this.cWR);
-                bVar.a(this.cXn);
-                this.cXp.add(bVar);
-                for (SearchForum searchForum : this.cXo) {
+            this.dgA = dataRes.exact_match;
+            this.dgB = dataRes.fuzzy_match;
+            if (this.dgA != null && this.dgB != null) {
+                this.dgC = new ArrayList<>();
+                b bVar = new b(this.dge);
+                bVar.a(this.dgA);
+                this.dgC.add(bVar);
+                for (SearchForum searchForum : this.dgB) {
                     if (searchForum != null) {
-                        b bVar2 = new b(this.cWR);
+                        b bVar2 = new b(this.dge);
                         bVar2.a(searchForum);
-                        this.cXp.add(bVar2);
+                        this.dgC.add(bVar2);
                     }
                 }
             }
         }
     }
 
-    public ArrayList<h> aoH() {
-        return this.cXp;
+    public ArrayList<h> asM() {
+        return this.dgC;
     }
 }

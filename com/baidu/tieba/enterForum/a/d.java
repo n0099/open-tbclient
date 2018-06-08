@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.widget.TbImageView;
@@ -15,11 +15,11 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class d extends RecyclerView.Adapter<a> {
-    private View.OnClickListener bNl;
-    private LinkedList<VisitedForumData> cId;
-    private boolean cIe;
-    private View.OnLongClickListener cIf;
-    private View.OnClickListener cIg;
+    private View.OnClickListener bVm;
+    private LinkedList<VisitedForumData> cRk;
+    private boolean cRl;
+    private View.OnLongClickListener cRm;
+    private View.OnClickListener cRn;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
@@ -27,7 +27,7 @@ public class d extends RecyclerView.Adapter<a> {
     }
 
     public void m(LinkedList<VisitedForumData> linkedList) {
-        this.cId = linkedList;
+        this.cRk = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,121 +39,121 @@ public class d extends RecyclerView.Adapter<a> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.cId == null) {
+        if (this.cRk == null) {
             return 0;
         }
-        return this.cId.size();
+        return this.cRk.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        if (aVar != null && this.cId != null && this.cId.get(i) != null) {
-            VisitedForumData visitedForumData = this.cId.get(i);
+        if (aVar != null && this.cRk != null && this.cRk.get(i) != null) {
+            VisitedForumData visitedForumData = this.cRk.get(i);
             aVar.itemView.setTag(visitedForumData);
             a(visitedForumData, aVar);
             b(visitedForumData, aVar);
-            aVar.cIh.startLoad(visitedForumData.Dk(), 10, false);
-            ak.c(aVar.aFT, d.f.icon_ba_delete_n);
-            ak.h(aVar.apV, d.C0126d.cp_cont_b);
+            aVar.cRo.startLoad(visitedForumData.GN(), 10, false);
+            al.c(aVar.aOp, d.f.icon_ba_delete_n);
+            al.h(aVar.ayc, d.C0141d.cp_cont_b);
         }
     }
 
     private void a(VisitedForumData visitedForumData, a aVar) {
         if (visitedForumData != null && aVar != null) {
             String forumName = visitedForumData.getForumName();
-            if (an.isEmpty(forumName)) {
+            if (ao.isEmpty(forumName)) {
                 forumName = "";
             }
-            aVar.apV.setText(forumName);
+            aVar.ayc.setText(forumName);
         }
     }
 
     private void b(VisitedForumData visitedForumData, a aVar) {
         if (visitedForumData != null && aVar != null) {
-            aVar.cIi.setVisibility(8);
-            aVar.aFT.setVisibility(8);
-            aVar.cIj.setVisibility(8);
-            if (this.cIe) {
-                aVar.aFT.setVisibility(0);
-                aVar.aFT.setTag(visitedForumData);
-            } else if (!visitedForumData.Dl()) {
-                if (visitedForumData.Dm() <= 0) {
-                    aVar.cIi.setVisibility(8);
+            aVar.cRp.setVisibility(8);
+            aVar.aOp.setVisibility(8);
+            aVar.cRq.setVisibility(8);
+            if (this.cRl) {
+                aVar.aOp.setVisibility(0);
+                aVar.aOp.setTag(visitedForumData);
+            } else if (!visitedForumData.GO()) {
+                if (visitedForumData.GP() <= 0) {
+                    aVar.cRp.setVisibility(8);
                     return;
                 }
-                aVar.cIi.setVisibility(0);
-                aVar.cIi.refresh(visitedForumData.Dm());
+                aVar.cRp.setVisibility(0);
+                aVar.cRp.refresh(visitedForumData.GP());
             } else {
-                aVar.cIj.setVisibility(0);
-                ak.i(aVar.cIj, d.f.enter_forum_live_label_bg_shape);
-                ak.h(aVar.cIj, d.C0126d.cp_cont_g);
+                aVar.cRq.setVisibility(0);
+                al.i(aVar.cRq, d.f.enter_forum_live_label_bg_shape);
+                al.h(aVar.cRq, d.C0141d.cp_cont_i);
             }
         }
     }
 
-    public void co(boolean z) {
-        this.cIe = z;
+    public void ct(boolean z) {
+        this.cRl = z;
         notifyDataSetChanged();
     }
 
     public void k(View.OnClickListener onClickListener) {
-        this.bNl = onClickListener;
+        this.bVm = onClickListener;
     }
 
     public void a(View.OnLongClickListener onLongClickListener) {
-        this.cIf = onLongClickListener;
+        this.cRm = onLongClickListener;
     }
 
     public void l(View.OnClickListener onClickListener) {
-        this.cIg = onClickListener;
+        this.cRn = onClickListener;
     }
 
     /* loaded from: classes2.dex */
     public class a extends RecyclerView.ViewHolder {
-        public ImageView aFT;
-        public TextView apV;
-        public TbImageView cIh;
-        public MessageRedDotView cIi;
-        public TextView cIj;
+        public ImageView aOp;
+        public TextView ayc;
+        public TbImageView cRo;
+        public MessageRedDotView cRp;
+        public TextView cRq;
 
-        public a(View view2) {
-            super(view2);
-            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.1
+        public a(View view) {
+            super(view);
+            view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view3) {
-                    if (d.this.bNl != null) {
-                        d.this.bNl.onClick(view3);
+                public void onClick(View view2) {
+                    if (d.this.bVm != null) {
+                        d.this.bVm.onClick(view2);
                     }
                 }
             });
-            view2.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.2
+            view.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.2
                 @Override // android.view.View.OnLongClickListener
-                public boolean onLongClick(View view3) {
-                    if (d.this.cIf != null) {
-                        d.this.cIf.onLongClick(view3);
+                public boolean onLongClick(View view2) {
+                    if (d.this.cRm != null) {
+                        d.this.cRm.onLongClick(view2);
                         return true;
                     }
                     return true;
                 }
             });
-            this.cIh = (TbImageView) view2.findViewById(d.g.forum_image);
-            this.cIh.setDefaultResource(d.f.icon_default_ba_120);
-            this.cIh.setDefaultErrorResource(d.f.icon_default_ba_120);
-            this.apV = (TextView) view2.findViewById(d.g.forum_name);
-            this.cIi = (MessageRedDotView) view2.findViewById(d.g.red_dot_view);
-            this.cIi.setThreeDotMode(2);
-            this.aFT = (ImageView) view2.findViewById(d.g.delete_image);
-            this.aFT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.3
+            this.cRo = (TbImageView) view.findViewById(d.g.forum_image);
+            this.cRo.setDefaultResource(d.f.icon_default_ba_120);
+            this.cRo.setDefaultErrorResource(d.f.icon_default_ba_120);
+            this.ayc = (TextView) view.findViewById(d.g.forum_name);
+            this.cRp = (MessageRedDotView) view.findViewById(d.g.red_dot_view);
+            this.cRp.setThreeDotMode(2);
+            this.aOp = (ImageView) view.findViewById(d.g.delete_image);
+            this.aOp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.d.a.3
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view3) {
-                    if (d.this.cIg != null) {
-                        d.this.cIg.onClick(view3);
+                public void onClick(View view2) {
+                    if (d.this.cRn != null) {
+                        d.this.cRn.onClick(view2);
                     }
                 }
             });
-            this.cIj = (TextView) view2.findViewById(d.g.live_label_view);
+            this.cRq = (TextView) view.findViewById(d.g.live_label_view);
         }
     }
 }

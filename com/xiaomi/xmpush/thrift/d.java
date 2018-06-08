@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.ar.constants.HttpConstants;
 import com.sina.weibo.sdk.component.WidgetRequestParam;
 import java.io.Serializable;
 import java.util.BitSet;
@@ -17,7 +18,7 @@ public class d implements Serializable, Cloneable, org.apache.thrift.a<d, a> {
     private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b("data", (byte) 11, 2);
     private static final org.apache.thrift.protocol.b l = new org.apache.thrift.protocol.b("name", (byte) 11, 3);
     private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("counter", (byte) 10, 4);
-    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("timestamp", (byte) 10, 5);
+    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b(HttpConstants.TIMESTAMP, (byte) 10, 5);
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("fromSdk", (byte) 2, 6);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, (byte) 11, 7);
     public String a;
@@ -35,7 +36,7 @@ public class d implements Serializable, Cloneable, org.apache.thrift.a<d, a> {
         DATA(2, "data"),
         NAME(3, "name"),
         COUNTER(4, "counter"),
-        TIMESTAMP(5, "timestamp"),
+        TIMESTAMP(5, HttpConstants.TIMESTAMP),
         FROM_SDK(6, "fromSdk"),
         CATEGORY(7, WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY);
         
@@ -67,7 +68,7 @@ public class d implements Serializable, Cloneable, org.apache.thrift.a<d, a> {
         enumMap.put((EnumMap) a.DATA, (a) new org.apache.thrift.meta_data.b("data", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.NAME, (a) new org.apache.thrift.meta_data.b("name", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.COUNTER, (a) new org.apache.thrift.meta_data.b("counter", (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
-        enumMap.put((EnumMap) a.TIMESTAMP, (a) new org.apache.thrift.meta_data.b("timestamp", (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
+        enumMap.put((EnumMap) a.TIMESTAMP, (a) new org.apache.thrift.meta_data.b(HttpConstants.TIMESTAMP, (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
         enumMap.put((EnumMap) a.FROM_SDK, (a) new org.apache.thrift.meta_data.b("fromSdk", (byte) 2, new org.apache.thrift.meta_data.c((byte) 2)));
         enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         h = Collections.unmodifiableMap(enumMap);

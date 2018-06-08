@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.d;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
 public class m extends a {
     private int procType;
@@ -27,12 +27,12 @@ public class m extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wu() {
+    public boolean zV() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wv() {
+    public boolean zW() {
         return false;
     }
 
@@ -41,21 +41,21 @@ public class m extends a {
     /* renamed from: g */
     public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.ImageView.a gG = com.baidu.tbadk.imageManager.c.EY().gG(str3);
-        if (gG == null) {
-            Bitmap cO = ak.cO(com.baidu.adp.lib.g.b.g(str2, 0));
-            if (cO == null) {
+        com.baidu.adp.widget.ImageView.a he = com.baidu.tbadk.imageManager.c.ID().he(str3);
+        if (he == null) {
+            Bitmap cQ = al.cQ(com.baidu.adp.lib.g.b.g(str2, 0));
+            if (cQ == null) {
                 return null;
             }
-            com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(cO, false, str2);
-            com.baidu.tbadk.imageManager.c.EY().c(str3, aVar);
+            com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(cQ, false, str2);
+            com.baidu.tbadk.imageManager.c.ID().c(str3, aVar);
             return aVar;
         }
-        return gG;
+        return he;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int ww() {
+    public int zX() {
         return this.procType;
     }
 }

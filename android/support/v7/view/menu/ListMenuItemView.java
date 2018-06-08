@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ListMenuItemView extends LinearLayout implements MenuView.ItemView {
     private static final String TAG = "ListMenuItemView";
@@ -77,6 +77,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
         setIcon(menuItemImpl.getIcon());
         setEnabled(menuItemImpl.isEnabled());
         setSubMenuArrowVisible(menuItemImpl.hasSubMenu());
+        setContentDescription(menuItemImpl.getContentDescription());
     }
 
     public void setForceShowIcon(boolean z) {

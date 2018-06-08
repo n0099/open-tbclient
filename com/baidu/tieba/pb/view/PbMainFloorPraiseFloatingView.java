@@ -18,71 +18,72 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.m;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class PbMainFloorPraiseFloatingView extends ViewGroup {
-    private AnimatorSet fzA;
-    private AnimatorSet fzB;
-    private AnimatorSet fzC;
-    private Interpolator fzD;
-    private Interpolator fzE;
-    private int fzk;
-    private int fzl;
-    private int fzm;
-    private int fzn;
-    private int fzo;
-    private float fzp;
-    private float fzq;
-    private int fzr;
-    private boolean fzs;
-    private ImageView fzt;
-    private List<ImageView> fzu;
-    private TextView fzv;
-    private List<TextView> fzw;
-    private boolean fzx;
-    private int fzy;
-    private int fzz;
+    private int fKF;
+    private int fKG;
+    private int fKH;
+    private int fKI;
+    private int fKJ;
+    private float fKK;
+    private float fKL;
+    private int fKM;
+    private boolean fKN;
+    private ImageView fKO;
+    private List<ImageView> fKP;
+    private TextView fKQ;
+    private List<TextView> fKR;
+    private boolean fKS;
+    private int fKT;
+    private int fKU;
+    private AnimatorSet fKV;
+    private AnimatorSet fKW;
+    private AnimatorSet fKX;
+    private Interpolator fKY;
+    private Interpolator fKZ;
     private int mRadius;
     private int mScreenWidth;
 
     public PbMainFloorPraiseFloatingView(Context context) {
         super(context);
-        this.fzn = 30;
-        this.fzo = l.e(getContext(), d.e.ds112);
-        this.fzp = 160.0f;
-        this.fzq = 20.0f;
-        this.fzs = false;
-        this.fzD = new OvershootInterpolator();
-        this.fzE = new DecelerateInterpolator();
+        this.fKI = 30;
+        this.fKJ = l.e(getContext(), d.e.ds112);
+        this.fKK = 160.0f;
+        this.fKL = 20.0f;
+        this.fKN = false;
+        this.fKY = new OvershootInterpolator();
+        this.fKZ = new DecelerateInterpolator();
         init();
     }
 
     public PbMainFloorPraiseFloatingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fzn = 30;
-        this.fzo = l.e(getContext(), d.e.ds112);
-        this.fzp = 160.0f;
-        this.fzq = 20.0f;
-        this.fzs = false;
-        this.fzD = new OvershootInterpolator();
-        this.fzE = new DecelerateInterpolator();
+        this.fKI = 30;
+        this.fKJ = l.e(getContext(), d.e.ds112);
+        this.fKK = 160.0f;
+        this.fKL = 20.0f;
+        this.fKN = false;
+        this.fKY = new OvershootInterpolator();
+        this.fKZ = new DecelerateInterpolator();
         init();
     }
 
     private void init() {
-        this.fzl = getResources().getDimensionPixelSize(d.e.ds84);
-        this.fzm = getResources().getDimensionPixelSize(d.e.ds120);
-        this.fzk = getResources().getDimensionPixelSize(d.e.ds36);
-        this.fzu = new ArrayList();
+        this.fKG = getResources().getDimensionPixelSize(d.e.ds84);
+        this.fKH = getResources().getDimensionPixelSize(d.e.ds120);
+        this.fKF = getResources().getDimensionPixelSize(d.e.ds36);
+        this.fKP = new ArrayList();
         for (int i = 0; i < 4; i++) {
             ImageView imageView = new ImageView(getContext());
             imageView.setVisibility(4);
-            this.fzu.add(imageView);
+            this.fKP.add(imageView);
             addView(imageView);
         }
-        this.fzw = new ArrayList();
+        this.fKR = new ArrayList();
         for (int i2 = 0; i2 < 4; i2++) {
             TextView textView = new TextView(getContext());
             switch (i2) {
@@ -104,12 +105,12 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
             textView.setTextColor(-1);
             textView.setGravity(17);
             textView.setVisibility(4);
-            this.fzw.add(textView);
+            this.fKR.add(textView);
             addView(textView);
         }
         this.mScreenWidth = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth();
-        this.fzy = l.e(getContext(), d.e.ds70);
-        this.fzz = l.e(getContext(), d.e.ds52);
+        this.fKT = l.e(getContext(), d.e.ds70);
+        this.fKU = l.e(getContext(), d.e.ds52);
     }
 
     private static Rect a(int i, int i2, int i3, float f, int i4) {
@@ -121,9 +122,9 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         this.mRadius = l.e(getContext(), d.e.ds156);
-        this.fzr = this.mRadius + ((this.fzm - this.fzl) / 2);
-        int i3 = (this.fzr * 2) + this.fzm + this.fzn;
-        int i4 = this.fzr + (this.fzm / 2) + this.fzz + this.fzo;
+        this.fKM = this.mRadius + ((this.fKH - this.fKG) / 2);
+        int i3 = (this.fKM * 2) + this.fKH + this.fKI;
+        int i4 = this.fKM + (this.fKH / 2) + this.fKU + this.fKJ;
         if (i3 > this.mScreenWidth) {
             i3 = this.mScreenWidth;
         }
@@ -131,14 +132,14 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
         int i5 = 0;
         while (true) {
             int i6 = i5;
-            if (i6 < this.fzu.size()) {
-                int i7 = this.fzl;
-                if (this.fzt != null && i6 == this.fzu.indexOf(this.fzt)) {
-                    i7 = this.fzm;
+            if (i6 < this.fKP.size()) {
+                int i7 = this.fKG;
+                if (this.fKO != null && i6 == this.fKP.indexOf(this.fKO)) {
+                    i7 = this.fKH;
                 }
                 int i8 = i7;
-                this.fzu.get(i6).measure(View.MeasureSpec.makeMeasureSpec(i8, 1073741824), View.MeasureSpec.makeMeasureSpec(i8, 1073741824));
-                this.fzw.get(i6).measure(View.MeasureSpec.makeMeasureSpec(this.fzy, 1073741824), View.MeasureSpec.makeMeasureSpec(this.fzz, 1073741824));
+                this.fKP.get(i6).measure(View.MeasureSpec.makeMeasureSpec(i8, 1073741824), View.MeasureSpec.makeMeasureSpec(i8, 1073741824));
+                this.fKR.get(i6).measure(View.MeasureSpec.makeMeasureSpec(this.fKT, 1073741824), View.MeasureSpec.makeMeasureSpec(this.fKU, 1073741824));
                 i5 = i6 + 1;
             } else {
                 return;
@@ -149,20 +150,20 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int width = getWidth() / 2;
-        int height = getHeight() - this.fzo;
-        int i5 = this.fzs ? this.mRadius : 0;
+        int height = getHeight() - this.fKJ;
+        int i5 = this.fKN ? this.mRadius : 0;
         int e = l.e(getContext(), d.e.ds90);
         int i6 = 0;
         while (true) {
             int i7 = i6;
-            if (i7 < this.fzu.size()) {
-                float qO = qO(i7);
-                Rect a = a(width, height, i5, qO, this.fzl);
-                this.fzu.get(i7).layout(a.left, a.top, a.right, a.bottom);
-                Rect a2 = a(width, height, this.fzr, qO, this.fzm);
+            if (i7 < this.fKP.size()) {
+                float ra = ra(i7);
+                Rect a = a(width, height, i5, ra, this.fKG);
+                this.fKP.get(i7).layout(a.left, a.top, a.right, a.bottom);
+                Rect a2 = a(width, height, this.fKM, ra, this.fKH);
                 float width2 = a2.left + (a2.width() / 2);
                 float height2 = ((a2.height() / 2) + a2.top) - e;
-                this.fzw.get(i7).layout((int) (width2 - (this.fzy / 2)), (int) (height2 - (this.fzz / 2)), (int) (width2 + (this.fzy / 2)), (int) (height2 + (this.fzz / 2)));
+                this.fKR.get(i7).layout((int) (width2 - (this.fKT / 2)), (int) (height2 - (this.fKU / 2)), (int) (width2 + (this.fKT / 2)), (int) (height2 + (this.fKU / 2)));
                 i6 = i7 + 1;
             } else {
                 return;
@@ -170,78 +171,78 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
         }
     }
 
-    private float ai(float f) {
+    private float as(float f) {
         return (float) (Math.cos(Math.toRadians(f)) * 10.0d);
     }
 
-    private float aj(float f) {
-        return (float) (Math.cos(Math.toRadians(f)) * (this.fzr - this.mRadius));
+    private float at(float f) {
+        return (float) (Math.cos(Math.toRadians(f)) * (this.fKM - this.mRadius));
     }
 
-    private float ak(float f) {
+    private float au(float f) {
         return 0.0f;
     }
 
-    private float al(float f) {
+    private float av(float f) {
         return (float) (Math.cos(Math.toRadians(f)) * (-this.mRadius));
     }
 
-    private float am(float f) {
+    private float aw(float f) {
         return -((float) (Math.sin(Math.toRadians(f)) * 10.0d));
     }
 
-    private float an(float f) {
-        return -((float) (Math.sin(Math.toRadians(f)) * (this.fzr - this.mRadius)));
+    private float ax(float f) {
+        return -((float) (Math.sin(Math.toRadians(f)) * (this.fKM - this.mRadius)));
     }
 
-    private float ao(float f) {
+    private float ay(float f) {
         return 0.0f;
     }
 
-    private float ap(float f) {
+    private float az(float f) {
         return (float) (Math.sin(Math.toRadians(f)) * this.mRadius);
     }
 
-    private void f(View view2, int i, long j) {
-        float qO = qO(i);
-        float aj = aj(qO);
-        float an = an(qO);
-        float al = al(qO);
-        float ap = ap(qO);
-        float ai = ai(qO);
-        float am = am(qO);
-        float ak = ak(qO);
-        float ao = ao(qO);
-        this.fzA = new AnimatorSet();
-        float f = this.fzs ? 1.0f : 0.0f;
-        float f2 = this.fzs ? ak : al;
-        if (!this.fzs) {
-            al = ak;
+    private void f(View view, int i, long j) {
+        float ra = ra(i);
+        float at = at(ra);
+        float ax = ax(ra);
+        float av = av(ra);
+        float az = az(ra);
+        float as = as(ra);
+        float aw = aw(ra);
+        float au = au(ra);
+        float ay = ay(ra);
+        this.fKV = new AnimatorSet();
+        float f = this.fKN ? 1.0f : 0.0f;
+        float f2 = this.fKN ? au : av;
+        if (!this.fKN) {
+            av = au;
         }
-        float f3 = this.fzs ? ao : ap;
-        if (!this.fzs) {
-            ap = ao;
+        float f3 = this.fKN ? ay : az;
+        if (!this.fKN) {
+            az = ay;
         }
-        float zoomOutScale = this.fzs ? 1.0f : getZoomOutScale();
-        float zoomOutScale2 = this.fzs ? getZoomOutScale() : 1.0f;
-        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat("alpha", f, 1.0f - f), PropertyValuesHolder.ofFloat("translationX", f2, al), PropertyValuesHolder.ofFloat("translationY", f3, ap), PropertyValuesHolder.ofFloat("scaleX", zoomOutScale, zoomOutScale2), PropertyValuesHolder.ofFloat("scaleY", zoomOutScale, zoomOutScale2));
+        float zoomOutScale = this.fKN ? 1.0f : getZoomOutScale();
+        float zoomOutScale2 = this.fKN ? getZoomOutScale() : 1.0f;
+        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("alpha", f, 1.0f - f), PropertyValuesHolder.ofFloat("translationX", f2, av), PropertyValuesHolder.ofFloat("translationY", f3, az), PropertyValuesHolder.ofFloat("scaleX", zoomOutScale, zoomOutScale2), PropertyValuesHolder.ofFloat("scaleY", zoomOutScale, zoomOutScale2));
         ofPropertyValuesHolder.setDuration(j);
-        this.fzA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.PbMainFloorPraiseFloatingView.1
+        this.fKV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.PbMainFloorPraiseFloatingView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (!PbMainFloorPraiseFloatingView.this.fzs) {
+                if (!PbMainFloorPraiseFloatingView.this.fKN) {
                     PbMainFloorPraiseFloatingView.this.setVisibility(8);
                     int i2 = 0;
                     while (true) {
                         int i3 = i2;
-                        if (i3 < PbMainFloorPraiseFloatingView.this.fzu.size()) {
-                            ImageView imageView = (ImageView) PbMainFloorPraiseFloatingView.this.fzu.get(i3);
+                        if (i3 < PbMainFloorPraiseFloatingView.this.fKP.size()) {
+                            ImageView imageView = (ImageView) PbMainFloorPraiseFloatingView.this.fKP.get(i3);
                             if (imageView.getTag() != null) {
-                                ((com.baidu.tbadk.core.util.l) imageView.getTag()).stop();
+                                ((m) imageView.getTag()).stop();
                             }
                             imageView.setTag(null);
                             i2 = i3 + 1;
@@ -254,7 +255,7 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                if (!PbMainFloorPraiseFloatingView.this.fzs) {
+                if (!PbMainFloorPraiseFloatingView.this.fKN) {
                     PbMainFloorPraiseFloatingView.this.setVisibility(8);
                 }
             }
@@ -263,46 +264,46 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat("translationX", aj, ai), PropertyValuesHolder.ofFloat("translationY", an, am));
+        ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("translationX", at, as), PropertyValuesHolder.ofFloat("translationY", ax, aw));
         ofPropertyValuesHolder2.setDuration(2L);
-        ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat("translationX", ai, aj), PropertyValuesHolder.ofFloat("translationY", am, an));
+        ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("translationX", as, at), PropertyValuesHolder.ofFloat("translationY", aw, ax));
         ofPropertyValuesHolder3.setDuration(2L);
-        if (!this.fzs) {
-            this.fzA.play(ofPropertyValuesHolder);
-            this.fzA.setInterpolator(this.fzD);
+        if (!this.fKN) {
+            this.fKV.play(ofPropertyValuesHolder);
+            this.fKV.setInterpolator(this.fKY);
         } else {
-            this.fzA.playSequentially(ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder);
-            this.fzA.setInterpolator(this.fzE);
-            this.fzA.setDuration(4 + j);
+            this.fKV.playSequentially(ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder);
+            this.fKV.setInterpolator(this.fKZ);
+            this.fKV.setDuration(4 + j);
         }
-        this.fzA.start();
+        this.fKV.start();
     }
 
-    public boolean anL() {
-        return this.fzs;
+    public boolean arQ() {
+        return this.fKN;
     }
 
     private float getZoomInScale() {
-        return this.fzm / this.fzl;
+        return this.fKH / this.fKG;
     }
 
     private float getZoomOutScale() {
-        return this.fzk / this.fzl;
+        return this.fKF / this.fKG;
     }
 
-    public void bcE() {
+    public void bhE() {
         int i;
         int i2;
         int i3 = 0;
-        while (i3 < this.fzu.size()) {
-            ImageView imageView = this.fzu.get(i3);
+        while (i3 < this.fKP.size()) {
+            ImageView imageView = this.fKP.get(i3);
             imageView.setVisibility(0);
-            if (!this.fzs) {
+            if (!this.fKN) {
                 if (i3 == 0) {
                     i = d.b.big_praise;
                 } else if (i3 == 1) {
                     com.baidu.tbadk.coreExtra.data.b activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
-                    if (activitySwitch != null && activitySwitch.yd()) {
+                    if (activitySwitch != null && activitySwitch.BD()) {
                         i2 = d.b.normal_praise_xmas;
                     } else {
                         i2 = d.b.normal_praise;
@@ -313,80 +314,80 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
                 } else {
                     i = i3 == 3 ? d.b.big_trample : 0;
                 }
-                if (imageView.getTag() != null && (imageView.getTag() instanceof com.baidu.tbadk.core.util.l)) {
-                    ((com.baidu.tbadk.core.util.l) imageView.getTag()).stop();
+                if (imageView.getTag() != null && (imageView.getTag() instanceof m)) {
+                    ((m) imageView.getTag()).stop();
                     imageView.setTag(null);
                 }
-                com.baidu.tbadk.core.util.l a = com.baidu.tbadk.core.util.l.a(imageView, i, 20, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                m a = m.a(imageView, i, 20, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 a.b(imageView);
                 imageView.setTag(a);
             }
             f(imageView, i3, 200L);
             i3++;
         }
-        this.fzs = this.fzs ? false : true;
+        this.fKN = this.fKN ? false : true;
         invalidate();
     }
 
-    public void br(int i, int i2) {
-        if (!this.fzs) {
-            bcG();
+    public void bt(int i, int i2) {
+        if (!this.fKN) {
+            bhG();
             return;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            bcF();
+            bhF();
             return;
         }
         int i3 = 0;
         while (true) {
             int i4 = i3;
-            if (i4 < this.fzu.size()) {
-                ImageView imageView = this.fzu.get(i4);
+            if (i4 < this.fKP.size()) {
+                ImageView imageView = this.fKP.get(i4);
                 imageView.getGlobalVisibleRect(rect);
-                if (!rect.contains(i, i2) || this.fzx) {
+                if (!rect.contains(i, i2) || this.fKS) {
                     i3 = i4 + 1;
                 } else {
                     f(imageView);
                     return;
                 }
             } else {
-                bcF();
+                bhF();
                 return;
             }
         }
     }
 
     public void f(ImageView imageView) {
-        if (imageView != null && this.fzt != imageView && !this.fzx) {
-            bcG();
-            this.fzt = imageView;
-            float size = (((this.fzq - this.fzp) / (this.fzu.size() - 1)) * this.fzu.indexOf(imageView)) + this.fzp;
+        if (imageView != null && this.fKO != imageView && !this.fKS) {
+            bhG();
+            this.fKO = imageView;
+            float size = (((this.fKL - this.fKK) / (this.fKP.size() - 1)) * this.fKP.indexOf(imageView)) + this.fKK;
             float zoomInScale = getZoomInScale();
-            this.fzB = new AnimatorSet();
+            this.fKW = new AnimatorSet();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "scaleX", 1.0f, zoomInScale);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView, "scaleY", 1.0f, zoomInScale);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(imageView, "translationX", imageView.getTranslationX(), aj(size));
-            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(imageView, "translationY", imageView.getTranslationY(), an(size));
-            if (this.fzu.indexOf(this.fzt) > -1) {
-                this.fzv = this.fzw.get(this.fzu.indexOf(this.fzt));
-                this.fzv.setVisibility(0);
-                this.fzv.setAlpha(0.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(imageView, "translationX", imageView.getTranslationX(), at(size));
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(imageView, "translationY", imageView.getTranslationY(), ax(size));
+            if (this.fKP.indexOf(this.fKO) > -1) {
+                this.fKQ = this.fKR.get(this.fKP.indexOf(this.fKO));
+                this.fKQ.setVisibility(0);
+                this.fKQ.setAlpha(0.0f);
             }
-            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fzv, "alpha", 0.0f, 1.0f);
-            this.fzB.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fzv, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fzv, "scaleY", 0.0f, 1.0f));
-            this.fzB.setInterpolator(this.fzE);
-            this.fzB.setDuration(100L);
-            this.fzB.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.PbMainFloorPraiseFloatingView.2
+            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fKQ, "alpha", 0.0f, 1.0f);
+            this.fKW.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fKQ, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fKQ, "scaleY", 0.0f, 1.0f));
+            this.fKW.setInterpolator(this.fKZ);
+            this.fKW.setDuration(100L);
+            this.fKW.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.PbMainFloorPraiseFloatingView.2
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    PbMainFloorPraiseFloatingView.this.fzx = true;
+                    PbMainFloorPraiseFloatingView.this.fKS = true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    PbMainFloorPraiseFloatingView.this.fzx = false;
+                    PbMainFloorPraiseFloatingView.this.fKS = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -397,37 +398,37 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.fzx = true;
-            this.fzB.start();
+            this.fKS = true;
+            this.fKW.start();
         }
     }
 
-    public void bcF() {
-        if (this.fzt != null && !this.fzx) {
-            ImageView imageView = this.fzt;
+    public void bhF() {
+        if (this.fKO != null && !this.fKS) {
+            ImageView imageView = this.fKO;
             float zoomInScale = getZoomInScale();
-            this.fzC = new AnimatorSet();
+            this.fKX = new AnimatorSet();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "scaleX", zoomInScale, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView, "scaleY", zoomInScale, 1.0f);
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(imageView, "translationX", imageView.getTranslationX(), 0.0f);
             ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(imageView, "translationY", imageView.getTranslationY(), 0.0f);
-            if (this.fzv != null) {
-                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fzv, "alpha", 1.0f, 0.0f);
-                this.fzC.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fzv, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fzv, "scaleY", 0.0f, 1.0f));
+            if (this.fKQ != null) {
+                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fKQ, "alpha", 1.0f, 0.0f);
+                this.fKX.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fKQ, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fKQ, "scaleY", 0.0f, 1.0f));
             } else {
-                this.fzC.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4);
+                this.fKX.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4);
             }
-            this.fzC.setInterpolator(this.fzE);
-            this.fzC.setDuration(100L);
-            this.fzC.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.PbMainFloorPraiseFloatingView.3
+            this.fKX.setInterpolator(this.fKZ);
+            this.fKX.setDuration(100L);
+            this.fKX.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.PbMainFloorPraiseFloatingView.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    PbMainFloorPraiseFloatingView.this.fzx = true;
+                    PbMainFloorPraiseFloatingView.this.fKS = true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    PbMainFloorPraiseFloatingView.this.fzx = false;
+                    PbMainFloorPraiseFloatingView.this.fKS = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -438,68 +439,68 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.fzx = true;
-            this.fzC.start();
-            if (this.fzv != null) {
-                this.fzv.setVisibility(4);
+            this.fKS = true;
+            this.fKX.start();
+            if (this.fKQ != null) {
+                this.fKQ.setVisibility(4);
             }
-            this.fzt = null;
-            this.fzv = null;
+            this.fKO = null;
+            this.fKQ = null;
         }
     }
 
-    public int bs(int i, int i2) {
-        if (!this.fzs) {
-            bcG();
+    public int bu(int i, int i2) {
+        if (!this.fKN) {
+            bhG();
             return -1;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            bcF();
+            bhF();
             return -1;
         }
         int i3 = 0;
         while (true) {
             int i4 = i3;
-            if (i4 >= this.fzu.size()) {
+            if (i4 >= this.fKP.size()) {
                 return -1;
             }
-            this.fzu.get(i4).getGlobalVisibleRect(rect);
+            this.fKP.get(i4).getGlobalVisibleRect(rect);
             if (!rect.contains(i, i2)) {
                 i3 = i4 + 1;
             } else {
-                bcF();
+                bhF();
                 return i4 + 1;
             }
         }
     }
 
-    public void bcG() {
-        if (this.fzA != null && this.fzA.isStarted()) {
-            this.fzA.cancel();
-            this.fzA = null;
+    public void bhG() {
+        if (this.fKV != null && this.fKV.isStarted()) {
+            this.fKV.cancel();
+            this.fKV = null;
         }
-        if (this.fzB != null && this.fzB.isStarted()) {
-            this.fzB.cancel();
-            this.fzB = null;
+        if (this.fKW != null && this.fKW.isStarted()) {
+            this.fKW.cancel();
+            this.fKW = null;
         }
-        if (this.fzC != null && this.fzC.isStarted()) {
-            this.fzC.cancel();
-            this.fzC = null;
+        if (this.fKX != null && this.fKX.isStarted()) {
+            this.fKX.cancel();
+            this.fKX = null;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.fzu.size()) {
-                ImageView imageView = this.fzu.get(i2);
-                float qO = qO(i2);
-                imageView.setTranslationX(ak(qO));
-                imageView.setTranslationY(ao(qO));
+            if (i2 < this.fKP.size()) {
+                ImageView imageView = this.fKP.get(i2);
+                float ra = ra(i2);
+                imageView.setTranslationX(au(ra));
+                imageView.setTranslationY(ay(ra));
                 imageView.setScaleX(1.0f);
                 imageView.setScaleY(1.0f);
                 imageView.invalidate();
-                TextView textView = this.fzw.get(i2);
+                TextView textView = this.fKR.get(i2);
                 textView.setAlpha(0.0f);
                 textView.setScaleX(1.0f);
                 textView.setScaleY(1.0f);
@@ -511,7 +512,7 @@ public class PbMainFloorPraiseFloatingView extends ViewGroup {
         }
     }
 
-    private float qO(int i) {
-        return (((this.fzq - this.fzp) / (this.fzu.size() - 1)) * i) + this.fzp;
+    private float ra(int i) {
+        return (((this.fKL - this.fKK) / (this.fKP.size() - 1)) * i) + this.fKK;
     }
 }

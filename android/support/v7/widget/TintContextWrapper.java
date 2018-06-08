@@ -2,13 +2,14 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class TintContextWrapper extends ContextWrapper {
     private static final Object CACHE_LOCK = new Object();
@@ -80,5 +81,10 @@ public class TintContextWrapper extends ContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
         return this.mResources;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public AssetManager getAssets() {
+        return this.mResources.getAssets();
     }
 }

@@ -6,23 +6,23 @@ import com.baidu.fsg.base.armor.RimArmor;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class d {
-    private static volatile d cFH = null;
+    private static volatile d cOx = null;
 
-    public static final d ajG() {
-        if (cFH == null) {
+    public static final d anD() {
+        if (cOx == null) {
             synchronized (d.class) {
-                if (cFH == null) {
-                    cFH = new d();
+                if (cOx == null) {
+                    cOx = new d();
                 }
             }
         }
-        return cFH;
+        return cOx;
     }
 
     private d() {
     }
 
-    public void aK(String str, String str2) {
+    public void aS(String str, String str2) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_error");

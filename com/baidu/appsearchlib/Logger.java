@@ -2,6 +2,7 @@ package com.baidu.appsearchlib;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import com.baidu.ar.util.IoUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -139,7 +140,7 @@ public class Logger {
 
     public static String encode(String str) {
         try {
-            return URLEncoder.encode(str, "utf-8");
+            return URLEncoder.encode(str, IoUtils.UTF_8);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return "";

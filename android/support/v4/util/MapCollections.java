@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
@@ -49,10 +50,13 @@ public abstract class MapCollections<K, V> {
 
         @Override // java.util.Iterator
         public T next() {
-            T t = (T) MapCollections.this.colGetEntry(this.mIndex, this.mOffset);
-            this.mIndex++;
-            this.mCanRemove = true;
-            return t;
+            if (hasNext()) {
+                T t = (T) MapCollections.this.colGetEntry(this.mIndex, this.mOffset);
+                this.mIndex++;
+                this.mCanRemove = true;
+                return t;
+            }
+            throw new NoSuchElementException();
         }
 
         @Override // java.util.Iterator
@@ -85,9 +89,12 @@ public abstract class MapCollections<K, V> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         public Map.Entry<K, V> next() {
-            this.mIndex++;
-            this.mEntryValid = true;
-            return this;
+            if (hasNext()) {
+                this.mIndex++;
+                this.mEntryValid = true;
+                return this;
+            }
+            throw new NoSuchElementException();
         }
 
         @Override // java.util.Iterator

@@ -3,8 +3,10 @@ package android.support.v4.media;
 import android.media.browse.MediaBrowser;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.media.MediaBrowserCompatApi21;
 import java.util.List;
+@RequiresApi(24)
 /* loaded from: classes2.dex */
 class MediaBrowserCompatApi24 {
 

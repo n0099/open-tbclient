@@ -2,12 +2,13 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.support.annotation.RequiresApi;
 import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
 /* loaded from: classes2.dex */
 public class AppCompatSeekBar extends SeekBar {
-    private AppCompatSeekBarHelper mAppCompatSeekBarHelper;
+    private final AppCompatSeekBarHelper mAppCompatSeekBarHelper;
 
     public AppCompatSeekBar(Context context) {
         this(context, null);
@@ -24,7 +25,7 @@ public class AppCompatSeekBar extends SeekBar {
     }
 
     @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
-    protected void onDraw(Canvas canvas) {
+    protected synchronized void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         this.mAppCompatSeekBarHelper.drawTickMarks(canvas);
     }
@@ -36,6 +37,7 @@ public class AppCompatSeekBar extends SeekBar {
     }
 
     @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
+    @RequiresApi(11)
     public void jumpDrawablesToCurrentState() {
         super.jumpDrawablesToCurrentState();
         this.mAppCompatSeekBarHelper.jumpDrawablesToCurrentState();

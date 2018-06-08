@@ -22,16 +22,16 @@ public class DownloadReceiver extends BroadcastReceiver {
                 }
                 if (status == 7) {
                     downloadData.setStatus(5);
-                    com.baidu.tieba.recapp.download.d.bjq().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                    com.baidu.tieba.recapp.download.d.bjq().m(downloadData);
+                    com.baidu.tieba.recapp.download.d.bop().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                    com.baidu.tieba.recapp.download.d.bop().m(downloadData);
                 } else if (status == 1 || status == 5) {
                     downloadData.setStatus(4);
-                    com.baidu.tieba.recapp.download.d.bjq().j(downloadData.getUrl(), downloadData.getId(), true);
-                    com.baidu.tieba.recapp.download.d.bjq().o(downloadData);
+                    com.baidu.tieba.recapp.download.d.bop().j(downloadData.getUrl(), downloadData.getId(), true);
+                    com.baidu.tieba.recapp.download.d.bop().o(downloadData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
             } else if ("action_cancel_download".equals(intent.getAction())) {
-                com.baidu.tieba.recapp.download.d.bjq().p(downloadData);
+                com.baidu.tieba.recapp.download.d.bop().p(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016483, downloadData));
             }
         }

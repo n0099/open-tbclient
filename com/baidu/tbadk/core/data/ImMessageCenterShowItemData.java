@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 import java.io.Serializable;
@@ -9,6 +10,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     private static final long serialVersionUID = 3133087680118197014L;
     protected String friendId;
     protected String friendName;
+    protected String friendNameShow;
     protected String friendPortrait;
     private int friendStatus;
     private ChatSetting groupSetting;
@@ -101,6 +103,14 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         this.friendName = str;
     }
 
+    public String getFriendNameShow() {
+        return !StringUtils.isNull(this.friendNameShow) ? this.friendNameShow : this.friendName;
+    }
+
+    public void setFriendNameShow(String str) {
+        this.friendNameShow = str;
+    }
+
     public ChatSetting getGroupSetting() {
         return this.groupSetting;
     }
@@ -142,7 +152,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m13clone() {
+    public ImMessageCenterShowItemData m12clone() {
         try {
             return (ImMessageCenterShowItemData) super.clone();
         } catch (CloneNotSupportedException e) {

@@ -1,6 +1,7 @@
 package android.support.v4.app;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,6 +9,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.util.Pair;
 import android.view.View;
 /* loaded from: classes2.dex */
@@ -16,233 +18,112 @@ public class ActivityOptionsCompat {
     public static final String EXTRA_USAGE_TIME_REPORT_PACKAGES = "android.usage_time_packages";
 
     public static ActivityOptionsCompat makeCustomAnimation(Context context, int i, int i2) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeCustomAnimation(context, i, i2));
-        }
-        if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeCustomAnimation(context, i, i2));
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeCustomAnimation(context, i, i2));
-        }
-        if (Build.VERSION.SDK_INT >= 16) {
-            return new ActivityOptionsImplJB(ActivityOptionsCompatJB.makeCustomAnimation(context, i, i2));
-        }
-        return new ActivityOptionsCompat();
+        return Build.VERSION.SDK_INT >= 16 ? createImpl(ActivityOptions.makeCustomAnimation(context, i, i2)) : new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeScaleUpAnimation(View view2, int i, int i2, int i3, int i4) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeScaleUpAnimation(view2, i, i2, i3, i4));
-        }
-        if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeScaleUpAnimation(view2, i, i2, i3, i4));
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeScaleUpAnimation(view2, i, i2, i3, i4));
-        }
-        if (Build.VERSION.SDK_INT >= 16) {
-            return new ActivityOptionsImplJB(ActivityOptionsCompatJB.makeScaleUpAnimation(view2, i, i2, i3, i4));
-        }
-        return new ActivityOptionsCompat();
+    public static ActivityOptionsCompat makeScaleUpAnimation(View view, int i, int i2, int i3, int i4) {
+        return Build.VERSION.SDK_INT >= 16 ? createImpl(ActivityOptions.makeScaleUpAnimation(view, i, i2, i3, i4)) : new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeClipRevealAnimation(View view2, int i, int i2, int i3, int i4) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeClipRevealAnimation(view2, i, i2, i3, i4));
-        }
-        if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeClipRevealAnimation(view2, i, i2, i3, i4));
-        }
-        return new ActivityOptionsCompat();
+    public static ActivityOptionsCompat makeClipRevealAnimation(View view, int i, int i2, int i3, int i4) {
+        return Build.VERSION.SDK_INT >= 23 ? createImpl(ActivityOptions.makeClipRevealAnimation(view, i, i2, i3, i4)) : new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(View view2, Bitmap bitmap, int i, int i2) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
-        }
-        if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
-        }
-        if (Build.VERSION.SDK_INT >= 16) {
-            return new ActivityOptionsImplJB(ActivityOptionsCompatJB.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
-        }
-        return new ActivityOptionsCompat();
+    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(View view, Bitmap bitmap, int i, int i2) {
+        return Build.VERSION.SDK_INT >= 16 ? createImpl(ActivityOptions.makeThumbnailScaleUpAnimation(view, bitmap, i, i2)) : new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeSceneTransitionAnimation(Activity activity, View view2, String str) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeSceneTransitionAnimation(activity, view2, str));
-        }
-        if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeSceneTransitionAnimation(activity, view2, str));
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeSceneTransitionAnimation(activity, view2, str));
-        }
-        return new ActivityOptionsCompat();
+    public static ActivityOptionsCompat makeSceneTransitionAnimation(Activity activity, View view, String str) {
+        return Build.VERSION.SDK_INT >= 21 ? createImpl(ActivityOptions.makeSceneTransitionAnimation(activity, view, str)) : new ActivityOptionsCompat();
     }
 
     public static ActivityOptionsCompat makeSceneTransitionAnimation(Activity activity, Pair<View, String>... pairArr) {
-        View[] viewArr;
-        String[] strArr = null;
         if (Build.VERSION.SDK_INT >= 21) {
+            android.util.Pair[] pairArr2 = null;
             if (pairArr != null) {
-                View[] viewArr2 = new View[pairArr.length];
-                String[] strArr2 = new String[pairArr.length];
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= pairArr.length) {
-                        break;
-                    }
-                    viewArr2[i2] = pairArr[i2].first;
-                    strArr2[i2] = pairArr[i2].second;
-                    i = i2 + 1;
+                android.util.Pair[] pairArr3 = new android.util.Pair[pairArr.length];
+                for (int i = 0; i < pairArr.length; i++) {
+                    pairArr3[i] = android.util.Pair.create(pairArr[i].first, pairArr[i].second);
                 }
-                strArr = strArr2;
-                viewArr = viewArr2;
-            } else {
-                viewArr = null;
+                pairArr2 = pairArr3;
             }
-            if (Build.VERSION.SDK_INT >= 24) {
-                return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeSceneTransitionAnimation(activity, viewArr, strArr));
-            }
-            if (Build.VERSION.SDK_INT >= 23) {
-                return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeSceneTransitionAnimation(activity, viewArr, strArr));
-            }
-            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeSceneTransitionAnimation(activity, viewArr, strArr));
+            return createImpl(ActivityOptions.makeSceneTransitionAnimation(activity, pairArr2));
         }
         return new ActivityOptionsCompat();
     }
 
     public static ActivityOptionsCompat makeTaskLaunchBehind() {
-        if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeTaskLaunchBehind());
-        }
-        if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeTaskLaunchBehind());
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            return new ActivityOptionsImpl21(ActivityOptionsCompat21.makeTaskLaunchBehind());
-        }
-        return new ActivityOptionsCompat();
+        return Build.VERSION.SDK_INT >= 21 ? createImpl(ActivityOptions.makeTaskLaunchBehind()) : new ActivityOptionsCompat();
     }
 
     public static ActivityOptionsCompat makeBasic() {
+        return Build.VERSION.SDK_INT >= 23 ? createImpl(ActivityOptions.makeBasic()) : new ActivityOptionsCompat();
+    }
+
+    @RequiresApi(16)
+    private static ActivityOptionsCompat createImpl(ActivityOptions activityOptions) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return new ActivityOptionsImpl24(ActivityOptionsCompat24.makeBasic());
+            return new ActivityOptionsCompatApi24Impl(activityOptions);
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            return new ActivityOptionsImpl23(ActivityOptionsCompat23.makeBasic());
+            return new ActivityOptionsCompatApi23Impl(activityOptions);
         }
-        return new ActivityOptionsCompat();
+        return new ActivityOptionsCompatApi16Impl(activityOptions);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    @RequiresApi(16)
     /* loaded from: classes2.dex */
-    private static class ActivityOptionsImplJB extends ActivityOptionsCompat {
-        private final ActivityOptionsCompatJB mImpl;
+    public static class ActivityOptionsCompatApi16Impl extends ActivityOptionsCompat {
+        protected final ActivityOptions mActivityOptions;
 
-        ActivityOptionsImplJB(ActivityOptionsCompatJB activityOptionsCompatJB) {
-            this.mImpl = activityOptionsCompatJB;
+        ActivityOptionsCompatApi16Impl(ActivityOptions activityOptions) {
+            this.mActivityOptions = activityOptions;
         }
 
         @Override // android.support.v4.app.ActivityOptionsCompat
         public Bundle toBundle() {
-            return this.mImpl.toBundle();
+            return this.mActivityOptions.toBundle();
         }
 
         @Override // android.support.v4.app.ActivityOptionsCompat
         public void update(ActivityOptionsCompat activityOptionsCompat) {
-            if (activityOptionsCompat instanceof ActivityOptionsImplJB) {
-                this.mImpl.update(((ActivityOptionsImplJB) activityOptionsCompat).mImpl);
+            if (activityOptionsCompat instanceof ActivityOptionsCompatApi16Impl) {
+                this.mActivityOptions.update(((ActivityOptionsCompatApi16Impl) activityOptionsCompat).mActivityOptions);
             }
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    @RequiresApi(23)
     /* loaded from: classes2.dex */
-    private static class ActivityOptionsImpl21 extends ActivityOptionsCompat {
-        private final ActivityOptionsCompat21 mImpl;
-
-        ActivityOptionsImpl21(ActivityOptionsCompat21 activityOptionsCompat21) {
-            this.mImpl = activityOptionsCompat21;
-        }
-
-        @Override // android.support.v4.app.ActivityOptionsCompat
-        public Bundle toBundle() {
-            return this.mImpl.toBundle();
-        }
-
-        @Override // android.support.v4.app.ActivityOptionsCompat
-        public void update(ActivityOptionsCompat activityOptionsCompat) {
-            if (activityOptionsCompat instanceof ActivityOptionsImpl21) {
-                this.mImpl.update(((ActivityOptionsImpl21) activityOptionsCompat).mImpl);
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    private static class ActivityOptionsImpl23 extends ActivityOptionsCompat {
-        private final ActivityOptionsCompat23 mImpl;
-
-        ActivityOptionsImpl23(ActivityOptionsCompat23 activityOptionsCompat23) {
-            this.mImpl = activityOptionsCompat23;
-        }
-
-        @Override // android.support.v4.app.ActivityOptionsCompat
-        public Bundle toBundle() {
-            return this.mImpl.toBundle();
-        }
-
-        @Override // android.support.v4.app.ActivityOptionsCompat
-        public void update(ActivityOptionsCompat activityOptionsCompat) {
-            if (activityOptionsCompat instanceof ActivityOptionsImpl23) {
-                this.mImpl.update(((ActivityOptionsImpl23) activityOptionsCompat).mImpl);
-            }
+    public static class ActivityOptionsCompatApi23Impl extends ActivityOptionsCompatApi16Impl {
+        ActivityOptionsCompatApi23Impl(ActivityOptions activityOptions) {
+            super(activityOptions);
         }
 
         @Override // android.support.v4.app.ActivityOptionsCompat
         public void requestUsageTimeReport(PendingIntent pendingIntent) {
-            this.mImpl.requestUsageTimeReport(pendingIntent);
+            this.mActivityOptions.requestUsageTimeReport(pendingIntent);
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    @RequiresApi(24)
     /* loaded from: classes2.dex */
-    private static class ActivityOptionsImpl24 extends ActivityOptionsCompat {
-        private final ActivityOptionsCompat24 mImpl;
-
-        ActivityOptionsImpl24(ActivityOptionsCompat24 activityOptionsCompat24) {
-            this.mImpl = activityOptionsCompat24;
-        }
-
-        @Override // android.support.v4.app.ActivityOptionsCompat
-        public Bundle toBundle() {
-            return this.mImpl.toBundle();
-        }
-
-        @Override // android.support.v4.app.ActivityOptionsCompat
-        public void update(ActivityOptionsCompat activityOptionsCompat) {
-            if (activityOptionsCompat instanceof ActivityOptionsImpl24) {
-                this.mImpl.update(((ActivityOptionsImpl24) activityOptionsCompat).mImpl);
-            }
+    public static class ActivityOptionsCompatApi24Impl extends ActivityOptionsCompatApi23Impl {
+        ActivityOptionsCompatApi24Impl(ActivityOptions activityOptions) {
+            super(activityOptions);
         }
 
         @Override // android.support.v4.app.ActivityOptionsCompat
         public ActivityOptionsCompat setLaunchBounds(@Nullable Rect rect) {
-            return new ActivityOptionsImpl24(this.mImpl.setLaunchBounds(rect));
+            return new ActivityOptionsCompatApi24Impl(this.mActivityOptions.setLaunchBounds(rect));
         }
 
         @Override // android.support.v4.app.ActivityOptionsCompat
         public Rect getLaunchBounds() {
-            return this.mImpl.getLaunchBounds();
-        }
-
-        @Override // android.support.v4.app.ActivityOptionsCompat
-        public void requestUsageTimeReport(PendingIntent pendingIntent) {
-            this.mImpl.requestUsageTimeReport(pendingIntent);
+            return this.mActivityOptions.getLaunchBounds();
         }
     }
 

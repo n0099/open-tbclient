@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
@@ -31,13 +31,13 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        ak.c(multiImgToolView.getMutiImageTips(), d.C0126d.cp_cont_c, 1);
+        al.c(multiImgToolView.getMutiImageTips(), d.C0141d.cp_cont_c, 1);
         return multiImgToolView;
     }
 
     private static View a(Context context, final l lVar) {
         ImageView imageView = new ImageView(context);
-        ak.c(imageView, d.f.btn_add_photo_selector);
+        al.c(imageView, d.f.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         imageView.setContentDescription(context.getString(d.k.add));
@@ -45,7 +45,7 @@ public class c {
         imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(d.e.ds30) + dip2px, context.getResources().getDimensionPixelSize(d.e.ds32) + dip2px, dip2px);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 if (l.this != null) {
                     l.this.b(new com.baidu.tbadk.editortools.a(14, -1, true));
                 }

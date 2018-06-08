@@ -1,11 +1,13 @@
 package android.support.v4.app;
 
+import android.app.AppOpsManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,9 +18,11 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.provider.Settings;
+import android.support.annotation.GuardedBy;
 import android.support.v4.app.INotificationSideChannel;
-import android.support.v4.os.BuildCompat;
 import android.util.Log;
+import com.baidu.ar.util.SystemInfoUtil;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -29,8 +33,8 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public final class NotificationManagerCompat {
     public static final String ACTION_BIND_SIDE_CHANNEL = "android.support.BIND_NOTIFICATION_SIDE_CHANNEL";
+    private static final String CHECK_OP_NO_THROW = "checkOpNoThrow";
     public static final String EXTRA_USE_SIDE_CHANNEL = "android.support.useSideChannel";
-    private static final Impl IMPL;
     public static final int IMPORTANCE_DEFAULT = 3;
     public static final int IMPORTANCE_HIGH = 4;
     public static final int IMPORTANCE_LOW = 2;
@@ -39,50 +43,26 @@ public final class NotificationManagerCompat {
     public static final int IMPORTANCE_NONE = 0;
     public static final int IMPORTANCE_UNSPECIFIED = -1000;
     static final int MAX_SIDE_CHANNEL_SDK_VERSION = 19;
+    private static final String OP_POST_NOTIFICATION = "OP_POST_NOTIFICATION";
     private static final String SETTING_ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
-    static final int SIDE_CHANNEL_BIND_FLAGS;
     private static final int SIDE_CHANNEL_RETRY_BASE_INTERVAL_MS = 1000;
     private static final int SIDE_CHANNEL_RETRY_MAX_COUNT = 6;
     private static final String TAG = "NotifManCompat";
+    @GuardedBy("sEnabledNotificationListenersLock")
     private static String sEnabledNotificationListeners;
+    @GuardedBy("sLock")
     private static SideChannelManager sSideChannelManager;
     private final Context mContext;
     private final NotificationManager mNotificationManager;
     private static final Object sEnabledNotificationListenersLock = new Object();
+    @GuardedBy("sEnabledNotificationListenersLock")
     private static Set<String> sEnabledNotificationListenerPackages = new HashSet();
     private static final Object sLock = new Object();
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public interface Impl {
-        boolean areNotificationsEnabled(Context context, NotificationManager notificationManager);
-
-        void cancelNotification(NotificationManager notificationManager, String str, int i);
-
-        int getImportance(NotificationManager notificationManager);
-
-        int getSideChannelBindFlags();
-
-        void postNotification(NotificationManager notificationManager, String str, int i, Notification notification);
-    }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public interface Task {
         void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException;
-    }
-
-    static {
-        if (BuildCompat.isAtLeastN()) {
-            IMPL = new ImplApi24();
-        } else if (Build.VERSION.SDK_INT >= 19) {
-            IMPL = new ImplKitKat();
-        } else if (Build.VERSION.SDK_INT >= 14) {
-            IMPL = new ImplIceCreamSandwich();
-        } else {
-            IMPL = new ImplBase();
-        }
-        SIDE_CHANNEL_BIND_FLAGS = IMPL.getSideChannelBindFlags();
     }
 
     public static NotificationManagerCompat from(Context context) {
@@ -94,81 +74,12 @@ public final class NotificationManagerCompat {
         this.mNotificationManager = (NotificationManager) this.mContext.getSystemService("notification");
     }
 
-    /* loaded from: classes2.dex */
-    static class ImplBase implements Impl {
-        ImplBase() {
-        }
-
-        @Override // android.support.v4.app.NotificationManagerCompat.Impl
-        public void cancelNotification(NotificationManager notificationManager, String str, int i) {
-            notificationManager.cancel(str, i);
-        }
-
-        @Override // android.support.v4.app.NotificationManagerCompat.Impl
-        public void postNotification(NotificationManager notificationManager, String str, int i, Notification notification) {
-            notificationManager.notify(str, i, notification);
-        }
-
-        @Override // android.support.v4.app.NotificationManagerCompat.Impl
-        public int getSideChannelBindFlags() {
-            return 1;
-        }
-
-        @Override // android.support.v4.app.NotificationManagerCompat.Impl
-        public boolean areNotificationsEnabled(Context context, NotificationManager notificationManager) {
-            return true;
-        }
-
-        @Override // android.support.v4.app.NotificationManagerCompat.Impl
-        public int getImportance(NotificationManager notificationManager) {
-            return NotificationManagerCompat.IMPORTANCE_UNSPECIFIED;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class ImplIceCreamSandwich extends ImplBase {
-        ImplIceCreamSandwich() {
-        }
-
-        @Override // android.support.v4.app.NotificationManagerCompat.ImplBase, android.support.v4.app.NotificationManagerCompat.Impl
-        public int getSideChannelBindFlags() {
-            return 33;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class ImplKitKat extends ImplIceCreamSandwich {
-        ImplKitKat() {
-        }
-
-        @Override // android.support.v4.app.NotificationManagerCompat.ImplBase, android.support.v4.app.NotificationManagerCompat.Impl
-        public boolean areNotificationsEnabled(Context context, NotificationManager notificationManager) {
-            return NotificationManagerCompatKitKat.areNotificationsEnabled(context);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class ImplApi24 extends ImplKitKat {
-        ImplApi24() {
-        }
-
-        @Override // android.support.v4.app.NotificationManagerCompat.ImplKitKat, android.support.v4.app.NotificationManagerCompat.ImplBase, android.support.v4.app.NotificationManagerCompat.Impl
-        public boolean areNotificationsEnabled(Context context, NotificationManager notificationManager) {
-            return NotificationManagerCompatApi24.areNotificationsEnabled(notificationManager);
-        }
-
-        @Override // android.support.v4.app.NotificationManagerCompat.ImplBase, android.support.v4.app.NotificationManagerCompat.Impl
-        public int getImportance(NotificationManager notificationManager) {
-            return NotificationManagerCompatApi24.getImportance(notificationManager);
-        }
-    }
-
     public void cancel(int i) {
         cancel(null, i);
     }
 
     public void cancel(String str, int i) {
-        IMPL.cancelNotification(this.mNotificationManager, str, i);
+        this.mNotificationManager.cancel(str, i);
         if (Build.VERSION.SDK_INT <= 19) {
             pushSideChannelQueue(new CancelTask(this.mContext.getPackageName(), i, str));
         }
@@ -188,18 +99,43 @@ public final class NotificationManagerCompat {
     public void notify(String str, int i, Notification notification) {
         if (useSideChannelForNotification(notification)) {
             pushSideChannelQueue(new NotifyTask(this.mContext.getPackageName(), i, str, notification));
-            IMPL.cancelNotification(this.mNotificationManager, str, i);
+            this.mNotificationManager.cancel(str, i);
             return;
         }
-        IMPL.postNotification(this.mNotificationManager, str, i, notification);
+        this.mNotificationManager.notify(str, i, notification);
     }
 
     public boolean areNotificationsEnabled() {
-        return IMPL.areNotificationsEnabled(this.mContext, this.mNotificationManager);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return this.mNotificationManager.areNotificationsEnabled();
+        }
+        if (Build.VERSION.SDK_INT >= 19) {
+            AppOpsManager appOpsManager = (AppOpsManager) this.mContext.getSystemService("appops");
+            ApplicationInfo applicationInfo = this.mContext.getApplicationInfo();
+            String packageName = this.mContext.getApplicationContext().getPackageName();
+            int i = applicationInfo.uid;
+            try {
+                Class<?> cls = Class.forName(AppOpsManager.class.getName());
+                return ((Integer) cls.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField(OP_POST_NOTIFICATION).get(Integer.class)).intValue()), Integer.valueOf(i), packageName)).intValue() == 0;
+            } catch (ClassNotFoundException e) {
+                return true;
+            } catch (IllegalAccessException e2) {
+                return true;
+            } catch (NoSuchFieldException e3) {
+                return true;
+            } catch (NoSuchMethodException e4) {
+                return true;
+            } catch (RuntimeException e5) {
+                return true;
+            } catch (InvocationTargetException e6) {
+                return true;
+            }
+        }
+        return true;
     }
 
     public int getImportance() {
-        return IMPL.getImportance(this.mNotificationManager);
+        return Build.VERSION.SDK_INT >= 24 ? this.mNotificationManager.getImportance() : IMPORTANCE_UNSPECIFIED;
     }
 
     public static Set<String> getEnabledListenerPackages(Context context) {
@@ -208,7 +144,7 @@ public final class NotificationManagerCompat {
         synchronized (sEnabledNotificationListenersLock) {
             if (string != null) {
                 if (!string.equals(sEnabledNotificationListeners)) {
-                    String[] split = string.split(":");
+                    String[] split = string.split(SystemInfoUtil.COLON);
                     HashSet hashSet = new HashSet(split.length);
                     for (String str : split) {
                         ComponentName unflattenFromString = ComponentName.unflattenFromString(str);
@@ -242,7 +178,6 @@ public final class NotificationManagerCompat {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class SideChannelManager implements ServiceConnection, Handler.Callback {
-        private static final String KEY_BINDER = "binder";
         private static final int MSG_QUEUE_TASK = 0;
         private static final int MSG_RETRY_LISTENER_QUEUE = 3;
         private static final int MSG_SERVICE_CONNECTED = 1;
@@ -335,7 +270,7 @@ public final class NotificationManagerCompat {
             Set<String> enabledListenerPackages = NotificationManagerCompat.getEnabledListenerPackages(this.mContext);
             if (!enabledListenerPackages.equals(this.mCachedEnabledPackages)) {
                 this.mCachedEnabledPackages = enabledListenerPackages;
-                List<ResolveInfo> queryIntentServices = this.mContext.getPackageManager().queryIntentServices(new Intent().setAction(NotificationManagerCompat.ACTION_BIND_SIDE_CHANNEL), 4);
+                List<ResolveInfo> queryIntentServices = this.mContext.getPackageManager().queryIntentServices(new Intent().setAction(NotificationManagerCompat.ACTION_BIND_SIDE_CHANNEL), 0);
                 HashSet<ComponentName> hashSet = new HashSet();
                 for (ResolveInfo resolveInfo : queryIntentServices) {
                     if (enabledListenerPackages.contains(resolveInfo.serviceInfo.packageName)) {
@@ -373,7 +308,7 @@ public final class NotificationManagerCompat {
             if (listenerRecord.bound) {
                 return true;
             }
-            listenerRecord.bound = this.mContext.bindService(new Intent(NotificationManagerCompat.ACTION_BIND_SIDE_CHANNEL).setComponent(listenerRecord.componentName), this, NotificationManagerCompat.SIDE_CHANNEL_BIND_FLAGS);
+            listenerRecord.bound = this.mContext.bindService(new Intent(NotificationManagerCompat.ACTION_BIND_SIDE_CHANNEL).setComponent(listenerRecord.componentName), this, 33);
             if (listenerRecord.bound) {
                 listenerRecord.retryCount = 0;
             } else {
@@ -461,7 +396,7 @@ public final class NotificationManagerCompat {
         final ComponentName componentName;
         final IBinder iBinder;
 
-        public ServiceConnectedEvent(ComponentName componentName, IBinder iBinder) {
+        ServiceConnectedEvent(ComponentName componentName, IBinder iBinder) {
             this.componentName = componentName;
             this.iBinder = iBinder;
         }
@@ -475,7 +410,7 @@ public final class NotificationManagerCompat {
         final String packageName;
         final String tag;
 
-        public NotifyTask(String str, int i, String str2, Notification notification) {
+        NotifyTask(String str, int i, String str2, Notification notification) {
             this.packageName = str;
             this.id = i;
             this.tag = str2;
@@ -505,14 +440,14 @@ public final class NotificationManagerCompat {
         final String packageName;
         final String tag;
 
-        public CancelTask(String str) {
+        CancelTask(String str) {
             this.packageName = str;
             this.id = 0;
             this.tag = null;
             this.all = true;
         }
 
-        public CancelTask(String str, int i, String str2) {
+        CancelTask(String str, int i, String str2) {
             this.packageName = str;
             this.id = i;
             this.tag = str2;

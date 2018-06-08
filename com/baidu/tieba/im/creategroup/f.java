@@ -3,16 +3,16 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.base.c<CreateGroupMainActivity> {
-    Button dVB;
-    Button dVC;
-    TextView dVD;
-    TextView dVE;
-    CreateGroupMainActivity dVF;
+    Button egO;
+    Button egP;
+    TextView egQ;
+    TextView egR;
+    CreateGroupMainActivity egS;
     private int mForumId;
     NavigationBar mNavigationBar;
     View mParent;
@@ -21,58 +21,58 @@ public class f extends com.baidu.adp.base.c<CreateGroupMainActivity> {
         return this.mForumId;
     }
 
-    public View aBM() {
-        return this.dVB;
+    public View aGH() {
+        return this.egO;
     }
 
-    public View aBN() {
-        return this.dVC;
+    public View aGI() {
+        return this.egP;
     }
 
     public f(CreateGroupMainActivity createGroupMainActivity) {
         super(createGroupMainActivity.getPageContext());
         this.mNavigationBar = null;
         this.mParent = null;
-        this.dVB = null;
-        this.dVC = null;
-        this.dVD = null;
-        this.dVE = null;
-        this.dVF = null;
+        this.egO = null;
+        this.egP = null;
+        this.egQ = null;
+        this.egR = null;
+        this.egS = null;
         this.mForumId = 0;
         b(createGroupMainActivity);
         a(createGroupMainActivity);
     }
 
     private void a(CreateGroupMainActivity createGroupMainActivity) {
-        this.dVB.setOnClickListener(createGroupMainActivity);
-        this.dVC.setOnClickListener(createGroupMainActivity);
+        this.egO.setOnClickListener(createGroupMainActivity);
+        this.egP.setOnClickListener(createGroupMainActivity);
     }
 
     public void a(boolean z, boolean z2, String str, String str2, int i) {
-        this.dVB.setEnabled(z2);
-        this.dVC.setEnabled(z);
-        this.dVD.setText(str2);
-        this.dVE.setText(str);
+        this.egO.setEnabled(z2);
+        this.egP.setEnabled(z);
+        this.egQ.setText(str2);
+        this.egR.setText(str);
         this.mForumId = i;
     }
 
     private void b(CreateGroupMainActivity createGroupMainActivity) {
-        this.dVF = createGroupMainActivity;
+        this.egS = createGroupMainActivity;
         createGroupMainActivity.setContentView(d.i.create_group_main_activity);
         this.mParent = createGroupMainActivity.findViewById(d.g.parent);
-        this.dVB = (Button) createGroupMainActivity.findViewById(d.g.create_group1);
-        this.dVC = (Button) createGroupMainActivity.findViewById(d.g.create_group2);
-        this.dVD = (TextView) createGroupMainActivity.findViewById(d.g.create_group1_text);
-        this.dVE = (TextView) createGroupMainActivity.findViewById(d.g.create_group2_text);
+        this.egO = (Button) createGroupMainActivity.findViewById(d.g.create_group1);
+        this.egP = (Button) createGroupMainActivity.findViewById(d.g.create_group2);
+        this.egQ = (TextView) createGroupMainActivity.findViewById(d.g.create_group1_text);
+        this.egR = (TextView) createGroupMainActivity.findViewById(d.g.create_group2_text);
         this.mNavigationBar = (NavigationBar) createGroupMainActivity.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(createGroupMainActivity.getResources().getString(d.k.group_create));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     public void onChangeSkinType(int i) {
-        this.dVF.getLayoutMode().setNightMode(i == 1);
-        this.dVF.getLayoutMode().u(this.mParent);
-        ak.e(this.mParent, i);
+        this.egS.getLayoutMode().setNightMode(i == 1);
+        this.egS.getLayoutMode().onModeChanged(this.mParent);
+        al.e(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
     }
 }

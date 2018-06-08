@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private List<f> asQ = new ArrayList();
-    private String asR;
+    private List<f> aAX = new ArrayList();
+    private String aAY;
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
@@ -21,28 +20,28 @@ public class e {
                 if (jSONObject2 != null) {
                     f fVar = new f();
                     fVar.parserJson(jSONObject2);
-                    this.asQ.add(fVar);
+                    this.aAX.add(fVar);
                 }
             }
         }
     }
 
-    public String yo() {
-        if (TextUtils.isEmpty(this.asR)) {
+    public String BO() {
+        if (TextUtils.isEmpty(this.aAY)) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
-            Iterator<f> it = this.asQ.iterator();
+            Iterator<f> it = this.aAX.iterator();
             while (true) {
                 int i2 = i;
                 if (!it.hasNext()) {
                     break;
                 }
                 f next = it.next();
-                if (next.yq()) {
+                if (next.BQ()) {
                     if (i2 == 0) {
                         sb.append(next.getAppId());
                     } else {
-                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        sb.append(",");
                         sb.append(next.getAppId());
                     }
                     i = i2 + 1;
@@ -50,12 +49,12 @@ public class e {
                     i = i2;
                 }
             }
-            this.asR = sb.toString();
+            this.aAY = sb.toString();
         }
-        return this.asR;
+        return this.aAY;
     }
 
-    public List<f> yp() {
-        return this.asQ;
+    public List<f> BP() {
+        return this.aAX;
     }
 }

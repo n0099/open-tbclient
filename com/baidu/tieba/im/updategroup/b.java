@@ -5,44 +5,44 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b extends d {
-    protected TextView ejq;
+    protected TextView euH;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.ejq = null;
+        this.euH = null;
         setContentView(d.i.update_group_info_activity);
-        nY(d.k.group_update_info);
-        this.ejq = (TextView) this.ejr.findViewById(d.g.edit_count);
+        ok(d.k.group_update_info);
+        this.euH = (TextView) this.euI.findViewById(d.g.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void aHe() {
+    public void aLZ() {
         String obj;
         if (this.mEditText.getText() != null && (obj = this.mEditText.getText().toString()) != null) {
             int length = obj.length();
             u(length, length, 15, 300);
             int i = 300 - length;
-            this.ejq.setText(String.valueOf(i));
+            this.euH.setText(String.valueOf(i));
             if (i <= 50) {
-                this.ejq.setVisibility(0);
+                this.euH.setVisibility(0);
             } else {
-                this.ejq.setVisibility(8);
+                this.euH.setVisibility(8);
             }
             if (i == 0) {
-                this.ejq.setTextColor(this.ejr.getResources().getColor(d.C0126d.common_color_10170));
+                this.euH.setTextColor(this.euI.getResources().getColor(d.C0141d.common_color_10170));
             } else {
-                aBK();
+                aGF();
             }
         }
     }
 
-    private void aBK() {
-        this.ejr.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.ejr.getLayoutMode().u(this.ejq);
+    private void aGF() {
+        this.euI.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.euI.getLayoutMode().onModeChanged(this.euH);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int aHf() {
+    public int aMa() {
         return d.k.group_step_info_error;
     }
 }

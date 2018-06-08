@@ -12,6 +12,8 @@ import android.text.TextUtils;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface IMediaControllerCallback extends IInterface {
+    void onCaptioningEnabledChanged(boolean z) throws RemoteException;
+
     void onEvent(String str, Bundle bundle) throws RemoteException;
 
     void onExtrasChanged(Bundle bundle) throws RemoteException;
@@ -24,20 +26,30 @@ public interface IMediaControllerCallback extends IInterface {
 
     void onQueueTitleChanged(CharSequence charSequence) throws RemoteException;
 
+    void onRepeatModeChanged(int i) throws RemoteException;
+
     void onSessionDestroyed() throws RemoteException;
+
+    void onShuffleModeChanged(int i) throws RemoteException;
+
+    void onShuffleModeChangedDeprecated(boolean z) throws RemoteException;
 
     void onVolumeInfoChanged(ParcelableVolumeInfo parcelableVolumeInfo) throws RemoteException;
 
     /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IMediaControllerCallback {
         private static final String DESCRIPTOR = "android.support.v4.media.session.IMediaControllerCallback";
+        static final int TRANSACTION_onCaptioningEnabledChanged = 11;
         static final int TRANSACTION_onEvent = 1;
         static final int TRANSACTION_onExtrasChanged = 7;
         static final int TRANSACTION_onMetadataChanged = 4;
         static final int TRANSACTION_onPlaybackStateChanged = 3;
         static final int TRANSACTION_onQueueChanged = 5;
         static final int TRANSACTION_onQueueTitleChanged = 6;
+        static final int TRANSACTION_onRepeatModeChanged = 9;
         static final int TRANSACTION_onSessionDestroyed = 2;
+        static final int TRANSACTION_onShuffleModeChanged = 12;
+        static final int TRANSACTION_onShuffleModeChangedDeprecated = 10;
         static final int TRANSACTION_onVolumeInfoChanged = 8;
 
         public Stub() {
@@ -94,6 +106,22 @@ public interface IMediaControllerCallback extends IInterface {
                 case 8:
                     parcel.enforceInterface(DESCRIPTOR);
                     onVolumeInfoChanged(parcel.readInt() != 0 ? ParcelableVolumeInfo.CREATOR.createFromParcel(parcel) : null);
+                    return true;
+                case 9:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onRepeatModeChanged(parcel.readInt());
+                    return true;
+                case 10:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onShuffleModeChangedDeprecated(parcel.readInt() != 0);
+                    return true;
+                case 11:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onCaptioningEnabledChanged(parcel.readInt() != 0);
+                    return true;
+                case 12:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onShuffleModeChanged(parcel.readInt());
                     return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
@@ -241,6 +269,54 @@ public interface IMediaControllerCallback extends IInterface {
                         obtain.writeInt(0);
                     }
                     this.mRemote.transact(8, obtain, null, 1);
+                } finally {
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaControllerCallback
+            public void onRepeatModeChanged(int i) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(i);
+                    this.mRemote.transact(9, obtain, null, 1);
+                } finally {
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaControllerCallback
+            public void onShuffleModeChangedDeprecated(boolean z) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(z ? 1 : 0);
+                    this.mRemote.transact(10, obtain, null, 1);
+                } finally {
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaControllerCallback
+            public void onCaptioningEnabledChanged(boolean z) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(z ? 1 : 0);
+                    this.mRemote.transact(11, obtain, null, 1);
+                } finally {
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaControllerCallback
+            public void onShuffleModeChanged(int i) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(i);
+                    this.mRemote.transact(12, obtain, null, 1);
                 } finally {
                     obtain.recycle();
                 }

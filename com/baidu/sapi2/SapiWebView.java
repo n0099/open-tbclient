@@ -47,7 +47,8 @@ import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
@@ -87,6 +88,7 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.huawei.hwid.openapi.OpenHwID;
 import com.huawei.hwid.openapi.out.IHwIDCallBack;
@@ -102,6 +104,7 @@ import com.tencent.tauth.UiError;
 import com.xiaomi.account.openauth.XiaomiOAuthFuture;
 import com.xiaomi.account.openauth.XiaomiOAuthResults;
 import com.xiaomi.account.openauth.XiaomiOAuthorize;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -569,17 +572,17 @@ public final class SapiWebView extends WebView {
         c();
     }
 
-    public final void setNoNetworkView(View view2) {
+    public final void setNoNetworkView(View view) {
         if (this.az == null) {
-            this.az = view2;
+            this.az = view;
             this.az.setVisibility(4);
             addView(this.az, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
-    public final void setTimeoutView(View view2) {
+    public final void setTimeoutView(View view) {
         if (this.aA == null) {
-            this.aA = view2;
+            this.aA = view;
             this.aA.setVisibility(4);
             addView(this.aA, new ViewGroup.LayoutParams(-1, -1));
         }
@@ -766,7 +769,7 @@ public final class SapiWebView extends WebView {
                 } else {
                     if (SapiWebView.this.aR != null) {
                         Uri parse = Uri.parse(str);
-                        if (SapiWebView.this.J.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").equals(parse.getHost() + (parse.getPort() == -1 ? "" : ":" + parse.getPort())) && SapiEnv.LOGIN_PROXY_URI.equals(parse.getPath())) {
+                        if (SapiWebView.this.J.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").equals(parse.getHost() + (parse.getPort() == -1 ? "" : SystemInfoUtil.COLON + parse.getPort())) && SapiEnv.LOGIN_PROXY_URI.equals(parse.getPath())) {
                             SapiAccountManager.getInstance().getAccountService().a(SapiWebView.this.aR, str);
                             return true;
                         }
@@ -1503,7 +1506,7 @@ public final class SapiWebView extends WebView {
                 try {
                     JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     String optString = jSONObject.optString("username");
-                    boolean equals = jSONObject.optString("close", "0").equals("1");
+                    boolean equals = jSONObject.optString(IntentConfig.CLOSE, "0").equals("1");
                     PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult = new PreFillUserNameCallback.PreFillUserNameResult();
                     preFillUserNameResult.userName = optString;
                     if (SapiWebView.this.ao != null) {
@@ -2331,7 +2334,7 @@ public final class SapiWebView extends WebView {
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("clientfrom", "native"));
-        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
+        arrayList.add(new BasicNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         arrayList.add(new BasicNameValuePair("deliverParams", "1"));
         if (this.J.biometricTypeList.contains(BiometricType.LIVENESS_RECOG) && SapiUtils.withLivenessAbility()) {
             arrayList.add(new BasicNameValuePair("scanface", "1"));
@@ -2448,7 +2451,7 @@ public final class SapiWebView extends WebView {
         a(getContext(), str);
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str2, "UTF-8")));
+            arrayList.add(new BasicNameValuePair(Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str2, "UTF-8")));
             arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + d + "=" + f, "UTF-8")));
             if (!TextUtils.isEmpty(str3)) {
                 arrayList.add(new BasicNameValuePair("skin", str3));
@@ -2538,7 +2541,7 @@ public final class SapiWebView extends WebView {
         }
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str, "UTF-8")));
+            arrayList.add(new BasicNameValuePair(Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str, "UTF-8")));
             if (str2 != null) {
                 arrayList.add(new BasicNameValuePair("u", str2));
             }
@@ -2744,7 +2747,7 @@ public final class SapiWebView extends WebView {
                     if (i2 == 0) {
                         sb.append(fastLoginFeature.getStrValue());
                     } else {
-                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP).append(fastLoginFeature.getStrValue());
+                        sb.append(",").append(fastLoginFeature.getStrValue());
                     }
                     i = i2 + 1;
                 } else {
@@ -2967,7 +2970,7 @@ public final class SapiWebView extends WebView {
             if (SapiWebView.this.Q != null && !TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    SapiWebView.this.Q.handleUniteVerify(jSONObject.optString(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN), jSONObject.optString("adtext"));
+                    SapiWebView.this.Q.handleUniteVerify(jSONObject.optString(Constants.EXTRA_KEY_TOKEN), jSONObject.optString("adtext"));
                     return null;
                 } catch (JSONException e) {
                     Log.e(e);
@@ -4387,7 +4390,7 @@ public final class SapiWebView extends WebView {
         }
 
         private String a() {
-            return UUID.randomUUID().toString() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + System.currentTimeMillis() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + "点击发送直接登录";
+            return UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + System.currentTimeMillis() + ",点击发送直接登录";
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -4629,7 +4632,7 @@ public final class SapiWebView extends WebView {
 
         private String a(String str) {
             String[] split;
-            for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
+            for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
                 if (str2.length() == 6) {
                     return str2;
                 }

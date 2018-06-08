@@ -22,10 +22,10 @@ public final class AsyncLayoutInflater {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             InflateRequest inflateRequest = (InflateRequest) message.obj;
-            if (inflateRequest.f3view == null) {
-                inflateRequest.f3view = AsyncLayoutInflater.this.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
+            if (inflateRequest.view == null) {
+                inflateRequest.view = AsyncLayoutInflater.this.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
             }
-            inflateRequest.callback.onInflateFinished(inflateRequest.f3view, inflateRequest.resid, inflateRequest.parent);
+            inflateRequest.callback.onInflateFinished(inflateRequest.view, inflateRequest.resid, inflateRequest.parent);
             AsyncLayoutInflater.this.mInflateThread.releaseRequest(inflateRequest);
             return true;
         }
@@ -35,7 +35,7 @@ public final class AsyncLayoutInflater {
 
     /* loaded from: classes2.dex */
     public interface OnInflateFinishedListener {
-        void onInflateFinished(View view2, int i, ViewGroup viewGroup);
+        void onInflateFinished(View view, int i, ViewGroup viewGroup);
     }
 
     public AsyncLayoutInflater(@NonNull Context context) {
@@ -62,9 +62,7 @@ public final class AsyncLayoutInflater {
         AsyncLayoutInflater inflater;
         ViewGroup parent;
         int resid;
-
-        /* renamed from: view  reason: collision with root package name */
-        View f3view;
+        View view;
 
         InflateRequest() {
         }
@@ -116,20 +114,24 @@ public final class AsyncLayoutInflater {
             return sInstance;
         }
 
+        public void runInner() {
+            try {
+                InflateRequest take = this.mQueue.take();
+                try {
+                    take.view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
+                } catch (RuntimeException e) {
+                    Log.w(AsyncLayoutInflater.TAG, "Failed to inflate resource in the background! Retrying on the UI thread", e);
+                }
+                Message.obtain(take.inflater.mHandler, 0, take).sendToTarget();
+            } catch (InterruptedException e2) {
+                Log.w(AsyncLayoutInflater.TAG, e2);
+            }
+        }
+
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             while (true) {
-                try {
-                    InflateRequest take = this.mQueue.take();
-                    try {
-                        take.f3view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
-                    } catch (RuntimeException e) {
-                        Log.w(AsyncLayoutInflater.TAG, "Failed to inflate resource in the background! Retrying on the UI thread", e);
-                    }
-                    Message.obtain(take.inflater.mHandler, 0, take).sendToTarget();
-                } catch (InterruptedException e2) {
-                    Log.w(AsyncLayoutInflater.TAG, e2);
-                }
+                runInner();
             }
         }
 
@@ -146,7 +148,7 @@ public final class AsyncLayoutInflater {
             inflateRequest.inflater = null;
             inflateRequest.parent = null;
             inflateRequest.resid = 0;
-            inflateRequest.f3view = null;
+            inflateRequest.view = null;
             this.mRequestPool.release(inflateRequest);
         }
 

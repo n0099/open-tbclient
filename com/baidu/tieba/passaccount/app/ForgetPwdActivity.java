@@ -26,7 +26,7 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 if (ForgetPwdActivity.this.sapiWebView.canGoBack()) {
                     ForgetPwdActivity.this.sapiWebView.goBack();
                 } else {

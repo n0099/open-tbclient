@@ -1,81 +1,90 @@
 package com.baidu.ar.audio;
-
-import android.os.Parcel;
-import android.os.Parcelable;
 /* loaded from: classes3.dex */
-public class AudioParams implements Parcelable {
-    public static final Parcelable.Creator<AudioParams> CREATOR = new Parcelable.Creator<AudioParams>() { // from class: com.baidu.ar.audio.AudioParams.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public AudioParams createFromParcel(Parcel parcel) {
-            return new AudioParams(parcel);
+public class AudioParams {
+    public static final int DEFAULT_AUDIO_BUFFER_SIZE = 20480;
+    public static final int DEFAULT_AUDIO_FORMAT = 2;
+    public static final int DEFAULT_AUDIO_SOURCE = 1;
+    public static final int DEFAULT_BUFFER_FRAME_COUNT = 32;
+    public static final int DEFAULT_CHANNEL_CONFIG = 16;
+    public static final int DEFAULT_FRAME_SIZE = 640;
+    public static final int DEFAULT_SAMPLE_RATE = 16000;
+    public static final int SAMPLES_PER_FRAME = 1024;
+    private int mAudioSource = 1;
+    private int mSampleRate = DEFAULT_SAMPLE_RATE;
+    private int mChannelConfig = 16;
+    private int mAudioFormat = 2;
+    private int mFrameSize = 640;
+    private int mFrameBufferCount = 32;
+    private int mAudioBufferSize = DEFAULT_AUDIO_BUFFER_SIZE;
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public AudioParams[] newArray(int i) {
-            return new AudioParams[i];
+        if (obj != null && (obj instanceof AudioParams)) {
+            AudioParams audioParams = (AudioParams) obj;
+            return this.mAudioSource == audioParams.mAudioSource && this.mSampleRate == audioParams.getSampleRate() && this.mChannelConfig == audioParams.getChannelConfig() && this.mAudioFormat == audioParams.getAudioFormat() && this.mFrameSize == audioParams.getFrameSize();
         }
-    };
-    private int a;
-    private int b;
-    private int c;
-    private int d;
-    private int e;
-
-    public AudioParams() {
-        this.a = 1;
-        this.b = 44100;
-        this.c = 16;
-        this.d = 2;
-        this.e = 10240;
+        return false;
     }
 
-    protected AudioParams(Parcel parcel) {
-        this.a = parcel.readInt();
-        this.b = parcel.readInt();
-        this.c = parcel.readInt();
-        this.d = parcel.readInt();
-        this.e = parcel.readInt();
+    public int getAudioBufferSize() {
+        return this.mAudioBufferSize;
     }
 
-    public int a() {
-        return this.a;
+    public int getAudioFormat() {
+        return this.mAudioFormat;
     }
 
-    public void a(int i) {
-        this.e = i;
+    public int getAudioSource() {
+        return this.mAudioSource;
     }
 
-    public int b() {
-        return this.b;
+    public int getChannelConfig() {
+        return this.mChannelConfig;
     }
 
-    public int c() {
-        return this.c;
+    public int getFrameBufferCount() {
+        return this.mFrameBufferCount;
     }
 
-    public int d() {
-        return this.d;
+    public int getFrameSize() {
+        return this.mFrameSize;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
+    public int getSampleRate() {
+        return this.mSampleRate;
     }
 
-    public int e() {
-        return this.e;
+    public int hashCode() {
+        return ((((((((this.mAudioSource + 31) * 31) + this.mSampleRate) * 31) + this.mChannelConfig) * 31) + this.mAudioFormat) * 31) + this.mFrameSize;
     }
 
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.a);
-        parcel.writeInt(this.b);
-        parcel.writeInt(this.c);
-        parcel.writeInt(this.d);
-        parcel.writeInt(this.e);
+    public void setAudioBufferSize(int i) {
+        this.mAudioBufferSize = i;
+    }
+
+    public void setAudioFormat(int i) {
+        this.mAudioFormat = i;
+    }
+
+    public void setAudioSource(int i) {
+        this.mAudioSource = i;
+    }
+
+    public void setChannelConfig(int i) {
+        this.mChannelConfig = i;
+    }
+
+    public void setFrameBufferCount(int i) {
+        this.mFrameBufferCount = i;
+    }
+
+    public void setFrameSize(int i) {
+        this.mFrameSize = i;
+    }
+
+    public void setSampleRate(int i) {
+        this.mSampleRate = i;
     }
 }

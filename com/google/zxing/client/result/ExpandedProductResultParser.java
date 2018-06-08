@@ -75,7 +75,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                     }
                     break;
                 case 1574:
-                    if (findAIvalue.equals(Constants.VIA_REPORT_TYPE_START_GROUP)) {
+                    if (findAIvalue.equals("17")) {
                         c = 6;
                         break;
                     }

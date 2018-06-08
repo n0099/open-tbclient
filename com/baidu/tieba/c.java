@@ -6,7 +6,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class c {
         } else {
             final long currentTimeMillis = System.currentTimeMillis();
             final ImageView imageView = new ImageView(tbPageContext.getPageActivity());
-            ak.i(imageView, d.f.circle_shape);
+            al.i(imageView, d.f.circle_shape);
             int dimensionPixelSize = tbPageContext.getResources().getDimensionPixelSize(d.e.ds140);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.topMargin = tbPageContext.getResources().getDimensionPixelSize(d.e.ds374);
@@ -71,7 +71,7 @@ public class c {
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     GifView.this.setVisibility(0);
-                    GifView.this.ET();
+                    GifView.this.Iy();
                 }
             });
             imageView.startAnimation(scaleAnimation);

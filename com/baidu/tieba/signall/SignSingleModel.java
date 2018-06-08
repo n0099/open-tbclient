@@ -6,11 +6,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 /* loaded from: classes3.dex */
 public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
-    private b gpH;
-    private a gpI;
+    private b gBf;
+    private a gBg;
     private String mForumId;
     private String mForumName;
 
@@ -18,14 +18,14 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     public interface a {
         void b(SignData signData);
 
-        void bW(String str, String str2);
+        void ce(String str, String str2);
     }
 
     public SignSingleModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.gpH = null;
+        this.gBf = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -38,27 +38,27 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void bpc() {
-        if (this.gpH != null) {
-            this.gpH.cancel();
-            this.gpH = null;
+    public void buc() {
+        if (this.gBf != null) {
+            this.gBf.cancel();
+            this.gBf = null;
         }
     }
 
-    public void bX(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gpH == null) {
+    public void cf(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gBf == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.gpH = new b();
-            this.gpH.setPriority(2);
-            this.gpH.execute(new Object[0]);
+            this.gBf = new b();
+            this.gBf.setPriority(2);
+            this.gBf.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<Object, Integer, SignData> {
-        private volatile x mNetwork;
+        private volatile y mNetwork;
 
         private b() {
             this.mNetwork = null;
@@ -72,22 +72,22 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: E */
+        /* renamed from: D */
         public SignData doInBackground(Object... objArr) {
             SignData signData;
             Exception e;
             try {
-                this.mNetwork = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
-                this.mNetwork.n("kw", SignSingleModel.this.mForumName);
-                this.mNetwork.n(ImageViewerConfig.FORUM_ID, SignSingleModel.this.mForumId);
-                this.mNetwork.vi().wh().mIsNeedTbs = true;
-                String uK = this.mNetwork.uK();
-                if (!this.mNetwork.vl() || !this.mNetwork.vi().wi().isRequestSuccess()) {
+                this.mNetwork = new y(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
+                this.mNetwork.o("kw", SignSingleModel.this.mForumName);
+                this.mNetwork.o(ImageViewerConfig.FORUM_ID, SignSingleModel.this.mForumId);
+                this.mNetwork.yJ().zI().mIsNeedTbs = true;
+                String yl = this.mNetwork.yl();
+                if (!this.mNetwork.yM() || !this.mNetwork.yJ().zJ().isRequestSuccess()) {
                     return null;
                 }
                 signData = new SignData();
                 try {
-                    signData.parserJson(uK);
+                    signData.parserJson(yl);
                     signData.forumId = SignSingleModel.this.mForumId;
                     signData.forumName = SignSingleModel.this.mForumName;
                     return signData;
@@ -105,11 +105,11 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.eW();
+                this.mNetwork.hN();
             }
-            SignSingleModel.this.gpH = null;
+            SignSingleModel.this.gBf = null;
             super.cancel(true);
-            SignSingleModel.this.gpI.bW(SignSingleModel.this.mForumId, null);
+            SignSingleModel.this.gBg.ce(SignSingleModel.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,18 +117,18 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.gpH = null;
+            SignSingleModel.this.gBf = null;
             if (signData != null || this.mNetwork == null) {
-                SignSingleModel.this.gpI.b(signData);
+                SignSingleModel.this.gBg.b(signData);
                 return;
             }
-            SignSingleModel.this.mErrorCode = this.mNetwork.vm();
+            SignSingleModel.this.mErrorCode = this.mNetwork.yN();
             SignSingleModel.this.mErrorString = this.mNetwork.getErrorString();
-            SignSingleModel.this.gpI.bW(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.gBg.ce(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.gpI = aVar;
+        this.gBg = aVar;
     }
 }

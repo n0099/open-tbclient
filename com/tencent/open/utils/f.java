@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
-import com.baidu.ar.util.Constants;
+import com.tencent.connect.common.Constants;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -73,7 +73,7 @@ public class f {
     private String c(String str) {
         InputStream open;
         try {
-            open = this.c.openFileInput(this.d != null ? str + Constants.DOT + this.d : str);
+            open = this.c.openFileInput(this.d != null ? str + "." + this.d : str);
         } catch (FileNotFoundException e) {
             try {
                 open = this.c.getAssets().open(str);
@@ -123,7 +123,7 @@ public class f {
     private void a(String str, String str2) {
         try {
             if (this.d != null) {
-                str = str + Constants.DOT + this.d;
+                str = str + "." + this.d;
             }
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.c.openFileOutput(str, 0), Charset.forName("UTF-8"));
             outputStreamWriter.write(str2);
@@ -147,7 +147,7 @@ public class f {
         bundle.putString("status_os", Build.VERSION.RELEASE);
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
-        bundle.putString("sdkv", com.tencent.connect.common.Constants.SDK_VERSION);
+        bundle.putString("sdkv", Constants.SDK_VERSION);
         bundle.putString("sdkp", "a");
         new Thread() { // from class: com.tencent.open.utils.f.1
             @Override // java.lang.Thread, java.lang.Runnable

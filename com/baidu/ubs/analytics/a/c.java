@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 final class c {
-    private SQLiteDatabase hlD = f.bEN().getDatabase();
+    private SQLiteDatabase hxy = f.bJR().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(a aVar) {
-        this.hlD.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
+        this.hxy.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<a> bEM() {
-        Cursor rawQuery = this.hlD.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
+    public final List<a> bJQ() {
+        Cursor rawQuery = this.hxy.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             a aVar = new a();
@@ -34,6 +34,6 @@ final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.hlD.execSQL("delete from tb_ab_click_log where _id <= " + i);
+        this.hxy.execSQL("delete from tb_ab_click_log where _id <= " + i);
     }
 }

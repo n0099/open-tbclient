@@ -198,14 +198,14 @@ public class Apn {
     public static String getApnName(int i) {
         switch (i) {
             case 0:
-                return APN_UNKNOWN;
+                return "N/A";
             case 1:
                 return APN_NET;
             case 2:
                 return APN_WAP;
             case 3:
             default:
-                return APN_UNKNOWN;
+                return "N/A";
             case 4:
                 return APN_WIFI;
         }

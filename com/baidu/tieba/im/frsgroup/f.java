@@ -5,65 +5,65 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.GroupImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes3.dex */
 public class f extends q.a {
-    public int aqQ;
-    public View baf;
-    public GroupImageView dZj;
-    public TextView dZk;
-    public TextView dZl;
-    public TextView dZm;
-    public TextView dZn;
-    public ImageView dZo;
-    public ImageView dZp;
-    public ImageView dZq;
-    public ImageView[] dZr;
+    public int ayX;
+    public View bir;
+    public TextView ekA;
+    public ImageView ekB;
+    public ImageView ekC;
+    public ImageView ekD;
+    public ImageView[] ekE;
+    public GroupImageView ekw;
+    public TextView ekx;
+    public TextView eky;
+    public TextView ekz;
     public View rootView;
 
-    public f(View view2, View.OnClickListener onClickListener) {
-        super(view2);
-        this.aqQ = 3;
-        this.rootView = view2;
+    public f(View view, View.OnClickListener onClickListener) {
+        super(view);
+        this.ayX = 3;
+        this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.dZj = (GroupImageView) view2.findViewById(d.g.item_head);
-        this.dZk = (TextView) view2.findViewById(d.g.item_group_name);
-        this.dZl = (TextView) view2.findViewById(d.g.item_group_meizi);
-        this.dZm = (TextView) view2.findViewById(d.g.item_group_num);
-        this.dZn = (TextView) view2.findViewById(d.g.item_introduce);
-        this.dZo = (ImageView) view2.findViewById(d.g.item_grade1);
-        this.dZp = (ImageView) view2.findViewById(d.g.item_grade2);
-        this.dZq = (ImageView) view2.findViewById(d.g.item_grade3);
-        this.baf = view2.findViewById(d.g.divider_line);
-        this.dZr = new ImageView[4];
-        this.dZr[1] = this.dZo;
-        this.dZr[2] = this.dZp;
-        this.dZr[3] = this.dZq;
+        this.ekw = (GroupImageView) view.findViewById(d.g.item_head);
+        this.ekx = (TextView) view.findViewById(d.g.item_group_name);
+        this.eky = (TextView) view.findViewById(d.g.item_group_meizi);
+        this.ekz = (TextView) view.findViewById(d.g.item_group_num);
+        this.ekA = (TextView) view.findViewById(d.g.item_introduce);
+        this.ekB = (ImageView) view.findViewById(d.g.item_grade1);
+        this.ekC = (ImageView) view.findViewById(d.g.item_grade2);
+        this.ekD = (ImageView) view.findViewById(d.g.item_grade3);
+        this.bir = view.findViewById(d.g.divider_line);
+        this.ekE = new ImageView[4];
+        this.ekE[1] = this.ekB;
+        this.ekE[2] = this.ekC;
+        this.ekE[3] = this.ekD;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.dZj.setTag(null);
-            this.dZj.setDrawBorder(true);
-            this.dZj.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.ekw.setTag(null);
+            this.ekw.setDrawBorder(true);
+            this.ekw.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.dZj.setTag(portrait);
-                this.dZj.startLoad(portrait, 10, false);
+                this.ekw.setTag(portrait);
+                this.ekw.startLoad(portrait, 10, false);
             }
-            this.dZk.setText(groupInfoData.getName());
-            this.dZl.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.dZm.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.dZn.setText(groupInfoData.getIntro().trim());
-            a(this.dZr, groupInfoData.getGrade());
+            this.ekx.setText(groupInfoData.getName());
+            this.eky.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.ekz.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.ekA.setText(groupInfoData.getIntro().trim());
+            a(this.ekE, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                ak.c(this.dZk, d.C0126d.common_color_10009, 1);
-                ak.c(this.dZo, d.f.icon_vip_grade_big_small_s);
-                ak.c(this.dZp, d.f.icon_vip_grade_big_small_s);
-                ak.c(this.dZq, d.f.icon_vip_grade_big_small_s);
+                al.c(this.ekx, d.C0141d.common_color_10009, 1);
+                al.c(this.ekB, d.f.icon_vip_grade_big_small_s);
+                al.c(this.ekC, d.f.icon_vip_grade_big_small_s);
+                al.c(this.ekD, d.f.icon_vip_grade_big_small_s);
             }
         }
     }

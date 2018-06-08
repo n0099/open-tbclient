@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.NotificationService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -107,10 +108,10 @@ public class c extends a<MessageV3> {
             return 0;
         }
         if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getEndShowTime()).longValue()) {
-            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification expire", (int) PushConstants.EXPIRE_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification expire", 2200, messageV3.getTaskId(), messageV3.getDeviceId());
             return 1;
         } else if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getStartShowTime()).longValue()) {
-            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification on time", (int) PushConstants.ONTIME_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification on time", 2201, messageV3.getTaskId(), messageV3.getDeviceId());
             return 2;
         } else {
             com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification delay", (int) PushConstants.DELAY_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
@@ -124,7 +125,7 @@ public class c extends a<MessageV3> {
     public void e(MessageV3 messageV3) {
         Context c = c();
         c();
-        AlarmManager alarmManager = (AlarmManager) c.getSystemService("alarm");
+        AlarmManager alarmManager = (AlarmManager) c.getSystemService(NotificationCompat.CATEGORY_ALARM);
         Intent intent = new Intent(c(), NotificationService.class);
         intent.setPackage(messageV3.getPackageName());
         intent.addCategory(messageV3.getPackageName());

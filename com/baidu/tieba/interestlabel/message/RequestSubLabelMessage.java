@@ -2,8 +2,8 @@ package com.baidu.tieba.interestlabel.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.util.p;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.CommonReq;
@@ -23,7 +23,7 @@ public class RequestSubLabelMessage extends NetMessage {
     }
 
     public void setLabelList(List<Integer> list) {
-        if (v.w(list)) {
+        if (w.z(list)) {
             list = new ArrayList<>();
         }
         this.labelList = list;
@@ -35,7 +35,7 @@ public class RequestSubLabelMessage extends NetMessage {
         builder.common = this.common;
         builder.arr_tag_id = this.labelList;
         if (z) {
-            o.bindCommonParamsToProtobufData(builder, true);
+            p.bindCommonParamsToProtobufData(builder, true);
         }
         SubTagListReqIdl.Builder builder2 = new SubTagListReqIdl.Builder();
         builder2.data = builder.build(false);

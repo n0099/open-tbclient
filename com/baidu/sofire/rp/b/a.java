@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
+import com.baidu.ar.util.IoUtils;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.b.d;
 import com.baidu.sofire.e;
@@ -14,14 +15,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
     private static a a;
-    private C0079a b;
+    private C0096a b;
     private e c;
     private SQLiteDatabase d;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.b = new C0079a(context);
+        this.b = new C0096a(context);
         this.c = new e(context);
         try {
             this.d = this.b.getWritableDatabase();
@@ -53,7 +54,7 @@ public final class a {
         contentValues.put("j", aVar.j);
         String str = aVar.d;
         try {
-            str = Base64.encodeToString(F.getInstance().ae(str.getBytes(), "xVOTuxgN3lkRN2v4".getBytes("utf-8")), 0);
+            str = Base64.encodeToString(F.getInstance().ae(str.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IoUtils.UTF_8)), 0);
         } catch (Exception e) {
             d.a(e);
         }
@@ -183,7 +184,7 @@ public final class a {
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
                             try {
-                                str = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes("utf-8")));
+                                str = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IoUtils.UTF_8)));
                             } catch (Exception e) {
                                 d.a(e);
                                 str = string;
@@ -262,7 +263,7 @@ public final class a {
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
                             try {
-                                str = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes("utf-8")));
+                                str = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IoUtils.UTF_8)));
                             } catch (Exception e) {
                                 d.a(e);
                                 str = string;
@@ -349,7 +350,7 @@ public final class a {
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
                             try {
-                                str = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes("utf-8")));
+                                str = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IoUtils.UTF_8)));
                             } catch (Exception e) {
                                 d.a(e);
                                 str = string;
@@ -429,7 +430,7 @@ public final class a {
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
                             try {
-                                str = new String(F.getInstance().ae(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes("utf-8")));
+                                str = new String(F.getInstance().ae(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IoUtils.UTF_8)));
                             } catch (Exception e) {
                                 d.a(e);
                                 str = string;
@@ -493,8 +494,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    class C0079a extends SQLiteOpenHelper {
-        public C0079a(Context context) {
+    class C0096a extends SQLiteOpenHelper {
+        public C0096a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

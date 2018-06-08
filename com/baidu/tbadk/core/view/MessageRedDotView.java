@@ -11,19 +11,19 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class MessageRedDotView extends FrameLayout {
-    private ImageView amL;
-    private TextView amM;
-    private TextView amN;
-    private TextView amO;
-    private RelativeLayout amP;
-    private ImageView amQ;
-    private ImageView amR;
-    private ImageView amS;
-    private ImageView amT;
+    private ImageView auT;
+    private TextView auU;
+    private TextView auV;
+    private TextView auW;
+    private RelativeLayout auX;
+    private ImageView auY;
+    private ImageView auZ;
+    private ImageView ava;
+    private ImageView avb;
     private int mType;
 
     public MessageRedDotView(@NonNull Context context) {
@@ -53,74 +53,74 @@ public class MessageRedDotView extends FrameLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(d.i.message_red_dot_view, (ViewGroup) this, true);
-        this.amL = (ImageView) findViewById(d.g.red_dot);
-        this.amM = (TextView) findViewById(d.g.one_num_red_dot);
-        this.amN = (TextView) findViewById(d.g.two_num_red_dot);
-        this.amO = (TextView) findViewById(d.g.three_num_red_dot);
-        this.amP = (RelativeLayout) findViewById(d.g.more_num_red_dot);
-        this.amQ = (ImageView) findViewById(d.g.more_num_red_dot_bg);
-        this.amR = (ImageView) findViewById(d.g.more_num_white_dot_center);
-        this.amS = (ImageView) findViewById(d.g.more_num_white_dot_left);
-        this.amT = (ImageView) findViewById(d.g.more_num_white_dot_right);
+        this.auT = (ImageView) findViewById(d.g.red_dot);
+        this.auU = (TextView) findViewById(d.g.one_num_red_dot);
+        this.auV = (TextView) findViewById(d.g.two_num_red_dot);
+        this.auW = (TextView) findViewById(d.g.three_num_red_dot);
+        this.auX = (RelativeLayout) findViewById(d.g.more_num_red_dot);
+        this.auY = (ImageView) findViewById(d.g.more_num_red_dot_bg);
+        this.auZ = (ImageView) findViewById(d.g.more_num_white_dot_center);
+        this.ava = (ImageView) findViewById(d.g.more_num_white_dot_left);
+        this.avb = (ImageView) findViewById(d.g.more_num_white_dot_right);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        if (this.amL != null) {
-            ak.c(this.amL, d.f.icon_news_red_dot);
+        if (this.auT != null) {
+            al.c(this.auT, d.f.icon_news_red_dot);
         }
-        if (this.amM != null) {
-            ak.c(this.amM, d.C0126d.cp_cont_i, 1);
-            ak.i(this.amM, d.f.icon_news_red_dot_one_number);
+        if (this.auU != null) {
+            al.c(this.auU, d.C0141d.cp_cont_i, 1);
+            al.i(this.auU, d.f.icon_news_red_dot_one_number);
         }
-        if (this.amN != null) {
-            ak.c(this.amN, d.C0126d.cp_cont_i, 1);
-            ak.i(this.amN, d.f.icon_news_red_dot_two_number);
+        if (this.auV != null) {
+            al.c(this.auV, d.C0141d.cp_cont_i, 1);
+            al.i(this.auV, d.f.icon_news_red_dot_two_number);
         }
-        if (this.amO != null) {
-            ak.c(this.amO, d.C0126d.cp_cont_i, 1);
-            ak.i(this.amO, d.f.icon_news_red_dot_three_number);
+        if (this.auW != null) {
+            al.c(this.auW, d.C0141d.cp_cont_i, 1);
+            al.i(this.auW, d.f.icon_news_red_dot_three_number);
         }
-        if (this.amQ != null && this.amR != null && this.amS != null && this.amT != null) {
-            ak.c(this.amQ, d.f.icon_news_red_dot_two_number);
-            ak.c(this.amR, d.f.icon_news_white_dot);
-            ak.c(this.amS, d.f.icon_news_white_dot);
-            ak.c(this.amT, d.f.icon_news_white_dot);
+        if (this.auY != null && this.auZ != null && this.ava != null && this.avb != null) {
+            al.c(this.auY, d.f.icon_news_red_dot_two_number);
+            al.c(this.auZ, d.f.icon_news_white_dot);
+            al.c(this.ava, d.f.icon_news_white_dot);
+            al.c(this.avb, d.f.icon_news_white_dot);
         }
     }
 
     public void refresh(int i) {
         if (i <= 0) {
-            this.amL.setVisibility(0);
-            this.amM.setVisibility(8);
-            this.amN.setVisibility(8);
-            this.amO.setVisibility(8);
-            this.amP.setVisibility(8);
+            this.auT.setVisibility(0);
+            this.auU.setVisibility(8);
+            this.auV.setVisibility(8);
+            this.auW.setVisibility(8);
+            this.auX.setVisibility(8);
         } else if (i < 10) {
-            this.amM.setText(String.valueOf(i));
-            this.amL.setVisibility(8);
-            this.amM.setVisibility(0);
-            this.amN.setVisibility(8);
-            this.amO.setVisibility(8);
-            this.amP.setVisibility(8);
+            this.auU.setText(String.valueOf(i));
+            this.auT.setVisibility(8);
+            this.auU.setVisibility(0);
+            this.auV.setVisibility(8);
+            this.auW.setVisibility(8);
+            this.auX.setVisibility(8);
         } else if (i < 100) {
-            this.amN.setText(String.valueOf(i));
-            this.amL.setVisibility(8);
-            this.amM.setVisibility(8);
-            this.amN.setVisibility(0);
-            this.amO.setVisibility(8);
-            this.amP.setVisibility(8);
+            this.auV.setText(String.valueOf(i));
+            this.auT.setVisibility(8);
+            this.auU.setVisibility(8);
+            this.auV.setVisibility(0);
+            this.auW.setVisibility(8);
+            this.auX.setVisibility(8);
         } else {
-            this.amL.setVisibility(8);
-            this.amM.setVisibility(8);
-            this.amN.setVisibility(8);
+            this.auT.setVisibility(8);
+            this.auU.setVisibility(8);
+            this.auV.setVisibility(8);
             if (this.mType == 1) {
-                this.amP.setVisibility(0);
-                this.amO.setVisibility(8);
+                this.auX.setVisibility(0);
+                this.auW.setVisibility(8);
             } else if (this.mType == 2) {
-                this.amP.setVisibility(8);
-                this.amO.setVisibility(0);
-                this.amO.setText("99+");
+                this.auX.setVisibility(8);
+                this.auW.setVisibility(0);
+                this.auW.setText("99+");
             }
         }
         onChangeSkinType();

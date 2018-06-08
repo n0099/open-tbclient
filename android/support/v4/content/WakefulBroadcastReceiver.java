@@ -7,15 +7,16 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.util.Log;
 import android.util.SparseArray;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.parser.ARResourceKey;
+@Deprecated
 /* loaded from: classes2.dex */
 public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
     private static final String EXTRA_WAKE_LOCK_ID = "android.support.content.wakelockid";
-    private static final SparseArray<PowerManager.WakeLock> mActiveWakeLocks = new SparseArray<>();
+    private static final SparseArray<PowerManager.WakeLock> sActiveWakeLocks = new SparseArray<>();
     private static int mNextId = 1;
 
     public static ComponentName startWakefulService(Context context, Intent intent) {
-        synchronized (mActiveWakeLocks) {
+        synchronized (sActiveWakeLocks) {
             int i = mNextId;
             mNextId++;
             if (mNextId <= 0) {
@@ -26,10 +27,10 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
             if (startService == null) {
                 return null;
             }
-            PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService(Constants.HTTP_POWER)).newWakeLock(1, "wake:" + startService.flattenToShortString());
+            PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService(ARResourceKey.HTTP_POWER)).newWakeLock(1, "wake:" + startService.flattenToShortString());
             newWakeLock.setReferenceCounted(false);
             newWakeLock.acquire(60000L);
-            mActiveWakeLocks.put(i, newWakeLock);
+            sActiveWakeLocks.put(i, newWakeLock);
             return startService;
         }
     }
@@ -38,14 +39,14 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
         boolean z = false;
         int intExtra = intent.getIntExtra(EXTRA_WAKE_LOCK_ID, 0);
         if (intExtra != 0) {
-            synchronized (mActiveWakeLocks) {
-                PowerManager.WakeLock wakeLock = mActiveWakeLocks.get(intExtra);
+            synchronized (sActiveWakeLocks) {
+                PowerManager.WakeLock wakeLock = sActiveWakeLocks.get(intExtra);
                 if (wakeLock != null) {
                     wakeLock.release();
-                    mActiveWakeLocks.remove(intExtra);
+                    sActiveWakeLocks.remove(intExtra);
                     z = true;
                 } else {
-                    Log.w("WakefulBroadcastReceiver", "No active wake lock id #" + intExtra);
+                    Log.w("WakefulBroadcastReceiv.", "No active wake lock id #" + intExtra);
                     z = true;
                 }
             }

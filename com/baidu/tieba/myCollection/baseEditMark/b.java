@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel eUX;
+    private MarkModel fgr;
 
     public b(BaseActivity baseActivity) {
-        this.eUX = null;
-        this.eUX = new MarkModel(baseActivity);
+        this.fgr = null;
+        this.fgr = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.eUX = null;
-        this.eUX = new MarkModel(baseFragmentActivity);
+        this.fgr = null;
+        this.fgr = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ae(boolean z) {
-        this.eUX.ae(z);
+    public void ah(boolean z) {
+        this.fgr.ah(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String oG() {
-        return this.eUX.oG();
+    public String sb() {
+        return this.fgr.sb();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0082a interfaceC0082a) {
-        this.eUX.a(interfaceC0082a);
+    public void a(a.InterfaceC0099a interfaceC0099a) {
+        this.fgr.a(interfaceC0099a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void oI() {
-        this.eUX.oI();
+    public void sd() {
+        this.fgr.sd();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void oJ() {
-        this.eUX.oJ();
+    public void se() {
+        this.fgr.se();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData oK() {
-        return this.eUX.oK();
+    public MarkData sf() {
+        return this.fgr.sf();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.eUX.a(markData);
+        this.fgr.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean oH() {
-        return this.eUX.oH();
+    public boolean sc() {
+        return this.fgr.sc();
     }
 }

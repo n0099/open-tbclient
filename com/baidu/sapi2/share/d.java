@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
+import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
@@ -335,7 +336,7 @@ public final class d {
                 hashMap.put("read_sd_count", i + "");
                 hashMap.put("app_count", size + "");
                 hashMap.put("share_count", arrayList.size() + "");
-                hashMap.put("os_version", Build.VERSION.RELEASE);
+                hashMap.put(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE);
                 StatService.onEvent("share_read", hashMap, false);
             }
         }));

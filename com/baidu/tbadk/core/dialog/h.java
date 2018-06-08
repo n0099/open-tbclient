@@ -1,44 +1,119 @@
 package com.baidu.tbadk.core.dialog;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
+import com.baidu.tieba.pb.data.ContriInfo;
 /* loaded from: classes.dex */
-public class h {
-    private boolean checked;
-    private String desc;
-    private String tag;
-    private String tip;
+public class h extends com.baidu.tbadk.core.dialog.a {
+    public static long aly = 0;
+    private TextView alA;
+    private TbImageView alB;
+    private int alC;
+    private Runnable alD;
+    private a alE;
+    private TextView alz;
 
-    public h() {
+    /* loaded from: classes.dex */
+    public interface a {
+        void aC(boolean z);
     }
 
-    public h(String str, String str2, boolean z) {
-        this.tip = str;
-        this.desc = str2;
-        this.checked = z;
+    public h(com.baidu.adp.base.e<?> eVar) {
+        super(eVar.getPageActivity());
+        this.alC = 3;
+        this.alD = new Runnable() { // from class: com.baidu.tbadk.core.dialog.h.1
+            @Override // java.lang.Runnable
+            public void run() {
+                h.this.dismiss();
+            }
+        };
+        w(nn());
+        b(eVar);
     }
 
-    public h(String str, String str2, boolean z, String str3) {
-        this.tip = str;
-        this.desc = str2;
-        this.checked = z;
-        this.tag = str3;
+    public void a(a aVar) {
+        this.alE = aVar;
     }
 
-    public String tL() {
-        return this.tip;
+    public void a(ContriInfo contriInfo, long j) {
+        boolean z;
+        if (contriInfo != null) {
+            if (j <= 0) {
+                j = 3000;
+            }
+            String colorMsg = contriInfo.getColorMsg();
+            if (xk() && !StringUtils.isNull(contriInfo.getPreColorMsg()) && !StringUtils.isNull(contriInfo.getToastBackImage()) && colorMsg != null) {
+                colorMsg = contriInfo.getPreColorMsg() + colorMsg;
+                this.alB.startLoad(contriInfo.getToastBackImage(), 10, false);
+                z = true;
+            } else {
+                this.alB.startLoad(null, 10, false);
+                this.alB.invalidate();
+                z = false;
+            }
+            this.alz.setText(colorMsg);
+            this.alA.setText(contriInfo.getAfterMsg());
+            com.baidu.adp.lib.g.e.im().postDelayed(this.alD, j);
+            xb().setBackgroundResource(0);
+            xa();
+            if (this.alE != null) {
+                this.alE.aC(z);
+            }
+        }
     }
 
-    public String getDesc() {
-        return this.desc;
+    public void onDestroy() {
+        com.baidu.adp.lib.g.e.im().removeCallbacks(this.alD);
     }
 
-    public boolean isChecked() {
-        return this.checked;
+    private View nn() {
+        View inflate = LayoutInflater.from(this.mActivity).inflate(d.i.star_idol_layout, (ViewGroup) null);
+        this.alB = (TbImageView) inflate.findViewById(d.g.image);
+        this.alB.setDefaultBgResource(d.C0141d.transparent);
+        this.alB.setDefaultResource(d.f.pic_frs_idol_mission_tost);
+        this.alz = (TextView) inflate.findViewById(d.g.toast_text);
+        this.alA = (TextView) inflate.findViewById(d.g.describe_text);
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.h.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                h.this.dismiss();
+            }
+        });
+        return inflate;
     }
 
-    public void setChecked(boolean z) {
-        this.checked = z;
+    @Override // com.baidu.tbadk.core.dialog.a
+    public void dismiss() {
+        super.dismiss();
+        com.baidu.adp.lib.g.e.im().removeCallbacks(this.alD);
     }
 
-    public String getTag() {
-        return this.tag;
+    @Override // com.baidu.tbadk.core.dialog.a
+    public void hide() {
+        super.hide();
+        com.baidu.adp.lib.g.e.im().removeCallbacks(this.alD);
+    }
+
+    public void onChangeSkinType(int i) {
+        if (i != this.alC) {
+            this.alC = i;
+            if (this.alB != null) {
+                this.alB.invalidate();
+            }
+            al.h(this.alz, d.C0141d.common_color_10327);
+            al.h(this.alA, d.C0141d.cp_cont_i);
+        }
+    }
+
+    private boolean xk() {
+        return System.currentTimeMillis() - aly <= 600000;
     }
 }

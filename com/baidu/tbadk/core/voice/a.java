@@ -6,30 +6,30 @@ import com.baidu.adp.lib.util.f;
 import com.baidu.adp.lib.util.q;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.k;
+import com.baidu.tbadk.core.util.l;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String xA() {
-        return q.hq();
+    public static String Bb() {
+        return q.ke();
     }
 
-    public static String eQ(String str) {
+    public static String fp(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String eR(String str) {
-        return k.q(str, 1);
+    public static String getVoiceFilePath(String str) {
+        return l.q(str, 1);
     }
 
-    public static String eS(String str) {
-        return f.aE(eQ(str));
+    public static String fq(String str) {
+        return f.aQ(fp(str));
     }
 
-    public static boolean aJ(String str) {
+    public static boolean aV(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

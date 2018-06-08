@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     private static final boolean DEBUG = false;
-    private static final String TAG = "FragmentStatePagerAdapter";
+    private static final String TAG = "FragmentStatePagerAdapt";
     private final FragmentManager mFragmentManager;
     private FragmentTransaction mCurTransaction = null;
     private ArrayList<Fragment.SavedState> mSavedState = new ArrayList<>();
@@ -94,8 +94,8 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
-        return ((Fragment) obj).getView() == view2;
+    public boolean isViewFromObject(View view, Object obj) {
+        return ((Fragment) obj).getView() == view;
     }
 
     @Override // android.support.v4.view.PagerAdapter

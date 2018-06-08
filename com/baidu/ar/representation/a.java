@@ -198,4 +198,11 @@ public final class a {
             fArr[i + 10] = cos + (f7 * f4 * f4);
         }
     }
+
+    public static void b(float[] fArr, int i, float[] fArr2, int i2, float[] fArr3, int i3) {
+        fArr[i + 0] = (fArr2[i2 + 0] * fArr3[i3 + 0]) + (fArr2[i2 + 4] * fArr3[i3 + 1]) + (fArr2[i2 + 8] * fArr3[i3 + 2]) + (fArr2[i2 + 12] * fArr3[i3 + 3]);
+        fArr[i + 1] = (fArr2[i2 + 1] * fArr3[i3 + 0]) + (fArr2[i2 + 5] * fArr3[i3 + 1]) + (fArr2[i2 + 9] * fArr3[i3 + 2]) + (fArr2[i2 + 13] * fArr3[i3 + 3]);
+        fArr[i + 2] = (fArr2[i2 + 2] * fArr3[i3 + 0]) + (fArr2[i2 + 6] * fArr3[i3 + 1]) + (fArr2[i2 + 10] * fArr3[i3 + 2]) + (fArr2[i2 + 14] * fArr3[i3 + 3]);
+        fArr[i + 3] = (fArr2[i2 + 3] * fArr3[i3 + 0]) + (fArr2[i2 + 7] * fArr3[i3 + 1]) + (fArr2[i2 + 11] * fArr3[i3 + 2]) + (fArr2[i2 + 15] * fArr3[i3 + 3]);
+    }
 }

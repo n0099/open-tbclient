@@ -12,5 +12,5 @@ public interface j<V extends ViewGroup> {
 
     V getListView();
 
-    boolean removeHeaderView(View view2);
+    boolean removeHeaderView(View view);
 }

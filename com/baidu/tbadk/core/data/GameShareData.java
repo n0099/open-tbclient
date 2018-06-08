@@ -2,32 +2,31 @@ package com.baidu.tbadk.core.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GameShareData implements Parcelable {
     public static final Parcelable.Creator<GameShareData> CREATOR = new Parcelable.Creator<GameShareData>() { // from class: com.baidu.tbadk.core.data.GameShareData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: e */
+        /* renamed from: f */
         public GameShareData createFromParcel(Parcel parcel) {
             return new GameShareData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: bB */
+        /* renamed from: bD */
         public GameShareData[] newArray(int i) {
             return new GameShareData[i];
         }
     };
-    public String XZ;
-    public String Ya;
-    public float Yb;
-    public float Yc;
-    public String Yd;
-    public String Ye;
-    public String Yf;
+    public String aga;
+    public String agb;
+    public float agc;
+    public float agd;
+    public String agf;
+    public String agg;
+    public String agh;
     public String gameName;
     public String userName;
     public String userPortrait;
@@ -36,30 +35,30 @@ public class GameShareData implements Parcelable {
     }
 
     protected GameShareData(Parcel parcel) {
-        this.XZ = parcel.readString();
+        this.aga = parcel.readString();
         this.gameName = parcel.readString();
-        this.Ya = parcel.readString();
-        this.Yb = parcel.readFloat();
+        this.agb = parcel.readString();
+        this.agc = parcel.readFloat();
         this.userName = parcel.readString();
         this.userPortrait = parcel.readString();
-        this.Yc = parcel.readFloat();
-        this.Yd = parcel.readString();
-        this.Ye = parcel.readString();
-        this.Yf = parcel.readString();
+        this.agd = parcel.readFloat();
+        this.agf = parcel.readString();
+        this.agg = parcel.readString();
+        this.agh = parcel.readString();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.XZ);
+        parcel.writeString(this.aga);
         parcel.writeString(this.gameName);
-        parcel.writeString(this.Ya);
-        parcel.writeFloat(this.Yb);
+        parcel.writeString(this.agb);
+        parcel.writeFloat(this.agc);
         parcel.writeString(this.userName);
         parcel.writeString(this.userPortrait);
-        parcel.writeFloat(this.Yc);
-        parcel.writeString(this.Yd);
-        parcel.writeString(this.Ye);
-        parcel.writeString(this.Yf);
+        parcel.writeFloat(this.agd);
+        parcel.writeString(this.agf);
+        parcel.writeString(this.agg);
+        parcel.writeString(this.agh);
     }
 
     @Override // android.os.Parcelable
@@ -69,16 +68,16 @@ public class GameShareData implements Parcelable {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.XZ = jSONObject.optString("barIconUrl");
+            this.aga = jSONObject.optString("barIconUrl");
             this.gameName = jSONObject.optString("barName");
-            this.Ya = jSONObject.optString("barDescribe");
-            this.Yb = (float) jSONObject.optDouble(WBConstants.GAME_PARAMS_SCORE);
+            this.agb = jSONObject.optString("barDescribe");
+            this.agc = (float) jSONObject.optDouble("score");
             this.userName = jSONObject.optString("userName");
             this.userPortrait = jSONObject.optString("avastar");
-            this.Yc = (float) jSONObject.optDouble("userScore");
-            this.Yd = jSONObject.optString("content");
-            this.Ye = jSONObject.optString("qrCodeUrl");
-            this.Yf = jSONObject.optString("headBgUrl");
+            this.agd = (float) jSONObject.optDouble("userScore");
+            this.agf = jSONObject.optString("content");
+            this.agg = jSONObject.optString("qrCodeUrl");
+            this.agh = jSONObject.optString("headBgUrl");
         }
     }
 }

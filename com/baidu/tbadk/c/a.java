@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static b SM = null;
-    private static a SO = null;
-    private static boolean SQ = false;
-    private static String SR = "";
-    private static transient List<String> SS = new ArrayList(5);
+    private static b aaV = null;
+    private static a aaW = null;
+    private static boolean aaX = false;
+    private static String aaY = "";
+    private static transient List<String> aaZ = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (SO == null) {
+        if (aaW == null) {
             synchronized (a.class) {
-                if (SO == null) {
-                    SO = new a();
-                    SM = b.c(baseFragmentActivity);
+                if (aaW == null) {
+                    aaW = new a();
+                    aaV = b.c(baseFragmentActivity);
                 }
             }
-        } else if (SM != null) {
-            SM.setContext(baseFragmentActivity.getPageContext());
+        } else if (aaV != null) {
+            aaV.setContext(baseFragmentActivity.getPageContext());
         }
-        if (SQ && SM != null) {
-            SM.oU();
-            SM.oV();
-            SQ = false;
+        if (aaX && aaV != null) {
+            aaV.sp();
+            aaV.sq();
+            aaX = false;
         }
-        return SO;
+        return aaW;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        oQ();
+        sl();
         if (z) {
-            oL();
+            sg();
         }
         if (z2) {
-            oM();
+            sh();
         }
-        af(z3);
+        ai(z3);
         a(aVar);
     }
 
-    public void oL() {
-        oQ();
-        if (SM != null) {
-            SM.oU();
-            SQ = false;
+    public void sg() {
+        sl();
+        if (aaV != null) {
+            aaV.sp();
+            aaX = false;
         }
     }
 
-    public void oM() {
-        oQ();
-        if (SM != null) {
-            SM.oV();
-            SQ = false;
+    public void sh() {
+        sl();
+        if (aaV != null) {
+            aaV.sq();
+            aaX = false;
         }
     }
 
-    public void af(boolean z) {
-        oQ();
-        if (SM != null) {
-            SM.af(z);
+    public void ai(boolean z) {
+        sl();
+        if (aaV != null) {
+            aaV.ai(z);
         }
     }
 
     public void a(b.a aVar) {
-        oQ();
-        if (SM != null) {
-            SM.c(aVar);
+        sl();
+        if (aaV != null) {
+            aaV.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        oQ();
-        if (SM != null) {
-            if (SM.oR()) {
-                SM.c(aVar);
+        sl();
+        if (aaV != null) {
+            if (aaV.sm()) {
+                aaV.c(aVar);
             }
-            SM.oT();
+            aaV.so();
         }
     }
 
     public void a(int i, b.a aVar) {
-        oQ();
-        if (SM != null) {
-            if (SM.oR()) {
-                SM.c(aVar);
+        sl();
+        if (aaV != null) {
+            if (aaV.sm()) {
+                aaV.c(aVar);
             }
-            SM.aY(i);
+            aaV.ba(i);
         }
     }
 
-    public void oN() {
-        oQ();
-        if (SM != null) {
-            SM.oN();
-            SQ = true;
+    public void si() {
+        sl();
+        if (aaV != null) {
+            aaV.si();
+            aaX = true;
         }
     }
 
-    public void oO() {
-        oQ();
-        if (SM != null) {
-            SM.oO();
+    public void sj() {
+        sl();
+        if (aaV != null) {
+            aaV.sj();
         }
     }
 
-    public void oP() {
-        oQ();
-        oO();
-        oN();
+    public void sk() {
+        sl();
+        sj();
+        si();
     }
 
-    private void oQ() {
-        if (SM == null) {
+    private void sl() {
+        if (aaV == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (SM != null) {
-                if (SO != null) {
-                    SO.oP();
+            if (aaV != null) {
+                if (aaW != null) {
+                    aaW.sk();
                 }
-                SM.oS();
-                SM.oW();
-                SM = null;
+                aaV.sn();
+                aaV.sr();
+                aaV = null;
             }
-            if (SO != null) {
-                SO = null;
+            if (aaW != null) {
+                aaW = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

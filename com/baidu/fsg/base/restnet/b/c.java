@@ -8,6 +8,7 @@ import com.baidu.fsg.base.restnet.RestDebugConfig;
 import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestRequestCallbacker;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.BufferedInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -240,7 +241,7 @@ public class c implements com.baidu.fsg.base.restnet.rest.b {
 
     private void e() {
         try {
-            Class.forName("android.net.http.HttpResponseCache").getMethod("close", new Class[0]).invoke(null, new Object[0]);
+            Class.forName("android.net.http.HttpResponseCache").getMethod(IntentConfig.CLOSE, new Class[0]).invoke(null, new Object[0]);
         } catch (Exception e) {
         }
     }

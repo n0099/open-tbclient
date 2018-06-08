@@ -6,31 +6,31 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class TriangleShapeView extends View {
-    private int fuD;
+    private int fFU;
     private Paint mPaint;
     private Path mPath;
 
     public TriangleShapeView(Context context) {
         super(context);
-        this.fuD = d.C0126d.cp_bg_line_e;
+        this.fFU = d.C0141d.cp_bg_line_e;
     }
 
     public TriangleShapeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fuD = d.C0126d.cp_bg_line_e;
+        this.fFU = d.C0141d.cp_bg_line_e;
     }
 
     public TriangleShapeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fuD = d.C0126d.cp_bg_line_e;
+        this.fFU = d.C0141d.cp_bg_line_e;
     }
 
     public void setColorId(int i) {
-        this.fuD = i;
+        this.fFU = i;
     }
 
     @Override // android.view.View
@@ -39,7 +39,7 @@ public class TriangleShapeView extends View {
         int width = getWidth();
         int height = getHeight();
         if (width != 0 && height != 0) {
-            bbo();
+            bgn();
             if (this.mPath == null) {
                 this.mPath = new Path();
             }
@@ -51,12 +51,12 @@ public class TriangleShapeView extends View {
         }
     }
 
-    private void bbo() {
+    private void bgn() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(ak.getColor(this.fuD));
+        this.mPaint.setColor(al.getColor(this.fFU));
     }
 }

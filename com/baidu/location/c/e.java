@@ -6,8 +6,11 @@ import android.location.Location;
 import android.net.http.Headers;
 import android.os.Environment;
 import android.os.Handler;
+import com.baidu.ar.util.IoUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.location.Jni;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.sina.weibo.sdk.component.WidgetRequestParam;
 import java.io.BufferedOutputStream;
@@ -32,9 +35,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e Oy = null;
+    private static e WF = null;
     public static String f = "0";
-    private Handler OF;
+    private Handler WN;
     private int k = 1;
     private double l = 0.699999988079071d;
     private String m = "3G|4G";
@@ -42,36 +45,36 @@ public class e {
     private int o = 307200;
     private int p = 15;
     private int q = 1;
-    private double Ob = 3.5d;
-    private double Oz = 3.0d;
-    private double t = 0.5d;
+    private double Wi = 3.5d;
+    private double WG = 3.0d;
+    private double WH = 0.5d;
     private int u = 300;
     private int v = 60;
     private int w = 0;
     private int x = 60;
     private int y = 0;
     private long z = 0;
-    private a OA = null;
+    private a WI = null;
     private boolean B = false;
     private boolean C = false;
     private int D = 0;
-    private float OB = 0.0f;
-    private float OC = 0.0f;
+    private float WJ = 0.0f;
+    private float WK = 0.0f;
     private long G = 0;
     private int H = 500;
     long a = 0;
-    Location OD = null;
-    Location NY = null;
-    StringBuilder OE = null;
+    Location WL = null;
+    Location Wf = null;
+    StringBuilder WM = null;
     long e = 0;
-    private byte[] OG = new byte[4];
-    private byte[] K = null;
+    private byte[] WO = new byte[4];
+    private byte[] WP = null;
     private int L = 0;
     private List<Byte> M = null;
     private boolean N = false;
     int g = 0;
     double h = 116.22345545d;
-    double OH = 40.245667323d;
+    double WQ = 40.245667323d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -113,8 +116,8 @@ public class e {
     }
 
     private e() {
-        this.OF = null;
-        this.OF = new Handler();
+        this.WN = null;
+        this.WN = new Handler();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -128,8 +131,8 @@ public class e {
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setUseCaches(false);
             httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setRequestProperty("Charset", "utf-8");
-            httpURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, "close");
+            httpURLConnection.setRequestProperty("Charset", IoUtils.UTF_8);
+            httpURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, IntentConfig.CLOSE);
             httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
             if (file != null && file.exists()) {
                 OutputStream outputStream = httpURLConnection.getOutputStream();
@@ -137,10 +140,10 @@ public class e {
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append("--");
                 stringBuffer.append(uuid);
-                stringBuffer.append("\r\n");
-                stringBuffer.append("Content-Disposition: form-data; name=\"location_dat\"; filename=\"" + file.getName() + "\"\r\n");
-                stringBuffer.append("Content-Type: application/octet-stream; charset=utf-8\r\n");
-                stringBuffer.append("\r\n");
+                stringBuffer.append(SystemInfoUtil.LINE_END);
+                stringBuffer.append("Content-Disposition: form-data; name=\"location_dat\"; filename=\"" + file.getName() + "\"" + SystemInfoUtil.LINE_END);
+                stringBuffer.append("Content-Type: application/octet-stream; charset=utf-8" + SystemInfoUtil.LINE_END);
+                stringBuffer.append(SystemInfoUtil.LINE_END);
                 dataOutputStream.write(stringBuffer.toString().getBytes());
                 FileInputStream fileInputStream = new FileInputStream(file);
                 byte[] bArr = new byte[1024];
@@ -152,8 +155,8 @@ public class e {
                     dataOutputStream.write(bArr, 0, read);
                 }
                 fileInputStream.close();
-                dataOutputStream.write("\r\n".getBytes());
-                dataOutputStream.write(("--" + uuid + "--\r\n").getBytes());
+                dataOutputStream.write(SystemInfoUtil.LINE_END.getBytes());
+                dataOutputStream.write(("--" + uuid + "--" + SystemInfoUtil.LINE_END).getBytes());
                 dataOutputStream.flush();
                 int responseCode = httpURLConnection.getResponseCode();
                 outputStream.close();
@@ -271,7 +274,7 @@ public class e {
             }
             RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(8L);
-            byte[] bytes2 = (b("%d_%02d_%02d") + ":" + i).getBytes();
+            byte[] bytes2 = (b("%d_%02d_%02d") + SystemInfoUtil.COLON + i).getBytes();
             randomAccessFile2.writeInt(bytes2.length);
             randomAccessFile2.write(bytes2);
             randomAccessFile2.close();
@@ -311,13 +314,13 @@ public class e {
                     this.q = jSONObject.getInt("chdron");
                 }
                 if (jSONObject.has("spsh")) {
-                    this.Ob = jSONObject.getDouble("spsh");
+                    this.Wi = jSONObject.getDouble("spsh");
                 }
                 if (jSONObject.has("acsh")) {
-                    this.Oz = jSONObject.getDouble("acsh");
+                    this.WG = jSONObject.getDouble("acsh");
                 }
                 if (jSONObject.has("stspsh")) {
-                    this.t = jSONObject.getDouble("stspsh");
+                    this.WH = jSONObject.getDouble("stspsh");
                 }
                 if (jSONObject.has("drstsh")) {
                     this.u = jSONObject.getInt("drstsh");
@@ -343,28 +346,28 @@ public class e {
     private void d() {
         String[] split = (0 == 0 ? "6.2.3" : null).split("\\.");
         int length = split.length;
-        this.OG[0] = 0;
-        this.OG[1] = 0;
-        this.OG[2] = 0;
-        this.OG[3] = 0;
+        this.WO[0] = 0;
+        this.WO[1] = 0;
+        this.WO[2] = 0;
+        this.WO[3] = 0;
         if (length >= 4) {
             length = 4;
         }
         for (int i = 0; i < length; i++) {
             try {
-                this.OG[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
+                this.WO[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
             } catch (Exception e) {
             }
         }
-        this.K = a(com.baidu.location.h.c.c + ":" + com.baidu.location.h.c.nS().b);
+        this.WP = a(com.baidu.location.h.c.c + SystemInfoUtil.COLON + com.baidu.location.h.c.rf().b);
     }
 
     private void d(Location location) {
         if (System.currentTimeMillis() - this.a < this.H || location == null) {
             return;
         }
-        if (location != null && location.hasSpeed() && location.getSpeed() > this.OB) {
-            this.OB = location.getSpeed();
+        if (location != null && location.hasSpeed() && location.getSpeed() > this.WJ) {
+            this.WJ = location.getSpeed();
         }
         try {
             if (this.M == null) {
@@ -392,9 +395,9 @@ public class e {
                 byte[] bArr = new byte[readInt2];
                 randomAccessFile.read(bArr, 0, readInt2);
                 String str2 = new String(bArr);
-                if (str2.contains(b("%d_%02d_%02d")) && str2.contains(":")) {
+                if (str2.contains(b("%d_%02d_%02d")) && str2.contains(SystemInfoUtil.COLON)) {
                     try {
-                        String[] split = str2.split(":");
+                        String[] split = str2.split(SystemInfoUtil.COLON);
                         if (split.length > 1) {
                             this.y = Integer.valueOf(split[1]).intValue();
                         }
@@ -439,7 +442,7 @@ public class e {
         } else {
             this.M.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
         }
-        this.OD = location;
+        this.WL = location;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -497,14 +500,14 @@ public class e {
     private boolean e() {
         if (this.B) {
             if (!this.C) {
-                if (this.OB < this.t) {
+                if (this.WJ < this.WH) {
                     this.C = true;
                     this.D = 0;
                     this.D += this.p;
                     return true;
                 }
                 return true;
-            } else if (this.OB >= this.t) {
+            } else if (this.WJ >= this.WH) {
                 this.D = 0;
                 this.C = false;
                 return true;
@@ -514,7 +517,7 @@ public class e {
                     return true;
                 }
             }
-        } else if (this.OB >= this.Ob || this.OC >= this.Oz) {
+        } else if (this.WJ >= this.Wi || this.WK >= this.WG) {
             this.B = true;
             return true;
         } else if (this.w == 1 && System.currentTimeMillis() - this.G > this.x * 1000) {
@@ -527,18 +530,18 @@ public class e {
         this.M = null;
         this.e = 0L;
         this.L = 0;
-        this.OD = null;
-        this.NY = null;
-        this.OB = 0.0f;
-        this.OC = 0.0f;
+        this.WL = null;
+        this.Wf = null;
+        this.WJ = 0.0f;
+        this.WK = 0.0f;
     }
 
     private void f(Location location) {
         if (location == null) {
             return;
         }
-        int longitude = (int) ((location.getLongitude() - this.OD.getLongitude()) * 100000.0d);
-        int latitude = (int) ((location.getLatitude() - this.OD.getLatitude()) * 100000.0d);
+        int longitude = (int) ((location.getLongitude() - this.WL.getLongitude()) * 100000.0d);
+        int latitude = (int) ((location.getLatitude() - this.WL.getLatitude()) * 100000.0d);
         char c = location.hasBearing() ? (char) 0 : (char) 1;
         char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
         char c3 = longitude > 0 ? (char) 0 : (char) 1;
@@ -546,17 +549,17 @@ public class e {
         char c4 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.NY = null;
-            this.NY = this.OD;
+            this.Wf = null;
+            this.Wf = this.WL;
         }
-        this.OD = location;
-        if (this.OD != null && this.NY != null && this.OD.getTime() > this.NY.getTime() && this.OD.getTime() - this.NY.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
-            long time = this.OD.getTime() - this.NY.getTime();
+        this.WL = location;
+        if (this.WL != null && this.Wf != null && this.WL.getTime() > this.Wf.getTime() && this.WL.getTime() - this.Wf.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
+            long time = this.WL.getTime() - this.Wf.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.OD.getAltitude(), this.OD.getLongitude(), this.NY.getLatitude(), this.NY.getLongitude(), fArr);
-            double speed = (2.0f * (fArr[0] - (this.NY.getSpeed() * ((float) time)))) / ((float) (time * time));
-            if (speed > this.OC) {
-                this.OC = (float) speed;
+            Location.distanceBetween(this.WL.getAltitude(), this.WL.getLongitude(), this.Wf.getLatitude(), this.Wf.getLongitude(), fArr);
+            double speed = (2.0f * (fArr[0] - (this.Wf.getSpeed() * ((float) time)))) / ((float) (time * time));
+            if (speed > this.WK) {
+                this.WK = (float) speed;
             }
         }
         this.M.add(Byte.valueOf((byte) (abs & 255)));
@@ -637,26 +640,26 @@ public class e {
             this.M.add((byte) 126);
         }
         this.M.add((byte) 0);
-        this.M.add(Byte.valueOf(this.OG[0]));
-        this.M.add(Byte.valueOf(this.OG[1]));
-        this.M.add(Byte.valueOf(this.OG[2]));
-        this.M.add(Byte.valueOf(this.OG[3]));
-        int length = this.K.length;
+        this.M.add(Byte.valueOf(this.WO[0]));
+        this.M.add(Byte.valueOf(this.WO[1]));
+        this.M.add(Byte.valueOf(this.WO[2]));
+        this.M.add(Byte.valueOf(this.WO[3]));
+        int length = this.WP.length;
         this.M.add(Byte.valueOf((byte) ((length + 1) & 255)));
         for (int i = 0; i < length; i++) {
-            this.M.add(Byte.valueOf(this.K[i]));
+            this.M.add(Byte.valueOf(this.WP[i]));
         }
     }
 
     private void i() {
         if (System.currentTimeMillis() - this.z > 86400000) {
-            if (this.OA == null) {
-                this.OA = new a();
+            if (this.WI == null) {
+                this.WI = new a();
             }
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(com.baidu.location.h.c.nS().a(false));
-            stringBuffer.append(com.baidu.location.a.a.mS().c());
-            this.OA.a(stringBuffer.toString());
+            stringBuffer.append(com.baidu.location.h.c.rf().a(false));
+            stringBuffer.append(com.baidu.location.a.a.qg().c());
+            this.WI.a(stringBuffer.toString());
         }
         j();
     }
@@ -664,11 +667,11 @@ public class e {
     private void j() {
     }
 
-    public static e nl() {
-        if (Oy == null) {
-            Oy = new e();
+    public static e qy() {
+        if (WF == null) {
+            WF = new e();
         }
-        return Oy;
+        return WF;
     }
 
     public void b() {
@@ -682,9 +685,9 @@ public class e {
         if (!this.N) {
             c();
         }
-        if (this.k == 1 && b.ni().f() < this.l * 100.0d && this.m.contains(com.baidu.location.f.c.a(com.baidu.location.f.c.nI().e()))) {
+        if (this.k == 1 && b.qv().f() < this.l * 100.0d && this.m.contains(com.baidu.location.f.c.a(com.baidu.location.f.c.qV().e()))) {
             if (this.n != 1 || this.y <= this.o) {
-                this.OF.post(new j(this, location));
+                this.WN.post(new j(this, location));
             }
         }
     }

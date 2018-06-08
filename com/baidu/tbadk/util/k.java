@@ -1,34 +1,33 @@
 package com.baidu.tbadk.util;
 
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 /* loaded from: classes.dex */
-public class k {
-    private static String aNv;
-    private static String aNw;
-    private static String aNu = "";
-    private static int mThreadType = 0;
-    public static String aNx = "floor";
-    public static String aNy = "pbPage";
+public class k extends ClickableSpan {
+    private Context mContext;
 
-    public static void a(String str, String str2, String str3, int i, com.baidu.adp.base.e eVar) {
-        aNv = str;
-        aNw = str2;
-        aNu = str3;
-        mThreadType = i;
-        if (!StringUtils.isNull(aNu) && eVar != null && eVar.getPageActivity() != null) {
-            if (aNx.equals(aNu)) {
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(aNv, aNw, "search_post", true);
-                createSubPbActivityConfig.setKeyPageStartFrom(8);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                return;
-            }
-            PbActivityConfig createNormalCfg = new PbActivityConfig(eVar.getPageActivity()).createNormalCfg(aNv, aNw, "search_post");
-            createNormalCfg.setStartFrom(8);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-        }
+    public k(Context context) {
+        this.mContext = null;
+        this.mContext = context;
+    }
+
+    public Context getContext() {
+        return this.mContext;
+    }
+
+    public void hx(String str) {
+        com.baidu.tbadk.browser.a.O(this.mContext, str);
+    }
+
+    public void hy(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 }

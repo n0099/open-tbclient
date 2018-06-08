@@ -3,10 +3,11 @@ package com.baidu.android.pushservice.e;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v4.media.TransportMediator;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.e.a;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.ar.util.IoUtils;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.tencent.connect.common.Constants;
 import java.io.IOException;
@@ -18,13 +19,13 @@ public class y implements Runnable {
     private Context a;
     private int c;
     private boolean d;
-    private a.C0022a f;
+    private a.C0030a f;
     private int b = 3;
     private boolean e = true;
 
-    public y(Context context, a.C0022a c0022a) {
+    public y(Context context, a.C0030a c0030a) {
         this.a = context.getApplicationContext();
-        this.f = c0022a;
+        this.f = c0030a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x00f6 */
@@ -126,12 +127,12 @@ public class y implements Runnable {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("method", com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN);
         b.a(hashMap);
-        hashMap.put("device_type", "3");
+        hashMap.put(StatisticConstants.DEVICE_TYPE, "3");
         String b = com.baidu.android.pushservice.k.e.b(this.a);
         if (com.baidu.android.pushservice.h.f()) {
-            hashMap.put("rsa_device_id", com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptR(b.getBytes(), 1), "utf-8"));
+            hashMap.put("rsa_device_id", com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptR(b.getBytes(), 1), IoUtils.UTF_8));
         } else {
-            hashMap.put(com.baidu.ar.util.Constants.HTTP_DEVICE_ID, b);
+            hashMap.put("device_id", b);
         }
         hashMap.put("device_name", Build.MODEL);
         int b2 = com.baidu.android.pushservice.j.j.b(this.a, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", -1);
@@ -154,7 +155,7 @@ public class y implements Runnable {
         jSONObject.put("screen_width", b3[1]);
         String str = Build.MODEL;
         if (str.length() > 128) {
-            str = str.substring(0, TransportMediator.KEYCODE_MEDIA_PAUSE);
+            str = str.substring(0, 127);
         }
         jSONObject.put("model", str);
         jSONObject.put("isroot", com.baidu.android.pushservice.j.m.a(this.a) ? 1 : 0);
@@ -162,7 +163,7 @@ public class y implements Runnable {
         jSONObject.put("push_sdk_version", (int) com.baidu.android.pushservice.a.a());
         String str2 = Build.MANUFACTURER;
         if (str2.length() > 128) {
-            str2 = str2.substring(0, TransportMediator.KEYCODE_MEDIA_PAUSE);
+            str2 = str2.substring(0, 127);
         }
         jSONObject.put("manufacturer", str2);
         hashMap.put(LoginActivityConfig.INFO, jSONObject.toString());

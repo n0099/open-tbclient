@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.s;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.d;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.tencent.connect.common.Constants;
@@ -20,87 +20,87 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes.dex */
 public class e {
-    private a axl;
-    private b axm;
-    private String axn = TbadkCoreApplication.getInst().getContext().getString(d.k.share_tail);
-    private String axo = TbadkCoreApplication.getInst().getContext().getString(d.k.weibo_share_tail) + this.axn;
+    private String aFA = TbadkCoreApplication.getInst().getContext().getString(d.k.share_tail);
+    private String aFB = TbadkCoreApplication.getInst().getContext().getString(d.k.weibo_share_tail) + this.aFA;
+    private a aFy;
+    private b aFz;
     private final Context mContext;
 
     public e(Context context, a aVar) {
         c cVar;
-        this.axl = null;
-        this.axm = null;
+        this.aFy = null;
+        this.aFz = null;
         this.mContext = context;
-        this.axl = aVar;
+        this.aFy = aVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, c.class);
         if (runTask.getData() != null && (cVar = (c) runTask.getData()) != null) {
-            this.axm = cVar.a(this.mContext, this.axl);
+            this.aFz = cVar.a(this.mContext, this.aFy);
         }
     }
 
-    public static boolean aN(Context context) {
-        return BN();
+    public static boolean aX(Context context) {
+        return Fp();
     }
 
-    public static boolean BN() {
+    public static boolean Fp() {
         return TbadkCoreApplication.getInst().appResponseToCmd(2001445);
     }
 
-    public static String aj(String str, String str2) {
+    public static String an(String str, String str2) {
         return n(str, "copy", str2);
     }
 
     public void b(d dVar) {
-        if (this.axm != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.axi ? this.axn : "");
-            this.axm.a(a(dVar, "weixin"), 3, false);
+        if (this.aFz != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, dVar.aFv ? this.aFA : "");
+            this.aFz.a(a(dVar, "weixin"), 3, false);
         }
     }
 
     public void c(d dVar) {
-        if (this.axm != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.axi ? this.axn : "");
-            if (StringUtils.isNull(dVar.axa)) {
+        if (this.aFz != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, dVar.aFv ? this.aFA : "");
+            if (StringUtils.isNull(dVar.aFn)) {
                 dVar.title = dVar.content;
             } else {
-                dVar.title = dVar.axa;
+                dVar.title = dVar.aFn;
             }
-            this.axm.a(a(dVar, "weixin_timeline"), 2, false);
+            this.aFz.a(a(dVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void d(d dVar) {
-        if (this.axm != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.axi ? this.axn : "");
-            this.axm.a(a(dVar, "qqfriend"), 8, true);
+        if (this.aFz != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.aFv ? this.aFA : "");
+            this.aFz.a(a(dVar, "qqfriend"), 8, true);
         }
     }
 
     public void e(d dVar) {
-        if (this.axm != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.axi ? this.axn : "");
-            this.axm.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
+        if (this.aFz != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.aFv ? this.aFA : "");
+            this.aFz.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
         }
     }
 
     public void f(d dVar) {
-        if (this.axm != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.axi ? this.axn : "");
-            this.axm.a(a(dVar, "tencent_weibo"), 5, true);
+        if (this.aFz != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aFv ? this.aFA : "");
+            this.aFz.a(a(dVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(d dVar) {
-        if (this.axm != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.axi ? this.axo : "");
-            this.axm.a(a(dVar, "sina_weibo"), 6, true);
+        if (this.aFz != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aFv ? this.aFB : "");
+            this.aFz.a(a(dVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(d dVar) {
-        if (this.axm != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.axi ? this.axn : "");
-            this.axm.a(a(dVar, "renren"), 7, true);
+        if (this.aFz != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aFv ? this.aFA : "");
+            this.aFz.a(a(dVar, "renren"), 7, true);
         }
     }
 
@@ -116,29 +116,29 @@ public class e {
     }
 
     private d a(d dVar, String str) {
-        if ((dVar.awW == null || dVar.awW.equals("")) && dVar.BK() == null) {
+        if ((dVar.aFj == null || dVar.aFj.equals("")) && dVar.Fm() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith("weixin")) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             }
-            dVar.awW = Uri.parse(str2);
+            dVar.aFj = Uri.parse(str2);
         }
-        if (dVar.awW != null && !dVar.awW.equals("")) {
-            String uri = dVar.awW.toString();
-            if (!fy(uri) && !fz(uri)) {
-                dVar.awW = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
+        if (dVar.aFj != null && !dVar.aFj.equals("")) {
+            String uri = dVar.aFj.toString();
+            if (!fW(uri) && !fX(uri)) {
+                dVar.aFj = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
-                dVar.awW = Uri.parse(uri);
-                ak(uri, "sfc=" + str);
+                dVar.aFj = Uri.parse(uri);
+                ao(uri, "sfc=" + str);
             }
         }
-        if (dVar.axj) {
+        if (dVar.aFw) {
             dVar.linkUrl = n(dVar.linkUrl, str, dVar.tid);
         }
         return dVar;
     }
 
-    protected boolean fy(String str) {
+    protected boolean fW(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
             try {
                 File file = new File(new URI(str));
@@ -151,32 +151,32 @@ public class e {
     }
 
     private static String n(String str, String str2, String str3) {
-        String aX;
-        if (an.isEmpty(str)) {
+        String bj;
+        if (ao.isEmpty(str)) {
             str = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
         }
-        String ak = ak(ak(ak(ak(str, "sfc=" + str2), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
+        String ao = ao(ao(ao(ao(str, "sfc=" + str2), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
         if (str3 != null) {
-            if (com.baidu.adp.lib.b.d.eE().ak("android_url_need_cuid") == 1) {
-                aX = s.aX(str3 + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
+            if (com.baidu.adp.lib.b.d.hv().aw("android_url_need_cuid") == 1) {
+                bj = s.bj(str3 + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
             } else {
-                aX = s.aX(str3 + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
+                bj = s.bj(str3 + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
             }
-            return ak(ak, "unique=" + aX);
+            return ao(ao, "unique=" + bj);
         }
-        return ak;
+        return ao;
     }
 
-    private static String ak(String str, String str2) {
-        if (an.isEmpty(Uri.parse(str).getQuery())) {
+    private static String ao(String str, String str2) {
+        if (ao.isEmpty(Uri.parse(str).getQuery())) {
             str = str + "?";
         }
         return str + "&" + str2;
     }
 
-    private boolean fz(String str) {
-        String[] split = "jpg,jpeg,png,gif,bmp".split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (ax.wf().eu(str)) {
+    private boolean fX(String str) {
+        String[] split = "jpg,jpeg,png,gif,bmp".split(",");
+        if (ay.zG().eT(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

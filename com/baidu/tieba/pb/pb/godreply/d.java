@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.d;
@@ -17,103 +17,103 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.PbLandscapeListView;
 /* loaded from: classes2.dex */
 public class d {
-    private static final int ffc = l.e(TbadkCoreApplication.getInst(), d.e.ds160);
-    private NavigationBar bfz;
+    private static final int fqz = l.e(TbadkCoreApplication.getInst(), d.e.ds160);
+    private NavigationBar bnG;
     private View contentView;
-    private ViewStub fch;
-    private final PbActivity fey;
-    private NoNetworkView fff;
-    private PbLandscapeListView ffg;
-    private b ffh;
-    private View ffi;
+    private ViewStub fnC;
+    private final PbActivity fpV;
+    private NoNetworkView fqC;
+    private PbLandscapeListView fqD;
+    private b fqE;
+    private View fqF;
     private View rootView;
-    private int ffd = 3;
-    private int ffe = 3;
-    private View eij = null;
+    private int fqA = 3;
+    private int fqB = 3;
+    private View etA = null;
 
     public d(PbActivity pbActivity, ViewStub viewStub) {
-        this.fey = pbActivity;
-        this.fch = viewStub;
+        this.fpV = pbActivity;
+        this.fnC = viewStub;
     }
 
     private void init() {
         if (this.rootView != null) {
-            this.ffg = (PbLandscapeListView) this.rootView.findViewById(d.g.more_god_reply_list);
+            this.fqD = (PbLandscapeListView) this.rootView.findViewById(d.g.more_god_reply_list);
             this.contentView = this.rootView.findViewById(d.g.more_god_reply_list_content);
-            atg();
-            this.ffi = this.rootView.findViewById(d.g.more_god_reply_back_curtain);
-            this.fff = (NoNetworkView) this.rootView.findViewById(d.g.more_god_reply_view_no_network);
-            this.ffh = new b(this.fey.getPageContext());
-            this.ffg.setNextPage(this.ffh);
+            axm();
+            this.fqF = this.rootView.findViewById(d.g.more_god_reply_back_curtain);
+            this.fqC = (NoNetworkView) this.rootView.findViewById(d.g.more_god_reply_view_no_network);
+            this.fqE = new b(this.fpV.getPageContext());
+            this.fqD.setNextPage(this.fqE);
         }
     }
 
-    private void atg() {
-        this.bfz = (NavigationBar) this.rootView.findViewById(d.g.more_god_reply_nav_bar);
-        this.eij = this.bfz.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        ImageView backImageView = this.bfz.getBackImageView();
+    private void axm() {
+        this.bnG = (NavigationBar) this.rootView.findViewById(d.g.more_god_reply_nav_bar);
+        this.etA = this.bnG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        ImageView backImageView = this.bnG.getBackImageView();
         if (backImageView != null && (backImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eij.getLayoutParams();
-            int e = l.e(this.fey.getPageContext().getPageActivity(), d.e.ds30);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.etA.getLayoutParams();
+            int e = l.e(this.fpV.getPageContext().getPageActivity(), d.e.ds30);
             layoutParams.height = e;
             layoutParams.width = e;
             backImageView.setLayoutParams(layoutParams);
         }
-        if (this.eij != null && (this.eij.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eij.getLayoutParams();
+        if (this.etA != null && (this.etA.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.etA.getLayoutParams();
             layoutParams2.width = -2;
             layoutParams2.height = -1;
-            this.eij.setPadding(l.e(this.fey.getPageContext().getPageActivity(), d.e.ds32), this.eij.getPaddingTop(), this.eij.getPaddingRight(), this.eij.getPaddingBottom());
-            this.eij.setLayoutParams(layoutParams2);
+            this.etA.setPadding(l.e(this.fpV.getPageContext().getPageActivity(), d.e.ds32), this.etA.getPaddingTop(), this.etA.getPaddingRight(), this.etA.getPaddingBottom());
+            this.etA.setLayoutParams(layoutParams2);
         }
-        this.bfz.setmBackImageViewBg(d.f.subpb_navigationbar_close, d.f.subpb_navigationbar_close);
+        this.bnG.setmBackImageViewBg(d.f.subpb_navigationbar_close, d.f.subpb_navigationbar_close);
     }
 
     public boolean isVisible() {
-        return aWB() && this.rootView.getVisibility() == 0;
+        return bbx() && this.rootView.getVisibility() == 0;
     }
 
-    private void aWA() {
-        if (!aWB()) {
-            this.rootView = this.fch.inflate();
+    private void bbw() {
+        if (!bbx()) {
+            this.rootView = this.fnC.inflate();
             init();
-            if (this.ffd != this.ffe) {
-                qb(this.ffe);
+            if (this.fqA != this.fqB) {
+                qn(this.fqB);
             }
         }
     }
 
-    public boolean aWB() {
+    public boolean bbx() {
         return this.rootView != null;
     }
 
     public void show() {
-        aWA();
+        bbw();
         if (!isVisible() && this.rootView != null) {
             this.rootView.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void jv(boolean z) {
+    public void jB(boolean z) {
         if (z) {
-            this.ffh.amK();
+            this.fqE.aqQ();
         } else {
-            this.ffh.wR();
+            this.fqE.As();
         }
     }
 
     public void hide() {
-        if (aWB()) {
+        if (bbx()) {
             this.rootView.setVisibility(8);
-            this.bfz.setStatusBarVisibility(8);
+            this.bnG.setStatusBarVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void j(final Runnable runnable) {
-        if (aWB()) {
-            this.bfz.setStatusBarVisibility(0);
+    public void i(final Runnable runnable) {
+        if (bbx()) {
+            this.bnG.setStatusBarVisibility(0);
             this.contentView.animate().translationY(0.0f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -133,23 +133,23 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void k(Runnable runnable) {
-        if (aWB()) {
+    public void j(Runnable runnable) {
+        if (bbx()) {
             a(this.contentView.getHeight(), 0.0f, runnable);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void l(Runnable runnable) {
-        if (aWB()) {
-            this.contentView.setTranslationY(l.aj(this.fey)[1]);
-            this.ffi.setAlpha(0.0f);
-            a(ffc, 1.0f, runnable);
+    public void k(Runnable runnable) {
+        if (bbx()) {
+            this.contentView.setTranslationY(l.al(this.fpV)[1]);
+            this.fqF.setAlpha(0.0f);
+            a(fqz, 1.0f, runnable);
         }
     }
 
     private void a(float f, float f2, final Runnable runnable) {
-        if (aWB()) {
+        if (bbx()) {
             this.contentView.animate().translationY(f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -165,53 +165,53 @@ public class d {
                     }
                 }
             }).start();
-            this.ffi.animate().alpha(f2).setDuration(300L).start();
+            this.fqF.animate().alpha(f2).setDuration(300L).start();
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.ffe = i;
-        if (aWB()) {
-            qb(i);
+        this.fqB = i;
+        if (bbx()) {
+            qn(i);
         }
     }
 
-    private void qb(int i) {
-        this.ffd = i;
-        this.fey.getLayoutMode().u(this.rootView);
-        this.bfz.onChangeSkinType(this.fey.getPageContext(), i);
-        ak.i(this.ffi, d.C0126d.cp_bg_line_k_alpha40);
-        this.fff.onChangeSkinType(this.fey.getPageContext(), i);
+    private void qn(int i) {
+        this.fqA = i;
+        this.fpV.getLayoutMode().onModeChanged(this.rootView);
+        this.bnG.onChangeSkinType(this.fpV.getPageContext(), i);
+        al.i(this.fqF, d.C0141d.cp_bg_line_k_alpha40);
+        this.fqC.onChangeSkinType(this.fpV.getPageContext(), i);
     }
 
     public BdTypeListView getListView() {
-        return this.ffg;
+        return this.fqD;
     }
 
-    public NavigationBar Rd() {
-        return this.bfz;
+    public NavigationBar UB() {
+        return this.bnG;
     }
 
-    public View aWC() {
-        return this.eij;
+    public View bby() {
+        return this.etA;
     }
 
-    public View aWD() {
-        return this.ffi;
+    public View bbz() {
+        return this.fqF;
     }
 
-    public boolean aWE() {
-        if (this.ffg == null || this.ffg.getChildCount() <= 0) {
+    public boolean bbA() {
+        if (this.fqD == null || this.fqD.getChildCount() <= 0) {
             return true;
         }
-        if (this.ffg.getFirstVisiblePosition() <= 0) {
-            View childAt = this.ffg.getChildAt(0);
+        if (this.fqD.getFirstVisiblePosition() <= 0) {
+            View childAt = this.fqD.getChildAt(0);
             return childAt != null && childAt.getTop() == 0;
         }
         return false;
     }
 
-    public b aWF() {
-        return this.ffh;
+    public b bbB() {
+        return this.fqE;
     }
 }

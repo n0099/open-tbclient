@@ -2,6 +2,7 @@ package com.baidu.adp.lib.stats;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.ar.util.IoUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -9,22 +10,22 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
+    boolean AV;
+    private ArrayList<BasicNameValuePair> AW;
+    private StringBuilder AX;
     public long logID;
     private long mStartTime;
     public String mType;
     public long sequenceID;
-    boolean uQ;
-    private ArrayList<BasicNameValuePair> uR;
-    private StringBuilder uS;
 
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.uQ = false;
+        this.AV = false;
         this.mType = null;
-        this.uS = new StringBuilder(100);
+        this.AX = new StringBuilder(100);
         this.mType = str;
-        this.uQ = false;
+        this.AV = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +33,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.uQ = false;
+        this.AV = false;
         this.mType = null;
-        this.uS = new StringBuilder(100);
+        this.AX = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.uR == null) {
-                this.uR = new ArrayList<>();
+            if (this.AW == null) {
+                this.AW = new ArrayList<>();
             }
-            this.uR.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.AW.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.uS.length() > 0) {
-            sb.append((CharSequence) this.uS);
+        if (this.AX.length() > 0) {
+            sb.append((CharSequence) this.AX);
         }
-        if (this.uR != null) {
-            Iterator<BasicNameValuePair> it = this.uR.iterator();
+        if (this.AW != null) {
+            Iterator<BasicNameValuePair> it = this.AW.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -62,10 +63,10 @@ public class a {
                     sb.append(next.getName());
                     sb.append('=');
                     try {
-                        sb.append(URLEncoder.encode(ar(next.getValue()), "utf-8"));
+                        sb.append(URLEncoder.encode(aD(next.getValue()), IoUtils.UTF_8));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        sb.append(ar(next.getValue()));
+                        sb.append(aD(next.getValue()));
                     }
                 }
             }
@@ -88,29 +89,29 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.uS.length() > 0) {
-                this.uS.append('&');
+            if (this.AX.length() > 0) {
+                this.AX.append('&');
             }
-            this.uS.append(str);
-            this.uS.append("=");
+            this.AX.append(str);
+            this.AX.append("=");
             try {
-                this.uS.append(URLEncoder.encode(ar(str2), "utf-8"));
+                this.AX.append(URLEncoder.encode(aD(str2), IoUtils.UTF_8));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.uS.append(ar(str2));
+                this.AX.append(aD(str2));
             }
         }
     }
 
-    public void fA() {
+    public void iq() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long fB() {
+    public long ir() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String ar(String str) {
+    public static String aD(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

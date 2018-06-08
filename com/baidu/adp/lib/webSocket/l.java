@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int yT;
-    private int yU;
-    private boolean yV;
-    private boolean yW;
-    private int yX;
-    private int yY;
-    private boolean yZ;
-    private String yg;
-    private boolean za;
+    private String Eo;
+    private int Fb;
+    private int Fc;
+    private boolean Fd;
+    private boolean Fe;
+    private int Ff;
+    private int Fg;
+    private boolean Fh;
+    private boolean Fi;
 
     public l() {
-        this.yg = null;
-        this.yT = 32768;
-        this.yU = 131072;
-        this.yV = false;
-        this.yW = true;
-        this.yX = 30000;
-        this.yY = 30000;
-        this.yZ = true;
-        this.za = true;
-        this.yg = null;
+        this.Eo = null;
+        this.Fb = 32768;
+        this.Fc = 131072;
+        this.Fd = false;
+        this.Fe = true;
+        this.Ff = 30000;
+        this.Fg = 30000;
+        this.Fh = true;
+        this.Fi = true;
+        this.Eo = null;
     }
 
     public l(l lVar) {
-        this.yg = null;
-        this.yT = lVar.yT;
-        this.yU = lVar.yU;
-        this.yV = lVar.yV;
-        this.yW = lVar.yW;
-        this.yX = lVar.yX;
-        this.yY = lVar.yY;
-        this.yZ = lVar.yZ;
-        this.za = lVar.za;
-        this.yg = lVar.yg;
+        this.Eo = null;
+        this.Fb = lVar.Fb;
+        this.Fc = lVar.Fc;
+        this.Fd = lVar.Fd;
+        this.Fe = lVar.Fe;
+        this.Ff = lVar.Ff;
+        this.Fg = lVar.Fg;
+        this.Fh = lVar.Fh;
+        this.Fi = lVar.Fi;
+        this.Eo = lVar.Eo;
     }
 
-    public boolean hP() {
-        return this.yV;
+    public boolean kD() {
+        return this.Fd;
     }
 
-    public int hQ() {
-        return this.yT;
+    public int kE() {
+        return this.Fb;
     }
 
-    public int hR() {
-        return this.yU;
+    public int kF() {
+        return this.Fc;
     }
 
     public boolean getTcpNoDelay() {
-        return this.yW;
+        return this.Fe;
     }
 
-    public int hS() {
-        return this.yX;
+    public int kG() {
+        return this.Ff;
     }
 
-    public int hT() {
-        return this.yY;
+    public int kH() {
+        return this.Fg;
     }
 
-    public boolean hU() {
-        return this.yZ;
+    public boolean kI() {
+        return this.Fh;
     }
 
-    public boolean hV() {
-        return this.za;
+    public boolean kJ() {
+        return this.Fi;
     }
 
-    public String hW() {
-        return this.yg;
+    public String kK() {
+        return this.Eo;
     }
 
-    public void ba(String str) {
-        this.yg = str;
+    public void bm(String str) {
+        this.Eo = str;
     }
 }

@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.utils;
 
+import com.baidu.ar.util.IoUtils;
 import com.baidu.sapi2.utils.SapiEnv;
 import java.security.Key;
 import javax.crypto.Cipher;
@@ -10,7 +11,7 @@ public class AesEncrypt {
         try {
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(1, generateKey("Stark"));
-            return enBase64(cipher.doFinal(str.getBytes("utf-8")));
+            return enBase64(cipher.doFinal(str.getBytes(IoUtils.UTF_8)));
         } catch (Exception e) {
             LogUtil.e("Encrypt", e.getMessage());
             return null;
@@ -23,7 +24,7 @@ public class AesEncrypt {
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(2, generateKey("Stark"));
             try {
-                return new String(cipher.doFinal(deBase64), "utf-8");
+                return new String(cipher.doFinal(deBase64), IoUtils.UTF_8);
             } catch (Exception e) {
                 LogUtil.e("Decrypt", e.getMessage());
                 return null;
@@ -43,7 +44,7 @@ public class AesEncrypt {
             } else if (substring.length() != 16) {
                 LogUtil.v("Decrypt", "Key长度不是16位");
             } else {
-                secretKeySpec = new SecretKeySpec(substring.getBytes("utf-8"), SapiEnv.SHARE_ALGORITHM);
+                secretKeySpec = new SecretKeySpec(substring.getBytes(IoUtils.UTF_8), SapiEnv.SHARE_ALGORITHM);
             }
         } catch (Exception e) {
             LogUtil.e("generateKey", e.getMessage());

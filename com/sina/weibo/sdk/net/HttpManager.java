@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.net.http.Headers;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
@@ -525,9 +526,9 @@ public class HttpManager {
                 if (weiboParameters.get(str) instanceof String) {
                     StringBuilder sb = new StringBuilder(100);
                     sb.setLength(0);
-                    sb.append(MP_BOUNDARY).append("\r\n");
+                    sb.append(MP_BOUNDARY).append(SystemInfoUtil.LINE_END);
                     sb.append("content-disposition: form-data; name=\"").append(str).append("\"\r\n\r\n");
-                    sb.append(weiboParameters.get(str)).append("\r\n");
+                    sb.append(weiboParameters.get(str)).append(SystemInfoUtil.LINE_END);
                     outputStream.write(sb.toString().getBytes());
                 }
             }
@@ -535,7 +536,7 @@ public class HttpManager {
                 Object obj = weiboParameters.get(str2);
                 if (obj instanceof Bitmap) {
                     StringBuilder sb2 = new StringBuilder();
-                    sb2.append(MP_BOUNDARY).append("\r\n");
+                    sb2.append(MP_BOUNDARY).append(SystemInfoUtil.LINE_END);
                     sb2.append("content-disposition: form-data; name=\"").append(str2).append("\"; filename=\"file\"\r\n");
                     sb2.append("Content-Type: application/octet-stream; charset=utf-8\r\n\r\n");
                     outputStream.write(sb2.toString().getBytes());
@@ -543,20 +544,20 @@ public class HttpManager {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                     outputStream.write(byteArrayOutputStream.toByteArray());
-                    outputStream.write("\r\n".getBytes());
+                    outputStream.write(SystemInfoUtil.LINE_END.getBytes());
                 } else if (obj instanceof ByteArrayOutputStream) {
                     StringBuilder sb3 = new StringBuilder();
-                    sb3.append(MP_BOUNDARY).append("\r\n");
+                    sb3.append(MP_BOUNDARY).append(SystemInfoUtil.LINE_END);
                     sb3.append("content-disposition: form-data; name=\"").append(str2).append("\"; filename=\"file\"\r\n");
                     sb3.append("Content-Type: application/octet-stream; charset=utf-8\r\n\r\n");
                     outputStream.write(sb3.toString().getBytes());
                     ByteArrayOutputStream byteArrayOutputStream2 = (ByteArrayOutputStream) obj;
                     outputStream.write(byteArrayOutputStream2.toByteArray());
-                    outputStream.write("\r\n".getBytes());
+                    outputStream.write(SystemInfoUtil.LINE_END.getBytes());
                     byteArrayOutputStream2.close();
                 }
             }
-            outputStream.write(("\r\n" + END_MP_BOUNDARY).getBytes());
+            outputStream.write((SystemInfoUtil.LINE_END + END_MP_BOUNDARY).getBytes());
         } catch (IOException e) {
             throw new WeiboException(e);
         }

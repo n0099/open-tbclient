@@ -11,6 +11,7 @@ import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ay;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -18,39 +19,39 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class w {
-    public int fmo;
+    public int fxJ;
 
     public w(PbModel pbModel, BaseActivity baseActivity) {
     }
 
-    private void mv(String str) {
+    private void nc(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> ep = com.baidu.tbadk.core.util.ax.ep(str);
-        if (ep != null) {
-            this.fmo = 5;
-            com.baidu.tbadk.core.util.al alVar = new com.baidu.tbadk.core.util.al("c10320");
-            alVar.ac("obj_locate", ep.get("obj_locate"));
-            alVar.r("obj_type", 1);
-            alVar.ac("tid", ep.get("tid"));
-            alVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, ep.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
-            alVar.ac("obj_param2", ep.get("obj_param2"));
-            alVar.r("obj_to", 3);
-            alVar.ac(VideoPlayActivityConfig.OBJ_ID, ep.get("bdid"));
-            if (!com.baidu.tbadk.core.util.an.isEmpty(ep.get("ext_log"))) {
+        Map<String, String> eO = ay.eO(str);
+        if (eO != null) {
+            this.fxJ = 5;
+            com.baidu.tbadk.core.util.am amVar = new com.baidu.tbadk.core.util.am("c10320");
+            amVar.ah("obj_locate", eO.get("obj_locate"));
+            amVar.r("obj_type", 1);
+            amVar.ah("tid", eO.get("tid"));
+            amVar.ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eO.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            amVar.ah("obj_param2", eO.get("obj_param2"));
+            amVar.r("obj_to", 3);
+            amVar.ah(VideoPlayActivityConfig.OBJ_ID, eO.get("bdid"));
+            if (!com.baidu.tbadk.core.util.ao.isEmpty(eO.get("ext_log"))) {
                 try {
-                    JSONObject jSONObject = new JSONObject(ep.get("ext_log"));
+                    JSONObject jSONObject = new JSONObject(eO.get("ext_log"));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        alVar.ac(next, jSONObject.getString(next));
+                        amVar.ah(next, jSONObject.getString(next));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            TiebaStatic.log(alVar);
+            TiebaStatic.log(amVar);
         }
     }
 
@@ -65,13 +66,13 @@ public class w {
                     Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\d]+).*").matcher(decode);
                     if (matcher.find()) {
                         if ("mpush".equals(matcher.group(1))) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.al("c11895").ac("tid", matcher.group(2)));
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11895").ah("tid", matcher.group(2)));
                         } else {
-                            mv(decode);
+                            nc(decode);
                         }
                         str = matcher.group(2);
                     } else {
-                        mv(decode);
+                        nc(decode);
                         int indexOf = decode.indexOf("tid=");
                         if (indexOf >= 0 && (length = indexOf + "tid=".length()) <= decode.length()) {
                             str = decode.substring(length);

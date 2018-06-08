@@ -23,14 +23,20 @@ public final class FragmentManagerState implements Parcelable {
     FragmentState[] mActive;
     int[] mAdded;
     BackStackState[] mBackStack;
+    int mNextFragmentIndex;
+    int mPrimaryNavActiveIndex;
 
     public FragmentManagerState() {
+        this.mPrimaryNavActiveIndex = -1;
     }
 
     public FragmentManagerState(Parcel parcel) {
+        this.mPrimaryNavActiveIndex = -1;
         this.mActive = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
         this.mAdded = parcel.createIntArray();
         this.mBackStack = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
+        this.mPrimaryNavActiveIndex = parcel.readInt();
+        this.mNextFragmentIndex = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -43,5 +49,7 @@ public final class FragmentManagerState implements Parcelable {
         parcel.writeTypedArray(this.mActive, i);
         parcel.writeIntArray(this.mAdded);
         parcel.writeTypedArray(this.mBackStack, i);
+        parcel.writeInt(this.mPrimaryNavActiveIndex);
+        parcel.writeInt(this.mNextFragmentIndex);
     }
 }

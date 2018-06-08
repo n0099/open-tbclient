@@ -7,7 +7,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.n;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.ar.util.IoUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -145,7 +145,7 @@ public abstract class e {
                     break;
             }
             try {
-                String a2 = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a, 0), "utf-8");
+                String a2 = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a, 0), IoUtils.UTF_8);
                 com.baidu.android.pushservice.j.a.a(this.b, str, a2);
                 return a2;
             } catch (Exception | UnsatisfiedLinkError e) {
@@ -167,7 +167,7 @@ public abstract class e {
             }
             a aVar = list.get(i2);
             stringBuffer.append(aVar.b());
-            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            stringBuffer.append(",");
             stringBuffer.append(aVar.a());
             if (i2 != list.size() - 1) {
                 stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
@@ -182,7 +182,7 @@ public abstract class e {
         }
         ArrayList<a> arrayList = new ArrayList<>();
         for (String str2 : str.trim().split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
-            String[] split = str2.trim().trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = str2.trim().trim().split(",");
             if (split.length == 1 || split.length == 2) {
                 a aVar = new a(split[0]);
                 if (split.length == 2) {
@@ -274,7 +274,7 @@ public abstract class e {
 
     public String d(String str) {
         try {
-            return com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(str, 0), "utf-8");
+            return com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(str, 0), IoUtils.UTF_8);
         } catch (Exception e) {
             return "";
         } catch (UnsatisfiedLinkError e2) {

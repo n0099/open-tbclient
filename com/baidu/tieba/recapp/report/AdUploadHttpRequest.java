@@ -4,7 +4,7 @@ import android.os.Build;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -28,7 +28,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam(KEY_BRAND, Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam(KEY_PRODUCT_ID, 2);
-        addParam(KEY_NET_TYPE, j.gV());
+        addParam(KEY_NET_TYPE, j.jJ());
         addParam(KEY_OS_TYPE, 2);
     }
 
@@ -46,7 +46,7 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     private String toJSONString(ArrayList<a> arrayList) {
-        if (v.v(arrayList) <= 0) {
+        if (w.y(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
@@ -54,7 +54,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null) {
-                jSONArray.put(next.bkc());
+                jSONArray.put(next.bpb());
             }
         }
         return jSONArray.toString();

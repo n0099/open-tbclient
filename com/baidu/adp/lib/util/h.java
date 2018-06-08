@@ -19,20 +19,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h wC = null;
+    private static h CH = null;
 
-    public static h gB() {
+    public static h jp() {
         h hVar;
-        if (wC == null) {
+        if (CH == null) {
             synchronized (h.class) {
-                if (wC == null) {
-                    wC = new h();
+                if (CH == null) {
+                    CH = new h();
                 }
-                hVar = wC;
+                hVar = CH;
             }
             return hVar;
         }
-        return wC;
+        return CH;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -51,11 +51,11 @@ public class h {
             if (z2) {
                 z = z2;
             } else {
-                String aO = aO(str);
-                File file = new File(aO);
+                String ba = ba(str);
+                File file = new File(ba);
                 if (file.exists()) {
                     if (file.length() > 0) {
-                        boolean loadSoLibrary = loadSoLibrary(aO, sb);
+                        boolean loadSoLibrary = loadSoLibrary(ba, sb);
                         if (loadSoLibrary) {
                             sb.append("-Succ2-");
                             z = loadSoLibrary;
@@ -68,7 +68,7 @@ public class h {
                         z = z2;
                     }
                 } else {
-                    a aVar = new a(str, aO, sb, iVar);
+                    a aVar = new a(str, ba, sb, iVar);
                     aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
                     aVar.execute(new Object[0]);
                     return false;
@@ -100,11 +100,11 @@ public class h {
             }
         }
         if (!z2) {
-            String aO = aO(str);
-            File file = new File(aO);
+            String ba = ba(str);
+            File file = new File(ba);
             if (file.exists()) {
                 if (file.length() > 0) {
-                    boolean loadSoLibrary = loadSoLibrary(aO, sb);
+                    boolean loadSoLibrary = loadSoLibrary(ba, sb);
                     if (loadSoLibrary) {
                         sb.append("-Succ2-");
                         z = loadSoLibrary;
@@ -127,7 +127,7 @@ public class h {
     }
 
     private boolean a(String str, StringBuilder sb) {
-        boolean loadSoLibrary = loadSoLibrary(aN(str), sb);
+        boolean loadSoLibrary = loadSoLibrary(aZ(str), sb);
         if (!loadSoLibrary) {
             try {
                 System.loadLibrary(str);
@@ -161,11 +161,11 @@ public class h {
         }
     }
 
-    private String aN(String str) {
+    private String aZ(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + Plugin.SO_LIB_DIR_NAME + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
-    private String aO(String str) {
+    private String ba(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.biometrics.base.b.c.g + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
@@ -217,9 +217,9 @@ public class h {
                                     }
                                 }
                                 byteArrayOutputStream.flush();
-                                String aO = aO(str2);
-                                a(aO, byteArrayOutputStream.toByteArray(), sb);
-                                if (loadSoLibrary(aO, sb)) {
+                                String ba = ba(str2);
+                                a(ba, byteArrayOutputStream.toByteArray(), sb);
+                                if (loadSoLibrary(ba, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
                                     com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
@@ -233,19 +233,19 @@ public class h {
                             }
                         }
                     }
-                    com.baidu.adp.lib.g.a.d(zipInputStream);
+                    com.baidu.adp.lib.g.a.f(zipInputStream);
                 } catch (IOException e4) {
                     e = e4;
                     zipInputStream2 = zipInputStream;
                     sb.append("-Error5:");
                     sb.append(e.getClass().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                    com.baidu.adp.lib.g.a.d(zipInputStream2);
+                    com.baidu.adp.lib.g.a.f(zipInputStream2);
                     return z;
                 } catch (Throwable th3) {
                     th = th3;
                     zipInputStream2 = zipInputStream;
-                    com.baidu.adp.lib.g.a.d(zipInputStream2);
+                    com.baidu.adp.lib.g.a.f(zipInputStream2);
                     throw th;
                 }
             }
@@ -289,24 +289,24 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
-        String wD;
-        String wE;
-        StringBuilder wF;
-        i wG;
-        boolean wH = false;
+        String CI;
+        String CJ;
+        StringBuilder CK;
+        i CL;
+        boolean CM = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.wD = str;
-            this.wE = str2;
-            this.wF = sb;
-            this.wG = iVar;
+            this.CI = str;
+            this.CJ = str2;
+            this.CK = sb;
+            this.CL = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object... objArr) {
-            this.wH = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.wD, this.wF);
-            if (!this.wH) {
-                h.this.a(this.wE, "".getBytes(), this.wF);
+            this.CM = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.CI, this.CK);
+            if (!this.CM) {
+                h.this.a(this.CJ, "".getBytes(), this.CK);
                 return null;
             }
             return null;
@@ -315,11 +315,11 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.wF.length() > 0) {
-                BdStatisticsManager.getInstance().error("so", "load_" + this.wD + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.wF.toString(), new Object[0]);
+            if (this.CK.length() > 0) {
+                BdStatisticsManager.getInstance().error("so", "load_" + this.CI + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.CK.toString(), new Object[0]);
             }
-            if (this.wG != null) {
-                this.wG.q(this.wH);
+            if (this.CL != null) {
+                this.CL.t(this.CM);
             }
         }
     }

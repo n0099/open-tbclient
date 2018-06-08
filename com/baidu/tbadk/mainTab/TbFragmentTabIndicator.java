@@ -5,35 +5,35 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean aIE;
+    protected boolean aRf;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.aIE = false;
+        this.aRf = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aIE = false;
+        this.aRf = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aIE = false;
+        this.aRf = false;
     }
 
-    public void dA(int i) {
+    public void dC(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bJ(boolean z) {
+    public void bN(boolean z) {
     }
 
     public View getContentTv() {
@@ -49,7 +49,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a gM(String str) {
+    public a hk(String str) {
         return null;
     }
 
@@ -59,7 +59,13 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setText(String str) {
     }
 
+    public void setIconResourceId(int i) {
+    }
+
     public void setIconViewWithoutText(int i, int i2) {
+    }
+
+    public void setIconViewWithText(int i, int i2) {
     }
 
     public void setCompoundDrawablesTopResId(int i) {
@@ -80,40 +86,47 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
+    public void au(String str, String str2) {
+    }
+
+    public void Jc() {
+    }
+
+    public void setAnimationResId(int i) {
+    }
+
     public void setIsContentSelectBold(boolean z) {
-        this.aIE = z;
+        this.aRf = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aIG;
-        public TbFragmentTabIndicator aII;
-        public int sT;
+        public int aRh;
+        public TbFragmentTabIndicator aRj;
+        public View view;
+        public int zd;
+        public boolean aRg = true;
+        public int aRi = d.C0141d.common_color_10225;
 
-        /* renamed from: view  reason: collision with root package name */
-        public View f7view;
-        public boolean aIF = true;
-        public int aIH = d.C0126d.common_color_10225;
-
-        public void dA(int i) {
-            if (this.aIG != 0) {
-                ak.i(this.f7view, this.aIG);
+        public void dC(int i) {
+            if (this.aRh != 0) {
+                al.i(this.view, this.aRh);
             }
-            if (this.f7view instanceof TextView) {
-                if (this.aIH != 0) {
-                    ak.c((TextView) this.f7view, this.aIH, 1);
+            if (this.view instanceof TextView) {
+                if (this.aRi != 0) {
+                    al.c(this.view, this.aRi, 1);
                 }
-                int c = c((TextView) this.f7view);
+                int c = c((TextView) this.view);
                 if (c > 0 && c < 10) {
-                    ak.i((TextView) this.f7view, d.f.icon_news_head_prompt_one);
+                    al.i(this.view, d.f.icon_news_head_prompt_one);
                 } else if (c >= 10 && c < 100) {
-                    ak.i((TextView) this.f7view, d.f.icon_news_head_prompt_two);
+                    al.i(this.view, d.f.icon_news_head_prompt_two);
                 } else if (c >= 100) {
-                    ak.i((TextView) this.f7view, d.f.icon_news_head_prompt_more);
+                    al.i(this.view, d.f.icon_news_head_prompt_more);
                 }
             }
-            if (this.f7view instanceof MessageRedDotView) {
-                ((MessageRedDotView) this.f7view).onChangeSkinType();
+            if (this.view instanceof MessageRedDotView) {
+                ((MessageRedDotView) this.view).onChangeSkinType();
             }
         }
 
@@ -121,7 +134,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
             if (textView == null) {
                 return -1;
             }
-            String charSequence = ((TextView) this.f7view).getText().toString();
+            String charSequence = ((TextView) this.view).getText().toString();
             if ("   ".equals(charSequence)) {
                 return 100;
             }

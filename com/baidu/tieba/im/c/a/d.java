@@ -8,7 +8,7 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.ResponseGetGroupActivityLocalMessage;
 /* loaded from: classes3.dex */
 public class d implements CustomMessageTask.CustomRunnable<Integer> {
-    private ResponseGetGroupActivityLocalMessage aHa() {
+    private ResponseGetGroupActivityLocalMessage aLV() {
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
         responseGetGroupActivityLocalMessage.setError(-18);
         return responseGetGroupActivityLocalMessage;
@@ -17,14 +17,14 @@ public class d implements CustomMessageTask.CustomRunnable<Integer> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
         if (customMessage == null || !(customMessage instanceof RequestGetGroupActivityLocalMessage)) {
-            return aHa();
+            return aLV();
         }
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = (RequestGetGroupActivityLocalMessage) customMessage;
         String str = "";
         if (TbadkApplication.getCurrentAccountObj() != null) {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.ty().cY("tb.im_groupactivity").get("group_activity" + str + requestGetGroupActivityLocalMessage.getData());
+        byte[] bArr = com.baidu.tbadk.core.c.a.wW().dx("tb.im_groupactivity").get("group_activity" + str + requestGetGroupActivityLocalMessage.getData());
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
         if (bArr != null) {
             try {
@@ -34,6 +34,6 @@ public class d implements CustomMessageTask.CustomRunnable<Integer> {
                 e.printStackTrace();
             }
         }
-        return aHa();
+        return aLV();
     }
 }

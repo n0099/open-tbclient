@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.StringRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,6 +24,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     private final int mCloseDrawerContentDescRes;
     boolean mDrawerIndicatorEnabled;
     private final DrawerLayout mDrawerLayout;
+    private boolean mDrawerSlideAnimationEnabled;
     private boolean mHasCustomUpIndicator;
     private Drawable mHomeAsUpIndicator;
     private final int mOpenDrawerContentDescRes;
@@ -58,17 +60,18 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     ActionBarDrawerToggle(Activity activity, Toolbar toolbar, DrawerLayout drawerLayout, DrawerArrowDrawable drawerArrowDrawable, @StringRes int i, @StringRes int i2) {
+        this.mDrawerSlideAnimationEnabled = true;
         this.mDrawerIndicatorEnabled = true;
         this.mWarnedForDisplayHomeAsUp = false;
         if (toolbar != null) {
             this.mActivityImpl = new ToolbarCompatDelegate(toolbar);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() { // from class: android.support.v7.app.ActionBarDrawerToggle.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
+                public void onClick(View view) {
                     if (ActionBarDrawerToggle.this.mDrawerIndicatorEnabled) {
                         ActionBarDrawerToggle.this.toggle();
                     } else if (ActionBarDrawerToggle.this.mToolbarNavigationClickListener != null) {
-                        ActionBarDrawerToggle.this.mToolbarNavigationClickListener.onClick(view2);
+                        ActionBarDrawerToggle.this.mToolbarNavigationClickListener.onClick(view);
                     }
                 }
             });
@@ -76,6 +79,8 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
             this.mActivityImpl = ((DelegateProvider) activity).getDrawerToggleDelegate();
         } else if (Build.VERSION.SDK_INT >= 18) {
             this.mActivityImpl = new JellybeanMr2Delegate(activity);
+        } else if (Build.VERSION.SDK_INT >= 14) {
+            this.mActivityImpl = new IcsDelegate(activity);
         } else if (Build.VERSION.SDK_INT >= 11) {
             this.mActivityImpl = new HoneycombDelegate(activity);
         } else {
@@ -173,13 +178,28 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         syncState();
     }
 
-    @Override // android.support.v4.widget.DrawerLayout.DrawerListener
-    public void onDrawerSlide(View view2, float f) {
-        setPosition(Math.min(1.0f, Math.max(0.0f, f)));
+    public void setDrawerSlideAnimationEnabled(boolean z) {
+        this.mDrawerSlideAnimationEnabled = z;
+        if (!z) {
+            setPosition(0.0f);
+        }
+    }
+
+    public boolean isDrawerSlideAnimationEnabled() {
+        return this.mDrawerSlideAnimationEnabled;
     }
 
     @Override // android.support.v4.widget.DrawerLayout.DrawerListener
-    public void onDrawerOpened(View view2) {
+    public void onDrawerSlide(View view, float f) {
+        if (this.mDrawerSlideAnimationEnabled) {
+            setPosition(Math.min(1.0f, Math.max(0.0f, f)));
+        } else {
+            setPosition(0.0f);
+        }
+    }
+
+    @Override // android.support.v4.widget.DrawerLayout.DrawerListener
+    public void onDrawerOpened(View view) {
         setPosition(1.0f);
         if (this.mDrawerIndicatorEnabled) {
             setActionBarDescription(this.mCloseDrawerContentDescRes);
@@ -187,7 +207,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Override // android.support.v4.widget.DrawerLayout.DrawerListener
-    public void onDrawerClosed(View view2) {
+    public void onDrawerClosed(View view) {
         setPosition(0.0f);
         if (this.mDrawerIndicatorEnabled) {
             setActionBarDescription(this.mOpenDrawerContentDescRes);
@@ -231,6 +251,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         this.mSlider.setProgress(f);
     }
 
+    @RequiresApi(11)
     /* loaded from: classes2.dex */
     private static class HoneycombDelegate implements Delegate {
         final Activity mActivity;
@@ -247,10 +268,6 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
 
         @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate
         public Context getActionBarThemedContext() {
-            android.app.ActionBar actionBar = this.mActivity.getActionBar();
-            if (actionBar != null) {
-                return actionBar.getThemedContext();
-            }
             return this.mActivity;
         }
 
@@ -276,6 +293,24 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
+    @RequiresApi(14)
+    /* loaded from: classes2.dex */
+    private static class IcsDelegate extends HoneycombDelegate {
+        IcsDelegate(Activity activity) {
+            super(activity);
+        }
+
+        @Override // android.support.v7.app.ActionBarDrawerToggle.HoneycombDelegate, android.support.v7.app.ActionBarDrawerToggle.Delegate
+        public Context getActionBarThemedContext() {
+            android.app.ActionBar actionBar = this.mActivity.getActionBar();
+            if (actionBar != null) {
+                return actionBar.getThemedContext();
+            }
+            return this.mActivity;
+        }
+    }
+
+    @RequiresApi(18)
     /* loaded from: classes2.dex */
     private static class JellybeanMr2Delegate implements Delegate {
         final Activity mActivity;

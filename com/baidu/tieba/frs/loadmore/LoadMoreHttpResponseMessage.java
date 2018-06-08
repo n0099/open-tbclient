@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ac;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +39,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (v.v(threadListResIdl.data.user_list) > 0) {
+                if (w.y(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -53,7 +53,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         }
                     }
                 }
-                if (v.v(threadListResIdl.data.thread_list) > 0) {
+                if (w.y(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
@@ -61,11 +61,11 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bd bdVar = new bd();
                             bdVar.setUserMap(this.userMap);
                             bdVar.a(list2.get(i3));
-                            bdVar.bV(3);
-                            bdVar.sw();
-                            if (!TextUtils.isEmpty(bdVar.sG())) {
+                            bdVar.bX(3);
+                            bdVar.vT();
+                            if (!TextUtils.isEmpty(bdVar.wd())) {
                                 ac acVar = new ac();
-                                acVar.cI(bdVar.sG());
+                                acVar.dg(bdVar.wd());
                                 this.threadList.add(acVar);
                             } else {
                                 this.threadList.add(bdVar);

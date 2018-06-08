@@ -3,8 +3,10 @@ package android.support.v7.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
+import android.graphics.PorterDuff;
 import android.support.annotation.RestrictTo;
 import android.support.v4.internal.view.SupportMenu;
 import android.support.v4.view.ActionProvider;
@@ -12,6 +14,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.menu.MenuItemImpl;
 import android.support.v7.view.menu.MenuItemWrapperICS;
+import android.support.v7.widget.DrawableUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
@@ -26,7 +29,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class SupportMenuInflater extends MenuInflater {
     static final String LOG_TAG = "SupportMenuInflater";
@@ -275,18 +278,24 @@ public class SupportMenuInflater extends MenuInflater {
         private String itemActionViewClassName;
         private int itemActionViewLayout;
         private boolean itemAdded;
+        private int itemAlphabeticModifiers;
         private char itemAlphabeticShortcut;
         private int itemCategoryOrder;
         private int itemCheckable;
         private boolean itemChecked;
+        private CharSequence itemContentDescription;
         private boolean itemEnabled;
         private int itemIconResId;
+        private ColorStateList itemIconTintList = null;
+        private PorterDuff.Mode itemIconTintMode = null;
         private int itemId;
         private String itemListenerMethodName;
+        private int itemNumericModifiers;
         private char itemNumericShortcut;
         private int itemShowAsAction;
         private CharSequence itemTitle;
         private CharSequence itemTitleCondensed;
+        private CharSequence itemTooltipText;
         private boolean itemVisible;
         private Menu menu;
 
@@ -323,7 +332,9 @@ public class SupportMenuInflater extends MenuInflater {
             this.itemTitleCondensed = obtainStyledAttributes.getText(R.styleable.MenuItem_android_titleCondensed);
             this.itemIconResId = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_android_icon, 0);
             this.itemAlphabeticShortcut = getShortcut(obtainStyledAttributes.getString(R.styleable.MenuItem_android_alphabeticShortcut));
+            this.itemAlphabeticModifiers = obtainStyledAttributes.getInt(R.styleable.MenuItem_alphabeticModifiers, 4096);
             this.itemNumericShortcut = getShortcut(obtainStyledAttributes.getString(R.styleable.MenuItem_android_numericShortcut));
+            this.itemNumericModifiers = obtainStyledAttributes.getInt(R.styleable.MenuItem_numericModifiers, 4096);
             if (obtainStyledAttributes.hasValue(R.styleable.MenuItem_android_checkable)) {
                 this.itemCheckable = obtainStyledAttributes.getBoolean(R.styleable.MenuItem_android_checkable, false) ? 1 : 0;
             } else {
@@ -346,6 +357,18 @@ public class SupportMenuInflater extends MenuInflater {
                 }
                 this.itemActionProvider = null;
             }
+            this.itemContentDescription = obtainStyledAttributes.getText(R.styleable.MenuItem_contentDescription);
+            this.itemTooltipText = obtainStyledAttributes.getText(R.styleable.MenuItem_tooltipText);
+            if (obtainStyledAttributes.hasValue(R.styleable.MenuItem_iconTintMode)) {
+                this.itemIconTintMode = DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(R.styleable.MenuItem_iconTintMode, -1), this.itemIconTintMode);
+            } else {
+                this.itemIconTintMode = null;
+            }
+            if (obtainStyledAttributes.hasValue(R.styleable.MenuItem_iconTint)) {
+                this.itemIconTintList = obtainStyledAttributes.getColorStateList(R.styleable.MenuItem_iconTint);
+            } else {
+                this.itemIconTintList = null;
+            }
             obtainStyledAttributes.recycle();
             this.itemAdded = false;
         }
@@ -359,9 +382,9 @@ public class SupportMenuInflater extends MenuInflater {
 
         private void setItem(MenuItem menuItem) {
             boolean z = true;
-            menuItem.setChecked(this.itemChecked).setVisible(this.itemVisible).setEnabled(this.itemEnabled).setCheckable(this.itemCheckable >= 1).setTitleCondensed(this.itemTitleCondensed).setIcon(this.itemIconResId).setAlphabeticShortcut(this.itemAlphabeticShortcut).setNumericShortcut(this.itemNumericShortcut);
+            menuItem.setChecked(this.itemChecked).setVisible(this.itemVisible).setEnabled(this.itemEnabled).setCheckable(this.itemCheckable >= 1).setTitleCondensed(this.itemTitleCondensed).setIcon(this.itemIconResId);
             if (this.itemShowAsAction >= 0) {
-                MenuItemCompat.setShowAsAction(menuItem, this.itemShowAsAction);
+                menuItem.setShowAsAction(this.itemShowAsAction);
             }
             if (this.itemListenerMethodName != null) {
                 if (SupportMenuInflater.this.mContext.isRestricted()) {
@@ -380,19 +403,29 @@ public class SupportMenuInflater extends MenuInflater {
                 }
             }
             if (this.itemActionViewClassName != null) {
-                MenuItemCompat.setActionView(menuItem, (View) newInstance(this.itemActionViewClassName, SupportMenuInflater.ACTION_VIEW_CONSTRUCTOR_SIGNATURE, SupportMenuInflater.this.mActionViewConstructorArguments));
+                menuItem.setActionView((View) newInstance(this.itemActionViewClassName, SupportMenuInflater.ACTION_VIEW_CONSTRUCTOR_SIGNATURE, SupportMenuInflater.this.mActionViewConstructorArguments));
             } else {
                 z = false;
             }
             if (this.itemActionViewLayout > 0) {
                 if (!z) {
-                    MenuItemCompat.setActionView(menuItem, this.itemActionViewLayout);
+                    menuItem.setActionView(this.itemActionViewLayout);
                 } else {
                     Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'itemActionViewLayout'. Action view already specified.");
                 }
             }
             if (this.itemActionProvider != null) {
                 MenuItemCompat.setActionProvider(menuItem, this.itemActionProvider);
+            }
+            MenuItemCompat.setContentDescription(menuItem, this.itemContentDescription);
+            MenuItemCompat.setTooltipText(menuItem, this.itemTooltipText);
+            MenuItemCompat.setAlphabeticShortcut(menuItem, this.itemAlphabeticShortcut, this.itemAlphabeticModifiers);
+            MenuItemCompat.setNumericShortcut(menuItem, this.itemNumericShortcut, this.itemNumericModifiers);
+            if (this.itemIconTintMode != null) {
+                MenuItemCompat.setIconTintMode(menuItem, this.itemIconTintMode);
+            }
+            if (this.itemIconTintList != null) {
+                MenuItemCompat.setIconTintList(menuItem, this.itemIconTintList);
             }
         }
 

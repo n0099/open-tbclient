@@ -3,12 +3,14 @@ package android.support.v7.view.menu;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.RequiresApi;
 import android.support.v4.internal.view.SupportMenu;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
+@RequiresApi(14)
 /* loaded from: classes2.dex */
 public class MenuWrapperICS extends BaseMenuWrapper<SupportMenu> implements Menu {
     /* JADX INFO: Access modifiers changed from: package-private */

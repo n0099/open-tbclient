@@ -14,7 +14,7 @@ public class bg {
         return this.title;
     }
 
-    public String tp() {
+    public String wN() {
         return this.title_link;
     }
 

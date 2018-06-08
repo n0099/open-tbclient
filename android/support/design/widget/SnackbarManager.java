@@ -94,17 +94,19 @@ class SnackbarManager {
         }
     }
 
-    public void cancelTimeout(Callback callback) {
+    public void pauseTimeout(Callback callback) {
         synchronized (this.mLock) {
-            if (isCurrentSnackbarLocked(callback)) {
+            if (isCurrentSnackbarLocked(callback) && !this.mCurrentSnackbar.paused) {
+                this.mCurrentSnackbar.paused = true;
                 this.mHandler.removeCallbacksAndMessages(this.mCurrentSnackbar);
             }
         }
     }
 
-    public void restoreTimeout(Callback callback) {
+    public void restoreTimeoutIfPaused(Callback callback) {
         synchronized (this.mLock) {
-            if (isCurrentSnackbarLocked(callback)) {
+            if (isCurrentSnackbarLocked(callback) && this.mCurrentSnackbar.paused) {
+                this.mCurrentSnackbar.paused = false;
                 scheduleTimeoutLocked(this.mCurrentSnackbar);
             }
         }
@@ -131,6 +133,7 @@ class SnackbarManager {
     public static class SnackbarRecord {
         final WeakReference<Callback> callback;
         int duration;
+        boolean paused;
 
         SnackbarRecord(int i, Callback callback) {
             this.callback = new WeakReference<>(callback);

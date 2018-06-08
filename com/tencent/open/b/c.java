@@ -10,7 +10,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.ar.util.Constants;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.util.Locale;
 /* loaded from: classes2.dex */
@@ -47,7 +46,7 @@ public class c {
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         if (windowManager != null) {
             int width = windowManager.getDefaultDisplay().getWidth();
-            d = width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + windowManager.getDefaultDisplay().getHeight();
+            d = width + "x" + windowManager.getDefaultDisplay().getHeight();
         }
         return d;
     }

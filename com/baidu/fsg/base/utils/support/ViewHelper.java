@@ -8,90 +8,90 @@ public final class ViewHelper {
     private ViewHelper() {
     }
 
-    public static float getAlpha(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getAlpha() : Honeycomb.a(view2);
+    public static float getAlpha(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getAlpha() : Honeycomb.a(view);
     }
 
-    public static void setAlpha(View view2, float f) {
+    public static void setAlpha(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setAlpha(f);
+            AnimatorProxy.wrap(view).setAlpha(f);
         } else {
-            Honeycomb.a(view2, f);
+            Honeycomb.a(view, f);
         }
     }
 
-    public static void setAlphaPartly(View view2, float f, View... viewArr) {
-        if (view2 != null) {
-            if (viewArr == null || viewArr.length <= 0 || !(view2 instanceof ViewGroup)) {
-                setAlpha(view2, f);
+    public static void setAlphaPartly(View view, float f, View... viewArr) {
+        if (view != null) {
+            if (viewArr == null || viewArr.length <= 0 || !(view instanceof ViewGroup)) {
+                setAlpha(view, f);
                 return;
             }
-            ArrayList<View> a = a(view2);
+            ArrayList<View> a = a(view);
             if (a == null || a.size() <= 0) {
-                setAlpha(view2, f);
+                setAlpha(view, f);
                 return;
             }
-            for (View view3 : viewArr) {
-                b(a, view3, true);
+            for (View view2 : viewArr) {
+                b(a, view2, true);
             }
             for (int i = 0; i < a.size(); i++) {
-                View view4 = a.get(i);
-                if ((view4 instanceof ViewGroup) && ((ViewGroup) view4).getChildCount() > 0) {
-                    a(a, view4, false);
+                View view3 = a.get(i);
+                if ((view3 instanceof ViewGroup) && ((ViewGroup) view3).getChildCount() > 0) {
+                    a(a, view3, false);
                 }
             }
             for (int i2 = 0; i2 < a.size(); i2++) {
-                View view5 = a.get(i2);
-                if (view5 != null) {
-                    setAlpha(view5, f);
+                View view4 = a.get(i2);
+                if (view4 != null) {
+                    setAlpha(view4, f);
                 }
             }
         }
     }
 
-    private static void a(ArrayList<View> arrayList, View view2, boolean z) {
-        if (arrayList != null && arrayList.size() > 0 && view2 != null) {
-            ArrayList<View> a = a(view2);
+    private static void a(ArrayList<View> arrayList, View view, boolean z) {
+        if (arrayList != null && arrayList.size() > 0 && view != null) {
+            ArrayList<View> a = a(view);
             int i = 1;
             while (true) {
                 int i2 = i;
                 if (i2 >= a.size()) {
                     break;
                 }
-                View view3 = a.get(i2);
-                if (view3 != null && arrayList.contains(view3)) {
-                    arrayList.remove(view3);
+                View view2 = a.get(i2);
+                if (view2 != null && arrayList.contains(view2)) {
+                    arrayList.remove(view2);
                 }
                 i = i2 + 1;
             }
-            if (z && arrayList.contains(view2)) {
-                arrayList.remove(view2);
+            if (z && arrayList.contains(view)) {
+                arrayList.remove(view);
             }
         }
     }
 
-    private static void b(ArrayList<View> arrayList, View view2, boolean z) {
-        if (arrayList != null && arrayList.size() > 0 && view2 != null) {
-            View view3 = (View) view2.getParent();
-            if (view3 != null) {
-                arrayList.remove(view3);
-                b(arrayList, view3, true);
-            }
-            if (z && arrayList.contains(view2)) {
+    private static void b(ArrayList<View> arrayList, View view, boolean z) {
+        if (arrayList != null && arrayList.size() > 0 && view != null) {
+            View view2 = (View) view.getParent();
+            if (view2 != null) {
                 arrayList.remove(view2);
+                b(arrayList, view2, true);
+            }
+            if (z && arrayList.contains(view)) {
+                arrayList.remove(view);
             }
         }
     }
 
-    private static ArrayList<View> a(View view2) {
-        if (!(view2 instanceof ViewGroup)) {
+    private static ArrayList<View> a(View view) {
+        if (!(view instanceof ViewGroup)) {
             ArrayList<View> arrayList = new ArrayList<>();
-            arrayList.add(view2);
+            arrayList.add(view);
             return arrayList;
         }
         ArrayList<View> arrayList2 = new ArrayList<>();
-        arrayList2.add(view2);
-        ViewGroup viewGroup = (ViewGroup) view2;
+        arrayList2.add(view);
+        ViewGroup viewGroup = (ViewGroup) view;
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             View childAt = viewGroup.getChildAt(i);
             ArrayList arrayList3 = new ArrayList();
@@ -101,159 +101,159 @@ public final class ViewHelper {
         return arrayList2;
     }
 
-    public static float getPivotX(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getPivotX() : Honeycomb.b(view2);
+    public static float getPivotX(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotX() : Honeycomb.b(view);
     }
 
-    public static void setPivotX(View view2, float f) {
+    public static void setPivotX(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setPivotX(f);
+            AnimatorProxy.wrap(view).setPivotX(f);
         } else {
-            Honeycomb.b(view2, f);
+            Honeycomb.b(view, f);
         }
     }
 
-    public static float getPivotY(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getPivotY() : Honeycomb.c(view2);
+    public static float getPivotY(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotY() : Honeycomb.c(view);
     }
 
-    public static void setPivotY(View view2, float f) {
+    public static void setPivotY(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setPivotY(f);
+            AnimatorProxy.wrap(view).setPivotY(f);
         } else {
-            Honeycomb.c(view2, f);
+            Honeycomb.c(view, f);
         }
     }
 
-    public static float getRotation(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getRotation() : Honeycomb.d(view2);
+    public static float getRotation(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getRotation() : Honeycomb.d(view);
     }
 
-    public static void setRotation(View view2, float f) {
+    public static void setRotation(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setRotation(f);
+            AnimatorProxy.wrap(view).setRotation(f);
         } else {
-            Honeycomb.d(view2, f);
+            Honeycomb.d(view, f);
         }
     }
 
-    public static float getRotationX(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getRotationX() : Honeycomb.e(view2);
+    public static float getRotationX(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getRotationX() : Honeycomb.e(view);
     }
 
-    public static void setRotationX(View view2, float f) {
+    public static void setRotationX(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setRotationX(f);
+            AnimatorProxy.wrap(view).setRotationX(f);
         } else {
-            Honeycomb.e(view2, f);
+            Honeycomb.e(view, f);
         }
     }
 
-    public static float getRotationY(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getRotationY() : Honeycomb.f(view2);
+    public static float getRotationY(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getRotationY() : Honeycomb.f(view);
     }
 
-    public static void setRotationY(View view2, float f) {
+    public static void setRotationY(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setRotationY(f);
+            AnimatorProxy.wrap(view).setRotationY(f);
         } else {
-            Honeycomb.f(view2, f);
+            Honeycomb.f(view, f);
         }
     }
 
-    public static float getScaleX(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getScaleX() : Honeycomb.g(view2);
+    public static float getScaleX(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getScaleX() : Honeycomb.g(view);
     }
 
-    public static void setScaleX(View view2, float f) {
+    public static void setScaleX(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setScaleX(f);
+            AnimatorProxy.wrap(view).setScaleX(f);
         } else {
-            Honeycomb.g(view2, f);
+            Honeycomb.g(view, f);
         }
     }
 
-    public static float getScaleY(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getScaleY() : Honeycomb.h(view2);
+    public static float getScaleY(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getScaleY() : Honeycomb.h(view);
     }
 
-    public static void setScaleY(View view2, float f) {
+    public static void setScaleY(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setScaleY(f);
+            AnimatorProxy.wrap(view).setScaleY(f);
         } else {
-            Honeycomb.h(view2, f);
+            Honeycomb.h(view, f);
         }
     }
 
-    public static float getScrollX(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getScrollX() : Honeycomb.i(view2);
+    public static float getScrollX(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getScrollX() : Honeycomb.i(view);
     }
 
-    public static void setScrollX(View view2, int i) {
+    public static void setScrollX(View view, int i) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setScrollX(i);
+            AnimatorProxy.wrap(view).setScrollX(i);
         } else {
-            Honeycomb.a(view2, i);
+            Honeycomb.a(view, i);
         }
     }
 
-    public static float getScrollY(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getScrollY() : Honeycomb.j(view2);
+    public static float getScrollY(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getScrollY() : Honeycomb.j(view);
     }
 
-    public static void setScrollY(View view2, int i) {
+    public static void setScrollY(View view, int i) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setScrollY(i);
+            AnimatorProxy.wrap(view).setScrollY(i);
         } else {
-            Honeycomb.b(view2, i);
+            Honeycomb.b(view, i);
         }
     }
 
-    public static float getTranslationX(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getTranslationX() : Honeycomb.k(view2);
+    public static float getTranslationX(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getTranslationX() : Honeycomb.k(view);
     }
 
-    public static void setTranslationX(View view2, float f) {
+    public static void setTranslationX(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setTranslationX(f);
+            AnimatorProxy.wrap(view).setTranslationX(f);
         } else {
-            Honeycomb.i(view2, f);
+            Honeycomb.i(view, f);
         }
     }
 
-    public static float getTranslationY(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getTranslationY() : Honeycomb.l(view2);
+    public static float getTranslationY(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getTranslationY() : Honeycomb.l(view);
     }
 
-    public static void setTranslationY(View view2, float f) {
+    public static void setTranslationY(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setTranslationY(f);
+            AnimatorProxy.wrap(view).setTranslationY(f);
         } else {
-            Honeycomb.j(view2, f);
+            Honeycomb.j(view, f);
         }
     }
 
-    public static float getX(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getX() : Honeycomb.m(view2);
+    public static float getX(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getX() : Honeycomb.m(view);
     }
 
-    public static void setX(View view2, float f) {
+    public static void setX(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setX(f);
+            AnimatorProxy.wrap(view).setX(f);
         } else {
-            Honeycomb.k(view2, f);
+            Honeycomb.k(view, f);
         }
     }
 
-    public static float getY(View view2) {
-        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view2).getY() : Honeycomb.n(view2);
+    public static float getY(View view) {
+        return AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getY() : Honeycomb.n(view);
     }
 
-    public static void setY(View view2, float f) {
+    public static void setY(View view, float f) {
         if (AnimatorProxy.NEEDS_PROXY) {
-            AnimatorProxy.wrap(view2).setY(f);
+            AnimatorProxy.wrap(view).setY(f);
         } else {
-            Honeycomb.l(view2, f);
+            Honeycomb.l(view, f);
         }
     }
 
@@ -263,116 +263,116 @@ public final class ViewHelper {
         private Honeycomb() {
         }
 
-        static float a(View view2) {
-            return view2.getAlpha();
+        static float a(View view) {
+            return view.getAlpha();
         }
 
-        static void a(View view2, float f) {
-            view2.setAlpha(f);
+        static void a(View view, float f) {
+            view.setAlpha(f);
         }
 
-        static float b(View view2) {
-            return view2.getPivotX();
+        static float b(View view) {
+            return view.getPivotX();
         }
 
-        static void b(View view2, float f) {
-            view2.setPivotX(f);
+        static void b(View view, float f) {
+            view.setPivotX(f);
         }
 
-        static float c(View view2) {
-            return view2.getPivotY();
+        static float c(View view) {
+            return view.getPivotY();
         }
 
-        static void c(View view2, float f) {
-            view2.setPivotY(f);
+        static void c(View view, float f) {
+            view.setPivotY(f);
         }
 
-        static float d(View view2) {
-            return view2.getRotation();
+        static float d(View view) {
+            return view.getRotation();
         }
 
-        static void d(View view2, float f) {
-            view2.setRotation(f);
+        static void d(View view, float f) {
+            view.setRotation(f);
         }
 
-        static float e(View view2) {
-            return view2.getRotationX();
+        static float e(View view) {
+            return view.getRotationX();
         }
 
-        static void e(View view2, float f) {
-            view2.setRotationX(f);
+        static void e(View view, float f) {
+            view.setRotationX(f);
         }
 
-        static float f(View view2) {
-            return view2.getRotationY();
+        static float f(View view) {
+            return view.getRotationY();
         }
 
-        static void f(View view2, float f) {
-            view2.setRotationY(f);
+        static void f(View view, float f) {
+            view.setRotationY(f);
         }
 
-        static float g(View view2) {
-            return view2.getScaleX();
+        static float g(View view) {
+            return view.getScaleX();
         }
 
-        static void g(View view2, float f) {
-            view2.setScaleX(f);
+        static void g(View view, float f) {
+            view.setScaleX(f);
         }
 
-        static float h(View view2) {
-            return view2.getScaleY();
+        static float h(View view) {
+            return view.getScaleY();
         }
 
-        static void h(View view2, float f) {
-            view2.setScaleY(f);
+        static void h(View view, float f) {
+            view.setScaleY(f);
         }
 
-        static float i(View view2) {
-            return view2.getScrollX();
+        static float i(View view) {
+            return view.getScrollX();
         }
 
-        static void a(View view2, int i) {
-            view2.setScrollX(i);
+        static void a(View view, int i) {
+            view.setScrollX(i);
         }
 
-        static float j(View view2) {
-            return view2.getScrollY();
+        static float j(View view) {
+            return view.getScrollY();
         }
 
-        static void b(View view2, int i) {
-            view2.setScrollY(i);
+        static void b(View view, int i) {
+            view.setScrollY(i);
         }
 
-        static float k(View view2) {
-            return view2.getTranslationX();
+        static float k(View view) {
+            return view.getTranslationX();
         }
 
-        static void i(View view2, float f) {
-            view2.setTranslationX(f);
+        static void i(View view, float f) {
+            view.setTranslationX(f);
         }
 
-        static float l(View view2) {
-            return view2.getTranslationY();
+        static float l(View view) {
+            return view.getTranslationY();
         }
 
-        static void j(View view2, float f) {
-            view2.setTranslationY(f);
+        static void j(View view, float f) {
+            view.setTranslationY(f);
         }
 
-        static float m(View view2) {
-            return view2.getX();
+        static float m(View view) {
+            return view.getX();
         }
 
-        static void k(View view2, float f) {
-            view2.setX(f);
+        static void k(View view, float f) {
+            view.setX(f);
         }
 
-        static float n(View view2) {
-            return view2.getY();
+        static float n(View view) {
+            return view.getY();
         }
 
-        static void l(View view2, float f) {
-            view2.setY(f);
+        static void l(View view, float f) {
+            view.setY(f);
         }
     }
 }

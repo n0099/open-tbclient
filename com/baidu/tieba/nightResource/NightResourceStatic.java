@@ -16,7 +16,7 @@ public class NightResourceStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        c.Us = true;
+        c.IS_SUPPORT_NIGHT = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001354));
     }
 }

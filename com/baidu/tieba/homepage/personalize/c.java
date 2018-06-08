@@ -1,5 +1,5 @@
 package com.baidu.tieba.homepage.personalize;
 /* loaded from: classes2.dex */
 public interface c {
-    void lY(int i);
+    void mk(int i);
 }

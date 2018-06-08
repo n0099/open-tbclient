@@ -61,6 +61,8 @@ public class CmdConfigHttp {
     public static final int CMD_FRS_DYNAMIC = 1003398;
     public static final int CMD_FRS_GAME_STRATEGY = 1003362;
     public static final int CMD_FRS_STAGE_FEED_BACK = 1003390;
+    public static final int CMD_FRS_TALK_BALL = 1003403;
+    public static final int CMD_FRS_VIDEO_TOPIC = 1003405;
     public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_BOTTLE_FORUM_LIST = 1003316;
     public static final int CMD_GET_CARD_BY_CATEGORY = 1003093;
@@ -96,6 +98,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_PERSONAL_GIFT_LIST = 1003051;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
+    public static final int CMD_GET_RN_SYNC = 1003406;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
     public static final int CMD_GET_STICKERS = 1003368;
     public static final int CMD_GET_STICKET_LIST = 1003341;
@@ -105,6 +108,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_SUGGEST_EMOTION = 1003329;
     public static final int CMD_GET_TASK_SCORES = 1003101;
     public static final int CMD_GET_TCODE_INFO_CMD = 1003320;
+    public static final int CMD_GET_TOKEN = 1003404;
     public static final int CMD_GET_USER_INFO = 1003001;
     public static final int CMD_GET_USER_ORDER = 1003075;
     public static final int CMD_GET_USER_VIDEO_LIST = 1003312;
@@ -176,6 +180,7 @@ public class CmdConfigHttp {
     public static final int CMD_TOPIC_BLESS = 1003065;
     public static final int CMD_TOPIC_RELATE_THREAD = 1003042;
     public static final int CMD_TOP_THEME_LIST = 1003031;
+    public static final int CMD_UEG_REPORT = 1003402;
     public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;
     public static final int CMD_UPLOAD_FACE_GROUP = 1003345;
     public static final int CMD_USER_FREE_CHANCE = 1003047;

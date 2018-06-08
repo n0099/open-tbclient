@@ -1,60 +1,44 @@
 package android.support.v4.text;
 
 import android.os.Build;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class ICUCompat {
-    private static final ICUCompatImpl IMPL;
+    private static final ICUCompatBaseImpl IMPL;
 
     /* loaded from: classes2.dex */
-    interface ICUCompatImpl {
-        String maximizeAndGetScript(Locale locale);
-    }
-
-    /* loaded from: classes2.dex */
-    static class ICUCompatImplBase implements ICUCompatImpl {
-        ICUCompatImplBase() {
+    static class ICUCompatBaseImpl {
+        ICUCompatBaseImpl() {
         }
 
-        @Override // android.support.v4.text.ICUCompat.ICUCompatImpl
-        public String maximizeAndGetScript(Locale locale) {
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class ICUCompatImplIcs implements ICUCompatImpl {
-        ICUCompatImplIcs() {
-        }
-
-        @Override // android.support.v4.text.ICUCompat.ICUCompatImpl
         public String maximizeAndGetScript(Locale locale) {
             return ICUCompatIcs.maximizeAndGetScript(locale);
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes2.dex */
-    static class ICUCompatImplLollipop implements ICUCompatImpl {
-        ICUCompatImplLollipop() {
+    static class ICUCompatApi21Impl extends ICUCompatBaseImpl {
+        ICUCompatApi21Impl() {
         }
 
-        @Override // android.support.v4.text.ICUCompat.ICUCompatImpl
+        @Override // android.support.v4.text.ICUCompat.ICUCompatBaseImpl
         public String maximizeAndGetScript(Locale locale) {
-            return ICUCompatApi23.maximizeAndGetScript(locale);
+            return ICUCompatApi21.maximizeAndGetScript(locale);
         }
     }
 
     static {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 21) {
-            IMPL = new ICUCompatImplLollipop();
-        } else if (i >= 14) {
-            IMPL = new ICUCompatImplIcs();
+        if (Build.VERSION.SDK_INT >= 21) {
+            IMPL = new ICUCompatApi21Impl();
         } else {
-            IMPL = new ICUCompatImplBase();
+            IMPL = new ICUCompatBaseImpl();
         }
     }
 
+    @Nullable
     public static String maximizeAndGetScript(Locale locale) {
         return IMPL.maximizeAndGetScript(locale);
     }

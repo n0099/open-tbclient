@@ -3,49 +3,50 @@ package com.baidu.tbadk.util;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static f aNq = new f();
-    private b aNr;
-    private a aNs;
+    private static f aVo = new f();
+    private b aVp;
+    private a aVq;
 
     /* loaded from: classes.dex */
     public interface a {
-        void am(boolean z);
+        void ap(boolean z);
     }
 
     private f() {
     }
 
-    public static f Hy() {
-        return aNq;
+    public static f KS() {
+        return aVo;
     }
 
     public void a(a aVar) {
-        this.aNs = aVar;
-        if (this.aNr != null) {
-            this.aNr.cancel();
+        this.aVq = aVar;
+        if (this.aVp != null) {
+            this.aVp.cancel();
         }
-        this.aNr = new b();
-        this.aNr.setPriority(4);
-        this.aNr.execute(new String[0]);
+        this.aVp = new b();
+        this.aVp.setPriority(4);
+        this.aVp.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Hz() {
+    public boolean KT() {
         int i;
         long j = 0;
-        byte[] dI = com.baidu.tbadk.core.util.k.dI(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
+        byte[] ei = com.baidu.tbadk.core.util.l.ei(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
         String str = null;
-        if (dI != null) {
-            str = new String(dI);
+        if (ei != null) {
+            str = new String(ei);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
             i = 0;
         } else {
-            String[] split = str.split(":");
+            String[] split = str.split(SystemInfoUtil.COLON);
             if (split == null || split.length != 2) {
                 i = 0;
             } else {
@@ -69,15 +70,15 @@ public class f {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(f.this.Hz());
+            return Boolean.valueOf(f.this.KT());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (f.this.aNs != null && bool != null) {
-                f.this.aNs.am(bool.booleanValue());
+            if (f.this.aVq != null && bool != null) {
+                f.this.aVq.ap(bool.booleanValue());
             }
         }
     }

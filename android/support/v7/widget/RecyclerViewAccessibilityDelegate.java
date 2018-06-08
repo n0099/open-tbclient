@@ -7,26 +7,7 @@ import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 /* loaded from: classes2.dex */
 public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateCompat {
-    final AccessibilityDelegateCompat mItemDelegate = new AccessibilityDelegateCompat() { // from class: android.support.v7.widget.RecyclerViewAccessibilityDelegate.1
-        @Override // android.support.v4.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-            super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
-            if (!RecyclerViewAccessibilityDelegate.this.shouldIgnore() && RecyclerViewAccessibilityDelegate.this.mRecyclerView.getLayoutManager() != null) {
-                RecyclerViewAccessibilityDelegate.this.mRecyclerView.getLayoutManager().onInitializeAccessibilityNodeInfoForItem(view2, accessibilityNodeInfoCompat);
-            }
-        }
-
-        @Override // android.support.v4.view.AccessibilityDelegateCompat
-        public boolean performAccessibilityAction(View view2, int i, Bundle bundle) {
-            if (super.performAccessibilityAction(view2, i, bundle)) {
-                return true;
-            }
-            if (!RecyclerViewAccessibilityDelegate.this.shouldIgnore() && RecyclerViewAccessibilityDelegate.this.mRecyclerView.getLayoutManager() != null) {
-                return RecyclerViewAccessibilityDelegate.this.mRecyclerView.getLayoutManager().performAccessibilityActionForItem(view2, i, bundle);
-            }
-            return false;
-        }
-    };
+    final AccessibilityDelegateCompat mItemDelegate = new ItemDelegate(this);
     final RecyclerView mRecyclerView;
 
     public RecyclerViewAccessibilityDelegate(RecyclerView recyclerView) {
@@ -38,8 +19,8 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
     }
 
     @Override // android.support.v4.view.AccessibilityDelegateCompat
-    public boolean performAccessibilityAction(View view2, int i, Bundle bundle) {
-        if (super.performAccessibilityAction(view2, i, bundle)) {
+    public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
+        if (super.performAccessibilityAction(view, i, bundle)) {
             return true;
         }
         if (!shouldIgnore() && this.mRecyclerView.getLayoutManager() != null) {
@@ -49,8 +30,8 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
     }
 
     @Override // android.support.v4.view.AccessibilityDelegateCompat
-    public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-        super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
+    public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
         accessibilityNodeInfoCompat.setClassName(RecyclerView.class.getName());
         if (!shouldIgnore() && this.mRecyclerView.getLayoutManager() != null) {
             this.mRecyclerView.getLayoutManager().onInitializeAccessibilityNodeInfo(accessibilityNodeInfoCompat);
@@ -58,11 +39,11 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
     }
 
     @Override // android.support.v4.view.AccessibilityDelegateCompat
-    public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
-        super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
+    public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+        super.onInitializeAccessibilityEvent(view, accessibilityEvent);
         accessibilityEvent.setClassName(RecyclerView.class.getName());
-        if ((view2 instanceof RecyclerView) && !shouldIgnore()) {
-            RecyclerView recyclerView = (RecyclerView) view2;
+        if ((view instanceof RecyclerView) && !shouldIgnore()) {
+            RecyclerView recyclerView = (RecyclerView) view;
             if (recyclerView.getLayoutManager() != null) {
                 recyclerView.getLayoutManager().onInitializeAccessibilityEvent(accessibilityEvent);
             }
@@ -71,5 +52,33 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
 
     public AccessibilityDelegateCompat getItemDelegate() {
         return this.mItemDelegate;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class ItemDelegate extends AccessibilityDelegateCompat {
+        final RecyclerViewAccessibilityDelegate mRecyclerViewDelegate;
+
+        public ItemDelegate(RecyclerViewAccessibilityDelegate recyclerViewAccessibilityDelegate) {
+            this.mRecyclerViewDelegate = recyclerViewAccessibilityDelegate;
+        }
+
+        @Override // android.support.v4.view.AccessibilityDelegateCompat
+        public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+            if (!this.mRecyclerViewDelegate.shouldIgnore() && this.mRecyclerViewDelegate.mRecyclerView.getLayoutManager() != null) {
+                this.mRecyclerViewDelegate.mRecyclerView.getLayoutManager().onInitializeAccessibilityNodeInfoForItem(view, accessibilityNodeInfoCompat);
+            }
+        }
+
+        @Override // android.support.v4.view.AccessibilityDelegateCompat
+        public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
+            if (super.performAccessibilityAction(view, i, bundle)) {
+                return true;
+            }
+            if (!this.mRecyclerViewDelegate.shouldIgnore() && this.mRecyclerViewDelegate.mRecyclerView.getLayoutManager() != null) {
+                return this.mRecyclerViewDelegate.mRecyclerView.getLayoutManager().performAccessibilityActionForItem(view, i, bundle);
+            }
+            return false;
+        }
     }
 }

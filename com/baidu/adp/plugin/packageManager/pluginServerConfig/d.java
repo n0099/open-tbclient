@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d Co;
-    private PluginNetConfigInfos Cp = new PluginNetConfigInfos();
-    private b Cq;
+    private static volatile d Ix;
+    private PluginNetConfigInfos Iy = new PluginNetConfigInfos();
+    private b Iz;
 
-    public static d jt() {
-        if (Co == null) {
+    public static d mh() {
+        if (Ix == null) {
             synchronized (d.class) {
-                if (Co == null) {
-                    Co = new d();
+                if (Ix == null) {
+                    Ix = new d();
                 }
             }
         }
-        return Co;
+        return Ix;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c c = c(pluginSettings);
-        if (this.Cq != null) {
-            this.Cq.a(z, c, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.Iz != null) {
+            this.Iz.a(z, c, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos) {
                     if (z2) {
-                        d.this.Cp = pluginNetConfigInfos;
+                        d.this.Iy = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.Cp);
+                        aVar.a(z2, cVar, d.this.Iy);
                     }
                 }
             });
@@ -50,15 +50,15 @@ public class d {
                 }
             }
         }
-        cVar.i(arrayList);
+        cVar.l(arrayList);
         return cVar;
     }
 
-    public PluginNetConfigInfos ju() {
-        return this.Cp;
+    public PluginNetConfigInfos mi() {
+        return this.Iy;
     }
 
     public void a(b bVar) {
-        this.Cq = bVar;
+        this.Iz = bVar;
     }
 }

@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> dID = new ArrayList<>();
-    boolean FE;
+    static final ArrayList<HListView.b> dTO = new ArrayList<>();
+    boolean LN;
     private final ListAdapter mAdapter;
     ArrayList<HListView.b> mFooterViewInfos;
     ArrayList<HListView.b> mHeaderViewInfos;
@@ -23,16 +23,16 @@ public class d implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = dID;
+            this.mHeaderViewInfos = dTO;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = dID;
+            this.mFooterViewInfos = dTO;
         } else {
             this.mFooterViewInfos = arrayList2;
         }
-        this.FE = e(this.mHeaderViewInfos) && e(this.mFooterViewInfos);
+        this.LN = e(this.mHeaderViewInfos) && e(this.mFooterViewInfos);
     }
 
     public int getHeadersCount() {
@@ -60,30 +60,30 @@ public class d implements Filterable, WrapperListAdapter {
         return true;
     }
 
-    public boolean removeHeader(View view2) {
+    public boolean removeHeader(View view) {
         boolean z = false;
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
-            if (this.mHeaderViewInfos.get(i).f15view == view2) {
+            if (this.mHeaderViewInfos.get(i).view == view) {
                 this.mHeaderViewInfos.remove(i);
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.FE = z;
+                this.LN = z;
                 return true;
             }
         }
         return false;
     }
 
-    public boolean removeFooter(View view2) {
+    public boolean removeFooter(View view) {
         boolean z = false;
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
-            if (this.mFooterViewInfos.get(i).f15view == view2) {
+            if (this.mFooterViewInfos.get(i).view == view) {
                 this.mFooterViewInfos.remove(i);
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.FE = z;
+                this.LN = z;
                 return true;
             }
         }
@@ -98,7 +98,7 @@ public class d implements Filterable, WrapperListAdapter {
     @Override // android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.FE && this.mAdapter.areAllItemsEnabled();
+            return this.LN && this.mAdapter.areAllItemsEnabled();
         }
         return true;
     }
@@ -150,17 +150,17 @@ public class d implements Filterable, WrapperListAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.mHeaderViewInfos.get(i).f15view;
+            return this.mHeaderViewInfos.get(i).view;
         }
         int i2 = i - headersCount;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
-            return this.mAdapter.getView(i2, view2, viewGroup);
+            return this.mAdapter.getView(i2, view, viewGroup);
         }
-        return this.mFooterViewInfos.get(i2 - i3).f15view;
+        return this.mFooterViewInfos.get(i2 - i3).view;
     }
 
     @Override // android.widget.Adapter

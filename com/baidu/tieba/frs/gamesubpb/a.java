@@ -8,12 +8,12 @@ import com.baidu.tieba.frs.gamesubpb.model.d;
 import com.baidu.tieba.frs.gamesubpb.view.b;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
-    private TbPageContext dkX;
-    private InterfaceC0140a dkY;
+    private TbPageContext dul;
+    private InterfaceC0155a dum;
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0140a {
+    public interface InterfaceC0155a {
         void a(d dVar);
 
         void b(d dVar);
@@ -24,16 +24,16 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dkX = tbPageContext;
+        this.dul = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
+    /* renamed from: aG */
     public b.a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.gamesubpb.view.b bVar = new com.baidu.tieba.frs.gamesubpb.view.b(this.dkX);
-        bVar.setClickListener(this.dkY);
+        com.baidu.tieba.frs.gamesubpb.view.b bVar = new com.baidu.tieba.frs.gamesubpb.view.b(this.dul);
+        bVar.setClickListener(this.dum);
         return new b.a(bVar);
     }
 
@@ -41,14 +41,14 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d dVar, b.a aVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, d dVar, b.a aVar) {
         if (dVar != null) {
             aVar.f(dVar);
         }
         return aVar.getView();
     }
 
-    public void setClickListener(InterfaceC0140a interfaceC0140a) {
-        this.dkY = interfaceC0140a;
+    public void setClickListener(InterfaceC0155a interfaceC0155a) {
+        this.dum = interfaceC0155a;
     }
 }

@@ -67,14 +67,14 @@ public class PagerTabStrip extends PagerTitleStrip {
         this.mPrevText.setFocusable(true);
         this.mPrevText.setOnClickListener(new View.OnClickListener() { // from class: android.support.v4.view.PagerTabStrip.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 PagerTabStrip.this.mPager.setCurrentItem(PagerTabStrip.this.mPager.getCurrentItem() - 1);
             }
         });
         this.mNextText.setFocusable(true);
         this.mNextText.setOnClickListener(new View.OnClickListener() { // from class: android.support.v4.view.PagerTabStrip.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 PagerTabStrip.this.mPager.setCurrentItem(PagerTabStrip.this.mPager.getCurrentItem() + 1);
             }
         });

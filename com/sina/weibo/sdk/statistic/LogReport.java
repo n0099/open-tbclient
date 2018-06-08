@@ -6,7 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.ar.util.IoUtils;
 import com.sina.weibo.sdk.net.HttpManager;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
@@ -200,9 +200,9 @@ public class LogReport {
                     }
                 }
                 try {
-                    jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, System.currentTimeMillis() / 1000);
+                    jSONObject.put("time", System.currentTimeMillis() / 1000);
                     jSONObject.put("length", jSONArray.length());
-                    jSONObject.put("sign", getSign(jSONObject.getString("aid"), jSONObject.getString("appkey"), jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)));
+                    jSONObject.put("sign", getSign(jSONObject.getString("aid"), jSONObject.getString("appkey"), jSONObject.getLong("time")));
                     jSONObject.put("content", jSONArray);
                     LogUtil.d(WBAgent.TAG, "post content--- " + jSONObject.toString());
                 } catch (JSONException e5) {
@@ -353,7 +353,7 @@ public class LogReport {
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            byte[] bytes = str.getBytes("utf-8");
+            byte[] bytes = str.getBytes(IoUtils.UTF_8);
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
             gZIPOutputStream.write(bytes);
             gZIPOutputStream.close();

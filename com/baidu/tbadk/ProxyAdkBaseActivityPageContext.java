@@ -106,8 +106,8 @@ public class ProxyAdkBaseActivityPageContext<T> implements TbPageContext<T> {
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void startAnimation(View view2, Animation animation, Animation.AnimationListener animationListener) {
-        this.activity.startAnimation(view2, animation, animationListener);
+    public void startAnimation(View view, Animation animation, Animation.AnimationListener animationListener) {
+        this.activity.startAnimation(view, animation, animationListener);
     }
 
     @Override // com.baidu.tbadk.TbPageContext

@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
-import com.baidu.ar.util.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
@@ -127,10 +126,11 @@ public class TbConfig {
     public static final String FROM_FILE = "from.dat";
     public static final int FRS_ABSTRACT_ITEM_NUMBER = 50;
     public static final String FRS_ADDRESS = "c/f/frs/page";
-    public static final int FRS_CACHE_NUM = 20;
     public static final String FRS_DYNAMIC_ADDRESS = "c/f/frs/starTrends";
     public static final String FRS_HEAD_VIDEO_LIST = "c/f/video/forumHeadVideo";
     public static final int FRS_NOABSTRACT_ITEM_NUMBER = 35;
+    public static final String FRS_TALK_BALL = "c/f/frs/talkBallThreadList";
+    public static final String FRS_VIDEO_TOPIC = "c/f/frs/videoTopicList";
     public static final int FRS_WATER_FALL_PAGE_NUM = 240;
     public static final int FRS_WATER_FALL_PHOTO_NUM = 30;
     public static final String FUNCTION_INTRO_WEBVIEW = "mo/q/topic_page/110_1";
@@ -178,6 +178,7 @@ public class TbConfig {
     public static final String GET_PERSONAL_CARD_BY_CATEGORY = "c/e/theme/getCardByCategory";
     public static final String GET_PERSONAL_GIFT_LIST = "c/e/present/getMyGift";
     public static final String GET_PRIVATE_INFO = "c/u/user/getPrivateInfo";
+    public static final String GET_RN_SYNC_ADDRESS = "c/s/newRnSync";
     public static final String GET_SINGLE_GAME = "c/u/game/getsinglegamelist";
     public static final String GET_STICKERS = "c/f/video/sticker";
     public static final String GET_SUGGEST_LOCATION_BY_NAME = "c/s/getSuggestionByAddrName";
@@ -213,6 +214,7 @@ public class TbConfig {
     public static final String IMAGE_RESIZED_FILE = "tieba_resized_image";
     public static final String IMAGE_RESIZED_FILE_DISPLAY = "tieba_resized_image_display";
     public static final float IMAGE_ROUND = 10.0f;
+    public static final String IM_USER_ID_TBJX = "1501754229";
     public static final String INCR_FORUM_ACCESS_ACOUNT = "c/c/forum/incrForumAccessCount";
     public static final String INPUT_USERNAME_ADDRESS = "c/s/filluname";
     public static final String IN_PV_ADDRESS = "c/s/inpv";
@@ -419,6 +421,7 @@ public class TbConfig {
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
     public static final String URL_CHECK_BIG_V = "c/u/user/getvuserinfo";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
+    public static final String URL_CHECK_SHOW_INIT_NAME_DIALOG = "c/s/initNickname";
     public static final String URL_CHECK_VIDEO_STATUS = "c/c/video/uploadVideoStatus";
     public static final String URL_CONCERN_CHECK_RED_NOTIFY = "c/f/concern/rednotify";
     public static final String URL_CONCERN_PAGE = "c/f/concern/userlike";
@@ -434,6 +437,7 @@ public class TbConfig {
     public static final String URL_GET_INTEREST_LABEL_LIST = "c/f/recommtag/getTagList";
     public static final String URL_GET_RECOMMEND_GOD = "c/u/user/getRecommendGod";
     public static final String URL_GET_STICKER_LIST = "c/f/story/getSticker";
+    public static final String URL_GET_TOKEN = "c/s/getToken";
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
     public static final String URL_GET_VIDEO_INFO_BY_VLOGID = "/c/f/video/getVideoInfoByVLogId";
     public static final String URL_HOST_TOPIC_LIST = "https://tieba.baidu.com/mo/q/hotMessage/list";
@@ -457,6 +461,7 @@ public class TbConfig {
     public static final String URL_SHARE_SUCCESS_TO_REPLY_SERVER = "/c/c/video/share";
     public static final String URL_SUB_INTEREST_LABEL_LIST = "c/f/recommtag/subTagList";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
+    public static final String URL_UEG_REPORT = "c/f/ueg/checkjubao";
     public static final String URL_UEG_SERVICE_CENTER = "http://tieba.baidu.com/n/apage-runtime/page/ueg_service_center";
     public static final String URL_UPLOAD_VIDEO = "c/c/video/uploadVideoData";
     public static final String URL_USER_REPORT = "c/c/user/complaint";
@@ -594,7 +599,7 @@ public class TbConfig {
 
     public static String getFullVersion() {
         String version = getVersion();
-        return version + Constants.DOT + getSubVersion();
+        return version + "." + getSubVersion();
     }
 
     public static String getLegoLibVersion() {
@@ -684,7 +689,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.EY().eV(i);
+            c.ID().eZ(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -829,7 +834,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(l.af(context) * l.ah(context));
+            int sqrt = (int) Math.sqrt(l.ah(context) * l.aj(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

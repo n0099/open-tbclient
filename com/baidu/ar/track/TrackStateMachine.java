@@ -3,50 +3,46 @@ package com.baidu.ar.track;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.ar.d.b;
-import com.baidu.ar.util.o;
+import android.util.Log;
+import com.baidu.ar.base.MsgField;
+import com.baidu.ar.base.d;
+import com.baidu.ar.imu.b;
+import com.baidu.ar.rotate.OrientationManager;
+import com.baidu.ar.util.ARLog;
+import com.baidu.ar.util.MsgConstants;
 import com.baidu.baiduarsdk.ArBridge;
 import java.util.HashMap;
-import org.apache.http.HttpStatus;
 /* loaded from: classes3.dex */
 public class TrackStateMachine {
     private static volatile TrackStateMachine a;
     private static STATE e = STATE.INITIAL_STATE;
-    private Handler g;
-    private b h;
+    private Handler f;
+    private b g;
+    private long i;
+    private long j;
     private STATE b = STATE.INITIAL_STATE;
     private STATE c = STATE.INITIAL_STATE;
     private STATE d = STATE.INITIAL_STATE;
-    private STATE f = STATE.INITIAL_STATE;
-    private int i = 0;
+    private int h = 0;
 
     /* loaded from: classes3.dex */
     public enum EVENT {
-        QUERY_RES_START,
-        QUERY_RES_SUCCESS,
         MODEL_APPEAR,
         MODEL_DISAPPEAR,
-        UPDATE_RT_MATRIX,
         TRACK_SUCCESS,
         TRACK_FAILED,
         TRACK_IMU_OPEN,
         TRACK_IMU_CLOSE,
-        DOWNLOAD_RES_START,
         DOWNLOAD_RES_FINISH,
         LOAD_MODEL_START,
         LOAD_MODEL_FINISH,
-        OPEN_INTERNAL_BROWSER,
-        VIDEO_RECORD_START,
-        VIDEO_RECORD_STOP_AND_SAVE_FINISH,
-        VIDEO_RECORD_STOP_AND_ABANDON,
-        VIDEO_PREVIEW_IMAGE_CAPTURE_FINISH
+        OPEN_TRACK_ALGO,
+        CLOSE_TRACK_ALGO
     }
 
     /* loaded from: classes3.dex */
     public enum STATE {
         INITIAL_STATE,
-        RES_QUERYING,
-        RES_DOWNLOADING,
         TRACK_START,
         MODEL_SHOWING,
         MODEL_NOT_SHOWING,
@@ -56,17 +52,53 @@ public class TrackStateMachine {
         NOT_TRACKED,
         RESUME,
         PAUSE,
-        DESTROY,
-        VIDEO_RECORD_FINISH,
-        VIDEO_RECORD_ABANDON,
-        VIDEO_CAPTURE_IMAGE_FINISH,
-        VIDEO_RECORD_COMPLETE
+        DESTROY
     }
 
     private TrackStateMachine() {
     }
 
-    public static TrackStateMachine a() {
+    private void a(int i) {
+        if (this.f != null) {
+            this.f.sendEmptyMessage(i);
+        }
+    }
+
+    private void a(int i, long j) {
+        if (this.f != null) {
+            this.f.sendEmptyMessageDelayed(i, j);
+        }
+    }
+
+    private void a(int i, Bundle bundle) {
+        if (this.f != null) {
+            Message obtainMessage = this.f.obtainMessage();
+            obtainMessage.what = i;
+            obtainMessage.setData(bundle);
+            this.f.sendMessage(obtainMessage);
+        }
+    }
+
+    private void a(Message message) {
+        if (this.f != null) {
+            this.f.sendMessage(message);
+        }
+    }
+
+    private void a(STATE state) {
+        this.b = state;
+    }
+
+    private void b(STATE state) {
+        this.c = state;
+    }
+
+    public static void destroy() {
+        getInstance().f = null;
+        a = null;
+    }
+
+    public static TrackStateMachine getInstance() {
         if (a == null) {
             synchronized (TrackStateMachine.class) {
                 if (a == null) {
@@ -77,135 +109,89 @@ public class TrackStateMachine {
         return a;
     }
 
-    private void a(int i) {
-        if (this.g != null) {
-            this.g.sendEmptyMessage(i);
-        }
-    }
-
-    private void a(int i, long j) {
-        if (this.g != null) {
-            this.g.sendEmptyMessageDelayed(i, j);
-        }
-    }
-
-    private void a(int i, Bundle bundle) {
-        if (this.g != null) {
-            Message obtainMessage = this.g.obtainMessage();
-            obtainMessage.what = i;
-            obtainMessage.setData(bundle);
-            this.g.sendMessage(obtainMessage);
-        }
-    }
-
-    private void a(Message message) {
-        if (this.g != null) {
-            this.g.sendMessage(message);
-        }
-    }
-
-    public static void a(STATE state) {
+    public static void setAppState(STATE state) {
         e = state;
     }
 
-    private void b(STATE state) {
-        this.b = state;
+    public STATE getTrackState() {
+        return this.d;
     }
 
-    private void c(STATE state) {
-        this.c = state;
+    public void init() {
+        setAppState(STATE.INITIAL_STATE);
+        this.b = STATE.INITIAL_STATE;
+        this.c = STATE.INITIAL_STATE;
+        this.d = STATE.INITIAL_STATE;
     }
 
-    public static void d() {
-        a().g = null;
-        a = null;
+    public synchronized void processEvent(EVENT event) {
+        processEvent(event, null);
     }
 
-    public void a(Handler handler) {
-        this.g = handler;
-    }
-
-    public void a(b bVar) {
-        this.h = bVar;
-    }
-
-    public synchronized void a(EVENT event) {
-        a(event, (Bundle) null);
-    }
-
-    public synchronized void a(EVENT event, Bundle bundle) {
-        com.baidu.ar.util.b.a("event=" + event + ", state=" + this.b + ", BgState=" + this.c + ", AppState=" + e + ", TrackState=" + this.d);
+    public synchronized void processEvent(EVENT event, Bundle bundle) {
+        ARLog.d("event=" + event + ", state=" + this.b + ", BgState=" + this.c + ", AppState=" + e + ", TrackState=" + this.d);
         if (e != STATE.DESTROY) {
             switch (event) {
-                case QUERY_RES_START:
+                case DOWNLOAD_RES_FINISH:
+                case LOAD_MODEL_START:
                     if (this.c != STATE.MODEL_LOAD_FINISH) {
-                        if (this.b != STATE.INITIAL_STATE && this.b != STATE.RES_QUERYING) {
-                            if (this.b != STATE.RES_DOWNLOADING) {
-                                a(HttpStatus.SC_TEMPORARY_REDIRECT);
-                                break;
-                            } else {
-                                a(300);
-                                break;
-                            }
-                        } else {
-                            a(308);
-                            b(STATE.RES_QUERYING);
+                        if (this.b != STATE.TRACK_START) {
+                            this.i = System.currentTimeMillis();
+                            ARLog.d("[TrackStateMachine]loadModelStart=" + this.i);
+                            a(STATE.TRACK_START);
+                            b(STATE.MODEL_LOADING);
+                            break;
+                        } else if (this.c == STATE.MODEL_LOAD_FINISH) {
+                            a(307);
                             break;
                         }
                     } else {
                         switch (this.b) {
                             case TRACK_START:
                                 Bundle bundle2 = new Bundle();
-                                bundle2.putInt("show_immediately", this.i);
-                                if (this.g != null) {
-                                    Message obtainMessage = this.g.obtainMessage();
-                                    obtainMessage.what = 312;
+                                bundle2.putInt("show_immediately", this.h);
+                                if (this.f != null) {
+                                    Message obtainMessage = this.f.obtainMessage();
+                                    obtainMessage.what = MsgConstants.TRACK_MODEL_CAN_DISAPPEARING;
                                     obtainMessage.setData(bundle2);
                                     a(obtainMessage);
                                     break;
                                 }
                                 break;
                             case MODEL_NOT_SHOWING:
-                                a(HttpStatus.SC_TEMPORARY_REDIRECT);
+                                a(307);
                                 break;
                             case MODEL_SHOWING:
-                                a(306);
+                                a(MsgConstants.TRACK_MODEL_SHOWING);
                                 break;
                         }
-                        a(314);
+                        a(MsgConstants.TRACK_SHOW_CAPTURE);
                         break;
                     }
                     break;
-                case QUERY_RES_SUCCESS:
-                    a(300);
-                    b(STATE.RES_DOWNLOADING);
-                    break;
-                case DOWNLOAD_RES_FINISH:
-                    b(STATE.TRACK_START);
-                    c(STATE.MODEL_LOADING);
-                    break;
                 case LOAD_MODEL_FINISH:
-                    com.baidu.ar.util.b.a("bdar: LOAD_MODEL_FINISH");
-                    com.baidu.ar.c.a.b(o.a());
-                    a(301);
-                    Message obtain = Message.obtain();
-                    obtain.what = 312;
-                    obtain.setData(bundle);
-                    if (this.d == STATE.INITIAL_STATE) {
-                        a(obtain);
-                    } else if (this.d == STATE.NOT_TRACKED) {
-                        a(obtain);
-                        ArBridge.getInstance().sendMessage(102, null);
-                    } else if (this.d == STATE.TRACKED) {
-                        ArBridge.getInstance().sendMessage(101, null);
+                    this.j = System.currentTimeMillis();
+                    ARLog.d("[TrackStateMachine]loadModelEnd=" + this.j + ",cost:" + (this.j - this.i));
+                    if (this.c == STATE.MODEL_LOADING) {
+                        com.baidu.ar.msghandler.a.a(OrientationManager.getGlobalOrientation().getDegree());
+                        a(301);
+                        Message obtain = Message.obtain();
+                        obtain.what = MsgConstants.TRACK_MODEL_CAN_DISAPPEARING;
+                        obtain.setData(bundle);
+                        if (this.d == STATE.INITIAL_STATE) {
+                            a(obtain);
+                        } else if (this.d == STATE.NOT_TRACKED) {
+                            a(obtain);
+                            ArBridge.getInstance().sendMessage(102, null);
+                        } else if (this.d == STATE.TRACKED) {
+                            ArBridge.getInstance().sendMessage(101, null);
+                        }
+                        if (bundle != null) {
+                            this.h = bundle.getInt("show_immediately");
+                        }
+                        b(STATE.MODEL_LOAD_FINISH);
+                        break;
                     }
-                    if (bundle != null) {
-                        this.i = bundle.getInt("show_immediately");
-                    }
-                    c(STATE.MODEL_LOAD_FINISH);
-                    break;
-                case UPDATE_RT_MATRIX:
-                    b(event, bundle);
                     break;
                 case TRACK_SUCCESS:
                     this.d = STATE.TRACKED;
@@ -218,124 +204,101 @@ public class TrackStateMachine {
                     this.d = STATE.NOT_TRACKED;
                     if (this.c == STATE.MODEL_LOAD_FINISH) {
                         ArBridge.getInstance().sendMessage(102, null);
+                        a(MsgConstants.TRACK_MSG_ID_TRACK_LOST);
+                        d.a((int) MsgField.IMSG_TRACK_LOST, MsgField.SMSG_TRACK_LOST);
+                        break;
                     }
-                    a(310);
                     break;
                 case TRACK_IMU_OPEN:
                     HashMap<String, Object> hashMap = new HashMap<>();
-                    if (this.h.a(bundle.getInt("type"))) {
-                        hashMap.put("succeeded", 1);
-                    } else {
-                        hashMap.put("succeeded", 0);
+                    try {
+                        this.g.a(bundle);
+                        if (this.g.a(bundle.getInt("type"))) {
+                            hashMap.put("succeeded", 1);
+                        } else {
+                            hashMap.put("succeeded", 0);
+                        }
+                        ArBridge.getInstance().sendMessage(302, hashMap);
+                        a(MsgConstants.TRACK_IMU_OPEN, bundle);
+                        break;
+                    } catch (NullPointerException e2) {
+                        ARLog.w("bdar:has NullPointerException!!!");
+                        break;
                     }
-                    ArBridge.getInstance().sendMessage(302, hashMap);
-                    a(313, bundle);
-                    break;
                 case TRACK_IMU_CLOSE:
-                    HashMap<String, Object> hashMap2 = new HashMap<>();
-                    hashMap2.put("succeeded", 1);
-                    this.h.a();
-                    ArBridge.getInstance().sendMessage(304, hashMap2);
+                    if (this.g != null) {
+                        HashMap<String, Object> hashMap2 = new HashMap<>();
+                        hashMap2.put("succeeded", 1);
+                        this.g.a();
+                        ArBridge.getInstance().sendMessage(304, hashMap2);
+                        break;
+                    }
                     break;
                 case MODEL_APPEAR:
-                    if (this.g != null && this.g.hasMessages(HttpStatus.SC_TEMPORARY_REDIRECT)) {
-                        this.g.removeMessages(HttpStatus.SC_TEMPORARY_REDIRECT);
+                    Log.e("bdar", "model appear");
+                    d.a((int) MsgField.IMSG_TRACK_MODEL_APPEAR, " track model disapper!");
+                    if (this.f != null && this.f.hasMessages(307)) {
+                        this.f.removeMessages(307);
                     }
-                    a(306);
-                    b(STATE.MODEL_SHOWING);
+                    a(MsgConstants.TRACK_MODEL_SHOWING);
+                    a(STATE.MODEL_SHOWING);
                     break;
                 case MODEL_DISAPPEAR:
-                    a(HttpStatus.SC_TEMPORARY_REDIRECT, 100L);
-                    b(STATE.MODEL_NOT_SHOWING);
+                    Log.e("bdar", "model disapear");
+                    a(307, 100L);
+                    a(STATE.MODEL_NOT_SHOWING);
                     break;
-                case OPEN_INTERNAL_BROWSER:
-                    Message message = new Message();
-                    message.what = 311;
-                    message.setData(bundle);
-                    a(message);
+                case OPEN_TRACK_ALGO:
+                    a(MsgConstants.TRACK_OPEN_TRACK_ALGO);
+                    break;
+                case CLOSE_TRACK_ALGO:
+                    a(MsgConstants.TRACK_CLOSE_TRACK_ALGO);
                     break;
             }
         }
     }
 
-    public void b() {
-        e = STATE.INITIAL_STATE;
-        this.b = STATE.INITIAL_STATE;
-        this.c = STATE.INITIAL_STATE;
-        this.d = STATE.INITIAL_STATE;
-        this.f = STATE.INITIAL_STATE;
-    }
-
-    public synchronized void b(EVENT event, Bundle bundle) {
-        if (e != STATE.PAUSE && e != STATE.DESTROY && this.c == STATE.MODEL_LOAD_FINISH) {
-            com.baidu.ar.util.b.a("bdar: processRtMatrix isTracked = " + bundle.getBoolean("isTracked"));
-            float[] floatArray = bundle.getFloatArray("RTMatrix");
-            int renderMode = ArBridge.getInstance().getRenderMode();
-            if (this.d == STATE.TRACKED && floatArray != null) {
-                ArBridge.getInstance().updateRTMatrix(floatArray);
-                Message message = new Message();
-                message.what = 302;
-                message.setData(bundle);
-                a(message);
-                if (bundle.getInt("averageTime") <= 40) {
-                    if (renderMode != 0) {
-                        ArBridge.getInstance().setRenderMode(0);
-                    }
-                    ArBridge.getInstance().requestRenderer();
-                } else if (renderMode != 1) {
-                    ArBridge.getInstance().setRenderMode(1);
-                }
-            } else if (renderMode != 1) {
-                ArBridge.getInstance().setRenderMode(1);
-            }
-        }
-    }
-
-    public STATE c() {
-        return this.d;
-    }
-
-    public synchronized void c(EVENT event, Bundle bundle) {
+    public synchronized void processRMatrix(Bundle bundle) {
         float[] floatArray;
         if (this.c == STATE.MODEL_LOAD_FINISH && (floatArray = bundle.getFloatArray("RMatrix")) != null) {
             ArBridge.getInstance().updateRMatrix(floatArray);
         }
     }
 
-    public synchronized void d(EVENT event, Bundle bundle) {
-        if (e != STATE.DESTROY) {
-            switch (event) {
-                case VIDEO_RECORD_START:
-                    this.f = STATE.INITIAL_STATE;
-                    break;
-                case VIDEO_RECORD_STOP_AND_SAVE_FINISH:
-                    if (this.f != STATE.INITIAL_STATE) {
-                        if (this.f == STATE.VIDEO_CAPTURE_IMAGE_FINISH) {
-                            a(602);
-                            this.f = STATE.VIDEO_RECORD_COMPLETE;
-                            break;
+    public synchronized void processRtMatrix(Bundle bundle) {
+        if (e != STATE.PAUSE && e != STATE.DESTROY && this.c == STATE.MODEL_LOAD_FINISH) {
+            ARLog.d("bdar: processRtMatrix isTracked = " + bundle.getBoolean("isTracked"));
+            if (bundle != null) {
+                float[] floatArray = bundle.getFloatArray("RTMatrix");
+                if (this.d == STATE.TRACKED && floatArray != null) {
+                    ArBridge.getInstance().updateRTMatrix(floatArray);
+                    Message message = new Message();
+                    message.what = 302;
+                    message.setData(bundle);
+                    a(message);
+                    if (ArBridge.getInstance().getArGLEngineCtl() != null) {
+                        int e2 = ArBridge.getInstance().getArGLEngineCtl().e();
+                        if (bundle.getInt("averageTime") <= 40) {
+                            if (e2 != 0) {
+                                ArBridge.getInstance().getArGLEngineCtl().a(0);
+                            }
+                            ArBridge.getInstance().getArGLEngineCtl().b();
+                        } else if (e2 != 1) {
+                            ArBridge.getInstance().getArGLEngineCtl().a(1);
                         }
-                    } else {
-                        this.f = STATE.VIDEO_RECORD_FINISH;
-                        break;
                     }
-                    break;
-                case VIDEO_RECORD_STOP_AND_ABANDON:
-                    this.f = STATE.VIDEO_RECORD_ABANDON;
-                    break;
-                case VIDEO_PREVIEW_IMAGE_CAPTURE_FINISH:
-                    if (this.f != STATE.INITIAL_STATE) {
-                        if (this.f == STATE.VIDEO_RECORD_FINISH) {
-                            a(602);
-                            this.f = STATE.VIDEO_RECORD_COMPLETE;
-                            break;
-                        }
-                    } else {
-                        this.f = STATE.VIDEO_CAPTURE_IMAGE_FINISH;
-                        break;
-                    }
-                    break;
+                } else if (ArBridge.getInstance().getArGLEngineCtl() != null && ArBridge.getInstance().getArGLEngineCtl().e() != 1) {
+                    ArBridge.getInstance().getArGLEngineCtl().a(1);
+                }
             }
         }
+    }
+
+    public void setIMUController(b bVar) {
+        this.g = bVar;
+    }
+
+    public void setMainThreadHandler(Handler handler) {
+        this.f = handler;
     }
 }

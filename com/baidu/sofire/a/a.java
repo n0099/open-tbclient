@@ -21,12 +21,12 @@ public final class a {
     int a = 5;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0078a e;
+    private C0095a e;
     private Context f;
 
     private a(Context context) {
         this.f = context.getApplicationContext();
-        this.e = new C0078a(context.getApplicationContext());
+        this.e = new C0095a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
@@ -48,8 +48,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0078a extends SQLiteOpenHelper {
-        public C0078a(Context context) {
+    private class C0095a extends SQLiteOpenHelper {
+        public C0095a(Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.a);
             new StringBuilder().append(a.this.a);
         }

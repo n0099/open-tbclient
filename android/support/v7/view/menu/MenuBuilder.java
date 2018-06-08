@@ -14,7 +14,6 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.internal.view.SupportMenu;
 import android.support.v4.view.ActionProvider;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.appcompat.R;
 import android.util.SparseArray;
 import android.view.ContextMenu;
@@ -28,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class MenuBuilder implements SupportMenu {
     private static final String ACTION_VIEW_STATES_KEY = "android:menu:actionviewstates";
@@ -51,6 +50,7 @@ public class MenuBuilder implements SupportMenu {
     private int mDefaultShowAsAction = 0;
     private boolean mPreventDispatchingItemsChanged = false;
     private boolean mItemsChangedWhileDispatchPrevented = false;
+    private boolean mStructureChangedWhileDispatchPrevented = false;
     private boolean mOptionalIconsVisible = false;
     private boolean mIsClosing = false;
     private ArrayList<MenuItemImpl> mTempShortcutItemList = new ArrayList<>();
@@ -62,7 +62,7 @@ public class MenuBuilder implements SupportMenu {
     private ArrayList<MenuItemImpl> mNonActionItems = new ArrayList<>();
     private boolean mIsActionItemsStale = true;
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public interface Callback {
         boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem);
@@ -70,7 +70,7 @@ public class MenuBuilder implements SupportMenu {
         void onMenuModeChange(MenuBuilder menuBuilder);
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public interface ItemInvoker {
         boolean invokeItem(MenuItemImpl menuItemImpl);
@@ -199,20 +199,20 @@ public class MenuBuilder implements SupportMenu {
     public void saveActionViewStates(Bundle bundle) {
         int size = size();
         int i = 0;
-        SparseArray<Parcelable> sparseArray = null;
+        SparseArray<? extends Parcelable> sparseArray = null;
         while (i < size) {
             MenuItem item = getItem(i);
-            View actionView = MenuItemCompat.getActionView(item);
+            View actionView = item.getActionView();
             if (actionView != null && actionView.getId() != -1) {
                 if (sparseArray == null) {
                     sparseArray = new SparseArray<>();
                 }
                 actionView.saveHierarchyState(sparseArray);
-                if (MenuItemCompat.isActionViewExpanded(item)) {
+                if (item.isActionViewExpanded()) {
                     bundle.putInt(EXPANDED_ACTION_VIEW_ID, item.getItemId());
                 }
             }
-            SparseArray<Parcelable> sparseArray2 = sparseArray;
+            SparseArray<? extends Parcelable> sparseArray2 = sparseArray;
             if (item.hasSubMenu()) {
                 ((SubMenuBuilder) item.getSubMenu()).saveActionViewStates(bundle);
             }
@@ -231,7 +231,7 @@ public class MenuBuilder implements SupportMenu {
             int size = size();
             for (int i = 0; i < size; i++) {
                 MenuItem item = getItem(i);
-                View actionView = MenuItemCompat.getActionView(item);
+                View actionView = item.getActionView();
                 if (actionView != null && actionView.getId() != -1) {
                     actionView.restoreHierarchyState(sparseParcelableArray);
                 }
@@ -241,7 +241,7 @@ public class MenuBuilder implements SupportMenu {
             }
             int i2 = bundle.getInt(EXPANDED_ACTION_VIEW_ID);
             if (i2 > 0 && (findItem = findItem(i2)) != null) {
-                MenuItemCompat.expandActionView(findItem);
+                findItem.expandActionView();
             }
         }
     }
@@ -376,6 +376,7 @@ public class MenuBuilder implements SupportMenu {
         clearHeader();
         this.mPreventDispatchingItemsChanged = false;
         this.mItemsChangedWhileDispatchPrevented = false;
+        this.mStructureChangedWhileDispatchPrevented = false;
         onItemsChanged(true);
     }
 
@@ -392,12 +393,14 @@ public class MenuBuilder implements SupportMenu {
     public void setExclusiveItemChecked(MenuItem menuItem) {
         int groupId = menuItem.getGroupId();
         int size = this.mItems.size();
+        stopDispatchingItemsChanged();
         for (int i = 0; i < size; i++) {
             MenuItemImpl menuItemImpl = this.mItems.get(i);
             if (menuItemImpl.getGroupId() == groupId && menuItemImpl.isExclusiveCheckable() && menuItemImpl.isCheckable()) {
                 menuItemImpl.setCheckedInt(menuItemImpl == menuItem);
             }
         }
+        startDispatchingItemsChanged();
     }
 
     @Override // android.view.Menu
@@ -589,7 +592,7 @@ public class MenuBuilder implements SupportMenu {
 
     void findItemsWithShortcutForKey(List<MenuItemImpl> list, int i, KeyEvent keyEvent) {
         boolean isQwertyMode = isQwertyMode();
-        int metaState = keyEvent.getMetaState();
+        int modifiers = keyEvent.getModifiers();
         KeyCharacterMap.KeyData keyData = new KeyCharacterMap.KeyData();
         if (keyEvent.getKeyData(keyData) || i == 67) {
             int size = this.mItems.size();
@@ -599,7 +602,7 @@ public class MenuBuilder implements SupportMenu {
                     ((MenuBuilder) menuItemImpl.getSubMenu()).findItemsWithShortcutForKey(list, i, keyEvent);
                 }
                 char alphabeticShortcut = isQwertyMode ? menuItemImpl.getAlphabeticShortcut() : menuItemImpl.getNumericShortcut();
-                if ((metaState & 5) == 0 && alphabeticShortcut != 0 && ((alphabeticShortcut == keyData.meta[0] || alphabeticShortcut == keyData.meta[2] || (isQwertyMode && alphabeticShortcut == '\b' && i == 67)) && menuItemImpl.isEnabled())) {
+                if (((modifiers & SupportMenu.SUPPORTED_MODIFIERS_MASK) == ((isQwertyMode ? menuItemImpl.getAlphabeticModifiers() : menuItemImpl.getNumericModifiers()) & SupportMenu.SUPPORTED_MODIFIERS_MASK)) && alphabeticShortcut != 0 && ((alphabeticShortcut == keyData.meta[0] || alphabeticShortcut == keyData.meta[2] || (isQwertyMode && alphabeticShortcut == '\b' && i == 67)) && menuItemImpl.isEnabled())) {
                     list.add(menuItemImpl);
                 }
             }
@@ -718,12 +721,16 @@ public class MenuBuilder implements SupportMenu {
             return;
         }
         this.mItemsChangedWhileDispatchPrevented = true;
+        if (z) {
+            this.mStructureChangedWhileDispatchPrevented = true;
+        }
     }
 
     public void stopDispatchingItemsChanged() {
         if (!this.mPreventDispatchingItemsChanged) {
             this.mPreventDispatchingItemsChanged = true;
             this.mItemsChangedWhileDispatchPrevented = false;
+            this.mStructureChangedWhileDispatchPrevented = false;
         }
     }
 
@@ -731,7 +738,7 @@ public class MenuBuilder implements SupportMenu {
         this.mPreventDispatchingItemsChanged = false;
         if (this.mItemsChangedWhileDispatchPrevented) {
             this.mItemsChangedWhileDispatchPrevented = false;
-            onItemsChanged(true);
+            onItemsChanged(this.mStructureChangedWhileDispatchPrevented);
         }
     }
 
@@ -820,10 +827,10 @@ public class MenuBuilder implements SupportMenu {
         onItemsChanged(false);
     }
 
-    private void setHeaderInternal(int i, CharSequence charSequence, int i2, Drawable drawable, View view2) {
+    private void setHeaderInternal(int i, CharSequence charSequence, int i2, Drawable drawable, View view) {
         Resources resources = getResources();
-        if (view2 != null) {
-            this.mHeaderView = view2;
+        if (view != null) {
+            this.mHeaderView = view;
             this.mHeaderTitle = null;
             this.mHeaderIcon = null;
         } else {
@@ -867,8 +874,8 @@ public class MenuBuilder implements SupportMenu {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public MenuBuilder setHeaderViewInt(View view2) {
-        setHeaderInternal(0, null, 0, null, view2);
+    public MenuBuilder setHeaderViewInt(View view) {
+        setHeaderInternal(0, null, 0, null, view);
         return this;
     }
 

@@ -15,20 +15,20 @@ public class d {
         return fArr;
     }
 
-    public static Bitmap R(View view2) {
+    public static Bitmap R(View view) {
         Bitmap bitmap = null;
-        if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
+        if (view == null || view.getWidth() <= 0 || view.getHeight() <= 0) {
             return null;
         }
         try {
-            bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
-            view2.draw(new Canvas(bitmap));
+            bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+            view.draw(new Canvas(bitmap));
             return bitmap;
         } catch (OutOfMemoryError e) {
             try {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
-                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.RGB_565);
-                view2.draw(new Canvas(bitmap));
+                bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.RGB_565);
+                view.draw(new Canvas(bitmap));
                 return bitmap;
             } catch (OutOfMemoryError e2) {
                 BdLog.e(e2);

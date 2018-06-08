@@ -149,7 +149,7 @@ public final class GestureDetectorCompat {
             }
             this.mVelocityTracker.addMovement(motionEvent);
             boolean z3 = (action & 255) == 6;
-            int actionIndex = z3 ? MotionEventCompat.getActionIndex(motionEvent) : -1;
+            int actionIndex = z3 ? motionEvent.getActionIndex() : -1;
             int pointerCount = motionEvent.getPointerCount();
             float f = 0.0f;
             float f2 = 0.0f;
@@ -229,8 +229,8 @@ public final class GestureDetectorCompat {
                         VelocityTracker velocityTracker = this.mVelocityTracker;
                         int pointerId = motionEvent.getPointerId(0);
                         velocityTracker.computeCurrentVelocity(1000, this.mMaximumFlingVelocity);
-                        float yVelocity = VelocityTrackerCompat.getYVelocity(velocityTracker, pointerId);
-                        float xVelocity = VelocityTrackerCompat.getXVelocity(velocityTracker, pointerId);
+                        float yVelocity = velocityTracker.getYVelocity(pointerId);
+                        float xVelocity = velocityTracker.getXVelocity(pointerId);
                         onFling = (Math.abs(yVelocity) > ((float) this.mMinimumFlingVelocity) || Math.abs(xVelocity) > ((float) this.mMinimumFlingVelocity)) ? this.mListener.onFling(this.mCurrentDownEvent, motionEvent, xVelocity, yVelocity) : false;
                     }
                     if (this.mPreviousUpEvent != null) {
@@ -301,14 +301,14 @@ public final class GestureDetectorCompat {
                     this.mLastFocusY = f4;
                     this.mDownFocusY = f4;
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumFlingVelocity);
-                    int actionIndex2 = MotionEventCompat.getActionIndex(motionEvent);
+                    int actionIndex2 = motionEvent.getActionIndex();
                     int pointerId2 = motionEvent.getPointerId(actionIndex2);
-                    float xVelocity2 = VelocityTrackerCompat.getXVelocity(this.mVelocityTracker, pointerId2);
-                    float yVelocity2 = VelocityTrackerCompat.getYVelocity(this.mVelocityTracker, pointerId2);
+                    float xVelocity2 = this.mVelocityTracker.getXVelocity(pointerId2);
+                    float yVelocity2 = this.mVelocityTracker.getYVelocity(pointerId2);
                     for (int i6 = 0; i6 < pointerCount; i6++) {
                         if (i6 != actionIndex2) {
                             int pointerId3 = motionEvent.getPointerId(i6);
-                            if ((VelocityTrackerCompat.getYVelocity(this.mVelocityTracker, pointerId3) * yVelocity2) + (VelocityTrackerCompat.getXVelocity(this.mVelocityTracker, pointerId3) * xVelocity2) < 0.0f) {
+                            if ((this.mVelocityTracker.getYVelocity(pointerId3) * yVelocity2) + (this.mVelocityTracker.getXVelocity(pointerId3) * xVelocity2) < 0.0f) {
                                 this.mVelocityTracker.clear();
                                 return false;
                             }

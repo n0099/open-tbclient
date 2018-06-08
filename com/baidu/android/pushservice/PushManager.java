@@ -8,7 +8,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.msghandler.ComponentMessageType;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -169,7 +170,7 @@ public class PushManager {
                 String packageName = com.baidu.android.pushservice.c.e.h(context) ? context.getPackageName() : m.v(context);
                 if (packageName != null) {
                     com.baidu.android.pushservice.g.a.a(TAG, "PassThroughMessageClick  : " + packageName, context.getApplicationContext());
-                    intent.putExtra(Constants.HTTP_APP_ID, str2);
+                    intent.putExtra(HttpConstants.HTTP_APP_ID, str2);
                     intent.putExtra("msg_id", str);
                     intent.setAction("com.baidu.android.pushservice.action.passthrough.notification.CLICK");
                     intent.setClassName(packageName, "com.baidu.android.pushservice.CommandService");
@@ -191,7 +192,7 @@ public class PushManager {
                 String packageName = com.baidu.android.pushservice.c.e.h(context) ? context.getPackageName() : m.v(context);
                 if (packageName != null) {
                     com.baidu.android.pushservice.g.a.a(TAG, "PassThroughMessageDelete  : " + packageName, context.getApplicationContext());
-                    intent.putExtra(Constants.HTTP_APP_ID, str2);
+                    intent.putExtra(HttpConstants.HTTP_APP_ID, str2);
                     intent.putExtra("msg_id", str);
                     intent.setAction("com.baidu.android.pushservice.action.passthrough.notification.DELETE");
                     intent.setClassName(packageName, "com.baidu.android.pushservice.CommandService");
@@ -212,7 +213,7 @@ public class PushManager {
             String packageName = com.baidu.android.pushservice.c.e.h(context) ? context.getPackageName() : m.v(context);
             if (packageName != null) {
                 com.baidu.android.pushservice.g.a.a(TAG, "PassThroughMessageNotified  : " + packageName, context.getApplicationContext());
-                intent.putExtra(Constants.HTTP_APP_ID, str2);
+                intent.putExtra(HttpConstants.HTTP_APP_ID, str2);
                 intent.putExtra("msg_id", str);
                 intent.setAction("com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED");
                 intent.setClassName(packageName, "com.baidu.android.pushservice.CommandService");
@@ -335,7 +336,7 @@ public class PushManager {
             if (i != 0) {
                 Log.e("BDPushSDK-PushManager", "Wrong LOGIN TYPE, Please use LOGIN_TYPE_API_KEY !");
             }
-            f.d(context, 10101, l);
+            f.d(context, ComponentMessageType.MST_TYPE_OPEN_ALGO_TRACK, l);
         }
         m.A(context);
     }

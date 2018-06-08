@@ -2,173 +2,98 @@ package com.baidu.ar.ui;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextUtils;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.ar.Config;
 import com.baidu.ar.util.Res;
 /* loaded from: classes3.dex */
 public class a extends Dialog {
-    private C0039a a;
+    private ImageView a;
+    private Button b;
+    private TextView c;
+    private TextView d;
+    private View e;
+    private InterfaceC0047a f;
 
     /* renamed from: com.baidu.ar.ui.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0039a {
-        private final b a;
-        private final a b;
-        private Context c;
-        private boolean d = false;
+    public interface InterfaceC0047a {
+        void a();
 
-        public C0039a(Context context) {
-            this.b = a(context);
-            this.b.a(this);
-            this.a = new b((ViewGroup) this.b.getWindow().getDecorView());
-            this.c = context;
-        }
+        void b();
+    }
 
-        public C0039a a(CharSequence charSequence) {
-            if (charSequence != null) {
-                this.a.a.setText(charSequence);
-            }
-            return this;
-        }
+    public a(Context context) {
+        super(context, Res.getStyle("bdar_NoTitleDialog"));
+    }
 
-        public C0039a a(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
-            if (TextUtils.isEmpty(charSequence)) {
-                this.a.d.setVisibility(8);
-                if (this.a.e.getVisibility() == 0) {
-                    this.a.h.setVisibility(8);
+    private void a() {
+        this.a = (ImageView) findViewById(Res.id("bdar_host_btn_close"));
+        this.b = (Button) findViewById(Res.id("bdar_host_btn_setting"));
+        this.c = (TextView) findViewById(Res.id("bdar_host_tv_title"));
+        this.d = (TextView) findViewById(Res.id("bdar_host_tv_content"));
+        this.e = findViewById(Res.id("bdar_host_dialog_night_mask"));
+        this.e.setVisibility(Config.isNightMode() ? 0 : 8);
+        this.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.a.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (a.this.f != null) {
+                    a.this.f.a();
                 }
-            } else {
-                this.a.d.setVisibility(0);
-                if (this.a.e.getVisibility() == 0) {
-                    this.a.h.setVisibility(0);
+            }
+        });
+        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.a.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (a.this.f != null) {
+                    a.this.f.b();
                 }
-                this.a.d.setText(charSequence);
-                this.a.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.a.a.1
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
-                        C0039a.this.b.a(-1);
-                        C0039a.this.b.dismiss();
-                        if (onClickListener != null) {
-                            onClickListener.onClick(C0039a.this.b, -1);
-                        }
-                    }
-                });
             }
-            return this;
-        }
+        });
+    }
 
-        public C0039a a(String str) {
-            if (this.a.c.getVisibility() != 0) {
-                this.a.c.setVisibility(0);
-            }
-            if (str != null) {
-                this.a.b.setText(str);
-            }
-            return this;
-        }
+    public void a(InterfaceC0047a interfaceC0047a) {
+        this.f = interfaceC0047a;
+    }
 
-        public a a() {
-            this.b.setCancelable(this.a.j.booleanValue());
-            if (this.a.j.booleanValue()) {
-                this.b.setCanceledOnTouchOutside(false);
-            }
-            this.b.setOnCancelListener(this.a.k);
-            this.b.setOnDismissListener(this.a.l);
-            if (this.a.n != null) {
-                this.b.setOnKeyListener(this.a.n);
-            }
-            this.b.a(this);
-            return this.b;
-        }
-
-        protected a a(Context context) {
-            return new a(context, Res.getStyle("NoTitleDialog"));
-        }
-
-        public C0039a b(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
-            if (TextUtils.isEmpty(charSequence)) {
-                this.a.e.setVisibility(8);
-                if (this.a.d.getVisibility() == 0) {
-                    this.a.h.setVisibility(8);
-                }
-            } else {
-                this.a.e.setVisibility(0);
-                if (this.a.d.getVisibility() == 0) {
-                    this.a.h.setVisibility(0);
-                }
-                this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.a.a.2
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
-                        C0039a.this.b.a(-2);
-                        C0039a.this.b.dismiss();
-                        if (onClickListener != null) {
-                            onClickListener.onClick(C0039a.this.b, -2);
-                        }
-                    }
-                });
-            }
-            return this;
+    public void a(String str) {
+        if (this.c != null) {
+            this.c.setText(str);
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static class b {
-        private TextView a;
-        private TextView b;
-        private LinearLayout c;
-        private TextView d;
-        private TextView e;
-        private TextView f;
-        private View g;
-        private View h;
-        private View i;
-        private Boolean j = true;
-        private DialogInterface.OnCancelListener k;
-        private DialogInterface.OnDismissListener l;
-        private FrameLayout m;
-        private DialogInterface.OnKeyListener n;
-        private ImageView o;
-        private LinearLayout p;
-
-        public b(ViewGroup viewGroup) {
-            viewGroup.getContext();
-            this.a = (TextView) viewGroup.findViewById(Res.id("dialog_title"));
-            this.b = (TextView) viewGroup.findViewById(Res.id("dialog_message"));
-            this.c = (LinearLayout) viewGroup.findViewById(Res.id("dialog_message_content"));
-            this.d = (TextView) viewGroup.findViewById(Res.id("positive_button"));
-            this.e = (TextView) viewGroup.findViewById(Res.id("negative_button"));
-            this.f = (TextView) viewGroup.findViewById(Res.id("neutral_button"));
-            this.h = viewGroup.findViewById(Res.id("divider3"));
-            this.i = viewGroup.findViewById(Res.id("divider4"));
-            this.m = (FrameLayout) viewGroup.findViewById(Res.id("dialog_custom_content"));
-            this.o = (ImageView) viewGroup.findViewById(Res.id("dialog_icon"));
-            this.p = (LinearLayout) viewGroup.findViewById(Res.id("searchbox_alert_dialog"));
-            this.g = viewGroup.findViewById(Res.id("divider2"));
+    public void a(boolean z) {
+        if (z) {
+            this.a.setVisibility(0);
+        } else {
+            this.a.setVisibility(8);
         }
     }
 
-    protected a(Context context, int i) {
-        super(context, i);
-        a(context);
+    public void b(String str) {
+        if (this.d != null) {
+            this.d.setText(str);
+        }
     }
 
-    private void a(Context context) {
-        setContentView(Res.inflate("bdar_layout_alert_dialog"));
-        getWindow().setLayout(-1, -1);
-        Res.addResource(context);
+    public void c(String str) {
+        if (this.b != null) {
+            this.b.setText(str);
+        }
     }
 
-    protected void a(int i) {
+    @Override // android.app.Dialog
+    public void onBackPressed() {
     }
 
-    void a(C0039a c0039a) {
-        this.a = c0039a;
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(Res.inflate("bdar_layout_alert_dialog_permission"));
+        setCanceledOnTouchOutside(false);
+        a();
     }
 }

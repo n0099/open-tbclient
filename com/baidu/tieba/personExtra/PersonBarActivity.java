@@ -5,81 +5,81 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private PersonBarAdapter fGZ = null;
-    private PersonBarModel fHa = null;
+    private PersonBarAdapter fSs = null;
+    private PersonBarModel fSt = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.fFZ && this.egO != 23011) {
+        if (this.fRs && this.ese != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.fHa = new PersonBarModel(getPageContext(), aGl());
-        this.fHa.setSex(getSex());
-        this.fHa.setId(getUid());
-        this.fHa.setUniqueId(getUniqueId());
+        this.fSt = new PersonBarModel(getPageContext(), aLg());
+        this.fSt.setSex(getSex());
+        this.fSt.setId(getUid());
+        this.fSt.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.fGZ == null) {
-            this.fGZ = new PersonBarAdapter(this, aGl());
+        if (this.fSs == null) {
+            this.fSs = new PersonBarAdapter(this, aLg());
         }
-        return this.fGZ;
+        return this.fSs;
     }
 
-    public PersonBarModel bel() {
-        return this.fHa;
+    public PersonBarModel bjl() {
+        return this.fSt;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bdR() {
+    public String biR() {
         return getPageContext().getString(d.k.person_bar_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bdS() {
+    public String biS() {
         return getPageContext().getString(d.k.attention_bar);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bdT() {
+    public String biT() {
         return getPageContext().getString(d.k.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bdU() {
+    public String biU() {
         return getPageContext().getString(d.k.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bdV() {
+    public String biV() {
         return getPageContext().getString(d.k.person_bar_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bdZ() {
+    public String biZ() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int bea() {
+    public int bja() {
         return 2;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        b bev;
+        b bjv;
         super.onPageSelected(i);
-        if (this.fGZ != null && this.fGZ.getItem(i) != null && (baseFragment = (BaseFragment) this.fGZ.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bev = ((PersonBarFragment) baseFragment).bev()) != null) {
-            bev.co(false);
-            bev.notifyDataSetChanged();
+        if (this.fSs != null && this.fSs.getItem(i) != null && (baseFragment = (BaseFragment) this.fSs.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bjv = ((PersonBarFragment) baseFragment).bjv()) != null) {
+            bjv.ct(false);
+            bjv.notifyDataSetChanged();
         }
     }
 
     public int getRequestCode() {
-        return this.egO;
+        return this.ese;
     }
 }

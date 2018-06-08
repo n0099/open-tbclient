@@ -11,14 +11,14 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
 public class g {
-    private LinkedList<f> erh;
+    private LinkedList<f> eCy;
     private String fid = null;
-    private int erg = 0;
-    private AdvertAppInfo eri = null;
+    private int eCx = 0;
+    private AdvertAppInfo eCz = null;
 
     public g() {
-        this.erh = null;
-        this.erh = new LinkedList<>();
+        this.eCy = null;
+        this.eCy = new LinkedList<>();
     }
 
     public void G(String str, boolean z) {
@@ -29,12 +29,12 @@ public class g {
         }
     }
 
-    public LinkedList<f> aJq() {
-        return this.erh;
+    public LinkedList<f> aOl() {
+        return this.eCy;
     }
 
     public int getImageNum() {
-        return this.erg;
+        return this.eCx;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -44,7 +44,7 @@ public class g {
                 if (optJSONObject != null) {
                     this.fid = optJSONObject.optString("id");
                 }
-                this.erg = jSONObject.optInt("pic_amount", 0);
+                this.eCx = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -52,8 +52,8 @@ public class g {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.erg) {
-                                this.erh.addLast(fVar);
+                            if (index >= 1 && index <= this.eCx) {
+                                this.eCy.addLast(fVar);
                             }
                         }
                     } else {
@@ -61,20 +61,20 @@ public class g {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.erg) {
-                                this.erh.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.eCx) {
+                                this.eCy.addFirst(fVar2);
                             }
                         }
                     }
                 }
-                G(jSONObject);
+                L(jSONObject);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    private void G(JSONObject jSONObject) {
+    private void L(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("app");
         if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
@@ -110,21 +110,21 @@ public class g {
             builder.verify = optJSONObject.optString("verify");
             builder.ext_info = optJSONObject.optString("ext_info");
             builder.pos_name = optJSONObject.optString("pos_name");
-            GoodsInfo H = H(optJSONObject);
-            if (H != null) {
+            GoodsInfo M = M(optJSONObject);
+            if (M != null) {
                 builder.goods_info = new ArrayList();
-                builder.goods_info.add(H);
+                builder.goods_info.add(M);
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.eri = new AdvertAppInfo();
-            this.eri.a(build);
-            this.eri.adPosition = "c0111";
-            this.eri.Wb = this.fid;
+            this.eCz = new AdvertAppInfo();
+            this.eCz.a(build);
+            this.eCz.adPosition = "c0111";
+            this.eCz.aec = this.fid;
         }
     }
 
-    private GoodsInfo H(JSONObject jSONObject) {
+    private GoodsInfo M(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
         if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
@@ -152,7 +152,7 @@ public class g {
         return builder.build(true);
     }
 
-    public AdvertAppInfo aJr() {
-        return this.eri;
+    public AdvertAppInfo aOm() {
+        return this.eCz;
     }
 }

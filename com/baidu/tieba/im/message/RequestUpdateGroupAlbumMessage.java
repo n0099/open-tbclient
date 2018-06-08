@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import protobuf.GroupInfo;
 /* loaded from: classes3.dex */
@@ -23,7 +22,7 @@ public class RequestUpdateGroupAlbumMessage extends RequestUpdateGroupMessage {
         for (int i = 0; i < size; i++) {
             stringBuffer.append(list.get(i));
             if (i != size - 1) {
-                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                stringBuffer.append(",");
             }
         }
         return stringBuffer.toString();

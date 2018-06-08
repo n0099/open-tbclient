@@ -8,7 +8,7 @@ import android.widget.CheckedTextView;
 /* loaded from: classes2.dex */
 public class AppCompatCheckedTextView extends CheckedTextView {
     private static final int[] TINT_ATTRS = {16843016};
-    private AppCompatTextHelper mTextHelper;
+    private final AppCompatTextHelper mTextHelper;
 
     public AppCompatCheckedTextView(Context context) {
         this(context, null);

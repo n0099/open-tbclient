@@ -1,6 +1,4 @@
 package org.aspectj.a.b;
-
-import com.baidu.ar.util.Constants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e extends a implements org.aspectj.lang.reflect.c {
@@ -14,7 +12,7 @@ public class e extends a implements org.aspectj.lang.reflect.c {
 
     public Class getReturnType() {
         if (this.returnType == null) {
-            this.returnType = wm(6);
+            this.returnType = wG(6);
         }
         return this.returnType;
     }
@@ -22,15 +20,15 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.wo(getModifiers()));
-        if (hVar.hAu) {
-            stringBuffer.append(hVar.n(getReturnType()));
+        stringBuffer.append(hVar.wI(getModifiers()));
+        if (hVar.hPh) {
+            stringBuffer.append(hVar.v(getReturnType()));
         }
-        if (hVar.hAu) {
+        if (hVar.hPh) {
             stringBuffer.append(" ");
         }
-        stringBuffer.append(hVar.d(bJz(), bJA()));
-        stringBuffer.append(Constants.DOT);
+        stringBuffer.append(hVar.d(bPo(), bPp()));
+        stringBuffer.append(".");
         stringBuffer.append(getName());
         hVar.b(stringBuffer, getParameterTypes());
         hVar.c(stringBuffer, getExceptionTypes());

@@ -6,21 +6,17 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Process;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
 import android.util.Log;
 import android.util.TypedValue;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class ContextCompat {
-    private static final String DIR_ANDROID = "Android";
-    private static final String DIR_OBB = "obb";
     private static final String TAG = "ContextCompat";
     private static final Object sLock = new Object();
     private static TypedValue sTempValue;
@@ -30,29 +26,25 @@ public class ContextCompat {
     }
 
     public static boolean startActivities(Context context, Intent[] intentArr, Bundle bundle) {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 16) {
-            ContextCompatJellybean.startActivities(context, intentArr, bundle);
+        if (Build.VERSION.SDK_INT >= 16) {
+            context.startActivities(intentArr, bundle);
             return true;
-        } else if (i >= 11) {
-            ContextCompatHoneycomb.startActivities(context, intentArr);
-            return true;
-        } else {
-            return false;
         }
+        context.startActivities(intentArr);
+        return true;
     }
 
     public static void startActivity(Context context, Intent intent, @Nullable Bundle bundle) {
         if (Build.VERSION.SDK_INT >= 16) {
-            ContextCompatJellybean.startActivity(context, intent, bundle);
+            context.startActivity(intent, bundle);
         } else {
             context.startActivity(intent);
         }
     }
 
     public static File getDataDir(Context context) {
-        if (BuildCompat.isAtLeastN()) {
-            return ContextCompatApi24.getDataDir(context);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return context.getDataDir();
         }
         String str = context.getApplicationInfo().dataDir;
         if (str != null) {
@@ -62,25 +54,15 @@ public class ContextCompat {
     }
 
     public static File[] getObbDirs(Context context) {
-        File buildPath;
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 19) {
-            return ContextCompatKitKat.getObbDirs(context);
-        }
-        if (i >= 11) {
-            buildPath = ContextCompatHoneycomb.getObbDir(context);
-        } else {
-            buildPath = buildPath(Environment.getExternalStorageDirectory(), DIR_ANDROID, DIR_OBB, context.getPackageName());
-        }
-        return new File[]{buildPath};
+        return Build.VERSION.SDK_INT >= 19 ? context.getObbDirs() : new File[]{context.getObbDir()};
     }
 
     public static File[] getExternalFilesDirs(Context context, String str) {
-        return Build.VERSION.SDK_INT >= 19 ? ContextCompatKitKat.getExternalFilesDirs(context, str) : new File[]{context.getExternalFilesDir(str)};
+        return Build.VERSION.SDK_INT >= 19 ? context.getExternalFilesDirs(str) : new File[]{context.getExternalFilesDir(str)};
     }
 
     public static File[] getExternalCacheDirs(Context context) {
-        return Build.VERSION.SDK_INT >= 19 ? ContextCompatKitKat.getExternalCacheDirs(context) : new File[]{context.getExternalCacheDir()};
+        return Build.VERSION.SDK_INT >= 19 ? context.getExternalCacheDirs() : new File[]{context.getExternalCacheDir()};
     }
 
     private static File buildPath(File file, String... strArr) {
@@ -103,11 +85,10 @@ public class ContextCompat {
 
     public static final Drawable getDrawable(Context context, @DrawableRes int i) {
         int i2;
-        int i3 = Build.VERSION.SDK_INT;
-        if (i3 >= 21) {
-            return ContextCompatApi21.getDrawable(context, i);
+        if (Build.VERSION.SDK_INT >= 21) {
+            return context.getDrawable(i);
         }
-        if (i3 >= 16) {
+        if (Build.VERSION.SDK_INT >= 16) {
             return context.getResources().getDrawable(i);
         }
         synchronized (sLock) {
@@ -121,12 +102,12 @@ public class ContextCompat {
     }
 
     public static final ColorStateList getColorStateList(Context context, @ColorRes int i) {
-        return Build.VERSION.SDK_INT >= 23 ? ContextCompatApi23.getColorStateList(context, i) : context.getResources().getColorStateList(i);
+        return Build.VERSION.SDK_INT >= 23 ? context.getColorStateList(i) : context.getResources().getColorStateList(i);
     }
 
     @ColorInt
     public static final int getColor(Context context, @ColorRes int i) {
-        return Build.VERSION.SDK_INT >= 23 ? ContextCompatApi23.getColor(context, i) : context.getResources().getColor(i);
+        return Build.VERSION.SDK_INT >= 23 ? context.getColor(i) : context.getResources().getColor(i);
     }
 
     public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
@@ -138,14 +119,14 @@ public class ContextCompat {
 
     public static final File getNoBackupFilesDir(Context context) {
         if (Build.VERSION.SDK_INT >= 21) {
-            return ContextCompatApi21.getNoBackupFilesDir(context);
+            return context.getNoBackupFilesDir();
         }
         return createFilesDir(new File(context.getApplicationInfo().dataDir, "no_backup"));
     }
 
     public static File getCodeCacheDir(Context context) {
         if (Build.VERSION.SDK_INT >= 21) {
-            return ContextCompatApi21.getCodeCacheDir(context);
+            return context.getCodeCacheDir();
         }
         return createFilesDir(new File(context.getApplicationInfo().dataDir, "code_cache"));
     }
@@ -161,16 +142,24 @@ public class ContextCompat {
     }
 
     public static Context createDeviceProtectedStorageContext(Context context) {
-        if (BuildCompat.isAtLeastN()) {
-            return ContextCompatApi24.createDeviceProtectedStorageContext(context);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return context.createDeviceProtectedStorageContext();
         }
         return null;
     }
 
     public static boolean isDeviceProtectedStorage(Context context) {
-        if (BuildCompat.isAtLeastN()) {
-            return ContextCompatApi24.isDeviceProtectedStorage(context);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return context.isDeviceProtectedStorage();
         }
         return false;
+    }
+
+    public static void startForegroundService(Context context, Intent intent) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            context.startForegroundService(intent);
+        } else {
+            context.startService(intent);
+        }
     }
 }

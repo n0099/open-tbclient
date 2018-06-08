@@ -15,7 +15,7 @@ import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import java.lang.reflect.Field;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ListViewCompat extends ListView {
     public static final int INVALID_POSITION = -1;
@@ -146,21 +146,21 @@ public class ListViewCompat extends ListView {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void positionSelectorLikeTouchCompat(int i, View view2, float f, float f2) {
-        positionSelectorLikeFocusCompat(i, view2);
+    public void positionSelectorLikeTouchCompat(int i, View view, float f, float f2) {
+        positionSelectorLikeFocusCompat(i, view);
         Drawable selector = getSelector();
         if (selector != null && i != -1) {
             DrawableCompat.setHotspot(selector, f, f2);
         }
     }
 
-    protected void positionSelectorLikeFocusCompat(int i, View view2) {
+    protected void positionSelectorLikeFocusCompat(int i, View view) {
         Drawable selector = getSelector();
         boolean z = (selector == null || i == -1) ? false : true;
         if (z) {
             selector.setVisible(false, false);
         }
-        positionSelectorCompat(i, view2);
+        positionSelectorCompat(i, view);
         if (z) {
             Rect rect = this.mSelectorRect;
             float exactCenterX = rect.exactCenterX();
@@ -170,16 +170,16 @@ public class ListViewCompat extends ListView {
         }
     }
 
-    protected void positionSelectorCompat(int i, View view2) {
+    protected void positionSelectorCompat(int i, View view) {
         Rect rect = this.mSelectorRect;
-        rect.set(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom());
+        rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
         rect.left -= this.mSelectionLeftPadding;
         rect.top -= this.mSelectionTopPadding;
         rect.right += this.mSelectionRightPadding;
         rect.bottom += this.mSelectionBottomPadding;
         try {
             boolean z = this.mIsChildViewEnabled.getBoolean(this);
-            if (view2.isEnabled() != z) {
+            if (view.isEnabled() != z) {
                 this.mIsChildViewEnabled.set(this, Boolean.valueOf(!z));
                 if (i != -1) {
                     refreshDrawableState();
@@ -191,7 +191,7 @@ public class ListViewCompat extends ListView {
     }
 
     public int measureHeightOfChildrenCompat(int i, int i2, int i3, int i4, int i5) {
-        View view2;
+        View view;
         int makeMeasureSpec;
         int listPaddingTop = getListPaddingTop();
         int listPaddingBottom = getListPaddingBottom();
@@ -206,32 +206,32 @@ public class ListViewCompat extends ListView {
         int i6 = listPaddingBottom + listPaddingTop;
         dividerHeight = (dividerHeight <= 0 || divider == null) ? 0 : 0;
         int i7 = 0;
-        View view3 = null;
+        View view2 = null;
         int i8 = 0;
         int count = adapter.getCount();
         int i9 = 0;
         while (i9 < count) {
             int itemViewType = adapter.getItemViewType(i9);
             if (itemViewType != i8) {
-                view2 = null;
+                view = null;
                 i8 = itemViewType;
             } else {
-                view2 = view3;
+                view = view2;
             }
-            view3 = adapter.getView(i9, view2, this);
-            ViewGroup.LayoutParams layoutParams = view3.getLayoutParams();
+            view2 = adapter.getView(i9, view, this);
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = generateDefaultLayoutParams();
-                view3.setLayoutParams(layoutParams);
+                view2.setLayoutParams(layoutParams);
             }
             if (layoutParams.height > 0) {
                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(layoutParams.height, 1073741824);
             } else {
                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             }
-            view3.measure(i, makeMeasureSpec);
-            view3.forceLayout();
-            int measuredHeight = (i9 > 0 ? i6 + dividerHeight : i6) + view3.getMeasuredHeight();
+            view2.measure(i, makeMeasureSpec);
+            view2.forceLayout();
+            int measuredHeight = (i9 > 0 ? i6 + dividerHeight : i6) + view2.getMeasuredHeight();
             if (measuredHeight >= i4) {
                 return (i5 < 0 || i9 <= i5 || i7 <= 0 || measuredHeight == i4) ? i4 : i7;
             }

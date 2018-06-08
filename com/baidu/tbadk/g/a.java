@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.c;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static long TJ = 86400000;
+    private static long abR = 86400000;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void o(File file) {
@@ -45,13 +45,13 @@ public class a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 long j = b.getInstance().getLong("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - j > a.TJ) {
+                if (currentTimeMillis - j > a.abR) {
                     new Thread() { // from class: com.baidu.tbadk.g.a.1.1
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {
                             super.run();
                             try {
-                                c.uz();
+                                c.xY();
                                 a.o(TbadkCoreApplication.getInst().getCacheDir());
                             } catch (Exception e) {
                             }

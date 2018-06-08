@@ -10,6 +10,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.File;
@@ -54,7 +55,7 @@ public final class f {
                 if (TextUtils.isEmpty(m) && TextUtils.isEmpty(string2)) {
                     return "";
                 }
-                byte[] bytes = (m + ":" + string2).getBytes();
+                byte[] bytes = (m + SystemInfoUtil.COLON + string2).getBytes();
                 for (int i = 0; i < bytes.length; i++) {
                     bytes[i] = (byte) (bytes[i] ^ 246);
                 }
@@ -223,7 +224,7 @@ public final class f {
                     break;
                 }
                 sb.append(readLine);
-                sb.append("\r\n");
+                sb.append(SystemInfoUtil.LINE_END);
             }
             bufferedReader.close();
             Object[] split = new String(a.a("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split("=");

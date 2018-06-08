@@ -46,8 +46,8 @@ public final class CancellationSignal {
                         }
                     }
                 }
-                if (obj != null) {
-                    CancellationSignalCompatJellybean.cancel(obj);
+                if (obj != null && Build.VERSION.SDK_INT >= 16) {
+                    ((android.os.CancellationSignal) obj).cancel();
                 }
                 synchronized (this) {
                     this.mCancelInProgress = false;
@@ -76,9 +76,9 @@ public final class CancellationSignal {
         }
         synchronized (this) {
             if (this.mCancellationSignalObj == null) {
-                this.mCancellationSignalObj = CancellationSignalCompatJellybean.create();
+                this.mCancellationSignalObj = new android.os.CancellationSignal();
                 if (this.mIsCanceled) {
-                    CancellationSignalCompatJellybean.cancel(this.mCancellationSignalObj);
+                    ((android.os.CancellationSignal) this.mCancellationSignalObj).cancel();
                 }
             }
             obj = this.mCancellationSignalObj;

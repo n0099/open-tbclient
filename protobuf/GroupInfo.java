@@ -6,6 +6,7 @@ import com.squareup.wire.ProtoField;
 public final class GroupInfo extends Message {
     public static final String DEFAULT_ALBUM = "";
     public static final String DEFAULT_AUTHORNAME = "";
+    public static final String DEFAULT_AUTHORNAMESHOW = "";
     public static final String DEFAULT_AUTHORPORTRAIT = "";
     public static final String DEFAULT_BUSINESS = "";
     public static final String DEFAULT_FORUMNAME = "";
@@ -26,6 +27,8 @@ public final class GroupInfo extends Message {
     public final Integer authorIsMeizhi;
     @ProtoField(tag = 15, type = Message.Datatype.STRING)
     public final String authorName;
+    @ProtoField(tag = 35, type = Message.Datatype.STRING)
+    public final String authorNameShow;
     @ProtoField(tag = 16, type = Message.Datatype.STRING)
     public final String authorPortrait;
     @ProtoField(tag = 7, type = Message.Datatype.STRING)
@@ -277,9 +280,14 @@ public final class GroupInfo extends Message {
             }
             if (builder.isMemberGroup == null) {
                 this.isMemberGroup = DEFAULT_ISMEMBERGROUP;
-                return;
             } else {
                 this.isMemberGroup = builder.isMemberGroup;
+            }
+            if (builder.authorNameShow == null) {
+                this.authorNameShow = "";
+                return;
+            } else {
+                this.authorNameShow = builder.authorNameShow;
                 return;
             }
         }
@@ -317,6 +325,7 @@ public final class GroupInfo extends Message {
         this.isNewlyCreate = builder.isNewlyCreate;
         this.isRecentlyReply = builder.isRecentlyReply;
         this.isMemberGroup = builder.isMemberGroup;
+        this.authorNameShow = builder.authorNameShow;
     }
 
     /* loaded from: classes.dex */
@@ -326,6 +335,7 @@ public final class GroupInfo extends Message {
         public Long authorId;
         public Integer authorIsMeizhi;
         public String authorName;
+        public String authorNameShow;
         public String authorPortrait;
         public String business;
         public Integer createTime;
@@ -396,6 +406,7 @@ public final class GroupInfo extends Message {
                 this.isNewlyCreate = groupInfo.isNewlyCreate;
                 this.isRecentlyReply = groupInfo.isRecentlyReply;
                 this.isMemberGroup = groupInfo.isMemberGroup;
+                this.authorNameShow = groupInfo.authorNameShow;
             }
         }
 

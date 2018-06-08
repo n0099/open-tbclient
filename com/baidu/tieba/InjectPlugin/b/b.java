@@ -5,106 +5,106 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private Object aXE;
-    private List<h> aXF;
-    private List<h> aXG;
-    private List<Object> aXH;
-    private boolean aXI;
-    private boolean aXJ;
-    private boolean aXK;
-    private String aXL;
-    private String aXM;
-    private String aXN;
-    private int aqQ;
+    private int ayX;
+    private Object bfL;
+    private List<h> bfM;
+    private List<h> bfN;
+    private List<Object> bfO;
+    private boolean bfP;
+    private boolean bfQ;
+    private boolean bfR;
+    private String bfS;
+    private String bfT;
+    private String bfU;
     private int currentPage;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.aXI = false;
-        this.aXJ = false;
+        this.bfP = false;
+        this.bfQ = false;
         this.currentPage = 0;
-        this.aXK = false;
+        this.bfR = false;
     }
 
-    public Object KU() {
-        return this.aXE;
+    public Object Ot() {
+        return this.bfL;
     }
 
     public void setExtraData(Object obj) {
-        this.aXE = obj;
+        this.bfL = obj;
     }
 
     public List<h> getThreadList() {
-        return this.aXF;
+        return this.bfM;
     }
 
-    public void O(List<h> list) {
-        this.aXF = list;
+    public void R(List<h> list) {
+        this.bfM = list;
     }
 
-    public List<Object> KV() {
-        return this.aXH;
+    public List<Object> Ou() {
+        return this.bfO;
     }
 
-    public void P(List<Object> list) {
-        this.aXH = list;
+    public void S(List<Object> list) {
+        this.bfO = list;
     }
 
-    public List<h> KW() {
-        return this.aXG;
+    public List<h> Ov() {
+        return this.bfN;
     }
 
-    public void Q(List<h> list) {
-        this.aXG = list;
+    public void T(List<h> list) {
+        this.bfN = list;
     }
 
-    public boolean KX() {
-        return this.aXI;
+    public boolean Ow() {
+        return this.bfP;
     }
 
-    public void cg(boolean z) {
-        this.aXI = z;
+    public void cl(boolean z) {
+        this.bfP = z;
     }
 
     public boolean isRefresh() {
-        return this.aXJ;
+        return this.bfQ;
     }
 
-    public void ch(boolean z) {
-        this.aXJ = z;
+    public void cm(boolean z) {
+        this.bfQ = z;
     }
 
-    public int KY() {
+    public int Ox() {
         return this.currentPage;
     }
 
-    public void bV(int i) {
+    public void bX(int i) {
         this.currentPage = i;
     }
 
     public int getSkinType() {
-        return this.aqQ;
+        return this.ayX;
     }
 
     public void setSkinType(int i) {
-        this.aqQ = i;
+        this.ayX = i;
     }
 
-    public boolean KZ() {
-        return this.aXK;
+    public boolean Oy() {
+        return this.bfR;
     }
 
-    public void ci(boolean z) {
-        this.aXK = z;
+    public void cn(boolean z) {
+        this.bfR = z;
     }
 
     public int getPageNum() {
         return this.pageNum;
     }
 
-    public void gd(int i) {
+    public void ge(int i) {
         this.pageNum = i;
     }
 
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String La() {
-        return this.aXL;
+    public String Oz() {
+        return this.bfS;
     }
 
-    public void hw(String str) {
-        this.aXL = str;
+    public void hU(String str) {
+        this.bfS = str;
     }
 
-    public String Lb() {
-        return this.aXM;
+    public String OA() {
+        return this.bfT;
     }
 
-    public void hx(String str) {
-        this.aXM = str;
+    public void hV(String str) {
+        this.bfT = str;
     }
 
-    public String Lc() {
-        return this.aXN;
+    public String OB() {
+        return this.bfU;
     }
 
-    public void hy(String str) {
-        this.aXN = str;
+    public void hW(String str) {
+        this.bfU = str;
     }
 }

@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 class h {
-    static h hAC = new h();
-    static h hAD;
-    static h hAE;
-    int hAB;
-    boolean hAt = true;
-    boolean hAu = true;
-    boolean hAv = false;
-    boolean hAw = false;
-    boolean hAx = false;
-    boolean hAy = true;
-    boolean hAz = true;
-    boolean hAA = true;
+    static h hPp = new h();
+    static h hPq;
+    static h hPr;
+    boolean hPg = true;
+    boolean hPh = true;
+    boolean hPi = false;
+    boolean hPj = false;
+    boolean hPk = false;
+    boolean hPl = true;
+    boolean hPm = true;
+    boolean hPn = true;
+    int hPo;
 
     h() {
     }
 
     static {
-        hAC.hAt = true;
-        hAC.hAu = false;
-        hAC.hAv = false;
-        hAC.hAw = false;
-        hAC.hAx = true;
-        hAC.hAy = false;
-        hAC.hAz = false;
-        hAC.hAB = 0;
-        hAD = new h();
-        hAD.hAt = true;
-        hAD.hAu = true;
-        hAD.hAv = false;
-        hAD.hAw = false;
-        hAD.hAx = false;
-        hAC.hAB = 1;
-        hAE = new h();
-        hAE.hAt = false;
-        hAE.hAu = true;
-        hAE.hAv = false;
-        hAE.hAw = true;
-        hAE.hAx = false;
-        hAE.hAA = false;
-        hAE.hAB = 2;
+        hPp.hPg = true;
+        hPp.hPh = false;
+        hPp.hPi = false;
+        hPp.hPj = false;
+        hPp.hPk = true;
+        hPp.hPl = false;
+        hPp.hPm = false;
+        hPp.hPo = 0;
+        hPq = new h();
+        hPq.hPg = true;
+        hPq.hPh = true;
+        hPq.hPi = false;
+        hPq.hPj = false;
+        hPq.hPk = false;
+        hPp.hPo = 1;
+        hPr = new h();
+        hPr.hPg = false;
+        hPr.hPh = true;
+        hPr.hPi = false;
+        hPr.hPj = true;
+        hPr.hPk = false;
+        hPr.hPn = false;
+        hPr.hPo = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String wO(String str) {
+    public String xL(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String wo(int i) {
-        if (this.hAw) {
+    public String wI(int i) {
+        if (this.hPj) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String wP(String str) {
+    String xM(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return wP(str).replace('$', '.');
+            return xM(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
-    public String n(Class cls) {
-        return b(cls, cls.getName(), this.hAt);
+    public String v(Class cls) {
+        return b(cls, cls.getName(), this.hPg);
     }
 
     public String d(Class cls, String str) {
-        return b(cls, str, this.hAx);
+        return b(cls, str, this.hPk);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -92,13 +92,13 @@ class h {
             if (i > 0) {
                 stringBuffer.append(", ");
             }
-            stringBuffer.append(n(clsArr[i]));
+            stringBuffer.append(v(clsArr[i]));
         }
     }
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.hAu) {
+            if (!this.hPh) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.hAv && clsArr != null && clsArr.length != 0) {
+        if (this.hPi && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

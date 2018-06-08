@@ -45,7 +45,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.Ri();
+                this.mSortType = frsRequestData.UG();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -56,13 +56,13 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.responseData = new i();
-        FrsPageResIdl E = this.responseData.E(bArr);
-        if (E != null && E.error != null) {
-            if (E.error.errorno != null) {
-                setError(E.error.errorno.intValue());
-                this.responseData.ddI = E.error.errorno.intValue();
+        FrsPageResIdl F = this.responseData.F(bArr);
+        if (F != null && F.error != null) {
+            if (F.error.errorno != null) {
+                setError(F.error.errorno.intValue());
+                this.responseData.dmW = F.error.errorno.intValue();
             }
-            setErrorString(E.error.usermsg);
+            setErrorString(F.error.usermsg);
         }
         setData(this.responseData);
     }
@@ -73,18 +73,21 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bqs() != null && !StringUtils.isNull(this.responseData.bqs().qz(), true) && !this.responseData.bqs().qz().equals("0") && this.responseData.bqs().getBookType() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bqs().qz(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(g))) != null) {
-            this.responseData.k(Integer.valueOf(((Integer) runTask.getData()).intValue()));
+        if (this.responseData.bvs() != null && !StringUtils.isNull(this.responseData.bvs().tV(), true) && !this.responseData.bvs().tV().equals("0") && this.responseData.bvs().getBookType() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bvs().tV(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(g))) != null) {
+            this.responseData.q(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.responseData != null) {
-            boolean z = com.baidu.tbadk.core.util.v.v(this.responseData.getThreadList()) >= 15;
-            if (this.needCache && this.responseData.aVq() != null && z) {
-                c.bpO().c(c.bpO().d(this.responseData.aVq().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+        if (!hasError() && this.responseData != null && this.needCache && this.responseData.bam() != null) {
+            int UG = this.responseData.UG();
+            String d = c.buO().d(this.responseData.bam().getName(), UG, this.mIsGood, this.mCategoryId);
+            if (UG == 3) {
+                c.buO().o(d, bArr);
+            } else {
+                c.buO().c(d, bArr, true);
             }
         }
     }

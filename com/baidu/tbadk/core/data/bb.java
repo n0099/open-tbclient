@@ -1,14 +1,13 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
 import tbclient.TaskInfo;
 /* loaded from: classes.dex */
 public class bb {
-    private long ZC;
-    private String ZD;
-    private String ZE;
+    private long ahE;
+    private String ahF;
+    private String ahG;
     private long endTime;
     private long forumId;
     private String forumName;
@@ -26,11 +25,11 @@ public class bb {
         return this.forumId + "";
     }
 
-    public long ru() {
-        return this.ZC;
+    public long uQ() {
+        return this.ahE;
     }
 
-    public long rv() {
+    public long uR() {
         return this.endTime;
     }
 
@@ -43,18 +42,18 @@ public class bb {
     }
 
     public String getThreadImgUrl() {
-        return this.ZE;
+        return this.ahG;
     }
 
-    public int rw() {
+    public int uS() {
         return this.mWidth;
     }
 
-    public int rx() {
+    public int uT() {
         return this.mHeight;
     }
 
-    public String qv() {
+    public String tR() {
         return this.obj_id;
     }
 
@@ -64,14 +63,14 @@ public class bb {
             this.forumId = taskInfo.forum_id.longValue();
             this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
             this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
-            this.ZD = taskInfo.bgimg;
-            this.ZE = taskInfo.thread_img;
-            this.ZC = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.ahF = taskInfo.bgimg;
+            this.ahG = taskInfo.thread_img;
+            this.ahE = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
             this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
             String str = taskInfo.thread_img_size;
             if (str != null) {
                 try {
-                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = str.split(",");
                     this.mWidth = com.baidu.adp.lib.g.b.g(split[0], 1);
                     this.mHeight = com.baidu.adp.lib.g.b.g(split[1], 1);
                 } catch (Exception e) {
@@ -95,13 +94,13 @@ public class bb {
                 this.forumId = jSONObject.optLong("forum_id");
                 this.taskId = jSONObject.optLong("task_id");
                 this.threadId = jSONObject.optLong("thread_id");
-                this.ZD = jSONObject.optString("bgimg");
-                this.ZC = jSONObject.optLong("start_time");
+                this.ahF = jSONObject.optString("bgimg");
+                this.ahE = jSONObject.optLong("start_time");
                 this.endTime = jSONObject.optLong("end_time");
-                this.ZE = jSONObject.optString("thread_img");
+                this.ahG = jSONObject.optString("thread_img");
                 String optString = jSONObject.optString("thread_img_size");
                 if (optString != null && optString.length() > 0) {
-                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = optString.split(",");
                     if (split.length > 1) {
                         this.mWidth = Integer.valueOf(split[0]).intValue();
                         this.mHeight = Integer.valueOf(split[1]).intValue();

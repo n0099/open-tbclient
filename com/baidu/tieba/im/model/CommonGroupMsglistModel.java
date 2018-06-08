@@ -10,8 +10,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.util.u;
 import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.memorycache.b;
@@ -21,7 +21,6 @@ import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -82,7 +81,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
         if (getGroup() != null) {
-            return b.aFw().as(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+            return b.aKr().av(String.valueOf(getGroup().getGroupId()), this.customGroupType);
         }
         return 0L;
     }
@@ -90,12 +89,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void deleteMsg(final ChatMessage chatMessage) {
         if (this.mGroup != null && chatMessage != null) {
-            v.b(new u<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
+            w.b(new v<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.u
+                @Override // com.baidu.tbadk.util.v
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aCW().be(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aHR().bl(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -104,12 +103,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void markDeleteMsg(final ChatMessage chatMessage) {
         if (this.mGroup != null && chatMessage != null) {
-            v.b(new u<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
+            w.b(new v<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.u
+                @Override // com.baidu.tbadk.util.v
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aCW().bd(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aHR().bk(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -180,13 +179,13 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                 RequestRemoveMembersMessage requestRemoveMembersMessage = (RequestRemoveMembersMessage) orginalMessage;
                 if (requestRemoveMembersMessage.getGroupId() == this.mGroup.getGroupId()) {
                     String userIds = requestRemoveMembersMessage.getUserIds();
-                    if (!TextUtils.isEmpty(userIds) && (split = userIds.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length != 0) {
+                    if (!TextUtils.isEmpty(userIds) && (split = userIds.split(",")) != null && split.length != 0) {
                         String id = TbadkApplication.getCurrentAccountObj().getID();
                         if (!TextUtils.isEmpty(id)) {
                             for (String str : split) {
                                 if (id.equals(str)) {
                                     this.mLoadDataMode = 9;
-                                    this.mLoadDataCallBack.f(null);
+                                    this.mLoadDataCallBack.i(null);
                                     return;
                                 }
                             }
@@ -203,7 +202,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) responsedMessage;
             if (responseUpdateGroupMessage.getError() == 0 && responseUpdateGroupMessage.getUpdateGroupInfo() != null) {
                 this.mLoadDataMode = 10;
-                this.mLoadDataCallBack.f(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
+                this.mLoadDataCallBack.i(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
             }
         }
     }

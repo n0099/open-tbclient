@@ -19,16 +19,16 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a {
-    private BdUniqueId Vb;
-    private Rect aGs;
-    private Bitmap bGI;
-    private Rect bGJ;
-    private Runnable bGQ;
-    private Bitmap cfD;
-    private String[] ddb;
-    private boolean ddc;
-    private Rect ddd;
-    private Rect dde;
+    private Rect aON;
+    private BdUniqueId ada;
+    private Bitmap bOK;
+    private Rect bOL;
+    private Runnable bOS;
+    private Bitmap cnI;
+    private String[] dmq;
+    private boolean dmr;
+    private Rect dms;
+    private Rect dmt;
     private int frameCount;
     private int index;
     private long startShowTime;
@@ -36,22 +36,22 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
 
     public FrsARAnimView(Context context) {
         super(context);
-        this.ddc = false;
+        this.dmr = false;
         this.index = 0;
-        this.ddd = new Rect();
-        this.dde = new Rect();
-        this.aGs = new Rect();
-        this.bGJ = new Rect();
+        this.dms = new Rect();
+        this.dmt = new Rect();
+        this.aON = new Rect();
+        this.bOL = new Rect();
         this.startShowTime = 0L;
         this.totalTime = 6000L;
         this.frameCount = 144;
-        this.bGQ = new Runnable() { // from class: com.baidu.tieba.frs.ar.view.FrsARAnimView.2
+        this.bOS = new Runnable() { // from class: com.baidu.tieba.frs.ar.view.FrsARAnimView.2
             @Override // java.lang.Runnable
             public void run() {
                 int currentTimeMillis = (int) (((System.currentTimeMillis() - FrsARAnimView.this.startShowTime) * FrsARAnimView.this.frameCount) / FrsARAnimView.this.totalTime);
                 if (currentTimeMillis > FrsARAnimView.this.index) {
                     FrsARAnimView.this.index = currentTimeMillis;
-                    if (FrsARAnimView.this.index < FrsARAnimView.this.ddb.length) {
+                    if (FrsARAnimView.this.index < FrsARAnimView.this.dmq.length) {
                         FrsARAnimView.this.nextFrame();
                         return;
                     }
@@ -62,7 +62,7 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
                     }
                     return;
                 }
-                e.fw().postDelayed(FrsARAnimView.this.bGQ, 10L);
+                e.im().postDelayed(FrsARAnimView.this.bOS, 10L);
             }
         };
         init();
@@ -70,22 +70,22 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
 
     public FrsARAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ddc = false;
+        this.dmr = false;
         this.index = 0;
-        this.ddd = new Rect();
-        this.dde = new Rect();
-        this.aGs = new Rect();
-        this.bGJ = new Rect();
+        this.dms = new Rect();
+        this.dmt = new Rect();
+        this.aON = new Rect();
+        this.bOL = new Rect();
         this.startShowTime = 0L;
         this.totalTime = 6000L;
         this.frameCount = 144;
-        this.bGQ = new Runnable() { // from class: com.baidu.tieba.frs.ar.view.FrsARAnimView.2
+        this.bOS = new Runnable() { // from class: com.baidu.tieba.frs.ar.view.FrsARAnimView.2
             @Override // java.lang.Runnable
             public void run() {
                 int currentTimeMillis = (int) (((System.currentTimeMillis() - FrsARAnimView.this.startShowTime) * FrsARAnimView.this.frameCount) / FrsARAnimView.this.totalTime);
                 if (currentTimeMillis > FrsARAnimView.this.index) {
                     FrsARAnimView.this.index = currentTimeMillis;
-                    if (FrsARAnimView.this.index < FrsARAnimView.this.ddb.length) {
+                    if (FrsARAnimView.this.index < FrsARAnimView.this.dmq.length) {
                         FrsARAnimView.this.nextFrame();
                         return;
                     }
@@ -96,7 +96,7 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
                     }
                     return;
                 }
-                e.fw().postDelayed(FrsARAnimView.this.bGQ, 10L);
+                e.im().postDelayed(FrsARAnimView.this.bOS, 10L);
             }
         };
         init();
@@ -104,22 +104,22 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
 
     public FrsARAnimView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ddc = false;
+        this.dmr = false;
         this.index = 0;
-        this.ddd = new Rect();
-        this.dde = new Rect();
-        this.aGs = new Rect();
-        this.bGJ = new Rect();
+        this.dms = new Rect();
+        this.dmt = new Rect();
+        this.aON = new Rect();
+        this.bOL = new Rect();
         this.startShowTime = 0L;
         this.totalTime = 6000L;
         this.frameCount = 144;
-        this.bGQ = new Runnable() { // from class: com.baidu.tieba.frs.ar.view.FrsARAnimView.2
+        this.bOS = new Runnable() { // from class: com.baidu.tieba.frs.ar.view.FrsARAnimView.2
             @Override // java.lang.Runnable
             public void run() {
                 int currentTimeMillis = (int) (((System.currentTimeMillis() - FrsARAnimView.this.startShowTime) * FrsARAnimView.this.frameCount) / FrsARAnimView.this.totalTime);
                 if (currentTimeMillis > FrsARAnimView.this.index) {
                     FrsARAnimView.this.index = currentTimeMillis;
-                    if (FrsARAnimView.this.index < FrsARAnimView.this.ddb.length) {
+                    if (FrsARAnimView.this.index < FrsARAnimView.this.dmq.length) {
                         FrsARAnimView.this.nextFrame();
                         return;
                     }
@@ -130,31 +130,31 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
                     }
                     return;
                 }
-                e.fw().postDelayed(FrsARAnimView.this.bGQ, 10L);
+                e.im().postDelayed(FrsARAnimView.this.bOS, 10L);
             }
         };
         init();
     }
 
     private void init() {
-        this.cfD = a(getResources(), d.f.frs_ar_bg_mask, 720, 1280);
-        this.ddd.set(0, 0, this.cfD.getWidth(), this.cfD.getHeight());
+        this.cnI = a(getResources(), d.f.frs_ar_bg_mask, 720, 1280);
+        this.dms.set(0, 0, this.cnI.getWidth(), this.cnI.getHeight());
         int i = getResources().getDisplayMetrics().widthPixels;
-        this.dde.set(0, 0, i, (this.cfD.getHeight() * i) / this.cfD.getWidth());
+        this.dmt.set(0, 0, i, (this.cnI.getHeight() * i) / this.cnI.getWidth());
         int i2 = this.frameCount;
-        this.ddb = new String[i2];
+        this.dmq = new String[i2];
         for (int i3 = 1; i3 < i2 + 1; i3++) {
             if (i3 < 10) {
-                this.ddb[i3 - 1] = "frsar/frs_ar_fullscreen_anim_00" + i3 + ".png";
+                this.dmq[i3 - 1] = "frsar/frs_ar_fullscreen_anim_00" + i3 + ".png";
             } else if (i3 >= 100) {
-                this.ddb[i3 - 1] = ("frsar/frs_ar_fullscreen_anim_" + i3 + ".png") + ".png";
+                this.dmq[i3 - 1] = ("frsar/frs_ar_fullscreen_anim_" + i3 + ".png") + ".png";
             } else {
-                this.ddb[i3 - 1] = "frsar/frs_ar_fullscreen_anim_0" + i3 + ".png";
+                this.dmq[i3 - 1] = "frsar/frs_ar_fullscreen_anim_0" + i3 + ".png";
             }
         }
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ar.view.FrsARAnimView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 FrsARAnimView.this.stopAnim();
                 if (FrsARAnimView.this.getParent() instanceof ViewGroup) {
                     ((ViewGroup) FrsARAnimView.this.getParent()).removeView(FrsARAnimView.this);
@@ -166,42 +166,42 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
     public void startAnim() {
         this.index = 0;
         a aVar = new a(this, 720, 1280);
-        aVar.setTag(this.Vb);
+        aVar.setTag(this.ada);
         aVar.setKey("LoadImageAsyncTask");
-        aVar.execute(this.ddb[this.index]);
+        aVar.execute(this.dmq[this.index]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nextFrame() {
         a aVar = new a(this, 720, 1280);
-        aVar.setTag(this.Vb);
+        aVar.setTag(this.ada);
         aVar.setKey("LoadImageAsyncTask");
-        aVar.execute(this.ddb[this.index]);
+        aVar.execute(this.dmq[this.index]);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.dde.set(0, getMeasuredHeight() - this.dde.height(), this.dde.width(), this.dde.height());
+        this.dmt.set(0, getMeasuredHeight() - this.dmt.height(), this.dmt.width(), this.dmt.height());
     }
 
     @Override // com.baidu.tieba.frs.ar.view.a
-    public void m(Bitmap bitmap) {
+    public void l(Bitmap bitmap) {
         if (this.startShowTime <= 0) {
             this.startShowTime = System.currentTimeMillis();
         }
         if (bitmap != null) {
-            if (this.bGI != null) {
-                this.bGI.recycle();
+            if (this.bOK != null) {
+                this.bOK.recycle();
             }
-            this.bGI = bitmap;
-            this.aGs.set(0, 0, this.bGI.getWidth(), this.bGI.getHeight());
+            this.bOK = bitmap;
+            this.aON.set(0, 0, this.bOK.getWidth(), this.bOK.getHeight());
             invalidate();
         } else {
             invalidate();
         }
         this.index++;
-        if (this.index >= this.ddb.length) {
+        if (this.index >= this.dmq.length) {
             stopAnim();
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);
@@ -212,7 +212,7 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
         int currentTimeMillis = (int) (((System.currentTimeMillis() - this.startShowTime) * this.frameCount) / this.totalTime);
         if (currentTimeMillis > this.index) {
             this.index = currentTimeMillis;
-            if (this.index >= this.ddb.length) {
+            if (this.index >= this.dmq.length) {
                 stopAnim();
                 if (getParent() instanceof ViewGroup) {
                     ((ViewGroup) getParent()).removeView(this);
@@ -223,29 +223,29 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
             nextFrame();
             return;
         }
-        e.fw().postDelayed(this.bGQ, 10L);
+        e.im().postDelayed(this.bOS, 10L);
     }
 
     public void stopAnim() {
-        BdAsyncTask.removeAllTask(this.Vb, "FrsARAnimView");
+        BdAsyncTask.removeAllTask(this.ada, "FrsARAnimView");
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.cfD != null) {
-            canvas.drawBitmap(this.cfD, this.aGs, this.bGJ, (Paint) null);
+        if (this.cnI != null) {
+            canvas.drawBitmap(this.cnI, this.aON, this.bOL, (Paint) null);
         }
-        if (this.bGI != null) {
+        if (this.bOK != null) {
             int i = getResources().getDisplayMetrics().widthPixels;
-            int height = (this.bGI.getHeight() * getMeasuredWidth()) / this.bGI.getWidth();
-            this.bGJ.set(0, getMeasuredHeight() - height, i, height);
-            canvas.drawBitmap(this.bGI, this.aGs, this.bGJ, (Paint) null);
+            int height = (this.bOK.getHeight() * getMeasuredWidth()) / this.bOK.getWidth();
+            this.bOL.set(0, getMeasuredHeight() - height, i, height);
+            canvas.drawBitmap(this.bOK, this.aON, this.bOL, (Paint) null);
         }
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.Vb = bdUniqueId;
+        this.ada = bdUniqueId;
     }
 
     private static final Bitmap a(Resources resources, int i, int i2, int i3) {
@@ -340,14 +340,14 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a extends BdAsyncTask<String, Bitmap, Bitmap> {
-        private com.baidu.tieba.frs.ar.view.a ddg;
-        private int ddh;
-        private int ddi;
+        private com.baidu.tieba.frs.ar.view.a dmv;
+        private int dmw;
+        private int dmx;
 
         private a(com.baidu.tieba.frs.ar.view.a aVar, int i, int i2) {
-            this.ddg = aVar;
-            this.ddh = i;
-            this.ddi = i2;
+            this.dmv = aVar;
+            this.dmw = i;
+            this.dmx = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -357,7 +357,7 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
             if (strArr == null || strArr[0] == null) {
                 return null;
             }
-            return FrsARAnimView.l(strArr[0], this.ddh, this.ddi);
+            return FrsARAnimView.l(strArr[0], this.dmw, this.dmx);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -365,8 +365,8 @@ public class FrsARAnimView extends View implements com.baidu.tieba.frs.ar.view.a
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            if (this.ddg != null) {
-                this.ddg.m(bitmap);
+            if (this.dmv != null) {
+                this.dmv.l(bitmap);
             }
         }
     }

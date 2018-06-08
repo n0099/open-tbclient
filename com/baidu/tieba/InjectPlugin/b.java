@@ -3,16 +3,14 @@ package com.baidu.tieba.InjectPlugin;
 import android.view.View;
 /* loaded from: classes.dex */
 public class b {
-
-    /* renamed from: view  reason: collision with root package name */
-    private View f9view;
+    private View view;
     public int what;
 
     public View getView() {
-        return this.f9view;
+        return this.view;
     }
 
-    public void setView(View view2) {
-        this.f9view = view2;
+    public void setView(View view) {
+        this.view = view;
     }
 }

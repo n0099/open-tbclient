@@ -1,8 +1,8 @@
 package com.baidu.location.e;
 
+import com.baidu.ar.paddle.PaddleController;
 import com.baidu.location.e.m;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -37,15 +37,15 @@ enum o extends m.b {
                     try {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                         String string = jSONObject2.has(TimeDisplaySetting.START_SHOW_TIME) ? jSONObject2.getString(TimeDisplaySetting.START_SHOW_TIME) : null;
-                        Double valueOf = jSONObject2.has("x1") ? Double.valueOf(jSONObject2.getDouble("x1")) : null;
-                        Double valueOf2 = jSONObject2.has("y1") ? Double.valueOf(jSONObject2.getDouble("y1")) : null;
-                        Double valueOf3 = jSONObject2.has("x2") ? Double.valueOf(jSONObject2.getDouble("x2")) : null;
-                        Double valueOf4 = jSONObject2.has("y2") ? Double.valueOf(jSONObject2.getDouble("y2")) : null;
+                        Double valueOf = jSONObject2.has(PaddleController.SDK_TO_LUA_GESTURE_RESULT_X1) ? Double.valueOf(jSONObject2.getDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_X1)) : null;
+                        Double valueOf2 = jSONObject2.has(PaddleController.SDK_TO_LUA_GESTURE_RESULT_Y1) ? Double.valueOf(jSONObject2.getDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_Y1)) : null;
+                        Double valueOf3 = jSONObject2.has(PaddleController.SDK_TO_LUA_GESTURE_RESULT_X2) ? Double.valueOf(jSONObject2.getDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_X2)) : null;
+                        Double valueOf4 = jSONObject2.has(PaddleController.SDK_TO_LUA_GESTURE_RESULT_Y2) ? Double.valueOf(jSONObject2.getDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_Y2)) : null;
                         if (string != null && valueOf != null && valueOf2 != null && valueOf3 != null && valueOf4 != null) {
                             if (stringBuffer2.length() > 0) {
-                                stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                stringBuffer2.append(",");
                             }
-                            stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",").append(valueOf).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf2).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf3).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf4).append(")");
+                            stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",").append(valueOf).append(",").append(valueOf2).append(",").append(valueOf3).append(",").append(valueOf4).append(")");
                         }
                     } catch (JSONException e2) {
                     }

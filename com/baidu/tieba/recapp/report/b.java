@@ -13,48 +13,48 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b gdv;
-    private CustomMessageListener gdx = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b goO;
+    private CustomMessageListener goQ = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.gP() && b.this.gdw != null) {
-                b.this.gdw.bkf();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.jD() && b.this.goP != null) {
+                b.this.goP.bpe();
             }
         }
     };
-    private c gdw = new f();
+    private c goP = new f();
 
-    public static b bkd() {
-        if (gdv == null) {
+    public static b bpc() {
+        if (goO == null) {
             synchronized (b.class) {
-                if (gdv == null) {
-                    gdv = new b();
+                if (goO == null) {
+                    goO = new b();
                 }
             }
         }
-        return gdv;
+        return goO;
     }
 
-    private boolean bke() {
-        return com.baidu.adp.lib.b.d.eE().ak("ad_log_open") != 0;
+    private boolean bpd() {
+        return com.baidu.adp.lib.b.d.hv().aw("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.gdx);
+        MessageManager.getInstance().registerListener(this.goQ);
     }
 
     public void a(a aVar) {
-        if (bke() && aVar != null && this.gdw != null) {
-            if (j.gP()) {
-                this.gdw.b(aVar);
+        if (bpd() && aVar != null && this.goP != null) {
+            if (j.jD()) {
+                this.goP.b(aVar);
             } else {
-                this.gdw.c(aVar);
+                this.goP.c(aVar);
             }
         }
     }
 
-    public void b(String str, HashMap<String, String> hashMap) {
+    public void d(String str, HashMap<String, String> hashMap) {
         if (!TextUtils.isEmpty(str)) {
             StringBuilder sb = new StringBuilder();
             if (hashMap != null && !hashMap.isEmpty()) {

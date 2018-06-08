@@ -16,7 +16,8 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.parser.ARResourceKey;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.play.b.e;
@@ -389,7 +390,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                 if (!TextUtils.isEmpty(entry.getValue())) {
                     sb.append(entry.getValue());
                 }
-                sb.append("\r\n");
+                sb.append(SystemInfoUtil.LINE_END);
                 setOption(1, "headers", sb.toString());
             }
         }
@@ -481,7 +482,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         } else {
             z = false;
         }
-        this.mWakeLock = ((PowerManager) context.getSystemService(Constants.HTTP_POWER)).newWakeLock(536870912 | i, IjkMediaPlayer.class.getName());
+        this.mWakeLock = ((PowerManager) context.getSystemService(ARResourceKey.HTTP_POWER)).newWakeLock(536870912 | i, IjkMediaPlayer.class.getName());
         this.mWakeLock.setReferenceCounted(false);
         if (z) {
             this.mWakeLock.acquire();
@@ -544,7 +545,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public int getSelectedTrack(int i) {
         switch (i) {
             case 1:
-                return (int) _getPropertyLong(FFP_PROP_INT64_SELECTED_VIDEO_STREAM, -1L);
+                return (int) _getPropertyLong(20001, -1L);
             case 2:
                 return (int) _getPropertyLong(FFP_PROP_INT64_SELECTED_AUDIO_STREAM, -1L);
             default:
@@ -676,7 +677,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         mediaInfo.mMediaPlayerName = "ijkplayer";
         String _getVideoCodecInfo = _getVideoCodecInfo();
         if (!TextUtils.isEmpty(_getVideoCodecInfo)) {
-            String[] split = _getVideoCodecInfo.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = _getVideoCodecInfo.split(",");
             if (split.length >= 2) {
                 mediaInfo.mVideoDecoder = split[0];
                 mediaInfo.mVideoDecoderImpl = split[1];
@@ -687,7 +688,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         }
         String _getAudioCodecInfo = _getAudioCodecInfo();
         if (!TextUtils.isEmpty(_getAudioCodecInfo)) {
-            String[] split2 = _getAudioCodecInfo.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split2 = _getAudioCodecInfo.split(",");
             if (split2.length >= 2) {
                 mediaInfo.mAudioDecoder = split2[0];
                 mediaInfo.mAudioDecoderImpl = split2[1];
@@ -805,7 +806,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.bw(message.arg1, message.arg2);
+                    e.by(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:

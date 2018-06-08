@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.restnet.http;
 
 import com.baidu.fsg.base.restnet.http.HttpDefines;
-import com.xiaomi.mipush.sdk.Constants;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.text.ParseException;
@@ -155,7 +154,7 @@ public class a implements b<String, String> {
     }
 
     public void a(Set<HttpDefines.HttpMethod> set) {
-        a(f, a(set, Constants.ACCEPT_TIME_SEPARATOR_SP, "", ""));
+        a(f, a(set, ",", "", ""));
     }
 
     public String f() {

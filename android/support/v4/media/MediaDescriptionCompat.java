@@ -35,11 +35,15 @@ public final class MediaDescriptionCompat implements Parcelable {
             return new MediaDescriptionCompat[i];
         }
     };
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final String DESCRIPTION_KEY_MEDIA_URI = "android.support.v4.media.description.MEDIA_URI";
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final String DESCRIPTION_KEY_NULL_BUNDLE_FLAG = "android.support.v4.media.description.NULL_BUNDLE_FLAG";
     public static final String EXTRA_BT_FOLDER_TYPE = "android.media.extra.BT_FOLDER_TYPE";
+    public static final String EXTRA_DOWNLOAD_STATUS = "android.media.extra.DOWNLOAD_STATUS";
+    public static final long STATUS_DOWNLOADED = 2;
+    public static final long STATUS_DOWNLOADING = 1;
+    public static final long STATUS_NOT_DOWNLOADED = 0;
     private final CharSequence mDescription;
     private Object mDescriptionObj;
     private final Bundle mExtras;
@@ -164,8 +168,8 @@ public final class MediaDescriptionCompat implements Parcelable {
         return this.mDescriptionObj;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0058  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x007b  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x007a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

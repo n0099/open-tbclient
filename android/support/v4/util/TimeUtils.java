@@ -2,9 +2,10 @@ package android.support.v4.util;
 
 import android.support.annotation.RestrictTo;
 import java.io.PrintWriter;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public final class TimeUtils {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
     private static final int SECONDS_PER_DAY = 86400;
     private static final int SECONDS_PER_HOUR = 3600;
@@ -127,22 +128,26 @@ public final class TimeUtils {
         return printField5 + 1;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static void formatDuration(long j, StringBuilder sb) {
         synchronized (sFormatSync) {
             sb.append(sFormatStr, 0, formatDurationLocked(j, 0));
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static void formatDuration(long j, PrintWriter printWriter, int i) {
         synchronized (sFormatSync) {
             printWriter.print(new String(sFormatStr, 0, formatDurationLocked(j, i)));
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static void formatDuration(long j, PrintWriter printWriter) {
         formatDuration(j, printWriter, 0);
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static void formatDuration(long j, long j2, PrintWriter printWriter) {
         if (j == 0) {
             printWriter.print("--");

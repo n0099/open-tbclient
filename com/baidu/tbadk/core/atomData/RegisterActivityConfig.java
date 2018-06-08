@@ -23,13 +23,13 @@ public class RegisterActivityConfig extends IntentConfig {
     public RegisterActivityConfig(Context context, int i, boolean z) {
         super(context);
         getIntent().putExtra("from", i);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
     }
 
     public RegisterActivityConfig(Context context, int i, boolean z, int i2) {
         super(context);
         getIntent().putExtra("from", i);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }

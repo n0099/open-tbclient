@@ -7,34 +7,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-    private ArrayList<UserData> Zb = new ArrayList<>();
-    private ArrayList<UserData> Zc = new ArrayList<>();
-    private am Zd = new am();
-    private int Ze = 0;
-    private int Zf = 0;
+    private ArrayList<UserData> ahd = new ArrayList<>();
+    private ArrayList<UserData> ahe = new ArrayList<>();
+    private am ahf = new am();
+    private int ahg = 0;
+    private int ahh = 0;
 
     public void a(am amVar) {
-        this.Zd = amVar;
+        this.ahf = amVar;
     }
 
-    public am rf() {
-        return this.Zd;
+    public am uB() {
+        return this.ahf;
     }
 
-    public ArrayList<UserData> rg() {
-        return this.Zb;
+    public ArrayList<UserData> uC() {
+        return this.ahd;
     }
 
-    public ArrayList<UserData> rh() {
-        return this.Zc;
+    public ArrayList<UserData> uD() {
+        return this.ahe;
     }
 
-    public int ri() {
-        return this.Ze;
+    public int uE() {
+        return this.ahg;
     }
 
-    public int rj() {
-        return this.Zf;
+    public int uF() {
+        return this.ahh;
     }
 
     public void parserJson(String str) {
@@ -55,7 +55,7 @@ public class aq {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.Zb.add(userData);
+                        this.ahd.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -63,12 +63,12 @@ public class aq {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.Zc.add(userData2);
+                        this.ahe.add(userData2);
                     }
                 }
-                this.Zd.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
-                this.Ze = jSONObject.optInt("tafriendnum", 0);
-                this.Zf = jSONObject.optInt("commonfriendnum", 0);
+                this.ahf.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
+                this.ahg = jSONObject.optInt("tafriendnum", 0);
+                this.ahh = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

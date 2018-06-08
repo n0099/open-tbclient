@@ -17,7 +17,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aa */
+    /* renamed from: Z */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.a> onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.forumsearch.c.a(this.mPageContext));
     }
@@ -26,8 +26,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.forumsearch.b.a aVar, com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.a> aVar2) {
-        aVar2.afY().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.forumsearch.b.a aVar, com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.a> aVar2) {
+        aVar2.ajG().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
 }

@@ -1,89 +1,87 @@
 package com.baidu.tieba.s;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.network.http.e;
-import com.baidu.adp.lib.util.s;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.k;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.io.File;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<Void, Void, String> {
-    public static final String bgg = File.separator;
-    private a gXr;
-    private String mPath;
-    private String mUrl;
+public class b {
+    private static BlockPopInfo gVM;
+    private static BlockPopInfo gVN;
+    private CustomMessageListener bvy = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.s.b.3
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null) {
+                b.d(null);
+                b.e(null);
+            }
+        }
+    };
+    private TbPageContext mContext;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void b(boolean z, String str, String str2);
+    public b(TbPageContext tbPageContext) {
+        this.mContext = tbPageContext;
+        this.mContext.registerListener(this.bvy);
     }
 
-    public b(String str, String str2, a aVar) {
-        this.mPath = str;
-        this.mUrl = str2;
-        this.gXr = aVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: h */
-    public String doInBackground(Void... voidArr) {
-        if (an.isEmpty(this.mPath) || an.isEmpty(this.mUrl)) {
-            return "";
-        }
-        new File(this.mPath).mkdirs();
-        String str = this.mPath + bgg + "videosplash.temp";
-        File file = new File(str);
-        if (file.exists()) {
-            file.delete();
-        }
-        e eVar = new e();
-        eVar.fe().setUrl(this.mUrl);
-        if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, PushConstants.WORK_RECEIVER_EVENTCORE_ERROR, -1, -1, true, true)) {
-            return bzS();
-        }
-        return "";
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        if (this.gXr != null) {
-            if (!an.isEmpty(str)) {
-                this.gXr.b(true, str, this.mUrl);
+    private boolean a(BlockPopInfo blockPopInfo) {
+        if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0 && (blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2)) {
+            if (blockPopInfo.ahead_type.intValue() == 1) {
+                b(blockPopInfo);
+                return true;
+            } else if (blockPopInfo.ahead_type.intValue() == 2) {
+                c(blockPopInfo);
+                return true;
             } else {
-                this.gXr.b(false, null, null);
+                return true;
             }
         }
+        return false;
     }
 
-    private String bzS() {
-        File file = new File(this.mPath + bgg + "videosplash.temp");
-        File file2 = new File(this.mPath + bgg + (s.aX(this.mUrl) + ".mp4"));
-        if (file2.exists()) {
-            file2.delete();
-        }
-        if (file.renameTo(file2)) {
-            J(file2);
-            return file2.getAbsolutePath();
-        }
-        return "";
+    public boolean bAH() {
+        return a(gVM);
     }
 
-    private void J(File file) {
-        File[] listFiles;
-        if (!an.isEmpty(this.mPath)) {
-            File file2 = new File(this.mPath);
-            if (file2.exists() && (listFiles = file2.listFiles()) != null) {
-                for (File file3 : listFiles) {
-                    if (file3 != null && !file3.equals(file)) {
-                        k.r(file3);
-                    }
+    public boolean bAI() {
+        return a(gVN);
+    }
+
+    private void b(final BlockPopInfo blockPopInfo) {
+        if (blockPopInfo != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
+            aVar.dB(blockPopInfo.block_info);
+            aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.s.b.1
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aVar2.dismiss();
                 }
-            }
+            });
+            aVar.a(blockPopInfo.ahead_info, new a.b() { // from class: com.baidu.tieba.s.b.2
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    b.this.c(blockPopInfo);
+                }
+            });
+            aVar.b(this.mContext).xa();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(BlockPopInfo blockPopInfo) {
+        if (blockPopInfo != null) {
+            AntiHelper.ap(this.mContext.getPageActivity(), blockPopInfo.ahead_url);
+        }
+    }
+
+    public static void d(BlockPopInfo blockPopInfo) {
+        gVM = blockPopInfo;
+    }
+
+    public static void e(BlockPopInfo blockPopInfo) {
+        gVN = blockPopInfo;
     }
 }

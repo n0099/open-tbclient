@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.view.JumpButton;
@@ -18,16 +17,16 @@ import com.baidu.tieba.recapp.widget.ApkDownloadView;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.b.a.b.b {
     @Override // com.baidu.b.a.b.b
-    public View H(Context context, String str) {
+    public View J(Context context, String str) {
         if ("head".equalsIgnoreCase(str)) {
             HeadImageView headImageView = new HeadImageView(context);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.setDrawerType(1);
             headImageView.setDefaultResource(d.f.icon_default_avatar100);
             headImageView.setDefaultErrorResource(d.f.icon_default_avatar100);
-            headImageView.setDefaultBgResource(d.C0126d.cp_bg_line_e);
+            headImageView.setDefaultBgResource(d.C0141d.cp_bg_line_e);
             return headImageView;
-        } else if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(str)) {
+        } else if ("time".equalsIgnoreCase(str)) {
             TextView textView = new TextView(context);
             textView.setIncludeFontPadding(false);
             return textView;
@@ -63,33 +62,33 @@ public class p implements com.baidu.b.a.b.b {
     }
 
     @Override // com.baidu.b.a.b.b
-    public boolean a(String str, View view2, com.baidu.b.a.a.a aVar, boolean z) {
+    public boolean a(String str, View view, com.baidu.b.a.a.a aVar, boolean z) {
         if (aVar == null) {
             return false;
         }
-        if (view2 instanceof HeadImageView) {
-            if (aVar.Ls > 0.0f) {
-                ((HeadImageView) view2).setRadius((int) (aVar.Ls * view2.getResources().getDisplayMetrics().density));
+        if (view instanceof HeadImageView) {
+            if (aVar.TC > 0.0f) {
+                ((HeadImageView) view).setRadius((int) (aVar.TC * view.getResources().getDisplayMetrics().density));
             } else {
-                ((HeadImageView) view2).setRadius(0);
+                ((HeadImageView) view).setRadius(0);
             }
-            ((HeadImageView) view2).startLoad(aVar.src, 10, false);
+            ((HeadImageView) view).startLoad(aVar.src, 10, false);
             return true;
         }
-        if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(str)) {
-            TextView textView = (TextView) view2;
+        if ("time".equalsIgnoreCase(str)) {
+            TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.Lt);
+                textView.setTextColor(aVar.TD);
             } else {
                 textView.setTextColor(aVar.color);
             }
-            textView.setTextSize(0, aVar.Lu * view2.getContext().getResources().getDisplayMetrics().density);
+            textView.setTextSize(0, aVar.TF * view.getContext().getResources().getDisplayMetrics().density);
             textView.setText(aVar.text);
-        } else if (view2 instanceof JumpButton) {
-            ((JumpButton) view2).setText(aVar.text);
+        } else if (view instanceof JumpButton) {
+            ((JumpButton) view).setText(aVar.text);
             return true;
-        } else if ("download".equalsIgnoreCase(str) && (view2 instanceof ApkDownloadView)) {
-            ((ApkDownloadView) view2).setDefaultText(aVar.text);
+        } else if ("download".equalsIgnoreCase(str) && (view instanceof ApkDownloadView)) {
+            ((ApkDownloadView) view).setDefaultText(aVar.text);
         }
         return false;
     }

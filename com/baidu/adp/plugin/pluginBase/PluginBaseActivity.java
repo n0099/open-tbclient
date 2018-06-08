@@ -90,15 +90,15 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
         return ((a) parent).getTarget();
     }
 
-    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        this.mProxyActivity.proxyAddContentView(view2, layoutParams);
+    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        this.mProxyActivity.proxyAddContentView(view, layoutParams);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
             return this.mProxyActivity.proxyBindService(intent, serviceConnection, i);
         }
@@ -204,7 +204,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
 
     @Override // android.content.ContextWrapper, android.content.Context
     public String getPackageName() {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.getPackageName() : getPluginPackageName();
     }
 
@@ -333,8 +333,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     }
 
     @Override // android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        this.mProxyActivity.proxyOnCreateContextMenu(contextMenu, view2, contextMenuInfo);
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        this.mProxyActivity.proxyOnCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
     public CharSequence onCreateDescription() {
@@ -362,8 +362,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
         return this.mProxyActivity.proxyOnCreateView(str, context, attributeSet);
     }
 
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        return this.mProxyActivity.proxyOnCreateView(view2, str, context, attributeSet);
+    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return this.mProxyActivity.proxyOnCreateView(view, str, context, attributeSet);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -444,8 +444,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
         return this.mProxyActivity.proxyOnPrepareOptionsMenu(menu);
     }
 
-    public boolean onPreparePanel(int i, View view2, Menu menu) {
-        return this.mProxyActivity.proxyOnPreparePanel(i, view2, menu);
+    public boolean onPreparePanel(int i, View view, Menu menu) {
+        return this.mProxyActivity.proxyOnPreparePanel(i, view, menu);
     }
 
     public void onRestart() {
@@ -509,8 +509,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
         this.mProxyActivity.proxyOnWindowFocusChanged(z);
     }
 
-    public void openContextMenu(View view2) {
-        this.mProxyActivity.proxyOpenContextMenu(view2);
+    public void openContextMenu(View view) {
+        this.mProxyActivity.proxyOpenContextMenu(view);
     }
 
     public void openOptionsMenu() {
@@ -521,8 +521,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
         this.mProxyActivity.proxyOverridePendingTransition(i, i2);
     }
 
-    public void registerForContextMenu(View view2) {
-        this.mProxyActivity.proxyRegisterForContextMenu(view2);
+    public void registerForContextMenu(View view) {
+        this.mProxyActivity.proxyRegisterForContextMenu(view);
     }
 
     public final void removeDialog(int i) {
@@ -541,12 +541,12 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
         this.mProxyActivity.proxySetContentView(i);
     }
 
-    public void setContentView(View view2) {
-        this.mProxyActivity.proxySetContentView(view2);
+    public void setContentView(View view) {
+        this.mProxyActivity.proxySetContentView(view);
     }
 
-    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        this.mProxyActivity.proxySetContentView(view2, layoutParams);
+    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        this.mProxyActivity.proxySetContentView(view, layoutParams);
     }
 
     public final void setDefaultKeyMode(int i) {
@@ -633,7 +633,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public void startActivity(Intent intent) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
             this.mProxyActivity.proxyStartActivity(intent);
         }
@@ -642,7 +642,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public void startActivityForResult(Intent intent, int i) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
             this.mProxyActivity.proxyStartActivityForResult(intent, i);
         }
@@ -681,7 +681,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public ComponentName startService(Intent intent) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
             return this.mProxyActivity.proxyStartService(intent);
         }
@@ -696,7 +696,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public boolean stopService(Intent intent) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
             return this.mProxyActivity.proxyStopService(intent);
         }
@@ -707,8 +707,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
         this.mProxyActivity.proxyTakeKeyEvents(z);
     }
 
-    public void unregisterForContextMenu(View view2) {
-        this.mProxyActivity.proxyUnregisterForContextMenu(view2);
+    public void unregisterForContextMenu(View view) {
+        this.mProxyActivity.proxyUnregisterForContextMenu(view);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -731,31 +731,31 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mProxyActivity.proxyGetSharedPreferences(str, i) : this.mProxyActivity.proxyGetSharedPreferences(getPluginPackageName() + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public FileInputStream openFileInput(String str) throws FileNotFoundException {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.openFileInput(str) : this.mActivity.openFileInput(getPluginPackageName() + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.openFileOutput(str, i) : this.mActivity.openFileOutput(getPluginPackageName() + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean deleteFile(String str) {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.deleteFile(str) : this.mActivity.deleteFile(getPluginPackageName() + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.openOrCreateDatabase(getPluginPackageName(), i, cursorFactory) : this.mActivity.openOrCreateDatabase(getPluginPackageName() + str, i, cursorFactory);
     }
 
@@ -766,25 +766,25 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean deleteDatabase(String str) {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.deleteDatabase(str) : this.mActivity.deleteDatabase(getPluginPackageName() + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getDatabasePath(String str) {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.getDatabasePath(str) : this.mActivity.getDatabasePath(getPluginPackageName() + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getDir(String str, int i) {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.getDir(str, i) : this.mActivity.getDir(getPluginPackageName() + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getFileStreamPath(String str) {
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.getFileStreamPath(str) : this.mActivity.getFileStreamPath(getPluginPackageName() + str);
     }
 
@@ -795,7 +795,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
             return null;
         }
         try {
-            PluginSetting findPluginSetting = c.jz().findPluginSetting(getPluginPackageName());
+            PluginSetting findPluginSetting = c.mn().findPluginSetting(getPluginPackageName());
             if (findPluginSetting == null || !findPluginSetting.isThird) {
                 return cacheDir;
             }
@@ -818,7 +818,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public void sendBroadcast(Intent intent, String str) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.jz().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.mn().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.isLoaded() && plugin2.remapBroadcastReceiver(intent))) {
             super.sendBroadcast(intent, str);
         }

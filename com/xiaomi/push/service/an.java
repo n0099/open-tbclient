@@ -3,6 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.xiaomi.network.Fallback;
 import com.xiaomi.network.HostFilter;
 import com.xiaomi.network.HostManager;
@@ -30,7 +31,7 @@ public class an extends at.a implements HostManager.HostManagerFactory {
             Uri.Builder buildUpon = Uri.parse(str).buildUpon();
             buildUpon.appendQueryParameter("sdkver", String.valueOf(26));
             buildUpon.appendQueryParameter("osver", String.valueOf(Build.VERSION.SDK_INT));
-            buildUpon.appendQueryParameter("os", com.xiaomi.smack.util.d.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
+            buildUpon.appendQueryParameter("os", com.xiaomi.smack.util.d.a(Build.MODEL + SystemInfoUtil.COLON + Build.VERSION.INCREMENTAL));
             buildUpon.appendQueryParameter("mi", String.valueOf(com.xiaomi.channel.commonutils.android.j.c()));
             String builder = buildUpon.toString();
             com.xiaomi.channel.commonutils.logger.b.c("fetch bucket from : " + builder);
@@ -39,10 +40,10 @@ public class an extends at.a implements HostManager.HostManagerFactory {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 String a = com.xiaomi.channel.commonutils.network.d.a(com.xiaomi.channel.commonutils.android.j.a(), url);
-                com.xiaomi.stats.h.a(url.getHost() + ":" + port, (int) (System.currentTimeMillis() - currentTimeMillis), null);
+                com.xiaomi.stats.h.a(url.getHost() + SystemInfoUtil.COLON + port, (int) (System.currentTimeMillis() - currentTimeMillis), null);
                 return a;
             } catch (IOException e) {
-                com.xiaomi.stats.h.a(url.getHost() + ":" + port, -1, e);
+                com.xiaomi.stats.h.a(url.getHost() + SystemInfoUtil.COLON + port, -1, e);
                 throw e;
             }
         }
@@ -88,15 +89,15 @@ public class an extends at.a implements HostManager.HostManagerFactory {
     }
 
     @Override // com.xiaomi.push.service.at.a
-    public void a(a.C0272a c0272a) {
+    public void a(a.C0290a c0290a) {
     }
 
     @Override // com.xiaomi.push.service.at.a
-    public void a(b.C0273b c0273b) {
+    public void a(b.C0291b c0291b) {
         Fallback fallbacksByHost;
         boolean z;
-        if (c0273b.e() && c0273b.d() && System.currentTimeMillis() - this.b > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0273b.d());
+        if (c0291b.e() && c0291b.d() && System.currentTimeMillis() - this.b > 3600000) {
+            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0291b.d());
             this.b = System.currentTimeMillis();
             HostManager hostManager = HostManager.getInstance();
             hostManager.clear();

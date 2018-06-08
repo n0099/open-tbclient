@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import java.util.ArrayList;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class MenuAdapter extends BaseAdapter {
     static final int ITEM_LAYOUT = R.layout.abc_popup_menu_item_layout;
@@ -62,8 +62,8 @@ public class MenuAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        View inflate = view2 == null ? this.mInflater.inflate(ITEM_LAYOUT, viewGroup, false) : view2;
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View inflate = view == null ? this.mInflater.inflate(ITEM_LAYOUT, viewGroup, false) : view;
         MenuView.ItemView itemView = (MenuView.ItemView) inflate;
         if (this.mForceShowIcon) {
             ((ListMenuItemView) inflate).setForceShowIcon(true);

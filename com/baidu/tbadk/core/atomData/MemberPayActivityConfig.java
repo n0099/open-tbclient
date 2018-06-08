@@ -47,14 +47,14 @@ public class MemberPayActivityConfig extends IntentConfig {
     public MemberPayActivityConfig(Context context, int i, boolean z, int i2) {
         super(context);
         getIntent().putExtra("member_type", i);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
         getIntent().putExtra("from", i2);
     }
 
     public MemberPayActivityConfig(Context context, int i, boolean z, int i2, int i3) {
         super(context);
         getIntent().putExtra("member_type", i);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
         getIntent().putExtra("from", i2);
         getIntent().putExtra(FROM_SCENE, i3);
     }

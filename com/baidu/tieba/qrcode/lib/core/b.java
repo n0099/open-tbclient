@@ -6,17 +6,16 @@ import android.hardware.Camera;
 import android.support.v7.widget.ActivityChooserView;
 import android.view.WindowManager;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 final class b {
-    private static final Pattern fUY = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point fUZ;
-    private Point fVa;
-    private Point fVb;
+    private static final Pattern ggn = Pattern.compile(",");
+    private Point ggo;
+    private Point ggp;
+    private Point ggq;
     private final Context mContext;
 
     public b(Context context) {
@@ -28,20 +27,20 @@ final class b {
         if (e(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.fUZ = a.bR(this.mContext);
+        this.ggo = a.cc(this.mContext);
         Point point = new Point();
-        point.x = this.fUZ.x;
-        point.y = this.fUZ.y;
-        int bQ = a.bQ(this.mContext);
-        if (bQ == 0) {
-            point.x = this.fUZ.y;
-            point.y = this.fUZ.x;
+        point.x = this.ggo.x;
+        point.y = this.ggo.y;
+        int cb = a.cb(this.mContext);
+        if (cb == 0) {
+            point.x = this.ggo.y;
+            point.y = this.ggo.x;
         }
-        this.fVb = b(parameters, point);
-        if (bQ == 0) {
-            this.fVa = new Point(this.fVb.y, this.fVb.x);
+        this.ggq = b(parameters, point);
+        if (cb == 0) {
+            this.ggp = new Point(this.ggq.y, this.ggq.x);
         } else {
-            this.fVa = this.fVb;
+            this.ggp = this.ggq;
         }
     }
 
@@ -50,14 +49,14 @@ final class b {
     }
 
     public Point getCameraResolution() {
-        return this.fVa;
+        return this.ggp;
     }
 
     public void f(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.fVb.x, this.fVb.y);
+        parameters.setPreviewSize(this.ggq.x, this.ggq.y);
         a(parameters);
-        camera.setDisplayOrientation(bit());
+        camera.setDisplayOrientation(bnr());
         camera.setParameters(parameters);
     }
 
@@ -72,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int bit() {
+    public int bnr() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -148,7 +147,7 @@ final class b {
     }
 
     private static int b(CharSequence charSequence, int i) {
-        String[] split = fUY.split(charSequence);
+        String[] split = ggn.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

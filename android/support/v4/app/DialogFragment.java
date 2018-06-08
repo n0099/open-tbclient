@@ -10,6 +10,8 @@ import android.support.annotation.RestrictTo;
 import android.support.annotation.StyleRes;
 import android.view.LayoutInflater;
 import android.view.View;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
 public class DialogFragment extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
     private static final String SAVED_BACK_STACK_ID = "android:backStackId";
@@ -31,6 +33,12 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     boolean mCancelable = true;
     boolean mShowsDialog = true;
     int mBackStackId = -1;
+
+    @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    /* loaded from: classes2.dex */
+    private @interface DialogStyle {
+    }
 
     public void setStyle(int i, @StyleRes int i2) {
         this.mStyle = i;
@@ -149,10 +157,9 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     @Override // android.support.v4.app.Fragment
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
-    public LayoutInflater getLayoutInflater(Bundle bundle) {
+    public LayoutInflater onGetLayoutInflater(Bundle bundle) {
         if (!this.mShowsDialog) {
-            return super.getLayoutInflater(bundle);
+            return super.onGetLayoutInflater(bundle);
         }
         this.mDialog = onCreateDialog(bundle);
         if (this.mDialog != null) {
@@ -162,7 +169,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         return (LayoutInflater) this.mHost.getContext().getSystemService("layout_inflater");
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setupDialog(Dialog dialog, int i) {
         switch (i) {
             case 1:
@@ -198,12 +205,12 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         Bundle bundle2;
         super.onActivityCreated(bundle);
         if (this.mShowsDialog) {
-            View view2 = getView();
-            if (view2 != null) {
-                if (view2.getParent() != null) {
+            View view = getView();
+            if (view != null) {
+                if (view.getParent() != null) {
                     throw new IllegalStateException("DialogFragment can not be attached to a container view");
                 }
-                this.mDialog.setContentView(view2);
+                this.mDialog.setContentView(view);
             }
             FragmentActivity activity = getActivity();
             if (activity != null) {

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.person.g;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -185,7 +185,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 this.liveInfoData = new AlaLiveInfoCoreData();
                 this.liveInfoData.parserProtoBuf(profileResIdl.data.ala_live_info);
             }
-            if (!v.w(profileResIdl.data.ala_live_record)) {
+            if (!w.z(profileResIdl.data.ala_live_record)) {
                 this.liveReplayData = new ArrayList();
                 for (AlaLiveInfo alaLiveInfo : profileResIdl.data.ala_live_record) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -201,17 +201,17 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> O;
+        l<String> R;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (O = com.baidu.tbadk.core.c.a.ty().O("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.fDG;
-            if (v.v(list) > 4) {
+        if (this.ucCardData != null && (R = com.baidu.tbadk.core.c.a.wW().R("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.fPa;
+            if (w.y(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
-                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(O.get(aVar.title), 0L)) {
-                        aVar.fDH = true;
+                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(R.get(aVar.title), 0L)) {
+                        aVar.fPb = true;
                     } else {
-                        aVar.fDH = false;
+                        aVar.fPb = false;
                     }
                 }
             }
@@ -221,9 +221,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> N = com.baidu.tbadk.core.c.a.ty().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> Q = com.baidu.tbadk.core.c.a.wW().Q("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            N.e(PROFILE_CACHE_KEY, bArr);
+            Q.e(PROFILE_CACHE_KEY, bArr);
         }
     }
 

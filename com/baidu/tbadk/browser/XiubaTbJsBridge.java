@@ -8,6 +8,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -43,7 +44,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
     };
     private final CustomMessageListener downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tbadk.browser.XiubaTbJsBridge.2
-        private boolean TA;
+        private boolean abJ;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -54,16 +55,16 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                     for (DownloadData downloadData : downloadMessage.getData()) {
                         if (downloadData != null && XiubaTbJsBridge.XIUBA_PACKAGE.equals(downloadData.getId())) {
                             if (downloadData.getStatus() == 5) {
-                                if (!this.TA) {
-                                    this.TA = true;
+                                if (!this.abJ) {
+                                    this.abJ = true;
                                     XiubaTbJsBridge.this.callDownloadListener(1);
                                 }
                             } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                                 XiubaTbJsBridge.this.callDownloadListener(2);
-                                this.TA = false;
+                                this.abJ = false;
                             } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                                 XiubaTbJsBridge.this.callDownloadListener(0);
-                                this.TA = false;
+                                this.abJ = false;
                             }
                         }
                     }
@@ -159,7 +160,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Dt().a(XIUBA_PACKAGE, str, TbadkCoreApplication.getInst().getResources().getString(d.k.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.GW().a(XIUBA_PACKAGE, str, TbadkCoreApplication.getInst().getResources().getString(d.k.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -202,7 +203,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         if (TextUtils.isEmpty(dataString)) {
             return null;
         }
-        String[] split = dataString.split(":");
+        String[] split = dataString.split(SystemInfoUtil.COLON);
         if (split != null && split.length == 2) {
             return split[1];
         }

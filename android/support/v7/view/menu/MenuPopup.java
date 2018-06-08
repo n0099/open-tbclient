@@ -19,7 +19,7 @@ public abstract class MenuPopup implements MenuPresenter, ShowableListMenu, Adap
 
     public abstract void addMenu(MenuBuilder menuBuilder);
 
-    public abstract void setAnchorView(View view2);
+    public abstract void setAnchorView(View view);
 
     public abstract void setForceShowIcon(boolean z);
 
@@ -66,7 +66,7 @@ public abstract class MenuPopup implements MenuPresenter, ShowableListMenu, Adap
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ListAdapter listAdapter = (ListAdapter) adapterView.getAdapter();
         toMenuAdapter(listAdapter).mAdapterMenu.performItemAction((MenuItem) listAdapter.getItem(i), this, closeMenuOnSubMenuOpened() ? 0 : 4);
     }
@@ -78,19 +78,19 @@ public abstract class MenuPopup implements MenuPresenter, ShowableListMenu, Adap
         int count = listAdapter.getCount();
         int i2 = 0;
         int i3 = 0;
-        View view2 = null;
+        View view = null;
         int i4 = 0;
         ViewGroup viewGroup2 = viewGroup;
         while (i2 < count) {
             int itemViewType = listAdapter.getItemViewType(i2);
             if (itemViewType != i3) {
                 i3 = itemViewType;
-                view2 = null;
+                view = null;
             }
             FrameLayout frameLayout = viewGroup2 == null ? new FrameLayout(context) : viewGroup2;
-            view2 = listAdapter.getView(i2, view2, frameLayout);
-            view2.measure(makeMeasureSpec, makeMeasureSpec2);
-            int measuredWidth = view2.getMeasuredWidth();
+            view = listAdapter.getView(i2, view, frameLayout);
+            view.measure(makeMeasureSpec, makeMeasureSpec2);
+            int measuredWidth = view.getMeasuredWidth();
             if (measuredWidth < i) {
                 if (measuredWidth <= i4) {
                     measuredWidth = i4;

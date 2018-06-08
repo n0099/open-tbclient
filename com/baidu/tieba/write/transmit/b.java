@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int eYa = 3;
+    private static int fjv = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -38,67 +38,67 @@ public class b extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar = null;
-        if (view2 == null) {
-            view2 = LayoutInflater.from(this.mContext).inflate(d.i.layout_select_forum_item, (ViewGroup) null);
-            a aVar2 = new a(view2);
-            view2.setTag(d.g.key_select_forum_holder, aVar2);
+        if (view == null) {
+            view = LayoutInflater.from(this.mContext).inflate(d.i.layout_select_forum_item, (ViewGroup) null);
+            a aVar2 = new a(view);
+            view.setTag(d.g.key_select_forum_holder, aVar2);
             aVar = aVar2;
         } else {
-            Object tag = view2.getTag(d.g.key_select_forum_holder);
+            Object tag = view.getTag(d.g.key_select_forum_holder);
             if (tag instanceof a) {
                 aVar = (a) tag;
             }
         }
         if (aVar != null) {
-            aVar.wX();
+            aVar.Ay();
             aVar.a(this.mDataList.get(i));
         }
-        return view2;
+        return view;
     }
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TextView apV;
-        public BarImageView eYc;
-        public View heW;
+        public TextView ayc;
+        public BarImageView fjx;
+        public View hqR;
         public int mSkinType = 3;
 
-        public a(View view2) {
-            if (view2 != null) {
-                this.apV = (TextView) view2.findViewById(d.g.transmit_forum_name);
-                this.eYc = (BarImageView) view2.findViewById(d.g.forum_avatar);
-                this.heW = view2.findViewById(d.g.divider_line);
+        public a(View view) {
+            if (view != null) {
+                this.ayc = (TextView) view.findViewById(d.g.transmit_forum_name);
+                this.fjx = (BarImageView) view.findViewById(d.g.forum_avatar);
+                this.hqR = view.findViewById(d.g.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.apV.setText(transmitForumData.forumName);
-                this.eYc.startLoad(transmitForumData.avatar, 10, false);
+                this.ayc.setText(transmitForumData.forumName);
+                this.fjx.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void wX() {
-            if (b.eYa != this.mSkinType) {
-                ak.h(this.apV, d.C0126d.cp_cont_b);
-                ak.j(this.heW, d.C0126d.cp_bg_line_c);
+        public void Ay() {
+            if (b.fjv != this.mSkinType) {
+                al.h(this.ayc, d.C0141d.cp_cont_b);
+                al.j(this.hqR, d.C0141d.cp_bg_line_c);
             }
-            this.mSkinType = b.eYa;
+            this.mSkinType = b.fjv;
         }
     }
 
-    public void cu(List<TransmitForumData> list) {
+    public void cz(List<TransmitForumData> list) {
         this.mDataList.clear();
         this.mDataList.addAll(list);
         notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {
-        if (eYa != i) {
+        if (fjv != i) {
             notifyDataSetChanged();
         }
-        eYa = i;
+        fjv = i;
     }
 }

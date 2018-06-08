@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> dHT = new ArrayList<>(5);
-    public int dHX;
-    public int dHY;
-    int dHZ;
+    private static ArrayList<a> dTe = new ArrayList<>(5);
+    public int dTi;
+    public int dTj;
+    int dTk;
     public int type;
 
-    private void Lx() {
-        this.dHX = 0;
-        this.dHY = 0;
-        this.dHZ = 0;
+    private void OW() {
+        this.dTi = 0;
+        this.dTj = 0;
+        this.dTk = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long ayp() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.dHX, this.dHY) : ExpandableListView.getPackedPositionForGroup(this.dHX);
+    public long aDk() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.dTi, this.dTj) : ExpandableListView.getPackedPositionForGroup(this.dTi);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a my(int i) {
+    public static a mK(int i) {
         return s(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a s(int i, int i2, int i3, int i4) {
-        a ayq = ayq();
-        ayq.type = i;
-        ayq.dHX = i2;
-        ayq.dHY = i3;
-        ayq.dHZ = i4;
-        return ayq;
+        a aDl = aDl();
+        aDl.type = i;
+        aDl.dTi = i2;
+        aDl.dTj = i3;
+        aDl.dTk = i4;
+        return aDl;
     }
 
-    private static a ayq() {
+    private static a aDl() {
         a aVar;
-        synchronized (dHT) {
-            if (dHT.size() > 0) {
-                aVar = dHT.remove(0);
-                aVar.Lx();
+        synchronized (dTe) {
+            if (dTe.size() > 0) {
+                aVar = dTe.remove(0);
+                aVar.OW();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (dHT) {
-            if (dHT.size() < 5) {
-                dHT.add(this);
+        synchronized (dTe) {
+            if (dTe.size() < 5) {
+                dTe.add(this);
             }
         }
     }

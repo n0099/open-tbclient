@@ -12,7 +12,7 @@ public class f implements c {
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public Set<String> dN() {
+    public Set<String> gE() {
         return this.map.keySet();
     }
 
@@ -30,9 +30,9 @@ public class f implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h l = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.l(object);
-            if (l != null) {
-                return l.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h o = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.o(object);
+            if (o != null) {
+                return o.g(cVar);
             }
             return object;
         }

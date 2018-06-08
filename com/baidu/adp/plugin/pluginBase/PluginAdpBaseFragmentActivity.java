@@ -38,7 +38,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.bJ().j(getPageContext().getPageActivity());
+        a.ex().i(getPageContext().getPageActivity());
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -62,15 +62,15 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onClick(View view) {
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         return true;
     }
 
@@ -86,7 +86,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     }
 
     @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view2) {
+    public boolean onLongClick(View view) {
         return false;
     }
 
@@ -147,16 +147,16 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.fp().d(this.mId);
+        c.ig().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.bJ().k(getPageContext().getPageActivity());
+        a.ex().j(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.fp().e(this.mId);
+        c.ig().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -205,13 +205,13 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         this.mHandler.postDelayed(this.preLoadRunnable, 100L);
     }
 
-    private void refreshImage(View view2) {
-        if (view2 != null) {
-            if (view2 instanceof com.baidu.adp.newwidget.ImageView.h) {
-                ((com.baidu.adp.newwidget.ImageView.h) view2).refresh();
+    private void refreshImage(View view) {
+        if (view != null) {
+            if (view instanceof com.baidu.adp.newwidget.ImageView.h) {
+                ((com.baidu.adp.newwidget.ImageView.h) view).refresh();
             }
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
+            if (view instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view;
                 int childCount = viewGroup.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     refreshImage(viewGroup.getChildAt(i));
@@ -222,7 +222,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginContextWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.bP().getResources();
+        Resources resources = g.eD().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

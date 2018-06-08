@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.commons.logging.LogFactory;
 /* loaded from: classes.dex */
-public final class LocationClient implements b.InterfaceC0049b {
+public final class LocationClient implements b.InterfaceC0065b {
     private static final int MIN_REQUEST_SPAN = 1000;
     private static final int MSG_REG_LISTENER = 5;
     private static final int MSG_REG_NOTIFY_LISTENER = 8;
@@ -560,7 +560,7 @@ public final class LocationClient implements b.InterfaceC0049b {
         return this.mIsStarted;
     }
 
-    @Override // com.baidu.location.a.b.InterfaceC0049b
+    @Override // com.baidu.location.a.b.InterfaceC0065b
     public void onReceiveLocation(BDLocation bDLocation) {
         if ((!this.serverFirst || this.clientFirst) && bDLocation != null) {
             Message obtainMessage = this.mHandler.obtainMessage(701);

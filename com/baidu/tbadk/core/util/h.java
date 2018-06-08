@@ -1,89 +1,113 @@
 package com.baidu.tbadk.core.util;
 
-import android.database.Cursor;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class h {
-    public static void dq(String str) {
-        int i;
-        CustomResponsedMessage runTask;
-        int i2 = 0;
-        Matcher matcher = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)").matcher(str);
-        while (true) {
-            i = i2;
-            if (!matcher.find()) {
-                break;
-            }
-            String group = matcher.group();
-            if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && !((Boolean) runTask.getData()).booleanValue()) {
-                i++;
-            }
-            i2 = i;
-        }
-        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
-        while (matcher2.find()) {
-            String[] split = matcher2.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            if (split != null && split.length == 5) {
-                String str2 = split[1];
-                if (!TextUtils.isEmpty(str2) && str2.contains("_") && !str2.contains("collect_")) {
-                    i++;
-                }
-            }
-        }
-        if (i > 0) {
-            al alVar = new al("c12231");
-            alVar.r("obj_param1", i);
-            TiebaStatic.log(alVar);
+public class h extends DiskFileOperate {
+    protected a aoo;
+    protected Bitmap mBitmap;
+    protected BitmapFactory.Options wz;
+
+    public h(String str, String str2, DiskFileOperate.Action action) {
+        super(str, str2, action);
+        this.mBitmap = null;
+        this.wz = null;
+        this.aoo = null;
+        this.aoo = new a();
+    }
+
+    public boolean isGif() {
+        return this.aoo.mIsGif;
+    }
+
+    public void A(boolean z) {
+        this.aoo.mIsGif = z;
+    }
+
+    public Bitmap getBitmap() {
+        return this.mBitmap;
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public void setData(byte[] bArr) {
+        super.setData(bArr);
+        if (!isGif() && com.baidu.adp.lib.util.l.l(bArr)) {
+            A(true);
         }
     }
 
-    public static void uB() {
-        new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.h.1
-            @Override // java.lang.Runnable
-            public void run() {
-                Cursor cursor;
-                Throwable th;
-                int i;
-                com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-                try {
-                    cursor = mainDBDatabaseManager.bQ().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
-                    i = 0;
-                    while (cursor.moveToNext()) {
-                        try {
-                            i++;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            try {
-                                mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
-                                com.baidu.adp.lib.util.n.e(cursor);
-                                al alVar = new al("c12232");
-                                alVar.ac("uid", TbadkCoreApplication.getCurrentAccount());
-                                alVar.r("obj_param1", i);
-                                TiebaStatic.log(alVar);
-                            } catch (Throwable th3) {
-                                com.baidu.adp.lib.util.n.e(cursor);
-                                throw th3;
-                            }
-                        }
-                    }
-                    com.baidu.adp.lib.util.n.e(cursor);
-                } catch (Throwable th4) {
-                    cursor = null;
-                    th = th4;
-                    i = 0;
-                }
-                al alVar2 = new al("c12232");
-                alVar2.ac("uid", TbadkCoreApplication.getCurrentAccount());
-                alVar2.r("obj_param1", i);
-                TiebaStatic.log(alVar2);
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public byte[] go() {
+        if (this.mData == null) {
+            return null;
+        }
+        return this.aoo.toByteArray();
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public boolean j(byte[] bArr) {
+        if (bArr == null) {
+            return false;
+        }
+        if (this.wz == null) {
+            this.wz = new BitmapFactory.Options();
+            this.wz.inPreferredConfig = Bitmap.Config.RGB_565;
+        }
+        boolean k = this.aoo.k(bArr);
+        if (this.aoo.wD == 0 || this.aoo.wD >= System.currentTimeMillis()) {
+            int headerSize = a.getHeaderSize();
+            if (!k) {
+                headerSize = 0;
             }
-        }).start();
+            try {
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.wz);
+            } catch (Error e) {
+                BdLog.e(e.getMessage());
+            }
+            return this.mBitmap != null;
+        }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public static class a {
+        private static byte wB = Byte.MIN_VALUE;
+        boolean mIsGif = false;
+        long wD = 0;
+
+        a() {
+        }
+
+        public static int getHeaderSize() {
+            return 13;
+        }
+
+        public byte[] toByteArray() {
+            ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
+            allocate.putInt(1786600510);
+            allocate.put(this.mIsGif ? (byte) (0 | wB) : (byte) 0);
+            allocate.putLong(this.wD);
+            allocate.flip();
+            return allocate.array();
+        }
+
+        public boolean k(byte[] bArr) {
+            if (bArr == null || bArr.length < getHeaderSize()) {
+                return false;
+            }
+            ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
+            if (wrap.getInt() == 1786600510) {
+                if ((wrap.get() & wB) != 0) {
+                    this.mIsGif = true;
+                }
+                this.wD = wrap.getLong();
+                return true;
+            }
+            return false;
+        }
     }
 }

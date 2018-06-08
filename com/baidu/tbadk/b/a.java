@@ -20,23 +20,23 @@ import com.baidu.tbadk.util.CheckBaiduSimResponseMessage;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    private static a SG = null;
-    private CustomMessageListener SH = new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.b.a.1
+    private static a aaQ = null;
+    private CustomMessageListener aaR = new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && l.hg() && j.gR()) {
-                a.this.oE();
+            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && l.jU() && j.jF()) {
+                a.this.rZ();
             }
         }
     };
-    private boolean SJ = false;
-    private HttpMessageListener SK = new HttpMessageListener(CmdConfigHttp.CMD_CHECK_BAIDU_SIM) { // from class: com.baidu.tbadk.b.a.2
+    private boolean aaS = false;
+    private HttpMessageListener aaT = new HttpMessageListener(CmdConfigHttp.CMD_CHECK_BAIDU_SIM) { // from class: com.baidu.tbadk.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003392 && (httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
-                a.this.SJ = false;
+                a.this.aaS = false;
                 if (((CheckBaiduSimResponseMessage) httpResponsedMessage).isSuc) {
                     b.getInstance().putString("key_baidu_sim_card_writting_tip", ((CheckBaiduSimResponseMessage) httpResponsedMessage).isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(d.k.baidu_sim_traffic_free) : "");
                     MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
@@ -45,39 +45,39 @@ public class a {
         }
     };
 
-    public static a oC() {
-        if (SG == null) {
-            SG = new a();
+    public static a rX() {
+        if (aaQ == null) {
+            aaQ = new a();
         }
-        return SG;
+        return aaQ;
     }
 
-    public void oD() {
-        MessageManager.getInstance().registerListener(this.SH);
+    public void rY() {
+        MessageManager.getInstance().registerListener(this.aaR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oE() {
-        if (TbadkCoreApplication.getInst().isMainProcess(false) && !this.SJ) {
-            this.SJ = true;
+    public void rZ() {
+        if (TbadkCoreApplication.getInst().isMainProcess(false) && !this.aaS) {
+            this.aaS = true;
             if (System.currentTimeMillis() >= b.getInstance().getLong("key_next_check_baidu_sim_time", 0L)) {
                 b.getInstance().putLong("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
                 tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                MessageManager.getInstance().registerListener(this.SK);
+                MessageManager.getInstance().registerListener(this.aaT);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
                 httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
-                httpMessage.addParam(LivenessRecogActivity.f.J, oF());
+                httpMessage.addParam(LivenessRecogActivity.f.J, sa());
                 MessageManager.getInstance().sendMessage(httpMessage);
                 return;
             }
-            this.SJ = false;
+            this.aaS = false;
         }
     }
 
-    private String oF() {
-        switch (j.gY()) {
+    private String sa() {
+        switch (j.jM()) {
             case 1:
                 return "MOBILE";
             case 2:

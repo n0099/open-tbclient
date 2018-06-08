@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.annotation.RequiresPermission;
 import android.support.annotation.RestrictTo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -22,14 +24,14 @@ public final class ConnectivityManagerCompat {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface RestrictBackgroundStatus {
     }
 
     /* loaded from: classes2.dex */
-    static class BaseConnectivityManagerCompatImpl implements ConnectivityManagerCompatImpl {
-        BaseConnectivityManagerCompatImpl() {
+    static class ConnectivityManagerCompatBaseImpl implements ConnectivityManagerCompatImpl {
+        ConnectivityManagerCompatBaseImpl() {
         }
 
         @Override // android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
@@ -45,9 +47,12 @@ public final class ConnectivityManagerCompat {
                 case 4:
                 case 5:
                 case 6:
+                case 8:
                 default:
                     return true;
                 case 1:
+                case 7:
+                case 9:
                     return false;
             }
         }
@@ -58,51 +63,41 @@ public final class ConnectivityManagerCompat {
         }
     }
 
+    @RequiresApi(16)
     /* loaded from: classes2.dex */
-    static class HoneycombMR2ConnectivityManagerCompatImpl extends BaseConnectivityManagerCompatImpl {
-        HoneycombMR2ConnectivityManagerCompatImpl() {
+    static class ConnectivityManagerCompatApi16Impl extends ConnectivityManagerCompatBaseImpl {
+        ConnectivityManagerCompatApi16Impl() {
         }
 
-        @Override // android.support.v4.net.ConnectivityManagerCompat.BaseConnectivityManagerCompatImpl, android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
+        @Override // android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatBaseImpl, android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
         public boolean isActiveNetworkMetered(ConnectivityManager connectivityManager) {
-            return ConnectivityManagerCompatHoneycombMR2.isActiveNetworkMetered(connectivityManager);
+            return connectivityManager.isActiveNetworkMetered();
         }
     }
 
+    @RequiresApi(24)
     /* loaded from: classes2.dex */
-    static class JellyBeanConnectivityManagerCompatImpl extends HoneycombMR2ConnectivityManagerCompatImpl {
-        JellyBeanConnectivityManagerCompatImpl() {
+    static class ConnectivityManagerCompatApi24Impl extends ConnectivityManagerCompatApi16Impl {
+        ConnectivityManagerCompatApi24Impl() {
         }
 
-        @Override // android.support.v4.net.ConnectivityManagerCompat.HoneycombMR2ConnectivityManagerCompatImpl, android.support.v4.net.ConnectivityManagerCompat.BaseConnectivityManagerCompatImpl, android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
-        public boolean isActiveNetworkMetered(ConnectivityManager connectivityManager) {
-            return ConnectivityManagerCompatJellyBean.isActiveNetworkMetered(connectivityManager);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class Api24ConnectivityManagerCompatImpl extends JellyBeanConnectivityManagerCompatImpl {
-        Api24ConnectivityManagerCompatImpl() {
-        }
-
-        @Override // android.support.v4.net.ConnectivityManagerCompat.BaseConnectivityManagerCompatImpl, android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
+        @Override // android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatBaseImpl, android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
         public int getRestrictBackgroundStatus(ConnectivityManager connectivityManager) {
-            return ConnectivityManagerCompatApi24.getRestrictBackgroundStatus(connectivityManager);
+            return connectivityManager.getRestrictBackgroundStatus();
         }
     }
 
     static {
         if (Build.VERSION.SDK_INT >= 24) {
-            IMPL = new Api24ConnectivityManagerCompatImpl();
+            IMPL = new ConnectivityManagerCompatApi24Impl();
         } else if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new JellyBeanConnectivityManagerCompatImpl();
-        } else if (Build.VERSION.SDK_INT >= 13) {
-            IMPL = new HoneycombMR2ConnectivityManagerCompatImpl();
+            IMPL = new ConnectivityManagerCompatApi16Impl();
         } else {
-            IMPL = new BaseConnectivityManagerCompatImpl();
+            IMPL = new ConnectivityManagerCompatBaseImpl();
         }
     }
 
+    @RequiresPermission("android.permission.ACCESS_NETWORK_STATE")
     public static boolean isActiveNetworkMetered(ConnectivityManager connectivityManager) {
         return IMPL.isActiveNetworkMetered(connectivityManager);
     }

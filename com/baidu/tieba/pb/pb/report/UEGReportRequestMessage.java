@@ -1,0 +1,35 @@
+package com.baidu.tieba.pb.pb.report;
+
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.appsearchlib.Info;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.sina.weibo.sdk.component.WidgetRequestParam;
+/* loaded from: classes2.dex */
+public class UEGReportRequestMessage extends HttpMessage {
+    private String mPid;
+    private String mTUid;
+
+    public UEGReportRequestMessage() {
+        super(CmdConfigHttp.CMD_UEG_REPORT);
+    }
+
+    public String getPid() {
+        return this.mPid;
+    }
+
+    public void setPid(String str) {
+        addParam(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, 1);
+        addParam(Info.kBaiduPIDKey, str);
+        this.mPid = str;
+    }
+
+    public String getTUid() {
+        return this.mTUid;
+    }
+
+    public void setTUid(String str) {
+        addParam(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, 3);
+        addParam("tuid", str);
+        this.mTUid = str;
+    }
+}

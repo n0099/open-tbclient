@@ -1,16 +1,15 @@
 package android.support.design.widget;
 
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.VelocityTrackerCompat;
+import android.support.v4.math.MathUtils;
 import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.ScrollerCompat;
 import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
+import android.widget.OverScroller;
 /* loaded from: classes2.dex */
 abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     private static final int INVALID_POINTER = -1;
@@ -18,7 +17,7 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     private Runnable mFlingRunnable;
     private boolean mIsBeingDragged;
     private int mLastMotionY;
-    ScrollerCompat mScroller;
+    OverScroller mScroller;
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
 
@@ -42,7 +41,7 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
         if (motionEvent.getAction() == 2 && this.mIsBeingDragged) {
             return true;
         }
-        switch (MotionEventCompat.getActionMasked(motionEvent)) {
+        switch (motionEvent.getActionMasked()) {
             case 0:
                 this.mIsBeingDragged = false;
                 int x = (int) motionEvent.getX();
@@ -92,7 +91,7 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
         if (this.mTouchSlop < 0) {
             this.mTouchSlop = ViewConfiguration.get(coordinatorLayout.getContext()).getScaledTouchSlop();
         }
-        switch (MotionEventCompat.getActionMasked(motionEvent)) {
+        switch (motionEvent.getActionMasked()) {
             case 0:
                 int y = (int) motionEvent.getY();
                 if (coordinatorLayout.isPointInChildBounds(v, (int) motionEvent.getX(), y) && canDragView(v)) {
@@ -108,7 +107,7 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
                 if (this.mVelocityTracker != null) {
                     this.mVelocityTracker.addMovement(motionEvent);
                     this.mVelocityTracker.computeCurrentVelocity(1000);
-                    fling(coordinatorLayout, v, -getScrollRangeForDragFling(v), 0, VelocityTrackerCompat.getYVelocity(this.mVelocityTracker, this.mActivePointerId));
+                    fling(coordinatorLayout, v, -getScrollRangeForDragFling(v), 0, this.mVelocityTracker.getYVelocity(this.mActivePointerId));
                 }
                 this.mIsBeingDragged = false;
                 this.mActivePointerId = -1;
@@ -154,13 +153,13 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     }
 
     int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, V v, int i, int i2, int i3) {
-        int constrain;
+        int clamp;
         int topAndBottomOffset = getTopAndBottomOffset();
-        if (i2 == 0 || topAndBottomOffset < i2 || topAndBottomOffset > i3 || topAndBottomOffset == (constrain = MathUtils.constrain(i, i2, i3))) {
+        if (i2 == 0 || topAndBottomOffset < i2 || topAndBottomOffset > i3 || topAndBottomOffset == (clamp = MathUtils.clamp(i, i2, i3))) {
             return 0;
         }
-        setTopAndBottomOffset(constrain);
-        return topAndBottomOffset - constrain;
+        setTopAndBottomOffset(clamp);
+        return topAndBottomOffset - clamp;
     }
 
     int getTopBottomOffsetForScrollingSibling() {
@@ -172,14 +171,13 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
         return setHeaderTopBottomOffset(coordinatorLayout, v, getTopBottomOffsetForScrollingSibling() - i, i2, i3);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean fling(CoordinatorLayout coordinatorLayout, V v, int i, int i2, float f) {
+    final boolean fling(CoordinatorLayout coordinatorLayout, V v, int i, int i2, float f) {
         if (this.mFlingRunnable != null) {
             v.removeCallbacks(this.mFlingRunnable);
             this.mFlingRunnable = null;
         }
         if (this.mScroller == null) {
-            this.mScroller = ScrollerCompat.create(v.getContext());
+            this.mScroller = new OverScroller(v.getContext());
         }
         this.mScroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f), 0, 0, i, i2);
         if (this.mScroller.computeScrollOffset()) {

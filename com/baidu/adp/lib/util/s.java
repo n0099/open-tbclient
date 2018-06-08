@@ -29,7 +29,7 @@ public class s {
         return sb.toString();
     }
 
-    public static String e(InputStream inputStream) {
+    public static String g(InputStream inputStream) {
         String str = null;
         if (inputStream != null) {
             try {
@@ -46,13 +46,13 @@ public class s {
             } catch (Exception e) {
                 BdLog.e(e.toString());
             } finally {
-                n.d(inputStream);
+                n.f(inputStream);
             }
         }
         return str;
     }
 
-    public static String aX(String str) {
+    public static String bj(String str) {
         if (str == null) {
             return null;
         }

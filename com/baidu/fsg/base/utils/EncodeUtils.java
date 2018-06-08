@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.utils;
 
 import android.util.Base64;
+import com.baidu.ar.util.IoUtils;
 import java.lang.Character;
 import java.net.URLEncoder;
 /* loaded from: classes2.dex */
@@ -143,7 +144,7 @@ public final class EncodeUtils {
         String str2 = "";
         try {
             try {
-                str2 = URLEncoder.encode(new String(Base64.encode(str.getBytes(), 0)), "utf-8");
+                str2 = URLEncoder.encode(new String(Base64.encode(str.getBytes(), 0)), IoUtils.UTF_8);
             } catch (Exception e) {
                 LogUtil.e("EncodeUtils", "encodeCommParms failed", e);
             }

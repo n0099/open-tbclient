@@ -8,12 +8,12 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_5 = null;
 
     static {
         ajc$preClinit();
@@ -44,7 +44,7 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
     }
 
     public void setAlgorithmId(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wD(i)));
         this.algorithmId = i;
     }
 
@@ -54,7 +54,7 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
     }
 
     public void setIvSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wD(i)));
         this.ivSize = i;
     }
 

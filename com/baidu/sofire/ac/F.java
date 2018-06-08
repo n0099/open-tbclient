@@ -198,7 +198,7 @@ public class F implements FI {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    d.d("6");
+                    d.d(Constants.VIA_SHARE_TYPE_INFO);
                     byte[] a = (bArr == null || bArr2 == null) ? null : o.a(bArr, bArr2);
                     if (a == null || a.length <= 0) {
                         if (sAsc == null) {

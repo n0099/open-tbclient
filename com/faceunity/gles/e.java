@@ -27,7 +27,7 @@ public class e extends b {
         if (this.mSurface == null) {
             throw new RuntimeException("not yet implemented for SurfaceTexture");
         }
-        this.hvx = aVar;
+        this.hHr = aVar;
         createWindowSurface(this.mSurface);
     }
 }

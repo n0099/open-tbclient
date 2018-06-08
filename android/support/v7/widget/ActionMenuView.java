@@ -39,7 +39,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     private ActionMenuPresenter mPresenter;
     private boolean mReserveOverflow;
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public interface ActionMenuChildView {
         boolean needsDividerAfter();
@@ -81,7 +81,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return this.mPopupTheme;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setPresenter(ActionMenuPresenter actionMenuPresenter) {
         this.mPresenter = actionMenuPresenter;
         this.mPresenter.setMenuView(this);
@@ -368,18 +368,18 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int measureChildForCells(View view2, int i, int i2, int i3, int i4) {
+    public static int measureChildForCells(View view, int i, int i2, int i3, int i4) {
         int i5;
         boolean z = false;
-        LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
+        LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3) - i4, View.MeasureSpec.getMode(i3));
-        ActionMenuItemView actionMenuItemView = view2 instanceof ActionMenuItemView ? (ActionMenuItemView) view2 : null;
+        ActionMenuItemView actionMenuItemView = view instanceof ActionMenuItemView ? (ActionMenuItemView) view : null;
         boolean z2 = actionMenuItemView != null && actionMenuItemView.hasText();
         if (i2 <= 0 || (z2 && i2 < 2)) {
             i5 = 0;
         } else {
-            view2.measure(View.MeasureSpec.makeMeasureSpec(i * i2, Integer.MIN_VALUE), makeMeasureSpec);
-            int measuredWidth = view2.getMeasuredWidth();
+            view.measure(View.MeasureSpec.makeMeasureSpec(i * i2, Integer.MIN_VALUE), makeMeasureSpec);
+            int measuredWidth = view.getMeasuredWidth();
             i5 = measuredWidth / i;
             if (measuredWidth % i != 0) {
                 i5++;
@@ -393,7 +393,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
         layoutParams.expandable = z;
         layoutParams.cellsUsed = i5;
-        view2.measure(View.MeasureSpec.makeMeasureSpec(i5 * i, 1073741824), makeMeasureSpec);
+        view.measure(View.MeasureSpec.makeMeasureSpec(i5 * i, 1073741824), makeMeasureSpec);
         return i5;
     }
 
@@ -542,12 +542,12 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return this.mPresenter.getOverflowIcon();
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean isOverflowReserved() {
         return this.mReserveOverflow;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setOverflowReserved(boolean z) {
         this.mReserveOverflow = z;
     }
@@ -588,7 +588,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return layoutParams != null && (layoutParams instanceof LayoutParams);
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public LayoutParams generateOverflowButtonLayoutParams() {
         LayoutParams generateDefaultLayoutParams = generateDefaultLayoutParams();
         generateDefaultLayoutParams.isOverflowButton = true;
@@ -596,19 +596,19 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder.ItemInvoker
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean invokeItem(MenuItemImpl menuItemImpl) {
         return this.mMenu.performItemAction(menuItemImpl, 0);
     }
 
     @Override // android.support.v7.view.menu.MenuView
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int getWindowAnimations() {
         return 0;
     }
 
     @Override // android.support.v7.view.menu.MenuView
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void initialize(MenuBuilder menuBuilder) {
         this.mMenu = menuBuilder;
     }
@@ -627,13 +627,13 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return this.mMenu;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setMenuCallbacks(MenuPresenter.Callback callback, MenuBuilder.Callback callback2) {
         this.mActionMenuPresenterCallback = callback;
         this.mMenuBuilderCallback = callback2;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public MenuBuilder peekMenu() {
         return this.mMenu;
     }
@@ -650,7 +650,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return this.mPresenter != null && this.mPresenter.isOverflowMenuShowing();
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean isOverflowMenuShowPending() {
         return this.mPresenter != null && this.mPresenter.isOverflowMenuShowPending();
     }
@@ -661,7 +661,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected boolean hasSupportDividerBeforeChildAt(int i) {
         boolean z = false;
         if (i == 0) {
@@ -680,7 +680,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setExpandedActionViewsExclusive(boolean z) {
         this.mPresenter.setExpandedActionViewsExclusive(z);
     }
@@ -706,7 +706,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class ActionMenuPresenterCallback implements MenuPresenter.Callback {
+    public static class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         ActionMenuPresenterCallback() {
         }
 

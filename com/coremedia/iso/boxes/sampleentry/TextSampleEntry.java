@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.sampleentry;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -160,12 +161,12 @@ public class TextSampleEntry extends AbstractSampleEntry {
     }
 
     public boolean isFillTextRegion() {
-        return (this.displayFlags & 262144) == 262144;
+        return (this.displayFlags & PlaybackStateCompat.ACTION_SET_REPEAT_MODE) == PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
     }
 
     public void setFillTextRegion(boolean z) {
         if (z) {
-            this.displayFlags |= 262144;
+            this.displayFlags |= PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
         } else {
             this.displayFlags &= -262145;
         }

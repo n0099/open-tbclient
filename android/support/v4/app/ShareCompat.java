@@ -12,110 +12,17 @@ import android.support.v4.content.IntentCompat;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
+import android.view.ActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ShareActionProvider;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class ShareCompat {
     public static final String EXTRA_CALLING_ACTIVITY = "android.support.v4.app.EXTRA_CALLING_ACTIVITY";
     public static final String EXTRA_CALLING_PACKAGE = "android.support.v4.app.EXTRA_CALLING_PACKAGE";
-    static ShareCompatImpl IMPL;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public interface ShareCompatImpl {
-        void configureMenuItem(MenuItem menuItem, IntentBuilder intentBuilder);
-
-        String escapeHtml(CharSequence charSequence);
-    }
-
-    /* loaded from: classes2.dex */
-    static class ShareCompatImplBase implements ShareCompatImpl {
-        ShareCompatImplBase() {
-        }
-
-        @Override // android.support.v4.app.ShareCompat.ShareCompatImpl
-        public void configureMenuItem(MenuItem menuItem, IntentBuilder intentBuilder) {
-            menuItem.setIntent(intentBuilder.createChooserIntent());
-        }
-
-        @Override // android.support.v4.app.ShareCompat.ShareCompatImpl
-        public String escapeHtml(CharSequence charSequence) {
-            StringBuilder sb = new StringBuilder();
-            withinStyle(sb, charSequence, 0, charSequence.length());
-            return sb.toString();
-        }
-
-        private static void withinStyle(StringBuilder sb, CharSequence charSequence, int i, int i2) {
-            int i3 = i;
-            while (i3 < i2) {
-                char charAt = charSequence.charAt(i3);
-                if (charAt == '<') {
-                    sb.append("&lt;");
-                } else if (charAt == '>') {
-                    sb.append("&gt;");
-                } else if (charAt == '&') {
-                    sb.append("&amp;");
-                } else if (charAt > '~' || charAt < ' ') {
-                    sb.append("&#" + ((int) charAt) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                } else if (charAt == ' ') {
-                    while (i3 + 1 < i2 && charSequence.charAt(i3 + 1) == ' ') {
-                        sb.append("&nbsp;");
-                        i3++;
-                    }
-                    sb.append(' ');
-                } else {
-                    sb.append(charAt);
-                }
-                i3++;
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class ShareCompatImplICS extends ShareCompatImplBase {
-        ShareCompatImplICS() {
-        }
-
-        @Override // android.support.v4.app.ShareCompat.ShareCompatImplBase, android.support.v4.app.ShareCompat.ShareCompatImpl
-        public void configureMenuItem(MenuItem menuItem, IntentBuilder intentBuilder) {
-            ShareCompatICS.configureMenuItem(menuItem, intentBuilder.getActivity(), intentBuilder.getIntent());
-            if (shouldAddChooserIntent(menuItem)) {
-                menuItem.setIntent(intentBuilder.createChooserIntent());
-            }
-        }
-
-        boolean shouldAddChooserIntent(MenuItem menuItem) {
-            return !menuItem.hasSubMenu();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class ShareCompatImplJB extends ShareCompatImplICS {
-        ShareCompatImplJB() {
-        }
-
-        @Override // android.support.v4.app.ShareCompat.ShareCompatImplBase, android.support.v4.app.ShareCompat.ShareCompatImpl
-        public String escapeHtml(CharSequence charSequence) {
-            return ShareCompatJB.escapeHtml(charSequence);
-        }
-
-        @Override // android.support.v4.app.ShareCompat.ShareCompatImplICS
-        boolean shouldAddChooserIntent(MenuItem menuItem) {
-            return false;
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new ShareCompatImplJB();
-        } else if (Build.VERSION.SDK_INT >= 14) {
-            IMPL = new ShareCompatImplICS();
-        } else {
-            IMPL = new ShareCompatImplBase();
-        }
-    }
+    private static final String HISTORY_FILENAME_PREFIX = ".sharecompat_";
 
     private ShareCompat() {
     }
@@ -137,7 +44,19 @@ public final class ShareCompat {
     }
 
     public static void configureMenuItem(MenuItem menuItem, IntentBuilder intentBuilder) {
-        IMPL.configureMenuItem(menuItem, intentBuilder);
+        ShareActionProvider shareActionProvider;
+        ActionProvider actionProvider = menuItem.getActionProvider();
+        if (!(actionProvider instanceof ShareActionProvider)) {
+            shareActionProvider = new ShareActionProvider(intentBuilder.getActivity());
+        } else {
+            shareActionProvider = (ShareActionProvider) actionProvider;
+        }
+        shareActionProvider.setShareHistoryFileName(HISTORY_FILENAME_PREFIX + intentBuilder.getActivity().getClass().getName());
+        shareActionProvider.setShareIntent(intentBuilder.getIntent());
+        menuItem.setActionProvider(shareActionProvider);
+        if (Build.VERSION.SDK_INT < 16 && !menuItem.hasSubMenu()) {
+            menuItem.setIntent(intentBuilder.createChooserIntent());
+        }
     }
 
     public static void configureMenuItem(Menu menu, int i, IntentBuilder intentBuilder) {
@@ -403,10 +322,40 @@ public final class ShareCompat {
                     return Html.toHtml((Spanned) text);
                 }
                 if (text != null) {
-                    return ShareCompat.IMPL.escapeHtml(text);
+                    if (Build.VERSION.SDK_INT >= 16) {
+                        return Html.escapeHtml(text);
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    withinStyle(sb, text, 0, text.length());
+                    return sb.toString();
                 }
             }
             return stringExtra;
+        }
+
+        private static void withinStyle(StringBuilder sb, CharSequence charSequence, int i, int i2) {
+            int i3 = i;
+            while (i3 < i2) {
+                char charAt = charSequence.charAt(i3);
+                if (charAt == '<') {
+                    sb.append("&lt;");
+                } else if (charAt == '>') {
+                    sb.append("&gt;");
+                } else if (charAt == '&') {
+                    sb.append("&amp;");
+                } else if (charAt > '~' || charAt < ' ') {
+                    sb.append("&#" + ((int) charAt) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                } else if (charAt == ' ') {
+                    while (i3 + 1 < i2 && charSequence.charAt(i3 + 1) == ' ') {
+                        sb.append("&nbsp;");
+                        i3++;
+                    }
+                    sb.append(' ');
+                } else {
+                    sb.append(charAt);
+                }
+                i3++;
+            }
         }
 
         public Uri getStream() {

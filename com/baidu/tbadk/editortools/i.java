@@ -8,20 +8,20 @@ public class i extends k {
     public i(Context context) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.getInst().getString(d.k.more_function);
-        this.aDA = d.f.selector_more_tool_btn;
-        this.aCN = new MoreDeskView(context);
-        this.aDE = true;
-        this.aDD = 6;
-        this.aDF = new int[]{1};
+        this.aLW = d.f.selector_more_tool_btn;
+        this.aLj = new MoreDeskView(context);
+        this.aMa = true;
+        this.aLZ = 6;
+        this.aMb = new int[]{1};
     }
 
     public i(Context context, boolean z) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.getInst().getString(d.k.more_function);
-        this.aDA = d.f.new_pbeditor_more_button;
-        this.aCN = new MoreDeskView(context, !z);
-        this.aDE = true;
-        this.aDD = 6;
-        this.aDF = new int[]{1};
+        this.aLW = d.f.new_pbeditor_more_button;
+        this.aLj = new MoreDeskView(context, !z);
+        this.aMa = true;
+        this.aLZ = 6;
+        this.aMb = new int[]{1};
     }
 }

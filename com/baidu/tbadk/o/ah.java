@@ -2,32 +2,35 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class ah extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void Q(int i) {
-        com.baidu.tbadk.k.p.GY().bS(1 == i);
+    protected void R(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "log_stat_smallflow";
+        return "nickname_activity";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ev() {
+    protected String[] hm() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ew() {
+    protected int hn() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ex() {
-        return 1;
+    protected int ho() {
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ey() {
+    protected int hp() {
         return 10;
+    }
+
+    public static boolean ip() {
+        return com.baidu.adp.lib.b.d.hv().aw("nickname_activity") == 1;
     }
 }

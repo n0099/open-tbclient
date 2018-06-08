@@ -18,6 +18,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import com.baidu.ar.util.IoUtils;
 /* loaded from: classes3.dex */
 public class MediaViewActivity extends Activity {
     public WebView a;
@@ -32,7 +33,7 @@ public class MediaViewActivity extends Activity {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onShowCustomView(View view2, WebChromeClient.CustomViewCallback customViewCallback) {
+        public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
         }
     };
     private WebViewClient d = new WebViewClient() { // from class: com.baidu.android.pushservice.richmedia.MediaViewActivity.2
@@ -140,7 +141,7 @@ public class MediaViewActivity extends Activity {
         settings.setAppCacheEnabled(true);
         settings.setJavaScriptEnabled(true);
         settings.setLightTouchEnabled(true);
-        settings.setDefaultTextEncodingName("utf-8");
+        settings.setDefaultTextEncodingName(IoUtils.UTF_8);
         settings.setSavePassword(false);
         this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.a.setWebChromeClient(this.c);

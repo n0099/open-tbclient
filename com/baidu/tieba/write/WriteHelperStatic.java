@@ -7,13 +7,13 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes3.dex */
 public class WriteHelperStatic {
     static {
-        awP();
+        aBH();
     }
 
-    public static void awP() {
+    public static void aBH() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.WriteHelperStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.tieba.d.a> run(CustomMessage<Object> customMessage) {
+            public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {
                 return new CustomResponsedMessage<>(2001449, new a());
             }
         });

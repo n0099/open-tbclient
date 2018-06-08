@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class FragmentController {
@@ -40,30 +39,19 @@ public class FragmentController {
     }
 
     public int getActiveFragmentsCount() {
-        ArrayList<Fragment> arrayList = this.mHost.mFragmentManager.mActive;
-        if (arrayList == null) {
-            return 0;
-        }
-        return arrayList.size();
+        return this.mHost.mFragmentManager.getActiveFragmentCount();
     }
 
     public List<Fragment> getActiveFragments(List<Fragment> list) {
-        if (this.mHost.mFragmentManager.mActive == null) {
-            return null;
-        }
-        if (list == null) {
-            list = new ArrayList<>(getActiveFragmentsCount());
-        }
-        list.addAll(this.mHost.mFragmentManager.mActive);
-        return list;
+        return this.mHost.mFragmentManager.getActiveFragments();
     }
 
     public void attachHost(Fragment fragment) {
         this.mHost.mFragmentManager.attachController(this.mHost, this.mHost, fragment);
     }
 
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        return this.mHost.mFragmentManager.onCreateView(view2, str, context, attributeSet);
+    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return this.mHost.mFragmentManager.onCreateView(view, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {

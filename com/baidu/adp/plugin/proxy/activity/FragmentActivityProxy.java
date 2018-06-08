@@ -100,11 +100,11 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // android.app.Activity
-    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
         if (this.mEntity != null) {
-            this.mEntity.addContentView(view2, layoutParams);
+            this.mEntity.addContentView(view, layoutParams);
         } else {
-            super.addContentView(view2, layoutParams);
+            super.addContentView(view, layoutParams);
         }
     }
 
@@ -300,7 +300,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.bP().getResources();
+            Resources resources = g.eD().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -456,7 +456,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         requestWindowFeature(1);
         this.mEntity = null;
@@ -469,11 +469,11 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
         if (this.mEntity != null) {
-            this.mEntity.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
+            this.mEntity.onCreateContextMenu(contextMenu, view, contextMenuInfo);
         } else {
-            super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
+            super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
         }
     }
 
@@ -503,7 +503,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return this.mEntity != null ? this.mEntity.onCreateThumbnail(bitmap, canvas) : super.onCreateThumbnail(bitmap, canvas);
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity, android.view.LayoutInflater.Factory
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityApi14, android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         return this.mEntity != null ? this.mEntity.onCreateView(str, context, attributeSet) : super.onCreateView(str, context, attributeSet);
     }
@@ -643,8 +643,8 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view2, Menu menu) {
-        return this.mEntity != null ? this.mEntity.onPreparePanel(i, view2, menu) : super.onPreparePanel(i, view2, menu);
+    public boolean onPreparePanel(int i, View view, Menu menu) {
+        return this.mEntity != null ? this.mEntity.onPreparePanel(i, view, menu) : super.onPreparePanel(i, view, menu);
     }
 
     @Override // android.app.Activity
@@ -676,7 +676,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
@@ -760,11 +760,11 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // android.app.Activity
-    public void openContextMenu(View view2) {
+    public void openContextMenu(View view) {
         if (this.mEntity != null) {
-            this.mEntity.openContextMenu(view2);
+            this.mEntity.openContextMenu(view);
         } else {
-            super.openContextMenu(view2);
+            super.openContextMenu(view);
         }
     }
 
@@ -787,11 +787,11 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // android.app.Activity
-    public void registerForContextMenu(View view2) {
+    public void registerForContextMenu(View view) {
         if (this.mEntity != null) {
-            this.mEntity.registerForContextMenu(view2);
+            this.mEntity.registerForContextMenu(view);
         } else {
-            super.registerForContextMenu(view2);
+            super.registerForContextMenu(view);
         }
     }
 
@@ -805,20 +805,20 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view2) {
+    public void setContentView(View view) {
         if (this.mEntity != null) {
-            this.mEntity.setContentView(view2);
+            this.mEntity.setContentView(view);
         } else {
-            super.setContentView(view2);
+            super.setContentView(view);
         }
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
         if (this.mEntity != null) {
-            this.mEntity.setContentView(view2, layoutParams);
+            this.mEntity.setContentView(view, layoutParams);
         } else {
-            super.setContentView(view2, layoutParams);
+            super.setContentView(view, layoutParams);
         }
     }
 
@@ -932,7 +932,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityApi14, android.app.Activity
     public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         if (this.mEntity != null) {
             this.mEntity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
@@ -1000,11 +1000,11 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // android.app.Activity
-    public void unregisterForContextMenu(View view2) {
+    public void unregisterForContextMenu(View view) {
         if (this.mEntity != null) {
-            this.mEntity.unregisterForContextMenu(view2);
+            this.mEntity.unregisterForContextMenu(view);
         } else {
-            super.unregisterForContextMenu(view2);
+            super.unregisterForContextMenu(view);
         }
     }
 
@@ -1019,13 +1019,13 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public View proxyOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        return super.onCreateView(view2, str, context, attributeSet);
+    public View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(view, str, context, attributeSet);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyAddContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        super.addContentView(view2, layoutParams);
+    public void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        super.addContentView(view, layoutParams);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1263,8 +1263,8 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
+    public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1368,8 +1368,8 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean proxyOnPreparePanel(int i, View view2, Menu menu) {
-        return super.onPreparePanel(i, view2, menu);
+    public boolean proxyOnPreparePanel(int i, View view, Menu menu) {
+        return super.onPreparePanel(i, view, menu);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1442,8 +1442,8 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyOpenContextMenu(View view2) {
-        super.openContextMenu(view2);
+    public void proxyOpenContextMenu(View view) {
+        super.openContextMenu(view);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1457,8 +1457,8 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyRegisterForContextMenu(View view2) {
-        super.registerForContextMenu(view2);
+    public void proxyRegisterForContextMenu(View view) {
+        super.registerForContextMenu(view);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1467,13 +1467,13 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxySetContentView(View view2) {
-        super.setContentView(view2);
+    public void proxySetContentView(View view) {
+        super.setContentView(view);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxySetContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        super.setContentView(view2, layoutParams);
+    public void proxySetContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        super.setContentView(view, layoutParams);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1570,18 +1570,18 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a aVar = null;
         if (stringExtra != null) {
-            aVar = com.baidu.adp.plugin.d.io().bc(stringExtra);
+            aVar = com.baidu.adp.plugin.d.lc().bo(stringExtra);
         }
-        if (aVar == null || aVar.AE == null) {
+        if (aVar == null || aVar.GM == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (com.baidu.adp.plugin.d.io().ip() == 1) {
-            com.baidu.adp.plugin.d.io().bd(stringExtra);
-            aVar.AE.stopSelf();
+        } else if (com.baidu.adp.plugin.d.lc().ld() == 1) {
+            com.baidu.adp.plugin.d.lc().bp(stringExtra);
+            aVar.GM.stopSelf();
             return true;
         } else {
-            aVar.AE.onDestroy();
-            com.baidu.adp.plugin.d.io().bd(stringExtra);
+            aVar.GM.onDestroy();
+            com.baidu.adp.plugin.d.lc().bp(stringExtra);
             return true;
         }
     }
@@ -1592,8 +1592,8 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyUnregisterForContextMenu(View view2) {
-        super.unregisterForContextMenu(view2);
+    public void proxyUnregisterForContextMenu(View view) {
+        super.unregisterForContextMenu(view);
     }
 
     public void proxysetFinishOnTouchOutside(boolean z) {

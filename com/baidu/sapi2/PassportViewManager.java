@@ -24,7 +24,7 @@ public class PassportViewManager {
 
     /* loaded from: classes2.dex */
     public static class TitleViewModule {
-        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.configuration.context.getResources().getColor(a.C0044a.sapi_sdk_edit_text_color);
+        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.configuration.context.getResources().getColor(a.C0060a.sapi_sdk_edit_text_color);
         public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         public int leftBtnImgResId = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         public int leftBtnImgVisible = 0;
@@ -89,12 +89,12 @@ public class PassportViewManager {
         return this.progressBar;
     }
 
-    public void setNoNetworkView(View view2) {
-        this.noNetworkView = view2;
+    public void setNoNetworkView(View view) {
+        this.noNetworkView = view;
     }
 
-    public void setTimeoutView(View view2) {
-        this.timeoutView = view2;
+    public void setTimeoutView(View view) {
+        this.timeoutView = view;
     }
 
     public void setProgressBar(ProgressBar progressBar) {

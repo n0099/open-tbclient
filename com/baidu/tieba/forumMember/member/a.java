@@ -7,7 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, c> {
@@ -15,12 +15,12 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     private int mSkinType;
 
     public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.cUX, eVar.getUniqueId());
+        super(eVar.getPageActivity(), b.dei, eVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (view2.getTag() instanceof String) {
-                    String str = (String) view2.getTag();
+            public void onClick(View view) {
+                if (view.getTag() instanceof String) {
+                    String str = (String) view.getTag();
                     if (a.this.mSkinType == 1) {
                         str = str + "?isNightModel=1";
                     }
@@ -35,7 +35,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aj */
+    /* renamed from: ai */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(d.i.item_complaint_bar_lord_view, viewGroup, false));
     }
@@ -44,28 +44,28 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b bVar, c cVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         if (bVar != null && cVar != null) {
             a(cVar);
             a(cVar, bVar);
         }
-        return view2;
+        return view;
     }
 
     private void a(c cVar) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (cVar.mSkinType != this.mSkinType) {
             cVar.mSkinType = this.mSkinType;
-            ak.i(cVar.cIJ, d.f.frs_member_manito_bg);
-            ak.j(cVar.acP, d.C0126d.cp_bg_line_b);
-            ak.c(cVar.mTitleView, d.C0126d.cp_cont_b, 1);
-            ak.c(cVar.ccP, d.f.icon_arrow_tab);
+            al.i(cVar.cRQ, d.f.frs_member_manito_bg);
+            al.j(cVar.akT, d.C0141d.cp_bg_line_b);
+            al.c(cVar.mTitleView, d.C0141d.cp_cont_b, 1);
+            al.c(cVar.ckS, d.f.icon_arrow_tab);
         }
     }
 
     private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.cUY);
-        cVar.cIJ.setTag(bVar.mUrl);
-        cVar.cIJ.setOnClickListener(this.mClickListener);
+        cVar.mTitleView.setText(bVar.dej);
+        cVar.cRQ.setTag(bVar.mUrl);
+        cVar.cRQ.setOnClickListener(this.mClickListener);
     }
 }

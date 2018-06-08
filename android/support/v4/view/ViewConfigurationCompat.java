@@ -1,56 +1,25 @@
 package android.support.v4.view;
 
+import android.content.Context;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.ViewConfiguration;
+import java.lang.reflect.Method;
+@Deprecated
 /* loaded from: classes2.dex */
 public final class ViewConfigurationCompat {
-    static final ViewConfigurationVersionImpl IMPL;
-
-    /* loaded from: classes2.dex */
-    interface ViewConfigurationVersionImpl {
-        boolean hasPermanentMenuKey(ViewConfiguration viewConfiguration);
-    }
-
-    /* loaded from: classes2.dex */
-    static class BaseViewConfigurationVersionImpl implements ViewConfigurationVersionImpl {
-        BaseViewConfigurationVersionImpl() {
-        }
-
-        @Override // android.support.v4.view.ViewConfigurationCompat.ViewConfigurationVersionImpl
-        public boolean hasPermanentMenuKey(ViewConfiguration viewConfiguration) {
-            return true;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class HoneycombViewConfigurationVersionImpl extends BaseViewConfigurationVersionImpl {
-        HoneycombViewConfigurationVersionImpl() {
-        }
-
-        @Override // android.support.v4.view.ViewConfigurationCompat.BaseViewConfigurationVersionImpl, android.support.v4.view.ViewConfigurationCompat.ViewConfigurationVersionImpl
-        public boolean hasPermanentMenuKey(ViewConfiguration viewConfiguration) {
-            return false;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class IcsViewConfigurationVersionImpl extends HoneycombViewConfigurationVersionImpl {
-        IcsViewConfigurationVersionImpl() {
-        }
-
-        @Override // android.support.v4.view.ViewConfigurationCompat.HoneycombViewConfigurationVersionImpl, android.support.v4.view.ViewConfigurationCompat.BaseViewConfigurationVersionImpl, android.support.v4.view.ViewConfigurationCompat.ViewConfigurationVersionImpl
-        public boolean hasPermanentMenuKey(ViewConfiguration viewConfiguration) {
-            return ViewConfigurationCompatICS.hasPermanentMenuKey(viewConfiguration);
-        }
-    }
+    private static final String TAG = "ViewConfigCompat";
+    private static Method sGetScaledScrollFactorMethod;
 
     static {
-        if (Build.VERSION.SDK_INT >= 14) {
-            IMPL = new IcsViewConfigurationVersionImpl();
-        } else if (Build.VERSION.SDK_INT >= 11) {
-            IMPL = new HoneycombViewConfigurationVersionImpl();
-        } else {
-            IMPL = new BaseViewConfigurationVersionImpl();
+        if (Build.VERSION.SDK_INT == 25) {
+            try {
+                sGetScaledScrollFactorMethod = ViewConfiguration.class.getDeclaredMethod("getScaledScrollFactor", new Class[0]);
+            } catch (Exception e) {
+                Log.i(TAG, "Could not find method getScaledScrollFactor() on ViewConfiguration");
+            }
         }
     }
 
@@ -59,8 +28,32 @@ public final class ViewConfigurationCompat {
         return viewConfiguration.getScaledPagingTouchSlop();
     }
 
+    @Deprecated
     public static boolean hasPermanentMenuKey(ViewConfiguration viewConfiguration) {
-        return IMPL.hasPermanentMenuKey(viewConfiguration);
+        return viewConfiguration.hasPermanentMenuKey();
+    }
+
+    public static float getScaledHorizontalScrollFactor(@NonNull ViewConfiguration viewConfiguration, @NonNull Context context) {
+        return Build.VERSION.SDK_INT >= 26 ? viewConfiguration.getScaledHorizontalScrollFactor() : getLegacyScrollFactor(viewConfiguration, context);
+    }
+
+    public static float getScaledVerticalScrollFactor(@NonNull ViewConfiguration viewConfiguration, @NonNull Context context) {
+        return Build.VERSION.SDK_INT >= 26 ? viewConfiguration.getScaledVerticalScrollFactor() : getLegacyScrollFactor(viewConfiguration, context);
+    }
+
+    private static float getLegacyScrollFactor(ViewConfiguration viewConfiguration, Context context) {
+        if (Build.VERSION.SDK_INT >= 25 && sGetScaledScrollFactorMethod != null) {
+            try {
+                return ((Integer) sGetScaledScrollFactorMethod.invoke(viewConfiguration, new Object[0])).intValue();
+            } catch (Exception e) {
+                Log.i(TAG, "Could not find method getScaledScrollFactor() on ViewConfiguration");
+            }
+        }
+        TypedValue typedValue = new TypedValue();
+        if (context.getTheme().resolveAttribute(16842829, typedValue, true)) {
+            return typedValue.getDimension(context.getResources().getDisplayMetrics());
+        }
+        return 0.0f;
     }
 
     private ViewConfigurationCompat() {

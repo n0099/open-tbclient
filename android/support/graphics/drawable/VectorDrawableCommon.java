@@ -1,8 +1,6 @@
 package android.support.graphics.drawable;
 
-import android.annotation.TargetApi;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
@@ -10,16 +8,9 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.graphics.drawable.TintAwareDrawable;
-import android.util.AttributeSet;
-@TargetApi(21)
 /* loaded from: classes2.dex */
 abstract class VectorDrawableCommon extends Drawable implements TintAwareDrawable {
     Drawable mDelegateDrawable;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static TypedArray obtainAttributes(Resources resources, Resources.Theme theme, AttributeSet attributeSet, int[] iArr) {
-        return theme == null ? resources.obtainAttributes(attributeSet, iArr) : theme.obtainStyledAttributes(attributeSet, iArr, 0, 0);
-    }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(int i, PorterDuff.Mode mode) {

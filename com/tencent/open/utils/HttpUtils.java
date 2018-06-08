@@ -9,7 +9,8 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.parser.ARResourceKey;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.j;
 import com.tencent.tauth.IRequestListener;
@@ -172,7 +173,7 @@ public class HttpUtils {
                 }
                 try {
                     try {
-                        i2 = d.getInt(Constants.HTTP_RET);
+                        i2 = d.getInt(ARResourceKey.HTTP_RET);
                     } catch (JSONException e4) {
                         i2 = -4;
                     }
@@ -486,7 +487,7 @@ public class HttpUtils {
                 int i2 = -1;
                 for (String str5 : bundle3.keySet()) {
                     i2++;
-                    byteArrayOutputStream.write(j.i("Content-Disposition: form-data; name=\"" + str5 + "\"; filename=\"" + str5 + "\"\r\n"));
+                    byteArrayOutputStream.write(j.i("Content-Disposition: form-data; name=\"" + str5 + "\"; filename=\"" + str5 + "\"" + SystemInfoUtil.LINE_END));
                     byteArrayOutputStream.write(j.i("Content-Type: content/unknown\r\n\r\n"));
                     byte[] byteArray = bundle3.getByteArray(str5);
                     if (byteArray != null) {
@@ -597,7 +598,7 @@ public class HttpUtils {
                             if (i == 0) {
                                 sb.append(URLEncoder.encode(stringArray[i]));
                             } else {
-                                sb.append(URLEncoder.encode(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + stringArray[i]));
+                                sb.append(URLEncoder.encode("," + stringArray[i]));
                             }
                         }
                     }
@@ -626,9 +627,9 @@ public class HttpUtils {
         for (String str2 : bundle.keySet()) {
             int i2 = i + 1;
             if (bundle.get(str2) instanceof String) {
-                sb.append("Content-Disposition: form-data; name=\"" + str2 + "\"\r\n\r\n" + ((String) obj));
+                sb.append("Content-Disposition: form-data; name=\"" + str2 + "\"" + SystemInfoUtil.LINE_END + SystemInfoUtil.LINE_END + ((String) obj));
                 if (i2 < size - 1) {
-                    sb.append("\r\n--" + str + "\r\n");
+                    sb.append("\r\n--" + str + SystemInfoUtil.LINE_END);
                 }
                 i = i2;
             } else {

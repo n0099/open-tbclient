@@ -3,16 +3,20 @@ package android.support.v7.view.menu;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.internal.view.SupportMenuItem;
 import android.support.v4.view.ActionProvider;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.view.menu.MenuView;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
@@ -20,7 +24,7 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public final class MenuItemImpl implements SupportMenuItem {
     private static final int CHECKABLE = 1;
@@ -40,6 +44,7 @@ public final class MenuItemImpl implements SupportMenuItem {
     private View mActionView;
     private final int mCategoryOrder;
     private MenuItem.OnMenuItemClickListener mClickListener;
+    private CharSequence mContentDescription;
     private final int mGroup;
     private Drawable mIconDrawable;
     private final int mId;
@@ -47,7 +52,7 @@ public final class MenuItemImpl implements SupportMenuItem {
     private Runnable mItemCallback;
     MenuBuilder mMenu;
     private ContextMenu.ContextMenuInfo mMenuInfo;
-    private MenuItemCompat.OnActionExpandListener mOnActionExpandListener;
+    private MenuItem.OnActionExpandListener mOnActionExpandListener;
     private final int mOrdering;
     private char mShortcutAlphabeticChar;
     private char mShortcutNumericChar;
@@ -55,7 +60,15 @@ public final class MenuItemImpl implements SupportMenuItem {
     private SubMenuBuilder mSubMenu;
     private CharSequence mTitle;
     private CharSequence mTitleCondensed;
+    private CharSequence mTooltipText;
+    private int mShortcutNumericModifiers = 4096;
+    private int mShortcutAlphabeticModifiers = 4096;
     private int mIconResId = 0;
+    private ColorStateList mIconTintList = null;
+    private PorterDuff.Mode mIconTintMode = null;
+    private boolean mHasIconTint = false;
+    private boolean mHasIconTintMode = false;
+    private boolean mNeedToApplyIconTint = false;
     private int mFlags = 16;
     private boolean mIsActionViewExpanded = false;
 
@@ -72,7 +85,7 @@ public final class MenuItemImpl implements SupportMenuItem {
     }
 
     public boolean invoke() {
-        if ((this.mClickListener == null || !this.mClickListener.onMenuItemClick(this)) && !this.mMenu.dispatchMenuItemSelected(this.mMenu.getRootMenu(), this)) {
+        if ((this.mClickListener == null || !this.mClickListener.onMenuItemClick(this)) && !this.mMenu.dispatchMenuItemSelected(this.mMenu, this)) {
             if (this.mItemCallback != null) {
                 this.mItemCallback.run();
                 return true;
@@ -160,9 +173,29 @@ public final class MenuItemImpl implements SupportMenuItem {
         return this;
     }
 
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setAlphabeticShortcut(char c, int i) {
+        if (this.mShortcutAlphabeticChar != c || this.mShortcutAlphabeticModifiers != i) {
+            this.mShortcutAlphabeticChar = Character.toLowerCase(c);
+            this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i);
+            this.mMenu.onItemsChanged(false);
+        }
+        return this;
+    }
+
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public int getAlphabeticModifiers() {
+        return this.mShortcutAlphabeticModifiers;
+    }
+
     @Override // android.view.MenuItem
     public char getNumericShortcut() {
         return this.mShortcutNumericChar;
+    }
+
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public int getNumericModifiers() {
+        return this.mShortcutNumericModifiers;
     }
 
     @Override // android.view.MenuItem
@@ -174,10 +207,30 @@ public final class MenuItemImpl implements SupportMenuItem {
         return this;
     }
 
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setNumericShortcut(char c, int i) {
+        if (this.mShortcutNumericChar != c || this.mShortcutNumericModifiers != i) {
+            this.mShortcutNumericChar = c;
+            this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
+            this.mMenu.onItemsChanged(false);
+        }
+        return this;
+    }
+
     @Override // android.view.MenuItem
     public MenuItem setShortcut(char c, char c2) {
         this.mShortcutNumericChar = c;
         this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
+        this.mMenu.onItemsChanged(false);
+        return this;
+    }
+
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setShortcut(char c, char c2, int i, int i2) {
+        this.mShortcutNumericChar = c;
+        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
+        this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
+        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i2);
         this.mMenu.onItemsChanged(false);
         return this;
     }
@@ -279,13 +332,13 @@ public final class MenuItemImpl implements SupportMenuItem {
     @Override // android.view.MenuItem
     public Drawable getIcon() {
         if (this.mIconDrawable != null) {
-            return this.mIconDrawable;
+            return applyIconTintIfNecessary(this.mIconDrawable);
         }
         if (this.mIconResId != 0) {
             Drawable drawable = AppCompatResources.getDrawable(this.mMenu.getContext(), this.mIconResId);
             this.mIconResId = 0;
             this.mIconDrawable = drawable;
-            return drawable;
+            return applyIconTintIfNecessary(drawable);
         }
         return null;
     }
@@ -294,6 +347,7 @@ public final class MenuItemImpl implements SupportMenuItem {
     public MenuItem setIcon(Drawable drawable) {
         this.mIconResId = 0;
         this.mIconDrawable = drawable;
+        this.mNeedToApplyIconTint = true;
         this.mMenu.onItemsChanged(false);
         return this;
     }
@@ -302,8 +356,51 @@ public final class MenuItemImpl implements SupportMenuItem {
     public MenuItem setIcon(int i) {
         this.mIconDrawable = null;
         this.mIconResId = i;
+        this.mNeedToApplyIconTint = true;
         this.mMenu.onItemsChanged(false);
         return this;
+    }
+
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setIconTintList(@Nullable ColorStateList colorStateList) {
+        this.mIconTintList = colorStateList;
+        this.mHasIconTint = true;
+        this.mNeedToApplyIconTint = true;
+        this.mMenu.onItemsChanged(false);
+        return this;
+    }
+
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public ColorStateList getIconTintList() {
+        return this.mIconTintList;
+    }
+
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setIconTintMode(PorterDuff.Mode mode) {
+        this.mIconTintMode = mode;
+        this.mHasIconTintMode = true;
+        this.mNeedToApplyIconTint = true;
+        this.mMenu.onItemsChanged(false);
+        return this;
+    }
+
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public PorterDuff.Mode getIconTintMode() {
+        return this.mIconTintMode;
+    }
+
+    private Drawable applyIconTintIfNecessary(Drawable drawable) {
+        if (drawable != null && this.mNeedToApplyIconTint && (this.mHasIconTint || this.mHasIconTintMode)) {
+            drawable = DrawableCompat.wrap(drawable).mutate();
+            if (this.mHasIconTint) {
+                DrawableCompat.setTintList(drawable, this.mIconTintList);
+            }
+            if (this.mHasIconTintMode) {
+                DrawableCompat.setTintMode(drawable, this.mIconTintMode);
+            }
+            this.mNeedToApplyIconTint = false;
+        }
+        return drawable;
     }
 
     @Override // android.view.MenuItem
@@ -444,11 +541,11 @@ public final class MenuItemImpl implements SupportMenuItem {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setActionView(View view2) {
-        this.mActionView = view2;
+    public SupportMenuItem setActionView(View view) {
+        this.mActionView = view;
         this.mActionProvider = null;
-        if (view2 != null && view2.getId() == -1 && this.mId > 0) {
-            view2.setId(this.mId);
+        if (view != null && view.getId() == -1 && this.mId > 0) {
+            view.setId(this.mId);
         }
         this.mMenu.onItemActionRequestChanged(this);
         return this;
@@ -540,12 +637,6 @@ public final class MenuItemImpl implements SupportMenuItem {
         return false;
     }
 
-    @Override // android.support.v4.internal.view.SupportMenuItem
-    public SupportMenuItem setSupportOnActionExpandListener(MenuItemCompat.OnActionExpandListener onActionExpandListener) {
-        this.mOnActionExpandListener = onActionExpandListener;
-        return this;
-    }
-
     public boolean hasCollapsibleActionView() {
         if ((this.mShowAsAction & 8) != 0) {
             if (this.mActionView == null && this.mActionProvider != null) {
@@ -568,6 +659,33 @@ public final class MenuItemImpl implements SupportMenuItem {
 
     @Override // android.view.MenuItem
     public MenuItem setOnActionExpandListener(MenuItem.OnActionExpandListener onActionExpandListener) {
-        throw new UnsupportedOperationException("This is not supported, use MenuItemCompat.setOnActionExpandListener()");
+        this.mOnActionExpandListener = onActionExpandListener;
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public SupportMenuItem setContentDescription(CharSequence charSequence) {
+        this.mContentDescription = charSequence;
+        this.mMenu.onItemsChanged(false);
+        return this;
+    }
+
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public CharSequence getContentDescription() {
+        return this.mContentDescription;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public SupportMenuItem setTooltipText(CharSequence charSequence) {
+        this.mTooltipText = charSequence;
+        this.mMenu.onItemsChanged(false);
+        return this;
+    }
+
+    @Override // android.support.v4.internal.view.SupportMenuItem, android.view.MenuItem
+    public CharSequence getTooltipText() {
+        return this.mTooltipText;
     }
 }

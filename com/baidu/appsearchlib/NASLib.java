@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import com.baidu.ar.util.IoUtils;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class NASLib extends Activity {
@@ -62,7 +63,7 @@ public class NASLib extends Activity {
             e = e2;
         }
         if (str.contains(Info.kUrlSecStart)) {
-            str2 = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + Info.kUrlSecStart.length()), "utf-8")).trim();
+            str2 = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + Info.kUrlSecStart.length()), IoUtils.UTF_8)).trim();
             if (str2.contains(Info.kUrlLogStart)) {
                 String[] split = str2.split(Info.kUrlLogStart);
                 String str4 = split[0];

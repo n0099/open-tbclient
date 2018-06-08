@@ -14,7 +14,7 @@ public abstract class PagerAdapter {
 
     public abstract int getCount();
 
-    public abstract boolean isViewFromObject(View view2, Object obj);
+    public abstract boolean isViewFromObject(View view, Object obj);
 
     public void startUpdate(ViewGroup viewGroup) {
         startUpdate((View) viewGroup);
@@ -37,25 +37,25 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void startUpdate(View view2) {
+    public void startUpdate(View view) {
     }
 
     @Deprecated
-    public Object instantiateItem(View view2, int i) {
+    public Object instantiateItem(View view, int i) {
         throw new UnsupportedOperationException("Required method instantiateItem was not overridden");
     }
 
     @Deprecated
-    public void destroyItem(View view2, int i, Object obj) {
+    public void destroyItem(View view, int i, Object obj) {
         throw new UnsupportedOperationException("Required method destroyItem was not overridden");
     }
 
     @Deprecated
-    public void setPrimaryItem(View view2, int i, Object obj) {
+    public void setPrimaryItem(View view, int i, Object obj) {
     }
 
     @Deprecated
-    public void finishUpdate(View view2) {
+    public void finishUpdate(View view) {
     }
 
     public Parcelable saveState() {

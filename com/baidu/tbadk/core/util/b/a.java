@@ -7,48 +7,48 @@ import android.text.TextUtils;
 import com.baidu.adp.base.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> akw = new ArrayList<>();
-    private InterfaceC0088a akx;
+    private ArrayList<String> asE = new ArrayList<>();
+    private InterfaceC0105a asF;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0088a {
-        void eA(String str);
+    public interface InterfaceC0105a {
+        void eZ(String str);
 
-        void eB(String str);
+        void fa(String str);
     }
 
-    public void a(InterfaceC0088a interfaceC0088a) {
-        this.akx = interfaceC0088a;
+    public void a(InterfaceC0105a interfaceC0105a) {
+        this.asF = interfaceC0105a;
     }
 
-    public void wt() {
-        if (this.akw != null) {
-            this.akw.clear();
+    public void zU() {
+        if (this.asE != null) {
+            this.asE.clear();
         }
     }
 
     public void c(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !d(activity, str)) {
-            this.akw.add(str);
+            this.asE.add(str);
         }
     }
 
-    public boolean v(Activity activity) {
-        if (com.baidu.d.a.om() && !v.w(this.akw)) {
-            Iterator<String> it = this.akw.iterator();
+    public boolean u(Activity activity) {
+        if (com.baidu.d.a.rz() && !w.z(this.asE)) {
+            Iterator<String> it = this.asE.iterator();
             while (it.hasNext()) {
                 if (!e(activity, it.next())) {
                     return true;
                 }
             }
-            w(activity);
+            v(activity);
             return true;
         }
         return false;
@@ -58,7 +58,7 @@ public class a {
         if (activity == null) {
             return false;
         }
-        return com.baidu.d.a.a.L(activity, str);
+        return com.baidu.d.a.a.N(activity, str);
     }
 
     private boolean e(final Activity activity, final String str) {
@@ -66,9 +66,9 @@ public class a {
             return true;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.as(false);
-        aVar.bZ(d.k.request_permission_default_title);
-        aVar.ca(ez(str));
+        aVar.av(false);
+        aVar.cb(d.k.request_permission_default_title);
+        aVar.cc(eY(str));
         aVar.a(d.k.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -78,34 +78,34 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.akx != null) {
-                    a.this.akx.eB(str);
+                if (a.this.asF != null) {
+                    a.this.asF.fa(str);
                 }
             }
         }).b(d.k.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.akx != null) {
-                    a.this.akx.eA(str);
+                if (a.this.asF != null) {
+                    a.this.asF.eZ(str);
                 }
             }
-        }).b(i.ab(activity));
-        aVar.tC();
+        }).b(i.ad(activity));
+        aVar.xa();
         return false;
     }
 
-    private void w(Activity activity) {
+    private void v(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.d.a.a.requestPermissions(activity, (String[]) this.akw.toArray(new String[this.akw.size()]), 25040);
+                com.baidu.d.a.a.requestPermissions(activity, (String[]) this.asE.toArray(new String[this.asE.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private int ez(String str) {
+    private int eY(String str) {
         if (TextUtils.isEmpty(str)) {
             return d.k.request_permission_default_text;
         }

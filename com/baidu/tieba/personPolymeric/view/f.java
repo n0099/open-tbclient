@@ -4,28 +4,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.h> {
-    private TbImageView aru;
-    private View fME;
+    private TbImageView alB;
+    private View fXQ;
     private View mRootView;
 
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.aru = (TbImageView) this.mRootView.findViewById(d.g.center_image);
-        this.fME = this.mRootView.findViewById(d.g.more_view_container);
+        this.alB = (TbImageView) this.mRootView.findViewById(d.g.center_image);
+        this.fXQ = this.mRootView.findViewById(d.g.more_view_container);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ak.c(this.aru, d.f.icon_mine_more);
-            ak.i(this.mRootView, d.f.btn_look_more_selector);
+            al.c(this.alB, d.f.icon_mine_more);
+            al.i(this.mRootView, d.f.btn_look_more_selector);
         }
     }
 
@@ -40,7 +40,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (hVar == null) {
             this.mRootView.setVisibility(8);
         }
-        ViewGroup.LayoutParams layoutParams = this.fME.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.fXQ.getLayoutParams();
         if (layoutParams != null) {
             if (layoutParams.width > 0) {
                 layoutParams.width = hVar.width;
@@ -49,12 +49,12 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 layoutParams.height = hVar.height;
             }
         }
-        this.fME.setLayoutParams(layoutParams);
+        this.fXQ.setLayoutParams(layoutParams);
         this.mRootView.setVisibility(0);
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onClick(View view) {
     }
 }

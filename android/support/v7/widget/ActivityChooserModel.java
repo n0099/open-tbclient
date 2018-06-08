@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.database.DataSetObservable;
 import android.os.AsyncTask;
-import android.support.v4.os.AsyncTaskCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Xml;
@@ -199,7 +198,7 @@ public class ActivityChooserModel extends DataSetObservable {
         if (this.mHistoricalRecordsChanged) {
             this.mHistoricalRecordsChanged = false;
             if (!TextUtils.isEmpty(this.mHistoryFileName)) {
-                AsyncTaskCompat.executeParallel(new PersistHistoryAsyncTask(), new ArrayList(this.mHistoricalRecords), this.mHistoryFileName);
+                new PersistHistoryAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new ArrayList(this.mHistoricalRecords), this.mHistoryFileName);
             }
         }
     }
@@ -357,7 +356,7 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     /* loaded from: classes2.dex */
-    public final class ActivityResolveInfo implements Comparable<ActivityResolveInfo> {
+    public static final class ActivityResolveInfo implements Comparable<ActivityResolveInfo> {
         public final ResolveInfo resolveInfo;
         public float weight;
 
@@ -393,7 +392,7 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     /* loaded from: classes2.dex */
-    private final class DefaultSorter implements ActivitySorter {
+    private static final class DefaultSorter implements ActivitySorter {
         private static final float WEIGHT_DECAY_COEFFICIENT = 0.95f;
         private final Map<ComponentName, ActivityResolveInfo> mPackageNameToActivityMap = new HashMap();
 
@@ -429,7 +428,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1025=4, 1023=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1024=4, 1026=4] */
     private void readHistoricalDataImpl() {
         try {
             FileInputStream openFileInput = this.mContext.openFileInput(this.mHistoryFileName);
@@ -502,7 +501,7 @@ public class ActivityChooserModel extends DataSetObservable {
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, IPUT]}, finally: {[IGET, IPUT, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF] complete} */
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1090=5, 1091=5, 1093=5, 1094=5] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1091=5, 1092=5, 1094=5, 1095=5] */
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         public Void doInBackground(Object... objArr) {

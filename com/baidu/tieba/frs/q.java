@@ -18,6 +18,6 @@ public class q extends com.baidu.tieba.card.data.a {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return au.Zj;
+        return au.ahl;
     }
 }

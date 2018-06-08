@@ -19,32 +19,32 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes2.dex */
 public class ChatAggregationFragment extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter enP;
-    private e enS;
-    private CustomMessageListener bns = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.1
+    private ViewEventCenter ezh;
+    private e ezk;
+    private CustomMessageListener bvy = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (ChatAggregationFragment.this.enS != null) {
-                    ChatAggregationFragment.this.enS.hK(true);
+                if (ChatAggregationFragment.this.ezk != null) {
+                    ChatAggregationFragment.this.ezk.hQ(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (ChatAggregationFragment.this.enS != null) {
-                    ChatAggregationFragment.this.enS.asb();
-                    ChatAggregationFragment.this.enS.C(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (ChatAggregationFragment.this.ezk != null) {
+                    ChatAggregationFragment.this.ezk.awg();
+                    ChatAggregationFragment.this.ezk.C(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener enQ = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
+    private CustomMessageListener ezi = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ChatAggregationFragment.this.enS != null) {
-                    ChatAggregationFragment.this.enS.onNewIntent(intent);
+                if (ChatAggregationFragment.this.ezk != null) {
+                    ChatAggregationFragment.this.ezk.onNewIntent(intent);
                 }
             }
         }
@@ -52,28 +52,28 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.enS = new e(this);
+        this.ezk = new e(this);
         if (bundle != null) {
-            this.enS.l(bundle);
+            this.ezk.m(bundle);
         } else {
-            this.enS.l((Bundle) null);
+            this.ezk.m((Bundle) null);
         }
-        View Rk = this.enS.Rk();
-        this.enS.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        Gl().addEventDelegate(this);
-        registerListener(this.bns);
-        registerListener(this.enQ);
-        return Rk;
+        View UI = this.ezk.UI();
+        this.ezk.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        JT().addEventDelegate(this);
+        registerListener(this.bvy);
+        registerListener(this.ezi);
+        return UI;
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onViewCreated(View view2, Bundle bundle) {
+    public void onViewCreated(View view, Bundle bundle) {
         if (getActivity() != null && P(getActivity().getIntent())) {
-            this.enS.onNewIntent(getActivity().getIntent());
+            this.ezk.onNewIntent(getActivity().getIntent());
         } else {
-            this.enS.asb();
+            this.ezk.awg();
         }
-        super.onViewCreated(view2, bundle);
+        super.onViewCreated(view, bundle);
     }
 
     private boolean P(Intent intent) {
@@ -81,7 +81,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean FC() {
+    public boolean Jk() {
         return false;
     }
 
@@ -90,17 +90,17 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         return bVar == null;
     }
 
-    public ViewEventCenter Gl() {
-        if (this.enP == null) {
-            this.enP = new ViewEventCenter();
+    public ViewEventCenter JT() {
+        if (this.ezh == null) {
+            this.ezh = new ViewEventCenter();
         }
-        return this.enP;
+        return this.ezh;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.enS != null) {
-            this.enS.b(getPageContext(), i);
+        if (this.ezk != null) {
+            this.ezk.b(getPageContext(), i);
         }
     }
 
@@ -113,10 +113,11 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
                     Bundle extras = intent.getExtras();
                     String string = extras.getString("user_id");
                     String string2 = extras.getString("user_name");
-                    String string3 = extras.getString(IntentConfig.PORTRAIT);
+                    String string3 = extras.getString("name_show");
+                    String string4 = extras.getString(IntentConfig.PORTRAIT);
                     if (string2 != null && string != null) {
                         try {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getActivity(), Long.parseLong(string), string2, string3, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getActivity(), Long.parseLong(string), string2, string3, string4, 0)));
                             return;
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -139,13 +140,13 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.bns);
-        MessageManager.getInstance().unRegisterListener(this.enQ);
-        this.enS.onActivityDestroy();
+        MessageManager.getInstance().unRegisterListener(this.bvy);
+        MessageManager.getInstance().unRegisterListener(this.ezi);
+        this.ezk.onActivityDestroy();
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aM(boolean z) {
-        this.enS.hI(z);
+    public void aQ(boolean z) {
+        this.ezk.hO(z);
     }
 }

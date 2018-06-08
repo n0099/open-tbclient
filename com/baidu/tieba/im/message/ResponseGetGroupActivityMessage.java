@@ -50,7 +50,7 @@ public class ResponseGetGroupActivityMessage extends TbSocketReponsedMessage {
             if (TbadkApplication.getCurrentAccountObj() != null) {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.ty().cY("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + getActivityData().getActivityId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.wW().dx("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + getActivityData().getActivityId(), bArr);
         }
     }
 }

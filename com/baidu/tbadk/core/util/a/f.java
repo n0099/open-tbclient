@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.f.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
@@ -44,68 +45,68 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HttpContext;
 /* loaded from: classes.dex */
-public class f implements a.InterfaceC0007a {
-    public static String ajR;
-    private static HttpClient ajS;
-    private static String ajX;
-    private static int ajY;
-    private static long ajZ;
-    private HttpGet ajN;
-    private final com.baidu.adp.lib.network.http.e ajQ;
-    public boolean ajV;
+public class f implements a.InterfaceC0015a {
+    public static String arZ;
+    private static HttpClient asa;
+    private static String asf;
+    private static int asg;
+    private static long ash;
+    private HttpGet arV;
+    private final com.baidu.adp.lib.network.http.e arY;
+    public boolean asd;
     private final Context mContext;
-    private static int ahq = 5242880;
-    private static volatile String ajL = null;
-    private static volatile boolean ajM = false;
+    private static int apx = 5242880;
+    private static volatile String arT = null;
+    private static volatile boolean arU = false;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
-    public static BasicHttpParams ajT = new BasicHttpParams();
+    public static BasicHttpParams asb = new BasicHttpParams();
     private boolean mIsGif = false;
-    private boolean ajU = false;
-    private int ajW = 0;
-    private int ajO = 0;
-    private volatile boolean ajP = false;
+    private boolean asc = false;
+    private int ase = 0;
+    private int arW = 0;
+    private volatile boolean arX = false;
 
     static {
-        HttpConnectionParams.setConnectionTimeout(ajT, 5000);
-        HttpConnectionParams.setSoTimeout(ajT, 30000);
-        HttpConnectionParams.setSocketBufferSize(ajT, 1024);
-        HttpConnectionParams.setTcpNoDelay(ajT, true);
-        HttpClientParams.setRedirecting(ajT, true);
-        ConnManagerParams.setMaxConnectionsPerRoute(ajT, new ConnPerRouteBean(15));
-        ConnManagerParams.setTimeout(ajT, 10000L);
-        ConnManagerParams.setMaxTotalConnections(ajT, 15);
-        HttpProtocolParams.setUserAgent(ajT, "bdtb for Android " + TbConfig.getVersion());
+        HttpConnectionParams.setConnectionTimeout(asb, 5000);
+        HttpConnectionParams.setSoTimeout(asb, 30000);
+        HttpConnectionParams.setSocketBufferSize(asb, 1024);
+        HttpConnectionParams.setTcpNoDelay(asb, true);
+        HttpClientParams.setRedirecting(asb, true);
+        ConnManagerParams.setMaxConnectionsPerRoute(asb, new ConnPerRouteBean(15));
+        ConnManagerParams.setTimeout(asb, 10000L);
+        ConnManagerParams.setMaxTotalConnections(asb, 15);
+        HttpProtocolParams.setUserAgent(asb, "bdtb for Android " + TbConfig.getVersion());
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme(HttpHost.DEFAULT_SCHEME_NAME, PlainSocketFactory.getSocketFactory(), 80));
         schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
-        ajS = new DefaultHttpClient(new ThreadSafeClientConnManager(ajT, schemeRegistry), ajT);
-        ((DefaultHttpClient) ajS).setRedirectHandler(new DefaultRedirectHandler() { // from class: com.baidu.tbadk.core.util.a.f.1
+        asa = new DefaultHttpClient(new ThreadSafeClientConnManager(asb, schemeRegistry), asb);
+        ((DefaultHttpClient) asa).setRedirectHandler(new DefaultRedirectHandler() { // from class: com.baidu.tbadk.core.util.a.f.1
             @Override // org.apache.http.impl.client.DefaultRedirectHandler, org.apache.http.client.RedirectHandler
             public boolean isRedirectRequested(HttpResponse httpResponse, HttpContext httpContext) {
                 return false;
             }
         });
-        ajX = null;
-        ajY = 0;
-        ajZ = System.currentTimeMillis();
+        asf = null;
+        asg = 0;
+        ash = System.currentTimeMillis();
     }
 
     public f(com.baidu.adp.lib.network.http.e eVar) {
-        wm();
-        this.ajQ = eVar;
+        zN();
+        this.arY = eVar;
         this.mContext = TbadkCoreApplication.getInst().getApp();
     }
 
-    public static void wm() {
+    public static void zN() {
         synchronized (f.class) {
-            if (!ajM) {
-                ajM = true;
-                wn();
+            if (!arU) {
+                arU = true;
+                zO();
             }
         }
     }
 
-    public static synchronized void wn() {
+    public static synchronized void zO() {
         synchronized (f.class) {
             try {
                 Cursor query = TbadkCoreApplication.getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
@@ -113,23 +114,23 @@ public class f implements a.InterfaceC0007a {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    ajL = "Basic " + com.baidu.adp.lib.util.c.encodeBytes((string + ":" + string2).getBytes());
+                    arT = "Basic " + com.baidu.adp.lib.util.c.encodeBytes((string + SystemInfoUtil.COLON + string2).getBytes());
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    public void eW() {
-        this.ajP = true;
-        this.ajQ.ff().tV = true;
+    public void hN() {
+        this.arX = true;
+        this.arY.hW().Aa = true;
         closeConnection();
     }
 
     private void closeConnection() {
         try {
-            if (this.ajN != null) {
-                this.ajN.abort();
+            if (this.arV != null) {
+                this.arV.abort();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -139,28 +140,28 @@ public class f implements a.InterfaceC0007a {
     private void m(String str, String str2, String str3) {
         boolean z;
         if (e.getInstance() != null) {
-            if (!e.getInstance().ajJ) {
+            if (!e.getInstance().arR) {
                 e.getInstance().init();
             }
             z = true;
         } else {
             z = false;
         }
-        if (j.gP()) {
-            this.ajV = false;
+        if (j.jD()) {
+            this.asd = false;
             try {
-                if (j.gR()) {
+                if (j.jF()) {
                     URL url = new URL(str);
                     synchronized (f.class) {
-                        if (ajR == null) {
-                            ajR = j.gZ();
+                        if (arZ == null) {
+                            arZ = j.jN();
                         }
-                        if (ajR != null && ajR.length() > 0) {
-                            this.ajV = true;
-                            if (ev(ajR) && j.hb()) {
+                        if (arZ != null && arZ.length() > 0) {
+                            this.asd = true;
+                            if (eU(arZ) && j.jP()) {
                                 StringBuilder sb = new StringBuilder(80);
                                 sb.append("http://");
-                                sb.append(ajR);
+                                sb.append(arZ);
                                 String file = url.getFile();
                                 if (file != null && file.startsWith("?")) {
                                     sb.append("/");
@@ -168,41 +169,41 @@ public class f implements a.InterfaceC0007a {
                                 sb.append(file);
                                 if (z) {
                                     if (str2 == null || str2.length() == 0) {
-                                        this.ajN = e.getInstance().httpGetFactory(sb.toString(), this.ajW, false);
+                                        this.arV = e.getInstance().httpGetFactory(sb.toString(), this.ase, false);
                                     } else {
-                                        this.ajN = e.getInstance().httpGetFactory(str, str2, str3);
+                                        this.arV = e.getInstance().httpGetFactory(str, str2, str3);
                                     }
                                 } else {
-                                    this.ajN = new HttpGet(sb.toString());
+                                    this.arV = new HttpGet(sb.toString());
                                 }
-                                this.ajN.setHeader("X-Online-Host", url.getHost());
+                                this.arV.setHeader("X-Online-Host", url.getHost());
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.ajN.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.arV.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             } else {
-                                Object parameter = ajT.getParameter(ConnRoutePNames.DEFAULT_PROXY);
+                                Object parameter = asb.getParameter(ConnRoutePNames.DEFAULT_PROXY);
                                 if (parameter == null || !(parameter instanceof HttpHost)) {
-                                    ajT.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(ajR, j.ha()));
+                                    asb.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(arZ, j.jO()));
                                 } else {
                                     HttpHost httpHost = (HttpHost) parameter;
-                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(ajR) || httpHost.getPort() != j.ha()) {
-                                        ajT.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(ajR, j.ha()));
+                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(arZ) || httpHost.getPort() != j.jO()) {
+                                        asb.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(arZ, j.jO()));
                                     }
                                 }
                                 if (z) {
                                     if (str2 == null || str2.length() == 0) {
-                                        this.ajN = e.getInstance().httpGetFactory(str, this.ajW, false);
+                                        this.arV = e.getInstance().httpGetFactory(str, this.ase, false);
                                     } else {
-                                        this.ajN = e.getInstance().httpGetFactory(str, str2, str3);
+                                        this.arV = e.getInstance().httpGetFactory(str, str2, str3);
                                     }
                                 } else {
-                                    this.ajN = new HttpGet(str);
+                                    this.arV = new HttpGet(str);
                                 }
-                                if (ajL != null) {
-                                    this.ajN.setHeader(AUTH.PROXY_AUTH_RESP, ajL);
+                                if (arT != null) {
+                                    this.arV.setHeader(AUTH.PROXY_AUTH_RESP, arT);
                                 }
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.ajN.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.arV.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             }
                         }
@@ -210,27 +211,27 @@ public class f implements a.InterfaceC0007a {
                 }
                 if (z) {
                     if (str2 == null || str2.length() == 0) {
-                        if (j.gR()) {
-                            if (!this.ajV || this.ajN == null) {
-                                this.ajN = e.getInstance().httpGetFactory(str, this.ajW, false);
+                        if (j.jF()) {
+                            if (!this.asd || this.arV == null) {
+                                this.arV = e.getInstance().httpGetFactory(str, this.ase, false);
                             }
                         } else {
-                            this.ajN = e.getInstance().httpGetFactory(str, this.ajW, true);
+                            this.arV = e.getInstance().httpGetFactory(str, this.ase, true);
                         }
                     } else {
-                        this.ajN = e.getInstance().httpGetFactory(str, str2, str3);
+                        this.arV = e.getInstance().httpGetFactory(str, str2, str3);
                     }
                 } else {
-                    this.ajN = new HttpGet(str);
+                    this.arV = new HttpGet(str);
                 }
-                this.ajN.setHeader("needginfo", "1");
+                this.arV.setHeader("needginfo", "1");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private boolean ev(String str) {
+    private boolean eU(String str) {
         if (mPattern.matcher(str).find()) {
             return true;
         }
@@ -242,9 +243,9 @@ public class f implements a.InterfaceC0007a {
         r11 = r4;
      */
     /* JADX WARN: Code restructure failed: missing block: B:464:0x08ea, code lost:
-        r13.tA = r6;
-        r13.tC = r10 + 1;
-        r13.tB = java.lang.System.currentTimeMillis() - r16;
+        r13.zF = r6;
+        r13.zH = r10 + 1;
+        r13.zG = java.lang.System.currentTimeMillis() - r16;
      */
     /* JADX WARN: Code restructure failed: missing block: B:465:0x0903, code lost:
         if (r9.getFirstHeader("Error-Message") == null) goto L205;
@@ -262,16 +263,16 @@ public class f implements a.InterfaceC0007a {
         if (r4.getValue().equalsIgnoreCase("OK") == false) goto L203;
      */
     /* JADX WARN: Code restructure failed: missing block: B:472:0x0927, code lost:
-        r25.ajU = false;
+        r25.asc = false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:473:0x092c, code lost:
         if (r6 <= 0) goto L211;
      */
     /* JADX WARN: Code restructure failed: missing block: B:475:0x093a, code lost:
-        if (r25.ajQ.ff().responseCode == 200) goto L210;
+        if (r25.arY.hW().responseCode == 200) goto L210;
      */
     /* JADX WARN: Code restructure failed: missing block: B:477:0x0948, code lost:
-        if (r25.ajQ.ff().responseCode != 302) goto L211;
+        if (r25.arY.hW().responseCode != 302) goto L211;
      */
     /* JADX WARN: Code restructure failed: missing block: B:478:0x094a, code lost:
         r7 = true;
@@ -289,7 +290,7 @@ public class f implements a.InterfaceC0007a {
         if (r4.length() <= 0) goto L218;
      */
     /* JADX WARN: Code restructure failed: missing block: B:485:0x0967, code lost:
-        ew(r4);
+        eV(r4);
      */
     /* JADX WARN: Code restructure failed: missing block: B:486:0x096c, code lost:
         if (r8 == null) goto L219;
@@ -298,7 +299,7 @@ public class f implements a.InterfaceC0007a {
         r8.close();
      */
     /* JADX WARN: Code restructure failed: missing block: B:515:0x09ec, code lost:
-        r25.ajU = true;
+        r25.asc = true;
      */
     /* JADX WARN: Removed duplicated region for block: B:452:0x08ab A[Catch: SocketException -> 0x0532, SocketTimeoutException -> 0x09e9, HttpException -> 0x09f3, all -> 0x0c30, Throwable -> 0x0cf3, IllegalStateException -> 0x0cff, IOException -> 0x0d07, TRY_ENTER, TryCatch #5 {all -> 0x0c30, blocks: (B:238:0x0500, B:240:0x0509, B:242:0x0512, B:244:0x0515, B:246:0x0529, B:247:0x0531, B:250:0x0536, B:252:0x053c, B:254:0x0558, B:256:0x055f, B:339:0x069d, B:341:0x06a8, B:383:0x0750, B:385:0x076a, B:387:0x0779, B:392:0x0786, B:394:0x07af, B:395:0x07bc, B:397:0x07c5, B:399:0x07db, B:400:0x07e1, B:402:0x07e7, B:404:0x07eb, B:406:0x07f7, B:409:0x080c, B:452:0x08ab, B:454:0x08af, B:455:0x08b3, B:457:0x08bc, B:459:0x08c6, B:461:0x08d1, B:464:0x08ea, B:466:0x0905, B:468:0x090e, B:470:0x0918, B:515:0x09ec, B:472:0x0927, B:474:0x092e, B:476:0x093c, B:479:0x094b, B:481:0x0954, B:483:0x0961, B:485:0x0967, B:605:0x0b51, B:209:0x0446, B:175:0x036c, B:141:0x02b0, B:61:0x0145, B:512:0x09c7, B:407:0x0805), top: B:743:0x0500 }] */
     /* JADX WARN: Removed duplicated region for block: B:657:0x0c52  */
@@ -319,7 +320,7 @@ public class f implements a.InterfaceC0007a {
         boolean z2;
         boolean z3;
         boolean z4;
-        boolean gQ;
+        boolean jE;
         boolean z5;
         boolean z6;
         boolean z7;
@@ -343,7 +344,7 @@ public class f implements a.InterfaceC0007a {
         boolean z14 = false;
         if (e.getInstance() != null) {
             z14 = true;
-            if (!e.getInstance().ajJ) {
+            if (!e.getInstance().arR) {
                 e.getInstance().init();
             }
         }
@@ -354,29 +355,29 @@ public class f implements a.InterfaceC0007a {
         boolean z16 = false;
         int i3 = 0;
         while (true) {
-            if (this.ajP || i3 >= i) {
+            if (this.arX || i3 >= i) {
                 break;
             }
-            this.ajW = i3;
+            this.ase = i3;
             currentTimeMillis = System.currentTimeMillis();
             dVar = new com.baidu.adp.lib.network.http.d();
-            this.ajQ.a(dVar);
-            dVar.tH = -1;
+            this.arY.a(dVar);
+            dVar.zM = -1;
             InputStream inputStream2 = null;
-            c = this.ajQ.fe().c(dVar);
+            c = this.arY.hV().c(dVar);
             try {
-                dVar.tH = -2;
+                dVar.zM = -2;
                 long currentTimeMillis2 = System.currentTimeMillis();
                 if (str == null || str.length() == 0) {
                     m(c, null, null);
                     if (z15) {
-                        dVar.tI = e.getInstance().getCachedCdnIp(this.ajW);
+                        dVar.zN = e.getInstance().getCachedCdnIp(this.ase);
                     }
                 } else {
                     m(c, str, str2);
-                    dVar.tI = str;
+                    dVar.zN = str;
                 }
-                dVar.tH = -3;
+                dVar.zM = -3;
             } catch (SocketException e) {
                 e = e;
             } catch (SocketTimeoutException e2) {
@@ -395,10 +396,10 @@ public class f implements a.InterfaceC0007a {
                 th = th2;
                 inputStream = null;
             }
-            if (this.ajN == null) {
+            if (this.arV == null) {
                 throw new SocketException("network not available.");
             }
-            if (this.ajP) {
+            if (this.arX) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -406,32 +407,32 @@ public class f implements a.InterfaceC0007a {
                     }
                 }
                 closeConnection();
-                this.ajQ.b(dVar);
+                this.arY.b(dVar);
                 if ((str == null || str.length() == 0) && c != null) {
-                    boolean gQ2 = j.gQ();
-                    if ((gQ2 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                    boolean jE2 = j.jE();
+                    if ((jE2 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                         long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
-                        if (gQ2) {
-                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                        } else if (j.gU()) {
-                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                        if (jE2) {
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                        } else if (j.jI()) {
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().abM);
                         } else {
-                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().abL);
                         }
-                        e.getInstance().result(c, dVar.tI, false, z8, gQ2);
+                        e.getInstance().result(c, dVar.zN, false, z8, jE2);
                     }
                 }
             } else {
-                dVar.tH = -8;
-                HttpResponse execute = ajS.execute(this.ajN);
+                dVar.zM = -8;
+                HttpResponse execute = asa.execute(this.arV);
                 if (execute == null) {
                     throw new SocketException("httpResponse is null.");
                 }
                 if (execute.getStatusLine() == null) {
                     throw new SocketException("httpResponse getStatusLine is null.");
                 }
-                this.ajQ.ff().responseCode = execute.getStatusLine().getStatusCode();
-                dVar.tG = this.ajQ.ff().responseCode;
+                this.arY.hW().responseCode = execute.getStatusLine().getStatusCode();
+                dVar.zL = this.arY.hW().responseCode;
                 if (execute.getEntity() == null) {
                     throw new SocketException("httpResponse getEntity is null.");
                 }
@@ -440,23 +441,23 @@ public class f implements a.InterfaceC0007a {
                 try {
                     try {
                         if (c.contains("c.tieba.baidu.com") && (headers = execute.getHeaders("Tracecode")) != null && headers.length > 0) {
-                            dVar.tK = headers[0].getValue();
-                            dVar.tL = headers[1].getValue();
+                            dVar.zP = headers[0].getValue();
+                            dVar.zQ = headers[1].getValue();
                         }
                     } catch (Throwable th3) {
                         th = th3;
                         if (inputStream != null) {
                         }
                         closeConnection();
-                        this.ajQ.b(dVar);
+                        this.arY.b(dVar);
                         if (str != null) {
                         }
-                        gQ = j.gQ();
-                        if (gQ ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) {
+                        jE = j.jE();
+                        if (jE ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) {
                             long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
-                            if (!gQ) {
+                            if (!jE) {
                             }
-                            e.getInstance().result(c, dVar.tI, false, z5, gQ);
+                            e.getInstance().result(c, dVar.zN, false, z5, jE);
                         }
                         throw th;
                     }
@@ -479,12 +480,12 @@ public class f implements a.InterfaceC0007a {
                 }
                 if (entity.getContentType() != null) {
                     String obj2 = entity.getContentType().toString();
-                    this.ajQ.ff().contentType = obj2;
+                    this.arY.hW().contentType = obj2;
                     if (obj2.contains("text/vnd.wap.wml")) {
-                        if (this.ajO < 1) {
+                        if (this.arW < 1) {
                             closeConnection();
-                            this.ajO++;
-                            this.ajQ.ff().responseCode = 0;
+                            this.arW++;
+                            this.arY.hW().responseCode = 0;
                             i3--;
                             if (inputStream != null) {
                                 try {
@@ -493,19 +494,19 @@ public class f implements a.InterfaceC0007a {
                                 }
                             }
                             closeConnection();
-                            this.ajQ.b(dVar);
+                            this.arY.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
-                                boolean gQ3 = j.gQ();
-                                if ((gQ3 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                boolean jE3 = j.jE();
+                                if ((jE3 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                     long currentTimeMillis5 = System.currentTimeMillis() - currentTimeMillis;
-                                    if (gQ3) {
-                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                    } else if (j.gU()) {
-                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                    if (jE3) {
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                    } else if (j.jI()) {
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                     } else {
-                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                     }
-                                    e.getInstance().result(c, dVar.tI, false, z13, gQ3);
+                                    e.getInstance().result(c, dVar.zN, false, z13, jE3);
                                 }
                             }
                             i3++;
@@ -518,27 +519,27 @@ public class f implements a.InterfaceC0007a {
                                 }
                             }
                             closeConnection();
-                            this.ajQ.b(dVar);
+                            this.arY.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
-                                boolean gQ4 = j.gQ();
-                                if ((gQ4 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                boolean jE4 = j.jE();
+                                if ((jE4 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                     long currentTimeMillis6 = System.currentTimeMillis() - currentTimeMillis;
-                                    if (gQ4) {
-                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                    } else if (j.gU()) {
-                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                    if (jE4) {
+                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                    } else if (j.jI()) {
+                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                     } else {
-                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                     }
-                                    e.getInstance().result(c, dVar.tI, false, z12, gQ4);
+                                    e.getInstance().result(c, dVar.zN, false, z12, jE4);
                                 }
                             }
                         }
                     }
                 }
-                if (((int) entity.getContentLength()) > ahq) {
-                    this.ajQ.ff().tW = -11;
-                    dVar.tF = this.mContext.getResources().getString(d.k.data_too_big);
+                if (((int) entity.getContentLength()) > apx) {
+                    this.arY.hW().Ab = -11;
+                    dVar.zK = this.mContext.getResources().getString(d.k.data_too_big);
                     if (inputStream != null) {
                         try {
                             inputStream.close();
@@ -546,19 +547,19 @@ public class f implements a.InterfaceC0007a {
                         }
                     }
                     closeConnection();
-                    this.ajQ.b(dVar);
+                    this.arY.b(dVar);
                     if ((str == null || str.length() == 0) && c != null) {
-                        boolean gQ5 = j.gQ();
-                        if ((gQ5 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                        boolean jE5 = j.jE();
+                        if ((jE5 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                             long currentTimeMillis7 = System.currentTimeMillis() - currentTimeMillis;
-                            if (gQ5) {
-                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                            } else if (j.gU()) {
-                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                            if (jE5) {
+                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                            } else if (j.jI()) {
+                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().abM);
                             } else {
-                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().abL);
                             }
-                            e.getInstance().result(c, dVar.tI, false, z9, gQ5);
+                            e.getInstance().result(c, dVar.zN, false, z9, jE5);
                             return;
                         }
                         return;
@@ -584,15 +585,15 @@ public class f implements a.InterfaceC0007a {
                     if ("image/gif".equalsIgnoreCase(execute.getFirstHeader("Src-Content-Type").getValue())) {
                         this.mIsGif = true;
                         i2 = i4;
-                        while (!this.ajP && i2 < ahq && (read = inputStream.read(bArr8)) != -1) {
+                        while (!this.arX && i2 < apx && (read = inputStream.read(bArr8)) != -1) {
                             byteArrayOutputStream.write(bArr8, 0, read);
                             i2 = read + i2;
                         }
-                        dVar.tH = -9;
-                        if (this.ajP) {
-                            if (i2 >= ahq) {
-                                this.ajQ.ff().tW = -11;
-                                dVar.tF = this.mContext.getResources().getString(d.k.data_too_big);
+                        dVar.zM = -9;
+                        if (this.arX) {
+                            if (i2 >= apx) {
+                                this.arY.hW().Ab = -11;
+                                dVar.zK = this.mContext.getResources().getString(d.k.data_too_big);
                                 break;
                             }
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
@@ -614,8 +615,8 @@ public class f implements a.InterfaceC0007a {
                             } catch (IllegalStateException e15) {
                                 bArr7 = bArr6;
                                 e = e15;
-                                this.ajQ.ff().tW = -19;
-                                dVar.tF = "errorCode:" + String.valueOf(this.ajQ.ff().tW) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                                this.arY.hW().Ab = -19;
+                                dVar.zK = "errorCode:" + String.valueOf(this.arY.hW().Ab) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -623,19 +624,19 @@ public class f implements a.InterfaceC0007a {
                                     }
                                 }
                                 closeConnection();
-                                this.ajQ.b(dVar);
+                                this.arY.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
-                                    boolean gQ6 = j.gQ();
-                                    if ((gQ6 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                    boolean jE6 = j.jE();
+                                    if ((jE6 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                         long currentTimeMillis8 = System.currentTimeMillis() - currentTimeMillis;
-                                        if (gQ6) {
-                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                        } else if (j.gU()) {
-                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                        if (jE6) {
+                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                        } else if (j.jI()) {
+                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                         } else {
-                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                         }
-                                        e.getInstance().result(c, dVar.tI, false, z7, gQ6);
+                                        e.getInstance().result(c, dVar.zN, false, z7, jE6);
                                     }
                                 }
                                 i3++;
@@ -645,8 +646,8 @@ public class f implements a.InterfaceC0007a {
                                 e = e17;
                                 inputStream2 = inputStream;
                                 try {
-                                    this.ajQ.ff().tW = -12;
-                                    dVar.tF = "errorCode:" + String.valueOf(this.ajQ.ff().tW) + "|" + e.getClass() + "|" + e.getMessage();
+                                    this.arY.hW().Ab = -12;
+                                    dVar.zK = "errorCode:" + String.valueOf(this.arY.hW().Ab) + "|" + e.getClass() + "|" + e.getMessage();
                                     if (inputStream2 != null) {
                                         try {
                                             inputStream2.close();
@@ -654,19 +655,19 @@ public class f implements a.InterfaceC0007a {
                                         }
                                     }
                                     closeConnection();
-                                    this.ajQ.b(dVar);
+                                    this.arY.b(dVar);
                                     if ((str == null || str.length() == 0) && c != null) {
-                                        boolean gQ7 = j.gQ();
-                                        if ((gQ7 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                        boolean jE7 = j.jE();
+                                        if ((jE7 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                             long currentTimeMillis9 = System.currentTimeMillis() - currentTimeMillis;
-                                            if (gQ7) {
-                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                            } else if (j.gU()) {
-                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                            if (jE7) {
+                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                            } else if (j.jI()) {
+                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                             } else {
-                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                             }
-                                            e.getInstance().result(c, dVar.tI, false, z6, gQ7);
+                                            e.getInstance().result(c, dVar.zN, false, z6, jE7);
                                         }
                                     }
                                     i3++;
@@ -681,19 +682,19 @@ public class f implements a.InterfaceC0007a {
                                         }
                                     }
                                     closeConnection();
-                                    this.ajQ.b(dVar);
+                                    this.arY.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
-                                        gQ = j.gQ();
-                                        if ((gQ ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                        jE = j.jE();
+                                        if ((jE ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                             long currentTimeMillis42 = System.currentTimeMillis() - currentTimeMillis;
-                                            if (!gQ) {
-                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                            } else if (j.gU()) {
-                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                            if (!jE) {
+                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                            } else if (j.jI()) {
+                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                             } else {
-                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                             }
-                                            e.getInstance().result(c, dVar.tI, false, z5, gQ);
+                                            e.getInstance().result(c, dVar.zN, false, z5, jE);
                                         }
                                     }
                                     throw th;
@@ -701,8 +702,8 @@ public class f implements a.InterfaceC0007a {
                             } catch (SocketTimeoutException e20) {
                                 bArr7 = bArr4;
                                 e = e20;
-                                this.ajQ.ff().tW = -13;
-                                dVar.tF = "errorCode:" + String.valueOf(this.ajQ.ff().tW) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.arY.hW().Ab = -13;
+                                dVar.zK = "errorCode:" + String.valueOf(this.arY.hW().Ab) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -710,19 +711,19 @@ public class f implements a.InterfaceC0007a {
                                     }
                                 }
                                 closeConnection();
-                                this.ajQ.b(dVar);
+                                this.arY.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
-                                    boolean gQ8 = j.gQ();
-                                    if ((gQ8 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                    boolean jE8 = j.jE();
+                                    if ((jE8 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                         long currentTimeMillis10 = System.currentTimeMillis() - currentTimeMillis;
-                                        if (gQ8) {
-                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                        } else if (j.gU()) {
-                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                        if (jE8) {
+                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                        } else if (j.jI()) {
+                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                         } else {
-                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                         }
-                                        e.getInstance().result(c, dVar.tI, false, z4, gQ8);
+                                        e.getInstance().result(c, dVar.zN, false, z4, jE8);
                                     }
                                 }
                                 i3++;
@@ -730,8 +731,8 @@ public class f implements a.InterfaceC0007a {
                             } catch (IOException e22) {
                                 bArr7 = bArr3;
                                 e = e22;
-                                this.ajQ.ff().tW = -19;
-                                dVar.tF = "errorCode:" + String.valueOf(this.ajQ.ff().tW) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.arY.hW().Ab = -19;
+                                dVar.zK = "errorCode:" + String.valueOf(this.arY.hW().Ab) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -739,19 +740,19 @@ public class f implements a.InterfaceC0007a {
                                     }
                                 }
                                 closeConnection();
-                                this.ajQ.b(dVar);
+                                this.arY.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
-                                    boolean gQ9 = j.gQ();
-                                    if ((gQ9 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                    boolean jE9 = j.jE();
+                                    if ((jE9 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                         long currentTimeMillis11 = System.currentTimeMillis() - currentTimeMillis;
-                                        if (gQ9) {
-                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                        } else if (j.gU()) {
-                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                        if (jE9) {
+                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                        } else if (j.jI()) {
+                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                         } else {
-                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                         }
-                                        e.getInstance().result(c, dVar.tI, false, z3, gQ9);
+                                        e.getInstance().result(c, dVar.zN, false, z3, jE9);
                                     }
                                 }
                                 i3++;
@@ -759,8 +760,8 @@ public class f implements a.InterfaceC0007a {
                             } catch (HttpException e24) {
                                 bArr7 = bArr2;
                                 e = e24;
-                                this.ajQ.ff().tW = -18;
-                                dVar.tF = "errorCode:" + String.valueOf(this.ajQ.ff().tW) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.arY.hW().Ab = -18;
+                                dVar.zK = "errorCode:" + String.valueOf(this.arY.hW().Ab) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -768,19 +769,19 @@ public class f implements a.InterfaceC0007a {
                                     }
                                 }
                                 closeConnection();
-                                this.ajQ.b(dVar);
+                                this.arY.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
-                                    boolean gQ10 = j.gQ();
-                                    if ((gQ10 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                    boolean jE10 = j.jE();
+                                    if ((jE10 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                         long currentTimeMillis12 = System.currentTimeMillis() - currentTimeMillis;
-                                        if (gQ10) {
-                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                        } else if (j.gU()) {
-                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                        if (jE10) {
+                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                        } else if (j.jI()) {
+                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                         } else {
-                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                         }
-                                        e.getInstance().result(c, dVar.tI, false, z2, gQ10);
+                                        e.getInstance().result(c, dVar.zN, false, z2, jE10);
                                     }
                                 }
                                 i3++;
@@ -788,8 +789,8 @@ public class f implements a.InterfaceC0007a {
                             } catch (Throwable th6) {
                                 bArr7 = bArr;
                                 th = th6;
-                                this.ajQ.ff().tW = -10;
-                                dVar.tF = "errorCode:" + String.valueOf(this.ajQ.ff().tW) + "|" + th.getClass() + "|" + th.getMessage();
+                                this.arY.hW().Ab = -10;
+                                dVar.zK = "errorCode:" + String.valueOf(this.arY.hW().Ab) + "|" + th.getClass() + "|" + th.getMessage();
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -797,23 +798,23 @@ public class f implements a.InterfaceC0007a {
                                     }
                                 }
                                 closeConnection();
-                                this.ajQ.b(dVar);
+                                this.arY.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
-                                    boolean gQ11 = j.gQ();
-                                    if ((gQ11 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                    boolean jE11 = j.jE();
+                                    if ((jE11 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                         long currentTimeMillis13 = System.currentTimeMillis() - currentTimeMillis;
-                                        if (gQ11) {
-                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                        } else if (j.gU()) {
-                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                        if (jE11) {
+                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                        } else if (j.jI()) {
+                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                         } else {
-                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                         }
-                                        e.getInstance().result(c, dVar.tI, false, z, gQ11);
+                                        e.getInstance().result(c, dVar.zN, false, z, jE11);
                                     }
                                 }
-                                this.ajO = 0;
-                                this.ajQ.ff().tY = bArr7;
+                                this.arW = 0;
+                                this.arY.hW().Ae = bArr7;
                             }
                         } else {
                             if (inputStream != null) {
@@ -823,19 +824,19 @@ public class f implements a.InterfaceC0007a {
                                 }
                             }
                             closeConnection();
-                            this.ajQ.b(dVar);
+                            this.arY.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
-                                boolean gQ12 = j.gQ();
-                                if ((gQ12 ? (dVar.tI == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+                                boolean jE12 = j.jE();
+                                if ((jE12 ? (dVar.zN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                                     long currentTimeMillis14 = System.currentTimeMillis() - currentTimeMillis;
-                                    if (gQ12) {
-                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                                    } else if (j.gU()) {
-                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                                    if (jE12) {
+                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                                    } else if (j.jI()) {
+                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().abM);
                                     } else {
-                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().abL);
                                     }
-                                    e.getInstance().result(c, dVar.tI, false, z10, gQ12);
+                                    e.getInstance().result(c, dVar.zN, false, z10, jE12);
                                 }
                             }
                         }
@@ -844,39 +845,39 @@ public class f implements a.InterfaceC0007a {
                     }
                 }
                 i2 = i4;
-                while (!this.ajP) {
+                while (!this.arX) {
                     byteArrayOutputStream.write(bArr8, 0, read);
                     i2 = read + i2;
                 }
-                dVar.tH = -9;
-                if (this.ajP) {
+                dVar.zM = -9;
+                if (this.arX) {
                 }
             }
         }
         closeConnection();
-        this.ajQ.b(dVar);
+        this.arY.b(dVar);
         if ((str == null || str.length() == 0) && c != null) {
-            boolean gQ13 = j.gQ();
-            if ((gQ13 ? dVar.tI != null || z16 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gZ(c) && z15) {
+            boolean jE13 = j.jE();
+            if ((jE13 ? dVar.zN != null || z16 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.hu(c) && z15) {
                 long currentTimeMillis15 = System.currentTimeMillis() - currentTimeMillis;
-                if (gQ13) {
-                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().TB);
-                } else if (j.gU()) {
-                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().TD);
+                if (jE13) {
+                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().abK);
+                } else if (j.jI()) {
+                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().abM);
                 } else {
-                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().TC);
+                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().abL);
                 }
-                e.getInstance().result(c, dVar.tI, z16, z11, gQ13);
+                e.getInstance().result(c, dVar.zN, z16, z11, jE13);
             }
         }
-        this.ajO = 0;
-        this.ajQ.ff().tY = bArr7;
+        this.arW = 0;
+        this.arY.hW().Ae = bArr7;
     }
 
-    private void ew(String str) {
+    private void eV(String str) {
         int i = 0;
-        if (!TextUtils.isEmpty(str) && !str.equals(ajX) && (System.currentTimeMillis() - ajZ) - (1800000 * (ajY / 3)) >= 0) {
-            ajY++;
+        if (!TextUtils.isEmpty(str) && !str.equals(asf) && (System.currentTimeMillis() - ash) - (1800000 * (asg / 3)) >= 0) {
+            asg++;
             try {
                 char[] charArray = TbadkCoreApplication.getInst().getCuid().toCharArray();
                 StringBuilder sb = new StringBuilder();
@@ -890,7 +891,7 @@ public class f implements a.InterfaceC0007a {
                 }
                 sb.append(".tieba.galileo.baiduyundns.com");
                 final URL url = new URL(sb.toString());
-                ajX = str;
+                asf = str;
                 new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.a.f.2
                     @Override // java.lang.Runnable
                     public void run() {
@@ -912,12 +913,12 @@ public class f implements a.InterfaceC0007a {
         return this.mIsGif;
     }
 
-    public boolean wo() {
-        return this.ajU;
+    public boolean zP() {
+        return this.asc;
     }
 
-    @Override // com.baidu.adp.lib.f.a.InterfaceC0007a
+    @Override // com.baidu.adp.lib.f.a.InterfaceC0015a
     public void cancel() {
-        eW();
+        hN();
     }
 }

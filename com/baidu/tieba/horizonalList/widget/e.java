@@ -4,20 +4,20 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
 public abstract class e extends q.a {
-    public View.OnClickListener axH;
-    public int dIE;
+    public View.OnClickListener aGc;
+    public int dTP;
 
     public abstract void a(c cVar);
 
-    public abstract e ad(View view2);
+    public abstract e ad(View view);
 
     public abstract void onChangeSkinType(int i);
 
-    public e(View view2) {
-        super(view2);
+    public e(View view) {
+        super(view);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.axH = onClickListener;
+        this.aGc = onClickListener;
     }
 }

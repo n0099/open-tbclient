@@ -13,7 +13,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
@@ -25,72 +25,72 @@ import com.baidu.tieba.tbadkCore.u;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements ImagePagerAdapter.a {
-    private static int eqw = 7;
-    private boolean ayi;
-    private b eqA;
-    private c eqB;
-    private AdvertAppInfo eqy;
-    private boolean eqz;
+    private static int eBN = 7;
+    private boolean aGD;
+    private AdvertAppInfo eBP;
+    private boolean eBQ;
+    private b eBR;
+    private c eBS;
     private TbPageContext<?> mContext;
-    private int eqx = 0;
-    private boolean eqC = false;
-    private final View.OnClickListener eqD = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
+    private int eBO = 0;
+    private boolean eBT = false;
+    private final View.OnClickListener eBU = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
         @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            if (a.this.eqy != null) {
-                if (a.this.eqA == null || !a.this.eqA.eqL || a.this.eqA.aIZ() != view2) {
-                    if (u.E((Activity) view2.getContext())) {
-                        a.this.eqB.aJf();
-                        int i = a.this.eqy.VK;
+        public void onClick(View view) {
+            if (a.this.eBP != null) {
+                if (a.this.eBR == null || !a.this.eBR.eCc || a.this.eBR.aNU() != view) {
+                    if (u.F((Activity) view.getContext())) {
+                        a.this.eBS.aOa();
+                        int i = a.this.eBP.adK;
                         if (i == 0 || i == 3) {
-                            if (!j.gP() || j.gQ()) {
-                                String str = a.this.eqy.VM;
+                            if (!j.jD() || j.jE()) {
+                                String str = a.this.eBP.adM;
                                 if (StringUtils.isNull(str)) {
                                     str = a.this.mContext.getString(d.k.app_name);
                                 }
-                                a.this.eqB.aJh();
-                                if (s.a(a.this.mContext.getPageActivity(), a.this.eqy, 0, str)) {
-                                    a.this.eqB.ok(a.this.eqy.VQ);
+                                a.this.eBS.aOc();
+                                if (s.a(a.this.mContext.getPageActivity(), a.this.eBP, 0, str)) {
+                                    a.this.eBS.oX(a.this.eBP.adQ);
                                     return;
                                 }
                                 return;
                             }
-                            a.this.c(a.this.eqy);
+                            a.this.c(a.this.eBP);
                             return;
                         } else if (i == 1) {
-                            s.e(a.this.eqy);
-                            a.this.eqy.VK = 3;
-                            a.this.aIU();
+                            s.f(a.this.eBP);
+                            a.this.eBP.adK = 3;
+                            a.this.aNP();
                             return;
                         } else if (i == 2) {
-                            if (com.baidu.tieba.recapp.download.d.bjq().fV(a.this.eqy.VQ)) {
-                                u.aj(a.this.mContext.getPageActivity(), a.this.eqy.VQ);
+                            if (com.baidu.tieba.recapp.download.d.bop().gu(a.this.eBP.adQ)) {
+                                u.al(a.this.mContext.getPageActivity(), a.this.eBP.adQ);
                                 return;
                             }
-                            a.this.eqy.VK = 0;
-                            a.this.aIU();
+                            a.this.eBP.adK = 0;
+                            a.this.aNP();
                             return;
                         } else {
                             return;
                         }
                     }
-                    l.showToast((Activity) view2.getContext(), d.k.write_external_storage_permission_denied_fun_disable);
+                    l.showToast((Activity) view.getContext(), d.k.write_external_storage_permission_denied_fun_disable);
                 }
             }
         }
     };
-    private final View.OnClickListener eqE = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
+    private final View.OnClickListener eBV = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
         @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            if (a.this.eqy != null) {
-                if (a.this.eqA == null || !a.this.eqA.eqL || a.this.eqA.aIZ() != view2) {
-                    a.this.eqB.aJf();
-                    r.bjk().bjh().a(a.this.mContext.getPageActivity(), new String[]{a.this.eqy.VO}, true);
+        public void onClick(View view) {
+            if (a.this.eBP != null) {
+                if (a.this.eBR == null || !a.this.eBR.eCc || a.this.eBR.aNU() != view) {
+                    a.this.eBS.aOa();
+                    r.boj().bog().a(a.this.mContext.getPageActivity(), new String[]{a.this.eBP.adO}, true);
                 }
             }
         }
     };
-    private final CustomMessageListener eqF = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
+    private final CustomMessageListener eBW = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -106,121 +106,121 @@ public class a implements ImagePagerAdapter.a {
     };
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.ayi = false;
-        this.eqz = false;
-        this.ayi = z;
-        this.eqz = z2;
+        this.aGD = false;
+        this.eBQ = false;
+        this.aGD = z;
+        this.eBQ = z2;
         this.mContext = tbPageContext;
-        this.mContext.registerListener(2001118, this.eqF);
-        this.eqB = new c(tbPageContext.getPageActivity(), str, str2);
+        this.mContext.registerListener(2001118, this.eBW);
+        this.eBS = new c(tbPageContext.getPageActivity(), str, str2);
     }
 
     public void a(AdvertAppInfo advertAppInfo, int i) {
-        this.eqy = advertAppInfo;
-        this.eqx = i;
-        this.eqB.d(this.eqy);
+        this.eBP = advertAppInfo;
+        this.eBO = i;
+        this.eBS.d(this.eBP);
     }
 
-    public boolean aIT() {
-        if (!this.eqz || this.eqy == null) {
+    public boolean aNO() {
+        if (!this.eBQ || this.eBP == null) {
             return false;
         }
-        return (this.eqy.qt() || this.eqy.qs()) && !u.isInstalledPackage(this.mContext.getPageActivity(), this.eqy.VQ);
+        return (this.eBP.tP() || this.eBP.tO()) && !u.isInstalledPackage(this.mContext.getPageActivity(), this.eBP.adQ);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View g(ViewGroup viewGroup, int i) {
-        if (ok(i)) {
-            this.eqA = new b(viewGroup);
-            aIU();
-            viewGroup.addView(this.eqA.getView());
-            return this.eqA.getView();
+        if (ow(i)) {
+            this.eBR = new b(viewGroup);
+            aNP();
+            viewGroup.addView(this.eBR.getView());
+            return this.eBR.getView();
         }
         return null;
     }
 
-    private boolean ok(int i) {
-        return aIT() && this.eqx != 0 && i == this.eqx;
+    private boolean ow(int i) {
+        return aNO() && this.eBO != 0 && i == this.eBO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIU() {
-        if (this.eqy != null && this.eqy.VX != null) {
-            aIV();
-            if (this.eqy.qt()) {
-                this.eqA.aJa().setVisibility(8);
-                this.eqA.p(this.eqE);
-            } else if (this.eqy.qs()) {
-                this.eqA.aJa().setVisibility(0);
-                this.eqA.p(this.eqD);
-                aIW();
+    public void aNP() {
+        if (this.eBP != null && this.eBP.adX != null) {
+            aNQ();
+            if (this.eBP.tP()) {
+                this.eBR.aNV().setVisibility(8);
+                this.eBR.p(this.eBV);
+            } else if (this.eBP.tO()) {
+                this.eBR.aNV().setVisibility(0);
+                this.eBR.p(this.eBU);
+                aNR();
             }
-            s.a(this.eqy.VX.Wp, this.eqA.eqI, this.eqy.VX.tagRatio, l.e(this.mContext.getPageActivity(), d.e.ds26));
-            if (!TextUtils.isEmpty(this.eqy.VX.adSource)) {
-                this.eqA.eqK.setText(this.eqy.VX.adSource);
-                this.eqA.eqJ.setVisibility(0);
+            s.a(this.eBP.adX.aeq, this.eBR.eBZ, this.eBP.adX.tagRatio, l.e(this.mContext.getPageActivity(), d.e.ds26));
+            if (!TextUtils.isEmpty(this.eBP.adX.adSource)) {
+                this.eBR.eCb.setText(this.eBP.adX.adSource);
+                this.eBR.eCa.setVisibility(0);
                 return;
             }
-            this.eqA.eqJ.setVisibility(8);
+            this.eBR.eCa.setVisibility(8);
         }
     }
 
-    private void aIV() {
-        this.eqA.aIZ().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+    private void aNQ() {
+        this.eBR.aNU().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void n(String str, boolean z) {
                 if (z) {
-                    a.this.eqA.aJd();
+                    a.this.eBR.aNY();
                 }
-                a.this.eqA.aJe();
+                a.this.eBR.aNZ();
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
-                a.this.eqA.aJe();
+                a.this.eBR.aNZ();
             }
         });
-        this.eqA.aIZ().startLoad(this.eqy.VX.Wh, this.ayi ? 30 : 31, 720, 720, false);
+        this.eBR.aNU().startLoad(this.eBP.adX.aei, this.aGD ? 30 : 31, 720, 720, false);
     }
 
-    private void aIW() {
-        if (this.eqy != null) {
-            String str = this.eqy.VM;
+    private void aNR() {
+        if (this.eBP != null) {
+            String str = this.eBP.adM;
             if (StringUtils.isNull(str)) {
                 str = this.mContext.getString(d.k.app_name);
             }
-            if (com.baidu.tieba.recapp.download.d.bjq().fV(this.eqy.VQ)) {
-                this.eqy.VK = 2;
-            } else if (com.baidu.tieba.recapp.download.d.bjq().an(this.eqy.VQ, str)) {
-                if (com.baidu.tieba.recapp.download.d.bjq().fT(this.eqy.VQ)) {
-                    this.eqy.VK = 1;
+            if (com.baidu.tieba.recapp.download.d.bop().gu(this.eBP.adQ)) {
+                this.eBP.adK = 2;
+            } else if (com.baidu.tieba.recapp.download.d.bop().as(this.eBP.adQ, str)) {
+                if (com.baidu.tieba.recapp.download.d.bop().gr(this.eBP.adQ)) {
+                    this.eBP.adK = 1;
                 } else {
-                    this.eqy.VK = 3;
+                    this.eBP.adK = 3;
                 }
             }
-            switch (this.eqy.VK) {
+            switch (this.eBP.adK) {
                 case 0:
                     String string = this.mContext.getString(d.k.install_app);
-                    if (this.eqy.VX != null && !StringUtils.isNull(this.eqy.VX.buttonText)) {
-                        string = this.eqy.VX.buttonText;
+                    if (this.eBP.adX != null && !StringUtils.isNull(this.eBP.adX.buttonText)) {
+                        string = this.eBP.adX.buttonText;
                     }
-                    if (string.length() > eqw) {
-                        string = string.substring(0, eqw);
+                    if (string.length() > eBN) {
+                        string = string.substring(0, eBN);
                     }
-                    this.eqA.oj(string);
+                    this.eBR.oW(string);
                     return;
                 case 1:
-                    this.eqA.aJb();
+                    this.eBR.aNW();
                     return;
                 case 2:
-                    this.eqA.aJc();
+                    this.eBR.aNX();
                     return;
                 case 3:
-                    this.eqA.oj(this.mContext.getString(d.k.pb_download_pause));
+                    this.eBR.oW(this.mContext.getString(d.k.pb_download_pause));
                     return;
                 default:
-                    this.eqA.aJa().setVisibility(8);
-                    this.eqA.p(null);
+                    this.eBR.aNV().setVisibility(8);
+                    this.eBR.p(null);
                     return;
             }
         }
@@ -231,22 +231,22 @@ public class a implements ImagePagerAdapter.a {
         String string;
         if (advertAppInfo != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            if (j.gR()) {
+            if (j.jF()) {
                 string = this.mContext.getString(d.k.frs_network_tips);
             } else {
                 string = this.mContext.getString(d.k.confirm_download_app);
             }
-            aVar.dc(string);
+            aVar.dB(string);
             aVar.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.image.a.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    String str = a.this.eqy.VM;
+                    String str = a.this.eBP.adM;
                     if (StringUtils.isNull(str)) {
                         str = a.this.mContext.getString(d.k.app_name);
                     }
-                    a.this.eqB.aJh();
-                    if (s.a(a.this.mContext.getPageActivity(), a.this.eqy, 0, str)) {
-                        a.this.eqB.ok(a.this.eqy.VQ);
+                    a.this.eBS.aOc();
+                    if (s.a(a.this.mContext.getPageActivity(), a.this.eBP, 0, str)) {
+                        a.this.eBS.oX(a.this.eBP.adQ);
                     }
                     aVar2.dismiss();
                 }
@@ -257,37 +257,37 @@ public class a implements ImagePagerAdapter.a {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.mContext).tC();
+            aVar.b(this.mContext).xa();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ResponsedMessage<?> responsedMessage) {
         List<DownloadData> data;
-        if ((responsedMessage instanceof DownloadMessage) && this.eqy != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
+        if ((responsedMessage instanceof DownloadMessage) && this.eBP != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
             for (DownloadData downloadData : data) {
-                if (downloadData != null && TextUtils.equals(this.eqy.VQ, downloadData.getId())) {
+                if (downloadData != null && TextUtils.equals(this.eBP.adQ, downloadData.getId())) {
                     int status = downloadData.getStatus();
                     if (status == 3 || status == 0) {
-                        this.eqy.VK = 2;
+                        this.eBP.adK = 2;
                     } else if (status == 2 || status == 4) {
-                        if (!an.isEmpty(downloadData.getStatusMsg())) {
+                        if (!ao.isEmpty(downloadData.getStatusMsg())) {
                             this.mContext.showToast(downloadData.getStatusMsg());
                         }
-                        this.eqy.VK = 0;
+                        this.eBP.adK = 0;
                     } else if (status == 1) {
-                        this.eqy.VK = 1;
+                        this.eBP.adK = 1;
                     }
-                    aIU();
+                    aNP();
                 }
             }
         }
     }
 
-    public void aIX() {
-        if (!this.eqC) {
-            this.eqC = true;
-            this.eqB.aJg();
+    public void aNS() {
+        if (!this.eBT) {
+            this.eBT = true;
+            this.eBS.aOb();
         }
     }
 }

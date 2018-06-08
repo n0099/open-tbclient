@@ -11,7 +11,7 @@ import android.util.Log;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public final class RoundedBitmapDrawableFactory {
-    private static final String TAG = "RoundedBitmapDrawableFactory";
+    private static final String TAG = "RoundedBitmapDrawableFa";
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */

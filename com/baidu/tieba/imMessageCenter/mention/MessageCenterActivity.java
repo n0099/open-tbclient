@@ -4,23 +4,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.voice.VoiceManager;
 /* loaded from: classes2.dex */
-public class MessageCenterActivity extends BaseFragmentActivity {
-    private MessageCenterFragment eol;
+public class MessageCenterActivity extends BaseFragmentActivity implements VoiceManager.c {
+    private MessageCenterFragment ezC;
     private int mSkinType = 3;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!az.aK(this)) {
+        if (!ba.aU(this)) {
             finish();
             return;
         }
-        this.eol = new MessageCenterFragment();
+        this.ezC = new MessageCenterFragment();
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, this.eol);
+        beginTransaction.add(16908290, this.ezC);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -35,8 +37,8 @@ public class MessageCenterActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.eol != null) {
-            this.eol.onActivityResult(i, i2, intent);
+        if (this.ezC != null) {
+            this.ezC.onActivityResult(i, i2, intent);
         }
     }
 
@@ -44,8 +46,8 @@ public class MessageCenterActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.eol != null) {
-            this.eol.onNewIntent(intent);
+        if (this.ezC != null) {
+            this.ezC.onNewIntent(intent);
         }
     }
 
@@ -53,7 +55,17 @@ public class MessageCenterActivity extends BaseFragmentActivity {
     protected void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.eol.onChangeSkinType(i);
+            this.ezC.onChangeSkinType(i);
         }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
+    public VoiceManager getVoiceManager() {
+        return this.ezC.getVoiceManager();
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
+    public VoiceManager.b c(VoiceData.VoiceModel voiceModel) {
+        return null;
     }
 }

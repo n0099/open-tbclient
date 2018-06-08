@@ -11,19 +11,20 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.d;
+import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public class PersonCommonForumItemView extends RelativeLayout {
-    public TextView cKc;
-    public BarImageView fNg;
-    public TextView fNh;
-    public TextView fNi;
-    public TextView fNj;
-    private com.baidu.tieba.personPolymeric.c.f fNk;
+    public TextView cTi;
+    public BarImageView fYs;
+    public TextView fYt;
+    public TextView fYu;
+    public TextView fYv;
+    private com.baidu.tieba.personPolymeric.c.f fYw;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -38,22 +39,22 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     private void init() {
-        this.fNg = (BarImageView) findViewById(d.g.forum_avatar);
-        this.cKc = (TextView) findViewById(d.g.forum_name);
-        this.fNh = (TextView) findViewById(d.g.forum_post_thread);
-        this.fNi = (TextView) findViewById(d.g.forum_thread_num);
-        this.fNj = (TextView) findViewById(d.g.forum_thread_str);
+        this.fYs = (BarImageView) findViewById(d.g.forum_avatar);
+        this.cTi = (TextView) findViewById(d.g.forum_name);
+        this.fYt = (TextView) findViewById(d.g.forum_post_thread);
+        this.fYu = (TextView) findViewById(d.g.forum_thread_num);
+        this.fYv = (TextView) findViewById(d.g.forum_thread_str);
     }
 
     private void initListener() {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (view2 != null && PersonCommonForumItemView.this.fNk != null) {
-                    TiebaStatic.log(new al("c12503").ac("obj_locate", "6"));
-                    TiebaStatic.log(new al("c11594"));
-                    String str = PersonCommonForumItemView.this.fNk.forumName;
-                    if (an.aQ(str)) {
+            public void onClick(View view) {
+                if (view != null && PersonCommonForumItemView.this.fYw != null) {
+                    TiebaStatic.log(new am("c12503").ah("obj_locate", Constants.VIA_SHARE_TYPE_INFO));
+                    TiebaStatic.log(new am("c11594"));
+                    String str = PersonCommonForumItemView.this.fYw.forumName;
+                    if (ao.bc(str)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(PersonCommonForumItemView.this.mContext).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
                     }
                 }
@@ -62,11 +63,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     public void setData(com.baidu.tieba.personPolymeric.c.f fVar) {
-        this.fNk = fVar;
-        this.fNg.startLoad(fVar.avatar, 10, false);
-        this.cKc.setText(an.f(fVar.forumName, 7, "...") + this.mContext.getString(d.k.forum));
-        this.fNi.setText(an.v(fVar.fLw));
-        this.fNh.setText(String.format(this.mContext.getString(d.k.person_has_posted), an.cU(fVar.sex)));
+        this.fYw = fVar;
+        this.fYs.startLoad(fVar.avatar, 10, false);
+        this.cTi.setText(ao.f(fVar.forumName, 7, "...") + this.mContext.getString(d.k.forum));
+        this.fYu.setText(ao.y(fVar.fWI));
+        this.fYt.setText(String.format(this.mContext.getString(d.k.person_has_posted), ao.cW(fVar.sex)));
         if (getRootView() != null) {
             getRootView().setOnClickListener(this.mOnClickListener);
         }
@@ -75,11 +76,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
 
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            ak.h(this.cKc, d.C0126d.cp_cont_b);
-            ak.h(this.fNh, d.C0126d.cp_cont_d);
-            ak.h(this.fNj, d.C0126d.cp_cont_d);
-            ak.h(this.fNi, d.C0126d.cp_link_tip_a);
-            ak.i(this, d.f.person_common_forum_item_bg);
+            al.h(this.cTi, d.C0141d.cp_cont_b);
+            al.h(this.fYt, d.C0141d.cp_cont_d);
+            al.h(this.fYv, d.C0141d.cp_cont_d);
+            al.h(this.fYu, d.C0141d.cp_link_tip_a);
+            al.i(this, d.f.person_common_forum_item_bg);
         }
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
     }

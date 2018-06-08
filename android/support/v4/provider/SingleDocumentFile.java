@@ -2,6 +2,8 @@ package android.support.v4.provider;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.RequiresApi;
+@RequiresApi(19)
 /* loaded from: classes2.dex */
 class SingleDocumentFile extends DocumentFile {
     private Context mContext;
@@ -47,6 +49,11 @@ class SingleDocumentFile extends DocumentFile {
     @Override // android.support.v4.provider.DocumentFile
     public boolean isFile() {
         return DocumentsContractApi19.isFile(this.mContext, this.mUri);
+    }
+
+    @Override // android.support.v4.provider.DocumentFile
+    public boolean isVirtual() {
+        return DocumentsContractApi19.isVirtual(this.mContext, this.mUri);
     }
 
     @Override // android.support.v4.provider.DocumentFile

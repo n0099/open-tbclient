@@ -4,15 +4,15 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class d {
-    private static int uD = 0;
-    private static int uE = 0;
-    private static int uF = 0;
-    private static int uG = 0;
-    private static int uH = 0;
-    private static int uI = 0;
+    private static int AG = 0;
+    private static int AH = 0;
+    private static int AI = 0;
+    private static int AJ = 0;
+    private static int AK = 0;
+    private static int AM = 0;
     private static Object syncLock = new Object();
 
-    public static com.baidu.adp.lib.stats.a fq() {
+    public static com.baidu.adp.lib.stats.a ih() {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
@@ -20,15 +20,15 @@ public class d {
         if (aVar != null || aVar2 != null) {
             synchronized (syncLock) {
                 if (aVar != null) {
-                    uF = (int) (uF + aVar.fB());
+                    AI = (int) (AI + aVar.ir());
                 }
                 if (aVar2 != null) {
-                    uE = (int) (uE + aVar2.fB());
+                    AH = (int) (AH + aVar2.ir());
                 }
-                int i = uD + 1;
-                uD = i;
-                if (i + uG > 100) {
-                    fs();
+                int i = AG + 1;
+                AG = i;
+                if (i + AJ > 100) {
+                    ii();
                 }
             }
         }
@@ -38,38 +38,38 @@ public class d {
         if (aVar != null || aVar2 != null) {
             synchronized (syncLock) {
                 if (aVar != null) {
-                    uI = (int) (uI + aVar.fB());
+                    AM = (int) (AM + aVar.ir());
                 }
                 if (aVar2 != null) {
-                    uH = (int) (uH + aVar2.fB());
+                    AK = (int) (AK + aVar2.ir());
                 }
-                int i = uG + 1;
-                uG = i;
-                if (i + uD > 100) {
-                    fs();
+                int i = AJ + 1;
+                AJ = i;
+                if (i + AG > 100) {
+                    ii();
                 }
             }
         }
     }
 
-    public static void fs() {
-        if (uD + uG > 10) {
-            com.baidu.adp.lib.stats.a fq = fq();
-            fq.append(SocialConstants.PARAM_ACT, "allStat");
-            fq.append("diskTaskCostTime", String.valueOf(uF));
-            fq.append("diskCostTime", String.valueOf(uE));
-            fq.append("diskNum", String.valueOf(uD));
-            fq.append("netTaskCostTime", String.valueOf(uI));
-            fq.append("netCostTime", String.valueOf(uH));
-            fq.append("netNum", String.valueOf(uG));
-            fq.append("isWifi", "1");
-            BdStatisticsManager.getInstance().debug("img", fq);
-            uE = 0;
-            uD = 0;
-            uH = 0;
-            uG = 0;
-            uF = 0;
-            uI = 0;
+    public static void ii() {
+        if (AG + AJ > 10) {
+            com.baidu.adp.lib.stats.a ih = ih();
+            ih.append(SocialConstants.PARAM_ACT, "allStat");
+            ih.append("diskTaskCostTime", String.valueOf(AI));
+            ih.append("diskCostTime", String.valueOf(AH));
+            ih.append("diskNum", String.valueOf(AG));
+            ih.append("netTaskCostTime", String.valueOf(AM));
+            ih.append("netCostTime", String.valueOf(AK));
+            ih.append("netNum", String.valueOf(AJ));
+            ih.append("isWifi", "1");
+            BdStatisticsManager.getInstance().debug("img", ih);
+            AH = 0;
+            AG = 0;
+            AK = 0;
+            AJ = 0;
+            AI = 0;
+            AM = 0;
         }
     }
 }

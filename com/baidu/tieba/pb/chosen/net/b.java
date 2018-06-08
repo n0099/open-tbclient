@@ -9,20 +9,20 @@ import com.baidu.tieba.pb.chosen.PbChosenActivity;
 /* loaded from: classes3.dex */
 public class b {
     public b() {
-        aVf();
-        aVg();
+        bab();
+        bac();
     }
 
-    private void aVf() {
+    private void bab() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309093);
         bVar.setResponsedClass(ChosenPbSocketResponse.class);
-        bVar.n(true);
-        bVar.o(false);
+        bVar.p(true);
+        bVar.q(false);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void aVg() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, com.baidu.tieba.tbadkCore.a.a.aK(TbConfig.FINE_PB_PAGE, 309093));
+    private void bac() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, com.baidu.tieba.tbadkCore.a.a.aN(TbConfig.FINE_PB_PAGE, 309093));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -33,13 +33,13 @@ public class b {
 
     public void a(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
         ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-        int af = l.af(pbChosenActivity.getPageContext().getPageActivity());
         int ah = l.ah(pbChosenActivity.getPageContext().getPageActivity());
-        float ai = l.ai(pbChosenActivity.getPageContext().getPageActivity());
+        int aj = l.aj(pbChosenActivity.getPageContext().getPageActivity());
+        float ak = l.ak(pbChosenActivity.getPageContext().getPageActivity());
         chosenPbNetMessage.setQ_type(45L);
-        chosenPbNetMessage.setScrH(ah);
-        chosenPbNetMessage.setScrW(af);
-        chosenPbNetMessage.setScr_dip(ai);
+        chosenPbNetMessage.setScrH(aj);
+        chosenPbNetMessage.setScrW(ah);
+        chosenPbNetMessage.setScr_dip(ak);
         chosenPbNetMessage.setExcId(j);
         chosenPbNetMessage.setTagCode(j2);
         chosenPbNetMessage.setThreadId(j3);

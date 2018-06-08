@@ -4,17 +4,21 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.TintableBackgroundView;
+import android.support.v4.widget.AutoSizeableTextView;
 import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 /* loaded from: classes2.dex */
-public class AppCompatButton extends Button implements TintableBackgroundView {
+public class AppCompatButton extends Button implements TintableBackgroundView, AutoSizeableTextView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
     private final AppCompatTextHelper mTextHelper;
 
@@ -52,7 +56,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView {
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         if (this.mBackgroundTintHelper != null) {
             this.mBackgroundTintHelper.setSupportBackgroundTintList(colorStateList);
@@ -61,7 +65,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView {
 
     @Override // android.support.v4.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public ColorStateList getSupportBackgroundTintList() {
         if (this.mBackgroundTintHelper != null) {
             return this.mBackgroundTintHelper.getSupportBackgroundTintList();
@@ -70,7 +74,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView {
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         if (this.mBackgroundTintHelper != null) {
             this.mBackgroundTintHelper.setSupportBackgroundTintMode(mode);
@@ -79,7 +83,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView {
 
     @Override // android.support.v4.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         if (this.mBackgroundTintHelper != null) {
             return this.mBackgroundTintHelper.getSupportBackgroundTintMode();
@@ -113,9 +117,125 @@ public class AppCompatButton extends Button implements TintableBackgroundView {
     }
 
     @Override // android.view.View
+    @RequiresApi(14)
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
         accessibilityNodeInfo.setClassName(Button.class.getName());
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (this.mTextHelper != null) {
+            this.mTextHelper.onLayout(z, i, i2, i3, i4);
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void setTextSize(int i, float f) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            super.setTextSize(i, f);
+        } else if (this.mTextHelper != null) {
+            this.mTextHelper.setTextSize(i, f);
+        }
+    }
+
+    @Override // android.widget.TextView
+    protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        super.onTextChanged(charSequence, i, i2, i3);
+        if (this.mTextHelper != null && Build.VERSION.SDK_INT < 26 && this.mTextHelper.isAutoSizeEnabled()) {
+            this.mTextHelper.autoSizeText();
+        }
+    }
+
+    @Override // android.widget.TextView, android.support.v4.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setAutoSizeTextTypeWithDefaults(int i) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            super.setAutoSizeTextTypeWithDefaults(i);
+        } else if (this.mTextHelper != null) {
+            this.mTextHelper.setAutoSizeTextTypeWithDefaults(i);
+        }
+    }
+
+    @Override // android.widget.TextView, android.support.v4.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
+        if (Build.VERSION.SDK_INT >= 26) {
+            super.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
+        } else if (this.mTextHelper != null) {
+            this.mTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
+        }
+    }
+
+    @Override // android.widget.TextView, android.support.v4.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
+        if (Build.VERSION.SDK_INT >= 26) {
+            super.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
+        } else if (this.mTextHelper != null) {
+            this.mTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
+        }
+    }
+
+    @Override // android.widget.TextView, android.support.v4.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public int getAutoSizeTextType() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return super.getAutoSizeTextType() == 1 ? 1 : 0;
+        } else if (this.mTextHelper != null) {
+            return this.mTextHelper.getAutoSizeTextType();
+        } else {
+            return 0;
+        }
+    }
+
+    @Override // android.widget.TextView, android.support.v4.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public int getAutoSizeStepGranularity() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return super.getAutoSizeStepGranularity();
+        }
+        if (this.mTextHelper != null) {
+            return this.mTextHelper.getAutoSizeStepGranularity();
+        }
+        return -1;
+    }
+
+    @Override // android.widget.TextView, android.support.v4.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public int getAutoSizeMinTextSize() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return super.getAutoSizeMinTextSize();
+        }
+        if (this.mTextHelper != null) {
+            return this.mTextHelper.getAutoSizeMinTextSize();
+        }
+        return -1;
+    }
+
+    @Override // android.widget.TextView, android.support.v4.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public int getAutoSizeMaxTextSize() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return super.getAutoSizeMaxTextSize();
+        }
+        if (this.mTextHelper != null) {
+            return this.mTextHelper.getAutoSizeMaxTextSize();
+        }
+        return -1;
+    }
+
+    @Override // android.widget.TextView, android.support.v4.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public int[] getAutoSizeTextAvailableSizes() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return super.getAutoSizeTextAvailableSizes();
+        }
+        if (this.mTextHelper != null) {
+            return this.mTextHelper.getAutoSizeTextAvailableSizes();
+        }
+        return new int[0];
     }
 
     public void setSupportAllCaps(boolean z) {

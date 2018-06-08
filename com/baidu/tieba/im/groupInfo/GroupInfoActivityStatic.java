@@ -8,15 +8,15 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes3.dex */
 public class GroupInfoActivityStatic {
     static {
-        awL();
-        aoO();
+        aBD();
+        asU();
     }
 
-    private static void awL() {
+    private static void aBD() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008011, new CustomMessageTask.CustomRunnable<GroupInfoActivityConfig>() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<GroupInfoActivityConfig> customMessage) {
@@ -35,9 +35,9 @@ public class GroupInfoActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aoO() {
-        ax.wf().a(new ax.a() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.2
-            @Override // com.baidu.tbadk.core.util.ax.a
+    private static void asU() {
+        ay.zG().a(new ay.a() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.2
+            @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;

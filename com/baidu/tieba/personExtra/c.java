@@ -16,41 +16,41 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c extends BaseAdapter {
-    private boolean dyy;
-    private View.OnClickListener eTI;
-    private View.OnClickListener eTi;
-    private PersonFriendActivity fII;
+    private boolean dJI;
+    private PersonFriendActivity fUe;
+    private View.OnClickListener feA;
+    private View.OnClickListener ffa;
     private int mPageType;
-    private ArrayList<UserData> adv = null;
+    private ArrayList<UserData> alt = null;
     private boolean mHasMore = false;
-    private boolean fIJ = false;
-    private boolean eTg = false;
-    private ArrayList<ProgressBar> fIK = new ArrayList<>();
+    private boolean fUf = false;
+    private boolean fey = false;
+    private ArrayList<ProgressBar> fUg = new ArrayList<>();
 
-    public void beM() {
-        if (this.fIK != null) {
+    public void bjM() {
+        if (this.fUg != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.fIK.size()) {
+                if (i2 < this.fUg.size()) {
                     try {
-                        this.fIK.get(i2).setVisibility(8);
+                        this.fUg.get(i2).setVisibility(8);
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
-                    this.fIK.clear();
+                    this.fUg.clear();
                     return;
                 }
             }
         }
     }
 
-    public void aSq() {
-        this.eTg = false;
-        if (this.adv != null && this.adv.size() == 0) {
-            this.eTg = true;
+    public void aXn() {
+        this.fey = false;
+        if (this.alt != null && this.alt.size() == 0) {
+            this.fey = true;
         }
     }
 
@@ -58,35 +58,35 @@ public class c extends BaseAdapter {
         this.mHasMore = z;
     }
 
-    public void lc(boolean z) {
-        this.fIJ = z;
+    public void li(boolean z) {
+        this.fUf = z;
     }
 
     public c(PersonFriendActivity personFriendActivity, boolean z, int i, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.fII = null;
-        this.dyy = true;
+        this.fUe = null;
+        this.dJI = true;
         this.mPageType = 0;
-        this.eTI = null;
-        this.eTi = null;
-        this.fII = personFriendActivity;
-        this.dyy = z;
+        this.ffa = null;
+        this.feA = null;
+        this.fUe = personFriendActivity;
+        this.dJI = z;
         this.mPageType = i;
-        this.eTI = onClickListener;
-        this.eTi = onClickListener2;
+        this.ffa = onClickListener;
+        this.feA = onClickListener2;
     }
 
     public void setData(ArrayList<UserData> arrayList) {
-        this.adv = arrayList;
+        this.alt = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eTg) {
+        if (this.fey) {
             return 1;
         }
         int i = 0;
-        if (this.adv != null) {
-            i = this.adv.size();
+        if (this.alt != null) {
+            i = this.alt.size();
         }
         if (this.mHasMore) {
             return i + 1;
@@ -96,97 +96,97 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.adv == null || i >= this.adv.size()) {
+        if (this.alt == null || i >= this.alt.size()) {
             return null;
         }
-        return this.adv.get(i);
+        return this.alt.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.adv == null || i >= this.adv.size()) {
+        if (this.alt == null || i >= this.alt.size()) {
             return -1L;
         }
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        View view3;
-        if (this.adv != null) {
-            if (view2 == null) {
+        View view2;
+        if (this.alt != null) {
+            if (view == null) {
                 a aVar2 = new a();
                 if (getItemViewType(i) == 0) {
-                    View inflate = LayoutInflater.from(this.fII.getPageContext().getPageActivity()).inflate(d.i.person_list_item_friend, (ViewGroup) null);
-                    aVar2.daK = (HeadImageView) inflate.findViewById(d.g.photo);
-                    aVar2.daK.setIsRound(false);
-                    aVar2.daK.setAutoChangeStyle(true);
-                    aVar2.bst = (LinearLayout) inflate.findViewById(d.g.info);
+                    View inflate = LayoutInflater.from(this.fUe.getPageContext().getPageActivity()).inflate(d.i.person_list_item_friend, (ViewGroup) null);
+                    aVar2.dka = (HeadImageView) inflate.findViewById(d.g.photo);
+                    aVar2.dka.setIsRound(false);
+                    aVar2.dka.setAutoChangeStyle(true);
+                    aVar2.bAy = (LinearLayout) inflate.findViewById(d.g.info);
                     aVar2.mName = (TextView) inflate.findViewById(d.g.name);
-                    aVar2.eTn = (TextView) inflate.findViewById(d.g.at_list_nodata);
-                    aVar2.bss = (TextView) inflate.findViewById(d.g.intro);
-                    aVar2.fIL = (ImageView) inflate.findViewById(d.g.chat);
-                    aVar2.ehi = (ImageView) inflate.findViewById(d.g.diver_buttom_px);
-                    aVar2.fIL.setOnClickListener(this.eTI);
-                    view3 = inflate;
+                    aVar2.feF = (TextView) inflate.findViewById(d.g.at_list_nodata);
+                    aVar2.bAx = (TextView) inflate.findViewById(d.g.intro);
+                    aVar2.fUh = (ImageView) inflate.findViewById(d.g.chat);
+                    aVar2.esy = (ImageView) inflate.findViewById(d.g.diver_buttom_px);
+                    aVar2.fUh.setOnClickListener(this.ffa);
+                    view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.fII.getPageContext().getPageActivity()).inflate(d.i.new_pb_list_more, (ViewGroup) null);
+                    View inflate2 = LayoutInflater.from(this.fUe.getPageContext().getPageActivity()).inflate(d.i.new_pb_list_more, (ViewGroup) null);
                     aVar2.mName = (TextView) inflate2.findViewById(d.g.pb_more_text);
-                    inflate2.setOnClickListener(this.eTi);
+                    inflate2.setOnClickListener(this.feA);
                     aVar2.mProgress = (ProgressBar) inflate2.findViewById(d.g.progress);
-                    this.fIK.add(aVar2.mProgress);
-                    view3 = inflate2;
+                    this.fUg.add(aVar2.mProgress);
+                    view2 = inflate2;
                 }
-                view3.setTag(aVar2);
+                view2.setTag(aVar2);
                 aVar = aVar2;
-                view2 = view3;
+                view = view2;
             } else {
-                aVar = (a) view2.getTag();
+                aVar = (a) view.getTag();
             }
             if (getItemViewType(i) == 0) {
-                if (this.eTg) {
-                    aVar.bst.setVisibility(8);
-                    aVar.fIL.setVisibility(8);
-                    aVar.eTn.setVisibility(8);
-                    aVar.ehi.setVisibility(8);
+                if (this.fey) {
+                    aVar.bAy.setVisibility(8);
+                    aVar.fUh.setVisibility(8);
+                    aVar.feF.setVisibility(8);
+                    aVar.esy.setVisibility(8);
                 } else {
-                    if (!this.dyy && this.mPageType == 0) {
-                        aVar.fIL.setVisibility(8);
+                    if (!this.dJI && this.mPageType == 0) {
+                        aVar.fUh.setVisibility(8);
                     } else {
-                        aVar.fIL.setVisibility(0);
+                        aVar.fUh.setVisibility(0);
                     }
-                    aVar.bst.setVisibility(0);
-                    aVar.bst.setTag(Integer.valueOf(i));
-                    aVar.ehi.setVisibility(0);
-                    aVar.eTn.setVisibility(8);
-                    String portrait = this.adv.get(i).getPortrait();
-                    aVar.daK.setImageDrawable(null);
-                    aVar.daK.startLoad(portrait, 12, false);
-                    aVar.mName.setText(this.adv.get(i).getName_show());
-                    aVar.bss.setText(this.adv.get(i).getIntro());
-                    aVar.fIL.setTag(Integer.valueOf(i));
+                    aVar.bAy.setVisibility(0);
+                    aVar.bAy.setTag(Integer.valueOf(i));
+                    aVar.esy.setVisibility(0);
+                    aVar.feF.setVisibility(8);
+                    String portrait = this.alt.get(i).getPortrait();
+                    aVar.dka.setImageDrawable(null);
+                    aVar.dka.startLoad(portrait, 12, false);
+                    aVar.mName.setText(this.alt.get(i).getName_show());
+                    aVar.bAx.setText(this.alt.get(i).getIntro());
+                    aVar.fUh.setTag(Integer.valueOf(i));
                 }
             } else {
-                aVar.mName.setText(this.fII.getPageContext().getString(d.k.loading));
+                aVar.mName.setText(this.fUe.getPageContext().getString(d.k.loading));
                 aVar.mProgress.setVisibility(0);
             }
-            aA(view2);
+            aD(view);
         }
-        return view2;
+        return view;
     }
 
-    private void aA(View view2) {
-        this.fII.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.fII.getLayoutMode().u(view2);
+    private void aD(View view) {
+        this.fUe.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.fUe.getLayoutMode().onModeChanged(view);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.eTg) {
+        if (this.fey) {
             return 0;
         }
-        return (this.adv == null || i >= this.adv.size()) ? 1 : 0;
+        return (this.alt == null || i >= this.alt.size()) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -196,7 +196,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.eTg) {
+        if (this.fey) {
             return false;
         }
         return super.isEnabled(i);
@@ -204,12 +204,12 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView bss;
-        LinearLayout bst;
-        HeadImageView daK;
-        TextView eTn;
-        ImageView ehi;
-        ImageView fIL;
+        TextView bAx;
+        LinearLayout bAy;
+        HeadImageView dka;
+        ImageView esy;
+        ImageView fUh;
+        TextView feF;
         TextView mName;
         ProgressBar mProgress;
 

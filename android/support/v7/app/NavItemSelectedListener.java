@@ -12,7 +12,7 @@ class NavItemSelectedListener implements AdapterView.OnItemSelectedListener {
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
         if (this.mListener != null) {
             this.mListener.onNavigationItemSelected(i, j);
         }

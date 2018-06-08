@@ -25,12 +25,12 @@ public class f<ViewGroup, Object> extends com.baidu.adp.widget.ListView.a {
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    protected View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, q.a aVar) {
+    protected View onFillViewHolder(int i, View view, ViewGroup viewGroup, Object obj, q.a aVar) {
         return null;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    public View getView(int i, View view2, ViewGroup viewGroup, Object obj) {
+    public View getView(int i, View view, ViewGroup viewGroup, Object obj) {
         return null;
     }
 }

@@ -11,7 +11,6 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
-import android.support.v4.os.BuildCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
@@ -38,19 +37,24 @@ public abstract class AppCompatDelegate {
     private static boolean sCompatVectorFromResourcesEnabled = false;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    /* loaded from: classes2.dex */
+    @interface ApplyableNightMode {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface NightMode {
     }
 
-    public abstract void addContentView(View view2, ViewGroup.LayoutParams layoutParams);
+    public abstract void addContentView(View view, ViewGroup.LayoutParams layoutParams);
 
     public abstract boolean applyDayNight();
 
-    public abstract View createView(@Nullable View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet);
+    public abstract View createView(@Nullable View view, String str, @NonNull Context context, @NonNull AttributeSet attributeSet);
 
     @Nullable
-    public abstract View findViewById(@IdRes int i);
+    public abstract <T extends View> T findViewById(@IdRes int i);
 
     @Nullable
     public abstract ActionBarDrawerToggle.Delegate getDrawerToggleDelegate();
@@ -88,9 +92,9 @@ public abstract class AppCompatDelegate {
 
     public abstract void setContentView(@LayoutRes int i);
 
-    public abstract void setContentView(View view2);
+    public abstract void setContentView(View view);
 
-    public abstract void setContentView(View view2, ViewGroup.LayoutParams layoutParams);
+    public abstract void setContentView(View view, ViewGroup.LayoutParams layoutParams);
 
     public abstract void setHandleNativeActionModesEnabled(boolean z);
 
@@ -112,17 +116,16 @@ public abstract class AppCompatDelegate {
     }
 
     private static AppCompatDelegate create(Context context, Window window, AppCompatCallback appCompatCallback) {
-        int i = Build.VERSION.SDK_INT;
-        if (BuildCompat.isAtLeastN()) {
+        if (Build.VERSION.SDK_INT >= 24) {
             return new AppCompatDelegateImplN(context, window, appCompatCallback);
         }
-        if (i >= 23) {
+        if (Build.VERSION.SDK_INT >= 23) {
             return new AppCompatDelegateImplV23(context, window, appCompatCallback);
         }
-        if (i >= 14) {
+        if (Build.VERSION.SDK_INT >= 14) {
             return new AppCompatDelegateImplV14(context, window, appCompatCallback);
         }
-        if (i >= 11) {
+        if (Build.VERSION.SDK_INT >= 11) {
             return new AppCompatDelegateImplV11(context, window, appCompatCallback);
         }
         return new AppCompatDelegateImplV9(context, window, appCompatCallback);

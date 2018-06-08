@@ -6,21 +6,21 @@ import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a {
-    com.baidu.tieba.forumsearch.a.c cWN;
+    com.baidu.tieba.forumsearch.a.c dga;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new com.baidu.tieba.forumsearch.a.a(tbPageContext, com.baidu.tieba.forumsearch.b.a.cXf, tbPageContext.getUniqueId()));
-            this.cWN = new com.baidu.tieba.forumsearch.a.c(tbPageContext, com.baidu.tieba.forumsearch.b.b.cXm, tbPageContext.getUniqueId());
-            arrayList.add(this.cWN);
-            arrayList.add(new com.baidu.tieba.forumsearch.a.b(tbPageContext, com.baidu.tieba.forumsearch.b.a.cXe, tbPageContext.getUniqueId()));
-            arrayList.add(new com.baidu.tieba.forumsearch.a.d(tbPageContext, com.baidu.tieba.forumsearch.b.a.cXg, tbPageContext.getUniqueId()));
+            arrayList.add(new com.baidu.tieba.forumsearch.a.a(tbPageContext, com.baidu.tieba.forumsearch.b.a.dgs, tbPageContext.getUniqueId()));
+            this.dga = new com.baidu.tieba.forumsearch.a.c(tbPageContext, com.baidu.tieba.forumsearch.b.b.dgz, tbPageContext.getUniqueId());
+            arrayList.add(this.dga);
+            arrayList.add(new com.baidu.tieba.forumsearch.a.b(tbPageContext, com.baidu.tieba.forumsearch.b.a.dgr, tbPageContext.getUniqueId()));
+            arrayList.add(new com.baidu.tieba.forumsearch.a.d(tbPageContext, com.baidu.tieba.forumsearch.b.a.dgt, tbPageContext.getUniqueId()));
             bdTypeListView.addAdapters(arrayList);
         }
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.cWN.m(onClickListener);
+        this.dga.m(onClickListener);
     }
 }

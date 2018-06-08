@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private d fEG;
-    private com.baidu.tieba.personCenter.a.a fEH;
-    private com.baidu.tieba.personCenter.a.b fEI;
-    private com.baidu.tieba.personCenter.a.c fEt;
+    private com.baidu.tieba.personCenter.a.c fPN;
+    private d fQa;
+    private com.baidu.tieba.personCenter.a.a fQb;
+    private com.baidu.tieba.personCenter.a.b fQc;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -23,14 +23,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.fEG = new d(tbPageContext, f.fFl);
-        this.fEH = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.fEW);
-        this.fEI = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.fEX);
-        this.fEt = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fFk);
-        this.mAdapters.add(this.fEG);
-        this.mAdapters.add(this.fEH);
-        this.mAdapters.add(this.fEI);
-        this.mAdapters.add(this.fEt);
+        this.fQa = new d(tbPageContext, f.fQE);
+        this.fQb = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.fQp);
+        this.fQc = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.fQq);
+        this.fPN = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fQD);
+        this.mAdapters.add(this.fQa);
+        this.mAdapters.add(this.fQb);
+        this.mAdapters.add(this.fQc);
+        this.mAdapters.add(this.fPN);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -40,11 +40,11 @@ public class a {
         }
     }
 
-    public void bdH() {
-        this.fEH.bdH();
+    public void biH() {
+        this.fQb.biH();
     }
 
-    public void bdI() {
-        this.fEH.destroy();
+    public void biI() {
+        this.fQb.destroy();
     }
 }

@@ -1,6 +1,7 @@
 package com.coremedia.iso.boxes.fragment;
 
 import android.support.v7.widget.helper.ItemTouchHelper;
+import com.baidu.ar.util.MsgConstants;
 import com.baidu.fsg.base.activity.BaseActivity;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -16,26 +17,26 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static final String TYPE = "trun";
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_9 = null;
     private int dataOffset;
     private List<Entry> entries;
     private SampleFlags firstSampleFlags;
@@ -53,8 +54,8 @@ public class TrackRunBox extends AbstractFullBox {
         ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "setSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", NotifyType.VIBRATE, "", "void"), 287);
         ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", NotifyType.VIBRATE, "", "void"), 296);
         ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "setSampleCompositionTimeOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", NotifyType.VIBRATE, "", "void"), 304);
-        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "getDataOffset", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "int"), 313);
-        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "getFirstSampleFlags", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), 317);
+        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "getDataOffset", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "int"), MsgConstants.TRACK_IMU_OPEN);
+        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "getFirstSampleFlags", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), MsgConstants.TRACK_CLOSE_RECG_NOTSANNER);
         ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "setFirstSampleFlags", "com.coremedia.iso.boxes.fragment.TrackRunBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "firstSampleFlags", "", "void"), 321);
         ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "java.lang.String"), 331);
         ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.fragment.TrackRunBox", "java.util.List", "entries", "", "void"), 346);
@@ -128,7 +129,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setDataOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wD(i)));
         if (i == -1) {
             setFlags(getFlags() & 16777214);
         } else {
@@ -285,7 +286,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setDataOffsetPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.nW(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.ok(z)));
         if (z) {
             setFlags(getFlags() | 1);
         } else {
@@ -294,7 +295,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleSizePresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.nW(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.ok(z)));
         if (z) {
             setFlags(getFlags() | 512);
         } else {
@@ -303,7 +304,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleDurationPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.nW(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.ok(z)));
         if (z) {
             setFlags(getFlags() | 256);
         } else {
@@ -312,7 +313,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleFlagsPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.nW(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.ok(z)));
         if (z) {
             setFlags(getFlags() | 1024);
         } else {
@@ -321,7 +322,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleCompositionTimeOffsetPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.nW(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.ok(z)));
         if (z) {
             setFlags(getFlags() | 2048);
         } else {

@@ -3,12 +3,12 @@ package com.baidu.tbadk.album;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static final String Sf = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-    public static final String Sg = String.valueOf(2147483646);
-    private MediaFileInfo Sh;
-    private List<MediaFileInfo> Si;
+    public static final String aap = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    public static final String aaq = String.valueOf(2147483646);
+    private MediaFileInfo aar;
+    private List<MediaFileInfo> aas;
     private String albumId;
     private int count;
     private String name;
@@ -17,7 +17,7 @@ public class a {
         return this.albumId;
     }
 
-    public void cf(String str) {
+    public void cG(String str) {
         this.albumId = str;
     }
 
@@ -33,34 +33,34 @@ public class a {
         return this.count;
     }
 
-    public void cg(String str) {
+    public void cH(String str) {
         this.count = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public void os() {
+    public void rN() {
         this.count++;
     }
 
-    public ImageFileInfo ot() {
-        if (this.Sh instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.Sh;
+    public ImageFileInfo rO() {
+        if (this.aar instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.aar;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.Sh = mediaFileInfo;
+        this.aar = mediaFileInfo;
     }
 
-    public MediaFileInfo ou() {
-        return this.Sh;
+    public MediaFileInfo rP() {
+        return this.aar;
     }
 
-    public List<MediaFileInfo> ov() {
-        return this.Si;
+    public List<MediaFileInfo> rQ() {
+        return this.aas;
     }
 
-    public void m(List<MediaFileInfo> list) {
-        this.Si = list;
+    public void p(List<MediaFileInfo> list) {
+        this.aas = list;
     }
 }

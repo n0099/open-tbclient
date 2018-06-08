@@ -2,10 +2,12 @@ package android.support.v7.app;
 
 import android.app.UiModeManager;
 import android.content.Context;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatDelegateImplV14;
 import android.view.ActionMode;
 import android.view.Window;
 /* JADX INFO: Access modifiers changed from: package-private */
+@RequiresApi(23)
 /* loaded from: classes2.dex */
 public class AppCompatDelegateImplV23 extends AppCompatDelegateImplV14 {
     private final UiModeManager mUiModeManager;

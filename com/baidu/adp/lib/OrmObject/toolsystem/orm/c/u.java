@@ -20,83 +20,83 @@ public class u implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Class<?> dP;
+        Class<?> gG;
         try {
-            dP = cVar.dP();
+            gG = cVar.gG();
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        if (dP == Byte.class || dP == Byte.TYPE) {
+        if (gG == Byte.class || gG == Byte.TYPE) {
             return Byte.valueOf(Byte.parseByte(this.value));
         }
-        if (dP == Short.class || dP == Short.TYPE) {
+        if (gG == Short.class || gG == Short.TYPE) {
             return Short.valueOf(Short.parseShort(this.value));
         }
-        if (dP == Integer.class || dP == Integer.TYPE) {
+        if (gG == Integer.class || gG == Integer.TYPE) {
             return Integer.valueOf(Integer.parseInt(this.value));
         }
-        if (dP == Long.class || dP == Long.TYPE) {
+        if (gG == Long.class || gG == Long.TYPE) {
             return Long.valueOf(Long.parseLong(this.value));
         }
-        if (dP == Float.class || dP == Float.TYPE) {
+        if (gG == Float.class || gG == Float.TYPE) {
             return Float.valueOf(Float.parseFloat(this.value));
         }
-        if (dP == Double.class || dP == Double.TYPE) {
+        if (gG == Double.class || gG == Double.TYPE) {
             return Double.valueOf(Double.parseDouble(this.value));
         }
-        if (dP == Character.class || dP == Character.TYPE) {
+        if (gG == Character.class || gG == Character.TYPE) {
             return Character.valueOf(this.value.charAt(0));
         }
-        if (dP == Boolean.class || dP == Boolean.TYPE) {
+        if (gG == Boolean.class || gG == Boolean.TYPE) {
             return Boolean.valueOf(Boolean.parseBoolean(this.value));
         }
-        if (dP == String.class) {
+        if (gG == String.class) {
             return this.value;
         }
-        if (dP == char[].class) {
+        if (gG == char[].class) {
             return this.value.toCharArray();
         }
-        if (dP == byte[].class) {
+        if (gG == byte[].class) {
             try {
                 return com.baidu.adp.lib.util.c.decode(this.value, 0);
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-        } else if (com.baidu.adp.lib.OrmObject.a.a.d(dP, OrmObject.class)) {
-            return OrmObject.objectWithJsonStr(this.value, dP);
+        } else if (com.baidu.adp.lib.OrmObject.a.a.d(gG, OrmObject.class)) {
+            return OrmObject.objectWithJsonStr(this.value, gG);
         } else {
-            if (com.baidu.adp.lib.OrmObject.a.a.d(dP, List.class)) {
+            if (com.baidu.adp.lib.OrmObject.a.a.d(gG, List.class)) {
                 try {
                     return new j(new JSONArray(this.value)).g(cVar);
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
-            } else if (dP.isArray()) {
+            } else if (gG.isArray()) {
                 try {
                     return new j(new JSONArray(this.value)).g(cVar);
                 } catch (JSONException e4) {
                     e4.printStackTrace();
                 }
-            } else if (com.baidu.adp.lib.OrmObject.a.a.d(dP, Queue.class)) {
+            } else if (com.baidu.adp.lib.OrmObject.a.a.d(gG, Queue.class)) {
                 try {
                     return new j(new JSONArray(this.value)).g(cVar);
                 } catch (JSONException e5) {
                     e5.printStackTrace();
                 }
-            } else if (com.baidu.adp.lib.OrmObject.a.a.d(dP, Set.class)) {
+            } else if (com.baidu.adp.lib.OrmObject.a.a.d(gG, Set.class)) {
                 try {
                     return new j(new JSONArray(this.value)).g(cVar);
                 } catch (JSONException e6) {
                     e6.printStackTrace();
                 }
-            } else if (com.baidu.adp.lib.OrmObject.a.a.d(dP, Map.class)) {
+            } else if (com.baidu.adp.lib.OrmObject.a.a.d(gG, Map.class)) {
                 try {
                     return new k(new JSONObject(this.value)).g(cVar);
                 } catch (JSONException e7) {
                     e7.printStackTrace();
                 }
             } else {
-                if (com.baidu.adp.lib.OrmObject.a.a.d(dP, SparseArray.class)) {
+                if (com.baidu.adp.lib.OrmObject.a.a.d(gG, SparseArray.class)) {
                     try {
                         return new k(new JSONObject(this.value)).g(cVar);
                     } catch (JSONException e8) {

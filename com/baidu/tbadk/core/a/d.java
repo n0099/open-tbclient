@@ -21,7 +21,7 @@ public class d {
         View inflate = LayoutInflater.from(context).inflate(d.i.layout_sapi_network_unavailable, (ViewGroup) null);
         inflate.findViewById(d.g.btn_network_settings).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 Intent intent = new Intent("android.settings.SETTINGS");
                 intent.setFlags(270532608);
                 context.startActivity(intent);
@@ -34,7 +34,7 @@ public class d {
         final View inflate = LayoutInflater.from(context).inflate(d.i.layout_sapi_loading_timeout, (ViewGroup) null);
         inflate.findViewById(d.g.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 SapiWebView.this.post(new Runnable() { // from class: com.baidu.tbadk.core.a.d.2.1
                     @Override // java.lang.Runnable
                     public void run() {

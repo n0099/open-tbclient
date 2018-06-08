@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +22,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
@@ -76,6 +76,11 @@ public class NavigationBar extends RelativeLayout {
         BACK_BUTTON
     }
 
+    /* loaded from: classes.dex */
+    public interface a {
+        void b(Pair<Integer, Integer> pair);
+    }
+
     public int getFixedNavHeight() {
         return this.mFixedNavHeight;
     }
@@ -87,7 +92,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = d.C0126d.cp_bg_line_c;
+        this.mBottomLineColor = d.C0141d.cp_bg_line_c;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -103,9 +108,9 @@ public class NavigationBar extends RelativeLayout {
         this.containerWidth = 0;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 if (NavigationBar.this.mClickIsVaild) {
-                    int id = view2.getId();
+                    int id = view.getId();
                     if (id == d.g.navigationBarGoBack) {
                         NavigationBar.this.mCurrentActivity.finish();
                     } else if (id == d.g.navigationBarHome) {
@@ -124,7 +129,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = d.C0126d.cp_bg_line_c;
+        this.mBottomLineColor = d.C0141d.cp_bg_line_c;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -140,9 +145,9 @@ public class NavigationBar extends RelativeLayout {
         this.containerWidth = 0;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 if (NavigationBar.this.mClickIsVaild) {
-                    int id = view2.getId();
+                    int id = view.getId();
                     if (id == d.g.navigationBarGoBack) {
                         NavigationBar.this.mCurrentActivity.finish();
                     } else if (id == d.g.navigationBarHome) {
@@ -161,7 +166,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = d.C0126d.cp_bg_line_c;
+        this.mBottomLineColor = d.C0141d.cp_bg_line_c;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -177,9 +182,9 @@ public class NavigationBar extends RelativeLayout {
         this.containerWidth = 0;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 if (NavigationBar.this.mClickIsVaild) {
-                    int id = view2.getId();
+                    int id = view.getId();
                     if (id == d.g.navigationBarGoBack) {
                         NavigationBar.this.mCurrentActivity.finish();
                     } else if (id == d.g.navigationBarHome) {
@@ -199,7 +204,7 @@ public class NavigationBar extends RelativeLayout {
 
     private void init(Context context, AttributeSet attributeSet) {
         boolean z;
-        this.mFixedNavHeight = l.e(getContext(), d.e.ds88);
+        this.mFixedNavHeight = com.baidu.adp.lib.util.l.e(getContext(), d.e.ds88);
         this.mCurrentActivity = (Activity) context;
         this.mRootView = LayoutInflater.from(context).inflate(d.i.widget_navigation_bar, (ViewGroup) this, true);
         this.mContentLayout = (FrameLayout) this.mRootView.findViewById(d.g.navigation_bar_content_layout);
@@ -211,7 +216,7 @@ public class NavigationBar extends RelativeLayout {
         this.mCenterText = (TextView) this.mRootView.findViewById(d.g.center_text);
         this.mBottomLine = this.mRootView.findViewById(d.g.bottom_line);
         this.topCoverBgView = this.mRootView.findViewById(d.g.navigation_bar_view_cover_bg);
-        this.topCoverBgView.setBackgroundDrawable(ak.u(0, d.f.navigation_cover_top_bg));
+        this.topCoverBgView.setBackgroundDrawable(al.v(0, d.f.navigation_cover_top_bg));
         this.barBgView = this.mRootView.findViewById(d.g.navigation_bar_view_bg);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.m.NavigationBar);
@@ -234,7 +239,7 @@ public class NavigationBar extends RelativeLayout {
         switchNaviBarStatus(true);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
             }
         });
         this.mNavIsShow = true;
@@ -257,12 +262,12 @@ public class NavigationBar extends RelativeLayout {
     }
 
     private View createStateBarFillView() {
-        View view2 = new View(getContext());
-        view2.setId(d.g.navigation_bar_status_bar);
+        View view = new View(getContext());
+        view.setId(d.g.navigation_bar_status_bar);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight());
         layoutParams.addRule(10, -1);
-        view2.setLayoutParams(layoutParams);
-        return view2;
+        view.setLayoutParams(layoutParams);
+        return view;
     }
 
     public void switchNaviBarStatus(boolean z) {
@@ -309,7 +314,7 @@ public class NavigationBar extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initPadding() {
-        setPadding(l.dip2px(this.mCurrentActivity, getResources().getDimension(d.e.ds0)), l.dip2px(this.mCurrentActivity, getResources().getDimension(d.e.ds0)), l.dip2px(this.mCurrentActivity, getResources().getDimension(d.e.ds0)), l.dip2px(this.mCurrentActivity, getResources().getDimension(d.e.ds0)));
+        setPadding(com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(d.e.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(d.e.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(d.e.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(d.e.ds0)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -317,7 +322,7 @@ public class NavigationBar extends RelativeLayout {
         int i3;
         if (this.isFixedHeight) {
             int mode = View.MeasureSpec.getMode(i2);
-            int e = l.e(getContext(), d.e.ds88);
+            int e = com.baidu.adp.lib.util.l.e(getContext(), d.e.ds88);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mContentLayout.getLayoutParams();
             if (Math.abs(layoutParams.topMargin) > this.mContentLayout.getHeight()) {
                 if (layoutParams.topMargin >= 0) {
@@ -384,8 +389,8 @@ public class NavigationBar extends RelativeLayout {
         return setTitleText(this.mCurrentActivity.getString(i));
     }
 
-    public View setTitleView(View view2, View.OnClickListener onClickListener) {
-        return addCustomView(ControlAlign.HORIZONTAL_CENTER, view2, onClickListener);
+    public View setTitleView(View view, View.OnClickListener onClickListener) {
+        return addCustomView(ControlAlign.HORIZONTAL_CENTER, view, onClickListener);
     }
 
     public boolean isFixedHeight() {
@@ -448,7 +453,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void setDefTextButtonColor(TextView textView) {
-        ak.h(textView, d.C0126d.navi_op_text);
+        al.h(textView, d.C0141d.navi_op_text);
     }
 
     public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
@@ -537,14 +542,14 @@ public class NavigationBar extends RelativeLayout {
         getViewGroup(controlAlign).removeAllViews();
     }
 
-    public View addCustomView(ControlAlign controlAlign, View view2, View.OnClickListener onClickListener) {
-        getViewGroup(controlAlign).addView(view2);
+    public View addCustomView(ControlAlign controlAlign, View view, View.OnClickListener onClickListener) {
+        getViewGroup(controlAlign).addView(view);
         if (onClickListener != null) {
-            view2.setOnClickListener(onClickListener);
+            view.setOnClickListener(onClickListener);
         }
         if (controlAlign == ControlAlign.HORIZONTAL_CENTER) {
         }
-        return view2;
+        return view;
     }
 
     public View addCustomView(ControlAlign controlAlign, int i, View.OnClickListener onClickListener) {
@@ -581,25 +586,25 @@ public class NavigationBar extends RelativeLayout {
     public void onChangeSkinType(com.baidu.adp.base.e<?> eVar, int i) {
         BitmapDrawable bitmapDrawable;
         if (this.isAutoNight) {
-            bitmapDrawable = new BitmapDrawable(ak.cP(d.f.s_navbar_bg));
+            bitmapDrawable = new BitmapDrawable(al.cR(d.f.s_navbar_bg));
         } else {
-            bitmapDrawable = new BitmapDrawable(ak.v(d.f.s_navbar_bg, i));
+            bitmapDrawable = new BitmapDrawable(al.w(d.f.s_navbar_bg, i));
         }
         setBackgroundDrawable(bitmapDrawable);
-        ak.e(this.mBottomLine, this.mBottomLineColor, i);
+        al.e(this.mBottomLine, this.mBottomLineColor, i);
         onBackBtnOnChangeSkin(i);
-        ak.b(this.mTextTitle, d.C0126d.cp_cont_b, d.C0126d.s_navbar_title_color);
-        ak.b(this.mCenterText, d.C0126d.cp_cont_b, d.C0126d.s_navbar_title_color);
+        al.b(this.mTextTitle, d.C0141d.cp_cont_b, d.C0141d.s_navbar_title_color);
+        al.b(this.mCenterText, d.C0141d.cp_cont_b, d.C0141d.s_navbar_title_color);
         if (this.mRegisterView != null) {
-            ak.c(this.mRegisterView, d.C0126d.cp_cont_f, 1);
+            al.c(this.mRegisterView, d.C0141d.cp_cont_f, 1);
         }
         if (this.mLoginView != null) {
-            ak.c(this.mLoginView, d.C0126d.cp_cont_f, 1);
+            al.c(this.mLoginView, d.C0141d.cp_cont_f, 1);
         }
         initPadding();
         if (eVar instanceof TbPageContext) {
             ((TbPageContext) eVar).getLayoutMode().setNightMode(i == 1);
-            ((TbPageContext) eVar).getLayoutMode().u(this);
+            ((TbPageContext) eVar).getLayoutMode().onModeChanged(this);
         }
     }
 
@@ -612,9 +617,9 @@ public class NavigationBar extends RelativeLayout {
             i = TbadkCoreApplication.getInst().getSkinType();
         }
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
-            ak.b(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
+            al.b(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else {
-            ak.b(this.mBackImageView, d.f.icon_return_bg_s, d.f.icon_return_bg, i);
+            al.b(this.mBackImageView, d.f.icon_return_bg_s, d.f.icon_return_bg, i);
         }
     }
 
@@ -625,7 +630,7 @@ public class NavigationBar extends RelativeLayout {
     public void setmBackImageViewBg(int i, int i2) {
         this.mBackImagedeepResId = i;
         this.mBackImagelightResId = i2;
-        ak.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId);
+        al.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId);
     }
 
     public void release() {

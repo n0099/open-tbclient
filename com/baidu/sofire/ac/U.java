@@ -11,7 +11,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.appsearchlib.Info;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.util.IoUtils;
 import com.baidu.fsg.base.statistics.h;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.b.b;
@@ -28,6 +28,7 @@ import com.baidu.sofire.e;
 import com.baidu.sofire.jni.Asc;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.security.PublicKey;
@@ -368,7 +369,7 @@ public class U extends Thread {
                                     packageInfo2.versionName = optJSONObject2.optString(NotifyType.VIBRATE);
                                     ApplicationInfo applicationInfo = new ApplicationInfo();
                                     applicationInfo.className = optJSONObject2.optString("n");
-                                    if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(Constants.DOT)) {
+                                    if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                                         applicationInfo.className = next + applicationInfo.className;
                                     }
                                     applicationInfo.theme = optJSONObject2.optInt(Info.kBaiduTimeKey);
@@ -386,7 +387,7 @@ public class U extends Thread {
                                             if (jSONObject7 != null) {
                                                 ActivityInfo activityInfo = new ActivityInfo();
                                                 activityInfo.name = jSONObject7.optString("n");
-                                                if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(Constants.DOT)) {
+                                                if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
                                                     activityInfo.name = next + activityInfo.name;
                                                 }
                                                 activityInfo.packageName = next;
@@ -532,7 +533,7 @@ public class U extends Thread {
                                             file.mkdir();
                                         }
                                         File file2 = new File(apkInfo5.pkgPath);
-                                        File file3 = new File(file, apkInfo5.key + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo5.versionName);
+                                        File file3 = new File(file, apkInfo5.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo5.versionName);
                                         if (!d.a(file3)) {
                                             d.a(file2, file3);
                                         }
@@ -540,7 +541,7 @@ public class U extends Thread {
                                     } else {
                                         File file4 = new File(this.context.getFilesDir(), ".b");
                                         if (file4.exists()) {
-                                            File file5 = new File(file4, apkInfo5.key + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo5.versionName);
+                                            File file5 = new File(file4, apkInfo5.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo5.versionName);
                                             if (d.a(file5)) {
                                                 com.baidu.sofire.c.a(file5);
                                                 new StringBuilder().append(file5.getAbsolutePath()).append(" s=").append(file5.delete());
@@ -599,7 +600,7 @@ public class U extends Thread {
                 hashMap.put("5", this.mCloudKeyMap.values());
             }
             if (this.mUnloadPluginsList != null) {
-                hashMap.put("6", this.mUnloadPluginsList);
+                hashMap.put(com.tencent.connect.common.Constants.VIA_SHARE_TYPE_INFO, this.mUnloadPluginsList);
             }
             if (this.mDownloadPluginsList != null) {
                 hashMap.put("7", this.mDownloadPluginsList);
@@ -724,15 +725,15 @@ public class U extends Thread {
                 File file = new File(a2.pkgPath);
                 sb.append("origAPK path:" + file.getAbsolutePath() + ", exists=" + file.exists() + ", canRead=" + file.canRead() + ", isFile=" + file.isFile() + ",length" + file.length());
             }
-            File file2 = new File(this.tmpDir, apkInfo.key + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".tmp");
-            File file3 = new File(this.tmpDir, apkInfo.key + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".zip");
+            File file2 = new File(this.tmpDir, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".tmp");
+            File file3 = new File(this.tmpDir, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".zip");
             boolean a3 = new k(this.context).a(apkInfo.downloadURL, file2);
             if (a3) {
                 if (file3.exists()) {
                     file3.delete();
                 }
                 Asc asc = new Asc();
-                byte[] bytes = apkInfo.signMD5.substring(0, apkInfo.signMD5.length() / 2).getBytes("utf-8");
+                byte[] bytes = apkInfo.signMD5.substring(0, apkInfo.signMD5.length() / 2).getBytes(IoUtils.UTF_8);
                 d.d(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SET_AVATAR);
                 if (com.baidu.sofire.b.a.a(file2, file3, bytes) != 0) {
                     if (file3.exists()) {
@@ -761,7 +762,7 @@ public class U extends Thread {
                     if (!file4.exists()) {
                         file4.mkdir();
                     }
-                    File file5 = new File(file4, apkInfo.key + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName);
+                    File file5 = new File(file4, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName);
                     d.a(file3, file5);
                     com.baidu.sofire.c.a(this.context, apkInfo.key, file3, file5);
                 }

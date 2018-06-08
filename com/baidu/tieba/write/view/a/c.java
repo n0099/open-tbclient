@@ -5,20 +5,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.base.e;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private HorizontalListView gPi;
-    private d hgs;
+    private HorizontalListView haK;
+    private d hsn;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.hgs.b(cVar);
+        this.hsn.b(cVar);
     }
 
     public c(e eVar) {
@@ -28,9 +28,9 @@ public class c extends a {
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(d.i.pic_sticker_view, (ViewGroup) null);
-        this.gPi = (HorizontalListView) this.mRootView.findViewById(d.g.horizontal_list);
-        this.hgs = new com.baidu.tieba.write.write.d();
-        this.gPi.setAdapter((ListAdapter) this.hgs);
+        this.haK = (HorizontalListView) this.mRootView.findViewById(d.g.horizontal_list);
+        this.hsn = new com.baidu.tieba.write.write.d();
+        this.haK.setAdapter((ListAdapter) this.hsn);
     }
 
     public View getRootView() {
@@ -38,17 +38,17 @@ public class c extends a {
     }
 
     public void onChangeSkinType() {
-        ak.j(this.mRootView, d.C0126d.cp_bg_line_d);
+        al.j(this.mRootView, d.C0141d.cp_bg_line_d);
     }
 
-    public void dN(List<String> list) {
-        if (!v.w(list)) {
-            this.hgs.setData(list);
-            this.hgs.notifyDataSetChanged();
+    public void dT(List<String> list) {
+        if (!w.z(list)) {
+            this.hsn.setData(list);
+            this.hsn.notifyDataSetChanged();
         }
     }
 
-    public void bCJ() {
-        this.hgs.notifyDataSetChanged();
+    public void bHO() {
+        this.hsn.notifyDataSetChanged();
     }
 }

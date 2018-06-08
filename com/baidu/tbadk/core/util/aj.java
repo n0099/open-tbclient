@@ -1,94 +1,163 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.Intent;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AttentionHostData;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.d;
-import java.io.File;
 /* loaded from: classes.dex */
 public class aj {
-    public static void b(TbPageContext<?> tbPageContext) {
-        try {
-            if (!k.m15do()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.uC());
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.uC());
-                }
-            } else {
-                File dA = k.dA("camera.jpg");
-                if (dA != null) {
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(dA, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, IEventCenterService.EventId.EventMode.SAPIACCOUNT_DYNAMICPWD_LOGIN);
-                } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.k.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.k.error_sd_error));
+    public static int aqv = 0;
+    public static int aqw = 1;
+    public static int aqx = 2;
+    public static int aqy = 2;
+    public static int aqz = 3;
+    private com.baidu.tbadk.core.dialog.a Qk;
+    private com.baidu.tbadk.coreExtra.model.a aqA;
+    private AttentionHostData aqB;
+    private int aqC;
+    private a aqD;
+    private TbPageContext mContext;
+    private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tbadk.core.util.aj.5
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage instanceof UpdateAttentionMessage) {
+                UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+                UpdateAttentionMessage.a data = updateAttentionMessage.getData();
+                if (aj.this.aqB != null && !StringUtils.isNull(aj.this.aqB.uid) && data != null && aj.this.aqB.uid.equals(data.toUid)) {
+                    boolean z = false;
+                    if (updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag().equals(aj.this.mId)) {
+                        z = true;
+                    }
+                    if (data.Gp) {
+                        aj.this.aqB.likeStatus = data.status;
+                        aj.this.aqB.isAttention = data.isAttention;
+                    }
+                    if (z && aj.this.aqD != null) {
+                        aj.this.aqD.c(data.Gp, aj.this.aqC);
+                    }
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        }
+    };
+    private BdUniqueId mId = BdUniqueId.gen();
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void c(boolean z, int i);
+    }
+
+    public aj(TbPageContext tbPageContext) {
+        this.mContext = tbPageContext;
+        this.mAttentionListener.setTag(this.mId);
+        MessageManager.getInstance().registerListener(this.mAttentionListener);
+    }
+
+    public boolean cM(int i) {
+        if (i == aqz) {
+            com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), d.k.reason_cannot_reply_thread);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean u(int i, int i2) {
+        this.aqC = i2;
+        if (i == aqy) {
+            if (this.aqB == null || this.aqB.isAttention) {
+                return true;
+            }
+            zi();
+            return false;
+        } else if (i == aqz) {
+            com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), d.k.reason_cannot_reply_thread);
+            return false;
+        } else {
+            return true;
         }
     }
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
-        try {
-            if (!k.m15do()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.uC());
-                    return;
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.uC());
-                    return;
-                } else {
-                    return;
+    public void a(AttentionHostData attentionHostData) {
+        this.aqB = attentionHostData;
+    }
+
+    private void zi() {
+        if (this.Qk == null) {
+            this.Qk = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
+            this.Qk.cc(d.k.message_privacy_fans_can_reply);
+            this.Qk.a(d.k.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.aj.1
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+                    aj.this.zj();
+                    aj.this.Qk.dismiss();
                 }
+            });
+            this.Qk.b(d.k.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.aj.2
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+                    aj.this.Qk.dismiss();
+                }
+            });
+            this.Qk.setAutoNight(true);
+            this.Qk.b(this.mContext);
+        }
+        this.Qk.xa();
+    }
+
+    public void a(com.baidu.tbadk.core.data.ax axVar) {
+        if (axVar != null && !StringUtils.isNull(axVar.title) && !StringUtils.isNull(axVar.ahu) && !StringUtils.isNull(axVar.ahv)) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
+            aVar.dB(axVar.title);
+            aVar.a(axVar.ahv, new a.b() { // from class: com.baidu.tbadk.core.util.aj.3
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aj.this.zj();
+                    aVar2.dismiss();
+                }
+            });
+            aVar.b(axVar.ahu, new a.b() { // from class: com.baidu.tbadk.core.util.aj.4
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aVar2.dismiss();
+                }
+            });
+            aVar.setAutoNight(true);
+            aVar.b(this.mContext);
+            aVar.xa();
+            return;
+        }
+        zi();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void zj() {
+        if (!com.baidu.adp.lib.util.j.jr()) {
+            this.mContext.showToast(d.k.network_ungeilivable);
+        } else if (this.aqB != null && ba.aU(this.mContext.getPageActivity())) {
+            if (this.aqA == null) {
+                this.aqA = new com.baidu.tbadk.coreExtra.model.a(this.mContext);
             }
-            String str2 = k.wA + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
-            boolean z = false;
-            if (k.dr(str2)) {
-                File file = new File(str2 + "/" + str);
-                if (!file.exists()) {
-                    z = file.createNewFile();
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, IEventCenterService.EventId.EventMode.SAPIACCOUNT_DYNAMICPWD_LOGIN);
-                }
-            }
-            if (!z) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.k.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.k.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.aqA.a(true, this.aqB.portrait, this.aqB.uid, this.aqB.isGod, "0", this.mId, null, "0");
         }
     }
 
-    public static void s(Activity activity) {
-        t(activity);
+    public void a(a aVar) {
+        this.aqD = aVar;
     }
 
-    public static void t(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.mId);
+        if (this.Qk != null) {
+            this.Qk.dismiss();
+        }
+        if (this.aqA != null) {
+            this.aqA.cancel();
         }
     }
 }

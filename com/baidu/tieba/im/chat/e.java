@@ -9,79 +9,79 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected com.baidu.adp.lib.c.a dRD;
-    protected com.baidu.adp.lib.c.b dRE;
-    protected long dRK;
-    private boolean dRL;
-    private boolean dRM;
-    protected int dRN;
+    protected com.baidu.adp.lib.c.a ecQ;
+    protected com.baidu.adp.lib.c.b ecR;
+    protected long ecX;
+    private boolean ecY;
+    private boolean ecZ;
+    protected int eda;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dRD = null;
-        this.dRE = null;
-        this.dRK = 0L;
-        this.dRL = false;
-        this.dRM = false;
+        this.ecQ = null;
+        this.ecR = null;
+        this.ecX = 0L;
+        this.ecY = false;
+        this.ecZ = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.dRD = aVar;
+        this.ecQ = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.dRE = bVar;
+        this.ecR = bVar;
     }
 
-    private void aAP() {
-        this.dRK = System.currentTimeMillis() / 1000;
+    private void aFK() {
+        this.ecX = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aAQ() {
-        return this.dRL;
+    public boolean aFL() {
+        return this.ecY;
     }
 
-    public void gH(boolean z) {
-        this.dRL = z;
+    public void gN(boolean z) {
+        this.ecY = z;
     }
 
-    public boolean aAR() {
-        return this.dRM;
+    public boolean aFM() {
+        return this.ecZ;
     }
 
-    public void gI(boolean z) {
-        this.dRM = z;
+    public void gO(boolean z) {
+        this.ecZ = z;
     }
 
-    public void nf(int i) {
-        this.dRN = i;
+    public void nr(int i) {
+        this.eda = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, a<T> aVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, a<T> aVar) {
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        aAP();
-        return view2;
+        aFK();
+        return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends q.a {
-        private T dRO;
+        private T edb;
 
-        public a(View view2, T t) {
-            super(view2);
-            this.dRO = t;
+        public a(View view, T t) {
+            super(view);
+            this.edb = t;
         }
 
-        public T aAS() {
-            return this.dRO;
+        public T aFN() {
+            return this.edb;
         }
     }
 }

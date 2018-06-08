@@ -1,6 +1,5 @@
 package com.squareup.wire;
 
-import com.baidu.ar.util.Constants;
 import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.io.IOException;
@@ -249,7 +248,7 @@ public final class MessageAdapter<M extends Message> {
         try {
             return this.builderType.getDeclaredField(str);
         } catch (Exception e) {
-            throw new AssertionError("No builder Field " + this.builderType.getName() + Constants.DOT + str + "(" + cls.getName() + ")");
+            throw new AssertionError("No builder Field " + this.builderType.getName() + "." + str + "(" + cls.getName() + ")");
         }
     }
 

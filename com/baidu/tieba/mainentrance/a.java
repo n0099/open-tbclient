@@ -10,51 +10,51 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.mainentrance.ForumSuggestModel;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private final BaseActivity<?> bcK;
-    private final boolean eCN = true;
-    private ArrayList<ForumSuggestModel.Forum> eCO;
-    private String eCP;
+    private final BaseActivity<?> bkU;
+    private final boolean eOh = true;
+    private ArrayList<ForumSuggestModel.Forum> eOi;
+    private String eOj;
 
     public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.bcK = baseActivity;
-        this.eCO = arrayList;
+        this.bkU = baseActivity;
+        this.eOi = arrayList;
     }
 
     public void Y(ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.eCO = arrayList;
-        if (this.eCO != null) {
+        this.eOi = arrayList;
+        if (this.eOi != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void oK(String str) {
-        this.eCP = str;
+    public void py(String str) {
+        this.eOj = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eCO == null) {
+        if (this.eOi == null) {
             return 0;
         }
-        return this.eCO.size();
+        return this.eOi.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oJ */
+    /* renamed from: oV */
     public ForumSuggestModel.Forum getItem(int i) {
         int count = getCount();
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.eCO.get(i);
+        return this.eOi.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,92 +63,92 @@ public class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        C0179a c0179a;
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        C0195a c0195a;
         String str;
-        if (view2 == null) {
-            view2 = LayoutInflater.from(this.bcK.getPageContext().getPageActivity()).inflate(d.i.square_dialog_search_item, (ViewGroup) null);
-            C0179a c0179a2 = new C0179a();
-            c0179a2.eCR = (BarImageView) view2.findViewById(d.g.forum_avatar);
-            c0179a2.eCR.setGifIconSupport(false);
-            c0179a2.apV = (TextView) view2.findViewById(d.g.name);
-            c0179a2.eCS = (TextView) view2.findViewById(d.g.forum_member_count);
-            c0179a2.eCT = (TextView) view2.findViewById(d.g.forum_thread_count);
-            c0179a2.eCU = (TextView) view2.findViewById(d.g.slogan);
-            c0179a2.eCQ = view2.findViewById(d.g.offical_icon);
-            view2.setTag(c0179a2);
-            c0179a = c0179a2;
+        if (view == null) {
+            view = LayoutInflater.from(this.bkU.getPageContext().getPageActivity()).inflate(d.i.square_dialog_search_item, (ViewGroup) null);
+            C0195a c0195a2 = new C0195a();
+            c0195a2.eOl = (BarImageView) view.findViewById(d.g.forum_avatar);
+            c0195a2.eOl.setGifIconSupport(false);
+            c0195a2.ayc = (TextView) view.findViewById(d.g.name);
+            c0195a2.eOm = (TextView) view.findViewById(d.g.forum_member_count);
+            c0195a2.eOn = (TextView) view.findViewById(d.g.forum_thread_count);
+            c0195a2.eOo = (TextView) view.findViewById(d.g.slogan);
+            c0195a2.eOk = view.findViewById(d.g.offical_icon);
+            view.setTag(c0195a2);
+            c0195a = c0195a2;
         } else {
-            c0179a = (C0179a) view2.getTag();
+            c0195a = (C0195a) view.getTag();
         }
         ForumSuggestModel.Forum item = getItem(i);
         if (item != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             String str2 = item.avatar;
-            c0179a.eCR.setTag(str2);
-            c0179a.eCR.startLoad(str2, 10, false);
-            c0179a.eCR.invalidate();
-            if (this.eCN) {
-                str = this.bcK.getPageContext().getPageActivity().getString(d.k.chosen_pb_original_bar, new Object[]{item.forum_name});
+            c0195a.eOl.setTag(str2);
+            c0195a.eOl.startLoad(str2, 10, false);
+            c0195a.eOl.invalidate();
+            if (this.eOh) {
+                str = this.bkU.getPageContext().getPageActivity().getString(d.k.chosen_pb_original_bar, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
-            a(c0179a.apV, str);
-            c0179a.eCR.setTag(item.avatar);
-            c0179a.eCS.setText(this.bcK.getPageContext().getString(d.k.attention) + " " + oK(item.member_num));
-            c0179a.eCT.setText(this.bcK.getPageContext().getString(d.k.text_post) + " " + oK(item.thread_num));
-            if (this.eCN || !TextUtils.isEmpty(item.slogan)) {
-                c0179a.eCU.setVisibility(0);
-                c0179a.eCU.setText(item.slogan);
+            a(c0195a.ayc, str);
+            c0195a.eOl.setTag(item.avatar);
+            c0195a.eOm.setText(this.bkU.getPageContext().getString(d.k.attention) + " " + oW(item.member_num));
+            c0195a.eOn.setText(this.bkU.getPageContext().getString(d.k.text_post) + " " + oW(item.thread_num));
+            if (this.eOh || !TextUtils.isEmpty(item.slogan)) {
+                c0195a.eOo.setVisibility(0);
+                c0195a.eOo.setText(item.slogan);
             } else {
-                c0179a.eCU.setVisibility(8);
+                c0195a.eOo.setVisibility(8);
             }
             if (item.is_offical == 1) {
-                c0179a.eCQ.setVisibility(0);
-                ak.i(c0179a.eCQ, d.f.icon_search_official);
+                c0195a.eOk.setVisibility(0);
+                al.i(c0195a.eOk, d.f.icon_search_official);
             } else {
-                c0179a.eCQ.setVisibility(8);
+                c0195a.eOk.setVisibility(8);
             }
-            this.bcK.getLayoutMode().setNightMode(skinType == 1);
-            this.bcK.getLayoutMode().u(view2);
+            this.bkU.getLayoutMode().setNightMode(skinType == 1);
+            this.bkU.getLayoutMode().onModeChanged(view);
         }
-        return view2;
+        return view;
     }
 
-    public String oK(int i) {
+    public String oW(int i) {
         if (i >= 100000) {
-            return String.valueOf(i / 10000) + this.bcK.getPageContext().getString(d.k.member_count_unit);
+            return String.valueOf(i / 10000) + this.bkU.getPageContext().getString(d.k.member_count_unit);
         }
         return String.valueOf(i);
     }
 
     public void a(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.eCP)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.eOj)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.eCP.toLowerCase();
+            String lowerCase2 = this.eOj.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
             }
             int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ak.getColor(d.C0126d.cp_cont_h));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(al.getColor(d.C0141d.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.eCP.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.eOj.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }
 
     /* renamed from: com.baidu.tieba.mainentrance.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0179a {
-        TextView apV;
-        View eCQ;
-        BarImageView eCR;
-        TextView eCS;
-        TextView eCT;
-        TextView eCU;
+    private class C0195a {
+        TextView ayc;
+        View eOk;
+        BarImageView eOl;
+        TextView eOm;
+        TextView eOn;
+        TextView eOo;
 
-        private C0179a() {
+        private C0195a() {
         }
     }
 }

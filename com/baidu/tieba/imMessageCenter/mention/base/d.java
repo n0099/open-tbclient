@@ -17,8 +17,8 @@ public class d extends RecyclerView.ItemDecoration {
     }
 
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
-        int viewLayoutPosition = ((RecyclerView.LayoutParams) view2.getLayoutParams()).getViewLayoutPosition();
+    public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
+        int viewLayoutPosition = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
         if (recyclerView instanceof BdRecyclerView) {
             int headerViewsCount = ((BdRecyclerView) recyclerView).getHeaderViewsCount();
             if (viewLayoutPosition >= 0 && viewLayoutPosition < headerViewsCount - 1) {

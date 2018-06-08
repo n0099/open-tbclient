@@ -62,7 +62,7 @@ public class CommentComponentView extends FrameLayout {
         addView(this.mContentLy);
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.sina.weibo.sdk.component.view.CommentComponentView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 CommentComponentView.this.execAttented();
             }
         });

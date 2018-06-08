@@ -1,4 +1,7 @@
 package com.baidu.fsg.base.restnet.http;
+
+import android.support.v4.app.FrameMetricsAggregator;
+import com.baidu.ar.util.MsgConstants;
 /* loaded from: classes2.dex */
 public enum HttpStatus {
     CONTINUE(100, "Continue"),
@@ -22,7 +25,7 @@ public enum HttpStatus {
     SEE_OTHER(303, "See Other"),
     NOT_MODIFIED(304, "Not Modified"),
     USE_PROXY(org.apache.http.HttpStatus.SC_USE_PROXY, "Use Proxy"),
-    TEMPORARY_REDIRECT(org.apache.http.HttpStatus.SC_TEMPORARY_REDIRECT, "Temporary Redirect"),
+    TEMPORARY_REDIRECT(307, "Temporary Redirect"),
     RESUME_INCOMPLETE(308, "Resume Incomplete"),
     BAD_REQUEST(org.apache.http.HttpStatus.SC_BAD_REQUEST, "Bad Request"),
     UNAUTHORIZED(org.apache.http.HttpStatus.SC_UNAUTHORIZED, "Unauthorized"),
@@ -54,17 +57,17 @@ public enum HttpStatus {
     TOO_MANY_REQUESTS(429, "Too Many Requests"),
     REQUEST_HEADER_FIELDS_TOO_LARGE(431, "Request Header Fields Too Large"),
     INTERNAL_SERVER_ERROR(500, "Internal Server Error"),
-    NOT_IMPLEMENTED(org.apache.http.HttpStatus.SC_NOT_IMPLEMENTED, "Not Implemented"),
+    NOT_IMPLEMENTED(501, "Not Implemented"),
     BAD_GATEWAY(org.apache.http.HttpStatus.SC_BAD_GATEWAY, "Bad Gateway"),
     SERVICE_UNAVAILABLE(org.apache.http.HttpStatus.SC_SERVICE_UNAVAILABLE, "Service Unavailable"),
     GATEWAY_TIMEOUT(org.apache.http.HttpStatus.SC_GATEWAY_TIMEOUT, "Gateway Timeout"),
     HTTP_VERSION_NOT_SUPPORTED(org.apache.http.HttpStatus.SC_HTTP_VERSION_NOT_SUPPORTED, "HTTP Version not supported"),
-    VARIANT_ALSO_NEGOTIATES(506, "Variant Also Negotiates"),
-    INSUFFICIENT_STORAGE(org.apache.http.HttpStatus.SC_INSUFFICIENT_STORAGE, "Insufficient Storage"),
+    VARIANT_ALSO_NEGOTIATES(MsgConstants.SLAM_MODEL_SHOWING, "Variant Also Negotiates"),
+    INSUFFICIENT_STORAGE(507, "Insufficient Storage"),
     LOOP_DETECTED(508, "Loop Detected"),
     BANDWIDTH_LIMIT_EXCEEDED(509, "Bandwidth Limit Exceeded"),
-    NOT_EXTENDED(510, "Not Extended"),
-    NETWORK_AUTHENTICATION_REQUIRED(511, "Network Authentication Required");
+    NOT_EXTENDED(MsgConstants.SLAM_MSG_ID_TRACK_LOST, "Not Extended"),
+    NETWORK_AUTHENTICATION_REQUIRED(FrameMetricsAggregator.EVERY_DURATION, "Network Authentication Required");
     
     private final String reasonPhrase;
     private final int value;

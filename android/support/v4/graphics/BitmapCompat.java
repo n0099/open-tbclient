@@ -2,87 +2,64 @@ package android.support.v4.graphics;
 
 import android.graphics.Bitmap;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 /* loaded from: classes2.dex */
 public final class BitmapCompat {
-    static final BitmapImpl IMPL;
+    static final BitmapCompatBaseImpl IMPL;
 
     /* loaded from: classes2.dex */
-    interface BitmapImpl {
-        int getAllocationByteCount(Bitmap bitmap);
-
-        boolean hasMipMap(Bitmap bitmap);
-
-        void setHasMipMap(Bitmap bitmap, boolean z);
-    }
-
-    /* loaded from: classes2.dex */
-    static class BaseBitmapImpl implements BitmapImpl {
-        BaseBitmapImpl() {
+    static class BitmapCompatBaseImpl {
+        BitmapCompatBaseImpl() {
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.BitmapImpl
         public boolean hasMipMap(Bitmap bitmap) {
             return false;
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.BitmapImpl
         public void setHasMipMap(Bitmap bitmap, boolean z) {
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.BitmapImpl
         public int getAllocationByteCount(Bitmap bitmap) {
-            return bitmap.getRowBytes() * bitmap.getHeight();
+            return bitmap.getByteCount();
         }
     }
 
+    @RequiresApi(18)
     /* loaded from: classes2.dex */
-    static class HcMr1BitmapCompatImpl extends BaseBitmapImpl {
-        HcMr1BitmapCompatImpl() {
+    static class BitmapCompatApi18Impl extends BitmapCompatBaseImpl {
+        BitmapCompatApi18Impl() {
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.BaseBitmapImpl, android.support.v4.graphics.BitmapCompat.BitmapImpl
-        public int getAllocationByteCount(Bitmap bitmap) {
-            return BitmapCompatHoneycombMr1.getAllocationByteCount(bitmap);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class JbMr2BitmapCompatImpl extends HcMr1BitmapCompatImpl {
-        JbMr2BitmapCompatImpl() {
-        }
-
-        @Override // android.support.v4.graphics.BitmapCompat.BaseBitmapImpl, android.support.v4.graphics.BitmapCompat.BitmapImpl
+        @Override // android.support.v4.graphics.BitmapCompat.BitmapCompatBaseImpl
         public boolean hasMipMap(Bitmap bitmap) {
-            return BitmapCompatJellybeanMR2.hasMipMap(bitmap);
+            return bitmap.hasMipMap();
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.BaseBitmapImpl, android.support.v4.graphics.BitmapCompat.BitmapImpl
+        @Override // android.support.v4.graphics.BitmapCompat.BitmapCompatBaseImpl
         public void setHasMipMap(Bitmap bitmap, boolean z) {
-            BitmapCompatJellybeanMR2.setHasMipMap(bitmap, z);
+            bitmap.setHasMipMap(z);
         }
     }
 
+    @RequiresApi(19)
     /* loaded from: classes2.dex */
-    static class KitKatBitmapCompatImpl extends JbMr2BitmapCompatImpl {
-        KitKatBitmapCompatImpl() {
+    static class BitmapCompatApi19Impl extends BitmapCompatApi18Impl {
+        BitmapCompatApi19Impl() {
         }
 
-        @Override // android.support.v4.graphics.BitmapCompat.HcMr1BitmapCompatImpl, android.support.v4.graphics.BitmapCompat.BaseBitmapImpl, android.support.v4.graphics.BitmapCompat.BitmapImpl
+        @Override // android.support.v4.graphics.BitmapCompat.BitmapCompatBaseImpl
         public int getAllocationByteCount(Bitmap bitmap) {
-            return BitmapCompatKitKat.getAllocationByteCount(bitmap);
+            return bitmap.getAllocationByteCount();
         }
     }
 
     static {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 19) {
-            IMPL = new KitKatBitmapCompatImpl();
-        } else if (i >= 18) {
-            IMPL = new JbMr2BitmapCompatImpl();
-        } else if (i >= 12) {
-            IMPL = new HcMr1BitmapCompatImpl();
+        if (Build.VERSION.SDK_INT >= 19) {
+            IMPL = new BitmapCompatApi19Impl();
+        } else if (Build.VERSION.SDK_INT >= 18) {
+            IMPL = new BitmapCompatApi18Impl();
         } else {
-            IMPL = new BaseBitmapImpl();
+            IMPL = new BitmapCompatBaseImpl();
         }
     }
 

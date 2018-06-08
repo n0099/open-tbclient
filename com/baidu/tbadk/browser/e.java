@@ -17,15 +17,15 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("callNativeSMS".equals(str2)) {
-                cv(str3);
+                cU(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("copyToClipboard".equals(str2)) {
-                aB(str3);
+                aN(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("setBlockPopInfo".equals(str2)) {
-                cw(str3);
+                cV(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else {
@@ -35,7 +35,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         return false;
     }
 
-    private void cv(String str) {
+    private void cU(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
@@ -44,15 +44,15 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private void aB(String str) {
+    private void aN(String str) {
         try {
-            com.baidu.adp.lib.util.a.aB(new JSONObject(str).optString("content"));
+            com.baidu.adp.lib.util.a.aN(new JSONObject(str).optString("content"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void cw(String str) {
+    private void cV(String str) {
         try {
             BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
             JSONObject jSONObject = new JSONObject(str);
@@ -63,8 +63,8 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
             builder.ok_info = jSONObject.optString("ok_info");
             builder.ahead_type = Integer.valueOf(jSONObject.optInt("ahead_type"));
             BlockPopInfo build = builder.build(false);
-            com.baidu.tieba.q.a.d(build);
-            com.baidu.tieba.q.a.e(build);
+            com.baidu.tieba.s.b.d(build);
+            com.baidu.tieba.s.b.e(build);
         } catch (Exception e) {
             e.printStackTrace();
         }

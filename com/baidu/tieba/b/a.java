@@ -16,7 +16,7 @@ public class a extends d<com.baidu.tbadk.data.b, com.baidu.tbadk.i.b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: j */
+    /* renamed from: i */
     public com.baidu.tbadk.i.b onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tbadk.i.b(LayoutInflater.from(this.mContext).inflate(d.i.ala_follow_lives_layout, viewGroup, false), this.mPageContext);
     }
@@ -25,11 +25,11 @@ public class a extends d<com.baidu.tbadk.data.b, com.baidu.tbadk.i.b> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tbadk.data.b bVar, com.baidu.tbadk.i.b bVar2) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.b bVar, com.baidu.tbadk.i.b bVar2) {
         if (bVar != null && bVar2 != null) {
-            bVar2.EW();
+            bVar2.IB();
             bVar2.a(bVar);
         }
-        return view2;
+        return view;
     }
 }

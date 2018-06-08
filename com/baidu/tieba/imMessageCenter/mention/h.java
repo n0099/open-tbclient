@@ -4,42 +4,42 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
-    private int eoy = 0;
-    private int eoz = 0;
-    private int eoA = 0;
+    private int ezP = 0;
+    private int ezQ = 0;
+    private int ezR = 0;
     private int fans = 0;
     private int chat = 0;
-    private int eoB = 0;
+    private int ezS = 0;
 
-    public int aIz() {
-        return this.eoy;
+    public int aNu() {
+        return this.ezP;
     }
 
-    public int aIA() {
-        return this.eoz;
+    public int aNv() {
+        return this.ezQ;
     }
 
-    public int aIB() {
-        return this.eoA;
+    public int aNw() {
+        return this.ezR;
     }
 
-    public int aIC() {
+    public int aNx() {
         return this.fans;
     }
 
-    public int aID() {
-        return this.eoB;
+    public int aNy() {
+        return this.ezS;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eoy = jSONObject.optInt("agree", 0);
-                this.eoz = jSONObject.optInt("replyme", 0);
-                this.eoA = jSONObject.optInt("atme", 0);
+                this.ezP = jSONObject.optInt("agree", 0);
+                this.ezQ = jSONObject.optInt("replyme", 0);
+                this.ezR = jSONObject.optInt("atme", 0);
                 this.fans = jSONObject.optInt("fans", 0);
                 this.chat = jSONObject.optInt("pletter", 0);
-                this.eoB = jSONObject.optInt("bookmark", 0);
+                this.ezS = jSONObject.optInt("bookmark", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

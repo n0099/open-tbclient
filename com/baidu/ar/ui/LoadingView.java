@@ -25,9 +25,6 @@ public class LoadingView extends FrameLayout {
     }
 
     private void a() {
-        Context context = getContext();
-        Res.addResource(context);
-        context.getPackageName();
         Res.inflate("bdar_layout_loading", this, true);
         this.a = (TextView) findViewById(Res.id("bdar_id_loading_message"));
     }

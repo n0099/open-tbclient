@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
+import com.baidu.ar.audio.AudioParams;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -329,7 +330,7 @@ public class EC3TrackImpl extends AbstractTrack {
                         bitStreamInfo.samplerate = 22050;
                         break;
                     case 2:
-                        bitStreamInfo.samplerate = 16000;
+                        bitStreamInfo.samplerate = AudioParams.DEFAULT_SAMPLE_RATE;
                         break;
                     case 3:
                         bitStreamInfo.samplerate = 0;

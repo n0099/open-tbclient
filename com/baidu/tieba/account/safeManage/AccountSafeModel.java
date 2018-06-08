@@ -6,24 +6,24 @@ import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private boolean aMv;
-    private com.baidu.tieba.setting.im.more.a bcG;
-    private String bcH;
-    private String bcI;
-    private String bcJ;
+    private boolean aUt;
+    private com.baidu.tieba.setting.im.more.a bkQ;
+    private String bkR;
+    private String bkS;
+    private String bkT;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a MS() {
-        return this.bcG;
+    public com.baidu.tieba.setting.im.more.a Qr() {
+        return this.bkQ;
     }
 
-    public String MT() {
-        return this.bcH;
+    public String Qs() {
+        return this.bkR;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.aMv = false;
+        this.aUt = false;
         this.mFinished = false;
     }
 
@@ -34,52 +34,52 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.aMv = false;
+        this.aUt = false;
         this.mFinished = false;
         return false;
     }
 
-    private PrivateInfoNetMessage MU() {
+    private PrivateInfoNetMessage Qt() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean MV() {
-        if (this.aMv) {
+    public boolean Qu() {
+        if (this.aUt) {
             return false;
         }
-        this.aMv = true;
+        this.aUt = true;
         this.mFinished = false;
-        sendMessage(MU());
+        sendMessage(Qt());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.bcG = aVar;
-        MW();
+        this.bkQ = aVar;
+        Qv();
     }
 
-    private void MW() {
-        SimpleUser MX = MX();
-        if (MX != null) {
-            this.bcI = MX.secureemail;
-            this.bcJ = MX.securemobil;
-            this.bcH = MX.ahead_url;
+    private void Qv() {
+        SimpleUser Qw = Qw();
+        if (Qw != null) {
+            this.bkS = Qw.secureemail;
+            this.bkT = Qw.securemobil;
+            this.bkR = Qw.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser MX() {
-        if (this.bcG == null || this.bcG.MX() == null) {
+    private SimpleUser Qw() {
+        if (this.bkQ == null || this.bkQ.Qw() == null) {
             return null;
         }
-        return this.bcG.MX();
+        return this.bkQ.Qw();
     }
 
-    public boolean wW() {
-        return this.aMv;
+    public boolean Ax() {
+        return this.aUt;
     }
 
     public void setLoading(boolean z) {
-        this.aMv = z;
+        this.aUt = z;
     }
 }

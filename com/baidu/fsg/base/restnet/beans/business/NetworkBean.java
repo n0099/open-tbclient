@@ -3,6 +3,7 @@ package com.baidu.fsg.base.restnet.beans.business;
 import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.baidu.ar.util.IoUtils;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.RestResponseEntity;
@@ -122,7 +123,7 @@ public abstract class NetworkBean extends ApollonBean {
         if ("gbk".equals(getEncode())) {
             list.add(new RestNameValuePair(PARAM_ENCODE, "gbk"));
         } else {
-            list.add(new RestNameValuePair(PARAM_ENCODE, "utf-8"));
+            list.add(new RestNameValuePair(PARAM_ENCODE, IoUtils.UTF_8));
         }
         list.add(new RestNameValuePair("ua", BussinessUtils.getUA(context)));
         String hostAppId = ChannelUtils.getHostAppId();

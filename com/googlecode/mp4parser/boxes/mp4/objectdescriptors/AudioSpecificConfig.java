@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
+import com.baidu.ar.audio.AudioParams;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeWriter;
 import java.io.IOException;
@@ -65,7 +66,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         samplingFrequencyIndexMap.put(5, 32000);
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
-        samplingFrequencyIndexMap.put(8, 16000);
+        samplingFrequencyIndexMap.put(8, Integer.valueOf((int) AudioParams.DEFAULT_SAMPLE_RATE));
         samplingFrequencyIndexMap.put(9, 12000);
         samplingFrequencyIndexMap.put(10, 11025);
         samplingFrequencyIndexMap.put(11, 8000);

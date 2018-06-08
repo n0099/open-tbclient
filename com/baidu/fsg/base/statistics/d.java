@@ -2,7 +2,7 @@ package com.baidu.fsg.base.statistics;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.ar.util.SystemInfoUtil;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
@@ -70,7 +70,7 @@ class d implements Thread.UncaughtExceptionHandler {
         String str = "";
         if (th2 != null && !th2.equals("")) {
             try {
-                str = th2.length() > 0 ? th2.split(":")[0] : th2;
+                str = th2.length() > 0 ? th2.split(SystemInfoUtil.COLON)[0] : th2;
             } catch (Exception e) {
                 str = "";
             }
@@ -146,7 +146,7 @@ class d implements Thread.UncaughtExceptionHandler {
             return false;
         }
         String b = b();
-        if (TextUtils.isEmpty(b) || (split = b.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) == null || split.length <= 0) {
+        if (TextUtils.isEmpty(b) || (split = b.split(",")) == null || split.length <= 0) {
             return false;
         }
         for (String str2 : split) {
@@ -160,8 +160,8 @@ class d implements Thread.UncaughtExceptionHandler {
     public String b() {
         if (this.e == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("com.baidu.fsg.rimdemo").append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append(com.baidu.fsg.base.a.b).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("com.baidu.fsg.rimdemo").append(",");
+            sb.append(com.baidu.fsg.base.a.b).append(",");
             this.e = sb.toString();
         }
         return this.e;

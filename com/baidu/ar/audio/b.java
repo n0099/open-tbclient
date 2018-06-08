@@ -1,146 +1,78 @@
 package com.baidu.ar.audio;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.media.AudioRecord;
+import android.os.Build;
+import android.support.v4.internal.view.SupportMenu;
 import android.util.Log;
 /* loaded from: classes3.dex */
-public class b implements e {
+class b {
     private static final String a = b.class.getSimpleName();
-    private static volatile b e;
-    private c b;
-    private HandlerThread c;
-    private Handler d;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public static class a extends Handler {
-        private e a;
-
-        public a(Looper looper, e eVar) {
-            super(looper);
-            this.a = eVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            this.a.a(message);
-        }
+    b() {
     }
 
-    private b() {
-    }
-
-    public static b a() {
-        if (e == null) {
-            synchronized (b.class) {
-                if (e == null) {
-                    e = new b();
-                }
+    public static double a(byte[] bArr) {
+        double d = 0.0d;
+        for (int i = 0; i < bArr.length; i += 2) {
+            int i2 = (bArr[i] & 255) + ((bArr[i + 1] & 255) << 8);
+            if (i2 >= 32768) {
+                i2 = SupportMenu.USER_MASK - i2;
             }
+            d += Math.abs(i2);
         }
-        return e;
+        return Math.log10(((d / bArr.length) / 2.0d) + 1.0d) * 10.0d;
     }
 
-    private void a(AudioParams audioParams) {
-        if (this.b != null) {
-            this.b.a(audioParams);
-        }
-    }
-
-    private void f() {
-        this.c = new HandlerThread("AudioHandlerThread");
-        this.c.start();
-        this.d = new a(this.c.getLooper(), this);
-    }
-
-    private void g() {
-        if (this.b != null) {
-            this.b.a();
-        }
-    }
-
-    private void h() {
-        if (this.b != null) {
-            this.b.b();
-        }
-    }
-
-    private void i() {
-        if (this.b != null) {
-            this.b.c();
-        }
-        this.b = null;
-    }
-
-    private void j() {
-        this.c.getLooper().quit();
-        this.c = null;
-        this.d = null;
-        e = null;
-    }
-
-    @Override // com.baidu.ar.audio.e
-    public void a(Message message) {
-        switch (message.what) {
-            case 1001:
-                a((AudioParams) message.obj);
-                return;
-            case 1002:
-                g();
-                return;
-            case 1003:
-                h();
-                return;
-            case 1004:
-                i();
-                return;
-            case 1005:
-                j();
-                return;
-            default:
-                return;
-        }
-    }
-
-    public boolean a(Context context) {
-        return d.a(context);
-    }
-
-    public boolean a(AudioParams audioParams, com.baidu.ar.audio.a aVar) {
-        if (b()) {
-            Log.e(a, "setupAudioEngine error! As last audio thread is alive!");
+    private static boolean a() {
+        boolean z;
+        AudioRecord audioRecord = new AudioRecord(1, AudioParams.DEFAULT_SAMPLE_RATE, 16, 2, 640);
+        try {
+            audioRecord.startRecording();
+            boolean z2 = audioRecord.getRecordingState() == 3;
+            byte[] bArr = new byte[AudioParams.DEFAULT_AUDIO_BUFFER_SIZE];
+            int i = 0;
+            while (true) {
+                if (i >= 20) {
+                    z = z2;
+                    break;
+                }
+                audioRecord.read(bArr, 0, bArr.length);
+                double a2 = a(bArr);
+                Log.i(a, "checkPermissionUnderVersionM volume = " + a2);
+                z2 = a2 != 0.0d;
+                if (z2) {
+                    z = z2;
+                    break;
+                }
+                i++;
+            }
+            audioRecord.stop();
+            audioRecord.release();
+            return z;
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
             return false;
         }
-        if (this.b == null) {
-            this.b = new c();
+    }
+
+    public static boolean a(Context context) {
+        return Build.VERSION.SDK_INT >= 23 ? a(context, context.getApplicationContext().getPackageName()) : a();
+    }
+
+    private static boolean a(Context context, String str) {
+        return context.getPackageManager().checkPermission("android.permission.RECORD_AUDIO", str) == 0;
+    }
+
+    public static double b(byte[] bArr) {
+        double d = 0.0d;
+        for (int i = 0; i < bArr.length; i += 2) {
+            int i2 = (bArr[i] & 255) + ((bArr[i + 1] & 255) << 8);
+            if (i2 >= 32768) {
+                i2 = SupportMenu.USER_MASK - i2;
+            }
+            d += i2 * i2;
         }
-        this.b.a(aVar);
-        f();
-        this.d.sendMessage(this.d.obtainMessage(1001, audioParams));
-        return true;
-    }
-
-    public boolean b() {
-        return this.c != null && this.c.isAlive();
-    }
-
-    public void c() {
-        if (this.d != null) {
-            this.d.sendMessage(this.d.obtainMessage(1002));
-        }
-    }
-
-    public void d() {
-        h();
-    }
-
-    public void e() {
-        if (this.d != null) {
-            this.d.sendMessage(this.d.obtainMessage(1004));
-            this.d.sendMessage(this.d.obtainMessage(1005));
-        }
+        return Math.min(5000.0d, Math.sqrt((d / bArr.length) / 2.0d)) / 50.0d;
     }
 }

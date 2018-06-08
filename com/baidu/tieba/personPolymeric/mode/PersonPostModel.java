@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.af;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.personPolymeric.c.i;
 import com.baidu.tieba.personPolymeric.c.j;
@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int fLY = 0;
-    private static int fLZ = 1;
-    private static String fMa = "";
+    private static int fXk = 0;
+    private static int fXl = 1;
+    private static String fXm = "";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        fLZ = 1;
+        fXl = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(fMa)) {
-                fLY = 1;
-                fMa = str;
+            if (z || !str.equals(fXm)) {
+                fXk = 1;
+                fXm = str;
             } else {
-                fLY++;
+                fXk++;
             }
         } else {
-            if (z || !str.equals(fMa)) {
+            if (z || !str.equals(fXm)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    fLZ = 1;
+                    fXl = 1;
                 } else {
-                    fLZ = 0;
+                    fXl = 0;
                 }
-                fMa = str;
+                fXm = str;
             }
-            fLZ++;
+            fXl++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(fMa);
+        userPostPageRequestMessage.setUid(fXm);
         if (z3) {
-            userPostPageRequestMessage.setPn(fLY);
+            userPostPageRequestMessage.setPn(fXk);
         } else {
-            userPostPageRequestMessage.setPn(fLZ);
+            userPostPageRequestMessage.setPn(fXl);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -219,12 +219,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
         userPostPageRequestMessage.setFrom(this.mFrom);
-        int af = l.af(TbadkCoreApplication.getInst().getApp());
         int ah = l.ah(TbadkCoreApplication.getInst().getApp());
+        int aj = l.aj(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = ap.vP().vR() ? 2 : 1;
-        userPostPageRequestMessage.set_scr_w(af);
-        userPostPageRequestMessage.set_scr_h(ah);
+        int i2 = aq.zq().zs() ? 2 : 1;
+        userPostPageRequestMessage.set_scr_w(ah);
+        userPostPageRequestMessage.set_scr_h(aj);
         userPostPageRequestMessage.set_scr_dip(f);
         userPostPageRequestMessage.set_q_type(i2);
         userPostPageRequestMessage.setCallback(aVar);
@@ -246,7 +246,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             } else {
                 z = true;
             }
-            if (v.w(dataRes.post_list) && z) {
+            if (w.z(dataRes.post_list) && z) {
                 this.mCardNullPolymericData = new i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.ctB != 33) {
+                if (cardPersonDynamicThreadData.cCf != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -314,7 +314,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes3.dex */
-    public static class PostInfoList extends OrmObject implements h, ae, Serializable {
+    public static class PostInfoList extends OrmObject implements h, af, Serializable {
         public static final BdUniqueId POST_INFO = BdUniqueId.gen();
         public boolean isDeal;
         public boolean isShareThread;
@@ -399,7 +399,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.ae
+        @Override // com.baidu.tbadk.core.util.af
         public ArrayList<PreLoadImageInfo> getImages() {
             Media[] mediaArr;
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
@@ -503,39 +503,39 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         String str;
         String str2;
         String str3;
-        String K = an.K(System.currentTimeMillis());
+        String N = ao.N(System.currentTimeMillis());
         String str4 = "";
         String str5 = "";
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).ctN = true;
-                ((CardPersonDynamicThreadData) next).ctM = true;
-                long j = ((CardPersonDynamicThreadData) next).ctz * 1000;
-                String K2 = an.K(j);
-                String N = an.N(j);
-                String M = an.M(j);
-                if (an.equals(K2, K)) {
-                    ((CardPersonDynamicThreadData) next).ctN = false;
+                ((CardPersonDynamicThreadData) next).cCr = true;
+                ((CardPersonDynamicThreadData) next).cCq = true;
+                long j = ((CardPersonDynamicThreadData) next).cCd * 1000;
+                String N2 = ao.N(j);
+                String Q = ao.Q(j);
+                String P = ao.P(j);
+                if (ao.equals(N2, N)) {
+                    ((CardPersonDynamicThreadData) next).cCr = false;
                 }
-                if (an.equals(M, str5) && an.equals(N, str4) && an.equals(K2, K)) {
-                    ((CardPersonDynamicThreadData) next).ctM = false;
+                if (ao.equals(P, str5) && ao.equals(Q, str4) && ao.equals(N2, N)) {
+                    ((CardPersonDynamicThreadData) next).cCq = false;
                     str = str5;
                     str2 = str4;
-                    str3 = K;
+                    str3 = N;
                 } else {
-                    str = M;
-                    str2 = N;
-                    str3 = K2;
+                    str = P;
+                    str2 = Q;
+                    str3 = N2;
                 }
             } else {
                 str = str5;
                 str2 = str4;
-                str3 = K;
+                str3 = N;
             }
             str4 = str2;
-            K = str3;
+            N = str3;
             str5 = str;
         }
         return arrayList;

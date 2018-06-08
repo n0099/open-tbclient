@@ -1,11 +1,12 @@
 package com.baidu.tbadk.baseEditMark;
 
+import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.io.Serializable;
 import org.json.JSONArray;
@@ -57,7 +58,7 @@ public class MarkData implements Serializable {
     }
 
     public String getAuthorName() {
-        return !an.isEmpty(this.mAuthorName) ? this.mAuthorName : this.mUserName;
+        return !ao.isEmpty(this.mAuthorName) ? this.mAuthorName : this.mUserName;
     }
 
     public void setAuthorName(String str) {
@@ -306,7 +307,7 @@ public class MarkData implements Serializable {
             if (this.mHostMode) {
                 i += 2;
             }
-            jSONObject.put("status", i);
+            jSONObject.put(NotificationCompat.CATEGORY_STATUS, i);
             return jSONObject;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -338,9 +339,9 @@ public class MarkData implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 String optString = optJSONArray.getJSONObject(0).optString("type");
-                if (an.equals(optString, "pic")) {
+                if (ao.equals(optString, "pic")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("small_pic");
-                } else if (an.equals(optString, "flash")) {
+                } else if (ao.equals(optString, "flash")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("vpic");
                 }
             }
@@ -348,7 +349,7 @@ public class MarkData implements Serializable {
             this.is_follow = jSONObject.optInt("is_follow");
             this.is_deleted = jSONObject.optInt("is_deleted");
             this.mState = jSONObject.optString("post_no_msg");
-            if (an.isEmpty(this.portrait)) {
+            if (ao.isEmpty(this.portrait)) {
                 this.metaData.setPortrait("null");
             } else {
                 this.metaData.setPortrait(this.portrait);

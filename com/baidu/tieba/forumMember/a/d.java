@@ -13,9 +13,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.util.w;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.util.x;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.frs.f<e, f> {
@@ -25,8 +25,8 @@ public class d extends com.baidu.tieba.frs.f<e, f> {
         super(tbPageContext, bdUniqueId);
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.a.d.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                e eVar = (e) view2.getTag();
+            public void onClick(View view) {
+                e eVar = (e) view.getTag();
                 TiebaStatic.log("c10624");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(d.this.mContext, eVar.getUserId(), eVar.getName(), "")));
             }
@@ -36,7 +36,7 @@ public class d extends com.baidu.tieba.frs.f<e, f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ai */
+    /* renamed from: ah */
     public f onCreateViewHolder(ViewGroup viewGroup) {
         return new f(LayoutInflater.from(this.mContext).inflate(d.i.manito_item_member, (ViewGroup) null));
     }
@@ -45,31 +45,31 @@ public class d extends com.baidu.tieba.frs.f<e, f> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e eVar, f fVar) {
-        super.onFillViewHolder(i, view2, viewGroup, eVar, fVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, f fVar) {
+        super.onFillViewHolder(i, view, viewGroup, eVar, fVar);
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
-                ak.i(fVar.getView(), d.f.frs_member_manito_bg);
-                ak.c(fVar.bmc, d.C0126d.cp_cont_b, 1);
-                ak.c(fVar.cuW, d.C0126d.cp_cont_c, 1);
-                ak.j(fVar.baf, d.C0126d.cp_bg_line_c);
-                ak.c(fVar.cUV, d.C0126d.cp_cont_c, 1);
+                al.i(fVar.getView(), d.f.frs_member_manito_bg);
+                al.c(fVar.bui, d.C0141d.cp_cont_b, 1);
+                al.c(fVar.cDz, d.C0141d.cp_cont_c, 1);
+                al.j(fVar.bir, d.C0141d.cp_bg_line_c);
+                al.c(fVar.deg, d.C0141d.cp_cont_c, 1);
             }
-            fVar.cUU.startLoad(eVar.aof(), 12, false);
-            fVar.bmc.setText(w.G(eVar.getName(), 16));
+            fVar.def.startLoad(eVar.ask(), 12, false);
+            fVar.bui.setText(x.G(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.cuW.setText(d.k.god_intro_default);
+                fVar.cDz.setText(d.k.god_intro_default);
             } else {
-                fVar.cuW.setText(w.G(eVar.getIntro(), 30));
+                fVar.cDz.setText(x.G(eVar.getIntro(), 30));
             }
-            int color = ak.getColor(d.C0126d.cp_cont_h);
-            String v = an.v(eVar.getFansNum());
-            fVar.cUV.setText(a(String.format(this.mContext.getResources().getString(d.k.fans_count), v), new String[]{v}, new int[]{color}));
+            int color = al.getColor(d.C0141d.cp_cont_h);
+            String y = ao.y(eVar.getFansNum());
+            fVar.deg.setText(a(String.format(this.mContext.getResources().getString(d.k.fans_count), y), new String[]{y}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;
         }
-        return view2;
+        return view;
     }
 
     private SpannableStringBuilder a(String str, String[] strArr, int[] iArr) {

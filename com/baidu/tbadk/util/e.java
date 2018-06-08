@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import java.lang.reflect.Array;
 /* loaded from: classes.dex */
 public class e {
-    public static Bitmap a(Bitmap bitmap, int i, boolean z) {
+    public static Bitmap b(Bitmap bitmap, int i, boolean z) {
         int width = bitmap.getWidth() / 2;
         int height = bitmap.getHeight() / 4;
         Bitmap createBitmap = z ? bitmap : Bitmap.createBitmap(bitmap, 0, 0, width, height);

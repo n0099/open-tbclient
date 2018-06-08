@@ -3,7 +3,7 @@ package com.baidu.sapi2.utils;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
@@ -26,7 +26,7 @@ public final class StatService {
     static {
         a.put(Info.kBaiduPIDKey, "111");
         a.put("type", "1023");
-        a.put("device", Constants.OS_TYPE_VALUE);
+        a.put("device", HttpConstants.OS_TYPE_VALUE);
     }
 
     public static void onEvent(StatEvent statEvent) {
@@ -56,7 +56,7 @@ public final class StatService {
                     hashMap.put("name", str);
                     hashMap.put("tpl", confignation.tpl);
                     hashMap.put("clientfrom", "mobilesdk_enhanced");
-                    hashMap.put(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(confignation.context));
+                    hashMap.put("app_version", SapiUtils.getVersionName(confignation.context));
                     hashMap.put(SapiContext.KEY_SDK_VERSION, isAccountManager.getVersionName());
                     if (!TextUtils.isEmpty(confignation.clientId)) {
                         hashMap.put("cuid", confignation.clientId);

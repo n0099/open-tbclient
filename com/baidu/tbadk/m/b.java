@@ -1,21 +1,24 @@
 package com.baidu.tbadk.m;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.a.e;
-import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.adp.framework.a.j;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-public class b extends e {
-    public b(int i) {
-        super(i);
+public class b extends j {
+    public b() {
+        super(0);
     }
 
-    @Override // com.baidu.adp.framework.a.e
-    public void b(int i, BdUniqueId bdUniqueId) {
-        ReloginManager.ur().d(i, bdUniqueId);
-    }
-
-    @Override // com.baidu.adp.framework.a.e
-    public void b(BdUniqueId bdUniqueId) {
-        ReloginManager.ur().g(bdUniqueId);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage == null) {
+            return null;
+        }
+        if (socketResponsedMessage.getError() == 2260104) {
+            com.baidu.tbadk.util.j.KW();
+            return socketResponsedMessage;
+        }
+        return socketResponsedMessage;
     }
 }

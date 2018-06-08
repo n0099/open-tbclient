@@ -5,8 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import java.util.ArrayList;
+@RequiresApi(21)
 /* loaded from: classes2.dex */
 class DocumentsContractApi21 {
     private static final String TAG = "DocumentFile";
@@ -15,7 +17,11 @@ class DocumentsContractApi21 {
     }
 
     public static Uri createFile(Context context, Uri uri, String str, String str2) {
-        return DocumentsContract.createDocument(context.getContentResolver(), uri, str, str2);
+        try {
+            return DocumentsContract.createDocument(context.getContentResolver(), uri, str, str2);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public static Uri createDirectory(Context context, Uri uri, String str) {
@@ -68,7 +74,11 @@ class DocumentsContractApi21 {
     }
 
     public static Uri renameTo(Context context, Uri uri, String str) {
-        return DocumentsContract.renameDocument(context.getContentResolver(), uri, str);
+        try {
+            return DocumentsContract.renameDocument(context.getContentResolver(), uri, str);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     private static void closeQuietly(AutoCloseable autoCloseable) {

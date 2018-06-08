@@ -41,7 +41,7 @@ public class LoginActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra(HAS_EXIT_DIALOG, false);
         getIntent().putExtra(INFO, str);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
@@ -74,21 +74,21 @@ public class LoginActivityConfig extends IntentConfig {
     public LoginActivityConfig(Context context, boolean z) {
         super(context);
         getIntent().putExtra(HAS_EXIT_DIALOG, false);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
     }
 
     public LoginActivityConfig(Context context, int i, boolean z) {
         super(context);
         getIntent().putExtra("from", i);
         getIntent().putExtra(HAS_EXIT_DIALOG, false);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
     }
 
     public LoginActivityConfig(Context context, int i, boolean z, int i2) {
         super(context);
         getIntent().putExtra("from", i);
         getIntent().putExtra(HAS_EXIT_DIALOG, false);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }

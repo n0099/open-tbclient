@@ -1,13 +1,13 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface h {
-    void aRI();
+    void aWF();
 
-    void aRJ();
+    void aWG();
 
-    void aRK();
+    void aWH();
 
-    void aRL();
+    void aWI();
 
     void ac(int i, String str);
 
@@ -19,7 +19,7 @@ public interface h {
 
     void e(int i, int i2, String str);
 
-    void pJ(String str);
+    void qx(String str);
 
-    void pK(String str);
+    void qy(String str);
 }

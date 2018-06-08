@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v7.app.AppCompatDelegate;
 import java.lang.ref.WeakReference;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class VectorEnabledTintResources extends Resources {
     public static final int MAX_SDK_WHERE_REQUIRED = 20;

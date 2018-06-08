@@ -6,13 +6,14 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private static final int[] ATTRS = {16843284};
     public static final int HORIZONTAL = 0;
+    private static final String TAG = "DividerItem";
     public static final int VERTICAL = 1;
     private final Rect mBounds = new Rect();
     private Drawable mDivider;
@@ -21,6 +22,9 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     public DividerItemDecoration(Context context, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(ATTRS);
         this.mDivider = obtainStyledAttributes.getDrawable(0);
+        if (this.mDivider == null) {
+            Log.w(TAG, "@android:attr/listDivider was not set in the theme used for this DividerItemDecoration. Please set that attribute all call setDrawable()");
+        }
         obtainStyledAttributes.recycle();
         setOrientation(i);
     }
@@ -41,7 +45,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
     public void onDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.State state) {
-        if (recyclerView.getLayoutManager() != null) {
+        if (recyclerView.getLayoutManager() != null && this.mDivider != null) {
             if (this.mOrientation == 1) {
                 drawVertical(canvas, recyclerView);
             } else {
@@ -66,7 +70,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = recyclerView.getChildAt(i2);
             recyclerView.getDecoratedBoundsWithMargins(childAt, this.mBounds);
-            int round = Math.round(ViewCompat.getTranslationY(childAt)) + this.mBounds.bottom;
+            int round = Math.round(childAt.getTranslationY()) + this.mBounds.bottom;
             this.mDivider.setBounds(i, round - this.mDivider.getIntrinsicHeight(), width, round);
             this.mDivider.draw(canvas);
         }
@@ -89,7 +93,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = recyclerView.getChildAt(i2);
             recyclerView.getLayoutManager().getDecoratedBoundsWithMargins(childAt, this.mBounds);
-            int round = Math.round(ViewCompat.getTranslationX(childAt)) + this.mBounds.right;
+            int round = Math.round(childAt.getTranslationX()) + this.mBounds.right;
             this.mDivider.setBounds(round - this.mDivider.getIntrinsicWidth(), i, round, height);
             this.mDivider.draw(canvas);
         }
@@ -97,8 +101,10 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
-        if (this.mOrientation == 1) {
+    public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
+        if (this.mDivider == null) {
+            rect.set(0, 0, 0, 0);
+        } else if (this.mOrientation == 1) {
             rect.set(0, 0, 0, this.mDivider.getIntrinsicHeight());
         } else {
             rect.set(0, 0, this.mDivider.getIntrinsicWidth(), 0);

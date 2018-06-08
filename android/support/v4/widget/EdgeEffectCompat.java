@@ -3,187 +3,93 @@ package android.support.v4.widget;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.widget.EdgeEffect;
 /* loaded from: classes2.dex */
 public final class EdgeEffectCompat {
-    private static final EdgeEffectImpl IMPL;
-    private Object mEdgeEffect;
-
-    /* loaded from: classes2.dex */
-    interface EdgeEffectImpl {
-        boolean draw(Object obj, Canvas canvas);
-
-        void finish(Object obj);
-
-        boolean isFinished(Object obj);
-
-        Object newEdgeEffect(Context context);
-
-        boolean onAbsorb(Object obj, int i);
-
-        boolean onPull(Object obj, float f);
-
-        boolean onPull(Object obj, float f, float f2);
-
-        boolean onRelease(Object obj);
-
-        void setSize(Object obj, int i, int i2);
-    }
+    private static final EdgeEffectBaseImpl IMPL;
+    private EdgeEffect mEdgeEffect;
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            IMPL = new EdgeEffectLollipopImpl();
-        } else if (Build.VERSION.SDK_INT >= 14) {
-            IMPL = new EdgeEffectIcsImpl();
+            IMPL = new EdgeEffectApi21Impl();
         } else {
-            IMPL = new BaseEdgeEffectImpl();
+            IMPL = new EdgeEffectBaseImpl();
         }
     }
 
     /* loaded from: classes2.dex */
-    static class BaseEdgeEffectImpl implements EdgeEffectImpl {
-        BaseEdgeEffectImpl() {
+    static class EdgeEffectBaseImpl {
+        EdgeEffectBaseImpl() {
         }
 
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public Object newEdgeEffect(Context context) {
-            return null;
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public void setSize(Object obj, int i, int i2) {
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean isFinished(Object obj) {
-            return true;
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public void finish(Object obj) {
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean onPull(Object obj, float f) {
-            return false;
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean onRelease(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean onAbsorb(Object obj, int i) {
-            return false;
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean draw(Object obj, Canvas canvas) {
-            return false;
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean onPull(Object obj, float f, float f2) {
-            return false;
+        public void onPull(EdgeEffect edgeEffect, float f, float f2) {
+            edgeEffect.onPull(f);
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes2.dex */
-    static class EdgeEffectIcsImpl implements EdgeEffectImpl {
-        EdgeEffectIcsImpl() {
+    static class EdgeEffectApi21Impl extends EdgeEffectBaseImpl {
+        EdgeEffectApi21Impl() {
         }
 
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public Object newEdgeEffect(Context context) {
-            return EdgeEffectCompatIcs.newEdgeEffect(context);
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public void setSize(Object obj, int i, int i2) {
-            EdgeEffectCompatIcs.setSize(obj, i, i2);
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean isFinished(Object obj) {
-            return EdgeEffectCompatIcs.isFinished(obj);
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public void finish(Object obj) {
-            EdgeEffectCompatIcs.finish(obj);
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean onPull(Object obj, float f) {
-            return EdgeEffectCompatIcs.onPull(obj, f);
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean onRelease(Object obj) {
-            return EdgeEffectCompatIcs.onRelease(obj);
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean onAbsorb(Object obj, int i) {
-            return EdgeEffectCompatIcs.onAbsorb(obj, i);
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean draw(Object obj, Canvas canvas) {
-            return EdgeEffectCompatIcs.draw(obj, canvas);
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean onPull(Object obj, float f, float f2) {
-            return EdgeEffectCompatIcs.onPull(obj, f);
+        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectBaseImpl
+        public void onPull(EdgeEffect edgeEffect, float f, float f2) {
+            edgeEffect.onPull(f, f2);
         }
     }
 
-    /* loaded from: classes2.dex */
-    static class EdgeEffectLollipopImpl extends EdgeEffectIcsImpl {
-        EdgeEffectLollipopImpl() {
-        }
-
-        @Override // android.support.v4.widget.EdgeEffectCompat.EdgeEffectIcsImpl, android.support.v4.widget.EdgeEffectCompat.EdgeEffectImpl
-        public boolean onPull(Object obj, float f, float f2) {
-            return EdgeEffectCompatLollipop.onPull(obj, f, f2);
-        }
-    }
-
+    @Deprecated
     public EdgeEffectCompat(Context context) {
-        this.mEdgeEffect = IMPL.newEdgeEffect(context);
+        this.mEdgeEffect = new EdgeEffect(context);
     }
 
+    @Deprecated
     public void setSize(int i, int i2) {
-        IMPL.setSize(this.mEdgeEffect, i, i2);
+        this.mEdgeEffect.setSize(i, i2);
     }
 
+    @Deprecated
     public boolean isFinished() {
-        return IMPL.isFinished(this.mEdgeEffect);
+        return this.mEdgeEffect.isFinished();
     }
 
+    @Deprecated
     public void finish() {
-        IMPL.finish(this.mEdgeEffect);
+        this.mEdgeEffect.finish();
     }
 
     @Deprecated
     public boolean onPull(float f) {
-        return IMPL.onPull(this.mEdgeEffect, f);
+        this.mEdgeEffect.onPull(f);
+        return true;
     }
 
+    @Deprecated
     public boolean onPull(float f, float f2) {
-        return IMPL.onPull(this.mEdgeEffect, f, f2);
+        IMPL.onPull(this.mEdgeEffect, f, f2);
+        return true;
     }
 
+    public static void onPull(EdgeEffect edgeEffect, float f, float f2) {
+        IMPL.onPull(edgeEffect, f, f2);
+    }
+
+    @Deprecated
     public boolean onRelease() {
-        return IMPL.onRelease(this.mEdgeEffect);
+        this.mEdgeEffect.onRelease();
+        return this.mEdgeEffect.isFinished();
     }
 
+    @Deprecated
     public boolean onAbsorb(int i) {
-        return IMPL.onAbsorb(this.mEdgeEffect, i);
+        this.mEdgeEffect.onAbsorb(i);
+        return true;
     }
 
+    @Deprecated
     public boolean draw(Canvas canvas) {
-        return IMPL.draw(this.mEdgeEffect, canvas);
+        return this.mEdgeEffect.draw(canvas);
     }
 }

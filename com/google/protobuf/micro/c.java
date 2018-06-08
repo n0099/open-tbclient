@@ -1,6 +1,5 @@
 package com.google.protobuf.micro;
 
-import android.support.v4.media.TransportMediator;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -314,7 +313,7 @@ public final class c {
 
     public void e(long j) {
         while (((-128) & j) != 0) {
-            e((((int) j) & TransportMediator.KEYCODE_MEDIA_PAUSE) | 128);
+            e((((int) j) & 127) | 128);
             j >>>= 7;
         }
         e((int) j);
@@ -322,7 +321,7 @@ public final class c {
 
     public void g(int i) {
         while ((i & (-128)) != 0) {
-            e((i & TransportMediator.KEYCODE_MEDIA_PAUSE) | 128);
+            e((i & 127) | 128);
             i >>>= 7;
         }
         e(i);

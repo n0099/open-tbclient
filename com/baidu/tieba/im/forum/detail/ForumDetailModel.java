@@ -23,8 +23,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.r;
 /* loaded from: classes3.dex */
 public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
-    private ForumDetailActivity dXR;
-    private a dXS;
+    private ForumDetailActivity eje;
+    private a ejf;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -34,62 +34,62 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
         void a(ForumDetailSocketResponse forumDetailSocketResponse);
 
-        void gV(boolean z);
+        void hb(boolean z);
 
-        void gW(boolean z);
+        void hc(boolean z);
 
-        void ny(String str);
+        void ol(String str);
     }
 
     public ForumDetailModel(ForumDetailActivity forumDetailActivity) {
         super(forumDetailActivity.getPageContext());
-        this.dXR = forumDetailActivity;
-        this.dXS = forumDetailActivity;
-        aDy();
-        aDz();
-        aDA();
-        aDx();
-        aDB();
-        aDC();
+        this.eje = forumDetailActivity;
+        this.ejf = forumDetailActivity;
+        aIt();
+        aIu();
+        aIv();
+        aIs();
+        aIw();
+        aIx();
     }
 
-    private void aDx() {
+    private void aIs() {
         registerListener(new CustomMessageListener(2001266) { // from class: com.baidu.tieba.im.forum.detail.ForumDetailModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof r)) {
-                    ForumDetailModel.this.dXR.gZ(((r) customResponsedMessage.getData()).isLike() == 1);
+                    ForumDetailModel.this.eje.hf(((r) customResponsedMessage.getData()).isLike() == 1);
                 }
             }
         });
     }
 
-    private void aDy() {
+    private void aIt() {
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, 303021) { // from class: com.baidu.tieba.im.forum.detail.ForumDetailModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage == null) {
-                    if (ForumDetailModel.this.dXS != null) {
-                        ForumDetailModel.this.dXS.ny(null);
+                    if (ForumDetailModel.this.ejf != null) {
+                        ForumDetailModel.this.ejf.ol(null);
                     }
                 } else if (responsedMessage.hasError()) {
-                    if (ForumDetailModel.this.dXS != null) {
-                        ForumDetailModel.this.dXS.ny(responsedMessage.getErrorString());
+                    if (ForumDetailModel.this.ejf != null) {
+                        ForumDetailModel.this.ejf.ol(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        ForumDetailModel.this.dXS.a((ForumDetailHttpResponse) responsedMessage);
+                        ForumDetailModel.this.ejf.a((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        ForumDetailModel.this.dXS.a((ForumDetailSocketResponse) responsedMessage);
+                        ForumDetailModel.this.ejf.a((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
         });
     }
 
-    private void aDz() {
+    private void aIu() {
         registerListener(new c(104102) { // from class: com.baidu.tieba.im.forum.detail.ForumDetailModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -103,20 +103,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                         if (requestUpdateMaskInfoMessage.getMaskType() == 12) {
                             if (responseUpdateMaskInfoMessage.getError() != 0) {
                                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                                    errorString = ForumDetailModel.this.dXR.getResources().getString(d.k.neterror);
+                                    errorString = ForumDetailModel.this.eje.getResources().getString(d.k.neterror);
                                 } else {
                                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                                 }
-                                ForumDetailModel.this.dXR.showToast(errorString);
+                                ForumDetailModel.this.eje.showToast(errorString);
                                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                    ForumDetailModel.this.dXS.gV(false);
+                                    ForumDetailModel.this.ejf.hb(false);
                                 } else {
-                                    ForumDetailModel.this.dXS.gW(false);
+                                    ForumDetailModel.this.ejf.hc(false);
                                 }
                             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                ForumDetailModel.this.dXS.gV(true);
+                                ForumDetailModel.this.ejf.hb(true);
                             } else {
-                                ForumDetailModel.this.dXS.gW(true);
+                                ForumDetailModel.this.ejf.hc(true);
                             }
                         }
                     }
@@ -125,25 +125,25 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         });
     }
 
-    private void aDA() {
+    private void aIv() {
         registerListener(new CustomMessageListener(2001151) { // from class: com.baidu.tieba.im.forum.detail.ForumDetailModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001151) {
-                    ForumDetailModel.this.dXR.showToast(d.k.delete_success);
+                    ForumDetailModel.this.eje.showToast(d.k.delete_success);
                 }
             }
         });
     }
 
-    public void jD(String str) {
+    public void kf(String str) {
         ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
         forumDetailRequestMessage.setForumId(b.c(str, 0L));
         sendMessage(forumDetailRequestMessage);
     }
 
-    public void nz(String str) {
+    public void om(String str) {
         if (!TextUtils.isEmpty(str)) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MSG_FORUM_EMOTION_CMD);
             httpMessage.addParam("forum_id", str);
@@ -151,25 +151,25 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         }
     }
 
-    private void aDB() {
+    private void aIw() {
         registerListener(new HttpMessageListener(CmdConfigHttp.MSG_FORUM_EMOTION_CMD) { // from class: com.baidu.tieba.im.forum.detail.ForumDetailModel.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && (httpResponsedMessage instanceof BarEmotionResponseMessage)) {
                     if (httpResponsedMessage.hasError()) {
-                        if (ForumDetailModel.this.dXS != null) {
-                            ForumDetailModel.this.dXS.ny(httpResponsedMessage.getErrorString());
+                        if (ForumDetailModel.this.ejf != null) {
+                            ForumDetailModel.this.ejf.ol(httpResponsedMessage.getErrorString());
                         }
                     } else if ((httpResponsedMessage instanceof BarEmotionResponseMessage) && httpResponsedMessage.getCmd() == 1002510) {
-                        ForumDetailModel.this.dXS.a((BarEmotionResponseMessage) httpResponsedMessage);
+                        ForumDetailModel.this.ejf.a((BarEmotionResponseMessage) httpResponsedMessage);
                     }
                 }
             }
         });
     }
 
-    private void aDC() {
+    private void aIx() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_EMOTION_CMD, TbConfig.SERVER_ADDRESS + "c/e/meme/checkForumPkg");
         tbHttpMessageTask.setResponsedClass(BarEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -132,10 +132,10 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
         if (this.b) {
-            RimGlobalUtils.showInputMethod(getContext(), view2);
+            RimGlobalUtils.showInputMethod(getContext(), view);
             return true;
         }
         return true;

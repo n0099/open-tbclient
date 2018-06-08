@@ -5,29 +5,28 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.tencent.open.SocialConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class w {
-    private int XJ;
-    private String XK;
-    private String XL;
-    private int XM;
-    private String XN;
-    public String XO;
-    public float XP;
-    public boolean XQ = true;
+    private int afK;
+    private String afL;
+    private String afM;
+    private int afN;
+    private String afO;
+    public String afP;
+    public float afQ;
+    public boolean afR = true;
     private String mTagName;
     private int mType;
     private String mValue;
 
-    public int qG() {
-        return this.XJ;
+    public int uc() {
+        return this.afK;
     }
 
-    public String qH() {
-        return this.XK;
+    public String ud() {
+        return this.afL;
     }
 
     public String getValue() {
@@ -38,23 +37,23 @@ public class w {
         return this.mType;
     }
 
-    public String qI() {
-        return this.XN;
+    public String ue() {
+        return this.afO;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.XJ = jSONObject.optInt("bannerType");
-                this.XK = jSONObject.optString("bannerUrl");
+                this.afK = jSONObject.optInt("bannerType");
+                this.afL = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
-                this.XL = jSONObject.optString(SocialConstants.PARAM_APP_DESC);
-                this.XM = jSONObject.optInt("template_id");
-                this.XN = jSONObject.optString(VideoPlayActivityConfig.OBJ_ID);
+                this.afM = jSONObject.optString(SocialConstants.PARAM_APP_DESC);
+                this.afN = jSONObject.optInt("template_id");
+                this.afO = jSONObject.optString(VideoPlayActivityConfig.OBJ_ID);
                 this.mTagName = jSONObject.optString("tag_name");
-                this.XO = jSONObject.optString("tag_name_url");
-                cH(jSONObject.optString("tag_name_wh"));
+                this.afP = jSONObject.optString("tag_name_url");
+                df(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -63,28 +62,28 @@ public class w {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.XJ = banner.banner_type.intValue();
-            this.XK = banner.banner_url;
+            this.afK = banner.banner_type.intValue();
+            this.afL = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.XL = banner.desc;
-            this.XM = banner.template_id.intValue();
-            this.XN = banner.obj_id;
+            this.afM = banner.desc;
+            this.afN = banner.template_id.intValue();
+            this.afO = banner.obj_id;
             this.mTagName = banner.tag_name;
-            this.XO = banner.tag_name_url;
-            cH(banner.tag_name_wh);
+            this.afP = banner.tag_name_url;
+            df(banner.tag_name_wh);
         }
     }
 
-    private void cH(String str) {
+    private void df(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = str.split(",");
                 if (split != null && split.length >= 2) {
                     int g = com.baidu.adp.lib.g.b.g(split[0], 1);
                     int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
                     if (g2 != 0) {
-                        this.XP = g / g2;
+                        this.afQ = g / g2;
                     }
                 }
             } catch (Exception e) {
@@ -97,6 +96,6 @@ public class w {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.XJ == 1 || this.XJ == 4 || this.XJ == 2 || this.XJ == 3 : this.mType == 2 && !StringUtils.isNull(this.XL);
+        return this.mType == 1 ? this.afK == 1 || this.afK == 4 || this.afK == 2 || this.afK == 3 : this.mType == 2 && !StringUtils.isNull(this.afM);
     }
 }

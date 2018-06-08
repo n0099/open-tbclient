@@ -17,7 +17,7 @@ public class SystemReceiver extends WorkReceiver {
             super.onReceive(context, intent);
         } catch (Exception e) {
             com.meizu.cloud.a.a.e(TAG, "Event core error " + e.getMessage());
-            c.a(context, context.getPackageName(), (String) null, (String) null, PushManager.TAG, "SystemReceiver " + e.getMessage(), (int) PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
+            c.a(context, context.getPackageName(), (String) null, (String) null, PushManager.TAG, "SystemReceiver " + e.getMessage(), 3000);
         }
     }
 

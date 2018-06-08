@@ -26,13 +26,13 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.davemorrissey.labs.subscaleview.decoder.CompatDecoderFactory;
 import com.davemorrissey.labs.subscaleview.decoder.DecoderFactory;
 import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder;
 import com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageRegionDecoder;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -749,16 +749,16 @@ public class SubsamplingScaleImageView extends View {
                                     canvas.drawText("LOADING", tile2.vRect.left + 5, tile2.vRect.top + 35, this.debugPaint);
                                 }
                                 if (tile2.visible && this.debug) {
-                                    canvas.drawText("ISS " + tile2.sampleSize + " RECT " + tile2.sRect.top + Constants.ACCEPT_TIME_SEPARATOR_SP + tile2.sRect.left + Constants.ACCEPT_TIME_SEPARATOR_SP + tile2.sRect.bottom + Constants.ACCEPT_TIME_SEPARATOR_SP + tile2.sRect.right, tile2.vRect.left + 5, tile2.vRect.top + 15, this.debugPaint);
+                                    canvas.drawText("ISS " + tile2.sampleSize + " RECT " + tile2.sRect.top + "," + tile2.sRect.left + "," + tile2.sRect.bottom + "," + tile2.sRect.right, tile2.vRect.left + 5, tile2.vRect.top + 15, this.debugPaint);
                                 }
                             }
                         }
                     }
                     if (this.debug) {
                         canvas.drawText("Scale: " + String.format("%.2f", Float.valueOf(this.scale)), 5.0f, 15.0f, this.debugPaint);
-                        canvas.drawText("Translate: " + String.format("%.2f", Float.valueOf(this.vTranslate.x)) + ":" + String.format("%.2f", Float.valueOf(this.vTranslate.y)), 5.0f, 35.0f, this.debugPaint);
+                        canvas.drawText("Translate: " + String.format("%.2f", Float.valueOf(this.vTranslate.x)) + SystemInfoUtil.COLON + String.format("%.2f", Float.valueOf(this.vTranslate.y)), 5.0f, 35.0f, this.debugPaint);
                         PointF center = getCenter();
-                        canvas.drawText("Source center: " + String.format("%.2f", Float.valueOf(center.x)) + ":" + String.format("%.2f", Float.valueOf(center.y)), 5.0f, 55.0f, this.debugPaint);
+                        canvas.drawText("Source center: " + String.format("%.2f", Float.valueOf(center.x)) + SystemInfoUtil.COLON + String.format("%.2f", Float.valueOf(center.y)), 5.0f, 55.0f, this.debugPaint);
                         if (this.anim == null) {
                             return;
                         }

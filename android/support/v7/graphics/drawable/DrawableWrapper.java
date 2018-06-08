@@ -9,7 +9,7 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class DrawableWrapper extends Drawable implements Drawable.Callback {
     private Drawable mDrawable;

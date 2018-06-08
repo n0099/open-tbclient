@@ -9,11 +9,11 @@ class PositionMap<E> implements Cloneable {
     private int mSize;
     private Object[] mValues;
 
-    public PositionMap() {
+    PositionMap() {
         this(10);
     }
 
-    public PositionMap(int i) {
+    PositionMap(int i) {
         this.mGarbage = false;
         if (i == 0) {
             this.mKeys = ContainerHelpers.EMPTY_INTS;

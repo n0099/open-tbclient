@@ -29,7 +29,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
                 String string = context.getString(d.k.sign_notification_content);
                 String string2 = context.getString(d.k.app_name);
-                a.zw().a(a.zw().dU(12), 12);
+                a.CX().a(a.CX().dW(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
             } catch (Throwable th) {
                 try {
@@ -37,7 +37,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    c.Ad().updateSignAlarm();
+                    c.DE().updateSignAlarm();
                 }
             }
         }

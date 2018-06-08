@@ -1,89 +1,91 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.ar.util.Constants;
+import java.util.List;
 /* loaded from: classes.dex */
-public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection ahf;
-    private String ahg;
-    private String[] ahh;
-    private String[] ahi;
-    private boolean ahj;
-    private a ahk;
-    private int length;
-    private Context mContext;
-    private String mPath;
-
-    /* loaded from: classes.dex */
-    public interface a {
-        void vg();
-    }
-
-    public w(Context context) {
-        this.mContext = context;
-        this.ahf = new MediaScannerConnection(this.mContext, this);
-    }
-
-    public void dX(String str) {
-        this.mPath = str;
-        String substring = this.mPath.substring(this.mPath.lastIndexOf(Constants.DOT));
-        this.ahg = "image/jpeg";
-        if (substring.equals(".gif")) {
-            this.ahg = "image/gif";
-        }
-        this.ahf.connect();
-    }
-
-    public void dY(String str) {
-        this.mPath = str;
-        this.ahg = dZ(str);
-        this.ahf.connect();
-    }
-
-    private String dZ(String str) {
-        String lowerCase = str.toLowerCase();
-        if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
-            return "video/3gp";
-        }
-        return "video/mp4";
-    }
-
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.ahg)) {
-            this.ahf.scanFile(this.mPath, this.ahg);
-        }
-        if (this.ahh != null && this.ahi != null && this.ahh.length == this.ahi.length) {
-            int length = this.ahh.length;
-            for (int i = 0; i < length; i++) {
-                this.ahf.scanFile(this.ahh[i], this.ahi[i]);
-            }
+public class w {
+    public static <T> void x(List<T> list) {
+        if (list != null) {
+            list.clear();
         }
     }
 
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.ahg) && str.equals(this.mPath)) {
-            this.ahf.disconnect();
-            this.mPath = null;
-            this.ahg = null;
-            this.ahj = true;
-        } else if (this.ahh != null && this.ahi != null && this.ahh.length == this.ahi.length) {
-            this.length--;
-            if (this.length == 0) {
-                this.ahf.disconnect();
-                this.ahh = null;
-                this.ahi = null;
-                this.ahj = true;
-            } else {
-                this.ahj = false;
-            }
+    public static <T> int y(List<T> list) {
+        if (list == null || list.isEmpty()) {
+            return 0;
         }
-        if (this.ahj && this.ahk != null) {
-            this.ahk.vg();
+        return list.size();
+    }
+
+    public static <T> T c(List<T> list, int i) {
+        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+            return null;
         }
+        return list.get(i);
+    }
+
+    public static <T> int a(List<T> list, T t) {
+        if (list == null || list.isEmpty() || t == null) {
+            return -1;
+        }
+        return list.indexOf(t);
+    }
+
+    public static <T> boolean z(List<T> list) {
+        return y(list) <= 0;
+    }
+
+    public static <T> T d(List<T> list, int i) {
+        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+            return null;
+        }
+        return list.remove(i);
+    }
+
+    public static <T> boolean b(List<T> list, T t) {
+        if (list == null) {
+            return false;
+        }
+        return list.add(t);
+    }
+
+    public static <T> boolean a(List<T> list, int i, T t) {
+        if (list == null || i > list.size() || i < 0) {
+            return false;
+        }
+        list.add(i, t);
+        return true;
+    }
+
+    public static <T> boolean a(List<T> list, int i, List<T> list2) {
+        if (list == null || i > list.size() || i < 0 || list2 == null || list2.size() <= 0) {
+            return false;
+        }
+        list.addAll(i, list2);
+        return true;
+    }
+
+    public static <T> List<T> a(List<T> list, int i, int i2) {
+        int y = y(list);
+        if (y > 0 && i >= 0 && i2 <= y) {
+            return list.subList(i, i2);
+        }
+        return null;
+    }
+
+    public static <T> void b(List<T> list, int i, int i2) {
+        int y = y(list);
+        if (y > 0 && i >= 0 && i2 <= y) {
+            x(list.subList(i, i2));
+        }
+    }
+
+    public static <T> boolean c(List<T> list, List<T> list2) {
+        if (list == list2) {
+            return true;
+        }
+        if (list == null || list2 == null) {
+            return false;
+        }
+        return list.size() == list2.size() && list.containsAll(list2);
     }
 }

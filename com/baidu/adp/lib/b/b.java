@@ -4,12 +4,12 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
     private String mName;
-    private int sb;
-    private a se;
-    private int sd = 0;
-    private String[] sg = null;
-    private int sc = 0;
-    private String[] sh = null;
+    private int yo;
+    private a yr;
+    private int yq = 0;
+    private String[] yt = null;
+    private int yp = 0;
+    private String[] yu = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,53 +18,53 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.se = null;
-        this.sb = 0;
+        this.yr = null;
+        this.yo = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.se = aVar;
-        this.sb = i;
+        this.yr = aVar;
+        this.yo = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.sd = i;
-        this.sg = strArr;
-        this.sc = i2;
+        this.yq = i;
+        this.yt = strArr;
+        this.yp = i2;
     }
 
     public void g(String[] strArr) {
-        this.sh = strArr;
+        this.yu = strArr;
     }
 
-    public String[] ez() {
-        return this.sh;
+    public String[] hq() {
+        return this.yu;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public int ey() {
-        return this.sd;
+    public int hp() {
+        return this.yq;
     }
 
-    public String[] eB() {
-        return this.sg;
+    public String[] hs() {
+        return this.yt;
     }
 
-    public int ex() {
-        return this.sc;
+    public int ho() {
+        return this.yp;
     }
 
-    public int ew() {
-        return this.sb;
+    public int hn() {
+        return this.yo;
     }
 
     public void f(int i, boolean z) {
-        if (this.se != null) {
-            this.se.a(this.mName, i, z);
+        if (this.yr != null) {
+            this.yr.a(this.mName, i, z);
         }
     }
 }

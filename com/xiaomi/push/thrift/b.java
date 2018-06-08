@@ -1,6 +1,5 @@
 package com.xiaomi.push.thrift;
 
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -25,7 +24,7 @@ public class b implements Serializable, Cloneable, org.apache.thrift.a<b, a> {
     private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("subvalue", (byte) 8, 6);
     private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b("annotation", (byte) 11, 7);
     private static final org.apache.thrift.protocol.b t = new org.apache.thrift.protocol.b("user", (byte) 11, 8);
-    private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, (byte) 8, 9);
+    private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("time", (byte) 8, 9);
     private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("clientIp", (byte) 8, 10);
     public byte a;
     public int b;
@@ -49,7 +48,7 @@ public class b implements Serializable, Cloneable, org.apache.thrift.a<b, a> {
         SUBVALUE(6, "subvalue"),
         ANNOTATION(7, "annotation"),
         USER(8, "user"),
-        TIME(9, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME),
+        TIME(9, "time"),
         CLIENT_IP(10, "clientIp");
         
         private static final Map<String, a> k = new HashMap();
@@ -84,7 +83,7 @@ public class b implements Serializable, Cloneable, org.apache.thrift.a<b, a> {
         enumMap.put((EnumMap) a.SUBVALUE, (a) new org.apache.thrift.meta_data.b("subvalue", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
         enumMap.put((EnumMap) a.ANNOTATION, (a) new org.apache.thrift.meta_data.b("annotation", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.USER, (a) new org.apache.thrift.meta_data.b("user", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.TIME, (a) new org.apache.thrift.meta_data.b(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
+        enumMap.put((EnumMap) a.TIME, (a) new org.apache.thrift.meta_data.b("time", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
         enumMap.put((EnumMap) a.CLIENT_IP, (a) new org.apache.thrift.meta_data.b("clientIp", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
         k = Collections.unmodifiableMap(enumMap);
         org.apache.thrift.meta_data.b.a(b.class, k);

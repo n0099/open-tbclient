@@ -3,6 +3,8 @@ package com.baidu.ar.camera;
 public interface CameraCallback {
     void onCameraRelease(boolean z);
 
+    void onCameraReopen(boolean z);
+
     void onCameraSetup(boolean z);
 
     void onFlashClose(boolean z);

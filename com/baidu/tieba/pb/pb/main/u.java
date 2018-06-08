@@ -6,7 +6,8 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickListener {
@@ -18,7 +19,7 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bn */
+    /* renamed from: bo */
     public v onCreateViewHolder(ViewGroup viewGroup) {
         v vVar = new v(LayoutInflater.from(this.mContext).inflate(d.i.god_card_list_item, (ViewGroup) null));
         a(vVar);
@@ -29,7 +30,7 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
         if (vVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (vVar.mSkinType != skinType) {
-                com.baidu.tbadk.n.a.a(this.fhQ.getPageContext(), vVar.getView());
+                com.baidu.tbadk.n.a.a(this.ftp.getPageContext(), vVar.getView());
             }
             vVar.mSkinType = skinType;
         }
@@ -39,32 +40,32 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, v vVar) {
-        super.onFillViewHolder(i, view2, viewGroup, aVar, vVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, v vVar) {
+        super.onFillViewHolder(i, view, viewGroup, aVar, vVar);
         a(vVar);
-        vVar.fkR.setOnClickListener(this);
-        vVar.fkQ.setOnClickListener(this);
-        vVar.fkR.setTag(aVar);
-        vVar.fkQ.setTag(aVar);
+        vVar.fwm.setOnClickListener(this);
+        vVar.fwl.setOnClickListener(this);
+        vVar.fwm.setTag(aVar);
+        vVar.fwl.setTag(aVar);
         if (aVar != null) {
-            vVar.fkP.startLoad(aVar.getPortrait(), 28, false);
-            vVar.bHL.setText(aVar.getUserName());
-            vVar.dTg.setText(aVar.aVl());
+            vVar.fwk.startLoad(aVar.getPortrait(), 28, false);
+            vVar.bPN.setText(aVar.getUserName());
+            vVar.eet.setText(aVar.bah());
             vVar.text.setText(aVar.getText());
-            vVar.fkQ.startLoad(aVar.getPicUrl(), 10, false);
-            vVar.fkR.setText(aVar.aVm());
+            vVar.fwl.startLoad(aVar.getPicUrl(), 10, false);
+            vVar.fwm.setText(aVar.bai());
         }
-        return view2;
+        return view;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if ((view2.getTag() instanceof com.baidu.tieba.pb.data.a) && az.aK(this.mContext)) {
-            String aVn = ((com.baidu.tieba.pb.data.a) view2.getTag()).aVn();
-            if (!StringUtils.isNull(aVn)) {
-                com.baidu.tbadk.core.util.ax.wf().c(this.fhQ.getPageContext(), new String[]{aVn});
+    public void onClick(View view) {
+        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ba.aU(this.mContext)) {
+            String baj = ((com.baidu.tieba.pb.data.a) view.getTag()).baj();
+            if (!StringUtils.isNull(baj)) {
+                ay.zG().c(this.ftp.getPageContext(), new String[]{baj});
             }
         }
     }

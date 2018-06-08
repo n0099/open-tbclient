@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.srt;
 
+import com.baidu.ar.util.SystemInfoUtil;
 import com.googlecode.mp4parser.authoring.tracks.TextTrackImpl;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,6 +26,6 @@ public class SrtParser {
     }
 
     private static long parse(String str) {
-        return (Long.parseLong(str.split(":")[0].trim()) * 60 * 60 * 1000) + (Long.parseLong(str.split(":")[1].trim()) * 60 * 1000) + (Long.parseLong(str.split(":")[2].split(Constants.ACCEPT_TIME_SEPARATOR_SP)[0].trim()) * 1000) + Long.parseLong(str.split(":")[2].split(Constants.ACCEPT_TIME_SEPARATOR_SP)[1].trim());
+        return (Long.parseLong(str.split(SystemInfoUtil.COLON)[0].trim()) * 60 * 60 * 1000) + (Long.parseLong(str.split(SystemInfoUtil.COLON)[1].trim()) * 60 * 1000) + (Long.parseLong(str.split(SystemInfoUtil.COLON)[2].split(",")[0].trim()) * 1000) + Long.parseLong(str.split(SystemInfoUtil.COLON)[2].split(",")[1].trim());
     }
 }

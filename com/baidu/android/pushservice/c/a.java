@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.c;
 
+import com.baidu.ar.util.IoUtils;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,7 +23,7 @@ public class a {
         }
         StringBuilder sb = new StringBuilder();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b, "utf-8"));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b, IoUtils.UTF_8));
             try {
                 for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                     sb.append(readLine);

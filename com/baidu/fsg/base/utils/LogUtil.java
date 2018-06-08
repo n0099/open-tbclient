@@ -4,7 +4,6 @@ import android.os.Environment;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.ar.util.Constants;
 import com.baidu.fsg.base.ApollonConstants;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -135,10 +134,10 @@ public final class LogUtil {
             StringBuilder sb = new StringBuilder();
             if (stackTrace != null) {
                 StackTraceElement stackTraceElement = stackTrace[3];
-                sb.append(stackTraceElement.getClassName() + Constants.DOT + stackTraceElement.getMethodName() + "#line=" + stackTraceElement.getLineNumber() + "的调用：\n");
+                sb.append(stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName() + "#line=" + stackTraceElement.getLineNumber() + "的调用：\n");
                 for (int i = 4; i < stackTrace.length && i < 15; i++) {
                     StackTraceElement stackTraceElement2 = stackTrace[i];
-                    sb.append((i - 4) + "--" + stackTraceElement2.getClassName() + Constants.DOT + stackTraceElement2.getMethodName() + "(...)#line:" + stackTraceElement2.getLineNumber() + "\n");
+                    sb.append((i - 4) + "--" + stackTraceElement2.getClassName() + "." + stackTraceElement2.getMethodName() + "(...)#line:" + stackTraceElement2.getLineNumber() + "\n");
                 }
             }
             Log.w("apollon_rest", getTAG() + "--" + sb.toString());
@@ -151,7 +150,7 @@ public final class LogUtil {
             StringBuilder sb = new StringBuilder();
             if (stackTrace != null) {
                 StackTraceElement stackTraceElement = stackTrace[4];
-                sb.append(((Object) stackTraceElement.getFileName().subSequence(0, stackTraceElement.getFileName().length() - 5)) + Constants.DOT + stackTraceElement.getMethodName() + "#" + stackTraceElement.getLineNumber());
+                sb.append(((Object) stackTraceElement.getFileName().subSequence(0, stackTraceElement.getFileName().length() - 5)) + "." + stackTraceElement.getMethodName() + "#" + stackTraceElement.getLineNumber());
             }
             return sb.toString();
         } catch (NullPointerException e2) {

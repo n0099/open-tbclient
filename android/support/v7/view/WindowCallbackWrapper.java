@@ -1,5 +1,6 @@
 package android.support.v7.view;
 
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.view.ActionMode;
 import android.view.KeyEvent;
@@ -13,7 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import java.util.List;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class WindowCallbackWrapper implements Window.Callback {
     final Window.Callback mWrapped;
@@ -66,8 +67,8 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view2, Menu menu) {
-        return this.mWrapped.onPreparePanel(i, view2, menu);
+    public boolean onPreparePanel(int i, View view, Menu menu) {
+        return this.mWrapped.onPreparePanel(i, view, menu);
     }
 
     @Override // android.view.Window.Callback
@@ -111,6 +112,7 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @RequiresApi(23)
     public boolean onSearchRequested(SearchEvent searchEvent) {
         return this.mWrapped.onSearchRequested(searchEvent);
     }
@@ -126,6 +128,7 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @RequiresApi(23)
     public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
         return this.mWrapped.onWindowStartingActionMode(callback, i);
     }
@@ -141,7 +144,14 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @RequiresApi(24)
     public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
         this.mWrapped.onProvideKeyboardShortcuts(list, menu, i);
+    }
+
+    @Override // android.view.Window.Callback
+    @RequiresApi(26)
+    public void onPointerCaptureChanged(boolean z) {
+        this.mWrapped.onPointerCaptureChanged(z);
     }
 }

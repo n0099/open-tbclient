@@ -14,7 +14,9 @@ import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.n;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.l;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.ar.util.IoUtils;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushMessage;
@@ -192,7 +194,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     final byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_body");
                     final String stringExtra = intent.getStringExtra("message_id");
                     final int intExtra = intent.getIntExtra("baidu_message_type", -1);
-                    final String stringExtra2 = intent.getStringExtra(Constants.HTTP_APP_ID);
+                    final String stringExtra2 = intent.getStringExtra(HttpConstants.HTTP_APP_ID);
                     if (byteArrayExtra == null || byteArrayExtra2 == null || TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2) || intExtra == -1) {
                         sendCallback(context, intent, 2);
                     } else if (m.t(context, stringExtra) || !com.baidu.android.pushservice.d.a.e(context, stringExtra)) {
@@ -253,7 +255,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     }
                     try {
                         JSONObject jSONObject = new JSONObject(str);
-                        String string = jSONObject.getString("request_id");
+                        String string = jSONObject.getString(StatisticConstants.REQUEST_ID);
                         JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
                         String string2 = jSONObject2.getString("appid");
                         PushSettings.a(context, string2);
@@ -271,7 +273,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         com.baidu.android.pushservice.j.j.a(context, string2, string3, optString, string, string4, true, m.d(context, context.getPackageName()), j, str2, str3);
                         onBind(context, intExtra2, string2, string4, TextUtils.isEmpty(optString) ? string3 : optString, string);
                         m.b("PushMessageReceiver#onBind from " + context.getPackageName() + ", errorCode= " + intExtra2 + ", appid=  " + string2 + ", userId=" + string4 + ", channelId=" + string3 + ", newChannelId=" + optString + ", requestId=" + string + ", at time of " + System.currentTimeMillis(), context);
-                        String b2 = com.baidu.android.pushservice.b.b.a(context).b(context.getPackageName() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + string2 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + string4 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + "false" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + ((int) com.baidu.android.pushservice.a.a()));
+                        String b2 = com.baidu.android.pushservice.b.b.a(context).b(context.getPackageName() + "," + string2 + "," + string4 + ",false," + ((int) com.baidu.android.pushservice.a.a()));
                         com.baidu.android.pushservice.d.c.d(context, b2);
                         if (m.E(context)) {
                             n.a(context, context.getPackageName() + ".self_push_sync", "bindinfo", b2);
@@ -285,7 +287,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     SharedPreferences.Editor edit = context.getSharedPreferences("bindcache", 0).edit();
                     int i = !com.baidu.android.pushservice.c.e.h(context) ? 0 : intExtra2;
                     try {
-                        onUnbind(context, i, new JSONObject(str).getString("request_id"));
+                        onUnbind(context, i, new JSONObject(str).getString(StatisticConstants.REQUEST_ID));
                         edit.putBoolean("bind_status", false);
                         edit.commit();
                     } catch (JSONException e2) {
@@ -307,7 +309,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 } else if (stringExtra3.equals("method_set_tags") || stringExtra3.equals("method_set_lapp_tags")) {
                     try {
                         JSONObject jSONObject3 = new JSONObject(str);
-                        String string5 = jSONObject3.getString("request_id");
+                        String string5 = jSONObject3.getString(StatisticConstants.REQUEST_ID);
                         if (!TextUtils.isEmpty(jSONObject3.optString(PushConstants.EXTRA_ERROR_CODE))) {
                             onSetTags(context, intExtra2, new ArrayList(), new ArrayList(), string5);
                             return;
@@ -334,7 +336,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 } else if (stringExtra3.equals("method_del_tags") || stringExtra3.equals("method_del_lapp_tags")) {
                     try {
                         JSONObject jSONObject5 = new JSONObject(str);
-                        String string7 = jSONObject5.getString("request_id");
+                        String string7 = jSONObject5.getString(StatisticConstants.REQUEST_ID);
                         JSONObject jSONObject6 = jSONObject5.getJSONObject("response_params");
                         if (jSONObject6 == null || (jSONArray2 = jSONObject6.getJSONArray("details")) == null) {
                             return;
@@ -357,7 +359,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 } else {
                     if (stringExtra3.equals("method_listtags") || stringExtra3.equals("method_list_lapp_tags")) {
                         try {
-                            onListTags(context, intExtra2, intent.getStringArrayListExtra("tags_list"), new JSONObject(str).getString("request_id"));
+                            onListTags(context, intExtra2, intent.getStringArrayListExtra("tags_list"), new JSONObject(str).getString(StatisticConstants.REQUEST_ID));
                         } catch (JSONException e5) {
                             onListTags(context, intExtra2, null, null);
                         }
@@ -401,8 +403,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     byte[] byteArrayExtra5 = intent.getByteArrayExtra("msg_data");
                     byte[] byteArrayExtra6 = intent.getByteArrayExtra("device_token");
                     try {
-                        String str6 = new String(byteArrayExtra5, "utf-8");
-                        new String(byteArrayExtra6, "utf-8");
+                        String str6 = new String(byteArrayExtra5, IoUtils.UTF_8);
+                        new String(byteArrayExtra6, IoUtils.UTF_8);
                         com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
                         String a6 = iVar.a(context, str6);
                         if (m.y(context) && !m.y(context, iVar.l) && PushManager.hwMessageVerify(context, iVar.o, iVar.l + a6)) {

@@ -53,10 +53,10 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
         @Override // android.widget.TabHost.TabContentFactory
         public View createTabContent(String str) {
-            View view2 = new View(this.mContext);
-            view2.setMinimumWidth(0);
-            view2.setMinimumHeight(0);
-            return view2;
+            View view = new View(this.mContext);
+            view.setMinimumWidth(0);
+            view.setMinimumHeight(0);
+            return view;
         }
     }
 

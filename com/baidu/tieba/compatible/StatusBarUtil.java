@@ -8,7 +8,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
@@ -18,11 +18,15 @@ public final class StatusBarUtil {
     boolean transparentStatusBar;
     Window window;
 
-    private StatusBarUtil(Window window, boolean z, boolean z2, View view2) {
+    private StatusBarUtil(Window window, boolean z, boolean z2, View view) {
         this.lightStatusBar = z;
         this.transparentStatusBar = z2;
         this.window = window;
-        this.actionBarView = view2;
+        this.actionBarView = view;
+    }
+
+    /* synthetic */ StatusBarUtil(Window window, boolean z, boolean z2, View view, StatusBarUtil statusBarUtil) {
+        this(window, z, z2, view);
     }
 
     public static boolean isKitkat() {
@@ -54,20 +58,20 @@ public final class StatusBarUtil {
             return 0;
         }
         Context applicationContext = context.getApplicationContext();
-        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", Constants.OS_TYPE_VALUE);
+        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE);
         if (identifier > 0) {
             return applicationContext.getResources().getDimensionPixelSize(identifier);
         }
         return 0;
     }
 
-    public void processActionBar(final View view2) {
-        if (view2 != null && this.transparentStatusBar && !isLessKitkat()) {
-            view2.post(new Runnable() { // from class: com.baidu.tieba.compatible.StatusBarUtil.1
+    public void processActionBar(final View view) {
+        if (view != null && this.transparentStatusBar && !isLessKitkat()) {
+            view.post(new Runnable() { // from class: com.baidu.tieba.compatible.StatusBarUtil.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    view2.setPadding(view2.getPaddingLeft(), view2.getPaddingTop() + StatusBarUtil.getStatusBarOffsetPx(view2.getContext()), view2.getPaddingRight(), view2.getPaddingBottom());
-                    view2.getLayoutParams().height += StatusBarUtil.getStatusBarOffsetPx(view2.getContext());
+                    view.setPadding(view.getPaddingLeft(), view.getPaddingTop() + StatusBarUtil.getStatusBarOffsetPx(view.getContext()), view.getPaddingRight(), view.getPaddingBottom());
+                    view.getLayoutParams().height += StatusBarUtil.getStatusBarOffsetPx(view.getContext());
                 }
             });
         }
@@ -160,8 +164,8 @@ public final class StatusBarUtil {
         private boolean transparentStatusbar = false;
         private Window window;
 
-        public Builder setActionbarView(View view2) {
-            this.actionBarView = view2;
+        public Builder setActionbarView(View view) {
+            this.actionBarView = view;
             return this;
         }
 
@@ -194,7 +198,7 @@ public final class StatusBarUtil {
         }
 
         public boolean process() {
-            return new StatusBarUtil(this.window, this.lightStatusBar, this.transparentStatusbar, this.actionBarView).process();
+            return new StatusBarUtil(this.window, this.lightStatusBar, this.transparentStatusbar, this.actionBarView, null).process();
         }
     }
 }

@@ -4,29 +4,29 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.HistoryForumInfo;
 /* loaded from: classes.dex */
 public class VisitedForumData extends OrmObject {
-    private boolean aBP;
-    private int aBQ;
-    private String aBR;
+    private boolean aKl;
+    private int aKm;
+    private String aKn;
     private String mForumId;
     private String mForumImageUrl;
     private String mForumName;
 
     public VisitedForumData() {
         this.mForumImageUrl = "";
-        this.aBP = false;
-        this.aBQ = 0;
+        this.aKl = false;
+        this.aKm = 0;
         this.mForumName = "";
         this.mForumId = "";
-        this.aBR = "";
+        this.aKn = "";
     }
 
     public VisitedForumData(String str, String str2, String str3, String str4, boolean z) {
         this.mForumImageUrl = str3;
-        this.aBP = z;
+        this.aKl = z;
         this.mForumName = str2;
         this.mForumId = str;
-        this.aBR = str4;
-        this.aBQ = 0;
+        this.aKn = str4;
+        this.aKm = 0;
     }
 
     public void a(HistoryForumInfo historyForumInfo) {
@@ -34,22 +34,22 @@ public class VisitedForumData extends OrmObject {
             this.mForumImageUrl = historyForumInfo.avatar;
             this.mForumId = String.valueOf(historyForumInfo.forum_id);
             this.mForumName = historyForumInfo.forum_name;
-            this.aBP = historyForumInfo.is_liveforum.intValue() == 1;
-            this.aBQ = historyForumInfo.unread_num.intValue();
-            this.aBR = historyForumInfo.visit_time;
+            this.aKl = historyForumInfo.is_liveforum.intValue() == 1;
+            this.aKm = historyForumInfo.unread_num.intValue();
+            this.aKn = historyForumInfo.visit_time;
         }
     }
 
-    public String Dk() {
+    public String GN() {
         return this.mForumImageUrl;
     }
 
-    public boolean Dl() {
-        return this.aBP;
+    public boolean GO() {
+        return this.aKl;
     }
 
-    public int Dm() {
-        return this.aBQ;
+    public int GP() {
+        return this.aKm;
     }
 
     public String getForumName() {
@@ -60,7 +60,7 @@ public class VisitedForumData extends OrmObject {
         return this.mForumId;
     }
 
-    public String Dn() {
-        return this.aBR;
+    public String GQ() {
+        return this.aKn;
     }
 }

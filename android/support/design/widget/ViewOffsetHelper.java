@@ -10,8 +10,8 @@ class ViewOffsetHelper {
     private int mOffsetTop;
     private final View mView;
 
-    public ViewOffsetHelper(View view2) {
-        this.mView = view2;
+    public ViewOffsetHelper(View view) {
+        this.mView = view;
     }
 
     public void onViewLayout() {

@@ -19,7 +19,7 @@ public abstract class d {
         return 0;
     }
 
-    public a nE() {
+    public a qR() {
         return null;
     }
 }

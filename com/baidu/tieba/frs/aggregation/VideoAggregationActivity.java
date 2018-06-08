@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
-    private VideoAggregationFragment dcp;
+    private VideoAggregationFragment dlF;
     private String mFrom;
     private String mId;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.i.activity_video_aggregation);
@@ -26,16 +26,16 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mId)) {
             finish();
         }
-        this.dcp = VideoAggregationFragment.l(this.mId, this.mFrom, stringExtra, stringExtra2);
-        getSupportFragmentManager().beginTransaction().replace(d.g.container, this.dcp).commit();
+        this.dlF = VideoAggregationFragment.l(this.mId, this.mFrom, stringExtra, stringExtra2);
+        getSupportFragmentManager().beginTransaction().replace(d.g.container, this.dlF).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.dcp != null) {
+        if (this.dlF != null) {
             getLayoutMode().setNightMode(i == 1);
-            getLayoutMode().u(this.dcp.getView());
-            this.dcp.onChangeSkinType(i);
+            getLayoutMode().onModeChanged(this.dlF.getView());
+            this.dlF.onChangeSkinType(i);
         }
     }
 
@@ -51,10 +51,10 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.dcp == null) {
+        if (keyEvent == null || this.dlF == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.dcp.kp(i)) {
+        if (this.dlF.ku(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

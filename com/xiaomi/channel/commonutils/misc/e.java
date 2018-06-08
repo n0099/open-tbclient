@@ -4,6 +4,7 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.app.NotificationCompat;
 /* loaded from: classes3.dex */
 public class e {
     public static boolean a(Context context) {
@@ -15,7 +16,7 @@ public class e {
         if (registerReceiver == null) {
             return false;
         }
-        int intExtra = registerReceiver.getIntExtra("status", -1);
+        int intExtra = registerReceiver.getIntExtra(NotificationCompat.CATEGORY_STATUS, -1);
         return intExtra == 2 || intExtra == 5;
     }
 }

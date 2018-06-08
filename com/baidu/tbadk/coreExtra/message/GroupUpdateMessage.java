@@ -12,6 +12,7 @@ public class GroupUpdateMessage implements Serializable {
     private int groupType;
     private long lastMsgId;
     private String name;
+    private String nameShow;
     private String portrait;
 
     public long getGroupId() {
@@ -84,5 +85,13 @@ public class GroupUpdateMessage implements Serializable {
 
     public void setForumId(String str) {
         this.forumId = str;
+    }
+
+    public void setNameShow(String str) {
+        this.nameShow = str;
+    }
+
+    public String getNameShow() {
+        return this.nameShow;
     }
 }

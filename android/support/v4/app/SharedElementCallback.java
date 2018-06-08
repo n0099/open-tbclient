@@ -39,10 +39,10 @@ public abstract class SharedElementCallback {
     public void onMapSharedElements(List<String> list, Map<String, View> map) {
     }
 
-    public Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF) {
+    public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
         Bitmap createDrawableBitmap;
-        if (view2 instanceof ImageView) {
-            ImageView imageView = (ImageView) view2;
+        if (view instanceof ImageView) {
+            ImageView imageView = (ImageView) view;
             Drawable drawable = imageView.getDrawable();
             Drawable background = imageView.getBackground();
             if (drawable != null && background == null && (createDrawableBitmap = createDrawableBitmap(drawable)) != null) {
@@ -74,7 +74,7 @@ public abstract class SharedElementCallback {
         Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         canvas.concat(this.mTempMatrix);
-        view2.draw(canvas);
+        view.draw(canvas);
         return createBitmap;
     }
 

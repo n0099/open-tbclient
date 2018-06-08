@@ -4,29 +4,29 @@ import android.support.v7.widget.ActivityChooserView;
 import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes2.dex */
 public class f {
-    private long XB = 0;
-    private String XC = "";
+    private long afC = 0;
+    private String afD = "";
     private String imgUrl = "";
-    private int fdC = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private String fdD = "";
-    private String bBM = "";
+    private int foY = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private String foZ = "";
+    private String bJP = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
-            this.XB = forumHeadlineImgInfo.img_user_id.longValue();
-            this.XC = forumHeadlineImgInfo.img_user_name;
+            this.afC = forumHeadlineImgInfo.img_user_id.longValue();
+            this.afD = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.fdC = forumHeadlineImgInfo.rank_num.intValue();
-            this.fdD = forumHeadlineImgInfo.rank_up_info;
-            this.bBM = forumHeadlineImgInfo.rank_url;
+            this.foY = forumHeadlineImgInfo.rank_num.intValue();
+            this.foZ = forumHeadlineImgInfo.rank_up_info;
+            this.bJP = forumHeadlineImgInfo.rank_url;
         }
     }
 
-    public String aVT() {
-        return this.bBM;
+    public String baP() {
+        return this.bJP;
     }
 
-    public String qF() {
+    public String ub() {
         return this.imgUrl;
     }
 }

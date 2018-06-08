@@ -6,6 +6,7 @@ import com.baidu.afd.d;
 import com.baidu.afd.h;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
+import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import com.baidu.tieba.recapp.lego.model.AdCard;
@@ -13,10 +14,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
-public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, com.baidu.tieba.lego.card.view.h {
+public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com.baidu.tieba.lego.card.view.h {
     private d adFacadeData;
     public boolean autoPlay;
     public AdCard.c operateData;
+    public b.a parallelChargeInfo;
     public String tagName;
     public AdCard.f tailFrame;
     public String threadTitle;
@@ -60,8 +62,10 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, com.ba
         JSONObject optJSONObject3 = jSONObject.optJSONObject("operate");
         this.operateData = new AdCard.c();
         this.operateData.parseFromJson(optJSONObject3);
-        if (TextUtils.isEmpty(this.operateData.fZd)) {
-            this.operateData.fZd = this.userName;
+        this.parallelChargeInfo = new b.a();
+        this.parallelChargeInfo.parseFromJson(jSONObject);
+        if (TextUtils.isEmpty(this.operateData.gkv)) {
+            this.operateData.gkv = this.userName;
         }
     }
 
@@ -127,13 +131,18 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, com.ba
             }
             jSONObject.put(WriteVideoActivityConfig.VIDEO_INFO, jSONObject2);
             jSONObject.put(WebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.toJson());
-            jSONObject.put("operate", this.operateData.aeT());
-            if (this.adFacadeData != null && this.adFacadeData.lv() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.lv().ext);
+            jSONObject.put("operate", this.operateData.aiE());
+            if (this.adFacadeData != null && this.adFacadeData.ol() != null) {
+                jSONObject.put("extraparams", this.adFacadeData.ol().ext);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
+    }
+
+    @Override // com.baidu.tieba.lego.card.b.b
+    public b.a getParallelCharge() {
+        return this.parallelChargeInfo;
     }
 }

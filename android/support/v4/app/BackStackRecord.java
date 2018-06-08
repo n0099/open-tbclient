@@ -1,22 +1,20 @@
 package android.support.v4.app;
 
 import android.os.Build;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransitionCompat21;
-import android.support.v4.util.ArrayMap;
+import android.support.v4.app.FragmentManagerImpl;
 import android.support.v4.util.LogWriter;
+import android.support.v4.view.ViewCompat;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-public final class BackStackRecord extends FragmentTransaction implements FragmentManager.BackStackEntry, Runnable {
+public final class BackStackRecord extends FragmentTransaction implements FragmentManager.BackStackEntry, FragmentManagerImpl.OpGenerator {
     static final int OP_ADD = 1;
     static final int OP_ATTACH = 7;
     static final int OP_DETACH = 6;
@@ -24,7 +22,9 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     static final int OP_NULL = 0;
     static final int OP_REMOVE = 3;
     static final int OP_REPLACE = 2;
+    static final int OP_SET_PRIMARY_NAV = 8;
     static final int OP_SHOW = 5;
+    static final int OP_UNSET_PRIMARY_NAV = 9;
     static final boolean SUPPORTS_TRANSITIONS;
     static final String TAG = "FragmentManager";
     boolean mAddToBackStack;
@@ -32,22 +32,26 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     CharSequence mBreadCrumbShortTitleText;
     int mBreadCrumbTitleRes;
     CharSequence mBreadCrumbTitleText;
+    ArrayList<Runnable> mCommitRunnables;
     boolean mCommitted;
     int mEnterAnim;
     int mExitAnim;
-    Op mHead;
     final FragmentManagerImpl mManager;
     String mName;
-    int mNumOp;
     int mPopEnterAnim;
     int mPopExitAnim;
     ArrayList<String> mSharedElementSourceNames;
     ArrayList<String> mSharedElementTargetNames;
-    Op mTail;
     int mTransition;
     int mTransitionStyle;
+    ArrayList<Op> mOps = new ArrayList<>();
     boolean mAllowAddToBackStack = true;
     int mIndex = -1;
+    boolean mReorderingAllowed = false;
+
+    static {
+        SUPPORTS_TRANSITIONS = Build.VERSION.SDK_INT >= 21;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -56,15 +60,17 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         int enterAnim;
         int exitAnim;
         Fragment fragment;
-        Op next;
         int popEnterAnim;
         int popExitAnim;
-        Op prev;
-        ArrayList<Fragment> removed;
-    }
 
-    static {
-        SUPPORTS_TRANSITIONS = Build.VERSION.SDK_INT >= 21;
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public Op() {
+        }
+
+        Op(int i, Fragment fragment) {
+            this.cmd = i;
+            this.fragment = fragment;
+        }
     }
 
     public String toString() {
@@ -133,13 +139,13 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                 printWriter.println(this.mBreadCrumbShortTitleText);
             }
         }
-        if (this.mHead != null) {
+        if (!this.mOps.isEmpty()) {
             printWriter.print(str);
             printWriter.println("Operations:");
             String str3 = str + "    ";
-            int i = 0;
-            Op op = this.mHead;
-            while (op != null) {
+            int size = this.mOps.size();
+            for (int i = 0; i < size; i++) {
+                Op op = this.mOps.get(i);
                 switch (op.cmd) {
                     case 0:
                         str2 = "NULL";
@@ -164,6 +170,12 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                         break;
                     case 7:
                         str2 = "ATTACH";
+                        break;
+                    case 8:
+                        str2 = "SET_PRIMARY_NAV";
+                        break;
+                    case 9:
+                        str2 = "UNSET_PRIMARY_NAV";
                         break;
                     default:
                         str2 = "cmd=" + op.cmd;
@@ -192,25 +204,6 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                         printWriter.println(Integer.toHexString(op.popExitAnim));
                     }
                 }
-                if (op.removed != null && op.removed.size() > 0) {
-                    for (int i2 = 0; i2 < op.removed.size(); i2++) {
-                        printWriter.print(str3);
-                        if (op.removed.size() == 1) {
-                            printWriter.print("Removed: ");
-                        } else {
-                            if (i2 == 0) {
-                                printWriter.println("Removed:");
-                            }
-                            printWriter.print(str3);
-                            printWriter.print("  #");
-                            printWriter.print(i2);
-                            printWriter.print(": ");
-                        }
-                        printWriter.println(op.removed.get(i2));
-                    }
-                }
-                op = op.next;
-                i++;
             }
         }
     }
@@ -246,19 +239,11 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void addOp(Op op) {
-        if (this.mHead == null) {
-            this.mTail = op;
-            this.mHead = op;
-        } else {
-            op.prev = this.mTail;
-            this.mTail.next = op;
-            this.mTail = op;
-        }
+        this.mOps.add(op);
         op.enterAnim = this.mEnterAnim;
         op.exitAnim = this.mExitAnim;
         op.popEnterAnim = this.mPopEnterAnim;
         op.popExitAnim = this.mPopExitAnim;
-        this.mNumOp++;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
@@ -302,10 +287,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             fragment.mFragmentId = i;
             fragment.mContainerId = i;
         }
-        Op op = new Op();
-        op.cmd = i2;
-        op.fragment = fragment;
-        addOp(op);
+        addOp(new Op(i2, fragment));
     }
 
     @Override // android.support.v4.app.FragmentTransaction
@@ -324,46 +306,37 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction remove(Fragment fragment) {
-        Op op = new Op();
-        op.cmd = 3;
-        op.fragment = fragment;
-        addOp(op);
+        addOp(new Op(3, fragment));
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction hide(Fragment fragment) {
-        Op op = new Op();
-        op.cmd = 4;
-        op.fragment = fragment;
-        addOp(op);
+        addOp(new Op(4, fragment));
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction show(Fragment fragment) {
-        Op op = new Op();
-        op.cmd = 5;
-        op.fragment = fragment;
-        addOp(op);
+        addOp(new Op(5, fragment));
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction detach(Fragment fragment) {
-        Op op = new Op();
-        op.cmd = 6;
-        op.fragment = fragment;
-        addOp(op);
+        addOp(new Op(6, fragment));
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
     public FragmentTransaction attach(Fragment fragment) {
-        Op op = new Op();
-        op.cmd = 7;
-        op.fragment = fragment;
-        addOp(op);
+        addOp(new Op(7, fragment));
+        return this;
+    }
+
+    @Override // android.support.v4.app.FragmentTransaction
+    public FragmentTransaction setPrimaryNavigationFragment(Fragment fragment) {
+        addOp(new Op(8, fragment));
         return this;
     }
 
@@ -388,15 +361,21 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction addSharedElement(View view2, String str) {
+    public FragmentTransaction addSharedElement(View view, String str) {
         if (SUPPORTS_TRANSITIONS) {
-            String transitionName = FragmentTransitionCompat21.getTransitionName(view2);
+            String transitionName = ViewCompat.getTransitionName(view);
             if (transitionName == null) {
                 throw new IllegalArgumentException("Unique transitionNames are required for all sharedElements");
             }
             if (this.mSharedElementSourceNames == null) {
                 this.mSharedElementSourceNames = new ArrayList<>();
                 this.mSharedElementTargetNames = new ArrayList<>();
+            } else if (this.mSharedElementTargetNames.contains(str)) {
+                throw new IllegalArgumentException("A shared element with the target name '" + str + "' has already been added to the transaction.");
+            } else {
+                if (this.mSharedElementSourceNames.contains(transitionName)) {
+                    throw new IllegalArgumentException("A shared element with the source name '" + transitionName + " has already been added to the transaction.");
+                }
             }
             this.mSharedElementSourceNames.add(transitionName);
             this.mSharedElementTargetNames.add(str);
@@ -468,23 +447,39 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             if (FragmentManagerImpl.DEBUG) {
                 Log.v(TAG, "Bump nesting in " + this + " by " + i);
             }
-            for (Op op = this.mHead; op != null; op = op.next) {
+            int size = this.mOps.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                Op op = this.mOps.get(i2);
                 if (op.fragment != null) {
                     op.fragment.mBackStackNesting += i;
                     if (FragmentManagerImpl.DEBUG) {
                         Log.v(TAG, "Bump nesting of " + op.fragment + " to " + op.fragment.mBackStackNesting);
                     }
                 }
-                if (op.removed != null) {
-                    for (int size = op.removed.size() - 1; size >= 0; size--) {
-                        Fragment fragment = op.removed.get(size);
-                        fragment.mBackStackNesting += i;
-                        if (FragmentManagerImpl.DEBUG) {
-                            Log.v(TAG, "Bump nesting of " + fragment + " to " + fragment.mBackStackNesting);
-                        }
-                    }
-                }
             }
+        }
+    }
+
+    @Override // android.support.v4.app.FragmentTransaction
+    public FragmentTransaction runOnCommit(Runnable runnable) {
+        if (runnable == null) {
+            throw new IllegalArgumentException("runnable cannot be null");
+        }
+        disallowAddToBackStack();
+        if (this.mCommitRunnables == null) {
+            this.mCommitRunnables = new ArrayList<>();
+        }
+        this.mCommitRunnables.add(runnable);
+        return this;
+    }
+
+    public void runOnCommitRunnables() {
+        if (this.mCommitRunnables != null) {
+            int size = this.mCommitRunnables.size();
+            for (int i = 0; i < size; i++) {
+                this.mCommitRunnables.get(i).run();
+            }
+            this.mCommitRunnables = null;
         }
     }
 
@@ -510,13 +505,26 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         this.mManager.execSingleAction(this, true);
     }
 
+    @Override // android.support.v4.app.FragmentTransaction
+    public FragmentTransaction setReorderingAllowed(boolean z) {
+        this.mReorderingAllowed = z;
+        return this;
+    }
+
+    @Override // android.support.v4.app.FragmentTransaction
+    public FragmentTransaction setAllowOptimization(boolean z) {
+        return setReorderingAllowed(z);
+    }
+
     int commitInternal(boolean z) {
         if (this.mCommitted) {
             throw new IllegalStateException("commit already called");
         }
         if (FragmentManagerImpl.DEBUG) {
             Log.v(TAG, "Commit: " + this);
-            dump("  ", null, new PrintWriter(new LogWriter(TAG)), null);
+            PrintWriter printWriter = new PrintWriter(new LogWriter(TAG));
+            dump("  ", null, printWriter, null);
+            printWriter.close();
         }
         this.mCommitted = true;
         if (this.mAddToBackStack) {
@@ -528,309 +536,310 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         return this.mIndex;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TransitionState transitionState;
-        Fragment fragment;
+    @Override // android.support.v4.app.FragmentManagerImpl.OpGenerator
+    public boolean generateOps(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2) {
         if (FragmentManagerImpl.DEBUG) {
             Log.v(TAG, "Run: " + this);
         }
-        if (this.mAddToBackStack && this.mIndex < 0) {
-            throw new IllegalStateException("addToBackStack() called after commit()");
-        }
-        bumpBackStackNesting(1);
-        if (!SUPPORTS_TRANSITIONS || this.mManager.mCurState < 1) {
-            transitionState = null;
-        } else {
-            SparseArray<Fragment> sparseArray = new SparseArray<>();
-            SparseArray<Fragment> sparseArray2 = new SparseArray<>();
-            calculateFragments(sparseArray, sparseArray2);
-            transitionState = beginTransition(sparseArray, sparseArray2, false);
-        }
-        int i = transitionState != null ? 0 : this.mTransitionStyle;
-        int i2 = transitionState != null ? 0 : this.mTransition;
-        for (Op op = this.mHead; op != null; op = op.next) {
-            int i3 = transitionState != null ? 0 : op.enterAnim;
-            int i4 = transitionState != null ? 0 : op.exitAnim;
-            switch (op.cmd) {
-                case 1:
-                    Fragment fragment2 = op.fragment;
-                    fragment2.mNextAnim = i3;
-                    this.mManager.addFragment(fragment2, false);
-                    break;
-                case 2:
-                    Fragment fragment3 = op.fragment;
-                    int i5 = fragment3.mContainerId;
-                    if (this.mManager.mAdded != null) {
-                        int size = this.mManager.mAdded.size() - 1;
-                        while (size >= 0) {
-                            Fragment fragment4 = this.mManager.mAdded.get(size);
-                            if (FragmentManagerImpl.DEBUG) {
-                                Log.v(TAG, "OP_REPLACE: adding=" + fragment3 + " old=" + fragment4);
-                            }
-                            if (fragment4.mContainerId == i5) {
-                                if (fragment4 == fragment3) {
-                                    fragment = null;
-                                    op.fragment = null;
-                                    size--;
-                                    fragment3 = fragment;
-                                } else {
-                                    if (op.removed == null) {
-                                        op.removed = new ArrayList<>();
-                                    }
-                                    op.removed.add(fragment4);
-                                    fragment4.mNextAnim = i4;
-                                    if (this.mAddToBackStack) {
-                                        fragment4.mBackStackNesting++;
-                                        if (FragmentManagerImpl.DEBUG) {
-                                            Log.v(TAG, "Bump nesting of " + fragment4 + " to " + fragment4.mBackStackNesting);
-                                        }
-                                    }
-                                    this.mManager.removeFragment(fragment4, i2, i);
-                                }
-                            }
-                            fragment = fragment3;
-                            size--;
-                            fragment3 = fragment;
-                        }
-                    }
-                    if (fragment3 != null) {
-                        fragment3.mNextAnim = i3;
-                        this.mManager.addFragment(fragment3, false);
-                        break;
-                    } else {
-                        break;
-                    }
-                case 3:
-                    Fragment fragment5 = op.fragment;
-                    fragment5.mNextAnim = i4;
-                    this.mManager.removeFragment(fragment5, i2, i);
-                    break;
-                case 4:
-                    Fragment fragment6 = op.fragment;
-                    fragment6.mNextAnim = i4;
-                    this.mManager.hideFragment(fragment6, i2, i);
-                    break;
-                case 5:
-                    Fragment fragment7 = op.fragment;
-                    fragment7.mNextAnim = i3;
-                    this.mManager.showFragment(fragment7, i2, i);
-                    break;
-                case 6:
-                    Fragment fragment8 = op.fragment;
-                    fragment8.mNextAnim = i4;
-                    this.mManager.detachFragment(fragment8, i2, i);
-                    break;
-                case 7:
-                    Fragment fragment9 = op.fragment;
-                    fragment9.mNextAnim = i3;
-                    this.mManager.attachFragment(fragment9, i2, i);
-                    break;
-                default:
-                    throw new IllegalArgumentException("Unknown cmd: " + op.cmd);
-            }
-        }
-        this.mManager.moveToState(this.mManager.mCurState, i2, i, true);
+        arrayList.add(this);
+        arrayList2.add(false);
         if (this.mAddToBackStack) {
             this.mManager.addBackStackState(this);
+            return true;
         }
+        return true;
     }
 
-    private static void setFirstOut(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2, Fragment fragment) {
-        int i;
-        if (fragment != null && (i = fragment.mContainerId) != 0 && !fragment.isHidden()) {
-            if (fragment.isAdded() && fragment.getView() != null && sparseArray.get(i) == null) {
-                sparseArray.put(i, fragment);
-            }
-            if (sparseArray2.get(i) == fragment) {
-                sparseArray2.remove(i);
-            }
-        }
-    }
-
-    private void setLastIn(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2, Fragment fragment) {
-        if (fragment != null) {
-            int i = fragment.mContainerId;
-            if (i != 0) {
-                if (!fragment.isAdded()) {
-                    sparseArray2.put(i, fragment);
-                }
-                if (sparseArray.get(i) == fragment) {
-                    sparseArray.remove(i);
-                }
-            }
-            if (fragment.mState < 1 && this.mManager.mCurState >= 1) {
-                this.mManager.makeActive(fragment);
-                this.mManager.moveToState(fragment, 1, 0, 0, false);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean interactsWith(int i) {
+        int size = this.mOps.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            Op op = this.mOps.get(i2);
+            int i3 = op.fragment != null ? op.fragment.mContainerId : 0;
+            if (i3 != 0 && i3 == i) {
+                return true;
             }
         }
+        return false;
     }
 
-    private void calculateFragments(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
-        if (this.mManager.mContainer.onHasView()) {
-            for (Op op = this.mHead; op != null; op = op.next) {
-                switch (op.cmd) {
-                    case 1:
-                        setLastIn(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 2:
-                        Fragment fragment = op.fragment;
-                        if (this.mManager.mAdded != null) {
-                            int i = 0;
-                            Fragment fragment2 = fragment;
-                            while (true) {
-                                int i2 = i;
-                                if (i2 < this.mManager.mAdded.size()) {
-                                    Fragment fragment3 = this.mManager.mAdded.get(i2);
-                                    if (fragment2 == null || fragment3.mContainerId == fragment2.mContainerId) {
-                                        if (fragment3 == fragment2) {
-                                            fragment2 = null;
-                                            sparseArray2.remove(fragment3.mContainerId);
-                                        } else {
-                                            setFirstOut(sparseArray, sparseArray2, fragment3);
-                                        }
-                                    }
-                                    i = i2 + 1;
-                                }
-                            }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean interactsWith(ArrayList<BackStackRecord> arrayList, int i, int i2) {
+        int i3;
+        if (i2 == i) {
+            return false;
+        }
+        int size = this.mOps.size();
+        int i4 = -1;
+        int i5 = 0;
+        while (i5 < size) {
+            Op op = this.mOps.get(i5);
+            int i6 = op.fragment != null ? op.fragment.mContainerId : 0;
+            if (i6 == 0 || i6 == i4) {
+                i3 = i4;
+            } else {
+                for (int i7 = i; i7 < i2; i7++) {
+                    BackStackRecord backStackRecord = arrayList.get(i7);
+                    int size2 = backStackRecord.mOps.size();
+                    for (int i8 = 0; i8 < size2; i8++) {
+                        Op op2 = backStackRecord.mOps.get(i8);
+                        if ((op2.fragment != null ? op2.fragment.mContainerId : 0) == i6) {
+                            return true;
                         }
-                        setLastIn(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 3:
-                        setFirstOut(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 4:
-                        setFirstOut(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 5:
-                        setLastIn(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 6:
-                        setFirstOut(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 7:
-                        setLastIn(sparseArray, sparseArray2, op.fragment);
-                        break;
+                    }
                 }
+                i3 = i6;
             }
+            i5++;
+            i4 = i3;
         }
+        return false;
     }
 
-    public void calculateBackFragments(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
-        if (this.mManager.mContainer.onHasView()) {
-            for (Op op = this.mTail; op != null; op = op.prev) {
-                switch (op.cmd) {
-                    case 1:
-                        setFirstOut(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 2:
-                        if (op.removed != null) {
-                            for (int size = op.removed.size() - 1; size >= 0; size--) {
-                                setLastIn(sparseArray, sparseArray2, op.removed.get(size));
-                            }
-                        }
-                        setFirstOut(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 3:
-                        setLastIn(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 4:
-                        setLastIn(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 5:
-                        setFirstOut(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 6:
-                        setLastIn(sparseArray, sparseArray2, op.fragment);
-                        break;
-                    case 7:
-                        setFirstOut(sparseArray, sparseArray2, op.fragment);
-                        break;
-                }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void executeOps() {
+        int size = this.mOps.size();
+        for (int i = 0; i < size; i++) {
+            Op op = this.mOps.get(i);
+            Fragment fragment = op.fragment;
+            if (fragment != null) {
+                fragment.setNextTransition(this.mTransition, this.mTransitionStyle);
             }
-        }
-    }
-
-    public TransitionState popFromBackStack(boolean z, TransitionState transitionState, SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
-        if (FragmentManagerImpl.DEBUG) {
-            Log.v(TAG, "popFromBackStack: " + this);
-            dump("  ", null, new PrintWriter(new LogWriter(TAG)), null);
-        }
-        if (SUPPORTS_TRANSITIONS && this.mManager.mCurState >= 1) {
-            if (transitionState == null) {
-                if (sparseArray.size() != 0 || sparseArray2.size() != 0) {
-                    transitionState = beginTransition(sparseArray, sparseArray2, true);
-                }
-            } else if (!z) {
-                setNameOverrides(transitionState, this.mSharedElementTargetNames, this.mSharedElementSourceNames);
-            }
-        }
-        bumpBackStackNesting(-1);
-        int i = transitionState != null ? 0 : this.mTransitionStyle;
-        int i2 = transitionState != null ? 0 : this.mTransition;
-        for (Op op = this.mTail; op != null; op = op.prev) {
-            int i3 = transitionState != null ? 0 : op.popEnterAnim;
-            int i4 = transitionState != null ? 0 : op.popExitAnim;
             switch (op.cmd) {
                 case 1:
-                    Fragment fragment = op.fragment;
-                    fragment.mNextAnim = i4;
-                    this.mManager.removeFragment(fragment, FragmentManagerImpl.reverseTransit(i2), i);
+                    fragment.setNextAnim(op.enterAnim);
+                    this.mManager.addFragment(fragment, false);
                     break;
                 case 2:
-                    Fragment fragment2 = op.fragment;
-                    if (fragment2 != null) {
-                        fragment2.mNextAnim = i4;
-                        this.mManager.removeFragment(fragment2, FragmentManagerImpl.reverseTransit(i2), i);
-                    }
-                    if (op.removed != null) {
-                        for (int i5 = 0; i5 < op.removed.size(); i5++) {
-                            Fragment fragment3 = op.removed.get(i5);
-                            fragment3.mNextAnim = i3;
-                            this.mManager.addFragment(fragment3, false);
-                        }
-                        break;
-                    } else {
-                        break;
-                    }
-                case 3:
-                    Fragment fragment4 = op.fragment;
-                    fragment4.mNextAnim = i3;
-                    this.mManager.addFragment(fragment4, false);
-                    break;
-                case 4:
-                    Fragment fragment5 = op.fragment;
-                    fragment5.mNextAnim = i3;
-                    this.mManager.showFragment(fragment5, FragmentManagerImpl.reverseTransit(i2), i);
-                    break;
-                case 5:
-                    Fragment fragment6 = op.fragment;
-                    fragment6.mNextAnim = i4;
-                    this.mManager.hideFragment(fragment6, FragmentManagerImpl.reverseTransit(i2), i);
-                    break;
-                case 6:
-                    Fragment fragment7 = op.fragment;
-                    fragment7.mNextAnim = i3;
-                    this.mManager.attachFragment(fragment7, FragmentManagerImpl.reverseTransit(i2), i);
-                    break;
-                case 7:
-                    Fragment fragment8 = op.fragment;
-                    fragment8.mNextAnim = i3;
-                    this.mManager.detachFragment(fragment8, FragmentManagerImpl.reverseTransit(i2), i);
-                    break;
                 default:
                     throw new IllegalArgumentException("Unknown cmd: " + op.cmd);
+                case 3:
+                    fragment.setNextAnim(op.exitAnim);
+                    this.mManager.removeFragment(fragment);
+                    break;
+                case 4:
+                    fragment.setNextAnim(op.exitAnim);
+                    this.mManager.hideFragment(fragment);
+                    break;
+                case 5:
+                    fragment.setNextAnim(op.enterAnim);
+                    this.mManager.showFragment(fragment);
+                    break;
+                case 6:
+                    fragment.setNextAnim(op.exitAnim);
+                    this.mManager.detachFragment(fragment);
+                    break;
+                case 7:
+                    fragment.setNextAnim(op.enterAnim);
+                    this.mManager.attachFragment(fragment);
+                    break;
+                case 8:
+                    this.mManager.setPrimaryNavigationFragment(fragment);
+                    break;
+                case 9:
+                    this.mManager.setPrimaryNavigationFragment(null);
+                    break;
+            }
+            if (!this.mReorderingAllowed && op.cmd != 1 && fragment != null) {
+                this.mManager.moveFragmentToExpectedState(fragment);
             }
         }
-        if (z) {
-            this.mManager.moveToState(this.mManager.mCurState, FragmentManagerImpl.reverseTransit(i2), i, true);
-            transitionState = null;
+        if (!this.mReorderingAllowed) {
+            this.mManager.moveToState(this.mManager.mCurState, true);
         }
-        if (this.mIndex >= 0) {
-            this.mManager.freeBackStackIndex(this.mIndex);
-            this.mIndex = -1;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void executePopOps(boolean z) {
+        for (int size = this.mOps.size() - 1; size >= 0; size--) {
+            Op op = this.mOps.get(size);
+            Fragment fragment = op.fragment;
+            if (fragment != null) {
+                fragment.setNextTransition(FragmentManagerImpl.reverseTransit(this.mTransition), this.mTransitionStyle);
+            }
+            switch (op.cmd) {
+                case 1:
+                    fragment.setNextAnim(op.popExitAnim);
+                    this.mManager.removeFragment(fragment);
+                    break;
+                case 2:
+                default:
+                    throw new IllegalArgumentException("Unknown cmd: " + op.cmd);
+                case 3:
+                    fragment.setNextAnim(op.popEnterAnim);
+                    this.mManager.addFragment(fragment, false);
+                    break;
+                case 4:
+                    fragment.setNextAnim(op.popEnterAnim);
+                    this.mManager.showFragment(fragment);
+                    break;
+                case 5:
+                    fragment.setNextAnim(op.popExitAnim);
+                    this.mManager.hideFragment(fragment);
+                    break;
+                case 6:
+                    fragment.setNextAnim(op.popEnterAnim);
+                    this.mManager.attachFragment(fragment);
+                    break;
+                case 7:
+                    fragment.setNextAnim(op.popExitAnim);
+                    this.mManager.detachFragment(fragment);
+                    break;
+                case 8:
+                    this.mManager.setPrimaryNavigationFragment(null);
+                    break;
+                case 9:
+                    this.mManager.setPrimaryNavigationFragment(fragment);
+                    break;
+            }
+            if (!this.mReorderingAllowed && op.cmd != 3 && fragment != null) {
+                this.mManager.moveFragmentToExpectedState(fragment);
+            }
         }
-        return transitionState;
+        if (!this.mReorderingAllowed && z) {
+            this.mManager.moveToState(this.mManager.mCurState, true);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Fragment expandOps(ArrayList<Fragment> arrayList, Fragment fragment) {
+        boolean z;
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.mOps.size()) {
+                Op op = this.mOps.get(i2);
+                switch (op.cmd) {
+                    case 1:
+                    case 7:
+                        arrayList.add(op.fragment);
+                        break;
+                    case 2:
+                        Fragment fragment2 = op.fragment;
+                        int i3 = fragment2.mContainerId;
+                        boolean z2 = false;
+                        int size = arrayList.size() - 1;
+                        Fragment fragment3 = fragment;
+                        int i4 = i2;
+                        while (size >= 0) {
+                            Fragment fragment4 = arrayList.get(size);
+                            if (fragment4.mContainerId != i3) {
+                                z = z2;
+                            } else if (fragment4 == fragment2) {
+                                z = true;
+                            } else {
+                                if (fragment4 == fragment3) {
+                                    this.mOps.add(i4, new Op(9, fragment4));
+                                    i4++;
+                                    fragment3 = null;
+                                }
+                                Op op2 = new Op(3, fragment4);
+                                op2.enterAnim = op.enterAnim;
+                                op2.popEnterAnim = op.popEnterAnim;
+                                op2.exitAnim = op.exitAnim;
+                                op2.popExitAnim = op.popExitAnim;
+                                this.mOps.add(i4, op2);
+                                arrayList.remove(fragment4);
+                                i4++;
+                                z = z2;
+                            }
+                            size--;
+                            z2 = z;
+                        }
+                        if (z2) {
+                            this.mOps.remove(i4);
+                            i4--;
+                        } else {
+                            op.cmd = 1;
+                            arrayList.add(fragment2);
+                        }
+                        i2 = i4;
+                        fragment = fragment3;
+                        break;
+                    case 3:
+                    case 6:
+                        arrayList.remove(op.fragment);
+                        if (op.fragment != fragment) {
+                            break;
+                        } else {
+                            this.mOps.add(i2, new Op(9, op.fragment));
+                            i2++;
+                            fragment = null;
+                            break;
+                        }
+                    case 8:
+                        this.mOps.add(i2, new Op(9, fragment));
+                        i2++;
+                        fragment = op.fragment;
+                        break;
+                }
+                i = i2 + 1;
+            } else {
+                return fragment;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Fragment trackAddedFragmentsInPop(ArrayList<Fragment> arrayList, Fragment fragment) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.mOps.size()) {
+                Op op = this.mOps.get(i2);
+                switch (op.cmd) {
+                    case 1:
+                    case 7:
+                        arrayList.remove(op.fragment);
+                        break;
+                    case 3:
+                    case 6:
+                        arrayList.add(op.fragment);
+                        break;
+                    case 8:
+                        fragment = null;
+                        break;
+                    case 9:
+                        fragment = op.fragment;
+                        break;
+                }
+                i = i2 + 1;
+            } else {
+                return fragment;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean isPostponed() {
+        for (int i = 0; i < this.mOps.size(); i++) {
+            if (isFragmentPostponed(this.mOps.get(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setOnStartPostponedListener(Fragment.OnStartEnterTransitionListener onStartEnterTransitionListener) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.mOps.size()) {
+                Op op = this.mOps.get(i2);
+                if (isFragmentPostponed(op)) {
+                    op.fragment.setOnStartEnterTransitionListener(onStartEnterTransitionListener);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    private static boolean isFragmentPostponed(Op op) {
+        Fragment fragment = op.fragment;
+        return (fragment == null || !fragment.mAdded || fragment.mView == null || fragment.mDetached || fragment.mHidden || !fragment.isPostponed()) ? false : true;
     }
 
     @Override // android.support.v4.app.FragmentManager.BackStackEntry
@@ -848,364 +857,6 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     @Override // android.support.v4.app.FragmentTransaction
     public boolean isEmpty() {
-        return this.mNumOp == 0;
-    }
-
-    private TransitionState beginTransition(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2, boolean z) {
-        TransitionState transitionState = new TransitionState();
-        transitionState.nonExistentView = new View(this.mManager.mHost.getContext());
-        int i = 0;
-        boolean z2 = false;
-        while (i < sparseArray.size()) {
-            boolean z3 = configureTransitions(sparseArray.keyAt(i), transitionState, z, sparseArray, sparseArray2) ? true : z2;
-            i++;
-            z2 = z3;
-        }
-        for (int i2 = 0; i2 < sparseArray2.size(); i2++) {
-            int keyAt = sparseArray2.keyAt(i2);
-            if (sparseArray.get(keyAt) == null && configureTransitions(keyAt, transitionState, z, sparseArray, sparseArray2)) {
-                z2 = true;
-            }
-        }
-        if (!z2) {
-            return null;
-        }
-        return transitionState;
-    }
-
-    private static Object getEnterTransition(Fragment fragment, boolean z) {
-        if (fragment == null) {
-            return null;
-        }
-        return FragmentTransitionCompat21.cloneTransition(z ? fragment.getReenterTransition() : fragment.getEnterTransition());
-    }
-
-    private static Object getExitTransition(Fragment fragment, boolean z) {
-        if (fragment == null) {
-            return null;
-        }
-        return FragmentTransitionCompat21.cloneTransition(z ? fragment.getReturnTransition() : fragment.getExitTransition());
-    }
-
-    private static Object getSharedElementTransition(Fragment fragment, Fragment fragment2, boolean z) {
-        Object sharedElementEnterTransition;
-        if (fragment == null || fragment2 == null) {
-            return null;
-        }
-        if (z) {
-            sharedElementEnterTransition = fragment2.getSharedElementReturnTransition();
-        } else {
-            sharedElementEnterTransition = fragment.getSharedElementEnterTransition();
-        }
-        return FragmentTransitionCompat21.wrapSharedElementTransition(sharedElementEnterTransition);
-    }
-
-    private static Object captureExitingViews(Object obj, Fragment fragment, ArrayList<View> arrayList, ArrayMap<String, View> arrayMap, View view2) {
-        if (obj != null) {
-            return FragmentTransitionCompat21.captureExitingViews(obj, fragment.getView(), arrayList, arrayMap, view2);
-        }
-        return obj;
-    }
-
-    private ArrayMap<String, View> remapSharedElements(TransitionState transitionState, Fragment fragment, boolean z) {
-        ArrayMap<String, View> arrayMap = new ArrayMap<>();
-        if (this.mSharedElementSourceNames != null) {
-            FragmentTransitionCompat21.findNamedViews(arrayMap, fragment.getView());
-            if (z) {
-                arrayMap.retainAll(this.mSharedElementTargetNames);
-            } else {
-                arrayMap = remapNames(this.mSharedElementSourceNames, this.mSharedElementTargetNames, arrayMap);
-            }
-        }
-        if (z) {
-            if (fragment.mEnterTransitionCallback != null) {
-                fragment.mEnterTransitionCallback.onMapSharedElements(this.mSharedElementTargetNames, arrayMap);
-            }
-            setBackNameOverrides(transitionState, arrayMap, false);
-        } else {
-            if (fragment.mExitTransitionCallback != null) {
-                fragment.mExitTransitionCallback.onMapSharedElements(this.mSharedElementTargetNames, arrayMap);
-            }
-            setNameOverrides(transitionState, arrayMap, false);
-        }
-        return arrayMap;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00b5  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00d7  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00e5  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0143 A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x014b A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private boolean configureTransitions(int i, TransitionState transitionState, boolean z, SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
-        Object obj;
-        Object mergeTransitions;
-        View view2;
-        ViewGroup viewGroup = (ViewGroup) this.mManager.mContainer.onFindViewById(i);
-        if (viewGroup == null) {
-            return false;
-        }
-        final Fragment fragment = sparseArray2.get(i);
-        Fragment fragment2 = sparseArray.get(i);
-        Object enterTransition = getEnterTransition(fragment, z);
-        Object sharedElementTransition = getSharedElementTransition(fragment, fragment2, z);
-        Object exitTransition = getExitTransition(fragment2, z);
-        ArrayMap<String, View> arrayMap = null;
-        ArrayList<View> arrayList = new ArrayList<>();
-        if (sharedElementTransition != null) {
-            arrayMap = remapSharedElements(transitionState, fragment2, z);
-            if (arrayMap.isEmpty()) {
-                arrayMap = null;
-                obj = null;
-                if (enterTransition != null && obj == null && exitTransition == null) {
-                    return false;
-                }
-                ArrayList arrayList2 = new ArrayList();
-                Object captureExitingViews = captureExitingViews(exitTransition, fragment2, arrayList2, arrayMap, transitionState.nonExistentView);
-                if (this.mSharedElementTargetNames != null && arrayMap != null) {
-                    view2 = arrayMap.get(this.mSharedElementTargetNames.get(0));
-                    if (view2 != null) {
-                        if (captureExitingViews != null) {
-                            FragmentTransitionCompat21.setEpicenter(captureExitingViews, view2);
-                        }
-                        if (obj != null) {
-                            FragmentTransitionCompat21.setEpicenter(obj, view2);
-                        }
-                    }
-                }
-                FragmentTransitionCompat21.ViewRetriever viewRetriever = new FragmentTransitionCompat21.ViewRetriever() { // from class: android.support.v4.app.BackStackRecord.1
-                    @Override // android.support.v4.app.FragmentTransitionCompat21.ViewRetriever
-                    public View getView() {
-                        return fragment.getView();
-                    }
-                };
-                ArrayList arrayList3 = new ArrayList();
-                ArrayMap arrayMap2 = new ArrayMap();
-                boolean z2 = true;
-                if (fragment != null) {
-                    z2 = z ? fragment.getAllowReturnTransitionOverlap() : fragment.getAllowEnterTransitionOverlap();
-                }
-                mergeTransitions = FragmentTransitionCompat21.mergeTransitions(enterTransition, captureExitingViews, obj, z2);
-                if (mergeTransitions != null) {
-                    FragmentTransitionCompat21.addTransitionTargets(enterTransition, obj, captureExitingViews, viewGroup, viewRetriever, transitionState.nonExistentView, transitionState.enteringEpicenterView, transitionState.nameOverrides, arrayList3, arrayList2, arrayMap, arrayMap2, arrayList);
-                    excludeHiddenFragmentsAfterEnter(viewGroup, transitionState, i, mergeTransitions);
-                    FragmentTransitionCompat21.excludeTarget(mergeTransitions, transitionState.nonExistentView, true);
-                    excludeHiddenFragments(transitionState, i, mergeTransitions);
-                    FragmentTransitionCompat21.beginDelayedTransition(viewGroup, mergeTransitions);
-                    FragmentTransitionCompat21.cleanupTransitions(viewGroup, transitionState.nonExistentView, enterTransition, arrayList3, captureExitingViews, arrayList2, obj, arrayList, mergeTransitions, transitionState.hiddenFragmentViews, arrayMap2);
-                }
-                return mergeTransitions == null;
-            }
-            SharedElementCallback sharedElementCallback = z ? fragment2.mEnterTransitionCallback : fragment.mEnterTransitionCallback;
-            if (sharedElementCallback != null) {
-                sharedElementCallback.onSharedElementStart(new ArrayList(arrayMap.keySet()), new ArrayList(arrayMap.values()), null);
-            }
-            prepareSharedElementTransition(transitionState, viewGroup, sharedElementTransition, fragment, fragment2, z, arrayList, enterTransition, exitTransition);
-        }
-        obj = sharedElementTransition;
-        if (enterTransition != null) {
-        }
-        ArrayList arrayList22 = new ArrayList();
-        Object captureExitingViews2 = captureExitingViews(exitTransition, fragment2, arrayList22, arrayMap, transitionState.nonExistentView);
-        if (this.mSharedElementTargetNames != null) {
-            view2 = arrayMap.get(this.mSharedElementTargetNames.get(0));
-            if (view2 != null) {
-            }
-        }
-        FragmentTransitionCompat21.ViewRetriever viewRetriever2 = new FragmentTransitionCompat21.ViewRetriever() { // from class: android.support.v4.app.BackStackRecord.1
-            @Override // android.support.v4.app.FragmentTransitionCompat21.ViewRetriever
-            public View getView() {
-                return fragment.getView();
-            }
-        };
-        ArrayList arrayList32 = new ArrayList();
-        ArrayMap arrayMap22 = new ArrayMap();
-        boolean z22 = true;
-        if (fragment != null) {
-        }
-        mergeTransitions = FragmentTransitionCompat21.mergeTransitions(enterTransition, captureExitingViews2, obj, z22);
-        if (mergeTransitions != null) {
-        }
-        if (mergeTransitions == null) {
-        }
-    }
-
-    private void prepareSharedElementTransition(final TransitionState transitionState, final View view2, final Object obj, final Fragment fragment, final Fragment fragment2, final boolean z, final ArrayList<View> arrayList, final Object obj2, final Object obj3) {
-        if (obj != null) {
-            view2.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.v4.app.BackStackRecord.2
-                @Override // android.view.ViewTreeObserver.OnPreDrawListener
-                public boolean onPreDraw() {
-                    view2.getViewTreeObserver().removeOnPreDrawListener(this);
-                    FragmentTransitionCompat21.removeTargets(obj, arrayList);
-                    arrayList.remove(transitionState.nonExistentView);
-                    FragmentTransitionCompat21.excludeSharedElementViews(obj2, obj3, obj, arrayList, false);
-                    arrayList.clear();
-                    ArrayMap<String, View> mapSharedElementsIn = BackStackRecord.this.mapSharedElementsIn(transitionState, z, fragment);
-                    FragmentTransitionCompat21.setSharedElementTargets(obj, transitionState.nonExistentView, mapSharedElementsIn, arrayList);
-                    BackStackRecord.this.setEpicenterIn(mapSharedElementsIn, transitionState);
-                    BackStackRecord.this.callSharedElementEnd(transitionState, fragment, fragment2, z, mapSharedElementsIn);
-                    FragmentTransitionCompat21.excludeSharedElementViews(obj2, obj3, obj, arrayList, true);
-                    return true;
-                }
-            });
-        }
-    }
-
-    void callSharedElementEnd(TransitionState transitionState, Fragment fragment, Fragment fragment2, boolean z, ArrayMap<String, View> arrayMap) {
-        SharedElementCallback sharedElementCallback = z ? fragment2.mEnterTransitionCallback : fragment.mEnterTransitionCallback;
-        if (sharedElementCallback != null) {
-            sharedElementCallback.onSharedElementEnd(new ArrayList(arrayMap.keySet()), new ArrayList(arrayMap.values()), null);
-        }
-    }
-
-    void setEpicenterIn(ArrayMap<String, View> arrayMap, TransitionState transitionState) {
-        View view2;
-        if (this.mSharedElementTargetNames != null && !arrayMap.isEmpty() && (view2 = arrayMap.get(this.mSharedElementTargetNames.get(0))) != null) {
-            transitionState.enteringEpicenterView.epicenter = view2;
-        }
-    }
-
-    ArrayMap<String, View> mapSharedElementsIn(TransitionState transitionState, boolean z, Fragment fragment) {
-        ArrayMap<String, View> mapEnteringSharedElements = mapEnteringSharedElements(transitionState, fragment, z);
-        if (z) {
-            if (fragment.mExitTransitionCallback != null) {
-                fragment.mExitTransitionCallback.onMapSharedElements(this.mSharedElementTargetNames, mapEnteringSharedElements);
-            }
-            setBackNameOverrides(transitionState, mapEnteringSharedElements, true);
-        } else {
-            if (fragment.mEnterTransitionCallback != null) {
-                fragment.mEnterTransitionCallback.onMapSharedElements(this.mSharedElementTargetNames, mapEnteringSharedElements);
-            }
-            setNameOverrides(transitionState, mapEnteringSharedElements, true);
-        }
-        return mapEnteringSharedElements;
-    }
-
-    private static ArrayMap<String, View> remapNames(ArrayList<String> arrayList, ArrayList<String> arrayList2, ArrayMap<String, View> arrayMap) {
-        if (!arrayMap.isEmpty()) {
-            ArrayMap<String, View> arrayMap2 = new ArrayMap<>();
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                View view2 = arrayMap.get(arrayList.get(i));
-                if (view2 != null) {
-                    arrayMap2.put(arrayList2.get(i), view2);
-                }
-            }
-            return arrayMap2;
-        }
-        return arrayMap;
-    }
-
-    private ArrayMap<String, View> mapEnteringSharedElements(TransitionState transitionState, Fragment fragment, boolean z) {
-        ArrayMap<String, View> arrayMap = new ArrayMap<>();
-        View view2 = fragment.getView();
-        if (view2 != null && this.mSharedElementSourceNames != null) {
-            FragmentTransitionCompat21.findNamedViews(arrayMap, view2);
-            if (z) {
-                return remapNames(this.mSharedElementSourceNames, this.mSharedElementTargetNames, arrayMap);
-            }
-            arrayMap.retainAll(this.mSharedElementTargetNames);
-            return arrayMap;
-        }
-        return arrayMap;
-    }
-
-    private void excludeHiddenFragmentsAfterEnter(final View view2, final TransitionState transitionState, final int i, final Object obj) {
-        view2.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.v4.app.BackStackRecord.3
-            @Override // android.view.ViewTreeObserver.OnPreDrawListener
-            public boolean onPreDraw() {
-                view2.getViewTreeObserver().removeOnPreDrawListener(this);
-                BackStackRecord.this.excludeHiddenFragments(transitionState, i, obj);
-                return true;
-            }
-        });
-    }
-
-    void excludeHiddenFragments(TransitionState transitionState, int i, Object obj) {
-        if (this.mManager.mAdded != null) {
-            for (int i2 = 0; i2 < this.mManager.mAdded.size(); i2++) {
-                Fragment fragment = this.mManager.mAdded.get(i2);
-                if (fragment.mView != null && fragment.mContainer != null && fragment.mContainerId == i) {
-                    if (fragment.mHidden) {
-                        if (!transitionState.hiddenFragmentViews.contains(fragment.mView)) {
-                            FragmentTransitionCompat21.excludeTarget(obj, fragment.mView, true);
-                            transitionState.hiddenFragmentViews.add(fragment.mView);
-                        }
-                    } else {
-                        FragmentTransitionCompat21.excludeTarget(obj, fragment.mView, false);
-                        transitionState.hiddenFragmentViews.remove(fragment.mView);
-                    }
-                }
-            }
-        }
-    }
-
-    private static void setNameOverride(ArrayMap<String, String> arrayMap, String str, String str2) {
-        if (str != null && str2 != null) {
-            for (int i = 0; i < arrayMap.size(); i++) {
-                if (str.equals(arrayMap.valueAt(i))) {
-                    arrayMap.setValueAt(i, str2);
-                    return;
-                }
-            }
-            arrayMap.put(str, str2);
-        }
-    }
-
-    private static void setNameOverrides(TransitionState transitionState, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
-        if (arrayList != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < arrayList.size()) {
-                    setNameOverride(transitionState.nameOverrides, arrayList.get(i2), arrayList2.get(i2));
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    private void setBackNameOverrides(TransitionState transitionState, ArrayMap<String, View> arrayMap, boolean z) {
-        int size = this.mSharedElementTargetNames == null ? 0 : this.mSharedElementTargetNames.size();
-        for (int i = 0; i < size; i++) {
-            String str = this.mSharedElementSourceNames.get(i);
-            View view2 = arrayMap.get(this.mSharedElementTargetNames.get(i));
-            if (view2 != null) {
-                String transitionName = FragmentTransitionCompat21.getTransitionName(view2);
-                if (z) {
-                    setNameOverride(transitionState.nameOverrides, str, transitionName);
-                } else {
-                    setNameOverride(transitionState.nameOverrides, transitionName, str);
-                }
-            }
-        }
-    }
-
-    private void setNameOverrides(TransitionState transitionState, ArrayMap<String, View> arrayMap, boolean z) {
-        int size = arrayMap.size();
-        for (int i = 0; i < size; i++) {
-            String keyAt = arrayMap.keyAt(i);
-            String transitionName = FragmentTransitionCompat21.getTransitionName(arrayMap.valueAt(i));
-            if (z) {
-                setNameOverride(transitionState.nameOverrides, keyAt, transitionName);
-            } else {
-                setNameOverride(transitionState.nameOverrides, transitionName, keyAt);
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class TransitionState {
-        public View nonExistentView;
-        public ArrayMap<String, String> nameOverrides = new ArrayMap<>();
-        public ArrayList<View> hiddenFragmentViews = new ArrayList<>();
-        public FragmentTransitionCompat21.EpicenterView enteringEpicenterView = new FragmentTransitionCompat21.EpicenterView();
-
-        public TransitionState() {
-        }
+        return this.mOps.isEmpty();
     }
 }

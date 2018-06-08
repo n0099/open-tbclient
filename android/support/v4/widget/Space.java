@@ -1,5 +1,6 @@
 package android.support.v4.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
@@ -22,6 +23,7 @@ public class Space extends View {
     }
 
     @Override // android.view.View
+    @SuppressLint({"MissingSuperCall"})
     public void draw(Canvas canvas) {
     }
 

@@ -10,12 +10,11 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ar.util.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
@@ -29,9 +28,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.VM;
-        if (StringUtils.isNull(str) && advertAppInfo.VX != null) {
-            str = advertAppInfo.VX.userName;
+        String str = advertAppInfo.adM;
+        if (StringUtils.isNull(str) && advertAppInfo.adX != null) {
+            str = advertAppInfo.adX.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -47,29 +46,29 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.Do().b(advertAppInfo);
-        String str2 = advertAppInfo.VM;
+        com.baidu.tbadk.distribute.a.GR().b(advertAppInfo);
+        String str2 = advertAppInfo.adM;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bjq().a(advertAppInfo.VQ, advertAppInfo.VP, str2, i, com.baidu.tieba.recapp.download.d.rU(advertAppInfo.VQ).intValue(), null, true, false, true, advertAppInfo.VX.userPortrait, downloadStaticsData, advertAppInfo.VX.userName);
+        com.baidu.tieba.recapp.download.d.bop().a(advertAppInfo.adQ, advertAppInfo.adP, str2, i, com.baidu.tieba.recapp.download.d.sM(advertAppInfo.adQ).intValue(), null, true, false, true, advertAppInfo.adX.userPortrait, downloadStaticsData, advertAppInfo.adX.userName);
         return true;
     }
 
-    public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bjq().j(advertAppInfo.VP, advertAppInfo.VQ, true);
+    public static final void f(AdvertAppInfo advertAppInfo) {
+        com.baidu.tieba.recapp.download.d.bop().j(advertAppInfo.adP, advertAppInfo.adQ, true);
     }
 
-    public static final void aj(Context context, String str) {
+    public static final void al(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, d.k.download_error);
             return;
         }
-        File du = com.baidu.tbadk.core.util.k.du(str.replace(Constants.DOT, "_") + ".apk");
-        if (du != null) {
+        File dU = com.baidu.tbadk.core.util.l.dU(str.replace(".", "_") + ".apk");
+        if (dU != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(du, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(dU, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -100,18 +99,18 @@ public class s {
         return false;
     }
 
-    public static boolean E(Activity activity) {
+    public static boolean F(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aG = ab.aG(activity);
+        boolean aQ = ac.aQ(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aG;
+        return aQ;
     }
 
-    public static List<String> bT(Context context) {
+    public static List<String> ce(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -185,11 +184,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bjk().sendFRS(z, str, str2, str3, list, str4);
+        r.boj().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bjk().a(z, str, str2, str3, str4, list, str5);
+        r.boj().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -208,41 +207,41 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h bjh = r.bjk().bjh();
-        if (bjh == null) {
+        h bog = r.boj().bog();
+        if (bog == null) {
             return false;
         }
-        if (bjh.ie(str)) {
-            bjh.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bog.iC(str)) {
+            bog.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bjh.c(tbPageContext.getPageActivity(), strArr);
+        return bog.c(tbPageContext.getPageActivity(), strArr);
     }
 
-    public static int ak(Context context, String str) {
+    public static int am(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         if (!str.startsWith("tieba://deeplink?")) {
-            return al(context, str) ? 3 : 0;
+            return an(context, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
         if (c(context, Uri.parse(parse.getQueryParameter("jump")))) {
             return 1;
         }
-        return al(context, parse.getQueryParameter("wap")) ? 2 : 0;
+        return an(context, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
-    private static boolean al(Context context, String str) {
+    private static boolean an(Context context, String str) {
         String[] strArr = {str};
-        h bjh = r.bjk().bjh();
-        if (bjh == null) {
+        h bog = r.boj().bog();
+        if (bog == null) {
             return false;
         }
-        if (bjh.ie(str)) {
-            bjh.a(context, strArr, true);
+        if (bog.iC(str)) {
+            bog.a(context, strArr, true);
             return true;
         }
-        return bjh.c(context, strArr);
+        return bog.c(context, strArr);
     }
 }

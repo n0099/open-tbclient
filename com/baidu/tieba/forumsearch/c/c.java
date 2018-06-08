@@ -15,7 +15,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.mTbPageContext.getPageActivity(), d.e.ds160)), NoDataViewFactory.d.dp(d.k.search_forum_no_result), null);
+        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.mTbPageContext.getPageActivity(), d.e.ds160)), NoDataViewFactory.d.dr(d.k.search_forum_no_result), null);
         this.mNoDataView.setVisibility(0);
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -42,6 +42,6 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onClick(View view) {
     }
 }

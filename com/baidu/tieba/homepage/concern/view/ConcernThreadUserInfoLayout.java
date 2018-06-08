@@ -20,10 +20,10 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
         super(context, attributeSet, i);
     }
 
-    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
+    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout, com.baidu.tbadk.core.view.b
     public boolean setData(bd bdVar) {
         if (super.setData(bdVar)) {
-            this.apO.setVisibility(8);
+            this.axV.setVisibility(8);
             return true;
         }
         return false;
@@ -31,16 +31,16 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
     protected void m(bd bdVar) {
-        if (bdVar == null || StringUtils.isNull(bdVar.sm())) {
-            this.apR.setVisibility(8);
+        if (bdVar == null || StringUtils.isNull(bdVar.vJ())) {
+            this.axY.setVisibility(8);
             return;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.apR.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axY.getLayoutParams();
         if (layoutParams != null && layoutParams.bottomMargin != 0) {
             layoutParams.bottomMargin = 0;
-            this.apR.setLayoutParams(layoutParams);
+            this.axY.setLayoutParams(layoutParams);
         }
-        this.apR.setText(bdVar.sm());
-        this.apR.setVisibility(0);
+        this.axY.setText(bdVar.vJ());
+        this.axY.setVisibility(0);
     }
 }

@@ -4,12 +4,11 @@ import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.util.h;
-import com.baidu.tbadk.util.u;
 import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.db.d;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -25,12 +24,12 @@ public class UpdatesModel {
             for (UpdatesItemData updatesItemData : updatesItemDataArr) {
                 linkedList.add(updatesItemData.toGroupNewsPojo());
             }
-            v.b(new u<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+            w.b(new v<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.u
+                @Override // com.baidu.tbadk.util.v
                 public Boolean doInBackground() {
-                    return d.aCX().r(linkedList);
+                    return d.aHS().r(linkedList);
                 }
             }, hVar);
         }
@@ -38,24 +37,24 @@ public class UpdatesModel {
 
     public static void deleteUpdatesData(final UpdatesItemData updatesItemData, h<Boolean> hVar) {
         if (updatesItemData != null) {
-            v.b(new u<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+            w.b(new v<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.u
+                @Override // com.baidu.tbadk.util.v
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.aCX().nr(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.aHS().od(UpdatesItemData.this.getNotice_id()));
                 }
             }, hVar);
         }
     }
 
     public void deleteDatas(h<Boolean> hVar) {
-        v.b(new u<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+        w.b(new v<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.u
+            @Override // com.baidu.tbadk.util.v
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.aCX().bY(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.aHS().cd(UpdatesModel.this.dataToDelete));
             }
         }, hVar);
     }
@@ -71,7 +70,7 @@ public class UpdatesModel {
             if (updatesItemData != null && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
                 stringBuffer.append(Long.parseLong(updatesItemData.getNotice_id()) / 100);
                 if (i < size - 1) {
-                    stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    stringBuffer.append(",");
                 }
             }
         }
@@ -109,11 +108,11 @@ public class UpdatesModel {
     }
 
     public static void requestUpdatesDataFromDB(h<LinkedList<GroupNewsPojo>> hVar) {
-        v.b(new u<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+        w.b(new v<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.u
+            @Override // com.baidu.tbadk.util.v
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.aCX().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.aHS().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, hVar);
     }

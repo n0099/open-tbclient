@@ -36,7 +36,7 @@ public class DrawerArrowDrawable extends Drawable {
     private int mDirection = 2;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface ArrowDirection {
     }
@@ -203,7 +203,7 @@ public class DrawerArrowDrawable extends Drawable {
         this.mPath.rLineTo(round2, -round3);
         this.mPath.close();
         canvas.save();
-        canvas.translate(bounds.centerX(), (float) (((((int) ((bounds.height() - (3.0f * strokeWidth)) - (this.mBarGap * 2.0f))) / 4) * 2) + (this.mPaint.getStrokeWidth() * 1.5d) + this.mBarGap));
+        canvas.translate(bounds.centerX(), (this.mPaint.getStrokeWidth() * 1.5f) + this.mBarGap + ((((int) ((bounds.height() - (3.0f * strokeWidth)) - (this.mBarGap * 2.0f))) / 4) * 2));
         if (this.mSpin) {
             canvas.rotate((z ^ this.mVerticalMirror ? -1 : 1) * lerp4);
         } else if (z) {

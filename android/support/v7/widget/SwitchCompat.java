@@ -1,5 +1,6 @@
 package android.support.v7.widget;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -11,8 +12,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.content.res.AppCompatResources;
@@ -23,18 +24,17 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.TransformationMethod;
 import android.util.AttributeSet;
+import android.util.Property;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
 import android.widget.CompoundButton;
+@RequiresApi(14)
 /* loaded from: classes2.dex */
 public class SwitchCompat extends CompoundButton {
     private static final String ACCESSIBILITY_EVENT_CLASS_NAME = "android.widget.Switch";
-    private static final int[] CHECKED_STATE_SET = {16842912};
     private static final int MONOSPACE = 3;
     private static final int SANS = 1;
     private static final int SERIF = 2;
@@ -49,7 +49,7 @@ public class SwitchCompat extends CompoundButton {
     private int mMinFlingVelocity;
     private Layout mOffLayout;
     private Layout mOnLayout;
-    ThumbAnimation mPositionAnimator;
+    ObjectAnimator mPositionAnimator;
     private boolean mShowText;
     private boolean mSplitTrack;
     private int mSwitchBottom;
@@ -65,7 +65,7 @@ public class SwitchCompat extends CompoundButton {
     private ColorStateList mTextColors;
     private CharSequence mTextOff;
     private CharSequence mTextOn;
-    private TextPaint mTextPaint;
+    private final TextPaint mTextPaint;
     private Drawable mThumbDrawable;
     private float mThumbPosition;
     private int mThumbTextPadding;
@@ -80,6 +80,20 @@ public class SwitchCompat extends CompoundButton {
     private ColorStateList mTrackTintList;
     private PorterDuff.Mode mTrackTintMode;
     private VelocityTracker mVelocityTracker;
+    private static final Property<SwitchCompat, Float> THUMB_POS = new Property<SwitchCompat, Float>(Float.class, "thumbPos") { // from class: android.support.v7.widget.SwitchCompat.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.Property
+        public Float get(SwitchCompat switchCompat) {
+            return Float.valueOf(switchCompat.mThumbPosition);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.Property
+        public void set(SwitchCompat switchCompat, Float f) {
+            switchCompat.setThumbPosition(f.floatValue());
+        }
+    };
+    private static final int[] CHECKED_STATE_SET = {16842912};
 
     public SwitchCompat(Context context) {
         this(context, null);
@@ -216,7 +230,7 @@ public class SwitchCompat extends CompoundButton {
     }
 
     public void setSwitchTypeface(Typeface typeface) {
-        if (this.mTextPaint.getTypeface() != typeface) {
+        if ((this.mTextPaint.getTypeface() != null && !this.mTextPaint.getTypeface().equals(typeface)) || (this.mTextPaint.getTypeface() == null && typeface != null)) {
             this.mTextPaint.setTypeface(typeface);
             requestLayout();
             invalidate();
@@ -446,7 +460,7 @@ public class SwitchCompat extends CompoundButton {
         this.mSwitchHeight = max2;
         super.onMeasure(i, i2);
         if (getMeasuredHeight() < max2) {
-            setMeasuredDimension(ViewCompat.getMeasuredWidthAndState(this), max2);
+            setMeasuredDimension(getMeasuredWidthAndState(), max2);
         }
     }
 
@@ -479,7 +493,7 @@ public class SwitchCompat extends CompoundButton {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         float f;
         this.mVelocityTracker.addMovement(motionEvent);
-        switch (MotionEventCompat.getActionMasked(motionEvent)) {
+        switch (motionEvent.getActionMasked()) {
             case 0:
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
@@ -572,36 +586,18 @@ public class SwitchCompat extends CompoundButton {
         cancelSuperTouch(motionEvent);
     }
 
-    private void animateThumbToCheckedState(final boolean z) {
-        if (this.mPositionAnimator != null) {
-            cancelPositionAnimator();
-        }
-        this.mPositionAnimator = new ThumbAnimation(this.mThumbPosition, z ? 1.0f : 0.0f);
+    private void animateThumbToCheckedState(boolean z) {
+        this.mPositionAnimator = ObjectAnimator.ofFloat(this, THUMB_POS, z ? 1.0f : 0.0f);
         this.mPositionAnimator.setDuration(250L);
-        this.mPositionAnimator.setAnimationListener(new Animation.AnimationListener() { // from class: android.support.v7.widget.SwitchCompat.1
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                if (SwitchCompat.this.mPositionAnimator == animation) {
-                    SwitchCompat.this.setThumbPosition(z ? 1.0f : 0.0f);
-                    SwitchCompat.this.mPositionAnimator = null;
-                }
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-            }
-        });
-        startAnimation(this.mPositionAnimator);
+        if (Build.VERSION.SDK_INT >= 18) {
+            this.mPositionAnimator.setAutoCancel(true);
+        }
+        this.mPositionAnimator.start();
     }
 
     private void cancelPositionAnimator() {
         if (this.mPositionAnimator != null) {
-            clearAnimation();
-            this.mPositionAnimator = null;
+            this.mPositionAnimator.cancel();
         }
     }
 
@@ -623,7 +619,7 @@ public class SwitchCompat extends CompoundButton {
     public void setChecked(boolean z) {
         super.setChecked(z);
         boolean isChecked = isChecked();
-        if (getWindowToken() != null && ViewCompat.isLaidOut(this) && isShown()) {
+        if (getWindowToken() != null && ViewCompat.isLaidOut(this)) {
             animateThumbToCheckedState(isChecked);
             return;
         }
@@ -882,7 +878,7 @@ public class SwitchCompat extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public void jumpDrawablesToCurrentState() {
-        if (Build.VERSION.SDK_INT >= 11) {
+        if (Build.VERSION.SDK_INT >= 14) {
             super.jumpDrawablesToCurrentState();
             if (this.mThumbDrawable != null) {
                 this.mThumbDrawable.jumpToCurrentState();
@@ -890,8 +886,10 @@ public class SwitchCompat extends CompoundButton {
             if (this.mTrackDrawable != null) {
                 this.mTrackDrawable.jumpToCurrentState();
             }
-            cancelPositionAnimator();
-            setThumbPosition(isChecked() ? 1.0f : 0.0f);
+            if (this.mPositionAnimator != null && this.mPositionAnimator.isStarted()) {
+                this.mPositionAnimator.end();
+                this.mPositionAnimator = null;
+            }
         }
     }
 
@@ -922,24 +920,5 @@ public class SwitchCompat extends CompoundButton {
 
     private static float constrain(float f, float f2, float f3) {
         return f < f2 ? f2 : f > f3 ? f3 : f;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public class ThumbAnimation extends Animation {
-        final float mDiff;
-        final float mEndPosition;
-        final float mStartPosition;
-
-        ThumbAnimation(float f, float f2) {
-            this.mStartPosition = f;
-            this.mEndPosition = f2;
-            this.mDiff = f2 - f;
-        }
-
-        @Override // android.view.animation.Animation
-        protected void applyTransformation(float f, Transformation transformation) {
-            SwitchCompat.this.setThumbPosition(this.mStartPosition + (this.mDiff * f));
-        }
     }
 }

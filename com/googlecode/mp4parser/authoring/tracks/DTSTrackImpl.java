@@ -1206,7 +1206,7 @@ public class DTSTrackImpl extends AbstractTrack {
         return false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:72:0x0143, code lost:
-        r22.samplerate = 16000;
+        r22.samplerate = com.baidu.ar.audio.AudioParams.DEFAULT_SAMPLE_RATE;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x014a, code lost:
         r22.samplerate = 32000;

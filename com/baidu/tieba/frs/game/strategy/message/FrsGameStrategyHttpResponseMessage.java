@@ -28,8 +28,8 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
                 setError(gameForumGuideTabResIdl.error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = a.bm(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = a.bn(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = a.bp(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = a.bq(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }

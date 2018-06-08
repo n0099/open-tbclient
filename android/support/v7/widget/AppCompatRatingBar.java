@@ -2,13 +2,13 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.RatingBar;
 /* loaded from: classes2.dex */
 public class AppCompatRatingBar extends RatingBar {
-    private AppCompatProgressBarHelper mAppCompatProgressBarHelper;
+    private final AppCompatProgressBarHelper mAppCompatProgressBarHelper;
 
     public AppCompatRatingBar(Context context) {
         this(context, null);
@@ -29,7 +29,7 @@ public class AppCompatRatingBar extends RatingBar {
         super.onMeasure(i, i2);
         Bitmap sampleTime = this.mAppCompatProgressBarHelper.getSampleTime();
         if (sampleTime != null) {
-            setMeasuredDimension(ViewCompat.resolveSizeAndState(sampleTime.getWidth() * getNumStars(), i, 0), getMeasuredHeight());
+            setMeasuredDimension(View.resolveSizeAndState(sampleTime.getWidth() * getNumStars(), i, 0), getMeasuredHeight());
         }
     }
 }

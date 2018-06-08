@@ -3,7 +3,6 @@ package com.baidu.tbadk.download;
 import android.content.SharedPreferences;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.ar.util.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -20,8 +19,8 @@ public class a implements d {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            com.baidu.tieba.recapp.download.d.bjq().c(downloadData);
-            com.baidu.tieba.recapp.download.d.bjq().b(downloadData);
+            com.baidu.tieba.recapp.download.d.bop().c(downloadData);
+            com.baidu.tieba.recapp.download.d.bop().b(downloadData);
         }
     }
 
@@ -53,22 +52,22 @@ public class a implements d {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            com.baidu.tieba.recapp.download.d.bjq().b(downloadData);
+            com.baidu.tieba.recapp.download.d.bop().b(downloadData);
             if (downloadData.isNeedInvokeApk()) {
-                UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(Constants.DOT, "_") + ".apk");
+                UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
             }
         }
     }
 
     @Override // com.baidu.tbadk.download.d
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        com.baidu.tieba.recapp.download.d bjq = com.baidu.tieba.recapp.download.d.bjq();
+        com.baidu.tieba.recapp.download.d bop = com.baidu.tieba.recapp.download.d.bop();
         if (i == 3) {
-            bjq.o(downloadData);
+            bop.o(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
         } else {
-            bjq.k(downloadData);
+            bop.k(downloadData);
         }
-        com.baidu.tieba.recapp.download.d.bjq().b(downloadData);
+        com.baidu.tieba.recapp.download.d.bop().b(downloadData);
     }
 }

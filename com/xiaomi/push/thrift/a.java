@@ -1,5 +1,7 @@
 package com.xiaomi.push.thrift;
 
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.msghandler.ComponentMessageType;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public enum a {
@@ -12,16 +14,16 @@ public enum a {
     ICMP_PING_OK(7),
     CHANNEL_ONLINE_RATE(8),
     GSLB_REQUEST_SUCCESS(10000),
-    GSLB_TCP_NOACCESS(10101),
-    GSLB_TCP_NETUNREACH(Constants.REQUEST_APPBAR),
-    GSLB_TCP_CONNREFUSED(Constants.REQUEST_QQ_SHARE),
+    GSLB_TCP_NOACCESS(ComponentMessageType.MST_TYPE_OPEN_ALGO_TRACK),
+    GSLB_TCP_NETUNREACH(10102),
+    GSLB_TCP_CONNREFUSED(10103),
     GSLB_TCP_NOROUTETOHOST(Constants.REQUEST_QZONE_SHARE),
     GSLB_TCP_TIMEOUT(Constants.REQUEST_QQ_FAVORITES),
     GSLB_TCP_INVALARG(Constants.REQUEST_SEND_TO_MY_COMPUTER),
     GSLB_TCP_UKNOWNHOST(Constants.REQUEST_SHARE_TO_TROOP_BAR),
     GSLB_TCP_ERR_OTHER(10199),
     GSLB_ERR(10999),
-    CONN_SUCCESS(com.baidu.ar.util.Constants.HTTP_CONNECT_TIMEOUT),
+    CONN_SUCCESS(HttpConstants.HTTP_CONNECT_TIMEOUT),
     CONN_TCP_NOACCESS(20101),
     CONN_TCP_NETUNREACH(20102),
     CONN_TCP_CONNREFUSED(20103),
@@ -87,11 +89,11 @@ public enum a {
                 return CHANNEL_STATS_COUNTER;
             case 10000:
                 return GSLB_REQUEST_SUCCESS;
-            case 10101:
+            case ComponentMessageType.MST_TYPE_OPEN_ALGO_TRACK /* 10101 */:
                 return GSLB_TCP_NOACCESS;
-            case Constants.REQUEST_APPBAR /* 10102 */:
+            case 10102:
                 return GSLB_TCP_NETUNREACH;
-            case Constants.REQUEST_QQ_SHARE /* 10103 */:
+            case 10103:
                 return GSLB_TCP_CONNREFUSED;
             case Constants.REQUEST_QZONE_SHARE /* 10104 */:
                 return GSLB_TCP_NOROUTETOHOST;
@@ -105,7 +107,7 @@ public enum a {
                 return GSLB_TCP_ERR_OTHER;
             case 10999:
                 return GSLB_ERR;
-            case com.baidu.ar.util.Constants.HTTP_CONNECT_TIMEOUT /* 20000 */:
+            case HttpConstants.HTTP_CONNECT_TIMEOUT /* 20000 */:
                 return CONN_SUCCESS;
             case 20101:
                 return CONN_TCP_NOACCESS;

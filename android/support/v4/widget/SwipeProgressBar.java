@@ -31,8 +31,8 @@ final class SwipeProgressBar {
     private int mColor3 = COLOR3;
     private int mColor4 = COLOR4;
 
-    SwipeProgressBar(View view2) {
-        this.mParent = view2;
+    SwipeProgressBar(View view) {
+        this.mParent = view;
     }
 
     void setColorScheme(int i, int i2, int i3, int i4) {

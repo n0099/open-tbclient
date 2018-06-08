@@ -27,13 +27,13 @@ public class i {
     public static int d = 0;
     private static String as = "http://loc.map.baidu.com/sdk.php";
     public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String Qy = "http://loc.map.baidu.com/user_err.php";
-    private static String Qz = "http://loc.map.baidu.com/oqur.php";
-    private static String QA = "http://loc.map.baidu.com/tcu.php";
-    private static String QB = "http://loc.map.baidu.com/rtbu.php";
-    private static String QC = "http://loc.map.baidu.com/iofd.php";
-    private static String QD = "https://sapi.skyhookwireless.com/wps2/location";
-    private static String QE = "http://loc.map.baidu.com/wloc";
+    private static String Yx = "http://loc.map.baidu.com/user_err.php";
+    private static String Yy = "http://loc.map.baidu.com/oqur.php";
+    private static String Yz = "http://loc.map.baidu.com/tcu.php";
+    private static String YA = "http://loc.map.baidu.com/rtbu.php";
+    private static String YB = "http://loc.map.baidu.com/iofd.php";
+    private static String YC = "https://sapi.skyhookwireless.com/wps2/location";
+    private static String YD = "http://loc.map.baidu.com/wloc";
     public static String f = "no";
     public static boolean g = false;
     public static boolean h = false;
@@ -45,8 +45,8 @@ public class i {
     public static int n = 3;
     public static double o = 0.0d;
     public static double p = 0.0d;
-    public static double Oa = 0.0d;
-    public static double Ob = 0.0d;
+    public static double Wh = 0.0d;
+    public static double Wi = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -67,11 +67,11 @@ public class i {
     public static float J = 50.0f;
     public static float K = 200.0f;
     public static int L = 16;
-    public static float QF = 0.9f;
+    public static float YE = 0.9f;
     public static int N = 10000;
-    public static float QG = 0.5f;
-    public static float QH = 0.0f;
-    public static float QI = 0.1f;
+    public static float YF = 0.5f;
+    public static float YG = 0.0f;
+    public static float YH = 0.1f;
     public static int R = 30;
     public static int S = 100;
     public static int T = 0;
@@ -80,27 +80,27 @@ public class i {
     public static int W = 420000;
     public static boolean X = true;
     public static boolean Y = true;
-    public static int Z = 20;
+    public static int YI = 20;
     public static int aa = 300;
     public static int ab = 1000;
     public static long ac = 900000;
-    public static long QJ = 420000;
-    public static long QK = 180000;
-    public static long QL = 0;
-    public static long QM = 15;
-    public static long QN = ReportUserInfoModel.TIME_INTERVAL;
+    public static long YJ = 420000;
+    public static long YK = 180000;
+    public static long YL = 0;
+    public static long YM = 15;
+    public static long YN = ReportUserInfoModel.TIME_INTERVAL;
     public static int ai = 1000;
     public static int aj = 0;
     public static int ak = 30000;
     public static int al = 30000;
     public static float am = 10.0f;
-    public static float QO = 6.0f;
-    public static float QP = 10.0f;
+    public static float YO = 6.0f;
+    public static float YP = 10.0f;
     public static int ap = 60;
     public static int aq = 70;
     public static int ar = 6;
 
-    public static Object K(Context context, String str) {
+    public static Object M(Context context, String str) {
         if (context == null) {
             return null;
         }
@@ -138,7 +138,7 @@ public class i {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.f.b.nD().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.f.b.qQ().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (iVar != null) {
@@ -153,20 +153,20 @@ public class i {
                 stringBuffer.append(h2);
             }
         }
-        String a2 = c.nS().a(i2 == 0);
+        String a2 = c.rf().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.c.b.ni().d();
+        String d2 = com.baidu.location.c.b.qv().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
         if (i2 == 0) {
         }
-        if (aVar != null && (f2 = com.baidu.location.f.c.nI().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.f.c.qV().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -179,9 +179,9 @@ public class i {
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < QO && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
+                if (speed < YO && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
                     n = 1;
-                } else if (speed >= QP || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
+                } else if (speed >= YP || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
                     n = 3;
                 } else {
                     n = 2;
@@ -266,7 +266,7 @@ public class i {
     }
 
     public static String d() {
-        return QA;
+        return Yz;
     }
 
     public static boolean d(BDLocation bDLocation) {

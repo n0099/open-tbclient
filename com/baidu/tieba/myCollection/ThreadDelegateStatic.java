@@ -18,18 +18,18 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Fv() {
+    public com.baidu.tbadk.mainTab.c Ja() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aIn = ThreadFragment.aSU();
+        cVar.aQP = ThreadFragment.aXQ();
         cVar.type = 1;
-        cVar.aIo = d.k.collect_thread;
+        cVar.aQQ = d.k.collect_thread;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator aT(Context context) {
-        this.aIe = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
-        return this.aIe;
+    public TbFragmentTabIndicator bd(Context context) {
+        this.aQB = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
+        return this.aQB;
     }
 
     static {
@@ -37,13 +37,13 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.tbadk.mainTab.c Fw;
+                com.baidu.tbadk.mainTab.c Jb;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.collectTab.a)) {
                     com.baidu.tbadk.collectTab.a aVar = (com.baidu.tbadk.collectTab.a) customResponsedMessage.getData();
                     ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
                     aVar.a(threadDelegateStatic);
-                    if (aVar.getContext() != null && (Fw = threadDelegateStatic.Fw()) != null) {
-                        Fw.aIn.setArguments(new Bundle());
+                    if (aVar.getContext() != null && (Jb = threadDelegateStatic.Jb()) != null) {
+                        Jb.aQP.setArguments(new Bundle());
                     }
                 }
             }

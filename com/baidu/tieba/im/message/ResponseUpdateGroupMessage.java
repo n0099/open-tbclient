@@ -44,6 +44,7 @@ public class ResponseUpdateGroupMessage extends SocketResponsedMessage {
                 updateGroupInfoData.setStatus(groupInfo.status.intValue());
                 updateGroupInfoData.setAuthorId(groupInfo.authorId.longValue());
                 updateGroupInfoData.setAuthorName(groupInfo.authorName);
+                updateGroupInfoData.setAuthorNameShow(groupInfo.authorNameShow);
                 updateGroupInfoData.setCreateTime(groupInfo.createTime.intValue());
                 updateGroupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
                 updateGroupInfoData.setMemberNum(groupInfo.memberNum.intValue());

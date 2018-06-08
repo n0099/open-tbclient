@@ -7,30 +7,30 @@ import tbclient.LinkThreadContent;
 import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class ae {
-    public static int Yu = 1;
-    private String Yv;
-    private String Yw;
-    private String Yx;
-    private int Yy = 0;
-    private boolean Yz = false;
+    public static int agw = 1;
+    private int agA = 0;
+    private boolean agB = false;
+    private String agx;
+    private String agy;
+    private String agz;
     private String linkUrl;
 
     public void a(LinkThreadInfo linkThreadInfo) {
         if (linkThreadInfo != null) {
             this.linkUrl = linkThreadInfo.link_url;
-            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.v.c(linkThreadInfo.link_content, 0);
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.w.c(linkThreadInfo.link_content, 0);
             if (linkThreadContent != null) {
-                this.Yv = linkThreadContent.link_title;
-                this.Yw = linkThreadContent.link_abstract;
-                this.Yx = linkThreadContent.link_head_small_pic;
-                this.Yy = linkThreadContent.link_type.intValue();
-                if (com.baidu.tbadk.core.util.an.isEmpty(this.Yv) && com.baidu.tbadk.core.util.an.isEmpty(this.Yw)) {
-                    this.Yz = true;
+                this.agx = linkThreadContent.link_title;
+                this.agy = linkThreadContent.link_abstract;
+                this.agz = linkThreadContent.link_head_small_pic;
+                this.agA = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.ao.isEmpty(this.agx) && com.baidu.tbadk.core.util.ao.isEmpty(this.agy)) {
+                    this.agB = true;
                     return;
                 }
                 return;
             }
-            this.Yz = true;
+            this.agB = true;
         }
     }
 
@@ -42,23 +42,23 @@ public class ae {
                 try {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
                     if (jSONObject2 != null) {
-                        this.Yv = jSONObject2.optString("link_title");
-                        this.Yw = jSONObject2.optString("link_abstract");
-                        this.Yx = jSONObject2.optString("link_head_small_pic");
-                        this.Yy = jSONObject2.optInt("link_type");
-                        if (com.baidu.tbadk.core.util.an.isEmpty(this.Yv) && com.baidu.tbadk.core.util.an.isEmpty(this.Yw)) {
-                            this.Yz = true;
+                        this.agx = jSONObject2.optString("link_title");
+                        this.agy = jSONObject2.optString("link_abstract");
+                        this.agz = jSONObject2.optString("link_head_small_pic");
+                        this.agA = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.ao.isEmpty(this.agx) && com.baidu.tbadk.core.util.ao.isEmpty(this.agy)) {
+                            this.agB = true;
                         }
                     } else {
-                        this.Yz = true;
+                        this.agB = true;
                     }
                     return;
                 } catch (JSONException e) {
-                    this.Yz = true;
+                    this.agB = true;
                     return;
                 }
             }
-            this.Yz = true;
+            this.agB = true;
         }
     }
 
@@ -66,23 +66,23 @@ public class ae {
         return this.linkUrl;
     }
 
-    public String qN() {
-        return this.Yv;
+    public String uj() {
+        return this.agx;
     }
 
-    public String qO() {
-        return this.Yw;
+    public String uk() {
+        return this.agy;
     }
 
-    public String qP() {
-        return this.Yx;
+    public String ul() {
+        return this.agz;
     }
 
-    public int qQ() {
-        return this.Yy;
+    public int um() {
+        return this.agA;
     }
 
-    public boolean qR() {
-        return this.Yz;
+    public boolean un() {
+        return this.agB;
     }
 }

@@ -11,13 +11,11 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap aOR;
+    private Bitmap aWN;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
-
-    /* renamed from: view  reason: collision with root package name */
-    private View f17view;
+    private View view;
 
     public DragContainer(Context context) {
         super(context);
@@ -37,18 +35,18 @@ public class DragContainer extends LinearLayout {
         this.mScroller = new Scroller(context);
     }
 
-    public void bv(View view2) {
-        this.f17view = view2;
-        view2.setDrawingCacheEnabled(true);
-        view2.buildDrawingCache();
-        Bitmap drawingCache = view2.getDrawingCache();
+    public void by(View view) {
+        this.view = view;
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.aOR = Bitmap.createBitmap(drawingCache);
+            this.aWN = Bitmap.createBitmap(drawingCache);
         }
-        view2.destroyDrawingCache();
-        view2.setDrawingCacheEnabled(false);
-        view2.getDrawingRect(this.mTempRect);
-        offsetDescendantRectToMyCoords(view2, this.mTempRect);
+        view.destroyDrawingCache();
+        view.setDrawingCacheEnabled(false);
+        view.getDrawingRect(this.mTempRect);
+        offsetDescendantRectToMyCoords(view, this.mTempRect);
         this.mScroller.startScroll(this.mTempRect.top, 0, getHeight() - this.mTempRect.top, 0, 800);
         invalidate();
     }
@@ -56,19 +54,19 @@ public class DragContainer extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.f17view != null) {
-            if (this.mScroller.computeScrollOffset() && this.aOR != null) {
+        if (this.view != null) {
+            if (this.mScroller.computeScrollOffset() && this.aWN != null) {
                 canvas.save();
-                canvas.drawBitmap(this.aOR, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.aWN, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.aOR != null) {
-                this.aOR.recycle();
+            if (this.aWN != null) {
+                this.aWN.recycle();
             }
-            this.aOR = null;
-            this.f17view = null;
+            this.aWN = null;
+            this.view = null;
         }
     }
 
@@ -76,10 +74,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.aOR != null) {
-            this.aOR.recycle();
+        if (this.aWN != null) {
+            this.aWN.recycle();
         }
-        this.aOR = null;
-        this.f17view = null;
+        this.aWN = null;
+        this.view = null;
     }
 }

@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class e extends at {
-    private TextView ffw;
+    private TextView fqT;
 
-    public e(BaseActivity baseActivity, View view2) {
-        super(baseActivity, view2);
-        this.ffw = null;
+    public e(BaseActivity baseActivity, View view) {
+        super(baseActivity, view);
+        this.fqT = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.at
     protected void a(d dVar) {
-        this.ffw = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.ffw.setVisibility(8);
+        this.fqT = (TextView) this.mRootView.findViewById(d.g.icon_push);
+        this.fqT.setVisibility(8);
     }
 
-    public void jw(boolean z) {
-        if (this.ffw != null) {
+    public void jC(boolean z) {
+        if (this.fqT != null) {
             if (z) {
-                this.ffw.setText(d.k.push);
-                com.baidu.tbadk.core.util.ak.h(this.ffw, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.ak.i(this.ffw, d.f.push_bg_selector);
-                this.ffw.setClickable(true);
+                this.fqT.setText(d.k.push);
+                com.baidu.tbadk.core.util.al.h(this.fqT, d.f.push_text_selector);
+                com.baidu.tbadk.core.util.al.i(this.fqT, d.f.push_bg_selector);
+                this.fqT.setClickable(true);
             } else {
-                this.ffw.setText(d.k.already_push);
-                com.baidu.tbadk.core.util.ak.i(this.ffw, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.ak.h(this.ffw, d.C0126d.cp_cont_d);
-                this.ffw.setClickable(false);
+                this.fqT.setText(d.k.already_push);
+                com.baidu.tbadk.core.util.al.i(this.fqT, d.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.al.h(this.fqT, d.C0141d.cp_cont_d);
+                this.fqT.setClickable(false);
             }
-            this.ffw.setVisibility(0);
+            this.fqT.setVisibility(0);
         }
     }
 
-    public void ab(bd bdVar) {
-        if (bdVar != null && bdVar.si() != null) {
-            int status = bdVar.si().getStatus();
+    public void ad(bd bdVar) {
+        if (bdVar != null && bdVar.vF() != null) {
+            int status = bdVar.vF().getStatus();
             if (status == 1) {
-                jw(true);
+                jC(true);
             } else if (status == 2) {
-                jw(false);
+                jC(false);
             }
         }
     }
 
-    public TextView aWI() {
-        return this.ffw;
+    public TextView bbE() {
+        return this.fqT;
     }
 }

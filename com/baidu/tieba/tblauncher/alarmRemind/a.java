@@ -4,6 +4,7 @@ import android.app.Application;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.Time;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RemindRecommendMessage;
@@ -14,11 +15,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean bkG() {
+    public static boolean bpE() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage tr(String str) {
+    public static RemindRecommendMessage ul(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -52,7 +53,7 @@ public class a {
         }
     }
 
-    public static long cV(long j) {
+    public static long dc(long j) {
         int i;
         int i2;
         int i3;
@@ -61,7 +62,7 @@ public class a {
         if (TextUtils.isEmpty(loadString)) {
             loadString = "12:05:00";
         }
-        String[] split = loadString.split(":");
+        String[] split = loadString.split(SystemInfoUtil.COLON);
         if (split == null || split.length != 3) {
             i = 0;
             i2 = 5;
@@ -97,11 +98,11 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long btX() {
-        return cV(System.currentTimeMillis());
+    public static long bza() {
+        return dc(System.currentTimeMillis());
     }
 
-    public static boolean O(long j) {
+    public static boolean R(long j) {
         Time time = new Time();
         time.set(j);
         int i = time.year;
@@ -111,7 +112,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean btY() {
+    public static boolean bzb() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("sync_local_dialog", 1) == 1;
     }
 }

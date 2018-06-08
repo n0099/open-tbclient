@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.tauth.AuthActivity;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class f extends SQLiteOpenHelper {
     private static final String[] c = {"name", "TEXT NOT NULL", "appId", "INTEGER NOT NULL", "package_name", "TEXT NOT NULL", WBConstants.GAME_PARAMS_GAME_CREATE_TIME, "INTEGER NOT NULL", "type", "TEXT NOT NULL", "center_longtitude", "TEXT", "center_lantitude", "TEXT", "circle_radius", "REAL", "polygon_point", "TEXT", "coordinate_provider", "TEXT NOT NULL", "current_status", "TEXT NOT NULL"};
@@ -25,7 +24,7 @@ public class f extends SQLiteOpenHelper {
             StringBuilder sb = new StringBuilder("CREATE TABLE geofence(id TEXT PRIMARY KEY ,");
             for (int i = 0; i < c.length - 1; i += 2) {
                 if (i != 0) {
-                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb.append(",");
                 }
                 sb.append(c[i]).append(" ").append(c[i + 1]);
             }
@@ -41,7 +40,7 @@ public class f extends SQLiteOpenHelper {
             StringBuilder sb = new StringBuilder("CREATE TABLE geoMessage(");
             for (int i = 0; i < d.length - 1; i += 2) {
                 if (i != 0) {
-                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb.append(",");
                 }
                 sb.append(d[i]).append(" ").append(c[i + 1]);
             }

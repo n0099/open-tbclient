@@ -47,7 +47,7 @@ public class ShareCallPacking {
             Intent intent = new Intent();
             intent.putExtra("android.intent.extra.TEXT", str2);
             intent.setComponent(componentName);
-            activity.startActivityForResult(intent, a);
+            activity.startActivityForResult(intent, 2006);
         } else {
             Toast.makeText(activity, Web2NativeLoginResult.ERROR_MSG_UNKNOWN, 0).show();
         }
@@ -60,7 +60,7 @@ public class ShareCallPacking {
     public void onLoginActivityActivityResult(Activity activity, ShareLoginCallBack shareLoginCallBack, int i, int i2, Intent intent) {
         int i3;
         String stringExtra;
-        if (i == a) {
+        if (i == 2006) {
             if (activity == null || shareLoginCallBack == null) {
                 throw new IllegalArgumentException("loginActivity and shareLoginCallBack can't be null");
             }

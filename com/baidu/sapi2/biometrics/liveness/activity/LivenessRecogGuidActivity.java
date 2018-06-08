@@ -61,7 +61,7 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
         this.a = (Button) findViewById(R.id.btn_start_photo);
         this.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogGuidActivity.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 RimStatisticsUtil.onEvent(f.c);
                 LogUtil.d("hello", "onEvent(StatServiceEvent.ENTERLIVENESS):  用户点击立即验证");
                 LivenessRecogGuidActivity.this.d();
@@ -70,7 +70,7 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
         this.b = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
         this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogGuidActivity.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 LivenessRecogGuidActivity.this.c();
                 LivenessRecogGuidActivity.this.finish();
             }

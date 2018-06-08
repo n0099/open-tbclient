@@ -95,7 +95,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         return internalHandler;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static void setDefaultExecutor(Executor executor) {
         sDefaultExecutor = executor;
     }
@@ -159,6 +159,8 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
                     throw new IllegalStateException("Cannot execute task: the task is already running.");
                 case FINISHED:
                     throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");
+                default:
+                    throw new IllegalStateException("We should never reach this state");
             }
         }
         this.mStatus = Status.RUNNING;

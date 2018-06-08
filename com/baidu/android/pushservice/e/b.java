@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -41,7 +42,7 @@ public final class b {
     @SuppressLint({"InlinedApi"})
     public static void a(HashMap<String, String> hashMap) {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        hashMap.put("timestamp", currentTimeMillis + "");
+        hashMap.put(HttpConstants.TIMESTAMP, currentTimeMillis + "");
         hashMap.put("expires", (86400 + currentTimeMillis) + "");
         hashMap.put(NotifyType.VIBRATE, "1");
         try {

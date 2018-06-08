@@ -4,37 +4,37 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.w;
 /* loaded from: classes2.dex */
 public class k extends c {
     public bd threadData;
-    public static String csT = "";
-    public static String csU = "";
-    public static String csV = "";
-    public static String csW = "";
-    public static String csX = "";
-    public static String csY = "";
-    public static String csZ = "";
-    public static String cta = "";
-    public static String ctb = "";
-    public static String ctc = "";
-    public static String ctd = "";
+    public static String cBy = "";
+    public static String cBz = "";
+    public static String cBA = "";
+    public static String cBB = "";
+    public static String cBC = "";
+    public static String cBD = "";
+    public static String cBE = "";
+    public static String cBF = "";
+    public static String cBG = "";
+    public static String cBH = "";
+    public static String cBI = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId cte = BdUniqueId.gen();
-    public static final BdUniqueId ZI = BdUniqueId.gen();
-    public static final BdUniqueId ZO = BdUniqueId.gen();
-    public static final BdUniqueId ctf = BdUniqueId.gen();
-    public boolean ctg = false;
+    public static final BdUniqueId cBJ = BdUniqueId.gen();
+    public static final BdUniqueId ahK = BdUniqueId.gen();
+    public static final BdUniqueId ahQ = BdUniqueId.gen();
+    public static final BdUniqueId cBK = BdUniqueId.gen();
+    public boolean cBL = false;
     public boolean isLinkThread = false;
-    public boolean cth = false;
-    public boolean aEg = true;
+    public boolean cBM = false;
+    public boolean aMC = true;
 
     public static boolean N(bd bdVar) {
         if (bdVar == null) {
             return false;
         }
-        return bdVar.getType() == bd.ZH || bdVar.getType() == bd.ZJ || bdVar.getType() == bd.ZI || bdVar.getType() == bd.ZO || bdVar.getType() == bd.ZQ;
+        return bdVar.getType() == bd.ahJ || bdVar.getType() == bd.ahL || bdVar.getType() == bd.ahK || bdVar.getType() == bd.ahQ || bdVar.getType() == bd.ahS;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
@@ -42,177 +42,185 @@ public class k extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.ctg) {
-            return cte;
+        if (this.cBL) {
+            return cBJ;
         }
         if (this.isLinkThread) {
-            return ZI;
+            return ahK;
         }
         if (this.threadData.isShareThread) {
-            return ZO;
+            return ahQ;
         }
-        if (this.threadData.getType() == bd.ZQ) {
-            return ctf;
+        if (this.threadData.getType() == bd.ahS) {
+            return cBK;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bd Pb() {
+    public bd Sz() {
+        if (this.threadData == null) {
+            return this.threadData;
+        }
+        if (this.threadData.vc() == 5) {
+            return this.threadData;
+        }
+        this.threadData.setResource(1);
         return this.threadData;
     }
 
-    public boolean afR() {
-        return (this.threadData == null || v.v(this.threadData.sd()) == 0) ? false : true;
+    public boolean ajz() {
+        return (this.threadData == null || w.y(this.threadData.vA()) == 0) ? false : true;
     }
 
-    public al afS() {
-        bd Pb;
-        if (this.ctg) {
-            al alVar = new al("c11003");
-            if (Pb() != null && (Pb = Pb()) != null) {
-                alVar.ac("tid", Pb.getTid());
-                if (Pb.rP() != null) {
-                    alVar.r("ab_type", Pb.rP().hadConcerned() ? 1 : 0);
+    public am ajA() {
+        bd Sz;
+        if (this.cBL) {
+            am amVar = new am("c11003");
+            if (Sz() != null && (Sz = Sz()) != null) {
+                amVar.ah("tid", Sz.getTid());
+                if (Sz.vm() != null) {
+                    amVar.r("ab_type", Sz.vm().hadConcerned() ? 1 : 0);
                 }
             }
-            return alVar;
-        } else if (afR()) {
-            al kD = kD(csY);
-            if (kD != null && Pb() != null) {
-                bd Pb2 = Pb();
-                kD.r("obj_name", Pb2.tb() != null && (Pb2.tb().brZ() != null || Pb2.tb().JP() != null) ? 1 : 0);
-                if (Pb2.rP() != null) {
-                    kD.r("ab_type", Pb2.rP().hadConcerned() ? 1 : 0);
+            return amVar;
+        } else if (ajz()) {
+            am lg = lg(cBD);
+            if (lg != null && Sz() != null) {
+                bd Sz2 = Sz();
+                lg.r("obj_name", Sz2.wy() != null && (Sz2.wy().bxb() != null || Sz2.wy().No() != null) ? 1 : 0);
+                if (Sz2.vm() != null) {
+                    lg.r("ab_type", Sz2.vm().hadConcerned() ? 1 : 0);
                 }
             }
-            return kD;
+            return lg;
         } else {
-            al kD2 = kD(csT);
-            if (kD2 != null) {
-                kD2.ac("ab_tag", afK()).ac("ab_action", "show");
-                if (Pb() != null) {
-                    bd Pb3 = Pb();
-                    boolean z = (Pb3.tb() == null || (Pb3.tb().brZ() == null && Pb3.tb().JP() == null)) ? false : true;
-                    kD2.r("obj_name", z ? 1 : 0);
-                    if (z && Pb3.tb().brZ() != null && Pb3.tb().brZ().JH() != null && Pb3.tb().brZ().JH().size() > 0) {
-                        kD2.r("obj_to", Pb3.tb().gyb ? 2 : 1);
+            am lg2 = lg(cBy);
+            if (lg2 != null) {
+                lg2.ah("ab_tag", ajr()).ah("ab_action", "show");
+                if (Sz() != null) {
+                    bd Sz3 = Sz();
+                    boolean z = (Sz3.wy() == null || (Sz3.wy().bxb() == null && Sz3.wy().No() == null)) ? false : true;
+                    lg2.r("obj_name", z ? 1 : 0);
+                    if (z && Sz3.wy().bxb() != null && Sz3.wy().bxb().Ng() != null && Sz3.wy().bxb().Ng().size() > 0) {
+                        lg2.r("obj_to", Sz3.wy().gJA ? 2 : 1);
                     }
-                    if (Pb3.rP() != null) {
-                        kD2.r("ab_type", Pb3.rP().hadConcerned() ? 1 : 0);
+                    if (Sz3.vm() != null) {
+                        lg2.r("ab_type", Sz3.vm().hadConcerned() ? 1 : 0);
                     }
                 }
             }
-            return kD2;
+            return lg2;
         }
     }
 
-    public al kF(String str) {
-        al alVar = new al(str);
-        if (alVar != null && this.threadData != null) {
-            alVar.f(ImageViewerConfig.FORUM_ID, this.threadData.getFid());
-            alVar.ac("tid", this.threadData.getTid());
-            int i = 1;
+    public am li(String str) {
+        int i;
+        am amVar = new am(str);
+        if (amVar != null && this.threadData != null) {
+            amVar.f(ImageViewerConfig.FORUM_ID, this.threadData.getFid());
+            amVar.ah("tid", this.threadData.getTid());
             if (this.threadData.isLinkThread()) {
                 i = 4;
-            } else if (this.threadData.isShareThread) {
-                i = 5;
+            } else {
+                i = this.threadData.isShareThread ? 5 : 1;
             }
-            alVar.r("obj_type", i);
-            alVar.ac(VideoPlayActivityConfig.OBJ_ID, this.threadData.rP().getUserId());
+            amVar.r("obj_type", i);
+            amVar.ah(VideoPlayActivityConfig.OBJ_ID, this.threadData.vm().getUserId());
+            amVar.r("obj_param1", ajv() ? 2 : 1);
         }
-        return alVar;
+        return amVar;
     }
 
-    public al kG(String str) {
-        al kD = kD(str);
-        if (kD != null) {
-            kD.ac("ab_tag", afK()).ac("ab_action", "show");
-            if (Pb() != null) {
-                bd Pb = Pb();
-                boolean z = (Pb.tb() == null || (Pb.tb().brZ() == null && Pb.tb().JP() == null)) ? false : true;
-                kD.r("obj_name", z ? 1 : 0);
-                if (z && Pb.tb().brZ() != null && Pb.tb().brZ().JH() != null && Pb.tb().brZ().JH().size() > 0) {
-                    kD.r("obj_to", Pb.tb().gyb ? 2 : 1);
+    public am lj(String str) {
+        am lg = lg(str);
+        if (lg != null) {
+            lg.ah("ab_tag", ajr()).ah("ab_action", "show");
+            if (Sz() != null) {
+                bd Sz = Sz();
+                boolean z = (Sz.wy() == null || (Sz.wy().bxb() == null && Sz.wy().No() == null)) ? false : true;
+                lg.r("obj_name", z ? 1 : 0);
+                if (z && Sz.wy().bxb() != null && Sz.wy().bxb().Ng() != null && Sz.wy().bxb().Ng().size() > 0) {
+                    lg.r("obj_to", Sz.wy().gJA ? 2 : 1);
                 }
             }
         }
-        return kD;
+        return lg;
     }
 
-    public al kH(String str) {
-        al kD = kD(str);
-        if (kD != null) {
-            kD.ac("ab_tag", afK()).ac("ab_action", "click");
+    public am lk(String str) {
+        am lg = lg(str);
+        if (lg != null) {
+            lg.ah("ab_tag", ajr()).ah("ab_action", "click");
         }
-        return kD;
+        return lg;
     }
 
-    public al afT() {
-        if (afR()) {
-            return kD(csZ);
+    public am ajB() {
+        if (ajz()) {
+            return lg(cBE);
         }
-        al kD = kD(csU);
-        if (kD != null) {
-            kD.ac("ab_tag", afK()).ac("ab_action", "click");
-            return kD;
+        am lg = lg(cBz);
+        if (lg != null) {
+            lg.ah("ab_tag", ajr()).ah("ab_action", "click");
+            return lg;
         }
-        return kD;
+        return lg;
     }
 
-    public al afU() {
-        if (afR()) {
-            return kD(cta);
+    public am ajC() {
+        if (ajz()) {
+            return lg(cBF);
         }
-        al U = U(csV, 0);
-        if (U != null) {
-            U.ac("ab_tag", afK()).ac("ab_action", "click");
-            return U;
+        am W = W(cBA, 0);
+        if (W != null) {
+            W.ah("ab_tag", ajr()).ah("ab_action", "click");
+            return W;
         }
-        return U;
+        return W;
     }
 
-    public al afV() {
-        if (afR()) {
-            return kD(ctb);
+    public am ajD() {
+        if (ajz()) {
+            return lg(cBG);
         }
-        al kD = kD(csW);
-        if (kD != null) {
-            kD.ac("ab_tag", afK()).ac("ab_action", "click");
-            return kD;
+        am lg = lg(cBB);
+        if (lg != null) {
+            lg.ah("ab_tag", ajr()).ah("ab_action", "click");
+            return lg;
         }
-        return kD;
+        return lg;
     }
 
-    public al afW() {
-        if (afR()) {
-            return kD(ctc);
+    public am ajE() {
+        if (ajz()) {
+            return lg(cBH);
         }
-        al kD = kD(csX);
-        if (kD != null) {
-            kD.ac("ab_tag", afK()).ac("ab_action", "click");
-            return kD;
+        am lg = lg(cBC);
+        if (lg != null) {
+            lg.ah("ab_tag", ajr()).ah("ab_action", "click");
+            return lg;
         }
-        return kD;
+        return lg;
     }
 
-    public al afX() {
-        return kD(ctd);
+    public am ajF() {
+        return lg(cBI);
     }
 
-    public al kI(String str) {
-        return kD(str);
+    public am ll(String str) {
+        return lg(str);
     }
 
-    public al kJ(String str) {
-        al kD = kD(str);
-        if (this.threadData != null && this.threadData.rP() != null) {
-            kD.r("ab_type", this.threadData.rP().hadConcerned() ? 1 : 0);
+    public am lm(String str) {
+        am lg = lg(str);
+        if (this.threadData != null && this.threadData.vm() != null) {
+            lg.r("ab_type", this.threadData.vm().hadConcerned() ? 1 : 0);
         }
-        return kD;
+        return lg;
     }
 
-    public al kK(String str) {
-        return kD(str);
+    public am ln(String str) {
+        return lg(str);
     }
 }

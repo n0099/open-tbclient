@@ -11,121 +11,122 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ae extends q.a {
-    View.OnClickListener bOY;
-    public ImageView fnA;
-    public TextView fnB;
-    public LinearLayout fnC;
-    public ImageView fnD;
-    public TextView fnE;
-    public View fnF;
-    private com.baidu.tbadk.core.data.ao fnG;
-    private com.baidu.tbadk.core.data.ao fnH;
-    private com.baidu.tbadk.core.data.ao fnI;
-    public LinearLayout fns;
-    public View fnt;
-    public RelativeLayout fnu;
-    public TbImageView fnv;
-    public TextView fnw;
-    public TextView fnx;
-    public TextView fny;
-    public LinearLayout fnz;
+    View.OnClickListener bWZ;
+    public LinearLayout fyM;
+    public View fyN;
+    public RelativeLayout fyO;
+    public TbImageView fyP;
+    public TextView fyQ;
+    public TextView fyR;
+    public TextView fyS;
+    public LinearLayout fyT;
+    public ImageView fyU;
+    public TextView fyV;
+    public LinearLayout fyW;
+    public ImageView fyX;
+    public TextView fyY;
+    public View fyZ;
+    private com.baidu.tbadk.core.data.ao fza;
+    private com.baidu.tbadk.core.data.ao fzb;
+    private com.baidu.tbadk.core.data.ao fzc;
     private TbPageContext mContext;
     private int mSkinType;
 
-    public ae(TbPageContext tbPageContext, View view2) {
-        super(view2);
+    public ae(TbPageContext tbPageContext, View view) {
+        super(view);
         this.mSkinType = 3;
-        this.bOY = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ae.1
+        this.bWZ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ae.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view3) {
-                if (az.aK(ae.this.mContext.getPageActivity()) && com.baidu.adp.lib.util.l.hg()) {
-                    if (view3 == ae.this.fnu) {
-                        if (ae.this.fnG != null && !TextUtils.isEmpty(ae.this.fnG.YR)) {
-                            com.baidu.tbadk.core.util.ax.wf().c((TbPageContext) com.baidu.adp.base.i.ab(ae.this.mContext.getPageActivity()), new String[]{ae.this.fnG.YR});
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.al("c11410").ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, ae.this.fnG.YR));
+            public void onClick(View view2) {
+                if (ba.aU(ae.this.mContext.getPageActivity()) && com.baidu.adp.lib.util.l.jU()) {
+                    if (view2 == ae.this.fyO) {
+                        if (ae.this.fza != null && !TextUtils.isEmpty(ae.this.fza.agT)) {
+                            ay.zG().c((TbPageContext) com.baidu.adp.base.i.ad(ae.this.mContext.getPageActivity()), new String[]{ae.this.fza.agT});
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11410").ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, ae.this.fza.agT));
                         }
-                    } else if (view3 == ae.this.fnz) {
-                        BdLog.e("link: " + ae.this.fnH.YR);
-                        if (ae.this.fnH != null && !TextUtils.isEmpty(ae.this.fnH.YR)) {
-                            com.baidu.tbadk.core.util.ax.wf().c((TbPageContext) com.baidu.adp.base.i.ab(ae.this.mContext.getPageActivity()), new String[]{ae.this.fnH.YR});
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.al("c11409").ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, ae.this.fnH.YR));
+                    } else if (view2 == ae.this.fyT) {
+                        BdLog.e("link: " + ae.this.fzb.agT);
+                        if (ae.this.fzb != null && !TextUtils.isEmpty(ae.this.fzb.agT)) {
+                            ay.zG().c((TbPageContext) com.baidu.adp.base.i.ad(ae.this.mContext.getPageActivity()), new String[]{ae.this.fzb.agT});
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11409").ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, ae.this.fzb.agT));
                         }
-                    } else if (view3 == ae.this.fnC && ae.this.fnI != null && !TextUtils.isEmpty(ae.this.fnI.YR)) {
-                        com.baidu.tbadk.core.util.ax.wf().c((TbPageContext) com.baidu.adp.base.i.ab(ae.this.mContext.getPageActivity()), new String[]{ae.this.fnI.YR});
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.al("c11408").ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, ae.this.fnI.YR));
+                    } else if (view2 == ae.this.fyW && ae.this.fzc != null && !TextUtils.isEmpty(ae.this.fzc.agT)) {
+                        ay.zG().c((TbPageContext) com.baidu.adp.base.i.ad(ae.this.mContext.getPageActivity()), new String[]{ae.this.fzc.agT});
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11408").ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, ae.this.fzc.agT));
                     }
                 }
             }
         };
         this.mContext = tbPageContext;
-        this.fns = (LinearLayout) view2.findViewById(d.g.pb_news_info_layout);
-        this.fnt = view2.findViewById(d.g.pb_list_item_top_line);
-        this.fnu = (RelativeLayout) view2.findViewById(d.g.pb_top_code);
-        this.fnv = (TbImageView) view2.findViewById(d.g.top_code_img);
-        this.fnw = (TextView) view2.findViewById(d.g.top_code_get_btn);
-        this.fnx = (TextView) view2.findViewById(d.g.top_code_detail_summary_text);
-        this.fny = (TextView) view2.findViewById(d.g.top_code_detail_subtitle_text);
-        this.fnz = (LinearLayout) view2.findViewById(d.g.news_info);
-        this.fnA = (ImageView) view2.findViewById(d.g.news_info_img);
-        this.fnB = (TextView) view2.findViewById(d.g.news_info_text);
-        this.fnC = (LinearLayout) view2.findViewById(d.g.game_info);
-        this.fnD = (ImageView) view2.findViewById(d.g.game_info_img);
-        this.fnE = (TextView) view2.findViewById(d.g.game_info_text);
-        this.fnF = view2.findViewById(d.g.pb_news_info_divider);
-        setOnClickListener(this.bOY);
+        this.fyM = (LinearLayout) view.findViewById(d.g.pb_news_info_layout);
+        this.fyN = view.findViewById(d.g.pb_list_item_top_line);
+        this.fyO = (RelativeLayout) view.findViewById(d.g.pb_top_code);
+        this.fyP = (TbImageView) view.findViewById(d.g.top_code_img);
+        this.fyQ = (TextView) view.findViewById(d.g.top_code_get_btn);
+        this.fyR = (TextView) view.findViewById(d.g.top_code_detail_summary_text);
+        this.fyS = (TextView) view.findViewById(d.g.top_code_detail_subtitle_text);
+        this.fyT = (LinearLayout) view.findViewById(d.g.news_info);
+        this.fyU = (ImageView) view.findViewById(d.g.news_info_img);
+        this.fyV = (TextView) view.findViewById(d.g.news_info_text);
+        this.fyW = (LinearLayout) view.findViewById(d.g.game_info);
+        this.fyX = (ImageView) view.findViewById(d.g.game_info_img);
+        this.fyY = (TextView) view.findViewById(d.g.game_info_text);
+        this.fyZ = view.findViewById(d.g.pb_news_info_divider);
+        setOnClickListener(this.bWZ);
     }
 
     public void a(ac acVar) {
         if (acVar != null) {
-            this.fnG = acVar.fnn;
-            this.fnH = acVar.fno;
-            this.fnI = acVar.fnp;
-            if (this.fnG != null) {
-                this.fnv.startLoad(this.fnG.YT, 10, false);
-                this.fnx.setText(this.fnG.summary);
-                this.fny.setText(this.fnG.subtitle);
-                this.fnw.setText(this.fnG.buttonText);
-                com.baidu.tbadk.core.util.ak.i(this.fnw, d.f.selector_star_btn_like);
-                com.baidu.tbadk.core.util.ak.h(this.fnw, d.f.news_text_color_selector);
+            this.fza = acVar.fyH;
+            this.fzb = acVar.fyI;
+            this.fzc = acVar.fyJ;
+            if (this.fza != null) {
+                this.fyP.startLoad(this.fza.agV, 10, false);
+                this.fyR.setText(this.fza.summary);
+                this.fyS.setText(this.fza.subtitle);
+                this.fyQ.setText(this.fza.buttonText);
+                com.baidu.tbadk.core.util.al.i(this.fyQ, d.f.selector_star_btn_like);
+                com.baidu.tbadk.core.util.al.h(this.fyQ, d.f.news_text_color_selector);
             } else {
-                this.fnu.setVisibility(8);
+                this.fyO.setVisibility(8);
             }
-            if (this.fnH != null) {
-                this.fnB.setText(this.fnH.summary);
-                com.baidu.tbadk.core.util.ak.i(this.fnA, d.f.icon_frs_news);
+            if (this.fzb != null) {
+                this.fyV.setText(this.fzb.summary);
+                com.baidu.tbadk.core.util.al.i(this.fyU, d.f.icon_frs_news);
             } else {
-                this.fnz.setVisibility(8);
-                this.fnB.setVisibility(8);
-                this.fnA.setVisibility(8);
+                this.fyT.setVisibility(8);
+                this.fyV.setVisibility(8);
+                this.fyU.setVisibility(8);
             }
-            if (this.fnI != null) {
-                this.fnE.setText(this.fnI.summary);
-                com.baidu.tbadk.core.util.ak.i(this.fnD, d.f.icon_frs_game);
+            if (this.fzc != null) {
+                this.fyY.setText(this.fzc.summary);
+                com.baidu.tbadk.core.util.al.i(this.fyX, d.f.icon_frs_game);
             } else {
-                this.fnC.setVisibility(8);
-                this.fnE.setVisibility(8);
-                this.fnE.setVisibility(8);
+                this.fyW.setVisibility(8);
+                this.fyY.setVisibility(8);
+                this.fyY.setVisibility(8);
             }
-            this.fns.setTag(acVar);
+            this.fyM.setTag(acVar);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mContext.getLayoutMode().setNightMode(i == 1);
-            this.mContext.getLayoutMode().u(getView());
+            this.mContext.getLayoutMode().onModeChanged(getView());
             this.mSkinType = i;
         }
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.fnu.setOnClickListener(onClickListener);
-        this.fnz.setOnClickListener(onClickListener);
-        this.fnC.setOnClickListener(onClickListener);
+        this.fyO.setOnClickListener(onClickListener);
+        this.fyT.setOnClickListener(onClickListener);
+        this.fyW.setOnClickListener(onClickListener);
     }
 }

@@ -16,7 +16,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import java.util.ArrayList;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClickListener {
     private static final String TAG = "ListMenuPresenter";
@@ -123,7 +123,7 @@ public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClick
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         this.mMenu.performItemAction(this.mAdapter.getItem(i), this, 0);
     }
 
@@ -213,8 +213,8 @@ public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClick
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            View inflate = view2 == null ? ListMenuPresenter.this.mInflater.inflate(ListMenuPresenter.this.mItemLayoutRes, viewGroup, false) : view2;
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            View inflate = view == null ? ListMenuPresenter.this.mInflater.inflate(ListMenuPresenter.this.mItemLayoutRes, viewGroup, false) : view;
             ((MenuView.ItemView) inflate).initialize(getItem(i), 0);
             return inflate;
         }

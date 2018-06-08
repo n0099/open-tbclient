@@ -16,6 +16,8 @@ import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.ar.parser.ARResourceKey;
+import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
@@ -131,7 +133,7 @@ public class f {
         }
         jSONObject.put("user_id", str5);
         JSONObject jSONObject2 = new JSONObject();
-        jSONObject2.put("request_id", str);
+        jSONObject2.put(StatisticConstants.REQUEST_ID, str);
         jSONObject2.put("response_params", jSONObject);
         return jSONObject2.toString();
     }
@@ -157,7 +159,7 @@ public class f {
         if (z) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0);
             boolean z2 = sharedPreferences.getBoolean("bind_status", false);
-            String string = sharedPreferences.getString("request_id", "");
+            String string = sharedPreferences.getString(StatisticConstants.REQUEST_ID, "");
             String string2 = sharedPreferences.getString("appid", "");
             String string3 = sharedPreferences.getString("channel_id", "");
             String string4 = sharedPreferences.getString("new_channel_id", "");
@@ -374,7 +376,7 @@ public class f {
         Long valueOf = Long.valueOf(sharedPreferences.getLong("currbindtime", 0L));
         String string = sharedPreferences.getString("access_token", "");
         String string2 = sharedPreferences.getString("secret_key", "");
-        Long valueOf2 = Long.valueOf(sharedPreferences.getLong(com.baidu.ar.util.Constants.HTTP_VERSION_CODE, 0L));
+        Long valueOf2 = Long.valueOf(sharedPreferences.getLong(ARResourceKey.HTTP_VERSION_CODE, 0L));
         if (Long.valueOf(System.currentTimeMillis()).longValue() - valueOf.longValue() > 43200000) {
             sharedPreferences.edit().clear().commit();
             return false;

@@ -9,12 +9,12 @@ import android.view.ViewConfiguration;
 import com.baidu.tieba.videoplay.verticalviewpager.transforms.DefaultTransformer;
 /* loaded from: classes2.dex */
 public class VerticalViewPager extends ViewPager {
-    private float bUb;
-    private boolean gVK;
-    private a gXi;
-    private long gXj;
-    private long gXk;
-    private boolean gXl;
+    private float ccd;
+    private boolean hhl;
+    private a hiK;
+    private long hiL;
+    private long hiM;
+    private boolean hiN;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -23,11 +23,11 @@ public class VerticalViewPager extends ViewPager {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bzt();
+        void bEB();
 
-        void bzv();
+        void bEz();
 
-        void n(float f, float f2);
+        void u(float f, float f2);
     }
 
     public VerticalViewPager(Context context) {
@@ -44,7 +44,7 @@ public class VerticalViewPager extends ViewPager {
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
     }
 
-    private MotionEvent L(MotionEvent motionEvent) {
+    private MotionEvent M(MotionEvent motionEvent) {
         float width = getWidth();
         float height = getHeight();
         motionEvent.setLocation((motionEvent.getY() / height) * width, (motionEvent.getX() / width) * height);
@@ -56,9 +56,9 @@ public class VerticalViewPager extends ViewPager {
         boolean z;
         IllegalArgumentException e;
         try {
-            z = super.onInterceptTouchEvent(L(motionEvent));
+            z = super.onInterceptTouchEvent(M(motionEvent));
             try {
-                L(motionEvent);
+                M(motionEvent);
             } catch (IllegalArgumentException e2) {
                 e = e2;
                 e.printStackTrace();
@@ -80,49 +80,49 @@ public class VerticalViewPager extends ViewPager {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX();
-                this.bUb = motionEvent.getY();
-                this.gXj = System.currentTimeMillis();
-                this.gXl = true;
+                this.ccd = motionEvent.getY();
+                this.hiL = System.currentTimeMillis();
+                this.hiN = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.gXj < 100 && currentTimeMillis - this.gXk < 500) {
-                    this.gVK = true;
+                if (currentTimeMillis - this.hiL < 100 && currentTimeMillis - this.hiM < 500) {
+                    this.hhl = true;
                 } else {
-                    this.gVK = false;
+                    this.hhl = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.bUb - motionEvent.getY()) > 50.0f) {
-                    this.gVK = false;
-                    this.gXl = false;
+                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.ccd - motionEvent.getY()) > 50.0f) {
+                    this.hhl = false;
+                    this.hiN = false;
                 }
-                if (this.gVK) {
-                    if (this.gXi != null) {
-                        this.gXi.n(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.hhl) {
+                    if (this.hiK != null) {
+                        this.hiK.u(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.bUb - motionEvent.getY()) && this.gXi != null) {
-                    this.gXi.bzv();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.ccd - motionEvent.getY()) && this.hiK != null) {
+                    this.hiK.bEB();
                 }
-                if (!this.gVK && this.gXl && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.bUb - motionEvent.getY()) < 30.0f) {
+                if (!this.hhl && this.hiN && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.ccd - motionEvent.getY()) < 30.0f) {
                     postDelayed(new Runnable() { // from class: com.baidu.tieba.videoplay.verticalviewpager.VerticalViewPager.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!VerticalViewPager.this.gVK && VerticalViewPager.this.gXl && Math.abs(VerticalViewPager.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(VerticalViewPager.this.bUb - motionEvent.getY()) < 30.0f && VerticalViewPager.this.gXi != null) {
-                                VerticalViewPager.this.gXi.bzt();
+                            if (!VerticalViewPager.this.hhl && VerticalViewPager.this.hiN && Math.abs(VerticalViewPager.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(VerticalViewPager.this.ccd - motionEvent.getY()) < 30.0f && VerticalViewPager.this.hiK != null) {
+                                VerticalViewPager.this.hiK.bEz();
                             }
                         }
                     }, 300L);
                 }
-                this.gXk = currentTimeMillis;
+                this.hiM = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
                 releaseVelocityTracker();
                 break;
         }
-        boolean onTouchEvent = super.onTouchEvent(L(motionEvent));
-        L(motionEvent);
+        boolean onTouchEvent = super.onTouchEvent(M(motionEvent));
+        M(motionEvent);
         return onTouchEvent;
     }
 
@@ -135,6 +135,6 @@ public class VerticalViewPager extends ViewPager {
     }
 
     public void setOnViewClickListener(a aVar) {
-        this.gXi = aVar;
+        this.hiK = aVar;
     }
 }

@@ -57,8 +57,8 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     private PluginBaseActivity mEntity = null;
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        return this.mEntity != null ? this.mEntity.onCreateView(view2, str, context, attributeSet) : super.onCreateView(view2, str, context, attributeSet);
+    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return this.mEntity != null ? this.mEntity.onCreateView(view, str, context, attributeSet) : super.onCreateView(view, str, context, attributeSet);
     }
 
     public void loadEntityActivity() {
@@ -100,11 +100,11 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // android.app.Activity
-    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
         if (this.mEntity != null) {
-            this.mEntity.addContentView(view2, layoutParams);
+            this.mEntity.addContentView(view, layoutParams);
         } else {
-            super.addContentView(view2, layoutParams);
+            super.addContentView(view, layoutParams);
         }
     }
 
@@ -291,7 +291,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.bP().getResources();
+            Resources resources = g.eD().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -451,11 +451,11 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
         if (this.mEntity != null) {
-            this.mEntity.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
+            this.mEntity.onCreateContextMenu(contextMenu, view, contextMenuInfo);
         } else {
-            super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
+            super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
         }
     }
 
@@ -621,8 +621,8 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view2, Menu menu) {
-        return this.mEntity != null ? this.mEntity.onPreparePanel(i, view2, menu) : super.onPreparePanel(i, view2, menu);
+    public boolean onPreparePanel(int i, View view, Menu menu) {
+        return this.mEntity != null ? this.mEntity.onPreparePanel(i, view, menu) : super.onPreparePanel(i, view, menu);
     }
 
     @Override // android.app.Activity
@@ -741,11 +741,11 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // android.app.Activity
-    public void openContextMenu(View view2) {
+    public void openContextMenu(View view) {
         if (this.mEntity != null) {
-            this.mEntity.openContextMenu(view2);
+            this.mEntity.openContextMenu(view);
         } else {
-            super.openContextMenu(view2);
+            super.openContextMenu(view);
         }
     }
 
@@ -773,13 +773,13 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public View proxyOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        return super.onCreateView(view2, str, context, attributeSet);
+    public View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(view, str, context, attributeSet);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyAddContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        super.addContentView(view2, layoutParams);
+    public void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        super.addContentView(view, layoutParams);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1007,8 +1007,8 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
+    public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1107,8 +1107,8 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean proxyOnPreparePanel(int i, View view2, Menu menu) {
-        return super.onPreparePanel(i, view2, menu);
+    public boolean proxyOnPreparePanel(int i, View view, Menu menu) {
+        return super.onPreparePanel(i, view, menu);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1182,8 +1182,8 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyOpenContextMenu(View view2) {
-        super.openContextMenu(view2);
+    public void proxyOpenContextMenu(View view) {
+        super.openContextMenu(view);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1202,8 +1202,8 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyRegisterForContextMenu(View view2) {
-        super.registerForContextMenu(view2);
+    public void proxyRegisterForContextMenu(View view) {
+        super.registerForContextMenu(view);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1212,13 +1212,13 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxySetContentView(View view2) {
-        super.setContentView(view2);
+    public void proxySetContentView(View view) {
+        super.setContentView(view);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxySetContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        super.setContentView(view2, layoutParams);
+    public void proxySetContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        super.setContentView(view, layoutParams);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1326,16 +1326,16 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyUnregisterForContextMenu(View view2) {
-        super.unregisterForContextMenu(view2);
+    public void proxyUnregisterForContextMenu(View view) {
+        super.unregisterForContextMenu(view);
     }
 
     @Override // android.app.Activity
-    public void registerForContextMenu(View view2) {
+    public void registerForContextMenu(View view) {
         if (this.mEntity != null) {
-            this.mEntity.registerForContextMenu(view2);
+            this.mEntity.registerForContextMenu(view);
         } else {
-            super.registerForContextMenu(view2);
+            super.registerForContextMenu(view);
         }
     }
 
@@ -1349,20 +1349,20 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view2) {
+    public void setContentView(View view) {
         if (this.mEntity != null) {
-            this.mEntity.setContentView(view2);
+            this.mEntity.setContentView(view);
         } else {
-            super.setContentView(view2);
+            super.setContentView(view);
         }
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
         if (this.mEntity != null) {
-            this.mEntity.setContentView(view2, layoutParams);
+            this.mEntity.setContentView(view, layoutParams);
         } else {
-            super.setContentView(view2, layoutParams);
+            super.setContentView(view, layoutParams);
         }
     }
 
@@ -1537,11 +1537,11 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // android.app.Activity
-    public void unregisterForContextMenu(View view2) {
+    public void unregisterForContextMenu(View view) {
         if (this.mEntity != null) {
-            this.mEntity.unregisterForContextMenu(view2);
+            this.mEntity.unregisterForContextMenu(view);
         } else {
-            super.unregisterForContextMenu(view2);
+            super.unregisterForContextMenu(view);
         }
     }
 

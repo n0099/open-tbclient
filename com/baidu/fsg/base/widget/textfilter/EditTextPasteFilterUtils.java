@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.ClipboardManager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import com.baidu.ar.util.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,7 +34,7 @@ public class EditTextPasteFilterUtils {
             int length = split.length;
             for (int i = 0; i < length; i++) {
                 try {
-                    Object newInstance = Class.forName(name + Constants.DOT + split[i].trim()).newInstance();
+                    Object newInstance = Class.forName(name + "." + split[i].trim()).newInstance();
                     if (newInstance != null && (newInstance instanceof IEditTextPasteFilter)) {
                         arrayList.add((IEditTextPasteFilter) newInstance);
                     }

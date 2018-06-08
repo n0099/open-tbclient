@@ -5,13 +5,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> erU;
-    public int erS = 0;
+    public ArrayList<ArrayList<String>> eDl;
+    public int eDj = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String erT = null;
-    boolean erV = false;
-    public String erW = null;
+    public String eDk = null;
+    boolean eDm = false;
+    public String eDn = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -19,19 +19,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.erS = optJSONObject.optInt("errorno");
+                    this.eDj = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.erV = true;
+                    this.eDm = true;
                 } else {
-                    this.erV = false;
+                    this.eDm = false;
                 }
-                this.erW = jSONObject.optString("cdn_domain");
+                this.eDn = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString("img_url");
-                    this.erT = optJSONObject2.optString("img_md5");
+                    this.eDk = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -54,7 +54,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.erU = arrayList;
+                        this.eDl = arrayList;
                     }
                 }
             } catch (Exception e) {

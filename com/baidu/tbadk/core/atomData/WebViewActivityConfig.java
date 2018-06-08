@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
@@ -18,6 +18,8 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_FIX_TITLE = "tag_fix_title";
     public static final String TAG_NAV_BAR = "tag_navigation_bar";
     public static final String TAG_NEED_STYLE_IMMERSIVE_STICKY = "tag_style_immersive_sticky";
+    public static final String TAG_NO_MENU = "tag_nomenu";
+    public static final String TAG_NO_SHARE = "tag_noshare";
     public static final String TAG_TITLE = "tag_title";
     public static final String TAG_URL = "tag_url";
 
@@ -78,10 +80,22 @@ public class WebViewActivityConfig extends IntentConfig {
         }
     }
 
+    public void setNoShare(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(TAG_NO_SHARE, z);
+        }
+    }
+
+    public void setMenu(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(TAG_NO_MENU, z);
+        }
+    }
+
     public static String addTiebaParams(String str) {
-        if (!an.isEmpty(str)) {
+        if (!ao.isEmpty(str)) {
             if (str.indexOf("_client_version=") < 0) {
-                if (an.isEmpty(Uri.parse(str).getQuery())) {
+                if (ao.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();

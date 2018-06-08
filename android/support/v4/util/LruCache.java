@@ -1,6 +1,7 @@
 package android.support.v4.util;
 
 import java.util.LinkedHashMap;
+import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class LruCache<K, V> {
@@ -189,7 +190,7 @@ public class LruCache<K, V> {
         String format;
         synchronized (this) {
             int i = this.hitCount + this.missCount;
-            format = String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.maxSize), Integer.valueOf(this.hitCount), Integer.valueOf(this.missCount), Integer.valueOf(i != 0 ? (this.hitCount * 100) / i : 0));
+            format = String.format(Locale.US, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.maxSize), Integer.valueOf(this.hitCount), Integer.valueOf(this.missCount), Integer.valueOf(i != 0 ? (this.hitCount * 100) / i : 0));
         }
         return format;
     }

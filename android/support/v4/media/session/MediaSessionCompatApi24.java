@@ -3,9 +3,11 @@ package android.support.v4.media.session;
 import android.media.session.MediaSession;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.media.session.MediaSessionCompatApi23;
 import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
+@RequiresApi(24)
 /* loaded from: classes2.dex */
 class MediaSessionCompatApi24 {
     private static final String TAG = "MediaSessionCompatApi24";

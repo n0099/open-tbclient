@@ -3,23 +3,23 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.baidu.ar.util.SystemInfoUtil;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class e {
-    private boolean aAL = false;
-    private int aAM = 0;
+    private boolean aJg = false;
+    private int aJh = 0;
 
-    public void fL(String str) {
+    public void gj(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.aAL = false;
-        this.aAM = 0;
-        if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+        this.aJg = false;
+        this.aJh = 0;
+        if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(SystemInfoUtil.COLON)) >= 5) {
             String str3 = null;
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -49,7 +49,7 @@ public class e {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.aAL = true;
+                                this.aJg = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -80,25 +80,25 @@ public class e {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.aAL && i4 > 0) {
-                    this.aAM = i3 / i4;
+                if (this.aJg && i4 > 0) {
+                    this.aJh = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.aAL;
+        return this.aJg;
     }
 
-    public int CN() {
-        return this.aAM;
+    public int Gq() {
+        return this.aJh;
     }
 
     private int getTimeout() {
-        switch (j.gV()) {
+        switch (j.jJ()) {
             case 1:
-                return PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+                return 3000;
             case 2:
                 return 10000;
             case 3:

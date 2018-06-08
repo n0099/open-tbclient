@@ -10,41 +10,41 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private String cQK;
-    private int cQL;
-    private AlbumActivity hcB;
+    private String cZP;
+    private int cZQ;
+    private AlbumActivity how;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.hcB = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.hcB.getPageContext().getPageActivity());
-        this.cQL = l.af(this.hcB.getPageContext().getPageActivity()) / 2;
+        this.how = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.how.getPageContext().getPageActivity());
+        this.cZQ = l.ah(this.how.getPageContext().getPageActivity()) / 2;
     }
 
     public void f(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.cQK = str;
+        this.cZP = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.v(this.mList);
+        return w.y(this.mList);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: jL */
+    /* renamed from: jO */
     public com.baidu.tbadk.album.a getItem(int i) {
-        return (com.baidu.tbadk.album.a) v.c(this.mList, i);
+        return (com.baidu.tbadk.album.a) w.c(this.mList, i);
     }
 
     @Override // android.widget.Adapter
@@ -53,54 +53,54 @@ public class b extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (view2 != null && (view2.getTag() instanceof a)) {
-            aVar = (a) view2.getTag();
+        if (view != null && (view.getTag() instanceof a)) {
+            aVar = (a) view.getTag();
         } else {
-            view2 = this.mLayoutInflater.inflate(d.i.album_list_item, viewGroup, false);
+            view = this.mLayoutInflater.inflate(d.i.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.hcM = (TbImageView) view2.findViewById(d.g.item_head);
-            aVar.cQO = (TextView) view2.findViewById(d.g.item_name);
-            aVar.cQP = (ImageView) view2.findViewById(d.g.item_arrow);
-            aVar.hcM.setGifIconSupport(false);
-            aVar.hcM.setLongIconSupport(false);
-            view2.setTag(aVar);
+            aVar.hoH = (TbImageView) view.findViewById(d.g.item_head);
+            aVar.cZT = (TextView) view.findViewById(d.g.item_name);
+            aVar.cZU = (ImageView) view.findViewById(d.g.item_arrow);
+            aVar.hoH.setGifIconSupport(false);
+            aVar.hoH.setLongIconSupport(false);
+            view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
         if (item == null) {
-            view2.setVisibility(4);
+            view.setVisibility(4);
         } else {
-            view2.setVisibility(0);
+            view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.cQO.setText(l.a(aVar.cQO.getPaint(), item.getName(), this.cQL) + "(" + item.getCount() + ")");
+                aVar.cZT.setText(l.a(aVar.cZT.getPaint(), item.getName(), this.cZQ) + "(" + item.getCount() + ")");
             } else {
-                aVar.cQO.setText("");
+                aVar.cZT.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.cQK)) {
-                ak.c(aVar.cQP, d.f.icon_list_select_ok_n);
-                aVar.cQP.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.cZP)) {
+                al.c(aVar.cZU, d.f.icon_list_select_ok_n);
+                aVar.cZU.setVisibility(0);
             } else {
-                aVar.cQP.setVisibility(8);
+                aVar.cZU.setVisibility(8);
             }
-            MediaFileInfo ou = item.ou();
-            if (ou instanceof VideoFileInfo) {
-                aVar.hcM.startLoad(((VideoFileInfo) ou).videoPath, 37, false);
-            } else if (ou instanceof ImageFileInfo) {
-                aVar.hcM.startLoad(((ImageFileInfo) ou).getFilePath(), 35, false);
+            MediaFileInfo rP = item.rP();
+            if (rP instanceof VideoFileInfo) {
+                aVar.hoH.startLoad(((VideoFileInfo) rP).videoPath, 37, false);
+            } else if (rP instanceof ImageFileInfo) {
+                aVar.hoH.startLoad(((ImageFileInfo) rP).getFilePath(), 35, false);
             }
-            ak.h(aVar.cQO, d.C0126d.cp_cont_b);
-            ak.i(view2, d.f.addresslist_item_bg);
+            al.h(aVar.cZT, d.C0141d.cp_cont_b);
+            al.i(view, d.f.addresslist_item_bg);
         }
-        return view2;
+        return view;
     }
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView cQO;
-        ImageView cQP;
-        TbImageView hcM;
+        TextView cZT;
+        ImageView cZU;
+        TbImageView hoH;
 
         private a() {
         }

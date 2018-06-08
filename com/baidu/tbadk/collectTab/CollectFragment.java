@@ -9,14 +9,14 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes3.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean TQ = false;
+    protected boolean abX = false;
     private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.aZ(CollectFragment.this.getType());
-                if (!CollectFragment.this.TQ) {
+                CollectFragment.this.bb(CollectFragment.this.getType());
+                if (!CollectFragment.this.abX) {
                     CollectFragment.this.b(false, CollectFragment.this.getType());
                 }
             }
@@ -25,10 +25,10 @@ public abstract class CollectFragment extends BaseFragment {
 
     public abstract int getType();
 
-    public abstract boolean py();
+    public abstract boolean sT();
 
-    public boolean px() {
-        return this.TQ;
+    public boolean sS() {
+        return this.abX;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -44,10 +44,10 @@ public abstract class CollectFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aZ(int i) {
+    public void bb(int i) {
         Bundle bundle = new Bundle();
-        this.TQ = !py() && j.gP();
-        bundle.putBoolean("is_enable_edit", this.TQ);
+        this.abX = !sT() && j.jD();
+        bundle.putBoolean("is_enable_edit", this.abX);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
     }

@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d so = null;
+    private static d yA = null;
     private HashMap<String, c> mSwitchs;
 
     private d() {
@@ -15,13 +15,13 @@ public class d {
         this.mSwitchs = new HashMap<>();
     }
 
-    public static synchronized d eE() {
+    public static synchronized d hv() {
         d dVar;
         synchronized (d.class) {
-            if (so == null) {
-                so = new d();
+            if (yA == null) {
+                yA = new d();
             }
-            dVar = so;
+            dVar = yA;
         }
         return dVar;
     }
@@ -34,19 +34,19 @@ public class d {
 
     public void crash(String str) {
         Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().aj(str)) {
+        while (it.hasNext() && !it.next().av(str)) {
         }
     }
 
     public boolean d(String str, int i) {
         c cVar;
         if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.R(i);
+            return cVar.S(i);
         }
         return false;
     }
 
-    public int ak(String str) {
+    public int aw(String str) {
         c cVar = this.mSwitchs.get(str);
         if (cVar != null) {
             return cVar.getType();
@@ -59,9 +59,9 @@ public class d {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
-                    cVar.U(0);
-                    edit.putInt(cVar.getName() + c.si, 0);
-                    edit.putInt(cVar.getName() + c.sj, cVar.ew());
+                    cVar.V(0);
+                    edit.putInt(cVar.getName() + c.yv, 0);
+                    edit.putInt(cVar.getName() + c.yw, cVar.hn());
                 }
             }
             edit.commit();

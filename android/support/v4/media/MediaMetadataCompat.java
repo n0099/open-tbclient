@@ -18,6 +18,7 @@ import java.util.Set;
 public final class MediaMetadataCompat implements Parcelable {
     public static final Parcelable.Creator<MediaMetadataCompat> CREATOR;
     static final ArrayMap<String, Integer> METADATA_KEYS_TYPE = new ArrayMap<>();
+    public static final String METADATA_KEY_ADVERTISEMENT = "android.media.metadata.ADVERTISEMENT";
     public static final String METADATA_KEY_ALBUM = "android.media.metadata.ALBUM";
     public static final String METADATA_KEY_ALBUM_ART = "android.media.metadata.ALBUM_ART";
     public static final String METADATA_KEY_ALBUM_ARTIST = "android.media.metadata.ALBUM_ARTIST";
@@ -36,6 +37,7 @@ public final class MediaMetadataCompat implements Parcelable {
     public static final String METADATA_KEY_DISPLAY_ICON_URI = "android.media.metadata.DISPLAY_ICON_URI";
     public static final String METADATA_KEY_DISPLAY_SUBTITLE = "android.media.metadata.DISPLAY_SUBTITLE";
     public static final String METADATA_KEY_DISPLAY_TITLE = "android.media.metadata.DISPLAY_TITLE";
+    public static final String METADATA_KEY_DOWNLOAD_STATUS = "android.media.metadata.DOWNLOAD_STATUS";
     public static final String METADATA_KEY_DURATION = "android.media.metadata.DURATION";
     public static final String METADATA_KEY_GENRE = "android.media.metadata.GENRE";
     public static final String METADATA_KEY_MEDIA_ID = "android.media.metadata.MEDIA_ID";
@@ -60,25 +62,25 @@ public final class MediaMetadataCompat implements Parcelable {
     private Object mMetadataObj;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface BitmapKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface LongKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface RatingKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface TextKey {
     }
@@ -113,6 +115,8 @@ public final class MediaMetadataCompat implements Parcelable {
         METADATA_KEYS_TYPE.put(METADATA_KEY_MEDIA_ID, 1);
         METADATA_KEYS_TYPE.put(METADATA_KEY_BT_FOLDER_TYPE, 0);
         METADATA_KEYS_TYPE.put(METADATA_KEY_MEDIA_URI, 1);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_ADVERTISEMENT, 0);
+        METADATA_KEYS_TYPE.put(METADATA_KEY_DOWNLOAD_STATUS, 0);
         PREFERRED_DESCRIPTION_ORDER = new String[]{METADATA_KEY_TITLE, METADATA_KEY_ARTIST, METADATA_KEY_ALBUM, METADATA_KEY_ALBUM_ARTIST, METADATA_KEY_WRITER, METADATA_KEY_AUTHOR, METADATA_KEY_COMPOSER};
         PREFERRED_BITMAP_ORDER = new String[]{METADATA_KEY_DISPLAY_ICON, METADATA_KEY_ART, METADATA_KEY_ALBUM_ART};
         PREFERRED_URI_ORDER = new String[]{METADATA_KEY_DISPLAY_ICON_URI, METADATA_KEY_ART_URI, METADATA_KEY_ALBUM_ART_URI};
@@ -252,9 +256,14 @@ public final class MediaMetadataCompat implements Parcelable {
         builder.setIconBitmap(bitmap);
         builder.setIconUri(uri);
         builder.setMediaUri(parse);
+        Bundle bundle = new Bundle();
         if (this.mBundle.containsKey(METADATA_KEY_BT_FOLDER_TYPE)) {
-            Bundle bundle = new Bundle();
             bundle.putLong(MediaDescriptionCompat.EXTRA_BT_FOLDER_TYPE, getLong(METADATA_KEY_BT_FOLDER_TYPE));
+        }
+        if (this.mBundle.containsKey(METADATA_KEY_DOWNLOAD_STATUS)) {
+            bundle.putLong(MediaDescriptionCompat.EXTRA_DOWNLOAD_STATUS, getLong(METADATA_KEY_DOWNLOAD_STATUS));
+        }
+        if (!bundle.isEmpty()) {
             builder.setExtras(bundle);
         }
         this.mDescription = builder.build();
@@ -297,14 +306,13 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     public Object getMediaMetadata() {
-        if (this.mMetadataObj != null || Build.VERSION.SDK_INT < 21) {
-            return this.mMetadataObj;
+        if (this.mMetadataObj == null && Build.VERSION.SDK_INT >= 21) {
+            Parcel obtain = Parcel.obtain();
+            writeToParcel(obtain, 0);
+            obtain.setDataPosition(0);
+            this.mMetadataObj = MediaMetadataCompatApi21.createFromParcel(obtain);
+            obtain.recycle();
         }
-        Parcel obtain = Parcel.obtain();
-        writeToParcel(obtain, 0);
-        obtain.setDataPosition(0);
-        this.mMetadataObj = MediaMetadataCompatApi21.createFromParcel(obtain);
-        obtain.recycle();
         return this.mMetadataObj;
     }
 
@@ -320,17 +328,15 @@ public final class MediaMetadataCompat implements Parcelable {
             this.mBundle = new Bundle(mediaMetadataCompat.mBundle);
         }
 
-        @RestrictTo({RestrictTo.Scope.GROUP_ID})
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public Builder(MediaMetadataCompat mediaMetadataCompat, int i) {
             this(mediaMetadataCompat);
             for (String str : this.mBundle.keySet()) {
                 Object obj = this.mBundle.get(str);
-                if (obj != null && (obj instanceof Bitmap)) {
+                if (obj instanceof Bitmap) {
                     Bitmap bitmap = (Bitmap) obj;
                     if (bitmap.getHeight() > i || bitmap.getWidth() > i) {
                         putBitmap(str, scaleBitmap(bitmap, i));
-                    } else if (Build.VERSION.SDK_INT >= 14 && (str.equals(MediaMetadataCompat.METADATA_KEY_ART) || str.equals(MediaMetadataCompat.METADATA_KEY_ALBUM_ART))) {
-                        putBitmap(str, bitmap.copy(bitmap.getConfig(), false));
                     }
                 }
             }

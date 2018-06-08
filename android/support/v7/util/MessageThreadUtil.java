@@ -1,8 +1,8 @@
 package android.support.v7.util;
 
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.content.ParallelExecutorCompat;
 import android.support.v7.util.ThreadUtil;
 import android.support.v7.util.TileList;
 import android.util.Log;
@@ -83,7 +83,7 @@ class MessageThreadUtil<T> implements ThreadUtil<T> {
         static final int UPDATE_RANGE = 2;
         final /* synthetic */ ThreadUtil.BackgroundCallback val$callback;
         final MessageQueue mQueue = new MessageQueue();
-        private final Executor mExecutor = ParallelExecutorCompat.getParallelExecutor();
+        private final Executor mExecutor = AsyncTask.THREAD_POOL_EXECUTOR;
         AtomicBoolean mBackgroundRunning = new AtomicBoolean(false);
         private Runnable mBackgroundRunnable = new Runnable() { // from class: android.support.v7.util.MessageThreadUtil.2.1
             @Override // java.lang.Runnable

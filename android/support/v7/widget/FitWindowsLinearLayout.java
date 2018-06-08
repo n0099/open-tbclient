@@ -6,7 +6,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v7.widget.FitWindowsViewGroup;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class FitWindowsLinearLayout extends LinearLayout implements FitWindowsViewGroup {
     private FitWindowsViewGroup.OnFitSystemWindowsListener mListener;

@@ -37,7 +37,7 @@ public class CircleImageView extends ImageView {
             ViewCompat.setElevation(this, f * 4.0f);
         } else {
             shapeDrawable = new ShapeDrawable(new OvalShadow(this.mShadowRadius));
-            ViewCompat.setLayerType(this, 1, shapeDrawable.getPaint());
+            setLayerType(1, shapeDrawable.getPaint());
             shapeDrawable.getPaint().setShadowLayer(this.mShadowRadius, i3, i2, KEY_SHADOW_COLOR);
             int i4 = this.mShadowRadius;
             setPadding(i4, i4, i4, i4);

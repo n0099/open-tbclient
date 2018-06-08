@@ -7,36 +7,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    private ArrayList<String> adv;
-    private final String cYh;
-    private boolean eCN = true;
+    private ArrayList<String> alt;
+    private final String dhv;
+    private boolean eOh = true;
     private final Context mContext;
 
     public d(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.adv = arrayList;
-        this.cYh = this.mContext.getText(d.k.forum).toString();
+        this.alt = arrayList;
+        this.dhv = this.mContext.getText(d.k.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
-        this.adv = arrayList;
+        this.alt = arrayList;
     }
 
-    public void ie(boolean z) {
-        this.eCN = z;
+    public void ik(boolean z) {
+        this.eOh = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.adv == null) {
+        if (this.alt == null) {
             return 0;
         }
-        return this.adv.size();
+        return this.alt.size();
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class d extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.adv.get(i);
+        return this.alt.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -55,36 +55,36 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.Adapter
     @SuppressLint({"ResourceAsColor"})
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (view2 == null) {
-            view2 = LayoutInflater.from(this.mContext).inflate(d.i.home_dialog_search_item, (ViewGroup) null);
+        if (view == null) {
+            view = LayoutInflater.from(this.mContext).inflate(d.i.home_dialog_search_item, (ViewGroup) null);
             aVar = new a();
-            aVar.apV = (TextView) view2.findViewById(d.g.home_lv_search_forum);
-            aVar.baf = view2.findViewById(d.g.home_dialog_lv_search_forum_divider);
-            view2.setTag(aVar);
+            aVar.ayc = (TextView) view.findViewById(d.g.home_lv_search_forum);
+            aVar.bir = view.findViewById(d.g.home_dialog_lv_search_forum_divider);
+            view.setTag(aVar);
         } else {
-            aVar = (a) view2.getTag();
+            aVar = (a) view.getTag();
         }
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.eCN) {
-                aVar.apV.setText(str.concat(this.cYh));
+            if (this.eOh) {
+                aVar.ayc.setText(str.concat(this.dhv));
             } else {
-                aVar.apV.setText(str);
+                aVar.ayc.setText(str);
             }
-            ak.c(aVar.apV, d.C0126d.cp_cont_b, 1);
-            ak.j(aVar.baf, d.C0126d.cp_bg_line_b);
-            ak.i(view2, d.f.addresslist_item_bg);
+            al.c(aVar.ayc, d.C0141d.cp_cont_b, 1);
+            al.j(aVar.bir, d.C0141d.cp_bg_line_b);
+            al.i(view, d.f.addresslist_item_bg);
         }
-        return view2;
+        return view;
     }
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView apV;
-        View baf;
+        TextView ayc;
+        View bir;
 
         private a() {
         }

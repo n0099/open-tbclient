@@ -2,7 +2,7 @@ package com.google.zxing.aztec.decoder;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.appsearchlib.Info;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.google.zxing.FormatException;
 import com.google.zxing.aztec.AztecDetectorResult;
 import com.google.zxing.common.BitMatrix;
@@ -12,15 +12,16 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.sina.weibo.sdk.component.WidgetRequestParam;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
 /* loaded from: classes3.dex */
 public final class Decoder {
     private AztecDetectorResult ddata;
     private static final String[] UPPER_TABLE = {"CTRL_PS", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-    private static final String[] LOWER_TABLE = {"CTRL_PS", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", NotifyType.LIGHTS, "m", "n", "o", "p", WidgetRequestParam.REQ_PARAM_COMMENT_TOPIC, "r", NotifyType.SOUND, Info.kBaiduTimeKey, "u", NotifyType.VIBRATE, "w", Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X, Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y, Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Z, "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+    private static final String[] LOWER_TABLE = {"CTRL_PS", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", NotifyType.LIGHTS, "m", "n", "o", "p", WidgetRequestParam.REQ_PARAM_COMMENT_TOPIC, "r", NotifyType.SOUND, Info.kBaiduTimeKey, "u", NotifyType.VIBRATE, "w", "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
     private static final String[] MIXED_TABLE = {"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", "\\", "^", "_", "`", "|", "~", "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
-    private static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER, Constants.DOT, "/", ":", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "<", "=", ">", "?", "[", "]", "{", "}", "CTRL_UL"};
-    private static final String[] DIGIT_TABLE = {"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", "6", "7", com.tencent.connect.common.Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.DOT, "CTRL_UL", "CTRL_US"};
+    private static final String[] PUNCT_TABLE = {"", "\r", SystemInfoUtil.LINE_END, ". ", ", ", ": ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", Constants.ACCEPT_TIME_SEPARATOR_SERVER, ".", "/", SystemInfoUtil.COLON, ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "<", "=", ">", "?", "[", "]", "{", "}", "CTRL_UL"};
+    private static final String[] DIGIT_TABLE = {"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", com.tencent.connect.common.Constants.VIA_SHARE_TYPE_INFO, "7", com.tencent.connect.common.Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", ",", ".", "CTRL_UL", "CTRL_US"};
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */

@@ -8,21 +8,21 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private ab<c> bwP;
+    private ab<c> bES;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bwP = new ab<c>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.bES = new ab<c>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
-            public void a(View view2, c cVar) {
-                TiebaStatic.log(new al("c11273"));
+            public void a(View view, c cVar) {
+                TiebaStatic.log(new am("c11273"));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 0));
             }
         };
@@ -32,10 +32,10 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aQ */
+    /* renamed from: aR */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.homepage.personalize.b.a aVar = new com.baidu.tieba.homepage.personalize.b.a(this.mPageContext);
-        aVar.b(this.bwP);
+        aVar.b(this.bES);
         return new a(aVar);
     }
 
@@ -43,19 +43,19 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c cVar, a aVar) {
-        v.afy().a(new al("c11272"));
-        aVar.dGF.a(cVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
+        v.ajh().a(new am("c11272"));
+        aVar.dRV.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes2.dex */
-    public class a extends q.a {
-        public com.baidu.tieba.homepage.personalize.b.a dGF;
+    public static class a extends q.a {
+        public com.baidu.tieba.homepage.personalize.b.a dRV;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.dGF = aVar;
+            this.dRV = aVar;
         }
     }
 }

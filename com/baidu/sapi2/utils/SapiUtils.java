@@ -33,6 +33,7 @@ import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
@@ -43,7 +44,6 @@ import com.baidu.sapi2.base.utils.NetworkUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.utils.enums.BiometricType;
 import com.baidu.sapi2.utils.enums.Domain;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -187,7 +187,7 @@ public class SapiUtils {
         Location lastKnownLocation;
         LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
         try {
-            return (checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) && locationManager.isProviderEnabled("gps") && (lastKnownLocation = locationManager.getLastKnownLocation("gps")) != null) ? lastKnownLocation.getLongitude() + Constants.ACCEPT_TIME_SEPARATOR_SP + lastKnownLocation.getLatitude() : "";
+            return (checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) && locationManager.isProviderEnabled("gps") && (lastKnownLocation = locationManager.getLastKnownLocation("gps")) != null) ? lastKnownLocation.getLongitude() + "," + lastKnownLocation.getLatitude() : "";
         } catch (Exception e2) {
             Log.e(e2);
         }
@@ -474,7 +474,7 @@ public class SapiUtils {
                 }
                 String bssid = connectionInfo.getBSSID();
                 if (bssid != null) {
-                    str2 = bssid.replace(":", "");
+                    str2 = bssid.replace(SystemInfoUtil.COLON, "");
                     i = abs;
                     str3 = ssid;
                 } else {
@@ -493,7 +493,7 @@ public class SapiUtils {
                     String str4 = scanResult.BSSID;
                     String str5 = scanResult.SSID;
                     int abs2 = StrictMath.abs(scanResult.level);
-                    String replace = str4 != null ? str4.replace(":", "") : "";
+                    String replace = str4 != null ? str4.replace(SystemInfoUtil.COLON, "") : "";
                     if (!replace.equals(str2) && abs2 != 0) {
                         if (i2 >= 10) {
                             break;

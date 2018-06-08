@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<d> baG = new ArrayList();
-    private long baH = 0;
+    private List<d> biR = new ArrayList();
+    private long biS = 0;
 
-    public List<d> LR() {
-        return this.baG;
+    public List<d> Pq() {
+        return this.biR;
     }
 
-    public long LS() {
-        return this.baH;
+    public long Pr() {
+        return this.biS;
     }
 
     public void a(d dVar) {
-        if (this.baG != null) {
-            this.baG.add(dVar);
+        if (this.biR != null) {
+            this.biR.add(dVar);
             if (dVar != null) {
-                this.baH += dVar.Ma();
+                this.biS += dVar.Pz();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.baG != null) {
-            this.baG.remove(dVar);
+        if (this.biR != null) {
+            this.biR.remove(dVar);
             if (dVar != null) {
-                this.baH -= dVar.Ma();
+                this.biS -= dVar.Pz();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.baG != null) {
-            d dVar = this.baG.get(i);
+        if (this.biR != null) {
+            d dVar = this.biR.get(i);
             if (dVar != null) {
-                this.baH -= dVar.Ma();
+                this.biS -= dVar.Pz();
             }
-            this.baG.remove(i);
+            this.biR.remove(i);
         }
     }
 
-    public int LT() {
-        if (this.baG != null) {
-            return this.baG.size();
+    public int Ps() {
+        if (this.biR != null) {
+            return this.biR.size();
         }
         return 0;
     }
 
-    public d gi(int i) {
-        if (this.baG != null) {
-            return this.baG.get(i);
+    public d gj(int i) {
+        if (this.biR != null) {
+            return this.biR.get(i);
         }
         return null;
     }

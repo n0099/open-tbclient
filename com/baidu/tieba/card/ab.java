@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public class ab<T extends com.baidu.tieba.card.data.b> {
-    public Object aXE;
+    public Object bfL;
 
-    public void a(View view2, T t) {
+    public void a(View view, T t) {
     }
 
-    public void a(View view2, T t, Object obj) {
+    public void a(View view, T t, Object obj) {
     }
 }

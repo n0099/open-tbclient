@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Checkable;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class CheckableImageButton extends AppCompatImageButton implements Checkable {
     private static final int[] DRAWABLE_STATE_CHECKED = {16842912};
@@ -29,14 +29,14 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
         super(context, attributeSet, i);
         ViewCompat.setAccessibilityDelegate(this, new AccessibilityDelegateCompat() { // from class: android.support.design.widget.CheckableImageButton.1
             @Override // android.support.v4.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
-                super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
+            public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+                super.onInitializeAccessibilityEvent(view, accessibilityEvent);
                 accessibilityEvent.setChecked(CheckableImageButton.this.isChecked());
             }
 
             @Override // android.support.v4.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-                super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
+            public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+                super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
                 accessibilityNodeInfoCompat.setCheckable(true);
                 accessibilityNodeInfoCompat.setChecked(CheckableImageButton.this.isChecked());
             }

@@ -33,8 +33,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.fsg.biometrics.base.d.h;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.connect.common.BaseApi;
@@ -202,13 +203,13 @@ public class AuthAgent extends BaseApi {
         a2.putString("scope", this.d);
         a2.putString("client_id", this.b.getAppId());
         if (isOEM) {
-            a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + com.baidu.ar.util.Constants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+            a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + HttpConstants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
             a2.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
         }
         String str = (System.currentTimeMillis() / 1000) + "";
         a2.putString("sign", com.tencent.open.utils.h.b(e.a(), str));
-        a2.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str);
+        a2.putString("time", str);
         a2.putString("display", "mobile");
         a2.putString(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN);
         a2.putString(WBConstants.AUTH_PARAMS_REDIRECT_URL, "auth://tauth.qq.com/");
@@ -261,7 +262,7 @@ public class AuthAgent extends BaseApi {
             a2.putString("scope", this.d);
             a2.putString("client_id", this.b.getAppId());
             if (isOEM) {
-                a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + com.baidu.ar.util.Constants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+                a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + HttpConstants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
             } else {
                 a2.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
             }
@@ -334,10 +335,10 @@ public class AuthAgent extends BaseApi {
             }
             JSONObject jSONObject = (JSONObject) obj;
             try {
-                int i = jSONObject.getInt(com.baidu.ar.util.Constants.HTTP_RET);
+                int i = jSONObject.getInt(ARResourceKey.HTTP_RET);
                 String string = i == 0 ? ImagesInvalidReceiver.SUCCESS : jSONObject.getString("msg");
                 if (this.a != null) {
-                    this.a.onComplete(new JSONObject().put(com.baidu.ar.util.Constants.HTTP_RET, i).put("msg", string));
+                    this.a.onComplete(new JSONObject().put(ARResourceKey.HTTP_RET, i).put("msg", string));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -421,7 +422,7 @@ public class AuthAgent extends BaseApi {
                 Drawable loadIcon = packageInfo != null ? packageInfo.applicationInfo.loadIcon(packageManager) : null;
                 View.OnClickListener onClickListener = new a(dialog) { // from class: com.tencent.connect.auth.AuthAgent.b.1
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
+                    public void onClick(View view) {
                         b.this.a();
                         if (this.d != null && this.d.isShowing()) {
                             this.d.dismiss();
@@ -433,7 +434,7 @@ public class AuthAgent extends BaseApi {
                 };
                 View.OnClickListener onClickListener2 = new a(dialog) { // from class: com.tencent.connect.auth.AuthAgent.b.2
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
+                    public void onClick(View view) {
                         if (this.d != null && this.d.isShowing()) {
                             this.d.dismiss();
                         }
@@ -527,15 +528,15 @@ public class AuthAgent extends BaseApi {
             int i2 = (int) (10.0f * f);
             layoutParams2.setMargins(0, 0, (int) (5.0f * f), 0);
             relativeLayout.addView(textView, layoutParams2);
-            View view2 = new View(context);
-            view2.setBackgroundColor(Color.rgb(214, 214, 214));
-            view2.setId(3);
+            View view = new View(context);
+            view.setBackgroundColor(Color.rgb(214, 214, 214));
+            view.setId(3);
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, 2);
             layoutParams3.addRule(3, 1);
             layoutParams3.addRule(5, 1);
             layoutParams3.addRule(7, 5);
             layoutParams3.setMargins(0, 0, 0, (int) (12.0f * f));
-            relativeLayout.addView(view2, layoutParams3);
+            relativeLayout.addView(view, layoutParams3);
             LinearLayout linearLayout = new LinearLayout(context);
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams4.addRule(5, 1);

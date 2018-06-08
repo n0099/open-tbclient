@@ -24,17 +24,17 @@ public class Static {
             public CustomResponsedMessage<?> run(CustomMessage<FrsFragment> customMessage) {
                 FrsARAnimView frsARAnimView = null;
                 boolean z = true;
-                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().apD() == null || customMessage.getData().apD().ddj == null) {
+                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().atI() == null || customMessage.getData().atI().dmy == null) {
                     return null;
                 }
-                ForumArIno forumArIno = customMessage.getData().apD().ddj;
+                ForumArIno forumArIno = customMessage.getData().atI().dmy;
                 if (forumArIno._switch.intValue() != 0) {
                     FrsAREntryView frsAREntryView = new FrsAREntryView(customMessage.getData().getPageContext().getPageActivity());
                     frsAREntryView.setForumArIno(forumArIno);
-                    if (customMessage.getData().apD().aVq() != null) {
-                        frsAREntryView.setForumName(customMessage.getData().apD().aVq().getName());
+                    if (customMessage.getData().atI().bam() != null) {
+                        frsAREntryView.setForumName(customMessage.getData().atI().bam().getName());
                     }
-                    frsAREntryView.arh();
+                    frsAREntryView.avm();
                     long j = b.getInstance().getLong("frs_ar_big_anim_show_time", 0L);
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(j);
@@ -51,9 +51,9 @@ public class Static {
                         frsARAnimView.startAnim();
                         b.getInstance().putLong("frs_ar_big_anim_show_time", calendar2.getTimeInMillis());
                     }
-                    ViewGroup ZJ = customMessage.getData().apm().ZJ();
-                    if (ZJ instanceof RelativeLayout) {
-                        RelativeLayout relativeLayout = (RelativeLayout) ZJ;
+                    ViewGroup adh = customMessage.getData().atr().adh();
+                    if (adh instanceof RelativeLayout) {
+                        RelativeLayout relativeLayout = (RelativeLayout) adh;
                         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                         layoutParams.addRule(11);
                         layoutParams.addRule(12);
@@ -63,8 +63,8 @@ public class Static {
                         if (z) {
                             relativeLayout.addView(frsARAnimView, new RelativeLayout.LayoutParams(-1, -1));
                         }
-                    } else if (ZJ instanceof FrameLayout) {
-                        FrameLayout frameLayout = (FrameLayout) ZJ;
+                    } else if (adh instanceof FrameLayout) {
+                        FrameLayout frameLayout = (FrameLayout) adh;
                         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
                         layoutParams2.gravity = 85;
                         layoutParams2.bottomMargin = 100;

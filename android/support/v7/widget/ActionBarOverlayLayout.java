@@ -1,5 +1,7 @@
 package android.support.v7.widget;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -12,10 +14,6 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.view.NestedScrollingParent;
 import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPropertyAnimatorCompat;
-import android.support.v4.view.ViewPropertyAnimatorListener;
-import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
-import android.support.v4.widget.ScrollerCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.widget.ActivityChooserView;
@@ -24,8 +22,10 @@ import android.util.SparseArray;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewPropertyAnimator;
 import android.view.Window;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+import android.widget.OverScroller;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ActionBarOverlayLayout extends ViewGroup implements NestedScrollingParent, DecorContentParent {
     static final int[] ATTRS = {R.attr.actionBarSize, 16842841};
@@ -40,21 +40,22 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
     private final Rect mBaseInnerInsets;
     private ContentFrameLayout mContent;
     private final Rect mContentInsets;
-    ViewPropertyAnimatorCompat mCurrentActionBarTopAnimator;
+    ViewPropertyAnimator mCurrentActionBarTopAnimator;
     private DecorToolbar mDecorToolbar;
-    private ScrollerCompat mFlingEstimator;
+    private OverScroller mFlingEstimator;
     private boolean mHasNonEmbeddedTabs;
     private boolean mHideOnContentScroll;
     private int mHideOnContentScrollReference;
     private boolean mIgnoreWindowContentOverlay;
     private final Rect mInnerInsets;
     private final Rect mLastBaseContentInsets;
+    private final Rect mLastBaseInnerInsets;
     private final Rect mLastInnerInsets;
     private int mLastSystemUiVisibility;
     private boolean mOverlayMode;
     private final NestedScrollingParentHelper mParentHelper;
     private final Runnable mRemoveActionBarHideOffset;
-    final ViewPropertyAnimatorListener mTopAnimatorListener;
+    final AnimatorListenerAdapter mTopAnimatorListener;
     private Drawable mWindowContentOverlay;
     private int mWindowVisibility;
 
@@ -84,18 +85,19 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
         this.mLastBaseContentInsets = new Rect();
         this.mContentInsets = new Rect();
         this.mBaseInnerInsets = new Rect();
+        this.mLastBaseInnerInsets = new Rect();
         this.mInnerInsets = new Rect();
         this.mLastInnerInsets = new Rect();
         this.ACTION_BAR_ANIMATE_DELAY = 600;
-        this.mTopAnimatorListener = new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.widget.ActionBarOverlayLayout.1
-            @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-            public void onAnimationEnd(View view2) {
+        this.mTopAnimatorListener = new AnimatorListenerAdapter() { // from class: android.support.v7.widget.ActionBarOverlayLayout.1
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
                 ActionBarOverlayLayout.this.mCurrentActionBarTopAnimator = null;
                 ActionBarOverlayLayout.this.mAnimatingForFling = false;
             }
 
-            @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-            public void onAnimationCancel(View view2) {
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationCancel(Animator animator) {
                 ActionBarOverlayLayout.this.mCurrentActionBarTopAnimator = null;
                 ActionBarOverlayLayout.this.mAnimatingForFling = false;
             }
@@ -104,14 +106,14 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
             @Override // java.lang.Runnable
             public void run() {
                 ActionBarOverlayLayout.this.haltActionBarHideOffsetAnimations();
-                ActionBarOverlayLayout.this.mCurrentActionBarTopAnimator = ViewCompat.animate(ActionBarOverlayLayout.this.mActionBarTop).translationY(0.0f).setListener(ActionBarOverlayLayout.this.mTopAnimatorListener);
+                ActionBarOverlayLayout.this.mCurrentActionBarTopAnimator = ActionBarOverlayLayout.this.mActionBarTop.animate().translationY(0.0f).setListener(ActionBarOverlayLayout.this.mTopAnimatorListener);
             }
         };
         this.mAddActionBarHideOffset = new Runnable() { // from class: android.support.v7.widget.ActionBarOverlayLayout.3
             @Override // java.lang.Runnable
             public void run() {
                 ActionBarOverlayLayout.this.haltActionBarHideOffsetAnimations();
-                ActionBarOverlayLayout.this.mCurrentActionBarTopAnimator = ViewCompat.animate(ActionBarOverlayLayout.this.mActionBarTop).translationY(-ActionBarOverlayLayout.this.mActionBarTop.getHeight()).setListener(ActionBarOverlayLayout.this.mTopAnimatorListener);
+                ActionBarOverlayLayout.this.mCurrentActionBarTopAnimator = ActionBarOverlayLayout.this.mActionBarTop.animate().translationY(-ActionBarOverlayLayout.this.mActionBarTop.getHeight()).setListener(ActionBarOverlayLayout.this.mTopAnimatorListener);
             }
         };
         init(context);
@@ -125,7 +127,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
         setWillNotDraw(this.mWindowContentOverlay == null);
         obtainStyledAttributes.recycle();
         this.mIgnoreWindowContentOverlay = context.getApplicationInfo().targetSdkVersion < 19;
-        this.mFlingEstimator = ScrollerCompat.create(context);
+        this.mFlingEstimator = new OverScroller(context);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -200,9 +202,9 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
         }
     }
 
-    private boolean applyInsets(View view2, Rect rect, boolean z, boolean z2, boolean z3, boolean z4) {
+    private boolean applyInsets(View view, Rect rect, boolean z, boolean z2, boolean z3, boolean z4) {
         boolean z5 = false;
-        LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
+        LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         if (z && layoutParams.leftMargin != rect.left) {
             layoutParams.leftMargin = rect.left;
             z5 = true;
@@ -230,6 +232,10 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
         boolean applyInsets = applyInsets(this.mActionBarTop, rect, true, true, false, true);
         this.mBaseInnerInsets.set(rect);
         ViewUtils.computeFitSystemWindows(this, this.mBaseInnerInsets, this.mBaseContentInsets);
+        if (!this.mLastBaseInnerInsets.equals(this.mBaseInnerInsets)) {
+            this.mLastBaseInnerInsets.set(this.mBaseInnerInsets);
+            applyInsets = true;
+        }
         if (!this.mLastBaseContentInsets.equals(this.mBaseContentInsets)) {
             this.mLastBaseContentInsets.set(this.mBaseContentInsets);
             applyInsets = true;
@@ -271,7 +277,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
         LayoutParams layoutParams = (LayoutParams) this.mActionBarTop.getLayoutParams();
         int max = Math.max(0, this.mActionBarTop.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin);
         int max2 = Math.max(0, layoutParams.bottomMargin + this.mActionBarTop.getMeasuredHeight() + layoutParams.topMargin);
-        int combineMeasuredStates = ViewUtils.combineMeasuredStates(0, ViewCompat.getMeasuredState(this.mActionBarTop));
+        int combineMeasuredStates = View.combineMeasuredStates(0, this.mActionBarTop.getMeasuredState());
         boolean z = (ViewCompat.getWindowSystemUiVisibility(this) & 256) != 0;
         if (z) {
             measuredHeight = this.mActionBarHeight;
@@ -301,8 +307,8 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
         LayoutParams layoutParams2 = (LayoutParams) this.mContent.getLayoutParams();
         int max3 = Math.max(max, this.mContent.getMeasuredWidth() + layoutParams2.leftMargin + layoutParams2.rightMargin);
         int max4 = Math.max(max2, layoutParams2.bottomMargin + this.mContent.getMeasuredHeight() + layoutParams2.topMargin);
-        int combineMeasuredStates2 = ViewUtils.combineMeasuredStates(combineMeasuredStates, ViewCompat.getMeasuredState(this.mContent));
-        setMeasuredDimension(ViewCompat.resolveSizeAndState(Math.max(max3 + getPaddingLeft() + getPaddingRight(), getSuggestedMinimumWidth()), i, combineMeasuredStates2), ViewCompat.resolveSizeAndState(Math.max(max4 + getPaddingTop() + getPaddingBottom(), getSuggestedMinimumHeight()), i2, combineMeasuredStates2 << 16));
+        int combineMeasuredStates2 = View.combineMeasuredStates(combineMeasuredStates, this.mContent.getMeasuredState());
+        setMeasuredDimension(View.resolveSizeAndState(Math.max(max3 + getPaddingLeft() + getPaddingRight(), getSuggestedMinimumWidth()), i, combineMeasuredStates2), View.resolveSizeAndState(Math.max(max4 + getPaddingTop() + getPaddingBottom(), getSuggestedMinimumHeight()), i2, combineMeasuredStates2 << 16));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -329,7 +335,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
     public void draw(Canvas canvas) {
         super.draw(canvas);
         if (this.mWindowContentOverlay != null && !this.mIgnoreWindowContentOverlay) {
-            int bottom = this.mActionBarTop.getVisibility() == 0 ? (int) (this.mActionBarTop.getBottom() + ViewCompat.getTranslationY(this.mActionBarTop) + 0.5f) : 0;
+            int bottom = this.mActionBarTop.getVisibility() == 0 ? (int) (this.mActionBarTop.getBottom() + this.mActionBarTop.getTranslationY() + 0.5f) : 0;
             this.mWindowContentOverlay.setBounds(0, bottom, getWidth(), this.mWindowContentOverlay.getIntrinsicHeight() + bottom);
             this.mWindowContentOverlay.draw(canvas);
         }
@@ -341,7 +347,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view2, View view3, int i) {
+    public boolean onStartNestedScroll(View view, View view2, int i) {
         if ((i & 2) == 0 || this.mActionBarTop.getVisibility() != 0) {
             return false;
         }
@@ -349,8 +355,8 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view2, View view3, int i) {
-        this.mParentHelper.onNestedScrollAccepted(view2, view3, i);
+    public void onNestedScrollAccepted(View view, View view2, int i) {
+        this.mParentHelper.onNestedScrollAccepted(view, view2, i);
         this.mHideOnContentScrollReference = getActionBarHideOffset();
         haltActionBarHideOffsetAnimations();
         if (this.mActionBarVisibilityCallback != null) {
@@ -359,13 +365,13 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onNestedScroll(View view2, int i, int i2, int i3, int i4) {
+    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
         this.mHideOnContentScrollReference += i2;
         setActionBarHideOffset(this.mHideOnContentScrollReference);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onStopNestedScroll(View view2) {
+    public void onStopNestedScroll(View view) {
         if (this.mHideOnContentScroll && !this.mAnimatingForFling) {
             if (this.mHideOnContentScrollReference <= this.mActionBarTop.getHeight()) {
                 postRemoveActionBarHideOffset();
@@ -379,7 +385,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public boolean onNestedFling(View view2, float f, float f2, boolean z) {
+    public boolean onNestedFling(View view, float f, float f2, boolean z) {
         if (!this.mHideOnContentScroll || !z) {
             return false;
         }
@@ -393,11 +399,11 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr) {
+    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view2, float f, float f2) {
+    public boolean onNestedPreFling(View view, float f, float f2) {
         return false;
     }
 
@@ -414,14 +420,14 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
         }
     }
 
-    private DecorToolbar getDecorToolbar(View view2) {
-        if (view2 instanceof DecorToolbar) {
-            return (DecorToolbar) view2;
+    private DecorToolbar getDecorToolbar(View view) {
+        if (view instanceof DecorToolbar) {
+            return (DecorToolbar) view;
         }
-        if (view2 instanceof Toolbar) {
-            return ((Toolbar) view2).getWrapper();
+        if (view instanceof Toolbar) {
+            return ((Toolbar) view).getWrapper();
         }
-        throw new IllegalStateException("Can't make a decor toolbar out of " + view2.getClass().getSimpleName());
+        throw new IllegalStateException("Can't make a decor toolbar out of " + view.getClass().getSimpleName());
     }
 
     public void setHideOnContentScrollEnabled(boolean z) {
@@ -440,14 +446,14 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
 
     public int getActionBarHideOffset() {
         if (this.mActionBarTop != null) {
-            return -((int) ViewCompat.getTranslationY(this.mActionBarTop));
+            return -((int) this.mActionBarTop.getTranslationY());
         }
         return 0;
     }
 
     public void setActionBarHideOffset(int i) {
         haltActionBarHideOffsetAnimations();
-        ViewCompat.setTranslationY(this.mActionBarTop, -Math.max(0, Math.min(i, this.mActionBarTop.getHeight())));
+        this.mActionBarTop.setTranslationY(-Math.max(0, Math.min(i, this.mActionBarTop.getHeight())));
     }
 
     void haltActionBarHideOffsetAnimations() {

@@ -1,5 +1,6 @@
 package android.support.v4.view;
 
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
@@ -7,11 +8,15 @@ public class NestedScrollingParentHelper {
     private int mNestedScrollAxes;
     private final ViewGroup mViewGroup;
 
-    public NestedScrollingParentHelper(ViewGroup viewGroup) {
+    public NestedScrollingParentHelper(@NonNull ViewGroup viewGroup) {
         this.mViewGroup = viewGroup;
     }
 
-    public void onNestedScrollAccepted(View view2, View view3, int i) {
+    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i) {
+        onNestedScrollAccepted(view, view2, i, 0);
+    }
+
+    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i, int i2) {
         this.mNestedScrollAxes = i;
     }
 
@@ -19,7 +24,11 @@ public class NestedScrollingParentHelper {
         return this.mNestedScrollAxes;
     }
 
-    public void onStopNestedScroll(View view2) {
+    public void onStopNestedScroll(@NonNull View view) {
+        onStopNestedScroll(view, 0);
+    }
+
+    public void onStopNestedScroll(@NonNull View view, int i) {
         this.mNestedScrollAxes = 0;
     }
 }

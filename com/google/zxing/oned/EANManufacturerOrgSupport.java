@@ -1,6 +1,7 @@
 package com.google.zxing.oned;
 
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.external.ARCallback;
+import com.baidu.ar.util.MsgConstants;
 import com.baidu.sapi2.biometrics.liveness.camera.a;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
@@ -97,7 +98,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{629}, "AE");
             add(new int[]{640, 649}, "FI");
             add(new int[]{690, 695}, "CN");
-            add(new int[]{700, 709}, "NO");
+            add(new int[]{MsgConstants.TRACK_CLOSE_CLOUD_RECOGNITION, 709}, "NO");
             add(new int[]{729}, "IL");
             add(new int[]{730, 739}, "SE");
             add(new int[]{740}, "GT");
@@ -115,7 +116,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{773}, "UY");
             add(new int[]{775}, "PE");
             add(new int[]{777}, "BO");
-            add(new int[]{779}, Constants.AR_APP_NAME);
+            add(new int[]{779}, ARCallback.AR_APP_NAME);
             add(new int[]{780}, "CL");
             add(new int[]{784}, "PY");
             add(new int[]{785}, "PE");

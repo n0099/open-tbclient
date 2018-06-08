@@ -5,31 +5,31 @@ import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b<T> {
-    private int uj;
-    private int uk;
-    private LinkedList<T> ul;
-    private c<T> um;
+    private int Ao;
+    private int Ap;
+    private LinkedList<T> Aq;
+    private c<T> Ar;
 
     public b(c<T> cVar, int i, int i2) {
-        this.uj = 10;
-        this.uk = 0;
-        this.ul = null;
-        this.um = null;
+        this.Ao = 10;
+        this.Ap = 0;
+        this.Aq = null;
+        this.Ar = null;
         if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
-        this.um = cVar;
-        this.uj = i;
-        this.uk = i2;
-        this.ul = new LinkedList<>();
-        ae(this.uk);
+        this.Ar = cVar;
+        this.Ao = i;
+        this.Ap = i2;
+        this.Aq = new LinkedList<>();
+        af(this.Ap);
     }
 
-    private void ad(int i) {
+    private void ae(int i) {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    this.um.n(this.ul.poll());
+                    this.Ar.q(this.Aq.poll());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -37,54 +37,54 @@ public class b<T> {
         }
     }
 
-    private void ae(int i) {
+    private void af(int i) {
         T t;
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.um.o(this.um.fo());
+                    t = this.Ar.r(this.Ar.mo9if());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
-                    this.ul.offer(t);
+                    this.Aq.offer(t);
                 }
             }
-        }
-    }
-
-    public void af(int i) {
-        synchronized (this) {
-            int i2 = i < this.uk ? this.uk : i;
-            if (i2 <= 0) {
-                i2 = 1;
-            }
-            this.uj = i2;
-            ad(this.ul.size() - this.uj);
         }
     }
 
     public void ag(int i) {
         synchronized (this) {
-            if (i > this.uj) {
-                i = this.uj;
+            int i2 = i < this.Ap ? this.Ap : i;
+            if (i2 <= 0) {
+                i2 = 1;
             }
-            this.uk = i;
-            ae(this.uk - this.ul.size());
+            this.Ao = i2;
+            ae(this.Aq.size() - this.Ao);
         }
     }
 
-    public T fn() {
+    public void ah(int i) {
+        synchronized (this) {
+            if (i > this.Ao) {
+                i = this.Ao;
+            }
+            this.Ap = i;
+            af(this.Ap - this.Aq.size());
+        }
+    }
+
+    public T ie() {
         T t = null;
         synchronized (this) {
             try {
-                if (this.ul.size() > 0) {
-                    t = this.um.o(this.ul.poll());
+                if (this.Aq.size() > 0) {
+                    t = this.Ar.r(this.Aq.poll());
                 } else {
-                    t = this.um.o(this.um.fo());
+                    t = this.Ar.r(this.Ar.mo9if());
                 }
-                ae(this.uk - this.ul.size());
+                af(this.Ap - this.Aq.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -92,28 +92,28 @@ public class b<T> {
         return t;
     }
 
-    public void m(T t) {
+    public void p(T t) {
         T t2;
         synchronized (this) {
-            if (this.ul.size() < this.uj) {
+            if (this.Aq.size() < this.Ao) {
                 try {
-                    t2 = this.um.p(t);
+                    t2 = this.Ar.s(t);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {
-                    this.ul.offer(t2);
+                    this.Aq.offer(t2);
                 }
             } else {
-                this.um.n(t);
+                this.Ar.q(t);
             }
         }
     }
 
     public void clear() {
         synchronized (this) {
-            this.ul.clear();
+            this.Aq.clear();
         }
     }
 }

@@ -3,128 +3,129 @@ package com.baidu.tieba.tbadkCore.d;
 import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ao;
 import com.sina.weibo.sdk.constant.WBPageConstants;
 /* loaded from: classes.dex */
 public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String aNv;
-        public String aNw;
-        public int csJ;
+        public String aVt;
+        public int cBm;
+        public String mPid;
     }
 
-    public static C0217a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0217a c0217a = new C0217a(str, str2, str3, str4, str5);
-        c0217a.e(str6, str7, str8, str9, str10);
-        return c0217a;
+    public static C0234a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0234a c0234a = new C0234a(str, str2, str3, str4, str5);
+        c0234a.e(str6, str7, str8, str9, str10);
+        return c0234a;
     }
 
-    public static C0217a d(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0217a c0217a = new C0217a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0217a.e(null, null, str3, str4, str5);
-        if (!an.isEmpty(str6)) {
-            c0217a.cd("obj_ref", str6);
+    public static C0234a d(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0234a c0234a = new C0234a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0234a.e(null, null, str3, str4, str5);
+        if (!ao.isEmpty(str6)) {
+            c0234a.cl("obj_ref", str6);
         }
-        return c0217a;
+        return c0234a;
     }
 
     @Deprecated
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0217a c0217a = new C0217a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0217a.e(str2, str7, str3, str4, str5);
-        c0217a.cd("obj_url", str6);
-        c0217a.save();
+        C0234a c0234a = new C0234a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0234a.e(str2, str7, str3, str4, str5);
+        c0234a.cl("obj_url", str6);
+        c0234a.save();
     }
 
     @Deprecated
-    public static void cc(String str, String str2) {
-        if (!an.isEmpty(str)) {
-            al alVar = new al(str);
+    public static void ck(String str, String str2) {
+        if (!ao.isEmpty(str)) {
+            am amVar = new am(str);
             if (str2 != null) {
-                alVar = alVar.ac("obj_type", str2);
+                amVar = amVar.ah("obj_type", str2);
             }
-            TiebaStatic.log(alVar);
+            TiebaStatic.log(amVar);
         }
     }
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0217a {
-        private final String Vp;
-        private final boolean Ys;
-        private final al euY;
-        private final String gyA;
-        private final String gyB;
-        private final String gyC;
+    public static class C0234a {
+        private final String adp;
+        private final boolean agu;
+        private final am eGp;
+        private final String gKc;
+        private final String gKd;
+        private final String gKe;
         private final String key;
 
-        private C0217a(String str, String str2, String str3, String str4, String str5) {
+        private C0234a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.gyA = str2;
-            this.Vp = str3;
-            this.gyB = str4;
-            this.gyC = str5;
-            this.Ys = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.euY = bsn();
+            this.gKc = str2;
+            this.adp = str3;
+            this.gKd = str4;
+            this.gKe = str5;
+            this.agu = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.eGp = bxs();
         }
 
-        private al bsn() {
-            al alVar = new al(this.key);
-            if (!StringUtils.isNull(this.gyA)) {
-                alVar = alVar.ac("line", this.gyA);
+        private am bxs() {
+            am amVar = new am(this.key);
+            if (!StringUtils.isNull(this.gKc)) {
+                amVar = amVar.ah("line", this.gKc);
             }
-            if (!StringUtils.isNull(this.Vp)) {
-                alVar = alVar.ac(WBPageConstants.ParamKey.PAGE, this.Vp);
+            if (!StringUtils.isNull(this.adp)) {
+                amVar = amVar.ah(WBPageConstants.ParamKey.PAGE, this.adp);
             }
-            if (!StringUtils.isNull(this.gyB)) {
-                alVar = alVar.ac("locate", this.gyB);
+            if (!StringUtils.isNull(this.gKd)) {
+                amVar = amVar.ah("locate", this.gKd);
             }
-            if (!StringUtils.isNull(this.gyC)) {
-                return alVar.ac("task", this.gyC);
+            if (!StringUtils.isNull(this.gKe)) {
+                return amVar.ah("task", this.gKe);
             }
-            return alVar;
+            return amVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public al e(String str, String str2, String str3, String str4, String str5) {
+        public am e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.euY.ac(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.eGp.ah(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.euY.ac(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.eGp.ah(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.euY.ac(ImageViewerConfig.FORUM_ID, str3);
+                this.eGp.ah(ImageViewerConfig.FORUM_ID, str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.euY.ac(ImageViewerConfig.FORUM_NAME, str4);
+                this.eGp.ah(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.euY.ac("tid", str5);
+                this.eGp.ah("tid", str5);
             }
-            this.euY.r("obj_cpid", 0).r("obj_good_id", 0).ac("obj_throw_type", "BY_POST").ac("client_type", "MOBILE_APP").ac("user_timestamp", String.valueOf(System.currentTimeMillis())).ac("os", Constants.OS_TYPE_VALUE).ac("os_version", Build.VERSION.RELEASE).ac("log_ver", "1.1");
-            return this.euY;
+            this.eGp.r("obj_cpid", 0).r("obj_good_id", 0).ah("obj_throw_type", "BY_POST").ah("client_type", "MOBILE_APP").ah("user_timestamp", String.valueOf(System.currentTimeMillis())).ah("os", HttpConstants.OS_TYPE_VALUE).ah(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ah("log_ver", "1.1");
+            return this.eGp;
         }
 
-        public C0217a cd(String str, String str2) {
+        public C0234a cl(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.euY.ac(str, str2);
+                this.eGp.ah(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.euY);
-            if (!this.Ys) {
+            TiebaStatic.log(this.eGp);
+            if (!this.agu) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -132,8 +133,8 @@ public class a {
             }
         }
 
-        public void ee(String str) {
-            this.euY.ee(str);
+        public void delete(String str) {
+            this.eGp.delete(str);
         }
     }
 }

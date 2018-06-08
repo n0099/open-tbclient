@@ -2,587 +2,92 @@ package android.support.v4.view.accessibility;
 
 import android.os.Build;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.view.View;
-import java.util.Collections;
+import android.view.accessibility.AccessibilityRecord;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AccessibilityRecordCompat {
-    private static final AccessibilityRecordImpl IMPL;
-    private final Object mRecord;
+    private static final AccessibilityRecordCompatBaseImpl IMPL;
+    private final AccessibilityRecord mRecord;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public interface AccessibilityRecordImpl {
-        int getAddedCount(Object obj);
-
-        CharSequence getBeforeText(Object obj);
-
-        CharSequence getClassName(Object obj);
-
-        CharSequence getContentDescription(Object obj);
-
-        int getCurrentItemIndex(Object obj);
-
-        int getFromIndex(Object obj);
-
-        int getItemCount(Object obj);
-
-        int getMaxScrollX(Object obj);
-
-        int getMaxScrollY(Object obj);
-
-        Parcelable getParcelableData(Object obj);
-
-        int getRemovedCount(Object obj);
-
-        int getScrollX(Object obj);
-
-        int getScrollY(Object obj);
-
-        AccessibilityNodeInfoCompat getSource(Object obj);
-
-        List<CharSequence> getText(Object obj);
-
-        int getToIndex(Object obj);
-
-        int getWindowId(Object obj);
-
-        boolean isChecked(Object obj);
-
-        boolean isEnabled(Object obj);
-
-        boolean isFullScreen(Object obj);
-
-        boolean isPassword(Object obj);
-
-        boolean isScrollable(Object obj);
-
-        Object obtain();
-
-        Object obtain(Object obj);
-
-        void recycle(Object obj);
-
-        void setAddedCount(Object obj, int i);
-
-        void setBeforeText(Object obj, CharSequence charSequence);
-
-        void setChecked(Object obj, boolean z);
-
-        void setClassName(Object obj, CharSequence charSequence);
-
-        void setContentDescription(Object obj, CharSequence charSequence);
-
-        void setCurrentItemIndex(Object obj, int i);
-
-        void setEnabled(Object obj, boolean z);
-
-        void setFromIndex(Object obj, int i);
-
-        void setFullScreen(Object obj, boolean z);
-
-        void setItemCount(Object obj, int i);
-
-        void setMaxScrollX(Object obj, int i);
-
-        void setMaxScrollY(Object obj, int i);
-
-        void setParcelableData(Object obj, Parcelable parcelable);
-
-        void setPassword(Object obj, boolean z);
-
-        void setRemovedCount(Object obj, int i);
-
-        void setScrollX(Object obj, int i);
-
-        void setScrollY(Object obj, int i);
-
-        void setScrollable(Object obj, boolean z);
-
-        void setSource(Object obj, View view2);
-
-        void setSource(Object obj, View view2, int i);
-
-        void setToIndex(Object obj, int i);
-    }
-
-    /* loaded from: classes2.dex */
-    static class AccessibilityRecordStubImpl implements AccessibilityRecordImpl {
-        AccessibilityRecordStubImpl() {
+    public static class AccessibilityRecordCompatBaseImpl {
+        AccessibilityRecordCompatBaseImpl() {
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public Object obtain() {
-            return null;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public Object obtain(Object obj) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getAddedCount(Object obj) {
+        public int getMaxScrollX(AccessibilityRecord accessibilityRecord) {
             return 0;
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public CharSequence getBeforeText(Object obj) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public CharSequence getClassName(Object obj) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public CharSequence getContentDescription(Object obj) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getCurrentItemIndex(Object obj) {
+        public int getMaxScrollY(AccessibilityRecord accessibilityRecord) {
             return 0;
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getFromIndex(Object obj) {
-            return 0;
+        public void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i) {
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getItemCount(Object obj) {
-            return 0;
+        public void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i) {
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getMaxScrollX(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getMaxScrollY(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public Parcelable getParcelableData(Object obj) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getRemovedCount(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getScrollX(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getScrollY(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public AccessibilityNodeInfoCompat getSource(Object obj) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public List<CharSequence> getText(Object obj) {
-            return Collections.emptyList();
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getToIndex(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getWindowId(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isChecked(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isEnabled(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isFullScreen(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isPassword(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isScrollable(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void recycle(Object obj) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setAddedCount(Object obj, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setBeforeText(Object obj, CharSequence charSequence) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setChecked(Object obj, boolean z) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setClassName(Object obj, CharSequence charSequence) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setContentDescription(Object obj, CharSequence charSequence) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setCurrentItemIndex(Object obj, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setEnabled(Object obj, boolean z) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setFromIndex(Object obj, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setFullScreen(Object obj, boolean z) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setItemCount(Object obj, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setMaxScrollX(Object obj, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setMaxScrollY(Object obj, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setParcelableData(Object obj, Parcelable parcelable) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setPassword(Object obj, boolean z) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setRemovedCount(Object obj, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setScrollX(Object obj, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setScrollY(Object obj, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setScrollable(Object obj, boolean z) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setSource(Object obj, View view2) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setSource(Object obj, View view2, int i) {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setToIndex(Object obj, int i) {
+        public void setSource(AccessibilityRecord accessibilityRecord, View view, int i) {
         }
     }
 
+    @RequiresApi(15)
     /* loaded from: classes2.dex */
-    static class AccessibilityRecordIcsImpl extends AccessibilityRecordStubImpl {
-        AccessibilityRecordIcsImpl() {
+    static class AccessibilityRecordCompatApi15Impl extends AccessibilityRecordCompatBaseImpl {
+        AccessibilityRecordCompatApi15Impl() {
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public Object obtain() {
-            return AccessibilityRecordCompatIcs.obtain();
+        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
+        public int getMaxScrollX(AccessibilityRecord accessibilityRecord) {
+            return accessibilityRecord.getMaxScrollX();
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public Object obtain(Object obj) {
-            return AccessibilityRecordCompatIcs.obtain(obj);
+        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
+        public int getMaxScrollY(AccessibilityRecord accessibilityRecord) {
+            return accessibilityRecord.getMaxScrollY();
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getAddedCount(Object obj) {
-            return AccessibilityRecordCompatIcs.getAddedCount(obj);
+        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
+        public void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i) {
+            accessibilityRecord.setMaxScrollX(i);
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public CharSequence getBeforeText(Object obj) {
-            return AccessibilityRecordCompatIcs.getBeforeText(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public CharSequence getClassName(Object obj) {
-            return AccessibilityRecordCompatIcs.getClassName(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public CharSequence getContentDescription(Object obj) {
-            return AccessibilityRecordCompatIcs.getContentDescription(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getCurrentItemIndex(Object obj) {
-            return AccessibilityRecordCompatIcs.getCurrentItemIndex(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getFromIndex(Object obj) {
-            return AccessibilityRecordCompatIcs.getFromIndex(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getItemCount(Object obj) {
-            return AccessibilityRecordCompatIcs.getItemCount(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public Parcelable getParcelableData(Object obj) {
-            return AccessibilityRecordCompatIcs.getParcelableData(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getRemovedCount(Object obj) {
-            return AccessibilityRecordCompatIcs.getRemovedCount(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getScrollX(Object obj) {
-            return AccessibilityRecordCompatIcs.getScrollX(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getScrollY(Object obj) {
-            return AccessibilityRecordCompatIcs.getScrollY(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public AccessibilityNodeInfoCompat getSource(Object obj) {
-            return AccessibilityNodeInfoCompat.wrapNonNullInstance(AccessibilityRecordCompatIcs.getSource(obj));
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public List<CharSequence> getText(Object obj) {
-            return AccessibilityRecordCompatIcs.getText(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getToIndex(Object obj) {
-            return AccessibilityRecordCompatIcs.getToIndex(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getWindowId(Object obj) {
-            return AccessibilityRecordCompatIcs.getWindowId(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isChecked(Object obj) {
-            return AccessibilityRecordCompatIcs.isChecked(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isEnabled(Object obj) {
-            return AccessibilityRecordCompatIcs.isEnabled(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isFullScreen(Object obj) {
-            return AccessibilityRecordCompatIcs.isFullScreen(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isPassword(Object obj) {
-            return AccessibilityRecordCompatIcs.isPassword(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public boolean isScrollable(Object obj) {
-            return AccessibilityRecordCompatIcs.isScrollable(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void recycle(Object obj) {
-            AccessibilityRecordCompatIcs.recycle(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setAddedCount(Object obj, int i) {
-            AccessibilityRecordCompatIcs.setAddedCount(obj, i);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setBeforeText(Object obj, CharSequence charSequence) {
-            AccessibilityRecordCompatIcs.setBeforeText(obj, charSequence);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setChecked(Object obj, boolean z) {
-            AccessibilityRecordCompatIcs.setChecked(obj, z);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setClassName(Object obj, CharSequence charSequence) {
-            AccessibilityRecordCompatIcs.setClassName(obj, charSequence);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setContentDescription(Object obj, CharSequence charSequence) {
-            AccessibilityRecordCompatIcs.setContentDescription(obj, charSequence);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setCurrentItemIndex(Object obj, int i) {
-            AccessibilityRecordCompatIcs.setCurrentItemIndex(obj, i);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setEnabled(Object obj, boolean z) {
-            AccessibilityRecordCompatIcs.setEnabled(obj, z);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setFromIndex(Object obj, int i) {
-            AccessibilityRecordCompatIcs.setFromIndex(obj, i);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setFullScreen(Object obj, boolean z) {
-            AccessibilityRecordCompatIcs.setFullScreen(obj, z);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setItemCount(Object obj, int i) {
-            AccessibilityRecordCompatIcs.setItemCount(obj, i);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setParcelableData(Object obj, Parcelable parcelable) {
-            AccessibilityRecordCompatIcs.setParcelableData(obj, parcelable);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setPassword(Object obj, boolean z) {
-            AccessibilityRecordCompatIcs.setPassword(obj, z);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setRemovedCount(Object obj, int i) {
-            AccessibilityRecordCompatIcs.setRemovedCount(obj, i);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setScrollX(Object obj, int i) {
-            AccessibilityRecordCompatIcs.setScrollX(obj, i);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setScrollY(Object obj, int i) {
-            AccessibilityRecordCompatIcs.setScrollY(obj, i);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setScrollable(Object obj, boolean z) {
-            AccessibilityRecordCompatIcs.setScrollable(obj, z);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setSource(Object obj, View view2) {
-            AccessibilityRecordCompatIcs.setSource(obj, view2);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setToIndex(Object obj, int i) {
-            AccessibilityRecordCompatIcs.setToIndex(obj, i);
+        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
+        public void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i) {
+            accessibilityRecord.setMaxScrollY(i);
         }
     }
 
+    @RequiresApi(16)
     /* loaded from: classes2.dex */
-    static class AccessibilityRecordIcsMr1Impl extends AccessibilityRecordIcsImpl {
-        AccessibilityRecordIcsMr1Impl() {
+    static class AccessibilityRecordCompatApi16Impl extends AccessibilityRecordCompatApi15Impl {
+        AccessibilityRecordCompatApi16Impl() {
         }
 
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getMaxScrollX(Object obj) {
-            return AccessibilityRecordCompatIcsMr1.getMaxScrollX(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public int getMaxScrollY(Object obj) {
-            return AccessibilityRecordCompatIcsMr1.getMaxScrollY(obj);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setMaxScrollX(Object obj, int i) {
-            AccessibilityRecordCompatIcsMr1.setMaxScrollX(obj, i);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setMaxScrollY(Object obj, int i) {
-            AccessibilityRecordCompatIcsMr1.setMaxScrollY(obj, i);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class AccessibilityRecordJellyBeanImpl extends AccessibilityRecordIcsMr1Impl {
-        AccessibilityRecordJellyBeanImpl() {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordStubImpl, android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordImpl
-        public void setSource(Object obj, View view2, int i) {
-            AccessibilityRecordCompatJellyBean.setSource(obj, view2, i);
+        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
+        public void setSource(AccessibilityRecord accessibilityRecord, View view, int i) {
+            accessibilityRecord.setSource(view, i);
         }
     }
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new AccessibilityRecordJellyBeanImpl();
+            IMPL = new AccessibilityRecordCompatApi16Impl();
         } else if (Build.VERSION.SDK_INT >= 15) {
-            IMPL = new AccessibilityRecordIcsMr1Impl();
-        } else if (Build.VERSION.SDK_INT >= 14) {
-            IMPL = new AccessibilityRecordIcsImpl();
+            IMPL = new AccessibilityRecordCompatApi15Impl();
         } else {
-            IMPL = new AccessibilityRecordStubImpl();
+            IMPL = new AccessibilityRecordCompatBaseImpl();
         }
     }
 
     @Deprecated
     public AccessibilityRecordCompat(Object obj) {
-        this.mRecord = obj;
+        this.mRecord = (AccessibilityRecord) obj;
     }
 
     @Deprecated
@@ -590,190 +95,257 @@ public class AccessibilityRecordCompat {
         return this.mRecord;
     }
 
+    @Deprecated
     public static AccessibilityRecordCompat obtain(AccessibilityRecordCompat accessibilityRecordCompat) {
-        return new AccessibilityRecordCompat(IMPL.obtain(accessibilityRecordCompat.mRecord));
+        return new AccessibilityRecordCompat(AccessibilityRecord.obtain(accessibilityRecordCompat.mRecord));
     }
 
+    @Deprecated
     public static AccessibilityRecordCompat obtain() {
-        return new AccessibilityRecordCompat(IMPL.obtain());
+        return new AccessibilityRecordCompat(AccessibilityRecord.obtain());
     }
 
-    public void setSource(View view2) {
-        IMPL.setSource(this.mRecord, view2);
+    @Deprecated
+    public void setSource(View view) {
+        this.mRecord.setSource(view);
     }
 
-    public void setSource(View view2, int i) {
-        IMPL.setSource(this.mRecord, view2, i);
+    @Deprecated
+    public void setSource(View view, int i) {
+        setSource(this.mRecord, view, i);
     }
 
+    public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view, int i) {
+        IMPL.setSource(accessibilityRecord, view, i);
+    }
+
+    @Deprecated
     public AccessibilityNodeInfoCompat getSource() {
-        return IMPL.getSource(this.mRecord);
+        return AccessibilityNodeInfoCompat.wrapNonNullInstance(this.mRecord.getSource());
     }
 
+    @Deprecated
     public int getWindowId() {
-        return IMPL.getWindowId(this.mRecord);
+        return this.mRecord.getWindowId();
     }
 
+    @Deprecated
     public boolean isChecked() {
-        return IMPL.isChecked(this.mRecord);
+        return this.mRecord.isChecked();
     }
 
+    @Deprecated
     public void setChecked(boolean z) {
-        IMPL.setChecked(this.mRecord, z);
+        this.mRecord.setChecked(z);
     }
 
+    @Deprecated
     public boolean isEnabled() {
-        return IMPL.isEnabled(this.mRecord);
+        return this.mRecord.isEnabled();
     }
 
+    @Deprecated
     public void setEnabled(boolean z) {
-        IMPL.setEnabled(this.mRecord, z);
+        this.mRecord.setEnabled(z);
     }
 
+    @Deprecated
     public boolean isPassword() {
-        return IMPL.isPassword(this.mRecord);
+        return this.mRecord.isPassword();
     }
 
+    @Deprecated
     public void setPassword(boolean z) {
-        IMPL.setPassword(this.mRecord, z);
+        this.mRecord.setPassword(z);
     }
 
+    @Deprecated
     public boolean isFullScreen() {
-        return IMPL.isFullScreen(this.mRecord);
+        return this.mRecord.isFullScreen();
     }
 
+    @Deprecated
     public void setFullScreen(boolean z) {
-        IMPL.setFullScreen(this.mRecord, z);
+        this.mRecord.setFullScreen(z);
     }
 
+    @Deprecated
     public boolean isScrollable() {
-        return IMPL.isScrollable(this.mRecord);
+        return this.mRecord.isScrollable();
     }
 
+    @Deprecated
     public void setScrollable(boolean z) {
-        IMPL.setScrollable(this.mRecord, z);
+        this.mRecord.setScrollable(z);
     }
 
+    @Deprecated
     public int getItemCount() {
-        return IMPL.getItemCount(this.mRecord);
+        return this.mRecord.getItemCount();
     }
 
+    @Deprecated
     public void setItemCount(int i) {
-        IMPL.setItemCount(this.mRecord, i);
+        this.mRecord.setItemCount(i);
     }
 
+    @Deprecated
     public int getCurrentItemIndex() {
-        return IMPL.getCurrentItemIndex(this.mRecord);
+        return this.mRecord.getCurrentItemIndex();
     }
 
+    @Deprecated
     public void setCurrentItemIndex(int i) {
-        IMPL.setCurrentItemIndex(this.mRecord, i);
+        this.mRecord.setCurrentItemIndex(i);
     }
 
+    @Deprecated
     public int getFromIndex() {
-        return IMPL.getFromIndex(this.mRecord);
+        return this.mRecord.getFromIndex();
     }
 
+    @Deprecated
     public void setFromIndex(int i) {
-        IMPL.setFromIndex(this.mRecord, i);
+        this.mRecord.setFromIndex(i);
     }
 
+    @Deprecated
     public int getToIndex() {
-        return IMPL.getToIndex(this.mRecord);
+        return this.mRecord.getToIndex();
     }
 
+    @Deprecated
     public void setToIndex(int i) {
-        IMPL.setToIndex(this.mRecord, i);
+        this.mRecord.setToIndex(i);
     }
 
+    @Deprecated
     public int getScrollX() {
-        return IMPL.getScrollX(this.mRecord);
+        return this.mRecord.getScrollX();
     }
 
+    @Deprecated
     public void setScrollX(int i) {
-        IMPL.setScrollX(this.mRecord, i);
+        this.mRecord.setScrollX(i);
     }
 
+    @Deprecated
     public int getScrollY() {
-        return IMPL.getScrollY(this.mRecord);
+        return this.mRecord.getScrollY();
     }
 
+    @Deprecated
     public void setScrollY(int i) {
-        IMPL.setScrollY(this.mRecord, i);
+        this.mRecord.setScrollY(i);
     }
 
+    @Deprecated
     public int getMaxScrollX() {
-        return IMPL.getMaxScrollX(this.mRecord);
+        return getMaxScrollX(this.mRecord);
     }
 
+    public static int getMaxScrollX(AccessibilityRecord accessibilityRecord) {
+        return IMPL.getMaxScrollX(accessibilityRecord);
+    }
+
+    @Deprecated
     public void setMaxScrollX(int i) {
-        IMPL.setMaxScrollX(this.mRecord, i);
+        setMaxScrollX(this.mRecord, i);
     }
 
+    public static void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i) {
+        IMPL.setMaxScrollX(accessibilityRecord, i);
+    }
+
+    @Deprecated
     public int getMaxScrollY() {
-        return IMPL.getMaxScrollY(this.mRecord);
+        return getMaxScrollY(this.mRecord);
     }
 
+    public static int getMaxScrollY(AccessibilityRecord accessibilityRecord) {
+        return IMPL.getMaxScrollY(accessibilityRecord);
+    }
+
+    @Deprecated
     public void setMaxScrollY(int i) {
-        IMPL.setMaxScrollY(this.mRecord, i);
+        setMaxScrollY(this.mRecord, i);
     }
 
+    public static void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i) {
+        IMPL.setMaxScrollY(accessibilityRecord, i);
+    }
+
+    @Deprecated
     public int getAddedCount() {
-        return IMPL.getAddedCount(this.mRecord);
+        return this.mRecord.getAddedCount();
     }
 
+    @Deprecated
     public void setAddedCount(int i) {
-        IMPL.setAddedCount(this.mRecord, i);
+        this.mRecord.setAddedCount(i);
     }
 
+    @Deprecated
     public int getRemovedCount() {
-        return IMPL.getRemovedCount(this.mRecord);
+        return this.mRecord.getRemovedCount();
     }
 
+    @Deprecated
     public void setRemovedCount(int i) {
-        IMPL.setRemovedCount(this.mRecord, i);
+        this.mRecord.setRemovedCount(i);
     }
 
+    @Deprecated
     public CharSequence getClassName() {
-        return IMPL.getClassName(this.mRecord);
+        return this.mRecord.getClassName();
     }
 
+    @Deprecated
     public void setClassName(CharSequence charSequence) {
-        IMPL.setClassName(this.mRecord, charSequence);
+        this.mRecord.setClassName(charSequence);
     }
 
+    @Deprecated
     public List<CharSequence> getText() {
-        return IMPL.getText(this.mRecord);
+        return this.mRecord.getText();
     }
 
+    @Deprecated
     public CharSequence getBeforeText() {
-        return IMPL.getBeforeText(this.mRecord);
+        return this.mRecord.getBeforeText();
     }
 
+    @Deprecated
     public void setBeforeText(CharSequence charSequence) {
-        IMPL.setBeforeText(this.mRecord, charSequence);
+        this.mRecord.setBeforeText(charSequence);
     }
 
+    @Deprecated
     public CharSequence getContentDescription() {
-        return IMPL.getContentDescription(this.mRecord);
+        return this.mRecord.getContentDescription();
     }
 
+    @Deprecated
     public void setContentDescription(CharSequence charSequence) {
-        IMPL.setContentDescription(this.mRecord, charSequence);
+        this.mRecord.setContentDescription(charSequence);
     }
 
+    @Deprecated
     public Parcelable getParcelableData() {
-        return IMPL.getParcelableData(this.mRecord);
+        return this.mRecord.getParcelableData();
     }
 
+    @Deprecated
     public void setParcelableData(Parcelable parcelable) {
-        IMPL.setParcelableData(this.mRecord, parcelable);
+        this.mRecord.setParcelableData(parcelable);
     }
 
+    @Deprecated
     public void recycle() {
-        IMPL.recycle(this.mRecord);
+        this.mRecord.recycle();
     }
 
+    @Deprecated
     public int hashCode() {
         if (this.mRecord == null) {
             return 0;
@@ -781,6 +353,7 @@ public class AccessibilityRecordCompat {
         return this.mRecord.hashCode();
     }
 
+    @Deprecated
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;

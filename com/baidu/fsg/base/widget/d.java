@@ -16,7 +16,7 @@ public class d implements View.OnFocusChangeListener {
     }
 
     @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view2, boolean z) {
+    public void onFocusChange(View view, boolean z) {
         boolean z2;
         Context context;
         SafeScrollView safeScrollView;
@@ -24,7 +24,7 @@ public class d implements View.OnFocusChangeListener {
         SafeScrollView safeScrollView3;
         SafeScrollView safeScrollView4;
         ViewGroup viewGroup;
-        View view3;
+        View view2;
         SafeKeyBoardEditText.OnMyFocusChangeListener onMyFocusChangeListener;
         SafeKeyBoardEditText.OnMyFocusChangeListener onMyFocusChangeListener2;
         SafeScrollView safeScrollView5;
@@ -44,8 +44,8 @@ public class d implements View.OnFocusChangeListener {
                             safeScrollView4 = this.a.d;
                             viewGroup = this.a.c;
                             SafeKeyBoardEditText safeKeyBoardEditText = this.a;
-                            view3 = this.a.e;
-                            safeScrollView4.showKeyBoard(viewGroup, safeKeyBoardEditText, view3);
+                            view2 = this.a.e;
+                            safeScrollView4.showKeyBoard(viewGroup, safeKeyBoardEditText, view2);
                         }
                     }
                 }
@@ -63,7 +63,7 @@ public class d implements View.OnFocusChangeListener {
         onMyFocusChangeListener = this.a.n;
         if (onMyFocusChangeListener != null) {
             onMyFocusChangeListener2 = this.a.n;
-            onMyFocusChangeListener2.onMyFocusChange(view2, z);
+            onMyFocusChangeListener2.onMyFocusChange(view, z);
         }
     }
 }

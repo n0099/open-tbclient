@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ActionBarContainer extends FrameLayout {
     private View mActionBarView;
@@ -162,17 +162,15 @@ public class ActionBarContainer extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public void jumpDrawablesToCurrentState() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.jumpDrawablesToCurrentState();
-            if (this.mBackground != null) {
-                this.mBackground.jumpToCurrentState();
-            }
-            if (this.mStackedBackground != null) {
-                this.mStackedBackground.jumpToCurrentState();
-            }
-            if (this.mSplitBackground != null) {
-                this.mSplitBackground.jumpToCurrentState();
-            }
+        super.jumpDrawablesToCurrentState();
+        if (this.mBackground != null) {
+            this.mBackground.jumpToCurrentState();
+        }
+        if (this.mStackedBackground != null) {
+            this.mStackedBackground.jumpToCurrentState();
+        }
+        if (this.mSplitBackground != null) {
+            this.mSplitBackground.jumpToCurrentState();
         }
     }
 
@@ -189,6 +187,12 @@ public class ActionBarContainer extends FrameLayout {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
+        return true;
+    }
+
+    @Override // android.view.View
+    public boolean onHoverEvent(MotionEvent motionEvent) {
+        super.onHoverEvent(motionEvent);
         return true;
     }
 
@@ -211,25 +215,25 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public ActionMode startActionModeForChild(View view2, ActionMode.Callback callback) {
+    public ActionMode startActionModeForChild(View view, ActionMode.Callback callback) {
         return null;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public ActionMode startActionModeForChild(View view2, ActionMode.Callback callback, int i) {
+    public ActionMode startActionModeForChild(View view, ActionMode.Callback callback, int i) {
         if (i != 0) {
-            return super.startActionModeForChild(view2, callback, i);
+            return super.startActionModeForChild(view, callback, i);
         }
         return null;
     }
 
-    private boolean isCollapsed(View view2) {
-        return view2 == null || view2.getVisibility() == 8 || view2.getMeasuredHeight() == 0;
+    private boolean isCollapsed(View view) {
+        return view == null || view.getVisibility() == 8 || view.getMeasuredHeight() == 0;
     }
 
-    private int getMeasuredHeightWithMargins(View view2) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
-        return layoutParams.bottomMargin + view2.getMeasuredHeight() + layoutParams.topMargin;
+    private int getMeasuredHeightWithMargins(View view) {
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
+        return layoutParams.bottomMargin + view.getMeasuredHeight() + layoutParams.topMargin;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -259,12 +263,12 @@ public class ActionBarContainer extends FrameLayout {
         boolean z2;
         boolean z3 = true;
         super.onLayout(z, i, i2, i3, i4);
-        View view2 = this.mTabContainer;
-        boolean z4 = (view2 == null || view2.getVisibility() == 8) ? false : true;
-        if (view2 != null && view2.getVisibility() != 8) {
+        View view = this.mTabContainer;
+        boolean z4 = (view == null || view.getVisibility() == 8) ? false : true;
+        if (view != null && view.getVisibility() != 8) {
             int measuredHeight = getMeasuredHeight();
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
-            view2.layout(i, (measuredHeight - view2.getMeasuredHeight()) - layoutParams.bottomMargin, i3, measuredHeight - layoutParams.bottomMargin);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
+            view.layout(i, (measuredHeight - view.getMeasuredHeight()) - layoutParams.bottomMargin, i3, measuredHeight - layoutParams.bottomMargin);
         }
         if (this.mIsSplit) {
             if (this.mSplitBackground != null) {
@@ -289,7 +293,7 @@ public class ActionBarContainer extends FrameLayout {
             if (!z4 || this.mStackedBackground == null) {
                 z3 = z2;
             } else {
-                this.mStackedBackground.setBounds(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom());
+                this.mStackedBackground.setBounds(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
             }
         }
         if (z3) {

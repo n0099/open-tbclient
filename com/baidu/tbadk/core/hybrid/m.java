@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private static final AtomicLong aeG = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
-    final Map<String, Object> aeH;
-    final Map<String, Object> aeI;
-    final String aeJ;
-    final long aeK;
+    private static final AtomicLong amI = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    final Map<String, Object> amJ;
+    final Map<String, Object> amK;
+    final String amL;
+    final long amM;
     final String cmd;
     final String method;
     final long start;
@@ -21,21 +21,21 @@ public class m {
     private m(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.aeH = map;
-        this.aeI = map2;
+        this.amJ = map;
+        this.amK = map2;
         this.type = i;
-        this.aeJ = str3;
-        this.aeK = j;
+        this.amL = str3;
+        this.amM = j;
         this.start = System.currentTimeMillis();
     }
 
     private static m a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new m(i, str, str2, map, null, z ? uj() : null, j);
+        return new m(i, str, str2, map, null, z ? xH() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static m a(Map<String, Object> map, long j, k kVar) {
-        return new a(1, null, null, map, null, uj(), kVar, j);
+        return new a(1, null, null, map, null, xH(), kVar, j);
     }
 
     public static m a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -46,7 +46,7 @@ public class m {
         return new m(3, null, null, null, map, str, -1L);
     }
 
-    private String uh() {
+    private String xF() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -59,7 +59,7 @@ public class m {
         }
     }
 
-    public String ui() throws JSONException {
+    public String xG() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put(IntentConfig.CMD, this.cmd);
@@ -67,29 +67,29 @@ public class m {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put("method", this.method);
         }
-        if (this.aeH != null && !this.aeH.isEmpty()) {
+        if (this.amJ != null && !this.amJ.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            b(this.aeH, jSONObject2);
+            b(this.amJ, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.aeI != null && !this.aeI.isEmpty()) {
+        if (this.amK != null && !this.amK.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            b(this.aeI, jSONObject3);
+            b(this.amK, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put("messageType", uh());
-        if (!TextUtils.isEmpty(this.aeJ)) {
-            jSONObject.put("callbackId", this.aeJ);
+        jSONObject.put("messageType", xF());
+        if (!TextUtils.isEmpty(this.amL)) {
+            jSONObject.put("callbackId", this.amL);
         }
         return encode(jSONObject.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void m(JSONObject jSONObject) {
+    public void q(JSONObject jSONObject) {
     }
 
-    private static String uj() {
-        return "TBCWebViewJsBridge_callback_ID_" + aeG.getAndIncrement();
+    private static String xH() {
+        return "TBCWebViewJsBridge_callback_ID_" + amI.getAndIncrement();
     }
 
     private void b(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
@@ -108,21 +108,21 @@ public class m {
 
     /* loaded from: classes.dex */
     private static final class a extends m {
-        private final k aeL;
+        private final k amN;
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, k kVar, long j) {
             super(i, str, str2, map, map2, str3, j);
-            this.aeL = kVar;
+            this.amN = kVar;
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
-        protected void m(JSONObject jSONObject) {
-            this.aeL.a(this, jSONObject);
+        protected void q(JSONObject jSONObject) {
+            this.amN.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
         void b(int i, Throwable th) {
-            this.aeL.b(i, th);
+            this.amN.b(i, th);
         }
     }
 }

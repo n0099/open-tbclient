@@ -12,7 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import java.lang.ref.WeakReference;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class StandaloneActionMode extends ActionMode implements MenuBuilder.Callback {
     private ActionMode.Callback mCallback;
@@ -64,9 +64,9 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
     }
 
     @Override // android.support.v7.view.ActionMode
-    public void setCustomView(View view2) {
-        this.mContextView.setCustomView(view2);
-        this.mCustomView = view2 != null ? new WeakReference<>(view2) : null;
+    public void setCustomView(View view) {
+        this.mContextView.setCustomView(view);
+        this.mCustomView = view != null ? new WeakReference<>(view) : null;
     }
 
     @Override // android.support.v7.view.ActionMode

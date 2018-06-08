@@ -51,7 +51,7 @@ public class SapiWebViewUtil {
         View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.e.layout_sapi_sdk_network_unavailable, (ViewGroup) null);
         inflate.findViewById(a.d.btn_network_settings).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 Intent intent = new Intent("android.settings.SETTINGS");
                 intent.setFlags(270532608);
                 context.startActivity(intent);
@@ -64,7 +64,7 @@ public class SapiWebViewUtil {
         final View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.e.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
         inflate.findViewById(a.d.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.2.1
                     @Override // java.lang.Runnable
                     public void run() {

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public final class l {
-    private static final String[] a = {"0", "1", "2", "3", "4", "5", "6", "7", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", "a", "b", "c", "d", "e", "f"};
+    private static final String[] a = {"0", "1", "2", "3", "4", "5", Constants.VIA_SHARE_TYPE_INFO, "7", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", "a", "b", "c", "d", "e", "f"};
 
     private static String c(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();

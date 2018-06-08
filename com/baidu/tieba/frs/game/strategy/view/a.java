@@ -6,95 +6,95 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 /* loaded from: classes3.dex */
 public abstract class a extends BaseAdapter {
-    private boolean dim = true;
-    private f dir;
+    private boolean drB = true;
+    private f drG;
 
-    public abstract int asA();
+    public abstract int awF();
 
-    public abstract int asz();
+    public abstract int awG();
 
-    public abstract View c(int i, View view2, ViewGroup viewGroup);
+    public abstract View c(int i, View view, ViewGroup viewGroup);
 
-    public abstract Object kF(int i);
+    public abstract Object kK(int i);
 
-    public abstract long kG(int i);
+    public abstract long kL(int i);
 
-    public abstract void kH(int i);
+    public abstract void kM(int i);
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (asE()) {
-            if (this.dim) {
-                return this.dir.getArrowIndex() + 1;
+        if (awK()) {
+            if (this.drB) {
+                return this.drG.getArrowIndex() + 1;
             }
-            if (this.dir != null && this.dir.asC()) {
-                return asA() + 1;
+            if (this.drG != null && this.drG.awI()) {
+                return awG() + 1;
             }
-            return asA();
+            return awG();
         }
-        return asA();
+        return awG();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (asE()) {
-            int kI = kI(i);
-            if (kI >= 0) {
-                return kF(kI);
+        if (awK()) {
+            int kN = kN(i);
+            if (kN >= 0) {
+                return kK(kN);
             }
-            return kF(i);
+            return kK(i);
         }
-        return kF(i);
+        return kK(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (asE()) {
-            int kI = kI(i);
-            if (kI >= 0) {
-                return kG(kI);
+        if (awK()) {
+            int kN = kN(i);
+            if (kN >= 0) {
+                return kL(kN);
             }
-            return kG(i);
+            return kL(i);
         }
-        return kG(i);
+        return kL(i);
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        return getItemViewType(i) == 0 ? c(kI(i), view2, viewGroup) : au(view2);
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return getItemViewType(i) == 0 ? c(kN(i), view, viewGroup) : au(view);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int arrowIndex;
-        return (asE() && (arrowIndex = this.dir.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
+        return (awK() && (arrowIndex = this.drG.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return asE() ? 2 : 1;
+        return awK() ? 2 : 1;
     }
 
     public void a(f fVar) {
-        this.dir = fVar;
+        this.drG = fVar;
     }
 
-    private View au(View view2) {
-        if (this.dir != null) {
-            if (view2 == null || view2 != this.dir.getArrowView()) {
-                view2 = this.dir.getArrowView();
-                if (view2.getLayoutParams() == null) {
-                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, asz()));
+    private View au(View view) {
+        if (this.drG != null) {
+            if (view == null || view != this.drG.getArrowView()) {
+                view = this.drG.getArrowView();
+                if (view.getLayoutParams() == null) {
+                    view.setLayoutParams(new AbsListView.LayoutParams(-1, awF()));
                 }
             }
-            this.dir.at(view2);
+            this.drG.at(view);
         }
-        return view2;
+        return view;
     }
 
-    public int kI(int i) {
+    public int kN(int i) {
         int arrowIndex;
-        if (this.dir != null && this.dir.asC() && i >= (arrowIndex = this.dir.getArrowIndex())) {
+        if (this.drG != null && this.drG.awI() && i >= (arrowIndex = this.drG.getArrowIndex())) {
             if (i == arrowIndex) {
                 return -1;
             }
@@ -103,11 +103,11 @@ public abstract class a extends BaseAdapter {
         return i;
     }
 
-    public boolean asE() {
-        return this.dir != null && this.dir.asC() && asA() + (-1) > this.dir.getArrowIndex();
+    public boolean awK() {
+        return this.drG != null && this.drG.awI() && awG() + (-1) > this.drG.getArrowIndex();
     }
 
-    public void fN(boolean z) {
-        this.dim = z;
+    public void fS(boolean z) {
+        this.drB = z;
     }
 }

@@ -11,15 +11,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.rS(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
-        aVar.rR(i);
-        aVar.si(advertAppInfo.price);
-        aVar.sg(advertAppInfo.extensionInfo);
+        aVar.se(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
+        aVar.sd(i);
+        aVar.ta(advertAppInfo.price);
+        aVar.sY(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.sk(advertAppInfo.VZ);
-        aVar.sl(advertAppInfo.Wa);
-        aVar.sm(advertAppInfo.Wb);
-        aVar.sn(advertAppInfo.Vp);
+        aVar.tc(advertAppInfo.aea);
+        aVar.td(advertAppInfo.aeb);
+        aVar.te(advertAppInfo.aec);
+        aVar.tf(advertAppInfo.adp);
         return aVar;
     }
 
@@ -27,7 +27,7 @@ public class e {
         if (dVar == null) {
             return null;
         }
-        return c(dVar.lu(), i, i2);
+        return c(dVar.ok(), i, i2);
     }
 
     public static a d(AdvertAppInfo advertAppInfo, int i, int i2) {
@@ -35,15 +35,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.rS(advertAppInfo.VR);
-        aVar.rR(i);
-        aVar.si(advertAppInfo.price);
-        aVar.sg(advertAppInfo.extensionInfo);
+        aVar.se(advertAppInfo.adR);
+        aVar.sd(i);
+        aVar.ta(advertAppInfo.price);
+        aVar.sY(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.sk(advertAppInfo.VZ);
-        aVar.sl(advertAppInfo.Wa);
-        aVar.sm(advertAppInfo.Wb);
-        aVar.sn(advertAppInfo.Vp);
+        aVar.tc(advertAppInfo.aea);
+        aVar.td(advertAppInfo.aeb);
+        aVar.te(advertAppInfo.aec);
+        aVar.tf(advertAppInfo.adp);
         return aVar;
     }
 
@@ -53,92 +53,92 @@ public class e {
         }
         a aVar = new a();
         aVar.setDownloadStaticsData(downloadStaticsData);
-        aVar.rR(i);
+        aVar.sd(i);
         aVar.setPageNumber(i2);
         return aVar;
     }
 
     public static a W(int i, int i2, int i3) {
         a aVar = new a();
-        aVar.rR(i);
-        aVar.rS(i2);
+        aVar.sd(i);
+        aVar.se(i2);
         aVar.setPageNumber(i3);
         return aVar;
     }
 
     public static a c(l lVar, int i) {
-        if (lVar == null || lVar.brN() == null) {
+        if (lVar == null || lVar.bwP() == null) {
             return null;
         }
-        AppData brN = lVar.brN();
+        AppData bwP = lVar.bwP();
         a aVar = new a();
-        aVar.rS(com.baidu.adp.lib.g.b.g(brN.pos_name, 0));
-        aVar.sg(brN.ext_info);
+        aVar.se(com.baidu.adp.lib.g.b.g(bwP.pos_name, 0));
+        aVar.sY(bwP.ext_info);
         aVar.setPageNumber(lVar.pageNumber);
-        aVar.rR(i);
-        aVar.si(brN.price);
-        aVar.sk(lVar.VZ);
-        aVar.sl(lVar.Wa);
-        aVar.sm(lVar.forumId);
-        aVar.sn("PB");
+        aVar.sd(i);
+        aVar.ta(bwP.price);
+        aVar.tc(lVar.aea);
+        aVar.td(lVar.aeb);
+        aVar.te(lVar.forumId);
+        aVar.tf("PB");
         return aVar;
     }
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5, int i6) {
         a c = c(advertAppInfo, i, i2);
-        c.rT(i3);
-        c.rU(i5);
-        c.rV(i4);
+        c.sf(i3);
+        c.sg(i5);
+        c.sh(i4);
         if (i6 != -1 && i == 32) {
-            c.rW(i6);
+            c.si(i6);
         }
-        c.sn(advertAppInfo.Vp);
+        c.tf(advertAppInfo.adp);
         if (i == 2) {
-            c.sj("video");
+            c.tb("video");
         }
         return c;
     }
 
     public static a a(com.baidu.afd.d dVar, int i, int i2, int i3, int i4, int i5, int i6) {
         a a = a(dVar, i, i2);
-        a.rT(i3);
-        a.rU(i5);
-        a.rV(i4);
+        a.sf(i3);
+        a.sg(i5);
+        a.sh(i4);
         if (i6 != -1 && i == 32) {
-            a.rW(i6);
+            a.si(i6);
         }
         if (dVar != null) {
-            a.sn(dVar.lu().Vp);
+            a.tf(dVar.ok().adp);
         }
         if (i == 2) {
-            a.sj("video");
+            a.tb("video");
         }
         return a;
     }
 
-    public static a n(String str, int i, String str2) {
+    public static a m(String str, int i, String str2) {
         return b(str, i, str2, "");
     }
 
     public static a b(String str, int i, String str2, String str3) {
         a aVar = new a();
-        aVar.rR(i);
-        aVar.sh(str2);
-        aVar.sn("HOMEPAGE");
-        aVar.sg(str);
-        aVar.so(str3);
+        aVar.sd(i);
+        aVar.sZ(str2);
+        aVar.tf("HOMEPAGE");
+        aVar.sY(str);
+        aVar.tg(str3);
         return aVar;
     }
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         a c = c(advertAppInfo, i, i2);
-        c.rT(i3);
+        c.sf(i3);
         return c;
     }
 
     public static a b(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         a d = d(advertAppInfo, i, i2);
-        d.rT(i3);
+        d.sf(i3);
         return d;
     }
 
@@ -147,7 +147,7 @@ public class e {
             return null;
         }
         a a = a(dVar, 5, dVar.getPageNum());
-        a.rT(parseError.errorCode);
+        a.sf(parseError.errorCode);
         return a;
     }
 }

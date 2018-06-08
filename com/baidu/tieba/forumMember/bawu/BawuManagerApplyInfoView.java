@@ -6,15 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
-    private View Th;
-    private TextView cUm;
-    private TextView cUn;
-    private TextView cUo;
+    private View abp;
+    private TextView ddv;
+    private TextView ddw;
+    private TextView ddx;
     private Context mContext;
 
     public BawuManagerApplyInfoView(Context context) {
@@ -36,33 +36,33 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
     }
 
     private void initView() {
-        this.Th = LayoutInflater.from(this.mContext).inflate(d.i.bawu_manager_apply_layout, this);
-        this.cUm = (TextView) this.Th.findViewById(d.g.imageview_apply_btn);
-        this.cUn = (TextView) this.Th.findViewById(d.g.textview_manager_apply);
-        this.cUo = (TextView) this.Th.findViewById(d.g.textview_manager_left_num);
+        this.abp = LayoutInflater.from(this.mContext).inflate(d.i.bawu_manager_apply_layout, this);
+        this.ddv = (TextView) this.abp.findViewById(d.g.imageview_apply_btn);
+        this.ddw = (TextView) this.abp.findViewById(d.g.textview_manager_apply);
+        this.ddx = (TextView) this.abp.findViewById(d.g.textview_manager_left_num);
     }
 
-    public void V(String str, int i) {
-        this.cUn.setText(str);
+    public void X(String str, int i) {
+        this.ddw.setText(str);
         if (i > 0) {
-            this.cUo.setText(String.format(this.mContext.getResources().getString(d.k.apply_left_num_tip), an.v(i)));
-            this.cUm.setEnabled(true);
-            this.cUm.setClickable(true);
-            ak.c(this.cUn, d.C0126d.cp_link_tip_a, 1);
-            ak.c(this.cUo, d.C0126d.cp_cont_d, 1);
-            ak.i(this.cUm, d.f.bg_manager_apply);
+            this.ddx.setText(String.format(this.mContext.getResources().getString(d.k.apply_left_num_tip), ao.y(i)));
+            this.ddv.setEnabled(true);
+            this.ddv.setClickable(true);
+            al.c(this.ddw, d.C0141d.cp_link_tip_a, 1);
+            al.c(this.ddx, d.C0141d.cp_cont_d, 1);
+            al.i(this.ddv, d.f.bg_manager_apply);
             return;
         }
-        this.cUo.setText(this.mContext.getResources().getString(d.k.apply_no_left_tip));
-        this.cUm.setEnabled(false);
-        this.cUm.setClickable(false);
-        ak.c(this.cUn, d.C0126d.cp_cont_d, 1);
-        ak.c(this.cUo, d.C0126d.cp_cont_d, 1);
-        ak.i(this.cUm, d.f.icon_number_add_d);
+        this.ddx.setText(this.mContext.getResources().getString(d.k.apply_no_left_tip));
+        this.ddv.setEnabled(false);
+        this.ddv.setClickable(false);
+        al.c(this.ddw, d.C0141d.cp_cont_d, 1);
+        al.c(this.ddx, d.C0141d.cp_cont_d, 1);
+        al.i(this.ddv, d.f.icon_number_add_d);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cUm.setOnClickListener(onClickListener);
+        this.ddv.setOnClickListener(onClickListener);
     }
 }

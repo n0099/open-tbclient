@@ -3,6 +3,7 @@ package com.baidu.adp.lib.util;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.ar.util.SystemInfoUtil;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -69,9 +70,9 @@ public class BdLog {
                 if (!z || isLogable(str)) {
                     StringBuffer stringBuffer = new StringBuffer(100);
                     stringBuffer.append(str);
-                    stringBuffer.append(":");
+                    stringBuffer.append(SystemInfoUtil.COLON);
                     stringBuffer.append(str2);
-                    stringBuffer.append(":");
+                    stringBuffer.append(SystemInfoUtil.COLON);
                     stringBuffer.append(str3);
                     return stringBuffer.toString();
                 }

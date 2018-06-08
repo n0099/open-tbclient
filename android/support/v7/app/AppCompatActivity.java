@@ -10,13 +10,11 @@ import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
 import android.support.annotation.StyleRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
-import android.support.v4.view.KeyEventCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
@@ -27,15 +25,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 /* loaded from: classes2.dex */
 public class AppCompatActivity extends FragmentActivity implements TaskStackBuilder.SupportParentable, ActionBarDrawerToggle.DelegateProvider, AppCompatCallback {
     private AppCompatDelegate mDelegate;
-    private boolean mEatKeyUpEvent;
     private Resources mResources;
     private int mThemeId = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         AppCompatDelegate delegate = getDelegate();
         delegate.installViewFactory();
@@ -82,18 +80,18 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view2) {
-        getDelegate().setContentView(view2);
+    public void setContentView(View view) {
+        getDelegate().setContentView(view);
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        getDelegate().setContentView(view2, layoutParams);
+    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        getDelegate().setContentView(view, layoutParams);
     }
 
     @Override // android.app.Activity
-    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        getDelegate().addContentView(view2, layoutParams);
+    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        getDelegate().addContentView(view, layoutParams);
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
@@ -127,8 +125,8 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     @Override // android.app.Activity
-    public View findViewById(@IdRes int i) {
-        return getDelegate().findViewById(i);
+    public <T extends View> T findViewById(@IdRes int i) {
+        return (T) getDelegate().findViewById(i);
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
@@ -166,7 +164,6 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     @Override // android.app.Activity
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
     public void invalidateOptionsMenu() {
         getDelegate().invalidateOptionsMenu();
     }
@@ -276,7 +273,7 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         getDelegate().onSaveInstanceState(bundle);
@@ -292,18 +289,10 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (KeyEventCompat.isCtrlPressed(keyEvent) && keyEvent.getUnicodeChar(keyEvent.getMetaState() & (-28673)) == 60) {
-            int action = keyEvent.getAction();
-            if (action == 0) {
-                ActionBar supportActionBar = getSupportActionBar();
-                if (supportActionBar != null && supportActionBar.isShowing() && supportActionBar.requestFocus()) {
-                    this.mEatKeyUpEvent = true;
-                    return true;
-                }
-            } else if (action == 1 && this.mEatKeyUpEvent) {
-                this.mEatKeyUpEvent = false;
-                return true;
-            }
+        int keyCode = keyEvent.getKeyCode();
+        ActionBar supportActionBar = getSupportActionBar();
+        if (keyCode == 82 && supportActionBar != null && supportActionBar.onMenuKeyEvent(keyEvent)) {
+            return true;
         }
         return super.dispatchKeyEvent(keyEvent);
     }
@@ -314,5 +303,38 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
             this.mResources = new VectorEnabledTintResources(this, super.getResources());
         }
         return this.mResources == null ? super.getResources() : this.mResources;
+    }
+
+    private boolean performMenuItemShortcut(int i, KeyEvent keyEvent) {
+        Window window;
+        return (Build.VERSION.SDK_INT >= 26 || keyEvent.isCtrlPressed() || KeyEvent.metaStateHasNoModifiers(keyEvent.getMetaState()) || keyEvent.getRepeatCount() != 0 || KeyEvent.isModifierKey(keyEvent.getKeyCode()) || (window = getWindow()) == null || window.getDecorView() == null || !window.getDecorView().dispatchKeyShortcutEvent(keyEvent)) ? false : true;
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (performMenuItemShortcut(i, keyEvent)) {
+            return true;
+        }
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    @Override // android.app.Activity
+    public void openOptionsMenu() {
+        ActionBar supportActionBar = getSupportActionBar();
+        if (getWindow().hasFeature(0)) {
+            if (supportActionBar == null || !supportActionBar.openOptionsMenu()) {
+                super.openOptionsMenu();
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void closeOptionsMenu() {
+        ActionBar supportActionBar = getSupportActionBar();
+        if (getWindow().hasFeature(0)) {
+            if (supportActionBar == null || !supportActionBar.closeOptionsMenu()) {
+                super.closeOptionsMenu();
+            }
+        }
     }
 }
